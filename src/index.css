@@ -27,3 +27,28 @@
 .gold-gradient {
   background: linear-gradient(135deg, #C5A572 0%, #B38F5D 100%);
 }
+
+.carlos-headshot-card {
+  background: linear-gradient(145deg, rgba(11, 30, 63, 0.95), rgba(6, 17, 31, 0.98));
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  border-radius: 28px;
+  padding: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.carlos-headshot {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 22px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .carlos-headshot-card {
+    max-width: 280px;
+  }
+}

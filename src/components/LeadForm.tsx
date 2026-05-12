@@ -38,11 +38,11 @@ ${formData.message}
       
       <div className="relative z-10">
         <div className="mb-8">
-          <div className="text-[10px] font-bold text-gold uppercase tracking-[0.4em] mb-2 uppercase">CarlosRE Strategy Desk</div>
-          <h3 className="text-2xl font-serif text-navy">Start With a Private Property Strategy Review</h3>
+          <div className="text-[10px] font-bold text-gold uppercase tracking-[0.4em] mb-2 uppercase">Senior Listing Advisory Desk</div>
+          <h3 className="text-2xl font-serif text-navy">Request a Private Property Strategy Call</h3>
           <p className="text-navy/50 text-sm mt-3 font-light">
-            Share a few details and Carlos will review the best next step for your property, 
-            purchase, referral, or Spain-related opportunity.
+            Share a few details about your property or project. Carlos will review your objectives 
+            and provide professional guidance on positioning, distribution, and next-step options.
           </p>
         </div>
 
@@ -104,12 +104,13 @@ ${formData.message}
                 value={formData.interest}
                 onChange={(e) => setFormData({...formData, interest: e.target.value})}
               >
-                <option>Selling in South Florida</option>
-                <option>Buying in South Florida</option>
-                <option>Investing</option>
-                <option>Relocating</option>
-                <option>Spain property / developer / agency</option>
-                <option>Referral partnership</option>
+                <option>Seller (South Florida)</option>
+                <option>Buyer (South Florida)</option>
+                <option>Investor</option>
+                <option>Spain (Property/Developer/Agency)</option>
+                <option>Developer</option>
+                <option>Agency</option>
+                <option>Referral Partner</option>
               </select>
             </div>
             <div className="flex flex-col gap-2">

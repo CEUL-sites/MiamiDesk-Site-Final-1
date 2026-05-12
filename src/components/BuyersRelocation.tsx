@@ -4,18 +4,18 @@ import { Compass, BarChart3, PlaneLanding } from "lucide-react";
 const CARDS = [
   {
     icon: Compass,
-    title: "South Florida Buyers",
-    desc: "Neighborhood guidance, property search strategy, offer structure, and local market insight refined by 25 years in the Florida market."
+    title: "Strategic Acquisitions",
+    desc: "Neighborhood intelligence, offer structure, and local market insight refined by 25 years of institutional-grade Florida real estate experience."
   },
   {
     icon: BarChart3,
-    title: "Investors",
-    desc: "Support comparing property types, location fundamentals, rental potential, risk factors, and long-term positioning for your capital."
+    title: "Portfolio Positioning",
+    desc: "Analytical support for investors comparing asset types, location fundamentals, and long-term capital positioning across South Florida and Madrid."
   },
   {
     icon: PlaneLanding,
-    title: "Relocation Clients",
-    desc: "Bilingual guidance for clients moving between South Florida and Spain, with professional referrals tailored to international lifestyle transitions."
+    title: "International Relocation",
+    desc: "A bilingual advisory bridge for clients moving between South Florida and Spain, offering professional referrals tailored to cross-border transitions."
   }
 ];
 
@@ -23,13 +23,15 @@ export function BuyersRelocation() {
   return (
     <section id="buyers" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl lg:text-5xl text-navy mb-6 tracking-tight">
-            Guidance for Buyers, Investors, and Relocation.
+        <div className="max-w-4xl mb-16">
+          <h2 className="text-3xl lg:text-5xl text-navy mb-6 leading-tight font-serif">
+            Advisory for Acquisitions, Portfolios, <br />
+            <span className="text-gold italic font-light">& Global Relocation.</span>
           </h2>
-          <p className="text-lg text-navy/70">
-            Carlos advises clients evaluating homes, neighborhoods, and investment opportunities 
-            across South Florida, Greater Miami, Weston, Broward, and Madrid.
+          <p className="text-lg text-navy/70 leading-relaxed max-w-2xl">
+            Your purchase strategy is as important as your listing strategy. Carlos provides 
+             the local intelligence needed to navigate neighborhood shifts, investment 
+            fundamentals, and international transitions across South Florida and Spain.
           </p>
         </div>
 

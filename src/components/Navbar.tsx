@@ -24,7 +24,7 @@ export function Navbar() {
           <div className="w-10 h-10 rounded-full overflow-hidden border border-gold/30 hidden sm:block">
             <img 
               src={CONTACT.headshot} 
-              alt="Carlos Uzcategui" 
+              alt="Carlos Uzcategui, Florida Realtor since 2001" 
               className="w-full h-full object-cover"
             />
           </div>

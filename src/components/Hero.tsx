@@ -31,7 +31,7 @@ export function Hero() {
           <motion.img 
             key={HERO_IMAGES[currentImage]}
             src={HERO_IMAGES[currentImage]} 
-            alt="Luxury Real Estate" 
+            alt="South Florida luxury home positioned for strategic listing exposure" 
             className="absolute inset-0 w-full h-full object-cover"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -39,7 +39,12 @@ export function Hero() {
             transition={{ duration: 2, ease: "easeInOut" }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/60 to-transparent" />
+        <div className="absolute inset-0 bg-navy/80 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/40 to-transparent" />
+        
+        {/* Subtle Gold Accent Lines */}
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="absolute top-1/4 right-0 w-32 h-px bg-gold/20 rotate-45 transform translate-x-16" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
@@ -53,19 +58,19 @@ export function Hero() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 border border-gold/20 backdrop-blur-md mb-8">
             <Shield size={14} className="text-gold" />
             <span className="text-[10px] lg:text-xs font-bold text-gold uppercase tracking-[0.3em]">
-              Licensed Florida Professional Since 2001
+              Florida Realtor® since 2001 · CLHMS · United Realty Group · South Florida ↔ Madrid
             </span>
           </div>
 
-          <h1 className="text-4xl lg:text-7xl text-white mb-6 leading-[1.1] leading-tight">
-            Your Home Deserves More Than Exposure. <br />
-            <span className="text-gold">It Deserves Strategic Distribution.</span>
+          <h1 className="text-4xl lg:text-7xl text-white mb-6 leading-[1.1] font-serif">
+            List With <br />
+            <span className="text-gold font-light italic">Strategic Exposure</span>
           </h1>
 
           <p className="text-lg lg:text-xl text-white/80 mb-10 font-light leading-relaxed max-w-2xl">
-            Carlos Uzcategui helps South Florida homeowners list with strategic positioning, 
-            MLS visibility, buyer-agent reach, and local-to-international advisory 
-            between Miami and Madrid.
+            South Florida listing advisory for homeowners who want experienced guidance, 
+            professional MLS positioning, brokerage reach, buyer-agent visibility, 
+            and expanded exposure through the region’s most powerful real estate infrastructure.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 lg:gap-6">
@@ -73,7 +78,7 @@ export function Hero() {
               href="#contact"
               className="px-8 py-5 bg-gold text-white font-bold uppercase tracking-widest hover:bg-white hover:text-navy transition-all duration-300 shadow-xl shadow-navy/20 flex items-center justify-center gap-2 group"
             >
-              Request a Property strategy call
+              Request a Private Property Strategy Call
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a 
@@ -90,14 +95,14 @@ export function Hero() {
           {/* Proof Bar */}
           <div className="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { label: "25+ Years", sub: "Experience" },
-              { label: "United Realty", sub: "Group Network" },
-              { label: "CLHMS", sub: "Luxury Specialist" },
-              { label: "Miami ↔ Madrid", sub: "International Desk" }
+              { label: "Realtor® Since 2001", sub: "Professional Longevity" },
+              { label: "3,500+ Agents", sub: "United Realty Group Reach" },
+              { label: "93,000 Members", sub: "South Florida Network" },
+              { label: "MLS + International", sub: "Strategic Exposure" }
             ].map((stat, i) => (
               <div key={i} className="flex flex-col">
-                <span className="text-xl lg:text-2xl font-serif text-white">{stat.label}</span>
-                <span className="text-[10px] text-white/50 uppercase tracking-widest font-medium mt-1">{stat.sub}</span>
+                <span className="text-lg lg:text-xl font-serif text-white">{stat.label}</span>
+                <span className="text-[10px] text-gold/80 uppercase tracking-widest font-bold mt-1">{stat.sub}</span>
               </div>
             ))}
           </div>
