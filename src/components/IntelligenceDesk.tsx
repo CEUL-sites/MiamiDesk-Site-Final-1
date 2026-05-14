@@ -34,9 +34,7 @@ export const IntelligenceDesk = () => {
       <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">AI Intelligence Desk · Powered by Gemini</p>
-          <h2 className="mt-5 font-serif text-4xl leading-tight text-white lg:text-6xl">
-            Ask the desk anything about South Florida.
-          </h2>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-white lg:text-6xl">Ask the desk anything about South Florida.</h2>
           <p className="mt-7 max-w-xl font-sans text-lg leading-relaxed text-white/65">
             The Miami Desk qualifies your inquiry, identifies your profile — seller, buyer, investor, or agency — and prepares the full context for Carlos's personal review. Available in English, Spanish, and Portuguese.
           </p>
@@ -95,7 +93,7 @@ export const IntelligenceDesk = () => {
               </a>
             ))}
           </div>
-          <p className="font-mono mt-4 text-[9px] uppercase tracking-[0.2em] text-white/30">Live AI desk coming Q3 2025 · leave your details to be notified</p>
+          <p className="font-mono mt-4 text-[9px] uppercase tracking-[0.2em] text-white/30">Live AI desk in development · leave your details to be notified</p>
         </div>
       </div>
     </section>
