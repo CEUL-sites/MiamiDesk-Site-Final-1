@@ -1,60 +1,44 @@
-import { motion } from "motion/react";
-
-const CHANNELS = [
-  "MLS data accuracy",
-  "Buyer-agent visibility",
-  "United Realty Group cooperation",
-  "Professional photography planning",
-  "Listing narrative",
-  "Digital syndication readiness",
-  "Agent-to-agent distribution",
-  "Referral relationships",
-  "South Florida exposure",
-  "Madrid / Spain bridge",
-  "International inquiry routing",
-  "Seller follow-up discipline"
+const PORTALS = [
+  "SFPropertySearch.com", "Realtor.com", "Homes.com", "Apartments.com",
+  "Apartamentos.com", "Juwai", "Realopedia", "VendeTuCasa", "Zumper",
+  "RPR", "ProxioConnect", "ProxioDeveloperShowcase", "TerraFly PRO",
+  "iMapp", "FloridaLivingNetwork", "GlobalPropertyXchange",
+  "WorldProperties.com", "InternationalMLS", "CREXi", "Brevitas",
+  "MiamiMLSonline", "WikiRealty", "Homes&Land", "RentalGuide.net",
+  "LakeHomesUSA.com", "OceanHomesUSA.com", "RealtyStore", "LandNetwork",
+  "BackAtYouMedia", "HomeSpotter", "NewHomeSource", "PropStream",
+  "RentHop", "RadPad", "USHUD.com", "+ 165 more"
 ];
 
 export const ExposureSyndication = () => {
+  const items = [...PORTALS, ...PORTALS];
+
   return (
-    <section className="py-20 bg-white border-y border-bone overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-16">
-        <div className="max-w-4xl">
-          <h2 className="text-3xl lg:text-4xl text-navy mb-6 font-serif">
-            Where Your Listing Actually Gets Seen
-          </h2>
-          <p className="text-lg text-navy/70 leading-relaxed max-w-3xl">
-            Professional seller exposure covers every layer: MLS accuracy and timing, United Realty Group agent distribution, digital syndication readiness, buyer-agent visibility, and where relevant, international referral channels connecting South Florida to Spanish-speaking and European buyers.
-          </p>
-        </div>
-      </div>
-
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
-        
-        <div className="flex whitespace-nowrap overflow-hidden py-8 border-y border-gold/10">
-          <motion.div 
-            className="flex gap-12 items-center"
-            animate={{ x: [0, -900] }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          >
-            {[...CHANNELS, ...CHANNELS].map((channel, i) => (
-              <div key={i} className="flex items-center gap-6">
-                <span className="text-navy/30 font-serif lowercase italic text-lg px-2">
-                  {channel}
-                </span>
-                <div className="w-1.5 h-1.5 rounded-full bg-gold/40" />
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 mt-12 text-center">
-        <p className="text-xs text-navy/30 uppercase tracking-[0.3em] font-bold">
-          Strategic Distribution · Professional Positioning · Active Follow-up
+    <section className="overflow-hidden border-y border-bone bg-ivory py-20">
+      <div className="mx-auto mb-14 max-w-7xl px-6 text-center">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-navy/55">Miami MLS · Global Syndication</p>
+        <h2 className="mt-5 font-serif text-4xl text-navy lg:text-5xl">Your listing. Every platform. Simultaneously.</h2>
+        <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-navy/60">
+          The Miami MLS distribution ecosystem publishes listing data through a broad global portal network once a compliant listing is activated.
         </p>
+      </div>
+
+      <div className="marquee-container border-y border-gold/15 py-8">
+        <div className="marquee-track-slow gap-0">
+          {items.map((portal, index) => (
+            <div key={`${portal}-${index}`} className="flex items-center gap-6 px-6">
+              <span className="whitespace-nowrap font-sans text-[0.95rem] font-medium text-navy/70 transition-colors hover:text-gold">{portal}</span>
+              <span className="text-gold">◆</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mx-auto mt-12 max-w-2xl px-6 text-center">
+        <p className="font-serif text-xl italic leading-relaxed text-navy/55">
+          Every portal above receives listing data through MLS activation mechanics, not a manual reposting process.
+        </p>
+        <p className="font-mono mt-5 text-[9px] uppercase tracking-[0.24em] text-navy/30">Source: Miami and South Florida REALTORS® · verify current portal list before publication</p>
       </div>
     </section>
   );

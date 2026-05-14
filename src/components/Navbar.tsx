@@ -1,6 +1,6 @@
-import { motion } from "motion/react";
-import { Menu, X, Phone, Mail } from "lucide-react";
-import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { Menu, Phone, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { CONTACT, NAVIGATION } from "../constants";
 
 export function Navbar() {
@@ -8,70 +8,83 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-md border-b border-bone shadow-sm py-3" : "bg-transparent py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-full overflow-hidden border border-gold/30 hidden sm:block">
-            <img src={CONTACT.headshot} alt="Carlos Uzcategui, Florida Licensed Realtor" className="w-full h-full object-cover" />
-          </div>
-          <div className="flex flex-col">
-            <span className={`text-xl font-serif font-bold tracking-tight ${scrolled ? "text-navy" : "text-navy lg:text-white"}`}>
-              CARLOS UZCATEGUI
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.18em] font-medium text-gold max-w-[260px] leading-relaxed">
-              Florida Licensed Realtor® 0705771 / SL705771 · United Realty Group
-            </span>
-          </div>
-        </div>
+  const logoTone = scrolled ? "text-navy" : "text-white";
 
-        <div className="hidden lg:flex items-center gap-8">
+  return (
+    <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-white/95 backdrop-blur-xl border-b border-bone shadow-sm py-3" : "bg-transparent py-6"}`}>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
+        <a href="#" className="flex flex-col leading-none" aria-label="HomesProfessional.com home">
+          <span className="font-serif text-2xl font-bold tracking-tight">
+            <span className={logoTone}>CARLOS</span>
+            <span className="text-gold">RE</span>
+          </span>
+          <span className={`font-mono mt-1 text-[8px] uppercase tracking-[0.25em] ${scrolled ? "text-graphite" : "text-white/55"}`}>
+            HomesProfessional.com
+          </span>
+        </a>
+
+        <div className="hidden items-center gap-7 xl:flex">
           {NAVIGATION.map((item) => (
-            <a key={item.name} href={item.href} className={`text-sm font-medium uppercase tracking-wider transition-colors ${scrolled ? "text-navy hover:text-gold" : "text-white hover:text-gold"}`}>
+            <a key={item.name} href={item.href} className={`font-sans text-[11px] font-medium uppercase tracking-[0.15em] transition-colors duration-300 ${scrolled ? "text-navy/75 hover:text-gold" : "text-white/75 hover:text-gold"}`}>
               {item.name}
             </a>
           ))}
-          <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-gold text-white text-sm font-semibold uppercase tracking-widest hover:bg-navy transition-all duration-300 shadow-lg shadow-gold/20">
+        </div>
+
+        <div className="hidden items-center gap-4 lg:flex">
+          <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+            Madrid {CONTACT.phoneSpain}
+          </a>
+          <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 border px-5 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ${scrolled ? "border-gold text-navy hover:bg-gold hover:text-white" : "border-gold/60 text-white hover:bg-gold hover:text-navy"}`}>
             <Phone size={14} />
-            {CONTACT.phoneUS}
+            WhatsApp
           </a>
         </div>
 
-        <button className={`lg:hidden ${scrolled ? "text-navy" : "text-navy lg:text-white"}`} onClick={() => setIsOpen(!isOpen)} aria-label="Open navigation menu">
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        <button type="button" className={`xl:hidden ${scrolled ? "text-navy" : "text-white"}`} onClick={() => setIsOpen(true)} aria-label="Open navigation menu">
+          <Menu size={30} />
         </button>
       </div>
 
-      {isOpen && (
-        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="absolute top-full left-0 right-0 bg-white border-b border-bone p-6 lg:hidden flex flex-col gap-6 shadow-xl">
-          {NAVIGATION.map((item) => (
-            <a key={item.name} href={item.href} onClick={() => setIsOpen(false)} className="text-navy text-lg font-medium tracking-tight border-b border-bone pb-2">
-              {item.name}
-            </a>
-          ))}
-          <p className="text-[10px] uppercase tracking-widest text-navy/45 leading-relaxed">
-            {CONTACT.licenseDisplay} · {CONTACT.brokerage}
-          </p>
-          <div className="flex flex-col gap-3 pt-4">
-            <a href={CONTACT.whatsappUS} className="flex items-center justify-center gap-2 w-full py-4 bg-navy text-white font-bold uppercase tracking-widest">
-              WhatsApp Carlos
-            </a>
-            <a href={`mailto:${CONTACT.email}`} className="flex items-center justify-center gap-2 w-full py-4 bg-gold text-white font-bold uppercase tracking-widest">
-              <Mail size={18} />
-              Email
-            </a>
-          </div>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-navy-deep text-white xl:hidden">
+            <div className="flex h-full flex-col px-6 py-6">
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col leading-none">
+                  <span className="font-serif text-3xl font-bold tracking-tight">CARLOS<span className="text-gold">RE</span></span>
+                  <span className="font-mono mt-1 text-[8px] uppercase tracking-[0.25em] text-white/45">HomesProfessional.com</span>
+                </div>
+                <button type="button" onClick={() => setIsOpen(false)} aria-label="Close navigation menu" className="text-gold">
+                  <X size={32} />
+                </button>
+              </div>
+
+              <div className="mt-14 flex flex-col gap-5">
+                {NAVIGATION.map((item, index) => (
+                  <motion.a key={item.name} href={item.href} onClick={() => setIsOpen(false)} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.05 }} className="border-b border-white/10 pb-4 font-serif text-3xl text-white transition-colors hover:text-gold">
+                    {item.name}
+                  </motion.a>
+                ))}
+              </div>
+
+              <div className="mt-auto border-t border-gold/20 pt-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45 leading-loose">{CONTACT.licenseDisplay} · {CONTACT.brokerage}</p>
+                <a href={CONTACT.whatsappUS} className="mt-6 flex w-full items-center justify-center gap-2 bg-gold px-6 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy">
+                  <Phone size={16} />
+                  {CONTACT.phoneUS}
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
