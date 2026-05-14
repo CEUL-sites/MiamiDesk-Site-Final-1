@@ -1,95 +1,71 @@
-import { motion } from "motion/react";
-import { Building2, Globe, Network, Presentation, Search, Users } from "lucide-react";
+import { BarChart3, Globe, Handshake, MessageSquare, Network, Users } from "lucide-react";
+import { motion, useInView } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { CONTACT } from "../constants";
 
 const STATS = [
-  {
-    value: "MLS",
-    label: "Visibility",
-    desc: "Professional MLS positioning once a listing is active and compliant",
-    icon: Search
-  },
-  {
-    value: "URG",
-    label: "Brokerage",
-    desc: "United Realty Group infrastructure and agent-to-agent cooperation",
-    icon: Building2
-  },
-  {
-    value: "Agents",
-    label: "Distribution",
-    desc: "Buyer-agent awareness, referral relationships, and professional follow-up",
-    icon: Users
-  },
-  {
-    value: "Digital",
-    label: "Presentation",
-    desc: "Property narrative, photography plan, listing copy, and launch sequence",
-    icon: Presentation
-  },
-  {
-    value: "Spain",
-    label: "Bridge",
-    desc: "Madrid and Spain-facing relationships where relevant to the property",
-    icon: Globe
-  },
-  {
-    value: "Verify",
-    label: "Stats",
-    desc: "Portal, association, MLS, and volume figures stay pending until source-checked",
-    icon: Network
-  }
+  { value: 200, suffix: "+", label: "Global Portals", desc: "Websites and apps worldwide publishing every active listing in the buyer's language.", icon: Globe },
+  { value: 19, suffix: "", label: "Languages", desc: "Every listing publishes in 19 languages simultaneously. No buyer is unreachable by language.", icon: MessageSquare },
+  { value: 260, suffix: "+", label: "U.S. MLSs", desc: "National MLS data exchanges via RPR, the broadest domestic professional reach available.", icon: Network },
+  { value: 437, suffix: "+", label: "Intl. Agreements", desc: "Signed referral agreements with real estate associations across the world, creating active deal flow.", icon: Handshake },
+  { value: 93000, suffix: "", label: "Member Agents", desc: "Miami and South Florida REALTORS®, the world's largest local Realtor association.", icon: Users },
+  { value: 69, suffix: "B", label: "2025 Volume", desc: "Combined transaction volume of the association in 2025. The infrastructure behind every listing.", icon: BarChart3 }
 ];
+
+function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+
+  useEffect(() => {
+    if (!inView) return;
+    const duration = 2000;
+    const steps = 60;
+    const increment = value / steps;
+    let current = 0;
+    const timer = window.setInterval(() => {
+      current += increment;
+      if (current >= value) {
+        setCount(value);
+        window.clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+    return () => window.clearInterval(timer);
+  }, [inView, value]);
+
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+}
 
 export const ReachAdvantage = () => {
   return (
-    <section id="reach" className="py-24 bg-navy text-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold rounded-full blur-[120px] translate-y-1/2 -translate-x-1/4" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mb-20">
-          <h2 className="text-3xl lg:text-5xl mb-8 leading-tight font-serif">
-            Seller Exposure Advantage <br />
-            <span className="text-gold italic font-light">built around professional distribution.</span>
+    <section id="reach" className="bg-navy-deep py-24 text-white">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto mb-16 max-w-4xl text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Distribution Engine</p>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-white lg:text-6xl">
+            Maximum syndication. <span className="italic text-gold">Maximum valuation pressure.</span>
           </h2>
-          <p className="text-lg text-white/70 leading-relaxed mb-6 max-w-3xl">
-            A strong South Florida listing strategy is not just a public webpage. It is pricing discipline, MLS accuracy, brokerage cooperation, buyer-agent visibility, syndication readiness, and active follow-up.
-          </p>
-          <p className="text-lg text-gold font-medium mb-12">
-            Features describe a property. Distribution shapes price discovery.
-          </p>
-          <p className="text-sm text-white/50 leading-relaxed max-w-2xl border-l-2 border-gold/30 pl-4">
-            {CONTACT.licenseDisplay}. Associate in {CONTACT.brokerage}. Live IDX and Bridge MLS search are not enabled in this Phase 1 launch.
+          <p className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-relaxed text-white/60">
+            Listing with Carlos means entering an institutional distribution system: MLS visibility, global publication, broker cooperation, referral networks, and professional agent access across South Florida.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
-          {STATS.map((stat, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="p-10 bg-navy hover:bg-navy-light transition-colors duration-500 group"
-            >
-              <div className="flex items-start justify-between mb-8">
-                <stat.icon size={28} className="text-gold opacity-50 group-hover:opacity-100 transition-opacity" />
-                <span className="text-4xl lg:text-5xl font-serif text-gold">{stat.value}</span>
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 uppercase tracking-widest">{stat.label}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{stat.desc}</p>
+        <div className="grid grid-cols-1 border border-white/10 md:grid-cols-2 lg:grid-cols-3">
+          {STATS.map((stat, index) => (
+            <motion.div key={stat.label} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.7, delay: index * 0.06 }} className="group border-b border-r border-white/10 p-8 transition-colors duration-300 hover:bg-white/[0.035] lg:p-10">
+              <stat.icon className="mb-10 text-gold/65 transition-colors group-hover:text-gold" size={30} />
+              <div className="font-serif text-5xl text-gold lg:text-6xl"><AnimatedCounter value={stat.value} suffix={stat.suffix} /></div>
+              <h3 className="font-sans mt-5 text-sm font-semibold uppercase tracking-[0.2em] text-white">{stat.label}</h3>
+              <p className="mt-4 font-sans text-sm leading-relaxed text-white/50">{stat.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-20 flex flex-col items-center">
-          <a href="#contact" className="px-12 py-5 bg-gold text-white font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-navy transition-all duration-300 shadow-2xl shadow-gold/20">
-            Request Seller Strategy Review
-          </a>
+        <div className="mt-16 border-t border-gold/40 pt-10 text-center">
+          <blockquote className="font-serif text-3xl italic text-white lg:text-5xl">Features describe a property. Distribution determines its price.</blockquote>
+          <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/60">— {CONTACT.shortLicense}</p>
         </div>
       </div>
     </section>

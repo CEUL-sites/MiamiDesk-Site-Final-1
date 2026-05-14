@@ -1,67 +1,57 @@
+import { Compass } from "lucide-react";
 import { motion } from "motion/react";
-import { Compass, BarChart3, PlaneLanding } from "lucide-react";
 
 const CARDS = [
   {
-    icon: Compass,
+    number: "01",
     title: "Strategic Acquisitions",
-    desc: "Neighborhood intelligence, offer structure, and local market insight refined by 25 years of institutional-grade Florida real estate experience."
+    desc: "Neighborhood intelligence, offer structure, and local market insight refined by 25 years of institutional-grade Florida real estate experience. The right offer, at the right price, in the right timing window.",
+    tag: "MIAMI-DADE · BROWARD · PALM BEACH"
   },
   {
-    icon: BarChart3,
+    number: "02",
     title: "Portfolio Positioning",
-    desc: "Analytical support for investors comparing asset types, location fundamentals, and long-term capital positioning across South Florida and Madrid."
+    desc: "Analytical support for investors comparing asset types, location fundamentals, and long-term capital positioning across South Florida. Investment-grade thinking applied to residential and commercial assets.",
+    tag: "RESIDENTIAL · COMMERCIAL · MIXED-USE"
   },
   {
-    icon: PlaneLanding,
-    title: "International Relocation",
-    desc: "A bilingual advisory bridge for clients moving between South Florida and Spain, offering professional referrals tailored to cross-border transitions."
+    number: "03",
+    title: "Cross-Border Relocation",
+    desc: "A bilingual advisory bridge for clients relocating between South Florida and Spain, with professional referrals, market comparison, and transition support tailored to cross-border decisions.",
+    tag: "MIAMI ↔ MADRID · BILINGUAL"
   }
 ];
 
 export function BuyersRelocation() {
   return (
-    <section id="buyers" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-4xl mb-16">
-          <h2 className="text-3xl lg:text-5xl text-navy mb-6 leading-tight font-serif">
-            Advisory for Acquisitions, Portfolios, <br />
-            <span className="text-gold italic font-light">& Global Relocation.</span>
+    <section id="buyers" className="bg-bone-warm py-24">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+        <div className="max-w-xl">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-navy/55">Buyer Advisory · LATAM Bridge</p>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-navy lg:text-6xl">
+            25 years of LATAM relationships.<br />
+            <span className="italic text-gold">Insider Miami access.</span>
           </h2>
-          <p className="text-lg text-navy/70 leading-relaxed max-w-2xl">
-            Your purchase strategy is as important as your listing strategy. Carlos provides 
-             the local intelligence needed to navigate neighborhood shifts, investment 
-            fundamentals, and international transitions across South Florida and Spain.
+          <p className="mt-7 font-sans text-lg leading-relaxed text-navy/65">
+            The buyer side of South Florida's luxury market is dominated by Latin American capital. Carlos's client relationships in this segment were built deal by deal over two decades, not through marketing campaigns. If you are buying in Miami, you want representation by someone who already knows your buyer universe.
           </p>
+          <a href="#contact" className="group mt-9 inline-flex items-center gap-2 border-b border-gold pb-2 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:text-gold">
+            Ask About South Florida or Spain
+            <Compass size={16} className="transition-transform group-hover:rotate-45" />
+          </a>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
-          {CARDS.map((card, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-start"
-            >
-              <div className="text-gold mb-6 border-b-2 border-gold/10 pb-4 w-full">
-                <card.icon size={32} />
+        <div className="grid gap-5 md:grid-cols-3 lg:gap-6">
+          {CARDS.map((card, index) => (
+            <motion.article key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: index * 0.08, duration: 0.7 }} className="group relative overflow-hidden border border-bone bg-white p-7 transition-all duration-500 hover:border-b-4 hover:border-b-gold hover:shadow-2xl hover:shadow-navy/10">
+              <span className="absolute -right-3 -top-2 font-serif text-[5rem] leading-none text-gold/15">{card.number}</span>
+              <div className="relative pt-14">
+                <h3 className="font-serif text-2xl text-navy">{card.title}</h3>
+                <p className="mt-5 font-sans text-sm leading-relaxed text-navy/62">{card.desc}</p>
+                <p className="font-mono mt-8 text-[9px] uppercase tracking-[0.2em] text-gold/80">{card.tag}</p>
               </div>
-              <h3 className="text-2xl font-serif text-navy mb-4 italic">{card.title}</h3>
-              <p className="text-navy/60 leading-relaxed mb-6">{card.desc}</p>
-            </motion.div>
+            </motion.article>
           ))}
-        </div>
-
-        <div className="mt-12">
-            <a 
-              href="#contact"
-              className="inline-flex items-center gap-2 text-navy font-bold uppercase tracking-widest group border-b-2 border-gold/30 pb-1 hover:border-gold transition-all"
-            >
-                Ask About South Florida or Spain
-                <Compass size={16} className="group-hover:rotate-45 transition-transform" />
-            </a>
         </div>
       </div>
     </section>

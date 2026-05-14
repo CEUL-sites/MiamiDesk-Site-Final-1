@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CheckCircle2, Send } from "lucide-react";
+import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 
 const encodeForm = (data: Record<string, string>) =>
@@ -31,15 +31,7 @@ export function LeadForm() {
         })
       });
       setStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        propertyAddress: "",
-        city: "",
-        timeline: "30-90 days",
-        message: ""
-      });
+      setFormData({ name: "", email: "", phone: "", propertyAddress: "", city: "", timeline: "30-90 days", message: "" });
     } catch {
       setStatus("error");
     }
@@ -47,21 +39,18 @@ export function LeadForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-white p-8 lg:p-12 border border-bone shadow-2xl relative overflow-hidden">
-        <div className="relative z-10 text-center py-12">
+      <div className="relative overflow-hidden border border-bone bg-white p-8 shadow-2xl lg:p-12">
+        <div className="absolute inset-x-0 top-0 h-1 bg-gold" />
+        <div className="relative z-10 py-12 text-center">
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
             <CheckCircle2 size={34} />
           </div>
-          <div className="text-[10px] font-bold text-gold uppercase tracking-[0.4em] mb-3">Seller Request Received</div>
-          <h3 className="text-3xl font-serif text-navy mb-4">Carlos will review your property details personally.</h3>
-          <p className="text-navy/60 text-sm leading-relaxed max-w-md mx-auto">
+          <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold">Seller Request Received</div>
+          <h3 className="font-serif text-3xl text-navy">Carlos will review your property details personally.</h3>
+          <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/60">
             Your request has been routed through HomesProfessional.com. For urgent timing, use WhatsApp at {CONTACT.phoneUS}.
           </p>
-          <button
-            type="button"
-            onClick={() => setStatus("idle")}
-            className="mt-8 px-8 py-4 bg-navy text-white font-bold uppercase tracking-[0.2em] hover:bg-gold transition-all"
-          >
+          <button type="button" onClick={() => setStatus("idle")} className="mt-8 bg-navy px-8 py-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold">
             Send Another Request
           </button>
         </div>
@@ -70,43 +59,40 @@ export function LeadForm() {
   }
 
   return (
-    <div className="bg-white p-8 lg:p-12 border border-bone shadow-2xl relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-32 h-32 bg-ivory -rotate-45 translate-x-16 -translate-y-16" />
-      
+    <div className="relative overflow-hidden border border-bone bg-white p-8 shadow-2xl lg:p-12">
+      <div className="absolute inset-x-0 top-0 h-1 bg-gold" />
+      <div className="absolute right-0 top-0 h-32 w-32 -translate-y-16 translate-x-16 -rotate-45 bg-ivory" />
       <div className="relative z-10">
         <div className="mb-8">
-          <div className="text-[10px] font-bold text-gold uppercase tracking-[0.4em] mb-2">Confidential Seller Desk</div>
-          <h3 className="text-2xl font-serif text-navy">Request a South Florida Seller Strategy Review</h3>
-          <p className="text-navy/50 text-sm mt-3 font-light">
+          <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold">Confidential Seller Desk</div>
+          <h3 className="font-serif text-3xl text-navy">Request a South Florida Seller Strategy Review</h3>
+          <p className="mt-3 font-sans text-[13px] font-light leading-relaxed text-navy/45">
             Share the essentials early: email, phone, property address, city, timing, and the context Carlos should review before responding.
-          </p>
-          <p className="text-[10px] text-navy/40 uppercase tracking-widest mt-4 leading-relaxed">
-            {CONTACT.licenseDisplay} · {CONTACT.brokerage}
           </p>
         </div>
 
         <form name="seller-consultation" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold tracking-widest text-navy/40">Full Name</label>
-              <input required name="name" type="text" placeholder="Name" className="p-4 bg-ivory border-none focus:ring-1 focus:ring-gold outline-none text-navy placeholder:text-navy/30" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
+              <label className="input-label">Full Name</label>
+              <input required name="name" type="text" placeholder="Name" className="form-input" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold tracking-widest text-navy/40">Email Address</label>
-              <input required name="email" type="email" placeholder="Email" className="p-4 bg-ivory border-none focus:ring-1 focus:ring-gold outline-none text-navy placeholder:text-navy/30" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
+              <label className="input-label">Email Address</label>
+              <input required name="email" type="email" placeholder="Email" className="form-input" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold tracking-widest text-navy/40">Phone / WhatsApp</label>
-              <input required name="phone" type="tel" placeholder="+1..." className="p-4 bg-ivory border-none focus:ring-1 focus:ring-gold outline-none text-navy placeholder:text-navy/30" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
+              <label className="input-label">Phone / WhatsApp</label>
+              <input required name="phone" type="tel" placeholder="+1..." className="form-input" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold tracking-widest text-navy/40">Timeline</label>
-              <select name="timeline" className="p-4 bg-ivory border-none focus:ring-1 focus:ring-gold outline-none text-navy appearance-none cursor-pointer" value={formData.timeline} onChange={(e) => setFormData({...formData, timeline: e.target.value})}>
+              <label className="input-label">Timeline</label>
+              <select name="timeline" className="form-input cursor-pointer appearance-none" value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}>
                 <option>Immediately</option>
                 <option>30-90 days</option>
                 <option>3-6 months</option>
@@ -116,30 +102,31 @@ export function LeadForm() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold tracking-widest text-navy/40">Property Address</label>
-              <input required name="propertyAddress" type="text" placeholder="Street address" className="p-4 bg-ivory border-none focus:ring-1 focus:ring-gold outline-none text-navy placeholder:text-navy/30" value={formData.propertyAddress} onChange={(e) => setFormData({...formData, propertyAddress: e.target.value})} />
+              <label className="input-label">Property Address</label>
+              <input required name="propertyAddress" type="text" placeholder="Street address" className="form-input" value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold tracking-widest text-navy/40">City</label>
-              <input required name="city" type="text" placeholder="Weston, Coral Gables, Brickell" className="p-4 bg-ivory border-none focus:ring-1 focus:ring-gold outline-none text-navy placeholder:text-navy/30" value={formData.city} onChange={(e) => setFormData({...formData, city: e.target.value})} />
+              <label className="input-label">City</label>
+              <input required name="city" type="text" placeholder="Weston, Coral Gables, Brickell" className="form-input" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-[10px] uppercase font-bold tracking-widest text-navy/40">Message</label>
-            <textarea name="message" rows={4} placeholder="What should Carlos know before reviewing your property?" className="p-4 bg-ivory border-none focus:ring-1 focus:ring-gold outline-none text-navy placeholder:text-navy/30" value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} />
+            <label className="input-label">Message</label>
+            <textarea name="message" rows={4} placeholder="What should Carlos know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
           </div>
 
-          {status === "error" && (
-            <p className="text-sm text-red-700">The form could not be submitted. Please use WhatsApp or try again.</p>
-          )}
+          {status === "error" && <p className="font-sans text-sm text-red-700">The form could not be submitted. Please use WhatsApp or try again.</p>}
 
-          <button type="submit" disabled={status === "submitting"} className="w-full py-5 bg-navy text-white font-bold uppercase tracking-[0.3em] hover:bg-gold transition-all flex items-center justify-center gap-3 group shadow-lg shadow-navy/10 disabled:opacity-60">
-            <Send size={18} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+          <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-5 font-sans text-xs font-bold uppercase tracking-[0.28em] text-white shadow-lg shadow-gold/10 transition-all hover:bg-gold disabled:opacity-60">
+            {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}
             {status === "submitting" ? "Sending Review Request" : "Request Seller Strategy Review"}
           </button>
+          <p className="font-mono text-center text-[8px] uppercase tracking-[0.2em] text-navy/25">
+            Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+          </p>
         </form>
       </div>
     </div>
