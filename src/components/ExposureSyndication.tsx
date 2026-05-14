@@ -1,22 +1,18 @@
 import { motion } from "motion/react";
 
 const CHANNELS = [
-  "MLS Positioning",
-  "Brokerage Network",
-  "Buyer-Agent Visibility",
-  "Digital Syndication",
-  "International Referral Channels",
-  "South Florida ↔ Madrid Activation",
-  "Zillow Group",
-  "Realtor.com Network",
-  "Redfin Visibility",
-  "Idealista Spain",
-  "Juwai Global",
-  "Mansion Global",
-  "LuxuryRealEstate.com",
-  "JamesEdition",
-  "Wall Street Journal",
-  "Financial Times"
+  "MLS data accuracy",
+  "Buyer-agent visibility",
+  "United Realty Group cooperation",
+  "Professional photography planning",
+  "Listing narrative",
+  "Digital syndication readiness",
+  "Agent-to-agent distribution",
+  "Referral relationships",
+  "South Florida exposure",
+  "Madrid / Spain bridge",
+  "International inquiry routing",
+  "Seller follow-up discipline"
 ];
 
 export const ExposureSyndication = () => {
@@ -25,13 +21,10 @@ export const ExposureSyndication = () => {
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <div className="max-w-4xl">
           <h2 className="text-3xl lg:text-4xl text-navy mb-6 font-serif">
-            Professional Visibility Beyond a Single Website
+            MLS and Property Exposure Placeholder
           </h2>
           <p className="text-lg text-navy/70 leading-relaxed max-w-3xl">
-            A strong listing strategy combines MLS accuracy, buyer-agent visibility, 
-            brokerage reach, digital syndication, and international referral channels. 
-            Online exposure matters, but it works best when paired with professional 
-            positioning and active follow-up.
+            Live MLS search is not connected yet. For launch, this site explains the exposure strategy: MLS visibility, agent distribution, syndication readiness, professional presentation, United Realty Group infrastructure, and international referral relationships where relevant.
           </p>
         </div>
       </div>
@@ -43,14 +36,8 @@ export const ExposureSyndication = () => {
         <div className="flex whitespace-nowrap overflow-hidden py-8 border-y border-gold/10">
           <motion.div 
             className="flex gap-12 items-center"
-            animate={{ 
-              x: [0, -1000],
-            }}
-            transition={{ 
-              duration: 30, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
+            animate={{ x: [0, -900] }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           >
             {[...CHANNELS, ...CHANNELS].map((channel, i) => (
               <div key={i} className="flex items-center gap-6">
