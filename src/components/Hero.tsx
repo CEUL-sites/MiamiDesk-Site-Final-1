@@ -51,44 +51,48 @@ export function Hero() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 border border-gold/20 backdrop-blur-md mb-8">
             <BadgeCheck size={14} className="text-gold" />
             <span className="text-[10px] lg:text-xs font-bold text-gold uppercase tracking-[0.24em]">
-              {CONTACT.licenseDisplay} · {CONTACT.brokerage}
+              Florida Realtor® Since 2001 · United Realty Group
             </span>
           </div>
 
           <h1 className="text-4xl lg:text-7xl text-white mb-6 leading-[1.1] font-serif">
-            Sell in South Florida with <br />
-            <span className="text-gold font-light italic">Miami and Spain-Facing Exposure</span>
+            Your South Florida Home <br />
+            <span className="text-gold font-light italic">Deserves Global-Level Exposure</span>
           </h1>
 
-          <p className="text-lg lg:text-xl text-white/80 mb-10 font-light leading-relaxed max-w-2xl">
-            A confidential seller strategy review for homeowners who want disciplined pricing, professional MLS positioning, United Realty Group infrastructure, and a South Florida plus Madrid exposure platform.
+          <p className="text-lg lg:text-xl text-white/80 mb-4 font-light leading-relaxed max-w-2xl">
+            Most sellers never reach the buyers who would pay the most. With 25 years of Florida market expertise, a full United Realty Group MLS infrastructure, and a direct bridge to Spanish-speaking and European buyers — your property gets positioned where serious offers begin.
+          </p>
+
+          <p className="text-sm text-gold/70 uppercase tracking-[0.2em] font-bold mb-10">
+            Private · Confidential · No Obligation
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 lg:gap-6">
-            <a 
+            <a
               href="#contact"
               className="px-8 py-5 bg-gold text-white font-bold uppercase tracking-widest hover:bg-white hover:text-navy transition-all duration-300 shadow-xl shadow-navy/20 flex items-center justify-center gap-2 group"
             >
-              Request Seller Strategy Review
+              Get Your Free Strategy Review
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <a 
+            <a
               href={CONTACT.whatsappUS}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-5 border border-white/30 text-white font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2"
             >
               <MessageSquare size={18} />
-              WhatsApp {CONTACT.phoneUS}
+              WhatsApp Now
             </a>
           </div>
 
           <div className="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { label: "Since 2001", sub: "Florida Licensed" },
-              { label: "United Realty Group", sub: "Brokerage Infrastructure" },
-              { label: "South Florida", sub: "Seller Strategy" },
-              { label: "Madrid / Spain", sub: "International Bridge" }
+              { label: "25+ Years", sub: "Florida Licensed" },
+              { label: "United Realty Group", sub: "MLS & Brokerage Power" },
+              { label: "South Florida", sub: "Precision Seller Strategy" },
+              { label: "Madrid + Spain", sub: "International Buyer Reach" }
             ].map((stat, i) => (
               <div key={i} className="flex flex-col">
                 <span className="text-lg lg:text-xl font-serif text-white">{stat.label}</span>
