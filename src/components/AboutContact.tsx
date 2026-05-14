@@ -1,5 +1,4 @@
-import { motion } from "motion/react";
-import { Phone, Mail, Linkedin, MapPin, BadgeCheck, Globe2, Award } from "lucide-react";
+import { Phone, Mail, Linkedin, MapPin, BadgeCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 import { LeadForm } from "./LeadForm";
 
@@ -13,7 +12,7 @@ export function AboutContact() {
               <div className="carlos-headshot-card flex-shrink-0">
                 <img 
                   src={CONTACT.headshot} 
-                  alt="Carlos Uzcategui, Florida Realtor since 2001" 
+                  alt="Carlos Uzcategui, Florida Licensed Realtor" 
                   className="carlos-headshot"
                   loading="lazy"
                 />
@@ -21,27 +20,22 @@ export function AboutContact() {
               <div className="flex-grow">
                 <h2 className="text-3xl lg:text-5xl text-navy mb-8 font-serif leading-tight">
                   Senior Real Estate Advisory, <br />
-                  <span className="text-gold italic font-light">Built on 25 Years of Market Cycles</span>
+                  <span className="text-gold italic font-light">Built on South Florida market experience</span>
                 </h2>
                 <p className="text-lg text-navy/70 leading-relaxed max-w-xl mb-12">
-                  Carlos Uzcategui has been licensed in Florida real estate since 2001, 
-                  advising clients through changing markets, pricing cycles, relocation 
-                  decisions, and complex negotiations. 
+                  Carlos Uzcategui has been licensed in Florida real estate since 2001, advising clients through changing markets, pricing cycles, relocation decisions, and complex negotiations.
                   <br /><br />
-                  As a Certified Luxury Home Marketing Specialist and United Realty Group advisor, 
-                  his work focuses on strategic listing positioning, professional exposure, 
-                  and cross-border real estate opportunities between South Florida, Madrid, 
-                  and international markets.
+                  As a United Realty Group associate, his work focuses on seller positioning, professional exposure, and cross-border real estate opportunities between South Florida, Madrid, and international markets.
                 </p>
 
                 <div className="space-y-4 mb-16">
                   {[
-                    "Florida Realtor® since 2001",
-                    "25+ years of real estate experience",
+                    CONTACT.licenseDisplay,
+                    "Licensed since 2001",
                     "Certified Luxury Home Marketing Specialist",
                     "Certified Seller Representative",
-                    "United Realty Group",
-                    "South Florida ↔ Madrid advisory bridge",
+                    CONTACT.brokerage,
+                    "South Florida plus Madrid advisory bridge",
                     "Bilingual English / Spanish"
                   ].map((bullet, i) => (
                     <div key={i} className="flex items-center gap-3">
@@ -54,10 +48,7 @@ export function AboutContact() {
                 </div>
 
                 <div className="mt-12">
-                  <a 
-                    href="#contact" 
-                    className="inline-block px-8 py-5 bg-navy text-white font-bold uppercase tracking-widest hover:bg-gold transition-all duration-300 shadow-xl shadow-navy/10"
-                  >
+                  <a href="#contact" className="inline-block px-8 py-5 bg-navy text-white font-bold uppercase tracking-widest hover:bg-gold transition-all duration-300 shadow-xl shadow-navy/10">
                     Request a Private Property Strategy Call
                   </a>
                 </div>
@@ -67,7 +58,7 @@ export function AboutContact() {
             <div id="contact" className="mt-20 pt-12 border-t border-bone">
               <div className="grid sm:grid-cols-2 gap-12">
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-[0.4em] text-navy mb-8">Trust Integrity</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-[0.4em] text-navy mb-8">Verified Identity</h3>
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 bg-white border border-bone flex items-center justify-center text-gold">
@@ -75,7 +66,8 @@ export function AboutContact() {
                       </div>
                       <div>
                         <div className="text-navy font-bold text-lg leading-tight">Carlos Uzcategui</div>
-                        <div className="text-navy/50 text-[10px] uppercase tracking-widest font-bold mt-1">Senior Listing Advisor</div>
+                        <div className="text-navy/50 text-[10px] uppercase tracking-widest font-bold mt-1">{CONTACT.licenseDisplay}</div>
+                        <div className="text-navy/50 text-[10px] uppercase tracking-widest font-bold mt-1">{CONTACT.brokerage}</div>
                       </div>
                     </div>
 
@@ -102,14 +94,14 @@ export function AboutContact() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-[0.4em] text-navy mb-8">Secure Routing</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-[0.4em] text-navy mb-8">Direct Contact</h3>
                   <div className="space-y-6">
                     <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                       <div className="w-12 h-12 bg-white border border-bone flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all">
                         <Phone size={20} />
                       </div>
                       <div>
-                        <div className="text-[10px] uppercase font-bold text-navy/40 tracking-widest mb-1">U.S. WhatsApp/Text</div>
+                        <div className="text-[10px] uppercase font-bold text-navy/40 tracking-widest mb-1">Main WhatsApp / Direct</div>
                         <div className="text-navy font-medium">{CONTACT.phoneUS}</div>
                       </div>
                     </a>
