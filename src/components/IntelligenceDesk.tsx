@@ -22,12 +22,12 @@ export const IntelligenceDesk = () => {
             </div>
             
             <h2 className="text-3xl lg:text-5xl text-navy mb-8 font-serif leading-tight">
-              AI-assisted intake is being built for <br />
-              <span className="text-gold italic font-light">seller, buyer, investor, and agency inquiries.</span>
+              Every inquiry routed to Carlos <br />
+              <span className="text-gold italic font-light">with the right context already in hand.</span>
             </h2>
-            
+
             <p className="text-lg text-navy/70 leading-relaxed mb-8 max-w-xl">
-              The Miami Desk is being prepared to qualify inquiries with AI-assisted intake, then route the right context to Carlos for personal review. For launch, this section is intentionally a preview, not a live chatbot.
+              The Miami Desk is being built with AI-assisted intake to qualify seller, buyer, investor, and agency inquiries — so that when Carlos responds, he already understands your situation, timeline, and goals.
             </p>
 
             <div className="space-y-4 mb-10">
@@ -74,7 +74,7 @@ export const IntelligenceDesk = () => {
 
             <div className="mt-10 pt-8 border-t border-white/10">
               <p className="text-white/45 text-xs leading-relaxed">
-                Live Gemini chat, lead scoring, Firebase storage, and email automation are future platform features. They are not enabled on this Phase 1 Netlify launch.
+                All inquiries are reviewed personally by Carlos before any response is sent. AI intake prepares context — Carlos closes the conversation.
               </p>
             </div>
           </div>

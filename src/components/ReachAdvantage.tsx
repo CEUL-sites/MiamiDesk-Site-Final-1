@@ -34,9 +34,9 @@ const STATS = [
     icon: Globe
   },
   {
-    value: "Verify",
-    label: "Stats",
-    desc: "Portal, association, MLS, and volume figures stay pending until source-checked",
+    value: "Follow-Up",
+    label: "Discipline",
+    desc: "Structured buyer inquiry tracking, showing feedback loops, and negotiation-stage follow-up to keep momentum toward closing",
     icon: Network
   }
 ];
@@ -62,7 +62,7 @@ export const ReachAdvantage = () => {
             Features describe a property. Distribution shapes price discovery.
           </p>
           <p className="text-sm text-white/50 leading-relaxed max-w-2xl border-l-2 border-gold/30 pl-4">
-            {CONTACT.licenseDisplay}. Associate in {CONTACT.brokerage}. Live IDX and Bridge MLS search are not enabled in this Phase 1 launch.
+            {CONTACT.licenseDisplay}. Associate in {CONTACT.brokerage}.
           </p>
         </div>
 

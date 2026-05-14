@@ -21,10 +21,10 @@ export const ExposureSyndication = () => {
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <div className="max-w-4xl">
           <h2 className="text-3xl lg:text-4xl text-navy mb-6 font-serif">
-            MLS and Property Exposure Placeholder
+            Where Your Listing Actually Gets Seen
           </h2>
           <p className="text-lg text-navy/70 leading-relaxed max-w-3xl">
-            Live MLS search is not connected yet. For launch, this site explains the exposure strategy: MLS visibility, agent distribution, syndication readiness, professional presentation, United Realty Group infrastructure, and international referral relationships where relevant.
+            Professional seller exposure covers every layer: MLS accuracy and timing, United Realty Group agent distribution, digital syndication readiness, buyer-agent visibility, and where relevant, international referral channels connecting South Florida to Spanish-speaking and European buyers.
           </p>
         </div>
       </div>
