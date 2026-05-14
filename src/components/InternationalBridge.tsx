@@ -1,131 +1,83 @@
+import { ChevronRight, Plane } from "lucide-react";
 import { motion } from "motion/react";
-import { Plane, ChevronRight, Globe, Building2 } from "lucide-react";
 import { CONTACT } from "../constants";
 
-const OWNER_FEATURES = [
-  "Strategic listing positioning",
-  "International buyer awareness",
-  "Bilingual advisory",
-  "Referral and relocation pathways",
-  "South Florida ↔ Madrid perspective"
+const CAPABILITIES = [
+  {
+    title: "MLS Placement",
+    body: "Your property enters the Miami and South Florida REALTORS® MLS as a listed asset, reaching 93,000 member agents and their buyer pipelines. Not a referral. A formal listing."
+  },
+  {
+    title: "Active Outreach",
+    body: "Targeted, professional outreach campaigns to South Florida Realtors who are actively working with qualified LATAM buyers. Campaigns are documented and reported."
+  },
+  {
+    title: "Campaign Reporting",
+    body: "Full activity reporting delivered to your agency or ownership team: agent contacts made, showing requests received, market positioning data, and professional feedback."
+  }
 ];
 
-const SPAIN_FEATURES = [
-  "Miami / South Florida MLS strategy",
-  "Agent-facing exposure",
-  "U.S. and Latin America referral channels",
-  "Bilingual presentation support",
-  "Cross-border advisory coordination"
-];
+const SPAIN_COPY = "For Spain agencies, developers, and ownership teams, Carlos creates a licensed U.S. channel into the Miami MLS ecosystem with bilingual presentation support, agent-facing exposure, and cross-border advisory coordination.";
+const OWNER_COPY = "For South Florida owners, the same Miami and Madrid presence adds international buyer awareness, referral pathways, and a more sophisticated property narrative for listings with global appeal.";
 
 export function InternationalBridge() {
   return (
-    <section id="spain" className="py-24 bg-navy text-white overflow-hidden relative">
-      {/* Background Imagery Split */}
-      <div className="absolute inset-0 flex opacity-20 pointer-events-none">
-        <div className="w-1/2 h-full relative overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?q=80&w=1500&auto=format&fit=crop" 
-            alt="Miami skyline representing South Florida real estate reach" 
-            className="absolute inset-0 h-full w-full object-cover grayscale"
-          />
-          <div className="absolute inset-0 bg-navy/60" />
+    <section id="spain" className="overflow-hidden bg-navy-deep py-24 text-white">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="relative mx-auto mb-16 h-32 max-w-4xl">
+          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 900 120" fill="none" aria-hidden="true">
+            <path d="M110 82 C300 6 590 6 790 82" stroke="rgba(176,141,87,0.42)" strokeWidth="2" strokeDasharray="10 12" />
+            <circle cx="110" cy="82" r="7" fill="#B08D57" />
+            <circle cx="790" cy="82" r="7" fill="#B08D57" />
+          </svg>
+          <motion.div className="absolute left-[12%] top-[48px] text-gold" animate={{ left: ["12%", "85%"], top: [48, 18, 48] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+            <Plane size={22} />
+          </motion.div>
+          <span className="absolute left-4 bottom-0 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Miami, FL</span>
+          <span className="absolute right-4 bottom-0 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Madrid, España</span>
         </div>
-        <div className="w-1/2 h-full relative overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1543783230-27838501e02c?q=80&w=1500&auto=format&fit=crop" 
-            alt="Madrid architecture representing international real estate advisory" 
-            className="absolute inset-0 h-full w-full object-cover grayscale"
-          />
-          <div className="absolute inset-0 bg-navy/60" />
-        </div>
-      </div>
 
-      {/* Route Line Animation */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-px z-0 hidden lg:block overflow-hidden">
-        <motion.div 
-          initial={{ x: "-100%" }}
-          animate={{ x: "100%" }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          className="w-1/2 h-full bg-gradient-to-r from-transparent via-gold to-transparent"
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <Plane size={24} className="text-gold opacity-30 transform rotate-90" />
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mb-20">
-          <h2 className="text-3xl lg:text-5xl mb-8 leading-tight font-serif italic text-white">
-            South Florida. Madrid. <br />
-            <span className="text-gold font-light not-italic">International Buyer Pathways.</span>
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">International Activation Bridge</p>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-white lg:text-6xl">
+            Your inventory. The U.S. market.<br />
+            <span className="italic text-gold">One licensed principal.</span>
           </h2>
-          <p className="text-lg text-white/70 leading-relaxed mb-8 max-w-3xl">
-            For South Florida homeowners, international visibility can become part of a broader listing strategy. 
-            For Spain-based sellers, developers, and agencies, our advisory desk creates a bridge into 
-            South Florida’s professional real estate ecosystem, including MLS positioning, 
-            agent-facing exposure, and referral-driven conversations.
+          <p className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-[1.9] text-white/60">
+            The majority of luxury real estate buyers in Spain, particularly in Madrid, Marbella, and the Costa del Sol, come from Latin America and North America. Carlos lists your property into the Miami MLS, putting it in front of 93,000 professional agents who represent those exact buyers. No workaround. No intermediary. A licensed Florida principal of record.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
-          {/* Column 1: Owners */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-10 bg-white/5 border-l-4 border-gold backdrop-blur-sm"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <Globe className="text-gold" size={28} />
-              <h3 className="text-2xl font-serif">For South Florida Owners</h3>
-            </div>
-            <ul className="space-y-4">
-              {OWNER_FEATURES.map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-white/70 text-sm">
-                  <div className="w-1 h-1 bg-gold rounded-full" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Column 2: Spain Developers */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-10 bg-white/5 border-r-4 border-gold backdrop-blur-sm"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <Building2 className="text-gold" size={28} />
-              <h3 className="text-2xl font-serif">For Spain Sellers & Agencies</h3>
-            </div>
-            <ul className="space-y-4">
-              {SPAIN_FEATURES.map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-white/70 text-sm">
-                  <div className="w-1 h-1 bg-gold rounded-full" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+          {CAPABILITIES.map((item, index) => (
+            <motion.article key={item.title} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08, duration: 0.7 }} className="border-t-4 border-gold bg-navy-light p-10">
+              <h3 className="font-serif text-3xl text-white">{item.title}</h3>
+              <p className="mt-5 font-sans text-sm leading-relaxed text-white/60">{item.body}</p>
+            </motion.article>
+          ))}
         </div>
 
-        <div className="mt-20 flex flex-col items-center">
-            <a 
-              href={CONTACT.whatsappSpain}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-12 py-5 bg-gold text-navy font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-navy transition-all duration-300 shadow-2xl shadow-gold/20 flex items-center gap-2 group"
-            >
-                Ask About South Florida or Spain
-                <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+        <div className="mt-16 border-y border-gold/20">
+          <div className="bg-white/[0.03] p-8 lg:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">For Spain · Agencies · Developers</p>
+            <p className="mt-4 max-w-4xl font-sans text-base leading-relaxed text-white/65">{SPAIN_COPY}</p>
+          </div>
+          <div className="border-t border-gold/20 bg-white/[0.03] p-8 lg:p-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">For South Florida Owners</p>
+            <p className="mt-4 max-w-4xl font-sans text-base leading-relaxed text-white/65">{OWNER_COPY}</p>
+          </div>
+        </div>
+
+        <div className="pt-16 text-center">
+          <h3 className="font-serif text-3xl italic text-white">Ready to put your property in front of the world's largest Realtor network?</h3>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="#contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">
+              Activate Your Listing
+              <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>
-            <p className="mt-8 text-[10px] uppercase tracking-widest text-white/30 max-w-xl text-center leading-loose">
-              Cross-border marketing is subject to local brokerage regulations, tax laws, and MLS compliance. 
-              Strategy is tailored to individual asset profiles and legal jurisdiction requirements.
-            </p>
+            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">WhatsApp Spain Desk</a>
+          </div>
+          <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/70">Spanish inquiries answered in Spanish within one business day.</p>
         </div>
       </div>
     </section>
