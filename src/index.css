@@ -1,10 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0A1A2F;
-  --color-gold: #C5A572;
+  --color-navy: #0B1E3F;
+  --color-navy-light: #102B57;
+  --color-navy-deep: #06111F;
+  --color-gold: #B08D57;
+  --color-gold-soft: #D4AE78;
   --color-ivory: #F9F7F2;
-  --color-bone: #E8E5DF;
+  --color-bone: #E8E0D0;
+  --color-bone-warm: #F7F4EE;
+  --color-slate: #2C3E50;
+  --color-graphite: #6B7280;
+  --color-line: #E8E0D0;
+  --color-white-soft: #FDFCFA;
+  --shadow-3xl: 0 35px 80px rgba(6, 17, 31, 0.28);
   
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
@@ -20,12 +29,22 @@
   }
 }
 
-.glass-card {
-  @apply bg-white/80 backdrop-blur-sm border border-bone/50 shadow-sm;
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-bone/50 shadow-sm;
+  }
+
+  .input-label {
+    @apply text-[10px] uppercase font-bold tracking-widest text-navy/40;
+  }
+
+  .form-input {
+    @apply w-full p-4 bg-ivory border border-transparent focus:border-gold focus:ring-1 focus:ring-gold outline-none text-navy placeholder:text-navy/30;
+  }
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #C5A572 0%, #B38F5D 100%);
+  background: linear-gradient(135deg, #B08D57 0%, #D4AE78 100%);
 }
 
 .carlos-headshot-card {
