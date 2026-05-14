@@ -1,69 +1,74 @@
-import { CONTACT } from "../constants";
+import { CONTACT, NAVIGATION } from "../constants";
+
+const ticker = "SOUTH FLORIDA · MIAMI MLS · UNITED REALTY GROUP · MADRID · INTERNATIONAL · 25 YEARS · ";
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-full lg:col-span-1">
-            <span className="text-xl font-serif font-bold tracking-tight block">
-              CARLOS UZCATEGUI
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-gold mb-6 block">
-              HomesProfessional.com
-            </span>
-            <p className="text-white/50 text-xs leading-relaxed max-w-xs">
-              South Florida seller strategy, United Realty Group brokerage infrastructure, and a Miami plus Madrid exposure platform.
-            </p>
-          </div>
+    <footer className="bg-navy-deep text-white">
+      <div className="marquee-container border-b border-white/5 py-4">
+        <div className="marquee-track-slow">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <span key={index} className="font-mono pr-8 text-[10px] uppercase tracking-[0.3em] text-white/10">{ticker}</span>
+          ))}
+        </div>
+      </div>
 
-          <div>
-            <h4 className="text-gold uppercase text-[10px] font-bold tracking-[0.3em] mb-6">Contact</h4>
-            <div className="space-y-4 text-sm text-white/70">
-              <p>Direct / WhatsApp: {CONTACT.phoneUS}</p>
-              <p>Spain WhatsApp: {CONTACT.phoneSpain}</p>
-              <p>{CONTACT.email}</p>
-              <p className="text-xs leading-relaxed">{CONTACT.address}</p>
-              <p className="text-xs leading-relaxed">Brokerage office: {CONTACT.officePhoneUS}</p>
-            </div>
-          </div>
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
+          <p className="font-mono mt-2 text-[9px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
+          <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/40">
+            South Florida seller strategy. Madrid advisory bridge. United Realty Group brokerage infrastructure.
+          </p>
+          <p className="mt-8 font-sans text-xs text-white/35">⊕ Equal Housing Opportunity</p>
+        </div>
 
-          <div>
-            <h4 className="text-gold uppercase text-[10px] font-bold tracking-[0.3em] mb-6">Focus</h4>
-            <ul className="space-y-4 text-xs text-white/70 uppercase tracking-widest">
-              <li>South Florida Sellers</li>
-              <li>Miami MLS Ecosystem</li>
-              <li>Madrid / Spain Bridge</li>
-              <li>International Referrals</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-gold uppercase text-[10px] font-bold tracking-[0.3em] mb-6">Credentials</h4>
-            <ul className="space-y-4 text-xs text-white/70 uppercase tracking-widest">
-               <li>{CONTACT.licenseDisplay}</li>
-               <li>{CONTACT.brokerage}</li>
-               <li>Licensed since 2001</li>
-               <li>Certified Seller Representative</li>
-            </ul>
+        <div>
+          <h4 className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">Navigation</h4>
+          <div className="space-y-3">
+            {NAVIGATION.map((item) => (
+              <a key={item.name} href={item.href} className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">{item.name}</a>
+            ))}
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/5 space-y-8">
-            <div className="text-[10px] text-white/35 leading-loose max-w-5xl">
-              {CONTACT.licenseDisplay}. Associate in {CONTACT.brokerage}. Equal Housing Opportunity. REALTOR® is a registered collective membership mark that identifies a real estate professional who is a member of the National Association of REALTORS® and subscribes to its Code of Ethics. This website currently provides seller advisory and exposure information only. Live IDX search and Bridge MLS data are not connected yet. Any future listing data, MLS display, syndication, association, brokerage, ranking, or portal statements must be verified against current compliance materials before publication. Information on this website is for general informational purposes only and is not legal, tax, financial, immigration, or investment advice.
+        <div>
+          <h4 className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">Contact</h4>
+          <div className="space-y-4 font-sans text-sm text-white/55">
+            <p>Direct / WhatsApp: {CONTACT.phoneUS}</p>
+            <p>Spain WhatsApp: {CONTACT.phoneSpain}</p>
+            <p>{CONTACT.email}</p>
+            <p className="text-xs leading-relaxed">{CONTACT.address}</p>
+            <p className="text-xs leading-relaxed">Brokerage office: {CONTACT.officePhoneUS}</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">Credentials</h4>
+          <ul className="space-y-4 font-sans text-xs uppercase tracking-widest text-white/55">
+            <li>{CONTACT.licenseDisplay}</li>
+            <li>{CONTACT.brokerage}</li>
+            <li>Licensed since 2001</li>
+            <li>Certified Seller Representative</li>
+            <li>Miami and South Florida REALTORS®</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-white/5 px-6 py-8">
+        <div className="mx-auto max-w-7xl space-y-8">
+          <p className="max-w-5xl font-sans text-[10px] font-light leading-loose text-white/25">
+            {CONTACT.licenseDisplay}. Associate in {CONTACT.brokerage}. Equal Housing Opportunity. REALTOR® is a registered collective membership mark that identifies a real estate professional who is a member of the National Association of REALTORS® and subscribes to its Code of Ethics. This website currently provides seller advisory and exposure information only. Live IDX search and Bridge MLS data are not connected yet. Any future listing data, MLS display, syndication, association, brokerage, ranking, or portal statements must be verified against current compliance materials before publication. Information on this website is for general informational purposes only and is not legal, tax, financial, immigration, or investment advice.
+          </p>
+          <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
+            <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/20">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
+            <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/35">
+              <a href="#sellers" className="transition-colors hover:text-gold">Sellers</a>
+              <a href="#reach" className="transition-colors hover:text-gold">Reach</a>
+              <a href="#spain" className="transition-colors hover:text-gold">Spain Desk</a>
+              <a href="#contact" className="transition-colors hover:text-gold">Contact</a>
             </div>
-            
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="text-[10px] text-white/25 uppercase tracking-[0.4em] font-medium">
-                    © {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved
-                </div>
-                <div className="flex items-center gap-8 text-[10px] uppercase tracking-widest text-white/40">
-                    <a href="#sellers" className="hover:text-gold transition-colors">Sellers</a>
-                    <a href="#intelligence" className="hover:text-gold transition-colors">AI Desk</a>
-                    <a href="#spain" className="hover:text-gold transition-colors">Spain Desk</a>
-                </div>
-            </div>
+          </div>
         </div>
       </div>
     </footer>
