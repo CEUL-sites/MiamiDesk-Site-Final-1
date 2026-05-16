@@ -38,7 +38,7 @@ export function CitiesMarquee() {
 
       <div className="mt-10 flex flex-wrap justify-center gap-4 px-6">
         {[
-          "Miami-Dade · 9 Cities",
+          "Miami-Dade · 8 Cities",
           "Broward · 8 Cities",
           "Palm Beach · 3 Cities"
         ].map((pill) => (

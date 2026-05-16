@@ -221,7 +221,7 @@ export function Hero() {
               <span className="italic text-gold">Realtor Network.</span>
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="mt-8 max-w-xl font-sans text-[1.06rem] font-light leading-[1.85] text-white/68">
+            <motion.p variants={itemVariants} className="mt-8 max-w-xl font-sans text-[1.06rem] font-light leading-[1.85] text-white/70">
               25 years of South Florida transactions, activated inside{" "}
               <span className="text-white/90 font-normal">
                 {ASSOCIATION_STATS.memberCount.toLocaleString()} member agents
@@ -279,8 +279,8 @@ export function Hero() {
           <div className="absolute inset-0 bg-navy/40" />
           <div className="absolute left-[6.2%] top-0 h-full w-[1.5px] bg-gold/50" />
 
-          {/* Orb fills the panel */}
-          <div className="relative w-full h-full max-h-screen">
+          {/* Orb fills the panel — absolute inset so h-full resolves correctly */}
+          <div className="absolute inset-0">
             <NetworkOrb />
           </div>
 

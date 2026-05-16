@@ -30,7 +30,7 @@ export const IntelligenceDesk = () => {
   }, [visibleMessages]);
 
   return (
-    <section id="intelligence" className="bg-navy py-24 text-white">
+    <section id="intelligence" className="border-t border-gold/20 bg-navy py-24 text-white">
       <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">AI Intelligence Desk · Powered by Gemini</p>
