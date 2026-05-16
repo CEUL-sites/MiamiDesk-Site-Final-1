@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { BadgeCheck, ChevronRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, type MouseEvent, useEffect, useRef, useState } from "react";
 import { ASSOCIATION_STATS, CONTACT } from "../constants";
 
 const containerVariants = {
@@ -14,10 +14,10 @@ const itemVariants = {
 };
 
 const NETWORK_STATS = [
-  { value: "93K",  label: "Member Agents",    angle:  20, radius: 52 },
-  { value: "200+", label: "Global Portals",   angle: 155, radius: 52 },
-  { value: "$69B", label: "2025 Volume",      angle: 265, radius: 52 },
-  { value: "19",   label: "Languages",        angle:  90, radius: 52 },
+  { value: "93K",  label: "Member Agents",  angle:  20 },
+  { value: "200+", label: "Global Portals", angle: 155 },
+  { value: "$69B", label: "2025 Volume",    angle: 265 },
+  { value: "19",   label: "Languages",      angle:  90 },
 ];
 
 /** Single orbital ring rendered as a tilted ellipse */
@@ -108,7 +108,7 @@ function NetworkOrb() {
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [18, -18]), springConfig);
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-22, 22]), springConfig);
 
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+  function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
     mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
@@ -167,7 +167,9 @@ function NetworkOrb() {
 
         {/* Floating stat badges */}
         {NETWORK_STATS.map((s, i) => (
-          <NetworkBadge key={s.label} {...s} delay={1.0 + i * 0.15} />
+          <Fragment key={s.label}>
+            <NetworkBadge value={s.value} label={s.label} angle={s.angle} delay={1.0 + i * 0.15} />
+          </Fragment>
         ))}
 
         {/* Association name label */}
