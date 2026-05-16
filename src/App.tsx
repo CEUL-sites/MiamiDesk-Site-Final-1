@@ -2,7 +2,6 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { SellerSection } from "./components/SellerSection";
 import { ReachAdvantage } from "./components/ReachAdvantage";
-import { CitiesMarquee } from "./components/CitiesMarquee";
 import { PartnersMarquee } from "./components/PartnersMarquee";
 import { ExposureSyndication } from "./components/ExposureSyndication";
 import { IntelligenceDesk } from "./components/IntelligenceDesk";
@@ -19,7 +18,6 @@ export default function App() {
       <Hero />
       <SellerSection />
       <ReachAdvantage />
-      <CitiesMarquee />
       <PartnersMarquee />
       <ExposureSyndication />
       <IntelligenceDesk />
