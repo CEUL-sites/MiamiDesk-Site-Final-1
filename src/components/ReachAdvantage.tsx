@@ -40,7 +40,7 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 
 export const ReachAdvantage = () => {
   return (
-    <section id="reach" className="bg-navy-deep py-24 text-white">
+    <section id="reach" className="border-t border-gold/20 bg-navy-deep py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-16 max-w-4xl text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Distribution Engine</p>

@@ -12,7 +12,7 @@ const STEPS = [
 
 export function SellerSection() {
   return (
-    <section id="sellers" className="relative overflow-hidden bg-navy py-24 text-white">
+    <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-24 text-white">
       <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/15 blur-[120px]" />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl">
