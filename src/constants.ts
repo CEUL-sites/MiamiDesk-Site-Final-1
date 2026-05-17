@@ -29,7 +29,6 @@ export const CONTACT = {
 export const NAVIGATION = [
   { name: "Sellers", href: "#sellers" },
   { name: "Our Reach", href: "#reach" },
-  { name: "Cities", href: "#cities" },
   { name: "Partners", href: "#partners" },
   { name: "Spain Desk", href: "#spain" },
   { name: "AI Desk", href: "#intelligence" },
