@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { SellerSection } from "./components/SellerSection";
@@ -12,6 +13,12 @@ import { Footer } from "./components/Footer";
 import { MobileStickyCTA } from "./components/MobileStickyCTA";
 
 export default function App() {
+  // Force scroll to Hero on every fresh page load — runs after React mounts,
+  // overriding any browser back-forward cache or Google deep-link restoration
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
   return (
     <main className="min-h-screen bg-white-soft grain-overlay">
       <Navbar />
