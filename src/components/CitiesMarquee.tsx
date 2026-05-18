@@ -1,7 +1,6 @@
 import { URG_CITIES } from "../constants";
 
 const cityLoop = [...URG_CITIES, ...URG_CITIES, ...URG_CITIES];
-const regionLoop = cityLoop.map((item) => item.region);
 
 export function CitiesMarquee() {
   return (
@@ -20,17 +19,6 @@ export function CitiesMarquee() {
             <div key={`${item.city}-${index}`} className="flex items-center gap-8">
               <span className="font-serif text-4xl font-semibold uppercase tracking-wider text-navy lg:text-5xl">{item.city}</span>
               <span className="text-3xl text-gold">·</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="marquee-container py-5">
-        <div className="marquee-track-reverse gap-8">
-          {regionLoop.map((region, index) => (
-            <div key={`${region}-${index}`} className="flex items-center gap-8">
-              <span className="font-sans text-xl font-light italic text-navy/40">{region}</span>
-              <span className="h-1.5 w-1.5 rounded-full bg-gold/50" />
             </div>
           ))}
         </div>

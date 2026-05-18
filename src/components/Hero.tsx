@@ -85,9 +85,9 @@ function NetworkViz() {
 
   // Rings: each defined as % of the square container
   const rings = [
-    { size: "86%", border: "rgba(176,141,87,0.18)", dots: 28, highlight: 7, duration: 48, delay: 0.4 },
-    { size: "64%", border: "rgba(176,141,87,0.30)", dots: 20, highlight: 5, duration: 36, delay: 0.6 },
-    { size: "42%", border: "rgba(176,141,87,0.45)", dots: 12, highlight: 3, duration: 26, delay: 0.8 },
+    { size: "86%", border: "rgba(176,141,87,0.42)", dots: 28, highlight: 7, duration: 48, delay: 0.4 },
+    { size: "64%", border: "rgba(176,141,87,0.60)", dots: 20, highlight: 5, duration: 36, delay: 0.6 },
+    { size: "42%", border: "rgba(176,141,87,0.78)", dots: 12, highlight: 3, duration: 26, delay: 0.8 },
   ];
 
   // Badges at compass points — positioned relative to the square viz div
@@ -295,7 +295,7 @@ export function Hero() {
           className="relative hidden min-h-screen overflow-hidden lg:flex lg:items-center lg:justify-center"
           style={{ clipPath: "polygon(5% 0, 100% 0, 100% 100%, 0 100%)" }}
         >
-          <div className="absolute inset-0 bg-navy/35" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(11,30,63,0.55) 0%, transparent 18%)" }} />
           <div className="absolute left-[5.2%] top-0 h-full w-px bg-gold/45" />
 
           {/* Visualization fills the panel */}

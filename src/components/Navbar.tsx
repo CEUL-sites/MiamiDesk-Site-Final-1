@@ -36,8 +36,8 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-            Madrid {CONTACT.phoneSpain}
+          <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+            {CONTACT.phoneUS}
           </a>
           <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 border px-5 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ${scrolled ? "border-gold text-navy hover:bg-gold hover:text-white" : "border-gold/60 text-white hover:bg-gold hover:text-navy"}`}>
             <Phone size={14} />
