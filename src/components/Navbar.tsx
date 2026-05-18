@@ -19,7 +19,7 @@ export function Navbar() {
   return (
     <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-white/95 backdrop-blur-xl border-b border-bone shadow-sm py-3" : "bg-transparent py-6"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
-        <a href="#" className="flex flex-col leading-none" aria-label="HomesProfessional.com home">
+        <a href="/" className="flex flex-col leading-none" aria-label="HomesProfessional.com home">
           <span className="font-serif text-2xl font-bold tracking-tight">
             <span className={logoTone}>CARLOS</span>
             <span className="text-gold">RE</span>
