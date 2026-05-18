@@ -2,6 +2,8 @@ import { Bot, ChevronRight, FileText, Globe2, MapPin, Send, UserCheck } from "lu
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 const CAPABILITIES = [
   { icon: MapPin,      text: "South Florida market conditions and pricing by neighborhood" },
   { icon: Globe2,      text: "Bilingual intake in English, Spanish, and Portuguese" },
@@ -195,7 +197,7 @@ export const IntelligenceDesk = () => {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: EASE }}
           >
             <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/8 px-3 py-1.5 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
@@ -249,7 +251,7 @@ export const IntelligenceDesk = () => {
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
           >
             {/* Chat window */}
             <div className="overflow-hidden border border-gold/20 bg-navy-deep shadow-2xl shadow-black/40">
