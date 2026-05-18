@@ -10,7 +10,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] as const } }
 };
 
 const NETWORK_STATS = [
@@ -88,7 +88,7 @@ function NetworkBadge({ value, label, angle, delay }: {
     <motion.div
       initial={{ opacity: 0, scale: 0.7 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ delay, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
       style={{ position: "absolute", left: `${x}%`, top: `${y}%`, transform: "translate(-50%,-50%)" }}
       className="flex flex-col items-center gap-0.5 px-3 py-2 border border-gold/25 bg-navy-deep/70 backdrop-blur-sm"
     >
@@ -149,7 +149,7 @@ function NetworkOrb() {
         <motion.div
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.5, duration: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
           className="absolute inset-0 flex items-center justify-center"
         >
           <div

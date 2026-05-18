@@ -22,7 +22,7 @@ export function LeadForm() {
     setStatus("submitting");
 
     try {
-      await fetch("/", {
+      const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encodeForm({
@@ -30,6 +30,10 @@ export function LeadForm() {
           ...formData
         })
       });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed with status ${response.status}`);
+      }
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", propertyAddress: "", city: "", timeline: "30-90 days", message: "" });
     } catch {
