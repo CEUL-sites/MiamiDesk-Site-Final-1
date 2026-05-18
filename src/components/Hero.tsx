@@ -211,22 +211,27 @@ export function Hero() {
               Carlos Uzcategui · FL Realtor® SL705771 · Est. 2001
             </motion.p>
 
-            {/* Headline — sized to fit 3 lines above fold */}
+            {/* Headline */}
             <motion.h1
               variants={itemVariants}
               className="font-serif font-normal leading-[1.08] tracking-tight text-white"
-              style={{ fontSize: "clamp(2rem, 3.4vw, 3.4rem)" }}
+              style={{ fontSize: "clamp(2rem, 3.2vw, 3.2rem)" }}
             >
               Sell Your South Florida<br />
-              Property with Miami's<br />
-              <span className="italic text-gold">Full Realtor Network.</span>
+              Property with the World's<br />
+              <span className="italic text-gold">Largest Local Realtor Network.</span>
             </motion.h1>
 
-            {/* Subtitle */}
-            <motion.p variants={itemVariants} className="mt-5 max-w-lg font-sans text-[0.97rem] font-light leading-[1.8] text-white/65">
-              25 years of expert positioning, activated inside{" "}
-              <span className="font-medium text-white/90">{ASSOCIATION_STATS.memberCount.toLocaleString()} member agents</span>{" "}
-              — the world's largest local Realtor association. 200+ global portals. Madrid advisory bridge included.
+            {/* Tagline */}
+            <motion.p variants={itemVariants} className="mt-5 font-serif text-[1.05rem] italic font-normal leading-snug text-white/80">
+              Real estate is local. Peak value is global.
+            </motion.p>
+
+            {/* Supporting subtitle */}
+            <motion.p variants={itemVariants} className="mt-3 max-w-lg font-sans text-[0.9rem] font-light leading-[1.8] text-white/55">
+              25 years of expert positioning inside{" "}
+              <span className="font-medium text-white/85">{ASSOCIATION_STATS.memberCount.toLocaleString()} member agents</span>
+              {" "}— Miami and South Florida REALTORS®. 200+ global portals. Madrid advisory included.
             </motion.p>
 
             {/* CTAs */}
