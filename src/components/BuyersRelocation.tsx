@@ -44,7 +44,7 @@ export function BuyersRelocation() {
         <div className="grid gap-5 md:grid-cols-3 lg:gap-6">
           {CARDS.map((card, index) => (
             <motion.article key={card.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: index * 0.08, duration: 0.7 }} className="group relative overflow-hidden border border-bone bg-white p-7 transition-all duration-500 hover:border-b-4 hover:border-b-gold hover:shadow-2xl hover:shadow-navy/10">
-              <span className="absolute -right-3 -top-2 font-serif text-[5rem] leading-none text-gold/15">{card.number}</span>
+              <span className="absolute -right-3 -top-2 font-serif text-[5rem] leading-none text-gold/15 transition-colors duration-500 group-hover:text-gold/35">{card.number}</span>
               <div className="relative pt-14">
                 <h3 className="font-serif text-2xl text-navy">{card.title}</h3>
                 <p className="mt-5 font-sans text-sm leading-relaxed text-navy/62">{card.desc}</p>
