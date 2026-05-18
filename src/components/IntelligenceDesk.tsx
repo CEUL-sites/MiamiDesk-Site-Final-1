@@ -1,297 +1,276 @@
-import { Bot, ChevronRight, FileText, Globe2, MapPin, Send, UserCheck } from "lucide-react";
-import { motion, useInView } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import {
+  Building2, Clock, Globe, Home, Lock, Search,
+  ShieldCheck, Sparkles, TrendingUp,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-const CAPABILITIES = [
-  { icon: MapPin,      text: "South Florida market conditions and pricing by neighborhood" },
-  { icon: Globe2,      text: "Bilingual intake in English, Spanish, and Portuguese" },
-  { icon: UserCheck,   text: "Identifies seller, buyer, investor, or agency profile" },
-  { icon: FileText,    text: "Prepares structured context before Carlos responds personally" },
-];
-
-const CONVERSATION = [
+const CHIPS = [
   {
-    role: "desk",
-    text: "Good afternoon. I'm the Miami Desk — Carlos Uzcategui's AI intake advisor. Are you thinking about selling a South Florida property, or would you like to discuss the market?",
-    time: "2:14 PM",
-    delay: 400,
+    icon: Home,
+    label: "Coral Gables pricing",
+    query: "What is the current price per sq ft in Coral Gables?",
   },
   {
-    role: "user",
-    text: "I own a home in Coral Gables. Thinking about listing in the next 6 months.",
-    time: "2:15 PM",
-    delay: 2200,
+    icon: Globe,
+    label: "Activar en Miami MLS",
+    query: "¿Cómo activo mi propiedad española en el MLS de Miami?",
   },
   {
-    role: "desk",
-    text: "Coral Gables is one of South Florida's strongest submarkets — days on market has been tight. To prepare Carlos's strategy review: approximate square footage, and do you have a price range in mind?",
-    time: "2:15 PM",
-    delay: 4000,
+    icon: TrendingUp,
+    label: "Seller strategy review",
+    query: "What does the seller strategy review with Carlos include?",
   },
   {
-    role: "user",
-    text: "Around 3,200 sq ft. No price idea yet — that's why I need Carlos.",
-    time: "2:16 PM",
-    delay: 6200,
-  },
-  {
-    role: "desk",
-    text: "Understood. I'm routing your details to Carlos now. He'll follow up with a no-obligation strategy review tailored to your Coral Gables property.",
-    time: "2:16 PM",
-    delay: 8000,
+    icon: Building2,
+    label: "Buyer: Weston under $2M",
+    query: "I'm looking to buy in Weston, South Florida, under $2 million.",
   },
 ];
 
-const PROMPTS = [
-  "What is the current price per sq ft in Coral Gables?",
-  "¿Cómo activo mi propiedad española en Miami MLS?",
-  "What does the seller strategy review include?",
-  "How long does it take to sell in Weston?",
+const TRUST = [
+  { icon: ShieldCheck, label: "English & Spanish" },
+  { icon: Clock,       label: "Carlos reviews every inquiry" },
+  { icon: Lock,        label: "Routed direct to WhatsApp" },
 ];
 
-const LANGUAGES = ["English", "Español", "Português"];
+// Architectural SVG grid — gold lines at 3% opacity
+const GRID_BG = `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 0H0V60' fill='none' stroke='%23B08D57' stroke-width='0.5'/%3E%3C/svg%3E")`;
 
-function TypingIndicator() {
-  return (
-    <div className="flex items-end gap-2">
-      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gold/20 ring-1 ring-gold/30">
-        <Bot size={14} className="text-gold" />
-      </div>
-      <div className="flex gap-1 rounded-2xl rounded-bl-none bg-white/8 px-4 py-3">
-        <span className="typing-dot h-1.5 w-1.5 rounded-full bg-gold/70" />
-        <span className="typing-dot h-1.5 w-1.5 rounded-full bg-gold/70" />
-        <span className="typing-dot h-1.5 w-1.5 rounded-full bg-gold/70" />
-      </div>
-    </div>
-  );
-}
+export function IntelligenceDesk() {
+  const [query, setQuery]     = useState("");
+  const [focused, setFocused] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
 
-function ChatWindow({ started }: { started: boolean }) {
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [showTyping, setShowTyping] = useState(false);
-  const [done, setDone] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const inputRef    = useRef<HTMLInputElement>(null);
+  const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
-    if (!started) return;
-    let cancelled = false;
+  function submit(text: string) {
+    if (!text.trim()) return;
+    const url = `https://wa.me/19548656622?text=${encodeURIComponent("AI Desk: " + text)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
 
-    function scheduleNext(index: number) {
-      if (index >= CONVERSATION.length) {
-        if (!cancelled) setDone(true);
-        return;
-      }
-      const msg = CONVERSATION[index];
-      // show typing indicator before desk messages
-      const typingDelay = msg.role === "desk" && index > 0 ? 700 : 0;
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setQuery(e.target.value);
+    setIsTyping(true);
+    if (typingTimer.current) clearTimeout(typingTimer.current);
+    typingTimer.current = setTimeout(() => setIsTyping(false), 900);
+  }
 
-      const t1 = window.setTimeout(() => {
-        if (cancelled) return;
-        if (msg.role === "desk") setShowTyping(true);
-      }, msg.delay - typingDelay);
+  function handleKey(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") submit(query);
+  }
 
-      const t2 = window.setTimeout(() => {
-        if (cancelled) return;
-        setShowTyping(false);
-        setVisibleCount(index + 1);
-        scheduleNext(index + 1);
-      }, msg.delay);
+  function handleChip(chipQuery: string) {
+    setQuery(chipQuery);
+    inputRef.current?.focus();
+    // Small delay so the bar visually updates before the tab opens
+    setTimeout(() => submit(chipQuery), 80);
+  }
 
-      return () => { window.clearTimeout(t1); window.clearTimeout(t2); };
-    }
-
-    scheduleNext(0);
-    return () => { cancelled = true; };
-  }, [started]);
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [visibleCount, showTyping]);
+  useEffect(() => () => {
+    if (typingTimer.current) clearTimeout(typingTimer.current);
+  }, []);
 
   return (
-    <div className="flex flex-col" style={{ height: 420 }}>
-      {/* Chat messages */}
-      <div className="flex-1 overflow-y-auto space-y-4 p-5 lg:p-6 scrollbar-hide">
-        {CONVERSATION.slice(0, visibleCount).map((msg, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35 }}
-            className={`flex items-end gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-          >
-            {msg.role === "desk" && (
-              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gold/20 ring-1 ring-gold/30">
-                <Bot size={14} className="text-gold" />
-              </div>
-            )}
-            <div className={`max-w-[78%] ${msg.role === "user" ? "items-end" : "items-start"} flex flex-col gap-1`}>
-              {msg.role === "desk" && (
-                <span className="font-mono text-[7px] uppercase tracking-[0.2em] text-gold/60 ml-1">Miami Desk · AI</span>
-              )}
-              <div className={`rounded-2xl px-4 py-3 font-sans text-sm leading-relaxed ${
-                msg.role === "user"
-                  ? "rounded-br-none bg-gold text-navy font-medium"
-                  : "rounded-bl-none bg-white/8 text-white/85"
-              }`}>
-                {msg.text}
-              </div>
-              <span className="font-mono text-[7px] text-white/25 mx-1">{msg.time}</span>
-            </div>
-          </motion.div>
-        ))}
+    <section
+      id="intelligence"
+      className="relative overflow-hidden py-20 px-5 text-white"
+      style={{ backgroundColor: "#06111F" }}
+    >
+      {/* ── Breathing gold radial pulse ── */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ animation: "id-pulse 8s ease-in-out infinite" }}
+      />
 
-        {showTyping && <TypingIndicator />}
+      {/* ── Architectural grid ── */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ backgroundImage: GRID_BG, opacity: 0.03 }}
+      />
 
-        {done && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="pt-2"
-          >
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 border border-gold bg-gold/10 px-5 py-3 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-gold transition-all hover:bg-gold hover:text-navy"
+      {/* ── Content ── */}
+      <div className="relative mx-auto max-w-[680px]">
+
+        {/* ── Bot avatar ── */}
+        <div className="mb-10 flex justify-center">
+          <div className="relative flex h-24 w-24 items-center justify-center">
+            {/* Outer ping ring */}
+            <span
+              className="absolute h-24 w-24 rounded-full border border-gold/20"
+              style={{ animation: "id-ping 2.5s cubic-bezier(0,0,0.2,1) infinite" }}
+            />
+            {/* Middle static ring */}
+            <span className="absolute h-[72px] w-[72px] rounded-full border border-gold/30" />
+            {/* Inner circle */}
+            <div
+              className="relative flex h-[52px] w-[52px] items-center justify-center rounded-full border border-gold/50"
+              style={{ backgroundColor: "#102B57" }}
             >
-              Start your real inquiry
-              <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-            </a>
-          </motion.div>
-        )}
-
-        <div ref={bottomRef} />
-      </div>
-
-      {/* Fake input bar */}
-      <div className="border-t border-white/8 px-4 py-3">
-        <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 ring-1 ring-white/10">
-          <span className="flex-1 font-sans text-sm text-white/25 select-none">
-            Ask anything about South Florida…
-          </span>
-          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/20">
-            <Send size={12} className="text-gold" />
+              <Sparkles size={20} className="text-gold" />
+              {/* Online dot */}
+              <span
+                className="absolute bottom-0.5 right-0.5 h-3 w-3 rounded-full bg-emerald-400"
+                style={{ boxShadow: "0 0 0 2px #06111F, 0 0 8px rgba(52,211,153,0.8)" }}
+              />
+            </div>
           </div>
         </div>
-        <p className="mt-2 font-mono text-[7px] uppercase tracking-[0.2em] text-white/20 text-center">
-          Live AI desk in development — submit the form below to reach Carlos directly
-        </p>
-      </div>
-    </div>
-  );
-}
 
-export const IntelligenceDesk = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { once: true, amount: 0.25 });
-
-  return (
-    <section id="intelligence" ref={sectionRef} className="border-t border-gold/20 bg-navy py-24 text-white">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:items-start">
-
-          {/* ── LEFT: Copy ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: EASE }}
+        {/* ── Header ── */}
+        <div className="mb-10 text-center">
+          <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.35em] text-gold">
+            AI Intelligence Desk · Powered by Gemini
+          </p>
+          <h2
+            className="font-serif leading-tight text-white"
+            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", marginBottom: "1.25rem" }}
           >
-            <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/8 px-3 py-1.5 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
-              </span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
-                AI Intelligence Desk · Powered by Gemini
-              </span>
-            </div>
-
-            <h2 className="mt-7 font-serif text-4xl leading-tight text-white lg:text-5xl">
-              Your inquiry, qualified<br />
-              <span className="italic text-gold">before Carlos calls you.</span>
-            </h2>
-
-            <p className="mt-6 max-w-lg font-sans text-lg leading-relaxed text-white/65">
-              The Miami Desk reads your situation — property, timeline, location, goals — and routes the full picture to Carlos so his first response is already a strategy, not a questionnaire.
-            </p>
-
-            <div className="mt-10 space-y-5">
-              {CAPABILITIES.map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-start gap-4">
-                  <div className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center border border-gold/20 bg-gold/8">
-                    <Icon size={16} className="text-gold" />
-                  </div>
-                  <p className="font-sans text-sm leading-relaxed text-white/70 pt-2">{text}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Language badges */}
-            <div className="mt-10 flex flex-wrap gap-3">
-              {LANGUAGES.map((lang) => (
-                <span key={lang} className="border border-white/15 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.25em] text-white/45">
-                  {lang}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a href="#contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all hover:bg-gold-soft">
-                Request Strategy Review
-                <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
-              </a>
-            </div>
-          </motion.div>
-
-          {/* ── RIGHT: Chat UI ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
+            Ask anything about South Florida real estate.
+          </h2>
+          <p
+            className="mx-auto font-sans font-light text-white/55"
+            style={{ fontSize: "1rem", lineHeight: 1.8, maxWidth: 480 }}
           >
-            {/* Chat window */}
-            <div className="overflow-hidden border border-gold/20 bg-navy-deep shadow-2xl shadow-black/40">
-              {/* Title bar */}
-              <div className="flex items-center justify-between border-b border-white/8 bg-navy/60 px-5 py-3.5">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                  </div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-white/40">
-                    miamidesk.ai · intelligence preview
+            Seller strategy, neighborhood pricing, Madrid activation, buyer advisory — answered in English or Spanish. Carlos reviews every inquiry personally.
+          </p>
+        </div>
+
+        {/* ── Search bar ── */}
+        <motion.div
+          animate={{ scale: focused ? 1.01 : 1 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+        >
+          <div
+            className="flex items-center gap-3 rounded-2xl px-4 py-3 transition-all duration-200"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.05)",
+              border: `1px solid ${focused ? "rgba(176,141,87,0.6)" : "rgba(255,255,255,0.15)"}`,
+              boxShadow: focused ? "0 0 0 4px rgba(176,141,87,0.08)" : "none",
+            }}
+          >
+            <Search
+              size={18}
+              className="flex-shrink-0 transition-colors duration-200"
+              style={{ color: focused ? "#B08D57" : "rgba(255,255,255,0.3)" }}
+            />
+            <input
+              ref={inputRef}
+              type="text"
+              value={query}
+              onChange={handleChange}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+              onKeyDown={handleKey}
+              placeholder="Ask about Coral Gables pricing, Madrid MLS activation, seller strategy..."
+              className="flex-1 bg-transparent text-white outline-none placeholder:text-white/30"
+              style={{ fontFamily: "inherit", fontSize: 15, fontWeight: 300 }}
+            />
+            <AnimatePresence>
+              {query.length > 0 && (
+                <motion.button
+                  key="ask"
+                  initial={{ opacity: 0, x: 8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 8 }}
+                  transition={{ duration: 0.18 }}
+                  onClick={() => submit(query)}
+                  className="flex-shrink-0 rounded-xl px-4 py-2 font-sans text-xs font-bold uppercase tracking-widest text-white"
+                  style={{ backgroundColor: "#B08D57" }}
+                >
+                  Ask →
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </div>
+        </motion.div>
+
+        {/* Typing dots */}
+        <AnimatePresence>
+          {isTyping && query.length > 0 && (
+            <motion.div
+              key="typing"
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.18 }}
+              className="mt-3 flex items-center gap-3"
+            >
+              <div className="flex gap-1">
+                {[0, 150, 300].map((d) => (
+                  <span
+                    key={d}
+                    className="inline-block h-1.5 w-1.5 rounded-full bg-gold"
+                    style={{ animation: `id-bounce 0.8s ease-in-out ${d}ms infinite` }}
+                  />
+                ))}
+              </div>
+              <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/30">
+                Carlos AI Desk
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ── Suggestion chips ── */}
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
+          {CHIPS.map(({ icon: Icon, label, query: cq }) => (
+            <button
+              key={label}
+              onClick={() => handleChip(cq)}
+              className="group flex items-center gap-2 rounded-full border px-4 py-2 transition-all duration-200 hover:border-gold/30 hover:bg-gold/10"
+              style={{
+                borderColor: "rgba(255,255,255,0.1)",
+                backgroundColor: "rgba(255,255,255,0.05)",
+              }}
+            >
+              <Icon
+                size={13}
+                className="flex-shrink-0 text-gold/60 transition-colors duration-200 group-hover:text-gold"
+              />
+              <span className="font-sans text-[11px] text-white/55 transition-colors duration-200 group-hover:text-white/85">
+                {label}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* ── Trust row ── */}
+        <div className="mt-12 border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-0">
+            {TRUST.map(({ icon: Icon, label }, i) => (
+              <div key={label} className="flex items-center">
+                {i > 0 && (
+                  <span className="mx-6 hidden h-4 w-px bg-white/10 sm:block" />
+                )}
+                <div className="flex items-center gap-2">
+                  <Icon size={14} className="flex-shrink-0 text-gold/40" />
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-white/30">
+                    {label}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/70">Gemini</span>
-                </div>
               </div>
-
-              <ChatWindow started={inView} />
-            </div>
-
-            {/* Prompt chips */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {PROMPTS.map((prompt) => (
-                <a
-                  key={prompt}
-                  href="#contact"
-                  className="rounded-full border border-gold/20 bg-navy-deep px-4 py-2 font-sans text-[11px] text-white/55 transition-colors hover:border-gold/50 hover:text-gold"
-                >
-                  {prompt}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* ── Keyframes ── */}
+      <style>{`
+        @keyframes id-pulse {
+          0%, 100% { background: radial-gradient(ellipse at 50% 50%, rgba(176,141,87,0.04) 0%, transparent 70%); }
+          50%       { background: radial-gradient(ellipse at 50% 50%, rgba(176,141,87,0.09) 0%, transparent 70%); }
+        }
+        @keyframes id-ping {
+          75%, 100% { transform: scale(1.9); opacity: 0; }
+        }
+        @keyframes id-bounce {
+          0%, 100% { transform: translateY(0); }
+          50%       { transform: translateY(-4px); }
+        }
+      `}</style>
     </section>
   );
-};
+}
