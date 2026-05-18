@@ -1,15 +1,17 @@
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform, type Variants } from "motion/react";
 import { BadgeCheck, ChevronRight, MessageSquare } from "lucide-react";
 import { type CSSProperties, Fragment, type MouseEvent, useEffect, useRef, useState } from "react";
 import { ASSOCIATION_STATS, CONTACT } from "../constants";
 
-const containerVariants = {
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.11, delayChildren: 0.2 } },
 };
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
 };
 
 /* ─── Ring dots ─────────────────────────────────────────────── */
@@ -54,7 +56,7 @@ function StatBadge({
     <motion.div
       initial={{ opacity: 0, scale: 0.75 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ delay, duration: 0.7, ease: EASE }}
       style={{ position: "absolute", ...style }}
       className="flex flex-col items-center gap-0.5 border border-gold/30 bg-navy-deep/80 px-3 py-2 backdrop-blur-sm"
     >
@@ -141,7 +143,7 @@ function NetworkViz() {
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.5, duration: 1.1, ease: EASE }}
             style={{
               position: "absolute", top: "50%", left: "50%",
               width: "24%", height: "24%",
