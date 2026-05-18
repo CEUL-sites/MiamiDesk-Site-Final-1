@@ -1,4 +1,6 @@
 import { CONTACT, NAVIGATION } from "../constants";
+import { URGLogo } from "./URGLogo";
+import { CLHMSSeal } from "./CLHMSSeal";
 
 const ticker = "SOUTH FLORIDA · MIAMI MLS · UNITED REALTY GROUP · MADRID · INTERNATIONAL · 25 YEARS · ";
 
@@ -15,12 +17,25 @@ export function Footer() {
 
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
-          <p className="font-mono mt-2 text-[9px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
-          <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/40">
+          {/* URG logo — white variant on dark footer */}
+          <URGLogo variant="white" className="h-10 w-auto max-w-[160px]" />
+
+          <p className="font-mono mt-4 text-[9px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
+          <p className="mt-4 max-w-xs font-sans text-sm font-light leading-relaxed text-white/40">
             South Florida seller strategy. Madrid advisory bridge. United Realty Group brokerage infrastructure.
           </p>
-          <p className="mt-8 font-sans text-xs text-white/35">⊕ Equal Housing Opportunity</p>
+
+          {/* CLHMS seal */}
+          <div className="mt-6 flex items-center gap-4">
+            <CLHMSSeal size={72} />
+            <div>
+              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/70 leading-loose">
+                Certified Luxury Home<br />Marketing Specialist
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-6 font-sans text-xs text-white/35">⊕ Equal Housing Opportunity</p>
         </div>
 
         <div>

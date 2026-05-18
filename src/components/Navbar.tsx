@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CONTACT, NAVIGATION } from "../constants";
+import { URGLogo } from "./URGLogo";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,19 +15,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const logoTone = scrolled ? "text-navy" : "text-white";
-
   return (
     <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-white/95 backdrop-blur-xl border-b border-bone shadow-sm py-3" : "bg-transparent py-6"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
-        <a href="/" className="flex flex-col leading-none" aria-label="HomesProfessional.com home">
-          <span className="font-serif text-2xl font-bold tracking-tight">
-            <span className={logoTone}>CARLOS</span>
-            <span className="text-gold">RE</span>
-          </span>
-          <span className={`font-mono mt-1 text-[8px] uppercase tracking-[0.25em] ${scrolled ? "text-graphite" : "text-white/55"}`}>
-            HomesProfessional.com
-          </span>
+
+        {/* Logo — URG mark, color-adaptive */}
+        <a href="/" aria-label="United Realty Group — HomesProfessional.com">
+          <URGLogo
+            variant={scrolled ? "color" : "white"}
+            className="h-8 w-auto max-w-[130px] transition-opacity duration-300"
+          />
         </a>
 
         <div className="hidden items-center gap-7 xl:flex">
@@ -57,10 +55,7 @@ export function Navbar() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 bg-navy-deep text-white xl:hidden">
             <div className="flex h-full flex-col px-6 py-6">
               <div className="flex items-center justify-between">
-                <div className="flex flex-col leading-none">
-                  <span className="font-serif text-3xl font-bold tracking-tight">CARLOS<span className="text-gold">RE</span></span>
-                  <span className="font-mono mt-1 text-[8px] uppercase tracking-[0.25em] text-white/45">HomesProfessional.com</span>
-                </div>
+                <URGLogo variant="white" className="h-9 w-auto max-w-[140px]" />
                 <button type="button" onClick={() => setIsOpen(false)} aria-label="Close navigation menu" className="text-gold">
                   <X size={32} />
                 </button>

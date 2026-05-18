@@ -1,6 +1,7 @@
 import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT } from "../constants";
 import { LeadForm } from "./LeadForm";
+import { CLHMSSeal } from "./CLHMSSeal";
 
 const STATS = [
   { value: "25", label: "Years Licensed" },
@@ -23,10 +24,15 @@ export function AboutContact() {
               <h2 className="mt-4 font-serif text-4xl leading-tight text-navy lg:text-6xl">Carlos Uzcategui</h2>
               <p className="font-mono mt-3 text-[10px] uppercase tracking-[0.22em] text-navy/45">Florida Licensed Realtor® · Since 2001</p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                {["CLHMS", "Certified Seller Rep", "Licensed Since 2001"].map((badge) => (
-                  <span key={badge} className="border border-gold/45 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-gold">{badge}</span>
-                ))}
+              <div className="mt-8 flex flex-wrap items-center gap-5">
+                {/* CLHMS visual seal */}
+                <CLHMSSeal size={84} className="flex-shrink-0" />
+                {/* Text credential badges */}
+                <div className="flex flex-wrap gap-3">
+                  {["Certified Seller Rep", "Licensed Since 2001"].map((badge) => (
+                    <span key={badge} className="border border-gold/45 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-gold">{badge}</span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
