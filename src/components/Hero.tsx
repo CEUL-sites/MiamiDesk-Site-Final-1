@@ -201,6 +201,8 @@ export function Hero() {
     <section className="relative min-h-screen overflow-hidden bg-navy-deep text-white">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_20%,rgba(176,141,87,0.16),transparent_40%),radial-gradient(ellipse_at_85%_80%,rgba(11,30,63,0.7),transparent_50%)]" />
+      {/* Dot grid overlay */}
+      <div className="absolute inset-0 dot-grid opacity-35" />
 
       <div className="relative grid min-h-screen lg:grid-cols-[54%_46%]">
 
@@ -267,7 +269,7 @@ export function Hero() {
                 { value: "$69B",  label: "2025 Volume" },
                 { value: "200+",  label: "Global Portals" },
               ].map((s) => (
-                <div key={s.label}>
+                <div key={s.label} className="border-l-2 border-l-gold/40 pl-4">
                   <div className="font-serif text-2xl text-white lg:text-3xl">{s.value}</div>
                   <div className="font-mono mt-1 text-[7px] uppercase tracking-[0.18em] text-gold/65">{s.label}</div>
                 </div>

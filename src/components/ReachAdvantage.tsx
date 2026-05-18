@@ -63,9 +63,22 @@ export const ReachAdvantage = () => {
           ))}
         </div>
 
-        <div className="mt-16 border-t border-gold/40 pt-10 text-center">
-          <blockquote className="font-serif text-3xl italic text-white lg:text-5xl">Features describe a property. Distribution determines its price.</blockquote>
-          <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/60">— {CONTACT.shortLicense}</p>
+        <div className="mt-16 relative overflow-hidden">
+          <div className="gold-line-h" />
+          <div className="py-20 px-6 text-center relative">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+              <span className="font-serif font-bold text-gold/[0.045]" style={{ fontSize: "clamp(8rem, 22vw, 20rem)", lineHeight: 1 }}>"</span>
+            </div>
+            <blockquote className="relative font-serif text-3xl italic text-white lg:text-6xl max-w-5xl mx-auto leading-[1.12] text-balance">
+              Features describe a property.<br className="hidden sm:block" /> Distribution determines its price.
+            </blockquote>
+            <div className="mt-10 flex items-center justify-center gap-6">
+              <span className="h-px w-16 bg-gold/40" />
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/60">— {CONTACT.shortLicense}</p>
+              <span className="h-px w-16 bg-gold/40" />
+            </div>
+          </div>
+          <div className="gold-line-h" />
         </div>
       </div>
     </section>
