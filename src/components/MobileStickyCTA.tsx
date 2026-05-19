@@ -26,14 +26,14 @@ export function MobileStickyCTA() {
           href={CONTACT.whatsappUS}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-white/85 transition-colors active:scale-95"
+          className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-white/85 transition-all duration-100 active:scale-95"
         >
           <MessageSquare size={13} className="text-gold" />
           WhatsApp
         </a>
         <a
           href="#contact"
-          className="flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-navy transition-colors hover:bg-gold-soft active:scale-95"
+          className="flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
           Strategy Review
         </a>

@@ -81,7 +81,7 @@ export function Hero() {
           <motion.div variants={itemVariants} className="mt-9 flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 bg-gold px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft"
+              className="group inline-flex items-center gap-2 bg-gold px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft active:scale-95"
             >
               Request a Private Seller Strategy Review
               <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
@@ -90,7 +90,7 @@ export function Hero() {
               href={CONTACT.whatsappUS}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold"
+              className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold active:scale-95"
             >
               <MessageSquare size={14} />
               WhatsApp Carlos

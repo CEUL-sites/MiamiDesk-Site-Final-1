@@ -111,7 +111,7 @@ function ChatWindow({ started }: { started: boolean }) {
   }, [visibleCount, showTyping]);
 
   return (
-    <div className="flex flex-col" style={{ height: 420 }}>
+    <div className="flex flex-col h-[420px]">
       {/* Chat messages */}
       <div className="flex-1 overflow-y-auto space-y-4 p-5 lg:p-6 scrollbar-hide">
         {CONVERSATION.slice(0, visibleCount).map((msg, i) => (
@@ -232,7 +232,7 @@ export const IntelligenceDesk = () => {
             {/* Language badges */}
             <div className="mt-10 flex flex-wrap gap-3">
               {LANGUAGES.map((lang) => (
-                <span key={lang} className="border border-white/15 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.25em] text-white/45">
+                <span key={lang} className="border border-white/20 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.25em] text-white/60">
                   {lang}
                 </span>
               ))}

@@ -68,7 +68,7 @@ export const ReachAdvantage = () => {
           <div className="gold-line-h" />
           <div className="py-20 px-6 text-center relative">
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-              <span className="font-serif font-bold text-gold/[0.045]" style={{ fontSize: "clamp(8rem, 22vw, 20rem)", lineHeight: 1 }}>"</span>
+              <span className="font-serif font-bold text-gold/[0.09]" style={{ fontSize: "clamp(8rem, 22vw, 20rem)", lineHeight: 1 }}>"</span>
             </div>
             <blockquote className="relative font-serif text-3xl italic text-white lg:text-6xl max-w-5xl mx-auto leading-[1.12] text-balance">
               Features describe a property.<br className="hidden sm:block" /> Distribution determines its price.

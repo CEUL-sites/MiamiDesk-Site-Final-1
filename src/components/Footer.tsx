@@ -8,7 +8,7 @@ export function Footer() {
       <div className="marquee-container border-b border-white/5 py-4">
         <div className="marquee-track-slow">
           {Array.from({ length: 8 }).map((_, index) => (
-            <span key={index} className="font-mono pr-8 text-[10px] uppercase tracking-[0.3em] text-white/10">{ticker}</span>
+            <span key={index} className="font-mono pr-8 text-[10px] uppercase tracking-[0.3em] text-white/20">{ticker}</span>
           ))}
         </div>
       </div>

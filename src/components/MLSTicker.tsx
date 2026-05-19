@@ -157,8 +157,8 @@ export function MLSTicker() {
             {doubled.map((l, idx) => (
               <div
                 key={`${l.id}-${idx}`}
-                className="flex-shrink-0 flex items-stretch gap-0 border border-white/10 bg-[#111F38] hover:border-[#C9A84C]/60 transition-colors duration-200"
-                style={{ minWidth: 280 }}
+                className="flex-shrink-0 flex items-stretch gap-0 border border-white/10 bg-[#111F38] hover:border-gold/60 transition-colors duration-200"
+                style={{ minWidth: 240 }}
               >
                 {/* Status stripe */}
                 <div
@@ -169,7 +169,7 @@ export function MLSTicker() {
                 <div className="flex flex-col gap-1 px-3 py-2.5">
                   {/* Price + status */}
                   <div className="flex items-center justify-between gap-3">
-                    <span className="font-serif text-base font-bold text-[#C9A84C] leading-none">
+                    <span className="font-serif text-base font-bold text-gold leading-none">
                       {formatPrice(l.price)}
                     </span>
                     <span

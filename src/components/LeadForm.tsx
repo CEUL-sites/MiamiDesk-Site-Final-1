@@ -113,13 +113,16 @@ export function LeadForm() {
             </div>
             <div className="flex flex-col gap-2">
               <label className="input-label">Timeline</label>
-              <select name="timeline" className="form-input cursor-pointer appearance-none" value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}>
-                <option>Immediately</option>
-                <option>30-90 days</option>
-                <option>3-6 months</option>
-                <option>6+ months</option>
-                <option>Exploring options</option>
-              </select>
+              <div className="relative">
+                <select name="timeline" className="form-input w-full cursor-pointer appearance-none pr-9" value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}>
+                  <option>Immediately</option>
+                  <option>30-90 days</option>
+                  <option>3-6 months</option>
+                  <option>6+ months</option>
+                  <option>Exploring options</option>
+                </select>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold/60">▾</span>
+              </div>
             </div>
           </div>
 
@@ -143,7 +146,7 @@ export function LeadForm() {
 
           <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-5 font-sans text-xs font-bold uppercase tracking-[0.28em] text-white shadow-lg shadow-gold/10 transition-all hover:bg-gold disabled:opacity-60">
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}
-            {status === "submitting" ? "Sending Review Request" : "Request Seller Strategy Review"}
+            {status === "submitting" ? "Sending…" : "Request Seller Strategy Review"}
           </button>
           <p className="font-mono text-center text-[8px] uppercase tracking-[0.2em] text-navy/25">
             Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
