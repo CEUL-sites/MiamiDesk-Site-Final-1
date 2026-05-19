@@ -261,7 +261,7 @@ export function Hero() {
             {/* Trust bar */}
             <motion.div
               variants={itemVariants}
-              className="mt-10 grid grid-cols-4 gap-4 border-t border-white/10 pt-8"
+              className="mt-10 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-4"
             >
               {[
                 { value: "25",    label: "Years Licensed" },

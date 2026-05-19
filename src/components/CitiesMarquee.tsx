@@ -9,9 +9,6 @@ export function CitiesMarquee() {
       <div className="mx-auto max-w-5xl px-6 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">United Realty Group · South Florida Coverage</p>
         <h2 className="mt-4 font-serif text-4xl text-navy lg:text-5xl">19 cities. One professional network.</h2>
-        <p className="mx-auto mt-5 max-w-3xl font-sans text-base leading-relaxed text-navy/60">
-          United Realty Group maintains active offices and agent networks across Miami-Dade, Broward, and Palm Beach counties, the three counties that define South Florida's real estate market.
-        </p>
       </div>
 
       <div className="marquee-container mt-12 border-y border-gold/10 py-6">
