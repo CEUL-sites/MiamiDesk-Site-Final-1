@@ -2,6 +2,13 @@ import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT } from "../constants";
 import { LeadForm } from "./LeadForm";
 
+const STATS = [
+  { value: "25", label: "Years Licensed" },
+  { value: "93,000", label: "Member Agents in Association" },
+  { value: "20", label: "URG Offices Statewide" },
+  { value: "$69B", label: "2025 Association Volume" }
+];
+
 export function AboutContact() {
   return (
     <section id="contact" className="bg-ivory py-24">
@@ -29,10 +36,36 @@ export function AboutContact() {
             <p>From his Weston, Florida office, he serves South Florida sellers and buyers through United Realty Group, Florida's leading transactional brokerage. From Madrid, he works directly with Spanish developers, agencies, and HNW property owners who need a licensed U.S. principal to activate their assets in the American market.</p>
           </div>
 
-          <div className="mt-12 border-t border-bone pt-8 space-y-3">
+          <div className="mt-12 grid grid-cols-2 gap-px border border-bone bg-bone lg:max-w-3xl">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="bg-white-soft p-6">
+                <div className="font-serif text-4xl text-gold">{stat.value}</div>
+                <div className="font-mono mt-2 text-[9px] uppercase tracking-[0.2em] text-navy/50">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* URG Headquarters */}
+          <div className="mt-12 overflow-hidden border border-bone">
+            <div className="relative h-44 w-full bg-navy-deep">
+              <img
+                src="/images/urg-hq.jpg"
+                alt="United Realty Group headquarters, Plantation, Florida"
+                className="h-full w-full object-cover object-center opacity-80"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · Brokerage</p>
+                <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/50">Headquarters: Plantation, Florida · FL License</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 border-t border-bone pt-6 space-y-2">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">{CONTACT.licenseDisplay}</p>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Member: Miami and South Florida REALTORS® · Est. 2026 merger</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Member: Miami and South Florida REALTORS®</p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
@@ -55,7 +88,7 @@ export function AboutContact() {
           <LeadForm />
           <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/30">
             <BadgeCheck size={14} className="text-gold" />
-            Netlify form routing enabled for seller inquiries
+            Confidential · Direct to Carlos · Equal Housing Opportunity
           </div>
         </div>
       </div>

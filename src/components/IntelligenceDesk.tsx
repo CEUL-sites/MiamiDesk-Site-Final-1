@@ -176,7 +176,7 @@ function ChatWindow({ started }: { started: boolean }) {
           </div>
         </div>
         <p className="mt-2 font-mono text-[7px] uppercase tracking-[0.2em] text-white/20 text-center">
-          Live AI desk in development — submit the form below to reach Carlos directly
+          Inquiry preview · submit the form below to reach Carlos directly
         </p>
       </div>
     </div>

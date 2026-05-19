@@ -13,7 +13,12 @@ const STEPS = [
 export function SellerSection() {
   return (
     <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-24 text-white">
-      <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/15 blur-[120px]" />
+      {/* Miami skyline background */}
+      <div className="absolute inset-0">
+        <img src="/images/miami-skyline.jpg" alt="" aria-hidden="true" className="h-full w-full object-cover object-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" />
+      </div>
+      <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/10 blur-[120px]" />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl">
           <p className="font-mono mb-4 text-[10px] uppercase tracking-[0.3em] text-gold">Seller Strategy</p>
@@ -43,7 +48,7 @@ export function SellerSection() {
         <div className="mt-20 bg-navy-deep px-6 py-12 text-center ring-1 ring-white/10">
           <h3 className="font-serif text-3xl italic text-white">Ready to position your South Florida property correctly?</h3>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="#contact" className="inline-flex items-center justify-center bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">Request Seller Strategy Review</a>
+            <a href="#contact" className="inline-flex items-center justify-center bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">Request a Private Seller Strategy Review</a>
             <a href={CONTACT.whatsappUS} className="inline-flex items-center justify-center border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">WhatsApp Carlos</a>
           </div>
           <p className="font-mono mx-auto mt-6 max-w-2xl text-[9px] uppercase tracking-[0.2em] text-white/35">{CONTACT.licenseDisplay} · {CONTACT.brokerage}</p>

@@ -43,12 +43,13 @@ export const ReachAdvantage = () => {
     <section id="reach" className="border-t border-gold/20 bg-navy-deep py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-16 max-w-4xl text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Distribution Engine</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller Distribution Advantage</p>
           <h2 className="mt-5 font-serif text-4xl leading-tight text-white lg:text-6xl">
-            Maximum syndication. <span className="italic text-gold">Maximum valuation pressure.</span>
+            This is not just an online posting.<br />
+            <span className="italic text-gold">It is a distribution strategy.</span>
           </h2>
           <p className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-relaxed text-white/60">
-            Listing with Carlos means entering an institutional distribution system: MLS visibility, global publication, broker cooperation, referral networks, and professional agent access across South Florida.
+            Listing with Carlos means entering a professional distribution infrastructure — MLS visibility, global publication, broker cooperation, referral networks, and buyer-agent access across South Florida and beyond.
           </p>
         </div>
 

@@ -4,39 +4,44 @@ import { motion } from "motion/react";
 const CARDS = [
   {
     number: "01",
-    title: "Strategic Acquisitions",
-    desc: "Neighborhood intelligence, offer structure, and local market insight refined by 25 years of institutional-grade Florida real estate experience. The right offer, at the right price, in the right timing window.",
+    title: "LATAM Buyer Awareness",
+    desc: "South Florida's luxury segment draws significant demand from Latin American markets. Carlos's professional relationships in this buyer universe, built through two decades of active transactions, benefit sellers who need the right buyers to find their listing.",
     tag: "MIAMI-DADE · BROWARD · PALM BEACH"
   },
   {
     number: "02",
-    title: "Portfolio Positioning",
-    desc: "Analytical support for investors comparing asset types, location fundamentals, and long-term capital positioning across South Florida. Investment-grade thinking applied to residential and commercial assets.",
-    tag: "RESIDENTIAL · COMMERCIAL · MIXED-USE"
+    title: "International Referral Network",
+    desc: "Active professional connections in Madrid and Latin American markets create referral pathways that extend the visibility of South Florida listings well beyond local buyer pools.",
+    tag: "MIAMI ↔ MADRID · INTERNATIONAL"
   },
   {
     number: "03",
-    title: "Cross-Border Relocation",
-    desc: "A bilingual advisory bridge for clients relocating between South Florida and Spain, with professional referrals, market comparison, and transition support tailored to cross-border decisions.",
-    tag: "MIAMI ↔ MADRID · BILINGUAL"
+    title: "Cross-Border Positioning",
+    desc: "Bilingual advisory support and cross-market intelligence for listings with international appeal — contextualized for buyers from Spain, Latin America, and global relocation markets.",
+    tag: "BILINGUAL · ENGLISH · ESPAÑOL"
   }
 ];
 
 export function BuyersRelocation() {
   return (
-    <section id="buyers" className="bg-bone-warm py-24">
+    <section id="buyers" className="relative overflow-hidden bg-bone-warm py-24">
+      {/* Brickell aerial background */}
+      <div className="absolute inset-0">
+        <img src="/images/brickell-aerial.jpg" alt="" aria-hidden="true" className="h-full w-full object-cover object-center opacity-10" />
+        <div className="absolute inset-0 bg-bone-warm/80" />
+      </div>
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div className="max-w-xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-navy/55">Buyer Advisory · LATAM Bridge</p>
-          <h2 className="mt-5 font-serif text-4xl leading-tight text-navy lg:text-6xl">
-            25 years of LATAM relationships.<br />
-            <span className="italic text-gold">Insider Miami access.</span>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-navy/55">Seller Advantage · International Demand</p>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-navy lg:text-5xl">
+            Your South Florida Property.<br />
+            <span className="italic text-gold">The Broadest Buyer Reach.</span>
           </h2>
           <p className="mt-7 font-sans text-lg leading-relaxed text-navy/65">
-            The buyer side of South Florida's luxury market is dominated by Latin American capital. Carlos's client relationships in this segment were built deal by deal over two decades, not through marketing campaigns. If you are buying in Miami, you want representation by someone who already knows your buyer universe.
+            South Florida's luxury market draws buyers from Latin America, Europe, and global relocation markets. Carlos's 25 years of market presence include the buyer-side relationships that make listings visible to the right audiences — not just the nearest ones.
           </p>
           <a href="#contact" className="group mt-9 inline-flex items-center gap-2 border-b border-gold pb-2 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:text-gold">
-            Ask About South Florida or Spain
+            Ask About International Reach
             <Compass size={16} className="transition-transform group-hover:rotate-45" />
           </a>
         </div>
