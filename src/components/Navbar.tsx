@@ -24,7 +24,7 @@ export function Navbar() {
             <span className={logoTone}>CARLOS</span>
             <span className="text-gold">RE</span>
           </span>
-          <span className={`font-mono mt-1 text-[8px] uppercase tracking-[0.25em] ${scrolled ? "text-graphite" : "text-white/55"}`}>
+          <span className={`font-mono mt-1 text-[9px] uppercase tracking-[0.22em] ${scrolled ? "text-navy/50" : "text-white/50"}`}>
             HomesProfessional.com
           </span>
         </a>
@@ -59,7 +59,7 @@ export function Navbar() {
               <div className="flex items-center justify-between">
                 <div className="flex flex-col leading-none">
                   <span className="font-serif text-3xl font-bold tracking-tight">CARLOS<span className="text-gold">RE</span></span>
-                  <span className="font-mono mt-1 text-[8px] uppercase tracking-[0.25em] text-white/45">HomesProfessional.com</span>
+                  <span className="font-mono mt-1 text-[9px] uppercase tracking-[0.22em] text-white/45">HomesProfessional.com</span>
                 </div>
                 <button type="button" onClick={() => setIsOpen(false)} aria-label="Close navigation menu" className="text-gold">
                   <X size={32} />
