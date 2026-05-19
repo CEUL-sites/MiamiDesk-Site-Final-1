@@ -1,8 +1,12 @@
 [build]
-  command = "npm run build"
+  command = "yarn build"
   publish = "dist"
 
 [build.environment]
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--version"
+
+[context.production.environment]
   NODE_VERSION = "22"
 
 [[redirects]]
