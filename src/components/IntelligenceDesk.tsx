@@ -4,6 +4,11 @@ import {
   ShieldCheck, Sparkles, TrendingUp,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { CONTACT } from "../constants";
+
+// Extract bare wa.me base from the full whatsappUS URL so the phone number
+// stays in one place (constants.ts) and dynamic queries can be appended.
+const WA_BASE = CONTACT.whatsappUS.split("?")[0];
 
 const CHIPS = [
   {
@@ -47,7 +52,7 @@ export function IntelligenceDesk() {
 
   function submit(text: string) {
     if (!text.trim()) return;
-    const url = `https://wa.me/19548656622?text=${encodeURIComponent("AI Desk: " + text)}`;
+    const url = `${WA_BASE}?text=${encodeURIComponent("AI Desk: " + text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   }
 

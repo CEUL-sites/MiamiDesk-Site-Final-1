@@ -1,4 +1,4 @@
-import { PARTNER_AGENCIES } from "../constants";
+import { CONTACT, PARTNER_AGENCIES } from "../constants";
 
 // COOPERATION DISCLOSURE: This component lists agencies for professional recognition of market participants in South Florida and Spain. It does not imply formal partnership agreements with all listed agencies unless separately confirmed. Edit the list to reflect only agencies with active cooperation before publishing. Review with broker before deployment.
 
@@ -41,7 +41,7 @@ export function PartnersMarquee() {
       </div>
 
       <div className="px-6 py-14 text-center">
-        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/30">Professional cooperation inquiries: contact@carlosre.com</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/30">Professional cooperation inquiries: {CONTACT.email}</p>
         <div className="mx-auto mt-5 inline-flex border border-gold/30 px-5 py-3 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
           Miami and South Florida REALTORS® member · 93,000 agent network
         </div>
