@@ -2,31 +2,40 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 
+const INITIAL_FORM_DATA = {
+  name: "",
+  email: "",
+  phone: "",
+  propertyAddress: "",
+  city: "",
+  timeline: "30-90 days",
+  message: ""
+};
+
 const encodeForm = (data: Record<string, string>) =>
   new URLSearchParams(data).toString();
 
 export function LeadForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    propertyAddress: "",
-    city: "",
-    timeline: "30-90 days",
-    message: ""
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
+
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 12000);
 
     try {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        signal: controller.signal,
         body: encodeForm({
           "form-name": "seller-consultation",
+          "bot-field": "",
           ...formData
         })
       });
@@ -35,9 +44,16 @@ export function LeadForm() {
         throw new Error(`Form submission failed with status ${response.status}`);
       }
       setStatus("success");
-      setFormData({ name: "", email: "", phone: "", propertyAddress: "", city: "", timeline: "30-90 days", message: "" });
-    } catch {
+      setFormData(INITIAL_FORM_DATA);
+    } catch (error) {
+      const message =
+        error instanceof DOMException && error.name === "AbortError"
+          ? "The request timed out. Please use WhatsApp or try again."
+          : "The form could not be submitted. Please use WhatsApp or try again.";
+      setErrorMessage(message);
       setStatus("error");
+    } finally {
+      window.clearTimeout(timeout);
     }
   };
 
@@ -75,8 +91,9 @@ export function LeadForm() {
           </p>
         </div>
 
-        <form name="seller-consultation" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-6">
+        <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
+          <input type="hidden" name="bot-field" />
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
@@ -122,7 +139,7 @@ export function LeadForm() {
             <textarea name="message" rows={4} placeholder="What should Carlos know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
           </div>
 
-          {status === "error" && <p className="font-sans text-sm text-red-700">The form could not be submitted. Please use WhatsApp or try again.</p>}
+          {status === "error" && <p className="font-sans text-sm text-red-700">{errorMessage}</p>}
 
           <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-5 font-sans text-xs font-bold uppercase tracking-[0.28em] text-white shadow-lg shadow-gold/10 transition-all hover:bg-gold disabled:opacity-60">
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}
