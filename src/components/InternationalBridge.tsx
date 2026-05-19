@@ -72,7 +72,7 @@ export function InternationalBridge() {
           <h3 className="font-serif text-3xl italic text-white">Ready to put your property in front of the world's largest Realtor network?</h3>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <a href="#contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">
-              Activate Your Listing
+              Request a Private Seller Strategy Review
               <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">WhatsApp Spain Desk</a>

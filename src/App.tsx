@@ -5,6 +5,7 @@ import { SellerSection } from "./components/SellerSection";
 import { ReachAdvantage } from "./components/ReachAdvantage";
 import { ExposureSyndication } from "./components/ExposureSyndication";
 import { PartnersMarquee } from "./components/PartnersMarquee";
+import { CarlosTrust } from "./components/CarlosTrust";
 import { InternationalBridge } from "./components/InternationalBridge";
 import { BuyersRelocation } from "./components/BuyersRelocation";
 import { IntelligenceDesk } from "./components/IntelligenceDesk";
@@ -28,6 +29,7 @@ export default function App() {
       <ReachAdvantage />
       <ExposureSyndication />
       <PartnersMarquee />
+      <CarlosTrust />
       <InternationalBridge />
       <BuyersRelocation />
       <IntelligenceDesk />

@@ -43,7 +43,7 @@ export function SellerSection() {
         <div className="mt-20 bg-navy-deep px-6 py-12 text-center ring-1 ring-white/10">
           <h3 className="font-serif text-3xl italic text-white">Ready to position your South Florida property correctly?</h3>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="#contact" className="inline-flex items-center justify-center bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">Request Seller Strategy Review</a>
+            <a href="#contact" className="inline-flex items-center justify-center bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">Request a Private Seller Strategy Review</a>
             <a href={CONTACT.whatsappUS} className="inline-flex items-center justify-center border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">WhatsApp Carlos</a>
           </div>
           <p className="font-mono mx-auto mt-6 max-w-2xl text-[9px] uppercase tracking-[0.2em] text-white/35">{CONTACT.licenseDisplay} · {CONTACT.brokerage}</p>
