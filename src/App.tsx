@@ -12,6 +12,7 @@ import { InternationalBridge } from "./components/InternationalBridge";
 import { AboutContact } from "./components/AboutContact";
 import { Footer } from "./components/Footer";
 import { MobileStickyCTA } from "./components/MobileStickyCTA";
+import { MLSTicker } from "./components/MLSTicker";
 
 export default function App() {
   // Force scroll to Hero on every fresh page load — runs after React mounts,
@@ -23,6 +24,7 @@ export default function App() {
   return (
     <main className="min-h-screen bg-white-soft grain-overlay">
       <Navbar />
+      <MLSTicker />
       <Hero />
       <SellerSection />
       <ReachAdvantage />
