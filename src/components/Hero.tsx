@@ -1,333 +1,336 @@
-import { motion, useMotionValue, useSpring, useTransform, type Variants } from "motion/react";
-import { BadgeCheck, ChevronRight, MessageSquare } from "lucide-react";
-import { type CSSProperties, Fragment, type MouseEvent, useEffect, useRef, useState } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { BadgeCheck, ChevronRight } from "lucide-react";
+import { Fragment, type MouseEvent, useEffect, useRef, useState } from "react";
 import { ASSOCIATION_STATS, CONTACT } from "../constants";
 
-const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-const containerVariants: Variants = {
+const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.11, delayChildren: 0.2 } },
-};
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
+  visible: { transition: { staggerChildren: 0.13, delayChildren: 0.25 } }
 };
 
-/* ─── Ring dots ─────────────────────────────────────────────── */
-function RingDots({ count, highlight }: { count: number; highlight: number }) {
-  return (
-    <>
-      {Array.from({ length: count }).map((_, i) => {
-        const angle = (i / count) * 2 * Math.PI;
-        const x = 50 + 50 * Math.cos(angle);
-        const y = 50 + 50 * Math.sin(angle);
-        const isLit = i % highlight === 0;
-        return (
-          <motion.span
-            key={i}
-            animate={{ opacity: isLit ? [0.5, 1, 0.5] : [0.1, 0.35, 0.1] }}
-            transition={{ duration: 2.4 + i * 0.2, repeat: Infinity, delay: i * 0.12 }}
-            style={{
-              position: "absolute",
-              left: `${x}%`,
-              top: `${y}%`,
-              width: isLit ? 5 : 3,
-              height: isLit ? 5 : 3,
-              borderRadius: "50%",
-              backgroundColor: isLit ? "#B08D57" : "rgba(176,141,87,0.55)",
-              transform: "translate(-50%,-50%)",
-            }}
-          />
-        );
-      })}
-    </>
-  );
-}
+const itemVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] as const } }
+};
 
-/* ─── Stat badge ────────────────────────────────────────────── */
-function StatBadge({
-  value, label, delay, style,
+const NETWORK_STATS = [
+  { value: "93K",  label: "Member Agents",  angle:  20 },
+  { value: "200+", label: "Global Portals", angle: 155 },
+  { value: "$69B", label: "2025 Volume",    angle: 265 },
+  { value: "19",   label: "Languages",      angle:  90 },
+];
+
+/** Single orbital ring rendered as a tilted ellipse */
+function OrbitalRing({
+  tiltX, tiltZ, radiusPct, delay, dotCount = 12, opacity = 0.35
 }: {
-  value: string; label: string; delay: number;
-  style: CSSProperties;
+  tiltX: number; tiltZ: number; radiusPct: number;
+  delay: number; dotCount?: number; opacity?: number;
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.75 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay, duration: 0.7, ease: EASE }}
-      style={{ position: "absolute", ...style }}
-      className="flex flex-col items-center gap-0.5 border border-gold/30 bg-navy-deep/80 px-3 py-2 backdrop-blur-sm"
+      initial={{ opacity: 0 }}
+      animate={{ opacity }}
+      transition={{ delay, duration: 1.2 }}
+      className="absolute inset-0 flex items-center justify-center"
+      style={{ perspective: 600 }}
     >
-      <span className="font-serif text-lg leading-none text-gold">{value}</span>
-      <span className="font-mono text-[7px] uppercase tracking-[0.18em] text-white/45 whitespace-nowrap">{label}</span>
+      <motion.div
+        animate={{ rotateZ: 360 }}
+        transition={{ duration: 28 + delay * 6, repeat: Infinity, ease: "linear" }}
+        style={{
+          width: `${radiusPct * 2}%`,
+          height: `${radiusPct * 2}%`,
+          borderRadius: "50%",
+          border: "1px solid rgba(176,141,87,0.28)",
+          position: "relative",
+          transform: `rotateX(${tiltX}deg) rotateZ(${tiltZ}deg)`,
+        }}
+      >
+        {Array.from({ length: dotCount }).map((_, i) => {
+          const angle = (i / dotCount) * 360;
+          const rad = (angle * Math.PI) / 180;
+          const x = 50 + 50 * Math.cos(rad);
+          const y = 50 + 50 * Math.sin(rad);
+          const isHighlight = i % Math.floor(dotCount / 3) === 0;
+          return (
+            <motion.span
+              key={i}
+              animate={{ opacity: isHighlight ? [0.4, 1, 0.4] : [0.15, 0.5, 0.15] }}
+              transition={{ duration: 2.5 + i * 0.3, repeat: Infinity, delay: i * 0.15 }}
+              style={{
+                position: "absolute",
+                left: `${x}%`,
+                top: `${y}%`,
+                width: isHighlight ? 5 : 3,
+                height: isHighlight ? 5 : 3,
+                borderRadius: "50%",
+                backgroundColor: isHighlight ? "#B08D57" : "rgba(176,141,87,0.6)",
+                transform: "translate(-50%,-50%)",
+              }}
+            />
+          );
+        })}
+      </motion.div>
     </motion.div>
   );
 }
 
-/* ─── Network visualization (right panel) ──────────────────── */
-function NetworkViz() {
+/** Floating stat badge positioned by polar angle */
+function NetworkBadge({ value, label, angle, delay }: {
+  value: string; label: string; angle: number; delay: number;
+}) {
+  const rad = (angle * Math.PI) / 180;
+  const r = 42; // % from center
+  const x = 50 + r * Math.cos(rad);
+  const y = 50 + r * Math.sin(rad);
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.7 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+      style={{ position: "absolute", left: `${x}%`, top: `${y}%`, transform: "translate(-50%,-50%)" }}
+      className="flex flex-col items-center gap-0.5 px-3 py-2 border border-gold/25 bg-navy-deep/70 backdrop-blur-sm"
+    >
+      <span className="font-serif text-xl text-gold leading-none">{value}</span>
+      <span className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/50 text-center leading-tight whitespace-nowrap">{label}</span>
+    </motion.div>
+  );
+}
+
+/** Mouse-reactive 3D network orb */
+function NetworkOrb() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const springCfg = { stiffness: 45, damping: 16 };
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [14, -14]), springCfg);
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-18, 18]), springCfg);
 
-  function onMouseMove(e: MouseEvent<HTMLDivElement>) {
+  const springConfig = { stiffness: 60, damping: 20 };
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [18, -18]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-22, 22]), springConfig);
+
+  function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
     mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
     mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
   }
-  function onMouseLeave() { mouseX.set(0); mouseY.set(0); }
-
-  // Rings: each defined as % of the square container
-  const rings = [
-    { size: "86%", border: "rgba(176,141,87,0.18)", dots: 28, highlight: 7, duration: 48, delay: 0.4 },
-    { size: "64%", border: "rgba(176,141,87,0.30)", dots: 20, highlight: 5, duration: 36, delay: 0.6 },
-    { size: "42%", border: "rgba(176,141,87,0.45)", dots: 12, highlight: 3, duration: 26, delay: 0.8 },
-  ];
-
-  // Badges at compass points — positioned relative to the square viz div
-  const badges = [
-    { value: "93K",  label: "Member Agents",  delay: 1.1, style: { top: "50%",  right: "-2%", transform: "translateY(-50%)" } },
-    { value: "200+", label: "Global Portals", delay: 1.25, style: { top: "-2%",  left: "50%",  transform: "translateX(-50%)" } },
-    { value: "$69B", label: "2025 Volume",    delay: 1.4, style: { top: "50%",  left: "-2%", transform: "translateY(-50%)" } },
-    { value: "19",   label: "Languages",      delay: 1.55, style: { bottom: "-2%", left: "50%", transform: "translateX(-50%)" } },
-  ];
+  function handleMouseLeave() {
+    mouseX.set(0);
+    mouseY.set(0);
+  }
 
   return (
     <div
       ref={containerRef}
-      className="flex h-full w-full items-center justify-center"
+      className="relative w-full h-full flex items-center justify-center"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       style={{ perspective: 900 }}
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
     >
-      {/* Square container — guarantees rings render as perfect circles */}
-      <motion.div style={{ rotateX, rotateY }} className="relative select-none">
-        <div style={{ width: "min(52vh, 400px)", aspectRatio: "1 / 1", position: "relative" }}>
-          {/* Ambient glow */}
-          <div style={{
-            position: "absolute", inset: 0, borderRadius: "50%",
-            background: "radial-gradient(circle at 40% 38%, rgba(176,141,87,0.14) 0%, transparent 65%)",
-            filter: "blur(20px)",
-          }} />
+      <motion.div
+        style={{ rotateX, rotateY, width: "78%", height: "78%", position: "relative" }}
+        className="select-none"
+      >
+        {/* Ambient glow */}
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            background: "radial-gradient(circle at 40% 40%, rgba(176,141,87,0.18) 0%, rgba(6,17,31,0) 68%)",
+            filter: "blur(18px)",
+          }}
+        />
 
-          {/* Concentric rings — centered via top/left 50% + translate */}
-          {rings.map((ring, ri) => (
-            <motion.div
-              key={ri}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, rotate: 360 }}
-              transition={{
-                opacity: { delay: ring.delay, duration: 1 },
-                rotate: { duration: ring.duration, repeat: Infinity, ease: "linear" },
-              }}
-              style={{
-                position: "absolute",
-                top: "50%", left: "50%",
-                width: ring.size, height: ring.size,
-                transform: "translate(-50%, -50%)",
-                borderRadius: "50%",
-                border: `1px solid ${ring.border}`,
-              }}
-            >
-              <RingDots count={ring.dots} highlight={ring.highlight} />
-            </motion.div>
-          ))}
+        {/* Three orbital rings at different tilts */}
+        <OrbitalRing tiltX={72} tiltZ={0}   radiusPct={46} delay={0.6} dotCount={16} opacity={0.55} />
+        <OrbitalRing tiltX={55} tiltZ={60}  radiusPct={38} delay={0.9} dotCount={12} opacity={0.38} />
+        <OrbitalRing tiltX={80} tiltZ={120} radiusPct={30} delay={1.2} dotCount={8}  opacity={0.28} />
 
-          {/* Central sphere */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 1.1, ease: EASE }}
+        {/* Core sphere */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <div
+            className="w-[32%] h-[32%] rounded-full flex flex-col items-center justify-center"
             style={{
-              position: "absolute", top: "50%", left: "50%",
-              width: "24%", height: "24%",
-              transform: "translate(-50%, -50%)",
-              borderRadius: "50%",
-              background: "radial-gradient(circle at 35% 35%, #1e3d6b 0%, #06111F 100%)",
-              border: "1.5px solid rgba(176,141,87,0.55)",
-              boxShadow: "0 0 48px rgba(176,141,87,0.22), inset 0 0 16px rgba(176,141,87,0.10)",
-              display: "flex", flexDirection: "column",
-              alignItems: "center", justifyContent: "center",
+              background: "radial-gradient(circle at 35% 35%, #1a3560 0%, #06111F 100%)",
+              border: "1px solid rgba(176,141,87,0.45)",
+              boxShadow: "0 0 40px rgba(176,141,87,0.2), inset 0 0 20px rgba(176,141,87,0.08)",
             }}
           >
-            <span style={{ fontFamily: "Playfair Display, serif", color: "#B08D57", fontSize: "1.5rem", lineHeight: 1 }}>25</span>
-            <span style={{ fontFamily: "JetBrains Mono, monospace", color: "rgba(255,255,255,0.4)", fontSize: "0.42rem", textTransform: "uppercase", letterSpacing: "0.15em", marginTop: 3 }}>YRS</span>
-          </motion.div>
+            <span className="font-serif text-gold" style={{ fontSize: "clamp(0.9rem,2.2vw,1.5rem)", lineHeight: 1 }}>25</span>
+            <span className="font-mono text-[6px] uppercase tracking-[0.15em] text-white/45 mt-0.5">Years</span>
+          </div>
+        </motion.div>
 
-          {/* Stat badges */}
-          {badges.map((b) => (
-            <Fragment key={b.label}>
-              <StatBadge value={b.value} label={b.label} delay={b.delay} style={b.style} />
-            </Fragment>
-          ))}
+        {/* Floating stat badges */}
+        {NETWORK_STATS.map((s, i) => (
+          <Fragment key={s.label}>
+            <NetworkBadge value={s.value} label={s.label} angle={s.angle} delay={1.0 + i * 0.15} />
+          </Fragment>
+        ))}
 
-          {/* Association label */}
-          <motion.p
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
-            style={{
-              position: "absolute", bottom: "-16%", left: 0, right: 0,
-              textAlign: "center",
-              fontFamily: "JetBrains Mono, monospace",
-              fontSize: "0.44rem", textTransform: "uppercase",
-              letterSpacing: "0.22em", color: "rgba(255,255,255,0.22)",
-            }}
-          >
+        {/* Association name label */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8, duration: 1 }}
+          className="absolute bottom-[6%] left-0 right-0 flex justify-center"
+        >
+          <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-white/30 text-center px-2">
             {ASSOCIATION_STATS.associationName}
-          </motion.p>
-        </div>
+          </span>
+        </motion.div>
       </motion.div>
     </div>
   );
 }
 
-/* ─── Hero ─────────────────────────────────────────────────── */
 export function Hero() {
   const [hasScrolled, setHasScrolled] = useState(false);
+
   useEffect(() => {
-    const fn = () => setHasScrolled(window.scrollY > 60);
-    fn();
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
+    const onScroll = () => setHasScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-navy-deep text-white">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_20%,rgba(176,141,87,0.16),transparent_40%),radial-gradient(ellipse_at_85%_80%,rgba(11,30,63,0.7),transparent_50%)]" />
-      {/* Dot grid overlay */}
-      <div className="absolute inset-0 dot-grid opacity-35" />
+      {/* Background radial gradients */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(176,141,87,0.18),transparent_32%),radial-gradient(circle_at_80%_70%,rgba(11,30,63,0.6),transparent_45%)]" />
 
-      <div className="relative grid min-h-screen lg:grid-cols-[54%_46%]">
+      <div className="relative grid min-h-screen lg:grid-cols-[55%_45%]">
 
-        {/* ── LEFT: Copy — everything above the fold ── */}
-        <div className="relative z-10 flex min-h-screen items-center px-6 py-28 sm:px-10 lg:pl-16 lg:pr-8">
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="w-full max-w-xl">
+        {/* ── LEFT: Copy ── */}
+        <div className="relative z-10 flex min-h-screen items-center px-6 py-32 sm:px-10 lg:px-[8vw]">
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-2xl">
 
-            {/* Credential badge */}
-            <motion.p variants={itemVariants} className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">
+            <motion.p variants={itemVariants} className="font-mono mb-7 text-[10px] uppercase tracking-[0.28em] text-gold">
               Carlos Uzcategui · FL Realtor® SL705771 · Est. 2001
             </motion.p>
 
-            {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-serif font-normal leading-[1.08] tracking-tight text-white"
-              style={{ fontSize: "clamp(2rem, 3.2vw, 3.2rem)" }}
+              className="font-serif font-normal leading-[1.04] tracking-tight"
+              style={{ fontSize: "clamp(3rem,7.5vw,6.4rem)" }}
             >
-              Sell Your South Florida<br />
-              Property with the World's<br />
-              <span className="italic text-gold">Largest Local Realtor Network.</span>
+              Sell with the Full<br />
+              Power of Miami's<br />
+              <span className="italic text-gold">Realtor Network.</span>
             </motion.h1>
 
-            {/* Tagline */}
-            <motion.p variants={itemVariants} className="mt-5 font-serif text-[1.05rem] italic font-normal leading-snug text-white/80">
-              Real estate is local. Peak value is global.
+            <motion.p variants={itemVariants} className="mt-8 max-w-xl font-sans text-[1.06rem] font-light leading-[1.85] text-white/70">
+              25 years of South Florida transactions, activated inside{" "}
+              <span className="text-white/90 font-normal">
+                {ASSOCIATION_STATS.memberCount.toLocaleString()} member agents
+              </span>{" "}
+              — the world's largest local Realtor association. Every listing reaches 200+ global portals in 19 languages, with a direct advisory bridge between Miami and Madrid.
             </motion.p>
 
-            {/* Supporting subtitle */}
-            <motion.p variants={itemVariants} className="mt-3 max-w-lg font-sans text-[0.9rem] font-light leading-[1.8] text-white/55">
-              25 years of expert positioning inside{" "}
-              <span className="font-medium text-white/85">{ASSOCIATION_STATS.memberCount.toLocaleString()} member agents</span>
-              {" "}— Miami and South Florida REALTORS®. 200+ global portals. Madrid advisory included.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-3">
+            <motion.div variants={itemVariants} className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 bg-gold px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft"
+                className="group inline-flex items-center justify-center gap-3 bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft"
               >
                 Get Your Free Strategy Review
-                <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
+                <ChevronRight size={17} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href={CONTACT.whatsappUS}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold"
+                href="#spain"
+                className="group inline-flex items-center justify-center gap-3 border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold"
               >
-                <MessageSquare size={14} />
-                WhatsApp Now
+                España · Madrid Desk
+                <ChevronRight size={17} className="transition-transform group-hover:translate-x-1" />
               </a>
             </motion.div>
 
             {/* Trust bar */}
             <motion.div
               variants={itemVariants}
-              className="mt-10 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-4"
+              className="mt-16 grid grid-cols-2 gap-x-8 gap-y-5 border-t border-white/10 pt-8 sm:grid-cols-4"
             >
               {[
-                { value: "25",    label: "Years Licensed" },
-                { value: "93K",   label: "Member Agents" },
-                { value: "$69B",  label: "2025 Volume" },
-                { value: "200+",  label: "Global Portals" },
+                { value: "25", label: "Years Licensed" },
+                { value: "93K", label: "Member Agents" },
+                { value: "$69B", label: "2025 Volume" },
+                { value: "200+", label: "Global Portals" },
               ].map((s) => (
-                <div key={s.label} className="border-l-2 border-l-gold/40 pl-4">
-                  <div className="font-serif text-2xl text-white lg:text-3xl">{s.value}</div>
-                  <div className="font-mono mt-1 text-[7px] uppercase tracking-[0.18em] text-gold/65">{s.label}</div>
+                <div key={s.label}>
+                  <div className="font-serif text-4xl text-white">{s.value}</div>
+                  <div className="font-mono mt-1.5 text-[8px] uppercase tracking-[0.2em] text-gold/70">{s.label}</div>
                 </div>
               ))}
-            </motion.div>
-
-            {/* URG credibility pill */}
-            <motion.div variants={itemVariants} className="mt-7 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm">
-              <BadgeCheck size={14} className="text-gold flex-shrink-0" />
-              <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
-                United Realty Group · {CONTACT.shortLicense}
-              </span>
             </motion.div>
 
           </motion.div>
         </div>
 
-        {/* ── RIGHT: Network visualization ── */}
+        {/* ── RIGHT: 3D Interactive Network Orb ── */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.35, duration: 1.2 }}
-          className="relative hidden min-h-screen overflow-hidden lg:flex lg:items-center lg:justify-center"
-          style={{ clipPath: "polygon(5% 0, 100% 0, 100% 100%, 0 100%)" }}
+          transition={{ delay: 0.3, duration: 1.2 }}
+          className="relative hidden min-h-screen lg:flex items-center justify-center overflow-hidden"
+          style={{ clipPath: "polygon(6% 0, 100% 0, 100% 100%, 0 100%)" }}
         >
-          <div className="absolute inset-0 bg-navy/35" />
-          <div className="absolute left-[5.2%] top-0 h-full w-px bg-gold/45" />
+          {/* Dark panel background */}
+          <div className="absolute inset-0 bg-navy/40" />
+          <div className="absolute left-[6.2%] top-0 h-full w-[1.5px] bg-gold/50" />
 
-          {/* Visualization fills the panel */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <NetworkViz />
+          {/* Orb fills the panel — absolute inset so h-full resolves correctly */}
+          <div className="absolute inset-0">
+            <NetworkOrb />
           </div>
 
-          {/* Bottom hint */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.4, duration: 1 }}
-            className="absolute bottom-10 left-0 right-0 text-center font-mono text-[7px] uppercase tracking-[0.3em] text-white/20"
+          {/* Caption below orb */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.2, duration: 0.8 }}
+            className="absolute bottom-14 left-0 right-0 flex justify-center"
           >
-            Move cursor to interact
-          </motion.p>
+            <span className="font-mono text-[8px] uppercase tracking-[0.3em] text-white/25">
+              Drag to explore the network
+            </span>
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* URG badge */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
+        className="absolute bottom-8 right-8 hidden max-w-xs border border-gold/20 bg-navy/50 p-5 backdrop-blur-xl lg:block"
+      >
+        <div className="flex items-start gap-3">
+          <BadgeCheck className="mt-1 text-gold flex-shrink-0" size={20} />
+          <div>
+            <p className="font-serif text-base text-white">United Realty Group</p>
+            <p className="font-mono mt-1 text-[8px] uppercase tracking-[0.18em] text-white/40">
+              {CONTACT.brokerageDisplay} · {CONTACT.shortLicense}
+            </p>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: hasScrolled ? 0 : 1 }}
-        transition={{ delay: 2.8, duration: 0.5 }}
-        className="pointer-events-none absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
+        transition={{ delay: 2.5, duration: 0.5 }}
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex"
       >
-        <span className="font-mono text-[7px] uppercase tracking-[0.3em] text-white/25">Scroll</span>
-        <span className="h-10 w-px overflow-hidden bg-white/10">
+        <span className="font-mono text-[8px] uppercase tracking-[0.3em] text-white/30">Scroll</span>
+        <span className="h-12 w-px overflow-hidden bg-white/10">
           <motion.span
-            className="block h-6 w-px bg-gold"
-            animate={{ y: [-24, 40] }}
-            transition={{ repeat: Infinity, duration: 1.7, ease: "easeInOut" }}
+            className="block h-7 w-px bg-gold"
+            animate={{ y: [-28, 48] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
           />
         </span>
       </motion.div>
