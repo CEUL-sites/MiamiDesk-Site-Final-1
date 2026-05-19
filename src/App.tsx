@@ -9,21 +9,21 @@ import { CarlosTrust } from "./components/CarlosTrust";
 import { InternationalBridge } from "./components/InternationalBridge";
 import { BuyersRelocation } from "./components/BuyersRelocation";
 import { IntelligenceDesk } from "./components/IntelligenceDesk";
+import { FAQ } from "./components/FAQ";
 import { AboutContact } from "./components/AboutContact";
 import { Footer } from "./components/Footer";
 import { MobileStickyCTA } from "./components/MobileStickyCTA";
+import { MLSTicker } from "./components/MLSTicker";
 
 export default function App() {
-  // Force scroll to Hero on every fresh page load — runs after React mounts,
-  // overriding any browser back/forward cache or Google deep-link restoration
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
 
   return (
-    // pb-20 lg:pb-0 — reserves space so the mobile floating CTA never covers content
     <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
       <Navbar />
+      <MLSTicker />
       <Hero />
       <SellerSection />
       <ReachAdvantage />
@@ -33,6 +33,7 @@ export default function App() {
       <InternationalBridge />
       <BuyersRelocation />
       <IntelligenceDesk />
+      <FAQ />
       <AboutContact />
       <Footer />
       <MobileStickyCTA />

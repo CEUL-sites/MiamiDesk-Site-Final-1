@@ -35,8 +35,8 @@ export function SellerSection() {
           <div className="absolute left-[10%] right-[10%] top-1/2 hidden border-t border-dashed border-gold/35 lg:block" />
           {STEPS.map((step, index) => (
             <motion.article key={step.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, delay: index * 0.08 }} className="group relative z-10 overflow-hidden border border-bone/20 border-b-gold bg-white p-7 text-navy shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-gold hover:shadow-2xl hover:shadow-gold/10">
-              <span className="absolute -right-2 top-2 font-serif text-7xl text-gold/15">{String(index + 1).padStart(2, "0")}</span>
-              <div className="relative mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 text-gold ring-1 ring-gold/30">
+              <span className="absolute -right-2 top-2 font-serif text-8xl text-gold/12 transition-colors duration-500 group-hover:text-gold/30">{String(index + 1).padStart(2, "0")}</span>
+              <div className="relative mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 text-gold ring-1 ring-gold/30 transition-all duration-300 group-hover:bg-gold group-hover:text-navy group-hover:ring-0">
                 <step.icon size={23} />
               </div>
               <h3 className="relative font-serif text-2xl text-navy">{step.title}</h3>

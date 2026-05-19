@@ -26,15 +26,37 @@ export function InternationalBridge() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="relative mx-auto mb-16 h-32 max-w-4xl">
           <svg className="absolute inset-0 h-full w-full" viewBox="0 0 900 120" fill="none" aria-hidden="true">
-            <path d="M110 82 C300 6 590 6 790 82" stroke="rgba(176,141,87,0.42)" strokeWidth="2" strokeDasharray="10 12" />
-            <circle cx="110" cy="82" r="7" fill="#B08D57" />
-            <circle cx="790" cy="82" r="7" fill="#B08D57" />
+            <defs>
+              <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+            {/* Outer pulse halos */}
+            <circle cx="110" cy="82" r="20" fill="rgba(176,141,87,0.07)" />
+            <circle cx="790" cy="82" r="20" fill="rgba(176,141,87,0.07)" />
+            <circle cx="110" cy="82" r="12" fill="rgba(176,141,87,0.12)" />
+            <circle cx="790" cy="82" r="12" fill="rgba(176,141,87,0.12)" />
+            {/* Flight arc */}
+            <path d="M110 82 C300 6 590 6 790 82" stroke="rgba(176,141,87,0.38)" strokeWidth="1.5" strokeDasharray="8 11" />
+            {/* Glowing endpoint dots */}
+            <circle cx="110" cy="82" r="7" fill="#B08D57" filter="url(#glow-gold)" />
+            <circle cx="790" cy="82" r="7" fill="#B08D57" filter="url(#glow-gold)" />
+            {/* Bright inner dots */}
+            <circle cx="110" cy="82" r="3" fill="#D4AE78" />
+            <circle cx="790" cy="82" r="3" fill="#D4AE78" />
           </svg>
           <motion.div className="absolute left-[12%] top-[48px] text-gold" animate={{ left: ["12%", "85%"], top: [48, 18, 48] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
             <Plane size={22} />
           </motion.div>
-          <span className="absolute left-4 bottom-0 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Miami, FL</span>
-          <span className="absolute right-4 bottom-0 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Madrid, España</span>
+          <div className="absolute left-2 bottom-0 flex items-center gap-2 border border-gold/30 bg-navy-deep/70 backdrop-blur-sm px-4 py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-gold pulse-glow" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Miami, FL</span>
+          </div>
+          <div className="absolute right-2 bottom-0 flex items-center gap-2 border border-gold/30 bg-navy-deep/70 backdrop-blur-sm px-4 py-2">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Madrid, España</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-gold pulse-glow" />
+          </div>
         </div>
 
         <div className="mx-auto max-w-4xl text-center">
@@ -50,8 +72,8 @@ export function InternationalBridge() {
 
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {CAPABILITIES.map((item, index) => (
-            <motion.article key={item.title} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08, duration: 0.7 }} className="border-t-4 border-gold bg-navy-light p-10">
-              <h3 className="font-serif text-3xl text-white">{item.title}</h3>
+            <motion.article key={item.title} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08, duration: 0.7 }} className="group border-t-4 border-gold bg-navy-light p-10 transition-all duration-500 hover:-translate-y-1.5 hover:bg-navy hover:shadow-2xl hover:shadow-gold/10">
+              <h3 className="font-serif text-3xl text-white transition-colors duration-300 group-hover:text-gold">{item.title}</h3>
               <p className="mt-5 font-sans text-sm leading-relaxed text-white/60">{item.body}</p>
             </motion.article>
           ))}
