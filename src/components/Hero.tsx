@@ -219,21 +219,21 @@ export function Hero() {
               className="font-serif font-normal leading-[1.08] tracking-tight text-white"
               style={{ fontSize: "clamp(2rem, 3.2vw, 3.2rem)" }}
             >
-              Sell Your South Florida<br />
-              Property with the World's<br />
-              <span className="italic text-gold">Largest Local Realtor Network.</span>
+              List Your South Florida<br />
+              Property With<br />
+              <span className="italic text-gold">Strategic Exposure.</span>
             </motion.h1>
 
             {/* Tagline */}
             <motion.p variants={itemVariants} className="mt-5 font-serif text-[1.05rem] italic font-normal leading-snug text-white/80">
-              Real estate is local. Peak value is global.
+              Your property deserves market positioning, not just a listing.
             </motion.p>
 
             {/* Supporting subtitle */}
             <motion.p variants={itemVariants} className="mt-3 max-w-lg font-sans text-[0.9rem] font-light leading-[1.8] text-white/55">
-              25 years of expert positioning inside{" "}
-              <span className="font-medium text-white/85">{ASSOCIATION_STATS.memberCount.toLocaleString()} member agents</span>
-              {" "}— Miami and South Florida REALTORS®. 200+ global portals. Madrid advisory included.
+              Senior seller advisory backed by 25 years of Florida market experience — MLS positioning,{" "}
+              <span className="font-medium text-white/85">{ASSOCIATION_STATS.memberCount.toLocaleString()}-member association</span>
+              {" "}reach, buyer-agent visibility, and cross-border market context that extends to Madrid.
             </motion.p>
 
             {/* CTAs */}
@@ -242,7 +242,7 @@ export function Hero() {
                 href="#contact"
                 className="group inline-flex items-center gap-2 bg-gold px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft"
               >
-                Get Your Free Strategy Review
+                Request a Private Seller Strategy Review
                 <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
@@ -252,7 +252,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold"
               >
                 <MessageSquare size={14} />
-                WhatsApp Now
+                WhatsApp Carlos
               </a>
             </motion.div>
 
@@ -274,11 +274,11 @@ export function Hero() {
               ))}
             </motion.div>
 
-            {/* URG credibility pill */}
+            {/* Credentials pill */}
             <motion.div variants={itemVariants} className="mt-7 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm">
               <BadgeCheck size={14} className="text-gold flex-shrink-0" />
               <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
-                United Realty Group · {CONTACT.shortLicense}
+                United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
               </span>
             </motion.div>
 

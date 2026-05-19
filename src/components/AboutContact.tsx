@@ -48,7 +48,7 @@ export function AboutContact() {
           <div className="mt-12 border-t border-bone pt-8 space-y-3">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">{CONTACT.licenseDisplay}</p>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Member: Miami and South Florida REALTORS® · Est. 2026 merger</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Member: Miami and South Florida REALTORS®</p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
@@ -71,7 +71,7 @@ export function AboutContact() {
           <LeadForm />
           <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/30">
             <BadgeCheck size={14} className="text-gold" />
-            Netlify form routing enabled for seller inquiries
+            Confidential · Direct to Carlos · Equal Housing Opportunity
           </div>
         </div>
       </div>

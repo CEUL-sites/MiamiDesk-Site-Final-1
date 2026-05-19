@@ -36,9 +36,9 @@ export const ExposureSyndication = () => {
 
       <div className="mx-auto mt-12 max-w-2xl px-6 text-center">
         <p className="font-serif text-xl italic leading-relaxed text-navy/55">
-          Every portal above receives listing data through MLS activation mechanics, not a manual reposting process.
+          Every platform above receives listing data through MLS activation — not a manual reposting process.
         </p>
-        <p className="font-mono mt-5 text-[9px] uppercase tracking-[0.24em] text-navy/30">Source: Miami and South Florida REALTORS® · verify current portal list before publication</p>
+        <p className="font-mono mt-5 text-[9px] uppercase tracking-[0.24em] text-navy/30">Source: Miami and South Florida REALTORS® · 200+ active distribution portals</p>
       </div>
     </section>
   );
