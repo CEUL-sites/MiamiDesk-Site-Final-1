@@ -26,16 +26,20 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-navy-deep text-white">
-      {/* Background image with overlay */}
+      {/* Layered gradient background — looks great with or without the photo */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_25%,rgba(176,141,87,0.10),transparent_42%)]" />
+      {/* Photo layer — loads on top of gradient; section looks fine if image is absent */}
       <div className="absolute inset-0">
         <img
           src="/images/hero-bg.jpg"
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
+          onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.28"; }}
         />
-        <div className="absolute inset-0 bg-navy-deep/78" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_25%,rgba(176,141,87,0.12),transparent_45%)]" />
+        <div className="absolute inset-0 bg-navy-deep/55" />
       </div>
 
       <div className="relative flex min-h-screen items-center px-6 py-28 sm:px-10 lg:px-20">

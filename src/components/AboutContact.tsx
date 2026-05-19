@@ -47,17 +47,21 @@ export function AboutContact() {
 
           {/* URG Headquarters */}
           <div className="mt-12 overflow-hidden border border-bone">
-            <div className="relative h-44 w-full bg-navy-deep">
+            <div className="relative h-44 w-full bg-navy-deep flex items-end">
+              {/* Gradient background — always looks correct; photo fades in when available */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,rgba(20,45,90,0.9),rgba(6,17,31,1))]" />
               <img
                 src="/images/urg-hq.jpg"
                 alt="United Realty Group headquarters, Plantation, Florida"
-                className="h-full w-full object-cover object-center opacity-80"
+                className="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
                 loading="lazy"
+                onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.75"; }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 to-transparent" />
+              <div className="relative p-4">
                 <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · Brokerage</p>
                 <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/50">Headquarters: Plantation, Florida · FL License</p>
+                <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.12em] text-white/30">1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
               </div>
             </div>
           </div>

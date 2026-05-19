@@ -25,9 +25,16 @@ const CARDS = [
 export function BuyersRelocation() {
   return (
     <section id="buyers" className="relative overflow-hidden bg-bone-warm py-24">
-      {/* Brickell aerial background */}
+      {/* Background — subtle texture via gradient, photo fades in on top when available */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(176,141,87,0.06),transparent_60%)]" />
       <div className="absolute inset-0">
-        <img src="/images/brickell-aerial.jpg" alt="" aria-hidden="true" className="h-full w-full object-cover object-center opacity-10" />
+        <img
+          src="/images/brickell-aerial.jpg"
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
+          onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.10"; }}
+        />
         <div className="absolute inset-0 bg-bone-warm/80" />
       </div>
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">

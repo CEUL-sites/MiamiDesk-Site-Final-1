@@ -13,9 +13,16 @@ const STEPS = [
 export function SellerSection() {
   return (
     <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-24 text-white">
-      {/* Miami skyline background */}
+      {/* Background — gradient base, photo fades in on top when available */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(20,45,90,0.8),transparent_55%)]" />
       <div className="absolute inset-0">
-        <img src="/images/miami-skyline.jpg" alt="" aria-hidden="true" className="h-full w-full object-cover object-center opacity-20" />
+        <img
+          src="/images/miami-skyline.jpg"
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
+          onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.18"; }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" />
       </div>
       <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/10 blur-[120px]" />

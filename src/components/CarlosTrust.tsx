@@ -43,12 +43,13 @@ export function CarlosTrust() {
                   {badge}
                 </span>
               ))}
-              {/* CLHMS certification seal */}
+              {/* CLHMS certification seal — hidden until image loads */}
               <img
                 src="/images/clhms-seal.png"
                 alt="Certified Luxury Home Marketing Specialist"
-                className="h-12 w-12 opacity-90"
+                className="h-12 w-12 opacity-0 transition-opacity duration-500"
                 loading="lazy"
+                onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.9"; }}
               />
             </div>
           </div>
