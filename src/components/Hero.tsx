@@ -26,8 +26,17 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-navy-deep text-white">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_25%,rgba(176,141,87,0.18),transparent_45%),radial-gradient(ellipse_at_80%_75%,rgba(11,30,63,0.8),transparent_55%)]" />
+      {/* Background image with overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/hero-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-navy-deep/78" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_25%,rgba(176,141,87,0.12),transparent_45%)]" />
+      </div>
 
       <div className="relative flex min-h-screen items-center px-6 py-28 sm:px-10 lg:px-20">
         <motion.div

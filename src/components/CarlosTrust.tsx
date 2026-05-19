@@ -1,4 +1,4 @@
-import { BadgeCheck, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { CONTACT } from "../constants";
 
@@ -11,7 +11,7 @@ export function CarlosTrust() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-          className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16"
+          className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14"
         >
           {/* Headshot */}
           <div className="flex-shrink-0">
@@ -37,12 +37,19 @@ export function CarlosTrust() {
               advises sellers on pricing strategy, professional positioning, and MLS activation from his Weston, Florida
               office, with a Madrid advisory presence for cross-border and international clients.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {["CLHMS", "Certified Seller Rep", "25 Years Licensed", "Weston · Madrid"].map((badge) => (
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              {["Certified Seller Rep", "25 Years Licensed", "Weston · Madrid"].map((badge) => (
                 <span key={badge} className="border border-gold/25 px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.18em] text-gold/60">
                   {badge}
                 </span>
               ))}
+              {/* CLHMS certification seal */}
+              <img
+                src="/images/clhms-seal.png"
+                alt="Certified Luxury Home Marketing Specialist"
+                className="h-12 w-12 opacity-90"
+                loading="lazy"
+              />
             </div>
           </div>
 

@@ -45,7 +45,24 @@ export function AboutContact() {
             ))}
           </div>
 
-          <div className="mt-12 border-t border-bone pt-8 space-y-3">
+          {/* URG Headquarters */}
+          <div className="mt-12 overflow-hidden border border-bone">
+            <div className="relative h-44 w-full bg-navy-deep">
+              <img
+                src="/images/urg-hq.jpg"
+                alt="United Realty Group headquarters, Plantation, Florida"
+                className="h-full w-full object-cover object-center opacity-80"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · Brokerage</p>
+                <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/50">Headquarters: Plantation, Florida · FL License</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 border-t border-bone pt-6 space-y-2">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">{CONTACT.licenseDisplay}</p>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Member: Miami and South Florida REALTORS®</p>

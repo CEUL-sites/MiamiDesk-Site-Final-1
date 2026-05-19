@@ -13,7 +13,12 @@ const STEPS = [
 export function SellerSection() {
   return (
     <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-24 text-white">
-      <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/15 blur-[120px]" />
+      {/* Miami skyline background */}
+      <div className="absolute inset-0">
+        <img src="/images/miami-skyline.jpg" alt="" aria-hidden="true" className="h-full w-full object-cover object-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" />
+      </div>
+      <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/10 blur-[120px]" />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl">
           <p className="font-mono mb-4 text-[10px] uppercase tracking-[0.3em] text-gold">Seller Strategy</p>

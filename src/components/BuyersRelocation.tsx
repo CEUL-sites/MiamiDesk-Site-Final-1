@@ -24,7 +24,12 @@ const CARDS = [
 
 export function BuyersRelocation() {
   return (
-    <section id="buyers" className="bg-bone-warm py-24">
+    <section id="buyers" className="relative overflow-hidden bg-bone-warm py-24">
+      {/* Brickell aerial background */}
+      <div className="absolute inset-0">
+        <img src="/images/brickell-aerial.jpg" alt="" aria-hidden="true" className="h-full w-full object-cover object-center opacity-10" />
+        <div className="absolute inset-0 bg-bone-warm/80" />
+      </div>
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div className="max-w-xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-navy/55">Seller Advantage · International Demand</p>
