@@ -208,16 +208,6 @@ export function MLSTicker() {
             ))}
           </div>
         </div>
-
-        {/* ── Footer attribution bar ── */}
-        <div className="bg-[#0A1628] border-t border-white/5 px-6 py-1.5 flex items-center justify-between">
-          <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/25">
-            Miami Association of REALTORS® · MLS Data powered by Bridge IDX
-          </span>
-          <span className="font-mono text-[8px] text-white/20">
-            ©{new Date().getFullYear()} MIAMI MLS. All Rights Reserved. Information deemed reliable but not guaranteed.
-          </span>
-        </div>
       </div>
     </>
   );
