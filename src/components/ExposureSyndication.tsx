@@ -1,6 +1,4 @@
 // src/components/ExposureSyndication.tsx
-// Portals sourced exclusively from the official Miami and South Florida
-// REALTORS® syndication document. No portals have been added or removed.
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 
@@ -11,7 +9,8 @@ interface Portal {
 
 const PORTALS: Portal[] = [
   // TIER 1 — largest bubbles (highest-profile national & intl portals)
-  { name: "Realtor.com",                      tier: 1 },
+  { name: "Zillow.com",                        tier: 1 },
+  { name: "Realtor.com",                       tier: 1 },
   { name: "Homes.com",                         tier: 1 },
   { name: "Apartments.com",                    tier: 1 },
   { name: "Juwai",                             tier: 1 },
