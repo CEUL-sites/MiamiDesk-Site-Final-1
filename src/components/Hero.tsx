@@ -1,7 +1,7 @@
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck, ChevronRight, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
-import { ASSOCIATION_STATS, CONTACT } from "../constants";
+import { CONTACT } from "../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -50,31 +50,39 @@ export function Hero() {
           className="mx-auto w-full max-w-4xl text-center"
         >
           {/* Credential badge */}
-          <motion.p variants={itemVariants} className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">
-            Carlos Uzcategui · FL Realtor® SL705771 · Est. 2001
+          <motion.p
+            variants={itemVariants}
+            className="font-mono mb-4 text-gold uppercase tracking-[0.22em]"
+            style={{ fontSize: "0.62rem" }}
+          >
+            CARLOS UZCATEGUI · FL REALTOR® SL705771 · LICENSED 2001
           </motion.p>
 
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-serif font-normal leading-[1.06] tracking-tight text-white"
-            style={{ fontSize: "clamp(2.6rem, 5vw, 4.8rem)" }}
+            className="font-serif text-white leading-[1.05]"
+            style={{ fontSize: "clamp(3.2rem, 6vw, 6.5rem)", fontWeight: 400 }}
           >
-            South Florida Sellers<br />
-            Deserve More Than<br />
-            <span className="italic text-gold">a Listing.</span>
+            Distribution determines price.
+            <br />
+            <em className="text-gold not-italic font-serif italic">
+              Position your property correctly.
+            </em>
           </motion.h1>
 
-          {/* Tagline */}
-          <motion.p variants={itemVariants} className="mt-6 font-serif text-[1.15rem] italic font-normal leading-snug text-white/75">
-            Most sellers leave money on the table. Carlos won't let you.
-          </motion.p>
-
-          {/* Supporting subtitle */}
-          <motion.p variants={itemVariants} className="mx-auto mt-5 max-w-2xl font-sans text-[0.95rem] font-light leading-[1.9] text-white/55">
-            25 years of South Florida market intelligence — professional MLS positioning, direct access to{" "}
-            <span className="font-medium text-white/85">{ASSOCIATION_STATS.memberCount.toLocaleString()} member agents</span>,
-            {" "}200+ global portals, and cross-border reach from Miami to Madrid.
+          {/* Subhead */}
+          <motion.p
+            variants={itemVariants}
+            className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
+            style={{ fontSize: "1.05rem" }}
+          >
+            Twenty-five years of South Florida transactions.
+            Every listing activates inside the world's largest local
+            Realtor association — 93,000 member agents, 200+ global
+            portals, 19 languages, 260 U.S. MLSs — simultaneously,
+            the day it goes live. This is the structural difference
+            between a listing and a result.
           </motion.p>
 
           {/* CTAs */}
