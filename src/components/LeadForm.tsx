@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 
+// Paste your Apps Script Web App URL here after deploying from script.google.com
+const SHEETS_WEBHOOK = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
 const INITIAL_FORM_DATA = {
   name: "",
   email: "",
@@ -27,6 +30,20 @@ export function LeadForm() {
 
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 12000);
+
+    // Fire-and-forget to Google Sheets — no-cors so we can't read response
+    if (SHEETS_WEBHOOK && !SHEETS_WEBHOOK.startsWith("PASTE")) {
+      fetch(SHEETS_WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "homesprofessional.com",
+          pageUrl: window.location.href,
+        }),
+        mode: "no-cors",
+      }).catch(() => {});
+    }
 
     try {
       const response = await fetch("/", {

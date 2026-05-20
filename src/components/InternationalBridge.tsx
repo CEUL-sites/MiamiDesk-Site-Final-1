@@ -82,11 +82,11 @@ export function InternationalBridge() {
         <div className="mt-16 border-y border-gold/20">
           <div className="bg-white/[0.03] p-8 lg:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">For Spain · Agencies · Developers</p>
-            <p className="mt-4 max-w-4xl font-sans text-base leading-relaxed text-white/65">{SPAIN_COPY}</p>
+            <p className="mt-4 max-w-4xl font-sans text-base leading-relaxed text-white/80">{SPAIN_COPY}</p>
           </div>
           <div className="border-t border-gold/20 bg-white/[0.03] p-8 lg:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">For South Florida Owners</p>
-            <p className="mt-4 max-w-4xl font-sans text-base leading-relaxed text-white/65">{OWNER_COPY}</p>
+            <p className="mt-4 max-w-4xl font-sans text-base leading-relaxed text-white/80">{OWNER_COPY}</p>
           </div>
         </div>
 

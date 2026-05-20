@@ -132,7 +132,7 @@ export const ExposureSyndication = () => {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.35 }}
-        className="mx-auto max-w-5xl px-6 flex flex-wrap justify-center items-center gap-4 min-h-[420px] md:min-h-[480px]"
+        className="mx-auto max-w-5xl px-6 flex flex-wrap justify-center items-center gap-4"
       >
         {PORTALS.map((portal, i) => (
           <div

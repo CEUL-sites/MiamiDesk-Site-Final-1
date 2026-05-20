@@ -37,7 +37,7 @@ export function BuyersRelocation() {
         />
         <div className="absolute inset-0 bg-bone-warm/80" />
       </div>
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div className="max-w-xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-navy/55">Seller Advantage · International Demand</p>
           <h2 className="mt-5 font-serif text-4xl leading-tight text-navy lg:text-5xl">

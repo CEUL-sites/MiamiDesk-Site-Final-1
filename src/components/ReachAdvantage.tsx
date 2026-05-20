@@ -64,9 +64,9 @@ export const ReachAdvantage = () => {
           ))}
         </div>
 
-        <div className="mt-16 relative overflow-hidden">
+        <div className="mt-8 relative overflow-hidden">
           <div className="gold-line-h" />
-          <div className="py-20 px-6 text-center relative">
+          <div className="py-12 px-6 text-center relative">
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
               <span className="font-serif font-bold text-gold/[0.09]" style={{ fontSize: "clamp(8rem, 22vw, 20rem)", lineHeight: 1 }}>"</span>
             </div>
