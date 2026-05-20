@@ -5,9 +5,9 @@ const BRIDGE_TOKEN = "1eee5e27f791630e078ee05d6e0ed8f4";
 const BRIDGE_API =
   `https://api.bridgedataoutput.com/api/v2/OData/miamire/Property` +
   `?access_token=${BRIDGE_TOKEN}` +
-  `&$filter=StandardStatus eq 'Active' or StandardStatus eq 'Pending'` +
-  `&$orderby=ModificationTimestamp desc` +
-  `&$top=24` +
+  `&$filter=(StandardStatus eq 'Active' or StandardStatus eq 'Pending') and ListPrice ge 1000000` +
+  `&$orderby=ListPrice desc` +
+  `&$top=30` +
   `&$select=ListingId,UnparsedAddress,City,PostalCode,ListPrice,BedroomsTotal,BathroomsTotalDecimal,LivingArea,PropertyType,StandardStatus`;
 
 interface Listing {
@@ -24,22 +24,26 @@ interface Listing {
 }
 
 const MOCK_LISTINGS: Listing[] = [
-  { id: "A11501234", address: "1000 Brickell Ave #4200",       city: "Miami",        zip: "33131", price: 2_850_000, beds: 3, baths: 3.5, sqft: 2_840, type: "Condominium",             status: "Active"  },
-  { id: "A11502847", address: "19999 E Country Club Dr #702",  city: "Aventura",     zip: "33180", price: 1_195_000, beds: 2, baths: 2,   sqft: 1_650, type: "Condominium",             status: "Active"  },
-  { id: "A11503112", address: "7771 SW 62nd Ave",              city: "South Miami",  zip: "33143", price: 1_875_000, beds: 4, baths: 3,   sqft: 2_520, type: "Single Family Residence", status: "Active"  },
-  { id: "A11498765", address: "101 SE 1st St #2200",           city: "Miami",        zip: "33131", price:   975_000, beds: 1, baths: 1.5, sqft: 1_012, type: "Condominium",             status: "Active"  },
-  { id: "A11499021", address: "3301 NE 183rd St #1508",        city: "Aventura",     zip: "33160", price:   625_000, beds: 2, baths: 2,   sqft: 1_150, type: "Condominium",             status: "Active"  },
-  { id: "A11500345", address: "400 Alton Rd #2501",            city: "Miami Beach",  zip: "33139", price: 4_200_000, beds: 3, baths: 3,   sqft: 2_990, type: "Condominium",             status: "Active"  },
-  { id: "A11501889", address: "5825 SW 89th Ct",               city: "Miami",        zip: "33173", price:   785_000, beds: 3, baths: 2,   sqft: 1_820, type: "Single Family Residence", status: "Active"  },
-  { id: "A11497532", address: "2901 Collins Ave #1004",        city: "Miami Beach",  zip: "33140", price: 1_450_000, beds: 2, baths: 2,   sqft: 1_380, type: "Condominium",             status: "Active"  },
-  { id: "A11503789", address: "9703 NW 41st St",               city: "Doral",        zip: "33178", price: 1_125_000, beds: 5, baths: 4,   sqft: 3_210, type: "Single Family Residence", status: "Active"  },
-  { id: "A11498231", address: "848 Brickell Key Dr #PH5",      city: "Miami",        zip: "33131", price: 3_500_000, beds: 4, baths: 4.5, sqft: 4_100, type: "Condominium",             status: "Pending" },
-  { id: "A11502001", address: "6330 N Bay Rd",                 city: "Miami Beach",  zip: "33141", price: 8_750_000, beds: 6, baths: 6.5, sqft: 6_400, type: "Single Family Residence", status: "Active"  },
-  { id: "A11500987", address: "1080 Brickell Ave #2101",       city: "Miami",        zip: "33131", price: 1_680_000, beds: 2, baths: 2,   sqft: 1_520, type: "Condominium",             status: "Active"  },
-  { id: "A11504101", address: "888 Brickell Key Dr #1205",     city: "Miami",        zip: "33131", price: 1_290_000, beds: 2, baths: 2,   sqft: 1_400, type: "Condominium",             status: "Active"  },
-  { id: "A11504502", address: "10245 Collins Ave #803",        city: "Bal Harbour",  zip: "33154", price: 5_400_000, beds: 3, baths: 3.5, sqft: 3_050, type: "Condominium",             status: "Active"  },
-  { id: "A11505011", address: "12650 SW 25th St",              city: "Miramar",      zip: "33027", price:   675_000, beds: 4, baths: 3,   sqft: 2_180, type: "Single Family Residence", status: "Active"  },
-  { id: "A11505388", address: "1060 Brickell Ave #3301",       city: "Miami",        zip: "33131", price: 2_100_000, beds: 3, baths: 3,   sqft: 2_200, type: "Condominium",             status: "Pending" },
+  { id: "A11601001", address: "9701 Collins Ave PH-01",         city: "Bal Harbour",  zip: "33154", price: 28_500_000, beds: 5, baths: 6,   sqft: 7_200, type: "Condominium",             status: "Active"  },
+  { id: "A11601002", address: "6380 N Bay Rd",                  city: "Miami Beach",  zip: "33141", price: 22_000_000, beds: 7, baths: 8.5, sqft: 9_100, type: "Single Family Residence", status: "Active"  },
+  { id: "A11601003", address: "100 S Pointe Dr #PH-A",          city: "Miami Beach",  zip: "33139", price: 18_750_000, beds: 4, baths: 5,   sqft: 5_800, type: "Condominium",             status: "Active"  },
+  { id: "A11601004", address: "5292 Fisher Island Dr #6122",    city: "Miami Beach",  zip: "33109", price: 15_900_000, beds: 4, baths: 4.5, sqft: 4_950, type: "Condominium",             status: "Active"  },
+  { id: "A11601005", address: "7341 La Gorce Dr",               city: "Miami Beach",  zip: "33141", price: 13_500_000, beds: 6, baths: 7,   sqft: 8_400, type: "Single Family Residence", status: "Active"  },
+  { id: "A11601006", address: "3 Indian Creek Dr",              city: "Indian Creek", zip: "33154", price: 11_800_000, beds: 5, baths: 6.5, sqft: 7_800, type: "Single Family Residence", status: "Active"  },
+  { id: "A11601007", address: "10203 Collins Ave #1001",        city: "Bal Harbour",  zip: "33154", price:  9_950_000, beds: 3, baths: 3.5, sqft: 3_600, type: "Condominium",             status: "Active"  },
+  { id: "A11601008", address: "3300 NE 190th St #PH-5",         city: "Aventura",     zip: "33180", price:  8_200_000, beds: 4, baths: 4.5, sqft: 4_100, type: "Condominium",             status: "Active"  },
+  { id: "A11601009", address: "2127 S Bayshore Dr",             city: "Coconut Grove", zip:"33133", price:  7_750_000, beds: 5, baths: 5.5, sqft: 5_300, type: "Single Family Residence", status: "Active"  },
+  { id: "A11601010", address: "1643 Brickell Ave #PH4702",      city: "Miami",        zip: "33129", price:  6_900_000, beds: 4, baths: 4,   sqft: 4_400, type: "Condominium",             status: "Active"  },
+  { id: "A11601011", address: "4250 Riviera Dr",                city: "Coral Gables", zip: "33146", price:  5_850_000, beds: 6, baths: 6,   sqft: 6_200, type: "Single Family Residence", status: "Active"  },
+  { id: "A11601012", address: "801 Brickell Key Blvd #PH-01",   city: "Miami",        zip: "33131", price:  4_990_000, beds: 4, baths: 4.5, sqft: 4_700, type: "Condominium",             status: "Active"  },
+  { id: "A11601013", address: "160 Isle Of Venice Dr",          city: "Fort Lauderdale", zip:"33301", price: 4_400_000, beds: 5, baths: 5, sqft: 4_950, type: "Single Family Residence", status: "Pending" },
+  { id: "A11601014", address: "400 Alton Rd #3501",             city: "Miami Beach",  zip: "33139", price:  3_950_000, beds: 3, baths: 3.5, sqft: 3_100, type: "Condominium",             status: "Active"  },
+  { id: "A11601015", address: "2669 S Bayshore Dr #1400",       city: "Coconut Grove", zip:"33133", price:  3_500_000, beds: 3, baths: 3,   sqft: 2_800, type: "Condominium",             status: "Active"  },
+  { id: "A11601016", address: "201 Crandon Blvd #632",          city: "Key Biscayne", zip: "33149", price:  2_950_000, beds: 3, baths: 3,   sqft: 2_400, type: "Condominium",             status: "Active"  },
+  { id: "A11601017", address: "7750 SW 86th Ct",                city: "Pinecrest",    zip: "33156", price:  2_650_000, beds: 5, baths: 4.5, sqft: 4_800, type: "Single Family Residence", status: "Active"  },
+  { id: "A11601018", address: "1100 Brickell Bay Dr #3501",     city: "Miami",        zip: "33131", price:  2_100_000, beds: 2, baths: 2.5, sqft: 1_950, type: "Condominium",             status: "Active"  },
+  { id: "A11601019", address: "10295 Collins Ave #706",         city: "Bal Harbour",  zip: "33154", price:  1_875_000, beds: 2, baths: 2,   sqft: 1_600, type: "Condominium",             status: "Active"  },
+  { id: "A11601020", address: "2901 Collins Ave #1201",         city: "Miami Beach",  zip: "33140", price:  1_450_000, beds: 2, baths: 2,   sqft: 1_420, type: "Condominium",             status: "Active"  },
 ];
 
 function formatPrice(n: number) {
