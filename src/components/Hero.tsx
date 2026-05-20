@@ -64,10 +64,10 @@ export function Hero() {
             className="font-serif text-white leading-[1.05]"
             style={{ fontSize: "clamp(3.2rem, 6vw, 6.5rem)", fontWeight: 400 }}
           >
-            Distribution determines price.
+            Real estate is local.
             <br />
             <em className="text-gold not-italic font-serif italic">
-              Position your property correctly.
+              Peak price is global.
             </em>
           </motion.h1>
 
