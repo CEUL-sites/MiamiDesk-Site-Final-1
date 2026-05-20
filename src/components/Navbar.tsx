@@ -24,8 +24,11 @@ export function Navbar() {
             <span className={logoTone}>CARLOS</span>
             <span className="text-gold">RE</span>
           </span>
-          <span className={`font-mono mt-1 text-[9px] uppercase tracking-[0.22em] ${scrolled ? "text-navy/50" : "text-white/50"}`}>
-            HomesProfessional.com
+          <span className={`font-mono mt-1 text-[9px] uppercase tracking-[0.2em] ${scrolled ? "text-navy/75" : "text-white/75"}`}>
+            Carlos Uzcategui · FL SL705771
+          </span>
+          <span className={`font-mono mt-0.5 text-[8px] uppercase tracking-[0.16em] ${scrolled ? "text-navy/40" : "text-white/40"}`}>
+            United Realty Group · HomesProfessional.com
           </span>
         </a>
 
