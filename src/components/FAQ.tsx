@@ -33,7 +33,7 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="border-t border-gold/20 bg-navy py-20 text-white">
+    <section id="faq" className="border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
       <div className="mx-auto max-w-4xl px-6">
         <div className="mb-12 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Common Questions</p>
@@ -66,7 +66,7 @@ export function FAQ() {
                     transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="pb-7 font-sans text-[0.9rem] leading-relaxed text-white/60">{faq.a}</p>
+                    <p className="pb-7 font-sans text-[0.9rem] leading-relaxed text-white/75">{faq.a}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

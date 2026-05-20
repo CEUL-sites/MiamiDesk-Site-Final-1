@@ -4,7 +4,7 @@ import { CONTACT } from "../constants";
 
 export function CarlosTrust() {
   return (
-    <section className="border-t border-gold/20 bg-navy py-16 text-white">
+    <section className="border-t border-gold/20 bg-navy py-10 md:py-16 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -24,7 +24,7 @@ const CARDS = [
 
 export function BuyersRelocation() {
   return (
-    <section id="buyers" className="relative overflow-hidden bg-bone-warm py-24">
+    <section id="buyers" className="relative overflow-hidden bg-bone-warm py-14 md:py-24">
       {/* Background — subtle texture via gradient, photo fades in on top when available */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(176,141,87,0.06),transparent_60%)]" />
       <div className="absolute inset-0">

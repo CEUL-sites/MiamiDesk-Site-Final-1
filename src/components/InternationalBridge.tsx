@@ -22,7 +22,7 @@ const OWNER_COPY = "For South Florida owners, the same Miami and Madrid presence
 
 export function InternationalBridge() {
   return (
-    <section id="spain" className="overflow-hidden bg-navy-deep py-24 text-white">
+    <section id="spain" className="overflow-hidden bg-navy-deep py-14 md:py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="relative mx-auto mb-16 h-32 max-w-4xl">
           <svg className="absolute inset-0 h-full w-full" viewBox="0 0 900 120" fill="none" aria-hidden="true">

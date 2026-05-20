@@ -42,7 +42,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-navy-deep/55" />
       </div>
 
-      <div className="relative flex min-h-screen items-center px-6 py-28 sm:px-10 lg:px-20">
+      <div className="relative flex min-h-screen items-start pt-12 pb-14 px-6 sm:items-center sm:py-28 sm:px-10 lg:px-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"

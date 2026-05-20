@@ -72,7 +72,7 @@ function ChatWindow({ started }: { started: boolean }) {
   const [visibleCount, setVisibleCount] = useState(0);
   const [showTyping, setShowTyping] = useState(false);
   const [done, setDone] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!started) return;
@@ -107,13 +107,15 @@ function ChatWindow({ started }: { started: boolean }) {
   }, [started]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    }
   }, [visibleCount, showTyping]);
 
   return (
     <div className="flex flex-col h-[420px]">
       {/* Chat messages */}
-      <div className="flex-1 overflow-y-auto space-y-4 p-5 lg:p-6 scrollbar-hide">
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto space-y-4 p-5 lg:p-6 scrollbar-hide">
         {CONVERSATION.slice(0, visibleCount).map((msg, i) => (
           <motion.div
             key={i}
@@ -162,7 +164,6 @@ function ChatWindow({ started }: { started: boolean }) {
           </motion.div>
         )}
 
-        <div ref={bottomRef} />
       </div>
 
       {/* Fake input bar */}
@@ -188,7 +189,7 @@ export const IntelligenceDesk = () => {
   const inView = useInView(sectionRef, { once: true, amount: 0.25 });
 
   return (
-    <section id="intelligence" ref={sectionRef} className="border-t border-gold/20 bg-navy py-24 text-white">
+    <section id="intelligence" ref={sectionRef} className="border-t border-gold/20 bg-navy py-14 md:py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:items-start">
 

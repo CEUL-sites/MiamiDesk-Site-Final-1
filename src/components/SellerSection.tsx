@@ -12,7 +12,7 @@ const STEPS = [
 
 export function SellerSection() {
   return (
-    <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-24 text-white">
+    <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-14 md:py-24 text-white">
       {/* Background — gradient base, photo fades in on top when available */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(20,45,90,0.8),transparent_55%)]" />
       <div className="absolute inset-0">

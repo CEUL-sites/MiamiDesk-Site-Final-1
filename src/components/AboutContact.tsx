@@ -11,7 +11,7 @@ const STATS = [
 
 export function AboutContact() {
   return (
-    <section id="contact" className="bg-ivory py-24">
+    <section id="contact" className="bg-ivory py-14 md:py-24">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div className="grid gap-10 md:grid-cols-[280px_1fr] md:items-start">
@@ -67,23 +67,23 @@ export function AboutContact() {
           </div>
 
           <div className="mt-6 border-t border-bone pt-6 space-y-2">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">{CONTACT.licenseDisplay}</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Member: Miami and South Florida REALTORS®</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/60">{CONTACT.licenseDisplay}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/60">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/60">Member: Miami and South Florida REALTORS®</p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
             <a href={CONTACT.whatsappUS} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold">
               <Phone className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/40">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
+              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
             </a>
             <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold">
               <Mail className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/40">Email</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.email}</div></div>
+              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Email</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.email}</div></div>
             </a>
             <div className="flex items-start gap-3 border border-bone bg-white p-5">
               <MapPin className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/40">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
+              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
             </div>
           </div>
         </div>
