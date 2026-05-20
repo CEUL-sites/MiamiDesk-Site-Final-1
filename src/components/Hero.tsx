@@ -123,6 +123,24 @@ export function Hero() {
             </span>
           </motion.div>
 
+          {/* Audience navigator */}
+          <motion.div variants={itemVariants} className="mt-7 flex flex-wrap items-center gap-2">
+            <span className="font-mono text-[8px] uppercase tracking-[0.25em] text-white/30">I am a:</span>
+            {[
+              { label: "Seller", href: "#sellers" },
+              { label: "Buyer",  href: "#buyers" },
+              { label: "Agent",  href: "#referral" },
+            ].map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="border border-white/15 px-4 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55 transition-all duration-200 hover:border-gold hover:text-gold"
+              >
+                {label}
+              </a>
+            ))}
+          </motion.div>
+
         </motion.div>
       </div>
 

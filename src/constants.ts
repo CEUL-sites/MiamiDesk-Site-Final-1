@@ -28,8 +28,8 @@ export const CONTACT = {
 
 export const NAVIGATION = [
   { name: "Sellers", href: "#sellers" },
-  { name: "Our Reach", href: "#reach" },
-  { name: "Partners", href: "#partners" },
+  { name: "Buyers", href: "#buyers" },
+  { name: "Agents", href: "#referral" },
   { name: "Spain Desk", href: "#spain" },
   { name: "AI Desk", href: "#intelligence" },
   { name: "Contact", href: "#contact" },

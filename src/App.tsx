@@ -2,12 +2,14 @@ import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { SellerSection } from "./components/SellerSection";
+import { PropertyShowcase3D } from "./components/PropertyShowcase3D";
 import { ReachAdvantage } from "./components/ReachAdvantage";
 import { ExposureSyndication } from "./components/ExposureSyndication";
 import { PartnersMarquee } from "./components/PartnersMarquee";
 import { CarlosTrust } from "./components/CarlosTrust";
 import { InternationalBridge } from "./components/InternationalBridge";
 import { BuyersRelocation } from "./components/BuyersRelocation";
+import { AgentReferral } from "./components/AgentReferral";
 import { IntelligenceDesk } from "./components/IntelligenceDesk";
 import { FAQ } from "./components/FAQ";
 import { AboutContact } from "./components/AboutContact";
@@ -26,12 +28,14 @@ export default function App() {
       <MLSTicker />
       <Hero />
       <SellerSection />
+      <PropertyShowcase3D />
       <ReachAdvantage />
       <ExposureSyndication />
       <PartnersMarquee />
       <CarlosTrust />
       <InternationalBridge />
       <BuyersRelocation />
+      <AgentReferral />
       <IntelligenceDesk />
       <FAQ />
       <AboutContact />
