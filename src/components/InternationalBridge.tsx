@@ -1,6 +1,163 @@
-import { ChevronRight, Plane } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
+import { useRef, useEffect } from "react";
 import { CONTACT } from "../constants";
+
+const GLOBE_LOCATIONS = [
+  { name: "Florida", lon: -80, lat: 25 },
+  { name: "LATAM", lon: -60, lat: -10 },
+  { name: "Madrid", lon: -4, lat: 40 },
+];
+
+function toRad(d: number) { return (d * Math.PI) / 180; }
+
+function Globe3D() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const W = canvas.width;
+    const H = canvas.height;
+    const R = W * 0.42;
+    const cx = W / 2;
+    const cy = H / 2;
+    let rot = -30;
+    let frame = 0;
+    let animId: number;
+
+    function project(lon: number, lat: number) {
+      const phi = toRad(lat);
+      const lam = toRad(lon + rot);
+      const x = R * Math.cos(phi) * Math.sin(lam);
+      const y = -R * Math.sin(phi);
+      const z = R * Math.cos(phi) * Math.cos(lam);
+      return { x: cx + x, y: cy + y, visible: z > -R * 0.1 };
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // Atmosphere
+      const atm = ctx.createRadialGradient(cx, cy, R * 0.75, cx, cy, R * 1.18);
+      atm.addColorStop(0, "rgba(176,141,87,0.06)");
+      atm.addColorStop(1, "rgba(176,141,87,0)");
+      ctx.fillStyle = atm;
+      ctx.beginPath(); ctx.arc(cx, cy, R * 1.18, 0, Math.PI * 2); ctx.fill();
+
+      // Globe body
+      const body = ctx.createRadialGradient(cx - R * 0.25, cy - R * 0.25, 0, cx, cy, R);
+      body.addColorStop(0, "#0d1f3e");
+      body.addColorStop(1, "#06111f");
+      ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.fillStyle = body; ctx.fill();
+      ctx.strokeStyle = "rgba(176,141,87,0.4)"; ctx.lineWidth = 1.5; ctx.stroke();
+
+      // Latitude lines
+      for (let lat = -60; lat <= 60; lat += 30) {
+        ctx.beginPath();
+        let started = false;
+        for (let lon = -180; lon <= 180; lon += 3) {
+          const p = project(lon, lat);
+          if (!p.visible) { started = false; continue; }
+          started ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
+          started = true;
+        }
+        ctx.strokeStyle = lat === 0 ? "rgba(176,141,87,0.22)" : "rgba(176,141,87,0.10)";
+        ctx.lineWidth = lat === 0 ? 0.8 : 0.5; ctx.stroke();
+      }
+
+      // Longitude lines
+      for (let lon = 0; lon < 360; lon += 30) {
+        ctx.beginPath();
+        let started = false;
+        for (let lat = -85; lat <= 85; lat += 3) {
+          const p = project(lon, lat);
+          if (!p.visible) { started = false; continue; }
+          started ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
+          started = true;
+        }
+        ctx.strokeStyle = "rgba(176,141,87,0.10)";
+        ctx.lineWidth = 0.5; ctx.stroke();
+      }
+
+      // Project locations
+      const pts = GLOBE_LOCATIONS.map(l => ({ ...l, ...project(l.lon, l.lat) }));
+      const vis = pts.filter(p => p.visible);
+
+      // Arcs between visible pairs
+      ctx.setLineDash([4, 9]);
+      ctx.strokeStyle = "rgba(176,141,87,0.28)";
+      ctx.lineWidth = 1;
+      for (let i = 0; i < vis.length; i++) {
+        for (let j = i + 1; j < vis.length; j++) {
+          const mx = (vis[i].x + vis[j].x) / 2;
+          const my = (vis[i].y + vis[j].y) / 2 - 18;
+          ctx.beginPath();
+          ctx.moveTo(vis[i].x, vis[i].y);
+          ctx.quadraticCurveTo(mx, my, vis[j].x, vis[j].y);
+          ctx.stroke();
+        }
+      }
+      ctx.setLineDash([]);
+
+      // Pulsing dots
+      const pulse = (Math.sin(frame * 0.055) + 1) / 2;
+      pts.forEach(loc => {
+        if (!loc.visible) return;
+        // Outer halo
+        ctx.beginPath();
+        ctx.arc(loc.x, loc.y, 10 + pulse * 9, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(176,141,87,${0.12 + pulse * 0.1})`;
+        ctx.lineWidth = 1; ctx.stroke();
+        // Mid ring
+        ctx.beginPath();
+        ctx.arc(loc.x, loc.y, 6 + pulse * 3, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(212,174,120,${0.28 + pulse * 0.18})`;
+        ctx.lineWidth = 1.2; ctx.stroke();
+        // Core
+        ctx.beginPath(); ctx.arc(loc.x, loc.y, 4, 0, Math.PI * 2);
+        ctx.fillStyle = "#D4AE78"; ctx.fill();
+        // White center
+        ctx.beginPath(); ctx.arc(loc.x, loc.y, 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = "#fff"; ctx.fill();
+        // Label
+        ctx.font = "700 8px monospace";
+        ctx.fillStyle = "rgba(212,174,120,0.92)";
+        ctx.textAlign = "center";
+        ctx.letterSpacing = "2px";
+        ctx.fillText(loc.name.toUpperCase(), loc.x, loc.y - 14);
+      });
+
+      // Shine overlay
+      const shine = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.35, 0, cx, cy, R);
+      shine.addColorStop(0, "rgba(255,255,255,0.07)");
+      shine.addColorStop(0.55, "rgba(255,255,255,0)");
+      ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      ctx.fillStyle = shine; ctx.fill();
+
+      frame++;
+      rot += 0.22;
+      animId = requestAnimationFrame(draw);
+    }
+
+    draw();
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      width={320}
+      height={320}
+      className="mx-auto"
+      style={{ imageRendering: "crisp-edges" }}
+    />
+  );
+}
 
 const CAPABILITIES = [
   {
@@ -24,39 +181,8 @@ export function InternationalBridge() {
   return (
     <section id="spain" className="overflow-hidden bg-navy-deep py-14 md:py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="relative mx-auto mb-16 h-32 max-w-4xl">
-          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 900 120" fill="none" aria-hidden="true">
-            <defs>
-              <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="5" result="blur" />
-                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-            </defs>
-            {/* Outer pulse halos */}
-            <circle cx="110" cy="82" r="20" fill="rgba(176,141,87,0.07)" />
-            <circle cx="790" cy="82" r="20" fill="rgba(176,141,87,0.07)" />
-            <circle cx="110" cy="82" r="12" fill="rgba(176,141,87,0.12)" />
-            <circle cx="790" cy="82" r="12" fill="rgba(176,141,87,0.12)" />
-            {/* Flight arc */}
-            <path d="M110 82 C300 6 590 6 790 82" stroke="rgba(176,141,87,0.38)" strokeWidth="1.5" strokeDasharray="8 11" />
-            {/* Glowing endpoint dots */}
-            <circle cx="110" cy="82" r="7" fill="#B08D57" filter="url(#glow-gold)" />
-            <circle cx="790" cy="82" r="7" fill="#B08D57" filter="url(#glow-gold)" />
-            {/* Bright inner dots */}
-            <circle cx="110" cy="82" r="3" fill="#D4AE78" />
-            <circle cx="790" cy="82" r="3" fill="#D4AE78" />
-          </svg>
-          <motion.div className="absolute left-[12%] top-[48px] text-gold" animate={{ left: ["12%", "85%"], top: [48, 18, 48] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
-            <Plane size={22} />
-          </motion.div>
-          <div className="absolute left-2 bottom-0 flex items-center gap-2 border border-gold/30 bg-navy-deep/70 backdrop-blur-sm px-4 py-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-gold pulse-glow" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Miami, FL</span>
-          </div>
-          <div className="absolute right-2 bottom-0 flex items-center gap-2 border border-gold/30 bg-navy-deep/70 backdrop-blur-sm px-4 py-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Madrid, España</span>
-            <span className="h-1.5 w-1.5 rounded-full bg-gold pulse-glow" />
-          </div>
+        <div className="mb-10">
+          <Globe3D />
         </div>
 
         <div className="mx-auto max-w-4xl text-center">

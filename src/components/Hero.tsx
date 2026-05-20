@@ -42,12 +42,12 @@ export function Hero() {
         <div className="absolute inset-0 bg-navy-deep/55" />
       </div>
 
-      <div className="relative flex min-h-screen items-start pt-12 pb-14 px-6 sm:items-center sm:py-28 sm:px-10 lg:px-20">
+      <div className="relative flex min-h-screen items-start pt-14 pb-14 px-6 sm:items-center sm:py-28 sm:px-10 lg:px-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full max-w-3xl"
+          className="mx-auto w-full max-w-4xl text-center"
         >
           {/* Credential badge */}
           <motion.p variants={itemVariants} className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">
@@ -57,33 +57,33 @@ export function Hero() {
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-serif font-normal leading-[1.08] tracking-tight text-white"
-            style={{ fontSize: "clamp(2.4rem, 4.5vw, 4.2rem)" }}
+            className="font-serif font-normal leading-[1.06] tracking-tight text-white"
+            style={{ fontSize: "clamp(2.6rem, 5vw, 4.8rem)" }}
           >
-            List Your South Florida<br />
-            Property With<br />
-            <span className="italic text-gold">Strategic Exposure.</span>
+            South Florida Sellers<br />
+            Deserve More Than<br />
+            <span className="italic text-gold">a Listing.</span>
           </motion.h1>
 
           {/* Tagline */}
-          <motion.p variants={itemVariants} className="mt-6 font-serif text-[1.1rem] italic font-normal leading-snug text-white/75">
-            Your property deserves market positioning, not just a listing.
+          <motion.p variants={itemVariants} className="mt-6 font-serif text-[1.15rem] italic font-normal leading-snug text-white/75">
+            Most sellers leave money on the table. Carlos won't let you.
           </motion.p>
 
           {/* Supporting subtitle */}
-          <motion.p variants={itemVariants} className="mt-4 max-w-xl font-sans text-[0.95rem] font-light leading-[1.85] text-white/55">
-            Senior seller advisory backed by 25 years of Florida market experience — MLS positioning,{" "}
-            <span className="font-medium text-white/85">{ASSOCIATION_STATS.memberCount.toLocaleString()}-member association</span>
-            {" "}reach, buyer-agent visibility, and cross-border market context that extends to Madrid.
+          <motion.p variants={itemVariants} className="mx-auto mt-5 max-w-2xl font-sans text-[0.95rem] font-light leading-[1.9] text-white/55">
+            25 years of South Florida market intelligence — professional MLS positioning, direct access to{" "}
+            <span className="font-medium text-white/85">{ASSOCIATION_STATS.memberCount.toLocaleString()} member agents</span>,
+            {" "}200+ global portals, and cross-border reach from Miami to Madrid.
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={itemVariants} className="mt-9 flex flex-wrap gap-3">
+          <motion.div variants={itemVariants} className="mt-9 flex flex-wrap justify-center gap-3">
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 bg-gold px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft active:scale-95"
+              className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft active:scale-95"
             >
-              Request a Private Seller Strategy Review
+              Get My Free Strategy Review
               <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a
@@ -93,14 +93,18 @@ export function Hero() {
               className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold active:scale-95"
             >
               <MessageSquare size={14} />
-              WhatsApp Carlos
+              WhatsApp Carlos Now
             </a>
           </motion.div>
+
+          <motion.p variants={itemVariants} className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+            Free · No listing commitment required
+          </motion.p>
 
           {/* Trust bar */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 grid grid-cols-4 gap-6 border-t border-white/10 pt-9 sm:max-w-lg"
+            className="mx-auto mt-12 grid grid-cols-4 gap-6 border-t border-white/10 pt-9 sm:max-w-xl"
           >
             {[
               { value: "25",    label: "Years Licensed" },
@@ -124,7 +128,7 @@ export function Hero() {
           </motion.div>
 
           {/* Audience navigator */}
-          <motion.div variants={itemVariants} className="mt-7 flex flex-wrap items-center gap-2">
+          <motion.div variants={itemVariants} className="mt-7 flex flex-wrap items-center justify-center gap-2">
             <span className="font-mono text-[8px] uppercase tracking-[0.25em] text-white/30">I am a:</span>
             {[
               { label: "Seller", href: "#sellers" },
