@@ -3,7 +3,7 @@ import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 
 // Paste your Apps Script Web App URL here after deploying from script.google.com
-const SHEETS_WEBHOOK = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+const SHEETS_WEBHOOK = "https://script.google.com/macros/s/AKfycbxDVA5nBsPQzjb1a3I9R_61EwI_H0BTLORYrhaSfuH36DwnTQgGfaf6rLn2YTqzmPQ0/exec";
 
 const INITIAL_FORM_DATA = {
   name: "",
