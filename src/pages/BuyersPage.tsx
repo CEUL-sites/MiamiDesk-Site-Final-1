@@ -13,15 +13,45 @@ export default function BuyersPage() {
   return (
     <>
       <Helmet>
-        <title>Buy in South Florida | Bilingual Realtor® | LATAM Investors | Carlos Uzcategui</title>
-        <meta name="description" content="25 years of South Florida buyer representation. Bilingual English and Spanish. LATAM investor experience. Miami-Dade, Broward, Palm Beach. Coral Gables, Brickell, Weston, Aventura." />
+        <title>Buy Property in South Florida | Bilingual Realtor® | LATAM Investors | United Realty Group</title>
+        <meta name="description" content="25 years of South Florida buyer representation. Bilingual English and Spanish. LATAM investor specialists. Miami-Dade, Broward, Palm Beach — Coral Gables, Brickell, Weston, Aventura. Free consultation." />
+        <meta name="keywords" content="buy home South Florida, buy property Miami, LATAM real estate investor Florida, bilingual realtor Miami, Spanish-speaking agent South Florida, buy condo Brickell, buy house Coral Gables, buy home Weston, relocate to Miami, United Realty Group buyer agent" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Buy in South Florida", "item": "https://homesprofessional.com/buy" }
+            { "@type": "ListItem", "position": 2, "name": "Buy Property in South Florida", "item": "https://homesprofessional.com/buy" }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Real Estate Buyer Representation",
+          "name": "South Florida Buyer Representation — Bilingual EN/ES",
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui — United Realty Group",
+            "url": "https://homesprofessional.com",
+            "telephone": "+1-954-865-6622",
+            "knowsLanguage": ["English", "Spanish"]
+          },
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Miami-Dade County" },
+            { "@type": "AdministrativeArea", "name": "Broward County" },
+            { "@type": "AdministrativeArea", "name": "Palm Beach County" }
+          ],
+          "description": "Bilingual buyer representation in South Florida. LATAM investor experience. 25 years of Miami-Dade, Broward, and Palm Beach transactions. English and Spanish service.",
+          "url": "https://homesprofessional.com/buy"
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Can LATAM investors buy property in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. South Florida is one of the most active markets for Latin American investors. Our bilingual team has 25 years of experience representing LATAM buyers in Miami-Dade, Broward, and Palm Beach counties. We provide full service in English and Spanish." } },
+            { "@type": "Question", "name": "What neighborhoods are best for buyers in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "Top buyer markets include Brickell (urban condos), Coral Gables (luxury residential), Miami Beach (waterfront), Weston (family-friendly), Aventura (luxury condos), and Doral (investor activity). We provide neighborhood-specific advisory for every buyer." } },
+            { "@type": "Question", "name": "Do you offer bilingual buyer representation in Spanish?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our team provides full buyer representation in both English and Spanish. LATAM and Spanish-speaking buyers receive complete service in their preferred language throughout the transaction." } }
           ]
         })}</script>
       </Helmet>

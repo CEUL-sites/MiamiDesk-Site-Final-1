@@ -13,15 +13,52 @@ export default function SpainDeskPage() {
   return (
     <>
       <Helmet>
-        <title>Spain to Miami MLS | List Spanish Property in U.S. | Carlos Uzcategui</title>
-        <meta name="description" content="Activate your Spanish or LATAM property in the Miami MLS. Reach 93,000 U.S. Realtors representing the exact LATAM and North American buyers your market depends on." />
+        <title>Spain to Miami MLS | List Spanish Property in U.S. | United Realty Group</title>
+        <meta name="description" content="List your Spanish or LATAM property in the Miami MLS. Reach 93,000 U.S. Realtors representing LATAM and North American buyers. Licensed Florida principal. Bilingual EN/ES. Madrid & Miami offices." />
+        <meta name="keywords" content="Spain Miami real estate, list Spanish property Miami MLS, Madrid property US buyers, Marbella real estate LATAM buyers, Spain to US real estate, cross-border real estate agent, Florida principal Spain, agente inmobiliario Florida, listar propiedad Miami MLS, comprador latinoamericano España" />
         <link rel="canonical" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hreflang="es" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hreflang="en" href="https://homesprofessional.com/spain-desk" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Spain Desk", "item": "https://homesprofessional.com/spain-desk" }
+            { "@type": "ListItem", "position": 2, "name": "Spain Desk — Miami MLS International", "item": "https://homesprofessional.com/spain-desk" }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "International Real Estate — Spain and LATAM to Miami MLS",
+          "name": "Spain Desk — Miami MLS International Activation",
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui — United Realty Group",
+            "url": "https://homesprofessional.com",
+            "telephone": "+34-646-853-078",
+            "knowsLanguage": ["English", "Spanish"]
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "Spain" },
+            { "@type": "City", "name": "Madrid" },
+            { "@type": "City", "name": "Marbella" },
+            { "@type": "City", "name": "Costa del Sol" },
+            { "@type": "City", "name": "Miami" },
+            { "@type": "City", "name": "South Florida" }
+          ],
+          "description": "Licensed Florida principal activating Spanish and LATAM properties in the Miami MLS — reaching 93,000 U.S. Realtors who represent LATAM and North American buyers, the dominant purchasers of Spanish luxury real estate.",
+          "url": "https://homesprofessional.com/spain-desk",
+          "inLanguage": ["en", "es"]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Can Spanish property be listed in the Miami MLS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. As a licensed Florida principal of record, our team activates Spanish and LATAM properties within the Miami MLS ecosystem — reaching 93,000 U.S. Realtors who represent LATAM and North American buyers, the dominant purchasers of luxury Spanish real estate. This is a formal MLS listing, not a referral." } },
+            { "@type": "Question", "name": "Who are the buyers of luxury property in Madrid and Marbella?", "acceptedAnswer": { "@type": "Answer", "text": "The majority of luxury real estate buyers in Spain — particularly in Madrid, Marbella, and the Costa del Sol — come from Latin America and North America. These buyers are represented by U.S. Realtors inside the Miami MLS." } },
+            { "@type": "Question", "name": "Do you provide bilingual advisory for Spain real estate?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our team provides full bilingual advisory in English and Spanish. Spanish inquiries are answered in Spanish within one business day. We maintain offices in both Miami and Madrid." } },
+            { "@type": "Question", "name": "What is the Spain Desk and how does it work?", "acceptedAnswer": { "@type": "Answer", "text": "The Spain Desk is our international real estate activation bridge. As a licensed U.S. principal, we list Spanish and LATAM properties directly in the Miami MLS, creating formal access to 93,000 agents and their LATAM and North American buyer pipelines." } }
           ]
         })}</script>
       </Helmet>
