@@ -71,9 +71,9 @@ export default function SellersPage() {
           whatsappHref={CONTACT.whatsappUS}
           badge="United Realty Group · CLHMS · Certified Seller Rep · FL SL705771"
         />
+        <ReachAdvantage />
         <SellerSection />
         <PropertyShowcase3D />
-        <ReachAdvantage />
         <ExposureSyndication />
         <PartnersMarquee />
         <NeighborhoodGrid />

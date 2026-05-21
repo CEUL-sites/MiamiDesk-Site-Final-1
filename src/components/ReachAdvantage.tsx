@@ -1,87 +1,214 @@
-import { BarChart3, Globe, Handshake, MessageSquare, Network, Users } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { CONTACT } from "../constants";
 
-const STATS = [
-  { value: 200, suffix: "+", label: "Global Portals", desc: "Websites and apps worldwide publishing every active listing in the buyer's language.", icon: Globe },
-  { value: 19, suffix: "", label: "Languages", desc: "Every listing publishes in 19 languages simultaneously. No buyer is unreachable by language.", icon: MessageSquare },
-  { value: 260, suffix: "+", label: "U.S. MLSs", desc: "National MLS data exchanges via RPR, the broadest domestic professional reach available.", icon: Network },
-  { value: 437, suffix: "+", label: "Intl. Agreements", desc: "Signed referral agreements with real estate associations across the world, creating active deal flow.", icon: Handshake },
-  { value: 93000, suffix: "", label: "Member Agents", desc: "Miami and South Florida REALTORS®, the world's largest local Realtor association.", icon: Users },
-  { value: 69, suffix: "B", label: "2025 Volume", desc: "Combined transaction volume of the association in 2025. The infrastructure behind every listing.", icon: BarChart3 }
+const TOP_STATS = [
+  {
+    value: 93000,
+    display: "93,000",
+    suffix: "",
+    label: "Member Agents",
+    sublabel: "Miami & South Florida REALTORS®",
+    desc: "Every active agent's buyer pipeline is exposed to your listing on day one — the world's largest local Realtor® association.",
+  },
+  {
+    value: 69,
+    display: "69",
+    prefix: "$",
+    suffix: "B",
+    label: "2025 Transaction Volume",
+    sublabel: "Miami MLS Association",
+    desc: "The combined transactional weight of the network your listing enters. This is where qualified buyers are found.",
+  },
+  {
+    value: 200,
+    display: "200",
+    suffix: "+",
+    label: "Global Portals",
+    sublabel: "19 Languages Simultaneously",
+    desc: "From Zillow and Realtor.com to international platforms — every portal, every language, published the same day.",
+  },
 ];
 
-function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement | null>(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
+const BOTTOM_STATS = [
+  {
+    value: 260,
+    display: "260",
+    suffix: "+",
+    label: "U.S. MLSs",
+    sublabel: "via RPR National Exchange",
+    desc: "Your listing crosses state lines through the national professional MLS data exchange. Domestic reach beyond South Florida.",
+  },
+  {
+    value: 437,
+    display: "437",
+    suffix: "+",
+    label: "Intl. Agreements",
+    sublabel: "Global Referral Network",
+    desc: "Signed referral agreements with real estate associations worldwide — creating active deal flow for listings with international appeal.",
+  },
+  {
+    value: 25,
+    display: "25",
+    suffix: "",
+    label: "Years Active",
+    sublabel: "Licensed Since 2001",
+    desc: "A quarter-century of South Florida transactions. The relationships and market intelligence behind every strategy review.",
+  },
+];
+
+function AnimatedNumber({ display, prefix = "", suffix }: { display: string; prefix?: string; suffix: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (!inView) return;
-    const duration = 2000;
-    const steps = 60;
-    const increment = value / steps;
-    let current = 0;
-    const timer = window.setInterval(() => {
-      current += increment;
-      if (current >= value) {
-        setCount(value);
-        window.clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-    return () => window.clearInterval(timer);
-  }, [inView, value]);
+    if (inView) setVisible(true);
+  }, [inView]);
 
-  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+  return (
+    <div ref={ref} className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+      <span className="font-serif" style={{ lineHeight: 1 }}>
+        {prefix && <span className="text-white/50">{prefix}</span>}
+        {display}
+        {suffix && <span className="text-gold/80">{suffix}</span>}
+      </span>
+    </div>
+  );
+}
+
+function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index: number; delay?: number }) {
+  return (
+    <motion.div
+      key={stat.label}
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.75, delay: delay + index * 0.09 }}
+      className="group relative flex flex-col justify-between border-b border-gold/15 p-8 transition-colors duration-500 hover:bg-white/[0.03] lg:border-b-0 lg:border-r lg:p-10 last:border-r-0"
+    >
+      {/* Subtle gold accent bar at top */}
+      <div className="mb-8 h-px w-10 bg-gold/40 transition-all duration-500 group-hover:w-full group-hover:bg-gold/20" />
+
+      {/* Number */}
+      <div className="font-serif text-gold" style={{ fontSize: "clamp(3.2rem, 6vw, 5.5rem)", lineHeight: 1 }}>
+        <AnimatedNumber display={stat.display} prefix={(stat as any).prefix} suffix={stat.suffix} />
+      </div>
+
+      {/* Labels */}
+      <div className="mt-5">
+        <p className="font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white">{stat.label}</p>
+        <p className="font-mono mt-1 text-[9px] uppercase tracking-[0.2em] text-gold/60">{stat.sublabel}</p>
+      </div>
+
+      {/* Description — reveals on hover, visible always on mobile */}
+      <p className="mt-5 font-sans text-sm leading-relaxed text-white/45 transition-colors duration-300 group-hover:text-white/65">
+        {stat.desc}
+      </p>
+    </motion.div>
+  );
 }
 
 export const ReachAdvantage = () => {
   return (
-    <section id="reach" className="border-t border-gold/20 bg-navy-deep py-14 md:py-24 text-white">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto mb-16 max-w-4xl text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller Distribution Advantage</p>
-          <h2 className="mt-5 font-serif text-4xl leading-tight text-white lg:text-6xl">
-            This is not just an online posting.<br />
-            <span className="italic text-gold">It is a distribution strategy.</span>
-          </h2>
-          <p className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-relaxed text-white/60">
-            Listing with our team means entering a professional distribution infrastructure — MLS visibility, global publication, broker cooperation, referral networks, and buyer-agent access across South Florida and beyond.
-          </p>
-        </div>
+    <section id="reach" className="relative overflow-hidden bg-navy-deep text-white">
 
-        <div className="grid grid-cols-1 border border-white/10 md:grid-cols-2 lg:grid-cols-3">
-          {STATS.map((stat, index) => (
-            <motion.div key={stat.label} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.7, delay: index * 0.06 }} className="group border-b border-r border-white/10 p-8 transition-colors duration-300 hover:bg-white/[0.035] lg:p-10">
-              <stat.icon className="mb-10 text-gold/65 transition-colors group-hover:text-gold" size={30} />
-              <div className="font-serif text-5xl text-gold lg:text-6xl"><AnimatedCounter value={stat.value} suffix={stat.suffix} /></div>
-              <h3 className="font-sans mt-5 text-sm font-semibold uppercase tracking-[0.2em] text-white">{stat.label}</h3>
-              <p className="mt-4 font-sans text-sm leading-relaxed text-white/50">{stat.desc}</p>
-            </motion.div>
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.04] blur-[120px]" />
+
+      {/* ── Header ───────────────────────────────────────────── */}
+      <div className="relative border-b border-gold/15 px-6 py-16 md:py-20 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+        >
+          The Reach Advantage · United Realty Group
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mx-auto mt-6 max-w-5xl font-serif leading-[1.08] text-white"
+          style={{ fontSize: "clamp(2.4rem, 5vw, 4.5rem)" }}
+        >
+          The day your listing goes live,<br />
+          <em className="not-italic italic text-gold">it reaches 93,000 professional agents.</em>
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55"
+        >
+          This is not a single listing. It is a distribution infrastructure — every number below is active the moment your property enters the MLS.
+        </motion.p>
+      </div>
+
+      {/* ── Top Stats Row ─────────────────────────────────────── */}
+      <div className="relative grid border-b border-gold/15 lg:grid-cols-3">
+        {TOP_STATS.map((stat, i) => (
+          <StatCard key={stat.label} stat={stat} index={i} />
+        ))}
+      </div>
+
+      {/* ── Mid Divider — featured callout ────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative border-b border-gold/15 bg-gold/[0.04] px-6 py-10 text-center"
+      >
+        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
+          {[
+            { v: "#1", l: "Realtor Assoc. in the U.S." },
+            { v: "69B+", l: "Annual volume" },
+            { v: "Day 1", l: "Full activation" },
+            { v: "CLHMS", l: "Luxury certified" },
+          ].map((item) => (
+            <div key={item.l} className="text-center">
+              <div className="font-serif text-2xl font-bold text-gold lg:text-3xl">{item.v}</div>
+              <div className="font-mono mt-1 text-[8px] uppercase tracking-[0.22em] text-white/40">{item.l}</div>
+            </div>
           ))}
         </div>
+      </motion.div>
 
-        <div className="mt-8 relative overflow-hidden">
-          <div className="gold-line-h" />
-          <div className="py-12 px-6 text-center relative">
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-              <span className="font-serif font-bold text-gold/[0.09]" style={{ fontSize: "clamp(8rem, 22vw, 20rem)", lineHeight: 1 }}>"</span>
-            </div>
-            <blockquote className="relative font-serif text-3xl italic text-white lg:text-6xl max-w-5xl mx-auto leading-[1.12] text-balance">
-              Features describe a property.<br className="hidden sm:block" /> Distribution determines its price.
-            </blockquote>
-            <div className="mt-10 flex items-center justify-center gap-6">
-              <span className="h-px w-16 bg-gold/40" />
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/60">— {CONTACT.shortLicense}</p>
-              <span className="h-px w-16 bg-gold/40" />
-            </div>
-          </div>
-          <div className="gold-line-h" />
+      {/* ── Bottom Stats Row ──────────────────────────────────── */}
+      <div className="relative grid border-b border-gold/15 lg:grid-cols-3">
+        {BOTTOM_STATS.map((stat, i) => (
+          <StatCard key={stat.label} stat={stat} index={i} delay={0.1} />
+        ))}
+      </div>
+
+      {/* ── Quote ─────────────────────────────────────────────── */}
+      <div className="relative px-6 py-16 text-center">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none overflow-hidden">
+          <span className="font-serif font-bold text-gold/[0.06]" style={{ fontSize: "clamp(9rem, 28vw, 22rem)", lineHeight: 1 }}>"</span>
+        </div>
+        <motion.blockquote
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+          className="relative mx-auto max-w-4xl font-serif italic leading-[1.1] text-white"
+          style={{ fontSize: "clamp(1.9rem, 4vw, 3.8rem)" }}
+        >
+          Features describe a property.<br />
+          Distribution determines its price.
+        </motion.blockquote>
+        <div className="mt-8 flex items-center justify-center gap-5">
+          <span className="h-px w-14 bg-gold/35" />
+          <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/55">{CONTACT.shortLicense}</p>
+          <span className="h-px w-14 bg-gold/35" />
         </div>
       </div>
+
     </section>
   );
 };
