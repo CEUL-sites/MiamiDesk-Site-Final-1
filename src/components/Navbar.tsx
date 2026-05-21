@@ -1,11 +1,13 @@
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { CONTACT, NAVIGATION } from "../constants";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -33,11 +35,24 @@ export function Navbar() {
         </a>
 
         <div className="hidden items-center gap-7 xl:flex">
-          {NAVIGATION.map((item) => (
-            <a key={item.name} href={item.href} className={`font-sans text-[11px] font-medium uppercase tracking-[0.15em] transition-colors duration-300 ${scrolled ? "text-navy/75 hover:text-gold" : "text-white/75 hover:text-gold"}`}>
-              {item.name}
-            </a>
-          ))}
+          {NAVIGATION.map((item) => {
+            const isActive = item.href === location.pathname;
+            return (
+              <a
+                key={item.name}
+                href={item.href}
+                className={`font-sans text-[11px] font-medium uppercase tracking-[0.15em] transition-colors duration-300 ${
+                  isActive
+                    ? "text-gold font-semibold"
+                    : scrolled
+                    ? "text-navy/75 hover:text-gold"
+                    : "text-white/75 hover:text-gold"
+                }`}
+              >
+                {item.name}
+              </a>
+            );
+          })}
         </div>
 
         <div className="hidden items-center gap-4 lg:flex">
@@ -70,11 +85,22 @@ export function Navbar() {
               </div>
 
               <div className="mt-14 flex flex-col gap-5">
-                {NAVIGATION.map((item, index) => (
-                  <motion.a key={item.name} href={item.href} onClick={() => setIsOpen(false)} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.05 }} className="border-b border-white/10 pb-4 font-serif text-3xl text-white transition-colors hover:text-gold">
-                    {item.name}
-                  </motion.a>
-                ))}
+                {NAVIGATION.map((item, index) => {
+                  const isActive = item.href === location.pathname;
+                  return (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className={`border-b border-white/10 pb-4 font-serif text-3xl transition-colors hover:text-gold ${isActive ? "text-gold" : "text-white"}`}
+                    >
+                      {item.name}
+                    </motion.a>
+                  );
+                })}
               </div>
 
               <div className="mt-auto border-t border-gold/20 pt-8">

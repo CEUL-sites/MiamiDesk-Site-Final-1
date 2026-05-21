@@ -9,7 +9,9 @@ import { ExposureSyndication } from "../components/ExposureSyndication";
 import { PartnersMarquee } from "../components/PartnersMarquee";
 import { LeadForm } from "../components/LeadForm";
 import { NeighborhoodGrid } from "../components/NeighborhoodGrid";
+import { PageHero } from "../components/PageHero";
 import { BadgeCheck } from "lucide-react";
+import { CONTACT } from "../constants";
 
 export default function SellersPage() {
   return (
@@ -29,32 +31,30 @@ export default function SellersPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <div className="pt-24 pb-8 bg-navy text-white text-center px-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-4">South Florida Seller Strategy</p>
-          <h1 className="font-serif text-4xl lg:text-6xl text-white leading-tight">
-            Sell Your South Florida Home.<br />
-            <span className="italic text-gold">Maximum Global Exposure.</span>
-          </h1>
-          <p className="mt-6 mx-auto max-w-2xl font-sans text-lg font-light leading-relaxed text-white/65">
-            Your listing activates inside the Miami and South Florida REALTORS® MLS — 93,000 member agents, 200+ global portals, 19 languages — the day it goes live.
-          </p>
-          <div className="mt-6 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm">
-            <BadgeCheck size={14} className="text-gold flex-shrink-0" />
-            <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
-              United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
-            </span>
-          </div>
-        </div>
+        <PageHero
+          eyebrow="South Florida Seller Strategy"
+          headline="Sell Your South Florida Home."
+          headlineGold="Maximum Global Exposure."
+          subhead="Your listing activates inside the Miami and South Florida REALTORS® MLS — 93,000 member agents, 200+ global portals, 19 languages — the day it goes live."
+          ctaLabel="Get My Free Strategy Review"
+          ctaHref="/contact"
+          whatsappHref={CONTACT.whatsappUS}
+          badge="United Realty Group · CLHMS · Certified Seller Rep · FL SL705771"
+        />
         <SellerSection />
         <PropertyShowcase3D />
         <ReachAdvantage />
         <ExposureSyndication />
         <PartnersMarquee />
         <NeighborhoodGrid />
-        <section id="contact" className="bg-ivory py-14 md:py-20">
-          <div className="mx-auto max-w-3xl px-6">
+        <section className="bg-navy-deep py-14 md:py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-8 text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Seller Desk</p>
+              <h2 className="mt-3 font-serif text-3xl text-white">Ready to move forward?</h2>
+            </div>
             <LeadForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/30">
+            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Direct to Carlos · Equal Housing Opportunity
             </div>

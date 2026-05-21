@@ -5,7 +5,9 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { AgentReferral } from "../components/AgentReferral";
 import { CarlosTrust } from "../components/CarlosTrust";
 import { LeadForm } from "../components/LeadForm";
+import { PageHero } from "../components/PageHero";
 import { BadgeCheck } from "lucide-react";
+import { CONTACT } from "../constants";
 
 export default function AgentsPage() {
   return (
@@ -25,28 +27,26 @@ export default function AgentsPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <div className="pt-24 pb-8 bg-navy text-white text-center px-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-4">Agent Partner Network</p>
-          <h1 className="font-serif text-4xl lg:text-6xl text-white leading-tight">
-            Refer Your Client.<br />
-            <span className="italic text-gold">We Handle South Florida.</span>
-          </h1>
-          <p className="mt-6 mx-auto max-w-2xl font-sans text-lg font-light leading-relaxed text-white/65">
-            Send your South Florida, Spanish, or LATAM clients to Carlos Uzcategui. Industry-standard referral fees at closing. Bilateral agreements. Your relationship stays yours.
-          </p>
-          <div className="mt-6 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm">
-            <BadgeCheck size={14} className="text-gold flex-shrink-0" />
-            <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
-              FL Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
-            </span>
-          </div>
-        </div>
+        <PageHero
+          eyebrow="Agent Referral Network"
+          headline="Refer Your Client."
+          headlineGold="We Handle South Florida."
+          subhead="Industry-standard referral fees paid at closing. 48-hour response commitment. Bilateral coverage — Miami to Madrid."
+          ctaLabel="Send a Referral"
+          ctaHref="/contact"
+          whatsappHref={CONTACT.whatsappUS}
+          badge="United Realty Group · FL SL705771 · Licensed 2001"
+        />
         <AgentReferral />
         <CarlosTrust />
-        <section id="contact" className="bg-ivory py-14 md:py-20">
-          <div className="mx-auto max-w-3xl px-6">
+        <section className="bg-navy-deep py-14 md:py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-8 text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Agent Referral Desk</p>
+              <h2 className="mt-3 font-serif text-3xl text-white">Ready to move forward?</h2>
+            </div>
             <LeadForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/30">
+            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Direct to Carlos · Equal Housing Opportunity
             </div>

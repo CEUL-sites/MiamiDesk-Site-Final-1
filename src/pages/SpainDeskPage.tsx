@@ -5,7 +5,9 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { InternationalBridge } from "../components/InternationalBridge";
 import { CarlosTrust } from "../components/CarlosTrust";
 import { LeadForm } from "../components/LeadForm";
+import { PageHero } from "../components/PageHero";
 import { BadgeCheck } from "lucide-react";
+import { CONTACT } from "../constants";
 
 export default function SpainDeskPage() {
   return (
@@ -25,28 +27,26 @@ export default function SpainDeskPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <div className="pt-24 pb-10 bg-navy-deep text-white text-center px-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-4">International Activation Bridge</p>
-          <h1 className="font-serif text-4xl lg:text-6xl text-white leading-tight">
-            Your Spanish Property.<br />
-            <span className="italic text-gold">The Miami MLS. One Licensed U.S. Principal.</span>
-          </h1>
-          <p className="mt-6 mx-auto max-w-2xl font-sans text-lg font-light leading-relaxed text-white/65">
-            Activate your Spanish or LATAM property in the Miami and South Florida REALTORS® MLS — reaching 93,000 U.S. Realtors who represent the exact LATAM and North American buyers your market depends on.
-          </p>
-          <div className="mt-6 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm">
-            <BadgeCheck size={14} className="text-gold flex-shrink-0" />
-            <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
-              FL Realtor® SL705771 · Madrid Office · Bilingual EN / ES
-            </span>
-          </div>
-        </div>
+        <PageHero
+          eyebrow="International Activation Bridge"
+          headline="Your Spanish Property."
+          headlineGold="The Miami MLS. One Licensed U.S. Principal."
+          subhead="The majority of luxury buyers in Madrid, Marbella, and the Costa del Sol come from Latin America and North America. Carlos lists your property directly into their Realtors' pipelines."
+          ctaLabel="Activate My Property in the U.S."
+          ctaHref="/contact"
+          whatsappHref={CONTACT.whatsappSpain}
+          badge="Spanish inquiries answered in Spanish · FL SL705771"
+        />
         <InternationalBridge />
         <CarlosTrust />
-        <section id="contact" className="bg-ivory py-14 md:py-20">
-          <div className="mx-auto max-w-3xl px-6">
+        <section className="bg-navy-deep py-14 md:py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-8 text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · International</p>
+              <h2 className="mt-3 font-serif text-3xl text-white">Ready to move forward?</h2>
+            </div>
             <LeadForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/30">
+            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Direct to Carlos · Equal Housing Opportunity
             </div>

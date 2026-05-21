@@ -4,7 +4,7 @@ const ticker = "SOUTH FLORIDA · MIAMI MLS · UNITED REALTY GROUP · MADRID · I
 
 export function Footer() {
   return (
-    <footer className="bg-navy-deep text-white">
+    <footer className="bg-navy-deep text-white border-t-2 border-gold/30">
       <div className="marquee-container border-b border-white/5 py-4">
         <div className="marquee-track-slow">
           {Array.from({ length: 8 }).map((_, index) => (

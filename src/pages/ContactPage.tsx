@@ -3,6 +3,8 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { AboutContact } from "../components/AboutContact";
+import { PageHero } from "../components/PageHero";
+import { CONTACT } from "../constants";
 
 export default function ContactPage() {
   return (
@@ -22,15 +24,16 @@ export default function ContactPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <div className="pt-24 pb-10 bg-navy text-white text-center px-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-4">Free · No Commitment Required</p>
-          <h1 className="font-serif text-4xl lg:text-5xl text-white leading-tight">
-            Request Your Free Strategy Review
-          </h1>
-          <p className="mt-5 mx-auto max-w-xl font-sans text-base font-light leading-relaxed text-white/65">
-            WhatsApp, email, or form — Carlos responds personally within one business day.
-          </p>
-        </div>
+        <PageHero
+          eyebrow="Direct Access"
+          headline="Request Your Free"
+          headlineGold="Strategy Review."
+          subhead="No listing commitment required. Carlos reviews every property personally before responding. Typical response within one business day."
+          ctaLabel="Scroll to the Form Below"
+          ctaHref="#contact"
+          whatsappHref={CONTACT.whatsappUS}
+          badge="Free · Confidential · Direct to Carlos"
+        />
         <AboutContact />
         <Footer />
         <MobileStickyCTA />

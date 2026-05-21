@@ -23,10 +23,10 @@ export function NeighborhoodGrid() {
         </p>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {NEIGHBORHOODS.map((n) => (
-            <div key={n.name} className="border border-bone bg-white p-6 transition-colors hover:border-gold">
-              <div className="flex items-start justify-between">
+            <div key={n.name} className="border border-bone border-l-2 border-l-gold/30 bg-white p-6 transition-all duration-300 hover:border-gold hover:border-l-gold hover:shadow-xl hover:shadow-gold/10 hover:-translate-y-1">
+              <div className="flex items-start justify-between gap-3">
                 <h3 className="font-serif text-xl text-navy">{n.name}</h3>
-                <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-gold border border-gold/30 px-2 py-0.5">{n.county}</span>
+                <span className="flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.15em] text-gold bg-navy/5 border border-gold/40 px-2 py-1">{n.county}</span>
               </div>
               <p className="mt-3 font-sans text-sm leading-relaxed text-navy/60">{n.context}</p>
             </div>

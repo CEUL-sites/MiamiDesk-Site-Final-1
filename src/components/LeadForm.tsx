@@ -76,7 +76,7 @@ export function LeadForm() {
 
   if (status === "success") {
     return (
-      <div className="relative overflow-hidden border border-bone bg-white p-8 shadow-2xl lg:p-12">
+      <div className="relative overflow-hidden border border-bone bg-gradient-to-b from-white to-ivory p-8 shadow-2xl lg:p-12">
         <div className="absolute inset-x-0 top-0 h-1 bg-gold" />
         <div className="relative z-10 py-12 text-center">
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
