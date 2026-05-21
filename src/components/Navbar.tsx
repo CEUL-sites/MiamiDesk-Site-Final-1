@@ -21,16 +21,22 @@ export function Navbar() {
   return (
     <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-white/95 backdrop-blur-xl border-b border-bone shadow-sm py-3" : "bg-transparent py-6"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
-        <a href="/" className="flex flex-col leading-none" aria-label="HomesProfessional.com home">
-          <span className="font-serif text-2xl font-bold tracking-tight">
-            <span className={logoTone}>CARLOS</span>
-            <span className="text-gold">RE</span>
-          </span>
-          <span className={`font-mono mt-1 text-[9px] uppercase tracking-[0.2em] ${scrolled ? "text-navy/75" : "text-white/75"}`}>
+        <a href="/" className="flex flex-col leading-none" aria-label="United Realty Group · HomesProfessional.com">
+          {/* URG mark */}
+          <div className="relative">
+            <svg className="absolute -top-2 left-0 w-full overflow-visible pointer-events-none" height="8" viewBox="0 0 110 8" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M 1 7 Q 55 0 109 7" stroke="#D4AE78" strokeWidth="1.3" fill="none" strokeLinecap="round" opacity="0.75"/>
+            </svg>
+            <span className="font-serif text-[1.35rem] font-bold tracking-widest">
+              <span className={logoTone}>UNITED</span>
+            </span>
+          </div>
+          <span className="font-serif text-[0.78rem] italic tracking-wide text-gold -mt-0.5">Realty Group</span>
+          <span className={`font-mono mt-1 text-[8px] uppercase tracking-[0.18em] ${scrolled ? "text-navy/60" : "text-white/60"}`}>
             Carlos Uzcategui · FL SL705771
           </span>
-          <span className={`font-mono mt-0.5 text-[8px] uppercase tracking-[0.16em] ${scrolled ? "text-navy/40" : "text-white/40"}`}>
-            United Realty Group · HomesProfessional.com
+          <span className={`font-mono text-[7px] uppercase tracking-[0.13em] ${scrolled ? "text-navy/35" : "text-white/35"}`}>
+            HomesProfessional.com
           </span>
         </a>
 
@@ -76,8 +82,14 @@ export function Navbar() {
             <div className="flex h-full flex-col px-6 py-6">
               <div className="flex items-center justify-between">
                 <div className="flex flex-col leading-none">
-                  <span className="font-serif text-3xl font-bold tracking-tight">CARLOS<span className="text-gold">RE</span></span>
-                  <span className="font-mono mt-1 text-[9px] uppercase tracking-[0.22em] text-white/45">HomesProfessional.com</span>
+                  <div className="relative">
+                    <svg className="absolute -top-2 left-0 w-full overflow-visible pointer-events-none" height="8" viewBox="0 0 110 8" preserveAspectRatio="none" aria-hidden="true">
+                      <path d="M 1 7 Q 55 0 109 7" stroke="#D4AE78" strokeWidth="1.3" fill="none" strokeLinecap="round" opacity="0.75"/>
+                    </svg>
+                    <span className="font-serif text-2xl font-bold tracking-widest text-white">UNITED</span>
+                  </div>
+                  <span className="font-serif text-sm italic tracking-wide text-gold -mt-0.5">Realty Group</span>
+                  <span className="font-mono mt-1 text-[8px] uppercase tracking-[0.18em] text-white/45">HomesProfessional.com</span>
                 </div>
                 <button type="button" onClick={() => setIsOpen(false)} aria-label="Close navigation menu" className="text-gold">
                   <X size={32} />

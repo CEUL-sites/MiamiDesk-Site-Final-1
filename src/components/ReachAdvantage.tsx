@@ -49,7 +49,7 @@ export const ReachAdvantage = () => {
             <span className="italic text-gold">It is a distribution strategy.</span>
           </h2>
           <p className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-relaxed text-white/60">
-            Listing with Carlos means entering a professional distribution infrastructure — MLS visibility, global publication, broker cooperation, referral networks, and buyer-agent access across South Florida and beyond.
+            Listing with our team means entering a professional distribution infrastructure — MLS visibility, global publication, broker cooperation, referral networks, and buyer-agent access across South Florida and beyond.
           </p>
         </div>
 

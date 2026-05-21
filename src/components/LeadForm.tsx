@@ -83,7 +83,7 @@ export function LeadForm() {
             <CheckCircle2 size={34} />
           </div>
           <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold">Seller Request Received</div>
-          <h3 className="font-serif text-3xl text-navy">Carlos will review your property details personally.</h3>
+          <h3 className="font-serif text-3xl text-navy">Our licensed team will review your property details personally.</h3>
           <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/60">
             Your request has been routed through HomesProfessional.com. For urgent timing, use WhatsApp at {CONTACT.phoneUS}.
           </p>
@@ -104,7 +104,7 @@ export function LeadForm() {
           <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold">Confidential Seller Desk</div>
           <h3 className="font-serif text-3xl text-navy">Request a South Florida Seller Strategy Review</h3>
           <p className="mt-3 font-sans text-[13px] font-light leading-relaxed text-navy/45">
-            Share the essentials early: email, phone, property address, city, timing, and the context Carlos should review before responding.
+            Share the essentials early: email, phone, property address, city, timing, and the context our team should review before responding.
           </p>
         </div>
 
@@ -156,7 +156,7 @@ export function LeadForm() {
 
           <div className="flex flex-col gap-2">
             <label className="input-label">Message</label>
-            <textarea name="message" rows={4} placeholder="What should Carlos know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+            <textarea name="message" rows={4} placeholder="What should our team know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
           </div>
 
           {status === "error" && <p className="font-sans text-sm text-red-700">{errorMessage}</p>}

@@ -48,7 +48,7 @@ export default function BuyersPage() {
             <LeadForm />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
-              Confidential · Direct to Carlos · Equal Housing Opportunity
+              Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>
           </div>
         </section>

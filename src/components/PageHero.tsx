@@ -107,7 +107,7 @@ export function PageHero({
               className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold active:scale-95"
             >
               <MessageSquare size={14} />
-              WhatsApp Carlos
+              WhatsApp Our Team
             </a>
           </motion.div>
 

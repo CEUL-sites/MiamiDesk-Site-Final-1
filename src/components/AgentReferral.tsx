@@ -16,7 +16,7 @@ const REFERRAL_TYPES = [
   {
     tag: "Seller Side",
     title: "South Florida Seller Referral",
-    desc: "Client has a South Florida property to list. Carlos manages full MLS activation, staging advisory, pricing strategy, and buyer-agent outreach. You stay connected to your client.",
+    desc: "Client has a South Florida property to list. Our team manages full MLS activation, staging advisory, pricing strategy, and buyer-agent outreach. You stay connected to your client.",
     cta: "/contact",
   },
   {
@@ -28,7 +28,7 @@ const REFERRAL_TYPES = [
   {
     tag: "Cross-Border",
     title: "Spain Desk Referral",
-    desc: "LATAM buyer seeking luxury property in Spain, or a Spain/Europe seller wanting U.S. MLS exposure. Carlos bridges both directions through the Miami and Madrid desks.",
+    desc: "LATAM buyer seeking luxury property in Spain, or a Spain/Europe seller wanting U.S. MLS exposure. Our team bridges both directions through the Miami and Madrid desks.",
     cta: CONTACT.whatsappSpain,
   },
 ];
@@ -52,7 +52,7 @@ export function AgentReferral() {
               <span className="italic text-gold">We handle the rest.</span>
             </h2>
             <p className="mt-7 max-w-lg font-sans text-lg leading-relaxed text-navy/75">
-              Carlos is your South Florida principal. Send your buyers, sellers, or cross-border clients from Spain, Latin America, or anywhere in the U.S. — and earn a referral fee at closing. Your relationship. Our market.
+              Our licensed professionals at United Realty Group are your South Florida principal team. Send your buyers, sellers, or cross-border clients from Spain, Latin America, or anywhere in the U.S. — and earn a referral fee at closing. Your relationship. Our market.
             </p>
 
             <div className="mt-10 space-y-6">

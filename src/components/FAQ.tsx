@@ -5,7 +5,7 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "How do I sell my South Florida home?",
-    a: "It starts with positioning — the right price, the right timing, and professional MLS activation. Carlos provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS to 93,000 professional agents and 200+ global portals simultaneously. No obligation. Just a strategy.",
+    a: "It starts with positioning — the right price, the right timing, and professional MLS activation. Our team provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS to 93,000 professional agents and 200+ global portals simultaneously. No obligation. Just a strategy.",
   },
   {
     q: "What is the Miami MLS and why does it matter?",
@@ -13,19 +13,19 @@ const FAQS = [
   },
   {
     q: "Do you work with Latin American and Spanish buyers?",
-    a: "Yes. South Florida's luxury market runs on Latin American capital. Carlos built those relationships deal by deal over 20 years — not through advertising. His Madrid advisory desk also connects Spanish developers, agencies, and HNW owners to the U.S. market through a licensed Florida principal of record.",
+    a: "Yes. South Florida's luxury market runs on Latin American capital. Our team built those relationships deal by deal over 20 years — not through advertising. Our Madrid advisory desk connects Spanish developers, agencies, and HNW owners to the U.S. market through a licensed Florida principal of record.",
   },
   {
     q: "How long does it take to sell in South Florida?",
-    a: "In 2025, Miami-Dade properties priced $500K–$1.5M are moving in 30–60 days with correct positioning. Above $2M, typical cycles run 60–120 days. Carlos provides a neighborhood-specific timeline assessment as part of every seller strategy review — free, no listing commitment required.",
+    a: "In 2025, Miami-Dade properties priced $500K–$1.5M are moving in 30–60 days with correct positioning. Above $2M, typical cycles run 60–120 days. We provide a neighborhood-specific timeline assessment as part of every seller strategy review — free, no listing commitment required.",
   },
   {
     q: "Can a Spanish property be listed in the Miami MLS?",
-    a: "Yes. Carlos, as a licensed Florida principal, can activate Spanish properties within the Miami MLS ecosystem — reaching 93,000 agents who represent LATAM and North American buyers, the dominant purchasers of luxury Spanish real estate. This is a formal MLS listing, not a referral or informal referral.",
+    a: "Yes. As a licensed Florida principal of record, our team can activate Spanish properties within the Miami MLS ecosystem — reaching 93,000 agents who represent LATAM and North American buyers, the dominant purchasers of luxury Spanish real estate. This is a formal MLS listing, not a referral.",
   },
   {
     q: "Is the seller strategy review really free?",
-    a: "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property. Submit the form below or WhatsApp Carlos directly.",
+    a: "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property. Submit the form below or WhatsApp our team directly.",
   },
 ];
 

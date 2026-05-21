@@ -17,7 +17,7 @@ const CAPABILITIES = [
   }
 ];
 
-const SPAIN_COPY = "For Spain agencies, developers, and ownership teams, Carlos creates a licensed U.S. channel into the Miami MLS ecosystem with bilingual presentation support, agent-facing exposure, and cross-border advisory coordination.";
+const SPAIN_COPY = "For Spain agencies, developers, and ownership teams, our licensed professionals create a formal U.S. channel into the Miami MLS ecosystem with bilingual presentation support, agent-facing exposure, and cross-border advisory coordination.";
 const OWNER_COPY = "For South Florida owners, the same Miami and Madrid presence adds international buyer awareness, referral pathways, and a more sophisticated property narrative for listings with global appeal.";
 
 export function InternationalBridge() {
@@ -71,7 +71,7 @@ export function InternationalBridge() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-[1.9] text-white/65"
           >
-            The majority of luxury real estate buyers in Spain, particularly in Madrid, Marbella, and the Costa del Sol, come from Latin America and North America. Carlos lists your property into the Miami MLS, putting it in front of 93,000 professional agents who represent those exact buyers. No workaround. No intermediary. A licensed Florida principal of record.
+            The majority of luxury real estate buyers in Spain, particularly in Madrid, Marbella, and the Costa del Sol, come from Latin America and North America. Our team lists your property into the Miami MLS, putting it in front of 93,000 professional agents who represent those exact buyers. No workaround. No intermediary. A licensed Florida principal of record.
           </motion.p>
 
           {/* Location tags */}

@@ -5,7 +5,7 @@ const CARDS = [
   {
     number: "01",
     title: "LATAM Buyer Awareness",
-    desc: "South Florida's luxury segment draws significant demand from Latin American markets. Carlos's professional relationships in this buyer universe, built through two decades of active transactions, benefit sellers who need the right buyers to find their listing.",
+    desc: "South Florida's luxury segment draws significant demand from Latin American markets. Our professional relationships in this buyer universe, built through two decades of active transactions, benefit sellers who need the right buyers to find their listing.",
     tag: "MIAMI-DADE · BROWARD · PALM BEACH"
   },
   {
@@ -45,7 +45,7 @@ export function BuyersRelocation() {
             <span className="italic text-gold">The Broadest Buyer Reach.</span>
           </h2>
           <p className="mt-7 font-sans text-lg leading-relaxed text-navy/65">
-            South Florida's luxury market draws buyers from Latin America, Europe, and global relocation markets. Carlos's 25 years of market presence include the buyer-side relationships that make listings visible to the right audiences — not just the nearest ones.
+            South Florida's luxury market draws buyers from Latin America, Europe, and global relocation markets. Our 25 years of market presence include the buyer-side relationships that make listings visible to the right audiences — not just the nearest ones.
           </p>
           <a href="/contact" className="group mt-9 inline-flex items-center gap-2 border-b border-gold pb-2 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:text-gold">
             Ask About International Reach

@@ -22,7 +22,7 @@ const PACKAGE_ITEMS = [
     icon: Users,
     stat: "93K",
     title: "LATAM Buyer Network Outreach",
-    desc: "Direct professional outreach to 93,000 association agents. Carlos's personal LATAM buyer referral network activated on your listing.",
+    desc: "Direct professional outreach to 93,000 association agents. Our LATAM buyer referral network — built over 25 years — activated on your listing.",
     color: "from-navy to-[#0A1830]",
   },
   {
@@ -46,7 +46,7 @@ export function PropertyShowcase3D() {
             <span className="italic text-gold">Maximum market reach.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-navy/65">
-            Every property listed with Carlos enters a full-service professional infrastructure — photography, global distribution, buyer-agent outreach, and luxury positioning, simultaneously.
+            Every property listed with our team enters a full-service professional infrastructure — photography, global distribution, buyer-agent outreach, and luxury positioning, simultaneously.
           </p>
         </div>
 

@@ -19,7 +19,7 @@ export function NeighborhoodGrid() {
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Markets We Serve</p>
         <h2 className="mt-4 font-serif text-4xl text-navy lg:text-5xl">Your neighborhood. Our 25-year presence.</h2>
         <p className="mt-4 max-w-2xl font-sans text-[0.95rem] font-light leading-relaxed text-navy/60">
-          Every South Florida market has its own pricing dynamics, buyer profile, and timing window. Carlos has active transaction history across all of them.
+          Every South Florida market has its own pricing dynamics, buyer profile, and timing window. Our team has active transaction history across all of them.
         </p>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {NEIGHBORHOODS.map((n) => (

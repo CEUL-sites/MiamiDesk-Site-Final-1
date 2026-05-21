@@ -8,13 +8,13 @@ const CAPABILITIES = [
   { icon: MapPin,      text: "South Florida market conditions and pricing by neighborhood" },
   { icon: Globe2,      text: "Bilingual intake in English, Spanish, and Portuguese" },
   { icon: UserCheck,   text: "Identifies seller, buyer, investor, or agency profile" },
-  { icon: FileText,    text: "Prepares structured context before Carlos responds personally" },
+  { icon: FileText,    text: "Prepares structured context before our licensed team responds personally" },
 ];
 
 const CONVERSATION = [
   {
     role: "desk",
-    text: "Good afternoon. I'm the Miami Desk — Carlos Uzcategui's AI intake advisor. Are you thinking about selling a South Florida property, or would you like to discuss the market?",
+    text: "Good afternoon. I'm the Miami Desk — United Realty Group's AI intake advisor. Are you thinking about selling a South Florida property, or would you like to discuss the market?",
     time: "2:14 PM",
     delay: 400,
   },
@@ -26,19 +26,19 @@ const CONVERSATION = [
   },
   {
     role: "desk",
-    text: "Coral Gables is one of South Florida's strongest submarkets — days on market has been tight. To prepare Carlos's strategy review: approximate square footage, and do you have a price range in mind?",
+    text: "Coral Gables is one of South Florida's strongest submarkets — days on market has been tight. To prepare our team's strategy review: approximate square footage, and do you have a price range in mind?",
     time: "2:15 PM",
     delay: 4000,
   },
   {
     role: "user",
-    text: "Around 3,200 sq ft. No price idea yet — that's why I need Carlos.",
+    text: "Around 3,200 sq ft. No price idea yet — that's why I need your team.",
     time: "2:16 PM",
     delay: 6200,
   },
   {
     role: "desk",
-    text: "Understood. I'm routing your details to Carlos now. He'll follow up with a no-obligation strategy review tailored to your Coral Gables property.",
+    text: "Understood. I'm routing your details to our licensed team now. They'll follow up with a no-obligation strategy review tailored to your Coral Gables property.",
     time: "2:16 PM",
     delay: 8000,
   },
@@ -177,7 +177,7 @@ function ChatWindow({ started }: { started: boolean }) {
           </div>
         </div>
         <p className="mt-2 font-mono text-[7px] uppercase tracking-[0.2em] text-white/20 text-center">
-          Inquiry preview · submit the form below to reach Carlos directly
+          Inquiry preview · submit the form below to reach our team directly
         </p>
       </div>
     </div>
@@ -212,11 +212,11 @@ export const IntelligenceDesk = () => {
 
             <h2 className="mt-7 font-serif text-4xl leading-tight text-white lg:text-5xl">
               Your inquiry, qualified<br />
-              <span className="italic text-gold">before Carlos calls you.</span>
+              <span className="italic text-gold">before our team calls you.</span>
             </h2>
 
             <p className="mt-6 max-w-lg font-sans text-lg leading-relaxed text-white/65">
-              The Miami Desk reads your situation — property, timeline, location, goals — and routes the full picture to Carlos so his first response is already a strategy, not a questionnaire.
+              The Miami Desk reads your situation — property, timeline, location, goals — and routes the full picture to our licensed professionals so their first response is already a strategy, not a questionnaire.
             </p>
 
             <div className="mt-10 space-y-5">

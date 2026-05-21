@@ -28,11 +28,11 @@ export default function ContactPage() {
           eyebrow="Direct Access"
           headline="Request Your Free"
           headlineGold="Strategy Review."
-          subhead="No listing commitment required. Carlos reviews every property personally before responding. Typical response within one business day."
+          subhead="No listing commitment required. Our licensed team reviews every property personally before responding. Typical response within one business day."
           ctaLabel="Scroll to the Form Below"
           ctaHref="#contact"
           whatsappHref={CONTACT.whatsappUS}
-          badge="Free · Confidential · Direct to Carlos"
+          badge="Free · Confidential · Licensed Professionals"
         />
         <AboutContact />
         <Footer />

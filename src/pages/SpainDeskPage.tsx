@@ -31,7 +31,7 @@ export default function SpainDeskPage() {
           eyebrow="International Activation Bridge"
           headline="Your Spanish Property."
           headlineGold="The Miami MLS. One Licensed U.S. Principal."
-          subhead="The majority of luxury buyers in Madrid, Marbella, and the Costa del Sol come from Latin America and North America. Carlos lists your property directly into their Realtors' pipelines."
+          subhead="The majority of luxury buyers in Madrid, Marbella, and the Costa del Sol come from Latin America and North America. Our licensed team lists your property directly into their Realtors' pipelines."
           ctaLabel="Activate My Property in the U.S."
           ctaHref="/contact"
           whatsappHref={CONTACT.whatsappSpain}
@@ -48,7 +48,7 @@ export default function SpainDeskPage() {
             <LeadForm />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
-              Confidential · Direct to Carlos · Equal Housing Opportunity
+              Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>
           </div>
         </section>
