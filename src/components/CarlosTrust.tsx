@@ -18,7 +18,7 @@ export function CarlosTrust() {
             <div className="carlos-headshot-card" style={{ maxWidth: 160 }}>
               <img
                 src={CONTACT.headshot}
-                alt="Carlos Uzcategui, Florida Licensed Realtor"
+                alt="Carlos Uzcategui, Florida Licensed Realtor® with United Realty Group, serving South Florida and Madrid since 2001"
                 className="carlos-headshot"
                 loading="lazy"
               />
@@ -57,7 +57,7 @@ export function CarlosTrust() {
           {/* CTA */}
           <div className="flex-shrink-0">
             <a
-              href="#contact"
+              href="/contact"
               className="group inline-flex items-center gap-2 border border-gold px-6 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-gold transition-all hover:bg-gold hover:text-navy"
             >
               Request Strategy Review

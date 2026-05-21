@@ -10,6 +10,37 @@
   NODE_VERSION = "22"
 
 [[redirects]]
+  from = "https://www.homesprofessional.com/*"
+  to = "https://homesprofessional.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sell"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/buy"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/agents"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/spain-desk"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

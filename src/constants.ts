@@ -27,12 +27,12 @@ export const CONTACT = {
 };
 
 export const NAVIGATION = [
-  { name: "Sellers", href: "#sellers" },
-  { name: "Buyers", href: "#buyers" },
-  { name: "Agents", href: "#referral" },
-  { name: "Spain Desk", href: "#spain" },
-  { name: "AI Desk", href: "#intelligence" },
-  { name: "Contact", href: "#contact" },
+  { name: "Sellers", href: "/sell" },
+  { name: "Buyers", href: "/buy" },
+  { name: "Agents", href: "/agents" },
+  { name: "Spain Desk", href: "/spain-desk" },
+  { name: "AI Desk", href: "/#intelligence" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export const ASSOCIATION_STATS = {

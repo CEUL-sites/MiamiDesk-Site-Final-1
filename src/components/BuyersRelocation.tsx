@@ -47,7 +47,7 @@ export function BuyersRelocation() {
           <p className="mt-7 font-sans text-lg leading-relaxed text-navy/65">
             South Florida's luxury market draws buyers from Latin America, Europe, and global relocation markets. Carlos's 25 years of market presence include the buyer-side relationships that make listings visible to the right audiences — not just the nearest ones.
           </p>
-          <a href="#contact" className="group mt-9 inline-flex items-center gap-2 border-b border-gold pb-2 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:text-gold">
+          <a href="/contact" className="group mt-9 inline-flex items-center gap-2 border-b border-gold pb-2 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:text-gold">
             Ask About International Reach
             <Compass size={16} className="transition-transform group-hover:rotate-45" />
           </a>

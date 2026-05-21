@@ -32,7 +32,7 @@ export function MobileStickyCTA() {
           WhatsApp
         </a>
         <a
-          href="#contact"
+          href="/contact"
           className="flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
           Strategy Review

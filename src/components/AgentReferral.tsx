@@ -17,13 +17,13 @@ const REFERRAL_TYPES = [
     tag: "Seller Side",
     title: "South Florida Seller Referral",
     desc: "Client has a South Florida property to list. Carlos manages full MLS activation, staging advisory, pricing strategy, and buyer-agent outreach. You stay connected to your client.",
-    cta: "#contact",
+    cta: "/contact",
   },
   {
     tag: "Buyer Side",
     title: "Buyer Relocation Referral",
     desc: "Client relocating to or investing in South Florida — from LATAM, Spain, or any U.S. market. Full buyer representation, neighborhood advisory, and transaction management.",
-    cta: "#contact",
+    cta: "/contact",
   },
   {
     tag: "Cross-Border",
@@ -80,7 +80,7 @@ export function AgentReferral() {
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center justify-center border border-navy/25 px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all hover:border-gold hover:text-gold active:scale-95"
               >
                 Send Referral by Form

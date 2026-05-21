@@ -219,7 +219,7 @@ export function InternationalBridge() {
         <div className="pt-16 text-center">
           <h3 className="font-serif text-3xl italic text-white">Ready to put your property in front of the world's largest Realtor network?</h3>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="#contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-all hover:bg-gold-soft active:scale-95">
+            <a href="/contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-all hover:bg-gold-soft active:scale-95">
               Request a Private Seller Strategy Review
               <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>

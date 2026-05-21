@@ -105,7 +105,7 @@ export function PropertyShowcase3D() {
             Ready to see your property positioned this way?
           </p>
           <a
-            href="#contact"
+            href="/contact"
             className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-all hover:bg-gold-soft active:scale-95"
           >
             Request Your Free Strategy Review

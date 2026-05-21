@@ -155,7 +155,7 @@ function ChatWindow({ started }: { started: boolean }) {
             className="pt-2"
           >
             <a
-              href="#contact"
+              href="/contact"
               className="group inline-flex items-center gap-2 border border-gold bg-gold/10 px-5 py-3 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-gold transition-all hover:bg-gold hover:text-navy"
             >
               Start your real inquiry
@@ -240,7 +240,7 @@ export const IntelligenceDesk = () => {
             </div>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a href="#contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all hover:bg-gold-soft">
+              <a href="/contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all hover:bg-gold-soft">
                 Request Strategy Review
                 <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
               </a>
@@ -282,7 +282,7 @@ export const IntelligenceDesk = () => {
               {PROMPTS.map((prompt) => (
                 <a
                   key={prompt}
-                  href="#contact"
+                  href="/contact"
                   className="rounded-full border border-gold/20 bg-navy-deep px-4 py-2 font-sans text-[11px] text-white/55 transition-colors hover:border-gold/50 hover:text-gold"
                 >
                   {prompt}

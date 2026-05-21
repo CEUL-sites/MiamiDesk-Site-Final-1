@@ -36,6 +36,10 @@ export function Hero() {
           src="/images/hero-bg.jpg"
           alt=""
           aria-hidden="true"
+          width="1920"
+          height="1080"
+          loading="eager"
+          fetchPriority="high"
           className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
           onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.28"; }}
         />
@@ -88,7 +92,7 @@ export function Hero() {
           {/* CTAs */}
           <motion.div variants={itemVariants} className="mt-9 flex flex-wrap justify-center gap-3">
             <a
-              href="#contact"
+              href="/contact"
               className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft active:scale-95"
             >
               Get My Free Strategy Review
@@ -139,9 +143,9 @@ export function Hero() {
           <motion.div variants={itemVariants} className="mt-7 flex flex-wrap items-center justify-center gap-2">
             <span className="font-mono text-[8px] uppercase tracking-[0.25em] text-white/30">I am a:</span>
             {[
-              { label: "Seller", href: "#sellers" },
-              { label: "Buyer",  href: "#buyers" },
-              { label: "Agent",  href: "#referral" },
+              { label: "Seller", href: "/sell" },
+              { label: "Buyer",  href: "/buy" },
+              { label: "Agent",  href: "/agents" },
             ].map(({ label, href }) => (
               <a
                 key={label}
