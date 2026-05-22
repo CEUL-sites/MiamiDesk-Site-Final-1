@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 
-const encodeForm = (data: Record<string, string>) =>
-  new URLSearchParams(data).toString();
 
 export function LeadForm() {
   const [formData, setFormData] = useState({
@@ -21,15 +19,15 @@ export function LeadForm() {
     e.preventDefault();
     setStatus("submitting");
 
+    const sourcePage = typeof window !== "undefined" ? window.location.pathname : "";
+
     try {
-      await fetch("/", {
+      const res = await fetch("/.netlify/functions/lead-notify", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeForm({
-          "form-name": "seller-consultation",
-          ...formData
-        })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, sourcePage }),
       });
+      if (!res.ok) throw new Error(`${res.status}`);
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", propertyAddress: "", city: "", timeline: "30-90 days", message: "" });
     } catch {
