@@ -69,8 +69,12 @@ export function LeadForm() {
           </p>
         </div>
 
-        <form name="seller-consultation" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-6">
+        <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
+          <div style={{ position: "absolute", left: "-9999px", overflow: "hidden", height: "1px", width: "1px" }} aria-hidden="true">
+            <label htmlFor="bot-field">Leave this field empty</label>
+            <input type="text" id="bot-field" name="bot-field" tabIndex={-1} autoComplete="off" />
+          </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">

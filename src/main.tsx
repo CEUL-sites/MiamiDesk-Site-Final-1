@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage';
 import ListingsPage from './pages/ListingsPage';
 import AboutPage from './pages/AboutPage';
 import CityMarketPage from './pages/market/CityMarketPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
 import './index.css';
 
@@ -37,6 +38,7 @@ if (rootElement) {
             <Route path="/listings" element={<ListingsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/market/:city" element={<CityMarketPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
         </>
