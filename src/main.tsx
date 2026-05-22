@@ -10,7 +10,7 @@ import SpainDeskPage from './pages/SpainDeskPage';
 import ContactPage from './pages/ContactPage';
 import ListingsPage from './pages/ListingsPage';
 import AboutPage from './pages/AboutPage';
-import MarketPage from './pages/MarketPage';
+import CityMarketPage from './pages/market/CityMarketPage';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
 import './index.css';
 
@@ -36,7 +36,7 @@ if (rootElement) {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/listings" element={<ListingsPage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/market/:city" element={<MarketPage />} />
+            <Route path="/market/:city" element={<CityMarketPage />} />
           </Routes>
         </BrowserRouter>
         </>

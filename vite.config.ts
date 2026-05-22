@@ -5,11 +5,11 @@ import { defineConfig, loadEnv } from 'vite';
 import sitemap from 'vite-plugin-sitemap';
 
 const MARKET_CITIES = [
-  'miami', 'brickell', 'coral-gables', 'miami-beach', 'aventura',
-  'weston', 'doral', 'fort-lauderdale', 'boca-raton', 'west-palm-beach',
-  'downtown-miami', 'edgewater', 'wynwood', 'coconut-grove', 'key-biscayne',
-  'pinecrest', 'kendall', 'homestead', 'north-miami', 'hallandale',
-  'pembroke-pines',
+  'weston', 'pembroke-pines', 'plantation', 'miramar', 'miami',
+  'coral-gables', 'doral', 'kendall', 'fort-lauderdale', 'hollywood',
+  'aventura', 'miami-beach', 'homestead', 'boca-raton', 'coral-springs',
+  'parkland', 'miami-lakes', 'hallandale', 'pompano-beach', 'sunrise',
+  'brickell',
 ];
 
 const DYNAMIC_ROUTES = MARKET_CITIES.map((city) => `/market/${city}`);
