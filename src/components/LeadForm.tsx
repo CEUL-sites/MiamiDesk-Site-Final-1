@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 
+const encodeForm = (data: Record<string, string>) =>
+  new URLSearchParams(data).toString();
 
 export function LeadForm() {
   const [formData, setFormData] = useState({
@@ -14,23 +16,37 @@ export function LeadForm() {
     message: ""
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("The form could not be submitted. Please use WhatsApp or try again.");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
 
-    const sourcePage = typeof window !== "undefined" ? window.location.pathname : "";
-
     try {
-      const res = await fetch("/.netlify/functions/lead-notify", {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000);
+
+      const res = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, sourcePage }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForm({
+          "form-name": "seller-consultation",
+          "bot-field": "",
+          ...formData,
+        }),
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
+
       if (!res.ok) throw new Error(`${res.status}`);
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", propertyAddress: "", city: "", timeline: "30-90 days", message: "" });
-    } catch {
+    } catch (err) {
+      const msg =
+        err instanceof Error && err.name === "AbortError"
+          ? "The request timed out. Please try again or message via WhatsApp."
+          : "The form could not be submitted. Please use WhatsApp or try again.";
+      setErrorMessage(msg);
       setStatus("error");
     }
   };
@@ -71,9 +87,8 @@ export function LeadForm() {
 
         <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
-          <div style={{ position: "absolute", left: "-9999px", overflow: "hidden", height: "1px", width: "1px" }} aria-hidden="true">
-            <label htmlFor="bot-field">Leave this field empty</label>
-            <input type="text" id="bot-field" name="bot-field" tabIndex={-1} autoComplete="off" />
+          <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }} aria-hidden="true">
+            <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -120,7 +135,23 @@ export function LeadForm() {
             <textarea name="message" rows={4} placeholder="What should Carlos know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
           </div>
 
-          {status === "error" && <p className="font-sans text-sm text-red-700">The form could not be submitted. Please use WhatsApp or try again.</p>}
+          {status === "error" && (
+            <p className="font-sans text-sm text-red-600 font-medium mt-2">
+              {errorMessage}
+            </p>
+          )}
+
+          <p className="font-mono text-center text-[9px] uppercase tracking-[0.2em] text-navy/40 mt-2">
+            Prefer WhatsApp?{" "}
+            <a
+              href="https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20would%20like%20a%20seller%20strategy%20review."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold underline hover:text-gold-deep"
+            >
+              Message Carlos directly
+            </a>
+          </p>
 
           <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-5 font-sans text-xs font-bold uppercase tracking-[0.28em] text-white shadow-lg shadow-gold/10 transition-all hover:bg-gold disabled:opacity-60">
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}
