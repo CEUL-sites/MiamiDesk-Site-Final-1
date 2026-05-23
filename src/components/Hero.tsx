@@ -121,7 +121,7 @@ export function Hero() {
             {[
               { value: "25",    label: "Years Licensed" },
               { value: "93K",   label: "Member Agents" },
-              { value: "$69B",  label: "2025 Volume" },
+              { value: "19",    label: "Florida Offices" },
               { value: "200+",  label: "Global Portals" },
             ].map((s) => (
               <div key={s.label}>

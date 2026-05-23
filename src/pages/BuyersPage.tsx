@@ -45,18 +45,18 @@ export default function BuyersPage() {
         <section className="bg-navy-deep py-24 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Strategy</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
-            Find Your South Florida Home.<br />
-            <em className="not-italic italic text-gold">Full MLS. No Cost to You.</em>
+            The right property.<br />
+            <em className="not-italic italic text-gold">The right representation.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Access every active listing across Miami-Dade, Broward, and Palm Beach with expert buyer representation — at no cost to you.
+            Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by 25 years of local relationships and United Realty Group's 3,500+ agents across 19 offices.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/contact"
               className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
             >
-              Start My Search
+              Brief Your Search →
             </a>
             <a
               href={CONTACT.whatsappUS}
@@ -64,11 +64,11 @@ export default function BuyersPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
-              WhatsApp
+              WhatsApp Carlos →
             </a>
           </div>
           <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-            United Realty Group · CLHMS · FL SL705771
+            United Realty Group · CLHMS · FL SL705771 · Buyer representation across Miami-Dade, Broward &amp; Palm Beach
           </p>
         </section>
         <BuyersRelocation />
