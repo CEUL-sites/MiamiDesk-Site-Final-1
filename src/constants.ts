@@ -32,7 +32,6 @@ export const NAVIGATION = [
   { name: "Agents", href: "/agents" },
   { name: "Spain Desk", href: "/spain-desk" },
   { name: "AI Desk", href: "/#intelligence" },
-  { name: "Press", href: "/press" },
   { name: "Contact", href: "/contact" },
 ];
 

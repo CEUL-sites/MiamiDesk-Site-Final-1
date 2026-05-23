@@ -10,7 +10,6 @@ import SpainDeskPage from './pages/SpainDeskPage';
 import ContactPage from './pages/ContactPage';
 import ListingsPage from './pages/ListingsPage';
 import AboutPage from './pages/AboutPage';
-import PressPage from './pages/PressPage';
 import CityMarketPage from './pages/market/CityMarketPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
@@ -38,7 +37,6 @@ if (rootElement) {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/listings" element={<ListingsPage />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/press" element={<PressPage />} />
               <Route path="/market/:city" element={<CityMarketPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
