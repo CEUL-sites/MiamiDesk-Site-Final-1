@@ -53,15 +53,6 @@ export function Hero() {
           animate="visible"
           className="mx-auto w-full max-w-4xl text-center"
         >
-          {/* Credential badge */}
-          <motion.p
-            variants={itemVariants}
-            className="font-mono mb-4 text-gold uppercase tracking-[0.22em]"
-            style={{ fontSize: "0.62rem" }}
-          >
-            UNITED REALTY GROUP · CARLOS UZCATEGUI · FL REALTOR® SL705771
-          </motion.p>
-
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
