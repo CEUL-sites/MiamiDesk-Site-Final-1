@@ -4,6 +4,18 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import sitemap from 'vite-plugin-sitemap';
 
+const STATIC_ROUTES = [
+  '/',
+  '/sell',
+  '/buy',
+  '/agents',
+  '/spain-desk',
+  '/contact',
+  '/listings',
+  '/about',
+  '/press',
+];
+
 const MARKET_CITIES = [
   'weston', 'pembroke-pines', 'plantation', 'miramar', 'miami',
   'coral-gables', 'doral', 'kendall', 'fort-lauderdale', 'hollywood',
@@ -12,7 +24,8 @@ const MARKET_CITIES = [
   'brickell',
 ];
 
-const DYNAMIC_ROUTES = MARKET_CITIES.map((city) => `/market/${city}`);
+const MARKET_ROUTES = MARKET_CITIES.map((city) => `/market/${city}`);
+const DYNAMIC_ROUTES = [...STATIC_ROUTES, ...MARKET_ROUTES];
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
