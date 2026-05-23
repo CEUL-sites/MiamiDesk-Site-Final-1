@@ -66,6 +66,7 @@ export function Footer() {
               <a href="/sell" className="transition-colors hover:text-gold">Sellers</a>
               <a href="/sell#reach" className="transition-colors hover:text-gold">Reach</a>
               <a href="/spain-desk" className="transition-colors hover:text-gold">Spain Desk</a>
+              <a href="/press" className="transition-colors hover:text-gold">Press</a>
               <a href="/contact" className="transition-colors hover:text-gold">Contact</a>
             </div>
           </div>
