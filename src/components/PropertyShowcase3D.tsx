@@ -21,8 +21,8 @@ const PACKAGE_ITEMS = [
   {
     icon: Users,
     stat: "93K",
-    title: "LATAM Buyer Network Outreach",
-    desc: "Direct professional outreach to 93,000 association agents. Our LATAM buyer referral network — built over 25 years — activated on your listing.",
+    title: "MLS Distribution Reach",
+    desc: "The moment your listing activates in the Miami and South Florida REALTORS® MLS, it enters the buyer pipelines of 93,000 professional agents — the world's largest local Realtor® association. Immediate, automatic, day-one exposure.",
     color: "from-navy to-[#0A1830]",
   },
   {

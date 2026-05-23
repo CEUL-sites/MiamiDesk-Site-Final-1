@@ -5,8 +5,8 @@ import { CONTACT } from "../constants";
 const STEPS = [
   { icon: Layers, title: "Position", desc: "Pricing, timing, buyer profile, property narrative, and preparation strategy." },
   { icon: FileEdit, title: "Prepare", desc: "Presentation guidance, media planning, listing copy, MLS data accuracy, and launch sequencing." },
-  { icon: Send, title: "Launch", desc: "Professional MLS positioning, United Realty Group visibility, buyer-agent exposure, and simultaneous syndication across 200+ global portals in 19 languages." },
-  { icon: Activity, title: "Activate", desc: "Targeted outreach, referral channels, international visibility, buyer inquiry follow-up, and Spain plus LATAM referral pipeline through our Madrid office." },
+  { icon: Send, title: "Launch", desc: "YOUR LISTING · MLS EXPOSURE — The listing activates inside the Miami and South Florida REALTORS® MLS the same day. 93,000 member agent pipelines receive it immediately. 200+ global portals in 19 languages syndicate it automatically. Mechanical exposure. No delays." },
+  { icon: Activity, title: "Activate", desc: "YOUR TRANSACTION · LOCAL SERVICE — United Realty Group's 3,500+ agents across 19 South Florida offices begin showing, qualifying buyers, following up on inquiries, and coordinating through the Spain and LATAM referral pipeline. Agents on the ground. Local accountability." },
   { icon: Scale, title: "Negotiate", desc: "Offer review, terms strategy, inspection response, closing coordination, and move-forward planning." }
 ];
 

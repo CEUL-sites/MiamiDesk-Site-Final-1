@@ -1,23 +1,23 @@
-import { Compass } from "lucide-react";
 import { motion } from "motion/react";
+import { CONTACT } from "../constants";
 
 const CARDS = [
   {
     number: "01",
-    title: "LATAM Buyer Awareness",
-    desc: "South Florida's luxury segment draws significant demand from Latin American markets. Our professional relationships in this buyer universe, built through two decades of active transactions, benefit sellers who need the right buyers to find their listing.",
+    title: "Active Market Coverage",
+    desc: "Every active listing across Miami-Dade, Broward, and Palm Beach — residential, condo, new construction, and off-market — accessible from day one of your search.",
     tag: "MIAMI-DADE · BROWARD · PALM BEACH"
   },
   {
     number: "02",
-    title: "International Referral Network",
-    desc: "Active professional connections in Madrid and Latin American markets create referral pathways that extend the visibility of South Florida listings well beyond local buyer pools.",
-    tag: "MIAMI ↔ MADRID · INTERNATIONAL"
+    title: "Local Agent Network",
+    desc: "United Realty Group's 3,500+ agents across 19 offices operate on the ground across South Florida. They know the inventory, the sellers, and the neighborhoods — before listings hit the public portals.",
+    tag: "19 OFFICES · 3,500+ AGENTS"
   },
   {
     number: "03",
-    title: "Cross-Border Positioning",
-    desc: "Bilingual advisory support and cross-market intelligence for listings with international appeal — contextualized for buyers from Spain, Latin America, and global relocation markets.",
+    title: "25 Years of Relationships",
+    desc: "Buyer representation backed by 25 years of active South Florida transactions. The right property is identified faster when the agent knows the market — and the people inside it.",
     tag: "BILINGUAL · ENGLISH · ESPAÑOL"
   }
 ];
@@ -39,18 +39,23 @@ export function BuyersRelocation() {
       </div>
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div className="max-w-xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-navy/55">Seller Advantage · International Demand</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-navy/55">Buyer Advisory · South Florida</p>
           <h2 className="mt-5 font-serif text-4xl leading-tight text-navy lg:text-5xl">
-            Your South Florida Property.<br />
-            <span className="italic text-gold">The Broadest Buyer Reach.</span>
+            The right property.<br />
+            <span className="italic text-gold">The right representation.</span>
           </h2>
           <p className="mt-7 font-sans text-lg leading-relaxed text-navy/65">
-            South Florida's luxury market draws buyers from Latin America, Europe, and global relocation markets. Our 25 years of market presence include the buyer-side relationships that make listings visible to the right audiences — not just the nearest ones.
+            South Florida's active inventory spans Miami-Dade, Broward, and Palm Beach — three counties, thousands of listings, and a market that moves fast. Carlos provides buyer representation backed by 25 years of local relationships and United Realty Group's 3,500+ agents across 19 South Florida offices — professionals on the ground who know the inventory, the sellers, and the neighborhoods. Every active MLS listing across the region is accessible from day one.
           </p>
-          <a href="/contact" className="group mt-9 inline-flex items-center gap-2 border-b border-gold pb-2 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:text-gold">
-            Ask About International Reach
-            <Compass size={16} className="transition-transform group-hover:rotate-45" />
-          </a>
+          <div className="mt-9 flex flex-wrap gap-4">
+            <a href="/contact" className="inline-flex items-center gap-2 bg-gold px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90">
+              Brief Your Search →
+            </a>
+            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy/25 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-colors hover:border-gold hover:text-gold">
+              WhatsApp Carlos →
+            </a>
+          </div>
+          <p className="font-mono text-[9px] uppercase tracking-widest text-center opacity-40 mt-4">United Realty Group · CLHMS · FL SL705771 · Buyer representation across Miami-Dade, Broward &amp; Palm Beach</p>
         </div>
 
         <div className="grid gap-5 md:grid-cols-3 lg:gap-6">

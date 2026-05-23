@@ -12,13 +12,12 @@ const TOP_STATS = [
     desc: "Every active agent's buyer pipeline is exposed to your listing on day one — the world's largest local Realtor® association.",
   },
   {
-    value: 69,
-    display: "69",
-    prefix: "$",
-    suffix: "B",
-    label: "2025 Transaction Volume",
-    sublabel: "Miami MLS Association",
-    desc: "The combined transactional weight of the network your listing enters. This is where qualified buyers are found.",
+    value: 19,
+    display: "19",
+    suffix: "",
+    label: "Florida Offices",
+    sublabel: "United Realty Group",
+    desc: "United Realty Group maintains 19 active offices across Florida — local presence in every South Florida market where buyers are searching.",
   },
   {
     value: 200,
@@ -167,7 +166,7 @@ export const ReachAdvantage = () => {
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {[
             { v: "#1", l: "Realtor Assoc. in the U.S." },
-            { v: "69B+", l: "Annual volume" },
+            { v: "19", l: "Florida Offices" },
             { v: "Day 1", l: "Full activation" },
             { v: "CLHMS", l: "Luxury certified" },
           ].map((item) => (
