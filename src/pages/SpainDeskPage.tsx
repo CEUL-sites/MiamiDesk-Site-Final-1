@@ -5,6 +5,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { InternationalBridge } from "../components/InternationalBridge";
 import { LeadForm } from "../components/LeadForm";
 import { BadgeCheck } from "lucide-react";
+import { motion } from "motion/react";
 import { CONTACT } from "../constants";
 
 export default function SpainDeskPage() {
@@ -41,6 +42,8 @@ export default function SpainDeskPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
+
+        {/* ── Hero ── */}
         <section className="bg-navy-deep py-24 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Mesa España · United Realty Group</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
@@ -67,7 +70,127 @@ export default function SpainDeskPage() {
             </a>
           </div>
         </section>
+
+        {/* ── Spain Desk Cinematic Video Feature ── */}
+        <section className="relative bg-navy-deep overflow-hidden">
+          {/* Full-bleed video */}
+          <div className="relative w-full overflow-hidden" style={{ maxHeight: "82vh", minHeight: "420px" }}>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-hidden="true"
+              className="w-full h-full object-cover"
+              style={{ maxHeight: "82vh", minHeight: "420px", display: "block" }}
+              src="/videos/spain-desk.mp4"
+            />
+
+            {/* Gradient overlays — depth + legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/75 via-transparent to-navy-deep/40" />
+
+            {/* Content overlay — bottom-left anchor */}
+            <div className="absolute inset-0 flex items-end">
+              <div className="w-full px-6 pb-10 md:pb-14 md:px-14 lg:px-20">
+                <div className="max-w-2xl">
+                  <motion.p
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="font-mono text-[10px] uppercase tracking-[0.32em] text-gold"
+                  >
+                    For Spain Agencies · Developers · Sellers
+                  </motion.p>
+
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.75, delay: 0.1 }}
+                    className="mt-4 font-serif text-3xl leading-tight text-white md:text-5xl lg:text-6xl"
+                  >
+                    Your inventory.<br />
+                    <span className="italic text-gold">The U.S. market.</span>
+                  </motion.h2>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: 0.2 }}
+                    className="mt-5 font-sans text-base leading-relaxed text-white/70 max-w-lg"
+                  >
+                    A licensed Florida principal of record. Bilingual representation. Direct MLS placement into a 93,000-agent professional network. The formal channel Spanish agencies, developers, and sellers need to access North and Latin American buyers — no intermediaries, no referral workarounds.
+                  </motion.p>
+
+                  {/* Stats strip */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: 0.3 }}
+                    className="mt-8 flex flex-wrap gap-x-8 gap-y-4"
+                  >
+                    {[
+                      { v: "93K", l: "MLS member agents" },
+                      { v: "200+", l: "Global portals" },
+                      { v: "25", l: "Years licensed" },
+                      { v: "Day 1", l: "Full activation" },
+                    ].map((s) => (
+                      <div key={s.l} className="flex flex-col">
+                        <span className="font-serif text-2xl text-gold">{s.v}</span>
+                        <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/45 mt-0.5">{s.l}</span>
+                      </div>
+                    ))}
+                  </motion.div>
+
+                  {/* CTAs */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: 0.4 }}
+                    className="mt-8 flex flex-wrap gap-3"
+                  >
+                    <a
+                      href={CONTACT.whatsappSpain}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gold px-7 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
+                    >
+                      WhatsApp España
+                    </a>
+                    <a
+                      href="/contact"
+                      className="inline-flex items-center gap-2 border border-white/30 px-7 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/80 transition-colors hover:border-gold hover:text-gold"
+                    >
+                      Agency Inquiry →
+                    </a>
+                  </motion.div>
+
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    className="mt-5 font-mono text-[8px] uppercase tracking-[0.22em] text-white/30"
+                  >
+                    Madrid · Marbella · Costa del Sol · Miami · Brickell · Coral Gables
+                  </motion.p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom border accent */}
+          <div className="h-px w-full bg-gold/20" />
+        </section>
+
         <InternationalBridge />
+
+        {/* ── Lead Form ── */}
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">
@@ -81,6 +204,7 @@ export default function SpainDeskPage() {
             </div>
           </div>
         </section>
+
         <Footer />
         <MobileStickyCTA />
       </main>
