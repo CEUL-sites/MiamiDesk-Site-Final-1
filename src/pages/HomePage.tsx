@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { MLSTicker } from "../components/MLSTicker";
 import { Hero } from "../components/Hero";
+import { AdvisorBrand } from "../components/AdvisorBrand";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { PartnersMarquee } from "../components/PartnersMarquee";
@@ -34,6 +35,7 @@ export default function HomePage() {
         <MLSTicker />
         <Hero />
         <SellerSection />
+        <AdvisorBrand />
         <ReachAdvantage />
         <PartnersMarquee />
         <ExposureSyndication />
