@@ -1,9 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { ASSOCIATION_STATS, CONTACT } from "../../constants";
 
+type JsonLdSchema = Record<string, unknown> & {
+  "@id"?: string;
+  name: string;
+};
+
 const SITE_URL = "https://homesprofessional.com";
 
-const sitewideSchema = [
+const sitewideSchema: JsonLdSchema[] = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
