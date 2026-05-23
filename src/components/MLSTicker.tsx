@@ -1,7 +1,7 @@
 // BEGIN HTML BLOCK — MLS Live Ticker
 import { useEffect, useState } from "react";
 
-const BRIDGE_TOKEN = "1eee5e27f791630e078ee05d6e0ed8f4";
+const BRIDGE_TOKEN = process.env.VITE_BRIDGE_TOKEN ?? "1eee5e27f791630e078ee05d6e0ed8f4";
 const BRIDGE_API =
   `https://api.bridgedataoutput.com/api/v2/OData/miamire/Property` +
   `?access_token=${BRIDGE_TOKEN}` +
@@ -123,8 +123,8 @@ export function MLSTicker() {
         }
       `}</style>
 
-      {/* Ticker wrapper — sits immediately below the fixed Navbar (pt = navbar height) */}
-      <div className="w-full overflow-hidden bg-[#0A1628] select-none" style={{ paddingTop: "var(--navbar-h, 100px)" }}>
+      {/* Ticker wrapper — sits immediately below the fixed Navbar */}
+      <div className="w-full overflow-hidden bg-[#0A1628] select-none pt-[100px]">
 
         {/* ── Header band: "MIAMI MLS · LIVE LISTINGS · 93,000+ REALTORS®" ── */}
         <div className="relative overflow-hidden border-b border-white/10 bg-[#0A1628] py-2">
