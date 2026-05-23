@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
+import { MLSTicker } from "../components/MLSTicker";
 import { Hero } from "../components/Hero";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
@@ -30,6 +31,7 @@ export default function HomePage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />
+        <MLSTicker />
         <Hero />
         <SellerSection />
         <ReachAdvantage />
