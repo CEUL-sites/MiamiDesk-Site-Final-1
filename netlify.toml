@@ -1,10 +1,11 @@
 [build]
-  command = "npm run build"
+  command = "yarn build"
   publish = "dist"
   functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "22"
+  NPM_FLAGS = "--version"
 
 [context.production.environment]
   NODE_VERSION = "22"
@@ -33,7 +34,6 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
 
-# Vite builds hashed asset filenames — safe to cache indefinitely
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -49,7 +49,6 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
-# HTML — always revalidate so Googlebot gets fresh content
 [[headers]]
   for = "/*.html"
   [headers.values]

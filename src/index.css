@@ -46,7 +46,7 @@
   }
 
   .form-input {
-    @apply w-full p-4 bg-bone/50 border border-transparent focus:border-gold focus:ring-1 focus:ring-gold outline-none text-navy placeholder:text-navy/30 font-sans;
+    @apply w-full p-4 bg-bone/50 border border-transparent focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none text-navy placeholder:text-navy/30 font-sans;
   }
 }
 
@@ -193,4 +193,57 @@
   .carlos-headshot-card {
     max-width: 280px;
   }
+}
+
+/* ── Design utilities ── */
+
+.dot-grid {
+  background-image: radial-gradient(rgba(176, 141, 87, 0.14) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.dot-grid-light {
+  background-image: radial-gradient(rgba(11, 30, 63, 0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@keyframes shimmer-slide {
+  0%   { background-position: -400% center; }
+  100% { background-position:  400% center; }
+}
+
+.shimmer-gold {
+  background: linear-gradient(105deg, #8C6D3F 0%, #B08D57 30%, #D4AE78 50%, #B08D57 70%, #8C6D3F 100%);
+  background-size: 400% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-slide 6s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1; }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2.8s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+.float-slow {
+  animation: float-y 7s ease-in-out infinite;
+}
+
+.gold-line-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(176,141,87,0.65) 25%, rgba(176,141,87,0.65) 75%, transparent 100%);
+}
+
+.text-balance {
+  text-wrap: balance;
 }

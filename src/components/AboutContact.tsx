@@ -11,12 +11,12 @@ const STATS = [
 
 export function AboutContact() {
   return (
-    <section id="contact" className="bg-ivory py-24">
+    <section id="contact" className="bg-ivory py-14 md:py-24">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div className="grid gap-10 md:grid-cols-[280px_1fr] md:items-start">
             <div className="carlos-headshot-card">
-              <img src={CONTACT.headshot} alt="Carlos Uzcategui, Florida Licensed Realtor" className="carlos-headshot" loading="lazy" />
+              <img src={CONTACT.headshot} alt="Carlos Uzcategui, Florida Licensed Realtor® with United Realty Group, serving South Florida and Madrid since 2001" className="carlos-headshot" loading="lazy" />
             </div>
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Meet the Principal</p>
@@ -45,24 +45,44 @@ export function AboutContact() {
             ))}
           </div>
 
-          <div className="mt-12 border-t border-bone pt-8 space-y-3">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">{CONTACT.licenseDisplay}</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/40">Member: Miami and South Florida REALTORS® · Est. 2026 merger</p>
+          {/* URG Headquarters */}
+          <div className="mt-12 overflow-hidden border border-bone">
+            <div className="relative h-64 w-full bg-navy-deep flex items-end">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,rgba(20,45,90,0.9),rgba(6,17,31,1))]" />
+              <img
+                src="/images/urg-hq.jpg"
+                alt="United Realty Group headquarters, Plantation, Florida"
+                className="absolute inset-0 h-full w-full object-cover object-[center_30%] opacity-0 transition-opacity duration-700"
+                loading="lazy"
+                onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.88"; }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/85 via-navy-deep/20 to-transparent" />
+              <div className="relative p-5">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · Brokerage</p>
+                <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/60">Headquarters: Plantation, Florida · FL License</p>
+                <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.12em] text-white/40">1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 border-t border-bone pt-6 space-y-2">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/60">{CONTACT.licenseDisplay}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/60">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/60">Member: Miami and South Florida REALTORS®</p>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
             <a href={CONTACT.whatsappUS} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold">
               <Phone className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/40">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
+              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
             </a>
             <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold">
               <Mail className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/40">Email</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.email}</div></div>
+              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Email</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.email}</div></div>
             </a>
             <div className="flex items-start gap-3 border border-bone bg-white p-5">
               <MapPin className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/40">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
+              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
             </div>
           </div>
         </div>
@@ -71,7 +91,7 @@ export function AboutContact() {
           <LeadForm />
           <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/30">
             <BadgeCheck size={14} className="text-gold" />
-            Netlify form routing enabled for seller inquiries
+            Confidential · Licensed Professionals · Equal Housing Opportunity
           </div>
         </div>
       </div>

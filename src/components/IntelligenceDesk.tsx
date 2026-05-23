@@ -2,17 +2,19 @@ import { Bot, ChevronRight, FileText, Globe2, MapPin, Send, UserCheck } from "lu
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 const CAPABILITIES = [
   { icon: MapPin,      text: "South Florida market conditions and pricing by neighborhood" },
   { icon: Globe2,      text: "Bilingual intake in English, Spanish, and Portuguese" },
   { icon: UserCheck,   text: "Identifies seller, buyer, investor, or agency profile" },
-  { icon: FileText,    text: "Prepares structured context before Carlos responds personally" },
+  { icon: FileText,    text: "Prepares structured context before our licensed team responds personally" },
 ];
 
 const CONVERSATION = [
   {
     role: "desk",
-    text: "Good afternoon. I'm the Miami Desk — Carlos Uzcategui's AI intake advisor. Are you thinking about selling a South Florida property, or would you like to discuss the market?",
+    text: "Good afternoon. I'm the Miami Desk — United Realty Group's AI intake advisor. Are you thinking about selling a South Florida property, or would you like to discuss the market?",
     time: "2:14 PM",
     delay: 400,
   },
@@ -24,19 +26,19 @@ const CONVERSATION = [
   },
   {
     role: "desk",
-    text: "Coral Gables is one of South Florida's strongest submarkets — days on market has been tight. To prepare Carlos's strategy review: approximate square footage, and do you have a price range in mind?",
+    text: "Coral Gables is one of South Florida's strongest submarkets — days on market has been tight. To prepare our team's strategy review: approximate square footage, and do you have a price range in mind?",
     time: "2:15 PM",
     delay: 4000,
   },
   {
     role: "user",
-    text: "Around 3,200 sq ft. No price idea yet — that's why I need Carlos.",
+    text: "Around 3,200 sq ft. No price idea yet — that's why I need your team.",
     time: "2:16 PM",
     delay: 6200,
   },
   {
     role: "desk",
-    text: "Understood. I'm routing your details to Carlos now. He'll follow up with a no-obligation strategy review tailored to your Coral Gables property.",
+    text: "Understood. I'm routing your details to our licensed team now. They'll follow up with a no-obligation strategy review tailored to your Coral Gables property.",
     time: "2:16 PM",
     delay: 8000,
   },
@@ -70,7 +72,7 @@ function ChatWindow({ started }: { started: boolean }) {
   const [visibleCount, setVisibleCount] = useState(0);
   const [showTyping, setShowTyping] = useState(false);
   const [done, setDone] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!started) return;
@@ -82,7 +84,6 @@ function ChatWindow({ started }: { started: boolean }) {
         return;
       }
       const msg = CONVERSATION[index];
-      // show typing indicator before desk messages
       const typingDelay = msg.role === "desk" && index > 0 ? 700 : 0;
 
       const t1 = window.setTimeout(() => {
@@ -105,13 +106,14 @@ function ChatWindow({ started }: { started: boolean }) {
   }, [started]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    }
   }, [visibleCount, showTyping]);
 
   return (
-    <div className="flex flex-col" style={{ height: 420 }}>
-      {/* Chat messages */}
-      <div className="flex-1 overflow-y-auto space-y-4 p-5 lg:p-6 scrollbar-hide">
+    <div className="flex flex-col h-[420px]">
+      <div ref={scrollContainerRef} className="flex-1 overflow-y-auto space-y-4 p-5 lg:p-6 scrollbar-hide">
         {CONVERSATION.slice(0, visibleCount).map((msg, i) => (
           <motion.div
             key={i}
@@ -151,7 +153,7 @@ function ChatWindow({ started }: { started: boolean }) {
             className="pt-2"
           >
             <a
-              href="#contact"
+              href="/contact"
               className="group inline-flex items-center gap-2 border border-gold bg-gold/10 px-5 py-3 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-gold transition-all hover:bg-gold hover:text-navy"
             >
               Start your real inquiry
@@ -159,11 +161,8 @@ function ChatWindow({ started }: { started: boolean }) {
             </a>
           </motion.div>
         )}
-
-        <div ref={bottomRef} />
       </div>
 
-      {/* Fake input bar */}
       <div className="border-t border-white/8 px-4 py-3">
         <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 ring-1 ring-white/10">
           <span className="flex-1 font-sans text-sm text-white/25 select-none">
@@ -174,7 +173,7 @@ function ChatWindow({ started }: { started: boolean }) {
           </div>
         </div>
         <p className="mt-2 font-mono text-[7px] uppercase tracking-[0.2em] text-white/20 text-center">
-          Live AI desk in development — submit the form below to reach Carlos directly
+          Inquiry preview · submit the form below to reach our team directly
         </p>
       </div>
     </div>
@@ -186,16 +185,15 @@ export const IntelligenceDesk = () => {
   const inView = useInView(sectionRef, { once: true, amount: 0.25 });
 
   return (
-    <section id="intelligence" ref={sectionRef} className="border-t border-gold/20 bg-navy py-24 text-white">
+    <section id="intelligence" ref={sectionRef} className="border-t border-gold/20 bg-navy py-14 md:py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:items-start">
 
-          {/* ── LEFT: Copy ── */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: EASE }}
           >
             <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/8 px-3 py-1.5 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
@@ -209,11 +207,11 @@ export const IntelligenceDesk = () => {
 
             <h2 className="mt-7 font-serif text-4xl leading-tight text-white lg:text-5xl">
               Your inquiry, qualified<br />
-              <span className="italic text-gold">before Carlos calls you.</span>
+              <span className="italic text-gold">before our team calls you.</span>
             </h2>
 
             <p className="mt-6 max-w-lg font-sans text-lg leading-relaxed text-white/65">
-              The Miami Desk reads your situation — property, timeline, location, goals — and routes the full picture to Carlos so his first response is already a strategy, not a questionnaire.
+              The Miami Desk reads your situation — property, timeline, location, goals — and routes the full picture to our licensed professionals so their first response is already a strategy, not a questionnaire.
             </p>
 
             <div className="mt-10 space-y-5">
@@ -227,33 +225,29 @@ export const IntelligenceDesk = () => {
               ))}
             </div>
 
-            {/* Language badges */}
             <div className="mt-10 flex flex-wrap gap-3">
               {LANGUAGES.map((lang) => (
-                <span key={lang} className="border border-white/15 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.25em] text-white/45">
+                <span key={lang} className="border border-white/20 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.25em] text-white/60">
                   {lang}
                 </span>
               ))}
             </div>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a href="#contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all hover:bg-gold-soft">
+              <a href="/contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all hover:bg-gold-soft">
                 Request Strategy Review
                 <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>
           </motion.div>
 
-          {/* ── RIGHT: Chat UI ── */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
           >
-            {/* Chat window */}
             <div className="overflow-hidden border border-gold/20 bg-navy-deep shadow-2xl shadow-black/40">
-              {/* Title bar */}
               <div className="flex items-center justify-between border-b border-white/8 bg-navy/60 px-5 py-3.5">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-1.5">
@@ -274,12 +268,11 @@ export const IntelligenceDesk = () => {
               <ChatWindow started={inView} />
             </div>
 
-            {/* Prompt chips */}
             <div className="mt-4 flex flex-wrap gap-2">
               {PROMPTS.map((prompt) => (
                 <a
                   key={prompt}
-                  href="#contact"
+                  href="/contact"
                   className="rounded-full border border-gold/20 bg-navy-deep px-4 py-2 font-sans text-[11px] text-white/55 transition-colors hover:border-gold/50 hover:text-gold"
                 >
                   {prompt}

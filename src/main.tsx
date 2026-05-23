@@ -26,21 +26,21 @@ if (rootElement) {
     <StrictMode>
       <HelmetProvider>
         <>
-        <SchemaOrg />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/sell" element={<SellersPage />} />
-            <Route path="/buy" element={<BuyersPage />} />
-            <Route path="/agents" element={<AgentsPage />} />
-            <Route path="/spain-desk" element={<SpainDeskPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/listings" element={<ListingsPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/market/:city" element={<CityMarketPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </BrowserRouter>
+          <SchemaOrg />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/sell" element={<SellersPage />} />
+              <Route path="/buy" element={<BuyersPage />} />
+              <Route path="/agents" element={<AgentsPage />} />
+              <Route path="/spain-desk" element={<SpainDeskPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/listings" element={<ListingsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/market/:city" element={<CityMarketPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </BrowserRouter>
         </>
       </HelmetProvider>
     </StrictMode>

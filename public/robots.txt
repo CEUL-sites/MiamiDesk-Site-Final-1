@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /*.json$
+
+Crawl-delay: 2
 
 Sitemap: https://homesprofessional.com/sitemap.xml
