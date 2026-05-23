@@ -4,7 +4,7 @@ import { CONTACT } from "../constants";
 const CARDS = [
   {
     number: "01",
-    title: "Full MLS Access",
+    title: "Active Market Coverage",
     desc: "Every active listing across Miami-Dade, Broward, and Palm Beach — residential, condo, new construction, and off-market — accessible from day one of your search.",
     tag: "MIAMI-DADE · BROWARD · PALM BEACH"
   },
