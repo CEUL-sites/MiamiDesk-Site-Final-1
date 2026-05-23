@@ -10,6 +10,29 @@ import { LeadForm } from "../components/LeadForm";
 import { BadgeCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 
+const sellerFaqs = [
+  {
+    question: "How do I sell my home fast in South Florida?",
+    answer:
+      "The fastest path to sale combines correct pricing with full Miami MLS activation, buyer-agent exposure, and coordinated portal syndication. The seller strategy review covers pricing, timing, buyer profile, and launch sequencing before listing.",
+  },
+  {
+    question: "How long does it take to sell a home in Miami?",
+    answer:
+      "Timing depends on price band, condition, neighborhood, and inventory. Correctly positioned homes can move quickly, while luxury and specialized inventory usually needs a longer, more deliberate campaign.",
+  },
+  {
+    question: "What is included in the free seller strategy review?",
+    answer:
+      "The review covers pricing analysis, market timing, presentation priorities, buyer profile, and a recommended launch path. It is free and does not require a listing commitment.",
+  },
+  {
+    question: "Which South Florida neighborhoods do you serve?",
+    answer:
+      "Carlos serves Miami-Dade, Broward, and Palm Beach, including Coral Gables, Brickell, Miami Beach, Aventura, Weston, Doral, Fort Lauderdale, Boca Raton, and nearby communities.",
+  },
+];
+
 export default function SellersPage() {
   return (
     <>
@@ -48,12 +71,11 @@ export default function SellersPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
-            { "@type": "Question", "name": "How do I sell my home fast in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "The fastest path to sale combines correct pricing with full Miami MLS activation — reaching 93,000 buyer agents the day your listing goes live, plus syndication to 200+ global portals. Our free seller strategy review covers pricing, timing, and buyer profile before listing." } },
-            { "@type": "Question", "name": "How long does it take to sell a home in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "In 2025, Miami-Dade properties priced $500K–$1.5M are moving in 30–60 days with correct positioning. Above $2M, typical cycles run 60–120 days. We provide a neighborhood-specific timeline assessment as part of every free seller strategy review." } },
-            { "@type": "Question", "name": "What is included in the free seller strategy review?", "acceptedAnswer": { "@type": "Answer", "text": "The review is completely free with no listing commitment required. It covers pricing analysis, market timing, positioning recommendation, and a professional buyer profile for your property." } },
-            { "@type": "Question", "name": "Which South Florida neighborhoods do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We serve all of Miami-Dade, Broward, and Palm Beach counties including Coral Gables, Brickell, Miami Beach, Aventura, Weston, Doral, Fort Lauderdale, Boca Raton, and West Palm Beach." } }
-          ]
+          "mainEntity": sellerFaqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+          })),
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
@@ -91,6 +113,20 @@ export default function SellersPage() {
         <SellerSection />
         <ExposureSyndication />
         <PartnersMarquee />
+        <section className="bg-white px-6 py-16 md:py-24">
+          <div className="mx-auto max-w-6xl">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller questions</p>
+            <h2 className="mt-4 font-serif text-3xl text-navy md:text-4xl">What sellers ask before listing.</h2>
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {sellerFaqs.map((faq) => (
+                <article key={faq.question} className="border border-bone bg-white-soft p-7">
+                  <h3 className="font-serif text-xl text-navy">{faq.question}</h3>
+                  <p className="mt-4 font-sans text-sm leading-relaxed text-navy/65">{faq.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">
