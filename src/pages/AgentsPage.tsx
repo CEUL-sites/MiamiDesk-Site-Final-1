@@ -2,83 +2,70 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { AgentReferral } from "../components/AgentReferral";
-import { CarlosTrust } from "../components/CarlosTrust";
 import { LeadForm } from "../components/LeadForm";
-import { PageHero } from "../components/PageHero";
 import { BadgeCheck } from "lucide-react";
-import { CONTACT } from "../constants";
 
 export default function AgentsPage() {
   return (
     <>
       <Helmet>
-        <title>Agent Referral Network | South Florida, LATAM & Madrid | United Realty Group</title>
-        <meta name="description" content="Refer South Florida, Spanish, or LATAM clients to United Realty Group. Industry-standard referral fees at closing. 48-hour response. Bilateral Miami ↔ Madrid coverage. FL SL705771." />
-        <meta name="keywords" content="real estate referral fee Florida, agent referral South Florida, Realtor referral Miami, LATAM client referral Miami, Spain real estate referral, cross-border referral network, United Realty Group referral, Miami agent referral program" />
+        <title>Agent Referral Network | South Florida | United Realty Group</title>
+        <meta name="description" content="Licensed agents: refer your South Florida buyers and sellers to our team. Formal referral agreements, fast closings, bilingual service. United Realty Group · FL SL705771." />
+        <meta name="keywords" content="real estate agent referral South Florida, Miami buyer referral, South Florida MLS referral, licensed agent network, United Realty Group referral" />
         <link rel="canonical" href="https://homesprofessional.com/agents" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Agent Referral Network", "item": "https://homesprofessional.com/agents" }
-          ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
           "@type": "Service",
-          "serviceType": "Real Estate Agent Referral Network",
-          "name": "Agent Referral Network — South Florida, Spain & LATAM",
-          "provider": {
-            "@type": "RealEstateAgent",
-            "name": "Carlos Uzcategui — United Realty Group",
-            "url": "https://homesprofessional.com",
-            "telephone": "+1-954-865-6622"
-          },
-          "areaServed": [
-            { "@type": "City", "name": "Miami" },
-            { "@type": "City", "name": "Fort Lauderdale" },
-            { "@type": "City", "name": "Weston" },
-            { "@type": "City", "name": "Madrid" }
-          ],
-          "description": "Industry-standard referral fees at closing. 48-hour response commitment. Bilateral South Florida ↔ Madrid cross-border coverage. FL Realtor® SL705771.",
-          "url": "https://homesprofessional.com/agents",
-          "offers": {
-            "@type": "Offer",
-            "description": "Industry-standard referral fee paid at closing. No upfront cost.",
-            "eligibleCustomerType": "Licensed Real Estate Agent"
-          }
+          "name": "Agent-to-Agent Referral Network",
+          "provider": { "@id": "https://homesprofessional.com/#agent" },
+          "serviceType": "Real Estate Agent Referral",
+          "description": "Confidential buyer and seller referral program for licensed agents. Formal referral agreements with United Realty Group. 437+ international referral agreements.",
+          "url": "https://homesprofessional.com/agents"
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "How do real estate agent referral fees work in Florida?", "acceptedAnswer": { "@type": "Answer", "text": "Industry-standard referral fees are paid at closing as a percentage of the gross commission. The referral fee is agreed in writing before client introduction. No upfront cost. FL Realtor® SL705771 licensed principal of record." } },
-            { "@type": "Question", "name": "Can I refer clients with South Florida and Spain connections?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our team covers South Florida seller and buyer transactions, plus cross-border referrals — Spain sellers wanting U.S. MLS exposure and LATAM buyers seeking South Florida property. One licensed contact covers all three markets." } },
-            { "@type": "Question", "name": "How quickly will my referral be responded to?", "acceptedAnswer": { "@type": "Answer", "text": "Every inbound referral receives a personal response within 48 hours. Your client is in professional hands from day one, and you stay updated on transaction progress." } }
+            { "@type": "Question", "name": "How does the agent referral program work?", "acceptedAnswer": { "@type": "Answer", "text": "Submit a referral via the form or contact our team directly. We execute a formal referral agreement, handle the transaction in South Florida, and pay your referral fee at closing." } },
+            { "@type": "Question", "name": "What referral fee do you pay?", "acceptedAnswer": { "@type": "Answer", "text": "Referral fees are negotiated per transaction and documented in writing before we engage the referred client. Contact our team for details." } },
+            { "@type": "Question", "name": "Do you accept international agent referrals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have 437+ signed referral agreements with international real estate associations. Bilingual English/Spanish service is available for Spain and Latin America referrals." } }
           ]
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <PageHero
-          eyebrow="Agent Referral Network"
-          headline="Refer Your Client."
-          headlineGold="We Handle South Florida."
-          subhead="Industry-standard referral fees paid at closing. 48-hour response commitment. Bilateral coverage — Miami to Madrid."
-          ctaLabel="Send a Referral"
-          ctaHref="/contact"
-          whatsappHref={CONTACT.whatsappUS}
-          badge="United Realty Group · FL SL705771 · Licensed 2001"
-        />
-        <AgentReferral />
-        <CarlosTrust />
+        <section className="bg-navy-deep py-24 text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Agent Referral Program · United Realty Group</p>
+          <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
+            Refer Your South Florida Clients.<br />
+            <em className="not-italic italic text-gold">Formal Agreements. Paid at Closing.</em>
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
+            Licensed agents from any state or country: send us your South Florida buyers and sellers. We handle the transaction and pay your referral fee at closing.
+          </p>
+        </section>
+        <section className="py-16 md:py-24">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="grid gap-8 md:grid-cols-3">
+              {[
+                { title: "437+", sub: "International Agreements", desc: "Signed referral agreements with real estate associations worldwide." },
+                { title: "93,000", sub: "Member Agents", desc: "Miami and South Florida REALTORS® MLS network for maximum buyer exposure." },
+                { title: "Day 1", sub: "Full Activation", desc: "Your referred listing reaches every active agent's pipeline on day one." },
+              ].map((item) => (
+                <div key={item.title} className="border border-gold/15 p-8 text-center">
+                  <div className="font-serif text-4xl text-gold">{item.title}</div>
+                  <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/50">{item.sub}</div>
+                  <p className="mt-4 font-sans text-sm text-white/60">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Agent Referral Desk</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Ready to move forward?</h2>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Submit a Referral</p>
+              <h2 className="mt-3 font-serif text-3xl text-white">Send us your client</h2>
             </div>
             <LeadForm />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">

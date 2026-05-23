@@ -3,13 +3,10 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { SellerSection } from "../components/SellerSection";
-import { PropertyShowcase3D } from "../components/PropertyShowcase3D";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
 import { PartnersMarquee } from "../components/PartnersMarquee";
 import { LeadForm } from "../components/LeadForm";
-import { NeighborhoodGrid } from "../components/NeighborhoodGrid";
-import { PageHero } from "../components/PageHero";
 import { BadgeCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 
@@ -61,22 +58,39 @@ export default function SellersPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <PageHero
-          eyebrow="South Florida Seller Strategy"
-          headline="Sell Your South Florida Home."
-          headlineGold="Maximum Global Exposure."
-          subhead="Your listing activates inside the Miami and South Florida REALTORS® MLS — 93,000 member agents, 200+ global portals, 19 languages — the day it goes live."
-          ctaLabel="Get My Free Strategy Review"
-          ctaHref="/contact"
-          whatsappHref={CONTACT.whatsappUS}
-          badge="United Realty Group · CLHMS · Certified Seller Rep · FL SL705771"
-        />
+        <section className="bg-navy-deep py-24 text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Seller Strategy</p>
+          <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
+            Sell Your South Florida Home.<br />
+            <em className="not-italic italic text-gold">Maximum Global Exposure.</em>
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
+            Your listing activates inside the Miami and South Florida REALTORS® MLS — 93,000 member agents, 200+ global portals, 19 languages — the day it goes live.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            >
+              Get My Free Strategy Review
+            </a>
+            <a
+              href={CONTACT.whatsappUS}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+            >
+              WhatsApp
+            </a>
+          </div>
+          <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
+          </p>
+        </section>
         <ReachAdvantage />
         <SellerSection />
-        <PropertyShowcase3D />
         <ExposureSyndication />
         <PartnersMarquee />
-        <NeighborhoodGrid />
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">

@@ -77,7 +77,7 @@ function AnimatedNumber({ display, prefix = "", suffix }: { display: string; pre
   );
 }
 
-function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index: number; delay?: number }) {
+function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index: number; delay?: number; key?: string }) {
   return (
     <motion.div
       key={stat.label}

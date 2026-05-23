@@ -3,9 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { InternationalBridge } from "../components/InternationalBridge";
-import { CarlosTrust } from "../components/CarlosTrust";
 import { LeadForm } from "../components/LeadForm";
-import { PageHero } from "../components/PageHero";
 import { BadgeCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 
@@ -13,74 +11,68 @@ export default function SpainDeskPage() {
   return (
     <>
       <Helmet>
-        <title>Spain to Miami MLS | List Spanish Property in U.S. | United Realty Group</title>
-        <meta name="description" content="List your Spanish or LATAM property in the Miami MLS. Reach 93,000 U.S. Realtors representing LATAM and North American buyers. Licensed Florida principal. Bilingual EN/ES. Madrid & Miami offices." />
-        <meta name="keywords" content="Spain Miami real estate, list Spanish property Miami MLS, Madrid property US buyers, Marbella real estate LATAM buyers, Spain to US real estate, cross-border real estate agent, Florida principal Spain, agente inmobiliario Florida, listar propiedad Miami MLS, comprador latinoamericano España" />
+        <title>Spain to South Florida Real Estate | Bilingual Advisory | United Realty Group</title>
+        <meta name="description" content="Bilingual (English/Spanish) real estate advisory for buyers from Spain and Latin America relocating to or investing in South Florida. Private consultations. United Realty Group · FL SL705771." />
+        <meta name="keywords" content="Spain Miami real estate, comprar casa Miami, Spain to Florida property, Spain buyer Miami, bilingual realtor South Florida, Spanish speaking realtor Miami" />
         <link rel="canonical" href="https://homesprofessional.com/spain-desk" />
-        <link rel="alternate" hreflang="es" href="https://homesprofessional.com/spain-desk" />
-        <link rel="alternate" hreflang="en" href="https://homesprofessional.com/spain-desk" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Spain Desk — Miami MLS International", "item": "https://homesprofessional.com/spain-desk" }
-          ]
-        })}</script>
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/spain-desk" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "serviceType": "International Real Estate — Spain and LATAM to Miami MLS",
-          "name": "Spain Desk — Miami MLS International Activation",
-          "provider": {
-            "@type": "RealEstateAgent",
-            "name": "Carlos Uzcategui — United Realty Group",
-            "url": "https://homesprofessional.com",
-            "telephone": "+34-646-853-078",
-            "knowsLanguage": ["English", "Spanish"]
-          },
-          "areaServed": [
-            { "@type": "Country", "name": "Spain" },
-            { "@type": "City", "name": "Madrid" },
-            { "@type": "City", "name": "Marbella" },
-            { "@type": "City", "name": "Costa del Sol" },
-            { "@type": "City", "name": "Miami" },
-            { "@type": "City", "name": "South Florida" }
-          ],
-          "description": "Licensed Florida principal activating Spanish and LATAM properties in the Miami MLS — reaching 93,000 U.S. Realtors who represent LATAM and North American buyers, the dominant purchasers of Spanish luxury real estate.",
+          "name": "Spain to South Florida Real Estate Advisory",
+          "provider": { "@id": "https://homesprofessional.com/#agent" },
+          "serviceType": "International Real Estate Advisory",
+          "description": "Bilingual real estate advisory for Spain-based buyers and investors relocating to or investing in South Florida. Private consultations in English and Spanish.",
+          "areaServed": ["South Florida", "Spain"],
           "url": "https://homesprofessional.com/spain-desk",
-          "inLanguage": ["en", "es"]
+          "availableLanguage": ["English", "Spanish"]
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "Can Spanish property be listed in the Miami MLS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. As a licensed Florida principal of record, our team activates Spanish and LATAM properties within the Miami MLS ecosystem — reaching 93,000 U.S. Realtors who represent LATAM and North American buyers, the dominant purchasers of luxury Spanish real estate. This is a formal MLS listing, not a referral." } },
-            { "@type": "Question", "name": "Who are the buyers of luxury property in Madrid and Marbella?", "acceptedAnswer": { "@type": "Answer", "text": "The majority of luxury real estate buyers in Spain — particularly in Madrid, Marbella, and the Costa del Sol — come from Latin America and North America. These buyers are represented by U.S. Realtors inside the Miami MLS." } },
-            { "@type": "Question", "name": "Do you provide bilingual advisory for Spain real estate?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our team provides full bilingual advisory in English and Spanish. Spanish inquiries are answered in Spanish within one business day. We maintain offices in both Miami and Madrid." } },
-            { "@type": "Question", "name": "What is the Spain Desk and how does it work?", "acceptedAnswer": { "@type": "Answer", "text": "The Spain Desk is our international real estate activation bridge. As a licensed U.S. principal, we list Spanish and LATAM properties directly in the Miami MLS, creating formal access to 93,000 agents and their LATAM and North American buyer pipelines." } }
+            { "@type": "Question", "name": "¿Puedo comprar una propiedad en Miami desde España?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los compradores españoles pueden adquirir propiedades en Florida sin restricciones. Ofrecemos consultoría bilingüe completa, coordinación de hipotecas para no residentes, y gestión del proceso desde España." } },
+            { "@type": "Question", "name": "What neighborhoods in Miami are popular with Spanish buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Brickell, Coral Gables, Miami Beach, and Aventura are the top markets for Spain-based buyers. Each offers a distinct lifestyle profile — we provide neighborhood-specific analysis as part of the advisory." } },
+            { "@type": "Question", "name": "Can I invest in South Florida real estate from Spain?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. South Florida is one of the top markets for Spanish and Latin American investment buyers. We advise on primary residence, vacation, and investment-grade acquisitions with full bilingual support." } },
+            { "@type": "Question", "name": "Do you have contacts in Spain for selling before relocating?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Spain desk has referral relationships with major Madrid agencies including Engel & Völkers, Lucas Fox, and Knight Frank for clients who need to sell in Spain before purchasing in Florida." } }
           ]
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <PageHero
-          eyebrow="International Activation Bridge"
-          headline="Your Spanish Property."
-          headlineGold="The Miami MLS. One Licensed U.S. Principal."
-          subhead="The majority of luxury buyers in Madrid, Marbella, and the Costa del Sol come from Latin America and North America. Our licensed team lists your property directly into their Realtors' pipelines."
-          ctaLabel="Activate My Property in the U.S."
-          ctaHref="/contact"
-          whatsappHref={CONTACT.whatsappSpain}
-          badge="Spanish inquiries answered in Spanish · FL SL705771"
-        />
+        <section className="bg-navy-deep py-24 text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Mesa España · United Realty Group</p>
+          <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
+            From Madrid to Miami.<br />
+            <em className="not-italic italic text-gold">Bilingual. Private. Expert.</em>
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
+            Confidential advisory for buyers from Spain and Latin America. Private consultations in English and Spanish. Madrid referral network for pre-move transactions.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={CONTACT.whatsappSpain}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            >
+              WhatsApp España
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+            >
+              Contact Us
+            </a>
+          </div>
+        </section>
         <InternationalBridge />
-        <CarlosTrust />
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · International</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Ready to move forward?</h2>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Consulta Privada</p>
+              <h2 className="mt-3 font-serif text-3xl text-white">Start your South Florida search</h2>
             </div>
             <LeadForm />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">

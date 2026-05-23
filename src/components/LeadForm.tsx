@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 
-// Paste your Apps Script Web App URL here after deploying from script.google.com
 const SHEETS_WEBHOOK = "https://script.google.com/macros/s/AKfycbxDVA5nBsPQzjb1a3I9R_61EwI_H0BTLORYrhaSfuH36DwnTQgGfaf6rLn2YTqzmPQ0/exec";
 
 const INITIAL_FORM_DATA = {
@@ -31,7 +30,6 @@ export function LeadForm() {
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 12000);
 
-    // Fire-and-forget to Google Sheets — no-cors so we can't read response
     if (SHEETS_WEBHOOK && !SHEETS_WEBHOOK.startsWith("PASTE")) {
       fetch(SHEETS_WEBHOOK, {
         method: "POST",
@@ -110,7 +108,9 @@ export function LeadForm() {
 
         <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
-          <input type="hidden" name="bot-field" />
+          <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }} aria-hidden="true">
+            <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
+          </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
@@ -159,7 +159,23 @@ export function LeadForm() {
             <textarea name="message" rows={4} placeholder="What should our team know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
           </div>
 
-          {status === "error" && <p className="font-sans text-sm text-red-700">{errorMessage}</p>}
+          {status === "error" && (
+            <p className="font-sans text-sm text-red-600 font-medium mt-2">
+              {errorMessage}
+            </p>
+          )}
+
+          <p className="font-mono text-center text-[9px] uppercase tracking-[0.2em] text-navy/40 mt-2">
+            Prefer WhatsApp?{" "}
+            <a
+              href="https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20would%20like%20a%20seller%20strategy%20review."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold underline hover:text-gold-deep"
+            >
+              Message Carlos directly
+            </a>
+          </p>
 
           <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-5 font-sans text-xs font-bold uppercase tracking-[0.28em] text-white shadow-lg shadow-gold/10 transition-all hover:bg-gold disabled:opacity-60">
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}

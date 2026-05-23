@@ -1,7 +1,7 @@
 export const CONTACT = {
   name: "Carlos Uzcategui",
   title: "Florida Licensed Realtor® since 2001",
-  licenseDisplay: "Carlos Uzcategui, Florida Licensed Realtor® 0705771 / SL705771",
+  licenseDisplay: "Carlos Uzcategui · Florida Licensed Realtor® SL705771",
   shortLicense: "Florida Licensed Realtor® SL705771",
   brokerage: "United Realty Group",
   brokerageDisplay: "United Realty Group associate",

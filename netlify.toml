@@ -1,6 +1,7 @@
 [build]
   command = "yarn build"
   publish = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "22"
@@ -18,38 +19,11 @@
 
 # ── SPA client-side routing ────────────────────────────────────────────────
 [[redirects]]
-  from = "/sell"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/buy"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/agents"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/spain-desk"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/contact"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# ── HTTP Headers ───────────────────────────────────────────────────────────
-# Security headers improve Google's site quality signals
-
+# ── HTTP Security Headers ───────────────────────────────────────────────────
 [[headers]]
   for = "/*"
   [headers.values]
@@ -60,31 +34,26 @@
     Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
 
-# Vite builds hashed asset filenames — safe to cache indefinitely
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Videos cached 30 days
 [[headers]]
   for = "/videos/*"
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
-# Images cached 30 days
 [[headers]]
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
-# HTML — always revalidate so Googlebot gets fresh content
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# sitemap + robots — short cache so updates propagate fast
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]

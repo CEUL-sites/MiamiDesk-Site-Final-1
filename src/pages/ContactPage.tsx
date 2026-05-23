@@ -3,63 +3,63 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { AboutContact } from "../components/AboutContact";
-import { PageHero } from "../components/PageHero";
+import { LeadForm } from "../components/LeadForm";
+import { BadgeCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 
 export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Free South Florida Real Estate Strategy Review | United Realty Group | Weston & Madrid</title>
-        <meta name="description" content="Request a free South Florida seller strategy review — no listing commitment. WhatsApp: +1 954-865-6622 (U.S.) or +34 646 853 078 (Madrid). United Realty Group. Response within one business day." />
-        <meta name="keywords" content="contact South Florida realtor, free real estate strategy review, sell home consultation Miami, United Realty Group contact, WhatsApp real estate Miami, real estate agent Weston FL" />
+        <title>Contact Us | South Florida Real Estate | United Realty Group</title>
+        <meta name="description" content="Contact Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group. Free seller strategy reviews, buyer consultations, agent referrals, and Spain desk inquiries. Call +1 954-865-6622." />
+        <meta name="keywords" content="contact Carlos Uzcategui, South Florida realtor contact, United Realty Group contact, Miami real estate consultation" />
         <link rel="canonical" href="https://homesprofessional.com/contact" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Free Strategy Review", "item": "https://homesprofessional.com/contact" }
-          ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
           "@type": "ContactPage",
-          "name": "Contact United Realty Group — South Florida Real Estate",
+          "name": "Contact Carlos Uzcategui — United Realty Group",
           "url": "https://homesprofessional.com/contact",
-          "description": "Request a free South Florida seller strategy review. No listing commitment required. Contact by WhatsApp, email, or form.",
           "mainEntity": {
-            "@type": "RealEstateAgent",
-            "name": "Carlos Uzcategui — United Realty Group",
-            "telephone": "+1-954-865-6622",
-            "email": "contact@carlosre.com",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "15951 SW 41 St #700",
-              "addressLocality": "Weston",
-              "addressRegion": "FL",
-              "postalCode": "33331",
-              "addressCountry": "US"
-            },
-            "contactPoint": [
-              { "@type": "ContactPoint", "telephone": "+1-954-865-6622", "contactType": "sales", "areaServed": "US", "availableLanguage": ["English", "Spanish"] },
-              { "@type": "ContactPoint", "telephone": "+34-646-853-078", "contactType": "sales", "areaServed": "ES", "availableLanguage": "Spanish" }
-            ]
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "telephone": CONTACT.phoneUS,
+            "email": CONTACT.email,
+            "availableLanguage": ["English", "Spanish"],
+            "areaServed": "South Florida",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
           }
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <PageHero
-          eyebrow="Direct Access"
-          headline="Request Your Free"
-          headlineGold="Strategy Review."
-          subhead="No listing commitment required. Our licensed team reviews every property personally before responding. Typical response within one business day."
-          ctaLabel="Scroll to the Form Below"
-          ctaHref="#contact"
-          whatsappHref={CONTACT.whatsappUS}
-          badge="Free · Confidential · Licensed Professionals"
-        />
+        <section className="bg-navy-deep py-24 text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential · Direct Line</p>
+          <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
+            Contact Our Team
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
+            Free strategy reviews for sellers and buyers. Agent referral inquiries. Spain desk consultations. Licensed professionals. No commitment required.
+          </p>
+        </section>
+        <section className="bg-navy-deep py-14 md:py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-8 text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Desk</p>
+              <h2 className="mt-3 font-serif text-3xl text-white">Send us a message</h2>
+            </div>
+            <LeadForm />
+            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+              <BadgeCheck size={14} className="text-gold" />
+              Confidential · Licensed Professionals · Equal Housing Opportunity
+            </div>
+          </div>
+        </section>
         <AboutContact />
         <Footer />
         <MobileStickyCTA />

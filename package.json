@@ -6,11 +6,52 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
+    "postbuild": "react-snap",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
   },
+  "reactSnap": {
+    "source": "dist",
+    "destination": "dist",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "include": [
+      "/",
+      "/sell",
+      "/buy",
+      "/agents",
+      "/spain-desk",
+      "/contact",
+      "/listings",
+      "/about",
+      "/market/weston",
+      "/market/pembroke-pines",
+      "/market/plantation",
+      "/market/miramar",
+      "/market/miami",
+      "/market/coral-gables",
+      "/market/doral",
+      "/market/kendall",
+      "/market/fort-lauderdale",
+      "/market/hollywood",
+      "/market/aventura",
+      "/market/miami-beach",
+      "/market/homestead",
+      "/market/boca-raton",
+      "/market/coral-springs",
+      "/market/parkland",
+      "/market/miami-lakes",
+      "/market/hallandale",
+      "/market/pompano-beach",
+      "/market/sunrise",
+      "/market/brickell"
+    ]
+  },
   "dependencies": {
+    "@google/genai": "^1.29.0",
     "@tailwindcss/vite": "^4.3.0",
     "@vitejs/plugin-react": "^5.2.0",
     "dotenv": "^17.2.3",
@@ -25,15 +66,15 @@
     "vite": "^6.4.2"
   },
   "devDependencies": {
+    "@netlify/functions": "^5.2.2",
     "@types/express": "^4.17.21",
-    "@types/node": "^22.19.19",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.2.0",
+    "@types/node": "^22.14.0",
     "autoprefixer": "^10.5.0",
+    "react-snap": "^1.23.0",
     "tailwindcss": "^4.3.0",
     "tsx": "^4.22.0",
     "typescript": "~5.8.3",
-    "vite": "^6.4.2"
+    "vite": "^6.4.2",
+    "vite-plugin-sitemap": "^0.8.2"
   }
 }

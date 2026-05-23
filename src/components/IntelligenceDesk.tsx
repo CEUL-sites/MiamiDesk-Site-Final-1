@@ -84,7 +84,6 @@ function ChatWindow({ started }: { started: boolean }) {
         return;
       }
       const msg = CONVERSATION[index];
-      // show typing indicator before desk messages
       const typingDelay = msg.role === "desk" && index > 0 ? 700 : 0;
 
       const t1 = window.setTimeout(() => {
@@ -114,7 +113,6 @@ function ChatWindow({ started }: { started: boolean }) {
 
   return (
     <div className="flex flex-col h-[420px]">
-      {/* Chat messages */}
       <div ref={scrollContainerRef} className="flex-1 overflow-y-auto space-y-4 p-5 lg:p-6 scrollbar-hide">
         {CONVERSATION.slice(0, visibleCount).map((msg, i) => (
           <motion.div
@@ -163,10 +161,8 @@ function ChatWindow({ started }: { started: boolean }) {
             </a>
           </motion.div>
         )}
-
       </div>
 
-      {/* Fake input bar */}
       <div className="border-t border-white/8 px-4 py-3">
         <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 ring-1 ring-white/10">
           <span className="flex-1 font-sans text-sm text-white/25 select-none">
@@ -193,7 +189,6 @@ export const IntelligenceDesk = () => {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:items-start">
 
-          {/* ── LEFT: Copy ── */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -230,7 +225,6 @@ export const IntelligenceDesk = () => {
               ))}
             </div>
 
-            {/* Language badges */}
             <div className="mt-10 flex flex-wrap gap-3">
               {LANGUAGES.map((lang) => (
                 <span key={lang} className="border border-white/20 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.25em] text-white/60">
@@ -247,16 +241,13 @@ export const IntelligenceDesk = () => {
             </div>
           </motion.div>
 
-          {/* ── RIGHT: Chat UI ── */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
           >
-            {/* Chat window */}
             <div className="overflow-hidden border border-gold/20 bg-navy-deep shadow-2xl shadow-black/40">
-              {/* Title bar */}
               <div className="flex items-center justify-between border-b border-white/8 bg-navy/60 px-5 py-3.5">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-1.5">
@@ -277,7 +268,6 @@ export const IntelligenceDesk = () => {
               <ChatWindow started={inView} />
             </div>
 
-            {/* Prompt chips */}
             <div className="mt-4 flex flex-wrap gap-2">
               {PROMPTS.map((prompt) => (
                 <a
