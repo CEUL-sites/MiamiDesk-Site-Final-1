@@ -12,7 +12,10 @@ import ListingsPage from './pages/ListingsPage';
 import AboutPage from './pages/AboutPage';
 import CityMarketPage from './pages/market/CityMarketPage';
 import NotFoundPage from './pages/NotFoundPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
+import { CookieBanner } from './components/CookieBanner';
 import './index.css';
 
 if ('scrollRestoration' in window.history) {
@@ -38,8 +41,11 @@ if (rootElement) {
               <Route path="/listings" element={<ListingsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/market/:city" element={<CityMarketPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
+            <CookieBanner />
           </BrowserRouter>
         </>
       </HelmetProvider>

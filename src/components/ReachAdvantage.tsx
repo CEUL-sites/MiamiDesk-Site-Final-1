@@ -31,12 +31,12 @@ const TOP_STATS = [
 
 const BOTTOM_STATS = [
   {
-    value: 260,
-    display: "260",
-    suffix: "+",
-    label: "U.S. MLSs",
-    sublabel: "via RPR National Exchange",
-    desc: "Your listing crosses state lines through the national professional MLS data exchange. Domestic reach beyond South Florida.",
+    value: 385,
+    display: "385",
+    suffix: "",
+    label: "U.S. MLSs via RPR",
+    sublabel: "National MLS Exchange",
+    desc: "Your listing crosses state lines through RPR's national professional MLS data exchange — reaching 385 U.S. MLSs as of April 2026.",
   },
   {
     value: 437,
@@ -47,12 +47,12 @@ const BOTTOM_STATS = [
     desc: "Signed referral agreements with real estate associations worldwide — creating active deal flow for listings with international appeal.",
   },
   {
-    value: 25,
-    display: "25",
+    value: 11,
+    display: "11",
     suffix: "",
-    label: "Years Active",
-    sublabel: "Licensed Since 2001",
-    desc: "A quarter-century of South Florida transactions. The relationships and market intelligence behind every strategy review.",
+    label: "MLS Data Exchanges",
+    sublabel: "Largest U.S. & Canadian MLSs",
+    desc: "11 data exchanges with the largest MLSs in the United States and Canada — the highest-volume professional data pipelines on the continent.",
   },
 ];
 
@@ -166,7 +166,7 @@ export const ReachAdvantage = () => {
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {[
             { v: "#1", l: "Realtor Assoc. in the U.S." },
-            { v: "19", l: "Florida Offices" },
+            { v: "$69B", l: "2025 Transaction Volume" },
             { v: "Day 1", l: "Full activation" },
             { v: "CLHMS", l: "Luxury certified" },
           ].map((item) => (

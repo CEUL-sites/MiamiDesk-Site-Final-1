@@ -28,7 +28,7 @@ const PARTNER_TYPES = [
   {
     number: "04",
     title: "URG Team & Collaboration",
-    body: "Licensed Realtors exploring United Realty Group affiliation, team collaboration, or Florida market expansion. United Realty Group is Florida's leading brokerage by transaction volume with 19 offices statewide and 3,500+ agents. Confidential conversations welcome.",
+    body: "Licensed Realtors exploring United Realty Group affiliation, team collaboration, or Florida market expansion. United Realty Group operates 19 Florida offices with 3,000+ agents statewide. Confidential conversations welcome.",
     tag: "UNITED REALTY GROUP · 19 OFFICES · TEAM COLLABORATION"
   },
 ];

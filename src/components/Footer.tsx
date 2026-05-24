@@ -20,7 +20,15 @@ export function Footer() {
           <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/55">
             South Florida seller strategy. Madrid advisory bridge. United Realty Group brokerage infrastructure.
           </p>
-          <p className="mt-8 font-sans text-xs text-white/50">⊕ Equal Housing Opportunity</p>
+          <div className="mt-8 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110" width="32" height="35" aria-label="Equal Housing Opportunity" role="img" className="flex-shrink-0 opacity-60">
+              <path d="M50 5 L5 45 L15 45 L15 95 L85 95 L85 45 L95 45 Z" fill="none" stroke="currentColor" strokeWidth="6" strokeLinejoin="round" strokeLinecap="round" />
+              <rect x="35" y="60" width="30" height="35" fill="none" stroke="currentColor" strokeWidth="6" />
+              <rect x="25" y="48" width="50" height="8" fill="currentColor" opacity="0.8" />
+              <text x="50" y="108" textAnchor="middle" fontFamily="sans-serif" fontSize="9" fill="currentColor" opacity="0.7" letterSpacing="1">EQUAL HOUSING</text>
+            </svg>
+            <span className="font-sans text-xs text-white/50">Equal Housing Opportunity</span>
+          </div>
         </div>
 
         <div>
@@ -67,6 +75,8 @@ export function Footer() {
               <a href="/sell#reach" className="transition-colors hover:text-gold">Reach</a>
               <a href="/spain-desk" className="transition-colors hover:text-gold">Spain Desk</a>
               <a href="/contact" className="transition-colors hover:text-gold">Contact</a>
+              <a href="/privacy" className="transition-colors hover:text-gold">Privacy</a>
+              <a href="/terms" className="transition-colors hover:text-gold">Terms</a>
             </div>
           </div>
         </div>

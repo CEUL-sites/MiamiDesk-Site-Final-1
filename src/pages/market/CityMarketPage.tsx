@@ -282,10 +282,10 @@ export default function CityMarketPage() {
             </motion.h2>
             <div className="grid gap-0 border border-gold/15 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { value: "200+", label: "Global Portals" },
+                { value: "200+", label: "Global Websites" },
                 { value: "19", label: "Languages" },
-                { value: "260+", label: "U.S. MLSs" },
-                { value: "437", label: "Intl. Agreements" },
+                { value: "385", label: "U.S. MLSs via RPR" },
+                { value: "$69B", label: "2025 Volume" },
               ].map((item, i) => (
                 <div key={item.label} className={`flex flex-col gap-3 p-8 ${i < 3 ? "border-b border-gold/15 lg:border-b-0 lg:border-r" : ""}`}>
                   <p className="font-serif text-4xl text-gold">{item.value}</p>

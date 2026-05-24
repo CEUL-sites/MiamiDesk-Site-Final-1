@@ -15,12 +15,12 @@ export const CONTACT = {
   spainOffice: "Madrid, Spain",
   linkedin: "https://linkedin.com/in/carlosuz",
   web: "HomesProfessional.com",
-  headshot: "https://lh3.googleusercontent.com/d/1JZ1hv1IfBykkfoy2TYmGK9M5N2Xwwklx",
+  headshot: "/images/carlos-uzcategui.jpg",
   stats: {
     experience: "25",
     agents: "93,000",
     offices: "19",
-    urgAgents: "3,500+",
+    urgAgents: "3,000+",
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
   }
@@ -40,10 +40,11 @@ export const ASSOCIATION_STATS = {
   memberCount: 93000,
   globalPortals: 200,
   languages: 19,
-  usMls: 260,
+  usMls: 385,
   internationalAgreements: 437,
   urgOffices: 19,
   mlsDataExchanges: 11,
+  volume2025Billions: 69,
   mergerDate: "May 11, 2026",
   associationName: "Miami and South Florida REALTORS®"
 };

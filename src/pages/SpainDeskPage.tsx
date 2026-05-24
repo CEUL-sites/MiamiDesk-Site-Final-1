@@ -190,6 +190,68 @@ export default function SpainDeskPage() {
 
         <InternationalBridge />
 
+        {/* ── Madrid Network Proof Block (Task 1.10) ── */}
+        <section className="bg-ivory py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-12">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Principal of Record · U.S. Framework</p>
+              <h2 className="mt-4 font-serif text-3xl text-navy md:text-4xl">The formal U.S. channel.</h2>
+              <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-navy/65">
+                Carlos Uzcategui acts as the licensed Florida principal of record for Spanish agencies, developers, and sellers entering the U.S. market. Buyer-side representation in Spain is handled by local professional agencies within the affiliated Madrid network. Both sides are credentialed — this is not a workaround.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="border border-bone bg-white p-8">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-4">U.S. Principal of Record</p>
+                <h3 className="font-serif text-xl text-navy">Florida-Licensed Representation</h3>
+                <p className="mt-4 font-sans text-sm leading-relaxed text-navy/60">
+                  Your property enters the Miami and South Florida REALTORS® MLS under a Florida-licensed principal — the legal requirement for U.S. MLS activation. No unlicensed workarounds. No grey channels.
+                </p>
+              </div>
+
+              <div className="border border-bone bg-white p-8">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-4">Madrid Affiliate Network</p>
+                <h3 className="font-serif text-xl text-navy">Established Agency Relationships</h3>
+                <p className="mt-4 font-sans text-sm leading-relaxed text-navy/60">
+                  Active referral relationships with established Madrid agencies for clients who need pre-move support in Spain before acquiring in Florida.
+                  {/* TODO: Confirm with specific agencies before publishing named counterparties — currently rendering as generic "Madrid affiliate network" */}
+                </p>
+                <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-navy/35">
+                  Madrid · Marbella · Costa del Sol
+                </p>
+              </div>
+
+              <div className="border border-bone bg-white p-8">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-4">What This Means in Practice</p>
+                <h3 className="font-serif text-xl text-navy">437+ Signed Agreements</h3>
+                <p className="mt-4 font-sans text-sm leading-relaxed text-navy/60">
+                  Miami and South Florida REALTORS® maintains 437+ signed referral agreements with real estate associations worldwide. Spanish developers and agencies activate into an existing formal cross-border infrastructure — not an ad hoc arrangement.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 border border-gold/20 bg-navy-deep p-8">
+              <div className="grid gap-6 md:grid-cols-4">
+                {[
+                  { v: "93,000", l: "Member Agents" },
+                  { v: "385", l: "U.S. MLSs via RPR" },
+                  { v: "437+", l: "International Agreements" },
+                  { v: "Day 1", l: "MLS Activation" },
+                ].map((s) => (
+                  <div key={s.l} className="text-center">
+                    <div className="font-serif text-3xl text-gold">{s.v}</div>
+                    <div className="font-mono mt-1 text-[8px] uppercase tracking-[0.2em] text-white/45">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-8 font-sans text-sm text-center leading-relaxed text-white/45 max-w-2xl mx-auto">
+                Source: Miami and South Florida REALTORS® — post-merger association data effective May 11, 2026. 385 U.S. MLSs via RPR as of April 1, 2026.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ── Lead Form ── */}
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
