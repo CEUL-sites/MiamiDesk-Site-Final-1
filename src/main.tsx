@@ -13,6 +13,8 @@ import AboutPage from './pages/AboutPage';
 import CityMarketPage from './pages/market/CityMarketPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
+import JournalListPage from './pages/JournalListPage';
+import JournalPostPage from './pages/JournalPostPage';
 import './index.css';
 
 if ('scrollRestoration' in window.history) {
@@ -38,6 +40,8 @@ if (rootElement) {
               <Route path="/listings" element={<ListingsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/market/:city" element={<CityMarketPage />} />
+              <Route path="/journal" element={<JournalListPage />} />
+              <Route path="/journal/:slug" element={<JournalPostPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </BrowserRouter>

@@ -12,7 +12,26 @@ const MARKET_CITIES = [
   'brickell',
 ];
 
-const DYNAMIC_ROUTES = MARKET_CITIES.map((city) => `/market/${city}`);
+const MARKET_ROUTES = MARKET_CITIES.map((city) => `/market/${city}`);
+
+const STATIC_ROUTES = [
+  '/',
+  '/sell',
+  '/buy',
+  '/agents',
+  '/spain-desk',
+  '/contact',
+  '/listings',
+  '/about',
+];
+
+// Journal routes — add each new post slug here as posts are published
+const JOURNAL_ROUTES = [
+  '/journal',
+  '/journal/miami-luxury-market-q3-2026',
+];
+
+const DYNAMIC_ROUTES = [...STATIC_ROUTES, ...MARKET_ROUTES, ...JOURNAL_ROUTES];
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');

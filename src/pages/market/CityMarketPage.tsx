@@ -314,10 +314,18 @@ export default function CityMarketPage() {
             </h2>
 
             <div className="grid gap-12 lg:grid-cols-2">
-              <p className="font-sans text-base leading-[1.9] text-navy/70">
-                {config?.marketParagraph ??
-                  `${cityName} is an active South Florida real estate market with consistent buyer demand across residential and condominium inventory. Our team has represented sellers across ${cityName} and the broader South Florida corridor since 2001 — 25 years of direct transaction experience in this market.`}
-              </p>
+              <div>
+                {config?.marketContent ? (
+                  config.marketContent.map((para, i) => (
+                    <p key={i} className="font-sans text-base leading-[1.9] text-navy/70 mb-5 last:mb-0">{para}</p>
+                  ))
+                ) : (
+                  <p className="font-sans text-base leading-[1.9] text-navy/70">
+                    {config?.marketParagraph ??
+                      `${cityName} is an active South Florida real estate market with consistent buyer demand across residential and condominium inventory. Our team has represented sellers across ${cityName} and the broader South Florida corridor since 2001 — 25 years of direct transaction experience in this market.`}
+                  </p>
+                )}
+              </div>
 
               <div className="flex flex-col gap-5">
                 <div className="border border-gold/30 p-6">
@@ -361,10 +369,10 @@ export default function CityMarketPage() {
 
             <div className="grid gap-0 border border-gold/15 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { value: "200+", label: "Global Portals" },
+                { value: "200+", label: "Global Websites" },
                 { value: "19", label: "Languages" },
-                { value: "260+", label: "U.S. MLSs" },
-                { value: "437", label: "Intl. Agreements" },
+                { value: "385", label: "U.S. MLSs via RPR" },
+                { value: "$69B", label: "2025 Volume" },
               ].map((item, i) => (
                 <div
                   key={item.label}
