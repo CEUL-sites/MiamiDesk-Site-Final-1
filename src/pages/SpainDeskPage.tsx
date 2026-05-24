@@ -66,7 +66,7 @@ export default function SpainDeskPage() {
               href="/contact"
               className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
-              Contact Us
+              Submit an Agency Inquiry →
             </a>
           </div>
         </section>

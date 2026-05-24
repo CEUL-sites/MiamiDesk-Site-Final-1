@@ -60,7 +60,7 @@ export function CarlosTrust() {
               href="/contact"
               className="group inline-flex items-center gap-2 border border-gold px-6 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-gold transition-all hover:bg-gold hover:text-navy"
             >
-              Request Strategy Review
+              Schedule a 30-minute listing strategy call
               <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>

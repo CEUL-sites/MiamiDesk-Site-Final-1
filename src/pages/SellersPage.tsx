@@ -6,7 +6,7 @@ import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
 import { PartnersMarquee } from "../components/PartnersMarquee";
-import { LeadForm } from "../components/LeadForm";
+import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { BadgeCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 
@@ -128,16 +128,8 @@ export default function SellersPage() {
           </div>
         </section>
         <section className="bg-navy-deep py-14 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Seller Desk</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Ready to move forward?</h2>
-            </div>
-            <LeadForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              <BadgeCheck size={14} className="text-gold" />
-              Confidential · Licensed Professionals · Equal Housing Opportunity
-            </div>
+          <div className="mx-auto max-w-3xl px-6">
+            <SellerIntakeForm />
           </div>
         </section>
         <Footer />

@@ -2,8 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { LeadForm } from "../components/LeadForm";
-import { BadgeCheck } from "lucide-react";
+import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { CONTACT } from "../constants";
 
 const PARTNER_TYPES = [
@@ -118,17 +117,8 @@ export default function AgentsPage() {
         </section>
 
         <section className="bg-navy-deep py-14 md:py-20 border-t border-gold/10">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Partner Inquiry</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Send us your referral or inquiry</h2>
-              <p className="mt-3 font-sans text-sm text-white/45 max-w-lg mx-auto">Include the nature of the referral or partnership. We respond to all licensed professional inquiries within one business day.</p>
-            </div>
-            <LeadForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              <BadgeCheck size={14} className="text-gold" />
-              Confidential · Licensed Professionals Only · Written Agreements · Equal Housing Opportunity
-            </div>
+          <div className="mx-auto max-w-3xl px-6">
+            <ReferralIntakeForm />
           </div>
         </section>
 

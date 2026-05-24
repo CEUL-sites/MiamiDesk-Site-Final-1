@@ -3,8 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { BuyersRelocation } from "../components/BuyersRelocation";
-import { LeadForm } from "../components/LeadForm";
-import { BadgeCheck } from "lucide-react";
+import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { CONTACT } from "../constants";
 
 export default function BuyersPage() {
@@ -56,7 +55,7 @@ export default function BuyersPage() {
               href="/contact"
               className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
             >
-              Brief Your Search →
+              Request a Miami buyer brief →
             </a>
             <a
               href={CONTACT.whatsappUS}
@@ -73,16 +72,8 @@ export default function BuyersPage() {
         </section>
         <BuyersRelocation />
         <section className="bg-navy-deep py-14 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Buyer Desk</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Ready to start your search?</h2>
-            </div>
-            <LeadForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              <BadgeCheck size={14} className="text-gold" />
-              Confidential · Licensed Professionals · Equal Housing Opportunity
-            </div>
+          <div className="mx-auto max-w-3xl px-6">
+            <BuyerMandateForm />
           </div>
         </section>
         <Footer />

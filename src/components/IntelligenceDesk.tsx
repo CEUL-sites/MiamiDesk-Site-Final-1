@@ -235,7 +235,7 @@ export const IntelligenceDesk = () => {
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a href="/contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all hover:bg-gold-soft">
-                Request Strategy Review
+                Schedule a 30-minute listing strategy call
                 <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>

@@ -14,6 +14,9 @@ import CityMarketPage from './pages/market/CityMarketPage';
 import NotFoundPage from './pages/NotFoundPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
+import SellerThanksPage from './pages/thanks/SellerThanksPage';
+import BuyerThanksPage from './pages/thanks/BuyerThanksPage';
+import AgentThanksPage from './pages/thanks/AgentThanksPage';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
 import { CookieBanner } from './components/CookieBanner';
 import './index.css';
@@ -43,6 +46,9 @@ if (rootElement) {
               <Route path="/market/:city" element={<CityMarketPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/terms" element={<TermsPage />} />
+              <Route path="/thanks/seller" element={<SellerThanksPage />} />
+              <Route path="/thanks/buyer" element={<BuyerThanksPage />} />
+              <Route path="/thanks/agent" element={<AgentThanksPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <CookieBanner />

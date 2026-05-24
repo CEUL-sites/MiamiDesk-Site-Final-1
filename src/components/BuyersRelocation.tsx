@@ -49,7 +49,7 @@ export function BuyersRelocation() {
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <a href="/contact" className="inline-flex items-center gap-2 bg-gold px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90">
-              Brief Your Search →
+              Request a Miami buyer brief →
             </a>
             <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy/25 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-colors hover:border-gold hover:text-gold">
               WhatsApp Carlos →
