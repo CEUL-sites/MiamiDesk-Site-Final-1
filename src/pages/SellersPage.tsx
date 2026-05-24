@@ -94,7 +94,7 @@ export default function SellersPage() {
               href="/contact"
               className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
             >
-              Get My Free Strategy Review
+              Request a Private Seller Strategy Review
             </a>
             <a
               href={CONTACT.whatsappUS}

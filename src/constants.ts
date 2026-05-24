@@ -27,11 +27,12 @@ export const CONTACT = {
 };
 
 export const NAVIGATION = [
-  { name: "Sellers", href: "/sell" },
-  { name: "Buyers", href: "/buy" },
+  { name: "Sell", href: "/sell" },
+  { name: "Exposure System", href: "/sell#reach" },
+  { name: "Seller Markets", href: "/listings" },
+  { name: "Miami Desk", href: "/#intelligence" },
   { name: "Agents", href: "/agents" },
-  { name: "Spain Desk", href: "/spain-desk" },
-  { name: "AI Desk", href: "/#intelligence" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 

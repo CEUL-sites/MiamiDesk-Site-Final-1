@@ -86,7 +86,7 @@ export function Hero() {
               href="/contact"
               className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft active:scale-95"
             >
-              Get My Free Strategy Review
+              Request a Private Seller Strategy Review
               <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a

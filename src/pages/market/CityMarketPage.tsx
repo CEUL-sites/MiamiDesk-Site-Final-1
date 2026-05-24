@@ -115,7 +115,7 @@ export default function CityMarketPage() {
 
   const cityName = config?.name ?? citySlug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   const canonicalUrl = `https://homesprofessional.com/market/${citySlug}`;
-  const metaTitle = config?.metaTitle ?? `${cityName} Real Estate Market | Homes for Sale | Carlos Uzcategui Realtor®`;
+  const metaTitle = config?.metaTitle ?? `Selling in ${cityName} | Seller Strategy & MLS Exposure | Carlos Uzcategui`;
   const metaDesc = config?.metaDescription ?? `Live ${cityName} real estate market data from the Miami and South Florida REALTORS® MLS. Updated daily. Carlos Uzcategui, Florida Realtor® SL705771, United Realty Group.`;
   const cityFaqs = buildCityFaqs(cityName);
 
@@ -187,12 +187,12 @@ export default function CityMarketPage() {
           <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-gold/[0.04] blur-[120px]" />
           <div className="relative mx-auto max-w-7xl px-6">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Market Intelligence · {cityName}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller Strategy · {cityName} · South Florida</p>
               <h1 className="mt-5 font-serif leading-[1.08] text-white" style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)" }}>
-                {cityName} Real Estate Market
+                Selling in {cityName}
               </h1>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-                Local market context, active MLS indicators, and seller strategy for {cityName} property owners.
+                {cityName} market data, buyer demand context, and positioning strategy for property owners considering a sale. Request a private seller strategy review — no listing commitment required.
               </p>
             </motion.div>
 
@@ -317,7 +317,7 @@ export default function CityMarketPage() {
             <h2 className="font-serif text-3xl text-navy md:text-4xl">Ready to list your {cityName} property?</h2>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-navy/75">Carlos Uzcategui has represented sellers in {cityName} and across South Florida for 25 years. A strategy conversation costs nothing. A mispriced listing costs everything.</p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <a href="/contact" className="inline-flex items-center gap-2 bg-navy px-8 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90">Schedule a consultation</a>
+              <a href="/contact" className="inline-flex items-center gap-2 bg-navy px-8 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90">Request a Private Seller Strategy Review</a>
               <a href="https://wa.me/19548656622" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy/40 px-8 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-navy/10">WhatsApp +1 954-865-6622</a>
             </div>
           </div>
