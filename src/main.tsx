@@ -26,6 +26,7 @@ import BuyerThanksPage from './pages/thanks/BuyerThanksPage';
 import AgentThanksPage from './pages/thanks/AgentThanksPage';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
 import { CookieBanner } from './components/CookieBanner';
+import { Analytics } from './components/Analytics';
 import JournalListPage from './pages/JournalListPage';
 import JournalPostPage from './pages/JournalPostPage';
 import './index.css';
@@ -68,6 +69,7 @@ if (rootElement) {
               <Route path="/es/spain-desk" element={<EsSpainDeskPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
+            <Analytics />
             <CookieBanner />
           </BrowserRouter>
         </>
