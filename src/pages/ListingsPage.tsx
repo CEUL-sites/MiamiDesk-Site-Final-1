@@ -5,6 +5,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { MLSTicker } from "../components/MLSTicker";
 import { NeoListingsEmbed } from "../components/NeoListingsEmbed";
+import { PropertyMarketFeed } from "../components/PropertyMarketFeed";
 import { CONTACT } from "../constants";
 
 export default function ListingsPage() {
@@ -49,6 +50,9 @@ export default function ListingsPage() {
 
         {/* ── Live MLS ticker strip ─────────────────────────────── */}
         <MLSTicker />
+
+        {/* ── Weston market feed (weekly-cached Bridge API data) ── */}
+        <PropertyMarketFeed />
 
         {/* ── NEO new developments iframe ──────────────────────── */}
         <section className="bg-white">

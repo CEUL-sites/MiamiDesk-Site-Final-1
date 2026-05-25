@@ -3,6 +3,10 @@
   publish = "dist"
   functions = "netlify/functions"
 
+# ── Scheduled weekly market feed refresh ───────────────────────────────────
+[functions."refresh-market-feed"]
+  schedule = "@weekly"
+
 [build.environment]
   NODE_VERSION = "22"
   NPM_FLAGS = "--version"

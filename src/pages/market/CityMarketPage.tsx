@@ -268,6 +268,15 @@ export default function CityMarketPage() {
         </section>
 
         {/* ── B. FEATURED LISTINGS ──────────────────────────────────────── */}
+        {/*
+          NOTE (Weston): The /listings page now renders <PropertyMarketFeed /> which
+          pulls weekly-cached Active SFR data ($850K–$1.2M) from Netlify Blobs via
+          the market-feed function. If you want to replace this city page's featured
+          listings for Weston specifically, import PropertyMarketFeed from
+          "../../components/PropertyMarketFeed" and render it conditionally when
+          citySlug === "weston". The useCityMarket hook below is intentionally kept
+          for all 20+ city pages — do NOT remove it.
+        */}
         <section className="bg-bone-warm py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mb-10">
