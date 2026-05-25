@@ -32,7 +32,7 @@ export default function ListingsPage() {
           </p>
           <h1
             className="mx-auto mt-5 max-w-4xl font-serif leading-tight text-white"
-            style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
+            style={{ fontSize: "clamp(1.9rem, 5vw, 4rem)" }}
           >
             South Florida Properties
           </h1>

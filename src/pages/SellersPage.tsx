@@ -14,8 +14,8 @@ export default function SellersPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your South Florida Home | 93,000 Realtors + 200 Global Portals | United Realty Group</title>
-        <meta name="description" content="Your listing reaches 93,000 Realtors and 200+ global portals in 19 languages the day it goes live. Coral Gables, Brickell, Miami Beach, Weston, Aventura. Free strategy review — no commitment." />
+        <title>Sell Your South Florida Home | Seller Strategy Review | United Realty Group</title>
+        <meta name="description" content="Senior seller advisory: pricing discipline, professional MLS positioning, buyer-agent visibility, and expanded exposure infrastructure across South Florida. Free strategy review — Carlos Uzcategui · FL SL705771." />
         <meta name="keywords" content="sell home South Florida, sell house Miami, Miami MLS listing, Coral Gables realtor, Brickell condo for sale, Miami Beach seller agent, Weston home for sale, South Florida listing agent, United Realty Group" />
         <link rel="canonical" href="https://homesprofessional.com/sell" />
         <script type="application/ld+json">{JSON.stringify({
@@ -40,7 +40,7 @@ export default function SellersPage() {
           "step": [
             { "@type": "HowToStep", "position": 1, "name": "Position", "text": "Pricing analysis, timing strategy, buyer profile identification, and property narrative development." },
             { "@type": "HowToStep", "position": 2, "name": "Prepare", "text": "Presentation guidance, professional photography coordination, MLS data accuracy, and launch sequencing." },
-            { "@type": "HowToStep", "position": 3, "name": "Launch", "text": "Live MLS activation through United Realty Group with simultaneous syndication to 200+ global portals in 19 languages the day your property goes live." },
+            { "@type": "HowToStep", "position": 3, "name": "Launch", "text": "Professional MLS activation through United Realty Group with eligible syndication across approved distribution channels and expanded buyer-agent visibility." },
             { "@type": "HowToStep", "position": 4, "name": "Activate", "text": "Targeted outreach to buyer agents, international referral channels, and LATAM and Spain pipeline activation." },
             { "@type": "HowToStep", "position": 5, "name": "Negotiate", "text": "Offer review, terms strategy, inspection response, and closing coordination." }
           ]
@@ -49,7 +49,7 @@ export default function SellersPage() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "How do I sell my home fast in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "The fastest path to sale combines correct pricing with full Miami MLS activation — reaching 93,000 buyer agents the day your listing goes live, plus syndication to 200+ global portals. Our free seller strategy review covers pricing, timing, and buyer profile before listing." } },
+            { "@type": "Question", "name": "How do I sell my home fast in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "The fastest path to sale combines correct pricing with professional MLS activation through the Miami and South Florida REALTORS® — providing buyer-agent visibility and eligible syndication across approved distribution channels. Our free seller strategy review covers pricing, timing, and buyer profile before listing." } },
             { "@type": "Question", "name": "How long does it take to sell a home in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "In 2025, Miami-Dade properties priced $500K–$1.5M are moving in 30–60 days with correct positioning. Above $2M, typical cycles run 60–120 days. We provide a neighborhood-specific timeline assessment as part of every free seller strategy review." } },
             { "@type": "Question", "name": "What is included in the free seller strategy review?", "acceptedAnswer": { "@type": "Answer", "text": "The review is completely free with no listing commitment required. It covers pricing analysis, market timing, positioning recommendation, and a professional buyer profile for your property." } },
             { "@type": "Question", "name": "Which South Florida neighborhoods do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We serve all of Miami-Dade, Broward, and Palm Beach counties including Coral Gables, Brickell, Miami Beach, Aventura, Weston, Doral, Fort Lauderdale, Boca Raton, and West Palm Beach." } }
@@ -58,14 +58,14 @@ export default function SellersPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <section className="bg-navy-deep py-24 text-center">
+        <section className="overflow-hidden bg-navy-deep px-6 py-24 text-center sm:px-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Seller Strategy</p>
-          <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
+          <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
             Sell Your South Florida Home.<br />
-            <em className="not-italic italic text-gold">Maximum Global Exposure.</em>
+            <em className="not-italic italic text-gold">Professional Positioning. Expanded Exposure.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Your listing activates inside the Miami and South Florida REALTORS® MLS — 93,000 member agents, 200+ global portals, 19 languages — the day it goes live.
+            Senior seller advisory built around pricing discipline, professional MLS positioning, buyer-agent visibility, and eligible syndication across approved distribution channels.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a

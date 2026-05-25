@@ -34,9 +34,9 @@ export default function AgentsPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <section className="bg-navy-deep py-24 text-center">
+        <section className="overflow-hidden bg-navy-deep px-6 py-24 text-center sm:px-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Agent Referral Program · United Realty Group</p>
-          <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
+          <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
             Refer Your South Florida Clients.<br />
             <em className="not-italic italic text-gold">Formal Agreements. Paid at Closing.</em>
           </h1>
@@ -50,7 +50,7 @@ export default function AgentsPage() {
               {[
                 { title: "437+", sub: "International Agreements", desc: "Signed referral agreements with real estate associations worldwide." },
                 { title: "93,000", sub: "Member Agents", desc: "Miami and South Florida REALTORS® MLS network for maximum buyer exposure." },
-                { title: "Day 1", sub: "Full Activation", desc: "Your referred listing reaches every active agent's pipeline on day one." },
+                { title: "Day 1", sub: "Professional Activation", desc: "Your referred listing enters professional MLS positioning and buyer-agent visibility from the start." },
               ].map((item) => (
                 <div key={item.title} className="border border-gold/15 p-8 text-center">
                   <div className="font-serif text-4xl text-gold">{item.title}</div>

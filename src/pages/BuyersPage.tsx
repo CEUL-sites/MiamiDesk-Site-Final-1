@@ -42,9 +42,9 @@ export default function BuyersPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <section className="bg-navy-deep py-24 text-center">
+        <section className="overflow-hidden bg-navy-deep px-6 py-24 text-center sm:px-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Strategy</p>
-          <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
+          <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
             The right property.<br />
             <em className="not-italic italic text-gold">The right representation.</em>
           </h1>
