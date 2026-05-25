@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { CONTACT } from "../constants";
 
 /* ─── Step data ─────────────────────────────────────────────────────────── */
 const STEPS = [
@@ -298,6 +297,12 @@ export function SellerStrategySection() {
     }
     rafRef.current = requestAnimationFrame(frame);
 
+    /* ── start sequence when section scrolls into view ── */
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { io.disconnect(); runSeq(); }
+    }, { threshold: 0.15 });
+    io.observe(sec);
+
     /* ── activate step ── */
     function activate(i: number) {
       const panel = sec.querySelector(".sss-panel")!;
@@ -379,9 +384,8 @@ export function SellerStrategySection() {
     }
     document.addEventListener("keydown", handleKey);
 
-    runSeq();
-
     return () => {
+      io.disconnect();
       cancelAnimationFrame(rafRef.current);
       ro.disconnect();
       document.removeEventListener("keydown", handleKey);
