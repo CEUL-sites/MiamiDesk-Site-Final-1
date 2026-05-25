@@ -32,6 +32,7 @@ const STATIC_ROUTES = [
 const JOURNAL_ROUTES = [
   '/journal',
   '/journal/miami-luxury-market-q3-2026',
+  '/journal/selling-coral-gables-2026',
 ];
 
 const DYNAMIC_ROUTES = [...STATIC_ROUTES, ...MARKET_ROUTES, ...JOURNAL_ROUTES];
