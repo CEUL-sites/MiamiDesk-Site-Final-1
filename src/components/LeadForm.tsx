@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 
-const SHEETS_WEBHOOK = "https://script.google.com/macros/s/AKfycbxDVA5nBsPQzjb1a3I9R_61EwI_H0BTLORYrhaSfuH36DwnTQgGfaf6rLn2YTqzmPQ0/exec";
-
 const INITIAL_FORM_DATA = {
   name: "",
   email: "",
@@ -29,19 +27,6 @@ export function LeadForm() {
 
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 12000);
-
-    if (SHEETS_WEBHOOK && !SHEETS_WEBHOOK.startsWith("PASTE")) {
-      fetch(SHEETS_WEBHOOK, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          source: "homesprofessional.com",
-          pageUrl: window.location.href,
-        }),
-        mode: "no-cors",
-      }).catch(() => {});
-    }
 
     try {
       const response = await fetch("/", {

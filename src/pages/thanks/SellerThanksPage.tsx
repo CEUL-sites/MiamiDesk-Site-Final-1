@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
-import { BadgeCheck } from "lucide-react";
-import { CONTACT } from "../../constants";
+import { BadgeCheck, Download } from "lucide-react";
+import { CONTACT, LEAD_MAGNETS } from "../../constants";
 
 export default function SellerThanksPage() {
   return (
@@ -23,10 +23,24 @@ export default function SellerThanksPage() {
             <p className="mx-auto mt-6 max-w-lg font-sans text-base leading-relaxed text-white/60">
               Carlos reviews every seller submission personally before responding. You will receive a confirmation by email, and Carlos will follow up within one business day from his Weston, Florida office.
             </p>
-            <p className="mx-auto mt-4 max-w-lg font-sans text-sm text-white/40">
+            <div className="mx-auto mt-8 max-w-md border border-gold/25 bg-gold/5 p-6 text-left">
+              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">While You Wait</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                {LEAD_MAGNETS.sellerNetSheet.description}
+              </p>
+              <a
+                href={LEAD_MAGNETS.sellerNetSheet.url}
+                download
+                className="mt-4 inline-flex items-center gap-2 border border-gold/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10"
+              >
+                <Download size={13} />
+                Download Net Sheet — PDF
+              </a>
+            </div>
+            <p className="mx-auto mt-8 max-w-lg font-sans text-sm text-white/40">
               For immediate questions or to speak with Carlos directly:
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
               <a
                 href={CONTACT.whatsappUS}
                 target="_blank"

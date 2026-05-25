@@ -21,6 +21,8 @@ export function CarlosTrust() {
                 alt="Carlos Uzcategui, Florida Licensed Realtor® with United Realty Group, serving South Florida and Madrid since 2001"
                 className="carlos-headshot"
                 loading="lazy"
+                width="160"
+                height="160"
               />
             </div>
           </div>
@@ -49,6 +51,8 @@ export function CarlosTrust() {
                 alt="Certified Luxury Home Marketing Specialist"
                 className="h-12 w-12 opacity-0 transition-opacity duration-500"
                 loading="lazy"
+                width="48"
+                height="48"
                 onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.9"; }}
               />
             </div>

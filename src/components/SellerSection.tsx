@@ -5,8 +5,8 @@ import { CONTACT } from "../constants";
 const STEPS = [
   { icon: Layers, title: "Position", desc: "Pricing, timing, buyer profile, property narrative, and preparation strategy." },
   { icon: FileEdit, title: "Prepare", desc: "Presentation guidance, media planning, listing copy, MLS data accuracy, and launch sequencing." },
-  { icon: Send, title: "Launch", desc: "YOUR LISTING · MLS EXPOSURE — The listing activates inside the Miami and South Florida REALTORS® MLS the same day. 93,000 member agent pipelines receive it immediately. 200+ global portals in 19 languages syndicate it automatically. Mechanical exposure. No delays." },
-  { icon: Activity, title: "Activate", desc: "YOUR TRANSACTION · LOCAL SERVICE — United Realty Group's 3,000+ agents across 19 South Florida offices begin showing, qualifying buyers, following up on inquiries, and coordinating through the Spain and LATAM referral pipeline. Agents on the ground. Local accountability." },
+  { icon: Send, title: "Launch", desc: "Professional MLS positioning, accurate listing data, buyer-agent visibility, and eligible syndication across approved distribution channels." },
+  { icon: Activity, title: "Activate", desc: "Targeted outreach, inquiry follow-up, referral pathways, showing coordination, and market feedback designed to support qualified demand." },
   { icon: Scale, title: "Negotiate", desc: "Offer review, terms strategy, inspection response, closing coordination, and move-forward planning." }
 ];
 
@@ -56,7 +56,7 @@ export function SellerSection() {
           <h3 className="font-serif text-3xl italic text-white">Ready to position your South Florida property correctly?</h3>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <a href="/contact" className="inline-flex items-center justify-center bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">Request a Private Seller Strategy Review</a>
-            <a href={CONTACT.whatsappUS} className="inline-flex items-center justify-center border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">WhatsApp Carlos Directly</a>
+            <a href={CONTACT.whatsappUS} className="inline-flex items-center justify-center border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">WhatsApp Our Team</a>
           </div>
           <p className="font-mono mx-auto mt-6 max-w-2xl text-[9px] uppercase tracking-[0.2em] text-white/35">{CONTACT.licenseDisplay} · {CONTACT.brokerage}</p>
         </div>

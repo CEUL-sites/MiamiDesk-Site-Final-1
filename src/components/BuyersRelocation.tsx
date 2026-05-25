@@ -45,11 +45,11 @@ export function BuyersRelocation() {
             <span className="italic text-gold">The right representation.</span>
           </h2>
           <p className="mt-7 font-sans text-lg leading-relaxed text-navy/65">
-            South Florida's active inventory spans Miami-Dade, Broward, and Palm Beach — three counties, thousands of listings, and a market that moves fast. Carlos provides buyer representation backed by 25 years of local relationships and United Realty Group's 3,000+ agents across 19 South Florida offices — professionals on the ground who know the inventory, the sellers, and the neighborhoods. Every active MLS listing across the region is accessible from day one.
+            South Florida's active inventory spans Miami-Dade, Broward, and Palm Beach — three counties, thousands of listings, and a market that moves fast. Carlos provides buyer representation backed by 25 years of local relationships and United Realty Group's 3,000+ agents across 19 offices — agents on the ground who know the inventory, the sellers, and the neighborhoods. Every active MLS listing across the region is accessible from day one.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <a href="/contact" className="inline-flex items-center gap-2 bg-gold px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90">
-              Request a Miami buyer brief →
+              Brief Your Search →
             </a>
             <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy/25 px-6 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-colors hover:border-gold hover:text-gold">
               WhatsApp Carlos →

@@ -26,11 +26,11 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-navy-deep text-white">
-      {/* Layered gradient background — looks great with or without the photo */}
+      {/* Layered gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_25%,rgba(176,141,87,0.10),transparent_42%)]" />
-      {/* Photo layer — loads on top of gradient; section looks fine if image is absent */}
+      {/* Photo layer */}
       <div className="absolute inset-0">
         <img
           src="/images/hero-bg.jpg"
@@ -46,13 +46,22 @@ export function Hero() {
         <div className="absolute inset-0 bg-navy-deep/55" />
       </div>
 
-      <div className="relative flex min-h-screen items-start pt-6 pb-14 px-6 sm:pt-10 sm:pb-24 sm:px-10 lg:px-20">
+      <div className="relative min-h-screen px-6 pt-28 pb-16 sm:px-10 sm:pt-32 lg:flex lg:items-center lg:px-20 lg:pt-0 lg:pb-0">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="mx-auto w-full max-w-4xl text-center"
         >
+          {/* Credential badge — hidden on mobile where navbar already shows this */}
+          <motion.p
+            variants={itemVariants}
+            className="hidden sm:block font-mono mb-4 text-gold uppercase tracking-[0.22em]"
+            style={{ fontSize: "0.62rem" }}
+          >
+            UNITED REALTY GROUP · CARLOS UZCATEGUI · FL REALTOR® SL705771
+          </motion.p>
+
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
@@ -72,12 +81,10 @@ export function Hero() {
             className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
             style={{ fontSize: "1.05rem" }}
           >
-            Twenty-five years of South Florida transactions.
-            Every listing activates inside the world's largest local
-            Realtor association — 93,000 member agents, 200+ global
-            websites in 19 languages, 385 U.S. MLSs via RPR — simultaneously,
-            the day it goes live. This is the structural difference
-            between a listing and a result.
+            Senior seller advisory built around pricing discipline,
+            professional MLS positioning, buyer-agent visibility,
+            United Realty Group reach, and international market context
+            between South Florida and Madrid.
           </motion.p>
 
           {/* CTAs */}
@@ -86,7 +93,7 @@ export function Hero() {
               href="/contact"
               className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft active:scale-95"
             >
-              Request a Private Seller Strategy Review
+              Get My Free Strategy Review
               <ChevronRight size={15} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a
@@ -96,7 +103,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold active:scale-95"
             >
               <MessageSquare size={14} />
-              WhatsApp Carlos Directly
+              WhatsApp Our Team Now
             </a>
           </motion.div>
 
@@ -107,7 +114,7 @@ export function Hero() {
           {/* Trust bar */}
           <motion.div
             variants={itemVariants}
-            className="mx-auto mt-12 grid grid-cols-4 gap-6 border-t border-white/10 pt-9 sm:max-w-xl"
+            className="mx-auto mt-12 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-white/10 pt-9 sm:grid-cols-4 sm:max-w-xl"
           >
             {[
               { value: "25",    label: "Years Licensed" },

@@ -14,8 +14,9 @@ export const CONTACT = {
   address: "15951 SW 41 St #700, Weston, FL 33331",
   spainOffice: "Madrid, Spain",
   linkedin: "https://linkedin.com/in/carlosuz",
+  calendly: "https://calendly.com/carlosre",
   web: "HomesProfessional.com",
-  headshot: "/images/carlos-uzcategui.jpg",
+  headshot: "https://lh3.googleusercontent.com/d/1JZ1hv1IfBykkfoy2TYmGK9M5N2Xwwklx",
   stats: {
     experience: "25",
     agents: "93,000",
@@ -26,13 +27,30 @@ export const CONTACT = {
   }
 };
 
+export const LEAD_MAGNETS = {
+  sellerNetSheet: {
+    url: "/south-florida-sellers-net-sheet-2026.pdf",
+    title: "South Florida Seller's Net Sheet 2026",
+    description: "What you actually keep — modelled at $3M and $8M sale prices, across Miami-Dade, Broward, and Palm Beach Counties.",
+  },
+  buyerBrief: {
+    url: "/miami-buyer-brief-q3-2026.pdf",
+    title: "Miami Buyer Brief Q3 2026",
+    description: "Neighbourhood profiles, foreign-national financing, FIRPTA, and the typical closing timeline — for buyers relocating from Latin America and Spain into South Florida.",
+  },
+  spainActivation: {
+    url: "/spain-mls-activation-methodology-brief.pdf",
+    title: "Activating Spanish Inventory in the Miami MLS",
+    description: "The professional framework for listing Spanish-owned property through a licensed U.S. principal of record — with institutional American market exposure from day one.",
+  },
+};
+
 export const NAVIGATION = [
-  { name: "Sell", href: "/sell" },
-  { name: "Exposure System", href: "/sell#reach" },
-  { name: "Seller Markets", href: "/listings" },
-  { name: "Miami Desk", href: "/#intelligence" },
+  { name: "Sellers", href: "/sell" },
+  { name: "Buyers", href: "/buy" },
   { name: "Agents", href: "/agents" },
-  { name: "About", href: "/about" },
+  { name: "Spain Desk", href: "/spain-desk" },
+  { name: "Journal", href: "/journal" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -44,7 +62,6 @@ export const ASSOCIATION_STATS = {
   internationalAgreements: 437,
   urgOffices: 19,
   mlsDataExchanges: 11,
-  volume2025Billions: 69,
   mergerDate: "May 11, 2026",
   associationName: "Miami and South Florida REALTORS®"
 };
@@ -54,8 +71,12 @@ export const URG_CITIES = [
   { city: "Plantation", region: "Broward County" },
   { city: "Coral Springs", region: "Broward County" },
   { city: "Pembroke Pines", region: "Broward County" },
+  { city: "Miramar", region: "Broward County" },
   { city: "Hollywood", region: "Broward County" },
+  { city: "Hallandale Beach", region: "Broward County" },
   { city: "Fort Lauderdale", region: "Broward County" },
+  { city: "Sunrise", region: "Broward County" },
+  { city: "Parkland", region: "Broward County" },
   { city: "Deerfield Beach", region: "Broward County" },
   { city: "Pompano Beach", region: "Broward County" },
   { city: "Boca Raton", region: "Palm Beach County" },
@@ -65,35 +86,11 @@ export const URG_CITIES = [
   { city: "Coral Gables", region: "Miami-Dade County" },
   { city: "Brickell", region: "Miami-Dade County" },
   { city: "Aventura", region: "Miami-Dade County" },
-  { city: "Hialeah", region: "Miami-Dade County" },
-  { city: "Doral", region: "Miami-Dade County" },
   { city: "Miami Beach", region: "Miami-Dade County" },
+  { city: "Miami Lakes", region: "Miami-Dade County" },
+  { city: "Doral", region: "Miami-Dade County" },
+  { city: "Hialeah", region: "Miami-Dade County" },
+  { city: "Kendall", region: "Miami-Dade County" },
   { city: "Homestead", region: "Miami-Dade County" },
 ];
 
-export const PARTNER_AGENCIES = {
-  southFlorida: [
-    { name: "One Sotheby's International Realty", market: "South Florida" },
-    { name: "Douglas Elliman", market: "South Florida" },
-    { name: "Compass", market: "South Florida" },
-    { name: "EWM Realty International", market: "South Florida" },
-    { name: "Fortune Christie's International", market: "South Florida" },
-    { name: "Coldwell Banker Realty", market: "South Florida" },
-    { name: "Cervera Real Estate", market: "South Florida" },
-    { name: "ISG World", market: "South Florida" },
-    { name: "Berkshire Hathaway HomeServices", market: "South Florida" },
-    { name: "RE/MAX Advance Realty", market: "South Florida" },
-    { name: "Keller Williams Realty", market: "South Florida" },
-    { name: "The Keyes Company", market: "South Florida" },
-  ],
-  spain: [
-    { name: "Lucas Fox", market: "Spain · Madrid" },
-    { name: "Engel & Völkers", market: "Spain · Madrid" },
-    { name: "Knight Frank", market: "Spain · Madrid" },
-    { name: "Savills Spain", market: "Spain · Madrid" },
-    { name: "Barnes International", market: "Spain · Madrid" },
-    { name: "Colliers Spain", market: "Spain · Madrid" },
-    { name: "Gilmar Real Estate", market: "Spain · Madrid" },
-    { name: "Christie's International Real Estate", market: "Spain" },
-  ]
-};

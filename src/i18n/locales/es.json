@@ -1,0 +1,31 @@
+{
+  "__review__": "TODO: All Spanish copy requires native Madrid editor review before production use.",
+  "nav": {
+    "sell": "Vender",
+    "buy": "Comprar",
+    "agents": "Agentes",
+    "spainDesk": "Mesa España",
+    "listings": "Propiedades",
+    "about": "Sobre Nosotros",
+    "contact": "Contacto"
+  },
+  "cta": {
+    "requestReview": "Solicitar una Revisión de Estrategia de Venta Privada",
+    "whatsapp": "WhatsApp con Carlos",
+    "scheduleCall": "Programar una llamada de estrategia de 30 minutos",
+    "submitInquiry": "Enviar una Consulta de Agencia"
+  },
+  "footer": {
+    "license": "FL SL705771",
+    "brokerage": "United Realty Group",
+    "eho": "Igualdad de Vivienda",
+    "rights": "Todos los derechos reservados"
+  },
+  "common": {
+    "yearsLicensed": "Años con Licencia",
+    "memberAgents": "Agentes Miembros",
+    "floridaOffices": "Oficinas en Florida",
+    "globalPortals": "Portales Globales",
+    "freeNoCommitment": "Gratis · Sin compromiso de exclusiva"
+  }
+}

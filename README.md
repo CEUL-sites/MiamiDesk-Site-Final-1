@@ -1,45 +1,84 @@
-# HomesProfessional.com
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Website for Carlos Uzcategui, Florida Licensed Realtor® SL705771, an associate at United Realty Group. The site serves as the primary digital presence for a South Florida real estate advisory practice covering seller representation, buyer mandates, cross-border Spain and LATAM advisory, and agent-to-agent referral coordination. It is built to meet the credibility standard required by institutional sellers, family office principals, and Madrid-based agency counterparties.
+# Run and deploy your AI Studio app
 
-## Stack
+This contains everything you need to run your app locally.
 
-- **React 19** + **TypeScript** — client-side application
-- **Vite 6** — build tooling
-- **Tailwind CSS v4** — utility-first styling with custom design tokens
-- **react-router-dom 7** — client-side routing
-- **react-helmet-async** — document head / SEO management
-- **react-snap** — prerendering for SEO (Puppeteer/Chrome 68, requires `build.target: 'es2019'`)
-- **motion/react** — animation
-- **Netlify** — hosting, form handling, serverless functions
+View your app in AI Studio: https://ai.studio/apps/80cbc0fa-624b-4927-a8e3-dd45e975e4e8
 
-## Environment variables
+## Run Locally
 
-The following environment variables must be set in the Netlify dashboard (Settings → Environment variables). No values should be committed to the repository.
+**Prerequisites:**  Node.js
 
-| Variable | Purpose |
-|---|---|
-| `GEMINI_API_KEY` | Google Gemini API key — AI desk assistant (server-side only via `netlify/functions/ai-desk.ts`) |
-| `BRIDGE_API_TOKEN` | Bridge Data Output API token — live MLS listing ticker (server-side only via `netlify/functions/ticker-listings.ts`) |
 
-The site functions without either variable. The AI desk returns a 503 gracefully; the MLS ticker falls back to representative South Florida listings.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
 
-## Local development
+## Bridge API & Market Feed
+
+### Architecture
+
+| Function | Calls Bridge API? | Cache strategy |
+|---|---|---|
+| `netlify/functions/refresh-market-feed.ts` | **Yes** — weekly pull only | Writes to Netlify Blobs |
+| `netlify/functions/market-feed.ts` | No — read-only | Reads from Netlify Blobs; sets `Cache-Control: public, max-age=3600` |
+| `netlify/functions/bridge-listings.ts` | Yes — per city page load | In-memory Map (1-hour TTL, ephemeral per cold start) |
+| `netlify/functions/listings-search.ts` | Yes — per search query | In-memory Map (30-min TTL, ephemeral per cold start) |
+| `netlify/functions/ticker-listings.ts` | Yes — MLS ticker | In-memory Map (1-hour TTL, ephemeral per cold start) |
+
+### How to manually refresh the market feed
 
 ```bash
-yarn install
-yarn dev       # development server at http://localhost:5173
-yarn build     # production build + react-snap prerender to /dist
-yarn lint      # TypeScript type check (tsc --noEmit)
+curl -X POST https://homesprofessional.com/.netlify/functions/refresh-market-feed \
+  -H "x-refresh-secret: YOUR_SECRET"
 ```
 
-## Deployment
+Replace `YOUR_SECRET` with the value of `MARKET_FEED_REFRESH_SECRET` set in Netlify environment variables.
 
-Netlify deploys automatically from the `main` branch on push. Build command: `yarn build`. Publish directory: `dist`. Functions directory: `netlify/functions`.
+### Environment variables required
 
-The `netlify.toml` at the repository root configures redirects, cache headers, and a Content-Security-Policy-Report-Only header. Promote the CSP to enforcement (`Content-Security-Policy`) once the report-only period confirms no violations.
+| Variable | Description |
+|---|---|
+| `BRIDGE_API_TOKEN` | Bridge API bearer token (server-side only, never expose in frontend) |
+| `BRIDGE_DATASET` | Bridge dataset identifier (default: `miamire`) |
+| `BRIDGE_BASE_URL` | Bridge OData base URL (default: `https://api.bridgedataoutput.com/api/v2/OData/{BRIDGE_DATASET}/Property`) |
+| `MARKET_FEED_REFRESH_SECRET` | Secret header value for manual POST refresh of the market feed |
 
-## Principal contact
+### How to add more cities
 
-Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group  
-Weston, FL · contact@carlosre.com · +1 954-865-6622
+Add new entries to the `FEED_CONFIGS` array in `netlify/functions/refresh-market-feed.ts`:
+
+```typescript
+const FEED_CONFIGS: FeedConfig[] = [
+  {
+    blobKey: "weston-sfr-850k-1200k",
+    city: "Weston",
+    extraFilter:
+      "PropertyType eq 'Residential' and StandardStatus eq 'Active' and ListPrice ge 850000 and ListPrice le 1200000",
+  },
+  // Add new city configs here:
+  // {
+  //   blobKey: "coral-gables-sfr-1m-2m",
+  //   city: "Coral Gables",
+  //   extraFilter:
+  //     "PropertyType eq 'Residential' and StandardStatus eq 'Active' and ListPrice ge 1000000 and ListPrice le 2000000",
+  // },
+];
+```
+
+Each new `blobKey` should be read by a corresponding endpoint or by extending `market-feed.ts` to accept a `?feed=` query parameter.
+
+### Compliance items Carlos must verify before publishing
+
+- [ ] **MLS display rules**: Confirm with Miami and South Florida REALTORS® IDX display requirements (attribution text, logo placement, required fields).
+- [ ] **Address masking**: Verify whether MLS rules require partial address masking for Active listings displayed on public IDX pages.
+- [ ] **Image usage rights**: Confirm that MLS listing photos are licensed for display via IDX on this site.
+- [ ] **Attribution requirements**: The IDX disclaimer is included in all API responses and displayed on all feed components. Verify the exact wording required by the MLS board.
+- [ ] **Listing data freshness disclosure**: The weekly feed badge ("Weekly Feed") accurately describes the refresh cadence. Confirm this meets IDX rules (some boards require daily minimum refresh).
+- [ ] **FL Real Estate Commission compliance**: Ensure all required disclosures (license number, brokerage name, Equal Housing) are displayed alongside listing data.
+- [ ] **Sold/Off-market listings**: The current feed filters `StandardStatus eq 'Active'` only. If Pending or Sold listings are added in future, confirm MLS rules on their display.

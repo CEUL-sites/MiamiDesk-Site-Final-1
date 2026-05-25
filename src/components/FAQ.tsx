@@ -5,7 +5,7 @@ import { useState } from "react";
 const FAQS = [
   {
     q: "How do I sell my South Florida home?",
-    a: "It starts with positioning — the right price, the right timing, and professional MLS activation. Our team provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS to 93,000 professional agents and 200+ global portals simultaneously. No obligation. Just a strategy.",
+    a: "It starts with positioning — the right price, the right timing, and professional MLS activation. Our team provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS with professional buyer-agent visibility and eligible syndication across approved distribution channels. No obligation. Just a strategy.",
   },
   {
     q: "What is the Miami MLS and why does it matter?",

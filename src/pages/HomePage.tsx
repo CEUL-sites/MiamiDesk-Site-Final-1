@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
-import { MLSTicker } from "../components/MLSTicker";
 import { Hero } from "../components/Hero";
-import { AdvisorBrand } from "../components/AdvisorBrand";
-import { SellerSection } from "../components/SellerSection";
+import { MLSTicker } from "../components/MLSTicker";
+import { SellerStrategySection } from "../components/SellerStrategySection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { PartnersMarquee } from "../components/PartnersMarquee";
 import { ExposureSyndication } from "../components/ExposureSyndication";
@@ -18,30 +17,29 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>South Florida Listing Agent | Seller Strategy &amp; MLS Exposure | Carlos Uzcategui</title>
-        <meta name="description" content="Sell your South Florida property with Carlos Uzcategui, Florida Licensed Realtor® since 2001, United Realty Group. Strategic listing representation, MLS exposure, agent-network distribution, and private seller strategy reviews." />
+        <title>South Florida Seller Strategy | Carlos Uzcategui · FL SL705771 | HomesProfessional.com</title>
+        <meta name="description" content="Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group — South Florida seller advisory. Pricing discipline, professional MLS positioning, buyer-agent visibility, and international market context between South Florida and Madrid." />
         <link rel="canonical" href="https://homesprofessional.com/" />
-        <meta property="og:title" content="South Florida Listing Agent | Seller Strategy | Carlos Uzcategui" />
-        <meta property="og:description" content="Sell your South Florida property with strategic MLS exposure — 93,000 member agents, 200+ global portals, 19 languages. Private seller strategy reviews. United Realty Group." />
+        <meta property="og:title" content="South Florida Seller Strategy | Carlos Uzcategui · United Realty Group" />
+        <meta property="og:description" content="25 years licensed. Senior seller advisory built around pricing discipline, professional MLS positioning, and expanded exposure infrastructure across South Florida and international markets." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
-        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
       </Helmet>
-      <main className="min-h-screen bg-white-soft grain-overlay">
+      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <MLSTicker />
         <Hero />
-        <SellerSection />
-        <AdvisorBrand />
+        <MLSTicker />
+        <SellerStrategySection />
         <ReachAdvantage />
         <PartnersMarquee />
         <ExposureSyndication />
-        <InternationalBridge />
-        <BuyersRelocation />
         <IntelligenceDesk />
+        <BuyersRelocation />
+        <InternationalBridge />
         <AboutContact />
         <Footer />
         <MobileStickyCTA />

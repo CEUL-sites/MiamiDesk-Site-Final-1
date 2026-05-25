@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
 import { CONTACT } from "../constants";
 
 const CAPABILITIES = [
@@ -21,15 +22,29 @@ const SPAIN_COPY = "For Spain agencies, developers, and ownership teams, our lic
 const OWNER_COPY = "For South Florida owners, the same Miami and Madrid presence adds international buyer awareness, referral pathways, and a more sophisticated property narrative for listings with global appeal.";
 
 export function InternationalBridge() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { entry.isIntersecting ? el.play().catch(() => {}) : el.pause(); },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="spain" className="relative overflow-hidden bg-navy-deep text-white">
 
       {/* Cinematic video background */}
       <video
-        autoPlay
+        ref={videoRef}
         loop
         muted
         playsInline
+        preload="metadata"
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
         style={{ opacity: 0.38 }}
@@ -42,7 +57,7 @@ export function InternationalBridge() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_100%_at_50%_50%,transparent_40%,rgba(6,17,31,0.6)_100%)]" />
 
       {/* Content — must be relative z-10 to sit above video */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 md:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 md:py-20">
 
         <div className="mx-auto max-w-4xl text-center">
           <motion.p

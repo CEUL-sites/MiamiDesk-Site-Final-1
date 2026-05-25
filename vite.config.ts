@@ -4,18 +4,6 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import sitemap from 'vite-plugin-sitemap';
 
-const STATIC_ROUTES = [
-  '/',
-  '/sell',
-  '/buy',
-  '/agents',
-  '/spain-desk',
-  '/contact',
-  '/listings',
-  '/about',
-  '/press',
-];
-
 const MARKET_CITIES = [
   'weston', 'pembroke-pines', 'plantation', 'miramar', 'miami',
   'coral-gables', 'doral', 'kendall', 'fort-lauderdale', 'hollywood',
@@ -25,7 +13,34 @@ const MARKET_CITIES = [
 ];
 
 const MARKET_ROUTES = MARKET_CITIES.map((city) => `/market/${city}`);
-const DYNAMIC_ROUTES = [...STATIC_ROUTES, ...MARKET_ROUTES];
+
+const STATIC_ROUTES = [
+  '/',
+  '/sell',
+  '/buy',
+  '/agents',
+  '/spain-desk',
+  '/contact',
+  '/listings',
+  '/about',
+  '/privacy',
+  '/terms',
+  '/es',
+  '/es/vender',
+  '/es/comprar',
+  '/es/agentes',
+  '/es/gracias/agente',
+  '/es/spain-desk',
+];
+
+// Journal routes — add each new post slug here as posts are published
+const JOURNAL_ROUTES = [
+  '/journal',
+  '/journal/miami-luxury-market-q3-2026',
+  '/journal/selling-coral-gables-2026',
+];
+
+const DYNAMIC_ROUTES = [...STATIC_ROUTES, ...MARKET_ROUTES, ...JOURNAL_ROUTES];
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');

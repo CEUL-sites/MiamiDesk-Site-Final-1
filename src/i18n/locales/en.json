@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "sell": "Sell",
+    "buy": "Buy",
+    "agents": "Agent Desk",
+    "spainDesk": "Spain Desk",
+    "listings": "Listings",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "cta": {
+    "requestReview": "Request a Private Seller Strategy Review",
+    "whatsapp": "WhatsApp Carlos Directly",
+    "scheduleCall": "Schedule a 30-minute listing strategy call",
+    "submitInquiry": "Submit an Agency Inquiry"
+  },
+  "footer": {
+    "license": "FL SL705771",
+    "brokerage": "United Realty Group",
+    "eho": "Equal Housing Opportunity",
+    "rights": "All rights reserved"
+  },
+  "common": {
+    "yearsLicensed": "Years Licensed",
+    "memberAgents": "Member Agents",
+    "floridaOffices": "Florida Offices",
+    "globalPortals": "Global Portals",
+    "freeNoCommitment": "Free · No listing commitment required"
+  }
+}
