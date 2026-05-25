@@ -1,4 +1,12 @@
-import { CONTACT, NAVIGATION } from "../constants";
+import { CONTACT, NAVIGATION, URG_CITIES } from "../constants";
+
+const toSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
+
+const MARKETS_BY_COUNTY = [
+  { label: "Miami-Dade County", cities: URG_CITIES.filter((c) => c.region === "Miami-Dade County") },
+  { label: "Broward County", cities: URG_CITIES.filter((c) => c.region === "Broward County") },
+  { label: "Palm Beach County", cities: URG_CITIES.filter((c) => c.region === "Palm Beach County") },
+];
 
 const ticker = "SOUTH FLORIDA · MIAMI MLS · UNITED REALTY GROUP · MADRID · INTERNATIONAL · 25 YEARS · ";
 
@@ -52,6 +60,36 @@ export function Footer() {
             <li>Certified Seller Representative</li>
             <li>Miami and South Florida REALTORS®</li>
           </ul>
+        </div>
+      </div>
+
+      {/* City market pages grid */}
+      <div className="border-t border-white/5 px-6 py-10">
+        <div className="mx-auto max-w-7xl">
+          <h4 className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">
+            South Florida Market Reports
+          </h4>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {MARKETS_BY_COUNTY.map((county) => (
+              <div key={county.label}>
+                <p className="mb-3 font-mono text-[8px] uppercase tracking-[0.25em] text-white/30">
+                  {county.label}
+                </p>
+                <ul className="flex flex-wrap gap-x-5 gap-y-2">
+                  {county.cities.map((c) => (
+                    <li key={c.city}>
+                      <a
+                        href={`/market/${toSlug(c.city)}`}
+                        className="font-sans text-xs text-white/45 transition-colors hover:text-gold"
+                      >
+                        {c.city}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
