@@ -9,7 +9,7 @@ const TOP_STATS = [
     suffix: "",
     label: "Member Agents",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "Every active agent's buyer pipeline is exposed to your listing on day one — the world's largest local Realtor® association.",
+    desc: "Professional MLS access through the Miami and South Florida REALTORS® — 93,000 member agents representing active buyer demand across the region.",
   },
   {
     value: 19,
@@ -25,7 +25,7 @@ const TOP_STATS = [
     suffix: "+",
     label: "Global Portals",
     sublabel: "19 Languages Simultaneously",
-    desc: "From Zillow and Realtor.com to international platforms — every portal, every language, published the same day.",
+    desc: "From Zillow and Realtor.com to international platforms — eligible syndication through approved distribution channels across multiple languages and markets.",
   },
 ];
 

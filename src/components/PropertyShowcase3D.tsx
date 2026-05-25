@@ -46,7 +46,7 @@ export function PropertyShowcase3D() {
             <span className="italic text-gold">Maximum market reach.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-navy/65">
-            Every property listed with our team enters a full-service professional infrastructure — photography, global distribution, buyer-agent outreach, and luxury positioning, simultaneously.
+            Every property listed with our team enters a full-service professional infrastructure — photography, eligible distribution channels, buyer-agent outreach, and positioning designed to support qualified demand.
           </p>
         </div>
 

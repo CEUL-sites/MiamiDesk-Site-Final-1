@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
+import { MLSTicker } from "../components/MLSTicker";
 import { SellerStrategySection } from "../components/SellerStrategySection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { PartnersMarquee } from "../components/PartnersMarquee";
@@ -16,11 +17,11 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>South Florida Real Estate | United Realty Group | HomesProfessional.com</title>
-        <meta name="description" content="Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group — #1 transaction volume real estate company in Florida. Expert buyer and seller representation in Miami, Coral Gables, Brickell, Aventura, Weston and all of South Florida." />
+        <title>South Florida Seller Strategy | Carlos Uzcategui · FL SL705771 | HomesProfessional.com</title>
+        <meta name="description" content="Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group — South Florida seller advisory. Pricing discipline, professional MLS positioning, buyer-agent visibility, and international market context between South Florida and Madrid." />
         <link rel="canonical" href="https://homesprofessional.com/" />
-        <meta property="og:title" content="South Florida Real Estate | United Realty Group" />
-        <meta property="og:description" content="Full MLS access · 93,000 member agents · 200+ global portals · 19 languages. Expert buyer and seller representation across South Florida." />
+        <meta property="og:title" content="South Florida Seller Strategy | Carlos Uzcategui · United Realty Group" />
+        <meta property="og:description" content="25 years licensed. Senior seller advisory built around pricing discipline, professional MLS positioning, and expanded exposure infrastructure across South Florida and international markets." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
@@ -31,6 +32,7 @@ export default function HomePage() {
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />
+        <MLSTicker />
         <SellerStrategySection />
         <ReachAdvantage />
         <PartnersMarquee />

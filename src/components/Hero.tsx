@@ -2,7 +2,6 @@ import { motion, type Variants } from "motion/react";
 import { BadgeCheck, ChevronRight, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CONTACT } from "../constants";
-import { MLSTicker } from "./MLSTicker";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -26,12 +25,12 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative flex flex-col min-h-screen overflow-hidden bg-navy-deep text-white">
-      {/* Layered gradient background — looks great with or without the photo */}
+    <section className="relative min-h-screen overflow-hidden bg-navy-deep text-white">
+      {/* Layered gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_25%,rgba(176,141,87,0.10),transparent_42%)]" />
-      {/* Photo layer — loads on top of gradient; section looks fine if image is absent */}
+      {/* Photo layer */}
       <div className="absolute inset-0">
         <img
           src="/images/hero-bg.jpg"
@@ -47,12 +46,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-navy-deep/55" />
       </div>
 
-      {/* MLS live ticker — just below the fixed navbar, always visible on load */}
-      <div className="relative z-10 pt-[85px]">
-        <MLSTicker />
-      </div>
-
-      <div className="relative flex flex-1 items-start pt-8 pb-10 px-6 sm:pt-10 sm:pb-20 sm:px-10 lg:pt-14 lg:pb-24 lg:px-20">
+      <div className="relative flex min-h-screen items-center px-6 pt-28 pb-16 sm:px-10 sm:pt-32 lg:px-20 lg:pt-36 lg:pb-24">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -87,12 +81,10 @@ export function Hero() {
             className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
             style={{ fontSize: "1.05rem" }}
           >
-            Twenty-five years of South Florida transactions.
-            Every listing activates inside the world's largest local
-            Realtor association — 93,000 member agents, 200+ global
-            portals, 19 languages, 385 U.S. MLSs — simultaneously,
-            the day it goes live. This is the structural difference
-            between a listing and a result.
+            Senior seller advisory built around pricing discipline,
+            professional MLS positioning, buyer-agent visibility,
+            United Realty Group reach, and international market context
+            between South Florida and Madrid.
           </motion.p>
 
           {/* CTAs */}

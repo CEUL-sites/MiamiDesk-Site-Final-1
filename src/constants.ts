@@ -94,29 +94,3 @@ export const URG_CITIES = [
   { city: "Homestead", region: "Miami-Dade County" },
 ];
 
-export const PARTNER_AGENCIES = {
-  southFlorida: [
-    { name: "One Sotheby's International Realty", market: "South Florida" },
-    { name: "Douglas Elliman", market: "South Florida" },
-    { name: "Compass", market: "South Florida" },
-    { name: "EWM Realty International", market: "South Florida" },
-    { name: "Fortune Christie's International", market: "South Florida" },
-    { name: "Coldwell Banker Realty", market: "South Florida" },
-    { name: "Cervera Real Estate", market: "South Florida" },
-    { name: "ISG World", market: "South Florida" },
-    { name: "Berkshire Hathaway HomeServices", market: "South Florida" },
-    { name: "RE/MAX Advance Realty", market: "South Florida" },
-    { name: "Keller Williams Realty", market: "South Florida" },
-    { name: "The Keyes Company", market: "South Florida" },
-  ],
-  spain: [
-    { name: "Lucas Fox", market: "Spain · Madrid" },
-    { name: "Engel & Völkers", market: "Spain · Madrid" },
-    { name: "Knight Frank", market: "Spain · Madrid" },
-    { name: "Savills Spain", market: "Spain · Madrid" },
-    { name: "Barnes International", market: "Spain · Madrid" },
-    { name: "Colliers Spain", market: "Spain · Madrid" },
-    { name: "Gilmar Real Estate", market: "Spain · Madrid" },
-    { name: "Christie's International Real Estate", market: "Spain" },
-  ]
-};

@@ -24,7 +24,7 @@ export function PartnersMarquee() {
         <p className="mx-auto mt-5 max-w-2xl font-sans text-[0.95rem] leading-relaxed text-white/50">
           When our team activates a listing, it enters a professional infrastructure — not a single platform. MLS
           positioning, 93,000-member association reach, buyer-agent cooperation channels, and international
-          referral pathways work simultaneously from the moment the listing goes live.
+          referral pathways are activated through professional coordination as the listing enters the market.
         </p>
       </div>
 

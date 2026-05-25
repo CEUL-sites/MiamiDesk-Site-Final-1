@@ -120,10 +120,10 @@ export const ExposureSyndication = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55"
         >
-          Every listing I represent is mechanically syndicated to 200+ websites
-          and apps worldwide, in 19 languages, simultaneously — the moment the
-          MLS listing activates. No manual uploads. No delays. Distribution as
-          infrastructure.
+          A properly prepared MLS listing can be distributed through approved syndication
+          channels, professional search platforms, and international exposure pathways
+          where applicable. The goal is not simply to appear online — it is to position
+          the property where qualified demand is more likely to form.
         </motion.p>
       </div>
 
