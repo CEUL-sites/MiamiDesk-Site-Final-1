@@ -263,7 +263,6 @@
       (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
       fbq('init','1342120122583302');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1342120122583302&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel -->
 
     <!-- LinkedIn Insight Tag -->
@@ -277,13 +276,15 @@
       b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
       s.parentNode.insertBefore(b,s)})(window.lintrk);
     </script>
-    <noscript><img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=537660125&fmt=gif" /></noscript>
     <!-- End LinkedIn Insight Tag -->
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3CKFM94" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <!-- Pixel noscript fallbacks (must be in body, not head) -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1342120122583302&ev=PageView&noscript=1" /></noscript>
+    <noscript><img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=537660125&fmt=gif" /></noscript>
     <!-- Netlify Forms — static declarations required for deploy-time detection -->
     <form name="seller-consultation" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="seller-consultation" />

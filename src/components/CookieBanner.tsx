@@ -36,27 +36,25 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label="Cookie preference"
-      className="fixed bottom-[72px] left-0 right-0 z-[9999] border-t border-gold/20 bg-navy-deep px-6 py-5 shadow-2xl md:bottom-6 md:left-6 md:right-auto md:max-w-md md:border md:border-gold/25 lg:bottom-6"
+      className="fixed bottom-[72px] left-0 right-0 z-[9999] border-t border-gold/20 bg-navy-deep px-4 py-3 shadow-2xl md:bottom-6 md:left-6 md:right-auto md:max-w-sm md:border md:border-gold/25 md:px-6 md:py-5 lg:bottom-6"
     >
       <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-gold">Cookie Notice</p>
-      <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">
-        We use cookies to remember your preferences. Analytics cookies (Google Analytics, Meta Pixel, LinkedIn) help us understand site usage. You may decline analytics cookies without affecting core site functionality.
+      <p className="mt-1.5 font-sans text-xs leading-relaxed text-white/60 md:text-sm md:leading-relaxed md:text-white/65">
+        We use analytics cookies (Google Analytics, Meta Pixel, LinkedIn) to understand site usage. Core functionality is unaffected if you decline.{" "}
+        <a href="/privacy" className="underline hover:text-gold">Privacy Policy</a>
       </p>
-      <p className="mt-1 font-sans text-xs text-white/35">
-        See our <a href="/privacy" className="underline hover:text-gold">Privacy Policy</a> for full details.
-      </p>
-      <div className="mt-4 flex gap-3">
+      <div className="mt-3 flex gap-2 md:mt-4 md:gap-3">
         <button
           onClick={accept}
-          className="flex-1 bg-gold py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90"
+          className="flex-1 bg-gold py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90 md:py-2.5"
         >
           Accept
         </button>
         <button
           onClick={decline}
-          className="flex-1 border border-white/20 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/60 transition-colors hover:border-white/40 hover:text-white"
+          className="flex-1 border border-white/20 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/60 transition-colors hover:border-white/40 hover:text-white md:py-2.5"
         >
-          Decline Analytics
+          Decline
         </button>
       </div>
     </div>

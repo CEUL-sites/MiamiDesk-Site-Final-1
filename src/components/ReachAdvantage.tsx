@@ -84,10 +84,10 @@ function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.75, delay: delay + index * 0.09 }}
-      className="group relative flex flex-col justify-between border-b border-gold/15 p-8 transition-colors duration-500 hover:bg-white/[0.03] lg:border-b-0 lg:border-r lg:p-10 last:border-r-0"
+      className="group relative flex flex-col justify-between border-b border-gold/15 p-5 transition-colors duration-500 hover:bg-white/[0.03] md:p-8 lg:border-b-0 lg:border-r lg:p-10 last:border-r-0"
     >
       {/* Subtle gold accent bar at top */}
-      <div className="mb-8 h-px w-10 bg-gold/40 transition-all duration-500 group-hover:w-full group-hover:bg-gold/20" />
+      <div className="mb-4 md:mb-8 h-px w-10 bg-gold/40 transition-all duration-500 group-hover:w-full group-hover:bg-gold/20" />
 
       {/* Number */}
       <div className="font-serif text-gold" style={{ fontSize: "clamp(3.2rem, 6vw, 5.5rem)", lineHeight: 1 }}>
@@ -116,7 +116,7 @@ export const ReachAdvantage = () => {
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.04] blur-[120px]" />
 
       {/* ── Header ───────────────────────────────────────────── */}
-      <div className="relative border-b border-gold/15 px-6 py-16 md:py-20 text-center">
+      <div className="relative border-b border-gold/15 px-6 py-10 md:py-16 text-center">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ export const ReachAdvantage = () => {
       </div>
 
       {/* ── Quote ─────────────────────────────────────────────── */}
-      <div className="relative px-6 py-16 text-center">
+      <div className="relative px-6 py-10 md:py-16 text-center">
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none overflow-hidden">
           <span className="font-serif font-bold text-gold/[0.06]" style={{ fontSize: "clamp(9rem, 28vw, 22rem)", lineHeight: 1 }}>"</span>
         </div>

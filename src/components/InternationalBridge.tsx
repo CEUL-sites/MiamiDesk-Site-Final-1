@@ -57,7 +57,7 @@ export function InternationalBridge() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_100%_at_50%_50%,transparent_40%,rgba(6,17,31,0.6)_100%)]" />
 
       {/* Content — must be relative z-10 to sit above video */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 md:py-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 md:py-20">
 
         <div className="mx-auto max-w-4xl text-center">
           <motion.p

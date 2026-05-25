@@ -46,17 +46,17 @@ export function Hero() {
         <div className="absolute inset-0 bg-navy-deep/55" />
       </div>
 
-      <div className="relative flex min-h-screen items-start pt-24 pb-14 px-6 sm:pt-28 sm:pb-24 sm:px-10 lg:pt-32 lg:px-20">
+      <div className="relative flex min-h-screen items-start pt-20 pb-10 px-6 sm:pt-28 sm:pb-20 sm:px-10 lg:pt-32 lg:pb-24 lg:px-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="mx-auto w-full max-w-4xl text-center"
         >
-          {/* Credential badge */}
+          {/* Credential badge — hidden on mobile where navbar already shows this */}
           <motion.p
             variants={itemVariants}
-            className="font-mono mb-4 text-gold uppercase tracking-[0.22em]"
+            className="hidden sm:block font-mono mb-4 text-gold uppercase tracking-[0.22em]"
             style={{ fontSize: "0.62rem" }}
           >
             UNITED REALTY GROUP · CARLOS UZCATEGUI · FL REALTOR® SL705771
