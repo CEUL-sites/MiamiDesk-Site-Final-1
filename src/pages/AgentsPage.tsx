@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { LeadForm } from "../components/LeadForm";
+import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { BadgeCheck } from "lucide-react";
 
 export default function AgentsPage() {
@@ -67,7 +67,7 @@ export default function AgentsPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Submit a Referral</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Send us your client</h2>
             </div>
-            <LeadForm />
+            <ReferralIntakeForm />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity

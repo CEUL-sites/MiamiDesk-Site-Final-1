@@ -3,7 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { BuyersRelocation } from "../components/BuyersRelocation";
-import { LeadForm } from "../components/LeadForm";
+import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { BadgeCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 
@@ -78,7 +78,7 @@ export default function BuyersPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Buyer Desk</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Ready to start your search?</h2>
             </div>
-            <LeadForm />
+            <BuyerMandateForm />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity

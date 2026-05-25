@@ -247,16 +247,31 @@
     </script>
   </head>
   <body>
+    <!-- Netlify Forms — static declarations required for deploy-time detection -->
     <form name="seller-consultation" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="seller-consultation" />
-      <input name="bot-field" />
-      <input name="name" />
-      <input name="email" />
-      <input name="phone" />
-      <input name="propertyAddress" />
-      <input name="city" />
-      <input name="timeline" />
-      <textarea name="message"></textarea>
+      <input name="bot-field" /><input name="name" /><input name="email" /><input name="phone" />
+      <input name="propertyAddress" /><input name="city" /><input name="timeline" /><textarea name="message"></textarea>
+    </form>
+    <form name="seller-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="seller-intake" />
+      <input name="bot-field" /><input name="name" /><input name="email" /><input name="phone" />
+      <input name="propertyAddress" /><input name="city" /><input name="valueBand" />
+      <input name="occupancy" /><input name="timeline" /><input name="priorListing" />
+      <input name="preferredContact" /><input name="source" />
+    </form>
+    <form name="buyer-mandate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="buyer-mandate" />
+      <input name="bot-field" /><input name="name" /><input name="email" />
+      <input name="country" /><input name="targetNeighborhoods" /><input name="priceRange" />
+      <input name="financing" /><input name="timeline" /><input name="visaStatus" />
+      <input name="preferredContact" /><input name="source" />
+    </form>
+    <form name="referral-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="referral-intake" />
+      <input name="bot-field" /><input name="licenseeName" /><input name="brokerageName" />
+      <input name="country" /><input name="referralType" /><textarea name="clientSummary"></textarea>
+      <input name="preferredContact" /><input name="source" />
     </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
