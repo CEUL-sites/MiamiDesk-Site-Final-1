@@ -16,7 +16,7 @@ export function AboutContact() {
         <div>
           <div className="grid gap-10 md:grid-cols-[280px_1fr] md:items-start">
             <div className="carlos-headshot-card">
-              <img src={CONTACT.headshot} alt="Carlos Uzcategui, Florida Licensed Realtor® with United Realty Group, serving South Florida and Madrid since 2001" className="carlos-headshot" loading="lazy" />
+              <img src={CONTACT.headshot} alt="Carlos Uzcategui, Florida Licensed Realtor® with United Realty Group, serving South Florida and Madrid since 2001" className="carlos-headshot" loading="lazy" width="280" height="280" />
             </div>
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Meet the Principal</p>
@@ -54,6 +54,8 @@ export function AboutContact() {
                 alt="United Realty Group headquarters, Plantation, Florida"
                 className="absolute inset-0 h-full w-full object-cover object-[center_30%] opacity-0 transition-opacity duration-700"
                 loading="lazy"
+                width="800"
+                height="256"
                 onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.88"; }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/85 via-navy-deep/20 to-transparent" />

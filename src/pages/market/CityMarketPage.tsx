@@ -59,6 +59,8 @@ function ListingCard({ listing, cityName }: ListingCardProps) {
             src={listing.MediaURL}
             alt={`${listing.UnparsedAddress}, ${listing.City}`}
             loading="lazy"
+            width="400"
+            height="208"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         ) : (

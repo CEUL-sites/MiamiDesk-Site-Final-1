@@ -1,28 +1,40 @@
 /**
  * LanguageSwitcher — compact EN / ES toggle.
- * Does not depend on i18n; uses plain anchor navigation.
- * Current language is determined from window.location.pathname.
+ * Uses a route map so /es/vender ↔ /sell, etc. are properly resolved
+ * instead of slicing the path prefix (which produces bare 404 routes).
  */
 
+const ES_TO_EN: Record<string, string> = {
+  "/es": "/",
+  "/es/vender": "/sell",
+  "/es/comprar": "/buy",
+  "/es/agentes": "/agents",
+  "/es/spain-desk": "/spain-desk",
+  "/es/gracias/agente": "/thanks/agent",
+};
+
+const EN_TO_ES: Record<string, string> = {
+  "/": "/es",
+  "/sell": "/es/vender",
+  "/buy": "/es/comprar",
+  "/agents": "/es/agentes",
+  "/spain-desk": "/es/spain-desk",
+  "/thanks/agent": "/es/gracias/agente",
+};
+
 export function LanguageSwitcher() {
-  const isEs =
-    typeof window !== "undefined" &&
-    window.location.pathname.startsWith("/es");
+  const path =
+    typeof window !== "undefined" ? window.location.pathname : "/";
 
-  const enHref = (() => {
-    if (typeof window === "undefined") return "/";
-    const path = window.location.pathname;
-    if (path.startsWith("/es/")) return path.slice(3) || "/";
-    if (path === "/es") return "/";
-    return path;
-  })();
+  const isEs = path.startsWith("/es");
 
-  const esHref = (() => {
-    if (typeof window === "undefined") return "/es";
-    const path = window.location.pathname;
-    if (path.startsWith("/es")) return path;
-    return "/es";
-  })();
+  const enHref = isEs
+    ? (ES_TO_EN[path] ?? "/")
+    : path;
+
+  const esHref = isEs
+    ? path
+    : (EN_TO_ES[path] ?? "/es");
 
   const baseClass =
     "font-mono text-[9px] uppercase tracking-[0.22em] px-2 py-1 transition-colors duration-200";

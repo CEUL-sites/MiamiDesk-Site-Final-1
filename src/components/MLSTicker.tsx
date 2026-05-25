@@ -1,14 +1,8 @@
 // BEGIN HTML BLOCK — MLS Live Ticker
 import { useEffect, useState } from "react";
 
-const BRIDGE_TOKEN = process.env.VITE_BRIDGE_TOKEN ?? "1eee5e27f791630e078ee05d6e0ed8f4";
-const BRIDGE_API =
-  `https://api.bridgedataoutput.com/api/v2/OData/miamire/Property` +
-  `?access_token=${BRIDGE_TOKEN}` +
-  `&$filter=StandardStatus eq 'Active' or StandardStatus eq 'Pending'` +
-  `&$orderby=ModificationTimestamp desc` +
-  `&$top=24` +
-  `&$select=ListingId,UnparsedAddress,City,PostalCode,ListPrice,BedroomsTotal,BathroomsTotalDecimal,LivingArea,PropertyType,StandardStatus`;
+// Route through Netlify function — Bridge API token stays server-side
+const TICKER_API = "/.netlify/functions/ticker-listings";
 
 interface Listing {
   id: string;
@@ -75,7 +69,7 @@ export function MLSTicker() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch(BRIDGE_API);
+        const res = await fetch(TICKER_API);
         if (!res.ok) return;
         const json = await res.json();
         const value: Record<string, unknown>[] = json?.value ?? [];

@@ -6,7 +6,7 @@ export default function NotFoundPage() {
   return (
     <>
       <Helmet>
-        <title>Page Not Found | HomesProfessional.com</title>
+        <title>404 — Page Not Found | HomesProfessional.com</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Navbar />
