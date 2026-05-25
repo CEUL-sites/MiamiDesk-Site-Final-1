@@ -46,7 +46,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-navy-deep/55" />
       </div>
 
-      <div className="relative flex min-h-screen items-center px-6 pt-28 pb-16 sm:px-10 sm:pt-32 lg:px-20 lg:pt-36 lg:pb-24">
+      <div className="relative min-h-screen px-6 pt-28 pb-16 sm:px-10 sm:pt-32 lg:flex lg:items-center lg:px-20 lg:pt-0 lg:pb-0">
         <motion.div
           variants={containerVariants}
           initial="hidden"
