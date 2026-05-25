@@ -9,6 +9,7 @@ import EsVenderPage from './pages/es/EsVenderPage';
 import EsComprarPage from './pages/es/EsComprarPage';
 import EsAgentesPage from './pages/es/EsAgentesPage';
 import EsGraciasAgentePage from './pages/es/EsGraciasAgentePage';
+import EsSpainDeskPage from './pages/es/EsSpainDeskPage';
 import SellersPage from './pages/SellersPage';
 import BuyersPage from './pages/BuyersPage';
 import AgentsPage from './pages/AgentsPage';
@@ -64,6 +65,7 @@ if (rootElement) {
               <Route path="/es/comprar" element={<EsComprarPage />} />
               <Route path="/es/agentes" element={<EsAgentesPage />} />
               <Route path="/es/gracias/agente" element={<EsGraciasAgentePage />} />
+              <Route path="/es/spain-desk" element={<EsSpainDeskPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <CookieBanner />
