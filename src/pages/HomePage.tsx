@@ -27,9 +27,9 @@ export default function HomePage() {
         <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
-        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
       </Helmet>
-      <main className="min-h-screen bg-white-soft grain-overlay">
+      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <MLSTicker />
         <Hero />

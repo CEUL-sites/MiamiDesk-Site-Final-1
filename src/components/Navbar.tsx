@@ -3,6 +3,7 @@ import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT, NAVIGATION } from "../constants";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,6 +53,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center gap-4 lg:flex">
+          <LanguageSwitcher />
           <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-2 border px-5 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] transition-all duration-300 ${scrolled ? "border-gold text-navy hover:bg-gold hover:text-white" : "border-gold/60 text-white hover:bg-gold hover:text-navy"}`}>
             <Phone size={14} />
             {CONTACT.phoneUS}
@@ -102,6 +104,9 @@ export function Navbar() {
               </div>
 
               <div className="mt-auto border-t border-gold/20 pt-8">
+                <div className="mb-4">
+                  <LanguageSwitcher />
+                </div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45 leading-loose">{CONTACT.licenseDisplay} · {CONTACT.brokerage}</p>
                 <a href={CONTACT.whatsappUS} className="mt-6 flex w-full items-center justify-center gap-2 bg-gold px-6 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy">
                   <Phone size={16} />

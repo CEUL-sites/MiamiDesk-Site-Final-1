@@ -1,8 +1,10 @@
+import './i18n';
 import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import HomePage from './pages/HomePage';
+import EsHomePage from './pages/es/EsHomePage';
 import SellersPage from './pages/SellersPage';
 import BuyersPage from './pages/BuyersPage';
 import AgentsPage from './pages/AgentsPage';
@@ -42,6 +44,7 @@ if (rootElement) {
               <Route path="/market/:city" element={<CityMarketPage />} />
               <Route path="/journal" element={<JournalListPage />} />
               <Route path="/journal/:slug" element={<JournalPostPage />} />
+              <Route path="/es" element={<EsHomePage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </BrowserRouter>

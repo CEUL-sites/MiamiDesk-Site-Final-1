@@ -23,6 +23,7 @@ const STATIC_ROUTES = [
   '/contact',
   '/listings',
   '/about',
+  '/es',
 ];
 
 // Journal routes — add each new post slug here as posts are published
