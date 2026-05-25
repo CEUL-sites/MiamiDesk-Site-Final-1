@@ -31,8 +31,8 @@ const TOP_STATS = [
 
 const BOTTOM_STATS = [
   {
-    value: 260,
-    display: "260",
+    value: 385,
+    display: "385",
     suffix: "+",
     label: "U.S. MLSs",
     sublabel: "via RPR National Exchange",

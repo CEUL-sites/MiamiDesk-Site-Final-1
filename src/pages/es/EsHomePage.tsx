@@ -231,17 +231,17 @@ export default function EsHomePage() {
                   {
                     // TODO: native Madrid editor review
                     label: "Vendedor",
-                    href: "/contact",
+                    href: "/es/vender",
                   },
                   {
                     // TODO: native Madrid editor review
                     label: "Comprador",
-                    href: "/contact",
+                    href: "/es/comprar",
                   },
                   {
                     // TODO: native Madrid editor review
                     label: "Agente",
-                    href: "/contact",
+                    href: "/es/agentes",
                   },
                 ].map(({ label, href }) => (
                   <a

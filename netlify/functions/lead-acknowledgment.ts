@@ -25,6 +25,8 @@ function buildEmailEN(formName: string, name: string): { subject: string; html: 
     ? "Your seller strategy review request has been received. Carlos will review your property details personally and follow up within one business day."
     : formName === "buyer-mandate"
     ? "Your Miami buyer brief request has been received. Carlos will prepare a brief tailored to your search parameters and follow up within one business day."
+    : formName === "referral-intake-es"
+    ? "Your cross-border referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up within one business day."
     : "Your referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up within one business day.";
 
   return {
@@ -32,6 +34,8 @@ function buildEmailEN(formName: string, name: string): { subject: string; html: 
       ? "Seller Strategy Review Request Confirmed — HomesProfessional.com"
       : formName === "buyer-mandate"
       ? "Miami Buyer Brief Request Confirmed — HomesProfessional.com"
+      : formName === "referral-intake-es"
+      ? "Consulta de Colaboración Confirmada — Agent Partner Desk"
       : "Referral Inquiry Confirmed — Agent Partner Desk",
     html: `
       <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #0B1E3F;">
@@ -64,6 +68,8 @@ function buildEmailES(formName: string, name: string): { subject: string; html: 
     ? "Su solicitud de revisión de estrategia de venta ha sido recibida. Carlos revisará los detalles de su propiedad personalmente y le responderá dentro de un día hábil."
     : formName === "buyer-mandate"
     ? "Su solicitud de informe de comprador en Miami ha sido recibida. Carlos preparará un informe adaptado a sus parámetros de búsqueda y le responderá dentro de un día hábil."
+    : formName === "referral-intake-es"
+    ? "Su consulta de colaboración ha sido recibida. Carlos gestiona todas las consultas de profesionales licenciados de forma confidencial y le responderá dentro de un día hábil. Se firmará un acuerdo de colaboración por escrito antes de cualquier presentación de cliente."
     : "Su consulta de referido ha sido recibida. Carlos gestiona todas las consultas de profesionales licenciados de forma confidencial y le responderá dentro de un día hábil.";
 
   return {
@@ -71,6 +77,8 @@ function buildEmailES(formName: string, name: string): { subject: string; html: 
       ? "Solicitud de Revisión de Estrategia Confirmada — HomesProfessional.com"
       : formName === "buyer-mandate"
       ? "Solicitud de Informe de Comprador Confirmada — HomesProfessional.com"
+      : formName === "referral-intake-es"
+      ? "Consulta de Colaboración Confirmada — HomesProfessional.com"
       : "Consulta de Referido Confirmada — Agent Partner Desk",
     html: `
       <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #0B1E3F;">

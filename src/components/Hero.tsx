@@ -84,7 +84,7 @@ export function Hero() {
             Twenty-five years of South Florida transactions.
             Every listing activates inside the world's largest local
             Realtor association — 93,000 member agents, 200+ global
-            portals, 19 languages, 260 U.S. MLSs — simultaneously,
+            portals, 19 languages, 385 U.S. MLSs — simultaneously,
             the day it goes live. This is the structural difference
             between a listing and a result.
           </motion.p>
