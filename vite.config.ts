@@ -28,6 +28,8 @@ const STATIC_ROUTES = [
   '/es',
   '/es/vender',
   '/es/comprar',
+  '/es/agentes',
+  '/es/gracias/agente',
 ];
 
 // Journal routes — add each new post slug here as posts are published
