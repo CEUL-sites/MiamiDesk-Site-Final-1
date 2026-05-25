@@ -64,9 +64,7 @@ export function BuyerMandateForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "buyer-mandate", name: form.name, email: form.email, country: form.country }),
       }).catch(() => {});
-      setStatus("success");
-      setForm(INITIAL);
-      setNeighborhoodSel([]);
+      window.location.href = "/thanks/buyer";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

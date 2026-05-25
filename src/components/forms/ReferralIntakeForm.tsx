@@ -38,8 +38,7 @@ export function ReferralIntakeForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "referral-intake", name: form.licenseeName, email: "", brokerage: form.brokerageName }),
       }).catch(() => {});
-      setStatus("success");
-      setForm(INITIAL);
+      window.location.href = "/thanks/agent";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

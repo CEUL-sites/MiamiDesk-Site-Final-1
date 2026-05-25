@@ -53,8 +53,7 @@ export function SellerIntakeForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "seller-intake", name: form.name, email: form.email, phone: form.phone }),
       }).catch(() => {});
-      setStatus("success");
-      setForm(INITIAL);
+      window.location.href = "/thanks/seller";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

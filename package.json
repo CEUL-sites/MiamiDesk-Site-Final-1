@@ -47,7 +47,18 @@
       "/market/hallandale",
       "/market/pompano-beach",
       "/market/sunrise",
-      "/market/brickell"
+      "/market/brickell",
+      "/privacy",
+      "/terms",
+      "/es",
+      "/es/vender",
+      "/es/comprar",
+      "/journal",
+      "/journal/miami-luxury-market-q3-2026",
+      "/journal/selling-coral-gables-2026",
+      "/thanks/seller",
+      "/thanks/buyer",
+      "/thanks/agent"
     ]
   },
   "dependencies": {
