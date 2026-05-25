@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import HomePage from './pages/HomePage';
 import EsHomePage from './pages/es/EsHomePage';
+import EsVenderPage from './pages/es/EsVenderPage';
+import EsComprarPage from './pages/es/EsComprarPage';
 import SellersPage from './pages/SellersPage';
 import BuyersPage from './pages/BuyersPage';
 import AgentsPage from './pages/AgentsPage';
@@ -56,6 +58,8 @@ if (rootElement) {
               <Route path="/journal" element={<JournalListPage />} />
               <Route path="/journal/:slug" element={<JournalPostPage />} />
               <Route path="/es" element={<EsHomePage />} />
+              <Route path="/es/vender" element={<EsVenderPage />} />
+              <Route path="/es/comprar" element={<EsComprarPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <CookieBanner />

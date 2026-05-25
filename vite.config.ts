@@ -26,6 +26,8 @@ const STATIC_ROUTES = [
   '/privacy',
   '/terms',
   '/es',
+  '/es/vender',
+  '/es/comprar',
 ];
 
 // Journal routes — add each new post slug here as posts are published
