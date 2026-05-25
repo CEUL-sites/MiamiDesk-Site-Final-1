@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
+import { pushEvent } from "../../lib/analytics";
 
 const INITIAL: Record<string, string> = {
   licenseeName: "", brokerageName: "", country: "", referralType: "",
@@ -38,7 +39,7 @@ export function ReferralIntakeForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "referral-intake", name: form.licenseeName, email: "", brokerage: form.brokerageName }),
       }).catch(() => {});
-      window.location.href = "/thanks/agent";
+      pushEvent("form_submit_agent"); window.location.href = "/thanks/agent";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

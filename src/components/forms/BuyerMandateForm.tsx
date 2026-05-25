@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
+import { pushEvent } from "../../lib/analytics";
 
 const COUNTRIES = [
   "United States", "Spain", "Venezuela", "Colombia", "Argentina", "Mexico",
@@ -64,7 +65,7 @@ export function BuyerMandateForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "buyer-mandate", name: form.name, email: form.email, country: form.country }),
       }).catch(() => {});
-      window.location.href = "/thanks/buyer";
+      pushEvent("form_submit_buyer"); window.location.href = "/thanks/buyer";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

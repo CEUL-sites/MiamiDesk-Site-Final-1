@@ -1,3 +1,4 @@
+import { pushEvent } from "../../lib/analytics";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, type Variants } from "motion/react";
@@ -89,7 +90,7 @@ function EsReferralForm() {
         }),
       });
       if (!res.ok) throw new Error("submission_failed");
-      window.location.href = "/es/gracias/agente";
+      pushEvent("form_submit_agent", { form: "referral-intake-es" }); window.location.href = "/es/gracias/agente";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"
