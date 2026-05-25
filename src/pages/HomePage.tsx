@@ -31,8 +31,8 @@ export default function HomePage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <MLSTicker />
         <Hero />
+        <MLSTicker />
         <SellerSection />
         <ReachAdvantage />
         <PartnersMarquee />

@@ -123,8 +123,8 @@ export function MLSTicker() {
         }
       `}</style>
 
-      {/* Ticker wrapper — sits immediately below the fixed Navbar */}
-      <div className="w-full overflow-hidden bg-[#0A1628] select-none pt-[100px]">
+      {/* Ticker wrapper — live MLS feed strip below hero */}
+      <div className="w-full overflow-hidden bg-[#0A1628] select-none">
 
         {/* ── Header band: "MIAMI MLS · LIVE LISTINGS · 93,000+ REALTORS®" ── */}
         <div className="relative overflow-hidden border-b border-white/10 bg-[#0A1628] py-2">
