@@ -2,6 +2,7 @@ import { motion, type Variants } from "motion/react";
 import { BadgeCheck, ChevronRight, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CONTACT } from "../constants";
+import { MLSTicker } from "./MLSTicker";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -25,7 +26,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-navy-deep text-white">
+    <section className="relative flex flex-col min-h-screen overflow-hidden bg-navy-deep text-white">
       {/* Layered gradient background — looks great with or without the photo */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
@@ -46,7 +47,12 @@ export function Hero() {
         <div className="absolute inset-0 bg-navy-deep/55" />
       </div>
 
-      <div className="relative flex min-h-screen items-start pt-20 pb-10 px-6 sm:pt-28 sm:pb-20 sm:px-10 lg:pt-32 lg:pb-24 lg:px-20">
+      {/* MLS live ticker — just below the fixed navbar, always visible on load */}
+      <div className="relative z-10 pt-[85px]">
+        <MLSTicker />
+      </div>
+
+      <div className="relative flex flex-1 items-start pt-8 pb-10 px-6 sm:pt-10 sm:pb-20 sm:px-10 lg:pt-14 lg:pb-24 lg:px-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
