@@ -4,8 +4,8 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { InternationalBridge } from "../components/InternationalBridge";
 import { LeadForm } from "../components/LeadForm";
-import { BadgeCheck } from "lucide-react";
-import { CONTACT } from "../constants";
+import { BadgeCheck, Download } from "lucide-react";
+import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 export default function SpainDeskPage() {
   return (
@@ -64,6 +64,16 @@ export default function SpainDeskPage() {
               className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
               Contact Us
+            </a>
+          </div>
+          <div className="mt-5 flex items-center justify-center gap-2">
+            <a
+              href={LEAD_MAGNETS.spainActivation.url}
+              download
+              className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
+            >
+              <Download size={11} />
+              Download MLS Activation Methodology — PDF
             </a>
           </div>
         </section>

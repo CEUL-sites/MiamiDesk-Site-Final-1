@@ -4,8 +4,8 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
-import { BadgeCheck } from "lucide-react";
-import { CONTACT } from "../constants";
+import { BadgeCheck, Download } from "lucide-react";
+import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 export default function BuyersPage() {
   return (
@@ -49,14 +49,16 @@ export default function BuyersPage() {
             <em className="not-italic italic text-gold">The right representation.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by 25 years of local relationships and United Realty Group's 3,500+ agents across 19 offices.
+            Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by 25 years of local relationships and United Realty Group's 3,000+ agents across 19 offices.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="/contact"
+              href={CONTACT.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
             >
-              Brief Your Search →
+              Schedule a Buyer Consultation
             </a>
             <a
               href={CONTACT.whatsappUS}
@@ -67,7 +69,17 @@ export default function BuyersPage() {
               WhatsApp Carlos →
             </a>
           </div>
-          <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+          <div className="mt-5 flex items-center justify-center gap-2">
+            <a
+              href={LEAD_MAGNETS.buyerBrief.url}
+              download
+              className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
+            >
+              <Download size={11} />
+              Download Miami Buyer Brief Q3 2026
+            </a>
+          </div>
+          <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
             United Realty Group · CLHMS · FL SL705771 · Buyer representation across Miami-Dade, Broward &amp; Palm Beach
           </p>
         </section>

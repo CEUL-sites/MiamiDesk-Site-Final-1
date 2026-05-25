@@ -14,6 +14,7 @@ export const CONTACT = {
   address: "15951 SW 41 St #700, Weston, FL 33331",
   spainOffice: "Madrid, Spain",
   linkedin: "https://linkedin.com/in/carlosuz",
+  calendly: "https://calendly.com/carlosre",
   web: "HomesProfessional.com",
   headshot: "https://lh3.googleusercontent.com/d/1JZ1hv1IfBykkfoy2TYmGK9M5N2Xwwklx",
   stats: {
@@ -24,6 +25,24 @@ export const CONTACT = {
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
   }
+};
+
+export const LEAD_MAGNETS = {
+  sellerNetSheet: {
+    url: "/south-florida-sellers-net-sheet-2026.pdf",
+    title: "South Florida Seller's Net Sheet 2026",
+    description: "What you actually keep — modelled at $3M and $8M sale prices, across Miami-Dade, Broward, and Palm Beach Counties.",
+  },
+  buyerBrief: {
+    url: "/miami-buyer-brief-q3-2026.pdf",
+    title: "Miami Buyer Brief Q3 2026",
+    description: "Neighbourhood profiles, foreign-national financing, FIRPTA, and the typical closing timeline — for buyers relocating from Latin America and Spain into South Florida.",
+  },
+  spainActivation: {
+    url: "/spain-mls-activation-methodology-brief.pdf",
+    title: "Activating Spanish Inventory in the Miami MLS",
+    description: "The professional framework for listing Spanish-owned property through a licensed U.S. principal of record — with institutional American market exposure from day one.",
+  },
 };
 
 export const NAVIGATION = [
