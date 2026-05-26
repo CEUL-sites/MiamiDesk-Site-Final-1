@@ -1,7 +1,7 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { GoogleGenAI } from "@google/genai";
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_API_KEY = process.env.Gemini_API_Key ?? process.env.GEMINI_API_KEY;
 
 const SYSTEM_INSTRUCTION = `You are the AI Intelligence Desk for Carlos Uzcategui — Florida Licensed Realtor® SL705771, licensed since 2001, CLHMS, affiliated with United Realty Group (3,500+ agents, 19 Florida offices, Florida's number one transactional brokerage), member of the Miami and South Florida REALTORS® (93,000 members — the largest local Realtor association in the world effective May 11 2026 following the MIAMI and RWorld merger).
 
