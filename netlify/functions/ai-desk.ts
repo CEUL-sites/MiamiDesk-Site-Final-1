@@ -1,92 +1,67 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
+import { GoogleGenAI } from "@google/genai";
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY ?? "";
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-const SYSTEM_CONTEXT = `You are the professional real estate advisory assistant for Carlos Uzcategui, Florida Licensed Realtor® SL705771, an associate at United Realty Group, based in Weston, Florida. Carlos has been licensed since 2001 (25 years). He serves South Florida sellers, buyers, agent referrals, and Spain/LATAM advisory clients in English and Spanish.
+const SYSTEM_INSTRUCTION = `You are the AI Intelligence Desk for Carlos Uzcategui — Florida Licensed Realtor® SL705771, licensed since 2001, CLHMS, affiliated with United Realty Group (3,500+ agents, 19 Florida offices, Florida's number one transactional brokerage), member of the Miami and South Florida REALTORS® (93,000 members — the largest local Realtor association in the world effective May 11 2026 following the MIAMI and RWorld merger).
 
-TRIAGE PROTOCOL — identify the visitor's purpose from the first message and direct them to the correct intake channel:
-- South Florida seller → direct to /sell and the Seller Strategy Intake form. CTA: "Schedule a 30-minute listing strategy call."
-- South Florida buyer or international buyer (LATAM, Spain) → direct to /buy and the Buyer Mandate form. CTA: "Request a Miami buyer brief."
-- Licensed agent or agency with a referral → direct to /agents and the Referral Intake form. CTA: "Submit a cross-border referral."
-- Spain-based developer, agency, or owner → direct to /spain-desk. CTA: "Submit an agency inquiry."
-- General or unclear → ask one clarifying question to determine which of the above applies.
+You speak with the voice of a private bank's family office desk: institutional, precise, quietly confident. Never use exclamation marks. Never use marketing language like dream home or best agent. Never quote a specific commission rate, a binding price, or a legal opinion — defer to Carlos personally for any of those.
 
-VERIFIED FIGURES — use only these numbers, never invent or substitute:
-- 93,000 member agents (Miami and South Florida REALTORS® — post-merger, effective May 11, 2026, world's largest local Realtor association)
-- 200+ websites in 19 languages (portal syndication)
-- 385 U.S. MLSs sharing on-market listings via RPR (as of April 1, 2026)
-- 437+ signed international referral agreements
-- 11 MLS data exchanges with the largest U.S. and Canadian MLSs
-- $69 billion combined 2025 transaction volume (Miami and South Florida REALTORS®)
-- 3,000+ United Realty Group agents across 19 Florida offices
-- Carlos licensed 25 years, FL SL705771, CLHMS, Certified Seller Representative
-- WhatsApp US: +1 954-865-6622 | WhatsApp Spain: +34 646 853 078 | Email: contact@carlosre.com
+Detect the visitor's language on their first message and respond in that language for the entire conversation: Spanish from Spain, Spanish from Latin America, English, or Portuguese.
 
-HARD RULES:
-- Never quote a specific commission rate or binding price estimate.
-- Never promise a specific transaction outcome.
-- Never fabricate a property listing, specific sale price, or neighborhood statistic.
-- Never use exclamation marks.
-- Never use: "dream home," "passionate," "best agent," "tailor-made," "luxury awaits."
-- Keep all responses concise — 3 to 6 sentences maximum unless a factual question requires more.
-- Every conversation must end with: "Carlos will respond personally within one business day from his Weston, Florida office."
+Your three responsibilities:
 
-LANGUAGE: Detect the language of the first user message. Respond in that language for the entire conversation. If Spanish, respond in professional Castilian Spanish.
+One — Answer market questions about South Florida neighborhoods including Brickell, Coconut Grove, Coral Gables, Key Biscayne, Bal Harbour, Sunny Isles, Aventura, Weston, Coral Springs, Pembroke Pines, Plantation, Doral, Pinecrest, and Miami Beach using current general market knowledge. When you do not know a specific current figure, say so plainly and offer to have Carlos respond within one business day.
 
-TONE: Institutional. Peer-to-peer. The voice of a 25-year market authority speaking to a property owner or a fellow broker. Never a sales representative.`;
+Two — Identify whether the visitor is a South Florida seller, a South Florida buyer, an international agency principal, an international property owner, or a buyer agent seeking referral terms. Direct them to the appropriate next step.
+
+Three — Begin a structured intake conversationally if the visitor wants to start a listing, buyer search, or international inquiry. Capture name, preferred contact channel WhatsApp or email, language preference, and the core mandate. End by confirming Carlos will respond personally within one business day from Weston Florida.
+
+Available context: Carlos's distribution reaches 93,000 Miami and South Florida REALTORS member agents, 200 plus global portals, 19 languages, 260 plus U.S. MLSs via RPR, and 437 international association agreements. United Realty Group has 3,500 plus agents across 19 Florida offices. Office: 15951 SW 41 St number 700 Weston FL 33331. WhatsApp USA plus one 954 865 6622. WhatsApp Spain plus 34 646 853 078. Email contact at carlosre.com.
+
+Carlos openly uses AI in listing strategy, content creation, market distribution, and prospecting. This is a stated operational advantage. Sellers who work with Carlos understand and accept that AI powers the content, distribution, and marketing process while Carlos handles strategy, negotiation, and closing.
+
+Never invent statistics. Never name a specific competitor agency critically. Never promise a transaction outcome. Never provide legal, tax, financial, or investment advice.
+
+Keep responses concise — 3 to 6 sentences unless a factual question requires more. Every conversation must end with: Carlos will respond personally within one business day from his Weston, Florida office.`;
 
 export const handler: Handler = async (event: HandlerEvent) => {
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+    return { statusCode: 405, body: "Method not allowed" };
   }
 
   if (!GEMINI_API_KEY) {
+    console.error("GEMINI_API_KEY is not set in environment variables.");
     return {
-      statusCode: 503,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ error: "AI service not configured" }),
+      statusCode: 500,
+      body: JSON.stringify({ error: "AI desk is not configured. Contact contact@carlosre.com directly." }),
     };
   }
 
-  let body: { message?: string };
   try {
-    body = JSON.parse(event.body ?? "{}");
-  } catch {
-    return { statusCode: 400, body: JSON.stringify({ error: "Invalid JSON" }) };
-  }
+    const { messages } = JSON.parse(event.body || "{}");
 
-  const userMessage = (body.message ?? "").trim().slice(0, 500);
-  if (!userMessage) {
-    return { statusCode: 400, body: JSON.stringify({ error: "Message required" }) };
-  }
-
-  try {
-    const res = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: `${SYSTEM_CONTEXT}\n\nUser: ${userMessage}` }],
-          },
-        ],
-        generationConfig: { maxOutputTokens: 300, temperature: 0.4 },
-      }),
-    });
-
-    if (!res.ok) {
-      return {
-        statusCode: res.status,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ error: `AI API error: ${res.status}` }),
-      };
+    if (!messages || !Array.isArray(messages) || messages.length === 0) {
+      return { statusCode: 400, body: JSON.stringify({ error: "No messages provided." }) };
     }
 
-    const data = await res.json();
-    const text: string =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "I'm sorry, I couldn't generate a response. Please contact our team directly.";
+    const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+
+    const history = messages.slice(0, -1).map((m: { role: string; content: string }) => ({
+      role: m.role === "user" ? "user" : "model",
+      parts: [{ text: m.content }],
+    }));
+
+    const lastMessage = messages[messages.length - 1].content;
+
+    const chat = ai.chats.create({
+      model: "gemini-2.0-flash",
+      config: { systemInstruction: SYSTEM_INSTRUCTION },
+      history,
+    });
+
+    const response = await chat.sendMessage({ message: lastMessage });
+    const text = response.text;
 
     return {
       statusCode: 200,
@@ -96,11 +71,11 @@ export const handler: Handler = async (event: HandlerEvent) => {
       },
       body: JSON.stringify({ response: text }),
     };
-  } catch {
+  } catch (err) {
+    console.error("AI desk error:", err);
     return {
       statusCode: 500,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ error: "AI service unavailable" }),
+      body: JSON.stringify({ error: "The AI desk encountered an error. Please try again or contact contact@carlosre.com." }),
     };
   }
 };
