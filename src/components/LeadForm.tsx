@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
+import { pushEvent } from "../lib/analytics";
 
 const INITIAL_FORM_DATA = {
   name: "",
@@ -43,6 +44,7 @@ export function LeadForm() {
       if (!response.ok) {
         throw new Error(`Form submission failed with status ${response.status}`);
       }
+      pushEvent("form_submit_seller", { form: "seller-consultation", page: "spain-desk" });
       setStatus("success");
       setFormData(INITIAL_FORM_DATA);
     } catch (error) {
@@ -153,7 +155,7 @@ export function LeadForm() {
           <p className="font-mono text-center text-[9px] uppercase tracking-[0.2em] text-navy/40 mt-2">
             Prefer WhatsApp?{" "}
             <a
-              href="https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20would%20like%20a%20seller%20strategy%20review."
+              href={CONTACT.whatsappUS}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold underline hover:text-gold-deep"
