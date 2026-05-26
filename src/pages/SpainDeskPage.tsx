@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { InternationalBridge } from "../components/InternationalBridge";
+import { SpainMiamiJourney } from "../components/SpainMiamiJourney";
 import { LeadForm } from "../components/LeadForm";
 import { BadgeCheck, Download } from "lucide-react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
@@ -77,7 +77,7 @@ export default function SpainDeskPage() {
             </a>
           </div>
         </section>
-        <InternationalBridge />
+        <SpainMiamiJourney />
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">
