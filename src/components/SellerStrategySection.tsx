@@ -39,8 +39,8 @@ const STEPS = [
   },
 ];
 
-const HW = ["Your", "Listing", "Needs", "More", "Than", "Exposure."];
-const ITALIC = "It Needs Direction.";
+const HW = ["Online", "exposure", "gets", "your", "listing", "seen."];
+const ITALIC = "The world's largest agent network gets it sold.";
 
 /* ─── Scoped CSS injected once ──────────────────────────────────────────── */
 const CSS = `
