@@ -29,9 +29,9 @@ export const handler: Handler = async () => {
 
   const params = new URLSearchParams({
     access_token: BRIDGE_TOKEN,
-    $filter: "StandardStatus eq 'Active' or StandardStatus eq 'Pending'",
-    $orderby: "ModificationTimestamp desc",
-    $top: "24",
+    $filter: "(StandardStatus eq 'Active' or StandardStatus eq 'Pending') and ListPrice ge 900000",
+    $orderby: "ListPrice desc",
+    $top: "30",
     $select: "ListingId,UnparsedAddress,City,PostalCode,ListPrice,BedroomsTotal,BathroomsTotalDecimal,LivingArea,PropertyType,StandardStatus",
   });
 
