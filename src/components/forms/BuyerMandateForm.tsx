@@ -57,7 +57,7 @@ export function BuyerMandateForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "buyer-mandate", "bot-field": "", ...submission }),
+        body: encodeForm({ "form-name": "buyer-mandate", "bot-field": "", ...submission, sourcePage: "buyer-mandate" }),
       });
       if (!res.ok) throw new Error("submission_failed");
       fetch("/.netlify/functions/lead-acknowledgment", {

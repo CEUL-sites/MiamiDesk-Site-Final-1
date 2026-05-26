@@ -31,7 +31,7 @@ export function ReferralIntakeForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "referral-intake", "bot-field": "", ...form }),
+        body: encodeForm({ "form-name": "referral-intake", "bot-field": "", ...form, sourcePage: "referral-intake" }),
       });
       if (!res.ok) throw new Error("submission_failed");
       fetch("/.netlify/functions/lead-acknowledgment", {

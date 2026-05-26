@@ -45,7 +45,7 @@ export function SellerIntakeForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form }),
+        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage: "seller-intake" }),
       });
       if (!res.ok) throw new Error("submission_failed");
       // Trigger auto-reply
