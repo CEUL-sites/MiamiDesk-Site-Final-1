@@ -1,7 +1,7 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { GoogleGenAI } from "@google/genai";
 
-const GEMINI_API_KEY = process.env.Gemini_API_Key ?? process.env.GEMINI_API_KEY;
+const GEMINI_API_KEY = (process.env.Gemini_API_Key ?? process.env.GEMINI_API_KEY ?? "").trim();
 
 const SYSTEM_INSTRUCTION = `You are the AI Intelligence Desk for Carlos Uzcategui — Florida Licensed Realtor® SL705771, licensed since 2001, CLHMS, affiliated with United Realty Group (3,500+ agents, 19 Florida offices, Florida's number one transactional brokerage), member of the Miami and South Florida REALTORS® (93,000 members — the largest local Realtor association in the world effective May 11 2026 following the MIAMI and RWorld merger).
 
@@ -31,51 +31,65 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   if (!GEMINI_API_KEY) {
-    console.error("GEMINI_API_KEY is not set in environment variables.");
+    console.error("[ai-desk] GEMINI key not configured");
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "AI desk is not configured. Contact contact@carlosre.com directly." }),
     };
   }
 
+  let messages: { role: string; content: string }[];
   try {
-    const { messages } = JSON.parse(event.body || "{}");
+    const parsed = JSON.parse(event.body || "{}");
+    messages = parsed.messages;
+    if (!Array.isArray(messages) || messages.length === 0) throw new Error("empty");
+  } catch {
+    return { statusCode: 400, body: JSON.stringify({ error: "No messages provided." }) };
+  }
 
-    if (!messages || !Array.isArray(messages) || messages.length === 0) {
-      return { statusCode: 400, body: JSON.stringify({ error: "No messages provided." }) };
-    }
-
+  try {
     const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
-    const history = messages.slice(0, -1).map((m: { role: string; content: string }) => ({
+    // Build contents array from full conversation history
+    const contents = messages.map((m) => ({
       role: m.role === "user" ? "user" : "model",
       parts: [{ text: m.content }],
     }));
 
-    const lastMessage = messages[messages.length - 1].content;
-
-    const chat = ai.chats.create({
+    const result = await ai.models.generateContent({
       model: "gemini-2.0-flash",
-      config: { systemInstruction: SYSTEM_INSTRUCTION },
-      history,
+      contents,
+      config: {
+        systemInstruction: SYSTEM_INSTRUCTION,
+        maxOutputTokens: 450,
+        temperature: 0.4,
+      },
     });
 
-    const response = await chat.sendMessage({ message: lastMessage });
-    const text = response.text;
+    // Safe text extraction — multiple fallback paths
+    const text =
+      result.text ??
+      result.candidates?.[0]?.content?.parts?.[0]?.text ??
+      "I was unable to generate a response. Please contact Carlos directly at contact@carlosre.com or via WhatsApp at +1 954-865-6622.";
 
     return {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "https://homesprofessional.com",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ response: text }),
     };
-  } catch (err) {
-    console.error("AI desk error:", err);
+
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("[ai-desk] Gemini error:", message);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "The AI desk encountered an error. Please try again or contact contact@carlosre.com." }),
+      body: JSON.stringify({
+        error: "The AI desk is temporarily unavailable. Please try again or reach Carlos directly on WhatsApp.",
+        detail: message, // visible in browser devtools — helps diagnose
+      }),
     };
   }
 };
