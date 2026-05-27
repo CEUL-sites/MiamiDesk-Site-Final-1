@@ -73,12 +73,6 @@ const normalizeText = (messages: DeskMessage[]) =>
     .join(" ")
     .toLowerCase();
 
-const lastUserText = (messages: DeskMessage[]) =>
-  [...messages]
-    .reverse()
-    .find((message) => message.role === "user")
-    ?.content ?? "";
-
 const detectLanguage = (text: string): AiDeskIntent["language"] => {
   if (/[¿¡áéíóúñü]/i.test(text)) return "spanish";
   if (hasAny(text.toLowerCase(), ["quiero", "vender", "comprar", "inmobiliaria", "propiedad", "referido", "españa", "madrid"])) {
@@ -130,8 +124,6 @@ const detectPropertyType = (text: string) => {
 
 export const classifyAiDeskIntent = (messages: DeskMessage[]): AiDeskIntent => {
   const allText = normalizeText(messages);
-  const latest = lastUserText(messages);
-  const latestLower = latest.toLowerCase();
   const city = detectCity(allText);
   const budget = parseBudget(allText);
   const language = detectLanguage(allText);
@@ -149,7 +141,10 @@ export const classifyAiDeskIntent = (messages: DeskMessage[]): AiDeskIntent => {
     return { visitorType: "developer_new_construction", mlsNeed: "none", language, city, propertyType, ...budget, confidence: "high" };
   }
 
-  if (hasAny(allText, ["spanish agency", "agencia española", "real estate agency in spain", "inmobiliaria en españa", "agency in madrid"])) {
+  if (
+    hasAny(allText, ["spanish agency", "agencia española", "real estate agency in spain", "inmobiliaria en españa", "agency in madrid"]) ||
+    (hasAny(allText, ["agencia", "inmobiliaria", "agency"]) && hasAny(allText, ["madrid", "spain", "españa"]))
+  ) {
     return { visitorType: "spanish_real_estate_agency", mlsNeed: "none", language, city, propertyType, ...budget, confidence: "high" };
   }
 
