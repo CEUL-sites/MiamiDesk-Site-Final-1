@@ -187,20 +187,8 @@ export function Hero() {
       {/* Subtle grid */}
       <div className="hero-grid" aria-hidden="true" />
 
-      {/* Photo layer */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <img
-          src="/images/hero-bg.jpg"
-          alt=""
-          width="1920"
-          height="1080"
-          loading="eager"
-          fetchPriority="high"
-          className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-1000"
-          onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.22"; }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-navy-deep/50 to-navy-deep/85" />
-      </div>
+      {/* Gradient overlay — deepens center, lifts edges for orb glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/80 via-navy-deep/55 to-navy-deep/90" aria-hidden="true" />
 
       {/* ── Main content ───────────────────────────────────────── */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-16 sm:px-10 lg:flex lg:min-h-screen lg:items-center lg:gap-16 lg:px-16 lg:pt-24 lg:pb-24">

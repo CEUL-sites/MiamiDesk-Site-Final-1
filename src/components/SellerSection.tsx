@@ -15,16 +15,7 @@ export function SellerSection() {
     <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-14 md:py-24 text-white">
       {/* Background — gradient base, photo fades in on top when available */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(20,45,90,0.8),transparent_55%)]" />
-      <div className="absolute inset-0">
-        <img
-          src="/images/miami-skyline.jpg"
-          alt=""
-          aria-hidden="true"
-          className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
-          onLoad={(e) => { (e.target as HTMLImageElement).style.opacity = "0.18"; }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" aria-hidden="true" />
       <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/10 blur-[120px]" />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl">

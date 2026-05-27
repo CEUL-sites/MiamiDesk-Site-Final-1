@@ -33,6 +33,7 @@ const EsComprarPage      = lazy(() => import('./pages/es/EsComprarPage'));
 const EsAgentesPage      = lazy(() => import('./pages/es/EsAgentesPage'));
 const EsGraciasAgentePage = lazy(() => import('./pages/es/EsGraciasAgentePage'));
 const EsSpainDeskPage    = lazy(() => import('./pages/es/EsSpainDeskPage'));
+const PressPage          = lazy(() => import('./pages/PressPage'));
 const NotFoundPage       = lazy(() => import('./pages/NotFoundPage'));
 
 if ('scrollRestoration' in window.history) {
@@ -72,6 +73,7 @@ if (rootElement) {
                 <Route path="/es/agentes"         element={<EsAgentesPage />} />
                 <Route path="/es/gracias/agente"  element={<EsGraciasAgentePage />} />
                 <Route path="/es/spain-desk"      element={<EsSpainDeskPage />} />
+                <Route path="/press"              element={<PressPage />} />
                 <Route path="*"                   element={<NotFoundPage />} />
               </Routes>
             </Suspense>
