@@ -2,7 +2,7 @@ import type { Handler, HandlerEvent } from "@netlify/functions";
 import { GoogleGenAI } from "@google/genai";
 
 const GEMINI_API_KEY = (process.env.Gemini_API_Key ?? "").trim();
-const GEMINI_MODEL = "gemini-2.0-flash";
+const GEMINI_MODEL = "gemini-2.5-flash";
 
 const SYSTEM_INSTRUCTION = `You are the Miami AI Desk for Carlos Uzcategui, Florida licensed Realtor since 2001, affiliated with United Realty Group, focused on South Florida seller/buyer intake, Miami MLS exposure, international owner inquiries, and Miami <-> Madrid / Latin America real estate bridge opportunities.
 
