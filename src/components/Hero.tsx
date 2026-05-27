@@ -1,418 +1,354 @@
 import { motion, type Variants } from "motion/react";
-import { BadgeCheck, ChevronRight, MessageSquare, TrendingUp, Users, Globe, CheckCircle2 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowRight, Bot, Globe, Tag, Key, Users } from "lucide-react";
+import { useRef, useState } from "react";
 import { CONTACT } from "../constants";
-
-/* ─── Count-up hook ─────────────────────────────────────────── */
-function useCountUp(target: number, duration = 1600, start = false) {
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    if (!start) return;
-    let startTime: number | null = null;
-    const step = (ts: number) => {
-      if (!startTime) startTime = ts;
-      const p = Math.min((ts - startTime) / duration, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      setVal(Math.round(ease * target));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [start, target, duration]);
-  return val;
-}
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
 };
 const item: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
-};
-const panelItem: Variants = {
-  hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.75, ease: EASE } },
+  hidden:   { opacity: 0, y: 24 },
+  visible:  { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
 };
 
-const CHECKLIST = [
-  "Pricing analysis with local comps — delivered in 24h",
-  "Professional MLS positioning via United Realty Group",
-  "International buyer pipeline: South Florida, Spain, LATAM",
+const PILLS = [
+  { icon: Tag,   label: "Sell",          href: "/sell"       },
+  { icon: Key,   label: "Buy",           href: "/buy"        },
+  { icon: Globe, label: "Spain Desk",    href: "/spain-desk" },
+  { icon: Users, label: "Agent Referral",href: "/agents"     },
 ];
 
-const STATS = [
-  { value: 93000, display: "93K",  suffix: "",   label: "MLS Member Agents" },
-  { value: 200,   display: "200+", suffix: "+",  label: "Global Portals"    },
-  { value: 19,    display: "19",   suffix: "",   label: "Florida Offices"   },
-  { value: 25,    display: "25",   suffix: "",   label: "Years Licensed"    },
+const REACH_STATS = [
+  { value: "93,000+", label: "Member Agents"        },
+  { value: "200+",    label: "Global Portals"        },
+  { value: "19",      label: "Languages"             },
+  { value: "260+",    label: "U.S. MLSs"             },
+  { value: "437+",    label: "Referral Agreements"   },
 ];
 
-/* ─── Hero ─────────────────────────────────────────────────── */
-export function Hero() {
-  const [hasScrolled, setHasScrolled] = useState(false);
-  const [statsVisible, setStatsVisible] = useState(false);
-  const statsRef = useRef<HTMLDivElement>(null);
+/* ─── Mini AI bar ──────────────────────────────────────────────── */
+function HeroAIBar() {
+  const [query, setQuery]       = useState("");
+  const [loading, setLoading]   = useState(false);
+  const [answer, setAnswer]     = useState("");
+  const [error, setError]       = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const count93k  = useCountUp(93,  1400, statsVisible);
-  const count200  = useCountUp(200, 1600, statsVisible);
-  const count19   = useCountUp(19,  1000, statsVisible);
-  const count25   = useCountUp(25,  1000, statsVisible);
-  const countDisplays = [`${count93k}K`, `${count200}+`, `${count19}`, `${count25}`];
-
-  useEffect(() => {
-    const onScroll = () => setHasScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const el = statsRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setStatsVisible(true); obs.disconnect(); } },
-      { threshold: 0.3 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+  async function ask(q: string) {
+    const text = q.trim();
+    if (!text || loading) return;
+    setLoading(true);
+    setAnswer("");
+    setError("");
+    try {
+      const res  = await fetch("/.netlify/functions/ai-desk", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify({ messages: [{ role: "user", content: text }] }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) { setError(data.error ?? "Unable to respond."); return; }
+      setAnswer(data.response ?? "");
+    } catch {
+      setError("Network error — please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
-    <section className="hero-root relative min-h-screen overflow-hidden bg-navy-deep text-white">
+    <div className="w-full max-w-xl mx-auto">
+      {/* "AI LIVE" badge */}
+      <div className="flex justify-end mb-1.5 pr-1">
+        <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-emerald-400">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          </span>
+          AI Live
+        </span>
+      </div>
+
+      {/* Input pill */}
+      <div className="relative flex items-center gap-3 rounded-full bg-[#0A1525]/90 border border-white/12 backdrop-blur-xl px-3 py-2.5 shadow-2xl shadow-black/50 focus-within:border-gold/40 transition-colors">
+        <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-gold/15">
+          <Bot size={16} className="text-gold" />
+        </div>
+        <input
+          ref={inputRef}
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && ask(query)}
+          placeholder="Ask The Miami Desk AI about selling, buying, or international property…"
+          maxLength={400}
+          disabled={loading}
+          className="flex-1 bg-transparent font-sans text-sm text-white/80 placeholder:text-white/30 outline-none min-w-0"
+          aria-label="Ask the AI desk"
+        />
+        <button
+          type="button"
+          onClick={() => ask(query)}
+          disabled={loading || !query.trim()}
+          aria-label="Send"
+          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-gold hover:bg-gold-soft transition-colors disabled:opacity-40"
+        >
+          {loading
+            ? <span className="h-3.5 w-3.5 rounded-full border-2 border-navy/40 border-t-navy animate-spin block" />
+            : <ArrowRight size={15} className="text-navy" />
+          }
+        </button>
+      </div>
+
+      {/* Response card */}
+      {(answer || error) && (
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mt-3 rounded-xl bg-[#0A1525]/95 border border-gold/20 backdrop-blur-xl px-5 py-4 text-left shadow-xl shadow-black/40"
+        >
+          {error
+            ? <p className="font-mono text-[11px] text-red-400/80">{error}</p>
+            : <>
+                <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-gold mb-2">Miami Desk · AI</p>
+                <p className="font-sans text-sm leading-relaxed text-white/80">{answer}</p>
+                <a
+                  href={`https://wa.me/${CONTACT.phoneUS.replace(/\D/g,"")}?text=${encodeURIComponent("Hello Carlos, I have a question: " + query)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+                >
+                  Continue on WhatsApp →
+                </a>
+              </>
+          }
+        </motion.div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Hero ─────────────────────────────────────────────────────── */
+export function Hero() {
+  return (
+    <section className="hero-root relative min-h-screen overflow-hidden bg-[#060D18] text-white flex flex-col">
+
       <style>{`
-        @keyframes hero-orb-1 {
-          0%,100% { transform: translate(0,0) scale(1); }
-          33%  { transform: translate(40px,-60px) scale(1.15); }
-          66%  { transform: translate(-30px,40px) scale(0.92); }
+        /* Cinematic dusk background — luxury property left, city right */
+        .hero-bg-warm {
+          position: absolute; inset: 0; pointer-events: none;
+          background:
+            radial-gradient(ellipse 90% 70% at 15% 60%,  rgba(176,120,40,0.22)  0%, transparent 55%),
+            radial-gradient(ellipse 60% 80% at 80% 80%,  rgba(20,55,120,0.30)   0%, transparent 55%),
+            radial-gradient(ellipse 70% 50% at 50% 100%, rgba(10,25,60,0.8)     0%, transparent 65%),
+            linear-gradient(175deg, #0A1830 0%, #070E18 45%, #050A14 100%);
         }
-        @keyframes hero-orb-2 {
-          0%,100% { transform: translate(0,0) scale(1); }
-          40%  { transform: translate(-50px,30px) scale(1.1); }
-          70%  { transform: translate(35px,-45px) scale(0.95); }
+        /* Warm ambient orbs */
+        @keyframes ho1 {
+          0%,100% { transform:translate(0,0)  scale(1);    }
+          40%      { transform:translate(30px,-40px) scale(1.1); }
+          70%      { transform:translate(-20px,25px) scale(0.93); }
         }
-        @keyframes hero-orb-3 {
-          0%,100% { transform: translate(0,0) scale(1); }
-          50%  { transform: translate(25px,50px) scale(1.08); }
+        @keyframes ho2 {
+          0%,100% { transform:translate(0,0)  scale(1);    }
+          50%      { transform:translate(-35px,20px) scale(1.08); }
         }
-        @keyframes hero-line {
-          from { transform: scaleX(0); opacity: 0; }
-          to   { transform: scaleX(1); opacity: 1; }
-        }
-        @keyframes hero-pulse {
-          0%,100% { opacity: 1; transform: scale(1); }
-          50%     { opacity: 0.4; transform: scale(0.85); }
-        }
-        .hero-orb-1 {
+        .hero-orb-a {
           position:absolute; border-radius:50%; pointer-events:none;
-          width:700px; height:700px;
-          top:-180px; left:-200px;
-          background: radial-gradient(ellipse, rgba(176,141,87,0.12) 0%, transparent 65%);
-          animation: hero-orb-1 18s ease-in-out infinite;
+          width:680px; height:680px; top:-120px; left:-160px;
+          background:radial-gradient(ellipse, rgba(176,120,40,0.14) 0%, transparent 60%);
+          animation: ho1 20s ease-in-out infinite;
         }
-        .hero-orb-2 {
+        .hero-orb-b {
           position:absolute; border-radius:50%; pointer-events:none;
-          width:600px; height:600px;
-          bottom:-150px; right:-100px;
-          background: radial-gradient(ellipse, rgba(16,43,87,0.8) 0%, rgba(176,141,87,0.08) 50%, transparent 70%);
-          animation: hero-orb-2 22s ease-in-out infinite;
+          width:520px; height:520px; bottom:-80px; right:-60px;
+          background:radial-gradient(ellipse, rgba(30,70,150,0.18) 0%, rgba(176,141,87,0.07) 50%, transparent 70%);
+          animation: ho2 25s ease-in-out infinite;
         }
-        .hero-orb-3 {
-          position:absolute; border-radius:50%; pointer-events:none;
-          width:400px; height:400px;
-          top:40%; right:38%;
-          background: radial-gradient(ellipse, rgba(176,141,87,0.06) 0%, transparent 60%);
-          animation: hero-orb-3 14s ease-in-out infinite;
+        /* Noise texture for photo-like grain */
+        .hero-grain {
+          position:absolute; inset:0; pointer-events:none; opacity:0.025;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+          background-size: 180px;
         }
+        /* Fine gold grid */
         .hero-grid {
           position:absolute; inset:0; pointer-events:none;
           background-image:
-            linear-gradient(rgba(176,141,87,0.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(176,141,87,0.035) 1px, transparent 1px);
-          background-size: 60px 60px;
-          mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+            linear-gradient(rgba(176,141,87,0.03) 1px, transparent 1px),
+            linear-gradient(90deg,rgba(176,141,87,0.03) 1px, transparent 1px);
+          background-size:64px 64px;
+          mask-image:radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
         }
-        .hero-panel {
-          background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
-          border: 1px solid rgba(176,141,87,0.18);
-          backdrop-filter: blur(8px);
+        /* Bottom vignette */
+        .hero-vignette {
+          position:absolute; bottom:0; left:0; right:0; height:280px; pointer-events:none;
+          background:linear-gradient(to top, rgba(6,13,24,0.95) 0%, transparent 100%);
         }
-        .hero-stat-card {
-          background: rgba(255,255,255,0.04);
-          border: 1px solid rgba(255,255,255,0.08);
-          transition: border-color 0.3s ease, background 0.3s ease;
+        /* CTA */
+        .hero-cta-main {
+          background:linear-gradient(90deg, #B08D57 0%, #C9A96E 50%, #B08D57 100%);
+          background-size: 200% auto;
+          transition: background-position 0.5s ease, box-shadow 0.3s ease, transform 0.2s ease;
         }
-        .hero-stat-card:hover {
-          border-color: rgba(176,141,87,0.35);
-          background: rgba(176,141,87,0.05);
+        .hero-cta-main:hover {
+          background-position: right center;
+          box-shadow: 0 8px 32px rgba(176,141,87,0.4);
+          transform: translateY(-1px);
         }
-        .hero-pulse-dot {
-          width:8px; height:8px; border-radius:50%;
-          background:#4ade80;
-          animation: hero-pulse 2s ease-in-out infinite;
-          box-shadow: 0 0 8px rgba(74,222,128,0.6);
+        .hero-cta-main:active { transform: translateY(0) scale(0.98); }
+        /* Pill buttons */
+        .hero-pill {
+          border: 1px solid rgba(255,255,255,0.14);
+          background: rgba(255,255,255,0.05);
+          backdrop-filter: blur(12px);
+          transition: border-color 0.2s, background 0.2s, color 0.2s;
         }
-        .hero-cta-primary {
-          background: var(--color-gold);
-          transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+        .hero-pill:hover {
+          border-color: rgba(176,141,87,0.6);
+          background: rgba(176,141,87,0.1);
+          color: #D4AE78;
         }
-        .hero-cta-primary:hover {
-          background: var(--color-gold-soft);
-          transform: translateY(-2px);
-          box-shadow: 0 12px 40px rgba(176,141,87,0.35);
+        /* Stats bar */
+        .hero-stats-bar {
+          background: rgba(10,21,37,0.8);
+          border-top: 1px solid rgba(176,141,87,0.12);
+          border-bottom: 1px solid rgba(176,141,87,0.12);
+          backdrop-filter: blur(16px);
         }
-        .hero-cta-primary:active { transform: translateY(0) scale(0.97); }
-        .hero-cta-secondary {
-          border: 1px solid rgba(255,255,255,0.22);
-          transition: border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+        @keyframes hero-rule {
+          from { transform:scaleX(0); opacity:0; }
+          to   { transform:scaleX(1); opacity:1; }
         }
-        .hero-cta-secondary:hover {
-          border-color: var(--color-gold);
-          color: var(--color-gold);
-          transform: translateY(-2px);
-        }
-        .hero-cta-secondary:active { transform: translateY(0) scale(0.97); }
         @media (prefers-reduced-motion: reduce) {
-          .hero-orb-1, .hero-orb-2, .hero-orb-3 { animation: none; }
-          .hero-pulse-dot { animation: none; }
-          .hero-cta-primary:hover, .hero-cta-secondary:hover { transform: none; }
+          .hero-orb-a, .hero-orb-b { animation: none; }
+          .hero-cta-main:hover { transform: none; }
         }
       `}</style>
 
-      {/* Ambient orbs */}
-      <div className="hero-orb-1" aria-hidden="true" />
-      <div className="hero-orb-2" aria-hidden="true" />
-      <div className="hero-orb-3" aria-hidden="true" />
+      {/* Background layers */}
+      <div className="hero-bg-warm"  aria-hidden="true" />
+      <div className="hero-orb-a"    aria-hidden="true" />
+      <div className="hero-orb-b"    aria-hidden="true" />
+      <div className="hero-grain"    aria-hidden="true" />
+      <div className="hero-grid"     aria-hidden="true" />
+      <div className="hero-vignette" aria-hidden="true" />
 
-      {/* Subtle grid */}
-      <div className="hero-grid" aria-hidden="true" />
-
-      {/* Gradient overlay — deepens center, lifts edges for orb glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/80 via-navy-deep/55 to-navy-deep/90" aria-hidden="true" />
-
-      {/* ── Main content ───────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-16 sm:px-10 lg:flex lg:min-h-screen lg:items-center lg:gap-16 lg:px-16 lg:pt-24 lg:pb-24">
-
-        {/* LEFT — headline + CTAs */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          className="flex-1 max-w-2xl"
+      {/* ── Content ─────────────────────────────────────────────── */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-5 pt-32 pb-8 sm:px-10"
+      >
+        {/* Eyebrow */}
+        <motion.p
+          variants={item}
+          className="font-mono text-[9px] uppercase tracking-[0.35em] text-gold/70 mb-6"
         >
-          <motion.p
-            variants={item}
-            className="font-mono text-[10px] uppercase tracking-[0.32em] text-gold mb-5"
-          >
-            United Realty Group · Carlos Uzcategui · FL Realtor® SL705771
-          </motion.p>
+          Carlos Uzcategui · United Realty Group · FL SL705771
+        </motion.p>
 
-          <motion.h1
-            variants={item}
-            className="font-serif leading-[1.03] text-white"
-            style={{ fontSize: "clamp(3rem, 5.5vw, 6rem)", fontWeight: 400 }}
-          >
-            Real estate is local.
-            <br />
-            <em className="not-italic italic text-gold">
-              Peak price is global.
-            </em>
-          </motion.h1>
+        {/* Headline */}
+        <motion.h1
+          variants={item}
+          className="font-serif leading-[1.04] text-white"
+          style={{ fontSize: "clamp(2.6rem, 6vw, 5.2rem)", fontWeight: 400 }}
+        >
+          Real estate is local.
+          <br />
+          <em className="not-italic italic text-gold">Peak price is global.</em>
+        </motion.h1>
 
-          <motion.div
-            variants={item}
-            className="mt-5 h-px w-16 origin-left bg-gold/50"
-            style={{ animation: "hero-line 0.8s ease forwards 0.9s", transform: "scaleX(0)", opacity: 0 }}
-          />
+        {/* Gold rule */}
+        <motion.div
+          variants={item}
+          className="mt-5 h-px w-14 bg-gold/50 origin-center mx-auto"
+          style={{ animation: "hero-rule 0.8s ease forwards 0.8s", transform: "scaleX(0)", opacity: 0 }}
+        />
 
-          <motion.p
-            variants={item}
-            className="mt-6 font-sans font-light leading-relaxed text-white/60 max-w-lg"
-            style={{ fontSize: "1.05rem" }}
-          >
-            Senior seller advisory built around pricing discipline,
-            professional MLS positioning, and an international buyer pipeline
-            spanning South Florida, Spain, and Latin America.
-          </motion.p>
+        {/* Subheadline */}
+        <motion.p
+          variants={item}
+          className="mt-6 max-w-md font-sans text-base leading-relaxed text-white/55"
+        >
+          AI-guided property intake and senior real estate representation
+          for sellers, buyers, and cross-border owners.
+        </motion.p>
 
-          {/* Checklist */}
-          <motion.ul variants={item} className="mt-7 space-y-2.5">
-            {CHECKLIST.map((line) => (
-              <li key={line} className="flex items-start gap-3">
-                <CheckCircle2 size={15} className="mt-0.5 flex-shrink-0 text-gold" />
-                <span className="font-sans text-sm text-white/65">{line}</span>
-              </li>
-            ))}
-          </motion.ul>
-
-          {/* CTAs */}
-          <motion.div variants={item} className="mt-9 flex flex-wrap gap-3">
-            <a
-              href="/contact"
-              className="hero-cta-primary group inline-flex items-center gap-2 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-navy-deep"
-            >
-              Get My Free Strategy Review
-              <ChevronRight size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
-            </a>
-            <a
-              href={CONTACT.whatsappUS}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-cta-secondary inline-flex items-center gap-2 px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white"
-            >
-              <MessageSquare size={14} />
-              WhatsApp Our Team
-            </a>
-          </motion.div>
-
-          <motion.p variants={item} className="mt-3 font-mono text-[8px] uppercase tracking-[0.2em] text-white/28">
-            Free · No listing commitment required
-          </motion.p>
-
-          {/* Trust bar */}
-          <motion.div
-            ref={statsRef}
-            variants={item}
-            className="mt-12 grid grid-cols-4 gap-4 border-t border-white/10 pt-8 sm:gap-6"
-          >
-            {STATS.map((s, i) => (
-              <div key={s.label} className="text-center sm:text-left">
-                <div className="font-serif text-2xl text-white sm:text-3xl">
-                  {statsVisible ? countDisplays[i] : s.display}
-                </div>
-                <div className="font-mono mt-1 text-[7px] uppercase tracking-[0.15em] text-gold/60">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Credentials + audience nav */}
-          <motion.div variants={item} className="mt-6 flex flex-wrap items-center gap-4">
-            <div className="inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-3 py-2 backdrop-blur-sm">
-              <BadgeCheck size={13} className="flex-shrink-0 text-gold" />
-              <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/45">
-                CLHMS · Certified Seller Rep · FL SL705771
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/28">I am a:</span>
-              {[
-                { label: "Seller", href: "/sell" },
-                { label: "Buyer",  href: "/buy"   },
-                { label: "Agent",  href: "/agents" },
-              ].map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="border border-white/14 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-white/50 transition-all duration-200 hover:border-gold hover:text-gold"
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
-          </motion.div>
+        {/* AI Search Bar */}
+        <motion.div variants={item} className="mt-8 w-full max-w-xl">
+          <HeroAIBar />
         </motion.div>
 
-        {/* RIGHT — seller intelligence panel (desktop only) */}
+        {/* Navigation pills */}
         <motion.div
-          variants={panelItem}
-          initial="hidden"
-          animate="visible"
-          className="hidden lg:block flex-shrink-0 w-[340px] xl:w-[380px]"
+          variants={item}
+          className="mt-6 flex flex-wrap items-center justify-center gap-2.5"
         >
-          <div className="hero-panel rounded-none p-7 space-y-5">
-
-            {/* Live header */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="hero-pulse-dot" />
-                <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/60">
-                  Miami MLS · Active
-                </span>
-              </div>
-              <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-gold/50">
-                South Florida
-              </span>
-            </div>
-
-            <div className="h-px bg-white/8" />
-
-            {/* Stat cards */}
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                { icon: Users,     value: "93,000", label: "Buyer Agents",      sub: "Miami MLS Network"   },
-                { icon: Globe,     value: "200+",   label: "Global Portals",    sub: "19 Languages"         },
-                { icon: TrendingUp,value: "25 yrs", label: "Market Experience", sub: "South Florida"        },
-                { icon: BadgeCheck,value: "437+",   label: "Int'l Agreements",  sub: "Agent Referral Network"},
-              ].map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, scale: 0.92 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 + i * 0.1, duration: 0.5, ease: EASE }}
-                  className="hero-stat-card p-4 cursor-default"
-                >
-                  <s.icon size={14} className="text-gold mb-2" />
-                  <div className="font-serif text-xl text-white">{s.value}</div>
-                  <div className="font-mono text-[8px] uppercase tracking-[0.15em] text-white/55 mt-0.5">{s.label}</div>
-                  <div className="font-mono text-[7px] uppercase tracking-[0.1em] text-white/28 mt-0.5">{s.sub}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="h-px bg-white/8" />
-
-            {/* What sellers get */}
-            <div>
-              <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-gold/70 mb-3">
-                Free Strategy Review Includes
-              </p>
-              {[
-                "Pricing analysis with neighborhood comps",
-                "Buyer profile for your property type",
-                "MLS positioning recommendation",
-                "Timeline and market window assessment",
-              ].map((line) => (
-                <div key={line} className="flex items-start gap-2 mb-2">
-                  <span className="mt-1 text-gold text-[10px] flex-shrink-0">✦</span>
-                  <span className="font-sans text-[12px] text-white/55 leading-snug">{line}</span>
-                </div>
-              ))}
-            </div>
-
+          {PILLS.map(({ icon: Icon, label, href }) => (
             <a
-              href="/contact"
-              className="hero-cta-primary block w-full text-center py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy-deep"
+              key={label}
+              href={href}
+              className="hero-pill inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-sans text-sm text-white/70"
             >
-              Request Strategy Review
+              <Icon size={14} className="text-gold/70" />
+              {label}
             </a>
-
-            <p className="text-center font-mono text-[7px] uppercase tracking-[0.15em] text-white/22">
-              United Realty Group · FL SL705771 · Equal Housing Opportunity
-            </p>
-          </div>
+          ))}
         </motion.div>
 
-      </div>
+      </motion.div>
 
-      {/* Scroll indicator */}
+      {/* ── Reach Advantage stats bar ───────────────────────────── */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: hasScrolled ? 0 : 1 }}
-        transition={{ delay: 3, duration: 0.5 }}
-        className="pointer-events-none absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
-        aria-hidden="true"
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.9, duration: 0.7 }}
+        className="relative z-10 hero-stats-bar w-full"
       >
-        <span className="font-mono text-[7px] uppercase tracking-[0.3em] text-white/22">Scroll</span>
-        <span className="h-10 w-px overflow-hidden bg-white/10">
-          <motion.span
-            className="block h-6 w-px bg-gold"
-            animate={{ y: [-24, 40] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          />
-        </span>
+        <div className="mx-auto max-w-5xl px-5 py-3 flex items-center gap-4 overflow-x-auto">
+          <span className="flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.28em] text-gold border border-gold/30 px-2 py-1 whitespace-nowrap">
+            Reach Advantage
+          </span>
+          <div className="flex items-center gap-1 flex-shrink-0">
+            <div className="h-3 w-px bg-white/15" />
+          </div>
+          {REACH_STATS.map((s, i) => (
+            <div key={s.label} className="flex items-center gap-1 flex-shrink-0">
+              {i > 0 && <span className="text-white/15 text-xs mr-1">·</span>}
+              <span className="font-mono text-[11px] font-semibold text-white/85 whitespace-nowrap">{s.value}</span>
+              <span className="font-mono text-[8px] uppercase tracking-[0.12em] text-white/35 ml-1 whitespace-nowrap">{s.label}</span>
+            </div>
+          ))}
+        </div>
       </motion.div>
+
+      {/* ── Bottom CTA strip ────────────────────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.1, duration: 0.6, ease: EASE }}
+        className="relative z-10 w-full px-5 pb-8 pt-5 flex flex-col items-center gap-4"
+      >
+        <p className="font-sans text-sm italic text-white/38 tracking-wide">
+          Discreet. Strategic. Personalized.
+        </p>
+        <a
+          href="/contact"
+          className="hero-cta-main inline-flex w-full max-w-sm items-center justify-center gap-3 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-navy-deep"
+        >
+          Start Private Property Brief
+          <ArrowRight size={15} />
+        </a>
+        <p className="font-mono text-[7px] uppercase tracking-[0.18em] text-white/22 text-center">
+          United Realty Group · FL SL705771 · Equal Housing Opportunity
+        </p>
+      </motion.div>
+
     </section>
   );
 }
