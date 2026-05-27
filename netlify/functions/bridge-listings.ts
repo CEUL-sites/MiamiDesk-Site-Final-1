@@ -97,7 +97,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
   ].join(",");
 
   const params = new URLSearchParams({
-    access_token: BRIDGE_TOKEN,
     $filter,
     $orderby: "ListPrice desc",
     $top: String(top),
@@ -106,7 +105,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
   });
 
   try {
-    const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`);
+    const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`, {
+      headers: { Authorization: `Bearer ${BRIDGE_TOKEN}` },
+    });
     if (!res.ok) {
       let bridgeDetail = "";
       try { bridgeDetail = await res.text(); } catch { /* ignore */ }

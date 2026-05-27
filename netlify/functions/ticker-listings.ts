@@ -28,7 +28,6 @@ export const handler: Handler = async () => {
   }
 
   const params = new URLSearchParams({
-    access_token: BRIDGE_TOKEN,
     $filter: "(StandardStatus eq 'Active' or StandardStatus eq 'Pending') and ListPrice ge 900000",
     $orderby: "ListPrice desc",
     $top: "30",
@@ -36,7 +35,9 @@ export const handler: Handler = async () => {
   });
 
   try {
-    const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`);
+    const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`, {
+      headers: { Authorization: `Bearer ${BRIDGE_TOKEN}` },
+    });
     if (!res.ok) {
       return {
         statusCode: res.status,

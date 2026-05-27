@@ -70,7 +70,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   const params = new URLSearchParams({
-    access_token: BRIDGE_TOKEN,
     $filter,
     $orderby: "ModificationTimestamp desc",
     $top: String(perPage),
@@ -80,7 +79,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
   });
 
   try {
-    const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`);
+    const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`, {
+      headers: { Authorization: `Bearer ${BRIDGE_TOKEN}` },
+    });
     if (!res.ok) {
       return {
         statusCode: res.status,

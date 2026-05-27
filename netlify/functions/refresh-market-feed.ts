@@ -53,14 +53,15 @@ async function fetchFeed(config: FeedConfig): Promise<{
   const $filter = `City eq '${config.city.replace(/'/g, "''")}' and ${config.extraFilter}`;
 
   const params = new URLSearchParams({
-    access_token: BRIDGE_TOKEN,
     $filter,
     $orderby: "ModificationTimestamp desc",
     $top: "12",
     $select: $SELECT,
   });
 
-  const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`);
+  const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`, {
+    headers: { Authorization: `Bearer ${BRIDGE_TOKEN}` },
+  });
 
   if (!res.ok) {
     throw new Error(`Bridge API responded ${res.status} ${res.statusText}`);

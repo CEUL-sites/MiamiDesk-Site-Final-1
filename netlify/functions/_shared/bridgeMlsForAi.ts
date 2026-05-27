@@ -148,7 +148,6 @@ export const getBridgeMlsContextForAi = async (intent: AiDeskIntent): Promise<Ai
 
   for (const status of statusesForIntent(intent)) {
     const params = new URLSearchParams({
-      access_token: token,
       $filter: buildFilters(intent, status),
       $orderby: "ListPrice desc",
       $top: intent.mlsNeed === "seller_context" ? "4" : "6",
@@ -156,7 +155,9 @@ export const getBridgeMlsContextForAi = async (intent: AiDeskIntent): Promise<Ai
     });
 
     try {
-      const response = await fetch(`${getBridgeBase()}?${params.toString()}`);
+      const response = await fetch(`${getBridgeBase()}?${params.toString()}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (!response.ok) {
         console.error(`[ai-desk] Bridge MLS lookup failed with status ${response.status}`);
         continue;
