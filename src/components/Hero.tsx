@@ -244,14 +244,6 @@ export function Hero() {
         animate="visible"
         className="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-5 pt-32 pb-8 sm:px-10"
       >
-        {/* Eyebrow */}
-        <motion.p
-          variants={item}
-          className="font-mono text-[9px] uppercase tracking-[0.35em] text-gold/70 mb-6"
-        >
-          Carlos Uzcategui · United Realty Group · FL SL705771
-        </motion.p>
-
         {/* Headline */}
         <motion.h1
           variants={item}

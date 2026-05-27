@@ -56,23 +56,23 @@ export function Navbar() {
           aria-label="HomesProfessional.com — Carlos Uzcategui, United Realty Group"
           className="flex flex-col leading-none gap-0.5"
         >
-          {/* Agent name — primary */}
+          {/* Brokerage — primary */}
           <span
             className={`font-serif font-normal leading-none tracking-wide transition-colors duration-300 ${
               scrolled ? "text-navy" : "text-white"
             }`}
             style={{ fontSize: "1.15rem", letterSpacing: "0.06em" }}
           >
-            Carlos Uzcategui
+            United Realty Group
           </span>
-          {/* Brokerage line — secondary */}
+          {/* Agent name + credential — secondary */}
           <span
             className={`font-mono uppercase leading-none transition-colors duration-300 ${
               scrolled ? "text-navy/45" : "text-white/42"
             }`}
             style={{ fontSize: "0.58rem", letterSpacing: "0.22em" }}
           >
-            United Realty Group · FL SL705771
+            Carlos Uzcategui · Licensed in Florida since 2001
           </span>
         </a>
 
@@ -208,10 +208,10 @@ export function Navbar() {
               <div className="flex items-start justify-between">
                 <div className="flex flex-col leading-none gap-1">
                   <span className="font-serif text-xl font-normal tracking-wide text-white">
-                    Carlos Uzcategui
+                    United Realty Group
                   </span>
                   <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/40">
-                    United Realty Group · FL SL705771
+                    Carlos Uzcategui · Licensed in Florida since 2001
                   </span>
                 </div>
                 <button
