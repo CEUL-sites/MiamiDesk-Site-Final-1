@@ -16,16 +16,11 @@ export type SafeMlsRecord = {
   propertyType?: string;
   status?: string;
   listPrice?: number;
-  soldPrice?: number;
   bedrooms?: number;
   bathrooms?: number;
   squareFeet?: number;
-  lotSize?: number;
-  yearBuilt?: number;
   daysOnMarket?: number;
-  publicRemarks?: string;
   listingPhotoUrl?: string;
-  listingPageUrl?: string;
 };
 
 export type AiMlsContext = {
@@ -78,23 +73,18 @@ const toNumber = (value: unknown) => {
 const toStringValue = (value: unknown) => (typeof value === "string" && value.trim() ? value.trim() : undefined);
 
 const sanitizeRecord = (record: BridgeRecord): SafeMlsRecord => ({
-  mlsNumber: toStringValue(record.ListingId) ?? toStringValue(record.MlsStatus),
+  mlsNumber: toStringValue(record.ListingId),
   address: toStringValue(record.UnparsedAddress),
   city: toStringValue(record.City),
-  subdivision: toStringValue(record.SubdivisionName) ?? toStringValue(record.MLSAreaMajor),
+  subdivision: toStringValue(record.MLSAreaMajor),
   propertyType: toStringValue(record.PropertyType),
   status: toStringValue(record.StandardStatus),
   listPrice: toNumber(record.ListPrice),
-  soldPrice: toNumber(record.ClosePrice),
   bedrooms: toNumber(record.BedroomsTotal),
   bathrooms: toNumber(record.BathroomsTotalInteger) ?? toNumber(record.BathroomsTotalDecimal),
   squareFeet: toNumber(record.LivingArea),
-  lotSize: toNumber(record.LotSizeSquareFeet),
-  yearBuilt: toNumber(record.YearBuilt),
   daysOnMarket: toNumber(record.DaysOnMarket),
-  publicRemarks: toStringValue(record.PublicRemarks),
   listingPhotoUrl: pickPhotoUrl(record.Media),
-  listingPageUrl: toStringValue(record.ListingURL) ?? toStringValue(record.VirtualTourURLUnbranded),
 });
 
 const describeRecords = (records: SafeMlsRecord[]) => {
@@ -106,10 +96,9 @@ const describeRecords = (records: SafeMlsRecord[]) => {
         `${index + 1}. ${record.status ?? "Status not shown"}`,
         record.address ? `address: ${record.address}` : undefined,
         record.city ? `city: ${record.city}` : undefined,
-        record.subdivision ? `subdivision: ${record.subdivision}` : undefined,
+        record.subdivision ? `area: ${record.subdivision}` : undefined,
         record.propertyType ? `type: ${record.propertyType}` : undefined,
         record.listPrice ? `list price: $${record.listPrice.toLocaleString()}` : undefined,
-        record.soldPrice ? `sold price: $${record.soldPrice.toLocaleString()}` : undefined,
         record.bedrooms ? `${record.bedrooms} beds` : undefined,
         record.bathrooms ? `${record.bathrooms} baths` : undefined,
         record.squareFeet ? `${record.squareFeet.toLocaleString()} sq ft` : undefined,
@@ -121,7 +110,7 @@ const describeRecords = (records: SafeMlsRecord[]) => {
 };
 
 const statusesForIntent = (intent: AiDeskIntent) => {
-  if (intent.mlsNeed === "seller_context") return ["Active", "Pending", "Closed"];
+  if (intent.mlsNeed === "seller_context") return ["Active", "Pending"];
   if (intent.mlsNeed === "buyer_search" || intent.mlsNeed === "investor_context") return ["Active"];
   if (intent.mlsNeed === "general_market") return ["Active"];
   return [];
@@ -139,25 +128,20 @@ export const getBridgeMlsContextForAi = async (intent: AiDeskIntent): Promise<Ai
 
   const selectedFields = [
     "ListingId",
+    "ListingKey",
     "UnparsedAddress",
     "City",
-    "SubdivisionName",
-    "MLSAreaMajor",
-    "PropertyType",
-    "StandardStatus",
+    "PostalCode",
     "ListPrice",
-    "ClosePrice",
     "BedroomsTotal",
     "BathroomsTotalInteger",
     "BathroomsTotalDecimal",
     "LivingArea",
-    "LotSizeSquareFeet",
-    "YearBuilt",
+    "PropertyType",
+    "StandardStatus",
     "DaysOnMarket",
-    "PublicRemarks",
+    "MLSAreaMajor",
     "Media",
-    "ListingURL",
-    "VirtualTourURLUnbranded",
   ].join(",");
 
   const records: SafeMlsRecord[] = [];
@@ -166,7 +150,7 @@ export const getBridgeMlsContextForAi = async (intent: AiDeskIntent): Promise<Ai
     const params = new URLSearchParams({
       access_token: token,
       $filter: buildFilters(intent, status),
-      $orderby: status === "Closed" ? "CloseDate desc" : "ListPrice desc",
+      $orderby: "ListPrice desc",
       $top: intent.mlsNeed === "seller_context" ? "4" : "6",
       $select: selectedFields,
     });
