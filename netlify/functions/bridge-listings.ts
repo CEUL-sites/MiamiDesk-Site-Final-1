@@ -1,7 +1,10 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 
 const BRIDGE_TOKEN = process.env.BRIDGE_API_TOKEN ?? "";
-const BRIDGE_BASE = "https://api.bridgedataoutput.com/api/v2/OData/miamire/Property";
+// BRIDGE_DATASET_ID: set in Netlify env vars. Common values: "miamire", "mar", "miami".
+// Verify your dataset ID in the Bridge Data Output dashboard → API Access.
+const BRIDGE_DATASET_ID = (process.env.BRIDGE_DATASET_ID ?? "miamire").trim();
+const BRIDGE_BASE = `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET_ID}/Property`;
 
 // Simple in-process cache: key → { body, expires }
 const cache: Map<string, { body: string; expires: number }> = new Map();
@@ -105,10 +108,16 @@ export const handler: Handler = async (event: HandlerEvent) => {
   try {
     const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`);
     if (!res.ok) {
+      let bridgeDetail = "";
+      try { bridgeDetail = await res.text(); } catch { /* ignore */ }
       return {
         statusCode: res.status,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ error: `Bridge API error: ${res.status}` }),
+        body: JSON.stringify({
+          error: `Bridge API error: ${res.status}`,
+          dataset: BRIDGE_DATASET_ID,
+          detail: bridgeDetail.slice(0, 500),
+        }),
       };
     }
 
