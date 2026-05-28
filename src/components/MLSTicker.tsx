@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const TICKER_API = "/.netlify/functions/ticker-listings";
 
@@ -13,6 +13,13 @@ interface Listing {
   sqft: number;
   type: string;
   status: string;
+}
+
+interface MLSTickerProps {
+  fallbackMode?: "curated" | "empty";
+  liveLabel?: string;
+  staticLabel?: string;
+  unavailableMessage?: string;
 }
 
 function formatPrice(n: number) {
@@ -35,7 +42,6 @@ function parseBridgeListing(raw: Record<string, unknown>): Listing {
   };
 }
 
-/* ─── Curated luxury South Florida fallback listings ($1M+) ── */
 const FALLBACK: Listing[] = [
   { id:"F01", address:"9705 Collins Ave #PH4",       city:"Bal Harbour",       zip:"33154", price:8_500_000, beds:4, baths:4.5, sqft:4_820, type:"Condominium",              status:"Active"  },
   { id:"F02", address:"3315 Collins Ave #PH",        city:"Miami Beach",        zip:"33140", price:6_250_000, beds:4, baths:4,   sqft:4_200, type:"Condominium",              status:"Active"  },
@@ -63,13 +69,28 @@ const LABEL_LIVE    = "MIAMI MLS · LIVE INVENTORY · SOUTH FLORIDA MARKET TAPE"
 const LABEL_STATIC  = "SOUTH FLORIDA · MARKET SNAPSHOT · UNITED REALTY GROUP";
 const HEADER_REPEATS = 6;
 
-export function MLSTicker() {
-  const [listings, setListings]   = useState<Listing[]>(FALLBACK);
+export function MLSTicker({
+  fallbackMode = "curated",
+  liveLabel = LABEL_LIVE,
+  staticLabel = LABEL_STATIC,
+  unavailableMessage = "Live MLS feed temporarily unavailable. Carlos can verify current inventory directly before a buyer decision.",
+}: MLSTickerProps = {}) {
+  const shouldUseFallback = fallbackMode === "curated";
+  const [listings, setListings]   = useState<Listing[]>(shouldUseFallback ? FALLBACK : []);
   const [isLive, setIsLive]       = useState(false);
-  const reducedMotion = useRef(
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  const [feedStatus, setFeedStatus] = useState<"loading" | "ready" | "unavailable">(
+    shouldUseFallback ? "ready" : "loading"
   );
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateReducedMotion = () => setReducedMotion(query.matches);
+
+    updateReducedMotion();
+    query.addEventListener("change", updateReducedMotion);
+    return () => query.removeEventListener("change", updateReducedMotion);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -82,52 +103,59 @@ export function MLSTicker() {
         if (json?.live === true && Array.isArray(json.value) && json.value.length > 0) {
           setListings(json.value.map(parseBridgeListing));
           setIsLive(true);
+          setFeedStatus("ready");
+        } else if (!shouldUseFallback) {
+          setFeedStatus("unavailable");
         }
       } catch {
-        // Bridge unavailable — fallback listings remain
+        if (!cancelled && !shouldUseFallback) setFeedStatus("unavailable");
       }
     })();
     return () => { cancelled = true; };
-  }, []);
+  }, [shouldUseFallback]);
 
-  const label      = isLive ? LABEL_LIVE : LABEL_STATIC;
+  const label      = isLive ? liveLabel : staticLabel;
   const headerText = Array(HEADER_REPEATS).fill(label).join("   |   ");
+  const hasListings = listings.length > 0;
+  const statusBadge = isLive ? "Live" : feedStatus === "loading" ? "Loading" : "Market Data";
 
-  /* ── Reduced-motion: static scrollable row ──────────────────── */
-  if (reducedMotion.current) {
+  if (reducedMotion) {
     return (
       <div className="w-full bg-[#0A1628] border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/60 mb-3">
             {label}
-            {isLive && <span className="ml-3 text-emerald-400">● Live</span>}
+            <span className={isLive ? "ml-3 text-emerald-400" : "ml-3 text-gold/70"}>{statusBadge}</span>
           </p>
-          <div
-            className="flex gap-3 overflow-x-auto pb-2"
-            role="region"
-            aria-label="South Florida market listings"
-          >
-            {listings.map((l) => (
-              <div
-                key={l.id}
-                className="flex-shrink-0 border border-white/10 bg-[#111F38] px-3 py-2"
-                style={{ minWidth: 220 }}
-              >
-                <div className="font-serif text-sm font-bold text-gold">{formatPrice(l.price)}</div>
-                <div className="font-sans text-[11px] text-white/70 truncate">{l.address}</div>
-                <div className="font-mono text-[9px] text-white/35 uppercase">{l.city}, FL</div>
-                <div className="font-mono text-[9px] text-white/35">
-                  {l.beds}bd · {l.baths}ba{l.sqft > 0 ? ` · ${l.sqft.toLocaleString()} sf` : ""}
+          {hasListings ? (
+            <div
+              className="flex gap-3 overflow-x-auto pb-2"
+              role="region"
+              aria-label="South Florida market listings"
+            >
+              {listings.map((l) => (
+                <div
+                  key={l.id}
+                  className="flex-shrink-0 border border-white/10 bg-[#111F38] px-3 py-2"
+                  style={{ minWidth: 220 }}
+                >
+                  <div className="font-serif text-sm font-bold text-gold">{formatPrice(l.price)}</div>
+                  <div className="font-sans text-[11px] text-white/70 truncate">{l.address}</div>
+                  <div className="font-mono text-[9px] text-white/35 uppercase">{l.city}, FL</div>
+                  <div className="font-mono text-[9px] text-white/35">
+                    {l.beds}bd · {l.baths}ba{l.sqft > 0 ? ` · ${l.sqft.toLocaleString()} sf` : ""}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <TickerMessage message={feedStatus === "loading" ? "Connecting to South Florida MLS market feed..." : unavailableMessage} />
+          )}
         </div>
       </div>
     );
   }
 
-  /* ── Animated ticker ────────────────────────────────────────── */
   const doubled = [...listings, ...listings];
 
   return (
@@ -161,15 +189,13 @@ export function MLSTicker() {
         role="region"
         aria-label="South Florida market tape"
       >
-        {/* Header band */}
         <div className="relative overflow-hidden border-b border-white/10 py-2">
-          {/* Status badge — right edge */}
           <span className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 font-mono text-[9px] uppercase tracking-widest px-2 py-0.5 ${
             isLive
               ? "bg-emerald-500/15 text-emerald-400"
               : "bg-gold/10 text-gold/70"
           }`}>
-            {isLive ? "● Live" : "● Market Data"}
+            {statusBadge}
           </span>
           <div className="overflow-hidden">
             <div className="mls-header-track" aria-hidden="true">
@@ -185,21 +211,32 @@ export function MLSTicker() {
           </div>
         </div>
 
-        {/* Property row */}
         <div className="overflow-hidden bg-[#0D1E38] py-3">
-          <div className="mls-row-track gap-4 px-2">
-            {listings.map((l) => (
-              <Fragment key={l.id}><ListingCard l={l} /></Fragment>
-            ))}
-            <div aria-hidden="true" className="contents">
-              {doubled.slice(listings.length).map((l, idx) => (
-                <Fragment key={`dup-${l.id}-${idx}`}><ListingCard l={l} /></Fragment>
+          {hasListings ? (
+            <div className="mls-row-track gap-4 px-2">
+              {listings.map((l) => (
+                <Fragment key={l.id}><ListingCard l={l} /></Fragment>
               ))}
+              <div aria-hidden="true" className="contents">
+                {doubled.slice(listings.length).map((l, idx) => (
+                  <Fragment key={`dup-${l.id}-${idx}`}><ListingCard l={l} /></Fragment>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <TickerMessage message={feedStatus === "loading" ? "Connecting to South Florida MLS market feed..." : unavailableMessage} />
+          )}
         </div>
       </div>
     </>
+  );
+}
+
+function TickerMessage({ message }: { message: string }) {
+  return (
+    <div className="mx-auto flex min-h-[84px] max-w-7xl items-center justify-center px-6 text-center">
+      <p className="font-sans text-sm leading-relaxed text-white/55">{message}</p>
+    </div>
   );
 }
 

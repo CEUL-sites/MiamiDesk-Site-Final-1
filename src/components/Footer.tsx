@@ -1,12 +1,4 @@
-import { CONTACT, NAVIGATION, URG_CITIES } from "../constants";
-
-const toSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
-
-const MARKETS_BY_COUNTY = [
-  { label: "Miami-Dade County", cities: URG_CITIES.filter((c) => c.region === "Miami-Dade County") },
-  { label: "Broward County", cities: URG_CITIES.filter((c) => c.region === "Broward County") },
-  { label: "Palm Beach County", cities: URG_CITIES.filter((c) => c.region === "Palm Beach County") },
-];
+import { CONTACT, NAVIGATION } from "../constants";
 
 const ticker = "SOUTH FLORIDA · MIAMI MLS · UNITED REALTY GROUP · MADRID · INTERNATIONAL · 25 YEARS · ";
 
@@ -71,31 +63,27 @@ export function Footer() {
         </div>
       </div>
 
-      {/* City market pages grid */}
       <div className="border-t border-white/5 px-6 py-10">
-        <div className="mx-auto max-w-7xl">
-          <h4 className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">
-            South Florida Market Reports
-          </h4>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {MARKETS_BY_COUNTY.map((county) => (
-              <div key={county.label}>
-                <p className="mb-3 font-mono text-[8px] uppercase tracking-[0.25em] text-white/30">
-                  {county.label}
-                </p>
-                <ul className="flex flex-wrap gap-x-5 gap-y-2">
-                  {county.cities.map((c) => (
-                    <li key={c.city}>
-                      <a
-                        href={`/market/${toSlug(c.city)}`}
-                        className="font-sans text-xs text-white/45 transition-colors hover:text-gold"
-                      >
-                        {c.city}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-center">
+          <div>
+            <h4 className="font-mono mb-4 text-[10px] uppercase tracking-[0.28em] text-gold">
+              Markets
+            </h4>
+            <p className="max-w-xl font-sans text-sm leading-relaxed text-white/48">
+              South Florida and Madrid advisory supported by United Realty Group, local
+              professionals, and cross-border coordination for sellers, buyers, investors,
+              and referral partners.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 md:justify-end">
+            {["South Florida", "Madrid", "International Referrals"].map((market) => (
+              <a
+                key={market}
+                href="/markets"
+                className="border border-gold/20 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/50 transition-colors hover:border-gold hover:text-gold"
+              >
+                {market}
+              </a>
             ))}
           </div>
         </div>
@@ -111,6 +99,7 @@ export function Footer() {
             <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/35">
               <a href="/sell" className="transition-colors hover:text-gold">Sellers</a>
               <a href="/sell#reach" className="transition-colors hover:text-gold">Reach</a>
+              <a href="/markets" className="transition-colors hover:text-gold">Markets</a>
               <a href="/spain-desk" className="transition-colors hover:text-gold">Spain Desk</a>
               <a href="/contact" className="transition-colors hover:text-gold">Contact</a>
               <a href="/privacy" className="transition-colors hover:text-gold">Privacy</a>

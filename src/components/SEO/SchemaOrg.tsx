@@ -21,7 +21,7 @@ const sitewideSchema: JsonLdSchema[] = [
     publisher: { "@id": `${SITE_URL}/#agent` },
     potentialAction: {
       "@type": "SearchAction",
-      target: `${SITE_URL}/market/{search_term_string}`,
+      target: `${SITE_URL}/markets?query={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   },
@@ -56,22 +56,6 @@ const sitewideSchema: JsonLdSchema[] = [
     image: CONTACT.headshot,
     priceRange: "Consultation available by request",
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
-    hasCredential: [
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "license",
-        name: "Florida Real Estate License SL705771",
-        recognizedBy: {
-          "@type": "Organization",
-          name: "Florida Department of Business and Professional Regulation",
-        },
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "certification",
-        name: "Certified Luxury Home Marketing Specialist (CLHMS)",
-      },
-    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: "15951 SW 41 St #700",
@@ -84,20 +68,11 @@ const sitewideSchema: JsonLdSchema[] = [
       "Miami-Dade County",
       "Broward County",
       "Palm Beach County",
-      "Miami",
-      "Coral Gables",
-      "Brickell",
-      "Miami Beach",
-      "Aventura",
-      "Weston",
-      "Doral",
-      "Fort Lauderdale",
-      "Boca Raton",
+      "South Florida",
       "Madrid",
       "Spain",
       "Latin America",
     ],
-    openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
     contactPoint: [
       {
         "@type": "ContactPoint",

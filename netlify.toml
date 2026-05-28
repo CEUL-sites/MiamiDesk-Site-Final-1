@@ -3,7 +3,6 @@
   publish = "dist"
   functions = "netlify/functions"
 
-# ── Scheduled weekly market feed refresh ───────────────────────────────────
 [functions."refresh-market-feed"]
   schedule = "@weekly"
 
@@ -14,20 +13,29 @@
 [context.production.environment]
   NODE_VERSION = "22"
 
-# ── Canonical redirect: www → non-www (301 permanent) ──────────────────────
 [[redirects]]
   from = "https://www.homesprofessional.com/*"
   to = "https://homesprofessional.com/:splat"
   status = 301
   force = true
 
-# ── SPA client-side routing ────────────────────────────────────────────────
+[[redirects]]
+  from = "/market"
+  to = "/markets"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/market/*"
+  to = "/markets"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# ── HTTP Security Headers ───────────────────────────────────────────────────
 [[headers]]
   for = "/*"
   [headers.values]

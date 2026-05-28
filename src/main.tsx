@@ -1,17 +1,15 @@
 import './i18n';
 import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
 import { CookieBanner } from './components/CookieBanner';
 import { Analytics } from './components/Analytics';
 import './index.css';
 
-// Eager — homepage is the entry point, must be in the initial bundle
 import HomePage from './pages/HomePage';
 
-// Lazy — all other pages split into separate chunks loaded on demand
 const SellersPage        = lazy(() => import('./pages/SellersPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
@@ -19,7 +17,7 @@ const SpainDeskPage      = lazy(() => import('./pages/SpainDeskPage'));
 const ContactPage        = lazy(() => import('./pages/ContactPage'));
 const ListingsPage       = lazy(() => import('./pages/ListingsPage'));
 const AboutPage          = lazy(() => import('./pages/AboutPage'));
-const CityMarketPage     = lazy(() => import('./pages/market/CityMarketPage'));
+const MarketPage         = lazy(() => import('./pages/MarketPage'));
 const PrivacyPage        = lazy(() => import('./pages/PrivacyPage'));
 const TermsPage          = lazy(() => import('./pages/TermsPage'));
 const SellerThanksPage   = lazy(() => import('./pages/thanks/SellerThanksPage'));
@@ -58,7 +56,9 @@ if (rootElement) {
                 <Route path="/contact"            element={<ContactPage />} />
                 <Route path="/listings"           element={<ListingsPage />} />
                 <Route path="/about"              element={<AboutPage />} />
-                <Route path="/market/:city"       element={<CityMarketPage />} />
+                <Route path="/markets"            element={<MarketPage />} />
+                <Route path="/market"             element={<Navigate to="/markets" replace />} />
+                <Route path="/market/:city"       element={<Navigate to="/markets" replace />} />
                 <Route path="/privacy"            element={<PrivacyPage />} />
                 <Route path="/terms"              element={<TermsPage />} />
                 <Route path="/thanks/seller"      element={<SellerThanksPage />} />
@@ -72,7 +72,7 @@ if (rootElement) {
                 <Route path="/es/agentes"         element={<EsAgentesPage />} />
                 <Route path="/es/gracias/agente"  element={<EsGraciasAgentePage />} />
                 <Route path="/es/spain-desk"      element={<EsSpainDeskPage />} />
-<Route path="*"                   element={<NotFoundPage />} />
+                <Route path="*"                   element={<NotFoundPage />} />
               </Routes>
             </Suspense>
             <Analytics />

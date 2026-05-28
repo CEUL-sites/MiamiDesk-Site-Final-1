@@ -23,8 +23,8 @@ export const CONTACT = {
   stats: {
     experience: "25",
     agents: "93,000",
-    offices: "19",
-    urgAgents: "3,000+",
+    offices: "20",
+    urgAgents: "3,500+",
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
   }
@@ -52,6 +52,7 @@ export const NAVIGATION = [
   { name: "Sellers", href: "/sell" },
   { name: "Buyers", href: "/buy" },
   { name: "Agents", href: "/agents" },
+  { name: "Markets", href: "/markets" },
   { name: "Spain Desk", href: "/spain-desk" },
   { name: "Journal", href: "/journal" },
   { name: "Contact", href: "/contact" },
@@ -61,9 +62,9 @@ export const ASSOCIATION_STATS = {
   memberCount: 93000,
   globalPortals: 200,
   languages: 19,
-  usMls: 385,
+  usMls: 260,
   internationalAgreements: 437,
-  urgOffices: 19,
+  urgOffices: 20,
   mlsDataExchanges: 11,
   mergerDate: "May 11, 2026",
   associationName: "Miami and South Florida REALTORS®"
@@ -96,4 +97,3 @@ export const URG_CITIES = [
   { city: "Kendall", region: "Miami-Dade County" },
   { city: "Homestead", region: "Miami-Dade County" },
 ];
-
