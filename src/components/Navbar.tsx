@@ -54,7 +54,7 @@ export function Navbar() {
         <a
           href="/"
           aria-label="HomesProfessional.com — Carlos Uzcategui, United Realty Group"
-          className="flex flex-col leading-none gap-0.5"
+          className="flex shrink-0 flex-col leading-none gap-0.5"
         >
           {/* Brokerage — primary */}
           <span
@@ -77,14 +77,14 @@ export function Navbar() {
         </a>
 
         {/* ── Desktop nav ───────────────────────────────────────── */}
-        <div className="hidden items-center gap-6 xl:flex">
+        <div className="hidden flex-1 items-center justify-center gap-5 xl:flex">
           {NAVIGATION.map((item) => {
             const active = item.href === location.pathname;
             return (
               <a
                 key={item.name}
                 href={item.href}
-                className={`font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+                className={`font-mono text-[10px] uppercase tracking-[0.12em] transition-colors duration-200 whitespace-nowrap ${
                   active
                     ? "text-gold"
                     : navText
@@ -100,7 +100,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMarketsOpen((v) => !v)}
-              className={`inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 ${
+              className={`inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] transition-colors duration-200 whitespace-nowrap ${
                 marketsOpen ? "text-gold" : navText
               }`}
             >
@@ -154,8 +154,8 @@ export function Navbar() {
         </div>
 
         {/* ── Desktop right actions ─────────────────────────────── */}
-        <div className="hidden items-center gap-4 lg:flex">
-          <LanguageSwitcher />
+        <div className="hidden shrink-0 items-center gap-4 lg:flex">
+          <LanguageSwitcher onLight={scrolled} />
 
           {/* Phone — clean tel link */}
           <a

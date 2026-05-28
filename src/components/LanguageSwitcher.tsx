@@ -22,7 +22,7 @@ const EN_TO_ES: Record<string, string> = {
   "/thanks/agent": "/es/gracias/agente",
 };
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ onLight = false }: { onLight?: boolean }) {
   const path =
     typeof window !== "undefined" ? window.location.pathname : "/";
 
@@ -39,7 +39,10 @@ export function LanguageSwitcher() {
   const baseClass =
     "font-mono text-[9px] uppercase tracking-[0.22em] px-2 py-1 transition-colors duration-200";
   const activeClass = "text-gold font-semibold";
-  const inactiveClass = "text-white/45 hover:text-gold";
+  const inactiveClass = onLight
+    ? "text-navy/45 hover:text-gold"
+    : "text-white/45 hover:text-gold";
+  const dividerClass = onLight ? "text-navy/20 text-[9px]" : "text-white/20 text-[9px]";
 
   return (
     <div className="flex items-center gap-1" aria-label="Language selector">
@@ -51,7 +54,7 @@ export function LanguageSwitcher() {
       >
         EN
       </a>
-      <span className="text-white/20 text-[9px]" aria-hidden="true">
+      <span className={dividerClass} aria-hidden="true">
         |
       </span>
       <a
