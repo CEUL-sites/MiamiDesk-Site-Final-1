@@ -12,6 +12,7 @@ import { InternationalBridge } from "../components/InternationalBridge";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { CONTACT } from "../constants";
 
 export default function HomePage() {
   return (
@@ -35,6 +36,55 @@ export default function HomePage() {
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "RealEstateAgent",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": CONTACT.name,
+          "image": CONTACT.headshot,
+          "description": "Florida Licensed REALTOR® with 25 years of South Florida market experience. Seller advisory, buyer representation, and international connectivity. 93,000-member association network. Licensed since 2001.",
+          "url": "https://homesprofessional.com",
+          "telephone": CONTACT.phoneUS,
+          "email": CONTACT.email,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "15951 SW 41 St #700",
+            "addressLocality": "Weston",
+            "addressRegion": "FL",
+            "postalCode": "33331",
+            "addressCountry": "US"
+          },
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "license",
+              "name": "Florida Real Estate Salesperson License SL705771"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "certification",
+              "name": "Certified Luxury Home Marketing Specialist (CLHMS)"
+            }
+          ],
+          "memberOf": { "@type": "Organization", "name": "Miami and South Florida REALTORS®" },
+          "worksFor": { "@type": "RealEstateOrganization", "name": "United Realty Group" },
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Miami-Dade County" },
+            { "@type": "AdministrativeArea", "name": "Broward County" },
+            { "@type": "AdministrativeArea", "name": "Palm Beach County" }
+          ],
+          "knowsLanguage": ["en", "es"],
+          "sameAs": [CONTACT.linkedin]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://homesprofessional.com/#website",
+          "url": "https://homesprofessional.com",
+          "name": "HomesProfessional.com",
+          "description": "South Florida real estate advisory — seller strategy, buyer representation, and international market connectivity.",
+          "publisher": { "@id": "https://homesprofessional.com/#agent" }
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

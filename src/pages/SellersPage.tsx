@@ -28,6 +28,7 @@ export default function SellersPage() {
         <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="HomesProfessional.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your South Florida Home | Seller Strategy Review | United Realty Group" />
         <meta name="twitter:description" content="Senior seller advisory: pricing discipline, professional MLS positioning, buyer-agent visibility across South Florida. 93,000+ agents. Free strategy review." />

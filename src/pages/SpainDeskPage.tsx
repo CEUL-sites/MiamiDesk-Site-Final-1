@@ -25,6 +25,7 @@ export default function SpainDeskPage() {
         <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="HomesProfessional.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Spain to South Florida Real Estate | Bilingual Advisory | United Realty Group" />
         <meta name="twitter:description" content="Bilingual advisory for Spain and LATAM owners activating U.S. MLS listings. Reach 93,000+ South Florida agents from day one." />
