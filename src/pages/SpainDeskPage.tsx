@@ -41,7 +41,7 @@ export default function SpainDeskPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <section className="bg-navy-deep py-24 text-center">
+        <section className="bg-navy-deep py-16 md:py-20 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Mesa España · United Realty Group</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
             From Madrid to Miami.<br />

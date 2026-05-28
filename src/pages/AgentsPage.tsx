@@ -34,7 +34,7 @@ export default function AgentsPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <section className="overflow-hidden bg-navy-deep px-6 py-24 text-center sm:px-10">
+        <section className="overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Agent Referral Program · United Realty Group</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
             Refer Your South Florida Clients.<br />
@@ -44,7 +44,7 @@ export default function AgentsPage() {
             Licensed agents from any state or country: send us your South Florida buyers and sellers. We handle the transaction and pay your referral fee at closing.
           </p>
         </section>
-        <section className="py-16 md:py-24">
+        <section className="py-10 md:py-14">
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-8 md:grid-cols-3">
               {[

@@ -209,7 +209,7 @@ export function SpainMiamiJourney() {
         /* header */
         .smj-header {
           text-align: center;
-          padding: 80px 20px 60px;
+          padding: 48px 20px 36px;
           opacity: 0;
           transform: translateY(30px);
           transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
@@ -238,7 +238,7 @@ export function SpainMiamiJourney() {
         /* timeline */
         .smj-timeline {
           position: relative;
-          padding: 20px 0 60px;
+          padding: 16px 0 40px;
         }
         .smj-line-container {
           position: absolute;
@@ -357,7 +357,7 @@ export function SpainMiamiJourney() {
         /* footer */
         .smj-footer {
           text-align: center;
-          padding: 60px 20px 100px;
+          padding: 40px 20px 60px;
           opacity: 0;
           transform: translateY(20px);
           transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
@@ -398,7 +398,7 @@ export function SpainMiamiJourney() {
           .smj-node  { width: 36px; height: 36px; }
           .smj-footer-stats { gap: 20px; }
           .smj-stat-n { font-size: 24px; }
-          .smj-header { padding: 56px 0 40px; }
+          .smj-header { padding: 36px 0 24px; }
         }
         @media (prefers-reduced-motion: reduce) {
           .smj-header, .smj-footer, .smj-step { transition: none; }

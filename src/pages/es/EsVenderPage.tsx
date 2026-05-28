@@ -137,7 +137,7 @@ export default function EsVenderPage() {
         <Navbar />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-24 text-center">
+        <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20 text-center">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
 

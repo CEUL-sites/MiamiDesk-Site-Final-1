@@ -55,7 +55,7 @@ export function BuyersRelocation() {
     <section id="buyers" className="bg-bone-warm">
 
       {/* LANE 1 — SOUTH FLORIDA BUYERS */}
-      <div className="py-24 border-b border-bone">
+      <div className="py-14 md:py-20 border-b border-bone">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-end mb-16">
             <div>
@@ -118,7 +118,7 @@ export function BuyersRelocation() {
       </div>
 
       {/* LANE 2 — SPAIN / MADRID BUYERS */}
-      <div className="py-24 bg-navy">
+      <div className="py-14 md:py-20 bg-navy">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-end mb-16">
             <div>

@@ -121,7 +121,7 @@ export default function EsSpainDeskPage() {
         <Navbar />
 
         {/* ─── Hero ────────────────────────────────────────────────── */}
-        <section className="bg-navy-deep py-24 text-center">
+        <section className="bg-navy-deep py-16 md:py-20 text-center">
           <div className="mx-auto max-w-4xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
               {/* TODO: native Madrid editor review */}
