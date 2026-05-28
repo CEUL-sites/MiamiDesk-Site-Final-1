@@ -270,7 +270,7 @@ export default function EsVenderPage() {
             </div>
             <p className="mt-8 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-white/25">
               {/* TODO: native Madrid editor review */}
-              Cifras correspondientes a la Asociación de REALTORS® de Miami y Sur de Florida · United Realty Group · 2025
+              Cifras correspondientes a la Asociación de REALTORS® de Miami y Sur de Florida · United Realty Group · 2026
             </p>
           </div>
         </section>
@@ -309,7 +309,7 @@ export default function EsVenderPage() {
                 <p className="mt-4 font-sans text-sm leading-relaxed text-navy-deep/60">
                   {/* TODO: native Madrid editor review */}
                   Licencia FL SL705771 activa desde hace 25 años. United Realty
-                  Group opera 19 oficinas en Florida con más de 3.000 agentes.
+                  Group opera 20 oficinas en Florida con más de 3.500 agentes.
                   Esa profundidad de red se traduce directamente en mayor acceso
                   a compradores calificados para su propiedad.
                 </p>
