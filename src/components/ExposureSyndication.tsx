@@ -78,7 +78,7 @@ const TIER_CLASSES: Record<1 | 2 | 3, string> = {
 const BOTTOM_STATS = [
   { value: "200+", label: "Global Portals" },
   { value: "19",   label: "Languages" },
-  { value: "385",  label: "U.S. MLSs via RPR" },
+  { value: "260+", label: "U.S. MLSs via RPR" },
   { value: "437+", label: "Intl. Agreements" },
 ];
 

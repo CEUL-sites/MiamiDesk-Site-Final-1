@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: "How long does it take to sell in South Florida?",
-    a: "In 2025, Miami-Dade properties priced $500K–$1.5M are moving in 30–60 days with correct positioning. Above $2M, typical cycles run 60–120 days. We provide a neighborhood-specific timeline assessment as part of every seller strategy review — free, no listing commitment required.",
+    a: "In 2026, Miami-Dade properties priced $500K–$1.5M are moving in 30–60 days with correct positioning. Above $2M, typical cycles run 60–120 days. We provide a neighborhood-specific timeline assessment as part of every seller strategy review — free, no listing commitment required.",
   },
   {
     q: "Can a Spanish property be listed in the Miami MLS?",

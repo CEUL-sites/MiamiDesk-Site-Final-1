@@ -12,12 +12,12 @@ const TOP_STATS = [
     desc: "Professional MLS access through the Miami and South Florida REALTORS® — 93,000 member agents representing active buyer demand across the region.",
   },
   {
-    value: 19,
-    display: "19",
+    value: 20,
+    display: "20",
     suffix: "",
     label: "Florida Offices",
     sublabel: "United Realty Group",
-    desc: "United Realty Group maintains 19 active offices across Florida — local presence in every South Florida market.",
+    desc: "United Realty Group maintains 20 active offices across Florida — local presence in every South Florida market.",
   },
   {
     value: 200,
@@ -31,8 +31,8 @@ const TOP_STATS = [
 
 const BOTTOM_STATS = [
   {
-    value: 385,
-    display: "385",
+    value: 260,
+    display: "260",
     suffix: "+",
     label: "U.S. MLSs",
     sublabel: "via RPR National Exchange",
@@ -166,7 +166,7 @@ export const ReachAdvantage = () => {
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {[
             { v: "#1", l: "Realtor Assoc. in the U.S." },
-            { v: "19", l: "Florida Offices" },
+            { v: "20", l: "Florida Offices" },
             { v: "Day 1", l: "Full activation" },
             { v: "CLHMS", l: "Luxury certified" },
           ].map((item) => (

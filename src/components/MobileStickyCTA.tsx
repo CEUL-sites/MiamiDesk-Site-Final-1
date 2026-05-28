@@ -1,6 +1,7 @@
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CONTACT } from "../constants";
+import { pushEvent } from "../lib/analytics";
 
 export function MobileStickyCTA() {
   const [hidden, setHidden] = useState(false);
@@ -21,21 +22,41 @@ export function MobileStickyCTA() {
 
   return (
     <div className="pointer-events-none fixed bottom-5 left-0 right-0 z-50 flex justify-center lg:hidden">
-      <div className="pointer-events-auto flex items-center gap-2 rounded-full border border-gold/25 bg-navy-deep/92 px-3 py-2 shadow-2xl shadow-black/60 backdrop-blur-md">
+      <div
+        className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-gold/25 bg-navy-deep/92 px-2.5 py-1.5 shadow-2xl shadow-black/60 backdrop-blur-md"
+        role="navigation"
+        aria-label="Quick contact options"
+      >
+        {/* Call — tap target ≥ 44px */}
+        <a
+          href={CONTACT.phoneUSLink}
+          aria-label={`Call Carlos at ${CONTACT.phoneUSDisplay}`}
+          onClick={() => pushEvent("tel_click", { destination: CONTACT.phoneUSLink, location: "mobile_sticky_cta" })}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/85 transition-all duration-100 active:scale-95"
+        >
+          <Phone size={15} className="text-gold" aria-hidden="true" />
+        </a>
+
+        {/* WhatsApp */}
         <a
           href={CONTACT.whatsappUS}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-white/85 transition-all duration-100 active:scale-95"
+          aria-label="Message Carlos on WhatsApp"
+          onClick={() => pushEvent("whatsapp_click_us", { destination: CONTACT.whatsappUS, location: "mobile_sticky_cta" })}
+          className="flex h-11 items-center gap-2 rounded-full border border-white/15 px-4 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-white/85 transition-all duration-100 active:scale-95"
         >
-          <MessageSquare size={13} className="text-gold" />
+          <MessageSquare size={13} className="text-gold" aria-hidden="true" />
           WhatsApp
         </a>
+
+        {/* Primary CTA */}
         <a
           href="/contact"
-          className="flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
+          className="flex h-11 items-center gap-2 rounded-full bg-gold px-5 font-sans text-[10px] font-bold uppercase tracking-[0.14em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
+          aria-label="Request a Seller Strategy Review"
         >
-          Seller Strategy Review
+          Seller Review
         </a>
       </div>
     </div>

@@ -22,6 +22,11 @@ function handleGlobalClick(e: MouseEvent) {
     pushEvent("whatsapp_click_madrid", { destination: href });
   }
 
+  // Tel: click-to-call events
+  if (href.startsWith("tel:")) {
+    pushEvent("tel_click", { destination: href, location: "global" });
+  }
+
   // Lead magnet download events
   if (target.hasAttribute("download")) {
     const url = target.getAttribute("href") ?? "";
