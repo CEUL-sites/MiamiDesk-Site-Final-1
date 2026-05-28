@@ -97,7 +97,7 @@ const DISTRIBUTION_STATS = [
     label: "Idiomas",
   },
   {
-    value: "385",
+    value: "260+",
     // TODO: native Madrid editor review
     label: "MLSs en EE. UU.",
   },
@@ -176,7 +176,7 @@ export default function EsVenderPage() {
                 25 años de transacciones en Sur de Florida. Cada exclusiva
                 activa la red de la mayor asociación local de REALTORS® del
                 mundo — 93.000 agentes miembros, más de 200 portales globales
-                en 19 idiomas, 385 MLSs en EE. UU. a través de RPR — el mismo
+                en 19 idiomas, 260+ MLSs en EE. UU. a través de RPR — el mismo
                 día del lanzamiento.
               </motion.p>
 

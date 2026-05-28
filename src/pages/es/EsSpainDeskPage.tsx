@@ -205,7 +205,7 @@ export default function EsSpainDeskPage() {
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
-                <div className="font-serif text-4xl text-navy-deep">385</div>
+                <div className="font-serif text-4xl text-navy-deep">260+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
                   {/* TODO: native Madrid editor review */}
                   MLSs en EE.UU. vía RPR

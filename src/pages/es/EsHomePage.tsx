@@ -129,7 +129,7 @@ export default function EsHomePage() {
                 25 años de transacciones inmobiliarias en Sur de Florida.
                 Cada propiedad en exclusiva activa la red de la mayor asociación
                 local de REALTORS® del mundo — 93,000 agentes miembros, más de
-                200 portales globales en 19 idiomas, 385 MLSs en EE. UU. a
+                200 portales globales en 19 idiomas, 260+ MLSs en EE. UU. a
                 través de RPR — de forma simultánea, desde el primer día.
               </motion.p>
 

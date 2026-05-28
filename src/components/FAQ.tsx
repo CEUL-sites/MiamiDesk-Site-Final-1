@@ -47,19 +47,25 @@ export function FAQ() {
             <div key={i}>
               <button
                 type="button"
+                id={`faq-btn-${i}`}
+                aria-controls={`faq-panel-${i}`}
                 onClick={() => setOpen(open === i ? null : i)}
-                className="flex w-full items-start justify-between gap-6 py-6 text-left"
+                className="flex w-full items-start justify-between gap-6 py-6 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                 aria-expanded={open === i}
               >
                 <span className="font-serif text-lg text-white leading-snug">{faq.q}</span>
                 <ChevronDown
                   size={20}
+                  aria-hidden="true"
                   className={`mt-0.5 flex-shrink-0 text-gold transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}
                 />
               </button>
               <AnimatePresence initial={false}>
                 {open === i && (
                   <motion.div
+                    id={`faq-panel-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-btn-${i}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

@@ -382,7 +382,7 @@ export default function CityMarketPage() {
               {[
                 { value: "200+", label: "Global Websites" },
                 { value: "19", label: "Languages" },
-                { value: "385", label: "U.S. MLSs via RPR" },
+                { value: "260+", label: "U.S. MLSs via RPR" },
                 { value: "$69B", label: "2025 Volume" },
               ].map((item, i) => (
                 <div
