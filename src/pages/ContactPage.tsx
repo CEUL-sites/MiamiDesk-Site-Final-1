@@ -53,7 +53,7 @@ export default function ContactPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Desk</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Send us a message</h2>
             </div>
-            <LeadForm />
+            <LeadForm leadSource="contact-page" />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity

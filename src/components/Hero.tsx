@@ -23,6 +23,7 @@ const PILLS = [
 
 const REACH_STATS = [
   { value: "93,000+", label: "Member Agents"        },
+  { value: "$69B",    label: "2025 Volume"           },
   { value: "200+",    label: "Global Portals"        },
   { value: "19",      label: "Languages"             },
   { value: "260+",    label: "U.S. MLSs"             },
@@ -252,7 +253,7 @@ export function Hero() {
         >
           Real estate is local.
           <br />
-          <em className="not-italic italic text-gold">Peak price is global.</em>
+          <em className="not-italic italic text-gold">Peak value is global.</em>
         </motion.h1>
 
         {/* Gold rule */}

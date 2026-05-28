@@ -17,6 +17,17 @@ export default function SpainDeskPage() {
         <link rel="canonical" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/spain-desk" />
+        <meta property="og:title" content="Spain to South Florida Real Estate | Bilingual Advisory | United Realty Group" />
+        <meta property="og:description" content="Bilingual advisory for Spain and LATAM owners activating U.S. MLS listings. Reach 93,000+ South Florida agents from day one. Carlos Uzcategui · FL SL705771 · United Realty Group." />
+        <meta property="og:url" content="https://homesprofessional.com/spain-desk" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Spain to South Florida Real Estate | Bilingual Advisory | United Realty Group" />
+        <meta name="twitter:description" content="Bilingual advisory for Spain and LATAM owners activating U.S. MLS listings. Reach 93,000+ South Florida agents from day one." />
+        <meta name="twitter:image" content="https://homesprofessional.com/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
@@ -84,7 +95,7 @@ export default function SpainDeskPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Consulta Privada</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Start your South Florida search</h2>
             </div>
-            <LeadForm />
+            <LeadForm leadSource="spain-desk-page" />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity

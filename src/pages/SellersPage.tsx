@@ -18,6 +18,17 @@ export default function SellersPage() {
         <meta name="description" content="Senior seller advisory: pricing discipline, professional MLS positioning, buyer-agent visibility, and expanded exposure infrastructure across South Florida. Free strategy review — Carlos Uzcategui · FL SL705771." />
         <meta name="keywords" content="sell home South Florida, sell house Miami, Miami MLS listing, Coral Gables realtor, Brickell condo for sale, Miami Beach seller agent, Weston home for sale, South Florida listing agent, United Realty Group" />
         <link rel="canonical" href="https://homesprofessional.com/sell" />
+        <meta property="og:title" content="Sell Your South Florida Home | Seller Strategy Review | United Realty Group" />
+        <meta property="og:description" content="Senior seller advisory: pricing discipline, professional MLS positioning, buyer-agent visibility across South Florida. 93,000+ agents. 200+ global portals. Free strategy review — FL SL705771." />
+        <meta property="og:url" content="https://homesprofessional.com/sell" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Sell Your South Florida Home | Seller Strategy Review | United Realty Group" />
+        <meta name="twitter:description" content="Senior seller advisory: pricing discipline, professional MLS positioning, buyer-agent visibility across South Florida. 93,000+ agents. Free strategy review." />
+        <meta name="twitter:image" content="https://homesprofessional.com/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

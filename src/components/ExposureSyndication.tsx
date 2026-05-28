@@ -1,4 +1,3 @@
-// src/components/ExposureSyndication.tsx
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 
@@ -178,6 +177,14 @@ export const ExposureSyndication = () => {
         <p className="font-mono text-center text-[9px] uppercase tracking-[0.22em] text-white/40 mt-5">
           Source: Miami and South Florida REALTORS® · Verified syndication data
         </p>
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center pb-4">
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-navy transition-all hover:bg-gold-soft hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          >
+            Activate Your Listing in the Miami MLS
+          </a>
+        </div>
       </div>
     </section>
   );

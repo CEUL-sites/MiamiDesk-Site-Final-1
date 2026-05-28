@@ -165,8 +165,9 @@ export const ReachAdvantage = () => {
       >
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {[
-            { v: "#1", l: "Realtor Assoc. in the U.S." },
-            { v: "20", l: "Florida Offices" },
+            { v: "#1",   l: "Realtor Assoc. in the U.S." },
+            { v: "20",   l: "Florida Offices" },
+            { v: "$69B", l: "2025 Volume" },
             { v: "Day 1", l: "Full activation" },
             { v: "CLHMS", l: "Luxury certified" },
           ].map((item) => (
@@ -206,6 +207,28 @@ export const ReachAdvantage = () => {
           <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/55">{CONTACT.shortLicense}</p>
           <span className="h-px w-14 bg-gold/35" />
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+        >
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-3 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-navy transition-all hover:bg-gold-soft hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          >
+            Request a Seller Strategy Review
+          </a>
+          <a
+            href={CONTACT.whatsappUS}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-gold/35 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-gold/75 transition-colors hover:border-gold hover:text-gold"
+          >
+            Open a WhatsApp Conversation
+          </a>
+        </motion.div>
       </div>
 
     </section>

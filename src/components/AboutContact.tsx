@@ -90,7 +90,7 @@ export function AboutContact() {
         </div>
 
         <div className="lg:sticky lg:top-24 lg:self-start">
-          <LeadForm />
+          <LeadForm leadSource="about-contact-section" />
           <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/30">
             <BadgeCheck size={14} className="text-gold" />
             Confidential · Licensed Professionals · Equal Housing Opportunity
