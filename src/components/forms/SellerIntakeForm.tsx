@@ -206,9 +206,9 @@ export function SellerIntakeForm() {
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">{label}</label>
+    <label className="flex flex-col gap-1.5">
+      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">{label}</span>
       {children}
-    </div>
+    </label>
   );
 }
