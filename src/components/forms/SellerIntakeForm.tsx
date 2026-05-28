@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { pushEvent } from "../../lib/analytics";
@@ -20,6 +20,7 @@ const INITIAL: Record<string, string> = {
   name: "", email: "", phone: "", propertyAddress: "", city: "",
   valueBand: "", occupancy: "", timeline: "", priorListing: "",
   preferredContact: "WhatsApp", source: "seller-intake",
+  utmSource: "", utmMedium: "", utmCampaign: "",
 };
 
 function encodeForm(data: Record<string, string>) {
@@ -30,6 +31,16 @@ export function SellerIntakeForm() {
   const [form, setForm] = useState(INITIAL);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
+
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search);
+    setForm((f) => ({
+      ...f,
+      utmSource: p.get("utm_source") ?? "",
+      utmMedium: p.get("utm_medium") ?? "",
+      utmCampaign: p.get("utm_campaign") ?? "",
+    }));
+  }, []);
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -45,7 +56,7 @@ export function SellerIntakeForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage: "seller-intake" }),
+        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage: window.location.pathname }),
       });
       if (!res.ok) throw new Error("submission_failed");
       // Trigger auto-reply
@@ -54,7 +65,8 @@ export function SellerIntakeForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "seller-intake", name: form.name, email: form.email, phone: form.phone }),
       }).catch(() => {});
-      pushEvent("form_submit_seller"); window.location.href = "/thanks/seller";
+      pushEvent("form_submit_seller", { form: "seller-intake", utm_source: form.utmSource, utm_medium: form.utmMedium, utm_campaign: form.utmCampaign });
+      window.location.href = "/thanks/seller";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

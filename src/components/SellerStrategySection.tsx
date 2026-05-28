@@ -155,6 +155,11 @@ const CSS = `
 .sss-keyhint.on { opacity:1; }
 .sss-key { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border:1px solid rgba(196,164,90,.25); border-radius:4px; font-size:11px; color:rgba(196,164,90,.5); }
 
+@media(prefers-reduced-motion:reduce){
+  .sss-node.on .sss-r1,.sss-node.on .sss-r2,.sss-node.on .sss-r3 { animation:none; }
+  .sss-cursor { animation:none; }
+  .sss-bubble,.sss-panel,.sss-stat,.sss-tf,.sss-tg { transition:none; }
+}
 /* responsive */
 @media(max-width:960px){
   .sss-page { padding:56px 28px 80px; }
@@ -198,6 +203,11 @@ export function SellerStrategySection() {
     const cv = canvasRef.current;
     const sec = sectionRef.current;
     if (!cv || !sec) return;
+    // Skip canvas animation when user prefers reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      cv.style.display = "none";
+      return;
+    }
 
     const cx = cv.getContext("2d")!;
     let W = 0, H = 0, t = 0;
