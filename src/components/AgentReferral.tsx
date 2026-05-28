@@ -35,7 +35,7 @@ const REFERRAL_TYPES = [
 
 export function AgentReferral() {
   return (
-    <section id="referral" className="border-t border-gold/20 bg-ivory py-14 md:py-24">
+    <section id="referral" className="border-t border-gold/20 bg-ivory py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20 lg:items-start">
 

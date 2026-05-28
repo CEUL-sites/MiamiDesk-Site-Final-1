@@ -204,7 +204,7 @@ export function PropertyMarketFeed() {
   const listings: BridgeListing[] = data?.value ?? [];
 
   return (
-    <section className="bg-navy-deep py-16 md:py-24">
+    <section className="bg-navy-deep py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Header */}

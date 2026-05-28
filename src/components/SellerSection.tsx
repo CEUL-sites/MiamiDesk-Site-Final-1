@@ -12,7 +12,7 @@ const STEPS = [
 
 export function SellerSection() {
   return (
-    <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-14 md:py-24 text-white">
+    <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-12 md:py-16 text-white">
       {/* Background — gradient base, photo fades in on top when available */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(20,45,90,0.8),transparent_55%)]" />
       <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" aria-hidden="true" />
@@ -43,7 +43,7 @@ export function SellerSection() {
           ))}
         </div>
 
-        <div className="mt-20 bg-navy-deep px-6 py-12 text-center ring-1 ring-white/10">
+        <div className="mt-12 bg-navy-deep px-6 py-10 text-center ring-1 ring-white/10">
           <h3 className="font-serif text-3xl italic text-white">Ready to position your South Florida property correctly?</h3>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <a href="/contact" className="inline-flex items-center justify-center bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">Request a Private Seller Strategy Review</a>

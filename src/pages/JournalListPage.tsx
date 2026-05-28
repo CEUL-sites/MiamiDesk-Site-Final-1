@@ -42,7 +42,7 @@ export default function JournalListPage() {
         <Navbar />
 
         {/* Hero */}
-        <section className="bg-navy-deep pt-32 pb-20 text-center">
+        <section className="bg-navy-deep pt-20 pb-14 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
             Market Commentary · United Realty Group
           </p>
@@ -62,7 +62,7 @@ export default function JournalListPage() {
         {/* Post Grid */}
         <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
           {posts.length === 0 ? (
-            <div className="py-24 text-center">
+            <div className="py-14 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Coming Soon</p>
               <p className="mx-auto mt-4 max-w-md font-serif text-2xl text-navy">
                 The first analysis is in preparation. Check back soon.
