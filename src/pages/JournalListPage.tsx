@@ -35,6 +35,8 @@ export default function JournalListPage() {
           content="Quarterly market analysis and seller insights for South Florida real estate. Absorption rates, international capital flows, and positioning strategy by Carlos Uzcategui, United Realty Group."
         />
         <link rel="canonical" href="https://homesprofessional.com/journal" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/journal" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/journal" />
         <meta property="og:title" content="Market Journal | South Florida Real Estate | Carlos Uzcategui" />
         <meta property="og:description" content="Quarterly market analysis and seller insights for South Florida real estate. Absorption rates, international capital flows, and positioning strategy by Carlos Uzcategui, United Realty Group." />
         <meta property="og:url" content="https://homesprofessional.com/journal" />

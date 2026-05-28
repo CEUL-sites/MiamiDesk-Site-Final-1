@@ -15,6 +15,9 @@ export default function BuyersPage() {
         <meta name="description" content="Full MLS access across Miami-Dade, Broward, and Palm Beach. Expert buyer representation for primary homes, investment properties, and relocation. Free buyer consultation — United Realty Group · FL SL705771." />
         <meta name="keywords" content="buy home South Florida, Miami real estate buyer, Coral Gables homes for sale, Brickell condos, Miami Beach real estate, South Florida buyer agent, relocation Miami" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/buy" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/buy" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/comprar" />
         <meta property="og:title" content="Buy a Home in South Florida | MLS Buyer Representation | United Realty Group" />
         <meta property="og:description" content="Full MLS access across Miami-Dade, Broward, and Palm Beach. Expert buyer representation for primary homes, investment properties, and relocation. Free buyer consultation — United Realty Group · FL SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/buy" />

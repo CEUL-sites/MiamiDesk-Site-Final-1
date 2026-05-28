@@ -15,8 +15,9 @@ export default function SpainDeskPage() {
         <meta name="description" content="Bilingual (English/Spanish) real estate advisory for buyers from Spain and Latin America relocating to or investing in South Florida. Private consultations. United Realty Group · FL SL705771." />
         <meta name="keywords" content="Spain Miami real estate, comprar casa Miami, Spain to Florida property, Spain buyer Miami, bilingual realtor South Florida, Spanish speaking realtor Miami" />
         <link rel="canonical" href="https://homesprofessional.com/spain-desk" />
-        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:title" content="Spain to South Florida Real Estate | Bilingual Advisory | United Realty Group" />
         <meta property="og:description" content="Bilingual advisory for Spain and LATAM owners activating U.S. MLS listings. Reach 93,000+ South Florida agents from day one. Carlos Uzcategui · FL SL705771 · United Realty Group." />
         <meta property="og:url" content="https://homesprofessional.com/spain-desk" />

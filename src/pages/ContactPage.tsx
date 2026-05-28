@@ -15,6 +15,8 @@ export default function ContactPage() {
         <meta name="description" content="Contact Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group. Free seller strategy reviews, buyer consultations, agent referrals, and Spain desk inquiries. Call +1 954-865-6622." />
         <meta name="keywords" content="contact Carlos Uzcategui, South Florida realtor contact, United Realty Group contact, Miami real estate consultation" />
         <link rel="canonical" href="https://homesprofessional.com/contact" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/contact" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/contact" />
         <meta property="og:title" content="Contact Us | South Florida Real Estate | United Realty Group" />
         <meta property="og:description" content="Contact Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group. Free seller strategy reviews, buyer consultations, agent referrals, and Spain desk inquiries. Call +1 954-865-6622." />
         <meta property="og:url" content="https://homesprofessional.com/contact" />

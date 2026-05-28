@@ -7,6 +7,7 @@ import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { CITY_CONFIGS } from "../../config/cityMarkets";
 import { useCityMarket, type FeaturedListing } from "../../hooks/useCityMarket";
 import { formatPrice, formatPsf, formatNumber } from "../../lib/format";
+import { CONTACT } from "../../constants";
 
 // ── Skeleton shimmer ────────────────────────────────────────────────────────
 function Shimmer({ className = "" }: { className?: string }) {
@@ -123,7 +124,7 @@ function OffMarketCard({ cityName }: { key?: string; cityName: string }) {
         Contact us for off-market inventory in {cityName}
       </p>
       <a
-        href="https://wa.me/19548656622"
+        href={CONTACT.whatsappUS}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 border border-gold/50 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-navy"
@@ -433,7 +434,7 @@ export default function CityMarketPage() {
                 Schedule a consultation
               </a>
               <a
-                href="https://wa.me/19548656622"
+                href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-navy/40 px-8 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-navy/10"
