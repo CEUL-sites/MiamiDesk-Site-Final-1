@@ -19,6 +19,7 @@ export function NeoListingsEmbed() {
   return (
     <iframe
       id="NEOiframe"
+      loading="lazy"
       title="New Pre-Construction Developments — Miami and South Florida"
       style={{ width: "100%", height: "200vh", border: "none", display: "block" }}
     />

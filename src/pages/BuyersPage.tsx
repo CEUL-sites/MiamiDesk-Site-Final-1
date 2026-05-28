@@ -86,14 +86,14 @@ export default function BuyersPage() {
         </section>
         <BuyersRelocation />
         <section className="bg-white py-14 md:py-20">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">New Developments · Florida</p>
-              <h2 className="mt-3 font-serif text-3xl text-navy-deep">Pre-Construction &amp; New Developments</h2>
-              <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-slate-500">
-                Browse the latest new-construction projects across South Florida — updated in real time.
-              </p>
-            </div>
+          <div className="mx-auto max-w-5xl px-6 text-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">New Developments · Florida</p>
+            <h2 className="mt-3 font-serif text-3xl text-navy-deep">Pre-Construction &amp; New Developments</h2>
+            <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-slate-500">
+              Browse the latest new-construction projects across South Florida — updated in real time.
+            </p>
+          </div>
+          <div className="mt-8">
             <NeoListingsEmbed />
           </div>
         </section>
