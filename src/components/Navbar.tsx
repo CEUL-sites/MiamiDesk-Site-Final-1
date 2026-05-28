@@ -171,13 +171,13 @@ export function Navbar() {
           {/* Primary CTA */}
           <a
             href="/contact"
-            className={`inline-flex items-center px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-all duration-300 ${
+            className={`inline-flex items-center px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
               scrolled
                 ? "bg-navy text-white hover:bg-gold hover:text-navy"
                 : "border border-gold/60 text-white hover:bg-gold hover:text-navy"
             }`}
           >
-            Free Review
+            Strategy Review
           </a>
         </div>
 

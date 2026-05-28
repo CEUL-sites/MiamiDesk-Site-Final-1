@@ -34,6 +34,17 @@
   h1, h2, h3, h4 {
     @apply font-serif tracking-tight;
   }
+
+  /* Visible focus ring for keyboard navigation — suppressed for mouse/touch */
+  :focus-visible {
+    outline: 2px solid #B08D57;
+    outline-offset: 3px;
+  }
+
+  /* Remove default outline when focus-visible is handled */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 @layer components {

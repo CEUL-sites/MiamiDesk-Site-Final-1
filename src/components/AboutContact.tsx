@@ -74,16 +74,16 @@ export function AboutContact() {
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
-            <a href={CONTACT.whatsappUS} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold">
-              <Phone className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
+            <a href={CONTACT.phoneUSLink} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold" aria-label={`Call Carlos at ${CONTACT.phoneUSDisplay}`}>
+              <Phone className="text-gold flex-shrink-0" size={20} aria-hidden="true" />
+              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Call / WhatsApp</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
             </a>
-            <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold">
-              <Mail className="text-gold" size={20} />
+            <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold" aria-label={`Email Carlos at ${CONTACT.email}`}>
+              <Mail className="text-gold flex-shrink-0" size={20} aria-hidden="true" />
               <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Email</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.email}</div></div>
             </a>
             <div className="flex items-start gap-3 border border-bone bg-white p-5">
-              <MapPin className="text-gold" size={20} />
+              <MapPin className="text-gold flex-shrink-0" size={20} aria-hidden="true" />
               <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
             </div>
           </div>

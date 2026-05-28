@@ -51,9 +51,21 @@ export function Footer() {
         <div>
           <h4 className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">Contact</h4>
           <div className="space-y-4 font-sans text-sm text-white/55">
-            <p>Direct / WhatsApp: {CONTACT.phoneUS}</p>
-            <p>Spain WhatsApp: {CONTACT.phoneSpain}</p>
-            <p>{CONTACT.email}</p>
+            <p>
+              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
+                Direct / WhatsApp: {CONTACT.phoneUS}
+              </a>
+            </p>
+            <p>
+              <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
+                Spain WhatsApp: {CONTACT.phoneSpain}
+              </a>
+            </p>
+            <p>
+              <a href={`mailto:${CONTACT.email}`} className="hover:text-gold transition-colors">
+                {CONTACT.email}
+              </a>
+            </p>
             <p className="text-xs leading-relaxed">{CONTACT.address}</p>
             <p className="text-xs leading-relaxed">Brokerage office: {CONTACT.officePhoneUS}</p>
           </div>
