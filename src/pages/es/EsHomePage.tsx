@@ -60,7 +60,7 @@ export default function EsHomePage() {
         </script>
       </Helmet>
 
-      <main className="min-h-screen bg-white-soft grain-overlay">
+      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
@@ -88,7 +88,7 @@ export default function EsHomePage() {
             <div className="absolute inset-0 bg-navy-deep/55" />
           </div>
 
-          <div className="relative flex min-h-screen items-start pt-6 pb-14 px-6 sm:pt-10 sm:pb-24 sm:px-10 lg:px-20">
+          <div className="relative flex min-h-screen items-start pt-24 pb-14 px-6 sm:pt-28 sm:pb-24 sm:px-10 lg:px-20">
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -108,7 +108,7 @@ export default function EsHomePage() {
               <motion.h1
                 variants={itemVariants}
                 className="font-serif text-white leading-[1.05]"
-                style={{ fontSize: "clamp(3.2rem, 6vw, 6.5rem)", fontWeight: 400 }}
+                style={{ fontSize: "clamp(2.1rem, 6vw, 6.5rem)", fontWeight: 400 }}
               >
                 {/* TODO: native Madrid editor review */}
                 Los bienes raíces son locales.
@@ -144,7 +144,7 @@ export default function EsHomePage() {
               {/* Trust bar */}
               <motion.div
                 variants={itemVariants}
-                className="mx-auto mt-12 grid grid-cols-4 gap-6 border-t border-white/10 pt-9 sm:max-w-xl"
+                className="mx-auto mt-12 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-white/10 pt-9 sm:max-w-xl sm:grid-cols-4 sm:gap-6"
               >
                 {[
                   {
