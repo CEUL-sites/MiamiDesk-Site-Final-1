@@ -47,6 +47,8 @@ export default function JournalPostPage() {
         <title>{post.title} | Carlos Uzcategui · South Florida Real Estate</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://homesprofessional.com/journal/${post.slug}`} />
+        <link rel="alternate" hrefLang="x-default" href={`https://homesprofessional.com/journal/${post.slug}`} />
+        <link rel="alternate" hrefLang="en" href={`https://homesprofessional.com/journal/${post.slug}`} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={`https://homesprofessional.com/journal/${post.slug}`} />

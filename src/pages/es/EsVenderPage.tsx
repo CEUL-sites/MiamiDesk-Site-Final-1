@@ -4,7 +4,7 @@ import { ChevronRight, MessageSquare, BadgeCheck } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
-import { CONTACT } from "../../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -86,26 +86,10 @@ const STEPS = [
 ];
 
 const DISTRIBUTION_STATS = [
-  {
-    value: "200+",
-    // TODO: native Madrid editor review
-    label: "Portales Globales",
-  },
-  {
-    value: "19",
-    // TODO: native Madrid editor review
-    label: "Idiomas",
-  },
-  {
-    value: "260+",
-    // TODO: native Madrid editor review
-    label: "MLSs en EE. UU.",
-  },
-  {
-    value: "$69B",
-    // TODO: native Madrid editor review
-    label: "Volumen 2025",
-  },
+  { value: `${ASSOCIATION_STATS.globalPortals}+`, label: "Portales Globales" },
+  { value: String(ASSOCIATION_STATS.languages),   label: "Idiomas" },
+  { value: `${ASSOCIATION_STATS.usMls}+`,         label: "MLSs en EE. UU." },
+  { value: "$69B",                                 label: "Volumen 2025" },
 ];
 
 export default function EsVenderPage() {

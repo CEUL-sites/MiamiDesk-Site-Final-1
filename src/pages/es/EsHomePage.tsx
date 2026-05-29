@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
-import { CONTACT } from "../../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -199,13 +199,11 @@ export default function EsHomePage() {
                     label: "Agentes Miembros",
                   },
                   {
-                    value: "19",
-                    // TODO: native Madrid editor review
+                    value: CONTACT.stats.offices,
                     label: "Oficinas en Florida",
                   },
                   {
-                    value: "200+",
-                    // TODO: native Madrid editor review
+                    value: `${ASSOCIATION_STATS.globalPortals}+`,
                     label: "Portales Globales",
                   },
                 ].map((s) => (
