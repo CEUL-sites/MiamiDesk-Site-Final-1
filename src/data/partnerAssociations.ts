@@ -28,8 +28,12 @@ export const GLOBAL_REACH = {
 export interface PartnerRegion {
   /** Region key used for grouping in the UI. */
   region: string;
+  /** Spanish region name. */
+  regionEs: string;
   /** Short descriptor of why this region matters to a MIAMI seller. */
   note: string;
+  /** Spanish version of the note. */
+  noteEs: string;
   /** Countries / territories within the region that have partner associations. */
   countries: string[];
   /** A handful of flagship partner associations, for credibility. */
@@ -40,8 +44,11 @@ export interface PartnerRegion {
 export const PARTNER_REGIONS: PartnerRegion[] = [
   {
     region: "Latin America & the Caribbean",
+    regionEs: "Latinoamérica y el Caribe",
     note:
       "The dominant source of international buyers in South Florida — and of luxury buyers in Spain. The network reaches the agents who represent them.",
+    noteEs:
+      "La principal procedencia de compradores internacionales en el Sur de Florida — y de compradores de lujo en España. La red llega a los agentes que los representan.",
     countries: [
       "Argentina",
       "Bahamas",
@@ -79,8 +86,11 @@ export const PARTNER_REGIONS: PartnerRegion[] = [
   },
   {
     region: "Europe",
+    regionEs: "Europa",
     note:
       "Spain, France, Italy, Germany and beyond — the cross-border channel for Spanish inventory and European buyers seeking U.S. assets.",
+    noteEs:
+      "España, Francia, Italia, Alemania y más — el canal transfronterizo para inmuebles españoles y compradores europeos que buscan activos en EE. UU.",
     countries: [
       "Albania",
       "Andorra",
@@ -121,8 +131,11 @@ export const PARTNER_REGIONS: PartnerRegion[] = [
   },
   {
     region: "Asia-Pacific",
+    regionEs: "Asia-Pacífico",
     note:
       "High-net-worth capital from China, India, Korea and Southeast Asia — buyers who acquire South Florida property as a global asset.",
+    noteEs:
+      "Capital de alto patrimonio de China, India, Corea y el Sudeste Asiático — compradores que adquieren propiedad en el Sur de Florida como activo global.",
     countries: [
       "Australia",
       "Cambodia",
@@ -148,8 +161,11 @@ export const PARTNER_REGIONS: PartnerRegion[] = [
   },
   {
     region: "Middle East & Africa",
+    regionEs: "Oriente Medio y África",
     note:
       "Sovereign and private wealth from the Gulf and a growing African professional network — increasingly active in U.S. luxury markets.",
+    noteEs:
+      "Patrimonio soberano y privado del Golfo y una creciente red profesional africana — cada vez más activos en los mercados de lujo de EE. UU.",
     countries: [
       "Israel",
       "Lebanon",
@@ -170,8 +186,11 @@ export const PARTNER_REGIONS: PartnerRegion[] = [
   },
   {
     region: "Worldwide Federations",
+    regionEs: "Federaciones Mundiales",
     note:
       "Global bodies that multiply reach across every continent at once — one agreement, thousands of member firms.",
+    noteEs:
+      "Organismos globales que multiplican el alcance en todos los continentes a la vez — un acuerdo, miles de firmas miembro.",
     countries: ["FIABCI (International)", "CCIM Institute", "AREAA Global"],
     flagship: [
       "FIABCI — International Real Estate Federation",

@@ -1,14 +1,65 @@
 import { motion } from "motion/react";
 import { GLOBAL_REACH, PARTNER_REGIONS } from "../data/partnerAssociations";
 
-const HEADLINE_STATS = [
-  { value: GLOBAL_REACH.partnerAssociations, label: "Partner Associations", sub: "Most of any REALTOR® assoc. worldwide" },
-  { value: GLOBAL_REACH.professionals, label: "Professionals", sub: "Real estate agents reached worldwide" },
-  { value: GLOBAL_REACH.countries, label: "Countries", sub: "With a signed partner association" },
-  { value: GLOBAL_REACH.websites, label: "Web Sites", sub: "Featuring your listing via syndication" },
-];
+type Lang = "en" | "es";
 
-export function GlobalPartnerNetwork() {
+const COPY = {
+  en: {
+    eyebrow: "Global Partner Network · MIAMI REALTORS®",
+    headlineA: "Your buyer may not live in Florida.",
+    headlineB: "Their agent is already in our network.",
+    intro: (
+      <>
+        South Florida and Spanish luxury property sells to a global buyer. Listing through a
+        MIAMI &amp; South Florida REALTORS® member places your home inside the MLS of the
+        association with <span className="text-white/90">the most international partner
+        agreements in the world</span> — formally linked to 300+ associations and{" "}
+        <span className="text-white/90">2&nbsp;million+ real estate professionals</span> across
+        70+ countries. The agents representing Latin American, European and Gulf buyers are not
+        cold contacts. They are partners.
+      </>
+    ),
+    stats: [
+      { value: GLOBAL_REACH.partnerAssociations, label: "Partner Associations", sub: "Most of any REALTOR® assoc. worldwide" },
+      { value: GLOBAL_REACH.professionals, label: "Professionals", sub: "Real estate agents reached worldwide" },
+      { value: GLOBAL_REACH.countries, label: "Countries", sub: "With a signed partner association" },
+      { value: GLOBAL_REACH.websites, label: "Web Sites", sub: "Featuring your listing via syndication" },
+    ],
+    markets: "markets",
+    flagshipLabel: "Flagship partners",
+    source: "Source: MIAMI REALTORS® Global Partner Associations · MiamiRealtors.com/GlobalPartners",
+  },
+  es: {
+    eyebrow: "Red Global de Asociaciones · MIAMI REALTORS®",
+    headlineA: "Su comprador quizá no viva en Florida.",
+    headlineB: "Su agente ya está en nuestra red.",
+    intro: (
+      <>
+        La propiedad de lujo del Sur de Florida y de España se vende a un comprador global. Listar
+        a través de un miembro de MIAMI &amp; South Florida REALTORS® coloca su inmueble dentro del
+        MLS de la asociación con <span className="text-white/90">el mayor número de acuerdos
+        internacionales del mundo</span> — vinculada formalmente a más de 300 asociaciones y{" "}
+        <span className="text-white/90">2&nbsp;millones+ de profesionales inmobiliarios</span> en
+        más de 70 países. Los agentes que representan a compradores de Latinoamérica, Europa y el
+        Golfo no son contactos fríos. Son socios.
+      </>
+    ),
+    stats: [
+      { value: GLOBAL_REACH.partnerAssociations, label: "Asociaciones Socias", sub: "Las más de cualquier asoc. REALTOR® del mundo" },
+      { value: GLOBAL_REACH.professionals, label: "Profesionales", sub: "Agentes inmobiliarios alcanzados en el mundo" },
+      { value: GLOBAL_REACH.countries, label: "Países", sub: "Con una asociación socia firmada" },
+      { value: GLOBAL_REACH.websites, label: "Sitios Web", sub: "Que difunden su propiedad por sindicación" },
+    ],
+    markets: "mercados",
+    flagshipLabel: "Socios destacados",
+    source: "Fuente: MIAMI REALTORS® Global Partner Associations · MiamiRealtors.com/GlobalPartners",
+  },
+} as const;
+
+export function GlobalPartnerNetwork({ lang = "en" }: { lang?: Lang }) {
+  const t = COPY[lang];
+  const HEADLINE_STATS = t.stats;
+
   return (
     <section id="global-network" className="relative overflow-hidden bg-navy-deep text-white">
       {/* Ambient glow */}
@@ -24,7 +75,7 @@ export function GlobalPartnerNetwork() {
             transition={{ duration: 0.6 }}
             className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
           >
-            Global Partner Network · MIAMI REALTORS®
+            {t.eyebrow}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -34,8 +85,8 @@ export function GlobalPartnerNetwork() {
             className="mx-auto mt-6 font-serif leading-[1.1] text-white"
             style={{ fontSize: "clamp(2.1rem, 4.5vw, 4rem)" }}
           >
-            Your buyer may not live in Florida.<br />
-            <em className="not-italic italic text-gold">Their agent is already in our network.</em>
+            {t.headlineA}<br />
+            <em className="not-italic italic text-gold">{t.headlineB}</em>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -44,13 +95,7 @@ export function GlobalPartnerNetwork() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mx-auto mt-7 max-w-3xl font-sans text-base leading-[1.85] text-white/60"
           >
-            South Florida and Spanish luxury property sells to a global buyer. Listing through a
-            MIAMI &amp; South Florida REALTORS® member places your home inside the MLS of the
-            association with <span className="text-white/90">the most international partner
-            agreements in the world</span> — formally linked to 300+ associations and{" "}
-            <span className="text-white/90">2&nbsp;million+ real estate professionals</span> across
-            70+ countries. The agents representing Latin American, European and Gulf buyers are not
-            cold contacts. They are partners.
+            {t.intro}
           </motion.p>
         </div>
 
@@ -87,14 +132,16 @@ export function GlobalPartnerNetwork() {
             >
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="font-serif text-2xl text-white transition-colors group-hover:text-gold lg:text-[1.7rem]">
-                  {region.region}
+                  {lang === "es" ? region.regionEs : region.region}
                 </h3>
                 <span className="font-mono shrink-0 text-[9px] uppercase tracking-[0.2em] text-gold/60">
-                  {region.countries.length} markets
+                  {region.countries.length} {t.markets}
                 </span>
               </div>
 
-              <p className="mt-4 font-sans text-sm leading-relaxed text-white/55">{region.note}</p>
+              <p className="mt-4 font-sans text-sm leading-relaxed text-white/55">
+                {lang === "es" ? region.noteEs : region.note}
+              </p>
 
               {/* Country chips */}
               <div className="mt-6 flex flex-wrap gap-2">
@@ -110,7 +157,7 @@ export function GlobalPartnerNetwork() {
 
               {/* Flagship associations */}
               <div className="mt-6 border-t border-white/8 pt-5">
-                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/50">Flagship partners</p>
+                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/50">{t.flagshipLabel}</p>
                 <ul className="mt-3 space-y-1.5">
                   {region.flagship.map((assoc) => (
                     <li key={assoc} className="flex items-start gap-2.5 font-sans text-[0.8rem] leading-snug text-white/60">
@@ -126,7 +173,7 @@ export function GlobalPartnerNetwork() {
 
         {/* ── Source attribution ──────────────────────────────── */}
         <p className="font-mono mt-10 text-center text-[9px] uppercase tracking-[0.2em] text-gold/45">
-          Source: MIAMI REALTORS® Global Partner Associations · MiamiRealtors.com/GlobalPartners
+          {t.source}
         </p>
       </div>
     </section>
