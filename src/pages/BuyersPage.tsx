@@ -5,7 +5,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { BadgeCheck, Download } from "lucide-react";
-import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CONTACT, LEAD_MAGNETS, ASSOCIATION_STATS } from "../constants";
 
 export default function BuyersPage() {
   return (
@@ -64,7 +64,7 @@ export default function BuyersPage() {
             <em className="not-italic italic text-gold">The right representation.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by 25 years of local relationships and United Realty Group's 3,500+ agents across 20 offices.
+            Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by 25 years of local relationships and United Realty Group's {CONTACT.stats.urgAgents} agents across {CONTACT.stats.offices} offices.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a

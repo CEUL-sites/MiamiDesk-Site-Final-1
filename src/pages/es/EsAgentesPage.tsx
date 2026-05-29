@@ -551,10 +551,10 @@ export default function EsAgentesPage() {
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
-                <div className="font-serif text-3xl text-navy-deep">200+</div>
+                <div className="font-serif text-3xl text-navy-deep">{ASSOCIATION_STATS.globalPortals}+</div>
                 <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
-                  Sitios web globales · 19 idiomas
+                  Sitios web globales · {ASSOCIATION_STATS.languages} idiomas
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
@@ -576,7 +576,7 @@ export default function EsAgentesPage() {
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
-                <div className="font-serif text-3xl text-navy-deep">437+</div>
+                <div className="font-serif text-3xl text-navy-deep">{ASSOCIATION_STATS.internationalAgreements}+</div>
                 <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Acuerdos internacionales

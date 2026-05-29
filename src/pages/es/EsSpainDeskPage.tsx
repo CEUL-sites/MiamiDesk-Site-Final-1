@@ -3,7 +3,7 @@ import { Download, MapPin, TrendingUp, Users } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
-import { CONTACT, LEAD_MAGNETS } from "../../constants";
+import { CONTACT, LEAD_MAGNETS, ASSOCIATION_STATS } from "../../constants";
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -211,10 +211,10 @@ export default function EsSpainDeskPage() {
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
-                <div className="font-serif text-4xl text-navy-deep">200+</div>
+                <div className="font-serif text-4xl text-navy-deep">{ASSOCIATION_STATS.globalPortals}+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
                   {/* TODO: native Madrid editor review */}
-                  Portales globales · 19 idiomas
+                  Portales globales · {ASSOCIATION_STATS.languages} idiomas
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
