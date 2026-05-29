@@ -8,7 +8,7 @@ import { ExposureSyndication } from "../components/ExposureSyndication";
 import { PartnersMarquee } from "../components/PartnersMarquee";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { BadgeCheck, Download } from "lucide-react";
-import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CONTACT, LEAD_MAGNETS, ASSOCIATION_STATS } from "../constants";
 
 export default function SellersPage() {
   return (
@@ -49,7 +49,7 @@ export default function SellersPage() {
           "totalTime": "P30D",
           "tool": [
             { "@type": "HowToTool", "name": "Miami and South Florida REALTORS® MLS" },
-            { "@type": "HowToTool", "name": "200+ Global Portals in 19 Languages" },
+            { "@type": "HowToTool", "name": `${ASSOCIATION_STATS.globalPortals}+ Global Portals in ${ASSOCIATION_STATS.languages} Languages` },
             { "@type": "HowToTool", "name": "United Realty Group Agent Network" }
           ],
           "step": [

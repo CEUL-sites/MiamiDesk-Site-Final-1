@@ -35,7 +35,7 @@ export default function AgentsPage() {
           "name": "Agent-to-Agent Referral Network",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "Real Estate Agent Referral",
-          "description": "Confidential buyer and seller referral program for licensed agents. Formal referral agreements with United Realty Group. 437+ international referral agreements.",
+          "description": `Confidential buyer and seller referral program for licensed agents. Formal referral agreements with United Realty Group. ${ASSOCIATION_STATS.internationalAgreements}+ international referral agreements.`,
           "url": "https://homesprofessional.com/agents"
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -44,7 +44,7 @@ export default function AgentsPage() {
           "mainEntity": [
             { "@type": "Question", "name": "How does the agent referral program work?", "acceptedAnswer": { "@type": "Answer", "text": "Submit a referral via the form or contact our team directly. We execute a formal referral agreement, handle the transaction in South Florida, and pay your referral fee at closing." } },
             { "@type": "Question", "name": "What referral fee do you pay?", "acceptedAnswer": { "@type": "Answer", "text": "Referral fees are negotiated per transaction and documented in writing before we engage the referred client. Contact our team for details." } },
-            { "@type": "Question", "name": "Do you accept international agent referrals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have 437+ signed referral agreements with international real estate associations. Bilingual English/Spanish service is available for Spain and Latin America referrals." } }
+            { "@type": "Question", "name": "Do you accept international agent referrals?", "acceptedAnswer": { "@type": "Answer", "text": `Yes. We have ${ASSOCIATION_STATS.internationalAgreements}+ signed referral agreements with international real estate associations. Bilingual English/Spanish service is available for Spain and Latin America referrals.` } }
           ]
         })}</script>
       </Helmet>

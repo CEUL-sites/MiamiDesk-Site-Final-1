@@ -12,7 +12,7 @@ import { InternationalBridge } from "../components/InternationalBridge";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { CONTACT } from "../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../constants";
 
 export default function HomePage() {
   return (
@@ -42,7 +42,7 @@ export default function HomePage() {
           "@id": "https://homesprofessional.com/#agent",
           "name": CONTACT.name,
           "image": CONTACT.headshot,
-          "description": "Florida Licensed REALTOR® with 25 years of South Florida market experience. Seller advisory, buyer representation, and international connectivity. 93,000-member association network. Licensed since 2001.",
+          "description": `Florida Licensed REALTOR® with 25 years of South Florida market experience. Seller advisory, buyer representation, and international connectivity. ${ASSOCIATION_STATS.memberCount.toLocaleString()}-member association network. Licensed since 2001.`,
           "url": "https://homesprofessional.com",
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
