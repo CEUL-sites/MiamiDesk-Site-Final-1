@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { ASSOCIATION_STATS } from "../constants";
 
 const FAQS = [
   {
@@ -9,7 +10,7 @@ const FAQS = [
   },
   {
     q: "What is the Miami MLS and why does it matter?",
-    a: "The Miami and South Florida REALTORS® MLS is the world's largest local Realtor® association — over 93,000 member agents. When your property is listed, it reaches every agent's buyer pipeline and auto-syndicates to 200+ global portals. The MLS is where qualified buyers are found.",
+    a: `The ${ASSOCIATION_STATS.associationName} MLS is the world's largest local Realtor® association — over ${ASSOCIATION_STATS.memberCount.toLocaleString()} member agents. When your property is listed, it reaches every agent's buyer pipeline and auto-syndicates to ${ASSOCIATION_STATS.globalPortals}+ global portals. The MLS is where qualified buyers are found.`,
   },
   {
     q: "Do you work with Latin American and Spanish buyers?",
@@ -21,7 +22,7 @@ const FAQS = [
   },
   {
     q: "Can a Spanish property be listed in the Miami MLS?",
-    a: "Yes. As a licensed Florida principal of record, our team can activate Spanish properties within the Miami MLS ecosystem — reaching 93,000 agents who represent LATAM and North American buyers, the dominant purchasers of luxury Spanish real estate. This is a formal MLS listing, not a referral.",
+    a: `Yes. As a licensed Florida principal of record, our team can activate Spanish properties within the Miami MLS ecosystem — reaching ${ASSOCIATION_STATS.memberCount.toLocaleString()} agents who represent LATAM and North American buyers, the dominant purchasers of luxury Spanish real estate. This is a formal MLS listing, not a referral.`,
   },
   {
     q: "Is the seller strategy review really free?",

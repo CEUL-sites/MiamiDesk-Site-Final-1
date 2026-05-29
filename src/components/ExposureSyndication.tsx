@@ -1,5 +1,6 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { ASSOCIATION_STATS } from "../constants";
 
 interface Portal {
   name: string;
@@ -75,10 +76,10 @@ const TIER_CLASSES: Record<1 | 2 | 3, string> = {
 };
 
 const BOTTOM_STATS = [
-  { value: "200+", label: "Global Portals" },
-  { value: "19",   label: "Languages" },
-  { value: "260+", label: "U.S. MLSs via RPR" },
-  { value: "437+", label: "Intl. Agreements" },
+  { value: `${ASSOCIATION_STATS.globalPortals}+`,           label: "Global Portals" },
+  { value: String(ASSOCIATION_STATS.languages),             label: "Languages" },
+  { value: `${ASSOCIATION_STATS.usMls}+`,                   label: "U.S. MLSs via RPR" },
+  { value: `${ASSOCIATION_STATS.internationalAgreements}+`, label: "Intl. Agreements" },
 ];
 
 export const ExposureSyndication = () => {

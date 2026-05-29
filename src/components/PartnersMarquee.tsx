@@ -1,9 +1,11 @@
+import { ASSOCIATION_STATS } from "../constants";
+
 export function PartnersMarquee() {
   const channels = [
     "Miami MLS Network",
     "South Florida REALTORS®",
     "United Realty Group",
-    "93,000 Member Agents",
+    `${ASSOCIATION_STATS.memberCount.toLocaleString()} Member Agents`,
     "National MLS Exchanges",
     "Madrid Referral Channels",
     "LATAM Advisory Network",
@@ -23,7 +25,7 @@ export function PartnersMarquee() {
         </h2>
         <p className="mx-auto mt-5 max-w-2xl font-sans text-[0.95rem] leading-relaxed text-white/50">
           When our team activates a listing, it enters a professional infrastructure — not a single platform. MLS
-          positioning, 93,000-member association reach, buyer-agent cooperation channels, and international
+          positioning, {ASSOCIATION_STATS.memberCount.toLocaleString()}-member association reach, buyer-agent cooperation channels, and international
           referral pathways are activated through professional coordination as the listing enters the market.
         </p>
       </div>
@@ -41,7 +43,7 @@ export function PartnersMarquee() {
 
       <div className="mt-6 text-center">
         <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/60">
-          Miami and South Florida REALTORS® · 93,000 member agents · United Realty Group
+          {ASSOCIATION_STATS.associationName} · {ASSOCIATION_STATS.memberCount.toLocaleString()} member agents · United Realty Group
         </p>
       </div>
     </section>

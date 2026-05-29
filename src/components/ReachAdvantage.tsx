@@ -1,46 +1,46 @@
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { CONTACT } from "../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../constants";
 
 const TOP_STATS = [
   {
-    value: 93000,
-    display: "93,000",
+    value: ASSOCIATION_STATS.memberCount,
+    display: ASSOCIATION_STATS.memberCount.toLocaleString(),
     suffix: "",
     label: "Member Agents",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "Professional MLS access through the Miami and South Florida REALTORS® — 93,000 member agents representing active buyer demand across the region.",
+    desc: `Professional MLS access through the ${ASSOCIATION_STATS.associationName} — ${ASSOCIATION_STATS.memberCount.toLocaleString()} member agents representing active buyer demand across the region.`,
   },
   {
-    value: 20,
-    display: "20",
+    value: Number(CONTACT.stats.offices),
+    display: CONTACT.stats.offices,
     suffix: "",
     label: "Florida Offices",
     sublabel: "United Realty Group",
-    desc: "United Realty Group maintains 20 active offices across Florida — local presence in every South Florida market.",
+    desc: `United Realty Group maintains ${CONTACT.stats.offices} active offices across Florida — local presence in every South Florida market.`,
   },
   {
-    value: 200,
-    display: "200",
+    value: ASSOCIATION_STATS.globalPortals,
+    display: String(ASSOCIATION_STATS.globalPortals),
     suffix: "+",
     label: "Global Portals",
-    sublabel: "19 Languages Simultaneously",
+    sublabel: `${ASSOCIATION_STATS.languages} Languages Simultaneously`,
     desc: "From Zillow and Realtor.com to international platforms — eligible syndication through approved distribution channels across multiple languages and markets.",
   },
 ];
 
 const BOTTOM_STATS = [
   {
-    value: 260,
-    display: "260",
+    value: ASSOCIATION_STATS.usMls,
+    display: String(ASSOCIATION_STATS.usMls),
     suffix: "+",
     label: "U.S. MLSs",
     sublabel: "via RPR National Exchange",
     desc: "Your listing crosses state lines through the national professional MLS data exchange. Domestic reach beyond South Florida.",
   },
   {
-    value: 437,
-    display: "437",
+    value: ASSOCIATION_STATS.internationalAgreements,
+    display: String(ASSOCIATION_STATS.internationalAgreements),
     suffix: "+",
     label: "Intl. Agreements",
     sublabel: "Global Referral Network",
@@ -135,7 +135,7 @@ export const ReachAdvantage = () => {
           style={{ fontSize: "clamp(2.4rem, 5vw, 4.5rem)" }}
         >
           The day your listing goes live,<br />
-          <em className="not-italic italic text-gold">it reaches 93,000 professional agents.</em>
+          <em className="not-italic italic text-gold">it reaches {ASSOCIATION_STATS.memberCount.toLocaleString()} professional agents.</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}

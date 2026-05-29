@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import { ASSOCIATION_STATS } from "../constants";
 
 const NEIGHBORHOODS = [
   { name: "Coral Gables", county: "Miami-Dade", context: "One of South Florida's most consistently competitive submarkets, with strong demand from LATAM buyers and domestic professionals." },
@@ -7,7 +8,7 @@ const NEIGHBORHOODS = [
   { name: "Coconut Grove", county: "Miami-Dade", context: "Established neighborhood with waterfront estates and a buyer pool that values privacy and proximity to downtown." },
   { name: "Key Biscayne", county: "Miami-Dade", context: "Island inventory is finite by geography. Buyers are predominantly international HNW individuals. Days on market is among the lowest in the region." },
   { name: "Aventura", county: "Miami-Dade", context: "High-rise luxury corridor with strong Venezuelan and Colombian buyer presence. Condo pricing benchmarks closely to Bal Harbour." },
-  { name: "Bal Harbour", county: "Miami-Dade", context: "Ultra-luxury waterfront. Properties at this tier require the full 93,000-agent distribution infrastructure to reach qualified buyers." },
+  { name: "Bal Harbour", county: "Miami-Dade", context: `Ultra-luxury waterfront. Properties at this tier require the full ${ASSOCIATION_STATS.memberCount.toLocaleString()}-agent distribution infrastructure to reach qualified buyers.` },
   { name: "Doral", county: "Miami-Dade", context: "South Florida's fastest-growing LATAM community hub. Strong demand from Venezuelan and Colombian buyers seeking residential and investment property." },
   { name: "Fort Lauderdale", county: "Broward", context: "Waterfront inventory and boating community draw both domestic and European buyers. Strong rental investment market." },
 ];
