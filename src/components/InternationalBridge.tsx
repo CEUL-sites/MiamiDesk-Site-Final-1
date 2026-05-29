@@ -1,12 +1,12 @@
 import { ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef } from "react";
-import { CONTACT } from "../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../constants";
 
 const CAPABILITIES = [
   {
     title: "MLS Placement",
-    body: "Your property enters the Miami and South Florida REALTORS® MLS as a listed asset, reaching 93,000 member agents and their buyer pipelines. Not a referral. A formal listing."
+    body: `Your property enters the ${ASSOCIATION_STATS.associationName} MLS as a listed asset, reaching ${ASSOCIATION_STATS.memberCount.toLocaleString()} member agents and their buyer pipelines. Not a referral. A formal listing.`
   },
   {
     title: "Active Outreach",
@@ -86,7 +86,7 @@ export function InternationalBridge() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-[1.9] text-white/65"
           >
-            The majority of luxury real estate buyers in Spain, particularly in Madrid, Marbella, and the Costa del Sol, come from Latin America and North America. Our team lists your property into the Miami MLS, putting it in front of 93,000 professional agents who represent those exact buyers. No workaround. No intermediary. A licensed Florida principal of record.
+            The majority of luxury real estate buyers in Spain, particularly in Madrid, Marbella, and the Costa del Sol, come from Latin America and North America. Our team lists your property into the Miami MLS, putting it in front of {ASSOCIATION_STATS.memberCount.toLocaleString()} professional agents who represent those exact buyers. No workaround. No intermediary. A licensed Florida principal of record.
           </motion.p>
 
           {/* Location tags */}

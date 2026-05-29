@@ -1,7 +1,7 @@
 import { motion, type Variants } from "motion/react";
 import { ArrowRight, Bot, Globe, Tag, Key, Users } from "lucide-react";
 import { useRef, useState } from "react";
-import { CONTACT } from "../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -22,12 +22,12 @@ const PILLS = [
 ];
 
 const REACH_STATS = [
-  { value: "93,000+", label: "Member Agents"        },
-  { value: "$69B",    label: "2025 Volume"           },
-  { value: "200+",    label: "Global Portals"        },
-  { value: "19",      label: "Languages"             },
-  { value: "260+",    label: "U.S. MLSs"             },
-  { value: "437+",    label: "Referral Agreements"   },
+  { value: `${ASSOCIATION_STATS.memberCount.toLocaleString()}+`, label: "Member Agents"      },
+  { value: "$69B",                                               label: "2025 Volume"         },
+  { value: `${ASSOCIATION_STATS.globalPortals}+`,                label: "Global Portals"      },
+  { value: String(ASSOCIATION_STATS.languages),                  label: "Languages"           },
+  { value: `${ASSOCIATION_STATS.usMls}+`,                        label: "U.S. MLSs"           },
+  { value: `${ASSOCIATION_STATS.internationalAgreements}+`,      label: "Referral Agreements" },
 ];
 
 /* ─── Mini AI bar ──────────────────────────────────────────────── */

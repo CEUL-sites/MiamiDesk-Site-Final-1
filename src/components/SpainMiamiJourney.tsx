@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { CONTACT } from "../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../constants";
 
 const GOLD = "#B08D57";
 const GOLD_SOFT = "#D4AE78";
@@ -25,18 +25,18 @@ const STEPS = [
     label: "CAPITAL MIGRATES",
     headline: "The capital moves to Miami.",
     sub: "South Florida becomes the preferred destination. The buyer is now in the market — represented by a local agent, searching the Miami MLS.",
-    stat: "93,000 agents active in this network",
+    stat: `${ASSOCIATION_STATS.memberCount.toLocaleString()} agents active in this network`,
     side: "right" as const,
     color: GOLD_SOFT,
   },
   {
     id: 3,
-    city: "Miami MLS · 260+ Networks",
+    city: `Miami MLS · ${ASSOCIATION_STATS.usMls}+ Networks`,
     flag: "🏛️",
     label: "THE SEARCH BEGINS",
     headline: "Their agent searches the MLS.",
-    sub: "A buyer's agent in the world's largest local Realtor association begins identifying properties — in Florida and internationally — across 260+ MLS networks.",
-    stat: "200+ global portals · 19 languages",
+    sub: `A buyer's agent in the world's largest local Realtor association begins identifying properties — in Florida and internationally — across ${ASSOCIATION_STATS.usMls}+ MLS networks.`,
+    stat: `${ASSOCIATION_STATS.globalPortals}+ global portals · ${ASSOCIATION_STATS.languages} languages`,
     side: "left" as const,
     color: GOLD,
   },
@@ -58,7 +58,7 @@ const STEPS = [
     label: "COORDINATION",
     headline: "Showings. Local expertise. Both sides.",
     sub: "Local Spanish agencies within Carlos's affiliated network handle buyer qualification, showings, and local negotiation. The seller has both markets working in parallel.",
-    stat: "437+ international agreements active",
+    stat: `${ASSOCIATION_STATS.internationalAgreements}+ international agreements active`,
     side: "left" as const,
     color: GOLD,
   },
@@ -175,10 +175,10 @@ export function SpainMiamiJourney() {
   }, []);
 
   const FOOTER_STATS = [
-    { n: "93,000", l: "Member Agents" },
-    { n: "200+",   l: "Global Portals" },
-    { n: "437+",   l: "International Agreements" },
-    { n: "$69B",   l: "2025 Volume" },
+    { n: `${ASSOCIATION_STATS.memberCount.toLocaleString()}+`, l: "Member Agents" },
+    { n: `${ASSOCIATION_STATS.globalPortals}+`,                l: "Global Portals" },
+    { n: `${ASSOCIATION_STATS.internationalAgreements}+`,      l: "International Agreements" },
+    { n: "$69B",                                               l: "2025 Volume" },
   ];
 
   return (

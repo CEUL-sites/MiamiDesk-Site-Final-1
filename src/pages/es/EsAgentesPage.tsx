@@ -301,6 +301,11 @@ export default function EsAgentesPage() {
         />
         <link
           rel="alternate"
+          hrefLang="en"
+          href="https://homesprofessional.com/agents"
+        />
+        <link
+          rel="alternate"
           hrefLang="es"
           href="https://homesprofessional.com/es/agentes"
         />

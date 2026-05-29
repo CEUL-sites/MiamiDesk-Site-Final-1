@@ -1,5 +1,6 @@
 import { Camera, ChevronRight, Globe, Star, Users } from "lucide-react";
 import { motion } from "motion/react";
+import { ASSOCIATION_STATS } from "../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -13,16 +14,16 @@ const PACKAGE_ITEMS = [
   },
   {
     icon: Globe,
-    stat: "200+",
+    stat: `${ASSOCIATION_STATS.globalPortals}+`,
     title: "Global Portal Syndication",
-    desc: "Auto-published to Zillow, Realtor.com, Homes.com and 200+ global portals in 19 languages the moment the MLS listing activates.",
+    desc: `Auto-published to Zillow, Realtor.com, Homes.com and ${ASSOCIATION_STATS.globalPortals}+ global portals in ${ASSOCIATION_STATS.languages} languages the moment the MLS listing activates.`,
     color: "from-[#0B2040] to-navy-deep",
   },
   {
     icon: Users,
-    stat: "93K",
+    stat: `${Math.round(ASSOCIATION_STATS.memberCount / 1000)}K`,
     title: "MLS Distribution Reach",
-    desc: "The moment your listing activates in the Miami and South Florida REALTORS® MLS, it enters the buyer pipelines of 93,000 professional agents — the world's largest local Realtor® association. Immediate, automatic, day-one exposure.",
+    desc: `The moment your listing activates in the ${ASSOCIATION_STATS.associationName} MLS, it enters the buyer pipelines of ${ASSOCIATION_STATS.memberCount.toLocaleString()} professional agents — the world's largest local Realtor® association. Immediate, automatic, day-one exposure.`,
     color: "from-navy to-[#0A1830]",
   },
   {

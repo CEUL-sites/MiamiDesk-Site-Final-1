@@ -1,12 +1,12 @@
 import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
-import { CONTACT } from "../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../constants";
 import { LeadForm } from "./LeadForm";
 
 const STATS = [
-  { value: "25", label: "Years Licensed" },
-  { value: "93,000", label: "Member Agents in Association" },
-  { value: "3,000+", label: "URG Agents · 19 Offices" },
-  { value: "19", label: "Florida Offices" }
+  { value: CONTACT.stats.experience,    label: "Years Licensed" },
+  { value: `${ASSOCIATION_STATS.memberCount.toLocaleString()}+`, label: "Member Agents in Association" },
+  { value: CONTACT.stats.urgAgents,     label: `URG Agents · ${CONTACT.stats.offices} Offices` },
+  { value: CONTACT.stats.offices,       label: "Florida Offices" },
 ];
 
 export function AboutContact() {
