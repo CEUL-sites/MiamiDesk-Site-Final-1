@@ -51,6 +51,22 @@
   }
 }
 
+/* Shared gold CTA — used by the hero seller forms (EN + ES) */
+.hero-cta-main {
+  background: linear-gradient(90deg, #B08D57 0%, #C9A96E 50%, #B08D57 100%);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+.hero-cta-main:hover {
+  background-position: right center;
+  box-shadow: 0 8px 32px rgba(176, 141, 87, 0.4);
+  transform: translateY(-1px);
+}
+.hero-cta-main:active { transform: translateY(0) scale(0.98); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-main:hover { transform: none; }
+}
+
 .gold-gradient {
   background: linear-gradient(135deg, #B08D57 0%, #D4AE78 100%);
 }

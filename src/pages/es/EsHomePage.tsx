@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { motion, type Variants } from "motion/react";
-import { BadgeCheck, ChevronRight, MessageSquare } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
-import { CONTACT } from "../../constants";
+import { HeroSellerForm } from "../../components/HeroSellerForm";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -126,48 +126,20 @@ export default function EsHomePage() {
                 style={{ fontSize: "1.05rem" }}
               >
                 {/* TODO: native Madrid editor review */}
-                25 años de transacciones inmobiliarias en Sur de Florida.
-                Cada propiedad en exclusiva activa la red de la mayor asociación
-                local de REALTORS® del mundo — 93,000 agentes miembros, más de
-                200 portales globales en 19 idiomas, 385 MLSs en EE. UU. a
-                través de RPR — de forma simultánea, desde el primer día.
+                Representación de vendedores en el Sur de Florida y España. Cada
+                propiedad en exclusiva activa la red de la asociación con el mayor
+                número de acuerdos internacionales del mundo — 93,000 agentes
+                miembros y más de 2 millones de profesionales en más de 70 países,
+                a través de más de 300 asociaciones socias.
               </motion.p>
 
-              {/* CTAs */}
+              {/* Primary seller lead capture */}
               <motion.div
                 variants={itemVariants}
-                className="mt-9 flex flex-wrap justify-center gap-3"
+                className="mx-auto mt-9 w-full max-w-md"
               >
-                <a
-                  href="/contact"
-                  className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-gold-soft active:scale-95"
-                >
-                  {/* TODO: native Madrid editor review */}
-                  Solicitar una Revisión Privada de Estrategia de Venta
-                  <ChevronRight
-                    size={15}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </a>
-                <a
-                  href={CONTACT.whatsappUS}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/25 px-7 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:border-gold hover:text-gold active:scale-95"
-                >
-                  <MessageSquare size={14} />
-                  {/* TODO: native Madrid editor review */}
-                  WhatsApp con Carlos
-                </a>
+                <HeroSellerForm lang="es" />
               </motion.div>
-
-              <motion.p
-                variants={itemVariants}
-                className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/30"
-              >
-                {/* TODO: native Madrid editor review */}
-                Gratis · Sin compromiso de exclusiva
-              </motion.p>
 
               {/* Trust bar */}
               <motion.div
@@ -176,24 +148,24 @@ export default function EsHomePage() {
               >
                 {[
                   {
-                    value: "25",
-                    // TODO: native Madrid editor review
-                    label: "Años con Licencia",
-                  },
-                  {
                     value: "93K",
                     // TODO: native Madrid editor review
                     label: "Agentes Miembros",
                   },
                   {
-                    value: "19",
+                    value: "300+",
                     // TODO: native Madrid editor review
-                    label: "Oficinas en Florida",
+                    label: "Asociaciones Socias",
                   },
                   {
-                    value: "200+",
+                    value: "2M+",
                     // TODO: native Madrid editor review
-                    label: "Portales Globales",
+                    label: "Profesionales",
+                  },
+                  {
+                    value: "70+",
+                    // TODO: native Madrid editor review
+                    label: "Países",
                   },
                 ].map((s) => (
                   <div key={s.label}>
