@@ -7,7 +7,7 @@ import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { CITY_CONFIGS } from "../../config/cityMarkets";
 import { useCityMarket, type FeaturedListing } from "../../hooks/useCityMarket";
 import { formatPrice, formatPsf, formatNumber } from "../../lib/format";
-import { CONTACT } from "../../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../../constants";
 
 // ── Skeleton shimmer ────────────────────────────────────────────────────────
 function Shimmer({ className = "" }: { className?: string }) {
@@ -153,28 +153,24 @@ function ListingCardSkeleton() {
 export default function CityMarketPage() {
   const { city: citySlug = "" } = useParams<{ city: string }>();
   const config = CITY_CONFIGS[citySlug];
-  const { data, loading } = useCityMarket(config);
+  const { data, loading, error } = useCityMarket(config);
 
   const cityName = config?.name ?? citySlug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   const canonicalUrl = `https://homesprofessional.com/market/${citySlug}`;
 
   const localListingSchema = {
     "@context": "https://schema.org",
-    "@type": "RealEstateListing",
-    "name": `${cityName} Real Estate — Active Market Listings`,
+    "@type": "Service",
+    "name": `${cityName} Real Estate — Buyer & Seller Representation`,
     "url": canonicalUrl,
-    "areaServed": {
-      "@type": "City",
-      "name": cityName,
-      "addressRegion": "FL",
-      "addressCountry": "US",
-    },
-    "provider": {
-      "@type": "RealEstateAgent",
-      "name": "Carlos Uzcategui",
-      "telephone": "+19548656622",
-      "url": "https://homesprofessional.com",
-    },
+    "serviceType": "Real Estate Representation",
+    "areaServed": { "@type": "City", "name": cityName, "addressRegion": "FL", "addressCountry": "US" },
+    "provider": { "@id": "https://homesprofessional.com/#agent" },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "description": `Free ${cityName} seller strategy review — no listing commitment required.`
+    }
   };
 
   const metaTitle = config?.metaTitle ?? `${cityName} Real Estate Market | Homes for Sale | Carlos Uzcategui Realtor®`;
@@ -213,6 +209,8 @@ export default function CityMarketPage() {
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
         <meta name="twitter:image" content="https://homesprofessional.com/og-image.jpg" />
+        <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+        <link rel="alternate" hrefLang="en" href={canonicalUrl} />
         <script type="application/ld+json">{JSON.stringify(localListingSchema)}</script>
       </Helmet>
 
@@ -267,8 +265,18 @@ export default function CityMarketPage() {
               />
             </div>
 
+            {/* API error notice */}
+            {!loading && error && (
+              <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/60">
+                Live data temporarily unavailable.{" "}
+                <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold transition-colors">
+                  Contact us for current {cityName} inventory.
+                </a>
+              </p>
+            )}
+
             {/* Timestamp */}
-            {!loading && lastUpdatedDisplay && (
+            {!loading && !error && lastUpdatedDisplay && (
               <p className="mt-5 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25">
                 Data as of {lastUpdatedDisplay}
               </p>
@@ -355,7 +363,7 @@ export default function CityMarketPage() {
                   </p>
                 </div>
                 <div className="border border-gold/30 p-6">
-                  <p className="font-serif text-2xl text-gold">93,000</p>
+                  <p className="font-serif text-2xl text-gold">{ASSOCIATION_STATS.memberCount.toLocaleString()}</p>
                   <p className="font-mono mt-2 text-[9px] uppercase tracking-[0.2em] text-navy/55">
                     REALTORS® Access at Listing
                   </p>
@@ -389,10 +397,10 @@ export default function CityMarketPage() {
 
             <div className="grid gap-0 border border-gold/15 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { value: "200+", label: "Global Websites" },
-                { value: "19", label: "Languages" },
-                { value: "260+", label: "U.S. MLSs via RPR" },
-                { value: "$69B", label: "2025 Volume" },
+                { value: `${ASSOCIATION_STATS.globalPortals}+`, label: "Global Websites" },
+                { value: String(ASSOCIATION_STATS.languages), label: "Languages" },
+                { value: `${ASSOCIATION_STATS.usMls}+`, label: "U.S. MLSs via RPR" },
+                { value: `${ASSOCIATION_STATS.internationalAgreements}+`, label: "Referral Agreements" },
               ].map((item, i) => (
                 <div
                   key={item.label}
@@ -407,10 +415,10 @@ export default function CityMarketPage() {
             </div>
 
             <p className="mt-10 max-w-3xl font-sans text-base leading-relaxed text-white/50">
-              Every listing enters the Miami and South Florida REALTORS® distribution
-              infrastructure — the largest local Realtor association in the world at
-              93,000 members. This is the structural reason sellers in {cityName} achieve
-              a higher final price.
+              Every listing enters the {ASSOCIATION_STATS.associationName} distribution
+              infrastructure — the largest local Realtor association in the world at{" "}
+              {ASSOCIATION_STATS.memberCount.toLocaleString()} members. This is the structural
+              reason sellers in {cityName} achieve a higher final price.
             </p>
           </div>
         </section>
