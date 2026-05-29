@@ -1,7 +1,8 @@
 import { motion, type Variants } from "motion/react";
-import { ArrowRight, Bot, Globe, Tag, Key, Users } from "lucide-react";
-import { useRef, useState } from "react";
+import { ArrowRight, Bot, Globe, Tag, Key, Users, MapPin, Loader2, CheckCircle2, ShieldCheck } from "lucide-react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { CONTACT } from "../constants";
+import { pushEvent } from "../lib/analytics";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -14,120 +15,178 @@ const item: Variants = {
   visible:  { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
 };
 
+/* Secondary navigation — seller is the primary CTA (the form); these are supporting paths */
 const PILLS = [
-  { icon: Tag,   label: "Sell",          href: "/sell"       },
-  { icon: Key,   label: "Buy",           href: "/buy"        },
-  { icon: Globe, label: "Spain Desk",    href: "/spain-desk" },
-  { icon: Users, label: "Agent Referral",href: "/agents"     },
+  { icon: Bot,   label: "Ask the Miami Desk AI", href: "#intelligence" },
+  { icon: Key,   label: "Buy",                    href: "/buy"          },
+  { icon: Globe, label: "Spain Desk",             href: "/spain-desk"   },
+  { icon: Users, label: "Agent Referral",         href: "/agents"       },
 ];
 
+/* Accurate reach figures — MIAMI REALTORS® Global Partner network */
 const REACH_STATS = [
   { value: "93,000+", label: "Member Agents"        },
-  { value: "200+",    label: "Global Portals"        },
-  { value: "19",      label: "Languages"             },
-  { value: "260+",    label: "U.S. MLSs"             },
-  { value: "437+",    label: "Referral Agreements"   },
+  { value: "300+",    label: "Partner Associations"  },
+  { value: "2M+",     label: "Professionals"         },
+  { value: "70+",     label: "Countries"             },
+  { value: "500+",    label: "Web Sites"             },
 ];
 
-/* ─── Mini AI bar ──────────────────────────────────────────────── */
-function HeroAIBar() {
-  const [query, setQuery]       = useState("");
-  const [loading, setLoading]   = useState(false);
-  const [answer, setAnswer]     = useState("");
-  const [error, setError]       = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
+const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
-  async function ask(q: string) {
-    const text = q.trim();
-    if (!text || loading) return;
-    setLoading(true);
-    setAnswer("");
+const INITIAL = { name: "", phone: "", propertyAddress: "", city: "Greater Miami / South Florida", timeline: "Exploring options" };
+
+/* ─── Primary seller lead capture (address-first) ──────────────── */
+function HeroSellerForm() {
+  const [form, setForm]     = useState(INITIAL);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [error, setError]   = useState("");
+
+  const update = (k: keyof typeof INITIAL) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    setForm({ ...form, [k]: e.target.value });
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (status === "submitting") return;
+    setStatus("submitting");
     setError("");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 12000);
     try {
-      const res  = await fetch("/.netlify/functions/ai-desk", {
-        method:  "POST",
-        headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ messages: [{ role: "user", content: text }] }),
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        signal: controller.signal,
+        body: encodeForm({ "form-name": "seller-consultation", "bot-field": "", ...form, sourcePage: "hero" }),
       });
-      const data = await res.json();
-      if (!res.ok || data.error) { setError(data.error ?? "Unable to respond."); return; }
-      setAnswer(data.response ?? "");
-    } catch {
-      setError("Network error — please try again.");
+      if (!res.ok) throw new Error(String(res.status));
+      pushEvent("form_submit_seller", { form: "seller-consultation", page: "hero" });
+      setStatus("success");
+      setForm(INITIAL);
+    } catch (err) {
+      setError(
+        err instanceof DOMException && err.name === "AbortError"
+          ? "Request timed out — please use WhatsApp or try again."
+          : "Couldn't send — please use WhatsApp or try again."
+      );
+      setStatus("error");
     } finally {
-      setLoading(false);
+      window.clearTimeout(timeout);
     }
   }
 
-  return (
-    <div className="w-full max-w-xl mx-auto">
-      {/* "AI LIVE" badge */}
-      <div className="flex justify-end mb-1.5 pr-1">
-        <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-emerald-400">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          </span>
-          AI Live
-        </span>
-      </div>
-
-      {/* Input pill */}
-      <div className="relative flex items-center gap-3 rounded-full bg-[#0A1525]/90 border border-white/12 backdrop-blur-xl px-3 py-2.5 shadow-2xl shadow-black/50 focus-within:border-gold/40 transition-colors">
-        <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-gold/15">
-          <Bot size={16} className="text-gold" />
+  if (status === "success") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="rounded-2xl bg-[#0A1525]/90 border border-gold/30 backdrop-blur-xl px-6 py-8 text-center shadow-2xl shadow-black/50"
+      >
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 text-gold">
+          <CheckCircle2 size={26} />
         </div>
-        <input
-          ref={inputRef}
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && ask(query)}
-          placeholder="Ask The Miami Desk AI about selling, buying, or international property…"
-          maxLength={400}
-          disabled={loading}
-          className="flex-1 bg-transparent font-sans text-sm text-white/80 placeholder:text-white/30 outline-none min-w-0"
-          aria-label="Ask the AI desk"
-        />
-        <button
-          type="button"
-          onClick={() => ask(query)}
-          disabled={loading || !query.trim()}
-          aria-label="Send"
-          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-gold hover:bg-gold-soft transition-colors disabled:opacity-40"
+        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-2">Seller Request Received</p>
+        <h3 className="font-serif text-2xl text-white">Carlos will personally review your property.</h3>
+        <p className="mx-auto mt-3 max-w-sm font-sans text-sm leading-relaxed text-white/55">
+          Expect a confidential response within one business day. For urgent timing, reach us on WhatsApp.
+        </p>
+        <a
+          href={CONTACT.whatsappUS}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/80 hover:text-gold transition-colors"
         >
-          {loading
-            ? <span className="h-3.5 w-3.5 rounded-full border-2 border-navy/40 border-t-navy animate-spin block" />
-            : <ArrowRight size={15} className="text-navy" />
-          }
-        </button>
+          Continue on WhatsApp →
+        </a>
+      </motion.div>
+    );
+  }
+
+  const inputCls =
+    "w-full rounded-lg bg-white/[0.05] border border-white/12 px-4 py-3 font-sans text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-gold/50 focus:bg-white/[0.08]";
+  const selectCls = inputCls + " cursor-pointer appearance-none pr-9";
+
+  return (
+    <form
+      name="seller-consultation"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+      className="rounded-2xl bg-[#0A1525]/80 border border-white/12 backdrop-blur-xl p-5 sm:p-6 text-left shadow-2xl shadow-black/50"
+    >
+      <input type="hidden" name="form-name" value="seller-consultation" />
+      <p aria-hidden="true" className="hidden">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <span className="font-mono text-[9px] uppercase tracking-[0.26em] text-gold">Private Seller Strategy Review</span>
+        <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">Free · Confidential</span>
       </div>
 
-      {/* Response card */}
-      {(answer || error) && (
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mt-3 rounded-xl bg-[#0A1525]/95 border border-gold/20 backdrop-blur-xl px-5 py-4 text-left shadow-xl shadow-black/40"
-        >
-          {error
-            ? <p className="font-mono text-[11px] text-red-400/80">{error}</p>
-            : <>
-                <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-gold mb-2">Miami Desk · AI</p>
-                <p className="font-sans text-sm leading-relaxed text-white/80">{answer}</p>
-                <a
-                  href={`https://wa.me/${CONTACT.phoneUS.replace(/\D/g,"")}?text=${encodeURIComponent("Hello Carlos, I have a question: " + query)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
-                >
-                  Continue on WhatsApp →
-                </a>
-              </>
-          }
-        </motion.div>
-      )}
-    </div>
+      {/* Address-first */}
+      <div className="relative">
+        <MapPin size={15} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gold/60" />
+        <input
+          required
+          name="propertyAddress"
+          type="text"
+          value={form.propertyAddress}
+          onChange={update("propertyAddress")}
+          placeholder="Property address — Miami or Spain"
+          className={inputCls + " pl-10"}
+          aria-label="Property address"
+        />
+      </div>
+
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <input required name="name" type="text" value={form.name} onChange={update("name")} placeholder="Full name" className={inputCls} aria-label="Full name" />
+        <input required name="phone" type="tel" value={form.phone} onChange={update("phone")} placeholder="Phone / WhatsApp" className={inputCls} aria-label="Phone or WhatsApp" />
+      </div>
+
+      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="relative">
+          <select name="city" value={form.city} onChange={update("city")} className={selectCls} aria-label="Market">
+            <option>Greater Miami / South Florida</option>
+            <option>Marbella / Costa del Sol</option>
+            <option>Madrid</option>
+            <option>Other — Spain</option>
+            <option>Other</option>
+          </select>
+          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60">▾</span>
+        </div>
+        <div className="relative">
+          <select name="timeline" value={form.timeline} onChange={update("timeline")} className={selectCls} aria-label="Timeline">
+            <option>Exploring options</option>
+            <option>Immediately</option>
+            <option>30–90 days</option>
+            <option>3–6 months</option>
+            <option>6+ months</option>
+          </select>
+          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60">▾</span>
+        </div>
+      </div>
+
+      {status === "error" && <p className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>}
+
+      <button
+        type="submit"
+        disabled={status === "submitting"}
+        className="hero-cta-main mt-4 flex w-full items-center justify-center gap-2.5 rounded-lg px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep disabled:opacity-60"
+      >
+        {status === "submitting"
+          ? <><Loader2 size={15} className="animate-spin" /> Sending…</>
+          : <>Request My Seller Strategy Review <ArrowRight size={15} /></>}
+      </button>
+
+      <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+        Prefer WhatsApp?{" "}
+        <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold/70 hover:text-gold underline underline-offset-2">
+          Message Carlos directly
+        </a>
+      </p>
+    </form>
   );
 }
 
@@ -242,57 +301,84 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-1 flex-col items-center justify-center text-center px-5 pt-32 pb-8 sm:px-10"
+        className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pt-28 pb-8 sm:px-10"
       >
-        {/* Headline */}
-        <motion.h1
-          variants={item}
-          className="font-serif leading-[1.04] text-white"
-          style={{ fontSize: "clamp(2.6rem, 6vw, 5.2rem)", fontWeight: 400 }}
-        >
-          Real estate is local.
-          <br />
-          <em className="not-italic italic text-gold">Peak price is global.</em>
-        </motion.h1>
+        <div className="grid w-full max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
 
-        {/* Gold rule */}
-        <motion.div
-          variants={item}
-          className="mt-5 h-px w-14 bg-gold/50 origin-center mx-auto"
-          style={{ animation: "hero-rule 0.8s ease forwards 0.8s", transform: "scaleX(0)", opacity: 0 }}
-        />
+          {/* ── Left: message ──────────────────────────────────── */}
+          <div className="text-center lg:text-left">
+            {/* Market eyebrow */}
+            <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+              <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3.5 py-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">Greater Miami · Marbella · Madrid</span>
+              </span>
+            </motion.div>
 
-        {/* Subheadline */}
-        <motion.p
-          variants={item}
-          className="mt-6 max-w-md font-sans text-base leading-relaxed text-white/55"
-        >
-          AI-guided property intake and senior real estate representation
-          for sellers, buyers, and cross-border owners.
-        </motion.p>
-
-        {/* AI Search Bar */}
-        <motion.div variants={item} className="mt-8 w-full max-w-xl">
-          <HeroAIBar />
-        </motion.div>
-
-        {/* Navigation pills */}
-        <motion.div
-          variants={item}
-          className="mt-6 flex flex-wrap items-center justify-center gap-2.5"
-        >
-          {PILLS.map(({ icon: Icon, label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="hero-pill inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-sans text-sm text-white/70"
+            {/* Headline */}
+            <motion.h1
+              variants={item}
+              className="mt-6 font-serif leading-[1.05] text-white"
+              style={{ fontSize: "clamp(2.5rem, 5.4vw, 4.8rem)", fontWeight: 400 }}
             >
-              <Icon size={14} className="text-gold/70" />
-              {label}
-            </a>
-          ))}
-        </motion.div>
+              Real estate is local.
+              <br />
+              <em className="not-italic italic text-gold">Peak price is global.</em>
+            </motion.h1>
 
+            {/* Gold rule */}
+            <motion.div
+              variants={item}
+              className="mt-5 h-px w-14 bg-gold/50 origin-left mx-auto lg:mx-0"
+              style={{ animation: "hero-rule 0.8s ease forwards 0.8s", transform: "scaleX(0)", opacity: 0 }}
+            />
+
+            {/* Subheadline — seller-focused, dual market, accurate reach */}
+            <motion.p
+              variants={item}
+              className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60 mx-auto lg:mx-0"
+            >
+              Senior seller representation for owners in <span className="text-white/85">South Florida and Spain.</span>{" "}
+              Your property positioned in front of <span className="text-white/85">93,000 local agents</span> and a
+              global network of <span className="text-white/85">2&nbsp;million+ professionals across 70+ countries</span> —
+              priced with discipline, presented to the buyer who pays the most.
+            </motion.p>
+
+            {/* Trust row */}
+            <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:justify-start">
+              {[
+                { icon: ShieldCheck, text: "Licensed since 2001" },
+                { icon: Tag,         text: "CLHMS Luxury Certified" },
+                { icon: Globe,       text: "Miami · Madrid presence" },
+              ].map(({ icon: Icon, text }) => (
+                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
+                  <Icon size={12} className="text-gold/70" />
+                  {text}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* Secondary navigation pills */}
+            <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
+              {PILLS.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  className="hero-pill inline-flex items-center gap-2 rounded-full px-4 py-2 font-sans text-[13px] text-white/70"
+                >
+                  <Icon size={13} className="text-gold/70" />
+                  {label}
+                </a>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* ── Right: lead capture ───────────────────────────── */}
+          <motion.div variants={item} className="mx-auto w-full max-w-md lg:max-w-none">
+            <HeroSellerForm />
+          </motion.div>
+
+        </div>
       </motion.div>
 
       {/* ── Reach Advantage stats bar ───────────────────────────── */}
@@ -306,9 +392,7 @@ export function Hero() {
           <span className="flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.28em] text-gold border border-gold/30 px-2 py-1 whitespace-nowrap">
             Reach Advantage
           </span>
-          <div className="flex items-center gap-1 flex-shrink-0">
-            <div className="h-3 w-px bg-white/15" />
-          </div>
+          <div className="h-3 w-px bg-white/15 flex-shrink-0" />
           {REACH_STATS.map((s, i) => (
             <div key={s.label} className="flex items-center gap-1 flex-shrink-0">
               {i > 0 && <span className="text-white/15 text-xs mr-1">·</span>}
@@ -316,29 +400,10 @@ export function Hero() {
               <span className="font-mono text-[8px] uppercase tracking-[0.12em] text-white/35 ml-1 whitespace-nowrap">{s.label}</span>
             </div>
           ))}
+          <span className="flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.16em] text-white/25 whitespace-nowrap ml-1">
+            {CONTACT.shortLicense}
+          </span>
         </div>
-      </motion.div>
-
-      {/* ── Bottom CTA strip ────────────────────────────────────── */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.6, ease: EASE }}
-        className="relative z-10 w-full px-5 pb-8 pt-5 flex flex-col items-center gap-4"
-      >
-        <p className="font-sans text-sm italic text-white/38 tracking-wide">
-          Discreet. Strategic. Personalized.
-        </p>
-        <a
-          href="/contact"
-          className="hero-cta-main inline-flex w-full max-w-sm items-center justify-center gap-3 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-navy-deep"
-        >
-          Start Private Property Brief
-          <ArrowRight size={15} />
-        </a>
-        <p className="font-mono text-[7px] uppercase tracking-[0.18em] text-white/22 text-center">
-          United Realty Group · FL SL705771 · Equal Housing Opportunity
-        </p>
       </motion.div>
 
     </section>
