@@ -59,10 +59,15 @@ export const NAVIGATION = [
 
 export const ASSOCIATION_STATS = {
   memberCount: 93000,
-  globalPortals: 200,
+  // Listings featured on 500+ web sites via MIAMI REALTORS® syndication partners.
+  globalPortals: 500,
   languages: 19,
   usMls: 385,
-  internationalAgreements: 437,
+  // 300+ international partner associations — the most of any REALTOR® association
+  // in the world (MiamiRealtors.com/GlobalPartners).
+  partnerAssociations: 300,
+  globalProfessionals: 2000000,
+  partnerCountries: 70,
   urgOffices: 19,
   mlsDataExchanges: 11,
   mergerDate: "May 11, 2026",

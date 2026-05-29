@@ -6,6 +6,7 @@ import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
 import { PartnersMarquee } from "../components/PartnersMarquee";
+import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { BadgeCheck, Download } from "lucide-react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
@@ -103,6 +104,7 @@ export default function SellersPage() {
         <SellerSection />
         <ExposureSyndication />
         <PartnersMarquee />
+        <GlobalPartnerNetwork />
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">
