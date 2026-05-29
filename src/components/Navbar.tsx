@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT, NAVIGATION, URG_CITIES } from "../constants";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { UrgLogo } from "./UrgLogo";
 
 const toSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 
@@ -53,26 +54,21 @@ export function Navbar() {
         {/* ── Logo ──────────────────────────────────────────────── */}
         <a
           href="/"
-          aria-label="HomesProfessional.com — Carlos Uzcategui, United Realty Group"
-          className="flex shrink-0 flex-col leading-none gap-0.5"
+          aria-label="United Realty Group — Carlos Uzcategui, Florida REALTOR®"
+          className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${
+            scrolled ? "text-navy" : "text-white"
+          }`}
         >
-          {/* Brokerage — primary */}
-          <span
-            className={`font-serif font-normal leading-none tracking-wide transition-colors duration-300 ${
-              scrolled ? "text-navy" : "text-white"
-            }`}
-            style={{ fontSize: "1.15rem", letterSpacing: "0.06em" }}
-          >
-            United Realty Group
-          </span>
-          {/* Agent name + credential — secondary */}
-          <span
-            className={`font-mono uppercase leading-none transition-colors duration-300 ${
-              scrolled ? "text-navy/45" : "text-white/42"
-            }`}
-            style={{ fontSize: "0.58rem", letterSpacing: "0.22em" }}
-          >
-            Carlos Uzcategui · Licensed in Florida since 2001
+          <UrgLogo className="h-9 w-auto sm:h-10" />
+          {/* Agent credential — desktop only, divider keeps it tidy */}
+          <span className="hidden flex-col leading-none border-l border-current/20 pl-3 lg:flex">
+            <span className="font-serif text-[0.95rem] leading-none tracking-wide">Carlos Uzcategui</span>
+            <span
+              className="font-mono uppercase leading-none opacity-50 mt-1"
+              style={{ fontSize: "0.55rem", letterSpacing: "0.2em" }}
+            >
+              Florida REALTOR® since 2001
+            </span>
           </span>
         </a>
 
@@ -206,14 +202,12 @@ export function Navbar() {
 
               {/* Drawer header */}
               <div className="flex items-start justify-between">
-                <div className="flex flex-col leading-none gap-1">
-                  <span className="font-serif text-xl font-normal tracking-wide text-white">
-                    United Realty Group
-                  </span>
+                <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
+                  <UrgLogo className="h-10 w-auto" />
                   <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/40">
-                    Carlos Uzcategui · Licensed in Florida since 2001
+                    Carlos Uzcategui · Florida REALTOR® since 2001
                   </span>
-                </div>
+                </a>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
