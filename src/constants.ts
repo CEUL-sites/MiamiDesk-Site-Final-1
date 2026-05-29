@@ -16,7 +16,7 @@ export const CONTACT = {
   whatsappSpain: "https://wa.me/34646853078?text=Hello%20Carlos%2C%20I%20would%20like%20to%20ask%20about%20South%20Florida%20and%20Spain%20real%20estate%20opportunities.",
   address: "15951 SW 41 St #700, Weston, FL 33331",
   spainOffice: "Madrid, Spain",
-  linkedin: "https://linkedin.com/in/carlosuz",
+  linkedin: "https://www.linkedin.com/in/carlosuz",
   calendly: "https://calendly.com/carlosre",
   web: "HomesProfessional.com",
   headshot: "https://lh3.googleusercontent.com/d/1JZ1hv1IfBykkfoy2TYmGK9M5N2Xwwklx",

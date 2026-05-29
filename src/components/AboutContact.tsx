@@ -1,4 +1,4 @@
-import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
+import { BadgeCheck, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT, ASSOCIATION_STATS } from "../constants";
 import { LeadForm } from "./LeadForm";
 
@@ -73,7 +73,7 @@ export function AboutContact() {
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/60">Member: Miami and South Florida REALTORS®</p>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <a href={CONTACT.phoneUSLink} className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold" aria-label={`Call Carlos at ${CONTACT.phoneUSDisplay}`}>
               <Phone className="text-gold flex-shrink-0" size={20} aria-hidden="true" />
               <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Call / WhatsApp</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
@@ -86,6 +86,10 @@ export function AboutContact() {
               <MapPin className="text-gold flex-shrink-0" size={20} aria-hidden="true" />
               <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
             </div>
+            <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 border border-bone bg-white p-5 transition-colors hover:border-gold" aria-label="Carlos Uzcategui on LinkedIn">
+              <Linkedin className="text-gold flex-shrink-0" size={20} aria-hidden="true" />
+              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/60">LinkedIn</div><div className="mt-1 font-sans text-sm text-navy">linkedin.com/in/carlosuz</div></div>
+            </a>
           </div>
         </div>
 

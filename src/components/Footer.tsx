@@ -1,4 +1,5 @@
 import { CONTACT, NAVIGATION, URG_CITIES } from "../constants";
+import { Linkedin } from "lucide-react";
 
 const toSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 
@@ -68,6 +69,12 @@ export function Footer() {
             </p>
             <p className="text-xs leading-relaxed">{CONTACT.address}</p>
             <p className="text-xs leading-relaxed">Brokerage office: {CONTACT.officePhoneUS}</p>
+            <p>
+              <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-gold transition-colors">
+                <Linkedin size={13} />
+                LinkedIn
+              </a>
+            </p>
           </div>
         </div>
 
