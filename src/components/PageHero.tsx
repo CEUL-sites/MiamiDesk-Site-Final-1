@@ -71,7 +71,7 @@ export function PageHero({
           <motion.h1
             variants={itemVariants}
             className="font-serif text-white leading-[1.07]"
-            style={{ fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)", fontWeight: 400 }}
+            style={{ fontSize: "clamp(2.2rem, 5.5vw, 5.5rem)", fontWeight: 400 }}
           >
             {headline}
             {headlineGold && (

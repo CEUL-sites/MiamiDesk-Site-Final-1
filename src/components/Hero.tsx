@@ -147,7 +147,7 @@ export function Hero() {
             <motion.h1
               variants={item}
               className="mt-6 font-serif leading-[1.05] text-white"
-              style={{ fontSize: "clamp(2.5rem, 5.4vw, 4.8rem)", fontWeight: 400 }}
+              style={{ fontSize: "clamp(2.1rem, 5.4vw, 4.8rem)", fontWeight: 400 }}
             >
               Real estate is local.
               <br />
@@ -192,7 +192,7 @@ export function Hero() {
                 <a
                   key={label}
                   href={href}
-                  className="hero-pill inline-flex items-center gap-2 rounded-full px-4 py-2 font-sans text-[13px] text-white/70"
+                  className="hero-pill inline-flex items-center gap-2 rounded-full px-4 py-2.5 font-sans text-[13px] text-white/70"
                 >
                   <Icon size={13} className="text-gold/70" />
                   {label}
