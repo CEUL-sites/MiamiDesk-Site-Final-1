@@ -4,6 +4,7 @@ import { ChevronRight, MessageSquare, BadgeCheck } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
+import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { CONTACT } from "../../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -363,6 +364,8 @@ export default function EsVenderPage() {
             </div>
           </div>
         </section>
+
+        <GlobalPartnerNetwork lang="es" />
 
         <Footer />
         <MobileStickyCTA />

@@ -3,6 +3,7 @@ import { Download, MapPin, TrendingUp, Users } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
+import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 
 const breadcrumbJsonLd = {
@@ -403,6 +404,8 @@ export default function EsSpainDeskPage() {
             </div>
           </div>
         </section>
+
+        <GlobalPartnerNetwork lang="es" />
 
         <Footer />
         <MobileStickyCTA />

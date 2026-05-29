@@ -20,12 +20,12 @@ const TOP_STATS = [
     desc: "United Realty Group maintains 19 active offices across Florida — local presence in every South Florida market.",
   },
   {
-    value: 200,
-    display: "200",
+    value: 500,
+    display: "500",
     suffix: "+",
-    label: "Global Portals",
-    sublabel: "19 Languages Simultaneously",
-    desc: "From Zillow and Realtor.com to international platforms — eligible syndication through approved distribution channels across multiple languages and markets.",
+    label: "Web Sites",
+    sublabel: "Syndicated Listing Exposure",
+    desc: "Through MIAMI REALTORS® distribution partners, your listing is featured on 500+ web sites — from Zillow and Realtor.com to international portals, across 19 languages.",
   },
 ];
 
@@ -39,12 +39,12 @@ const BOTTOM_STATS = [
     desc: "Your listing crosses state lines through the national professional MLS data exchange. Domestic reach beyond South Florida.",
   },
   {
-    value: 437,
-    display: "437",
+    value: 300,
+    display: "300",
     suffix: "+",
-    label: "Intl. Agreements",
-    sublabel: "Global Referral Network",
-    desc: "Signed referral agreements with real estate associations worldwide — creating active deal flow for listings with international appeal.",
+    label: "Partner Associations",
+    sublabel: "The most of any in the world",
+    desc: "MIAMI REALTORS® holds signed agreements with 300+ real estate associations across 70+ countries — the largest international partner network of any REALTOR® association, creating active deal flow for listings with global appeal.",
   },
   {
     value: 25,
@@ -165,8 +165,8 @@ export const ReachAdvantage = () => {
       >
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {[
-            { v: "#1", l: "Realtor Assoc. in the U.S." },
-            { v: "19", l: "Florida Offices" },
+            { v: "2M+", l: "Professionals reached worldwide" },
+            { v: "70+", l: "Countries with partner assoc." },
             { v: "Day 1", l: "Full activation" },
             { v: "CLHMS", l: "Luxury certified" },
           ].map((item) => (
