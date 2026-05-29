@@ -1,6 +1,6 @@
 import { Bot, ChevronRight, FileText, Globe2, Loader2, MapPin, MessageCircle, Send, UserCheck } from "lucide-react";
 import { motion, useInView } from "motion/react";
-import { useRef, useState } from "react";
+import { useRef, useState, type KeyboardEvent } from "react";
 import { CONTACT } from "../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -79,7 +79,7 @@ function AiPanel() {
     }
   }
 
-  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+  function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") submit(input);
   }
 
