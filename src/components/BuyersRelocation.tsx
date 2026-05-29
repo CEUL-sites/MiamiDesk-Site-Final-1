@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Compass, BarChart3, PlaneLanding, Building2, Users, Globe } from "lucide-react";
-import { CONTACT } from "../constants";
+import { CONTACT, ASSOCIATION_STATS } from "../constants";
 
 const SOUTH_FLORIDA_CARDS = [
   {
@@ -73,7 +73,7 @@ export function BuyersRelocation() {
                 Palm Beach — three counties, thousands of listings, and a market
                 that moves fast. Carlos provides buyer representation backed by
                 25 years of local relationships and United Realty Group's
-                3,500+ agents across 20 offices — professionals on the ground
+                {CONTACT.stats.urgAgents} agents across {CONTACT.stats.offices} offices — professionals on the ground
                 who know the inventory, the sellers, and the neighborhoods.
               </p>
             </div>

@@ -137,10 +137,20 @@ export default function EsComprarPage() {
           name="description"
           content="Representación bilingüe para compradores internacionales en Sur de Florida. Compradores de España y Latinoamérica bienvenidos. Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group."
         />
-        <link
-          rel="canonical"
-          href="https://homesprofessional.com/es/comprar"
-        />
+        <link rel="canonical" href="https://homesprofessional.com/es/comprar" />
+        <meta property="og:title" content="Comprar en Sur de Florida | Representación de Compradores | Carlos Uzcategui" />
+        <meta property="og:description" content="Representación bilingüe para compradores internacionales en Sur de Florida. Compradores de España y Latinoamérica bienvenidos. Carlos Uzcategui · FL SL705771 · United Realty Group." />
+        <meta property="og:url" content="https://homesprofessional.com/es/comprar" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="HomesProfessional.com" />
+        <meta property="og:locale" content="es_ES" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Comprar en Sur de Florida | Representación de Compradores" />
+        <meta name="twitter:description" content="Representación bilingüe para compradores de España y Latinoamérica en Sur de Florida. Carlos Uzcategui · FL SL705771." />
+        <meta name="twitter:image" content="https://homesprofessional.com/og-image.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/comprar" />

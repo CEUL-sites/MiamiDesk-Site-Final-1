@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { BadgeCheck } from "lucide-react";
+import { ASSOCIATION_STATS } from "../constants";
 
 export default function AgentsPage() {
   return (
@@ -63,8 +64,8 @@ export default function AgentsPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-8 md:grid-cols-3">
               {[
-                { title: "437+", sub: "International Agreements", desc: "Signed referral agreements with real estate associations worldwide." },
-                { title: "93,000", sub: "Member Agents", desc: "Miami and South Florida REALTORS® MLS network for maximum buyer exposure." },
+                { title: `${ASSOCIATION_STATS.internationalAgreements}+`, sub: "International Agreements", desc: "Signed referral agreements with real estate associations worldwide." },
+                { title: `${ASSOCIATION_STATS.memberCount.toLocaleString()}`, sub: "Member Agents", desc: `${ASSOCIATION_STATS.associationName} MLS network for maximum buyer exposure.` },
                 { title: "Day 1", sub: "Professional Activation", desc: "Your referred listing enters professional MLS positioning and buyer-agent visibility from the start." },
               ].map((item) => (
                 <div key={item.title} className="border border-gold/15 p-8 text-center">

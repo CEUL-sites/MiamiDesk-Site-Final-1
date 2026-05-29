@@ -52,6 +52,19 @@ export default function EsHomePage() {
           content="Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group — 25 años de transacciones inmobiliarias en Sur de Florida. Representación de vendedores y compradores en Miami, Coral Gables, Weston y todo el Sur de Florida."
         />
         <link rel="canonical" href="https://homesprofessional.com/es" />
+        <meta property="og:title" content="Bienes Raíces en Sur de Florida | United Realty Group | HomesProfessional.com" />
+        <meta property="og:description" content="Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group — 25 años de experiencia en Sur de Florida. Representación de vendedores y compradores en Miami, Coral Gables y todo el Sur de Florida." />
+        <meta property="og:url" content="https://homesprofessional.com/es" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="HomesProfessional.com" />
+        <meta property="og:locale" content="es_ES" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Bienes Raíces en Sur de Florida | United Realty Group" />
+        <meta name="twitter:description" content="25 años de experiencia. Asesoría de vendedores y compradores en Miami y Sur de Florida. 93,000+ agentes. 200+ portales globales." />
+        <meta name="twitter:image" content="https://homesprofessional.com/og-image.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />

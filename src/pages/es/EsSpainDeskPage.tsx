@@ -110,6 +110,19 @@ export default function EsSpainDeskPage() {
           content="Asesoría inmobiliaria bilingüe para compradores e inversores de España y Latinoamérica que se relocalizan o invierten en Sur de Florida. Consultas privadas en inglés y español."
         />
         <link rel="canonical" href="https://homesprofessional.com/es/spain-desk" />
+        <meta property="og:title" content="Mesa España · Sur de Florida desde Madrid | Carlos Uzcategui SL705771" />
+        <meta property="og:description" content="Asesoría inmobiliaria bilingüe para compradores e inversores de España y Latinoamérica. Consultas privadas en inglés y español. Carlos Uzcategui · FL SL705771 · United Realty Group." />
+        <meta property="og:url" content="https://homesprofessional.com/es/spain-desk" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="HomesProfessional.com" />
+        <meta property="og:locale" content="es_ES" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mesa España · Sur de Florida desde Madrid | Carlos Uzcategui" />
+        <meta name="twitter:description" content="Asesoría bilingüe para compradores e inversores de España y Latinoamérica en Sur de Florida. Consultas privadas. FL SL705771." />
+        <meta name="twitter:image" content="https://homesprofessional.com/og-image.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />

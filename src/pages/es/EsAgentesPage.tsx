@@ -290,10 +290,20 @@ export default function EsAgentesPage() {
           name="description"
           content="Colaboraciones bilaterales para agentes y agencias en España, Florida y Latinoamérica. Acceso a la red de 93.000 agentes de Miami and South Florida REALTORS®. Honorarios de referral confirmados por escrito."
         />
-        <link
-          rel="canonical"
-          href="https://homesprofessional.com/es/agentes"
-        />
+        <link rel="canonical" href="https://homesprofessional.com/es/agentes" />
+        <meta property="og:title" content="Red de Colaboradores · Carlos Uzcategui · Florida Licensed Realtor® SL705771" />
+        <meta property="og:description" content="Colaboraciones bilaterales para agentes y agencias en España, Florida y Latinoamérica. Acceso a la red de 93,000 agentes de Miami and South Florida REALTORS®." />
+        <meta property="og:url" content="https://homesprofessional.com/es/agentes" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="HomesProfessional.com" />
+        <meta property="og:locale" content="es_ES" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Red de Colaboradores · Carlos Uzcategui · FL SL705771" />
+        <meta name="twitter:description" content="Colaboraciones bilaterales para agentes en España, Florida y Latinoamérica. Red de 93,000 agentes Miami REALTORS®. Honorarios confirmados por escrito." />
+        <meta name="twitter:image" content="https://homesprofessional.com/og-image.jpg" />
         <link
           rel="alternate"
           hrefLang="x-default"
