@@ -9,7 +9,7 @@ const MARKET_CITIES = [
   'coral-gables', 'doral', 'kendall', 'fort-lauderdale', 'hollywood',
   'aventura', 'miami-beach', 'homestead', 'boca-raton', 'coral-springs',
   'parkland', 'miami-lakes', 'hallandale', 'pompano-beach', 'sunrise',
-  'brickell',
+  'brickell', 'hialeah', 'deerfield-beach', 'delray-beach', 'west-palm-beach',
 ];
 
 const MARKET_ROUTES = MARKET_CITIES.map((city) => `/market/${city}`);

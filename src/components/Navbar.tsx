@@ -3,15 +3,20 @@ import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT, NAVIGATION, URG_CITIES } from "../constants";
+import { CITY_CONFIGS } from "../config/cityMarkets";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { UrgLogo } from "./UrgLogo";
 
-const toSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
+// Resolve a city display name to its real market-page slug. Derive links from
+// CITY_CONFIGS (the single source of truth) so the dropdown never points to a
+// slug without a configured page.
+const SLUG_BY_CITY = new Map(Object.values(CITY_CONFIGS).map((c) => [c.name, c.slug]));
+const slugFor = (city: string) => SLUG_BY_CITY.get(city);
 
 const MARKETS_BY_COUNTY = [
-  { label: "Miami-Dade", cities: URG_CITIES.filter((c) => c.region === "Miami-Dade County") },
-  { label: "Broward",    cities: URG_CITIES.filter((c) => c.region === "Broward County")    },
-  { label: "Palm Beach", cities: URG_CITIES.filter((c) => c.region === "Palm Beach County") },
+  { label: "Miami-Dade", cities: URG_CITIES.filter((c) => c.region === "Miami-Dade County" && slugFor(c.city)) },
+  { label: "Broward",    cities: URG_CITIES.filter((c) => c.region === "Broward County"    && slugFor(c.city)) },
+  { label: "Palm Beach", cities: URG_CITIES.filter((c) => c.region === "Palm Beach County" && slugFor(c.city)) },
 ];
 
 export function Navbar() {
@@ -131,7 +136,7 @@ export function Navbar() {
                           {county.cities.map((c) => (
                             <li key={c.city}>
                               <a
-                                href={`/market/${toSlug(c.city)}`}
+                                href={`/market/${slugFor(c.city)}`}
                                 onClick={() => setMarketsOpen(false)}
                                 className="font-sans text-[11px] text-white/60 transition-colors hover:text-gold"
                               >
@@ -273,7 +278,7 @@ export function Navbar() {
                           {URG_CITIES.map((c) => (
                             <a
                               key={c.city}
-                              href={`/market/${toSlug(c.city)}`}
+                              href={`/market/${slugFor(c.city)}`}
                               onClick={() => setIsOpen(false)}
                               className="py-1 font-sans text-sm text-white/50 transition-colors hover:text-gold"
                             >

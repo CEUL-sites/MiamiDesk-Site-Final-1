@@ -162,9 +162,9 @@ export const CITY_CONFIGS: Record<string, CityConfig> = {
     metaDescription: "Live Miami Lakes real estate market data from the Miami and South Florida REALTORS® MLS. Updated daily. List your Miami Lakes property with access to 93,000 REALTORS® and 500+ websites. Carlos Uzcategui, Florida Realtor® SL705771, United Realty Group.",
     marketParagraph: "Miami Lakes is a master-planned community with one of South Florida's most stable residential markets — a town built around a golf course and lake system that has attracted LATAM families for decades. Venezuelan, Cuban, and Colombian buyers form the core demand base here. Inventory turns faster in this market than its size suggests, driven by strong community identity and school district quality. Carlos Uzcategui has represented sellers across Miami Lakes and the broader South Florida corridor since 2001 — 25 years of direct transaction experience in this market.",
   },
-  "hallandale-beach": {
+  hallandale: {
     name: "Hallandale Beach",
-    slug: "hallandale-beach",
+    slug: "hallandale",
     bridgeCity: "Hallandale Beach",
     metaTitle: "Hallandale Beach Real Estate Market | Homes for Sale | Carlos Uzcategui Realtor®",
     metaDescription: "Live Hallandale Beach real estate market data from the Miami and South Florida REALTORS® MLS. Updated daily. List your Hallandale Beach property with access to 93,000 REALTORS® and 500+ websites. Carlos Uzcategui, Florida Realtor® SL705771, United Realty Group.",
