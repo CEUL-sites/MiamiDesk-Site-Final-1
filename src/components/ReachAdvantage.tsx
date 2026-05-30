@@ -20,31 +20,31 @@ const TOP_STATS = [
     desc: "United Realty Group maintains 19 active offices across Florida — local presence in every South Florida market.",
   },
   {
-    value: 500,
-    display: "500",
+    value: 200,
+    display: "200",
     suffix: "+",
-    label: "Web Sites",
+    label: "Global Portals",
     sublabel: "Syndicated Listing Exposure",
-    desc: "Through MIAMI REALTORS® distribution partners, your listing is featured on 500+ web sites — from Zillow and Realtor.com to international portals, across 19 languages.",
+    desc: "Through MIAMI REALTORS® distribution partners, your listing is featured on 200+ global portals — from Zillow and Realtor.com to international platforms, across 19 languages.",
   },
 ];
 
 const BOTTOM_STATS = [
   {
-    value: 385,
-    display: "385",
+    value: 260,
+    display: "260",
     suffix: "+",
     label: "U.S. MLSs",
     sublabel: "via RPR National Exchange",
     desc: "Your listing crosses state lines through the national professional MLS data exchange. Domestic reach beyond South Florida.",
   },
   {
-    value: 300,
-    display: "300",
+    value: 437,
+    display: "437",
     suffix: "+",
-    label: "Partner Associations",
-    sublabel: "The most of any in the world",
-    desc: "MIAMI REALTORS® holds signed agreements with 300+ real estate associations across 70+ countries — the largest international partner network of any REALTOR® association, creating active deal flow for listings with global appeal.",
+    label: "International Agreements",
+    sublabel: "Global Referral Network",
+    desc: "MIAMI REALTORS® holds 437+ international agreements with real estate organizations worldwide, creating active deal flow for listings with global appeal.",
   },
   {
     value: 25,
@@ -165,8 +165,8 @@ export const ReachAdvantage = () => {
       >
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {[
-            { v: "2M+", l: "Professionals reached worldwide" },
-            { v: "70+", l: "Countries with partner assoc." },
+            { v: "$69B", l: "2025 sales volume" },
+            { v: "11", l: "MLS data exchanges" },
             { v: "Day 1", l: "Full activation" },
             { v: "CLHMS", l: "Luxury certified" },
           ].map((item) => (

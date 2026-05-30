@@ -71,10 +71,10 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: controller.signal,
-        body: encodeForm({ "form-name": "seller-consultation", "bot-field": "", ...form, sourcePage: `hero-${lang}` }),
+        body: encodeForm({ "form-name": "seller-hero", "bot-field": "", ...form, sourcePage: `hero-${lang}` }),
       });
       if (!res.ok) throw new Error(String(res.status));
-      pushEvent("form_submit_seller", { form: "seller-consultation", page: `hero-${lang}` });
+      pushEvent("form_submit_seller", { form: "seller-hero", page: `hero-${lang}` });
       setStatus("success");
       setForm(initial);
     } catch (err) {
@@ -116,14 +116,14 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
 
   return (
     <form
-      name="seller-consultation"
+      name="seller-hero"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       className="rounded-2xl bg-[#0A1525]/80 border border-white/12 backdrop-blur-xl p-5 sm:p-6 text-left shadow-2xl shadow-black/50"
     >
-      <input type="hidden" name="form-name" value="seller-consultation" />
+      <input type="hidden" name="form-name" value="seller-hero" />
       <p aria-hidden="true" className="hidden">
         <label>Don't fill this out: <input name="bot-field" /></label>
       </p>

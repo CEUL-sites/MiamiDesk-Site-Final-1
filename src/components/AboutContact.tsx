@@ -5,8 +5,8 @@ import { LeadForm } from "./LeadForm";
 const STATS = [
   { value: "25", label: "Years Licensed" },
   { value: "93,000", label: "Member Agents in Association" },
-  { value: "3,000+", label: "URG Agents · 19 Offices" },
-  { value: "19", label: "Florida Offices" }
+  { value: "3,500+", label: "URG Agents · 20 Offices" },
+  { value: "20", label: "Florida Offices" }
 ];
 
 export function AboutContact() {

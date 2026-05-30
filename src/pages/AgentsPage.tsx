@@ -19,7 +19,7 @@ export default function AgentsPage() {
           "name": "Agent-to-Agent Referral Network",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "Real Estate Agent Referral",
-          "description": "Confidential buyer and seller referral program for licensed agents. Formal referral agreements with United Realty Group. 437+ international referral agreements.",
+          "description": "Confidential buyer and seller referral program for licensed agents. Formal referral agreements with United Realty Group. 437+ international agreements.",
           "url": "https://homesprofessional.com/agents"
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -28,7 +28,7 @@ export default function AgentsPage() {
           "mainEntity": [
             { "@type": "Question", "name": "How does the agent referral program work?", "acceptedAnswer": { "@type": "Answer", "text": "Submit a referral via the form or contact our team directly. We execute a formal referral agreement, handle the transaction in South Florida, and pay your referral fee at closing." } },
             { "@type": "Question", "name": "What referral fee do you pay?", "acceptedAnswer": { "@type": "Answer", "text": "Referral fees are negotiated per transaction and documented in writing before we engage the referred client. Contact our team for details." } },
-            { "@type": "Question", "name": "Do you accept international agent referrals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have 437+ signed referral agreements with international real estate associations. Bilingual English/Spanish service is available for Spain and Latin America referrals." } }
+            { "@type": "Question", "name": "Do you accept international agent referrals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have 437+ international agreements with real estate organizations. Bilingual English/Spanish service is available for Spain and Latin America referrals." } }
           ]
         })}</script>
       </Helmet>
@@ -48,7 +48,7 @@ export default function AgentsPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-8 md:grid-cols-3">
               {[
-                { title: "437+", sub: "International Agreements", desc: "Signed referral agreements with real estate associations worldwide." },
+                { title: "437+", sub: "International Agreements", desc: "Signed referral agreements with real estate organizations worldwide." },
                 { title: "93,000", sub: "Member Agents", desc: "Miami and South Florida REALTORS® MLS network for maximum buyer exposure." },
                 { title: "Day 1", sub: "Professional Activation", desc: "Your referred listing enters professional MLS positioning and buyer-agent visibility from the start." },
               ].map((item) => (

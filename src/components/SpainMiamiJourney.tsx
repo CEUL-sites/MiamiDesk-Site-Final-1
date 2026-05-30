@@ -31,11 +31,11 @@ const STEPS = [
   },
   {
     id: 3,
-    city: "Miami MLS · 260+ Networks",
+    city: "Miami MLS · 260+ U.S. Networks",
     flag: "🏛️",
     label: "THE SEARCH BEGINS",
     headline: "Their agent searches the MLS.",
-    sub: "A buyer's agent in the world's largest local Realtor association begins identifying properties — in Florida and internationally — across 260+ MLS networks.",
+    sub: "A buyer's agent in the world's largest local Realtor association begins identifying properties — in Florida and internationally — across the MIAMI REALTORS® global partner network.",
     stat: "200+ global portals · 19 languages",
     side: "left" as const,
     color: GOLD,

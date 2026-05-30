@@ -23,8 +23,8 @@ export const CONTACT = {
   stats: {
     experience: "25",
     agents: "93,000",
-    offices: "19",
-    urgAgents: "3,000+",
+    offices: "20",
+    urgAgents: "3,500+",
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
   }
@@ -59,17 +59,15 @@ export const NAVIGATION = [
 
 export const ASSOCIATION_STATS = {
   memberCount: 93000,
-  // Listings featured on 500+ web sites via MIAMI REALTORS® syndication partners.
-  globalPortals: 500,
+  // Approved verified figures only.
+  globalPortals: 200,
   languages: 19,
-  usMls: 385,
-  // 300+ international partner associations — the most of any REALTOR® association
-  // in the world (MiamiRealtors.com/GlobalPartners).
-  partnerAssociations: 300,
-  globalProfessionals: 2000000,
-  partnerCountries: 70,
-  urgOffices: 19,
+  usMls: 260,
+  internationalAgreements: 437,
   mlsDataExchanges: 11,
+  annualVolume: "$69B",
+  urgAgents: "3,500+",
+  urgOffices: 20,
   mergerDate: "May 11, 2026",
   associationName: "Miami and South Florida REALTORS®"
 };

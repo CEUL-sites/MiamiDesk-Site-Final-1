@@ -644,7 +644,7 @@ export default function EsAgentesPage() {
                   title: "ACTIVACIÓN EN LA RED AMERICANA",
                   // TODO: native Madrid editor review
                   description:
-                    "El listado aparece en más de 200 sitios web en 19 idiomas en 24 a 48 horas. Contacto directo con agentes de South Florida con mandatos activos.",
+                    "El listado aparece en 200+ portales globales en 19 idiomas en 24 a 48 horas. Contacto directo con agentes de South Florida con mandatos activos.",
                 },
                 {
                   number: "04",

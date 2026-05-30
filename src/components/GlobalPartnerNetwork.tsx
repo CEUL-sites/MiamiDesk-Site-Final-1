@@ -11,19 +11,18 @@ const COPY = {
     intro: (
       <>
         South Florida and Spanish luxury property sells to a global buyer. Listing through a
-        MIAMI &amp; South Florida REALTORS® member places your home inside the MLS of the
-        association with <span className="text-white/90">the most international partner
-        agreements in the world</span> — formally linked to 300+ associations and{" "}
-        <span className="text-white/90">2&nbsp;million+ real estate professionals</span> across
-        70+ countries. The agents representing Latin American, European and Gulf buyers are not
-        cold contacts. They are partners.
+        MIAMI &amp; South Florida REALTORS® member places your home inside the MLS backed by{" "}
+        <span className="text-white/90">437+ international agreements</span> and{" "}
+        <span className="text-white/90">93,000 member agents</span>, with syndication across{" "}
+        200+ global portals in 19 languages. The agents representing Latin American, European and
+        Gulf buyers are not cold contacts. They are partners.
       </>
     ),
     stats: [
-      { value: GLOBAL_REACH.partnerAssociations, label: "Partner Associations", sub: "Most of any REALTOR® assoc. worldwide" },
-      { value: GLOBAL_REACH.professionals, label: "Professionals", sub: "Real estate agents reached worldwide" },
-      { value: GLOBAL_REACH.countries, label: "Countries", sub: "With a signed partner association" },
-      { value: GLOBAL_REACH.websites, label: "Web Sites", sub: "Featuring your listing via syndication" },
+      { value: GLOBAL_REACH.internationalAgreements, label: "International Agreements", sub: "Signed referral network worldwide" },
+      { value: GLOBAL_REACH.memberAgents, label: "Member Agents", sub: "Miami & South Florida REALTORS®" },
+      { value: GLOBAL_REACH.globalPortals, label: "Global Portals", sub: "Listing syndication reach" },
+      { value: GLOBAL_REACH.languages, label: "Languages", sub: "Simultaneous syndication" },
     ],
     markets: "markets",
     flagshipLabel: "Flagship partners",
@@ -37,18 +36,17 @@ const COPY = {
       <>
         La propiedad de lujo del Sur de Florida y de España se vende a un comprador global. Listar
         a través de un miembro de MIAMI &amp; South Florida REALTORS® coloca su inmueble dentro del
-        MLS de la asociación con <span className="text-white/90">el mayor número de acuerdos
-        internacionales del mundo</span> — vinculada formalmente a más de 300 asociaciones y{" "}
-        <span className="text-white/90">2&nbsp;millones+ de profesionales inmobiliarios</span> en
-        más de 70 países. Los agentes que representan a compradores de Latinoamérica, Europa y el
-        Golfo no son contactos fríos. Son socios.
+        MLS respaldado por <span className="text-white/90">437+ acuerdos internacionales</span> y{" "}
+        <span className="text-white/90">93.000 agentes miembros</span>, con sindicación en más de
+        200 portales globales en 19 idiomas. Los agentes que representan a compradores de
+        Latinoamérica, Europa y el Golfo no son contactos fríos. Son socios.
       </>
     ),
     stats: [
-      { value: GLOBAL_REACH.partnerAssociations, label: "Asociaciones Socias", sub: "Las más de cualquier asoc. REALTOR® del mundo" },
-      { value: GLOBAL_REACH.professionals, label: "Profesionales", sub: "Agentes inmobiliarios alcanzados en el mundo" },
-      { value: GLOBAL_REACH.countries, label: "Países", sub: "Con una asociación socia firmada" },
-      { value: GLOBAL_REACH.websites, label: "Sitios Web", sub: "Que difunden su propiedad por sindicación" },
+      { value: GLOBAL_REACH.internationalAgreements, label: "Acuerdos Internacionales", sub: "Red de referidos firmada en el mundo" },
+      { value: GLOBAL_REACH.memberAgents, label: "Agentes Miembros", sub: "Miami & South Florida REALTORS®" },
+      { value: GLOBAL_REACH.globalPortals, label: "Portales Globales", sub: "Alcance de sindicación" },
+      { value: GLOBAL_REACH.languages, label: "Idiomas", sub: "Sindicación simultánea" },
     ],
     markets: "mercados",
     flagshipLabel: "Socios destacados",
