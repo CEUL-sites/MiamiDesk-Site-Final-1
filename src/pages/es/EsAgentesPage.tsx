@@ -6,6 +6,7 @@ import { BadgeCheck, Send, Loader2, Download, ExternalLink } from "lucide-react"
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
+import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT, LEAD_MAGNETS, ASSOCIATION_STATS } from "../../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -585,6 +586,7 @@ export default function EsAgentesPage() {
                 determina su precio."
               </p>
             </blockquote>
+            <MiamiRealtorsBadge lang="es" variant="light" className="mt-12" />
           </div>
         </section>
 
