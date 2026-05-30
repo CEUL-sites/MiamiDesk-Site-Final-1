@@ -37,6 +37,23 @@ export function Footer() {
             </svg>
             <span className="font-sans text-xs text-white/50">Equal Housing Opportunity</span>
           </div>
+
+          {/* MIAMI REALTORS® membership affiliation */}
+          <div className="mt-8 border-t border-white/10 pt-6">
+            <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-white/30">Proud Member</p>
+            <img
+              src="/images/miami-realtors-logo.png"
+              alt="Member of the MIAMI Association of REALTORS®"
+              width="150"
+              height="51"
+              loading="lazy"
+              className="mt-3 h-8 w-auto opacity-80"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
+            <p className="mt-3 max-w-xs font-sans text-[11px] font-light leading-relaxed text-white/40">
+              United Realty Group is a member of the MIAMI Association of REALTORS® — the largest local REALTOR® association in the U.S.
+            </p>
+          </div>
         </div>
 
         <div>
