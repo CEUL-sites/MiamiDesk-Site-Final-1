@@ -380,9 +380,9 @@ export default function CityMarketPage() {
 
             <div className="grid gap-0 border border-gold/15 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { value: "500+", label: "Global Websites" },
+                { value: "200+", label: "Global Portals" },
                 { value: "19", label: "Languages" },
-                { value: "385", label: "U.S. MLSs via RPR" },
+                { value: "260+", label: "U.S. MLSs via RPR" },
                 { value: "$69B", label: "2025 Volume" },
               ].map((item, i) => (
                 <div

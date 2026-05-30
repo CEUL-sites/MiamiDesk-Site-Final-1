@@ -199,14 +199,14 @@ export default function EsSpainDeskPage() {
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
-                <div className="font-serif text-4xl text-navy-deep">500+</div>
+                <div className="font-serif text-4xl text-navy-deep">200+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
                   {/* TODO: native Madrid editor review */}
                   Sitios web · 19 idiomas
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
-                <div className="font-serif text-4xl text-navy-deep">385</div>
+                <div className="font-serif text-4xl text-navy-deep">260+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
                   {/* TODO: native Madrid editor review */}
                   MLSs en EE.UU. vía RPR
@@ -307,7 +307,7 @@ export default function EsSpainDeskPage() {
               </p>
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
                 {/* TODO: native Madrid editor review */}
-                Desde el primer día de activación, la propiedad llega a 93.000 agentes miembros de la mayor asociación local de REALTORS® del mundo, con distribución simultánea a más de 500 sitios web en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
+                Desde el primer día de activación, la propiedad llega a 93.000 agentes miembros de la mayor asociación local de REALTORS® del mundo, con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
 

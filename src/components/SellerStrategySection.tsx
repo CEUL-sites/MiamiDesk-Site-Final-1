@@ -20,14 +20,14 @@ const STEPS = [
     num: "03", title: "Launch", sub: "Maximum Exposure",
     badge: "93K Agent Pipeline — Day One",
     text: "Professional MLS positioning and eligible syndication across approved distribution channels, buyer-agent visibility, and expanded exposure infrastructure where applicable.",
-    stats: [{ v: "93K", l: "Agents Notified" }, { v: "500+", l: "Web Sites" }, { v: "19", l: "Languages" }],
+    stats: [{ v: "93K", l: "Agents Notified" }, { v: "200+", l: "Global Portals" }, { v: "19", l: "Languages" }],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`,
   },
   {
     num: "04", title: "Activate", sub: "Agents on the Ground",
-    badge: "3,000+ Agents · 19 Offices",
-    text: "United Realty Group's 3,000+ agents across 19 South Florida offices begin showing, qualifying buyers, following up — and activating the Spain & LATAM referral pipeline.",
-    stats: [{ v: "3K+", l: "Active Agents" }, { v: "19", l: "Offices" }, { v: "2", l: "Continents" }],
+    badge: "3,500+ Agents · 20 Offices",
+    text: "United Realty Group's 3,500+ agents across 20 South Florida offices begin showing, qualifying buyers, following up — and activating the Spain & LATAM referral pipeline.",
+    stats: [{ v: "3.5K+", l: "Active Agents" }, { v: "20", l: "Offices" }, { v: "2", l: "Continents" }],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
   },
   {

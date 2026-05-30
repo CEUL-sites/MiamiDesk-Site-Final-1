@@ -9,20 +9,19 @@
 //
 // These figures are why a South Florida or Spain seller listing through a
 // MIAMI / South Florida REALTORS® member reaches far beyond the local market:
-// the listing enters an MLS whose member network is formally connected to
-// 300+ real estate associations across 70+ countries.
+// the listing enters an MLS backed by 437+ international agreements and 93,000 member agents.
 // ──────────────────────────────────────────────────────────────────────────
 
-/** Headline reach figures, taken directly from the MIAMI REALTORS® reach sheet. */
+/** Headline reach figures — approved verified figures only. */
 export const GLOBAL_REACH = {
-  /** Partner associations worldwide — "the most of any REALTOR® association in the world." */
-  partnerAssociations: "300+",
-  /** Real estate professionals the network links MIAMI properties to, worldwide. */
-  professionals: "2 million+",
-  /** Web sites that feature MIAMI listings through syndication partners. */
-  websites: "500+",
-  /** Countries and territories with at least one signed partner association. */
-  countries: "70+",
+  /** Signed international referral/cooperation agreements. */
+  internationalAgreements: "437+",
+  /** Member agents in the Miami and South Florida REALTORS® association. */
+  memberAgents: "93,000",
+  /** Global syndication portals featuring MIAMI listings. */
+  globalPortals: "200+",
+  /** Languages the listing is syndicated in. */
+  languages: "19",
 } as const;
 
 export interface PartnerRegion {

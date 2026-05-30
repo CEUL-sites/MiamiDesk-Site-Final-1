@@ -127,10 +127,9 @@ export default function EsHomePage() {
               >
                 {/* TODO: native Madrid editor review */}
                 Representación de vendedores en el Sur de Florida y España. Cada
-                propiedad en exclusiva activa la red de la asociación con el mayor
-                número de acuerdos internacionales del mundo — 93,000 agentes
-                miembros y más de 2 millones de profesionales en más de 70 países,
-                a través de más de 300 asociaciones socias.
+                propiedad en exclusiva activa la red de la asociación local de
+                REALTORS® más grande del mundo — 93,000 agentes miembros, 200+
+                portales globales en 19 idiomas y 437+ acuerdos internacionales.
               </motion.p>
 
               {/* Primary seller lead capture */}
@@ -153,19 +152,19 @@ export default function EsHomePage() {
                     label: "Agentes Miembros",
                   },
                   {
-                    value: "300+",
+                    value: "200+",
                     // TODO: native Madrid editor review
-                    label: "Asociaciones Socias",
+                    label: "Portales Globales",
                   },
                   {
-                    value: "2M+",
+                    value: "437+",
                     // TODO: native Madrid editor review
-                    label: "Profesionales",
+                    label: "Acuerdos Internacionales",
                   },
                   {
-                    value: "70+",
+                    value: "260+",
                     // TODO: native Madrid editor review
-                    label: "Países",
+                    label: "MLSs en EE. UU.",
                   },
                 ].map((s) => (
                   <div key={s.label}>

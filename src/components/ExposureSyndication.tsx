@@ -76,10 +76,10 @@ const TIER_CLASSES: Record<1 | 2 | 3, string> = {
 };
 
 const BOTTOM_STATS = [
-  { value: "500+", label: "Web Sites" },
+  { value: "200+", label: "Global Portals" },
   { value: "19",   label: "Languages" },
-  { value: "385",  label: "U.S. MLSs via RPR" },
-  { value: "300+", label: "Partner Associations" },
+  { value: "260+", label: "U.S. MLSs via RPR" },
+  { value: "437+", label: "Intl. Agreements" },
 ];
 
 export const ExposureSyndication = () => {

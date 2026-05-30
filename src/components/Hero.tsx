@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { Bot, Globe, Tag, Key, Users, ShieldCheck } from "lucide-react";
+import { Globe, Tag, Key, Users, ShieldCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 import { HeroSellerForm } from "./HeroSellerForm";
 
@@ -16,19 +16,17 @@ const item: Variants = {
 
 /* Secondary navigation — seller is the primary CTA (the form); these are supporting paths */
 const PILLS = [
-  { icon: Bot,   label: "Ask the Miami Desk AI", href: "#intelligence" },
-  { icon: Key,   label: "Buy",                    href: "/buy"          },
-  { icon: Globe, label: "Spain Desk",             href: "/spain-desk"   },
-  { icon: Users, label: "Agent Referral",         href: "/agents"       },
+  { icon: Key,   label: "Buy",            href: "/buy"        },
+  { icon: Globe, label: "Spain Desk",     href: "/spain-desk" },
+  { icon: Users, label: "Agent Referral", href: "/agents"     },
 ];
 
-/* Accurate reach figures — MIAMI REALTORS® Global Partner network */
+/* Reach Advantage — approved verified figures only */
 const REACH_STATS = [
-  { value: "93,000+", label: "Member Agents"        },
-  { value: "300+",    label: "Partner Associations"  },
-  { value: "2M+",     label: "Professionals"         },
-  { value: "70+",     label: "Countries"             },
-  { value: "500+",    label: "Web Sites"             },
+  { value: "93,000", label: "Member Agents"            },
+  { value: "200+",   label: "Global Portals"           },
+  { value: "260+",   label: "U.S. MLSs"                },
+  { value: "437+",   label: "International Agreements"  },
 ];
 
 /* ─── Hero ─────────────────────────────────────────────────────── */
@@ -167,8 +165,8 @@ export function Hero() {
               className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60 mx-auto lg:mx-0"
             >
               Senior seller representation for owners in <span className="text-white/85">South Florida and Spain.</span>{" "}
-              Your property positioned in front of <span className="text-white/85">93,000 local agents</span> and a
-              global network of <span className="text-white/85">2&nbsp;million+ professionals across 70+ countries</span> —
+              Your property positioned in front of <span className="text-white/85">93,000 member agents</span> and{" "}
+              <span className="text-white/85">437+ international agreements</span> —
               priced with discipline, presented to the buyer who pays the most.
             </motion.p>
 
