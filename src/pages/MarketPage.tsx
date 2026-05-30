@@ -137,7 +137,7 @@ export default function MarketPage() {
             {meta.display} Real Estate
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Full MLS access. 93,000 member agents. 200+ global portals. Your{" "}
+            Full MLS access. 93,000 member agents. 500+ websites. Your{" "}
             {meta.display} property strategy starts here.
           </p>
         </section>

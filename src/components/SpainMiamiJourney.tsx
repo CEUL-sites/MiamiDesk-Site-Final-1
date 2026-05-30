@@ -31,12 +31,12 @@ const STEPS = [
   },
   {
     id: 3,
-    city: "Miami MLS · 260+ Networks",
+    city: "Miami MLS · 70+ Countries",
     flag: "🏛️",
     label: "THE SEARCH BEGINS",
     headline: "Their agent searches the MLS.",
-    sub: "A buyer's agent in the world's largest local Realtor association begins identifying properties — in Florida and internationally — across 260+ MLS networks.",
-    stat: "200+ global portals · 19 languages",
+    sub: "A buyer's agent in the world's largest local Realtor association begins identifying properties — in Florida and internationally — across the MIAMI REALTORS® global partner network.",
+    stat: "500+ websites · 19 languages",
     side: "left" as const,
     color: GOLD,
   },
@@ -58,7 +58,7 @@ const STEPS = [
     label: "COORDINATION",
     headline: "Showings. Local expertise. Both sides.",
     sub: "Local Spanish agencies within Carlos's affiliated network handle buyer qualification, showings, and local negotiation. The seller has both markets working in parallel.",
-    stat: "437+ international agreements active",
+    stat: "300+ partner associations active",
     side: "left" as const,
     color: GOLD,
   },
@@ -176,8 +176,8 @@ export function SpainMiamiJourney() {
 
   const FOOTER_STATS = [
     { n: "93,000", l: "Member Agents" },
-    { n: "200+",   l: "Global Portals" },
-    { n: "437+",   l: "International Agreements" },
+    { n: "500+",   l: "Web Sites" },
+    { n: "300+",   l: "Partner Associations" },
     { n: "$69B",   l: "2025 Volume" },
   ];
 

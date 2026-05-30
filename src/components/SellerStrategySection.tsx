@@ -20,7 +20,7 @@ const STEPS = [
     num: "03", title: "Launch", sub: "Maximum Exposure",
     badge: "93K Agent Pipeline — Day One",
     text: "Professional MLS positioning and eligible syndication across approved distribution channels, buyer-agent visibility, and expanded exposure infrastructure where applicable.",
-    stats: [{ v: "93K", l: "Agents Notified" }, { v: "200+", l: "Global Portals" }, { v: "19", l: "Languages" }],
+    stats: [{ v: "93K", l: "Agents Notified" }, { v: "500+", l: "Web Sites" }, { v: "19", l: "Languages" }],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`,
   },
   {
@@ -200,6 +200,13 @@ export function SellerStrategySection() {
     if (!cv || !sec) return;
 
     const cx = cv.getContext("2d")!;
+
+    // Track animation timers so they can be cancelled if the section unmounts
+    // mid-sequence (e.g. fast client-side navigation away from the homepage).
+    const timers = new Set<number>();
+    const sT = (fn: () => void, ms: number) => { const id = window.setTimeout(fn, ms); timers.add(id); return id; };
+    const sI = (fn: () => void, ms: number) => { const id = window.setInterval(fn, ms); timers.add(id); return id; };
+
     let W = 0, H = 0, t = 0;
     type Building = { x: number; w: number; h: number; wins: { f: number; c: number; lit: boolean; blink: boolean; ph: number }[] };
     type Pt = { x: number; y: number; vx: number; vy: number; r: number; a: number; pulse: number; pulsing: boolean };
@@ -331,9 +338,9 @@ export function SellerStrategySection() {
       const cursor = sec.querySelector("#sss-cur") as HTMLElement;
       sec.querySelector(".sss-italic")?.classList.add("on");
       let idx = 0;
-      const iv = setInterval(() => {
+      const iv = sI(() => {
         el.textContent = ITALIC.slice(0, idx++);
-        if (idx > ITALIC.length) { clearInterval(iv); setTimeout(() => { cursor.classList.add("done"); cb(); }, 900); }
+        if (idx > ITALIC.length) { clearInterval(iv); sT(() => { cursor.classList.add("done"); cb(); }, 900); }
       }, 50);
     }
 
@@ -341,14 +348,14 @@ export function SellerStrategySection() {
     function runSeq() {
       readyRef.current = false; curStepRef.current = -1;
       const words = [...sec.querySelectorAll(".sss-w")] as HTMLElement[];
-      setTimeout(() => sec.querySelector(".sss-eye")?.classList.add("on"), 400);
-      words.forEach((w, i) => setTimeout(() => w.classList.add("on"), 720 + i * 105));
+      sT(() => sec.querySelector(".sss-eye")?.classList.add("on"), 400);
+      words.forEach((w, i) => sT(() => w.classList.add("on"), 720 + i * 105));
       const afterWords = 720 + HW.length * 105 + 60;
-      setTimeout(() => typeIt(() => {
+      sT(() => typeIt(() => {
         sec.querySelector(".sss-desc")?.classList.add("on");
-        setTimeout(() => { sec.querySelector(".sss-tf")?.classList.add("on"); sec.querySelector(".sss-tg")?.classList.add("on"); }, 350);
-        STEPS.forEach((_, i) => setTimeout(() => sec.querySelector(`#sss-bb${i}`)?.classList.add("pop"), 450 + i * 155));
-        setTimeout(() => {
+        sT(() => { sec.querySelector(".sss-tf")?.classList.add("on"); sec.querySelector(".sss-tg")?.classList.add("on"); }, 350);
+        STEPS.forEach((_, i) => sT(() => sec.querySelector(`#sss-bb${i}`)?.classList.add("pop"), 450 + i * 155));
+        sT(() => {
           sec.querySelector(".sss-cta")?.classList.add("on");
           sec.querySelector(".sss-replay")?.classList.add("on");
           sec.querySelector(".sss-keyhint")?.classList.add("on");
@@ -372,7 +379,7 @@ export function SellerStrategySection() {
       STEPS.forEach((_, i) => { sec.querySelector(`#sss-bb${i}`)?.classList.remove("pop"); sec.querySelector(`#sss-nd${i}`)?.classList.remove("on"); });
       sec.querySelector(".sss-panel")?.classList.remove("open");
       sec.querySelector(".sss-cta")?.classList.remove("on");
-      setTimeout(runSeq, 250);
+      sT(runSeq, 250);
     }
     (window as any).__sssReplay = replaySeq;
 
@@ -388,6 +395,7 @@ export function SellerStrategySection() {
       io.disconnect();
       cancelAnimationFrame(rafRef.current);
       ro.disconnect();
+      timers.forEach((id) => { clearTimeout(id); clearInterval(id); });
       document.removeEventListener("keydown", handleKey);
       delete (window as any).__sssActivate;
       delete (window as any).__sssReplay;
