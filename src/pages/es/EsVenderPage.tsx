@@ -5,6 +5,7 @@ import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
+import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT } from "../../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -273,6 +274,7 @@ export default function EsVenderPage() {
               {/* TODO: native Madrid editor review */}
               Cifras correspondientes a la Asociación de REALTORS® de Miami y Sur de Florida · United Realty Group · 2025
             </p>
+            <MiamiRealtorsBadge lang="es" variant="dark" className="mt-10" />
           </div>
         </section>
 

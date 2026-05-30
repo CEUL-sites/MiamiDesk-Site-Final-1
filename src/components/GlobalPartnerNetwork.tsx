@@ -26,6 +26,7 @@ const COPY = {
     ],
     markets: "markets",
     flagshipLabel: "Flagship partners",
+    platformCaption: "MIAMI REALTORS® + RWorld — the global REALTOR® platform",
     source: "Source: MIAMI REALTORS® Global Partner Associations · MiamiRealtors.com/GlobalPartners",
   },
   es: {
@@ -50,6 +51,7 @@ const COPY = {
     ],
     markets: "mercados",
     flagshipLabel: "Socios destacados",
+    platformCaption: "MIAMI REALTORS® + RWorld — la plataforma global de REALTORS®",
     source: "Fuente: MIAMI REALTORS® Global Partner Associations · MiamiRealtors.com/GlobalPartners",
   },
 } as const;
@@ -96,6 +98,27 @@ export function GlobalPartnerNetwork({ lang = "en" }: { lang?: Lang }) {
             {t.intro}
           </motion.p>
         </div>
+
+        {/* ── MIAMI REALTORS® + RWorld global platform ──────────── */}
+        <motion.figure
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-xl border border-gold/20 shadow-2xl shadow-black/40"
+        >
+          <img
+            src="/images/miami-realtors-rworld.jpg"
+            alt="MIAMI REALTORS® + RWorld — the global REALTOR® platform"
+            width="960"
+            height="540"
+            loading="lazy"
+            className="h-auto w-full"
+          />
+          <figcaption className="bg-[#0A1525] px-5 py-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-white/45">
+            {t.platformCaption}
+          </figcaption>
+        </motion.figure>
 
         {/* ── Headline stats ──────────────────────────────────── */}
         <div className="mt-14 grid grid-cols-2 gap-px border border-gold/15 bg-gold/10 lg:grid-cols-4">

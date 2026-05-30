@@ -6,6 +6,7 @@ import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { HeroSellerForm } from "../../components/HeroSellerForm";
+import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -176,6 +177,11 @@ export default function EsHomePage() {
                     </div>
                   </div>
                 ))}
+              </motion.div>
+
+              {/* MIAMI REALTORS® membership */}
+              <motion.div variants={itemVariants} className="mt-9">
+                <MiamiRealtorsBadge lang="es" variant="dark" />
               </motion.div>
 
               {/* Credentials pill */}

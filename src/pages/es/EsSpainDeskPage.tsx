@@ -4,6 +4,7 @@ import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
+import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 
 const breadcrumbJsonLd = {
@@ -213,6 +214,7 @@ export default function EsSpainDeskPage() {
                 </div>
               </div>
             </div>
+            <MiamiRealtorsBadge lang="es" variant="light" className="mt-10" />
           </div>
         </section>
 
