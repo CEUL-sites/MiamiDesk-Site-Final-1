@@ -146,6 +146,28 @@ export const ReachAdvantage = () => {
         >
           This is not a single listing. It is a distribution infrastructure — every number below is active the moment your property enters the MLS.
         </motion.p>
+
+        {/* MIAMI REALTORS® attribution — source of the reach network */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-10 flex flex-col items-center gap-3"
+        >
+          <img
+            src="/images/miami-realtors-logo.png"
+            alt="MIAMI Association of REALTORS®"
+            width="170"
+            height="58"
+            loading="lazy"
+            className="h-9 w-auto opacity-85"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
+          <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+            Powered by membership in the Miami and South Florida REALTORS®
+          </p>
+        </motion.div>
       </div>
 
       {/* ── Top Stats Row ─────────────────────────────────────── */}
