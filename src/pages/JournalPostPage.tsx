@@ -50,7 +50,7 @@ export default function JournalPostPage() {
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       </Helmet>
 
-      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
         {/* Article header — dark navy band */}

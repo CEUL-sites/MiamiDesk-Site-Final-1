@@ -17,7 +17,7 @@ export default function TermsPage() {
         <link rel="canonical" href="https://homesprofessional.com/terms" />
         <meta name="robots" content="noindex" />
       </Helmet>
-      <main className="min-h-screen bg-white pb-20">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white pb-20">
         <Navbar />
         <div className="mx-auto max-w-3xl px-6 py-20">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Legal</p>

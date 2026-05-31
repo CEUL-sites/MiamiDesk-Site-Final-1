@@ -40,6 +40,57 @@
   h1, h2, h3, h4 {
     @apply font-serif tracking-tight;
   }
+
+  /* Global keyboard focus ring — visible only for keyboard/AT users, never on
+     mouse click. Gold to stay on-brand, with an offset so it clears the target. */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* The skip-link's <main> target should not paint a focus ring when it
+     receives programmatic focus — only keyboard widgets need the ring. */
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
+  /* Respect users who prefer reduced motion (html sets scroll-behavior: smooth). */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Skip-to-content link — offscreen until focused, then pinned top-left. */
+  .skip-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform: translateY(-120%);
+    transition: transform 0.15s ease;
+    background: var(--color-navy-deep);
+    color: var(--color-white-soft);
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--color-gold);
+    border-radius: 0 0 4px 0;
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
 }
 
 @layer components {

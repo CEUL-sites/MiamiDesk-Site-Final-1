@@ -30,7 +30,7 @@ export default function HomePage() {
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
       </Helmet>
-      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />
         <MLSTicker />

@@ -4,6 +4,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
+import { SkipLink } from './components/SkipLink';
 import { CookieBanner } from './components/CookieBanner';
 import { Analytics } from './components/Analytics';
 import { WhatsAppFloat } from './components/WhatsAppFloat';
@@ -50,6 +51,7 @@ if (rootElement) {
       <HelmetProvider>
         <>
           <SchemaOrg />
+          <SkipLink />
           <BrowserRouter>
             <Suspense fallback={null}>
               <Routes>

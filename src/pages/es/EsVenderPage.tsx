@@ -135,7 +135,7 @@ export default function EsVenderPage() {
         </script>
       </Helmet>
 
-      <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}

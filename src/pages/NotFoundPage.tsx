@@ -10,7 +10,7 @@ export default function NotFoundPage() {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Navbar />
-      <main className="flex min-h-[70vh] flex-col items-center justify-center bg-bone-warm px-6 py-24 text-center">
+      <main id="main-content" tabIndex={-1} className="flex min-h-[70vh] flex-col items-center justify-center bg-bone-warm px-6 py-24 text-center">
         <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-gold">404</p>
         <h1 className="mt-5 font-serif text-5xl text-navy lg:text-6xl">Page Not Found</h1>
         <p className="mx-auto mt-6 max-w-md font-sans text-base leading-relaxed text-navy/60">

@@ -40,7 +40,7 @@ export default function BuyersPage() {
           ]
         })}</script>
       </Helmet>
-      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <section className="overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Strategy</p>

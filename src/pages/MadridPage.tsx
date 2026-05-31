@@ -90,9 +90,17 @@ export default function MadridPage({ lang = "en" }: { lang?: Lang }) {
         <link rel="alternate" hrefLang="en-US" href="https://homesprofessional.com/madrid" />
         <link rel="alternate" hrefLang="es-ES" href="https://homesprofessional.com/es/madrid" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/madrid" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
+            { "@type": "ListItem", "position": 2, "name": lang === "es" ? "Mesa Madrid" : "Madrid Desk", "item": canonical }
+          ]
+        })}</script>
       </Helmet>
 
-      <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
         {/* ── Hero ─────────────────────────────────────────────── */}

@@ -41,9 +41,17 @@ export default function NewConstructionPage() {
           content="Florida pre-construction inventory, professionally accessed. Advisory positioning for Spanish and Latin American developers and international buyers via Carlos Uzcategui, United Realty Group."
         />
         <link rel="canonical" href="https://homesprofessional.com/new-construction" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
+            { "@type": "ListItem", "position": 2, "name": "New Construction", "item": "https://homesprofessional.com/new-construction" }
+          ]
+        })}</script>
       </Helmet>
 
-      <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
         {/* ── Positioning hero ─────────────────────────────────── */}

@@ -39,9 +39,17 @@ export default function MarketsPage() {
           content="South Florida market positioning across Miami-Dade, Broward, Palm Beach, St. Lucie and Martin — pricing discipline, MLS distribution, and international demand. Carlos Uzcategui, United Realty Group."
         />
         <link rel="canonical" href="https://homesprofessional.com/markets" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
+            { "@type": "ListItem", "position": 2, "name": "South Florida Market Intelligence", "item": "https://homesprofessional.com/markets" }
+          ]
+        })}</script>
       </Helmet>
 
-      <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
         {/* Hero */}

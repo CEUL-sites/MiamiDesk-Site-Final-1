@@ -39,7 +39,7 @@ export default function SpainDeskPage() {
           ]
         })}</script>
       </Helmet>
-      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <section className="bg-navy-deep py-16 md:py-20 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Mesa España · United Realty Group</p>

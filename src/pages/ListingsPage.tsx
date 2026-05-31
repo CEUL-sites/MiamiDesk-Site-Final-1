@@ -22,7 +22,7 @@ export default function ListingsPage() {
         <meta property="og:url" content="https://homesprofessional.com/listings" />
       </Helmet>
 
-      <main className="min-h-screen bg-navy-deep grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-navy-deep grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
         {/* ── Page header ───────────────────────────────────────── */}
