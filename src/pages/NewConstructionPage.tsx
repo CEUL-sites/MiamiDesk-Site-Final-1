@@ -1,14 +1,35 @@
 import { Helmet } from "react-helmet-async";
 import { ChevronRight } from "lucide-react";
+import { useEffect } from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { CONTACT } from "../constants";
+import { CONTACT, NEO } from "../constants";
 
-// Section 9 — NEO (New Estate Only) pre-construction page.
-// The NEO iframe URL is provided by MIAMI; set VITE_NEO_EMBED_URL at build time.
-// Until configured, a labeled placeholder renders in its place.
-const NEO_EMBED_URL = import.meta.env.VITE_NEO_EMBED_URL as string | undefined;
+// Section 9 — NEO (New Estate Only) pre-construction embed.
+// NEO uses a script loader that populates #NEOiframe (newestateonly.com).
+function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = NEO.loader;
+    script.setAttribute("data-neokey", NEO.key);
+    script.setAttribute("data-neolang", lang);
+    document.body.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, [lang]);
+
+  return (
+    <iframe
+      id="NEOiframe"
+      title="MIAMI NEO — New Estate Only pre-construction inventory"
+      loading="lazy"
+      style={{ width: "100%", height: "200vh", border: "none" }}
+    />
+  );
+}
 
 export default function NewConstructionPage() {
   return (
@@ -45,27 +66,12 @@ export default function NewConstructionPage() {
         {/* ── NEO embed ────────────────────────────────────────── */}
         <section className="bg-white py-12 md:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            {NEO_EMBED_URL ? (
-              <div className="relative w-full overflow-hidden border border-hairline" style={{ minHeight: "70vh" }}>
-                <iframe
-                  src={NEO_EMBED_URL}
-                  title="MIAMI NEO — New Estate Only pre-construction inventory"
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                  className="h-[70vh] w-full"
-                  style={{ border: "0" }}
-                />
-              </div>
-            ) : (
-              <div className="flex min-h-[40vh] flex-col items-center justify-center border border-dashed border-hairline bg-bg-primary p-10 text-center">
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold/70">NEO Embed</p>
-                <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-ink-primary/60">
-                  The MIAMI NEO (New Estate Only) inventory embed activates once the provided NEO URL is configured
-                  (<span className="font-mono text-ink-primary/70">VITE_NEO_EMBED_URL</span>). Until then, pre-construction
-                  inquiries are handled directly.
-                </p>
-              </div>
-            )}
+            <div className="w-full overflow-hidden">
+              <NeoEmbed lang="en" />
+            </div>
+            <p className="mt-4 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/40">
+              Live pre-construction inventory via NEO · newestateonly.com
+            </p>
           </div>
         </section>
 
