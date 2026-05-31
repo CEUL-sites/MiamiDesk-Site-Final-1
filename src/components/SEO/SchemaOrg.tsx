@@ -21,7 +21,7 @@ const sitewideSchema: JsonLdSchema[] = [
     publisher: { "@id": `${SITE_URL}/#agent` },
     potentialAction: {
       "@type": "SearchAction",
-      target: `${SITE_URL}/market/{search_term_string}`,
+      target: `${SITE_URL}/markets?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   },

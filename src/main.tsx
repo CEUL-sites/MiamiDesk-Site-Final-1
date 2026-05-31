@@ -1,7 +1,7 @@
 import './i18n';
 import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
 import { CookieBanner } from './components/CookieBanner';
@@ -22,7 +22,7 @@ const NewConstructionPage = lazy(() => import('./pages/NewConstructionPage'));
 const ContactPage        = lazy(() => import('./pages/ContactPage'));
 const ListingsPage       = lazy(() => import('./pages/ListingsPage'));
 const AboutPage          = lazy(() => import('./pages/AboutPage'));
-const CityMarketPage     = lazy(() => import('./pages/market/CityMarketPage'));
+const MarketsPage        = lazy(() => import('./pages/MarketsPage'));
 const PrivacyPage        = lazy(() => import('./pages/PrivacyPage'));
 const TermsPage          = lazy(() => import('./pages/TermsPage'));
 const SellerThanksPage   = lazy(() => import('./pages/thanks/SellerThanksPage'));
@@ -63,7 +63,9 @@ if (rootElement) {
                 <Route path="/contact"            element={<ContactPage />} />
                 <Route path="/listings"           element={<ListingsPage />} />
                 <Route path="/about"              element={<AboutPage />} />
-                <Route path="/market/:city"       element={<CityMarketPage />} />
+                <Route path="/markets"            element={<MarketsPage />} />
+                <Route path="/market"             element={<Navigate to="/markets" replace />} />
+                <Route path="/market/:city"       element={<Navigate to="/markets" replace />} />
                 <Route path="/privacy"            element={<PrivacyPage />} />
                 <Route path="/terms"              element={<TermsPage />} />
                 <Route path="/thanks/seller"      element={<SellerThanksPage />} />

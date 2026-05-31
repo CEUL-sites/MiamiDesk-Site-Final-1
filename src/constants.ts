@@ -52,6 +52,7 @@ export const NAVIGATION = [
   { name: "Sellers", href: "/sell" },
   { name: "Buyers", href: "/buy" },
   { name: "New Construction", href: "/new-construction" },
+  { name: "Markets", href: "/markets" },
   { name: "Agents", href: "/agents" },
   { name: "Madrid", href: "/madrid" },
   { name: "Spain Desk", href: "/spain-desk" },

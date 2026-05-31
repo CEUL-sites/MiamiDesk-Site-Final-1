@@ -21,6 +21,19 @@
   status = 301
   force = true
 
+# ── Retired per-city market pages → consolidated Markets page (301) ─────────
+[[redirects]]
+  from = "/market/*"
+  to = "/markets"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/market"
+  to = "/markets"
+  status = 301
+  force = true
+
 # ── SPA client-side routing ────────────────────────────────────────────────
 [[redirects]]
   from = "/*"
