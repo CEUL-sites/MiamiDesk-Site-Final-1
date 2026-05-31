@@ -81,6 +81,14 @@ export const ASSOCIATION_STATS = {
   associationName: "Miami and South Florida REALTORS®"
 };
 
+// NEO (New Estate Only) — Carlos's official embed (newestateonly.com).
+// Public embed key from the NEO dashboard; the loader injects content into #NEOiframe.
+export const NEO = {
+  loader: "https://assets.newestateonly.com/iframe-loader/load.js",
+  key: "69a57c73d098c3620b75ec83",
+};
+
+
 export const URG_CITIES = [
   { city: "Weston", region: "Broward County" },
   { city: "Plantation", region: "Broward County" },
