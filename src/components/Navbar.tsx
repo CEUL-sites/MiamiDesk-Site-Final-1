@@ -1,30 +1,14 @@
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Menu, Phone, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { CONTACT, NAVIGATION, URG_CITIES } from "../constants";
-import { CITY_CONFIGS } from "../config/cityMarkets";
+import { CONTACT, NAVIGATION } from "../constants";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { UrgLogo } from "./UrgLogo";
-
-// Resolve a city display name to its real market-page slug. Derive links from
-// CITY_CONFIGS (the single source of truth) so the dropdown never points to a
-// slug without a configured page.
-const SLUG_BY_CITY = new Map(Object.values(CITY_CONFIGS).map((c) => [c.name, c.slug]));
-const slugFor = (city: string) => SLUG_BY_CITY.get(city);
-
-const MARKETS_BY_COUNTY = [
-  { label: "Miami-Dade", cities: URG_CITIES.filter((c) => c.region === "Miami-Dade County" && slugFor(c.city)) },
-  { label: "Broward",    cities: URG_CITIES.filter((c) => c.region === "Broward County"    && slugFor(c.city)) },
-  { label: "Palm Beach", cities: URG_CITIES.filter((c) => c.region === "Palm Beach County" && slugFor(c.city)) },
-];
 
 export function Navbar() {
   const [isOpen, setIsOpen]               = useState(false);
   const [scrolled, setScrolled]           = useState(false);
-  const [marketsOpen, setMarketsOpen]     = useState(false);
-  const [mobileMarketsOpen, setMobileMarketsOpen] = useState(false);
-  const marketsRef = useRef<HTMLDivElement>(null);
   const location   = useLocation();
 
   useEffect(() => {
@@ -32,15 +16,6 @@ export function Navbar() {
     fn();
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
-  }, []);
-
-  useEffect(() => {
-    const fn = (e: MouseEvent) => {
-      if (marketsRef.current && !marketsRef.current.contains(e.target as Node))
-        setMarketsOpen(false);
-    };
-    document.addEventListener("mousedown", fn);
-    return () => document.removeEventListener("mousedown", fn);
   }, []);
 
   const onLight = scrolled;
@@ -95,63 +70,6 @@ export function Navbar() {
               </a>
             );
           })}
-
-          {/* Markets dropdown */}
-          <div ref={marketsRef} className="relative">
-            <button
-              type="button"
-              onClick={() => setMarketsOpen((v) => !v)}
-              className={`inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] transition-colors duration-200 whitespace-nowrap ${
-                marketsOpen ? "text-gold" : navText
-              }`}
-            >
-              Markets
-              <ChevronDown
-                size={11}
-                className={`transition-transform duration-200 ${marketsOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-
-            <AnimatePresence>
-              {marketsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.16 }}
-                  className="absolute right-0 top-full mt-3 w-[520px] border border-gold/20 bg-navy-deep shadow-2xl"
-                >
-                  <div className="border-b border-white/10 px-5 py-3">
-                    <p className="font-mono text-[8px] uppercase tracking-[0.3em] text-gold">
-                      South Florida Market Reports
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-3 gap-0 p-5">
-                    {MARKETS_BY_COUNTY.map((county) => (
-                      <div key={county.label}>
-                        <p className="mb-3 font-mono text-[8px] uppercase tracking-[0.25em] text-white/35">
-                          {county.label}
-                        </p>
-                        <ul className="space-y-2">
-                          {county.cities.map((c) => (
-                            <li key={c.city}>
-                              <a
-                                href={`/market/${slugFor(c.city)}`}
-                                onClick={() => setMarketsOpen(false)}
-                                className="font-sans text-[11px] text-white/60 transition-colors hover:text-gold"
-                              >
-                                {c.city}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
         </div>
 
         {/* ── Desktop right actions ─────────────────────────────── */}
@@ -243,53 +161,6 @@ export function Navbar() {
                     </motion.a>
                   );
                 })}
-
-                {/* Markets expandable */}
-                <motion.div
-                  initial={{ opacity: 0, x: 16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: NAVIGATION.length * 0.04 }}
-                  className="border-b border-white/8"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setMobileMarketsOpen((v) => !v)}
-                    className="flex w-full items-center justify-between py-4 font-serif text-2xl text-white transition-colors hover:text-gold"
-                  >
-                    Markets
-                    <ChevronDown
-                      size={18}
-                      className={`transition-transform duration-200 ${
-                        mobileMarketsOpen ? "rotate-180 text-gold" : "text-white/35"
-                      }`}
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {mobileMarketsOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="grid grid-cols-2 gap-x-6 gap-y-1 pb-4 pl-1 pt-1">
-                          {URG_CITIES.map((c) => (
-                            <a
-                              key={c.city}
-                              href={`/market/${slugFor(c.city)}`}
-                              onClick={() => setIsOpen(false)}
-                              className="py-1 font-sans text-sm text-white/50 transition-colors hover:text-gold"
-                            >
-                              {c.city}
-                            </a>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
               </div>
 
               {/* Drawer footer */}
