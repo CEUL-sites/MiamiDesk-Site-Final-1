@@ -6,6 +6,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
 import { CookieBanner } from './components/CookieBanner';
 import { Analytics } from './components/Analytics';
+import { WhatsAppFloat } from './components/WhatsAppFloat';
 import './index.css';
 
 // Eager — homepage is the entry point, must be in the initial bundle
@@ -17,6 +18,7 @@ const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
 const SpainDeskPage      = lazy(() => import('./pages/SpainDeskPage'));
 const MadridPage         = lazy(() => import('./pages/MadridPage'));
+const NewConstructionPage = lazy(() => import('./pages/NewConstructionPage'));
 const ContactPage        = lazy(() => import('./pages/ContactPage'));
 const ListingsPage       = lazy(() => import('./pages/ListingsPage'));
 const AboutPage          = lazy(() => import('./pages/AboutPage'));
@@ -54,6 +56,7 @@ if (rootElement) {
                 <Route path="/"                   element={<HomePage />} />
                 <Route path="/sell"               element={<SellersPage />} />
                 <Route path="/buy"                element={<BuyersPage />} />
+                <Route path="/new-construction"   element={<NewConstructionPage />} />
                 <Route path="/agents"             element={<AgentsPage />} />
                 <Route path="/spain-desk"         element={<SpainDeskPage />} />
                 <Route path="/madrid"             element={<MadridPage />} />
@@ -74,10 +77,12 @@ if (rootElement) {
                 <Route path="/es/agentes"         element={<EsAgentesPage />} />
                 <Route path="/es/gracias/agente"  element={<EsGraciasAgentePage />} />
                 <Route path="/es/spain-desk"      element={<EsSpainDeskPage />} />
+                <Route path="/es/madrid"          element={<MadridPage lang="es" />} />
 <Route path="*"                   element={<NotFoundPage />} />
               </Routes>
             </Suspense>
             <Analytics />
+            <WhatsAppFloat />
             <CookieBanner />
           </BrowserRouter>
         </>

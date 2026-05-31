@@ -51,7 +51,9 @@ export const LEAD_MAGNETS = {
 export const NAVIGATION = [
   { name: "Sellers", href: "/sell" },
   { name: "Buyers", href: "/buy" },
+  { name: "New Construction", href: "/new-construction" },
   { name: "Agents", href: "/agents" },
+  { name: "Madrid", href: "/madrid" },
   { name: "Spain Desk", href: "/spain-desk" },
   { name: "Journal", href: "/journal" },
   { name: "Contact", href: "/contact" },
