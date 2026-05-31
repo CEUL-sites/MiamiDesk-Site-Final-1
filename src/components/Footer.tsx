@@ -120,9 +120,17 @@ export function Footer() {
 
       <div className="border-t border-white/5 px-6 py-8">
         <div className="mx-auto max-w-7xl space-y-8">
-          <p className="max-w-5xl font-sans text-[10px] font-light leading-loose text-white/40">
-            {CONTACT.licenseDisplay}. Associate in {CONTACT.brokerage}. Equal Housing Opportunity. REALTOR® is a registered collective membership mark that identifies a real estate professional who is a member of the National Association of REALTORS® and subscribes to its Code of Ethics. Live MLS data is deemed reliable but not guaranteed and is subject to change without notice. Association statistics referenced on this website reflect data published by Miami and South Florida REALTORS®. Information on this website is for general informational purposes only and does not constitute legal, tax, financial, or investment advice.
-          </p>
+          <div className="max-w-5xl space-y-4 font-sans text-[10px] font-light leading-loose text-white/40">
+            <p>
+              Carlos Uzcategui · Florida Licensed Realtor® SL705771 · Associate at United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
+            </p>
+            <p>
+              REALTOR® is a registered collective membership mark identifying a real estate professional who is a member of the National Association of REALTORS® and subscribes to its Code of Ethics. Live MLS data is deemed reliable but not guaranteed and is subject to change without notice.
+            </p>
+            <p>
+              Office: {CONTACT.address} · Brokerage office: {CONTACT.officePhoneUS}. Association statistics referenced on this website reflect data published by Miami and South Florida REALTORS®, with sources cited where displayed. Information on this website is for general informational purposes only and does not constitute legal, tax, financial, or investment advice.
+            </p>
+          </div>
           <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
             <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/35">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
             <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/35">

@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { Globe, Tag, Key, Users, ShieldCheck } from "lucide-react";
+import { Globe, Tag, ShieldCheck, MessageSquare } from "lucide-react";
 import { CONTACT } from "../constants";
 import { HeroSellerForm } from "./HeroSellerForm";
 
@@ -14,19 +14,19 @@ const item: Variants = {
   visible:  { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
 };
 
-/* Secondary navigation — seller is the primary CTA (the form); these are supporting paths */
+/* Secondary + tertiary actions per Section 4 (the form is the primary CTA) */
 const PILLS = [
-  { icon: Key,   label: "Buy",            href: "/buy"        },
-  { icon: Globe, label: "Spain Desk",     href: "/spain-desk" },
-  { icon: Users, label: "Agent Referral", href: "/agents"     },
+  { icon: MessageSquare, label: "WhatsApp Carlos directly", href: CONTACT.whatsappUS, external: true },
+  { icon: Globe,         label: "Madrid Desk →",            href: "/madrid",          external: false },
 ];
 
-/* Reach Advantage — approved verified figures only */
+/* Reach Advantage — verified figures (src/data/figures.json) */
 const REACH_STATS = [
   { value: "93,000", label: "Member Agents"            },
-  { value: "200+",   label: "Global Portals"           },
-  { value: "260+",   label: "U.S. MLSs"                },
-  { value: "437+",   label: "International Agreements"  },
+  { value: "200+",   label: "Global Websites"          },
+  { value: "19",     label: "Languages"                },
+  { value: "300+",   label: "Partner Associations"     },
+  { value: "1M+",    label: "Professionals"            },
 ];
 
 /* ─── Hero ─────────────────────────────────────────────────────── */
@@ -137,7 +137,7 @@ export function Hero() {
             <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
               <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3.5 py-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">Greater Miami · Marbella · Madrid</span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">Greater Miami · South Florida · Madrid</span>
               </span>
             </motion.div>
 
@@ -159,15 +159,15 @@ export function Hero() {
               style={{ animation: "hero-rule 0.8s ease forwards 0.8s", transform: "scaleX(0)", opacity: 0 }}
             />
 
-            {/* Subheadline — seller-focused, dual market, accurate reach */}
+            {/* Subheadline — Section 4 spec copy */}
             <motion.p
               variants={item}
               className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60 mx-auto lg:mx-0"
             >
-              Senior seller representation for owners in <span className="text-white/85">South Florida and Spain.</span>{" "}
-              Your property positioned in front of <span className="text-white/85">93,000 member agents</span> and{" "}
-              <span className="text-white/85">437+ international agreements</span> —
-              priced with discipline, presented to the buyer who pays the most.
+              Senior seller representation. Your property positioned inside the{" "}
+              <span className="text-white/85">third-largest MLS in the United States</span> — 93,000 member agents,
+              200+ global websites in 19 languages, an international referral network of{" "}
+              <span className="text-white/85">1 million+ professionals across 70+ countries</span>. Effective May 11, 2026.
             </motion.p>
 
             {/* Trust row */}
@@ -184,12 +184,13 @@ export function Hero() {
               ))}
             </motion.div>
 
-            {/* Secondary navigation pills */}
+            {/* Secondary + tertiary actions */}
             <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
-              {PILLS.map(({ icon: Icon, label, href }) => (
+              {PILLS.map(({ icon: Icon, label, href, external }) => (
                 <a
                   key={label}
                   href={href}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="hero-pill inline-flex items-center gap-2 rounded-full px-4 py-2.5 font-sans text-[13px] text-white/70"
                 >
                   <Icon size={13} className="text-gold/70" />

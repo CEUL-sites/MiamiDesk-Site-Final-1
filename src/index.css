@@ -15,6 +15,12 @@
   --color-graphite: #6B7280;
   --color-line: #E8E0D0;
   --color-white-soft: #FDFCFA;
+  /* Section 10 — institutional design tokens */
+  --color-bg-primary: #faf8f5;
+  --color-ink-primary: #1a1a1a;
+  --color-ink-deep: #0a1628;
+  --color-accent-gold: #c9a961;
+  --color-hairline: #e8e3da;
   --shadow-3xl: 0 35px 80px rgba(6, 17, 31, 0.28);
 
   --font-serif: "Playfair Display", Georgia, serif;

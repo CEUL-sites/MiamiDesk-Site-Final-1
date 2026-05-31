@@ -11,18 +11,18 @@ const COPY = {
     intro: (
       <>
         South Florida and Spanish luxury property sells to a global buyer. Listing through a
-        MIAMI &amp; South Florida REALTORS® member places your home inside the MLS backed by{" "}
-        <span className="text-white/90">437+ international agreements</span> and{" "}
-        <span className="text-white/90">93,000 member agents</span>, with syndication across{" "}
-        200+ global portals in 19 languages. The agents representing Latin American, European and
-        Gulf buyers are not cold contacts. They are partners.
+        MIAMI &amp; South Florida REALTORS® member places your home inside an international referral
+        network of <span className="text-white/90">1 million+ professionals</span> across{" "}
+        <span className="text-white/90">300+ partner associations in 70+ countries</span>,
+        syndicated to 200+ global websites in 19 languages. The agents representing Latin American,
+        European and Gulf buyers are not cold contacts. They are partners.
       </>
     ),
     stats: [
-      { value: GLOBAL_REACH.internationalAgreements, label: "International Agreements", sub: "Signed referral network worldwide" },
-      { value: GLOBAL_REACH.memberAgents, label: "Member Agents", sub: "Miami & South Florida REALTORS®" },
-      { value: GLOBAL_REACH.globalPortals, label: "Global Portals", sub: "Listing syndication reach" },
-      { value: GLOBAL_REACH.languages, label: "Languages", sub: "Simultaneous syndication" },
+      { value: GLOBAL_REACH.partnerAssociations, label: "Partner Associations", sub: "MIAMI Global Council" },
+      { value: GLOBAL_REACH.professionals, label: "Professionals", sub: "International referral network" },
+      { value: GLOBAL_REACH.countries, label: "Countries", sub: "With a partner association" },
+      { value: GLOBAL_REACH.globalWebsites, label: "Global Websites", sub: "Listing syndication reach" },
     ],
     markets: "markets",
     flagshipLabel: "Flagship partners",
@@ -36,18 +36,18 @@ const COPY = {
     intro: (
       <>
         La propiedad de lujo del Sur de Florida y de España se vende a un comprador global. Listar
-        a través de un miembro de MIAMI &amp; South Florida REALTORS® coloca su inmueble dentro del
-        MLS respaldado por <span className="text-white/90">437+ acuerdos internacionales</span> y{" "}
-        <span className="text-white/90">93.000 agentes miembros</span>, con sindicación en más de
-        200 portales globales en 19 idiomas. Los agentes que representan a compradores de
-        Latinoamérica, Europa y el Golfo no son contactos fríos. Son socios.
+        a través de un miembro de MIAMI &amp; South Florida REALTORS® sitúa su inmueble dentro de una
+        red internacional de referidos de <span className="text-white/90">1 millón+ de profesionales</span>{" "}
+        en <span className="text-white/90">300+ asociaciones socias de 70+ países</span>, con
+        sindicación en 200+ sitios web globales en 19 idiomas. Los agentes que representan a
+        compradores de Latinoamérica, Europa y el Golfo no son contactos fríos. Son socios.
       </>
     ),
     stats: [
-      { value: GLOBAL_REACH.internationalAgreements, label: "Acuerdos Internacionales", sub: "Red de referidos firmada en el mundo" },
-      { value: GLOBAL_REACH.memberAgents, label: "Agentes Miembros", sub: "Miami & South Florida REALTORS®" },
-      { value: GLOBAL_REACH.globalPortals, label: "Portales Globales", sub: "Alcance de sindicación" },
-      { value: GLOBAL_REACH.languages, label: "Idiomas", sub: "Sindicación simultánea" },
+      { value: GLOBAL_REACH.partnerAssociations, label: "Asociaciones Socias", sub: "MIAMI Global Council" },
+      { value: GLOBAL_REACH.professionals, label: "Profesionales", sub: "Red internacional de referidos" },
+      { value: GLOBAL_REACH.countries, label: "Países", sub: "Con una asociación socia" },
+      { value: GLOBAL_REACH.globalWebsites, label: "Sitios Web Globales", sub: "Alcance de sindicación" },
     ],
     markets: "mercados",
     flagshipLabel: "Socios destacados",

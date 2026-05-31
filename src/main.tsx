@@ -16,6 +16,7 @@ const SellersPage        = lazy(() => import('./pages/SellersPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
 const SpainDeskPage      = lazy(() => import('./pages/SpainDeskPage'));
+const MadridPage         = lazy(() => import('./pages/MadridPage'));
 const ContactPage        = lazy(() => import('./pages/ContactPage'));
 const ListingsPage       = lazy(() => import('./pages/ListingsPage'));
 const AboutPage          = lazy(() => import('./pages/AboutPage'));
@@ -55,6 +56,7 @@ if (rootElement) {
                 <Route path="/buy"                element={<BuyersPage />} />
                 <Route path="/agents"             element={<AgentsPage />} />
                 <Route path="/spain-desk"         element={<SpainDeskPage />} />
+                <Route path="/madrid"             element={<MadridPage />} />
                 <Route path="/contact"            element={<ContactPage />} />
                 <Route path="/listings"           element={<ListingsPage />} />
                 <Route path="/about"              element={<AboutPage />} />

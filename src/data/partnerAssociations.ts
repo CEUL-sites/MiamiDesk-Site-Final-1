@@ -12,16 +12,16 @@
 // the listing enters an MLS backed by 437+ international agreements and 93,000 member agents.
 // ──────────────────────────────────────────────────────────────────────────
 
-/** Headline reach figures — approved verified figures only. */
+/** Headline reach figures — verified (src/data/figures.json). */
 export const GLOBAL_REACH = {
-  /** Signed international referral/cooperation agreements. */
-  internationalAgreements: "437+",
-  /** Member agents in the Miami and South Florida REALTORS® association. */
-  memberAgents: "93,000",
-  /** Global syndication portals featuring MIAMI listings. */
-  globalPortals: "200+",
-  /** Languages the listing is syndicated in. */
-  languages: "19",
+  /** International partner associations (MIAMI Global Council). */
+  partnerAssociations: "300+",
+  /** Real estate professionals reached through the international referral network. */
+  professionals: "1 million+",
+  /** Countries with at least one partner association. */
+  countries: "70+",
+  /** Global websites featuring MIAMI listings. */
+  globalWebsites: "200+",
 } as const;
 
 export interface PartnerRegion {
