@@ -20,6 +20,7 @@ const STATIC_ROUTES = [
   '/buy',
   '/agents',
   '/spain-desk',
+  '/madrid',
   '/contact',
   '/listings',
   '/about',

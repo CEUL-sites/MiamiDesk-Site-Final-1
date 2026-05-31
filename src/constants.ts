@@ -57,11 +57,18 @@ export const NAVIGATION = [
   { name: "Contact", href: "/contact" },
 ];
 
+// Verified figures per the build brief (Section 2). Single source of truth is
+// src/data/figures.json (with per-figure sources/citations); these mirror it
+// for legacy imports. Figures the brief flags (437+, 11, $69B) are kept WITH a
+// primary-source citation rather than removed.
 export const ASSOCIATION_STATS = {
   memberCount: 93000,
-  // Approved verified figures only.
-  globalPortals: 200,
+  mlsRank: "third-largest MLS in the United States",
+  globalWebsites: 200,
   languages: 19,
+  partnerAssociations: 300,
+  professionals: "1 million+",
+  countries: 70,
   usMls: 260,
   internationalAgreements: 437,
   mlsDataExchanges: 11,

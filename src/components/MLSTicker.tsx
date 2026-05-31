@@ -59,8 +59,11 @@ const FALLBACK: Listing[] = [
   { id:"F20", address:"300 S Pointe Dr #3601",       city:"Miami Beach",        zip:"33139", price:5_800_000, beds:4, baths:4,   sqft:3_720, type:"Condominium",              status:"Active"  },
 ];
 
-const LABEL_LIVE    = "MIAMI MLS · LIVE INVENTORY · SOUTH FLORIDA MARKET TAPE";
-const LABEL_STATIC  = "SOUTH FLORIDA · MARKET SNAPSHOT · UNITED REALTY GROUP";
+// Section 6 (compliance): these are active South Florida MLS comparables, not
+// Carlos's own listings. Label and disclaimer are mandatory before launch.
+const LABEL_LIVE    = "SOURCE: MIAMI AND SOUTH FLORIDA REALTORS® MLS · ACTIVE MARKET REFERENCE";
+const LABEL_STATIC  = "SOURCE: MIAMI AND SOUTH FLORIDA REALTORS® MLS · ACTIVE MARKET REFERENCE";
+const TICKER_DISCLAIMER = "Carlos Uzcategui is not the listing agent on these properties.";
 const HEADER_REPEATS = 6;
 
 export function MLSTicker() {
@@ -122,6 +125,9 @@ export function MLSTicker() {
               </div>
             ))}
           </div>
+          <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+            {TICKER_DISCLAIMER}
+          </p>
         </div>
       </div>
     );
@@ -198,6 +204,11 @@ export function MLSTicker() {
             </div>
           </div>
         </div>
+
+        {/* Compliance disclaimer (Section 6) */}
+        <p className="border-t border-white/5 px-4 py-1.5 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+          {TICKER_DISCLAIMER}
+        </p>
       </div>
     </>
   );

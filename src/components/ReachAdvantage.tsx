@@ -9,42 +9,42 @@ const TOP_STATS = [
     suffix: "",
     label: "Member Agents",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "Professional MLS access through the Miami and South Florida REALTORS® — 93,000 member agents representing active buyer demand across the region.",
+    desc: "Listing through a member places your property inside the third-largest MLS in the United States — 93,000 member agents representing active buyer demand across the region.",
   },
   {
-    value: 19,
-    display: "19",
-    suffix: "",
-    label: "Florida Offices",
-    sublabel: "United Realty Group",
-    desc: "United Realty Group maintains 19 active offices across Florida — local presence in every South Florida market.",
-  },
-  {
-    value: 200,
-    display: "200",
+    value: 300,
+    display: "300",
     suffix: "+",
-    label: "Global Portals",
-    sublabel: "Syndicated Listing Exposure",
-    desc: "Through MIAMI REALTORS® distribution partners, your listing is featured on 200+ global portals — from Zillow and Realtor.com to international platforms, across 19 languages.",
+    label: "Partner Associations",
+    sublabel: "MIAMI Global Council",
+    desc: "MIAMI REALTORS® maintains 300+ international partner associations across 70+ countries — the referral network behind listings with global appeal.",
+  },
+  {
+    value: 1,
+    display: "1M",
+    suffix: "+",
+    label: "Professionals",
+    sublabel: "International Referral Network",
+    desc: "An international referral network reaching 1 million+ real estate professionals — the agents who represent Latin American, European, and Gulf buyers.",
   },
 ];
 
 const BOTTOM_STATS = [
   {
-    value: 260,
-    display: "260",
+    value: 200,
+    display: "200",
     suffix: "+",
-    label: "U.S. MLSs",
-    sublabel: "via RPR National Exchange",
-    desc: "Your listing crosses state lines through the national professional MLS data exchange. Domestic reach beyond South Florida.",
+    label: "Global Websites",
+    sublabel: "Syndicated in 19 Languages",
+    desc: "Through MIAMI REALTORS® distribution, your listing is featured on 200+ global websites — from Zillow and Realtor.com to international platforms, across 19 languages.",
   },
   {
-    value: 437,
-    display: "437",
+    value: 70,
+    display: "70",
     suffix: "+",
-    label: "International Agreements",
-    sublabel: "Global Referral Network",
-    desc: "MIAMI REALTORS® holds 437+ international agreements with real estate organizations worldwide, creating active deal flow for listings with global appeal.",
+    label: "Countries",
+    sublabel: "International Referral Reach",
+    desc: "Partner associations across 70+ countries — structural distribution into the markets where international buyers originate.",
   },
   {
     value: 25,
@@ -187,8 +187,8 @@ export const ReachAdvantage = () => {
       >
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {[
-            { v: "$69B", l: "2025 sales volume" },
-            { v: "11", l: "MLS data exchanges" },
+            { v: "3rd", l: "Largest MLS in the U.S." },
+            { v: "19", l: "Languages syndicated" },
             { v: "Day 1", l: "Full activation" },
             { v: "CLHMS", l: "Luxury certified" },
           ].map((item) => (
