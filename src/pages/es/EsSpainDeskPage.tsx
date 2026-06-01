@@ -309,7 +309,7 @@ export default function EsSpainDeskPage() {
               </p>
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
                 {/* TODO: native Madrid editor review */}
-                Desde el primer día de activación, la propiedad llega a 93.000 agentes miembros de la mayor asociación local de REALTORS® del mundo, con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
+                Desde el primer día de activación, la propiedad llega a 93.000 agentes miembros de la mayor asociación local de REALTORS® del mundo, con distribución simultánea a 500+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
 

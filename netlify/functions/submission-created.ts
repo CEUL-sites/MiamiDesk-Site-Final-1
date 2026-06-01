@@ -2,6 +2,8 @@ import type { Handler, HandlerEvent } from "@netlify/functions";
 
 const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const CALLMEBOT_APIKEY = process.env.CALLMEBOT_APIKEY;
+const NOTIFY_PHONE = "19548656622";
 const TO_EMAIL = "contact@carlosre.com";
 const FROM_EMAIL = "leads@homesprofessional.com";
 
@@ -49,6 +51,18 @@ export const handler: Handler = async (event: HandlerEvent) => {
       }
     } else {
       console.error("RESEND_API_KEY is not set.");
+    }
+
+    // ── WhatsApp notification via CallMeBot ──────────────────────────────
+    if (CALLMEBOT_APIKEY) {
+      try {
+        const msg = encodeURIComponent(
+          `🏠 New Lead — HomesProfessional.com\n\n👤 ${name || "—"}\n📞 ${phone || "—"}\n📧 ${email || "—"}\n📍 ${propertyAddress}${city ? ", " + city : ""}\n⏱ ${timeline || "—"}\n💬 ${message || "—"}\n\nVia: ${sourcePage}`
+        );
+        await fetch(`https://api.callmebot.com/whatsapp.php?phone=${NOTIFY_PHONE}&text=${msg}&apikey=${CALLMEBOT_APIKEY}`);
+      } catch (waErr) {
+        console.error("WhatsApp notification error:", waErr);
+      }
     }
 
     return { statusCode: 200, body: "OK" };

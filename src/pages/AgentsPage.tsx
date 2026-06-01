@@ -32,7 +32,7 @@ const PATHWAYS = [
 
 const NETWORK_STATS = [
   { value: "437+", label: "International Agreements", desc: "Signed referral agreements with real estate organizations worldwide through Miami and South Florida REALTORS®." },
-  { value: "93,000", label: "Member Agents", desc: "MLS footprint — the third-largest in the United States — for maximum buyer-agent visibility on referred listings." },
+  { value: "93,000", label: "Member Agents", desc: "Miami and South Florida REALTORS® — the world's largest local REALTOR® association — for maximum buyer-agent visibility on referred listings." },
   { value: "2M+", label: "Professionals", desc: "International referral network of 2 million+ professionals across 70+ countries and 300+ partner associations." },
 ];
 

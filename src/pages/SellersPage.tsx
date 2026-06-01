@@ -33,7 +33,7 @@ export default function SellersPage() {
           "totalTime": "P30D",
           "tool": [
             { "@type": "HowToTool", "name": "Miami and South Florida REALTORS® MLS" },
-            { "@type": "HowToTool", "name": "200+ Global Portals in 19 Languages" },
+            { "@type": "HowToTool", "name": "500+ Global Websites in 19 Languages" },
             { "@type": "HowToTool", "name": "United Realty Group Agent Network" }
           ],
           "step": [
