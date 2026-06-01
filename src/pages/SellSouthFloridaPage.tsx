@@ -161,8 +161,42 @@ export default function SellSouthFloridaPage() {
           </div>
         </section>
 
-        {/* Who This Is For */}
+        {/* Miami Realtors Association — Why You Need a Miami Realtor */}
         <section className="bg-white py-20 md:py-28">
+          <div className="mx-auto max-w-4xl px-6">
+            <div className="text-center mb-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Miami MLS Representation Matters</p>
+              <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl max-w-2xl mx-auto">
+                The case for professional representation — from the Association itself.
+              </h2>
+              <p className="mx-auto mt-5 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/60">
+                Miami and South Florida REALTORS® is the world's largest local REALTOR® association. This is their explanation
+                of what a REALTOR® brings to every transaction — and why it matters in one of the most competitive real estate
+                markets in the United States.
+              </p>
+            </div>
+            {/* Responsive 16:9 video embed */}
+            <div className="relative w-full overflow-hidden" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/U2BlBCFaiCo?si=jpLfmggFUuTw-qIG"
+                title="Why You Need a Miami REALTOR® — Miami and South Florida REALTORS®"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+            <p className="mt-4 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/35">
+              Video: Miami and South Florida REALTORS® · miamirealtors.com
+            </p>
+          </div>
+        </section>
+
+        {/* Who This Is For */}
+        <section className="bg-ivory py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Who this is for</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
