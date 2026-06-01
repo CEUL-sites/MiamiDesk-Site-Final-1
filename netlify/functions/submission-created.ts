@@ -7,7 +7,8 @@ const FROM_EMAIL = "leads@homesprofessional.com";
 
 export const handler: Handler = async (event: HandlerEvent) => {
   try {
-    const payload = JSON.parse(event.body || "{}");
+    const body = JSON.parse(event.body || "{}");
+    const payload = body.payload || body;   // Netlify wraps event data in { payload: {...} }
     const fields = payload.data || {};
     const formName = fields["form-name"] || payload.form_name || "unknown";
     const timestamp = new Date().toISOString();
