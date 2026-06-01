@@ -177,6 +177,45 @@ export const ReachAdvantage = () => {
         ))}
       </div>
 
+      {/* ── Why a MIAMI REALTOR® — video ──────────────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        className="relative border-b border-gold/15 px-6 py-12 md:py-20"
+      >
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-8 text-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              Why a MIAMI REALTOR®
+            </p>
+            <h3
+              className="mx-auto mt-5 max-w-3xl font-serif leading-[1.1] text-white"
+              style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)" }}
+            >
+              The standard behind the network — <em className="not-italic italic text-gold">in their own words.</em>
+            </h3>
+          </div>
+          <div className="relative mx-auto overflow-hidden rounded-sm border border-gold/20 shadow-[0_0_60px_-20px_rgba(212,175,55,0.25)]">
+            <div className="relative aspect-video w-full bg-black">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/U2BlBCFaiCo?si=4qc5kIbbhOkCvSDr"
+                title="Why use a REALTOR® from the MIAMI Association of REALTORS®"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </div>
+          <p className="mx-auto mt-6 max-w-2xl text-center font-sans text-sm leading-relaxed text-white/45">
+            Source: MIAMI Association of REALTORS®. United Realty Group is a member of the association referenced above.
+          </p>
+        </div>
+      </motion.div>
+
       {/* ── Mid Divider — featured callout ────────────────────── */}
       <motion.div
         initial={{ opacity: 0 }}
