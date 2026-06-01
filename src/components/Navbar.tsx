@@ -81,6 +81,17 @@ export function Navbar() {
           : "bg-transparent py-5"
       }`}
     >
+      {/* Top credential bar — visible only before scroll */}
+      {!scrolled && (
+        <div className="border-b border-white/[0.07]">
+          <div className="mx-auto flex max-w-7xl items-center justify-center px-4 py-1">
+            <p className="hidden sm:block font-mono text-[7.5px] uppercase tracking-[0.3em] text-white/40">
+              South Florida · Miami Realtors Association MLS · Global Referral Network
+            </p>
+          </div>
+        </div>
+      )}
+
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
 
         {/* ── Logo ──────────────────────────────────────────── */}

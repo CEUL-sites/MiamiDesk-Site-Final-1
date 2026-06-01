@@ -155,7 +155,7 @@ export function Hero() {
                   to   { transform: translateX(-50%); }
                 }
                 .exposure-track {
-                  animation: exposure-scroll 36s linear infinite;
+                  animation: exposure-scroll 22s linear infinite;
                   display: flex;
                   will-change: transform;
                 }
