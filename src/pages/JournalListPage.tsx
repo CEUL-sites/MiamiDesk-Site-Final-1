@@ -89,9 +89,9 @@ export default function JournalListPage() {
                       {post.title}
                     </h2>
 
-                    {/* Date */}
+                    {/* Date + read time */}
                     <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/40">
-                      {formatDate(post.date)}
+                      {formatDate(post.date)}{post.readTime ? ` · ${post.readTime} min read` : ""}
                     </p>
 
                     {/* Excerpt */}

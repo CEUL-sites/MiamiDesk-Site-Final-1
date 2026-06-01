@@ -1,7 +1,7 @@
 // Loads all journal posts from /src/content/journal/*.md at build time via Vite's import.meta.glob.
-// Vite 6 supports `{ eager: true, query: '?raw', import: 'default' }` to get raw string content.
+// Files prefixed with _ (e.g. _template.md) are excluded — use them as drafts or starters.
 
-const modules = import.meta.glob('../content/journal/*.md', {
+const modules = import.meta.glob('../content/journal/[^_]*.md', {
   eager: true,
   query: '?raw',
   import: 'default',
@@ -13,6 +13,8 @@ export interface PostMeta {
   slug: string;
   excerpt: string;
   category: string;
+  image: string;
+  readTime: number;
   body: string;
 }
 
@@ -23,83 +25,135 @@ export interface PostMeta {
 function parseFrontmatter(raw: string): { meta: Record<string, string>; body: string } {
   const fm: Record<string, string> = {};
 
-  // Require file to start with ---
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
-  if (!match) {
-    return { meta: fm, body: raw };
-  }
+  if (!match) return { meta: fm, body: raw };
 
-  const fmBlock = match[1];
-  const bodyRaw = match[2];
-
-  // Parse lines like:  key: "value"  or  key: value
-  for (const line of fmBlock.split(/\r?\n/)) {
+  for (const line of match[1].split(/\r?\n/)) {
     const kv = line.match(/^(\w+):\s*"?([^"]*)"?\s*$/);
-    if (kv) {
-      fm[kv[1].trim()] = kv[2].trim();
-    }
+    if (kv) fm[kv[1].trim()] = kv[2].trim();
   }
 
-  return { meta: fm, body: bodyRaw };
+  return { meta: fm, body: match[2] };
 }
 
 // ---------------------------------------------------------------------------
-// Minimal Markdown → HTML converter
-// Handles: h2 (##), h3 (###), bold (**text**), italic (*text*), paragraphs.
+// Inline formatter — runs on text within block elements
+// ---------------------------------------------------------------------------
+function inline(text: string): string {
+  // Links: [text](url)
+  text = text.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" class="text-gold underline underline-offset-2 hover:text-gold/70 transition-colors" target="_blank" rel="noopener noreferrer">$1</a>',
+  );
+  // Bold: **text**
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-navy">$1</strong>');
+  // Italic: *text*
+  text = text.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
+  // Inline code: `code`
+  text = text.replace(/`([^`]+)`/g, '<code class="font-mono text-[0.85em] bg-gold/10 px-1.5 py-0.5 rounded">$1</code>');
+  return text;
+}
+
+// ---------------------------------------------------------------------------
+// Block-level Markdown → HTML converter
+// Supports: ##, ###, -, *, 1., >, ---, ![img](), paragraphs
 // ---------------------------------------------------------------------------
 function markdownToHtml(md: string): string {
   const lines = md.split(/\r?\n/);
-  const htmlLines: string[] = [];
-  let inParagraph = false;
+  const html: string[] = [];
 
-  const closeParagraph = () => {
-    if (inParagraph) {
-      htmlLines.push('</p>');
-      inParagraph = false;
-    }
-  };
+  type State = 'none' | 'p' | 'ul' | 'ol' | 'blockquote';
+  let state: State = 'none';
 
-  const inlineFormat = (text: string): string => {
-    // Bold: **text**
-    text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-    // Italic: *text* (not already part of **)
-    text = text.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
-    return text;
+  const close = () => {
+    if (state === 'p') html.push('</p>');
+    else if (state === 'ul') html.push('</ul>');
+    else if (state === 'ol') html.push('</ol>');
+    else if (state === 'blockquote') html.push('</blockquote>');
+    state = 'none';
   };
 
   for (const line of lines) {
-    const trimmed = line.trim();
+    const t = line.trim();
 
-    if (trimmed === '') {
-      closeParagraph();
+    // Blank line — close current block
+    if (t === '') { close(); continue; }
+
+    // Horizontal rule (--- or ***) — must check before list detection
+    if (/^[-*]{3,}$/.test(t)) {
+      close();
+      html.push('<hr class="border-bone my-8" />');
       continue;
     }
 
-    if (trimmed.startsWith('### ')) {
-      closeParagraph();
-      htmlLines.push(`<h3 class="font-serif text-xl text-navy mt-8 mb-3">${inlineFormat(trimmed.slice(4))}</h3>`);
+    // H3 ###
+    if (t.startsWith('### ')) {
+      close();
+      html.push(`<h3 class="font-serif text-xl text-navy mt-8 mb-3">${inline(t.slice(4))}</h3>`);
       continue;
     }
 
-    if (trimmed.startsWith('## ')) {
-      closeParagraph();
-      htmlLines.push(`<h2 class="font-serif text-2xl text-navy mt-10 mb-4 border-b border-bone pb-2">${inlineFormat(trimmed.slice(3))}</h2>`);
+    // H2 ##
+    if (t.startsWith('## ')) {
+      close();
+      html.push(`<h2 class="font-serif text-2xl text-navy mt-10 mb-4 border-b border-bone pb-2">${inline(t.slice(3))}</h2>`);
       continue;
     }
 
-    // Regular text — accumulate into paragraph
-    if (!inParagraph) {
-      htmlLines.push('<p class="leading-relaxed text-navy/85 mb-5">');
-      inParagraph = true;
+    // Blockquote >
+    if (t.startsWith('> ')) {
+      if (state !== 'blockquote') {
+        close();
+        html.push('<blockquote class="border-l-2 border-gold/50 pl-5 italic text-navy/60 my-6 space-y-2">');
+        state = 'blockquote';
+      }
+      html.push(`<p>${inline(t.slice(2))}</p>`);
+      continue;
+    }
+
+    // Unordered list: - or *
+    if (/^[-*] /.test(t)) {
+      if (state !== 'ul') {
+        close();
+        html.push('<ul class="list-disc pl-6 mb-5 space-y-1.5 text-navy/85">');
+        state = 'ul';
+      }
+      html.push(`<li class="leading-relaxed">${inline(t.slice(2))}</li>`);
+      continue;
+    }
+
+    // Ordered list: 1.
+    if (/^\d+\. /.test(t)) {
+      if (state !== 'ol') {
+        close();
+        html.push('<ol class="list-decimal pl-6 mb-5 space-y-1.5 text-navy/85">');
+        state = 'ol';
+      }
+      html.push(`<li class="leading-relaxed">${inline(t.replace(/^\d+\. /, ''))}</li>`);
+      continue;
+    }
+
+    // Image: ![alt](src)
+    const img = t.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (img) {
+      close();
+      html.push(`<img src="${img[2]}" alt="${img[1]}" loading="lazy" class="w-full my-8 border border-bone" />`);
+      continue;
+    }
+
+    // Paragraph text
+    if (state !== 'p') {
+      close();
+      html.push('<p class="leading-relaxed text-navy/85 mb-5">');
+      state = 'p';
     } else {
-      // Line continuation within paragraph — add a space
-      htmlLines.push(' ');
+      html.push(' ');
     }
-    htmlLines.push(inlineFormat(trimmed));
+    html.push(inline(t));
   }
 
-  closeParagraph();
-  return htmlLines.join('');
+  close();
+  return html.join('');
 }
 
 // ---------------------------------------------------------------------------
@@ -114,22 +168,24 @@ function parseAll(): PostMeta[] {
     const { meta, body } = parseFrontmatter(raw);
     if (!meta.slug || !meta.title) continue;
 
+    const wordCount = body.trim().split(/\s+/).length;
+
     posts.push({
-      title: meta.title,
-      date: meta.date ?? '',
-      slug: meta.slug,
-      excerpt: meta.excerpt ?? '',
+      title:    meta.title,
+      date:     meta.date     ?? '',
+      slug:     meta.slug,
+      excerpt:  meta.excerpt  ?? '',
       category: meta.category ?? 'General',
-      body: markdownToHtml(body),
+      image:    meta.image    ?? '',
+      readTime: Math.max(1, Math.ceil(wordCount / 200)),
+      body:     markdownToHtml(body),
     });
   }
 
-  // Sort descending by date string (ISO 8601 sorts lexicographically)
   posts.sort((a, b) => b.date.localeCompare(a.date));
   return posts;
 }
 
-// Cache result — modules are static at build time so no need to re-parse.
 let _cache: PostMeta[] | null = null;
 
 export function getAllPosts(): PostMeta[] {

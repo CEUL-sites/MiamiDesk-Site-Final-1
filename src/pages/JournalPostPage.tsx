@@ -47,6 +47,10 @@ export default function JournalPostPage() {
         <title>{post.title} | Carlos Uzcategui · South Florida Real Estate</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://homesprofessional.com/journal/${post.slug}`} />
+        {post.image && <meta property="og:image" content={`https://homesprofessional.com${post.image}`} />}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       </Helmet>
 
@@ -79,13 +83,19 @@ export default function JournalPostPage() {
               {post.title}
             </h1>
 
-            {/* Date + byline */}
+            {/* Date + byline + read time */}
             <div className="mt-5 flex flex-wrap items-center gap-4 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
               <span>{formatDate(post.date)}</span>
               <span aria-hidden="true">·</span>
               <span>Carlos Uzcategui · FL SL705771</span>
               <span aria-hidden="true">·</span>
               <span>United Realty Group</span>
+              {post.readTime > 0 && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span>{post.readTime} min read</span>
+                </>
+              )}
             </div>
 
             {/* Excerpt */}

@@ -270,3 +270,21 @@
 .text-balance {
   text-wrap: balance;
 }
+
+/* ── Journal post body ──────────────────────────────────── */
+.prose-journal {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: rgba(11, 30, 63, 0.85);
+}
+.prose-journal > * + * {
+  margin-top: 0;
+}
+.prose-journal a {
+  color: #B08D57;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+.prose-journal a:hover { color: #8a6d3f; }
+.prose-journal strong { color: #0B1E3F; }
