@@ -1,6 +1,6 @@
 import { CONTACT, NAVIGATION } from "../constants";
 
-const ticker = "SOUTH FLORIDA · MIAMI MLS · UNITED REALTY GROUP · MADRID · INTERNATIONAL · 25 YEARS · ";
+const ticker = "SOUTH FLORIDA · MIAMI MLS EXPOSURE · UNITED REALTY GROUP · INTERNATIONAL PROPERTY DISTRIBUTION · 25 YEARS LICENSED IN FLORIDA · MIAMI MLS INTERNATIONAL DESK · DEVELOPERS & AGENCIES · SPAIN · LATIN AMERICA · ";
 
 export function Footer() {
   return (
@@ -18,7 +18,7 @@ export function Footer() {
           <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
           <p className="font-mono mt-2 text-[9px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
           <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/55">
-            South Florida seller strategy. Madrid advisory bridge. United Realty Group brokerage infrastructure.
+            Florida listings. Miami MLS exposure. International property distribution. Led by Carlos Uzcategui — 25 years licensed in Florida.
           </p>
           <div className="mt-8 flex items-center gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110" width="32" height="35" aria-label="Equal Housing Opportunity" role="img" className="flex-shrink-0 opacity-60">
@@ -74,6 +74,7 @@ export function Footer() {
             <li>{CONTACT.licenseDisplay}</li>
             <li>{CONTACT.brokerage}</li>
             <li>Licensed since 2001</li>
+            <li>Certified Luxury Home Marketing Specialist</li>
             <li>Certified Seller Representative</li>
             <li>Miami and South Florida REALTORS®</li>
           </ul>
@@ -98,10 +99,13 @@ export function Footer() {
         <div className="mx-auto max-w-7xl space-y-8">
           <div className="max-w-5xl space-y-4 font-sans text-[10px] font-light leading-loose text-white/40">
             <p>
-              Carlos Uzcategui · Florida Licensed Realtor® SL705771 · Associate at United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
+              Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
             </p>
             <p>
               REALTOR® is a registered collective membership mark identifying a real estate professional who is a member of the National Association of REALTORS® and subscribes to its Code of Ethics. Live MLS data is deemed reliable but not guaranteed and is subject to change without notice.
+            </p>
+            <p>
+              Florida real estate brokerage services are provided through United Realty Group. International property opportunities may be handled through referral, marketing, cooperating broker, or advisory relationships depending on jurisdiction, property type, and applicable regulations. HomesProfessional.com does not imply licensure in any jurisdiction other than the State of Florida.
             </p>
             <p>
               Office: {CONTACT.address} · Brokerage office: {CONTACT.officePhoneUS}. Association statistics referenced on this website reflect data published by Miami and South Florida REALTORS®, with sources cited where displayed. Information on this website is for general informational purposes only and does not constitute legal, tax, financial, or investment advice.
@@ -110,9 +114,10 @@ export function Footer() {
           <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
             <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/35">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
             <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/35">
-              <a href="/sell" className="transition-colors hover:text-gold">Sellers</a>
-              <a href="/sell#reach" className="transition-colors hover:text-gold">Reach</a>
-              <a href="/spain-desk" className="transition-colors hover:text-gold">Spain Desk</a>
+              <a href="/sell-south-florida" className="transition-colors hover:text-gold">Sell in South Florida</a>
+              <a href="/miami-mls-international-desk" className="transition-colors hover:text-gold">International Desk</a>
+              <a href="/developers-agencies" className="transition-colors hover:text-gold">Developers</a>
+              <a href="/markets" className="transition-colors hover:text-gold">Markets</a>
               <a href="/contact" className="transition-colors hover:text-gold">Contact</a>
               <a href="/privacy" className="transition-colors hover:text-gold">Privacy</a>
               <a href="/terms" className="transition-colors hover:text-gold">Terms</a>

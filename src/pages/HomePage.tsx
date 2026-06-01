@@ -18,11 +18,11 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>South Florida Seller Strategy | Carlos Uzcategui · FL SL705771 | HomesProfessional.com</title>
-        <meta name="description" content="Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group — South Florida seller advisory. Pricing discipline, professional MLS positioning, buyer-agent visibility, and international market context between South Florida and Madrid." />
+        <title>Florida Listings. Miami MLS Exposure. International Property Distribution. | HomesProfessional.com</title>
+        <meta name="description" content="HomesProfessional.com — the institutional listing hub for South Florida sellers and international property owners. Strategic listing advisory, Miami MLS exposure, and cross-border distribution. Led by Carlos Uzcategui, Florida Licensed Realtor® SL705771, United Realty Group." />
         <link rel="canonical" href="https://homesprofessional.com/" />
-        <meta property="og:title" content="South Florida Seller Strategy | Carlos Uzcategui · United Realty Group" />
-        <meta property="og:description" content="25 years licensed. Senior seller advisory built around pricing discipline, professional MLS positioning, and expanded exposure infrastructure across South Florida and international markets." />
+        <meta property="og:title" content="Florida Listings. Miami MLS Exposure. International Property Distribution. | HomesProfessional.com" />
+        <meta property="og:description" content="Strategic listing advisory for South Florida sellers and qualified international property owners. 25 years licensed · United Realty Group · Miami & South Florida REALTORS® · Global property exposure in 19 languages." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />

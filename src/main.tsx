@@ -13,6 +13,9 @@ import './index.css';
 import HomePage from './pages/HomePage';
 
 // Lazy — all other pages split into separate chunks loaded on demand
+const SellSouthFloridaPage           = lazy(() => import('./pages/SellSouthFloridaPage'));
+const MiamiMLSInternationalDeskPage  = lazy(() => import('./pages/MiamiMLSInternationalDeskPage'));
+const DevelopersAgenciesPage         = lazy(() => import('./pages/DevelopersAgenciesPage'));
 const SellersPage        = lazy(() => import('./pages/SellersPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
@@ -53,13 +56,20 @@ if (rootElement) {
           <BrowserRouter>
             <Suspense fallback={null}>
               <Routes>
-                <Route path="/"                   element={<HomePage />} />
-                <Route path="/sell"               element={<SellersPage />} />
+                <Route path="/"                              element={<HomePage />} />
+                {/* Primary navigation routes */}
+                <Route path="/sell-south-florida"            element={<SellSouthFloridaPage />} />
+                <Route path="/miami-mls-international-desk"  element={<MiamiMLSInternationalDeskPage />} />
+                <Route path="/developers-agencies"           element={<DevelopersAgenciesPage />} />
+                {/* Legacy routes — redirect to new canonical URLs */}
+                <Route path="/sell"               element={<Navigate to="/sell-south-florida" replace />} />
+                <Route path="/spain-desk"         element={<Navigate to="/miami-mls-international-desk" replace />} />
+                <Route path="/agents"             element={<Navigate to="/miami-mls-international-desk" replace />} />
+                <Route path="/madrid"             element={<Navigate to="/markets" replace />} />
+                {/* Secondary routes preserved */}
                 <Route path="/buy"                element={<BuyersPage />} />
                 <Route path="/new-construction"   element={<NewConstructionPage />} />
-                <Route path="/agents"             element={<AgentsPage />} />
-                <Route path="/spain-desk"         element={<SpainDeskPage />} />
-                <Route path="/madrid"             element={<MadridPage />} />
+                <Route path="/madrid-page"        element={<MadridPage />} />
                 <Route path="/contact"            element={<ContactPage />} />
                 <Route path="/listings"           element={<ListingsPage />} />
                 <Route path="/about"              element={<AboutPage />} />
@@ -79,7 +89,7 @@ if (rootElement) {
                 <Route path="/es/agentes"         element={<EsAgentesPage />} />
                 <Route path="/es/gracias/agente"  element={<EsGraciasAgentePage />} />
                 <Route path="/es/spain-desk"      element={<EsSpainDeskPage />} />
-                <Route path="/es/madrid"          element={<MadridPage lang="es" />} />
+                <Route path="/es/madrid"          element={<Navigate to="/markets" replace />} />
 <Route path="*"                   element={<NotFoundPage />} />
               </Routes>
             </Suspense>

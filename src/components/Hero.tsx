@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { Globe, Tag, ShieldCheck, MessageSquare } from "lucide-react";
+import { Globe, Tag, ShieldCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 import { HeroSellerForm } from "./HeroSellerForm";
 
@@ -14,19 +14,13 @@ const item: Variants = {
   visible:  { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
 };
 
-/* Secondary + tertiary actions per Section 4 (the form is the primary CTA) */
-const PILLS = [
-  { icon: MessageSquare, label: "WhatsApp Carlos directly", href: CONTACT.whatsappUS, external: true },
-  { icon: Globe,         label: "Madrid Desk →",            href: "/madrid",          external: false },
-];
-
-/* Reach Advantage — verified figures (src/data/figures.json) */
-const REACH_STATS = [
-  { value: "93,000", label: "Member Agents"            },
-  { value: "200+",   label: "Global Websites"          },
-  { value: "19",     label: "Languages"                },
-  { value: "300+",   label: "Partner Associations"     },
-  { value: "1M+",    label: "Professionals"            },
+/* Proof bar — platform credentials */
+const PROOF_BAR = [
+  { value: "25 Years", label: "Licensed in Florida"           },
+  { value: "United Realty Group", label: "Brokerage"          },
+  { value: "93,000+", label: "Miami & SF REALTORS® Agents"    },
+  { value: "500+",    label: "Global Portals"                  },
+  { value: "437+",    label: "International Agreements"        },
 ];
 
 /* ─── Hero ─────────────────────────────────────────────────────── */
@@ -133,11 +127,11 @@ export function Hero() {
 
           {/* ── Left: message ──────────────────────────────────── */}
           <div className="text-center lg:text-left">
-            {/* Market eyebrow */}
+            {/* Platform eyebrow */}
             <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
               <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3.5 py-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">Greater Miami · South Florida · Madrid</span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">Florida Listings · Miami MLS · International Distribution</span>
               </span>
             </motion.div>
 
@@ -145,11 +139,13 @@ export function Hero() {
             <motion.h1
               variants={item}
               className="mt-6 font-serif leading-[1.05] text-white"
-              style={{ fontSize: "clamp(2.1rem, 5.4vw, 4.8rem)", fontWeight: 400 }}
+              style={{ fontSize: "clamp(2.0rem, 5.0vw, 4.2rem)", fontWeight: 400 }}
             >
-              Real estate is local.
+              Florida Listings.
               <br />
-              <em className="not-italic italic text-gold">Peak price is global.</em>
+              Miami MLS Exposure.
+              <br />
+              <em className="not-italic italic text-gold">International Property Distribution.</em>
             </motion.h1>
 
             {/* Gold rule */}
@@ -159,23 +155,22 @@ export function Hero() {
               style={{ animation: "hero-rule 0.8s ease forwards 0.8s", transform: "scaleX(0)", opacity: 0 }}
             />
 
-            {/* Subheadline — Section 4 spec copy */}
+            {/* Subheadline */}
             <motion.p
               variants={item}
               className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60 mx-auto lg:mx-0"
             >
-              Senior seller representation. Your property positioned inside the{" "}
-              <span className="text-white/85">third-largest MLS in the United States</span> — 93,000 member agents,
-              200+ global websites in 19 languages, an international referral network of{" "}
-              <span className="text-white/85">1 million+ professionals across 70+ countries</span>. Effective May 11, 2026.
+              Strategic listing advisory for{" "}
+              <span className="text-white/85">South Florida sellers</span> and qualified international property owners seeking exposure through{" "}
+              <span className="text-white/85">one of the most connected real estate networks in the United States</span>.
             </motion.p>
 
             {/* Trust row */}
             <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:justify-start">
               {[
-                { icon: ShieldCheck, text: "Licensed since 2001" },
-                { icon: Tag,         text: "CLHMS Luxury Certified" },
-                { icon: Globe,       text: "Miami · Madrid presence" },
+                { icon: ShieldCheck, text: "25 Years Licensed in Florida" },
+                { icon: Tag,         text: "CLHMS · Certified Seller Rep" },
+                { icon: Globe,       text: "United Realty Group" },
               ].map(({ icon: Icon, text }) => (
                 <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
                   <Icon size={12} className="text-gold/70" />
@@ -184,19 +179,20 @@ export function Hero() {
               ))}
             </motion.div>
 
-            {/* Secondary + tertiary actions */}
-            <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
-              {PILLS.map(({ icon: Icon, label, href, external }) => (
-                <a
-                  key={label}
-                  href={href}
-                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="hero-pill inline-flex items-center gap-2 rounded-full px-4 py-2.5 font-sans text-[13px] text-white/70"
-                >
-                  <Icon size={13} className="text-gold/70" />
-                  {label}
-                </a>
-              ))}
+            {/* Primary + secondary CTAs */}
+            <motion.div variants={item} className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-gold px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 whitespace-nowrap"
+              >
+                Request a Private Listing Review
+              </a>
+              <a
+                href="/miami-mls-international-desk"
+                className="hero-pill inline-flex items-center justify-center gap-2 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 whitespace-nowrap"
+              >
+                Miami MLS International Desk →
+              </a>
             </motion.div>
           </div>
 
@@ -208,7 +204,7 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* ── Reach Advantage stats bar ───────────────────────────── */}
+      {/* ── Platform credentials bar ───────────────────────────── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -217,10 +213,10 @@ export function Hero() {
       >
         <div className="mx-auto max-w-5xl px-5 py-3 flex items-center gap-4 overflow-x-auto">
           <span className="flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.28em] text-gold border border-gold/30 px-2 py-1 whitespace-nowrap">
-            Reach Advantage
+            Platform Credentials
           </span>
           <div className="h-3 w-px bg-white/15 flex-shrink-0" />
-          {REACH_STATS.map((s, i) => (
+          {PROOF_BAR.map((s, i) => (
             <div key={s.label} className="flex items-center gap-1 flex-shrink-0">
               {i > 0 && <span className="text-white/15 text-xs mr-1">·</span>}
               <span className="font-mono text-[11px] font-semibold text-white/85 whitespace-nowrap">{s.value}</span>

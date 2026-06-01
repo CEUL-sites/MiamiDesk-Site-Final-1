@@ -96,7 +96,7 @@ export function Navbar() {
                 : "border border-gold/60 text-white hover:bg-gold hover:text-navy"
             }`}
           >
-            Seller Strategy Review
+            Request a Listing Review
           </a>
         </div>
 
@@ -180,7 +180,7 @@ export function Navbar() {
                   href="/contact"
                   className="flex w-full items-center justify-center bg-gold px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-navy font-semibold"
                 >
-                  Seller Strategy Review
+                  Request a Listing Review
                 </a>
               </div>
             </div>

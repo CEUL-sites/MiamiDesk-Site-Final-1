@@ -35,7 +35,7 @@ export function MobileStickyCTA() {
           href="/contact"
           className="flex items-center gap-2 rounded-full bg-gold px-5 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
-          Seller Strategy Review
+          Request a Listing Review
         </a>
       </div>
     </div>
