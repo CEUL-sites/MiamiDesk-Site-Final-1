@@ -31,7 +31,7 @@ export default function SpainDeskPage() {
   return (
     <>
       <Helmet>
-        <title>Spain Desk | Expose Spanish Property to the South Florida Real Estate Network | HomesProfessional.com</title>
+        <title>Global Desk | Expose International Properties to the South Florida Real Estate Network | HomesProfessional.com</title>
         <meta name="description" content="A Florida-based exposure and referral bridge for Spanish property owners, agencies, and developers seeking access to the South Florida real estate network. Carlos Uzcategui, FL SL705771, United Realty Group." />
         <meta name="keywords" content="Spain Miami real estate, Spanish property Miami exposure, Madrid MLS referral, Spain to Florida property, Spanish property South Florida, cooperating broker Spain Florida, United Realty Group Spain" />
         <link rel="canonical" href="https://homesprofessional.com/spain-desk" />
@@ -67,7 +67,7 @@ export default function SpainDeskPage() {
             className="mx-auto max-w-4xl font-serif leading-tight text-white"
             style={{ fontSize: "clamp(2.0rem, 5.5vw, 3.4rem)" }}
           >
-            Expose Spanish Property to the<br />
+            Expose International Properties to the<br />
             <em className="not-italic italic text-gold">South Florida Real Estate Network.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">

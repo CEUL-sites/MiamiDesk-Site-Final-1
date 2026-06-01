@@ -26,7 +26,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   { name: "Agents", href: "/agents" },
   {
-    name: "Spain Desk", href: "/spain-desk",
+    name: "Global Desk", href: "/spain-desk",
     children: [
       { name: "List Spanish Property",    href: "/spain-desk" },
       { name: "Agencies & Developers",    href: "/developers-agencies" },
