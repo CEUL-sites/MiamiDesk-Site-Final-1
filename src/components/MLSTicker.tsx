@@ -63,7 +63,7 @@ const FALLBACK: Listing[] = [
 // Carlos's own listings. Label and disclaimer are mandatory before launch.
 const LABEL_LIVE    = "SOURCE: MIAMI AND SOUTH FLORIDA REALTORS® MLS · ACTIVE MARKET REFERENCE";
 const LABEL_STATIC  = "SOURCE: MIAMI AND SOUTH FLORIDA REALTORS® MLS · ACTIVE MARKET REFERENCE";
-const TICKER_DISCLAIMER = "Carlos Uzcategui is not the listing agent on these properties.";
+const TICKER_DISCLAIMER = "Active market reference · Listing data courtesy of cooperating brokers · Miami and South Florida REALTORS® MLS";
 const HEADER_REPEATS = 6;
 
 export function MLSTicker() {
