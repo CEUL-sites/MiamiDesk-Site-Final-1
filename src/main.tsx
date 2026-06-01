@@ -14,6 +14,7 @@ import HomePage from './pages/HomePage';
 
 // Lazy — all other pages split into separate chunks loaded on demand
 const SellSouthFloridaPage           = lazy(() => import('./pages/SellSouthFloridaPage'));
+const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
 const MiamiMLSInternationalDeskPage  = lazy(() => import('./pages/MiamiMLSInternationalDeskPage'));
 const DevelopersAgenciesPage         = lazy(() => import('./pages/DevelopersAgenciesPage'));
 const SellersPage        = lazy(() => import('./pages/SellersPage'));
@@ -66,6 +67,7 @@ if (rootElement) {
                 <Route path="/madrid"             element={<Navigate to="/markets" replace />} />
                 {/* Active routes */}
                 <Route path="/spain-desk"         element={<SpainDeskPage />} />
+                <Route path="/home-value"         element={<HomeValuePage />} />
                 <Route path="/agents"             element={<AgentsPage />} />
                 {/* Secondary routes preserved */}
                 <Route path="/buy"                element={<BuyersPage />} />

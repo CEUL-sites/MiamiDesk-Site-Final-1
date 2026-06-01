@@ -30,6 +30,20 @@ export default function HomePage() {
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />
+        {/* Home value entry strip */}
+        <div className="bg-gold/10 border-t border-b border-gold/20 py-4">
+          <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 text-center sm:text-left">
+              Thinking about selling? Get a free, professional South Florida home valuation — no commitment required.
+            </p>
+            <a
+              href="/home-value"
+              className="flex-shrink-0 border border-gold px-6 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold hover:text-navy whitespace-nowrap"
+            >
+              What's My Home Worth?
+            </a>
+          </div>
+        </div>
         <MLSTicker />
         <ReachAdvantage />
         <IntelligenceDesk />

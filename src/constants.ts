@@ -50,13 +50,14 @@ export const LEAD_MAGNETS = {
 };
 
 export const NAVIGATION = [
-  { name: "Sellers", href: "/sell-south-florida" },
-  { name: "Buyers", href: "/buy" },
-  { name: "Markets", href: "/markets" },
-  { name: "Agents", href: "/agents" },
-  { name: "Spain Desk", href: "/spain-desk" },
-  { name: "Journal", href: "/journal" },
-  { name: "Contact", href: "/contact" },
+  { name: "Sellers",      href: "/sell-south-florida" },
+  { name: "Home Value",   href: "/home-value" },
+  { name: "Buyers",       href: "/buy" },
+  { name: "Markets",      href: "/markets" },
+  { name: "Agents",       href: "/agents" },
+  { name: "Global Desk",  href: "/spain-desk" },
+  { name: "Journal",      href: "/journal" },
+  { name: "Contact",      href: "/contact" },
 ];
 
 // Verified figures per the build brief (Section 2). Single source of truth is

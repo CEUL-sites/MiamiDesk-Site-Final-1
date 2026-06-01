@@ -10,7 +10,13 @@ type NavChild = { name: string; href: string };
 type NavItem  = { name: string; href: string; children?: NavChild[] };
 
 const NAV_ITEMS: NavItem[] = [
-  { name: "Sellers", href: "/sell-south-florida" },
+  {
+    name: "Sellers", href: "/sell-south-florida",
+    children: [
+      { name: "Sell in South Florida",  href: "/sell-south-florida" },
+      { name: "Free Home Valuation",    href: "/home-value" },
+    ],
+  },
   { name: "Buyers",  href: "/buy" },
   {
     name: "Markets", href: "/markets",
@@ -28,15 +34,21 @@ const NAV_ITEMS: NavItem[] = [
   {
     name: "Global Desk", href: "/spain-desk",
     children: [
-      { name: "List Spanish Property",    href: "/spain-desk" },
-      { name: "Agencies & Developers",    href: "/developers-agencies" },
-      { name: "Refer Buyers to Spain",    href: "/spain-desk" },
-      { name: "Madrid Desk",              href: "/markets" },
-      { name: "Submit Property",          href: "/contact" },
+      { name: "List International Property", href: "/spain-desk" },
+      { name: "Agencies & Developers",       href: "/developers-agencies" },
+      { name: "Refer Buyers to Spain",       href: "/spain-desk" },
+      { name: "Madrid Desk",                 href: "/markets" },
+      { name: "Submit Property",             href: "/contact" },
     ],
   },
   { name: "Journal", href: "/journal" },
-  { name: "Contact", href: "/contact" },
+  {
+    name: "Contact", href: "/contact",
+    children: [
+      { name: "Request a Review",  href: "/contact" },
+      { name: "About Carlos",      href: "/about" },
+    ],
+  },
 ];
 
 export function Navbar() {
