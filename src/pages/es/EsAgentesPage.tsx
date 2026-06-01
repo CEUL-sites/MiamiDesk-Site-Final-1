@@ -27,7 +27,7 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 1,
-      name: "Home",
+      name: "Inicio",
       item: "https://homesprofessional.com/",
     },
     {

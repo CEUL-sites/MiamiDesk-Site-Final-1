@@ -10,6 +10,7 @@ const ES_TO_EN: Record<string, string> = {
   "/es/comprar": "/buy",
   "/es/agentes": "/agents",
   "/es/spain-desk": "/spain-desk",
+  "/es/madrid": "/madrid",
   "/es/gracias/agente": "/thanks/agent",
 };
 
@@ -19,6 +20,7 @@ const EN_TO_ES: Record<string, string> = {
   "/buy": "/es/comprar",
   "/agents": "/es/agentes",
   "/spain-desk": "/es/spain-desk",
+  "/madrid": "/es/madrid",
   "/thanks/agent": "/es/gracias/agente",
 };
 

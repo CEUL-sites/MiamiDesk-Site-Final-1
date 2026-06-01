@@ -113,6 +113,7 @@ export function Footer() {
               <a href="/sell" className="transition-colors hover:text-gold">Sellers</a>
               <a href="/sell#reach" className="transition-colors hover:text-gold">Reach</a>
               <a href="/spain-desk" className="transition-colors hover:text-gold">Spain Desk</a>
+              <a href="/about" className="transition-colors hover:text-gold">About</a>
               <a href="/contact" className="transition-colors hover:text-gold">Contact</a>
               <a href="/privacy" className="transition-colors hover:text-gold">Privacy</a>
               <a href="/terms" className="transition-colors hover:text-gold">Terms</a>

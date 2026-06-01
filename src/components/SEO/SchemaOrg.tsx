@@ -31,8 +31,9 @@ const sitewideSchema: JsonLdSchema[] = [
     "@id": `${SITE_URL}/#organization`,
     name: CONTACT.brokerage,
     url: "https://unitedrealty.com",
+    logo: `${SITE_URL}/images/urg-logo-original.png`,
     description:
-      "United Realty Group brokerage infrastructure supporting South Florida residential, luxury, and referral transactions.",
+      "United Realty Group is the #1 transaction volume real estate company in Florida by number of closed transactions, supporting South Florida residential, luxury, and referral transactions.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "1200 S Pine Island Rd, Suite 600",
@@ -41,6 +42,7 @@ const sitewideSchema: JsonLdSchema[] = [
       postalCode: "33324",
       addressCountry: "US",
     },
+    sameAs: ["https://unitedrealty.com"],
   },
   {
     "@context": "https://schema.org",
@@ -80,6 +82,11 @@ const sitewideSchema: JsonLdSchema[] = [
       postalCode: "33331",
       addressCountry: "US",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 26.1009,
+      longitude: -80.4031,
+    },
     areaServed: [
       "Miami-Dade County",
       "Broward County",
@@ -93,6 +100,17 @@ const sitewideSchema: JsonLdSchema[] = [
       "Doral",
       "Fort Lauderdale",
       "Boca Raton",
+      "West Palm Beach",
+      "Coconut Grove",
+      "Wynwood",
+      "Edgewater",
+      "Key Biscayne",
+      "Pinecrest",
+      "Kendall",
+      "Homestead",
+      "North Miami",
+      "Hallandale Beach",
+      "Pembroke Pines",
       "Madrid",
       "Spain",
       "Latin America",
@@ -174,8 +192,8 @@ const sitewideSchema: JsonLdSchema[] = [
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 25.7617,
-      longitude: -80.1918,
+      latitude: 26.1009,
+      longitude: -80.4031,
     },
     areaServed: ["Miami-Dade County", "Broward County", "Palm Beach County"],
     openingHoursSpecification: [
@@ -204,6 +222,11 @@ const sitewideSchema: JsonLdSchema[] = [
     areaServed: "South Florida",
     url: `${SITE_URL}/sell`,
     description: `Listing preparation, MLS activation, buyer-agent exposure through ${ASSOCIATION_STATS.associationName}, global portal syndication, and offer negotiation for South Florida sellers.`,
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      description: "Free seller strategy review — no commitment required.",
+    },
   },
   {
     "@context": "https://schema.org",
@@ -229,11 +252,83 @@ const sitewideSchema: JsonLdSchema[] = [
     description:
       "Confidential buyer and seller referral coordination for licensed agents with South Florida, Spain, and LATAM client needs.",
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}/#faq`,
+    name: "Frequently Asked Questions",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is United Realty Group?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "United Realty Group is the #1 real estate company in Florida by transaction volume, with 93,000+ member agents through the Miami and South Florida REALTORS® MLS association.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What areas does Carlos Uzcategui serve?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Carlos Uzcategui serves all of Miami-Dade, Broward, and Palm Beach counties including Miami, Coral Gables, Brickell, Miami Beach, Aventura, Weston, Doral, Fort Lauderdale, Boca Raton, and West Palm Beach.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Carlos Uzcategui work with international buyers?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Bilingual (English/Spanish) representation is available with a dedicated Spain Desk for buyers from Spain and Latin America relocating to or investing in South Florida.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do I get a free seller strategy review?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Contact our team via the form on homesprofessional.com/sell, call +1 954-865-6622, or message via WhatsApp. The review is free with no listing commitment required.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the MLS exposure for my South Florida listing?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Every listing entered through United Realty Group reaches 93,000 member agents via the Miami and South Florida REALTORS® MLS with eligible syndication across approved distribution channels including 200+ global portals in 19 languages.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can out-of-state agents refer clients to you?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We have a formal agent-to-agent referral program with signed agreements. Licensed agents from any state or country can refer buyers and sellers to our team through the agents page on homesprofessional.com.",
+        },
+      },
+    ],
+  },
 ];
 
 export function SchemaOrg() {
   return (
     <Helmet>
+      {/* Sitewide Open Graph / Twitter CONSTANTS only — rendered once at the app root.
+          react-snap concatenates (does not dedupe) tags from this eager Helmet and the
+          lazy per-route Helmet, so this block must contain only properties that NO page
+          overrides. Page-varying tags (og:title, og:description, og:url) live on the
+          pages and fall back to <title> / <meta name="description"> elsewhere. */}
+      <meta property="og:site_name" content="HomesProfessional.com" />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:image" content={`${SITE_URL}/images/urg-hq.jpg`} />
+      <meta
+        property="og:image:alt"
+        content="HomesProfessional.com — South Florida Real Estate by United Realty Group"
+      />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@unitedrealty" />
+      <meta name="twitter:image" content={`${SITE_URL}/images/urg-hq.jpg`} />
       {sitewideSchema.map((schema) => (
         <script key={schema["@id"] ?? schema.name} type="application/ld+json">
           {JSON.stringify(schema)}

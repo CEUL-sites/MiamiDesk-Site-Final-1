@@ -24,8 +24,6 @@ export default function HomePage() {
         <meta property="og:title" content="South Florida Seller Strategy | Carlos Uzcategui · United Realty Group" />
         <meta property="og:description" content="25 years licensed. Senior seller advisory built around pricing discipline, professional MLS positioning, and expanded exposure infrastructure across South Florida and international markets." />
         <meta property="og:url" content="https://homesprofessional.com/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />

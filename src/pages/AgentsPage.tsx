@@ -13,6 +13,9 @@ export default function AgentsPage() {
         <meta name="description" content="Licensed agents: refer your South Florida buyers and sellers to our team. Formal referral agreements, fast closings, bilingual service. United Realty Group · FL SL705771." />
         <meta name="keywords" content="real estate agent referral South Florida, Miami buyer referral, South Florida MLS referral, licensed agent network, United Realty Group referral" />
         <link rel="canonical" href="https://homesprofessional.com/agents" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/agents" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/agents" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/agentes" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",

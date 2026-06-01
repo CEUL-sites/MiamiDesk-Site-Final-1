@@ -101,23 +101,23 @@ export function LeadForm() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="flex flex-col gap-2">
-              <label className="input-label">Full Name</label>
+            <label className="flex flex-col gap-2">
+              <span className="input-label">Full Name</span>
               <input required name="name" type="text" placeholder="Name" className="form-input" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="input-label">Email Address</label>
+            </label>
+            <label className="flex flex-col gap-2">
+              <span className="input-label">Email Address</span>
               <input required name="email" type="email" placeholder="Email" className="form-input" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-            </div>
+            </label>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="flex flex-col gap-2">
-              <label className="input-label">Phone / WhatsApp</label>
+            <label className="flex flex-col gap-2">
+              <span className="input-label">Phone / WhatsApp</span>
               <input required name="phone" type="tel" placeholder="+1..." className="form-input" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="input-label">Timeline</label>
+            </label>
+            <label className="flex flex-col gap-2">
+              <span className="input-label">Timeline</span>
               <div className="relative">
                 <select name="timeline" className="form-input w-full cursor-pointer appearance-none pr-9" value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}>
                   <option>Immediately</option>
@@ -128,24 +128,24 @@ export function LeadForm() {
                 </select>
                 <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold/60">▾</span>
               </div>
-            </div>
+            </label>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="flex flex-col gap-2">
-              <label className="input-label">Property Address</label>
+            <label className="flex flex-col gap-2">
+              <span className="input-label">Property Address</span>
               <input required name="propertyAddress" type="text" placeholder="Street address" className="form-input" value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} />
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="input-label">City</label>
+            </label>
+            <label className="flex flex-col gap-2">
+              <span className="input-label">City</span>
               <input required name="city" type="text" placeholder="Weston, Coral Gables, Brickell" className="form-input" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
-            </div>
+            </label>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="input-label">Message</label>
+          <label className="flex flex-col gap-2">
+            <span className="input-label">Message</span>
             <textarea name="message" rows={4} placeholder="What should our team know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
-          </div>
+          </label>
 
           {status === "error" && (
             <p className="font-sans text-sm text-red-600 font-medium mt-2">
