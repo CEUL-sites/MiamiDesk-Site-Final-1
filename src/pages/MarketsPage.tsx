@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ChevronRight, MessageSquare } from "lucide-react";
+import { ChevronRight, MessageSquare, Building2 } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -111,7 +111,39 @@ export default function MarketsPage() {
           </div>
         </section>
 
-        {/* Madrid bridge */}
+        {/* New Construction */}
+        <section className="bg-bone-warm py-16 md:py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-2xl">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">New Construction · Florida</p>
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  Florida's new buildings.
+                </h2>
+                <p className="mt-4 font-sans text-[16px] leading-[1.6] text-ink-primary/70">
+                  Brickell. Miami Beach. Fort Lauderdale. West Palm Beach. Live pre-construction inventory across South Florida — with representation that navigates deposit structures, timelines, and assignment terms.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {["Brickell", "Miami Beach", "Aventura", "Fort Lauderdale", "Boca Raton", "West Palm Beach"].map((city) => (
+                    <span key={city} className="inline-flex items-center gap-1.5 border border-hairline bg-white px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-navy-deep/60">
+                      <Building2 size={9} className="text-gold" />
+                      {city}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <a
+                href="/new-construction"
+                className="group inline-flex shrink-0 items-center gap-2 bg-navy-deep px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+              >
+                View Inventory
+                <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Spain bridge */}
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cross-border</p>
@@ -119,11 +151,10 @@ export default function MarketsPage() {
               Selling from Spain into the Miami market.
             </h2>
             <p className="mt-6 font-sans text-[17px] leading-[1.7] text-ink-primary/80">
-              Spanish luxury owners list into the Miami MLS through a licensed Florida principal of record, while local
-              Spain buyer access continues through affiliated Madrid agencies. Both channels run simultaneously.
+              Spanish luxury owners list into the Miami MLS through a licensed Florida principal of record, while local buyer access continues through affiliated Madrid agencies. Both channels run simultaneously.
             </p>
-            <a href="/madrid" className="group mt-8 inline-flex items-center gap-2 bg-navy-deep px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep">
-              Madrid Desk
+            <a href="/spain-desk" className="group mt-8 inline-flex items-center gap-2 bg-navy-deep px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep">
+              Spain Desk
               <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
             </a>
           </div>

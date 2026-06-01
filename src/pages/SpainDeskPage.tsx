@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { SpainMiamiJourney } from "../components/SpainMiamiJourney";
 import { LeadForm } from "../components/LeadForm";
-import { BadgeCheck, Download } from "lucide-react";
+import { BadgeCheck, Download, ChevronRight } from "lucide-react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 export default function SpainDeskPage() {
@@ -47,8 +47,8 @@ export default function SpainDeskPage() {
             From Madrid to Miami.<br />
             <em className="not-italic italic text-gold">Bilingual. Private. Expert.</em>
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Confidential advisory for buyers from Spain and Latin America. Private consultations in English and Spanish. Madrid referral network for pre-move transactions.
+          <p className="mx-auto mt-5 max-w-xl font-sans text-base leading-relaxed text-white/55">
+            Confidential advisory in English and Spanish — for buyers relocating to South Florida and sellers listing Spanish property into the Miami MLS.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -78,6 +78,30 @@ export default function SpainDeskPage() {
           </div>
         </section>
         <SpainMiamiJourney />
+        {/* Madrid seller bridge */}
+        <section className="bg-white py-16 md:py-20 border-t border-hairline">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-xl">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Madrid · Marbella · Costa del Sol</p>
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep">
+                  Selling Spanish property<br />into the U.S. market.
+                </h2>
+                <p className="mt-4 font-sans text-[16px] leading-[1.65] text-ink-primary/70">
+                  Spanish luxury owners list directly into the Miami MLS through Carlos as a licensed Florida principal. Local buyer access in Spain continues through affiliated Madrid agencies. Both channels, simultaneously.
+                </p>
+              </div>
+              <a
+                href="/madrid"
+                className="group inline-flex shrink-0 items-center gap-2 border border-navy-deep px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:bg-navy-deep hover:text-white"
+              >
+                Madrid Desk
+                <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">

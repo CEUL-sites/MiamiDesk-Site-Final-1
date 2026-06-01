@@ -75,35 +75,26 @@ export default function NewConstructionPage() {
           </div>
         </section>
 
-        {/* ── Carlos commentary ────────────────────────────────── */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
+        {/* ── Advisory CTA ─────────────────────────────────────── */}
+        <section className="bg-navy-deep py-16 md:py-20 text-white">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Advisory positioning</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Advisory</p>
             <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
-              For developers and international buyers.
+              Deposit structures. Timelines. Assignment terms.
             </h2>
-            <div className="mt-6 space-y-5 font-sans text-[17px] leading-[1.7] text-white/70">
-              <p>
-                Pre-construction is a different transaction from resale. Deposit structures, delivery timelines, developer
-                reputation, and assignment terms determine outcome as much as price. International buyers — particularly
-                from Spain and Latin America — need representation that reads those terms, not just a unit list.
-              </p>
-              <p>
-                For Spanish and Latin American developers, Carlos provides a licensed Florida channel into the Miami MLS
-                ecosystem and the international referral network — the same structural distribution behind every listing
-                represented here.
-              </p>
-            </div>
-            <div className="mt-10">
+            <p className="mt-5 font-sans text-[17px] leading-[1.7] text-white/65">
+              Pre-construction is a different transaction from resale. International buyers need representation that reads the terms — not just the unit list.
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
                 href="/contact"
                 className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
               >
-                Request a Pre-Construction Consultation
+                Request a Consultation
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
-                Direct / WhatsApp: {CONTACT.phoneUSDisplay}
+              <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+                WhatsApp: {CONTACT.phoneUSDisplay}
               </p>
             </div>
           </div>
