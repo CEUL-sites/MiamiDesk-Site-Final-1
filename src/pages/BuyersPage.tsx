@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { BuyersRelocation } from "../components/BuyersRelocation";
+import { MLSTicker } from "../components/MLSTicker";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { BadgeCheck, Download } from "lucide-react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
@@ -82,6 +83,8 @@ export default function BuyersPage() {
             United Realty Group · CLHMS · FL SL705771 · Buyer representation across Miami-Dade, Broward &amp; Palm Beach
           </p>
         </section>
+        {/* Active market bridge — Miami-Dade & Broward ~$1M listings */}
+        <MLSTicker />
         <BuyersRelocation />
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
