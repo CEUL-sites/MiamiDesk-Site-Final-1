@@ -125,7 +125,7 @@ export function Hero() {
               <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3.5 py-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                 <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">
-                  South Florida · Miami MLS · Spain Desk · Global Referral Network
+                  South Florida · Miami Realtors Association MLS · Global Real Estate Network
                 </span>
               </span>
             </motion.div>
