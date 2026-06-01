@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import { ChevronRight, MessageSquare, Building2 } from "lucide-react";
+import { ChevronRight, MessageSquare } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
+import { NewConstructionTicker } from "../components/NewConstructionTicker";
 import { CONTACT } from "../constants";
 
 // Consolidated Markets advisory page (replaces the per-city /market/[city] pages).
@@ -112,35 +113,29 @@ export default function MarketsPage() {
         </section>
 
         {/* New Construction */}
-        <section className="bg-bone-warm py-16 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-              <div className="max-w-2xl">
+        <section className="bg-[#080F1C] py-0">
+          <div className="mx-auto max-w-5xl px-6 pt-14 pb-8">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">New Construction · Florida</p>
-                <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                <h2 className="mt-3 font-serif text-3xl leading-tight text-white md:text-4xl">
                   Florida's new buildings.
                 </h2>
-                <p className="mt-4 font-sans text-[16px] leading-[1.6] text-ink-primary/70">
-                  Brickell. Miami Beach. Fort Lauderdale. West Palm Beach. Live pre-construction inventory across South Florida — with representation that navigates deposit structures, timelines, and assignment terms.
+                <p className="mt-3 max-w-xl font-sans text-[15px] leading-[1.6] text-white/55">
+                  Branded towers. Boutique oceanfront. Golf estates. Across South Florida — with representation that reads deposit structures, timelines, and assignment terms.
                 </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {["Brickell", "Miami Beach", "Aventura", "Fort Lauderdale", "Boca Raton", "West Palm Beach"].map((city) => (
-                    <span key={city} className="inline-flex items-center gap-1.5 border border-hairline bg-white px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-navy-deep/60">
-                      <Building2 size={9} className="text-gold" />
-                      {city}
-                    </span>
-                  ))}
-                </div>
               </div>
               <a
                 href="/new-construction"
-                className="group inline-flex shrink-0 items-center gap-2 bg-navy-deep px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+                className="group inline-flex shrink-0 items-center gap-2 border border-gold/50 px-7 py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-navy-deep"
               >
-                View Inventory
-                <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+                Full Inventory
+                <ChevronRight size={13} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>
           </div>
+          <NewConstructionTicker />
+          <div className="h-6" />
         </section>
 
         {/* Spain bridge */}
