@@ -74,6 +74,14 @@ export function Footer() {
             <p>{CONTACT.email}</p>
             <p className="text-xs leading-relaxed">{CONTACT.address}</p>
             <p className="text-xs leading-relaxed">Brokerage office: {CONTACT.officePhoneUS}</p>
+            <a
+              href={CONTACT.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35 hover:text-gold transition-colors"
+            >
+              LinkedIn →
+            </a>
           </div>
         </div>
 
@@ -127,9 +135,11 @@ export function Footer() {
             <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/35">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
             <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/35">
               <a href="/sell-south-florida" className="transition-colors hover:text-gold">Sell in South Florida</a>
+              <a href="/home-value" className="transition-colors hover:text-gold">Free Home Valuation</a>
               <a href="/miami-mls-international-desk" className="transition-colors hover:text-gold">International Desk</a>
               <a href="/developers-agencies" className="transition-colors hover:text-gold">Developers</a>
               <a href="/markets" className="transition-colors hover:text-gold">Markets</a>
+              <a href="/about" className="transition-colors hover:text-gold">About Carlos</a>
               <a href="/contact" className="transition-colors hover:text-gold">Contact</a>
               <a href="/privacy" className="transition-colors hover:text-gold">Privacy</a>
               <a href="/terms" className="transition-colors hover:text-gold">Terms</a>

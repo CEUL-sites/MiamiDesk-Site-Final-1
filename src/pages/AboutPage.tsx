@@ -30,6 +30,32 @@ export default function AboutPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
+
+        {/* Hero */}
+        <section className="bg-navy-deep px-6 pt-32 pb-14 sm:px-10">
+          <div className="mx-auto max-w-5xl">
+            <nav aria-label="Breadcrumb" className="mb-8">
+              <ol className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+                <li><a href="/" className="hover:text-gold transition-colors">Home</a></li>
+                <li aria-hidden="true">·</li>
+                <li className="text-gold">About</li>
+              </ol>
+            </nav>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Principal</p>
+            <h1 className="mt-5 font-serif text-4xl leading-tight text-white md:text-5xl">
+              Carlos Uzcategui
+            </h1>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+              Florida Licensed Realtor® SL705771 · United Realty Group · Licensed Since 2001
+            </p>
+            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55">
+              25 years of South Florida transactions. Direct seller representation through the Miami
+              and South Florida REALTORS® MLS. International buyer introductions via formal referral
+              partnerships in Spain and Latin America.
+            </p>
+          </div>
+        </section>
+
         <AboutContact />
         <Footer />
         <MobileStickyCTA />

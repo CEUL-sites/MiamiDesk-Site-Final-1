@@ -15,14 +15,15 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Florida Listings. Miami MLS Exposure. International Property Distribution. | HomesProfessional.com</title>
-        <meta name="description" content="HomesProfessional.com — the institutional listing hub for South Florida sellers and international property owners. Strategic listing advisory, Miami MLS exposure, and cross-border distribution. Led by Carlos Uzcategui, Florida Licensed Realtor® SL705771, United Realty Group." />
+        <title>South Florida Listing Agent · Sell Your Home | Carlos Uzcategui | HomesProfessional.com</title>
+        <meta name="description" content="Carlos Uzcategui, FL SL705771 — South Florida listing agent and REALTOR® with United Realty Group. Sell your Miami, Coral Gables, Weston, or Miami Beach property with professional MLS exposure, buyer-agent activation, and international distribution." />
+        <meta name="keywords" content="south florida listing agent, miami listing agent, sell home miami, sell home coral gables, sell home weston florida, miami beach listing agent, brickell condo listing agent, south florida realtor, miami mls listing, united realty group miami" />
         <link rel="canonical" href="https://homesprofessional.com/" />
-        <meta property="og:title" content="Florida Listings. Miami MLS Exposure. International Property Distribution. | HomesProfessional.com" />
-        <meta property="og:description" content="Strategic listing advisory for South Florida sellers and qualified international property owners. 25 years licensed · United Realty Group · Miami & South Florida REALTORS® · Global property exposure in 19 languages." />
+        <meta property="og:title" content="South Florida Listing Agent · Sell Your Home | HomesProfessional.com" />
+        <meta property="og:description" content="Professional seller representation across Miami-Dade, Broward, and Palm Beach. 25 years licensed · United Realty Group · Miami & South Florida REALTORS® · 93,000 member agents." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homesprofessional.com/og-image.jpg" />
+        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
