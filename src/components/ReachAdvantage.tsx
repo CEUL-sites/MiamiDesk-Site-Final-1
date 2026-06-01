@@ -1,7 +1,5 @@
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { CONTACT } from "../constants";
-
 const TOP_STATS = [
   {
     value: 93000,
@@ -205,29 +203,6 @@ export const ReachAdvantage = () => {
         {BOTTOM_STATS.map((stat, i) => (
           <StatCard key={stat.label} stat={stat} index={i} delay={0.1} />
         ))}
-      </div>
-
-      {/* ── Quote ─────────────────────────────────────────────── */}
-      <div className="relative px-6 py-10 md:py-16 text-center">
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none overflow-hidden">
-          <span className="font-serif font-bold text-gold/[0.06]" style={{ fontSize: "clamp(9rem, 28vw, 22rem)", lineHeight: 1 }}>"</span>
-        </div>
-        <motion.blockquote
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9 }}
-          className="relative mx-auto max-w-4xl font-serif italic leading-[1.1] text-white"
-          style={{ fontSize: "clamp(1.9rem, 4vw, 3.8rem)" }}
-        >
-          Features describe a property.<br />
-          Distribution determines its price.
-        </motion.blockquote>
-        <div className="mt-8 flex items-center justify-center gap-5">
-          <span className="h-px w-14 bg-gold/35" />
-          <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/55">{CONTACT.shortLicense}</p>
-          <span className="h-px w-14 bg-gold/35" />
-        </div>
       </div>
 
     </section>

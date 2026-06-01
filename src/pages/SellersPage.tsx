@@ -4,8 +4,6 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
-import { ExposureSyndication } from "../components/ExposureSyndication";
-import { PartnersMarquee } from "../components/PartnersMarquee";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { BadgeCheck, Download } from "lucide-react";
@@ -102,8 +100,6 @@ export default function SellersPage() {
         </section>
         <ReachAdvantage />
         <SellerSection />
-        <ExposureSyndication />
-        <PartnersMarquee />
         <GlobalPartnerNetwork />
         <section className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">

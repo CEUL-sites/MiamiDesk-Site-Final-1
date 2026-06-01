@@ -8,37 +8,22 @@ import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
-const WHY_MIAMI = [
-  { value: "93,000", label: "Member Agents", desc: "The Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association — puts your property in front of the agents who represent active buyers." },
-  { value: "437+", label: "International Agreements", desc: "Miami holds more signed international real estate agreements than any other REALTOR® association in the world. Your property enters a global professional network." },
-  { value: "500+", label: "Global Websites", desc: "Eligible listings may be distributed across 500+ websites in 19 languages where available — reaching international buyers actively searching in South Florida." },
-  { value: "2M+", label: "Professionals Worldwide", desc: "An international referral network of 2 million+ real estate professionals across 70+ countries. The agents representing Latin American and European buyers are in this network." },
-];
-
 const SERVICES = [
   {
-    title: "Spanish Property Exposure to Miami Agents",
-    body: "Qualified Spanish properties introduced to the South Florida agent network through professional referral and marketing channels. Compliant. Documented. Structured.",
+    title: "Spanish Property Exposure",
+    body: "Qualified Spanish properties introduced to the South Florida agent network through professional referral and marketing channels.",
   },
   {
     title: "Cooperating Broker Coordination",
-    body: "Formal broker-to-broker agreements between Spanish agencies and United Realty Group. Your property presented through the correct licensed professional relationship.",
+    body: "Formal broker-to-broker agreements between Spanish agencies and United Realty Group, through the correct licensed professional relationship.",
   },
   {
     title: "Marketing to South Florida Buyers",
-    body: "Professional presentation packages in English targeting Miami-facing buyer demand — investor profiles, relocation buyers, and LATAM-connected buyers who know the Spanish market.",
-  },
-  {
-    title: "MLS-Compatible Documentation",
-    body: "Property documentation structured to travel correctly through the South Florida agent network. Compliant positioning that meets MLS and brokerage presentation standards.",
+    body: "Professional presentation packages in English targeting investor profiles, relocation buyers, and LATAM-connected buyers who know the Spanish market.",
   },
   {
     title: "Agencies & Developer Representation",
-    body: "For Spanish agencies and developers entering the Miami market: a licensed Florida channel into 93,000 member agents and the full international distribution infrastructure.",
-  },
-  {
-    title: "Referral Pathway for Spain Buyers",
-    body: "Spain-based clients seeking South Florida properties can be introduced through a formal referral relationship. Bilingual English/Spanish advisory through the full transaction.",
+    body: "A licensed Florida channel into 93,000 member agents and the full international distribution infrastructure for Spanish agencies and developers.",
   },
 ];
 
@@ -124,26 +109,7 @@ export default function SpainDeskPage() {
           </div>{/* end relative */}
         </section>
 
-        {/* Why Miami Exposure Matters */}
-        <section className="bg-white py-16 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center mb-3">Why Miami Exposure Matters</p>
-            <h2 className="text-center font-serif text-3xl leading-tight text-navy-deep md:text-4xl mb-10 max-w-3xl mx-auto">
-              The South Florida network is the entry point for international capital.
-            </h2>
-            <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-4">
-              {WHY_MIAMI.map((s) => (
-                <div key={s.value} className="bg-white p-8">
-                  <div className="font-serif text-4xl text-gold">{s.value}</div>
-                  <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-navy/50">{s.label}</div>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-ink-primary/60">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Six Service Cards */}
+        {/* Service Cards */}
         <section className="bg-navy-deep py-20 md:py-28 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What the Spain Desk handles</p>

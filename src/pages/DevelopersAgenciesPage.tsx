@@ -4,7 +4,6 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
-import { PartnersMarquee } from "../components/PartnersMarquee";
 import { LeadForm } from "../components/LeadForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
@@ -179,7 +178,6 @@ export default function DevelopersAgenciesPage() {
           </div>
         </section>
 
-        <PartnersMarquee />
         <GlobalPartnerNetwork />
 
         {/* Lead form */}

@@ -5,16 +5,8 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { SpainMiamiJourney } from "../components/SpainMiamiJourney";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
-import { InternationalBridge } from "../components/InternationalBridge";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
-
-const NETWORK_STATS = [
-  { value: "437+", label: "International Agreements", desc: "Signed referral agreements with real estate organizations worldwide through Miami and South Florida REALTORS®." },
-  { value: "93,000", label: "Member Agents", desc: "Miami and South Florida REALTORS® — the world's largest local REALTOR® association — for maximum buyer-agent visibility." },
-  { value: "70+", label: "Countries", desc: "International referral network of 2 million+ professionals across 70+ countries and 300+ partner associations." },
-  { value: "19", label: "Languages", desc: "Property exposure across 500+ global portals in 19 languages — reaching the agents who represent international buyers." },
-];
 
 const HOW_IT_WORKS = [
   {
@@ -120,22 +112,6 @@ export default function MiamiMLSInternationalDeskPage() {
           </div>{/* end relative */}
         </section>
 
-        {/* Network stats */}
-        <section className="bg-white py-16 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center mb-10">Why the Miami network matters</p>
-            <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-4">
-              {NETWORK_STATS.map((s) => (
-                <div key={s.value} className="bg-white p-8">
-                  <div className="font-serif text-4xl text-gold">{s.value}</div>
-                  <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-navy/50">{s.label}</div>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-ink-primary/60">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* What this desk handles */}
         <section className="bg-navy-deep py-20 md:py-28 text-white">
           <div className="mx-auto max-w-5xl px-6">
@@ -152,8 +128,6 @@ export default function MiamiMLSInternationalDeskPage() {
                 { title: "International Property Exposure", body: "Qualified properties outside Florida presented to the Miami and South Florida agent network through professional referral and marketing channels." },
                 { title: "Referral Coordination", body: "Formal broker-to-broker referral agreements. Documented cooperation. Paid at closing. For licensed agents from any state or country with South Florida clients." },
                 { title: "Marketing Representation", body: "Professional presentation packages, MLS-compatible documentation, and compliant positioning for properties seeking Miami-facing distribution." },
-                { title: "Cross-Border Distribution", body: "Florida ↔ Spain ↔ Latin America. Structural exposure through 437+ international agreements and the Miami Global Council's partner network." },
-                { title: "South Florida Agent Network Visibility", body: "93,000 member agents. 500+ global portals. Buyer-agent activation through the most active MLS footprint in the Southeastern United States." },
                 { title: "Compliant Cross-Border Positioning", body: "International property opportunities handled through referral, marketing, cooperating broker, or advisory relationships — depending on jurisdiction, property type, and applicable regulations." },
               ].map((item) => (
                 <div key={item.title} className="border border-white/10 p-7">
@@ -165,7 +139,6 @@ export default function MiamiMLSInternationalDeskPage() {
           </div>
         </section>
 
-        <InternationalBridge />
         <SpainMiamiJourney />
         <GlobalPartnerNetwork />
 

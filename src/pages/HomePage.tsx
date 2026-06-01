@@ -2,10 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { MLSTicker } from "../components/MLSTicker";
-import { SellerStrategySection } from "../components/SellerStrategySection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
-import { PartnersMarquee } from "../components/PartnersMarquee";
-import { ExposureSyndication } from "../components/ExposureSyndication";
 import { IntelligenceDesk } from "../components/IntelligenceDesk";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { InternationalBridge } from "../components/InternationalBridge";
@@ -34,10 +31,7 @@ export default function HomePage() {
         <Navbar />
         <Hero />
         <MLSTicker />
-        <SellerStrategySection />
         <ReachAdvantage />
-        <PartnersMarquee />
-        <ExposureSyndication />
         <IntelligenceDesk />
         <BuyersRelocation />
         <InternationalBridge />

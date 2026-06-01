@@ -5,8 +5,6 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
-import { ExposureSyndication } from "../components/ExposureSyndication";
-import { PartnersMarquee } from "../components/PartnersMarquee";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
@@ -27,33 +25,6 @@ const WHO_THIS_IS_FOR = [
   {
     title: "Latin American & European Sellers",
     body: "Spanish and Latin American property owners with Florida assets. Bilingual advisory in English and Spanish. Compliant representation through a licensed Florida professional.",
-  },
-];
-
-const PILLARS = [
-  {
-    title: "Pricing Strategy",
-    body: "Comparable analysis, absorption data, and buyer-profile mapping set a number the market can act on. Overpriced inventory accumulates days on market and ultimately closes below a correctly set initial ask.",
-  },
-  {
-    title: "MLS Positioning",
-    body: "Professional MLS activation through the Miami and South Florida REALTORS® — the world's largest local REALTOR® association — with accurate data, layered search visibility, and buyer-agent activation from day one.",
-  },
-  {
-    title: "Buyer-Agent Exposure",
-    body: "93,000 member agents inside the Miami and South Florida REALTORS® network. A well-positioned listing reaches the agents who already have qualified buyers. Activation is structural, not accidental.",
-  },
-  {
-    title: "International Visibility",
-    body: "Eligible listings may be distributed across 500+ global websites in 19 languages. 437+ international agreements. A referral network of 2 million+ professionals across 70+ countries where available.",
-  },
-  {
-    title: "Negotiation & Offer Management",
-    body: "Offer review, terms strategy, inspection response, appraisal context, and closing coordination — all managed from a position of informed seller authority, not pressure.",
-  },
-  {
-    title: "Seller Advisory, Start to Close",
-    body: "From preparation to close, the advisory is continuous: presentation guidance, media coordination, timeline management, and professional representation through every inflection point.",
   },
 ];
 
@@ -153,22 +124,6 @@ export default function SellSouthFloridaPage() {
 
         <ReachAdvantage />
 
-        {/* Distribution Determines Demand */}
-        <section className="bg-ivory py-20 md:py-28">
-          <div className="mx-auto max-w-3xl px-6 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The thesis behind every listing</p>
-            <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              Distribution determines demand.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-[17px] leading-[1.7] text-ink-primary/70">
-              Your home's value is not determined only by its features. It is shaped by pricing, positioning,
-              buyer-agent activation, MLS distribution, digital exposure, and negotiation strategy.
-              The South Florida market is the third-most active MLS in the United States — but only listings
-              that enter the network correctly benefit from it. Listing strategy is not decoration. It is market positioning.
-            </p>
-          </div>
-        </section>
-
         {/* Miami Realtors Association — Why You Need a Miami Realtor */}
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-6">
@@ -204,38 +159,17 @@ export default function SellSouthFloridaPage() {
         </section>
 
         {/* Who This Is For */}
-        <section className="bg-ivory py-20 md:py-28">
+        <section className="bg-ivory py-16 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Who this is for</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               South Florida sellers at every stage and location.
             </h2>
-            <div className="mt-12 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+            <div className="mt-10 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
               {WHO_THIS_IS_FOR.map((item) => (
-                <div key={item.title} className="bg-white p-8">
+                <div key={item.title} className="bg-white p-7">
                   <h3 className="font-serif text-xl text-navy-deep">{item.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{item.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Six Pillars of Positioning */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What shapes the outcome</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
-              Built for sellers who need more than a sign, a portal, and a prayer.
-            </h2>
-            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-white/60">
-              Every element below is part of an active advisory engagement — not a checklist handed to you after signing.
-            </p>
-            <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
-              {PILLARS.map((p) => (
-                <div key={p.title} className="bg-navy-deep p-8">
-                  <h3 className="font-serif text-xl text-white">{p.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/60">{p.body}</p>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -243,8 +177,6 @@ export default function SellSouthFloridaPage() {
         </section>
 
         <SellerSection />
-        <ExposureSyndication />
-        <PartnersMarquee />
         <GlobalPartnerNetwork />
 
         {/* Confidential intake */}
