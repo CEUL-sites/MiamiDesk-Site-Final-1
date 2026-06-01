@@ -89,12 +89,12 @@ export default function MiamiMLSInternationalDeskPage() {
               <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href={CONTACT.calendly}
+              href={CONTACT.whatsappBroker}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
-              Schedule a Broker-to-Broker Conversation
+              WhatsApp: Broker-to-Broker Conversation
             </a>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-5">

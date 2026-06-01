@@ -14,6 +14,7 @@ export const CONTACT = {
   officePhoneUS: "+1 954-450-2000",
   whatsappUS: "https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20am%20considering%20selling%20a%20property%20in%20South%20Florida%20and%20would%20like%20a%20private%20seller%20strategy%20review.",
   whatsappSpain: "https://wa.me/34646853078?text=Hello%20Carlos%2C%20I%20would%20like%20to%20ask%20about%20South%20Florida%20and%20Spain%20real%20estate%20opportunities.",
+  whatsappBroker: "https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20am%20a%20licensed%20real%20estate%20professional%20and%20would%20like%20to%20schedule%20a%20broker-to-broker%20conversation%20about%20a%20referral%20or%20international%20cooperation%20opportunity.",
   address: "15951 SW 41 St #700, Weston, FL 33331",
   spainOffice: "Madrid, Spain",
   linkedin: "https://linkedin.com/in/carlosuz",
