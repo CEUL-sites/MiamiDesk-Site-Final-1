@@ -97,7 +97,14 @@ export default function SellSouthFloridaPage() {
         <Navbar />
 
         {/* Hero */}
-        <section className="overflow-hidden bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
+        <section className="relative overflow-hidden bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
+          {/* Cinematic drone background */}
+          <video autoPlay muted loop playsInline aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.13] pointer-events-none">
+            <source src="/videos/luxury_waterfront_drone.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
+          <div className="relative">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Listing Advisory</p>
           <h1
             className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
@@ -141,6 +148,7 @@ export default function SellSouthFloridaPage() {
           <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
             United Realty Group · CLHMS · Certified Seller Rep · FL SL705771 · 25 Years Licensed in Florida
           </p>
+          </div>{/* end relative */}
         </section>
 
         <ReachAdvantage />

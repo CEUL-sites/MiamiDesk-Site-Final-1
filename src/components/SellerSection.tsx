@@ -65,9 +65,8 @@ const SLIDES = [
     label: "Cinematic property reach",
     badge: "REACH",
   },
-  // Drop the second video file into public/videos/ and update src + label:
   {
-    src: null,
+    src: "/videos/luxury_advisor_digital.mp4",
     label: "Marketing mastery reel",
     badge: "MARKETING",
   },

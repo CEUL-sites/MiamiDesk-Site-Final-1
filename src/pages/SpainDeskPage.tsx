@@ -67,7 +67,14 @@ export default function SpainDeskPage() {
         <Navbar />
 
         {/* Hero */}
-        <section className="overflow-hidden bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
+        <section className="relative overflow-hidden bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
+          {/* Miami ↔ Spain split background */}
+          <video autoPlay muted loop playsInline aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.15] pointer-events-none">
+            <source src="/videos/split_miami_spain_mls.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/30 to-navy-deep/80 pointer-events-none" />
+          <div className="relative">
           <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.06] px-4 py-1.5 mb-6">
             <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">Spain · Madrid · South Florida · Miami MLS</span>
           </div>
@@ -114,6 +121,7 @@ export default function SpainDeskPage() {
           <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
             United Realty Group · FL SL705771 · Miami and South Florida REALTORS® · Equal Housing Opportunity
           </p>
+          </div>{/* end relative */}
         </section>
 
         {/* Why Miami Exposure Matters */}
