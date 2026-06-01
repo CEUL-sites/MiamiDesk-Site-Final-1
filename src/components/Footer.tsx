@@ -15,6 +15,15 @@ export function Footer() {
 
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
+          <img
+            src="/images/urg-logo-original.png"
+            alt="United Realty Group"
+            width="160"
+            height="48"
+            loading="lazy"
+            className="mb-5 h-10 w-auto opacity-85"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
           <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
           <p className="font-mono mt-2 text-[9px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
           <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/55">
