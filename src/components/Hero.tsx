@@ -136,9 +136,8 @@ export function Hero() {
               className="mt-6 font-serif leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.6rem)", fontWeight: 400 }}
             >
-              Local representation.
-              <br />
-              <em className="not-italic italic text-gold">Global buyer exposure.</em>
+              Sell With the Reach of the<br />
+              <em className="not-italic italic text-gold">World's Largest Local Realtor® Network.</em>
             </motion.h1>
 
             {/* Gold rule */}
