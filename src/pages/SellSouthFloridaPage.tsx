@@ -7,6 +7,7 @@ import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { SellerProcess } from "../components/SellerProcess";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
+import { Testimonials } from "../components/Testimonials";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
@@ -179,6 +180,7 @@ export default function SellSouthFloridaPage() {
 
         <SellerSection />
         <SellerProcess />
+        <Testimonials />
         <GlobalPartnerNetwork />
 
         {/* Confidential intake */}

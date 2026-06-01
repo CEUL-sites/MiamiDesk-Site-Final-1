@@ -7,6 +7,7 @@ import { IntelligenceDesk } from "../components/IntelligenceDesk";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { InternationalBridge } from "../components/InternationalBridge";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
+import { Testimonials } from "../components/Testimonials";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -51,6 +52,7 @@ export default function HomePage() {
         <BuyersRelocation />
         <InternationalBridge />
         <GlobalPartnerNetwork />
+        <Testimonials />
         <AboutContact />
         <Footer />
         <MobileStickyCTA />
