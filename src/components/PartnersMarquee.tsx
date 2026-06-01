@@ -4,16 +4,16 @@ export function PartnersMarquee() {
     "South Florida REALTORS®",
     "United Realty Group",
     "93,000 Member Agents",
-    "Third-Largest U.S. MLS",
+    "World's Largest Local REALTOR® Association",
     "300+ Partner Associations",
-    "1 Million+ Professionals",
+    "2 Million+ Professionals",
     "70+ Countries",
     "Madrid Referral Channels",
     "LATAM Advisory Network",
     "FIABCI · International Federation",
     "AMPI · Mexico",
     "AREAA Global",
-    "200+ Global Websites · 19 Languages",
+    "500+ Global Websites · 19 Languages",
     "Buyer-Agent Cooperation",
     "Cross-Border Professional Network",
   ];
@@ -29,9 +29,9 @@ export function PartnersMarquee() {
         </h2>
         <p className="mx-auto mt-5 max-w-2xl font-sans text-[0.95rem] leading-relaxed text-white/50">
           When our team activates a listing, it enters a professional infrastructure — not a single platform. MLS
-          positioning inside the third-largest MLS in the United States, 93,000-member association reach, 200+ global
-          websites in 19 languages, and an international referral network of 2 million+ professionals across 300+
-          partner associations are activated as the listing enters the market.
+          positioning inside the world's largest local REALTOR® association, 93,000-member reach, eligible listings on 500+ global
+          websites in 19 languages where available, and an international referral network of 2 million+ professionals across 300+
+          partner associations — activated as the listing enters the market.
         </p>
       </div>
 

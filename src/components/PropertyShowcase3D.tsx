@@ -13,9 +13,9 @@ const PACKAGE_ITEMS = [
   },
   {
     icon: Globe,
-    stat: "200+",
+    stat: "500+",
     title: "Global Portal Syndication",
-    desc: "Auto-published to Zillow, Realtor.com, Homes.com and 200+ global portals in 19 languages the moment the MLS listing activates.",
+    desc: "Eligible listings may be distributed across 500+ global websites in 19 languages where available — including Zillow, Realtor.com, and Homes.com — the moment the MLS listing activates.",
     color: "from-[#0B2040] to-navy-deep",
   },
   {

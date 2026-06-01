@@ -14,7 +14,7 @@ const COPY = {
         MIAMI &amp; South Florida REALTORS® member places your home inside an international referral
         network of <span className="text-white/90">2 million+ professionals</span> across{" "}
         <span className="text-white/90">300+ partner associations in 70+ countries</span>,
-        syndicated to 200+ global websites in 19 languages. The agents representing Latin American,
+        with eligible listings distributed across 500+ global websites in 19 languages where available. The agents representing Latin American,
         European and Gulf buyers are not cold contacts. They are partners.
       </>
     ),
