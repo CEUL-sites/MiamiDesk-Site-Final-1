@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const TICKER_API = "/.netlify/functions/ticker-listings";
 
@@ -69,10 +69,18 @@ const HEADER_REPEATS = 6;
 export function MLSTicker() {
   const [listings, setListings]   = useState<Listing[]>(FALLBACK);
   const [isLive, setIsLive]       = useState(false);
-  const reducedMotion = useRef(
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
+  // Resolve reduced-motion after mount so the prerendered/hydrated markup matches
+  // (the headless prerender has no media preference). The CSS reduced-motion rule
+  // already halts the animation; this swaps in the non-animated layout too.
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -97,7 +105,7 @@ export function MLSTicker() {
   const headerText = Array(HEADER_REPEATS).fill(label).join("   |   ");
 
   /* ── Reduced-motion: static scrollable row ──────────────────── */
-  if (reducedMotion.current) {
+  if (reducedMotion) {
     return (
       <div className="w-full bg-[#0A1628] border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-3">

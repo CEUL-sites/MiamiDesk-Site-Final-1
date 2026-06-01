@@ -108,7 +108,7 @@ export function Footer() {
             </p>
           </div>
           <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
-            <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/35">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/35" suppressHydrationWarning>© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
             <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/35">
               <a href="/sell" className="transition-colors hover:text-gold">Sellers</a>
               <a href="/sell#reach" className="transition-colors hover:text-gold">Reach</a>
