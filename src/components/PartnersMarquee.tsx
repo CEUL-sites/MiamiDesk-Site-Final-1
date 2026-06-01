@@ -30,7 +30,7 @@ export function PartnersMarquee() {
         <p className="mx-auto mt-5 max-w-2xl font-sans text-[0.95rem] leading-relaxed text-white/50">
           When our team activates a listing, it enters a professional infrastructure — not a single platform. MLS
           positioning inside the third-largest MLS in the United States, 93,000-member association reach, 200+ global
-          websites in 19 languages, and an international referral network of 1 million+ professionals across 300+
+          websites in 19 languages, and an international referral network of 2 million+ professionals across 300+
           partner associations are activated as the listing enters the market.
         </p>
       </div>

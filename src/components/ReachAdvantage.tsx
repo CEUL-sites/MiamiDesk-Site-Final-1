@@ -9,7 +9,7 @@ const TOP_STATS = [
     suffix: "",
     label: "Member Agents",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "Listing through a member places your property inside the third-largest MLS in the United States — 93,000 member agents representing active buyer demand across the region.",
+    desc: "Listing through a member places your property inside the world's largest local REALTOR® association — 93,000 member agents representing active buyer demand across the region.",
   },
   {
     value: 300,
@@ -17,34 +17,34 @@ const TOP_STATS = [
     suffix: "+",
     label: "Partner Associations",
     sublabel: "MIAMI Global Council",
-    desc: "MIAMI REALTORS® maintains 300+ international partner associations across 70+ countries — the referral network behind listings with global appeal.",
+    desc: "MIAMI REALTORS® maintains 300+ international partner associations — the most of any REALTOR® association in the world — connecting South Florida with global buyer markets.",
   },
   {
-    value: 1,
-    display: "1M",
+    value: 2,
+    display: "2M",
     suffix: "+",
-    label: "Professionals",
+    label: "Real Estate Professionals",
     sublabel: "International Referral Network",
-    desc: "An international referral network reaching 1 million+ real estate professionals — the agents who represent Latin American, European, and Gulf buyers.",
+    desc: "An international referral network linking eligible properties to 2 million+ real estate professionals worldwide — the agents who represent Latin American, European, and Gulf buyers.",
   },
 ];
 
 const BOTTOM_STATS = [
   {
-    value: 200,
-    display: "200",
+    value: 500,
+    display: "500",
     suffix: "+",
-    label: "Global Websites",
-    sublabel: "Syndicated in 19 Languages",
-    desc: "Through MIAMI REALTORS® distribution, your listing is featured on 200+ global websites — from Zillow and Realtor.com to international platforms, across 19 languages.",
+    label: "Websites",
+    sublabel: "Where Eligible Listings May Appear",
+    desc: "Through MIAMI REALTORS® distribution, eligible listings may be featured on 500+ websites and apps around the world — across 19 languages, where available and subject to platform participation.",
   },
   {
-    value: 70,
-    display: "70",
+    value: 260,
+    display: "260",
     suffix: "+",
-    label: "Countries",
-    sublabel: "International Referral Reach",
-    desc: "Partner associations across 70+ countries — structural distribution into the markets where international buyers originate.",
+    label: "MLS Connections",
+    sublabel: "Through RPR Nationwide",
+    desc: "MIAMI MLS listings are shared through RPR with more than 260 MLSs across the country — giving eligible properties nationwide professional visibility.",
   },
   {
     value: 25,
@@ -52,7 +52,7 @@ const BOTTOM_STATS = [
     suffix: "",
     label: "Years Active",
     sublabel: "Licensed Since 2001",
-    desc: "A quarter-century of South Florida transactions. The relationships and market intelligence behind every strategy review.",
+    desc: "A quarter-century of South Florida transactions. The relationships, pricing discipline, and market intelligence behind every strategy review.",
   },
 ];
 
@@ -187,10 +187,10 @@ export const ReachAdvantage = () => {
       >
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
           {[
-            { v: "3rd", l: "Largest MLS in the U.S." },
-            { v: "19", l: "Languages syndicated" },
-            { v: "Day 1", l: "Full activation" },
-            { v: "CLHMS", l: "Luxury certified" },
+            { v: "437+", l: "International Agreements" },
+            { v: "19",   l: "Languages" },
+            { v: "Day 1", l: "MLS Activation" },
+            { v: "CLHMS", l: "Luxury Certified" },
           ].map((item) => (
             <div key={item.l} className="text-center">
               <div className="font-serif text-2xl font-bold text-gold lg:text-3xl">{item.v}</div>

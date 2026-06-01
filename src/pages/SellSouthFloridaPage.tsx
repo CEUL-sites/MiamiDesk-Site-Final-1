@@ -11,6 +11,25 @@ import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
+const WHO_THIS_IS_FOR = [
+  {
+    title: "South Florida Homeowners",
+    body: "Selling a primary residence in Miami-Dade, Broward, or Palm Beach? The right MLS strategy and buyer-agent activation determine outcome more than the listing platform.",
+  },
+  {
+    title: "International Property Owners in Florida",
+    body: "Florida-based property owned by non-resident or internationally-based sellers. Full advisory, MLS positioning, and coordination through every step — regardless of where you are located.",
+  },
+  {
+    title: "Investors Exiting South Florida Positions",
+    body: "Condo investors, portfolio sellers, and buy-to-let holders across the Miami MLS footprint. Pricing discipline and structural distribution matter most at exit.",
+  },
+  {
+    title: "Latin American & European Sellers",
+    body: "Spanish and Latin American property owners with Florida assets. Bilingual advisory in English and Spanish. Compliant representation through a licensed Florida professional.",
+  },
+];
+
 const PILLARS = [
   {
     title: "Pricing Strategy",
@@ -18,7 +37,7 @@ const PILLARS = [
   },
   {
     title: "MLS Positioning",
-    body: "Professional MLS activation through the Miami and South Florida REALTORS® — the third-largest MLS in the United States — with accurate data, layered search visibility, and buyer-agent activation from day one.",
+    body: "Professional MLS activation through the Miami and South Florida REALTORS® — the world's largest local REALTOR® association — with accurate data, layered search visibility, and buyer-agent activation from day one.",
   },
   {
     title: "Buyer-Agent Exposure",
@@ -26,7 +45,7 @@ const PILLARS = [
   },
   {
     title: "International Visibility",
-    body: "500+ global portals in 19 languages. 437+ international agreements. A referral network of 1 million+ professionals across 70+ countries. The right buyer may not be local.",
+    body: "Eligible listings may be distributed across 500+ global websites in 19 languages. 437+ international agreements. A referral network of 2 million+ professionals across 70+ countries where available.",
   },
   {
     title: "Negotiation & Offer Management",
@@ -42,8 +61,8 @@ export default function SellSouthFloridaPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your South Florida Property With Institutional-Level Positioning | HomesProfessional.com</title>
-        <meta name="description" content="South Florida seller advisory: pricing strategy, professional MLS positioning, buyer-agent activation, international visibility, and negotiation through every step. Carlos Uzcategui, FL SL705771, United Realty Group." />
+        <title>Sell With South Florida MLS Exposure | Carlos Uzcategui, United Realty Group</title>
+        <meta name="description" content="South Florida seller advisory: MLS positioning, buyer-agent activation, international visibility, and negotiation through every step. Carlos Uzcategui, FL SL705771, United Realty Group." />
         <meta name="keywords" content="sell home South Florida, sell house Miami, Miami MLS listing, Coral Gables realtor, Brickell condo for sale, Miami Beach seller agent, Weston home for sale, South Florida listing agent, United Realty Group" />
         <link rel="canonical" href="https://homesprofessional.com/sell-south-florida" />
         <script type="application/ld+json">{JSON.stringify({
@@ -58,11 +77,11 @@ export default function SellSouthFloridaPage() {
           "@context": "https://schema.org",
           "@type": "HowTo",
           "name": "How to Sell Your South Florida Property",
-          "description": "A 5-step process to position, prepare, launch, activate, and close your South Florida property with institutional-level MLS exposure.",
+          "description": "A 5-step process to position, prepare, launch, activate, and close your South Florida property with MLS exposure and international distribution.",
           "totalTime": "P30D",
           "tool": [
             { "@type": "HowToTool", "name": "Miami and South Florida REALTORS® MLS" },
-            { "@type": "HowToTool", "name": "500+ Global Portals in 19 Languages" },
+            { "@type": "HowToTool", "name": "500+ Global Websites in 19 Languages" },
             { "@type": "HowToTool", "name": "United Realty Group Agent Network" }
           ],
           "step": [
@@ -84,13 +103,13 @@ export default function SellSouthFloridaPage() {
             className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
             style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
           >
-            Sell Your South Florida Property<br />
-            <em className="not-italic italic text-gold">With Institutional-Level Positioning.</em>
+            Expose Your Property to<br />
+            <em className="not-italic italic text-gold">the South Florida Buyer Network.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-            Your home's value is not determined only by its features. It is shaped by pricing, positioning,
-            buyer-agent activation, MLS distribution, digital exposure, and negotiation strategy.
-            Listing strategy is not decoration. It is market positioning.
+            Features describe a property. Distribution determines its price.
+            Professional MLS positioning, buyer-agent activation, and international
+            visibility — structured for sellers who need more than a sign in the yard.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -126,21 +145,55 @@ export default function SellSouthFloridaPage() {
 
         <ReachAdvantage />
 
-        {/* Six Pillars of Positioning */}
+        {/* Distribution Determines Demand */}
+        <section className="bg-ivory py-20 md:py-28">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The thesis behind every listing</p>
+            <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+              Distribution determines demand.
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl font-sans text-[17px] leading-[1.7] text-ink-primary/70">
+              Your home's value is not determined only by its features. It is shaped by pricing, positioning,
+              buyer-agent activation, MLS distribution, digital exposure, and negotiation strategy.
+              The South Florida market is the third-most active MLS in the United States — but only listings
+              that enter the network correctly benefit from it. Listing strategy is not decoration. It is market positioning.
+            </p>
+          </div>
+        </section>
+
+        {/* Who This Is For */}
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What shapes the outcome</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Who this is for</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+              South Florida sellers at every stage and location.
+            </h2>
+            <div className="mt-12 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+              {WHO_THIS_IS_FOR.map((item) => (
+                <div key={item.title} className="bg-white p-8">
+                  <h3 className="font-serif text-xl text-navy-deep">{item.title}</h3>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Six Pillars of Positioning */}
+        <section className="bg-navy-deep py-20 md:py-28 text-white">
+          <div className="mx-auto max-w-5xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What shapes the outcome</p>
+            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
               Built for sellers who need more than a sign, a portal, and a prayer.
             </h2>
-            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60">
-              Real estate is local. Serious exposure is networked. Every element below is part of an active advisory engagement — not a checklist handed to you after signing.
+            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-white/60">
+              Every element below is part of an active advisory engagement — not a checklist handed to you after signing.
             </p>
-            <div className="mt-12 grid gap-px border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
               {PILLARS.map((p) => (
-                <div key={p.title} className="bg-white p-8">
-                  <h3 className="font-serif text-xl text-navy-deep">{p.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{p.body}</p>
+                <div key={p.title} className="bg-navy-deep p-8">
+                  <h3 className="font-serif text-xl text-white">{p.title}</h3>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/60">{p.body}</p>
                 </div>
               ))}
             </div>

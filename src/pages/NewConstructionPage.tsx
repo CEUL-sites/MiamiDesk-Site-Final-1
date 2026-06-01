@@ -72,6 +72,9 @@ export default function NewConstructionPage() {
             <p className="mt-4 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/40">
               Live pre-construction inventory via NEO · newestateonly.com
             </p>
+            <p className="mt-3 text-center font-sans text-[10px] leading-relaxed text-ink-primary/40 max-w-3xl mx-auto">
+              Inventory availability, pricing, compensation, project details, and broker participation are subject to change without notice. Information presented is provided by third-party sources and is deemed reliable but not guaranteed. Consult with a licensed professional before making any purchase decision.
+            </p>
           </div>
         </section>
 

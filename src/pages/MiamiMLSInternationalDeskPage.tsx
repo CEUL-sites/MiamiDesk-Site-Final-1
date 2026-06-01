@@ -12,7 +12,7 @@ import { CONTACT, LEAD_MAGNETS } from "../constants";
 const NETWORK_STATS = [
   { value: "437+", label: "International Agreements", desc: "Signed referral agreements with real estate organizations worldwide through Miami and South Florida REALTORS®." },
   { value: "93,000", label: "Member Agents", desc: "Miami and South Florida REALTORS® MLS — the third-largest MLS in the United States — for maximum buyer-agent visibility." },
-  { value: "70+", label: "Countries", desc: "International referral network of 1 million+ professionals across 70+ countries and 300+ partner associations." },
+  { value: "70+", label: "Countries", desc: "International referral network of 2 million+ professionals across 70+ countries and 300+ partner associations." },
   { value: "19", label: "Languages", desc: "Property exposure across 500+ global portals in 19 languages — reaching the agents who represent international buyers." },
 ];
 

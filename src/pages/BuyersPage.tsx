@@ -11,8 +11,8 @@ export default function BuyersPage() {
   return (
     <>
       <Helmet>
-        <title>Buy a Home in South Florida | MLS Buyer Representation | United Realty Group</title>
-        <meta name="description" content="Full MLS access across Miami-Dade, Broward, and Palm Beach. Expert buyer representation for primary homes, investment properties, and relocation. Free buyer consultation — United Realty Group · FL SL705771." />
+        <title>Buy in South Florida or Spain With the Right Local Professional | HomesProfessional.com</title>
+        <meta name="description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — full MLS access, negotiation, and closing. Spain buyers referred to trusted local partners. United Realty Group · FL SL705771." />
         <meta name="keywords" content="buy home South Florida, Miami real estate buyer, Coral Gables homes for sale, Brickell condos, Miami Beach real estate, South Florida buyer agent, relocation Miami" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
         <script type="application/ld+json">{JSON.stringify({
@@ -43,22 +43,21 @@ export default function BuyersPage() {
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <section className="overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Strategy</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Representation · Spain Buyer Introductions</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
-            The right property.<br />
-            <em className="not-italic italic text-gold">The right representation.</em>
+            Buy in South Florida or Spain<br />
+            <em className="not-italic italic text-gold">with the right local professional.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by 25 years of local relationships and United Realty Group's 3,500+ agents across 20 offices.
+            Full MLS access and direct buyer representation across Miami-Dade, Broward, and Palm Beach.
+            Spain-based buyers are introduced to trusted local professional partners through a formal referral relationship.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={CONTACT.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
             >
-              Schedule a Buyer Consultation
+              Request a Buyer Consultation
             </a>
             <a
               href={CONTACT.whatsappUS}
@@ -66,7 +65,7 @@ export default function BuyersPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
-              WhatsApp Carlos →
+              WhatsApp Carlos
             </a>
           </div>
           <div className="mt-5 flex items-center justify-center gap-2">

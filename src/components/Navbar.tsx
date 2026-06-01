@@ -1,15 +1,51 @@
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, Phone, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { CONTACT, NAVIGATION } from "../constants";
+import { CONTACT } from "../constants";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { UrgLogo } from "./UrgLogo";
 
+type NavChild = { name: string; href: string };
+type NavItem  = { name: string; href: string; children?: NavChild[] };
+
+const NAV_ITEMS: NavItem[] = [
+  { name: "Sellers", href: "/sell-south-florida" },
+  { name: "Buyers",  href: "/buy" },
+  {
+    name: "Markets", href: "/markets",
+    children: [
+      { name: "South Florida",    href: "/markets" },
+      { name: "Greater Miami",    href: "/markets" },
+      { name: "Broward",          href: "/markets" },
+      { name: "Palm Beach",       href: "/markets" },
+      { name: "New Construction", href: "/new-construction" },
+      { name: "Madrid",           href: "/markets" },
+      { name: "Spain",            href: "/spain-desk" },
+    ],
+  },
+  { name: "Agents", href: "/agents" },
+  {
+    name: "Spain Desk", href: "/spain-desk",
+    children: [
+      { name: "List Spanish Property",    href: "/spain-desk" },
+      { name: "Agencies & Developers",    href: "/developers-agencies" },
+      { name: "Refer Buyers to Spain",    href: "/spain-desk" },
+      { name: "Madrid Desk",              href: "/markets" },
+      { name: "Submit Property",          href: "/contact" },
+    ],
+  },
+  { name: "Journal", href: "/journal" },
+  { name: "Contact", href: "/contact" },
+];
+
 export function Navbar() {
-  const [isOpen, setIsOpen]               = useState(false);
-  const [scrolled, setScrolled]           = useState(false);
+  const [isOpen, setIsOpen]       = useState(false);
+  const [scrolled, setScrolled]   = useState(false);
+  const [openMenu, setOpenMenu]   = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const location   = useLocation();
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 80);
@@ -18,8 +54,24 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const onLight = scrolled;
-  const navText = onLight ? "text-navy/80 hover:text-gold" : "text-white/75 hover:text-white";
+  // Close mobile menu on route change
+  useEffect(() => { setIsOpen(false); setMobileExpanded(null); }, [location.pathname]);
+
+  function openDropdown(name: string) {
+    clearTimeout(closeTimer.current);
+    setOpenMenu(name);
+  }
+
+  function scheduleClose() {
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 140);
+  }
+
+  function keepOpen() {
+    clearTimeout(closeTimer.current);
+  }
+
+  const onLight  = scrolled;
+  const navText  = onLight ? "text-navy/75 hover:text-gold" : "text-white/70 hover:text-white";
 
   return (
     <nav
@@ -29,89 +81,129 @@ export function Navbar() {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
 
-        {/* ── Logo ──────────────────────────────────────────────── */}
+        {/* ── Logo ──────────────────────────────────────────── */}
         <a
           href="/"
-          aria-label="United Realty Group — Carlos Uzcategui, Florida REALTOR®"
-          className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${
-            scrolled ? "text-navy" : "text-white"
-          }`}
+          aria-label="HomesProfessional.com — Carlos Uzcategui, Florida REALTOR®"
+          className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}
         >
-          <UrgLogo className="h-9 w-auto sm:h-10" />
-          {/* Agent credential — desktop only, divider keeps it tidy */}
-          <span className="hidden flex-col leading-none border-l border-current/20 pl-3 lg:flex">
-            <span className="font-serif text-[0.95rem] leading-none tracking-wide">Carlos Uzcategui</span>
-            <span
-              className="font-mono uppercase leading-none opacity-50 mt-1"
-              style={{ fontSize: "0.55rem", letterSpacing: "0.2em" }}
-            >
+          <UrgLogo className="h-8 w-auto sm:h-9" />
+          <span className="hidden flex-col leading-none border-l border-current/20 pl-3 xl:flex">
+            <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
+            <span className="font-mono uppercase leading-none opacity-50 mt-1" style={{ fontSize: "0.5rem", letterSpacing: "0.2em" }}>
               Florida REALTOR® since 2001
             </span>
           </span>
         </a>
 
-        {/* ── Desktop nav ───────────────────────────────────────── */}
-        <div className="hidden flex-1 items-center justify-center gap-5 xl:flex">
-          {NAVIGATION.map((item) => {
-            const active = item.href === location.pathname;
+        {/* ── Desktop nav ───────────────────────────────────── */}
+        <div className="hidden flex-1 items-center justify-center gap-1 xl:flex">
+          {NAV_ITEMS.map((item) => {
+            const active    = location.pathname === item.href || (item.children?.some(c => c.href === location.pathname));
+            const hasKids   = !!item.children?.length;
+            const isOpen_dd = openMenu === item.name;
+
             return (
-              <a
+              <div
                 key={item.name}
-                href={item.href}
-                className={`font-mono text-[10px] uppercase tracking-[0.12em] transition-colors duration-200 whitespace-nowrap ${
-                  active
-                    ? "text-gold"
-                    : navText
-                }`}
+                className="relative"
+                onMouseEnter={() => hasKids ? openDropdown(item.name) : undefined}
+                onMouseLeave={hasKids ? scheduleClose : undefined}
               >
-                {item.name}
-              </a>
+                <a
+                  href={item.href}
+                  className={`inline-flex items-center gap-0.5 px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] transition-colors duration-200 whitespace-nowrap ${
+                    active ? "text-gold" : navText
+                  }`}
+                >
+                  {item.name}
+                  {hasKids && (
+                    <ChevronDown
+                      size={10}
+                      className={`transition-transform duration-200 ${isOpen_dd ? "rotate-180 text-gold" : ""}`}
+                    />
+                  )}
+                </a>
+
+                {/* Dropdown */}
+                {hasKids && (
+                  <AnimatePresence>
+                    {isOpen_dd && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.15 }}
+                        onMouseEnter={keepOpen}
+                        onMouseLeave={scheduleClose}
+                        className={`absolute left-0 top-full mt-1 min-w-[220px] border py-2 shadow-xl shadow-black/20 ${
+                          scrolled
+                            ? "bg-white border-bone/60"
+                            : "bg-navy-deep border-white/10 backdrop-blur-xl"
+                        }`}
+                      >
+                        {item.children!.map((child) => (
+                          <a
+                            key={child.name}
+                            href={child.href}
+                            className={`block px-5 py-2.5 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors whitespace-nowrap ${
+                              scrolled
+                                ? "text-navy/70 hover:text-gold hover:bg-bone/30"
+                                : "text-white/60 hover:text-gold hover:bg-white/5"
+                            }`}
+                          >
+                            {child.name}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
+              </div>
             );
           })}
         </div>
 
-        {/* ── Desktop right actions ─────────────────────────────── */}
-        <div className="hidden shrink-0 items-center gap-4 lg:flex">
+        {/* ── Desktop right actions ─────────────────────────── */}
+        <div className="hidden shrink-0 items-center gap-3 lg:flex">
           <LanguageSwitcher onLight={scrolled} />
 
-          {/* Phone — clean tel link */}
           <a
             href={CONTACT.phoneUSLink}
-            className={`inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.14em] transition-colors duration-200 ${
-              scrolled ? "text-navy/75 hover:text-gold" : "text-white/70 hover:text-white"
+            className={`hidden items-center gap-1.5 font-mono text-[10px] tracking-[0.12em] transition-colors duration-200 2xl:flex ${
+              scrolled ? "text-navy/70 hover:text-gold" : "text-white/65 hover:text-white"
             }`}
           >
-            <Phone size={12} className="text-gold" />
+            <Phone size={11} className="text-gold" />
             {CONTACT.phoneUSDisplay}
           </a>
 
-          {/* Primary CTA */}
           <a
             href="/contact"
-            className={`inline-flex items-center px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] transition-all duration-300 ${
+            className={`inline-flex items-center whitespace-nowrap px-4 py-2 font-mono text-[9px] uppercase tracking-[0.16em] transition-all duration-300 ${
               scrolled
                 ? "bg-navy text-white hover:bg-gold hover:text-navy"
                 : "border border-gold/60 text-white hover:bg-gold hover:text-navy"
             }`}
           >
-            Request a Listing Review
+            Seller Strategy Review
           </a>
         </div>
 
-        {/* ── Hamburger ─────────────────────────────────────────── */}
+        {/* ── Hamburger ─────────────────────────────────────── */}
         <button
           type="button"
           aria-label="Open navigation menu"
           onClick={() => setIsOpen(true)}
           className={`xl:hidden transition-colors ${scrolled ? "text-navy" : "text-white"}`}
         >
-          <Menu size={28} />
+          <Menu size={26} />
         </button>
       </div>
 
-      {/* ── Mobile drawer ─────────────────────────────────────── */}
+      {/* ── Mobile drawer ─────────────────────────────────── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -126,7 +218,7 @@ export function Navbar() {
               {/* Drawer header */}
               <div className="flex items-start justify-between">
                 <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
-                  <UrgLogo className="h-10 w-auto" />
+                  <UrgLogo className="h-9 w-auto" />
                   <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/40">
                     Carlos Uzcategui · Florida REALTOR® since 2001
                   </span>
@@ -137,28 +229,67 @@ export function Navbar() {
                   aria-label="Close navigation menu"
                   className="text-white/60 hover:text-gold transition-colors mt-1"
                 >
-                  <X size={28} />
+                  <X size={26} />
                 </button>
               </div>
 
-              {/* Nav links */}
-              <div className="mt-12 flex flex-col gap-1">
-                {NAVIGATION.map((item, index) => {
-                  const active = item.href === location.pathname;
+              {/* Nav links (accordion for dropdown items) */}
+              <div className="mt-10 flex flex-col gap-0.5">
+                {NAV_ITEMS.map((item, index) => {
+                  const hasKids  = !!item.children?.length;
+                  const expanded = mobileExpanded === item.name;
+                  const active   = location.pathname === item.href;
+
                   return (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      initial={{ opacity: 0, x: 16 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.04 }}
-                      className={`border-b border-white/8 py-4 font-serif text-2xl transition-colors hover:text-gold ${
-                        active ? "text-gold" : "text-white"
-                      }`}
-                    >
-                      {item.name}
-                    </motion.a>
+                    <div key={item.name}>
+                      <motion.div
+                        initial={{ opacity: 0, x: 16 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.04 }}
+                        className={`flex items-center justify-between border-b border-white/8 ${
+                          hasKids ? "" : ""
+                        }`}
+                      >
+                        <a
+                          href={item.href}
+                          onClick={() => !hasKids && setIsOpen(false)}
+                          className={`flex-1 py-4 font-serif text-2xl transition-colors hover:text-gold ${
+                            active ? "text-gold" : "text-white"
+                          }`}
+                        >
+                          {item.name}
+                        </a>
+                        {hasKids && (
+                          <button
+                            type="button"
+                            onClick={() => setMobileExpanded(expanded ? null : item.name)}
+                            aria-label={`Expand ${item.name}`}
+                            className="p-3 text-white/40 hover:text-gold transition-colors"
+                          >
+                            <ChevronDown
+                              size={18}
+                              className={`transition-transform ${expanded ? "rotate-180 text-gold" : ""}`}
+                            />
+                          </button>
+                        )}
+                      </motion.div>
+
+                      {/* Sub-items */}
+                      {hasKids && expanded && (
+                        <div className="border-b border-white/8 bg-white/[0.03] py-2">
+                          {item.children!.map((child) => (
+                            <a
+                              key={child.name}
+                              href={child.href}
+                              onClick={() => setIsOpen(false)}
+                              className="block px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/50 hover:text-gold transition-colors"
+                            >
+                              {child.name}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
               </div>
@@ -167,7 +298,7 @@ export function Navbar() {
               <div className="mt-auto space-y-4 border-t border-gold/20 pt-8">
                 <LanguageSwitcher />
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 leading-loose">
-                  {CONTACT.brokerage} · FL SL705771 · Equal Housing Opportunity
+                  United Realty Group · FL SL705771 · Equal Housing Opportunity
                 </p>
                 <a
                   href={CONTACT.phoneUSLink}
@@ -178,9 +309,10 @@ export function Navbar() {
                 </a>
                 <a
                   href="/contact"
+                  onClick={() => setIsOpen(false)}
                   className="flex w-full items-center justify-center bg-gold px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-navy font-semibold"
                 >
-                  Request a Listing Review
+                  Seller Strategy Review
                 </a>
               </div>
             </div>

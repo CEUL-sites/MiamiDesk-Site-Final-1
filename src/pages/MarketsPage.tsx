@@ -41,11 +41,11 @@ const PILLARS = [
   },
   {
     title: "Structural distribution",
-    body: "Listing through a Miami and South Florida REALTORS® member places the property inside the third-largest MLS in the United States — 93,000 member agents, 200+ global websites in 19 languages.",
+    body: "Listing through a Miami and South Florida REALTORS® member places the property inside the world's largest local REALTOR® association — 93,000 member agents, eligible listings on 500+ global websites in 19 languages.",
   },
   {
     title: "International demand",
-    body: "An international referral network of 1 million+ professionals across 300+ partner associations in 70+ countries reaches the agents who represent Latin American, European, and Spanish buyers.",
+    body: "An international referral network of 2 million+ professionals across 300+ partner associations in 70+ countries reaches the agents who represent Latin American, European, and Spanish buyers.",
   },
 ];
 

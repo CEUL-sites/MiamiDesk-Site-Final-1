@@ -102,6 +102,9 @@ export function Footer() {
               Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
             </p>
             <p>
+              Carlos Uzcategui is a Florida Licensed Realtor® affiliated with United Realty Group. International and Spain-related services are provided through referral relationships, local professional partners, and applicable written agreements where available. Listing exposure, syndication, referral compensation, and platform distribution are subject to MLS rules, brokerage approval, property eligibility, and partner availability.
+            </p>
+            <p>
               REALTOR® is a registered collective membership mark identifying a real estate professional who is a member of the National Association of REALTORS® and subscribes to its Code of Ethics. Live MLS data is deemed reliable but not guaranteed and is subject to change without notice.
             </p>
             <p>

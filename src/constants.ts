@@ -50,10 +50,12 @@ export const LEAD_MAGNETS = {
 };
 
 export const NAVIGATION = [
-  { name: "Sell in South Florida", href: "/sell-south-florida" },
-  { name: "Miami MLS International Desk", href: "/miami-mls-international-desk" },
-  { name: "Developers & Agencies", href: "/developers-agencies" },
+  { name: "Sellers", href: "/sell-south-florida" },
+  { name: "Buyers", href: "/buy" },
   { name: "Markets", href: "/markets" },
+  { name: "Agents", href: "/agents" },
+  { name: "Spain Desk", href: "/spain-desk" },
+  { name: "Journal", href: "/journal" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -63,19 +65,18 @@ export const NAVIGATION = [
 // primary-source citation rather than removed.
 export const ASSOCIATION_STATS = {
   memberCount: 93000,
-  mlsRank: "third-largest MLS in the United States",
-  globalWebsites: 200,
+  mlsRank: "world's largest local REALTOR® association",
+  globalWebsites: 500,
+  globalWebsitesAlt: 200,
   languages: 19,
   partnerAssociations: 300,
-  professionals: "1 million+",
+  professionals: "2 million+",
   countries: 70,
   usMls: 260,
   internationalAgreements: 437,
   mlsDataExchanges: 11,
-  annualVolume: "$69B",
   urgAgents: "3,500+",
   urgOffices: 20,
-  mergerDate: "May 11, 2026",
   associationName: "Miami and South Florida REALTORS®"
 };
 

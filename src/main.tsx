@@ -63,9 +63,10 @@ if (rootElement) {
                 <Route path="/developers-agencies"           element={<DevelopersAgenciesPage />} />
                 {/* Legacy routes — redirect to new canonical URLs */}
                 <Route path="/sell"               element={<Navigate to="/sell-south-florida" replace />} />
-                <Route path="/spain-desk"         element={<Navigate to="/miami-mls-international-desk" replace />} />
-                <Route path="/agents"             element={<Navigate to="/miami-mls-international-desk" replace />} />
                 <Route path="/madrid"             element={<Navigate to="/markets" replace />} />
+                {/* Active routes */}
+                <Route path="/spain-desk"         element={<SpainDeskPage />} />
+                <Route path="/agents"             element={<AgentsPage />} />
                 {/* Secondary routes preserved */}
                 <Route path="/buy"                element={<BuyersPage />} />
                 <Route path="/new-construction"   element={<NewConstructionPage />} />

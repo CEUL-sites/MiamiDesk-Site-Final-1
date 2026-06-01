@@ -17,7 +17,7 @@ export const GLOBAL_REACH = {
   /** International partner associations (MIAMI Global Council). */
   partnerAssociations: "300+",
   /** Real estate professionals reached through the international referral network. */
-  professionals: "1 million+",
+  professionals: "2 million+",
   /** Countries with at least one partner association. */
   countries: "70+",
   /** Global websites featuring MIAMI listings. */
