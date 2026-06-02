@@ -153,7 +153,7 @@ export default function EsHomePage() {
                     label: "Agentes Miembros",
                   },
                   {
-                    value: "200+",
+                    value: "500+",
                     // TODO: native Madrid editor review
                     label: "Portales Globales",
                   },

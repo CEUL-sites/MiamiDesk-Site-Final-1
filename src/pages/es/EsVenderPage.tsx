@@ -89,7 +89,7 @@ const STEPS = [
 
 const DISTRIBUTION_STATS = [
   {
-    value: "200+",
+    value: "500+",
     // TODO: native Madrid editor review
     label: "Portales Globales",
   },
