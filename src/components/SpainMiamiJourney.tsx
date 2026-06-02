@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { CONTACT } from "../constants";
+import { LazyVideo } from "./LazyVideo";
 
 const GOLD = "#B08D57";
 const GOLD_SOFT = "#D4AE78";
@@ -183,6 +184,12 @@ export function SpainMiamiJourney() {
 
   return (
     <section className="smj-root overflow-hidden">
+      {/* Miami ↔ Spain MLS split-screen backdrop */}
+      <LazyVideo
+        src="/videos/split_miami_spain_mls.mp4"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        style={{ opacity: 0.12, zIndex: 1 }}
+      />
       <style>{`
         .smj-root {
           background: ${NAVY_DEEP};
