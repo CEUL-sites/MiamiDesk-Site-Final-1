@@ -85,8 +85,8 @@ export default function SellSouthFloridaPage() {
             className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
             style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
           >
-            Expose Your Property to<br />
-            <em className="not-italic italic text-gold">the South Florida Buyer Network.</em>
+            Get your property in front of every agent<br />
+            <em className="not-italic italic text-gold">who already has a buyer for it.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
             Features describe a property. Distribution determines its price.

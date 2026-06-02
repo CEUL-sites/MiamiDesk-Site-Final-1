@@ -158,9 +158,9 @@ export function Hero() {
               className="mt-6 font-serif leading-[1.05] text-white break-words"
               style={{ fontSize: "clamp(1.35rem, 5.2vw, 4.6rem)", fontWeight: 400 }}
             >
-              Sell With the Reach of the
+              Sell to the strongest buyer in the market —
               <br className="hidden lg:block" aria-hidden="true" />{" "}
-              <em className="not-italic italic text-gold">World's Largest Local Realtor® Network.</em>
+              <em className="not-italic italic text-gold">not just the first one who finds you.</em>
             </motion.h1>
 
             {/* Gold rule */}
@@ -169,6 +169,16 @@ export function Hero() {
               className="mt-5 h-px w-14 bg-gold/50 origin-left mx-auto lg:mx-0"
               style={{ animation: "hero-rule 0.8s ease forwards 0.8s", transform: "scaleX(0)", opacity: 0 }}
             />
+
+            {/* Sub-headline — outcome → mechanism */}
+            <motion.p
+              variants={item}
+              className="mt-5 mx-auto lg:mx-0 max-w-xl font-sans text-sm leading-relaxed text-white/60 sm:text-base"
+            >
+              Your home reaches the <span className="text-white/85">93,000 agents</span> who
+              represent South Florida and international buyers — the professional network where
+              the most serious offers actually originate.
+            </motion.p>
 
             {/* Network reach — scrolling ticker */}
             <motion.div variants={item} className="relative mt-6 mx-auto lg:mx-0 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">

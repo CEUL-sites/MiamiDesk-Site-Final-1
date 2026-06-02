@@ -85,8 +85,8 @@ export default function SpainDeskPage() {
             className="mx-auto max-w-4xl font-serif leading-tight text-white"
             style={{ fontSize: "clamp(2.0rem, 5.5vw, 3.4rem)" }}
           >
-            Expose International Properties to the<br />
-            <em className="not-italic italic text-gold">South Florida Real Estate Network.</em>
+            Your property, listed in the U.S. market —<br />
+            <em className="not-italic italic text-gold">not just referred to it.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
             A Florida-based professional bridge for Spanish property owners, agencies, and developers
