@@ -154,7 +154,7 @@ export default function AgentsPage() {
         <Navbar />
 
         {/* ── Hero ── */}
-        <section className="overflow-hidden bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
+        <section className="overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
             Professional Referral & Agent Network · United Realty Group · Florida & Spain
           </p>

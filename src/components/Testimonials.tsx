@@ -162,7 +162,7 @@ const ReviewCard: FC<ReviewCardProps> = ({ name, location, date, verified, text 
 
 export function Testimonials() {
   return (
-    <section className="bg-navy-deep py-20 overflow-hidden">
+    <section className="bg-navy-deep pt-12 pb-16 overflow-hidden border-t border-gold/10">
       <div className="mx-auto max-w-7xl px-6 mb-12">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>

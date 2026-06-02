@@ -70,7 +70,7 @@ export default function SellSouthFloridaPage() {
         <Navbar />
 
         {/* Hero */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
+        <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
           {/* Cinematic drone background */}
           <video autoPlay muted loop playsInline aria-hidden="true"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.13] pointer-events-none">
@@ -182,7 +182,7 @@ export default function SellSouthFloridaPage() {
         <SellerSection />
 
         {/* Why Buyer-Agent Relationships Matter */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
+        <section className="bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="max-w-3xl">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
