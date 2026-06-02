@@ -19,9 +19,9 @@ export const GLOBAL_REACH = {
   /** Real estate professionals reached through the international referral network. */
   professionals: "2 million+",
   /** Countries with at least one partner association. */
-  countries: "70+",
+  countries: "75+",
   /** Global websites featuring MIAMI listings. */
-  globalWebsites: "200+",
+  globalWebsites: "500+",
 } as const;
 
 export interface PartnerRegion {

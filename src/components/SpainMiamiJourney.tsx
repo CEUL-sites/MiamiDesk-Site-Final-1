@@ -178,7 +178,7 @@ export function SpainMiamiJourney() {
     { n: "93,000", l: "Member Agents" },
     { n: "300+",   l: "Partner Associations" },
     { n: "2M+",    l: "Professionals" },
-    { n: "70+",    l: "Countries" },
+    { n: "75+",    l: "Countries" },
   ];
 
   return (

@@ -134,19 +134,19 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-1 flex-col items-center justify-center px-5 pt-28 pb-8 sm:px-10"
+        className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 pt-28 pb-8 sm:px-10"
       >
-        <div className="grid w-full max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="grid w-full max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14 min-w-0">
 
           {/* ── Left: message ──────────────────────────────── */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left min-w-0">
 
             {/* Eyebrow */}
             <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-              <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3.5 py-1.5">
+              <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
                 <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">
-                  <span className="sm:hidden">South Florida · Global Real Estate Network</span>
+                <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] sm:tracking-[0.22em] text-gold/85">
+                  <span className="sm:hidden">South Florida · Global Network</span>
                   <span className="hidden sm:inline">South Florida · Miami Realtors Association · Global Real Estate Network</span>
                 </span>
               </span>
@@ -155,8 +155,8 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               variants={item}
-              className="mt-6 font-serif leading-[1.05] text-white"
-              style={{ fontSize: "clamp(1.5rem, 5.5vw, 4.6rem)", fontWeight: 400 }}
+              className="mt-6 font-serif leading-[1.05] text-white break-words"
+              style={{ fontSize: "clamp(1.35rem, 5.2vw, 4.6rem)", fontWeight: 400 }}
             >
               Sell With the Reach of the
               <br className="hidden lg:block" aria-hidden="true" />{" "}
@@ -171,7 +171,7 @@ export function Hero() {
             />
 
             {/* Network reach — scrolling ticker */}
-            <motion.div variants={item} className="relative mt-6 mx-auto lg:mx-0 max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
+            <motion.div variants={item} className="relative mt-6 mx-auto lg:mx-0 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
               <style>{`
                 @keyframes exposure-scroll {
                   from { transform: translateX(0); }
@@ -207,14 +207,14 @@ export function Hero() {
             </motion.div>
 
             {/* Trust row */}
-            <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:justify-start">
+            <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 lg:justify-start lg:gap-x-5">
               {[
                 { icon: ShieldCheck, text: "Licensed Since 2001" },
                 { icon: Tag,         text: "CLHMS · Certified Seller Rep" },
                 { icon: Globe,       text: "United Realty Group" },
               ].map(({ icon: Icon, text }) => (
-                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
-                  <Icon size={12} className="text-gold/70" />
+                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.12em] sm:tracking-[0.16em] text-white/45">
+                  <Icon size={12} className="text-gold/70 flex-shrink-0" />
                   {text}
                 </span>
               ))}
@@ -224,13 +224,13 @@ export function Hero() {
             <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-start">
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-gold px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-gold px-5 sm:px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.14em] sm:tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90 text-center"
               >
                 Request Seller Strategy Review
               </a>
               <a
                 href="/spain-desk"
-                className="hero-pill inline-flex items-center justify-center gap-2 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70"
+                className="hero-pill inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 sm:px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.14em] text-white/70 text-center"
               >
                 Submit a Property for Miami Exposure →
               </a>

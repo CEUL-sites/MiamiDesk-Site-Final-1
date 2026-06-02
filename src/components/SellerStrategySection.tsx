@@ -20,7 +20,7 @@ const STEPS = [
     num: "03", title: "Launch", sub: "Maximum Exposure",
     badge: "93K Agent Pipeline — Day One",
     text: "Professional MLS positioning and eligible syndication across approved distribution channels, buyer-agent visibility, and expanded exposure infrastructure where applicable.",
-    stats: [{ v: "93K", l: "Agents Notified" }, { v: "200+", l: "Global Portals" }, { v: "19", l: "Languages" }],
+    stats: [{ v: "93K", l: "Agents Notified" }, { v: "500+", l: "Global Portals" }, { v: "2M+", l: "Pros Worldwide" }],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`,
   },
   {
