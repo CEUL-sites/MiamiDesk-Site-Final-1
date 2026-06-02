@@ -101,6 +101,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/agents"/>
   </url>
 
+  <!-- ── Reviews ──────────────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://homesprofessional.com/reviews</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
   <!-- ── About & contact ────────────────────────────────────────── -->
 
   <url>

@@ -139,6 +139,7 @@ export function Footer() {
               <a href="/miami-mls-international-desk" className="transition-colors hover:text-gold">International Desk</a>
               <a href="/developers-agencies" className="transition-colors hover:text-gold">Developers</a>
               <a href="/markets" className="transition-colors hover:text-gold">Markets</a>
+              <a href="/reviews" className="transition-colors hover:text-gold">Reviews</a>
               <a href="/about" className="transition-colors hover:text-gold">About Carlos</a>
               <a href="/contact" className="transition-colors hover:text-gold">Contact</a>
               <a href="/privacy" className="transition-colors hover:text-gold">Privacy</a>

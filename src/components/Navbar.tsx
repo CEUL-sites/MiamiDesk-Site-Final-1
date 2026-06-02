@@ -26,6 +26,7 @@ const NAV_ITEMS: NavItem[] = [
       { name: "Broward",          href: "/markets" },
       { name: "Palm Beach",       href: "/markets" },
       { name: "New Construction", href: "/new-construction" },
+      { name: "MLS Listings",     href: "/listings" },
       { name: "Madrid",           href: "/markets" },
       { name: "Spain",            href: "/spain-desk" },
     ],
@@ -46,6 +47,7 @@ const NAV_ITEMS: NavItem[] = [
     name: "Contact", href: "/contact",
     children: [
       { name: "Request a Review",  href: "/contact" },
+      { name: "Client Reviews",    href: "/reviews" },
       { name: "About Carlos",      href: "/about" },
     ],
   },

@@ -28,6 +28,34 @@ export default function HomePage() {
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "RealEstateAgent",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": "Carlos Uzcategui",
+          "jobTitle": "Licensed REALTOR®",
+          "description": "South Florida listing agent and REALTOR® with United Realty Group. 25 years licensed in Florida. Seller representation across Miami-Dade, Broward, and Palm Beach.",
+          "url": "https://homesprofessional.com/",
+          "telephone": "+19548656622",
+          "email": "carlos@homesprofessional.com",
+          "image": "https://homesprofessional.com/images/urg-hq.jpg",
+          "address": { "@type": "PostalAddress", "addressLocality": "Plantation", "addressRegion": "FL", "postalCode": "33324", "addressCountry": "US" },
+          "areaServed": ["Miami-Dade County", "Broward County", "Palm Beach County"],
+          "memberOf": { "@type": "Organization", "name": "Miami and South Florida REALTORS®" },
+          "worksFor": { "@type": "Organization", "name": "United Realty Group" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "review": [
+            { "@type": "Review", "author": { "@type": "Person", "name": "Andres P." }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Our house went under contract 10 days after we put it on the market at 12% over asking price. Carlos was incredibly friendly and helpful and walked us through every step of the closing process." },
+            { "@type": "Review", "author": { "@type": "Person", "name": "Maria Isabel Onate" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Carlos demonstrated a deep understanding of the local housing market and provided invaluable insights. His professionalism, attention to detail, and superb communication skills made the entire process smooth and stress-free." },
+            { "@type": "Review", "author": { "@type": "Person", "name": "Diego Tolotto" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Carlos was exceptional in selling our home swiftly at a great price. His professionalism and skillful negotiation made the entire process seamless." }
+          ]
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

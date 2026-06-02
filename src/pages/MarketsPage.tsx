@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
+import { Testimonials } from "../components/Testimonials";
 import { CONTACT } from "../constants";
 
 // Consolidated Markets advisory page (replaces the per-city /market/[city] pages).
@@ -217,6 +218,7 @@ export default function MarketsPage() {
           </div>
         </section>
 
+        <Testimonials />
         <Footer />
         <MobileStickyCTA />
       </main>
