@@ -5,6 +5,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
+import { LazyVideo } from "../components/LazyVideo";
 import { CONTACT } from "../constants";
 
 type Lang = "en" | "es";
@@ -97,7 +98,12 @@ export default function MadridPage({ lang = "en" }: { lang?: Lang }) {
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
+          <LazyVideo
+            eager
+            src="/videos/split_miami_spain_mls.mp4"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16]"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.92),rgba(6,17,31,0.97))]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
           <div className="relative mx-auto max-w-4xl px-6">
             <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">

@@ -184,8 +184,13 @@ export default function SellSouthFloridaPage() {
         <SellerSection />
 
         {/* Why Buyer-Agent Relationships Matter */}
-        <section className="bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
-          <div className="mx-auto max-w-5xl px-6">
+        <section className="relative overflow-hidden bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
+          <LazyVideo
+            src="/videos/best_exposure_listings.mp4"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.10]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/85 via-navy-deep/75 to-navy-deep/90" />
+          <div className="relative mx-auto max-w-5xl px-6">
             <div className="max-w-3xl">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
                 The Professional Market
