@@ -57,6 +57,11 @@
   }
 }
 
+/* Prevent black flash before video content loads or when autoplay is blocked */
+video {
+  background: transparent;
+}
+
 /* Shared gold CTA — used by the hero seller forms (EN + ES) */
 .hero-cta-main {
   background: linear-gradient(90deg, #B08D57 0%, #C9A96E 50%, #B08D57 100%);

@@ -195,8 +195,8 @@ export function SellerSection() {
             </div>
           </div>
 
-          {/* Phone bubble — centered below headline on mobile, right on desktop */}
-          <div className="flex-shrink-0">
+          {/* Phone bubble — hidden on mobile (avoids black frame on small screens), visible lg+ */}
+          <div className="hidden lg:block flex-shrink-0">
             <PhoneBubblePlayer />
           </div>
         </div>

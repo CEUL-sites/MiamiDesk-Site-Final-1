@@ -46,7 +46,7 @@ export function SellerProcess() {
   const toggle = (i: number) => setActive((prev) => (prev === i ? -1 : i));
 
   return (
-    <section className="bg-[#060D18] py-16 md:py-24 text-white">
+    <section className="bg-navy-deep py-16 md:py-24 text-white border-t-2 border-gold/20">
       <div className="mx-auto max-w-5xl px-6">
 
         {/* Header */}
@@ -110,7 +110,7 @@ export function SellerProcess() {
                   {/* Number */}
                   <span
                     className={`font-mono text-2xl font-bold leading-none flex-shrink-0 w-10 transition-colors duration-200 ${
-                      isActive ? "text-gold" : "text-white/18"
+                      isActive ? "text-gold" : "text-white/30"
                     }`}
                   >
                     {step.number}
@@ -127,7 +127,7 @@ export function SellerProcess() {
                     </span>
                     <p
                       className={`mt-1 font-serif text-lg leading-snug transition-colors duration-200 ${
-                        isActive ? "text-white" : "text-white/50"
+                        isActive ? "text-white" : "text-white/65"
                       }`}
                     >
                       {step.headline}
