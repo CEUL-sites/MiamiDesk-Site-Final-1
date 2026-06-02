@@ -205,7 +205,7 @@ export default function SpainDeskPage() {
                   <h3 className="font-serif text-lg text-white mb-5">{col.title}</h3>
                   <ul className="space-y-3">
                     {col.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 font-sans text-sm text-ink-primary/65">
+                      <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/65">
                         <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
                         {item}
                       </li>
@@ -214,7 +214,7 @@ export default function SpainDeskPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.16em] text-ink-primary/35">
+            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">
               Carlos Uzcategui is licensed as a real estate professional in Florida only.
               Spanish properties are handled through referral, cooperating broker, or advisory relationships.
             </p>
