@@ -1,5 +1,6 @@
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { LazyVideo } from "./LazyVideo";
 const TOP_STATS = [
   {
     value: 93000,
@@ -109,6 +110,13 @@ function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index
 export const ReachAdvantage = () => {
   return (
     <section id="reach" className="relative overflow-hidden bg-navy-deep text-white">
+
+      {/* Cinematic reach backdrop */}
+      <LazyVideo
+        src="/videos/cinematic_house_reach.mp4"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.10]"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/85 via-navy-deep/70 to-navy-deep/90" />
 
       {/* Ambient glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.04] blur-[120px]" />

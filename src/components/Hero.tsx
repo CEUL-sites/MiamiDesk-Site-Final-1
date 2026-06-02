@@ -158,17 +158,60 @@ export function Hero() {
               className="mt-6 font-serif leading-[1.05] text-white break-words"
               style={{ fontSize: "clamp(1.35rem, 5.2vw, 4.6rem)", fontWeight: 400 }}
             >
-              Sell With the Reach of the
+              Sell to the strongest buyer in the market —
               <br className="hidden lg:block" aria-hidden="true" />{" "}
-              <em className="not-italic italic text-gold">World's Largest Local Realtor® Network.</em>
+              <em className="not-italic italic text-gold">not just the first one who finds you.</em>
             </motion.h1>
 
-            {/* Gold rule */}
-            <motion.div
+            {/* Video bubble trio — directly under the headline, labels below each circle */}
+            <motion.div variants={item} className="mt-7 flex items-start justify-center gap-4 sm:gap-6 lg:justify-start">
+              {VIDEO_BUBBLES.map((b) => (
+                <div key={b.src} className="flex flex-col items-center gap-2">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 20, delay: b.delay }}
+                    className="relative overflow-hidden rounded-full flex-shrink-0"
+                    style={{
+                      width:  b.featured ? "clamp(90px,14vw,140px)" : "clamp(64px,10vw,100px)",
+                      height: b.featured ? "clamp(90px,14vw,140px)" : "clamp(64px,10vw,100px)",
+                      border: b.featured ? "2px solid rgba(176,141,87,0.65)" : "2px solid rgba(176,141,87,0.30)",
+                      boxShadow: b.featured
+                        ? "0 0 32px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)"
+                        : "0 0 16px rgba(176,141,87,0.18)",
+                    }}
+                  >
+                    <video
+                      autoPlay muted loop playsInline aria-hidden="true"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    >
+                      <source src={b.src} type="video/mp4" />
+                    </video>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent pointer-events-none" />
+                  </motion.div>
+                  <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.16em] text-white/55 whitespace-nowrap leading-none">
+                    {b.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* "Your property. Our reach." tagline between bubbles and sub-copy */}
+            <motion.div variants={item} className="mt-5 flex items-center gap-2.5">
+              <div className="h-px flex-1 bg-white/[0.07]" />
+              <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
+              <div className="h-px flex-1 bg-white/[0.07]" />
+            </motion.div>
+
+            {/* Sub-headline — outcome → mechanism */}
+            <motion.p
               variants={item}
-              className="mt-5 h-px w-14 bg-gold/50 origin-left mx-auto lg:mx-0"
-              style={{ animation: "hero-rule 0.8s ease forwards 0.8s", transform: "scaleX(0)", opacity: 0 }}
-            />
+              className="mt-5 mx-auto lg:mx-0 max-w-xl font-sans text-sm leading-relaxed text-white/60 sm:text-base"
+            >
+              Your home reaches the <span className="text-white/85">93,000 agents</span> who
+              represent South Florida and international buyers — the professional network where
+              the most serious offers actually originate.
+            </motion.p>
 
             {/* Network reach — scrolling ticker */}
             <motion.div variants={item} className="relative mt-6 mx-auto lg:mx-0 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
@@ -242,52 +285,13 @@ export function Hero() {
             </motion.p>
           </div>
 
-          {/* ── Right: video bubbles + lead capture ──────── */}
+          {/* ── Right: lead capture form ──────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: EASE, delay: 0.6 }}
-            className="mx-auto w-full max-w-md lg:max-w-none flex flex-col gap-4"
+            className="mx-auto w-full max-w-md lg:max-w-none"
           >
-            {/* Video bubble trio */}
-            <div className="flex items-end justify-center gap-3 lg:gap-6">
-              {VIDEO_BUBBLES.map((b) => (
-                <motion.div
-                  key={b.src}
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 280, damping: 20, delay: b.delay }}
-                  className="relative overflow-hidden rounded-full flex-shrink-0"
-                  style={{
-                    width:  b.featured ? "clamp(90px,15vw,148px)" : "clamp(64px,10vw,104px)",
-                    height: b.featured ? "clamp(90px,15vw,148px)" : "clamp(64px,10vw,104px)",
-                    border: b.featured ? "2px solid rgba(176,141,87,0.65)" : "2px solid rgba(176,141,87,0.30)",
-                    boxShadow: b.featured
-                      ? "0 0 32px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)"
-                      : "0 0 16px rgba(176,141,87,0.18)",
-                  }}
-                >
-                  <video
-                    autoPlay muted loop playsInline aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  >
-                    <source src={b.src} type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute bottom-2 inset-x-0 text-center font-mono text-[6px] uppercase tracking-[0.14em] text-white/80 leading-none">
-                    {b.label}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Divider */}
-            <div className="flex items-center gap-2.5 px-1">
-              <div className="h-px flex-1 bg-white/[0.07]" />
-              <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
-              <div className="h-px flex-1 bg-white/[0.07]" />
-            </div>
-
             <HeroSellerForm />
           </motion.div>
 

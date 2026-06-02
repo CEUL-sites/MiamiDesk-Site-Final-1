@@ -6,6 +6,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
+import { ExposureSyndication } from "../components/ExposureSyndication";
 import { SellerProcess } from "../components/SellerProcess";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { Testimonials } from "../components/Testimonials";
@@ -85,8 +86,8 @@ export default function SellSouthFloridaPage() {
             className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
             style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
           >
-            Expose Your Property to<br />
-            <em className="not-italic italic text-gold">the South Florida Buyer Network.</em>
+            Get your property in front of every agent<br />
+            <em className="not-italic italic text-gold">who already has a buyer for it.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
             Features describe a property. Distribution determines its price.
@@ -184,8 +185,13 @@ export default function SellSouthFloridaPage() {
         <SellerSection />
 
         {/* Why Buyer-Agent Relationships Matter */}
-        <section className="bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
-          <div className="mx-auto max-w-5xl px-6">
+        <section className="relative overflow-hidden bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
+          <LazyVideo
+            src="/videos/best_exposure_listings.mp4"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.10]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/85 via-navy-deep/75 to-navy-deep/90" />
+          <div className="relative mx-auto max-w-5xl px-6">
             <div className="max-w-3xl">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
                 The Professional Market
@@ -251,6 +257,7 @@ export default function SellSouthFloridaPage() {
         </section>
 
         <SellerProcess />
+        <ExposureSyndication />
         <Testimonials />
         <GlobalPartnerNetwork />
 
