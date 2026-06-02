@@ -133,26 +133,52 @@ export default function SpainDeskPage() {
         </section>
 
         {/* Agent Cooperation Where the Market Lacks an MLS */}
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-navy py-20 md:py-28 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
               Cross-Border Cooperation
             </p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
               Agent cooperation where the market<br />
-              <em className="not-italic italic">lacks a single MLS.</em>
+              <em className="not-italic italic text-gold">lacks a single MLS.</em>
             </h2>
-            <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
+            <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/65">
               {MESSAGING.spainCooperation}
             </p>
-            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/55">
+
+            {/* Featured video — split Miami ↔ Spain */}
+            <div className="mt-10 relative overflow-hidden" style={{ aspectRatio: "16/7" }}>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ opacity: 0.72 }}
+              >
+                <source src="/videos/split_foto_miami_spain_mls.mp4" type="video/mp4" />
+              </video>
+              {/* Edge fade for cinematic feel */}
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/40 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-navy/30 via-transparent to-navy/30 pointer-events-none" />
+              {/* Caption */}
+              <div className="absolute bottom-0 inset-x-0 flex items-center justify-center gap-6 pb-5">
+                <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/60">Miami · South Florida</span>
+                <span className="h-px w-10 bg-gold/50" />
+                <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/60">Madrid · Spain</span>
+              </div>
+            </div>
+
+            <p className="mt-8 max-w-2xl font-sans text-sm leading-relaxed text-white/55">
               Spain does not operate like the U.S. MLS system. Cooperation between agencies is
               less standardized, and buyer demand can remain fragmented across portals and private
               relationships. My role is to bring professional structure to that gap: identify
               qualified buyer demand, coordinate with serious local agencies, protect referral
               relationships, and connect international clients to inventory through trusted professionals.
             </p>
-            <div className="mt-12 grid gap-px border border-hairline bg-hairline sm:grid-cols-2">
+
+            <div className="mt-12 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2">
               {[
                 {
                   title: "What this means for Spanish agencies",
@@ -175,8 +201,8 @@ export default function SpainDeskPage() {
                   ],
                 },
               ].map((col) => (
-                <div key={col.title} className="bg-ivory p-8">
-                  <h3 className="font-serif text-lg text-navy-deep mb-5">{col.title}</h3>
+                <div key={col.title} className="bg-navy-deep p-8">
+                  <h3 className="font-serif text-lg text-white mb-5">{col.title}</h3>
                   <ul className="space-y-3">
                     {col.items.map((item) => (
                       <li key={item} className="flex items-start gap-3 font-sans text-sm text-ink-primary/65">
