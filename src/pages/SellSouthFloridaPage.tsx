@@ -9,7 +9,7 @@ import { SellerProcess } from "../components/SellerProcess";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { Testimonials } from "../components/Testimonials";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
-import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CONTACT, LEAD_MAGNETS, SOURCES, MESSAGING } from "../constants";
 
 const WHO_THIS_IS_FOR = [
   {
@@ -35,7 +35,7 @@ export default function SellSouthFloridaPage() {
     <>
       <Helmet>
         <title>Sell With South Florida MLS Exposure | Carlos Uzcategui, United Realty Group</title>
-        <meta name="description" content="South Florida seller advisory: MLS positioning, buyer-agent activation, international visibility, and negotiation through every step. Carlos Uzcategui, FL SL705771, United Realty Group." />
+        <meta name="description" content="South Florida seller advisory: professional MLS positioning, buyer-agent activation, and distribution through the professional network that moves serious transactions. Carlos Uzcategui, FL SL705771, United Realty Group." />
         <meta name="keywords" content="sell home South Florida, sell house Miami, Miami MLS listing, Coral Gables realtor, Brickell condo for sale, Miami Beach seller agent, Weston home for sale, South Florida listing agent, United Realty Group" />
         <link rel="canonical" href="https://homesprofessional.com/sell-south-florida" />
         <script type="application/ld+json">{JSON.stringify({
@@ -88,8 +88,9 @@ export default function SellSouthFloridaPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
             Features describe a property. Distribution determines its price.
-            Professional MLS positioning, buyer-agent activation, and international
-            visibility — structured for sellers who need more than a sign in the yard.
+            Buyer demand is often created online — but transactions are executed through
+            professional relationships. MLS positioning, buyer-agent activation, and
+            international distribution for sellers who need a complete strategy.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -179,6 +180,74 @@ export default function SellSouthFloridaPage() {
         </section>
 
         <SellerSection />
+
+        {/* Why Buyer-Agent Relationships Matter */}
+        <section className="bg-navy-deep py-20 md:py-28 text-white">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="max-w-3xl">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                The Professional Market
+              </p>
+              <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
+                Why buyer-agent relationships<br />
+                <em className="not-italic italic text-gold">are half the strategy.</em>
+              </h2>
+              <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
+                Many sellers focus only on consumer exposure. That is incomplete.
+                {" "}{SOURCES.buyerAgentStatement} The listing agent must therefore manage
+                two audiences simultaneously: the buyer, and the buyer's representative.
+                A strong listing strategy makes the property easy for buyer agents to understand,
+                share, show, defend, and recommend.
+              </p>
+              <div className="mt-4 border-l-2 border-gold/40 pl-5">
+                <p className="font-serif text-lg text-white/80 italic leading-relaxed">
+                  "{MESSAGING.buyerAgentMessenger}"
+                </p>
+              </div>
+              <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+                Source: {SOURCES.nar}
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2">
+              {[
+                {
+                  title: "What a buyer agent needs from your listing",
+                  items: [
+                    "Clear MLS positioning and accurate data",
+                    "Strong broker remarks where MLS rules allow",
+                    "Fast response to agent inquiries and showing requests",
+                    "Access instructions that reduce friction, not create it",
+                    "Buyer-agent follow-up after showings",
+                  ],
+                },
+                {
+                  title: "What builds confidence for the buyer's decision",
+                  items: [
+                    "Pre-positioned disclosures and documentation",
+                    "Improvement history and HOA detail package",
+                    "Seller terms and timeline clarity",
+                    "Neighborhood context and comparable support",
+                    "Offer-quality review and negotiation strategy",
+                  ],
+                },
+              ].map((col) => (
+                <div key={col.title} className="bg-navy p-8">
+                  <h3 className="font-serif text-lg text-white mb-5">{col.title}</h3>
+                  <ul className="space-y-3">
+                    {col.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/65">
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <SellerProcess />
         <Testimonials />
         <GlobalPartnerNetwork />

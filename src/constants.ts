@@ -89,6 +89,33 @@ export const NEO = {
 };
 
 
+// Source references — single source of truth for citation language used site-wide.
+// Do not add a percentage to NAR_BUYER_AGENT unless the exact figure is verified
+// against the current NAR Profile of Home Buyers and Sellers report.
+export const SOURCES = {
+  nar: "National Association of REALTORS® Profile of Home Buyers and Sellers",
+  miamiRealtors: "Miami and South Florida REALTORS®",
+  buyerAgentStatement:
+    "According to NAR buyer/seller profile data, the overwhelming majority of U.S. buyers purchase through a real estate agent or broker.",
+  buyerAgentThesis:
+    "Buyer demand is often created online, but transactions are executed through professional relationships.",
+};
+
+// Reusable messaging blocks for the buyer-agent distribution thesis.
+// Used in BuyerAgentThesis, SellerProcess, AgentsPage, SpainDeskPage.
+export const MESSAGING = {
+  distributionPrinciple:
+    "The internet creates visibility. Agent networks create movement.",
+  listingIsIncomplete:
+    "A listing is not fully marketed until buyer agents know how to present it.",
+  networkIsThesis:
+    "The agent network is not a side channel. It is the transaction channel.",
+  buyerAgentMessenger:
+    "The buyer's agent is often the messenger, interpreter, and confidence builder between your property and the buyer's decision.",
+  spainCooperation:
+    "In Spain, where there is no single MLS-style cooperation system comparable to South Florida, professional relationships matter even more. My cross-border role is to help structure cooperation between international buyer demand and serious local agencies — with clarity before introductions and transparency throughout.",
+};
+
 export const URG_CITIES = [
   { city: "Weston", region: "Broward County" },
   { city: "Plantation", region: "Broward County" },

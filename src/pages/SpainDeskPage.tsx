@@ -6,7 +6,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { SpainMiamiJourney } from "../components/SpainMiamiJourney";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
-import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CONTACT, LEAD_MAGNETS, MESSAGING } from "../constants";
 
 const SERVICES = [
   {
@@ -72,8 +72,8 @@ export default function SpainDeskPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
             A Florida-based professional bridge for Spanish property owners, agencies, and developers
-            seeking structured access to 93,000 Miami MLS member agents and the international referral network
-            behind one of the world's most active real estate markets.
+            seeking structured access to 93,000 Miami MLS member agents and the international referral network.
+            Buyer demand is often created online — but transactions are executed through professional relationships.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -129,6 +129,69 @@ export default function SpainDeskPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Agent Cooperation Where the Market Lacks an MLS */}
+        <section className="bg-white py-20 md:py-28">
+          <div className="mx-auto max-w-5xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              Cross-Border Cooperation
+            </p>
+            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+              Agent cooperation where the market<br />
+              <em className="not-italic italic">lacks a single MLS.</em>
+            </h2>
+            <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
+              {MESSAGING.spainCooperation}
+            </p>
+            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/55">
+              Spain does not operate like the U.S. MLS system. Cooperation between agencies is
+              less standardized, and buyer demand can remain fragmented across portals and private
+              relationships. My role is to bring professional structure to that gap: identify
+              qualified buyer demand, coordinate with serious local agencies, protect referral
+              relationships, and connect international clients to inventory through trusted professionals.
+            </p>
+            <div className="mt-12 grid gap-px border border-hairline bg-hairline sm:grid-cols-2">
+              {[
+                {
+                  title: "What this means for Spanish agencies",
+                  items: [
+                    "Connect U.S. and international buyers with trusted local professionals",
+                    "Structure referral relationships clearly before any introduction",
+                    "Help agencies understand Miami and South Florida buyer expectations",
+                    "Share qualified buyer demand with serious local professionals",
+                    "Maintain transparency on representation, compensation, and client ownership",
+                  ],
+                },
+                {
+                  title: "What this means for international property owners",
+                  items: [
+                    "A Florida-licensed Realtor® active between South Florida and Madrid",
+                    "Professional cooperation with established Spanish agencies",
+                    "Compliant documentation before any cross-border engagement",
+                    "Bilingual service in English and Spanish throughout the process",
+                    "No confusion over who represents whom — clarity from the first conversation",
+                  ],
+                },
+              ].map((col) => (
+                <div key={col.title} className="bg-ivory p-8">
+                  <h3 className="font-serif text-lg text-navy-deep mb-5">{col.title}</h3>
+                  <ul className="space-y-3">
+                    {col.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 font-sans text-sm text-ink-primary/65">
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.16em] text-ink-primary/35">
+              Carlos Uzcategui is licensed as a real estate professional in Florida only.
+              Spanish properties are handled through referral, cooperating broker, or advisory relationships.
+            </p>
           </div>
         </section>
 
