@@ -213,42 +213,6 @@ export function Hero() {
               the most serious offers actually originate.
             </motion.p>
 
-            {/* Network reach — scrolling ticker */}
-            <motion.div variants={item} className="relative mt-6 mx-auto lg:mx-0 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
-              <style>{`
-                @keyframes exposure-scroll {
-                  from { transform: translateX(0); }
-                  to   { transform: translateX(-50%); }
-                }
-                .exposure-track {
-                  animation: exposure-scroll 22s linear infinite;
-                  display: flex;
-                  will-change: transform;
-                }
-                .exposure-track:hover { animation-play-state: paused; }
-                @media (prefers-reduced-motion: reduce) {
-                  .exposure-track { animation: none; }
-                }
-              `}</style>
-              {/* Left/right fade edges */}
-              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-[#060D18] to-transparent" />
-              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
-              <div className="exposure-track">
-                {[0, 1].map((copy) => (
-                  <span key={copy} className="flex shrink-0 items-center gap-1.5 pl-6 pr-16 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
-                    Senior seller representation ·{" "}
-                    <span className="text-gold/75">South Florida &amp; select intl. owners</span>
-                    {" "}· one of the world's most powerful real estate networks ·{" "}
-                    <span className="text-white/75">93,000</span> member agents ·{" "}
-                    <span className="text-white/75">260+</span> MLS connections ·{" "}
-                    <span className="text-white/75">300+</span> global partner associations ·{" "}
-                    <span className="text-white/75">437+</span> international agreements ·{" "}
-                    <span className="text-white/75">500+</span> websites where eligible
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
             {/* Trust row */}
             <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 lg:justify-start lg:gap-x-5">
               {[

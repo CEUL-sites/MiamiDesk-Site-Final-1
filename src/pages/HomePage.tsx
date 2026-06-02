@@ -1,12 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
-import { MLSTicker } from "../components/MLSTicker";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { IntelligenceDesk } from "../components/IntelligenceDesk";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { InternationalBridge } from "../components/InternationalBridge";
-import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { Testimonials } from "../components/Testimonials";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
@@ -74,12 +72,10 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-        <MLSTicker />
         <ReachAdvantage />
         <IntelligenceDesk />
         <BuyersRelocation />
         <InternationalBridge />
-        <GlobalPartnerNetwork />
         <Testimonials />
         <AboutContact />
         <Footer />

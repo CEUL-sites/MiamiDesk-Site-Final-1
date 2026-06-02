@@ -8,7 +8,6 @@ import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
 import { SellerProcess } from "../components/SellerProcess";
-import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { AdvisorBrand } from "../components/AdvisorBrand";
 import { FAQ } from "../components/FAQ";
 import { Testimonials } from "../components/Testimonials";
@@ -273,7 +272,6 @@ export default function SellSouthFloridaPage() {
         <SellerProcess />
         <ExposureSyndication />
         <Testimonials />
-        <GlobalPartnerNetwork />
         <AdvisorBrand />
         <FAQ />
 

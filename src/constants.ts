@@ -102,7 +102,7 @@ export const SOURCES = {
 };
 
 // Reusable messaging blocks for the buyer-agent distribution thesis.
-// Used in BuyerAgentThesis, SellerProcess, AgentsPage, SpainDeskPage.
+// Used in SellerProcess, AgentsPage, SpainDeskPage.
 export const MESSAGING = {
   distributionPrinciple:
     "The internet creates visibility. Agent networks create movement.",

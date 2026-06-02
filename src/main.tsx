@@ -20,7 +20,6 @@ const DevelopersAgenciesPage         = lazy(() => import('./pages/DevelopersAgen
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
 const SpainDeskPage      = lazy(() => import('./pages/SpainDeskPage'));
-const MadridPage         = lazy(() => import('./pages/MadridPage'));
 const NewConstructionPage = lazy(() => import('./pages/NewConstructionPage'));
 const ContactPage        = lazy(() => import('./pages/ContactPage'));
 const ListingsPage       = lazy(() => import('./pages/ListingsPage'));
@@ -72,7 +71,6 @@ if (rootElement) {
                 {/* Secondary routes preserved */}
                 <Route path="/buy"                element={<BuyersPage />} />
                 <Route path="/new-construction"   element={<NewConstructionPage />} />
-                <Route path="/madrid-page"        element={<MadridPage />} />
                 <Route path="/contact"            element={<ContactPage />} />
                 <Route path="/listings"           element={<ListingsPage />} />
                 <Route path="/about"              element={<AboutPage />} />
