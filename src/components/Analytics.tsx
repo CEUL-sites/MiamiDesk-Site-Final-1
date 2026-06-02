@@ -1,13 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { pushEvent } from "../lib/analytics";
-
-declare global {
-  interface Window {
-    dataLayer: Record<string, unknown>[];
-    fbq: (...args: unknown[]) => void;
-  }
-}
+import { captureAttribution } from "../lib/attribution";
 
 function handleGlobalClick(e: MouseEvent) {
   const target = (e.target as Element).closest("a");
@@ -32,6 +26,11 @@ function handleGlobalClick(e: MouseEvent) {
 
 export function Analytics() {
   const location = useLocation();
+
+  // Capture first-touch lead source (UTM / referrer) once, as early as possible.
+  useEffect(() => {
+    captureAttribution();
+  }, []);
 
   // Global click delegation — covers WhatsApp + download links across all pages
   useEffect(() => {

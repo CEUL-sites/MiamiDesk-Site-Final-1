@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect, useRef } from "react";
 import { CONTACT } from "../constants";
+import { LazyVideo } from "./LazyVideo";
 
 const CAPABILITIES = [
   {
@@ -22,33 +22,14 @@ const SPAIN_COPY = "For Spain agencies, developers, and ownership teams, our lic
 const OWNER_COPY = "For South Florida owners, the same Miami and Madrid presence adds international buyer awareness, referral pathways, and a more sophisticated property narrative for listings with global appeal.";
 
 export function InternationalBridge() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const el = videoRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { entry.isIntersecting ? el.play().catch(() => {}) : el.pause(); },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section id="spain" className="relative overflow-hidden bg-navy-deep text-white">
 
       {/* Cinematic video background */}
-      <video
-        ref={videoRef}
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
+      <LazyVideo
+        src="/videos/globe-bg.mp4"
         className="absolute inset-0 h-full w-full object-cover"
         style={{ opacity: 0.38 }}
-        src="/videos/globe-bg.mp4"
       />
 
       {/* Layered overlay — dark at top and bottom, lighter in middle to let video breathe */}

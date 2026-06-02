@@ -3,6 +3,7 @@ import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { LazyVideo } from "../components/LazyVideo";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { SellerProcess } from "../components/SellerProcess";
@@ -72,10 +73,11 @@ export default function SellSouthFloridaPage() {
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
           {/* Cinematic drone background */}
-          <video autoPlay muted loop playsInline aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.13] pointer-events-none">
-            <source src="/videos/luxury_waterfront_drone.mp4" type="video/mp4" />
-          </video>
+          <LazyVideo
+            eager
+            src="/videos/luxury_waterfront_drone.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.13] pointer-events-none"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Listing Advisory</p>

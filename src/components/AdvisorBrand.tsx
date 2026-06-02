@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { CONTACT } from "../constants";
+import { LazyVideo } from "./LazyVideo";
 
 export function AdvisorBrand() {
   return (
@@ -7,15 +8,10 @@ export function AdvisorBrand() {
 
       {/* Full-bleed video */}
       <div className="relative w-full" style={{ minHeight: "520px", maxHeight: "90vh" }}>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden="true"
+        <LazyVideo
+          src="/videos/advisor-brand.mp4"
           className="absolute inset-0 h-full w-full object-cover"
           style={{ minHeight: "520px", maxHeight: "90vh" }}
-          src="/videos/advisor-brand.mp4"
         />
 
         {/* Dark gradient — heavier on right so left text stays legible */}

@@ -3,6 +3,7 @@ import { BadgeCheck, ChevronRight, Download, MessageSquare } from "lucide-react"
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { LazyVideo } from "../components/LazyVideo";
 import { SpainMiamiJourney } from "../components/SpainMiamiJourney";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
@@ -70,10 +71,11 @@ export default function SpainDeskPage() {
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
           {/* Miami ↔ Madrid cinematic transition backdrop */}
-          <video autoPlay muted loop playsInline aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none">
-            <source src="/videos/miami_madrid_transition.mp4" type="video/mp4" />
-          </video>
+          <LazyVideo
+            eager
+            src="/videos/miami_madrid_transition.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/30 to-navy-deep/80 pointer-events-none" />
           <div className="relative">
           <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.06] px-4 py-1.5 mb-6">
@@ -196,17 +198,11 @@ export default function SpainDeskPage() {
 
             {/* Featured video — Miami ↔ Madrid cinematic transition */}
             <div className="mt-10 relative overflow-hidden" style={{ aspectRatio: "16/7" }}>
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                aria-hidden="true"
+              <LazyVideo
+                src="/videos/miami_madrid_transition.mp4"
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ opacity: 0.82 }}
-              >
-                <source src="/videos/miami_madrid_transition.mp4" type="video/mp4" />
-              </video>
+              />
               {/* Edge fade for cinematic feel */}
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/40 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-r from-navy/30 via-transparent to-navy/30 pointer-events-none" />
