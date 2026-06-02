@@ -163,47 +163,41 @@ export function Hero() {
               <em className="not-italic italic text-gold">not just the first one who finds you.</em>
             </motion.h1>
 
-            {/* Gold rule */}
-            <motion.div
-              variants={item}
-              className="mt-5 h-px w-14 bg-gold/50 origin-left mx-auto lg:mx-0"
-              style={{ animation: "hero-rule 0.8s ease forwards 0.8s", transform: "scaleX(0)", opacity: 0 }}
-            />
-
-            {/* Video bubble trio — directly under the headline */}
-            <motion.div variants={item} className="mt-6 flex items-end justify-center gap-3 sm:gap-5 lg:justify-start">
+            {/* Video bubble trio — directly under the headline, labels below each circle */}
+            <motion.div variants={item} className="mt-7 flex items-start justify-center gap-4 sm:gap-6 lg:justify-start">
               {VIDEO_BUBBLES.map((b) => (
-                <motion.div
-                  key={b.src}
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 280, damping: 20, delay: b.delay }}
-                  className="relative overflow-hidden rounded-full flex-shrink-0"
-                  style={{
-                    width:  b.featured ? "clamp(82px,13vw,132px)" : "clamp(58px,9vw,94px)",
-                    height: b.featured ? "clamp(82px,13vw,132px)" : "clamp(58px,9vw,94px)",
-                    border: b.featured ? "2px solid rgba(176,141,87,0.65)" : "2px solid rgba(176,141,87,0.30)",
-                    boxShadow: b.featured
-                      ? "0 0 32px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)"
-                      : "0 0 16px rgba(176,141,87,0.18)",
-                  }}
-                >
-                  <video
-                    autoPlay muted loop playsInline aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover"
+                <div key={b.src} className="flex flex-col items-center gap-2">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 20, delay: b.delay }}
+                    className="relative overflow-hidden rounded-full flex-shrink-0"
+                    style={{
+                      width:  b.featured ? "clamp(90px,14vw,140px)" : "clamp(64px,10vw,100px)",
+                      height: b.featured ? "clamp(90px,14vw,140px)" : "clamp(64px,10vw,100px)",
+                      border: b.featured ? "2px solid rgba(176,141,87,0.65)" : "2px solid rgba(176,141,87,0.30)",
+                      boxShadow: b.featured
+                        ? "0 0 32px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)"
+                        : "0 0 16px rgba(176,141,87,0.18)",
+                    }}
                   >
-                    <source src={b.src} type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent pointer-events-none" />
-                  <span className="absolute bottom-2 inset-x-0 text-center font-mono text-[6px] uppercase tracking-[0.14em] text-white/80 leading-none">
+                    <video
+                      autoPlay muted loop playsInline aria-hidden="true"
+                      className="absolute inset-0 h-full w-full object-cover"
+                    >
+                      <source src={b.src} type="video/mp4" />
+                    </video>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent pointer-events-none" />
+                  </motion.div>
+                  <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.16em] text-white/55 whitespace-nowrap leading-none">
                     {b.label}
                   </span>
-                </motion.div>
+                </div>
               ))}
             </motion.div>
 
             {/* "Your property. Our reach." tagline between bubbles and sub-copy */}
-            <motion.div variants={item} className="mt-4 flex items-center gap-2.5">
+            <motion.div variants={item} className="mt-5 flex items-center gap-2.5">
               <div className="h-px flex-1 bg-white/[0.07]" />
               <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
               <div className="h-px flex-1 bg-white/[0.07]" />
