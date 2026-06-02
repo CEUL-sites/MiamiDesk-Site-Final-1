@@ -70,6 +70,11 @@ const SLIDES = [
     label: "Marketing mastery reel",
     badge: "MARKETING",
   },
+  {
+    src: "/videos/luxury_listing_showcase.mp4",
+    label: "Luxury listing showcase",
+    badge: "LISTINGS",
+  },
 ];
 
 // ── Phone bubble player ────────────────────────────────────────────────────────
@@ -117,26 +122,15 @@ function PhoneBubblePlayer() {
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
             >
               <PhoneFrame>
-                {current.src ? (
-                  <video
-                    ref={videoRef}
-                    src={current.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  // Placeholder for second video
-                  <div className="flex h-full w-full flex-col items-center justify-center bg-navy-deep gap-4 px-5 text-center">
-                    <div className="h-px w-12 bg-gold/50" />
-                    <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold">Coming Soon</p>
-                    <p className="font-serif text-xl text-white leading-tight">Marketing Mastery Reel</p>
-                    <p className="font-sans text-xs text-white/45">Drop your second video into <span className="text-gold/70">public/videos/</span></p>
-                    <div className="h-px w-12 bg-gold/50" />
-                  </div>
-                )}
+                <video
+                  ref={videoRef}
+                  src={current.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover"
+                />
 
                 {/* Overlay badge */}
                 <div className="absolute bottom-6 left-0 right-0 flex justify-center">
