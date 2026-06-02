@@ -52,7 +52,7 @@ export default function SpainDeskPage() {
         <Navbar />
 
         {/* Hero */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
+        <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
           {/* Miami ↔ Spain split background */}
           <video autoPlay muted loop playsInline aria-hidden="true"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.15] pointer-events-none">
@@ -110,7 +110,7 @@ export default function SpainDeskPage() {
         </section>
 
         {/* Service Cards */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
+        <section className="bg-navy-deep pt-12 pb-16 md:pt-16 md:pb-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What the Spain Desk handles</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
@@ -133,7 +133,7 @@ export default function SpainDeskPage() {
         </section>
 
         {/* Agent Cooperation Where the Market Lacks an MLS */}
-        <section className="bg-navy py-20 md:py-28 text-white">
+        <section className="bg-navy pt-14 pb-16 md:pt-20 md:pb-24 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
               Cross-Border Cooperation
