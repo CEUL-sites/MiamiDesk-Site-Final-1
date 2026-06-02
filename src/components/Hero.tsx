@@ -5,6 +5,27 @@ import { HeroSellerForm } from "./HeroSellerForm";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
+const VIDEO_BUBBLES = [
+  {
+    src: "/videos/luxury_waterfront_drone.mp4",
+    label: "Aerial View",
+    delay: 1.25,
+    featured: false,
+  },
+  {
+    src: "/videos/dollhouse_rotating_hands.mp4",
+    label: "3D Marketing",
+    delay: 1.1,
+    featured: true,
+  },
+  {
+    src: "/videos/dollhouse_global_reach.mp4",
+    label: "Global Reach",
+    delay: 1.4,
+    featured: false,
+  },
+];
+
 const container: Variants = {
   hidden:  {},
   visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
@@ -221,8 +242,52 @@ export function Hero() {
             </motion.p>
           </div>
 
-          {/* ── Right: lead capture ───────────────────────── */}
-          <motion.div variants={item} className="mx-auto w-full max-w-md lg:max-w-none">
+          {/* ── Right: video bubbles + lead capture ──────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, ease: EASE, delay: 0.6 }}
+            className="mx-auto w-full max-w-md lg:max-w-none flex flex-col gap-4"
+          >
+            {/* Video bubble trio */}
+            <div className="flex items-end justify-center gap-3 lg:gap-6">
+              {VIDEO_BUBBLES.map((b) => (
+                <motion.div
+                  key={b.src}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 280, damping: 20, delay: b.delay }}
+                  className="relative overflow-hidden rounded-full flex-shrink-0"
+                  style={{
+                    width:  b.featured ? "clamp(90px,15vw,148px)" : "clamp(64px,10vw,104px)",
+                    height: b.featured ? "clamp(90px,15vw,148px)" : "clamp(64px,10vw,104px)",
+                    border: b.featured ? "2px solid rgba(176,141,87,0.65)" : "2px solid rgba(176,141,87,0.30)",
+                    boxShadow: b.featured
+                      ? "0 0 32px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)"
+                      : "0 0 16px rgba(176,141,87,0.18)",
+                  }}
+                >
+                  <video
+                    autoPlay muted loop playsInline aria-hidden="true"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  >
+                    <source src={b.src} type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent pointer-events-none" />
+                  <span className="absolute bottom-2 inset-x-0 text-center font-mono text-[6px] uppercase tracking-[0.14em] text-white/80 leading-none">
+                    {b.label}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="flex items-center gap-2.5 px-1">
+              <div className="h-px flex-1 bg-white/[0.07]" />
+              <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
+              <div className="h-px flex-1 bg-white/[0.07]" />
+            </div>
+
             <HeroSellerForm />
           </motion.div>
 
