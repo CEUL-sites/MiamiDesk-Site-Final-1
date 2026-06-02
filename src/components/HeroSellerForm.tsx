@@ -20,6 +20,7 @@ const COPY = {
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
     submit: "Request a Private Seller Strategy Review",
     sending: "Sending…",
+    trust: "★★★★★ 5.0 · 15 reviews · Carlos replies within 1 business day · No listing commitment",
     prefer: "Prefer WhatsApp?",
     preferLink: "Message Carlos directly",
     successTag: "Seller Request Received",
@@ -39,6 +40,7 @@ const COPY = {
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
     submit: "Solicite una Revisión de Estrategia de Venta Privada",
     sending: "Enviando…",
+    trust: "★★★★★ 5.0 · 15 reseñas · Carlos responde en 1 día hábil · Sin compromiso",
     prefer: "¿Prefiere WhatsApp?",
     preferLink: "Escriba a Carlos directamente",
     successTag: "Solicitud Recibida",
@@ -169,6 +171,10 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       </div>
 
       {status === "error" && <p className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>}
+
+      <p className="mt-4 text-center font-sans text-[10px] leading-relaxed tracking-[0.04em] text-gold/80">
+        {t.trust}
+      </p>
 
       <button
         type="submit"
