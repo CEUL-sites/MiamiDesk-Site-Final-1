@@ -61,9 +61,9 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 // ── Video slide labels ─────────────────────────────────────────────────────────
 const SLIDES = [
   {
-    src: "/videos/cinematic_house_reach.mp4",
-    label: "Cinematic property reach",
-    badge: "REACH",
+    src: "/videos/dollhouse_global_reach.mp4",
+    label: "Global property marketing reach",
+    badge: "GLOBAL REACH",
   },
   {
     src: "/videos/luxury_advisor_digital.mp4",
