@@ -102,15 +102,20 @@ export function Navbar() {
           aria-label="HomesProfessional.com — Carlos Uzcategui, Florida REALTOR®"
           className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}
         >
-          <img
-            src="/images/urg-logo-original.png"
-            alt="United Realty Group"
-            className="w-auto transition-all duration-500"
+          <div
+            className="transition-all duration-500 rounded"
             style={{
-              height: "clamp(2.5rem, 4vw, 3rem)",
-              filter: scrolled ? "none" : "brightness(0) invert(1)",
+              background: scrolled ? "transparent" : "rgba(255,255,255,0.96)",
+              padding: scrolled ? "0" : "3px 8px",
             }}
-          />
+          >
+            <img
+              src="/images/urg-logo-original.png"
+              alt="United Realty Group"
+              className="w-auto block"
+              style={{ height: "clamp(2.2rem, 3.5vw, 2.8rem)" }}
+            />
+          </div>
           <span className="hidden flex-col leading-none border-l border-current/20 pl-3 xl:flex">
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
             <span className="font-mono uppercase leading-none opacity-50 mt-1" style={{ fontSize: "0.5rem", letterSpacing: "0.2em" }}>
@@ -239,12 +244,13 @@ export function Navbar() {
               {/* Drawer header */}
               <div className="flex items-start justify-between">
                 <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
-                  <img
-                    src="/images/urg-logo-original.png"
-                    alt="United Realty Group"
-                    className="h-11 w-auto"
-                    style={{ filter: "brightness(0) invert(1)" }}
-                  />
+                  <div className="rounded" style={{ background: "rgba(255,255,255,0.96)", padding: "3px 8px", display: "inline-block" }}>
+                    <img
+                      src="/images/urg-logo-original.png"
+                      alt="United Realty Group"
+                      className="h-9 w-auto block"
+                    />
+                  </div>
                   <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/40">
                     Carlos Uzcategui · Florida REALTOR® since 2001
                   </span>
