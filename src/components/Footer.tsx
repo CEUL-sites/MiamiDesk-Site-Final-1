@@ -69,11 +69,19 @@ export function Footer() {
         <div>
           <h4 className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">Contact</h4>
           <div className="space-y-4 font-sans text-sm text-white/55">
-            <p>Direct / WhatsApp: {CONTACT.phoneUS}</p>
-            <p>Spain WhatsApp: {CONTACT.phoneSpain}</p>
-            <p>{CONTACT.email}</p>
+            <p>Direct / WhatsApp:{" "}
+              <a href={CONTACT.phoneUSLink} className="text-white/75 underline-offset-2 hover:text-gold hover:underline">{CONTACT.phoneUS}</a>
+            </p>
+            <p>Spain WhatsApp:{" "}
+              <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="text-white/75 underline-offset-2 hover:text-gold hover:underline">{CONTACT.phoneSpain}</a>
+            </p>
+            <p>
+              <a href={`mailto:${CONTACT.email}`} className="text-white/75 underline-offset-2 hover:text-gold hover:underline">{CONTACT.email}</a>
+            </p>
             <p className="text-xs leading-relaxed">{CONTACT.address}</p>
-            <p className="text-xs leading-relaxed">Brokerage office: {CONTACT.officePhoneUS}</p>
+            <p className="text-xs leading-relaxed">Brokerage office:{" "}
+              <a href={`tel:${CONTACT.officePhoneUS.replace(/[^0-9+]/g, "")}`} className="text-white/70 underline-offset-2 hover:text-gold hover:underline">{CONTACT.officePhoneUS}</a>
+            </p>
             <a
               href={CONTACT.linkedin}
               target="_blank"

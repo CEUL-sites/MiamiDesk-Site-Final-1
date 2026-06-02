@@ -53,6 +53,15 @@ export default function SpainDeskPage() {
         <meta name="keywords" content="Spain Miami real estate, Spanish property Miami exposure, Madrid MLS referral, Spain to Florida property, Spanish property South Florida, cooperating broker Spain Florida, United Realty Group Spain" />
         <link rel="canonical" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://homesprofessional.com/spain-desk" />
+        <meta property="og:title" content="Global Desk | Spanish Property into the South Florida Network | Carlos Uzcategui" />
+        <meta property="og:description" content="A Florida-based bridge listing international property into the Miami MLS — 93,000 member agents and a global referral network. Not a referral, a formal listing." />
+        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Global Desk | Spanish Property into the Miami MLS | Carlos Uzcategui" />
+        <meta name="twitter:description" content="List international property into the South Florida network through one licensed Florida principal. Free, confidential review." />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
