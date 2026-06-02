@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { pushEvent } from "../../lib/analytics";
+import { trackLead } from "../../lib/analytics";
+import { getAttribution } from "../../lib/attribution";
 
 const CITIES = [
   "Aventura", "Bal Harbour", "Boca Raton", "Brickell", "Coconut Grove",
@@ -45,7 +46,7 @@ export function SellerIntakeForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage: "seller-intake" }),
+        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage: "seller-intake", ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
       // Trigger auto-reply
@@ -54,7 +55,7 @@ export function SellerIntakeForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "seller-intake", name: form.name, email: form.email, phone: form.phone }),
       }).catch(() => {});
-      pushEvent("form_submit_seller"); window.location.href = "/thanks/seller";
+      trackLead("seller", { form: "seller-intake" }); window.location.href = "/thanks/seller";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

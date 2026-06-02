@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { pushEvent } from "../../lib/analytics";
+import { trackLead } from "../../lib/analytics";
+import { getAttribution } from "../../lib/attribution";
 
 const INITIAL: Record<string, string> = {
   licenseeName: "", brokerageName: "", email: "", phone: "", country: "", referralType: "",
@@ -31,7 +32,7 @@ export function ReferralIntakeForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "referral-intake", "bot-field": "", ...form, sourcePage: "referral-intake" }),
+        body: encodeForm({ "form-name": "referral-intake", "bot-field": "", ...form, sourcePage: "referral-intake", ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
       fetch("/.netlify/functions/lead-acknowledgment", {
@@ -39,7 +40,7 @@ export function ReferralIntakeForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "referral-intake", name: form.licenseeName, email: form.email, phone: form.phone, brokerage: form.brokerageName }),
       }).catch(() => {});
-      pushEvent("form_submit_agent"); window.location.href = "/thanks/agent";
+      trackLead("agent", { form: "referral-intake" }); window.location.href = "/thanks/agent";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

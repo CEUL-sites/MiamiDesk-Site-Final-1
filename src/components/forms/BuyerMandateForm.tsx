@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { pushEvent } from "../../lib/analytics";
+import { trackLead } from "../../lib/analytics";
+import { getAttribution } from "../../lib/attribution";
 
 const COUNTRIES = [
   "United States", "Spain", "Venezuela", "Colombia", "Argentina", "Mexico",
@@ -57,7 +58,7 @@ export function BuyerMandateForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "buyer-mandate", "bot-field": "", ...submission, sourcePage: "buyer-mandate" }),
+        body: encodeForm({ "form-name": "buyer-mandate", "bot-field": "", ...submission, sourcePage: "buyer-mandate", ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
       fetch("/.netlify/functions/lead-acknowledgment", {
@@ -65,7 +66,7 @@ export function BuyerMandateForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "buyer-mandate", name: form.name, email: form.email, country: form.country }),
       }).catch(() => {});
-      pushEvent("form_submit_buyer"); window.location.href = "/thanks/buyer";
+      trackLead("buyer", { form: "buyer-mandate" }); window.location.href = "/thanks/buyer";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

@@ -2,7 +2,8 @@ import { motion } from "motion/react";
 import { ArrowRight, MapPin, Loader2, CheckCircle2 } from "lucide-react";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { CONTACT } from "../constants";
-import { pushEvent } from "../lib/analytics";
+import { trackLead } from "../lib/analytics";
+import { getAttribution } from "../lib/attribution";
 
 type Lang = "en" | "es";
 
@@ -71,10 +72,10 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: controller.signal,
-        body: encodeForm({ "form-name": "seller-hero", "bot-field": "", ...form, sourcePage: `hero-${lang}` }),
+        body: encodeForm({ "form-name": "seller-hero", "bot-field": "", ...form, sourcePage: `hero-${lang}`, ...getAttribution() }),
       });
       if (!res.ok) throw new Error(String(res.status));
-      pushEvent("form_submit_seller", { form: "seller-hero", page: `hero-${lang}` });
+      trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });
       setStatus("success");
       setForm(initial);
     } catch (err) {

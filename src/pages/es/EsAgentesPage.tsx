@@ -1,4 +1,5 @@
-import { pushEvent } from "../../lib/analytics";
+import { trackLead } from "../../lib/analytics";
+import { getAttribution } from "../../lib/attribution";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, type Variants } from "motion/react";
@@ -89,10 +90,11 @@ function EsReferralForm() {
           "bot-field": "",
           ...form,
           sourcePage: "referral-intake-es",
+          ...getAttribution(),
         }),
       });
       if (!res.ok) throw new Error("submission_failed");
-      pushEvent("form_submit_agent", { form: "referral-intake-es" }); window.location.href = "/es/gracias/agente";
+      trackLead("agent", { form: "referral-intake-es" }); window.location.href = "/es/gracias/agente";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

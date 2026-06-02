@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
-import { pushEvent } from "../lib/analytics";
+import { trackLead } from "../lib/analytics";
+import { getAttribution } from "../lib/attribution";
 
 const INITIAL_FORM_DATA = {
   name: "",
@@ -38,14 +39,15 @@ export function LeadForm() {
           "form-name": "seller-consultation",
           "bot-field": "",
           ...formData,
-          sourcePage: "seller-consultation"
+          sourcePage: "seller-consultation",
+          ...getAttribution()
         })
       });
 
       if (!response.ok) {
         throw new Error(`Form submission failed with status ${response.status}`);
       }
-      pushEvent("form_submit_seller", { form: "seller-consultation", page: "spain-desk" });
+      trackLead("seller", { form: "seller-consultation", page: "spain-desk" });
       setStatus("success");
       setFormData(INITIAL_FORM_DATA);
     } catch (error) {

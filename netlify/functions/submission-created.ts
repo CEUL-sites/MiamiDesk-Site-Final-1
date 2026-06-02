@@ -34,10 +34,28 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // valueBand covers seller (secondary fallback)
     const message = fields.message || fields.priorListing || fields.clientSummary || fields.valueBand || "";
 
+    // ── Lead source attribution (first-touch UTM / referrer) ─────────────
+    // Captured client-side on landing and attached to every submission, so
+    // Carlos sees which channel & campaign produced each lead.
+    const utmSource   = fields.utm_source || "";
+    const utmMedium   = fields.utm_medium || "";
+    const utmCampaign = fields.utm_campaign || "";
+    const landingPage = fields.landing_page || "";
+    const leadSource = [
+      utmSource || "direct",
+      utmMedium,
+      utmCampaign,
+    ].filter(Boolean).join(" / ") || "direct";
+
     // ── Form-specific extra fields (sent to Sheets as readable detail block) ──
     // Capture everything the narrow mapping above would otherwise drop.
     const extraParts: string[] = [];
-    const SKIP_KEYS = new Set(["bot-field", "form-name", "source", "sourcePage"]);
+    const SKIP_KEYS = new Set([
+      "bot-field", "form-name", "source", "sourcePage",
+      // attribution surfaced separately as leadSource — don't duplicate in dump
+      "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
+      "gclid", "fbclid", "msclkid", "li_fat_id", "landing_page", "first_seen", "referrer",
+    ]);
     for (const [k, v] of Object.entries(fields)) {
       if (!SKIP_KEYS.has(k) && v) {
         extraParts.push(`${k}: ${v}`);
@@ -63,6 +81,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
             message,
             details: fullDetails, // full field dump — nothing is discarded
             sourcePage: formName,
+            leadSource,            // channel / medium / campaign
+            landingPage,
           }),
         });
         if (!sheetsRes.ok) {
@@ -89,6 +109,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
         `Property / Location: ${propertyAddress}${city ? ", " + city : ""}`,
         `Timeline / Type: ${timeline}`,
         `Message: ${message}`,
+        ``,
+        `📊 Lead Source: ${leadSource}`,
+        landingPage ? `Landing page: ${landingPage}` : "",
         ``,
         `All fields:`,
         fullDetails,
@@ -135,6 +158,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
         message ? `💬 ${message.slice(0, 200)}` : "",
         ``,
         `Via: ${formName}`,
+        `📊 Source: ${leadSource}`,
       ].filter(Boolean).join("\n");
 
       try {
