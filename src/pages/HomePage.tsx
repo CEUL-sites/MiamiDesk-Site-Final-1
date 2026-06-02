@@ -3,7 +3,6 @@ import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { MLSTicker } from "../components/MLSTicker";
 import { ReachAdvantage } from "../components/ReachAdvantage";
-import { BuyerAgentThesis } from "../components/BuyerAgentThesis";
 import { IntelligenceDesk } from "../components/IntelligenceDesk";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { InternationalBridge } from "../components/InternationalBridge";
@@ -77,7 +76,6 @@ export default function HomePage() {
         </div>
         <MLSTicker />
         <ReachAdvantage />
-        <BuyerAgentThesis />
         <IntelligenceDesk />
         <BuyersRelocation />
         <InternationalBridge />
