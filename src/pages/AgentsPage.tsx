@@ -90,7 +90,7 @@ const NETWORK_STATS = [
   {
     value: "2M+",
     label: "Professionals",
-    desc: "International referral network across 70+ countries and 300+ partner associations — a global professional channel for serious cross-border real estate situations.",
+    desc: "International referral network across 75+ countries and 300+ partner associations — a global professional channel for serious cross-border real estate situations.",
   },
 ];
 

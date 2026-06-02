@@ -9,7 +9,7 @@ const COPY = {
     eyebrow: "Global Partner Network · MIAMI REALTORS®",
     headlineA: "Your buyer may not live in Florida.",
     headlineB: "Their agent is already in our network.",
-    intro: "South Florida property sells to a global buyer. Listing through a Miami and South Florida REALTORS® member places your home inside an international referral network of 2 million+ professionals across 300+ partner associations in 70+ countries — the agents representing Latin American, European, and Gulf buyers are already partners.",
+    intro: "South Florida property sells to a global buyer. Listing through a Miami and South Florida REALTORS® member places your home inside an international referral network of 2 million+ professionals across 300+ partner associations in 75+ countries — the agents representing Latin American, European, and Gulf buyers are already partners.",
     stats: [
       { value: GLOBAL_REACH.partnerAssociations, label: "Partner Associations" },
       { value: GLOBAL_REACH.professionals,        label: "Professionals" },
@@ -24,7 +24,7 @@ const COPY = {
     eyebrow: "Red Global de Asociaciones · MIAMI REALTORS®",
     headlineA: "Su comprador quizá no viva en Florida.",
     headlineB: "Su agente ya está en nuestra red.",
-    intro: "La propiedad del Sur de Florida se vende a un comprador global. Listar a través de un miembro de MIAMI & South Florida REALTORS® sitúa su inmueble dentro de una red internacional de referidos de 2 millones+ de profesionales en 300+ asociaciones socias de 70+ países.",
+    intro: "La propiedad del Sur de Florida se vende a un comprador global. Listar a través de un miembro de MIAMI & South Florida REALTORS® sitúa su inmueble dentro de una red internacional de referidos de 2 millones+ de profesionales en 300+ asociaciones socias de 75+ países.",
     stats: [
       { value: GLOBAL_REACH.partnerAssociations, label: "Asociaciones Socias" },
       { value: GLOBAL_REACH.professionals,        label: "Profesionales" },

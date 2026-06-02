@@ -539,7 +539,7 @@ export default function EsAgentesPage() {
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
-                <div className="font-serif text-3xl text-navy-deep">200+</div>
+                <div className="font-serif text-3xl text-navy-deep">500+</div>
                 <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Sitios web globales · 19 idiomas

@@ -7,7 +7,7 @@ export function PartnersMarquee() {
     "World's Largest Local REALTOR® Association",
     "300+ Partner Associations",
     "2 Million+ Professionals",
-    "70+ Countries",
+    "75+ Countries",
     "Madrid Referral Channels",
     "LATAM Advisory Network",
     "FIABCI · International Federation",

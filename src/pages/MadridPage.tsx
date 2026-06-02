@@ -40,9 +40,9 @@ const COPY = {
     proofEyebrow: "Madrid proof anchors",
     proofTitle: "The data behind the demand.",
     proof: [
-      { title: "Top Countries Searching South Florida", body: "MIAMI Realtors international search data — where global demand for South Florida property originates.", pending: "MIAMI co-branded flyer — pending asset integration" },
-      { title: "Miami International Airport — Direct Flights", body: "Direct connectivity between Madrid and Miami International Airport, the access layer behind cross-border ownership.", pending: "MIA statistics sheet — pending asset integration" },
-      { title: "MIAMI International Magazine — Spanish Edition", body: "The association's Spanish-language editorial reaching the international buyer audience.", pending: "Latest Spanish edition — pending asset integration" },
+      { title: "Top Countries Searching South Florida", body: "MIAMI Realtors international search data — where global demand for South Florida property originates.", pending: "MIAMI co-branded flyer — available on request" },
+      { title: "Miami International Airport — Direct Flights", body: "Direct connectivity between Madrid and Miami International Airport, the access layer behind cross-border ownership.", pending: "MIA statistics sheet — available on request" },
+      { title: "MIAMI International Magazine — Spanish Edition", body: "The association's Spanish-language editorial reaching the international buyer audience.", pending: "Latest Spanish edition — available on request" },
     ],
   },
   es: {
@@ -71,9 +71,9 @@ const COPY = {
     proofEyebrow: "Anclas de prueba — Madrid",
     proofTitle: "Los datos detrás de la demanda.",
     proof: [
-      { title: "Principales países que buscan el Sur de Florida", body: "Datos de búsqueda internacional de MIAMI Realtors — de dónde procede la demanda global de propiedad en el Sur de Florida.", pending: "Folleto co-marca MIAMI — pendiente de integración" },
-      { title: "Aeropuerto Internacional de Miami — Vuelos directos", body: "Conectividad directa entre Madrid y el Aeropuerto Internacional de Miami, la capa de acceso tras la propiedad transfronteriza.", pending: "Hoja de estadísticas MIA — pendiente de integración" },
-      { title: "MIAMI International Magazine — Edición en español", body: "La publicación en español de la asociación que llega al público comprador internacional.", pending: "Última edición en español — pendiente de integración" },
+      { title: "Principales países que buscan el Sur de Florida", body: "Datos de búsqueda internacional de MIAMI Realtors — de dónde procede la demanda global de propiedad en el Sur de Florida.", pending: "Folleto co-marca MIAMI — disponible a petición" },
+      { title: "Aeropuerto Internacional de Miami — Vuelos directos", body: "Conectividad directa entre Madrid y el Aeropuerto Internacional de Miami, la capa de acceso tras la propiedad transfronteriza.", pending: "Hoja de estadísticas MIA — disponible a petición" },
+      { title: "MIAMI International Magazine — Edición en español", body: "La publicación en español de la asociación que llega al público comprador internacional.", pending: "Última edición en español — disponible a petición" },
     ],
   },
 } as const;

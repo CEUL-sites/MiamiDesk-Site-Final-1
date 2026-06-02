@@ -91,7 +91,7 @@ export const ExposureSyndication = () => {
       id="syndication"
       ref={sectionRef}
       className="bg-navy-deep py-12 md:py-20 text-white overflow-hidden"
-      aria-label="Listing syndication network — 200 plus verified platforms"
+      aria-label="Listing syndication network — 500 plus global websites in 19 languages"
     >
       {/* Inject float keyframes once */}
       <style>{FLOAT_STYLES}</style>

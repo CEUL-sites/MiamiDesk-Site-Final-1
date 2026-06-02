@@ -58,7 +58,7 @@ const STEPS = [
     label: "COORDINATION",
     headline: "Showings. Local expertise. Both sides.",
     sub: "Local Spanish agencies within Carlos's affiliated network handle buyer qualification, showings, and local negotiation. The seller has both markets working in parallel.",
-    stat: "300+ partner associations · 70+ countries",
+    stat: "300+ partner associations · 75+ countries",
     side: "left" as const,
     color: GOLD,
   },

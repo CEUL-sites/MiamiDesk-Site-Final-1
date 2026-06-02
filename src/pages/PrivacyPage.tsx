@@ -61,7 +61,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-navy">5. Analytics</h2>
-              <p className="mt-4">This site may use analytics services (Google Analytics 4, Meta Pixel, LinkedIn Insight Tag) to understand traffic patterns and improve service delivery. These services set their own cookies and may collect device and behavioral data. You may opt out of analytics cookies via the cookie preference control on this site. <em>TODO: Update this section once analytics tags are confirmed active.</em></p>
+              <p className="mt-4">This site may use analytics services (Google Analytics 4, Meta Pixel, LinkedIn Insight Tag) to understand traffic patterns and improve service delivery. These services set their own cookies and may collect device and behavioral data. You may opt out of analytics cookies via the cookie preference control on this site.</p>
             </section>
 
             <section>

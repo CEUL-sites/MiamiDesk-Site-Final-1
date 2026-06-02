@@ -46,7 +46,7 @@ const PILLARS = [
   },
   {
     title: "International demand",
-    body: "An international referral network of 2 million+ professionals across 300+ partner associations in 70+ countries reaches the agents who represent Latin American, European, and Spanish buyers.",
+    body: "An international referral network of 2 million+ professionals across 300+ partner associations in 75+ countries reaches the agents who represent Latin American, European, and Spanish buyers.",
   },
 ];
 
