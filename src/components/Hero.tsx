@@ -123,9 +123,10 @@ export function Hero() {
             {/* Eyebrow */}
             <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
               <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3.5 py-1.5">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
                 <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">
-                  South Florida · Miami Realtors Association · Global Real Estate Network
+                  <span className="sm:hidden">South Florida · Global Real Estate Network</span>
+                  <span className="hidden sm:inline">South Florida · Miami Realtors Association · Global Real Estate Network</span>
                 </span>
               </span>
             </motion.div>
@@ -134,9 +135,10 @@ export function Hero() {
             <motion.h1
               variants={item}
               className="mt-6 font-serif leading-[1.05] text-white"
-              style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.6rem)", fontWeight: 400 }}
+              style={{ fontSize: "clamp(1.5rem, 5.5vw, 4.6rem)", fontWeight: 400 }}
             >
-              Sell With the Reach of the<br />
+              Sell With the Reach of the
+              <br className="hidden lg:block" aria-hidden="true" />{" "}
               <em className="not-italic italic text-gold">World's Largest Local Realtor® Network.</em>
             </motion.h1>
 
@@ -198,16 +200,16 @@ export function Hero() {
             </motion.div>
 
             {/* CTAs */}
-            <motion.div variants={item} className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+            <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-start">
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-gold px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 bg-gold px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 Request Seller Strategy Review
               </a>
               <a
                 href="/spain-desk"
-                className="hero-pill inline-flex items-center justify-center gap-2 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 whitespace-nowrap"
+                className="hero-pill inline-flex items-center justify-center gap-2 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70"
               >
                 Submit a Property for Miami Exposure →
               </a>
