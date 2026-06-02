@@ -53,10 +53,10 @@ export default function SpainDeskPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
-          {/* Miami ↔ Spain split background */}
+          {/* Miami ↔ Madrid cinematic transition backdrop */}
           <video autoPlay muted loop playsInline aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.15] pointer-events-none">
-            <source src="/videos/split_miami_spain_mls.mp4" type="video/mp4" />
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none">
+            <source src="/videos/miami_madrid_transition.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/30 to-navy-deep/80 pointer-events-none" />
           <div className="relative">
@@ -146,7 +146,7 @@ export default function SpainDeskPage() {
               {MESSAGING.spainCooperation}
             </p>
 
-            {/* Featured video — split Miami ↔ Spain */}
+            {/* Featured video — Miami ↔ Madrid cinematic transition */}
             <div className="mt-10 relative overflow-hidden" style={{ aspectRatio: "16/7" }}>
               <video
                 autoPlay
@@ -155,9 +155,9 @@ export default function SpainDeskPage() {
                 playsInline
                 aria-hidden="true"
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ opacity: 0.72 }}
+                style={{ opacity: 0.82 }}
               >
-                <source src="/videos/split_foto_miami_spain_mls.mp4" type="video/mp4" />
+                <source src="/videos/miami_madrid_transition.mp4" type="video/mp4" />
               </video>
               {/* Edge fade for cinematic feel */}
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/40 pointer-events-none" />
