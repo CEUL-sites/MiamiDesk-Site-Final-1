@@ -10,20 +10,36 @@ import { CONTACT, LEAD_MAGNETS, MESSAGING } from "../constants";
 
 const SERVICES = [
   {
-    title: "Spanish Property Exposure",
-    body: "Qualified Spanish properties introduced to the South Florida agent network through professional referral and marketing channels.",
+    num: "01",
+    tag: "Property Owners",
+    title: "Spanish Property Into the Miami MLS",
+    body: "Your property enters the Miami & South Florida REALTORS® MLS as a listed asset — not a referral, not a portal upload. 93,000 member agents, 500+ global websites in 19 languages, and an international referral network reaching 2 million+ professionals.",
+    outcome: "Structural distribution. The same infrastructure behind South Florida's $69B annual sales volume.",
+    stat: "93,000 agents · Day One",
   },
   {
-    title: "Cooperating Broker Coordination",
-    body: "Formal broker-to-broker agreements between Spanish agencies and United Realty Group, through the correct licensed professional relationship.",
+    num: "02",
+    tag: "Spanish Agencies",
+    title: "Cooperating Broker Agreements",
+    body: "Formal MOU or broker-to-broker referral agreement before any introduction. Compensation is documented. Client ownership is clear from the first conversation. The relationship is professional, protected, and repeatable — not a one-time favor between contacts.",
+    outcome: "You keep your client. We document the cooperation. Both sides close with clarity.",
+    stat: "Compliant · Documented · Repeatable",
   },
   {
-    title: "Marketing to South Florida Buyers",
-    body: "Professional presentation packages in English targeting investor profiles, relocation buyers, and LATAM-connected buyers who know the Spanish market.",
+    num: "03",
+    tag: "Agencies & Developers",
+    title: "Marketing to U.S. Buyer Profiles",
+    body: "Professional presentation packages in English targeting the three dominant buyer profiles: LATAM-connected investors who understand both markets, European portfolio buyers diversifying into U.S. assets, and South Florida residents with family and capital in Spain.",
+    outcome: "Your listing speaks the language, format, and price expectations of serious U.S. buyers.",
+    stat: "3 buyer profiles · Bilingual execution",
   },
   {
-    title: "Agencies & Developer Representation",
-    body: "A licensed Florida channel into 93,000 member agents and the full international distribution infrastructure for Spanish agencies and developers.",
+    num: "04",
+    tag: "Developers · Large Portfolios",
+    title: "Full Network Distribution Channel",
+    body: "One professional relationship opens the entire South Florida infrastructure: 93,000 MLS member agents, United Realty Group's 3,500+ agents across 20 Florida offices, 300+ international partner associations in 75+ countries, and direct access to the LATAM referral pipeline.",
+    outcome: "Not a marketing package. A licensed Florida channel into the world's most internationally connected local REALTOR® network.",
+    stat: "300+ partner associations · 75+ countries",
   },
 ];
 
@@ -112,23 +128,55 @@ export default function SpainDeskPage() {
         {/* Service Cards */}
         <section className="bg-navy-deep pt-12 pb-16 md:pt-16 md:pb-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What the Spain Desk handles</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
-              Professional exposure pathways. Compliant by design.
-            </h2>
-            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-white/60">
-              Carlos Uzcategui is a Florida-licensed Realtor® — not a Spanish broker. Spanish properties are handled
-              through referral, marketing, cooperating broker, or advisory relationships. The mechanism is professional
-              and fully documented.
-            </p>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What the Spain Desk handles</p>
+                <h2 className="mt-4 max-w-2xl font-serif text-3xl leading-tight text-white md:text-4xl">
+                  Four ways to engage.<br />
+                  <em className="not-italic italic text-gold">One compliant professional relationship.</em>
+                </h2>
+              </div>
+              <p className="max-w-xs font-mono text-[9px] uppercase tracking-[0.15em] text-white/35 sm:text-right leading-relaxed">
+                Carlos is a Florida-licensed Realtor® — not a Spanish broker. Every engagement is documented before any introduction.
+              </p>
+            </div>
+
+            <div className="grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
               {SERVICES.map((item) => (
-                <div key={item.title} className="border border-white/10 p-7">
-                  <h3 className="font-serif text-xl text-white">{item.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/60">{item.body}</p>
+                <div key={item.num} className="relative bg-navy-deep p-7 md:p-8 flex flex-col gap-4">
+                  {/* Number + tag row */}
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-mono text-[11px] font-semibold text-gold/60 tracking-[0.22em]">{item.num}</span>
+                    <span className="rounded-full border border-gold/25 bg-gold/[0.06] px-2.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.18em] text-gold/70">
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-serif text-xl leading-snug text-white">{item.title}</h3>
+
+                  {/* Divider */}
+                  <div className="h-px w-10 bg-gold/30" />
+
+                  {/* Body */}
+                  <p className="font-sans text-sm leading-relaxed text-white/60 flex-1">{item.body}</p>
+
+                  {/* Outcome */}
+                  <div className="flex items-start gap-2 border-t border-white/8 pt-4 mt-1">
+                    <span className="mt-0.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                    <p className="font-sans text-xs leading-relaxed text-white/50 italic">{item.outcome}</p>
+                  </div>
+
+                  {/* Stat */}
+                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/50">{item.stat}</p>
                 </div>
               ))}
             </div>
+
+            {/* Bottom trust line */}
+            <p className="mt-8 font-mono text-[8px] uppercase tracking-[0.18em] text-white/25">
+              United Realty Group · FL SL705771 · All cross-border engagements are documented through formal referral or cooperating broker agreements before any introduction.
+            </p>
           </div>
         </section>
 
