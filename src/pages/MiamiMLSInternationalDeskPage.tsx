@@ -56,11 +56,11 @@ export default function MiamiMLSInternationalDeskPage() {
         <Navbar />
 
         {/* Hero */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
-          {/* Best Exposure for Listings background — compress to <4MB for prod */}
+        <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
+          {/* Miami Realtor Association — network reach backdrop */}
           <video autoPlay muted loop playsInline aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.10] pointer-events-none">
-            <source src="/videos/best_exposure_listings.mp4" type="video/mp4" />
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.18] pointer-events-none">
+            <source src="/videos/miami_realtor_association.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/75 via-navy-deep/40 to-navy-deep/85 pointer-events-none" />
           <div className="relative">
@@ -113,7 +113,7 @@ export default function MiamiMLSInternationalDeskPage() {
         </section>
 
         {/* What this desk handles */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
+        <section className="bg-navy-deep pt-12 pb-16 md:pt-16 md:pb-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What the international desk handles</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
@@ -135,6 +135,28 @@ export default function MiamiMLSInternationalDeskPage() {
                   <p className="mt-3 font-sans text-sm leading-relaxed text-white/60">{item.body}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Network reach cinematic panel */}
+            <div className="mt-12 relative overflow-hidden" style={{ aspectRatio: "16/6" }}>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ opacity: 0.80 }}
+              >
+                <source src="/videos/miami_realtor_association.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/75 via-transparent to-navy-deep/40 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/30 via-transparent to-navy-deep/30 pointer-events-none" />
+              <div className="absolute bottom-0 inset-x-0 flex items-center justify-center gap-6 pb-5">
+                <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/60">Miami &amp; South Florida REALTORS®</span>
+                <span className="h-px w-10 bg-gold/50" />
+                <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/60">93,000 Member Agents</span>
+              </div>
             </div>
           </div>
         </section>
