@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import { CONTACT } from "../constants";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-
 type NavChild = { name: string; href: string };
 type NavItem  = { name: string; href: string; children?: NavChild[] };
 

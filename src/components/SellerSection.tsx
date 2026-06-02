@@ -1,6 +1,6 @@
 import { Activity, FileEdit, Layers, Scale, Send } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { CONTACT } from "../constants";
 
 const STEPS = [
@@ -36,7 +36,7 @@ function PopParticles({ active }: { active: boolean }) {
 }
 
 // ── Phone frame ────────────────────────────────────────────────────────────────
-function PhoneFrame({ children }: { children: React.ReactNode }) {
+function PhoneFrame({ children }: { children: ReactNode }) {
   return (
     <div
       className="relative overflow-hidden rounded-[2.6rem] bg-black shadow-2xl shadow-black/60 ring-[3px] ring-white/10"
