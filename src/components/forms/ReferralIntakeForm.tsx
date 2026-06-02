@@ -4,7 +4,7 @@ import { CONTACT } from "../../constants";
 import { pushEvent } from "../../lib/analytics";
 
 const INITIAL: Record<string, string> = {
-  licenseeName: "", brokerageName: "", country: "", referralType: "",
+  licenseeName: "", brokerageName: "", email: "", phone: "", country: "", referralType: "",
   clientSummary: "", preferredContact: "Email", source: "referral-intake",
 };
 
@@ -37,7 +37,7 @@ export function ReferralIntakeForm() {
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formName: "referral-intake", name: form.licenseeName, email: "", brokerage: form.brokerageName }),
+        body: JSON.stringify({ formName: "referral-intake", name: form.licenseeName, email: form.email, phone: form.phone, brokerage: form.brokerageName }),
       }).catch(() => {});
       pushEvent("form_submit_agent"); window.location.href = "/thanks/agent";
     } catch (e: unknown) {
@@ -98,6 +98,15 @@ export function ReferralIntakeForm() {
           </Field>
           <Field label="Brokerage / Agency *">
             <input required name="brokerageName" type="text" placeholder="Firm name" className="form-input" value={form.brokerageName} onChange={set("brokerageName")} />
+          </Field>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field label="Email Address *">
+            <input required name="email" type="email" placeholder="your@email.com" className="form-input" value={form.email} onChange={set("email")} />
+          </Field>
+          <Field label="Phone / WhatsApp *">
+            <input required name="phone" type="tel" placeholder="+1 or +34…" className="form-input" value={form.phone} onChange={set("phone")} />
           </Field>
         </div>
 

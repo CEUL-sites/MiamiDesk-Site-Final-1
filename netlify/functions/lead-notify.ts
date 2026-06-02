@@ -3,7 +3,8 @@ import type { Handler, HandlerEvent } from "@netlify/functions";
 // Set these in Netlify → Site settings → Environment variables:
 // GOOGLE_SHEET_WEBHOOK  — the Apps Script web app URL (see setup guide)
 // CALLMEBOT_APIKEY      — your CallMeBot API key (see setup guide)
-const SHEET_WEBHOOK = process.env.GOOGLE_SHEET_WEBHOOK ?? "";
+// Uses the same env var as submission-created.ts — set GOOGLE_SHEETS_WEBHOOK_URL in Netlify dashboard.
+const SHEET_WEBHOOK = process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "";
 const CALLMEBOT_KEY = process.env.CALLMEBOT_APIKEY ?? "";
 const NOTIFY_PHONE = "19548656622"; // Carlos's WhatsApp — no + or spaces
 

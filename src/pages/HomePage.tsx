@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { MLSTicker } from "../components/MLSTicker";
 import { ReachAdvantage } from "../components/ReachAdvantage";
+import { BuyerAgentThesis } from "../components/BuyerAgentThesis";
 import { IntelligenceDesk } from "../components/IntelligenceDesk";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { InternationalBridge } from "../components/InternationalBridge";
@@ -17,11 +18,11 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>South Florida Listing Agent · Sell Your Home | Carlos Uzcategui | HomesProfessional.com</title>
-        <meta name="description" content="Carlos Uzcategui, FL SL705771 — South Florida listing agent and REALTOR® with United Realty Group. Sell your Miami, Coral Gables, Weston, or Miami Beach property with professional MLS exposure, buyer-agent activation, and international distribution." />
+        <meta name="description" content="Carlos Uzcategui, FL SL705771 — South Florida listing agent, United Realty Group. MLS exposure, buyer-agent activation, and professional distribution across Miami-Dade, Broward, and Palm Beach. Most buyers purchase through an agent — the listing strategy must reach both markets." />
         <meta name="keywords" content="south florida listing agent, miami listing agent, sell home miami, sell home coral gables, sell home weston florida, miami beach listing agent, brickell condo listing agent, south florida realtor, miami mls listing, united realty group miami" />
         <link rel="canonical" href="https://homesprofessional.com/" />
         <meta property="og:title" content="South Florida Listing Agent · Sell Your Home | HomesProfessional.com" />
-        <meta property="og:description" content="Professional seller representation across Miami-Dade, Broward, and Palm Beach. 25 years licensed · United Realty Group · Miami & South Florida REALTORS® · 93,000 member agents." />
+        <meta property="og:description" content="Local representation. Professional distribution. Global buyer reach. MLS exposure plus buyer-agent activation across 93,000 member agents — South Florida and international markets." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
@@ -76,6 +77,7 @@ export default function HomePage() {
         </div>
         <MLSTicker />
         <ReachAdvantage />
+        <BuyerAgentThesis />
         <IntelligenceDesk />
         <BuyersRelocation />
         <InternationalBridge />

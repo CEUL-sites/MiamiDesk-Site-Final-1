@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { LeadForm } from "../components/LeadForm";
-import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CONTACT, LEAD_MAGNETS, SOURCES } from "../constants";
 
 const PROPERTY_TYPES = [
   {
@@ -143,6 +143,50 @@ export default function DevelopersAgenciesPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Agent Activation — not just portal exposure */}
+        <section className="bg-white py-20 md:py-28 border-t border-hairline">
+          <div className="mx-auto max-w-5xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              Distribution Strategy
+            </p>
+            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+              Distribution is not only portal exposure.<br />
+              <em className="not-italic italic">It is agent activation.</em>
+            </h2>
+            <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
+              For developers and agencies, getting a property onto portals is step one — not the strategy.
+              {" "}{SOURCES.buyerAgentStatement} Buyer agents and referral partners need the right facts,
+              pricing logic, high-quality visuals, availability clarity, and a professional who responds quickly.
+              A listing that reaches the right agents, prepared correctly, moves. A listing that only exists
+              on portals waits.
+            </p>
+            <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
+              {[
+                {
+                  title: "Facts & Positioning",
+                  body: "Accurate data, clear pricing logic, and a property narrative that buyer agents can explain to their clients with confidence.",
+                },
+                {
+                  title: "Agent-Ready Materials",
+                  body: "Professional media, broker remarks, showing instructions, and documentation packages built for the professional receiving the listing, not just the consumer.",
+                },
+                {
+                  title: "Response & Follow-Through",
+                  body: "Fast response to buyer-agent inquiries, showing coordination, and active follow-up after agent visits — because momentum in the professional network drives offers.",
+                },
+              ].map((c) => (
+                <div key={c.title} className="bg-ivory p-7">
+                  <h3 className="font-serif text-lg text-navy-deep">{c.title}</h3>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{c.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.16em] text-ink-primary/35">
+              Source: {SOURCES.nar}
+            </p>
           </div>
         </section>
 

@@ -1,6 +1,6 @@
 import { Activity, FileEdit, Layers, Scale, Send } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { CONTACT } from "../constants";
 
 const STEPS = [
@@ -36,7 +36,7 @@ function PopParticles({ active }: { active: boolean }) {
 }
 
 // ── Phone frame ────────────────────────────────────────────────────────────────
-function PhoneFrame({ children }: { children: React.ReactNode }) {
+function PhoneFrame({ children }: { children: ReactNode }) {
   return (
     <div
       className="relative overflow-hidden rounded-[2.6rem] bg-black shadow-2xl shadow-black/60 ring-[3px] ring-white/10"
@@ -61,9 +61,9 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 // ── Video slide labels ─────────────────────────────────────────────────────────
 const SLIDES = [
   {
-    src: "/videos/cinematic_house_reach.mp4",
-    label: "Cinematic property reach",
-    badge: "REACH",
+    src: "/videos/dollhouse_global_reach.mp4",
+    label: "Global property marketing reach",
+    badge: "GLOBAL REACH",
   },
   {
     src: "/videos/luxury_advisor_digital.mp4",
@@ -195,8 +195,8 @@ export function SellerSection() {
             </div>
           </div>
 
-          {/* Phone bubble — centered below headline on mobile, right on desktop */}
-          <div className="flex-shrink-0">
+          {/* Phone bubble — hidden on mobile (avoids black frame on small screens), visible lg+ */}
+          <div className="hidden lg:block flex-shrink-0">
             <PhoneBubblePlayer />
           </div>
         </div>

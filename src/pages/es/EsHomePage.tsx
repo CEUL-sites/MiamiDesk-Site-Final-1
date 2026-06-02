@@ -74,7 +74,7 @@ export default function EsHomePage() {
           {/* Photo layer */}
           <div className="absolute inset-0">
             <img
-              src="/images/hero-bg.jpg"
+              src="/images/miami-realtors-rworld.jpg"
               alt=""
               aria-hidden="true"
               width="1920"
