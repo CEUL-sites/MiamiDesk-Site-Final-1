@@ -6,6 +6,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
+import { ExposureSyndication } from "../components/ExposureSyndication";
 import { SellerProcess } from "../components/SellerProcess";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { Testimonials } from "../components/Testimonials";
@@ -256,6 +257,7 @@ export default function SellSouthFloridaPage() {
         </section>
 
         <SellerProcess />
+        <ExposureSyndication />
         <Testimonials />
         <GlobalPartnerNetwork />
 
