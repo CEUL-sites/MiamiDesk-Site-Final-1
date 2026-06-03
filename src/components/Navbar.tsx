@@ -4,61 +4,18 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT } from "../constants";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { UrgLogo } from "./UrgLogo";
 
 type NavItem = { name: string; href: string };
 
 const NAV_ITEMS: NavItem[] = [
-  {
-    name: "Sellers", href: "/sell-south-florida",
-    children: [
-      { name: "Sell in South Florida",  href: "/sell-south-florida" },
-      { name: "Sell in Weston",         href: "/sell-weston" },
-      { name: "Sell in Coral Gables",   href: "/sell-coral-gables" },
-      { name: "Free Home Valuation",    href: "/home-value" },
-    ],
-  },
-  { name: "Buyers",  href: "/buy" },
-  {
-    name: "Markets", href: "/markets",
-    children: [
-      { name: "South Florida",    href: "/markets" },
-      { name: "Greater Miami",    href: "/markets" },
-      { name: "Broward",          href: "/markets" },
-      { name: "Palm Beach",       href: "/markets" },
-      { name: "New Construction", href: "/new-construction" },
-      { name: "MLS Listings",     href: "/listings" },
-      { name: "Madrid",           href: "/markets" },
-      { name: "Global Desk",      href: "/spain-desk" },
-    ],
-  },
-  {
-    name: "Agents", href: "/agents",
-    children: [
-      { name: "International Listing Partners", href: "/agents" },
-      { name: "Submit a Listing",              href: "/agents#submit-listing" },
-      { name: "South Florida Referral Desk",   href: "/agents#south-florida-referral" },
-      { name: "Miami MLS International Desk",  href: "/miami-mls-international-desk" },
-    ],
-  },
-  {
-    name: "Global Desk", href: "/spain-desk",
-    children: [
-      { name: "List International Property", href: "/spain-desk" },
-      { name: "Agencies & Developers",       href: "/developers-agencies" },
-      { name: "Refer Buyers to Spain",       href: "/spain-desk" },
-      { name: "Madrid Desk",                 href: "/markets" },
-      { name: "Submit Property",             href: "/contact" },
-    ],
-  },
-  { name: "Journal", href: "/journal" },
-  {
-    name: "Contact", href: "/contact",
-    children: [
-      { name: "Request a Review",  href: "/contact" },
-      { name: "Client Reviews",    href: "/reviews" },
-      { name: "About Carlos",      href: "/about" },
-    ],
-  },
+  { name: "Sellers",     href: "/sell-south-florida" },
+  { name: "Buyers",      href: "/buy" },
+  { name: "Markets",     href: "/markets" },
+  { name: "Agents",      href: "/agents" },
+  { name: "Global Desk", href: "/spain-desk" },
+  { name: "Journal",     href: "/journal" },
+  { name: "Contact",     href: "/contact" },
 ];
 
 export function Navbar() {
@@ -94,20 +51,7 @@ export function Navbar() {
           aria-label="HomesProfessional.com — Carlos Uzcategui, Florida REALTOR®"
           className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}
         >
-          <div
-            className="transition-all duration-500 rounded"
-            style={{
-              background: scrolled ? "transparent" : "rgba(255,255,255,0.96)",
-              padding: scrolled ? "0" : "3px 8px",
-            }}
-          >
-            <img
-              src="/images/urg-logo-original.png"
-              alt="United Realty Group"
-              className="w-auto block"
-              style={{ height: "clamp(2.2rem, 3.5vw, 2.8rem)" }}
-            />
-          </div>
+          <UrgLogo className="h-8 w-auto sm:h-9" />
           <span className="hidden flex-col leading-none border-l border-current/20 pl-3 xl:flex">
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
             <span className="font-mono uppercase leading-none opacity-50 mt-1" style={{ fontSize: "0.5rem", letterSpacing: "0.2em" }}>
@@ -186,13 +130,7 @@ export function Navbar() {
               {/* Drawer header */}
               <div className="flex items-start justify-between">
                 <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
-                  <div className="rounded" style={{ background: "rgba(255,255,255,0.96)", padding: "3px 8px", display: "inline-block" }}>
-                    <img
-                      src="/images/urg-logo-original.png"
-                      alt="United Realty Group"
-                      className="h-9 w-auto block"
-                    />
-                  </div>
+                  <UrgLogo className="h-9 w-auto" />
                   <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/40">
                     Carlos Uzcategui · Florida REALTOR® since 2001
                   </span>

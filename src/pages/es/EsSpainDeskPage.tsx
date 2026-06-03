@@ -6,6 +6,7 @@ import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { LazyVideo } from "../../components/LazyVideo";
 import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { AgencyPartnerForm } from "../../components/forms/AgencyPartnerForm";
+import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 
 const SERVICE_TIERS = [
@@ -95,6 +96,24 @@ const FAQ_ITEMS = [
   {
     q: "¿Cuál es la diferencia entre la tarifa mensual y la comisión de referral?",
     a: "La tarifa mensual de servicios de marketing la paga la agencia española o el propietario por los servicios de distribución en curso — alta en el MLS, sindicación, outreach y reporting. Es una tarifa profesional, no condicionada a la venta. La comisión de referral es un pago separado y contingente, que solo se abona en caso de cierre exitoso, a través de URG y según el acuerdo escrito.",
+  },
+];
+
+const AUDIENCE_CARDS = [
+  {
+    icon: FileText,
+    title: "Propietarios de inmuebles en España",
+    description: "Vendedores con propiedades en España que buscan exposición activa en el mercado americano más allá de los portales locales.",
+  },
+  {
+    icon: Shield,
+    title: "Agencias inmobiliarias españolas",
+    description: "Agencias que quieren ofrecer a sus clientes propietarios una capa de exposición hacia Sur de Florida — y ganar más mandatos en el proceso.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Promotores y carteras de activos",
+    description: "Promotores con inventario amplio o activos institucionales que necesitan un canal americano estructurado y un profesional licenciado en Florida.",
   },
 ];
 
@@ -615,16 +634,16 @@ export default function EsSpainDeskPage() {
 
             <div className="space-y-8">
               {PROCESS_STEPS.map((step) => (
-                <div key={step.number} className="flex gap-8">
+                <div key={step.num} className="flex gap-8">
                   <div className="flex-shrink-0 font-mono text-[13px] font-semibold text-gold">
-                    {step.number}
+                    {step.num}
                   </div>
                   <div>
                     <h3 className="font-serif text-xl text-white">
                       {step.title}
                     </h3>
                     <p className="mt-2 font-sans text-sm leading-relaxed text-white/60">
-                      {step.description}
+                      {step.body}
                     </p>
                   </div>
                 </div>
@@ -686,7 +705,6 @@ export default function EsSpainDeskPage() {
                   ))}
                 </ul>
               </div>
-            </div>
           </div>
         </section>
 

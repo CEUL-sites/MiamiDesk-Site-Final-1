@@ -6,24 +6,9 @@ import { HeroSellerForm } from "./HeroSellerForm";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const VIDEO_BUBBLES = [
-  {
-    src: "/videos/luxury_waterfront_drone.mp4",
-    label: "Aerial View",
-    delay: 1.25,
-    featured: false,
-  },
-  {
-    src: "/videos/dollhouse_rotating_hands.mp4",
-    label: "3D Marketing",
-    delay: 1.1,
-    featured: true,
-  },
-  {
-    src: "/videos/dollhouse_global_reach.mp4",
-    label: "Global Reach",
-    delay: 1.4,
-    featured: false,
-  },
+  { src: "/videos/luxury_waterfront_drone.mp4", label: "Waterfront Properties", delay: 1.25, featured: false },
+  { src: "/videos/dollhouse_rotating_hands.mp4", label: "3D Marketing",          delay: 1.1,  featured: true  },
+  { src: "/videos/dollhouse_global_reach.mp4",   label: "Global Reach",          delay: 1.4,  featured: false },
 ];
 
 const container: Variants = {
@@ -35,7 +20,6 @@ const item: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 
-/* Animated marquee — markets served + URG footprint + network stats */
 const MARQUEE_ITEMS: { t: string; gold?: true }[] = [
   { t: "South Florida",                  gold: true  },
   { t: "Miami-Dade County"                           },
@@ -137,156 +121,54 @@ export function Hero() {
             </span>
           </motion.div>
 
-            {/* Headline */}
-            <motion.h1
-              variants={item}
-              className="mt-6 font-serif leading-[1.05] text-white break-words"
-              style={{ fontSize: "clamp(1.35rem, 5.2vw, 4.6rem)", fontWeight: 400 }}
-            >
-              Sell With the Reach of the
-              <br className="hidden lg:block" aria-hidden="true" />{" "}
-              <em className="not-italic italic text-gold">World's Largest Local Realtor® Network.</em>
-            </motion.h1>
+          {/* Headline */}
+          <motion.h1
+            variants={item}
+            className="mt-6 font-serif leading-[1.05] text-white"
+            style={{ fontSize: "clamp(1.9rem, 5.5vw, 4.8rem)", fontWeight: 400 }}
+          >
+            Sell With the Reach of the
+            <br className="hidden md:block" aria-hidden="true" />{" "}
+            <em className="italic text-gold">World's Largest Local Realtor® Network.</em>
+          </motion.h1>
 
-            {/* Video bubble trio — directly under the headline, labels below each circle */}
-            <motion.div variants={item} className="mt-7 flex items-start justify-center gap-4 sm:gap-6 lg:justify-start">
-              {VIDEO_BUBBLES.map((b) => (
-                <div key={b.src} className="flex flex-col items-center gap-2">
-                  <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ type: "spring", stiffness: 280, damping: 20, delay: b.delay }}
-                    className="relative overflow-hidden rounded-full flex-shrink-0"
-                    style={{
-                      width:  b.featured ? "clamp(90px,14vw,140px)" : "clamp(64px,10vw,100px)",
-                      height: b.featured ? "clamp(90px,14vw,140px)" : "clamp(64px,10vw,100px)",
-                      border: b.featured ? "2px solid rgba(176,141,87,0.65)" : "2px solid rgba(176,141,87,0.30)",
-                      boxShadow: b.featured
-                        ? "0 0 32px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)"
-                        : "0 0 16px rgba(176,141,87,0.18)",
-                    }}
-                  >
-                    <video
-                      autoPlay muted loop playsInline aria-hidden="true"
-                      className="absolute inset-0 h-full w-full object-cover"
-                    >
-                      <source src={b.src} type="video/mp4" />
-                    </video>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent pointer-events-none" />
-                  </motion.div>
-                  <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.16em] text-white/55 whitespace-nowrap leading-none">
-                    {b.label}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* "Your property. Our reach." tagline between bubbles and sub-copy */}
-            <motion.div variants={item} className="mt-5 flex items-center gap-2.5">
-              <div className="h-px flex-1 bg-white/[0.07]" />
-              <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
-              <div className="h-px flex-1 bg-white/[0.07]" />
-            </motion.div>
-
-            {/* Network reach — scrolling ticker */}
-            <motion.div variants={item} className="relative mt-5 mx-auto lg:mx-0 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
-              <style>{`
-                @keyframes exposure-scroll {
-                  from { transform: translateX(0); }
-                  to   { transform: translateX(-50%); }
-                }
-                .exposure-track {
-                  animation: exposure-scroll 22s linear infinite;
-                  display: flex;
-                  will-change: transform;
-                }
-                .exposure-track:hover { animation-play-state: paused; }
-                @media (prefers-reduced-motion: reduce) {
-                  .exposure-track { animation: none; }
-                }
-              `}</style>
-              {/* Left/right fade edges */}
-              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-[#060D18] to-transparent" />
-              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
-              <div className="exposure-track">
-                {[0, 1].map((copy) => (
-                  <span key={copy} className="flex shrink-0 items-center gap-1.5 pl-6 pr-16 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
-                    Senior seller representation ·{" "}
-                    <span className="text-gold/75">South Florida &amp; select intl. owners</span>
-                    {" "}· one of the world's most powerful real estate networks ·{" "}
-                    <span className="text-white/75">93,000</span> member agents ·{" "}
-                    <span className="text-white/75">260+</span> MLS connections ·{" "}
-                    <span className="text-white/75">300+</span> global partner associations ·{" "}
-                    <span className="text-white/75">437+</span> international agreements ·{" "}
-                    <span className="text-white/75">500+</span> websites where eligible
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Trust row */}
-            <motion.div variants={item} className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 lg:justify-start lg:gap-x-5">
-              {[
-                { icon: ShieldCheck, text: "Licensed Since 2001" },
-                { icon: Tag,         text: "CLHMS · Certified Seller Rep" },
-                { icon: Globe,       text: "United Realty Group" },
-              ].map(({ icon: Icon, text }) => (
-                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.12em] sm:tracking-[0.16em] text-white/45">
-                  <Icon size={12} className="text-gold/70 flex-shrink-0" />
-                  {text}
+          {/* Video bubble trio */}
+          <motion.div variants={item} className="mt-8 flex items-start justify-center gap-4 sm:gap-7">
+            {VIDEO_BUBBLES.map((b) => (
+              <div key={b.src} className="flex flex-col items-center gap-2.5">
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20, delay: b.delay }}
+                  className="relative overflow-hidden rounded-full flex-shrink-0"
+                  style={{
+                    width:  b.featured ? "clamp(100px,16vw,148px)" : "clamp(78px,11vw,108px)",
+                    height: b.featured ? "clamp(100px,16vw,148px)" : "clamp(78px,11vw,108px)",
+                    border: b.featured ? "2px solid rgba(176,141,87,0.65)" : "2px solid rgba(176,141,87,0.30)",
+                    boxShadow: b.featured
+                      ? "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)"
+                      : "0 0 16px rgba(176,141,87,0.15)",
+                  }}
+                >
+                  <video autoPlay muted loop playsInline aria-hidden="true"
+                    className="absolute inset-0 h-full w-full object-cover">
+                    <source src={b.src} type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                </motion.div>
+                <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
+                  {b.label}
                 </span>
-              ))}
-            </motion.div>
-
-            {/* "Your property. Our reach." divider */}
-            <motion.div variants={item} className="mt-5 flex items-center gap-2.5">
-              <div className="h-px flex-1 bg-white/[0.07]" />
-              <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
-              <div className="h-px flex-1 bg-white/[0.07]" />
-            </motion.div>
-
-            {/* Network stats scrolling ticker */}
-            <motion.div variants={item} className="relative mt-5 mx-auto lg:mx-0 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
-              {/* Left/right fade edges */}
-              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-[#060D18] to-transparent" />
-              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
-              <div className="exposure-track">
-                {[0, 1].map((copy) => (
-                  <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
-                    <span className="text-gold/75">Network</span>
-                    {" "}·{" "}
-                    <span className="text-white/85">93,000</span> Members
-                    {" "}·{" "}
-                    <span className="text-white/85">260+</span> MLS Connections
-                    {" "}·{" "}
-                    <span className="text-white/85">300+</span> Partner Associations
-                    {" "}·{" "}
-                    <span className="text-white/85">437+</span> International Agreements
-                    {" "}·{" "}
-                    <span className="text-white/85">500+</span> Websites
-                    {" "}·{" "}
-                    Licensed Since <span className="text-white/85">2001</span>
-                  </span>
-                ))}
               </div>
             ))}
           </motion.div>
 
-            {/* CTAs */}
-            <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-start">
-              <a
-                href="/contact"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-gold px-5 sm:px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.14em] sm:tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90 text-center"
-              >
-                Request Seller Strategy Review
-              </a>
-              <a
-                href="/spain-desk"
-                className="hero-pill inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 sm:px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.14em] text-white/70 text-center"
-              >
-                Global Desk — Agency &amp; Referrals →
-              </a>
-            </motion.div>
+          {/* Divider */}
+          <motion.div variants={item} className="mt-6 flex w-full max-w-md items-center gap-3">
+            <div className="h-px flex-1 bg-white/[0.07]" />
+            <span className="font-mono text-[7px] uppercase tracking-[0.24em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
+            <div className="h-px flex-1 bg-white/[0.07]" />
+          </motion.div>
 
           {/* Subtitle */}
           <motion.p

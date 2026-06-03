@@ -7,6 +7,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { SpainMiamiJourney } from "../components/SpainMiamiJourney";
 import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
+import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { CONTACT, LEAD_MAGNETS, MESSAGING } from "../constants";
 
 const PROCESS_STEPS = [
@@ -41,6 +42,76 @@ const PROCESS_STEPS = [
     body: "One professional relationship opens the entire South Florida infrastructure: 93,000 MLS member agents, United Realty Group's 3,500+ agents across 20 Florida offices, 300+ international partner associations in 75+ countries, and direct access to the LATAM referral pipeline.",
     outcome: "Not a marketing package. A licensed Florida channel into the world's most internationally connected local REALTOR® network.",
     stat: "300+ partner associations · 75+ countries",
+  },
+];
+
+/* "Four ways to engage" service cards — same structure as PROCESS_STEPS */
+const SERVICES = PROCESS_STEPS;
+
+const SERVICE_TIERS = [
+  {
+    tier: "01",
+    name: "Listing Activation",
+    description: "South Florida channel access for agencies activating one to three properties in the U.S. market.",
+    includes: [
+      "MLS activation through URG as Florida broker of record",
+      "Syndication to 500+ portals in 19 languages",
+      "Bilingual property presentation (EN/ES)",
+      "Written referral agreement — client relationship protected",
+      "Distribution to 93,000 Miami REALTORS® member agents",
+    ],
+  },
+  {
+    tier: "02",
+    name: "Active Marketing",
+    popular: true,
+    description: "Full marketing execution with buyer-agent outreach and monthly performance reporting.",
+    includes: [
+      "Everything in Listing Activation",
+      "Targeted outreach to buyer agents with LATAM mandates",
+      "Monthly marketing performance report",
+      "Custom English buyer dossier",
+      "Inquiry management with priority response",
+    ],
+  },
+  {
+    tier: "03",
+    name: "Full Channel",
+    description: "Enterprise structure for agencies with broad inventory or developer mandates.",
+    includes: [
+      "Everything in Active Marketing",
+      "Monthly strategy sessions with Carlos",
+      "Support in negotiations with U.S. buyers",
+      "Pricing structures for portfolios and developers",
+      "Direct access to LATAM investor and South Florida referral network",
+    ],
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    q: "Can a Spanish property be listed in the Miami MLS?",
+    a: "Yes. As a licensed Florida principal of record, Carlos can activate Spanish properties within the Miami and South Florida REALTORS® MLS — reaching 93,000 member agents. This is a formal MLS listing, not a referral or portal upload. Subject to MLS rules, broker approval, and property eligibility.",
+  },
+  {
+    q: "Does my agency keep the client relationship?",
+    a: "Yes, always. The referral agreement is designed to protect your agency's representation with the property owner. You remain the seller's agent. Carlos manages the U.S.-side marketing channel and buyer agent coordination.",
+  },
+  {
+    q: "How is the referral commission paid at closing?",
+    a: "United Realty Group (licensed Florida broker) remits the referral commission to the Spanish agency at closing, per the signed referral agreement — typically around 1% of the sale price, negotiated and documented before activation.",
+  },
+  {
+    q: "Is Carlos licensed to practice real estate in Spain?",
+    a: "No. Carlos Uzcategui is licensed exclusively in Florida (FL SL705771, United Realty Group). Spanish and international services are provided through referral relationships and cooperating arrangements with local licensed professionals.",
+  },
+  {
+    q: "What does the initial property review cost?",
+    a: "The initial review is free and confidential. Carlos assesses the property's positioning potential, the most relevant South Florida buyer profiles, and what a formal MLS activation would look like — with no commitment required.",
+  },
+  {
+    q: "What is the difference between the monthly fee and the referral commission?",
+    a: "The monthly marketing services fee is paid by the Spanish agency or property owner for ongoing distribution — MLS coordination, syndication, outreach, and reporting. It is a professional services fee, not contingent on a sale. The referral commission is a separate, contingent payment only triggered at a successful closing, remitted through URG per the written agreement.",
   },
 ];
 
