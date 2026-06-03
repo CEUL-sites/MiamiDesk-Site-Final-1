@@ -204,6 +204,28 @@ export default function SellSouthFloridaPage() {
           </div>
         </section>
 
+        {/* Neighborhood seller pages */}
+        <section className="bg-white border-t border-hairline py-10">
+          <div className="mx-auto max-w-5xl px-6">
+            <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-5">Sell by Neighborhood</p>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Weston", href: "/sell-weston" },
+                { label: "Coral Gables", href: "/sell-coral-gables" },
+                { label: "All South Florida Markets", href: "/markets" },
+              ].map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  className="border border-hairline px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/60 hover:border-gold/50 hover:text-gold transition-colors"
+                >
+                  {n.label} →
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <SellerSection />
 
         {/* Why Buyer-Agent Relationships Matter */}

@@ -143,6 +143,8 @@ export function Footer() {
             <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/35">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
             <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/35">
               <a href="/sell-south-florida" className="transition-colors hover:text-gold">Sell in South Florida</a>
+              <a href="/sell-weston" className="transition-colors hover:text-gold">Sell in Weston</a>
+              <a href="/sell-coral-gables" className="transition-colors hover:text-gold">Sell in Coral Gables</a>
               <a href="/home-value" className="transition-colors hover:text-gold">Free Home Valuation</a>
               <a href="/miami-mls-international-desk" className="transition-colors hover:text-gold">International Desk</a>
               <a href="/developers-agencies" className="transition-colors hover:text-gold">Developers</a>

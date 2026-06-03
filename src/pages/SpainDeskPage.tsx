@@ -73,6 +73,17 @@ export default function SpainDeskPage() {
           "url": "https://homesprofessional.com/spain-desk",
           "availableLanguage": ["English", "Spanish"]
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Can a Spanish property be listed in the Miami MLS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. As a licensed Florida principal of record, Carlos can activate Spanish properties within the Miami and South Florida REALTORS® MLS — reaching 93,000 member agents who represent LATAM and North American buyers, the dominant purchasers of luxury Spanish real estate. This is a formal MLS listing, not a referral or portal upload." } },
+            { "@type": "Question", "name": "Who are the buyers for Spanish properties in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "The primary buyers for Spanish real estate sourced through South Florida channels are: LATAM-connected investors who understand both markets; European portfolio buyers diversifying into U.S. real estate; and South Florida residents with family and capital ties to Spain. Carlos's referral network directly reaches all three profiles." } },
+            { "@type": "Question", "name": "How does the cooperating broker arrangement work for Spanish agencies?", "acceptedAnswer": { "@type": "Answer", "text": "A formal MOU or broker-to-broker referral agreement is established before any client introduction. Compensation is documented, client ownership is clearly defined, and the arrangement is compliant with both Spanish and Florida professional standards. You keep your client. We document the cooperation." } },
+            { "@type": "Question", "name": "Is Carlos licensed to practice real estate in Spain?", "acceptedAnswer": { "@type": "Answer", "text": "No. Carlos Uzcategui is licensed exclusively in Florida (FL SL705771, United Realty Group). Spain and international services are provided through referral relationships and cooperating arrangements with local licensed professionals where applicable. The South Florida MLS listing and distribution infrastructure is the Florida-licensed service." } },
+            { "@type": "Question", "name": "What does the review of a Spanish property cost?", "acceptedAnswer": { "@type": "Answer", "text": "The initial review is free and confidential. Carlos assesses the property's positioning potential, the most relevant South Florida buyer profiles, and what a formal MLS activation would look like — with no commitment required." } }
+          ]
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
