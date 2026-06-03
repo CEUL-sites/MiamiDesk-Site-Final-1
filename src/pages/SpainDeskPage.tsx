@@ -31,7 +31,7 @@ const PROCESS_STEPS = [
     num: "03",
     tag: "Agencies & Developers",
     title: "Marketing to U.S. Buyer Profiles",
-    body: "Professional presentation packages in English targeting the three dominant buyer profiles: LATAM-connected investors who understand both markets, European portfolio buyers diversifying into U.S. assets, and South Florida residents with family and capital in Spain.",
+    body: "Professional presentation packages in English/Spanish targeting the best dominant buyer agent profiles: LATAM-connected agents with investors who understand both markets, European portfolio buyers diversifying into U.S. assets, and South Florida residents with family and capital in Spain.",
     outcome: "Your listing speaks the language, format, and price expectations of serious U.S. buyers.",
     stat: "3 buyer profiles · Bilingual execution",
   },
