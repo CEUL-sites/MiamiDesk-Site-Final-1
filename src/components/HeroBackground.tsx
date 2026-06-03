@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 
 const BLOBS = [
   // dominant royal blue — fills upper-left quadrant
@@ -66,40 +66,60 @@ const KEYFRAMES = `
 `;
 
 export function HeroBackground() {
-  const blobRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const blobRefs   = useRef<(HTMLDivElement | null)[]>([]);
+  const spotRef    = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const blobs = blobRefs.current.filter(Boolean) as HTMLDivElement[];
-    let mx = 0, my = 0;
-    const cx = new Array(blobs.length).fill(0);
+    const spot  = spotRef.current;
+
+    // target (raw cursor, 0..1) and smoothed values
+    let tx = 0.5, ty = 0.4;          // target, normalized
+    let sx = 0.5, sy = 0.4;          // smoothed spotlight, normalized
+    const cx = new Array(blobs.length).fill(0);  // smoothed blob offset px
     const cy = new Array(blobs.length).fill(0);
+    let active = false;
     let raf: number;
 
     function onMove(e: MouseEvent) {
-      mx = (e.clientX / window.innerWidth  - 0.5) * 2;
-      my = (e.clientY / window.innerHeight - 0.5) * 2;
+      tx = e.clientX / window.innerWidth;
+      ty = e.clientY / window.innerHeight;
+      active = true;
     }
+    function onLeave() { active = false; }
 
     function tick() {
-      const LERP = 0.032;
+      // spotlight — smooth follow toward raw cursor
+      sx += (tx - sx) * 0.12;
+      sy += (ty - sy) * 0.12;
+      if (spot) {
+        spot.style.setProperty("--mx", `${(sx * 100).toFixed(2)}%`);
+        spot.style.setProperty("--my", `${(sy * 100).toFixed(2)}%`);
+        spot.style.opacity = active ? "1" : "0";
+      }
+
+      // blobs — parallax drift toward cursor by depth
+      const ox = (tx - 0.5) * 2;   // -1..1
+      const oy = (ty - 0.5) * 2;
       blobs.forEach((b, i) => {
         const depth = BLOBS[i].depth;
-        const tx = mx * depth;
-        const ty = my * depth;
-        cx[i] += (tx - cx[i]) * LERP;
-        cy[i] += (ty - cy[i]) * LERP;
+        cx[i] += (ox * depth - cx[i]) * 0.032;
+        cy[i] += (oy * depth - cy[i]) * 0.032;
         b.style.setProperty("translate", `${cx[i].toFixed(2)}px ${cy[i].toFixed(2)}px`);
       });
+
       raf = requestAnimationFrame(tick);
     }
 
     window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("mouseout", onLeave, { passive: true });
     raf = requestAnimationFrame(tick);
 
     return () => {
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseout", onLeave);
       cancelAnimationFrame(raf);
     };
   }, []);
@@ -111,6 +131,7 @@ export function HeroBackground() {
       aria-hidden="true"
     >
       <style>{KEYFRAMES}</style>
+
       {BLOBS.map((blob, i) => (
         <div
           key={blob.id}
@@ -124,6 +145,20 @@ export function HeroBackground() {
           }}
         />
       ))}
+
+      {/* Cursor-following spotlight — brand blue core with gold halo, additive glow */}
+      <div
+        ref={spotRef}
+        className="absolute inset-0"
+        style={{
+          opacity: 0,
+          transition: "opacity 0.6s ease",
+          mixBlendMode: "screen",
+          background:
+            "radial-gradient(420px circle at var(--mx,50%) var(--my,40%), rgba(60,120,235,0.20) 0%, rgba(176,141,87,0.10) 35%, transparent 65%)",
+          willChange: "background",
+        } as CSSProperties}
+      />
     </div>
   );
 }
