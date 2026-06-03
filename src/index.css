@@ -56,6 +56,15 @@
     @apply w-full p-4 bg-bone/50 border border-transparent focus:border-gold focus:ring-2 focus:ring-gold/30 outline-none text-navy placeholder:text-navy/30 font-sans text-base;
     /* text-base (16px) prevents iOS Safari from auto-zooming on input focus */
   }
+
+  .form-input-dark {
+    @apply w-full p-4 bg-white/[0.06] border border-white/10 focus:border-gold/60 focus:ring-2 focus:ring-gold/20 outline-none text-white placeholder:text-white/25 font-sans text-base;
+    /* text-base (16px) prevents iOS Safari from auto-zooming on input focus */
+  }
+
+  .form-input-dark option {
+    @apply bg-navy-deep text-white;
+  }
 }
 
 /* Prevent black flash before video content loads or when autoplay is blocked */

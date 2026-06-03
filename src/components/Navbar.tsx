@@ -30,7 +30,15 @@ const NAV_ITEMS: NavItem[] = [
       { name: "Spain",            href: "/spain-desk" },
     ],
   },
-  { name: "Agents", href: "/agents" },
+  {
+    name: "Agents", href: "/agents",
+    children: [
+      { name: "International Listing Partners", href: "/agents" },
+      { name: "Submit a Listing",              href: "/agents#submit-listing" },
+      { name: "South Florida Referral Desk",   href: "/agents#south-florida-referral" },
+      { name: "Miami MLS International Desk",  href: "/miami-mls-international-desk" },
+    ],
+  },
   {
     name: "Global Desk", href: "/spain-desk",
     children: [
