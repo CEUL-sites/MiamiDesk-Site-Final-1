@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { BadgeCheck, ChevronRight, Download, MessageSquare } from "lucide-react";
+import { BadgeCheck, ChevronRight, Download, MessageSquare, Check, Shield, FileText } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -9,7 +9,7 @@ import { GlobalPartnerNetwork } from "../components/GlobalPartnerNetwork";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { CONTACT, LEAD_MAGNETS, MESSAGING } from "../constants";
 
-const SERVICES = [
+const PROCESS_STEPS = [
   {
     num: "01",
     tag: "Property Owners",
@@ -52,6 +52,8 @@ export default function SpainDeskPage() {
         <meta name="description" content="A Florida-based exposure and referral bridge for Spanish property owners, agencies, and developers seeking access to the South Florida real estate network. Carlos Uzcategui, FL SL705771, United Realty Group." />
         <meta name="keywords" content="Spain Miami real estate, Spanish property Miami exposure, Madrid MLS referral, Spain to Florida property, Spanish property South Florida, cooperating broker Spain Florida, United Realty Group Spain" />
         <link rel="canonical" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/spain-desk" />
@@ -65,13 +67,26 @@ export default function SpainDeskPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Spain Desk — Spanish Property to South Florida Network",
+          "name": "Global Desk — Spanish Agency Partnership Service",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
-          "serviceType": "International Real Estate Referral & Advisory",
-          "description": "A Florida-based exposure and referral bridge for Spanish property owners, agencies, and developers seeking access to the South Florida real estate network through compliant professional channels.",
+          "serviceType": "International Real Estate Marketing & Referral",
+          "description": "A productized B2B service for Spanish agencies and developers. Monthly per-listing MLS marketing services plus referral commission at closing, delivered through United Realty Group as licensed Florida broker of record.",
           "areaServed": ["South Florida", "Spain", "Madrid"],
           "url": "https://homesprofessional.com/spain-desk",
-          "availableLanguage": ["English", "Spanish"]
+          "availableLanguage": ["English", "Spanish"],
+          "offers": {
+            "@type": "Offer",
+            "description": "Monthly per-listing marketing services, tiered pricing. Plus referral commission at closing per signed referral agreement."
+          }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": FAQ_ITEMS.map(item => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": { "@type": "Answer", "text": item.a }
+          }))
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -85,6 +100,7 @@ export default function SpainDeskPage() {
           ]
         })}</script>
       </Helmet>
+
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
@@ -285,35 +301,502 @@ export default function SpainDeskPage() {
           </div>
         </section>
 
-        <SpainMiamiJourney />
-        <GlobalPartnerNetwork />
-
-        {/* Submit form */}
-        <section className="bg-navy-deep py-16 md:py-24" id="submit-spain-property">
+        {/* ── Two Revenue Streams ────────────────────────────────────── */}
+        <section className="bg-navy-deep py-16 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Submit for Review</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Submit a Spanish property, agency referral, or introduction.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                For property owners, Spanish agencies, developers, and cooperating professionals.
-                All submissions are treated as confidential. Carlos reviews every submission personally.
+            <div className="mb-12">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Business Model</p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
+                Two documented revenue streams.<br />
+                <em className="not-italic italic text-gold">Separate. Transparent. Contracted.</em>
+              </h2>
+              <p className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-white/55">
+                Most international referral arrangements are informal and underdocumented.
+                This service runs on two distinct, contracted revenue channels — each fully executed in writing before any marketing begins.
               </p>
             </div>
-            <ReferralIntakeForm />
-            <div className="mt-6 space-y-3">
-              <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-                <BadgeCheck size={14} className="text-gold" />
-                Confidential · Licensed Professionals · Equal Housing Opportunity
+
+            <div className="grid gap-px border border-white/10 bg-white/10 md:grid-cols-2">
+              {/* Stream A — Monthly */}
+              <div className="bg-navy-deep p-8 md:p-10 flex flex-col gap-5">
+                <div className="flex items-center gap-3">
+                  <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
+                    <span className="font-mono text-[10px] font-bold text-gold">A</span>
+                  </span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Recurring · Per Listing · Monthly</span>
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-2xl text-white">Monthly Marketing Services</h3>
+                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Paid by Spanish agency or property owner</p>
+                </div>
+
+                <div className="h-px w-10 bg-gold/30" />
+
+                <p className="font-sans text-sm leading-relaxed text-white/65">
+                  A per-listing monthly agreement covering MLS entry and maintenance, portal syndication to 500+ sites,
+                  buyer agent outreach, and bilingual marketing materials. Paid as a professional services fee
+                  for distribution infrastructure — not a commission contingency, not dependent on sale outcome.
+                </p>
+
+                <ul className="space-y-2.5">
+                  {[
+                    "MLS listing activation and ongoing maintenance",
+                    "Syndication to 500+ portals in 19 languages",
+                    "Targeted buyer agent outreach and distribution",
+                    "Bilingual listing presentation materials (EN/ES)",
+                    "Monthly performance reporting",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 font-sans text-xs text-white/65">
+                      <Check size={12} className="mt-0.5 flex-shrink-0 text-gold" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="border-t border-white/[0.08] pt-5 mt-auto">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Pricing</p>
+                  <p className="mt-1.5 font-sans text-sm text-white/60">Tiered monthly per-listing fee. See service tiers below or request details.</p>
+                </div>
+              </div>
+
+              {/* Stream B — At Closing */}
+              <div className="bg-navy p-8 md:p-10 flex flex-col gap-5">
+                <div className="flex items-center gap-3">
+                  <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
+                    <span className="font-mono text-[10px] font-bold text-gold">B</span>
+                  </span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Contingent · At Closing Only</span>
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-2xl text-white">Referral Commission at Closing</h3>
+                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Paid through United Realty Group · Florida-licensed broker of record</p>
+                </div>
+
+                <div className="h-px w-10 bg-gold/30" />
+
+                <p className="font-sans text-sm leading-relaxed text-white/65">
+                  When a transaction closes through the Miami network, United Realty Group (the Florida-licensed broker of record)
+                  remits a referral commission to the Spanish agency per the signed referral agreement.
+                  Typically approximately 1% of the sale price — negotiated and documented in writing before activation.
+                </p>
+
+                <ul className="space-y-2.5">
+                  {[
+                    "Written referral agreement required before any buyer introduction",
+                    "Paid by URG (licensed FL broker) at successful closing",
+                    "Approximately 1% of sale price — negotiated per listing",
+                    "Client ownership stays with Spanish agency throughout",
+                    "Compensation structure documented before MLS activation",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 font-sans text-xs text-white/65">
+                      <Check size={12} className="mt-0.5 flex-shrink-0 text-gold" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="border-t border-white/[0.08] pt-5 mt-auto">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Mechanism</p>
+                  <p className="mt-1.5 font-sans text-sm text-white/60">Documented via formal referral agreement with United Realty Group prior to any buyer introduction or MLS activation.</p>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.15em] text-white/25">
+              Both revenue streams are contracted in writing before any marketing begins. No informal arrangements.
+            </p>
+          </div>
+        </section>
+
+        {/* ── Compliance Architecture ────────────────────────────────── */}
+        <section className="bg-navy pt-14 pb-16 md:pt-20 md:pb-24 text-white">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-12">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Compliance Architecture</p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
+                The legal mechanism,<br />
+                <em className="not-italic italic text-gold">explained plainly.</em>
+              </h2>
+            </div>
+
+            <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  step: "01",
+                  label: "Agreements Signed",
+                  body: "Marketing services agreement + written referral agreement. Both executed before any MLS entry or buyer introduction. Client ownership and compensation documented.",
+                },
+                {
+                  step: "02",
+                  label: "URG Activates MLS Entry",
+                  body: "United Realty Group — the licensed Florida broker of record — creates the MLS entry in Miami and South Florida REALTORS® infrastructure. A formal listing, not a portal upload.",
+                },
+                {
+                  step: "03",
+                  label: "Network Distribution",
+                  body: "93,000 member agents and 500+ portals in 19 languages receive the listing. Day One. The same infrastructure behind South Florida's $69B annual sales volume.",
+                },
+                {
+                  step: "04",
+                  label: "Closing & Payment",
+                  body: "At closing: URG pays the cooperating buyer's agent from the agreed commission. URG then remits the referral commission to the Spanish agency per the signed agreement.",
+                },
+              ].map(({ step, label, body }) => (
+                <div key={step} className="bg-navy-deep p-7 flex flex-col gap-4">
+                  <span className="font-mono text-[11px] font-semibold text-gold/60 tracking-[0.22em]">{step}</span>
+                  <h3 className="font-serif text-lg text-white leading-snug">{label}</h3>
+                  <div className="h-px w-8 bg-gold/25" />
+                  <p className="font-sans text-xs leading-relaxed text-white/55 flex-1">{body}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {/* Network stats */}
+              <div className="border border-white/10 bg-white/[0.02] p-6">
+                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60 mb-4">Network Infrastructure</p>
+                <div className="grid grid-cols-2 gap-y-5 gap-x-4">
+                  {[
+                    { value: "93,000", label: "MLS member agents" },
+                    { value: "500+", label: "Portals · 19 languages" },
+                    { value: "3,500+", label: "URG agents · 20 offices" },
+                    { value: "75+", label: "Countries · partner network" },
+                  ].map(({ value, label }) => (
+                    <div key={label}>
+                      <div className="font-serif text-2xl text-white">{value}</div>
+                      <div className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/40 mt-0.5">{label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Compliance notes */}
+              <div className="border border-white/10 bg-white/[0.02] p-6">
+                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60 mb-4">Compliance Notes</p>
+                <ul className="space-y-3">
+                  {[
+                    "Carlos Uzcategui is licensed in Florida only (FL SL705771)",
+                    "Spanish properties listed through referral and cooperating broker arrangements",
+                    "United Realty Group is the Florida broker of record for all MLS entries",
+                    "Referral commission paid through URG at closing per signed agreement",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 font-sans text-xs text-white/55">
+                      <Shield size={11} className="mt-0.5 flex-shrink-0 text-gold/60" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Service Tiers ─────────────────────────────────────────── */}
+        <section className="bg-navy-deep py-16 md:py-20 text-white">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-12">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Service Structure</p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
+                Three tiers. Priced per listing,<br />
+                <em className="not-italic italic text-gold">per month.</em>
+              </h2>
+              <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+                Every tier activates the full Miami REALTORS® MLS infrastructure through URG as broker of record.
+                The difference is the depth of active marketing, outreach, and strategic support.
+                Monthly marketing fee is separate from the referral commission earned at closing.
+              </p>
+            </div>
+
+            <div className="grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+              {SERVICE_TIERS.map((tier) => (
+                <div
+                  key={tier.tier}
+                  className={`relative flex flex-col bg-navy-deep p-8 gap-5 ${tier.popular ? "ring-1 ring-inset ring-gold/35" : ""}`}
+                >
+                  {tier.popular && (
+                    <>
+                      <div className="absolute top-0 inset-x-0 h-px bg-gold/50" />
+                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold px-3 py-0.5 font-mono text-[8px] uppercase tracking-[0.18em] text-navy-deep whitespace-nowrap">
+                        Most Selected
+                      </span>
+                    </>
+                  )}
+
+                  <span className="font-mono text-[10px] font-semibold text-gold/55 tracking-[0.22em]">{tier.tier}</span>
+
+                  <div>
+                    <h3 className="font-serif text-xl text-white">{tier.name}</h3>
+                    <p className="mt-2 font-sans text-xs leading-relaxed text-white/50">{tier.description}</p>
+                  </div>
+
+                  <div className="h-px w-8 bg-gold/25" />
+
+                  <ul className="space-y-2.5 flex-1">
+                    {tier.includes.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 font-sans text-xs text-white/65">
+                        <Check size={12} className="mt-0.5 flex-shrink-0 text-gold" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="#submit-listing"
+                    className="mt-2 flex items-center justify-center gap-2 border border-gold/35 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/75 transition-colors hover:border-gold hover:text-gold"
+                  >
+                    Request Pricing
+                    <ChevronRight size={12} />
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.15em] text-white/25">
+              All tiers include written referral agreement and URG broker-of-record MLS activation.
+              Monthly fee does not include the referral commission — that is a separate contingent payment at closing.
+            </p>
+          </div>
+        </section>
+
+        {/* ── Process ───────────────────────────────────────────────── */}
+        <section className="bg-navy pt-14 pb-16 md:pt-20 md:pb-24 text-white">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-12">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How to Engage</p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
+                Four steps from inquiry<br />
+                <em className="not-italic italic text-gold">to Day One activation.</em>
+              </h2>
+            </div>
+
+            <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2">
+              {PROCESS_STEPS.map((step) => (
+                <div key={step.num} className="bg-navy-deep p-8 flex gap-6">
+                  <span className="flex-shrink-0 font-mono text-[13px] font-semibold text-gold/50 tracking-[0.22em] pt-0.5">{step.num}</span>
+                  <div>
+                    <h3 className="font-serif text-xl text-white">{step.title}</h3>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-white/60">{step.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href={CONTACT.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+              >
+                Schedule an Agency Call
+                <ChevronRight size={13} />
+              </a>
+              <a
+                href={CONTACT.whatsappBroker}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-white/20 px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/65 transition-colors hover:border-white/40 hover:text-white"
+              >
+                <MessageSquare size={14} />
+                WhatsApp Carlos Directly
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Who This Serves ───────────────────────────────────────── */}
+        <section className="bg-navy-deep py-14 md:py-18 text-white">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Ideal For</p>
+              <div className="flex flex-wrap gap-2.5">
+                {[
+                  "Madrid Luxury Agencies",
+                  "Marbella & Costa del Sol",
+                  "Barcelona Apartment Portfolios",
+                  "Ibiza & Balearic Villas",
+                  "Canarias Investment Properties",
+                  "Pre-Construction Developers",
+                  "Branded Residences",
+                  "Family Office Mandates",
+                  "Multi-Unit Portfolios",
+                  "New Development Projects",
+                ].map((tag) => (
+                  <span key={tag} className="rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 font-mono text-[9px] uppercase tracking-[0.15em] text-white/50">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10 border-t border-white/[0.08] pt-10 grid gap-6 sm:grid-cols-3">
+              {[
+                {
+                  title: "Listing agents with luxury mandates",
+                  body: "Add a credible, documented U.S. marketing channel to your listing presentation. Differentiate from local-only agencies with a formal Miami MLS activation.",
+                },
+                {
+                  title: "Agency directors with international inventory",
+                  body: "Activate your portfolio into the Miami network through a structured per-listing monthly agreement. One professional relationship opens the full infrastructure.",
+                },
+                {
+                  title: "Developers seeking LATAM and North American buyers",
+                  body: "Access 93,000 Miami MLS agents and the South Florida Latin American buyer network — the most internationally connected local REALTORS® association in the world.",
+                },
+              ].map((card) => (
+                <div key={card.title} className="border border-white/10 bg-white/[0.02] p-6">
+                  <h3 className="font-serif text-lg text-white leading-snug mb-3">{card.title}</h3>
+                  <p className="font-sans text-xs leading-relaxed text-white/55">{card.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Professional Terms Outline ────────────────────────────── */}
+        <section className="bg-navy py-14 md:py-20 text-white">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Professional Framework</p>
+              <h2 className="mt-4 font-serif text-3xl text-white leading-tight md:text-4xl">
+                What is documented.<br />
+                <em className="not-italic italic text-gold">What is protected.</em>
+              </h2>
+            </div>
+
+            <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+              <div>
+                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/35 mb-5">Documented Before Activation</p>
+                <ul className="space-y-5">
+                  {[
+                    {
+                      label: "Marketing Services Agreement",
+                      detail: "Scope of services, duration, monthly fee, listing details, and performance expectations.",
+                    },
+                    {
+                      label: "Written Referral Agreement",
+                      detail: "Client ownership, compensation structure, closing payment terms, and confidentiality provisions.",
+                    },
+                    {
+                      label: "MLS Listing Authorization",
+                      detail: "Property details, authorized listing price, and URG designation as Florida broker of record.",
+                    },
+                    {
+                      label: "Compensation Structure",
+                      detail: "Monthly services fee and referral commission amount — both documented separately before any marketing begins.",
+                    },
+                  ].map(({ label, detail }) => (
+                    <li key={label} className="flex items-start gap-3">
+                      <FileText size={14} className="mt-0.5 flex-shrink-0 text-gold/55" />
+                      <div>
+                        <p className="font-sans text-sm font-medium text-white">{label}</p>
+                        <p className="mt-0.5 font-sans text-xs text-white/45 leading-relaxed">{detail}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/35 mb-5">What Your Agency Retains</p>
+                <ul className="space-y-5">
+                  {[
+                    {
+                      label: "Your client relationship",
+                      detail: "Spanish agency retains representation of the property owner throughout. Not negotiable.",
+                    },
+                    {
+                      label: "Your referral commission",
+                      detail: "Documented before any buyer introduction. URG pays at closing per the signed referral agreement.",
+                    },
+                    {
+                      label: "Your listing data",
+                      detail: "All submissions are confidential. No sharing of listing data without written consent.",
+                    },
+                    {
+                      label: "Your agency independence",
+                      detail: "Monthly agreements are per listing. No site-wide exclusivity requirement unless specifically agreed.",
+                    },
+                  ].map(({ label, detail }) => (
+                    <li key={label} className="flex items-start gap-3">
+                      <Shield size={14} className="mt-0.5 flex-shrink-0 text-gold/55" />
+                      <div>
+                        <p className="font-sans text-sm font-medium text-white">{label}</p>
+                        <p className="mt-0.5 font-sans text-xs text-white/45 leading-relaxed">{detail}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Submit Form ────────────────────────────────────────────── */}
+        <section className="bg-navy-deep py-16 md:py-24" id="submit-listing">
+          <div className="mx-auto max-w-3xl px-6">
+            <div className="mb-10 text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Agency Inquiry</p>
+              <h2 className="mt-3 font-serif text-3xl text-white">Submit a listing or agency inquiry.</h2>
+              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+                For Spanish agencies, developers, and listing professionals. All submissions are treated as confidential.
+                Carlos reviews every inquiry personally before responding.
+              </p>
+            </div>
+            <AgencyPartnerForm />
+          </div>
+        </section>
+
+        {/* ── FAQ ───────────────────────────────────────────────────── */}
+        <section className="bg-navy py-16 md:py-20 text-white">
+          <div className="mx-auto max-w-3xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-8">Frequently Asked</p>
+            <div className="divide-y divide-white/[0.08]">
+              {FAQ_ITEMS.map(({ q, a }) => (
+                <div key={q} className="py-6">
+                  <h3 className="font-serif text-lg text-white leading-snug mb-3">{q}</h3>
+                  <p className="font-sans text-sm leading-relaxed text-white/55">{a}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4 pt-8 border-t border-white/[0.08]">
+              <a
+                href={CONTACT.whatsappBroker}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+              >
+                <MessageSquare size={14} />
+                WhatsApp Carlos
+              </a>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45 underline-offset-2 hover:text-white hover:underline"
+              >
+                {CONTACT.email}
+              </a>
+            </div>
+
+            <div className="mt-8 border-t border-white/[0.08] pt-6">
+              <div className="flex items-center gap-2 mb-3">
+                <BadgeCheck size={14} className="text-gold flex-shrink-0" />
+                <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">Licensed · Compliant · Confidential</p>
               </div>
               <p className="font-sans text-[10px] leading-relaxed text-white/25">
-                Florida real estate brokerage services are provided through United Realty Group. Spanish and international
-                property opportunities are handled through referral, marketing, cooperating broker, or advisory relationships
-                depending on jurisdiction, property type, and applicable regulations. Carlos Uzcategui is licensed as a
-                real estate professional in Florida only.
+                Florida real estate brokerage services are provided through United Realty Group (URG). Carlos Uzcategui (FL SL705771) is a licensed associate of URG.
+                Spanish and international property opportunities are handled through referral, marketing, cooperating broker, or advisory relationships depending on jurisdiction,
+                property type, and applicable regulations. Carlos Uzcategui is licensed as a real estate professional in Florida only.
+                All cross-border engagements are documented through formal written agreements before any buyer introduction or marketing activation.
+                Equal Housing Opportunity.
               </p>
             </div>
           </div>
         </section>
+
+        <GlobalPartnerNetwork />
 
         <Footer />
         <MobileStickyCTA />
