@@ -163,8 +163,8 @@ export default function EsSpainDeskPage() {
             </div>
 
             <h1 className="font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5vw, 3.2rem)" }}>
-              Sus listings españoles activados formalmente<br />
-              <em className="not-italic italic text-gold">en la red del MLS de Miami REALTORS®.</em>
+              Liste a Través de la Red Local de<br />
+              <em className="not-italic italic text-gold">Realtor® Más Grande del Mundo.</em>
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
