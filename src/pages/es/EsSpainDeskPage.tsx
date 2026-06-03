@@ -163,7 +163,7 @@ export default function EsSpainDeskPage() {
             </div>
 
             <h1 className="font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5vw, 3.2rem)" }}>
-              Liste a Través de la Red Local de<br />
+              Venda con el Alcance de la Red Local de<br />
               <em className="not-italic italic text-gold">Realtor® Más Grande del Mundo.</em>
             </h1>
 
