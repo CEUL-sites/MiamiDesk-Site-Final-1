@@ -508,7 +508,7 @@ export default function SpainDeskPage() {
                   {[
                     { value: "93,000", label: "MLS member agents" },
                     { value: "500+", label: "Portals where eligible" },
-                    { value: "3,500+", label: "URG agents · 20 offices" },
+                    { value: "4,000+", label: "URG agents · 21 offices" },
                     { value: "75+", label: "Countries · partner network" },
                   ].map(({ value, label }) => (
                     <div key={label}>

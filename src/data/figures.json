@@ -11,7 +11,7 @@
   "mlsDataExchanges": { "value": "11", "label": "MLS Data Exchanges", "source": "MIAMI Association of REALTORS®", "cite": "https://www.miamirealtors.com" },
   "annualVolume": { "value": "$69B", "label": "2025 Sales Volume", "source": "Miami and South Florida REALTORS® 2025 annual figures", "cite": "https://www.miamirealtors.com/statistics/" },
   "yearsLicensed": { "value": "25", "label": "Years Licensed", "source": "Carlos Uzcategui, licensed since 2001" },
-  "urgAgents": { "value": "3,500+", "label": "United Realty Group Agents", "source": "United Realty Group (pending URG corporate verification)" },
+  "urgAgents": { "value": "4,000+", "label": "United Realty Group Agents", "source": "United Realty Group — urgfl.com (est. 2002, 21 Florida offices)" },
   "urgOffices": { "value": "20", "label": "Florida Offices", "source": "United Realty Group (pending URG corporate verification)" },
   "license": { "value": "SL705771", "label": "Florida Licensed Realtor®", "source": "Florida DBPR" },
   "mergerDate": "May 11, 2026"

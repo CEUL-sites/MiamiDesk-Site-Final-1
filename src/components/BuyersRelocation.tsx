@@ -73,7 +73,7 @@ export function BuyersRelocation() {
                 Palm Beach — three counties, thousands of listings, and a market
                 that moves fast. Carlos provides buyer representation backed by
                 25 years of local relationships and United Realty Group's
-                3,500+ agents across 20 offices — professionals on the ground
+                4,000+ agents across 21 offices — professionals on the ground
                 who know the inventory, the sellers, and the neighborhoods.
               </p>
             </div>

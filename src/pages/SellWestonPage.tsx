@@ -192,7 +192,7 @@ export default function SellWestonPage() {
                   {[
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 500+ websites in 19 languages",
-                    "United Realty Group — 3,500+ agents across 20 Florida offices",
+                    "United Realty Group — 4,000+ agents across 21 Florida offices",
                     "Direct LATAM and European buyer pipeline",
                     "300+ international partner associations in 75+ countries",
                   ].map((item) => (
