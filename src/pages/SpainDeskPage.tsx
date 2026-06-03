@@ -99,7 +99,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How is the referral commission paid at closing?",
-    a: "United Realty Group (licensed Florida broker) remits the referral commission to the Spanish agency at closing, per the signed referral agreement — typically around 1% of the sale price, negotiated and documented before activation.",
+    a: "All U.S. commission payments flow exclusively through United Realty Group (URG), the Florida-licensed broker of record. At closing, URG disburses the buyer's agent commission per the MLS agreement and remits the referral commission to the partner agency per the signed referral agreement — typically around 1% of the sale price, negotiated and documented in writing before any marketing begins.",
   },
   {
     q: "Is Carlos licensed to practice real estate in Spain?",
@@ -503,7 +503,7 @@ export default function SpainDeskPage() {
                 <ul className="space-y-2.5">
                   {[
                     "Written referral agreement required before any buyer introduction",
-                    "Paid by URG (licensed FL broker) at successful closing",
+                    "All U.S. commissions disbursed exclusively through URG at closing",
                     "Approximately 1% of sale price — negotiated per listing",
                     "Client ownership stays with Spanish agency throughout",
                     "Compensation structure documented before MLS activation",
@@ -559,7 +559,7 @@ export default function SpainDeskPage() {
                 {
                   step: "04",
                   label: "Closing & Payment",
-                  body: "At closing: URG pays the cooperating buyer's agent from the agreed commission. URG then remits the referral commission to the Spanish agency per the signed agreement.",
+                  body: "All U.S.-side commission disbursements flow exclusively through United Realty Group as the Florida-licensed broker of record. At closing, URG pays the buyer's agent per the MLS agreement and remits the referral commission to the partner agency per the signed referral agreement — both documented in writing before marketing begins.",
                 },
               ].map(({ step, label, body }) => (
                 <div key={step} className="bg-navy-deep p-7 flex flex-col gap-4">
