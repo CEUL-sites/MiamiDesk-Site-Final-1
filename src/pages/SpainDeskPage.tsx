@@ -785,7 +785,7 @@ export default function SpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-24" id="submit-listing">
           <div className="mx-auto max-w-3xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Spain Desk · Agency Inquiry</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Global Desk · Agency Inquiry</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Submit a listing or agency inquiry.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
                 For Spanish agencies, developers, and listing professionals. All submissions are treated as confidential.

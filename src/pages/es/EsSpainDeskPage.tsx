@@ -152,7 +152,7 @@ export default function EsSpainDeskPage() {
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-14 md:pt-28 md:pb-18 text-center sm:px-10">
           <LazyVideo
             eager
-            src="/videos/miami_madrid_transition.mp4"
+            src="/videos/spain-desk.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.18] pointer-events-none"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-navy-deep/30 to-navy-deep/90 pointer-events-none" />
