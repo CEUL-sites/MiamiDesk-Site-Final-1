@@ -196,7 +196,7 @@ export default function SpainDeskPage() {
             <em className="not-italic italic text-gold">not just referred to it.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-            A Florida-based professional bridge for Spanish property owners, agencies, and developers
+            A Florida-based professional bridge for international property owners, agencies, and developers
             seeking structured access to 93,000 Miami MLS member agents and the international referral network.
             Buyer demand is often created online — but transactions are executed through professional relationships.
           </p>
