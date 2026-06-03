@@ -2,57 +2,19 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
-import sitemap from 'vite-plugin-sitemap';
 
-const STATIC_ROUTES = [
-  '/',
-  '/sell',
-  '/buy',
-  '/new-construction',
-  '/markets',
-  '/agents',
-  '/spain-desk',
-  '/madrid',
-  '/contact',
-  '/listings',
-  '/about',
-  '/privacy',
-  '/terms',
-  '/es',
-  '/es/vender',
-  '/es/comprar',
-  '/es/agentes',
-  '/es/gracias/agente',
-  '/es/spain-desk',
-  '/es/madrid',
-];
-
-// Journal routes — add each new post slug here as posts are published
-const JOURNAL_ROUTES = [
-  '/journal',
-  '/journal/miami-luxury-market-q3-2026',
-  '/journal/selling-coral-gables-2026',
-];
-
-const DYNAMIC_ROUTES = [...STATIC_ROUTES, ...JOURNAL_ROUTES];
+// NOTE: The sitemap is maintained by hand at public/sitemap.xml so it can carry
+// per-URL priorities and EN/ES hreflang alternates that vite-plugin-sitemap does
+// not emit. Vite copies public/ into dist/ on build, so that file ships as-is.
+// When adding or removing routes/journal posts, update public/sitemap.xml and the
+// react-snap include list in package.json together.
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, '.', '');
+  loadEnv(mode, '.', '');
   return {
     plugins: [
       react(),
       tailwindcss(),
-      sitemap({
-        hostname: 'https://homesprofessional.com',
-        dynamicRoutes: DYNAMIC_ROUTES,
-        exclude: [],
-        generateRobotsTxt: false,
-        outDir: 'dist',
-        readable: true,
-        changefreq: 'weekly',
-        priority: 0.8,
-        lastmod: new Date(),
-      }),
     ],
     define: {},
     resolve: {
