@@ -13,6 +13,8 @@ const NAV_ITEMS: NavItem[] = [
     name: "Sellers", href: "/sell-south-florida",
     children: [
       { name: "Sell in South Florida",  href: "/sell-south-florida" },
+      { name: "Sell in Weston",         href: "/sell-weston" },
+      { name: "Sell in Coral Gables",   href: "/sell-coral-gables" },
       { name: "Free Home Valuation",    href: "/home-value" },
     ],
   },
