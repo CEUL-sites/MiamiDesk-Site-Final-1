@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { BadgeCheck, ChevronRight, MessageSquare } from "lucide-react";
+import { BadgeCheck, ChevronRight, MessageSquare, Check } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -136,6 +136,12 @@ export default function AgentsPage() {
           content="international real estate exposure, Miami real estate network, Miami REALTORS, South Florida buyer network, Spain luxury real estate, Madrid luxury properties, Marbella luxury real estate, international listing exposure, real estate referral network, U.S. buyer exposure Spanish properties, Miami Desk, Florida Realtor partner, cross-border real estate referrals"
         />
         <link rel="canonical" href="https://homesprofessional.com/agents" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://homesprofessional.com/agents" />
+        <meta property="og:title" content="Win More Seller Mandates With a Miami-Facing Exposure Strategy" />
+        <meta property="og:description" content="Give your agency a listing-presentation advantage local competitors cannot match: documented Miami-facing exposure for your sellers, where eligible. You keep the mandate." />
+        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
@@ -556,7 +562,7 @@ export default function AgentsPage() {
               {SOUTH_FL_PATHWAYS.map((p) => (
                 <div key={p.number} className="flex flex-col bg-white p-8">
                   <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-4">{p.number}</div>
-                  <h3 className="font-serif text-xl text-navy-deep">{p.title}</h3>
+                  <h3 className="font-serif text-xl text-navy-deep leading-snug">{p.title}</h3>
                   <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65 flex-1">{p.body}</p>
                   <a href="#south-florida-referral" className="mt-6 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-gold hover:underline underline-offset-2">
                     Submit a referral →
@@ -574,8 +580,8 @@ export default function AgentsPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Referral Desk</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Submit a South Florida cross-border referral.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                For licensed real estate professionals only. All submissions are confidential.
-                Carlos reviews every submission personally before responding.
+                For agencies, developers, and listing agents. Submit a portfolio or a single listing for review.
+                Carlos reviews every inquiry personally and responds with partnership terms.
               </p>
             </div>
             <ReferralIntakeForm />
@@ -591,6 +597,22 @@ export default function AgentsPage() {
                 and applicable regulations.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Compliance */}
+        <section className="bg-navy-deep py-12">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30 mb-3">
+              <BadgeCheck size={14} className="text-gold" />
+              Confidential · Licensed Professionals · Equal Housing Opportunity
+            </div>
+            <p className="font-sans text-[10px] leading-relaxed text-white/25">
+              Carlos Uzcategui is a Florida Licensed Realtor® (SL705771) affiliated with United Realty Group. He is not licensed as a real estate broker in Spain.
+              Miami MLS exposure, syndication, referral compensation, cooperation, and listing distribution are subject to MLS rules, broker approval, written agreements,
+              property eligibility, local law, and platform availability. Network figures are provided for context. We do not guarantee buyers, offers, closings, syndication
+              results, or specific platform placement. All partnerships and referrals are documented through written agreements executed before engagement.
+            </p>
           </div>
         </section>
 

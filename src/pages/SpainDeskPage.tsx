@@ -67,16 +67,16 @@ export default function SpainDeskPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Global Desk — Spanish Agency Partnership Service",
+          "name": "Global Desk — Miami-Facing Listing Exposure for International Agencies",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
-          "serviceType": "International Real Estate Marketing & Referral",
-          "description": "A productized B2B service for Spanish agencies and developers. Monthly per-listing MLS marketing services plus referral commission at closing, delivered through United Realty Group as licensed Florida broker of record.",
+          "serviceType": "B2B International Real Estate Exposure & Referral",
+          "description": "A B2B exposure and referral service for international agencies and developers. Agencies win more seller mandates by offering property owners documented Miami-facing exposure, where eligible and subject to MLS rules and written agreements, through United Realty Group. The agency keeps the seller relationship and local mandate.",
           "areaServed": ["South Florida", "Spain", "Madrid"],
           "url": "https://homesprofessional.com/spain-desk",
           "availableLanguage": ["English", "Spanish"],
           "offers": {
             "@type": "Offer",
-            "description": "Monthly per-listing marketing services, tiered pricing. Plus referral commission at closing per signed referral agreement."
+            "description": "Monthly listing exposure packages and selected portfolio promotion. Written referral and cooperation agreements. Subject to MLS rules, broker approval, property eligibility, and platform availability."
           }
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
@@ -301,18 +301,65 @@ export default function SpainDeskPage() {
           </div>
         </section>
 
-        {/* ── Two Revenue Streams ────────────────────────────────────── */}
+        {/* ── Win More Seller Mandates (primary promise) ─────────────── */}
+        <section className="bg-ivory py-16 md:py-24">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="mb-12">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Mandate Advantage</p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                Offer sellers more than local portals.<br />
+                <em className="not-italic italic">Win more mandates.</em>
+              </h2>
+              <p className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-navy-deep/60">
+                When a property owner chooses between agencies, the stronger marketing story wins the listing.
+                Most agencies offer the same thing — local portals, a website, social media, a local database.
+                A Miami-facing exposure layer is something your competitors cannot put on the table.
+              </p>
+            </div>
+
+            <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-3">
+              {[
+                {
+                  number: "01",
+                  title: "Differentiate your listing presentation",
+                  body: "Bring property owners a Miami-facing exposure story alongside your local marketing — documented, credible, and tied to a Florida-licensed Realtor® with 25 years in the South Florida market.",
+                },
+                {
+                  number: "02",
+                  title: "Use it to win the seller's signature",
+                  body: "Your agents present documented Miami exposure inside the listing presentation. Sellers see a market reach local-only agencies cannot offer, and choose you for the mandate.",
+                },
+                {
+                  number: "03",
+                  title: "Keep the relationship and the mandate",
+                  body: "Your agency keeps the seller relationship, the local mandate, and local execution. Carlos provides the Florida-side exposure layer and U.S.-facing positioning behind the scenes.",
+                },
+              ].map((c) => (
+                <div key={c.number} className="flex flex-col bg-ivory p-8">
+                  <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-4">{c.number}</div>
+                  <h3 className="font-serif text-xl text-navy-deep leading-snug">{c.title}</h3>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-navy-deep/65 flex-1">{c.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.16em] text-navy-deep/35">
+              Miami-facing exposure is offered where listings are eligible and is subject to MLS rules, broker approval, and platform availability. No specific result is guaranteed.
+            </p>
+          </div>
+        </section>
+
+        {/* ── How the Partnership Works (the model) ──────────────────── */}
         <section className="bg-navy-deep py-16 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Business Model</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How the Partnership Works</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
-                Two documented revenue streams.<br />
-                <em className="not-italic italic text-gold">Separate. Transparent. Contracted.</em>
+                A clear B2B model.<br />
+                <em className="not-italic italic text-gold">Documented before anything begins.</em>
               </h2>
               <p className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-white/55">
-                Most international referral arrangements are informal and underdocumented.
-                This service runs on two distinct, contracted revenue channels — each fully executed in writing before any marketing begins.
+                The partnership runs on monthly listing exposure packages and selected portfolio promotion — the primary engagement —
+                with buyer referrals as a secondary upside. Every arrangement is executed through written agreements before any work begins.
               </p>
             </div>
 
@@ -323,29 +370,29 @@ export default function SpainDeskPage() {
                   <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
                     <span className="font-mono text-[10px] font-bold text-gold">A</span>
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Recurring · Per Listing · Monthly</span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Primary · Per Listing · Monthly</span>
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-2xl text-white">Monthly Marketing Services</h3>
-                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Paid by Spanish agency or property owner</p>
+                  <h3 className="font-serif text-2xl text-white">Monthly Listing Exposure Packages</h3>
+                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Paid by the agency or property owner · The primary engagement</p>
                 </div>
 
                 <div className="h-px w-10 bg-gold/30" />
 
                 <p className="font-sans text-sm leading-relaxed text-white/65">
-                  A per-listing monthly agreement covering MLS entry and maintenance, portal syndication to 500+ sites,
-                  buyer agent outreach, and bilingual marketing materials. Paid as a professional services fee
-                  for distribution infrastructure — not a commission contingency, not dependent on sale outcome.
+                  A per-listing monthly agreement covering Miami MLS coordination where eligible, syndication
+                  to partner portals where available, buyer-agent outreach, and bilingual marketing materials.
+                  Paid as a professional services fee for the exposure layer — not a commission contingency, not dependent on sale outcome.
                 </p>
 
                 <ul className="space-y-2.5">
                   {[
-                    "MLS listing activation and ongoing maintenance",
-                    "Syndication to 500+ portals in 19 languages",
-                    "Targeted buyer agent outreach and distribution",
+                    "Miami MLS coordination where the listing is eligible",
+                    "Syndication to partner portals where available",
+                    "Targeted buyer-agent outreach and U.S.-facing positioning",
                     "Bilingual listing presentation materials (EN/ES)",
-                    "Monthly performance reporting",
+                    "Monthly activity reporting",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5 font-sans text-xs text-white/65">
                       <Check size={12} className="mt-0.5 flex-shrink-0 text-gold" />
@@ -366,20 +413,20 @@ export default function SpainDeskPage() {
                   <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
                     <span className="font-mono text-[10px] font-bold text-gold">B</span>
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Contingent · At Closing Only</span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Secondary Upside · At Closing Only</span>
                 </div>
 
                 <div>
                   <h3 className="font-serif text-2xl text-white">Referral Commission at Closing</h3>
-                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Paid through United Realty Group · Florida-licensed broker of record</p>
+                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">A secondary upside · Paid through United Realty Group, the Florida-licensed broker</p>
                 </div>
 
                 <div className="h-px w-10 bg-gold/30" />
 
                 <p className="font-sans text-sm leading-relaxed text-white/65">
-                  When a transaction closes through the Miami network, United Realty Group (the Florida-licensed broker of record)
-                  remits a referral commission to the Spanish agency per the signed referral agreement.
-                  Typically approximately 1% of the sale price — negotiated and documented in writing before activation.
+                  A secondary upside of the partnership. Where a transaction closes through the Miami network, United Realty Group
+                  (the Florida-licensed broker) remits a referral commission to the agency per the signed referral agreement —
+                  typically around 1% of the sale price, negotiated and documented in writing, subject to broker approval and applicable rules.
                 </p>
 
                 <ul className="space-y-2.5">
@@ -430,13 +477,13 @@ export default function SpainDeskPage() {
                 },
                 {
                   step: "02",
-                  label: "URG Activates MLS Entry",
-                  body: "United Realty Group — the licensed Florida broker of record — creates the MLS entry in Miami and South Florida REALTORS® infrastructure. A formal listing, not a portal upload.",
+                  label: "URG Coordinates MLS Entry",
+                  body: "Where the listing is eligible, United Realty Group — the licensed Florida broker — coordinates the MLS entry within the Miami and South Florida REALTORS® ecosystem, subject to MLS rules and broker approval.",
                 },
                 {
                   step: "03",
-                  label: "Network Distribution",
-                  body: "93,000 member agents and 500+ portals in 19 languages receive the listing. Day One. The same infrastructure behind South Florida's $69B annual sales volume.",
+                  label: "Network Exposure",
+                  body: "The listing is made available to the Miami and South Florida REALTORS® ecosystem and partner portals where eligible — the same infrastructure behind South Florida's market. Reach varies by property and platform.",
                 },
                 {
                   step: "04",
@@ -460,7 +507,7 @@ export default function SpainDeskPage() {
                 <div className="grid grid-cols-2 gap-y-5 gap-x-4">
                   {[
                     { value: "93,000", label: "MLS member agents" },
-                    { value: "500+", label: "Portals · 19 languages" },
+                    { value: "500+", label: "Portals where eligible" },
                     { value: "3,500+", label: "URG agents · 20 offices" },
                     { value: "75+", label: "Countries · partner network" },
                   ].map(({ value, label }) => (
@@ -503,9 +550,9 @@ export default function SpainDeskPage() {
                 <em className="not-italic italic text-gold">per month.</em>
               </h2>
               <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Every tier activates the full Miami REALTORS® MLS infrastructure through URG as broker of record.
+                Every tier coordinates Miami-facing exposure through URG as the Florida broker, where listings are eligible.
                 The difference is the depth of active marketing, outreach, and strategic support.
-                Monthly marketing fee is separate from the referral commission earned at closing.
+                The monthly exposure fee is separate from any referral commission earned at closing.
               </p>
             </div>
 
@@ -786,11 +833,11 @@ export default function SpainDeskPage() {
                 <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">Licensed · Compliant · Confidential</p>
               </div>
               <p className="font-sans text-[10px] leading-relaxed text-white/25">
-                Florida real estate brokerage services are provided through United Realty Group (URG). Carlos Uzcategui (FL SL705771) is a licensed associate of URG.
-                Spanish and international property opportunities are handled through referral, marketing, cooperating broker, or advisory relationships depending on jurisdiction,
-                property type, and applicable regulations. Carlos Uzcategui is licensed as a real estate professional in Florida only.
-                All cross-border engagements are documented through formal written agreements before any buyer introduction or marketing activation.
-                Equal Housing Opportunity.
+                Florida real estate brokerage services are provided through United Realty Group (URG). Carlos Uzcategui (FL SL705771) is a Florida Licensed Realtor® affiliated with URG.
+                He is not licensed as a real estate broker in Spain. Spanish and international property opportunities are handled through referral, marketing, cooperating broker, or advisory relationships
+                depending on jurisdiction, property type, and applicable regulations. Miami MLS exposure, syndication, referral compensation, cooperation, and listing distribution are subject to MLS rules,
+                broker approval, written agreements, property eligibility, local law, and platform availability. We do not guarantee buyers, offers, closings, syndication results, or specific platform placement.
+                All cross-border engagements are documented through formal written agreements before any engagement. Equal Housing Opportunity.
               </p>
             </div>
           </div>

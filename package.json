@@ -21,6 +21,11 @@
     "include": [
       "/",
       "/sell",
+      "/sell-south-florida",
+      "/sell-weston",
+      "/sell-coral-gables",
+      "/home-value",
+      "/reviews",
       "/buy",
       "/new-construction",
       "/markets",

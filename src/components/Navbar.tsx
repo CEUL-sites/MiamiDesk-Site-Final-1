@@ -29,7 +29,7 @@ const NAV_ITEMS: NavItem[] = [
       { name: "New Construction", href: "/new-construction" },
       { name: "MLS Listings",     href: "/listings" },
       { name: "Madrid",           href: "/markets" },
-      { name: "Spain",            href: "/spain-desk" },
+      { name: "Global Desk",      href: "/spain-desk" },
     ],
   },
   {

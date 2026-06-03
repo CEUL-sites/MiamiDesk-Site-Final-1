@@ -66,8 +66,8 @@ const PROCESS_STEPS = [
   },
   {
     num: "04",
-    title: "Activación — Día Uno",
-    body: "United Realty Group da de alta el inmueble en el MLS de Miami y Sur de Florida REALTORS®. La sindicación se activa de inmediato. 93.000 agentes miembro tienen acceso desde el primer día hábil.",
+    title: "La Exposición se Activa",
+    body: "Cuando el inmueble es elegible, United Realty Group coordina el alta en el MLS de Miami y la sindicación a portales partner, sujeto a las normas del MLS y la disponibilidad de cada plataforma. Su agencia mantiene la relación con el cliente en todo momento.",
   },
 ];
 
@@ -102,17 +102,17 @@ export default function EsSpainDeskPage() {
   return (
     <>
       <Helmet>
-        <title>Mesa España — Activación de Listings Españoles en el MLS de Miami | HomesProfessional.com</title>
-        <meta name="description" content="Servicio B2B para agencias y promotores españoles. Dos flujos de ingresos documentados: tarifa mensual de marketing por listing + comisión de referral al cierre a través de United Realty Group, broker licenciado en Florida. Carlos Uzcategui FL SL705771." />
-        <meta name="keywords" content="activar inmueble MLS Miami, agencia española referral Miami, promotor España Sur de Florida, cooperating broker España Florida, United Realty Group España, activación MLS España, listing España Miami" />
+        <title>Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Miami | HomesProfessional.com</title>
+        <meta name="description" content="Servicio B2B de exposición y referral para agencias y promotores. Ayude a su agencia a ganar más mandatos de venta ofreciendo a los propietarios exposición documentada hacia Miami a través de Carlos Uzcategui, Realtor® licenciado en Florida SL705771, United Realty Group. Usted mantiene el mandato local." />
+        <meta name="keywords" content="ganar mandatos de venta España Miami, exposición Miami agencias españolas, listing España Miami, partnership agencia España Miami, cooperating broker España Florida, United Realty Group España, exposición internacional de listings" />
         <link rel="canonical" href="https://homesprofessional.com/es/spain-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/es/spain-desk" />
-        <meta property="og:title" content="Mesa España — Listings Españoles en el MLS de Miami | Carlos Uzcategui" />
-        <meta property="og:description" content="Dos flujos de ingresos documentados para agencias españolas: tarifa mensual de marketing + comisión de referral al cierre a través de URG, broker licenciado en Florida." />
+        <meta property="og:title" content="Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Miami | Carlos Uzcategui" />
+        <meta property="og:description" content="Dé a su agencia una ventaja en la presentación de captación: exposición documentada hacia Miami para sus vendedores, cuando es elegible. Representación local en España; exposición hacia Miami a través de un Realtor® licenciado en Florida." />
         <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({
@@ -159,7 +159,7 @@ export default function EsSpainDeskPage() {
 
           <div className="relative mx-auto max-w-4xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.06] px-4 py-1.5 mb-6">
-              <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">España · Mesa Miami · Partnership de Agencias</span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">Mesa Global · Partnership de Agencias · United Realty Group</span>
             </div>
 
             <h1 className="font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5vw, 3.2rem)" }}>
@@ -168,9 +168,10 @@ export default function EsSpainDeskPage() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Un servicio B2B para agencias españolas, promotores y profesionales del listing.
-              Dos flujos de ingresos documentados. Un broker licenciado en Florida como principal de registro.
-              93.000 agentes miembro desde el Día Uno.
+              Ayude a su agencia a ganar más mandatos de venta. Ofrezca a los propietarios exposición
+              documentada hacia el mercado de Miami a través de Carlos Uzcategui — Realtor® licenciado en Florida
+              desde 2001, afiliado a United Realty Group — junto a su marketing local. Representación local en España.
+              Exposición hacia Miami a través de un Realtor® licenciado en Florida. Usted mantiene la relación con el cliente.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -178,7 +179,7 @@ export default function EsSpainDeskPage() {
                 href="#enviar-listing"
                 className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
               >
-                Enviar un Listing para Revisión
+                Solicitar Términos de Partnership
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
@@ -213,14 +214,14 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">El Modelo de Negocio</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cómo Funciona el Partnership</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
-                Dos flujos de ingresos documentados.<br />
-                <em className="not-italic italic text-gold">Separados. Transparentes. Contractuales.</em>
+                Un modelo B2B claro.<br />
+                <em className="not-italic italic text-gold">Documentado antes de empezar.</em>
               </h2>
               <p className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-white/55">
-                La mayoría de los acuerdos internacionales de referral son informales y están mal documentados.
-                Este servicio opera con dos canales de ingresos diferenciados y contractuales — cada uno formalizado por escrito antes de iniciar cualquier acción de marketing.
+                El partnership se basa en paquetes mensuales de exposición de listings y en la promoción de carteras seleccionadas — el engagement principal —
+                con los referrals de compradores como ventaja secundaria. Cada acuerdo se formaliza por escrito antes de iniciar cualquier trabajo.
               </p>
             </div>
 
@@ -231,7 +232,7 @@ export default function EsSpainDeskPage() {
                   <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
                     <span className="font-mono text-[10px] font-bold text-gold">A</span>
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Recurrente · Por Listing · Mensual</span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Principal · Por Listing · Mensual</span>
                 </div>
 
                 <div>
@@ -274,7 +275,7 @@ export default function EsSpainDeskPage() {
                   <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
                     <span className="font-mono text-[10px] font-bold text-gold">B</span>
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Contingente · Solo en el Cierre</span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Ventaja Secundaria · Solo en el Cierre</span>
                 </div>
 
                 <div>
@@ -344,7 +345,7 @@ export default function EsSpainDeskPage() {
                 {
                   step: "03",
                   label: "Distribución en Red",
-                  body: "93.000 agentes miembro y 500+ portales en 19 idiomas reciben el inmueble. Desde el Día Uno. La misma infraestructura que respalda el volumen anual de ventas de Sur de Florida.",
+                  body: "El inmueble se pone a disposición del ecosistema de Miami y Sur de Florida REALTORS® y de portales partner cuando es elegible — la misma infraestructura que respalda el mercado de Sur de Florida. El alcance varía según el inmueble y la plataforma.",
                 },
                 {
                   step: "04",
@@ -473,7 +474,7 @@ export default function EsSpainDeskPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cómo Trabajar Juntos</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Cuatro pasos desde la consulta<br />
-                <em className="not-italic italic text-gold">hasta la activación en el Día Uno.</em>
+                <em className="not-italic italic text-gold">hasta la activación de la exposición.</em>
               </h2>
             </div>
 
@@ -742,12 +743,11 @@ export default function EsSpainDeskPage() {
               </div>
               <p className="font-sans text-[10px] leading-relaxed text-white/25">
                 Los servicios de corretaje inmobiliario en Florida son proporcionados a través de United Realty Group (URG).
-                Carlos Uzcategui (FL SL705771) es asociado licenciado de URG.
-                Las oportunidades en España e internacionales se gestionan mediante acuerdos de referral, marketing, cooperating broker
-                o asesoría, según jurisdicción, tipo de inmueble y normativa aplicable.
-                Carlos Uzcategui tiene licencia de agente inmobiliario exclusivamente en Florida.
-                Todos los compromisos transfronterizos se documentan mediante acuerdos escritos formales antes de cualquier presentación de comprador o activación de marketing.
-                Equal Housing Opportunity.
+                Carlos Uzcategui (FL SL705771) es Realtor® licenciado en Florida y afiliado a URG. No está licenciado como broker inmobiliario en España.
+                Las oportunidades en España e internacionales se gestionan mediante acuerdos de referral, marketing, cooperating broker o asesoría, según jurisdicción, tipo de inmueble y normativa aplicable.
+                La exposición en el MLS de Miami, la sindicación, la compensación por referral, la cooperación y la distribución de listings están sujetas a las normas del MLS, la aprobación del broker, acuerdos escritos, la elegibilidad del inmueble, la ley local y la disponibilidad de cada plataforma.
+                No garantizamos compradores, ofertas, cierres, resultados de sindicación ni la colocación en plataformas concretas.
+                Todos los compromisos transfronterizos se documentan mediante acuerdos escritos formales antes de cualquier engagement. Equal Housing Opportunity.
               </p>
             </div>
           </div>
