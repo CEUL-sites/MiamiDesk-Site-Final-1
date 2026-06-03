@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { AuroraBackground } from "./AuroraBackground";
 
 const FAQS = [
   {
@@ -33,8 +34,9 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
-      <div className="mx-auto max-w-4xl px-6">
+    <section id="faq" className="relative overflow-hidden border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
+      <AuroraBackground variant="subtle" />
+      <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-12 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Common Questions</p>
           <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus } from "lucide-react";
+import { AuroraBackground } from "./AuroraBackground";
 
 const STEPS = [
   {
@@ -46,8 +47,9 @@ export function SellerProcess() {
   const toggle = (i: number) => setActive((prev) => (prev === i ? -1 : i));
 
   return (
-    <section className="bg-navy-deep py-16 md:py-24 text-white border-t-2 border-gold/20">
-      <div className="mx-auto max-w-5xl px-6">
+    <section className="relative overflow-hidden bg-navy-deep py-16 md:py-24 text-white border-t-2 border-gold/20">
+      <AuroraBackground />
+      <div className="relative z-10 mx-auto max-w-5xl px-6">
 
         {/* Header */}
         <div className="mb-12 md:mb-16">

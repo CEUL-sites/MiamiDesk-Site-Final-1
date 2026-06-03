@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { ChevronRight, MessageSquare } from "lucide-react";
+import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -67,6 +68,7 @@ export default function MarketsPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
+          <AuroraBackground variant="warm" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
           <div className="relative mx-auto max-w-4xl px-6">

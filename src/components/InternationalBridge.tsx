@@ -2,6 +2,7 @@ import { ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { CONTACT } from "../constants";
 import { LazyVideo } from "./LazyVideo";
+import { AuroraBackground } from "./AuroraBackground";
 
 const CAPABILITIES = [
   {
@@ -25,6 +26,7 @@ export function InternationalBridge() {
   return (
     <section id="spain" className="relative overflow-hidden bg-navy-deep text-white">
 
+      <AuroraBackground variant="warm" />
       {/* Cinematic video background */}
       <LazyVideo
         src="/videos/globe-bg.mp4"
