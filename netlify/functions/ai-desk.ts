@@ -6,7 +6,7 @@ import { buildAiDeskSystemInstruction } from "./_shared/aiDeskSystemPrompt";
 import { formatLeadCaptureSummary } from "./_shared/leadCaptureFormatter";
 import { guardAiDeskResponse } from "./_shared/aiDeskResponseGuardrails";
 
-const GEMINI_API_KEY = (process.env.Gemini_API_Key ?? "").trim();
+const GEMINI_API_KEY = (process.env.GEMINI_API_KEY ?? process.env.Gemini_API_Key ?? "").trim();
 const GEMINI_MODEL = "gemini-2.5-flash";
 
 const jsonHeaders = {
