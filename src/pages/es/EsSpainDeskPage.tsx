@@ -12,7 +12,7 @@ const SERVICE_TIERS = [
   {
     tier: "01",
     name: "Activación de Listing",
-    description: "Acceso al canal de Miami para agencias que activan uno a tres inmuebles en el mercado americano.",
+    description: "Acceso al canal de Sur de Florida para agencias que activan uno a tres inmuebles en el mercado americano.",
     includes: [
       "Alta en el MLS a través de URG como broker de registro en Florida",
       "Sindicación a 500+ portales en 19 idiomas",
@@ -102,17 +102,17 @@ export default function EsSpainDeskPage() {
   return (
     <>
       <Helmet>
-        <title>Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Miami | HomesProfessional.com</title>
-        <meta name="description" content="Servicio B2B de exposición y referral para agencias y promotores. Ayude a su agencia a ganar más mandatos de venta ofreciendo a los propietarios exposición documentada hacia Miami a través de Carlos Uzcategui, Realtor® licenciado en Florida SL705771, United Realty Group. Usted mantiene el mandato local." />
-        <meta name="keywords" content="ganar mandatos de venta España Miami, exposición Miami agencias españolas, listing España Miami, partnership agencia España Miami, cooperating broker España Florida, United Realty Group España, exposición internacional de listings" />
+        <title>Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | HomesProfessional.com</title>
+        <meta name="description" content="Servicio B2B de exposición y referral para agencias y promotores. Ayude a su agencia a ganar más mandatos de venta ofreciendo a los propietarios exposición documentada hacia Sur de Florida a través de Carlos Uzcategui, Realtor® licenciado en Florida SL705771, United Realty Group. Usted mantiene el mandato local." />
+        <meta name="keywords" content="ganar mandatos de venta España Sur de Florida, exposición Sur de Florida agencias españolas, listing España Sur de Florida, partnership agencia España Sur de Florida, cooperating broker España Florida, United Realty Group España, exposición internacional de listings" />
         <link rel="canonical" href="https://homesprofessional.com/es/spain-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/spain-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/es/spain-desk" />
-        <meta property="og:title" content="Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Miami | Carlos Uzcategui" />
-        <meta property="og:description" content="Dé a su agencia una ventaja en la presentación de captación: exposición documentada hacia Miami para sus vendedores, cuando es elegible. Representación local en España; exposición hacia Miami a través de un Realtor® licenciado en Florida." />
+        <meta property="og:title" content="Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | Carlos Uzcategui" />
+        <meta property="og:description" content="Dé a su agencia una ventaja en la presentación de captación: exposición documentada hacia Sur de Florida para sus vendedores, cuando es elegible. Representación local en España; exposición hacia Sur de Florida a través de un Realtor® licenciado en Florida." />
         <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({
@@ -169,9 +169,9 @@ export default function EsSpainDeskPage() {
 
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Ayude a su agencia a ganar más mandatos de venta. Ofrezca a los propietarios exposición
-              documentada hacia el mercado de Miami a través de Carlos Uzcategui — Realtor® licenciado en Florida
+              documentada hacia el mercado de Sur de Florida a través de Carlos Uzcategui — Realtor® licenciado en Florida
               desde 2001, afiliado a United Realty Group — junto a su marketing local. Representación local en España.
-              Exposición hacia Miami a través de un Realtor® licenciado en Florida. Usted mantiene la relación con el cliente.
+              Exposición hacia Sur de Florida a través de un Realtor® licenciado en Florida. Usted mantiene la relación con el cliente.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">

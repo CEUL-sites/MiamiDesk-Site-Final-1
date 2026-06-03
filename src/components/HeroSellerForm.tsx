@@ -13,7 +13,7 @@ const COPY = {
   en: {
     eyebrow: "Private Seller Strategy Review",
     badge: "Free · Confidential",
-    address: "Property address — Miami or Spain",
+    address: "Property address — South Florida or Spain",
     name: "Full name",
     phone: "Phone / WhatsApp",
     markets: ["Greater Miami / South Florida", "Marbella / Costa del Sol", "Madrid", "Other — Spain", "Other"],

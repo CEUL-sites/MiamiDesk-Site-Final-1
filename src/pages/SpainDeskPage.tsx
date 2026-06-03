@@ -67,10 +67,10 @@ export default function SpainDeskPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Global Desk — Miami-Facing Listing Exposure for International Agencies",
+          "name": "Global Desk — South Florida-Facing Listing Exposure for International Agencies",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "B2B International Real Estate Exposure & Referral",
-          "description": "A B2B exposure and referral service for international agencies and developers. Agencies win more seller mandates by offering property owners documented Miami-facing exposure, where eligible and subject to MLS rules and written agreements, through United Realty Group. The agency keeps the seller relationship and local mandate.",
+          "description": "A B2B exposure and referral service for international agencies and developers. Agencies win more seller mandates by offering property owners documented South Florida-facing exposure, where eligible and subject to MLS rules and written agreements, through United Realty Group. The agency keeps the seller relationship and local mandate.",
           "areaServed": ["South Florida", "Spain", "Madrid"],
           "url": "https://homesprofessional.com/spain-desk",
           "availableLanguage": ["English", "Spanish"],
@@ -313,7 +313,7 @@ export default function SpainDeskPage() {
               <p className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-navy-deep/60">
                 When a property owner chooses between agencies, the stronger marketing story wins the listing.
                 Most agencies offer the same thing — local portals, a website, social media, a local database.
-                A Miami-facing exposure layer is something your competitors cannot put on the table.
+                A South Florida-facing exposure layer is something your competitors cannot put on the table.
               </p>
             </div>
 
@@ -322,7 +322,7 @@ export default function SpainDeskPage() {
                 {
                   number: "01",
                   title: "Differentiate your listing presentation",
-                  body: "Bring property owners a Miami-facing exposure story alongside your local marketing — documented, credible, and tied to a Florida-licensed Realtor® with 25 years in the South Florida market.",
+                  body: "Bring property owners a South Florida-facing exposure story alongside your local marketing — documented, credible, and tied to a Florida-licensed Realtor® with 25 years in the South Florida market.",
                 },
                 {
                   number: "02",
@@ -343,7 +343,7 @@ export default function SpainDeskPage() {
               ))}
             </div>
             <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.16em] text-navy-deep/35">
-              Miami-facing exposure is offered where listings are eligible and is subject to MLS rules, broker approval, and platform availability. No specific result is guaranteed.
+              South Florida-facing exposure is offered where listings are eligible and is subject to MLS rules, broker approval, and platform availability. No specific result is guaranteed.
             </p>
           </div>
         </section>
@@ -550,7 +550,7 @@ export default function SpainDeskPage() {
                 <em className="not-italic italic text-gold">per month.</em>
               </h2>
               <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Every tier coordinates Miami-facing exposure through URG as the Florida broker, where listings are eligible.
+                Every tier coordinates South Florida-facing exposure through URG as the Florida broker, where listings are eligible.
                 The difference is the depth of active marketing, outreach, and strategic support.
                 The monthly exposure fee is separate from any referral commission earned at closing.
               </p>

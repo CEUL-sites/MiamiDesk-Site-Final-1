@@ -138,8 +138,8 @@ export default function AgentsPage() {
         <link rel="canonical" href="https://homesprofessional.com/agents" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/agents" />
-        <meta property="og:title" content="Win More Seller Mandates With a Miami-Facing Exposure Strategy" />
-        <meta property="og:description" content="Give your agency a listing-presentation advantage local competitors cannot match: documented Miami-facing exposure for your sellers, where eligible. You keep the mandate." />
+        <meta property="og:title" content="Win More Seller Mandates With a South Florida Exposure Strategy" />
+        <meta property="og:description" content="Give your agency a listing-presentation advantage local competitors cannot match: documented South Florida-facing exposure for your sellers, where eligible. You keep the mandate." />
         <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({
