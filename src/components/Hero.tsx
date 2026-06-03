@@ -35,7 +35,7 @@ const item: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
 };
 
-/* Platform credentials bar */
+/* Platform credentials bar — bottom of hero */
 const PROOF_BAR = [
   { value: "93,000",  label: "Members"                   },
   { value: "260+",    label: "MLS Connections"            },
@@ -117,8 +117,19 @@ export function Hero() {
           from { transform:scaleX(0); opacity:0; }
           to   { transform:scaleX(1); opacity:1; }
         }
+        @keyframes exposure-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .exposure-track {
+          animation: exposure-scroll 12s linear infinite;
+          display: flex;
+          will-change: transform;
+        }
+        .exposure-track:hover { animation-play-state: paused; }
         @media (prefers-reduced-motion: reduce) {
           .hero-orb-a, .hero-orb-b { animation: none; }
+          .exposure-track { animation: none; }
         }
       `}</style>
 
@@ -253,6 +264,39 @@ export function Hero() {
               ))}
             </motion.div>
 
+            {/* "Your property. Our reach." divider */}
+            <motion.div variants={item} className="mt-5 flex items-center gap-2.5">
+              <div className="h-px flex-1 bg-white/[0.07]" />
+              <span className="font-mono text-[7px] uppercase tracking-[0.22em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
+              <div className="h-px flex-1 bg-white/[0.07]" />
+            </motion.div>
+
+            {/* Network stats scrolling ticker */}
+            <motion.div variants={item} className="relative mt-5 mx-auto lg:mx-0 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
+              {/* Left/right fade edges */}
+              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-[#060D18] to-transparent" />
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
+              <div className="exposure-track">
+                {[0, 1].map((copy) => (
+                  <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
+                    <span className="text-gold/75">Network</span>
+                    {" "}·{" "}
+                    <span className="text-white/85">93,000</span> Members
+                    {" "}·{" "}
+                    <span className="text-white/85">260+</span> MLS Connections
+                    {" "}·{" "}
+                    <span className="text-white/85">300+</span> Partner Associations
+                    {" "}·{" "}
+                    <span className="text-white/85">437+</span> International Agreements
+                    {" "}·{" "}
+                    <span className="text-white/85">500+</span> Websites
+                    {" "}·{" "}
+                    Licensed Since <span className="text-white/85">2001</span>
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
             {/* CTAs */}
             <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-start">
               <a
@@ -265,12 +309,26 @@ export function Hero() {
                 href="/spain-desk"
                 className="hero-pill inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 sm:px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.12em] sm:tracking-[0.14em] text-white/70 text-center"
               >
-                Submit a Property for Miami Exposure →
+                Global Desk — Agency &amp; Referrals →
               </a>
             </motion.div>
 
+            {/* Trust row — below CTAs */}
+            <motion.div variants={item} className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 lg:justify-start lg:gap-x-5">
+              {[
+                { icon: ShieldCheck, text: "Licensed Since 2001" },
+                { icon: Tag,         text: "CLHMS · Certified Seller Rep" },
+                { icon: Globe,       text: "United Realty Group" },
+              ].map(({ icon: Icon, text }) => (
+                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.12em] sm:tracking-[0.16em] text-white/45">
+                  <Icon size={12} className="text-gold/70 flex-shrink-0" />
+                  {text}
+                </span>
+              ))}
+            </motion.div>
+
             {/* Compliance micro-line */}
-            <motion.p variants={item} className="mt-5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25 max-w-md mx-auto lg:mx-0">
+            <motion.p variants={item} className="mt-4 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25 max-w-md mx-auto lg:mx-0">
               Eligible exposure varies by property type, MLS rules, platform participation, and syndication partner availability.
             </motion.p>
           </div>
