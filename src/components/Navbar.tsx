@@ -1,12 +1,11 @@
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Menu, Phone, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT } from "../constants";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-type NavChild = { name: string; href: string };
-type NavItem  = { name: string; href: string; children?: NavChild[] };
+type NavItem = { name: string; href: string };
 
 const NAV_ITEMS: NavItem[] = [
   {
@@ -63,12 +62,9 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export function Navbar() {
-  const [isOpen, setIsOpen]       = useState(false);
-  const [scrolled, setScrolled]   = useState(false);
-  const [openMenu, setOpenMenu]   = useState<string | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const location   = useLocation();
-  const closeTimer = useRef<ReturnType<typeof setTimeout>>();
+  const [isOpen, setIsOpen]     = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 80);
@@ -77,21 +73,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => { setIsOpen(false); setMobileExpanded(null); }, [location.pathname]);
-
-  function openDropdown(name: string) {
-    clearTimeout(closeTimer.current);
-    setOpenMenu(name);
-  }
-
-  function scheduleClose() {
-    closeTimer.current = setTimeout(() => setOpenMenu(null), 140);
-  }
-
-  function keepOpen() {
-    clearTimeout(closeTimer.current);
-  }
+  useEffect(() => { setIsOpen(false); }, [location.pathname]);
 
   const onLight  = scrolled;
   const navText  = onLight ? "text-navy/75 hover:text-gold" : "text-white/70 hover:text-white";
@@ -137,67 +119,17 @@ export function Navbar() {
         {/* ── Desktop nav ───────────────────────────────────── */}
         <div className="hidden flex-1 items-center justify-center gap-1 xl:flex">
           {NAV_ITEMS.map((item) => {
-            const active    = location.pathname === item.href || (item.children?.some(c => c.href === location.pathname));
-            const hasKids   = !!item.children?.length;
-            const isOpen_dd = openMenu === item.name;
-
+            const active = location.pathname === item.href;
             return (
-              <div
+              <a
                 key={item.name}
-                className="relative"
-                onMouseEnter={() => hasKids ? openDropdown(item.name) : undefined}
-                onMouseLeave={hasKids ? scheduleClose : undefined}
+                href={item.href}
+                className={`px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] transition-colors duration-200 whitespace-nowrap ${
+                  active ? "text-gold" : navText
+                }`}
               >
-                <a
-                  href={item.href}
-                  className={`inline-flex items-center gap-0.5 px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] transition-colors duration-200 whitespace-nowrap ${
-                    active ? "text-gold" : navText
-                  }`}
-                >
-                  {item.name}
-                  {hasKids && (
-                    <ChevronDown
-                      size={10}
-                      className={`transition-transform duration-200 ${isOpen_dd ? "rotate-180 text-gold" : ""}`}
-                    />
-                  )}
-                </a>
-
-                {/* Dropdown */}
-                {hasKids && (
-                  <AnimatePresence>
-                    {isOpen_dd && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 6 }}
-                        transition={{ duration: 0.15 }}
-                        onMouseEnter={keepOpen}
-                        onMouseLeave={scheduleClose}
-                        className={`absolute left-0 top-full mt-1 min-w-[220px] border py-2 shadow-xl shadow-black/20 ${
-                          scrolled
-                            ? "bg-white border-bone/60"
-                            : "bg-navy-deep border-white/10 backdrop-blur-xl"
-                        }`}
-                      >
-                        {item.children!.map((child) => (
-                          <a
-                            key={child.name}
-                            href={child.href}
-                            className={`block px-5 py-2.5 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors whitespace-nowrap ${
-                              scrolled
-                                ? "text-navy/70 hover:text-gold hover:bg-bone/30"
-                                : "text-white/60 hover:text-gold hover:bg-white/5"
-                            }`}
-                          >
-                            {child.name}
-                          </a>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                )}
-              </div>
+                {item.name}
+              </a>
             );
           })}
         </div>
@@ -275,63 +207,24 @@ export function Navbar() {
                 </button>
               </div>
 
-              {/* Nav links (accordion for dropdown items) */}
+              {/* Nav links */}
               <div className="mt-10 flex flex-col gap-0.5">
                 {NAV_ITEMS.map((item, index) => {
-                  const hasKids  = !!item.children?.length;
-                  const expanded = mobileExpanded === item.name;
-                  const active   = location.pathname === item.href;
-
+                  const active = location.pathname === item.href;
                   return (
-                    <div key={item.name}>
-                      <motion.div
-                        initial={{ opacity: 0, x: 16 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.04 }}
-                        className={`flex items-center justify-between border-b border-white/8 ${
-                          hasKids ? "" : ""
-                        }`}
-                      >
-                        <a
-                          href={item.href}
-                          onClick={() => !hasKids && setIsOpen(false)}
-                          className={`flex-1 py-4 font-serif text-2xl transition-colors hover:text-gold ${
-                            active ? "text-gold" : "text-white"
-                          }`}
-                        >
-                          {item.name}
-                        </a>
-                        {hasKids && (
-                          <button
-                            type="button"
-                            onClick={() => setMobileExpanded(expanded ? null : item.name)}
-                            aria-label={`Expand ${item.name}`}
-                            className="p-3 text-white/40 hover:text-gold transition-colors"
-                          >
-                            <ChevronDown
-                              size={18}
-                              className={`transition-transform ${expanded ? "rotate-180 text-gold" : ""}`}
-                            />
-                          </button>
-                        )}
-                      </motion.div>
-
-                      {/* Sub-items */}
-                      {hasKids && expanded && (
-                        <div className="border-b border-white/8 bg-white/[0.03] py-2">
-                          {item.children!.map((child) => (
-                            <a
-                              key={child.name}
-                              href={child.href}
-                              onClick={() => setIsOpen(false)}
-                              className="block px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/50 hover:text-gold transition-colors"
-                            >
-                              {child.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      initial={{ opacity: 0, x: 16 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.04 }}
+                      className={`border-b border-white/8 py-4 font-serif text-2xl transition-colors hover:text-gold ${
+                        active ? "text-gold" : "text-white"
+                      }`}
+                    >
+                      {item.name}
+                    </motion.a>
                   );
                 })}
               </div>

@@ -1,5 +1,6 @@
 import { motion, type Variants } from "motion/react";
 import { Globe, ShieldCheck, Tag } from "lucide-react";
+import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -63,35 +64,6 @@ export function Hero() {
     <section className="hero-root relative overflow-hidden bg-[#060D18] text-white flex flex-col">
 
       <style>{`
-        .hero-bg-warm {
-          position: absolute; inset: 0; pointer-events: none;
-          background:
-            radial-gradient(ellipse 90% 70% at 15% 60%, rgba(176,120,40,0.22) 0%, transparent 55%),
-            radial-gradient(ellipse 60% 80% at 80% 80%, rgba(20,55,120,0.30) 0%, transparent 55%),
-            radial-gradient(ellipse 70% 50% at 50% 100%, rgba(10,25,60,0.8) 0%, transparent 65%),
-            linear-gradient(175deg, #0A1830 0%, #070E18 45%, #050A14 100%);
-        }
-        @keyframes ho1 {
-          0%,100% { transform:translate(0,0) scale(1); }
-          40% { transform:translate(30px,-40px) scale(1.1); }
-          70% { transform:translate(-20px,25px) scale(0.93); }
-        }
-        @keyframes ho2 {
-          0%,100% { transform:translate(0,0) scale(1); }
-          50% { transform:translate(-35px,20px) scale(1.08); }
-        }
-        .hero-orb-a {
-          position:absolute; border-radius:50%; pointer-events:none;
-          width:680px; height:680px; top:-120px; left:-160px;
-          background:radial-gradient(ellipse, rgba(176,120,40,0.14) 0%, transparent 60%);
-          animation: ho1 20s ease-in-out infinite;
-        }
-        .hero-orb-b {
-          position:absolute; border-radius:50%; pointer-events:none;
-          width:520px; height:520px; bottom:-80px; right:-60px;
-          background:radial-gradient(ellipse, rgba(30,70,150,0.18) 0%, rgba(176,141,87,0.07) 50%, transparent 70%);
-          animation: ho2 25s ease-in-out infinite;
-        }
         .hero-grain {
           position:absolute; inset:0; pointer-events:none; opacity:0.025;
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
@@ -136,14 +108,11 @@ export function Hero() {
           backdrop-filter: blur(16px);
         }
         @media (prefers-reduced-motion: reduce) {
-          .hero-orb-a, .hero-orb-b,
           .exposure-track, .hero-marquee-track { animation: none; }
         }
       `}</style>
 
-      <div className="hero-bg-warm"  aria-hidden="true" />
-      <div className="hero-orb-a"    aria-hidden="true" />
-      <div className="hero-orb-b"    aria-hidden="true" />
+      <HeroBackground />
       <div className="hero-grain"    aria-hidden="true" />
       <div className="hero-grid"     aria-hidden="true" />
       <div className="hero-vignette" aria-hidden="true" />
