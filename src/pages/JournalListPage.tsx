@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { AuroraBackground } from '../components/AuroraBackground';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
@@ -42,7 +43,9 @@ export default function JournalListPage() {
         <Navbar />
 
         {/* Hero */}
-        <section className="bg-navy-deep pt-20 pb-14 text-center">
+        <section className="relative overflow-hidden bg-navy-deep pt-20 pb-14 text-center">
+          <AuroraBackground />
+          <div className="relative z-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
             Market Commentary · United Realty Group
           </p>
@@ -57,6 +60,7 @@ export default function JournalListPage() {
           <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.22em] text-white/30">
             Carlos Uzcategui · FL SL705771 · 25 Years South Florida Market Experience
           </p>
+          </div>
         </section>
 
         {/* Post Grid */}

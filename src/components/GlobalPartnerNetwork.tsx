@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { GLOBAL_REACH } from "../data/partnerAssociations";
 import { LazyVideo } from "./LazyVideo";
+import { AuroraBackground } from "./AuroraBackground";
 
 type Lang = "en" | "es";
 
@@ -43,12 +44,12 @@ export function GlobalPartnerNetwork({ lang = "en" }: { lang?: Lang }) {
   return (
     <section id="global-network" className="relative overflow-hidden bg-navy-deep text-white border-t border-gold/10">
       {/* Miami ↔ Spain split backdrop */}
+      <AuroraBackground variant="subtle" />
       <LazyVideo
         src="/videos/split_foto_miami_spain_mls.mp4"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.11]"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/75 to-navy-deep/90" />
-      <div className="pointer-events-none absolute right-0 top-0 h-[400px] w-[400px] -translate-y-1/3 translate-x-1/3 rounded-full bg-gold/[0.04] blur-[120px]" />
 
       <div className="relative mx-auto max-w-5xl px-6 py-16 md:py-24">
 

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -43,7 +44,9 @@ export default function BuyersPage() {
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <section className="overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
+        <section className="relative overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
+          <AuroraBackground />
+          <div className="relative z-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Representation · Spain Buyer Introductions</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
             Buy in South Florida or Spain<br />
@@ -82,12 +85,14 @@ export default function BuyersPage() {
           <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
             United Realty Group · CLHMS · FL SL705771 · Buyer representation across Miami-Dade, Broward &amp; Palm Beach
           </p>
+          </div>
         </section>
         {/* Active market bridge — Miami-Dade & Broward ~$1M listings */}
         <MLSTicker />
         <BuyersRelocation />
-        <section className="bg-navy-deep py-14 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
+        <section className="relative overflow-hidden bg-navy-deep py-14 md:py-20">
+          <AuroraBackground variant="subtle" />
+          <div className="relative z-10 mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Buyer Desk</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Ready to start your search?</h2>

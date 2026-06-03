@@ -1,11 +1,13 @@
 import { CONTACT, NAVIGATION } from "../constants";
+import { AuroraBackground } from "./AuroraBackground";
 
 const ticker = "SOUTH FLORIDA · MIAMI MLS EXPOSURE · UNITED REALTY GROUP · INTERNATIONAL PROPERTY DISTRIBUTION · 25 YEARS LICENSED IN FLORIDA · MIAMI MLS INTERNATIONAL DESK · DEVELOPERS & AGENCIES · SPAIN · LATIN AMERICA · ";
 
 export function Footer() {
   return (
-    <footer className="bg-navy-deep text-white border-t-2 border-gold/30">
-      <div className="marquee-container border-b border-white/5 py-4">
+    <footer className="relative overflow-hidden bg-navy-deep text-white border-t-2 border-gold/30">
+      <AuroraBackground variant="subtle" />
+      <div className="relative z-10 marquee-container border-b border-white/5 py-4">
         <div className="marquee-track-slow">
           {Array.from({ length: 8 }).map((_, index) => (
             <span key={index} className="font-mono pr-8 text-[10px] uppercase tracking-[0.3em] text-white/20">{ticker}</span>
@@ -13,7 +15,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <img
             src="/images/urg-logo-original.png"
@@ -107,7 +109,7 @@ export function Footer() {
       </div>
 
       {/* South Florida market reach */}
-      <div className="border-t border-white/5 px-6 py-10">
+      <div className="relative z-10 border-t border-white/5 px-6 py-10">
         <div className="mx-auto max-w-7xl">
           <h4 className="font-mono mb-4 text-[10px] uppercase tracking-[0.28em] text-gold">
             South Florida Market Reach
@@ -120,7 +122,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/5 px-6 py-8">
+      <div className="relative z-10 border-t border-white/5 px-6 py-8">
         <div className="mx-auto max-w-7xl space-y-8">
           <div className="max-w-5xl space-y-4 font-sans text-[10px] font-light leading-loose text-white/40">
             <p>

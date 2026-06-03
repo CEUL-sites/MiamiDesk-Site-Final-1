@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
+import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -95,6 +96,7 @@ export default function SellSouthFloridaPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
+          <AuroraBackground variant="warm" />
           {/* Cinematic drone background */}
           <LazyVideo
             eager
@@ -230,6 +232,7 @@ export default function SellSouthFloridaPage() {
 
         {/* Why Buyer-Agent Relationships Matter */}
         <section className="relative overflow-hidden bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
+          <AuroraBackground variant="subtle" />
           <LazyVideo
             src="/videos/best_exposure_listings.mp4"
             className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.10]"
