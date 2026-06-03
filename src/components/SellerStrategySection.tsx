@@ -466,7 +466,7 @@ export function SellerStrategySection() {
           {/* CTA */}
           <div className="sss-cta">
             <a href="/contact" className="sss-btn sss-btn-gold">Schedule a Strategy Call</a>
-            <a href="/sell" className="sss-btn sss-btn-outline">Explore Our Exposure System →</a>
+            <a href="/sell-south-florida" className="sss-btn sss-btn-outline">Explore Our Exposure System →</a>
           </div>
 
         </div>

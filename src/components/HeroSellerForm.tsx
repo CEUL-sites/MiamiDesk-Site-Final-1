@@ -18,7 +18,7 @@ const COPY = {
     phone: "Phone / WhatsApp",
     markets: ["Greater Miami / South Florida", "Marbella / Costa del Sol", "Madrid", "Other — Spain", "Other"],
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
-    submit: "Request a Private Seller Strategy Review",
+    submit: "Request My Strategy Review",
     sending: "Sending…",
     trust: "★★★★★ 5.0 · 15 reviews · Carlos replies within 1 business day · No listing commitment",
     prefer: "Prefer WhatsApp?",
@@ -38,7 +38,7 @@ const COPY = {
     phone: "Teléfono / WhatsApp",
     markets: ["Gran Miami / Sur de Florida", "Marbella / Costa del Sol", "Madrid", "Otra — España", "Otra"],
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
-    submit: "Solicite una Revisión de Estrategia de Venta Privada",
+    submit: "Solicitar Mi Revisión de Estrategia",
     sending: "Enviando…",
     trust: "★★★★★ 5.0 · 15 reseñas · Carlos responde en 1 día hábil · Sin compromiso",
     prefer: "¿Prefiere WhatsApp?",
@@ -60,7 +60,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const [error, setError]   = useState("");
 
   const update = (k: keyof typeof initial) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
-    setForm({ ...form, [k]: e.target.value });
+    setForm((f) => ({ ...f, [k]: e.target.value }));
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();

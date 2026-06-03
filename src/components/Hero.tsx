@@ -1,6 +1,5 @@
 import { motion, type Variants } from "motion/react";
 import { Globe, ShieldCheck, Tag } from "lucide-react";
-import { CONTACT } from "../constants";
 import { HeroSellerForm } from "./HeroSellerForm";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];

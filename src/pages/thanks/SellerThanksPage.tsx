@@ -50,7 +50,7 @@ export default function SellerThanksPage() {
                 WhatsApp {CONTACT.phoneUS}
               </a>
               <a
-                href="/sell"
+                href="/sell-south-florida"
                 className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/60 transition-colors hover:border-white/40 hover:text-white"
               >
                 Return to Seller Desk

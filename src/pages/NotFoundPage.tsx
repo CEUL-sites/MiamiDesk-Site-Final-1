@@ -24,7 +24,7 @@ export default function NotFoundPage() {
             Back to Home
           </a>
           <a
-            href="/sell"
+            href="/sell-south-florida"
             className="inline-flex items-center justify-center border border-navy/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:border-gold hover:text-gold"
           >
             Seller Strategy Review
