@@ -1,11 +1,38 @@
 import { motion } from "motion/react";
 import { ArrowRight, MapPin, Loader2, CheckCircle2 } from "lucide-react";
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, useRef, useEffect, type ChangeEvent, type FormEvent } from "react";
 import { CONTACT } from "../constants";
 import { trackLead } from "../lib/analytics";
 import { getAttribution } from "../lib/attribution";
 
 type Lang = "en" | "es";
+
+// Google Places — declared globally, loaded lazily below
+declare global {
+  interface Window {
+    google: typeof google;
+    initGooglePlaces?: () => void;
+  }
+}
+
+const MAPS_KEY = (import.meta.env as Record<string, string>)["VITE_GOOGLE_MAPS_KEY"] ?? "";
+
+function loadGooglePlaces(onReady: () => void) {
+  if (window.google?.maps?.places) { onReady(); return; }
+  if (!MAPS_KEY) return; // no key — plain input fallback
+  if (document.getElementById("gm-places-script")) {
+    // already loading — wait for callback
+    window.initGooglePlaces = onReady;
+    return;
+  }
+  window.initGooglePlaces = onReady;
+  const s = document.createElement("script");
+  s.id = "gm-places-script";
+  s.src = `https://maps.googleapis.com/maps/api/js?key=${MAPS_KEY}&libraries=places&loading=async&callback=initGooglePlaces`;
+  s.async = true;
+  s.defer = true;
+  document.head.appendChild(s);
+}
 
 const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
@@ -16,11 +43,17 @@ const COPY = {
     address: "Property address — South Florida or Spain",
     name: "Full name",
     phone: "Phone / WhatsApp",
-    markets: ["Greater Miami / South Florida", "Marbella / Costa del Sol", "Madrid", "Other — Spain", "Other"],
+    email: "Email (optional)",
+    markets: [
+      "Greater Miami / S. Florida",
+      "Marbella / Costa del Sol",
+      "Madrid",
+      "Other — Spain",
+      "Other",
+    ],
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
     submit: "Request My Strategy Review",
     sending: "Sending…",
-    trust: "★★★★★ 5.0 · 15 reviews · Carlos replies within 1 business day · No listing commitment",
     prefer: "Prefer WhatsApp?",
     preferLink: "Message Carlos directly",
     successTag: "Seller Request Received",
@@ -36,11 +69,17 @@ const COPY = {
     address: "Dirección de la propiedad — Miami o España",
     name: "Nombre completo",
     phone: "Teléfono / WhatsApp",
-    markets: ["Gran Miami / Sur de Florida", "Marbella / Costa del Sol", "Madrid", "Otra — España", "Otra"],
+    email: "Email (opcional)",
+    markets: [
+      "Gran Miami / Sur de Florida",
+      "Marbella / Costa del Sol",
+      "Madrid",
+      "Otra — España",
+      "Otra",
+    ],
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
     submit: "Solicitar Mi Revisión de Estrategia",
     sending: "Enviando…",
-    trust: "★★★★★ 5.0 · 15 reseñas · Carlos responde en 1 día hábil · Sin compromiso",
     prefer: "¿Prefiere WhatsApp?",
     preferLink: "Escriba a Carlos directamente",
     successTag: "Solicitud Recibida",
@@ -54,10 +93,36 @@ const COPY = {
 
 export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const t = COPY[lang];
-  const initial = { name: "", phone: "", propertyAddress: "", city: t.markets[0], timeline: t.timelines[0] };
+  const initial = {
+    name: "", phone: "", email: "",
+    propertyAddress: "",
+    city: t.markets[0],
+    timeline: t.timelines[0],
+  };
   const [form, setForm]     = useState(initial);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError]   = useState("");
+  const addressRef          = useRef<HTMLInputElement>(null);
+
+  // Wire up Google Places Autocomplete once the API is ready
+  useEffect(() => {
+    loadGooglePlaces(() => {
+      const input = addressRef.current;
+      if (!input || !window.google?.maps?.places) return;
+
+      const ac = new window.google.maps.places.Autocomplete(input, {
+        types: ["address"],
+        componentRestrictions: { country: ["us", "es"] },
+        fields: ["formatted_address"],
+      });
+
+      ac.addListener("place_changed", () => {
+        const place = ac.getPlace();
+        const addr = place.formatted_address ?? input.value;
+        setForm((f) => ({ ...f, propertyAddress: addr }));
+      });
+    });
+  }, []);
 
   const update = (k: keyof typeof initial) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -74,7 +139,13 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: controller.signal,
-        body: encodeForm({ "form-name": "seller-hero", "bot-field": "", ...form, sourcePage: `hero-${lang}`, ...getAttribution() }),
+        body: encodeForm({
+          "form-name": "seller-hero",
+          "bot-field": "",
+          ...form,
+          sourcePage: `hero-${lang}`,
+          ...getAttribution(),
+        }),
       });
       if (!res.ok) throw new Error(String(res.status));
       trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });
@@ -88,6 +159,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
     }
   }
 
+  // ── Success state ──────────────────────────────────────────────────────
   if (status === "success") {
     return (
       <motion.div
@@ -115,7 +187,8 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
 
   const inputCls =
     "w-full rounded-lg bg-white/[0.05] border border-white/12 px-4 py-3 font-sans text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-gold/50 focus:bg-white/[0.08]";
-  const selectCls = inputCls + " cursor-pointer appearance-none pr-9";
+  const selectCls =
+    inputCls + " cursor-pointer appearance-none pr-9";
 
   return (
     <form
@@ -127,6 +200,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       className="rounded-2xl bg-[#0A1525]/90 border border-white/12 backdrop-blur-xl p-5 sm:p-7 text-left shadow-2xl shadow-black/60"
     >
       <input type="hidden" name="form-name" value="seller-hero" />
+      <input type="hidden" name="email" value={form.email} />
       <p aria-hidden="true" className="hidden">
         <label>Don't fill this out: <input name="bot-field" /></label>
       </p>
@@ -137,75 +211,97 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">{t.badge}</span>
       </div>
 
-      {/* Address — Google Maps-style prominent input */}
+      {/* Address — Google Places Autocomplete */}
       <div className="relative">
-        <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold/70" />
+        <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold/70 z-10" />
         <input
           required
+          ref={addressRef}
           name="propertyAddress"
           type="text"
           value={form.propertyAddress}
           onChange={update("propertyAddress")}
           placeholder={t.address}
-          autoComplete="street-address"
+          autoComplete="off"
           className="w-full rounded-lg bg-white/[0.08] border border-gold/25 px-4 py-4 pl-11 font-sans text-[15px] text-white placeholder:text-white/30 outline-none transition-all focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
           aria-label={t.address}
         />
       </div>
 
+      {/* Name + Phone */}
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <input required name="name" type="text" value={form.name} onChange={update("name")} placeholder={t.name} className={inputCls} aria-label={t.name} />
-        <input required name="phone" type="tel" value={form.phone} onChange={update("phone")} placeholder={t.phone} className={inputCls} aria-label={t.phone} />
+        <input
+          required name="name" type="text"
+          value={form.name} onChange={update("name")}
+          placeholder={t.name} className={inputCls} aria-label={t.name}
+        />
+        <input
+          required name="phone" type="tel"
+          value={form.phone} onChange={update("phone")}
+          placeholder={t.phone} className={inputCls} aria-label={t.phone}
+        />
       </div>
 
+      {/* Market + Timeline — each full-width row so labels never truncate */}
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="relative">
-          <select name="city" value={form.city} onChange={update("city")} className={selectCls} aria-label="Market">
+          <select
+            name="city" value={form.city} onChange={update("city")}
+            className={selectCls} aria-label="Market"
+          >
             {t.markets.map((m) => <option key={m}>{m}</option>)}
           </select>
-          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60">▾</span>
+          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
         </div>
         <div className="relative">
-          <select name="timeline" value={form.timeline} onChange={update("timeline")} className={selectCls} aria-label="Timeline">
+          <select
+            name="timeline" value={form.timeline} onChange={update("timeline")}
+            className={selectCls} aria-label="Timeline"
+          >
             {t.timelines.map((tl) => <option key={tl}>{tl}</option>)}
           </select>
-          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60">▾</span>
+          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
         </div>
       </div>
 
-      {status === "error" && <p className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>}
+      {status === "error" && (
+        <p className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>
+      )}
 
-      <p className="mt-4 text-center font-sans text-[10px] leading-relaxed tracking-[0.04em] text-gold/80">
-        {t.trust}
-      </p>
-
+      {/* CTA button */}
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="hero-cta-main mt-4 flex w-full items-center justify-center gap-2.5 rounded-lg px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep disabled:opacity-60"
+        className="hero-cta-main mt-5 flex w-full items-center justify-center gap-2.5 rounded-lg px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep disabled:opacity-60"
       >
         {status === "submitting"
-          ? <><Loader2 size={15} className="animate-spin" /> {t.sending}</>
-          : <>{t.submit} <ArrowRight size={15} /></>}
+          ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
+          : <>{t.submit}<ArrowRight size={15} /></>}
       </button>
 
-      {/* Social proof */}
+      {/* Single trust row — stars + proof */}
       <div className="mt-4 flex items-center justify-center gap-2">
-        <span className="flex gap-0.5" aria-hidden="true">
+        <span className="flex gap-0.5 shrink-0" aria-hidden="true">
           {[0,1,2,3,4].map(i => (
             <svg key={i} width="11" height="11" viewBox="0 0 12 12" fill="#B08D57">
               <path d="M6 0l1.35 4.15H12L8.32 6.72 9.67 10.87 6 8.3 2.33 10.87 3.68 6.72 0 4.15h4.65z"/>
             </svg>
           ))}
         </span>
-        <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">
-          5.0 · 15 reviews · Carlos replies within 1 business day · No listing commitment
+        <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/35 leading-snug">
+          5.0 · Replies within 1 business day · No listing commitment
         </span>
       </div>
 
+      {/* WhatsApp fallback */}
       <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.14em] text-white/25">
         {t.prefer}{" "}
-        <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold underline underline-offset-2">
+        <a
+          href={CONTACT.whatsappUS}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gold/60 hover:text-gold underline underline-offset-2 transition-colors"
+        >
           {t.preferLink}
         </a>
       </p>
