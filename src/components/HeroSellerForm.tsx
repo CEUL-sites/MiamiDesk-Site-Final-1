@@ -124,20 +124,22 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
-      className="rounded-2xl bg-[#0A1525]/80 border border-white/12 backdrop-blur-xl p-5 sm:p-6 text-left shadow-2xl shadow-black/50"
+      className="rounded-2xl bg-[#0A1525]/90 border border-white/12 backdrop-blur-xl p-5 sm:p-7 text-left shadow-2xl shadow-black/60"
     >
       <input type="hidden" name="form-name" value="seller-hero" />
       <p aria-hidden="true" className="hidden">
         <label>Don't fill this out: <input name="bot-field" /></label>
       </p>
 
-      <div className="mb-4 flex items-center justify-between gap-3">
+      {/* Header row */}
+      <div className="mb-5 flex items-center justify-between gap-3">
         <span className="font-mono text-[9px] uppercase tracking-[0.26em] text-gold">{t.eyebrow}</span>
         <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">{t.badge}</span>
       </div>
 
+      {/* Address — Google Maps-style prominent input */}
       <div className="relative">
-        <MapPin size={15} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gold/60" />
+        <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold/70" />
         <input
           required
           name="propertyAddress"
@@ -145,7 +147,8 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           value={form.propertyAddress}
           onChange={update("propertyAddress")}
           placeholder={t.address}
-          className={inputCls + " pl-10"}
+          autoComplete="street-address"
+          className="w-full rounded-lg bg-white/[0.08] border border-gold/25 px-4 py-4 pl-11 font-sans text-[15px] text-white placeholder:text-white/30 outline-none transition-all focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
           aria-label={t.address}
         />
       </div>
@@ -186,9 +189,23 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           : <>{t.submit} <ArrowRight size={15} /></>}
       </button>
 
-      <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+      {/* Social proof */}
+      <div className="mt-4 flex items-center justify-center gap-2">
+        <span className="flex gap-0.5" aria-hidden="true">
+          {[0,1,2,3,4].map(i => (
+            <svg key={i} width="11" height="11" viewBox="0 0 12 12" fill="#B08D57">
+              <path d="M6 0l1.35 4.15H12L8.32 6.72 9.67 10.87 6 8.3 2.33 10.87 3.68 6.72 0 4.15h4.65z"/>
+            </svg>
+          ))}
+        </span>
+        <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">
+          5.0 · 15 reviews · Carlos replies within 1 business day · No listing commitment
+        </span>
+      </div>
+
+      <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.14em] text-white/25">
         {t.prefer}{" "}
-        <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold/70 hover:text-gold underline underline-offset-2">
+        <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold underline underline-offset-2">
           {t.preferLink}
         </a>
       </p>

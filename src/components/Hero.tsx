@@ -28,26 +28,42 @@ const VIDEO_BUBBLES = [
 
 const container: Variants = {
   hidden:  {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 const item: Variants = {
-  hidden:  { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: EASE } },
+  hidden:  { opacity: 0, y: 22 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 
-/* Platform credentials bar — bottom of hero */
-const PROOF_BAR = [
-  { value: "93,000",  label: "Members"                   },
-  { value: "260+",    label: "MLS Connections"            },
-  { value: "300+",    label: "Partner Associations"       },
-  { value: "437+",    label: "International Agreements"   },
-  { value: "500+",    label: "Websites"                   },
-  { value: "Licensed Since 2001", label: "" },
+/* Animated marquee — markets served + URG footprint + network stats */
+const MARQUEE_ITEMS: { t: string; gold?: true }[] = [
+  { t: "South Florida",              gold: true  },
+  { t: "Miami-Dade County"                       },
+  { t: "Broward County"                          },
+  { t: "Palm Beach County"                       },
+  { t: "Weston"                                  },
+  { t: "Coral Gables"                            },
+  { t: "Brickell"                                },
+  { t: "Miami Beach"                             },
+  { t: "Aventura"                                },
+  { t: "Sunny Isles Beach"                       },
+  { t: "Doral · Kendall · Homestead"             },
+  { t: "20 URG Offices",             gold: true  },
+  { t: "3,500+ URG Agents in Florida"            },
+  { t: "93,000 Network Members",     gold: true  },
+  { t: "260+ MLS Connections"                    },
+  { t: "300+ Partner Associations"               },
+  { t: "437+ International Agreements"           },
+  { t: "500+ Websites"                           },
+  { t: "Licensed Since 2001",        gold: true  },
+  { t: "United Realty Group",        gold: true  },
 ];
 
 export function Hero() {
+  const marqueeContent = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
+
   return (
-    <section className="hero-root relative min-h-screen overflow-hidden bg-[#060D18] text-white flex flex-col">
+    <section className="hero-root relative overflow-hidden bg-[#060D18] text-white flex flex-col">
 
       <style>{`
         .hero-bg-warm {
@@ -93,29 +109,8 @@ export function Hero() {
           mask-image:radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
         }
         .hero-vignette {
-          position:absolute; bottom:0; left:0; right:0; height:280px; pointer-events:none;
+          position:absolute; bottom:0; left:0; right:0; height:220px; pointer-events:none;
           background:linear-gradient(to top, rgba(6,13,24,0.95) 0%, transparent 100%);
-        }
-        .hero-pill {
-          border: 1px solid rgba(255,255,255,0.14);
-          background: rgba(255,255,255,0.05);
-          backdrop-filter: blur(12px);
-          transition: border-color 0.2s, background 0.2s, color 0.2s;
-        }
-        .hero-pill:hover {
-          border-color: rgba(176,141,87,0.6);
-          background: rgba(176,141,87,0.1);
-          color: #D4AE78;
-        }
-        .hero-stats-bar {
-          background: rgba(10,21,37,0.8);
-          border-top: 1px solid rgba(176,141,87,0.12);
-          border-bottom: 1px solid rgba(176,141,87,0.12);
-          backdrop-filter: blur(16px);
-        }
-        @keyframes hero-rule {
-          from { transform:scaleX(0); opacity:0; }
-          to   { transform:scaleX(1); opacity:1; }
         }
         @keyframes exposure-scroll {
           from { transform: translateX(0); }
@@ -127,9 +122,25 @@ export function Hero() {
           will-change: transform;
         }
         .exposure-track:hover { animation-play-state: paused; }
+        @keyframes marquee-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .hero-marquee-track {
+          animation: marquee-scroll 38s linear infinite;
+          display: flex;
+          align-items: center;
+          will-change: transform;
+        }
+        .hero-marquee-track:hover { animation-play-state: paused; }
+        .hero-marquee-bar {
+          background: rgba(10,21,37,0.85);
+          border-top: 1px solid rgba(176,141,87,0.15);
+          backdrop-filter: blur(16px);
+        }
         @media (prefers-reduced-motion: reduce) {
-          .hero-orb-a, .hero-orb-b { animation: none; }
-          .exposure-track { animation: none; }
+          .hero-orb-a, .hero-orb-b,
+          .exposure-track, .hero-marquee-track { animation: none; }
         }
       `}</style>
 
@@ -140,28 +151,25 @@ export function Hero() {
       <div className="hero-grid"     aria-hidden="true" />
       <div className="hero-vignette" aria-hidden="true" />
 
-      {/* ── Content ─────────────────────────────────────────── */}
+      {/* ── Main content — single centered column ──────────────── */}
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 pt-28 pb-8 sm:px-10"
+        className="relative z-10 flex flex-1 flex-col items-center px-4 pt-28 pb-10 sm:px-8"
       >
-        <div className="grid w-full max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14 min-w-0">
+        <div className="w-full max-w-4xl flex flex-col items-center text-center">
 
-          {/* ── Left: message ──────────────────────────────── */}
-          <div className="text-center lg:text-left min-w-0">
-
-            {/* Eyebrow */}
-            <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-              <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
-                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] sm:tracking-[0.22em] text-gold/85">
-                  <span className="sm:hidden">South Florida · Global Network</span>
-                  <span className="hidden sm:inline">South Florida · Miami Realtors Association · Global Real Estate Network</span>
-                </span>
+          {/* Eyebrow */}
+          <motion.div variants={item}>
+            <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
+              <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+              <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
+                <span className="sm:hidden">South Florida · Global Network</span>
+                <span className="hidden sm:inline">South Florida · Miami Realtors Association · Global Real Estate Network</span>
               </span>
-            </motion.div>
+            </span>
+          </motion.div>
 
             {/* Headline */}
             <motion.h1
@@ -295,7 +303,8 @@ export function Hero() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            ))}
+          </motion.div>
 
             {/* CTAs */}
             <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-start">
@@ -313,61 +322,96 @@ export function Hero() {
               </a>
             </motion.div>
 
-            {/* Trust row — below CTAs */}
-            <motion.div variants={item} className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 lg:justify-start lg:gap-x-5">
-              {[
-                { icon: ShieldCheck, text: "Licensed Since 2001" },
-                { icon: Tag,         text: "CLHMS · Certified Seller Rep" },
-                { icon: Globe,       text: "United Realty Group" },
-              ].map(({ icon: Icon, text }) => (
-                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.12em] sm:tracking-[0.16em] text-white/45">
-                  <Icon size={12} className="text-gold/70 flex-shrink-0" />
-                  {text}
+          {/* Subtitle */}
+          <motion.p
+            variants={item}
+            className="mt-4 font-serif text-white/70 italic"
+            style={{ fontSize: "clamp(1rem, 2.2vw, 1.35rem)" }}
+          >
+            Real Estate is local — Peak Value is Global.
+          </motion.p>
+
+          {/* Network ticker */}
+          <motion.div variants={item} className="relative mt-5 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-[#060D18] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
+            <div className="exposure-track">
+              {[0, 1].map((copy) => (
+                <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
+                  <span className="text-gold/75">Network</span>{" "}·{" "}
+                  <span className="text-white/85">93,000</span> Members{" "}·{" "}
+                  <span className="text-white/85">260+</span> MLS Connections{" "}·{" "}
+                  <span className="text-white/85">300+</span> Partner Associations{" "}·{" "}
+                  <span className="text-white/85">437+</span> International Agreements{" "}·{" "}
+                  <span className="text-white/85">500+</span> Websites{" "}·{" "}
+                  Licensed Since <span className="text-white/85">2001</span>
                 </span>
               ))}
-            </motion.div>
-
-            {/* Compliance micro-line */}
-            <motion.p variants={item} className="mt-4 font-mono text-[8px] uppercase tracking-[0.14em] text-white/25 max-w-md mx-auto lg:mx-0">
-              Eligible exposure varies by property type, MLS rules, platform participation, and syndication partner availability.
-            </motion.p>
-          </div>
-
-          {/* ── Right: lead capture form ──────────────────── */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, ease: EASE, delay: 0.6 }}
-            className="mx-auto w-full max-w-md lg:max-w-none"
-          >
-            <HeroSellerForm />
+            </div>
           </motion.div>
 
         </div>
+
+        {/* ── Centered form ──────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.55 }}
+          className="mt-8 w-full max-w-lg"
+        >
+          <HeroSellerForm />
+        </motion.div>
+
+        {/* ── Trust row ──────────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.0, duration: 0.6 }}
+          className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
+        >
+          {[
+            { icon: ShieldCheck, text: "Licensed Since 2001" },
+            { icon: Tag,         text: "CLHMS · Certified Seller Rep" },
+            { icon: Globe,       text: "United Realty Group" },
+          ].map(({ icon: Icon, text }) => (
+            <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] text-white/40">
+              <Icon size={11} className="text-gold/60 flex-shrink-0" />
+              {text}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* Compliance */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1, duration: 0.5 }}
+          className="mt-3 font-mono text-[7.5px] uppercase tracking-[0.14em] text-white/20 max-w-sm text-center"
+        >
+          Eligible exposure varies by property type, MLS rules, platform participation, and syndication partner availability.
+        </motion.p>
+
       </motion.div>
 
-      {/* ── Platform credentials bar ───────────────────────── */}
+      {/* ── Bottom marquee — markets + URG offices + network ───── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.7 }}
-        className="relative z-10 hero-stats-bar w-full"
+        className="relative z-10 hero-marquee-bar w-full overflow-hidden select-none"
+        aria-hidden="true"
       >
-        <div className="mx-auto max-w-5xl px-5 py-3 flex items-center gap-4 overflow-x-auto scrollbar-none">
-          <span className="flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.28em] text-gold border border-gold/30 px-2 py-1 whitespace-nowrap">
-            Network
-          </span>
-          <div className="h-3 w-px bg-white/15 flex-shrink-0" />
-          {PROOF_BAR.map((s, i) => (
-            <div key={`${s.value}${s.label}`} className="flex items-center gap-1 flex-shrink-0">
-              {i > 0 && <span className="text-white/15 text-xs mr-1">·</span>}
-              <span className="font-mono text-[11px] font-semibold text-white/85 whitespace-nowrap">{s.value}</span>
-              {s.label && <span className="font-mono text-[8px] uppercase tracking-[0.12em] text-white/35 ml-1 whitespace-nowrap">{s.label}</span>}
-            </div>
+        <div className="hero-marquee-track py-2.5">
+          {marqueeContent.map((m, i) => (
+            <span key={i} className="flex shrink-0 items-center">
+              <span className={`font-mono text-[9px] uppercase tracking-[0.18em] whitespace-nowrap px-3 ${
+                m.gold ? "text-gold/80" : "text-white/35"
+              }`}>
+                {m.t}
+              </span>
+              <span className="text-white/15 text-xs">·</span>
+            </span>
           ))}
-          <span className="flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.16em] text-white/25 whitespace-nowrap ml-1">
-            {CONTACT.shortLicense}
-          </span>
         </div>
       </motion.div>
 
