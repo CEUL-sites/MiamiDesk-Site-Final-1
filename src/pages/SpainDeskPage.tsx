@@ -51,8 +51,8 @@ const SERVICES = PROCESS_STEPS;
 const SERVICE_TIERS = [
   {
     tier: "01",
-    name: "Listing Activation",
-    description: "South Florida channel access for agencies activating one to three properties in the U.S. market.",
+    name: "Up to 5 Listings",
+    description: "For agencies activating a curated selection of properties into the South Florida channel.",
     includes: [
       "MLS activation through URG as Florida broker of record",
       "Syndication to 500+ portals in 19 languages",
@@ -63,26 +63,26 @@ const SERVICE_TIERS = [
   },
   {
     tier: "02",
-    name: "Active Marketing",
+    name: "Up to 10 Listings",
     popular: true,
-    description: "Full marketing execution with buyer-agent outreach and monthly performance reporting.",
+    description: "For agencies running an active portfolio with consistent buyer-agent outreach and reporting.",
     includes: [
-      "Everything in Listing Activation",
+      "Everything in Up to 5 Listings",
       "Targeted outreach to buyer agents with LATAM mandates",
-      "Monthly marketing performance report",
-      "Custom English buyer dossier",
-      "Inquiry management with priority response",
+      "Monthly marketing performance report per listing",
+      "Custom English buyer dossier for each property",
+      "Priority inquiry management and response",
     ],
   },
   {
     tier: "03",
-    name: "Full Channel",
-    description: "Enterprise structure for agencies with broad inventory or developer mandates.",
+    name: "11+ Listings",
+    description: "For agencies with broad inventory, developer mandates, or repeat listing flow.",
     includes: [
-      "Everything in Active Marketing",
+      "Everything in Up to 10 Listings",
       "Monthly strategy sessions with Carlos",
       "Support in negotiations with U.S. buyers",
-      "Pricing structures for portfolios and developers",
+      "Volume pricing structures for portfolios and developers",
       "Direct access to LATAM investor and South Florida referral network",
     ],
   },

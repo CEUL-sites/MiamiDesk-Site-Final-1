@@ -12,8 +12,8 @@ import { CONTACT, LEAD_MAGNETS } from "../../constants";
 const SERVICE_TIERS = [
   {
     tier: "01",
-    name: "Activación de Listing",
-    description: "Acceso al canal de Sur de Florida para agencias que activan uno a tres inmuebles en el mercado americano.",
+    name: "Hasta 5 Listings",
+    description: "Para agencias que activan una selección curada de inmuebles en el canal de Sur de Florida.",
     includes: [
       "Alta en el MLS a través de URG como broker de registro en Florida",
       "Sindicación a 500+ portales en 19 idiomas",
@@ -24,26 +24,26 @@ const SERVICE_TIERS = [
   },
   {
     tier: "02",
-    name: "Marketing Activo",
+    name: "Hasta 10 Listings",
     popular: true,
-    description: "Ejecución completa de marketing con outreach a agentes compradores y reporting mensual.",
+    description: "Para agencias con cartera activa que necesitan outreach continuo a agentes compradores y reporting mensual.",
     includes: [
-      "Todo lo incluido en Activación de Listing",
+      "Todo lo incluido en Hasta 5 Listings",
       "Outreach dirigido a agentes compradores con mandatos LATAM",
-      "Informe mensual de rendimiento de marketing",
-      "Dossier comprador en inglés personalizado",
+      "Informe mensual de rendimiento por inmueble",
+      "Dossier comprador en inglés personalizado por propiedad",
       "Gestión de consultas con respuesta prioritaria",
     ],
   },
   {
     tier: "03",
-    name: "Canal Completo",
-    description: "Estructura enterprise para agencias con inventario amplio o mandatos de promotor.",
+    name: "11+ Listings",
+    description: "Para agencias con inventario amplio, mandatos de promotor o flujo recurrente de listings.",
     includes: [
-      "Todo lo incluido en Marketing Activo",
+      "Todo lo incluido en Hasta 10 Listings",
       "Sesiones de estrategia mensuales con Carlos",
       "Apoyo en negociaciones con compradores americanos",
-      "Estructuras de precio para carteras y promotores",
+      "Estructuras de precio por volumen para carteras y promotores",
       "Acceso directo a la red de inversores LATAM y Sur de Florida",
     ],
   },
