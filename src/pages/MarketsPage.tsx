@@ -1,26 +1,37 @@
 import { Helmet } from "react-helmet-async";
-import { ChevronRight, MessageSquare } from "lucide-react";
+import { ChevronRight, MessageSquare, MapPin, Globe } from "lucide-react";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
 import { Testimonials } from "../components/Testimonials";
-import { CONTACT } from "../constants";
+import { CONTACT, URG_CITIES } from "../constants";
 
-// Consolidated Markets advisory page (replaces the per-city /market/[city] pages).
+// Group URG cities by county
+const MIAMI_DADE = URG_CITIES.filter((c) => c.region === "Miami-Dade County").map((c) => c.city);
+const BROWARD    = URG_CITIES.filter((c) => c.region === "Broward County").map((c) => c.city);
+const PALM_BEACH = URG_CITIES.filter((c) => c.region === "Palm Beach County").map((c) => c.city);
+
 const COUNTIES = [
-  { name: "Miami-Dade", note: "Brickell, Coral Gables, Aventura, Doral, Miami Beach, Coconut Grove and the urban core — the entry point for international capital." },
-  { name: "Broward", note: "Fort Lauderdale, Weston, Plantation, Parkland and the coastal corridor — domestic relocation and move-up demand." },
-  { name: "Palm Beach", note: "Boca Raton, Delray Beach, West Palm Beach — financial-sector migration and seasonal luxury." },
-  { name: "St. Lucie & Martin", note: "The northern edge of the merged MLS footprint — emerging value and new construction." },
-];
-
-const SF_NEIGHBORHOODS = [
-  "Weston", "Miami", "Coral Gables", "Pinecrest", "Brickell", "Coconut Grove",
-  "Fort Lauderdale", "Las Olas", "Parkland", "Boca Raton", "Aventura",
-  "Sunny Isles Beach", "Bal Harbour", "Key Biscayne", "Miami Beach", "Doral",
-  "Hialeah", "Hollywood", "Hallandale Beach", "Kendall", "West Palm Beach",
+  {
+    name: "Miami-Dade County",
+    stat: `${MIAMI_DADE.length} cities covered`,
+    character: "Urban core and international gateway. Brickell, Coral Gables, Aventura, Doral, Miami Beach, Coconut Grove — the primary entry point for Latin American, European, and Gulf capital into South Florida. Condo and luxury single-family market with deep foreign-national buyer demand.",
+    cities: MIAMI_DADE,
+  },
+  {
+    name: "Broward County",
+    stat: `${BROWARD.length} cities covered`,
+    character: "Domestic relocation and family move-up market. Weston, Plantation, Coral Springs, Pembroke Pines — A-rated school districts, established single-family inventory, and the western corridor connecting to Palm Beach. Fort Lauderdale's waterfront drives a separate luxury condo segment.",
+    cities: BROWARD,
+  },
+  {
+    name: "Palm Beach County",
+    stat: `${PALM_BEACH.length} cities covered`,
+    character: "Financial-sector migration and seasonal luxury. Boca Raton and Delray Beach attract professional relocators from the Northeast; West Palm Beach anchors a growing institutional market. Demand is driven by both domestic migration and international buyers at the $2M+ tier.",
+    cities: PALM_BEACH,
+  },
 ];
 
 const MADRID_NEIGHBORHOODS = [
@@ -30,10 +41,22 @@ const MADRID_NEIGHBORHOODS = [
 ];
 
 const INTL_MARKETS = [
-  { region: "Spain & Portugal", note: "Madrid, Barcelona, Marbella, Lisbon — direct referral relationships with agencies and family offices." },
-  { region: "Latin America", note: "Colombia, Venezuela, Argentina, Brazil, Mexico, Panama — active buyer and seller pipelines across South Florida." },
-  { region: "United Kingdom & Europe", note: "London, Monaco, Zürich — UHNW and family office introductions through MIAMI Global Council associations." },
-  { region: "Middle East & Gulf", note: "Dubai, Abu Dhabi, Riyadh — MIAMI Association's 437+ international agreements include Gulf-region real estate organizations." },
+  {
+    region: "Latin America",
+    note: "Colombia, Venezuela, Argentina, Brazil, Mexico, Panama — the largest source of active buyer and seller pipelines into South Florida. Introductions flow through professional brokerage coordination, not marketing promises.",
+  },
+  {
+    region: "Spain & Portugal",
+    note: "Madrid, Barcelona, Marbella, Lisbon — direct referral relationships with established local agencies and family offices. The formal referral mechanism is documented and compliant with both Florida and Spanish professional standards.",
+  },
+  {
+    region: "United Kingdom & Europe",
+    note: "London, Monaco, Zürich — UHNW and family office introductions through MIAMI Global Council associations and cooperating international broker relationships.",
+  },
+  {
+    region: "Middle East & Gulf",
+    note: "Dubai, Abu Dhabi, Riyadh — reached through the Miami and South Florida REALTORS® 437+ signed international agreements with Gulf-region real estate organizations.",
+  },
 ];
 
 const PILLARS = [
@@ -42,11 +65,11 @@ const PILLARS = [
     body: "Comparable analysis and absorption data set the number. Overpriced inventory accumulates days on market and ultimately closes below a correctly set initial ask.",
   },
   {
-    title: "Structural distribution",
+    title: "Structural MLS distribution",
     body: "Listing through a Miami and South Florida REALTORS® member places the property inside the world's largest local REALTOR® association — 93,000 member agents, eligible listings on 200+ global portals in 19 languages.",
   },
   {
-    title: "International demand",
+    title: "International demand access",
     body: "The Miami MLS is backed by 437+ international agreements across 75+ countries — reaching the agents who represent Latin American, European, and Gulf buyers actively searching for South Florida property.",
   },
 ];
@@ -55,31 +78,47 @@ export default function MarketsPage() {
   return (
     <>
       <Helmet>
-        <title>Markets: South Florida · Madrid · International Referral | HomesProfessional.com</title>
+        <title>Markets Served: South Florida · Madrid · International | HomesProfessional.com</title>
         <meta
           name="description"
-          content="South Florida, Madrid, and international referral markets served directly, through brokerage affiliation, or through cooperating professional relationships. Carlos Uzcategui, FL SL705771, United Realty Group."
+          content={`South Florida full MLS coverage across Miami-Dade, Broward, and Palm Beach — ${URG_CITIES.length} cities through United Realty Group's ${CONTACT.stats.urgOffices} offices. Madrid and Spain through professional referral relationships. Carlos Uzcategui, FL SL705771.`}
         />
         <link rel="canonical" href="https://homesprofessional.com/markets" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What counties does Carlos Uzcategui serve in South Florida?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Carlos serves Miami-Dade, Broward, and Palm Beach counties directly through United Realty Group's 20 South Florida offices and full Miami and South Florida REALTORS® MLS access." }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Carlos sell real estate in Spain?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Carlos is licensed exclusively in Florida (SL705771). Spain and Madrid properties are handled through formal professional referral relationships with established local agencies — not direct sales by Carlos in Spain." }
+            },
+          ]
+        })}</script>
       </Helmet>
 
       <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
-        {/* Hero */}
+        {/* ── Hero ──────────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
           <AuroraBackground variant="warm" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
           <div className="relative mx-auto max-w-4xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida · Madrid & Spain · International Referral Markets</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida · Madrid & Spain · International Referral</p>
             <h1 className="mx-auto mt-6 max-w-3xl font-serif leading-[1.1] text-white" style={{ fontSize: "clamp(2.1rem, 5vw, 3.6rem)" }}>
-              Markets served directly,<br />
-              <em className="not-italic italic text-gold">through affiliation, or referral.</em>
+              South Florida's full MLS footprint.<br />
+              <em className="not-italic italic text-gold">Madrid, through professional partnership.</em>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
-              South Florida's full MLS footprint. Madrid and Spain market introductions. International referral and
-              cooperating broker relationships across Latin America, Europe, and the Gulf. Distribution determines demand.
+              Direct coverage across Miami-Dade, Broward, and Palm Beach through United Realty Group's {CONTACT.stats.urgOffices} South Florida offices
+              and {CONTACT.stats.agents}-member MLS. Spain and international markets served through formal referral and cooperating broker relationships.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href="/contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -87,136 +126,232 @@ export default function MarketsPage() {
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/25 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">
-                <MessageSquare size={15} /> WhatsApp Carlos directly
+                <MessageSquare size={15} /> WhatsApp Carlos
               </a>
             </div>
             <div className="mt-12"><MiamiRealtorsBadge variant="dark" /></div>
           </div>
         </section>
 
-        {/* Counties */}
-        <section className="bg-white py-20 md:py-28">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Markets</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              One MLS. Five counties. A single seller strategy.
-            </h2>
-            <div className="mt-12 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
-              {COUNTIES.map((c) => (
-                <div key={c.name} className="bg-white p-8">
-                  <h3 className="font-serif text-2xl text-navy-deep">{c.name}</h3>
-                  <p className="mt-3 font-sans text-[15px] leading-relaxed text-ink-primary/70">{c.note}</p>
+        {/* ── URG Footprint strip ────────────────────────────────── */}
+        <div className="bg-navy-deep border-t border-white/10">
+          <div className="mx-auto max-w-5xl px-6 py-6">
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-center">
+              {[
+                { value: CONTACT.stats.urgOffices, label: "United Realty Group offices — South Florida" },
+                { value: CONTACT.stats.urgAgents,  label: "URG agents statewide" },
+                { value: String(URG_CITIES.length), label: "cities served across 3 counties" },
+                { value: "260+", label: "U.S. MLSs in our network" },
+              ].map((s) => (
+                <div key={s.label} className="flex flex-col items-center">
+                  <span className="font-serif text-2xl text-gold">{s.value}</span>
+                  <span className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/45">{s.label}</span>
                 </div>
               ))}
             </div>
-            {/* South Florida neighborhood chips */}
-            <div className="mt-12">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/40 mb-5">Key markets served</p>
-              <div className="flex flex-wrap gap-2">
-                {SF_NEIGHBORHOODS.map((n) => (
-                  <span key={n} className="inline-block border border-navy/10 bg-ivory px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/60">{n}</span>
-                ))}
-              </div>
-              <p className="mt-5 font-sans text-xs text-ink-primary/45 italic">Markets served directly, through brokerage affiliation, or through cooperating professional relationships.</p>
-            </div>
           </div>
-        </section>
+        </div>
 
-        {/* Madrid & Spain Markets */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Madrid & Spain Markets</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
-              Spain introductions through professional referral and cooperating agency relationships.
-            </h2>
-            <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Spanish property owners, developers, and agencies seeking Miami-facing exposure are handled through compliant referral, marketing, and cooperating broker channels — not a direct sales claim in Spain. The mechanism is professional and documented.
-            </p>
-            {/* Madrid neighborhood chips */}
-            <div className="mt-10">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35 mb-5">Madrid markets referenced</p>
-              <div className="flex flex-wrap gap-2">
-                {MADRID_NEIGHBORHOODS.map((n) => (
-                  <span key={n} className="inline-block border border-white/15 bg-white/5 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55">{n}</span>
-                ))}
-              </div>
-            </div>
-            <div className="mt-10 flex gap-4 flex-wrap">
-              <a href="/miami-mls-international-desk" className="group inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
-                Miami MLS International Desk
-                <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-              </a>
-              <a href="/developers-agencies" className="inline-flex items-center gap-2 border border-white/25 px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">
-                For Agencies & Developers
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* International Referral Markets */}
+        {/* ── South Florida: County-by-county ────────────────────── */}
         <section className="bg-white py-20 md:py-28">
-          <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-14">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Coverage</p>
+              <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                Three counties, one integrated MLS.<br />
+                <span className="text-gold">Direct access across every market.</span>
+              </h2>
+              <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
+                United Realty Group operates {CONTACT.stats.urgOffices} offices across South Florida. Every listing represented by
+                Carlos enters the Miami and South Florida REALTORS® MLS — {CONTACT.stats.agents} member agents with reach into
+                200+ global portals in 19 languages.
+              </p>
+            </div>
+
+            <div className="space-y-px border border-hairline bg-hairline">
+              {COUNTIES.map((county) => (
+                <div key={county.name} className="bg-white p-8 md:p-10">
+                  <div className="md:flex md:gap-12">
+                    {/* Left: county heading */}
+                    <div className="md:w-64 md:flex-shrink-0">
+                      <div className="flex items-center gap-2">
+                        <MapPin size={13} className="text-gold flex-shrink-0" />
+                        <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">{county.stat}</span>
+                      </div>
+                      <h3 className="mt-3 font-serif text-2xl text-navy-deep">{county.name}</h3>
+                    </div>
+                    {/* Right: description + city chips */}
+                    <div className="mt-5 md:mt-0 md:flex-1">
+                      <p className="font-sans text-[15px] leading-relaxed text-ink-primary/70">{county.character}</p>
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {county.cities.map((city) => (
+                          <span
+                            key={city}
+                            className="inline-block border border-navy/10 bg-ivory px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/65"
+                          >
+                            {city}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-6 font-sans text-xs text-ink-primary/40 italic">
+              All markets served directly through Florida License SL705771, United Realty Group, and full Miami and South Florida REALTORS® MLS access.
+            </p>
+          </div>
+        </section>
+
+        {/* ── Madrid & Spain ────────────────────────────────────── */}
+        <section className="bg-navy-deep py-20 md:py-28 text-white">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="md:flex md:gap-16">
+              {/* Left column */}
+              <div className="md:w-96 md:flex-shrink-0">
+                <div className="flex items-center gap-2">
+                  <Globe size={13} className="text-gold flex-shrink-0" />
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Madrid & Spain</p>
+                </div>
+                <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
+                  Spain, through formal professional partnership.
+                </h2>
+                <p className="mt-5 font-sans text-[15px] leading-relaxed text-white/60">
+                  Carlos is licensed exclusively in Florida (SL705771). Spain and Madrid properties are not sold directly —
+                  they are served through formal referral relationships with established local agencies and, where appropriate,
+                  through Miami MLS exposure as a licensed U.S. principal of record.
+                </p>
+                <p className="mt-4 font-sans text-[15px] leading-relaxed text-white/60">
+                  Spanish property owners, developers, and agencies seeking Miami-facing distribution access a compliant,
+                  documented professional channel — not a marketing promise or unlicensed representation.
+                </p>
+                <div className="mt-8 flex gap-4 flex-wrap">
+                  <a
+                    href="/global-desk"
+                    className="group inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                  >
+                    Global Desk — how it works
+                    <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+                  </a>
+                </div>
+                <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+                  Spain introductions · Referral & cooperating agency · Not direct sales in Spain
+                </p>
+              </div>
+
+              {/* Right column — Madrid neighborhoods */}
+              <div className="mt-12 md:mt-0 md:flex-1">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35 mb-5">
+                  Madrid districts &amp; submarkets referenced
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {MADRID_NEIGHBORHOODS.map((n) => (
+                    <span
+                      key={n}
+                      className="inline-block border border-white/15 bg-white/5 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55"
+                    >
+                      {n}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-4">What the Global Desk provides</p>
+                  <ul className="space-y-3">
+                    {[
+                      "Miami MLS listing as U.S. licensed principal of record",
+                      "Distribution to 93,000 MIAMI REALTORS® member agents",
+                      "Syndication to 200+ global portals in 19 languages",
+                      "Formal referral introductions from Spanish agencies",
+                      "Bilingual English/Spanish representation and reporting",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
+                        <span className="font-sans text-[14px] leading-snug text-white/65">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── International Referral Markets ────────────────────── */}
+        <section className="bg-white py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">International Referral Markets</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              Referral and cooperating broker reach into the markets that drive South Florida demand.
+              The markets that drive South Florida demand —<br />
+              <span className="text-gold">reached through professional cooperation.</span>
             </h2>
-            <p className="mt-6 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60">
-              The Miami and South Florida REALTORS® network holds 437+ signed international agreements. Buyer-side referral introductions flow through professional brokerage coordination — not marketing promises.
+            <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
+              The Miami and South Florida REALTORS® network holds 437+ signed international agreements across 75+ countries.
+              Buyer-side referral introductions flow through professional brokerage coordination.
             </p>
             <div className="mt-12 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
               {INTL_MARKETS.map((m) => (
-                <div key={m.region} className="bg-white p-8">
+                <div key={m.region} className="bg-white p-8 md:p-10">
                   <h3 className="font-serif text-xl text-navy-deep">{m.region}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{m.note}</p>
+                  <p className="mt-3 font-sans text-[15px] leading-relaxed text-ink-primary/65">{m.note}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Pillars */}
+        {/* ── How the strategy works ────────────────────────────── */}
         <section className="bg-navy-deep py-20 md:py-28 text-white">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How the strategy works</p>
+          <div className="mx-auto max-w-6xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The listing strategy</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
               Price, distribute, reach the right buyer.
             </h2>
             <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
               {PILLARS.map((p) => (
-                <div key={p.title} className="bg-navy-deep p-8">
+                <div key={p.title} className="bg-navy-deep p-8 md:p-10">
                   <h3 className="font-serif text-xl text-white">{p.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/60">{p.body}</p>
+                  <p className="mt-3 font-sans text-[15px] leading-relaxed text-white/60">{p.body}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-10 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+            <p className="mt-8 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
               Live MLS market data available on request as part of every seller strategy review.
             </p>
           </div>
         </section>
 
-        {/* International cross-border CTA */}
+        {/* ── Cross-border CTA ──────────────────────────────────── */}
         <section className="bg-ivory py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-6 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cross-Border Distribution</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Start Here</p>
             <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              International property owners seeking Miami-facing exposure.
+              South Florida seller or international property inquiry.
             </h2>
             <p className="mt-6 font-sans text-[17px] leading-[1.7] text-ink-primary/70">
-              From Spanish luxury assets to Latin American investment portfolios — if a property deserves exposure
-              beyond its local market, HomesProfessional can structure a Miami-facing presentation, referral pathway,
-              and distribution strategy through compliant professional channels.
+              Whether the property is in Weston, Brickell, or Madrid — every inquiry gets a direct response from Carlos, a
+              clear scope of what representation looks like, and a market positioning review before any commitment.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <a href="/miami-mls-international-desk" className="group inline-flex items-center gap-2 bg-navy-deep px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep">
-                Miami MLS International Desk
+              <a
+                href="/contact"
+                className="group inline-flex items-center gap-2 bg-navy-deep px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+              >
+                Request a Market Review
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="/developers-agencies" className="group inline-flex items-center gap-2 border border-navy/25 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy hover:bg-navy hover:text-white">
-                For Agencies & Developers
+              <a
+                href="/global-desk"
+                className="group inline-flex items-center gap-2 border border-navy/25 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy hover:bg-navy hover:text-white"
+              >
+                Global Desk — Spain &amp; International
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>
+            <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.18em] text-ink-primary/35">
+              Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+            </p>
           </div>
         </section>
 
