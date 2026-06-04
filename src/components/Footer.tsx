@@ -147,6 +147,14 @@ export function Footer() {
               <a href="/sell-south-florida" className="transition-colors hover:text-gold">Sell in South Florida</a>
               <a href="/sell-weston" className="transition-colors hover:text-gold">Sell in Weston</a>
               <a href="/sell-coral-gables" className="transition-colors hover:text-gold">Sell in Coral Gables</a>
+              <a href="/sell-aventura" className="transition-colors hover:text-gold">Sell in Aventura</a>
+              <a href="/sell-doral" className="transition-colors hover:text-gold">Sell in Doral</a>
+              <a href="/sell-brickell" className="transition-colors hover:text-gold">Sell in Brickell</a>
+              <a href="/sell-coral-springs" className="transition-colors hover:text-gold">Sell in Coral Springs</a>
+              <a href="/sell-pembroke-pines" className="transition-colors hover:text-gold">Sell in Pembroke Pines</a>
+              <a href="/sell-fort-lauderdale" className="transition-colors hover:text-gold">Sell in Fort Lauderdale</a>
+              <a href="/sell-plantation" className="transition-colors hover:text-gold">Sell in Plantation</a>
+              <a href="/sell-sunrise" className="transition-colors hover:text-gold">Sell in Sunrise</a>
               <a href="/home-value" className="transition-colors hover:text-gold">Free Home Valuation</a>
               <a href="/global-desk" className="transition-colors hover:text-gold">Global Desk</a>
               <a href="/markets" className="transition-colors hover:text-gold">Markets</a>

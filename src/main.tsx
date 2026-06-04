@@ -16,6 +16,14 @@ import HomePage from './pages/HomePage';
 const SellSouthFloridaPage           = lazy(() => import('./pages/SellSouthFloridaPage'));
 const SellWestonPage                 = lazy(() => import('./pages/SellWestonPage'));
 const SellCoralGablesPage            = lazy(() => import('./pages/SellCoralGablesPage'));
+const SellAventuraPage               = lazy(() => import('./pages/SellAventuraPage'));
+const SellDoralPage                  = lazy(() => import('./pages/SellDoralPage'));
+const SellBrickellPage               = lazy(() => import('./pages/SellBrickellPage'));
+const SellCoralSpringsPage           = lazy(() => import('./pages/SellCoralSpringsPage'));
+const SellPembrokePinesPage          = lazy(() => import('./pages/SellPembrokePinesPage'));
+const SellFortLauderdalePage         = lazy(() => import('./pages/SellFortLauderdalePage'));
+const SellPlantationPage             = lazy(() => import('./pages/SellPlantationPage'));
+const SellSunrisePage                = lazy(() => import('./pages/SellSunrisePage'));
 const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
 const GlobalDeskPage                 = lazy(() => import('./pages/GlobalDeskPage'));
 const MiamiMLSInternationalDeskPage  = lazy(() => import('./pages/MiamiMLSInternationalDeskPage'));
@@ -64,6 +72,14 @@ if (rootElement) {
                 <Route path="/sell-south-florida"            element={<SellSouthFloridaPage />} />
                 <Route path="/sell-weston"                   element={<SellWestonPage />} />
                 <Route path="/sell-coral-gables"             element={<SellCoralGablesPage />} />
+                <Route path="/sell-aventura"                 element={<SellAventuraPage />} />
+                <Route path="/sell-doral"                    element={<SellDoralPage />} />
+                <Route path="/sell-brickell"                 element={<SellBrickellPage />} />
+                <Route path="/sell-coral-springs"            element={<SellCoralSpringsPage />} />
+                <Route path="/sell-pembroke-pines"           element={<SellPembrokePinesPage />} />
+                <Route path="/sell-fort-lauderdale"          element={<SellFortLauderdalePage />} />
+                <Route path="/sell-plantation"               element={<SellPlantationPage />} />
+                <Route path="/sell-sunrise"                  element={<SellSunrisePage />} />
                 <Route path="/global-desk"                   element={<GlobalDeskPage />} />
                 <Route path="/miami-mls-international-desk"  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/developers-agencies"           element={<Navigate to="/global-desk" replace />} />

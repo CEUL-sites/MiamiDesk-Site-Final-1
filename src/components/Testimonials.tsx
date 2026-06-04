@@ -187,9 +187,14 @@ export function Testimonials() {
       {/* Single scrolling row — all reviews */}
       <div className="marquee-container">
         <div className="marquee-track-slow flex" style={{ animationDuration: "120s" }}>
-          {[...REVIEWS_ROW1, ...REVIEWS_ROW2, ...REVIEWS_ROW1, ...REVIEWS_ROW2].map((r, i) => (
-            <ReviewCard key={i} name={r.name} location={r.location} date={r.date} verified={r.verified} text={r.text} />
+          {[...REVIEWS_ROW1, ...REVIEWS_ROW2].map((r, i) => (
+            <ReviewCard key={`r${i}`} name={r.name} location={r.location} date={r.date} verified={r.verified} text={r.text} />
           ))}
+          <div aria-hidden="true" className="flex">
+            {[...REVIEWS_ROW1, ...REVIEWS_ROW2].map((r, i) => (
+              <ReviewCard key={`c${i}`} name={r.name} location={r.location} date={r.date} verified={r.verified} text={r.text} />
+            ))}
+          </div>
         </div>
       </div>
 

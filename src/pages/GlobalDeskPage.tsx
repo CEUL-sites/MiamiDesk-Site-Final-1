@@ -6,6 +6,29 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { CONTACT } from "../constants";
 
+const GLOBAL_DESK_FAQS = [
+  {
+    q: "Is the Global Desk a referral service or a formal listing?",
+    a: "It is a formal listing. Carlos Uzcategui, Florida Licensed Realtor® SL705771, places eligible inventory directly into the Miami and South Florida REALTORS® MLS as the licensed principal of record — giving the property institutional access to 93,000 member agents. This is not a referral or co-marketing arrangement; it is a full MLS activation.",
+  },
+  {
+    q: "What types of properties qualify for Global Desk activation?",
+    a: "Eligible properties typically include South Florida residential and commercial inventory with international appeal, and select Spain and LATAM inventory that qualifies for U.S. MLS placement under applicable MLS rules and agreements. Eligibility is assessed per-property during the initial strategy conversation — not all international inventory qualifies, and Carlos reviews each submission before engaging.",
+  },
+  {
+    q: "Which buyer markets does the Global Desk reach?",
+    a: "The Miami and South Florida REALTORS® MLS network includes 93,000 member agents representing active Latin American, European, North American, and Middle Eastern buyer demand. Listed properties are eligible to appear across 200+ global portals in 19 languages, subject to platform eligibility and MLS rules. The buyer pipeline is further supported by 437+ international agreements across 75+ countries.",
+  },
+  {
+    q: "What is included in campaign reporting?",
+    a: "Activity reporting includes documented agent outreach contacts, showing requests, buyer positioning feedback from the agent network, and platform distribution confirmation. Every campaign is tracked and reported to the referring agency or property ownership team in writing.",
+  },
+  {
+    q: "How is compensation structured for Global Desk engagements?",
+    a: "Compensation terms are set in direct conversation — not posted publicly — as they vary by property type, jurisdiction, and engagement structure (referral, co-listing, or advisory). Written agreements are executed before any listing activity begins. Referral agreements are honored both directions.",
+  },
+];
+
 const STEPS = [
   {
     num: "01",
@@ -41,6 +64,23 @@ export default function GlobalDeskPage() {
         />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Global Desk", "item": "https://homesprofessional.com/global-desk" },
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": GLOBAL_DESK_FAQS.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",

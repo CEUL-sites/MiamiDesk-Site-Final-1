@@ -42,6 +42,70 @@
   </url>
 
   <url>
+    <loc>https://homesprofessional.com/sell-aventura</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-aventura"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/sell-doral</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/sell-brickell</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-brickell"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/sell-coral-springs</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-springs"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/sell-pembroke-pines</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-pembroke-pines"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/sell-fort-lauderdale</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-fort-lauderdale"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/sell-plantation</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-plantation"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/sell-sunrise</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-sunrise"/>
+  </url>
+
+  <url>
     <loc>https://homesprofessional.com/home-value</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -85,26 +149,11 @@
   <!-- ── International ──────────────────────────────────────────── -->
 
   <url>
-    <loc>https://homesprofessional.com/spain-desk</loc>
-    <lastmod>2026-06-01</lastmod>
+    <loc>https://homesprofessional.com/global-desk</loc>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/spain-desk"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/miami-mls-international-desk</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.83</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/developers-agencies</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
   </url>
 
   <!-- ── Professionals ──────────────────────────────────────────── -->
@@ -233,14 +282,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/comprar"/>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/es/spain-desk</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
 
   <!-- ── Legal ──────────────────────────────────────────────────── -->
