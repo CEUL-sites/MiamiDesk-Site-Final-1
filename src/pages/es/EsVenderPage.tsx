@@ -67,7 +67,7 @@ const STEPS = [
     label: "Lanzar",
     // TODO: native Madrid editor review
     description:
-      "Activación en el MLS de Miami y Sur de Florida a través de United Realty Group, con distribución simultánea a 500+ portales globales en 19 idiomas el mismo día del lanzamiento.",
+      "Activación en el MLS de Miami y Sur de Florida a través de United Realty Group, con distribución simultánea a 200+ portales globales en 19 idiomas el mismo día del lanzamiento.",
   },
   {
     number: "04",
@@ -89,7 +89,7 @@ const STEPS = [
 
 const DISTRIBUTION_STATS = [
   {
-    value: "500+",
+    value: "200+",
     // TODO: native Madrid editor review
     label: "Portales Globales",
   },
@@ -121,7 +121,7 @@ export default function EsVenderPage() {
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
-          content="Representación de vendedores en Sur de Florida. Activación en el MLS de Miami, 93.000 agentes miembros, 500+ portales globales. Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group."
+          content="Representación de vendedores en Sur de Florida. Activación en el MLS de Miami, 93.000 agentes miembros, 200+ portales globales. Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group."
         />
         <link
           rel="canonical"
@@ -177,7 +177,7 @@ export default function EsVenderPage() {
                 {/* TODO: native Madrid editor review */}
                 25 años de transacciones en Sur de Florida. Cada exclusiva
                 activa la red de la mayor asociación local de REALTORS® del
-                mundo — 93.000 agentes miembros, 500+ portales globales
+                mundo — 93.000 agentes miembros, 200+ portales globales
                 en 19 idiomas, 260+ MLSs en EE. UU. a través de RPR — el mismo
                 día del lanzamiento.
               </motion.p>

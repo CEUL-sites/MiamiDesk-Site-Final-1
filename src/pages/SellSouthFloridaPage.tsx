@@ -66,7 +66,7 @@ export default function SellSouthFloridaPage() {
           "totalTime": "P30D",
           "tool": [
             { "@type": "HowToTool", "name": "Miami and South Florida REALTORS® MLS" },
-            { "@type": "HowToTool", "name": "500+ Global Websites in 19 Languages" },
+            { "@type": "HowToTool", "name": "200+ Global Portals in 19 Languages" },
             { "@type": "HowToTool", "name": "United Realty Group Agent Network" }
           ],
           "step": [
@@ -82,7 +82,7 @@ export default function SellSouthFloridaPage() {
           "@type": "FAQPage",
           "mainEntity": [
             { "@type": "Question", "name": "How do I sell my South Florida home?", "acceptedAnswer": { "@type": "Answer", "text": "It starts with positioning — the right price, the right timing, and professional MLS activation. Carlos provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS with professional buyer-agent visibility and eligible syndication across approved distribution channels. No obligation. Just a strategy." } },
-            { "@type": "Question", "name": "What is the Miami MLS and why does it matter?", "acceptedAnswer": { "@type": "Answer", "text": "The Miami and South Florida REALTORS® MLS is the world's largest local Realtor® association — over 93,000 member agents. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 500+ global websites in 19 languages. The MLS is where qualified buyers are found." } },
+            { "@type": "Question", "name": "What is the Miami MLS and why does it matter?", "acceptedAnswer": { "@type": "Answer", "text": "The Miami and South Florida REALTORS® MLS is the world's largest local Realtor® association — over 93,000 member agents. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 200+ global portals in 19 languages. The MLS is where qualified buyers are found." } },
             { "@type": "Question", "name": "Do you work with Latin American and Spanish buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. South Florida's luxury market runs on Latin American capital. Carlos built those relationships deal by deal over 25 years. His Madrid advisory desk connects Spanish developers, agencies, and HNW owners to the U.S. market through a licensed Florida principal of record." } },
             { "@type": "Question", "name": "How long does it take to sell in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "It varies by price band, condition, and positioning. Per Miami and South Florida REALTORS® MLS data, well-positioned homes in the lower price bands have typically transacted faster than luxury product above $2M. Carlos provides a neighborhood-specific timeline assessment as part of every seller strategy review — this is not a guarantee of any specific outcome, and no listing commitment is required." } },
             { "@type": "Question", "name": "Can a Spanish property be listed in the Miami MLS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. As a licensed Florida principal of record, Carlos can activate Spanish properties within the Miami MLS ecosystem — reaching 93,000 agents who represent LATAM and North American buyers. This is a formal MLS listing, not a referral." } },

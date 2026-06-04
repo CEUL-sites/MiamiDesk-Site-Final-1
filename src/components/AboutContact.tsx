@@ -5,8 +5,8 @@ import { LeadForm } from "./LeadForm";
 const STATS = [
   { value: "25", label: "Years Licensed" },
   { value: "93,000", label: "Member Agents in Association" },
-  { value: "4,000+", label: "URG Agents Statewide" },
-  { value: "21", label: "URG Florida Offices" }
+  { value: "3,500+", label: "URG Agents Statewide" },
+  { value: "20", label: "URG Florida Offices" }
 ];
 
 export function AboutContact() {
@@ -33,7 +33,7 @@ export function AboutContact() {
 
           <div className="mt-12 max-w-4xl space-y-6 font-sans text-lg leading-relaxed text-navy/68">
             <p>Twenty-five years of active South Florida real estate transactions, residential, luxury, and commercial. The relationships Carlos has inside the Miami professional community were built through closed deals, not directory listings.</p>
-            <p>From his Weston, Florida office, he serves South Florida sellers and buyers through United Realty Group — established in 2002 and today one of the largest independently owned brokerages in Florida, with 4,000+ agents across 21 offices in Miami-Dade, Broward, Palm Beach, and Orange Counties. From Madrid, he works directly with Spanish developers, agencies, and HNW property owners who need a licensed U.S. principal to activate their assets in the American market.</p>
+            <p>From his Weston, Florida office, he serves South Florida sellers and buyers through United Realty Group — established in 2002 and today one of the largest independently owned brokerages in Florida, with 3,500+ agents across 20 offices in Miami-Dade, Broward, Palm Beach, and Orange Counties. He also works directly with international developers, agencies, and HNW property owners who need a licensed U.S. principal to activate their assets in the American market through the Miami MLS.</p>
           </div>
 
           <div className="mt-12 grid grid-cols-2 gap-px border border-bone bg-bone lg:max-w-3xl">
@@ -61,7 +61,7 @@ export function AboutContact() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/85 via-navy-deep/20 to-transparent" />
               <div className="relative p-5">
                 <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · Est. 2002</p>
-                <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/60">One of Florida's largest independently owned brokerages · 4,000+ agents · 21 offices</p>
+                <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/60">One of Florida's largest independently owned brokerages · 3,500+ agents · 20 offices</p>
                 <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.12em] text-white/40">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
               </div>
             </div>

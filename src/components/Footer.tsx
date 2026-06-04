@@ -1,7 +1,7 @@
 import { CONTACT, NAVIGATION } from "../constants";
 import { AuroraBackground } from "./AuroraBackground";
 
-const ticker = "SOUTH FLORIDA · MIAMI MLS EXPOSURE · UNITED REALTY GROUP · INTERNATIONAL PROPERTY DISTRIBUTION · 25 YEARS LICENSED IN FLORIDA · MIAMI MLS INTERNATIONAL DESK · DEVELOPERS & AGENCIES · SPAIN · LATIN AMERICA · ";
+const ticker = "SOUTH FLORIDA · MIAMI MLS EXPOSURE · UNITED REALTY GROUP · INTERNATIONAL PROPERTY DISTRIBUTION · 25 YEARS LICENSED IN FLORIDA · GLOBAL DESK · SPAIN · LATIN AMERICA · 93,000 MEMBER AGENTS · ";
 
 export function Footer() {
   return (
@@ -148,8 +148,7 @@ export function Footer() {
               <a href="/sell-weston" className="transition-colors hover:text-gold">Sell in Weston</a>
               <a href="/sell-coral-gables" className="transition-colors hover:text-gold">Sell in Coral Gables</a>
               <a href="/home-value" className="transition-colors hover:text-gold">Free Home Valuation</a>
-              <a href="/miami-mls-international-desk" className="transition-colors hover:text-gold">International Desk</a>
-              <a href="/developers-agencies" className="transition-colors hover:text-gold">Developers</a>
+              <a href="/global-desk" className="transition-colors hover:text-gold">Global Desk</a>
               <a href="/markets" className="transition-colors hover:text-gold">Markets</a>
               <a href="/reviews" className="transition-colors hover:text-gold">Reviews</a>
               <a href="/about" className="transition-colors hover:text-gold">About Carlos</a>

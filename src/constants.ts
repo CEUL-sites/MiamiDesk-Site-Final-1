@@ -24,9 +24,9 @@ export const CONTACT = {
   stats: {
     experience: "25",
     agents: "93,000",
-    offices: "21",
-    urgAgents: "4,000+",
-    urgOffices: "21",
+    offices: "20",
+    urgAgents: "3,500+",
+    urgOffices: "20",
     urgFounded: "2002",
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
@@ -57,7 +57,7 @@ export const NAVIGATION = [
   { name: "Buyers",       href: "/buy" },
   { name: "Markets",      href: "/markets" },
   { name: "Agents",       href: "/agents" },
-  { name: "Global Desk",  href: "/spain-desk" },
+  { name: "Global Desk",  href: "/global-desk" },
   { name: "Journal",      href: "/journal" },
   { name: "Contact",      href: "/contact" },
 ];
@@ -69,17 +69,16 @@ export const NAVIGATION = [
 export const ASSOCIATION_STATS = {
   memberCount: 93000,
   mlsRank: "world's largest local REALTOR® association",
-  globalWebsites: 500,
-  globalWebsitesAlt: 500,
+  globalWebsites: 200,
+  globalWebsitesAlt: 200,
   languages: 19,
-  partnerAssociations: 300,
-  professionals: "2 million+",
+  internationalAgreements: 437,
   countries: 75,
   usMls: 260,
-  internationalAgreements: 437,
   mlsDataExchanges: 11,
-  urgAgents: "4,000+",
-  urgOffices: 21,
+  annualVolume: "$69B",
+  urgAgents: "3,500+",
+  urgOffices: 20,
   urgFounded: 2002,
   associationName: "Miami and South Florida REALTORS®"
 };

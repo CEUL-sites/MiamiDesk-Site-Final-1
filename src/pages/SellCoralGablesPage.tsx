@@ -195,7 +195,7 @@ export default function SellCoralGablesPage() {
                 {[
                   { label: "Pricing", text: "CMA built on current Miami MLS data — sold comps, active competition, expired listings, days on market by price band" },
                   { label: "Presentation", text: "Professional photography guidance, MLS narrative, and documentation package for buyer agents" },
-                  { label: "Distribution", text: "Miami MLS activation → 93,000 agents → eligible syndication → 500+ global websites in 19 languages" },
+                  { label: "Distribution", text: "Miami MLS activation → 93,000 agents → eligible syndication → 200+ global portals in 19 languages" },
                   { label: "Buyer pipeline", text: "Direct LATAM and European buyer channels via international referral network and partner associations in 75+ countries" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">

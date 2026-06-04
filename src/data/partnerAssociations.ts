@@ -14,14 +14,14 @@
 
 /** Headline reach figures — verified (src/data/figures.json). */
 export const GLOBAL_REACH = {
-  /** International partner associations (MIAMI Global Council). */
-  partnerAssociations: "300+",
-  /** Real estate professionals reached through the international referral network. */
-  professionals: "2 million+",
+  /** International agreements (MIAMI Global Council). */
+  internationalAgreements: "437+",
+  /** Languages available through MIAMI syndication network. */
+  languages: "19",
   /** Countries with at least one partner association. */
   countries: "75+",
-  /** Global websites featuring MIAMI listings. */
-  globalWebsites: "500+",
+  /** Global portals featuring eligible MIAMI listings. */
+  globalWebsites: "200+",
 } as const;
 
 export interface PartnerRegion {

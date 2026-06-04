@@ -4,7 +4,7 @@ import { Hero } from "../components/Hero";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { IntelligenceDesk } from "../components/IntelligenceDesk";
 import { BuyersRelocation } from "../components/BuyersRelocation";
-import { InternationalBridge } from "../components/InternationalBridge";
+import { InternationalReachStrip } from "../components/InternationalReachStrip";
 import { Testimonials } from "../components/Testimonials";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
@@ -75,7 +75,7 @@ export default function HomePage() {
         <ReachAdvantage />
         <IntelligenceDesk />
         <BuyersRelocation />
-        <InternationalBridge />
+        <InternationalReachStrip />
         <Testimonials />
         <AboutContact />
         <Footer />

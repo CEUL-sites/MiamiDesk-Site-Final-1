@@ -76,8 +76,8 @@ const TIER_CLASSES: Record<1 | 2 | 3, string> = {
 };
 
 const BOTTOM_STATS = [
-  { value: "500+", label: "Global Websites" },
-  { value: "2M+",  label: "Pros Worldwide" },
+  { value: "200+", label: "Global Portals" },
+  { value: "11",   label: "MLS Data Exchanges" },
   { value: "260+", label: "U.S. MLSs via RPR" },
   { value: "437+", label: "Intl. Agreements" },
 ];
@@ -91,7 +91,7 @@ export const ExposureSyndication = () => {
       id="syndication"
       ref={sectionRef}
       className="bg-navy-deep py-12 md:py-20 text-white overflow-hidden"
-      aria-label="Listing syndication network — 500 plus global websites in 19 languages"
+      aria-label="Listing syndication network — 200 plus global portals in 19 languages"
     >
       {/* Inject float keyframes once */}
       <style>{FLOAT_STYLES}</style>

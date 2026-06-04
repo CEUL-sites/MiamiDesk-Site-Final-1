@@ -17,6 +17,7 @@ const SellSouthFloridaPage           = lazy(() => import('./pages/SellSouthFlori
 const SellWestonPage                 = lazy(() => import('./pages/SellWestonPage'));
 const SellCoralGablesPage            = lazy(() => import('./pages/SellCoralGablesPage'));
 const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
+const GlobalDeskPage                 = lazy(() => import('./pages/GlobalDeskPage'));
 const MiamiMLSInternationalDeskPage  = lazy(() => import('./pages/MiamiMLSInternationalDeskPage'));
 const DevelopersAgenciesPage         = lazy(() => import('./pages/DevelopersAgenciesPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
@@ -63,13 +64,14 @@ if (rootElement) {
                 <Route path="/sell-south-florida"            element={<SellSouthFloridaPage />} />
                 <Route path="/sell-weston"                   element={<SellWestonPage />} />
                 <Route path="/sell-coral-gables"             element={<SellCoralGablesPage />} />
-                <Route path="/miami-mls-international-desk"  element={<MiamiMLSInternationalDeskPage />} />
-                <Route path="/developers-agencies"           element={<DevelopersAgenciesPage />} />
+                <Route path="/global-desk"                   element={<GlobalDeskPage />} />
+                <Route path="/miami-mls-international-desk"  element={<Navigate to="/global-desk" replace />} />
+                <Route path="/developers-agencies"           element={<Navigate to="/global-desk" replace />} />
                 {/* Legacy routes — redirect to new canonical URLs */}
                 <Route path="/sell"               element={<Navigate to="/sell-south-florida" replace />} />
                 <Route path="/madrid"             element={<Navigate to="/markets" replace />} />
                 {/* Active routes */}
-                <Route path="/spain-desk"         element={<SpainDeskPage />} />
+                <Route path="/spain-desk"         element={<Navigate to="/global-desk" replace />} />
                 <Route path="/home-value"         element={<HomeValuePage />} />
                 <Route path="/agents"             element={<AgentsPage />} />
                 {/* Secondary routes preserved */}

@@ -10,7 +10,7 @@ const FAQS = [
   },
   {
     q: "What is the Miami MLS and why does it matter?",
-    a: "The Miami and South Florida REALTORS® MLS is the world's largest local Realtor® association — over 93,000 member agents. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 500+ global websites in 19 languages. The MLS is where qualified buyers are found.",
+    a: "The Miami and South Florida REALTORS® MLS is the world's largest local Realtor® association — over 93,000 member agents. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 200+ global portals in 19 languages. The MLS is where qualified buyers are found.",
   },
   {
     q: "Do you work with Latin American and Spanish buyers?",

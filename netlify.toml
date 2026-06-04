@@ -21,6 +21,31 @@
   status = 301
   force = true
 
+# ── Global Desk consolidation — 301 redirects for legacy URLs ──────────────
+[[redirects]]
+  from = "/spain-desk"
+  to = "/global-desk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/spain-desk/*"
+  to = "/global-desk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/miami-mls-international-desk"
+  to = "/global-desk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/developers-agencies"
+  to = "/global-desk"
+  status = 301
+  force = true
+
 # ── Retired per-city market pages → consolidated Markets page (301) ─────────
 [[redirects]]
   from = "/market/*"

@@ -191,10 +191,10 @@ export default function SellWestonPage() {
                 <ul className="mt-8 space-y-3">
                   {[
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
-                    "Eligible syndication across 500+ websites in 19 languages",
-                    "United Realty Group — 4,000+ agents across 21 Florida offices",
+                    "Eligible syndication across 200+ global portals in 19 languages",
+                    "United Realty Group — 3,500+ agents across 20 Florida offices",
                     "Direct LATAM and European buyer pipeline",
-                    "300+ international partner associations in 75+ countries",
+                    "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
                       <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />

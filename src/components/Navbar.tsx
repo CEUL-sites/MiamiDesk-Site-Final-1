@@ -13,7 +13,7 @@ const NAV_ITEMS: NavItem[] = [
   { name: "Buyers",      href: "/buy" },
   { name: "Markets",     href: "/markets" },
   { name: "Agents",      href: "/agents" },
-  { name: "Global Desk", href: "/spain-desk" },
+  { name: "Global Desk", href: "/global-desk" },
   { name: "Journal",     href: "/journal" },
   { name: "Contact",     href: "/contact" },
 ];

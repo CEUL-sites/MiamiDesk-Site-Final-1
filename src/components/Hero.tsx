@@ -32,13 +32,13 @@ const MARQUEE_ITEMS: { t: string; gold?: true }[] = [
   { t: "Hialeah · Kendall"                           },
   { t: "Delray Beach · Wellington"                   },
   { t: "United Realty Group · Est. 2002", gold: true },
-  { t: "21 Florida Offices",             gold: true  },
-  { t: "4,000+ URG Agents Statewide"                 },
+  { t: "20 Florida Offices",             gold: true  },
+  { t: "3,500+ URG Agents Statewide"                 },
   { t: "93,000 Network Members",         gold: true  },
   { t: "260+ MLS Connections"                        },
-  { t: "300+ Partner Associations"                   },
   { t: "437+ International Agreements"               },
-  { t: "500+ Websites"                               },
+  { t: "200+ Global Portals",            gold: true  },
+  { t: "$69B 2025 Transaction Volume"                },
   { t: "Licensed Since 2001",            gold: true  },
 ];
 
@@ -188,11 +188,11 @@ export function Hero() {
               {[0, 1].map((copy) => (
                 <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
                   <span className="text-gold/75">Network</span>{" "}·{" "}
-                  <span className="text-white/85">93,000</span> Members{" "}·{" "}
-                  <span className="text-white/85">260+</span> MLS Connections{" "}·{" "}
-                  <span className="text-white/85">300+</span> Partner Associations{" "}·{" "}
+                  <span className="text-white/85">93,000</span> Member Agents{" "}·{" "}
+                  <span className="text-white/85">260+</span> U.S. MLSs{" "}·{" "}
                   <span className="text-white/85">437+</span> International Agreements{" "}·{" "}
-                  <span className="text-white/85">500+</span> Websites{" "}·{" "}
+                  <span className="text-white/85">200+</span> Global Portals{" "}·{" "}
+                  <span className="text-white/85">19</span> Languages{" "}·{" "}
                   Licensed Since <span className="text-white/85">2001</span>
                 </span>
               ))}

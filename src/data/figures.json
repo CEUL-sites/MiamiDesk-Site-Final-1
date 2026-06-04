@@ -1,18 +1,17 @@
 {
   "members": { "value": "93,000", "label": "Member Agents", "source": "Miami and South Florida REALTORS®, post-merger May 11, 2026" },
   "mlsRank": { "value": "3rd", "label": "Largest MLS in the United States", "phrase": "third-largest MLS in the United States", "source": "T3 Sixty 2025 rankings, per Florida Realtors May 2026", "cite": "https://www.floridarealtors.org/news-media" },
-  "globalWebsites": { "value": "500+", "label": "Global Websites", "source": "MIAMI Realtors International Referral Network — Partner Associations sheet" },
+  "globalWebsites": { "value": "200+", "label": "Global Portals", "source": "MIAMI Realtors International Referral Network — Partner Associations sheet" },
   "languages": { "value": "19", "label": "Languages", "source": "MIAMI Realtors syndication" },
-  "partnerAssociations": { "value": "300+", "label": "International Partner Associations", "source": "MIAMI Global Council — Partner Associations sheet", "cite": "https://www.miamirealtors.com/global/global-partners/" },
-  "professionals": { "value": "2 million+", "label": "Real Estate Professionals", "source": "MIAMI International Referral Network — Partner Associations sheet" },
+  "partnerAssociations": { "value": "437+", "label": "International Agreements", "source": "MIAMI Association of REALTORS® Global Council", "cite": "https://www.miamirealtors.com/global/global-partners/" },
   "countries": { "value": "75+", "label": "Countries", "source": "MIAMI International Referral Network — Partner Associations sheet" },
   "usMls": { "value": "260+", "label": "U.S. MLSs", "sublabel": "via RPR National Exchange", "source": "Realtors Property Resource (RPR) National MLS data exchange", "cite": "https://www.narrpr.com" },
   "internationalAgreements": { "value": "437+", "label": "International Agreements", "source": "MIAMI Association of REALTORS® Global Council", "cite": "https://www.miamirealtors.com/global/global-partners/" },
   "mlsDataExchanges": { "value": "11", "label": "MLS Data Exchanges", "source": "MIAMI Association of REALTORS®", "cite": "https://www.miamirealtors.com" },
   "annualVolume": { "value": "$69B", "label": "2025 Sales Volume", "source": "Miami and South Florida REALTORS® 2025 annual figures", "cite": "https://www.miamirealtors.com/statistics/" },
   "yearsLicensed": { "value": "25", "label": "Years Licensed", "source": "Carlos Uzcategui, licensed since 2001" },
-  "urgAgents": { "value": "4,000+", "label": "United Realty Group Agents", "source": "United Realty Group — urgfl.com (est. 2002, 21 Florida offices)" },
-  "urgOffices": { "value": "20", "label": "Florida Offices", "source": "United Realty Group (pending URG corporate verification)" },
+  "urgAgents": { "value": "3,500+", "label": "United Realty Group Agents", "source": "United Realty Group — urgfl.com (est. 2002, 20 Florida offices)" },
+  "urgOffices": { "value": "20", "label": "Florida Offices", "source": "United Realty Group — urgfl.com" },
   "license": { "value": "SL705771", "label": "Florida Licensed Realtor®", "source": "Florida DBPR" },
   "mergerDate": "May 11, 2026"
 }

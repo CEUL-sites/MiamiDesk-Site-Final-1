@@ -539,10 +539,10 @@ export default function EsAgentesPage() {
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
-                <div className="font-serif text-3xl text-navy-deep">500+</div>
+                <div className="font-serif text-3xl text-navy-deep">200+</div>
                 <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
-                  Sitios web globales · 19 idiomas
+                  Portales globales · 19 idiomas
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
@@ -648,7 +648,7 @@ export default function EsAgentesPage() {
                   title: "ACTIVACIÓN EN LA RED AMERICANA",
                   // TODO: native Madrid editor review
                   description:
-                    "El listado aparece en 500+ portales globales en 19 idiomas en 24 a 48 horas. Contacto directo con agentes de South Florida con mandatos activos.",
+                    "El listado aparece en 200+ portales globales en 19 idiomas en 24 a 48 horas. Contacto directo con agentes de South Florida con mandatos activos.",
                 },
                 {
                   number: "04",
