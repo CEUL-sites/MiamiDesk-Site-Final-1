@@ -93,14 +93,14 @@ export function Navbar() {
           </a>
 
           <a
-            href="/contact"
+            href="/#list-here"
             className={`inline-flex items-center whitespace-nowrap px-4 py-2 font-mono text-[9px] uppercase tracking-[0.16em] transition-all duration-300 ${
               scrolled
                 ? "bg-navy text-white hover:bg-gold hover:text-navy"
                 : "border border-gold/60 text-white hover:bg-gold hover:text-navy"
             }`}
           >
-            Seller Strategy Review
+            List Here!
           </a>
         </div>
 
@@ -181,11 +181,11 @@ export function Navbar() {
                   {CONTACT.phoneUSDisplay}
                 </a>
                 <a
-                  href="/contact"
+                  href="/#list-here"
                   onClick={() => setIsOpen(false)}
                   className="flex w-full items-center justify-center bg-gold px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-navy font-semibold"
                 >
-                  Seller Strategy Review
+                  List Here!
                 </a>
               </div>
             </div>

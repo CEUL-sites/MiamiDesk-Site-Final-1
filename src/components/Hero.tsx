@@ -106,7 +106,7 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-1 flex-col items-center px-4 pt-28 pb-10 sm:px-8"
+        className="relative z-10 flex flex-1 flex-col items-center px-4 pt-[72px] sm:pt-24 md:pt-28 pb-10 sm:px-8"
       >
         <div className="w-full max-w-4xl flex flex-col items-center text-center">
 
@@ -202,10 +202,11 @@ export function Hero() {
 
         {/* ── Centered form ──────────────────────────────────────── */}
         <motion.div
+          id="list-here"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.55 }}
-          className="mt-8 w-full max-w-lg"
+          className="mt-8 w-full max-w-lg scroll-mt-24"
         >
           <HeroSellerForm />
         </motion.div>
