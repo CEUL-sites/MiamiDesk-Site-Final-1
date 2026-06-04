@@ -75,6 +75,11 @@ const SLIDES = [
     label: "Luxury listing showcase",
     badge: "LISTINGS",
   },
+  {
+    src: "/videos/south_florida_showcase.mp4",
+    label: "South Florida lifestyle",
+    badge: "SOUTH FLORIDA",
+  },
 ];
 
 // ── Phone bubble player ────────────────────────────────────────────────────────

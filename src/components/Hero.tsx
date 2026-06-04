@@ -6,9 +6,10 @@ import { HeroSellerForm } from "./HeroSellerForm";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const VIDEO_BUBBLES = [
-  { src: "/videos/luxury_waterfront_drone.mp4", label: "Waterfront Properties", delay: 1.25, featured: false },
-  { src: "/videos/dollhouse_rotating_hands.mp4", label: "3D Marketing",          delay: 1.1,  featured: true  },
-  { src: "/videos/dollhouse_global_reach.mp4",   label: "Global Reach",          delay: 1.4,  featured: false },
+  { src: "/videos/luxury_waterfront_drone.mp4",    label: "Waterfront Properties", delay: 1.25, featured: false, mobileHidden: false },
+  { src: "/videos/dollhouse_rotating_hands.mp4",   label: "3D Marketing",          delay: 1.1,  featured: true,  mobileHidden: false },
+  { src: "/videos/dollhouse_global_reach.mp4",     label: "Global Reach",          delay: 1.4,  featured: false, mobileHidden: false },
+  { src: "/videos/gemini_property_vision.mp4",     label: "AI Property Vision",    delay: 1.55, featured: false, mobileHidden: true  },
 ];
 
 const container: Variants = {
@@ -135,7 +136,7 @@ export function Hero() {
           {/* Video bubble trio */}
           <motion.div variants={item} className="mt-8 flex items-start justify-center gap-4 sm:gap-7">
             {VIDEO_BUBBLES.map((b) => (
-              <div key={b.src} className="flex flex-col items-center gap-2.5">
+              <div key={b.src} className={`flex flex-col items-center gap-2.5${b.mobileHidden ? " hidden sm:flex" : ""}`}>
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}

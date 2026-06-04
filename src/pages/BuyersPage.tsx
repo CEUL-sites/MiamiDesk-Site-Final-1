@@ -8,6 +8,7 @@ import { MLSTicker } from "../components/MLSTicker";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { BadgeCheck, Download } from "lucide-react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { LazyVideo } from "../components/LazyVideo";
 
 export default function BuyersPage() {
   return (
@@ -45,6 +46,12 @@ export default function BuyersPage() {
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <section className="relative overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
+          <LazyVideo
+            src="/videos/south_florida_showcase.mp4"
+            eager
+            className="absolute inset-0 h-full w-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/40 to-navy-deep/80" />
           <AuroraBackground />
           <div className="relative z-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Representation · Spain Buyer Introductions</p>
