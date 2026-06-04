@@ -9,6 +9,7 @@ import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { BadgeCheck, Download } from "lucide-react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 import { LazyVideo } from "../components/LazyVideo";
+import { NeoEmbed } from "../components/NeoEmbed";
 
 export default function BuyersPage() {
   return (
@@ -97,6 +98,35 @@ export default function BuyersPage() {
         {/* Active market bridge — Miami-Dade & Broward ~$1M listings */}
         <MLSTicker />
         <BuyersRelocation />
+
+        {/* ── New Construction Feed ──────────────────────────── */}
+        <section className="bg-white py-12 md:py-16 border-t border-hairline">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">New Construction · South Florida</p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                Pre-construction inventory — live feed.
+              </h2>
+              <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
+                New-development projects across South Florida, accessed through the NEO platform. Carlos provides
+                advisory representation for buyers navigating deposit structures, delivery timelines, and developer terms.
+              </p>
+              <a
+                href="/new-construction"
+                className="mt-4 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:text-gold/70"
+              >
+                Full pre-construction advisory →
+              </a>
+            </div>
+            <div className="w-full overflow-hidden">
+              <NeoEmbed lang="en" />
+            </div>
+            <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/35 text-center">
+              Live pre-construction inventory via NEO · newestateonly.com · Subject to change without notice. Not a guarantee of availability or pricing.
+            </p>
+          </div>
+        </section>
+
         <section className="relative overflow-hidden bg-navy-deep py-14 md:py-20">
           <AuroraBackground variant="subtle" />
           <div className="relative z-10 mx-auto max-w-5xl px-6">

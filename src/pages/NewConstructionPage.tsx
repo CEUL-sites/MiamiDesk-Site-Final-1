@@ -1,35 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { ChevronRight } from "lucide-react";
-import { useEffect } from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { CONTACT, NEO } from "../constants";
-
-// Section 9 — NEO (New Estate Only) pre-construction embed.
-// NEO uses a script loader that populates #NEOiframe (newestateonly.com).
-function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = NEO.loader;
-    script.setAttribute("data-neokey", NEO.key);
-    script.setAttribute("data-neolang", lang);
-    document.body.appendChild(script);
-    return () => {
-      script.remove();
-    };
-  }, [lang]);
-
-  return (
-    <iframe
-      id="NEOiframe"
-      title="MIAMI NEO — New Estate Only pre-construction inventory"
-      loading="lazy"
-      style={{ width: "100%", height: "200vh", border: "none" }}
-    />
-  );
-}
+import { NeoEmbed } from "../components/NeoEmbed";
+import { CONTACT } from "../constants";
 
 export default function NewConstructionPage() {
   return (
