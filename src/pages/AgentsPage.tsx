@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import { BadgeCheck, ChevronRight, MessageSquare, Check } from "lucide-react";
+import { BadgeCheck, ChevronRight, MessageSquare, Globe2, Languages, Building2, Handshake } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { LazyVideo } from "../components/LazyVideo";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { CONTACT } from "../constants";
@@ -180,23 +181,31 @@ export default function AgentsPage() {
         <Navbar />
 
         {/* ── Hero ─────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 py-20 md:py-32 text-center sm:px-10">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.95),rgba(5,13,30,1))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.08),transparent_55%)]" />
+        <section className="relative overflow-hidden bg-navy-deep px-6 py-24 md:py-36 text-center sm:px-10">
+          {/* Cinematic video backdrop */}
+          <LazyVideo
+            src="/videos/split_miami_spain_mls.mp4"
+            eager
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.28]"
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.92),rgba(5,13,30,0.97))]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/40 via-transparent to-navy-deep" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.10),transparent_55%)]" />
           <div className="relative mx-auto max-w-4xl">
-            <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/[0.06] px-4 py-1.5 mb-7">
+            <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/[0.06] px-4 py-1.5 mb-7 backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
               <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">
                 Miami Desk · International Listing Exposure · Spain · Latin America · Global
               </span>
             </div>
             <h1
               className="mx-auto max-w-4xl font-serif leading-[1.08] text-white"
-              style={{ fontSize: "clamp(2.1rem, 5.5vw, 3.6rem)" }}
+              style={{ fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)" }}
             >
               Win More Listings With a<br />
               <em className="not-italic italic text-gold">Miami-Facing Exposure Strategy.</em>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
+            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/65">
               Give your sellers a stronger reason to choose you. Selected properties can be packaged for
               U.S.-facing exposure through a Florida-licensed Realtor® partner connected to the South Florida
               real estate network, bilingual presentation, and international referral channels.
@@ -219,11 +228,29 @@ export default function AgentsPage() {
                 Request Agency Partnership Call
               </a>
             </div>
-            <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.18em] text-white/28">
+            <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
               Carlos Uzcategui · FL SL705771 · United Realty Group · Miami and South Florida REALTORS® · 25 Years Licensed
             </p>
           </div>
         </section>
+
+        {/* ── Proof strip ─────────────────────────────────────────── */}
+        <div className="border-b border-hairline bg-white">
+          <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-hairline border-x border-hairline md:grid-cols-4">
+            {[
+              { icon: Globe2,    value: "93,000",  label: "MIAMI REALTORS® member agents" },
+              { icon: Handshake, value: "437+",    label: "International agreements · 70+ countries" },
+              { icon: Languages, value: "19",      label: "Languages · 200+ global portals" },
+              { icon: Building2, value: "25 yrs",  label: "Florida licensed · bilingual" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col items-center px-4 py-7 text-center">
+                <s.icon size={18} className="text-gold" strokeWidth={1.5} />
+                <span className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">{s.value}</span>
+                <span className="mt-1.5 font-mono text-[8.5px] uppercase leading-snug tracking-[0.16em] text-navy/45">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* ── Problem ──────────────────────────────────────────────── */}
         <section className="bg-white py-20 md:py-28">
@@ -327,6 +354,25 @@ export default function AgentsPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── Cinematic pull-quote band ─────────────────────────────── */}
+        <section className="relative overflow-hidden bg-navy-deep py-24 md:py-32">
+          <LazyVideo
+            src="/videos/miami_madrid_transition.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.22]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/70 to-navy-deep/40" />
+          <div className="relative mx-auto max-w-4xl px-6">
+            <Globe2 size={28} className="text-gold/70" strokeWidth={1.25} />
+            <blockquote className="mt-6 font-serif text-2xl leading-[1.4] text-white md:text-[2.1rem] md:leading-[1.35]">
+              "The internet creates visibility. <span className="text-gold">Agent networks create movement.</span>
+              A listing is not fully marketed until buyer agents know how to present it."
+            </blockquote>
+            <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.22em] text-white/45">
+              Carlos Uzcategui · Florida Licensed Realtor® · United Realty Group
+            </p>
           </div>
         </section>
 
