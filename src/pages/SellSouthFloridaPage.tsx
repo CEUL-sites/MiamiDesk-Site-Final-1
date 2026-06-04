@@ -8,7 +8,6 @@ import { LazyVideo } from "../components/LazyVideo";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
-import { SellerProcess } from "../components/SellerProcess";
 import { AdvisorBrand } from "../components/AdvisorBrand";
 import { FAQ } from "../components/FAQ";
 import { Testimonials } from "../components/Testimonials";
@@ -303,7 +302,6 @@ export default function SellSouthFloridaPage() {
           </div>
         </section>
 
-        <SellerProcess />
         <ExposureSyndication />
         <Testimonials />
         <AdvisorBrand />
