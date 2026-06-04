@@ -35,28 +35,33 @@ function parseBridgeListing(raw: Record<string, unknown>): Listing {
   };
 }
 
-/* ─── Curated luxury South Florida fallback listings ($1M+) ── */
+/* ─── South Florida fallback listings — 2-2-1 blend (50% ~$1M · 35% mid · 15% luxury) ── */
 const FALLBACK: Listing[] = [
-  { id:"F01", address:"9705 Collins Ave #PH4",       city:"Bal Harbour",       zip:"33154", price:8_500_000, beds:4, baths:4.5, sqft:4_820, type:"Condominium",              status:"Active"  },
-  { id:"F02", address:"3315 Collins Ave #PH",        city:"Miami Beach",        zip:"33140", price:6_250_000, beds:4, baths:4,   sqft:4_200, type:"Condominium",              status:"Active"  },
-  { id:"F03", address:"888 Brickell Key Dr #2901",   city:"Miami",              zip:"33131", price:4_900_000, beds:3, baths:3.5, sqft:3_100, type:"Condominium",              status:"Active"  },
-  { id:"F04", address:"7800 SW 120th St",            city:"Pinecrest",          zip:"33156", price:4_200_000, beds:6, baths:5,   sqft:6_850, type:"Single Family Residence", status:"Active"  },
-  { id:"F05", address:"19575 Collins Ave #PH5",      city:"Sunny Isles Beach",  zip:"33160", price:3_850_000, beds:4, baths:4.5, sqft:3_620, type:"Condominium",              status:"Pending" },
-  { id:"F06", address:"2669 S Bayshore Dr #PH2",     city:"Coconut Grove",      zip:"33133", price:3_650_000, beds:3, baths:3.5, sqft:3_840, type:"Condominium",              status:"Active"  },
-  { id:"F07", address:"1085 Brickell Ave #4504",     city:"Miami",              zip:"33131", price:3_200_000, beds:3, baths:3,   sqft:2_480, type:"Condominium",              status:"Active"  },
-  { id:"F08", address:"6075 North Bay Rd",           city:"Miami Beach",        zip:"33140", price:12_900_000,beds:7, baths:7,   sqft:8_200, type:"Single Family Residence", status:"Active"  },
-  { id:"F09", address:"5555 Collins Ave #31A",       city:"Miami Beach",        zip:"33140", price:2_750_000, beds:3, baths:3,   sqft:2_100, type:"Condominium",              status:"Active"  },
-  { id:"F10", address:"21150 Point Pl #2301",        city:"Aventura",           zip:"33180", price:2_490_000, beds:4, baths:4,   sqft:3_050, type:"Condominium",              status:"Active"  },
-  { id:"F11", address:"4701 Beacon Circle",          city:"Weston",             zip:"33326", price:2_250_000, beds:5, baths:4.5, sqft:5_100, type:"Single Family Residence", status:"Active"  },
-  { id:"F12", address:"9801 Collins Ave #11-E",      city:"Bal Harbour",        zip:"33154", price:5_200_000, beds:4, baths:4,   sqft:3_580, type:"Condominium",              status:"Pending" },
-  { id:"F13", address:"3 Indian Creek Island Rd",    city:"Indian Creek",       zip:"33154", price:18_500_000,beds:6, baths:6.5, sqft:9_400, type:"Single Family Residence", status:"Active"  },
-  { id:"F14", address:"1111 Crandon Blvd #C1004",    city:"Key Biscayne",       zip:"33149", price:3_100_000, beds:4, baths:3.5, sqft:2_640, type:"Condominium",              status:"Active"  },
-  { id:"F15", address:"55 SE 6th St #4002",          city:"Miami",              zip:"33131", price:2_100_000, beds:3, baths:3,   sqft:1_980, type:"Condominium",              status:"Active"  },
-  { id:"F16", address:"1500 Ocean Dr #1202",         city:"Miami Beach",        zip:"33139", price:1_950_000, beds:2, baths:2.5, sqft:1_680, type:"Condominium",              status:"Active"  },
-  { id:"F17", address:"9820 Lakeside Dr",            city:"Coral Gables",       zip:"33133", price:4_750_000, beds:5, baths:5,   sqft:5_920, type:"Single Family Residence", status:"Active"  },
-  { id:"F18", address:"17749 Collins Ave #PH3",      city:"Sunny Isles Beach",  zip:"33160", price:7_800_000, beds:5, baths:5.5, sqft:5_340, type:"Condominium",              status:"Pending" },
-  { id:"F19", address:"2000 S Ocean Blvd #PH-N",     city:"Boca Raton",         zip:"33432", price:3_400_000, beds:3, baths:3.5, sqft:3_200, type:"Condominium",              status:"Active"  },
-  { id:"F20", address:"300 S Pointe Dr #3601",       city:"Miami Beach",        zip:"33139", price:5_800_000, beds:4, baths:4,   sqft:3_720, type:"Condominium",              status:"Active"  },
+  // cycle 1 — cheap · cheap · mid · mid · lux
+  { id:"F01", address:"1501 Windmill Palm Ct",        city:"Weston",             zip:"33327", price:875_000,   beds:4, baths:3,   sqft:2_840, type:"Single Family Residence", status:"Active"  },
+  { id:"F02", address:"10445 NW 66th St",             city:"Doral",              zip:"33178", price:965_000,   beds:4, baths:3,   sqft:2_650, type:"Single Family Residence", status:"Active"  },
+  { id:"F03", address:"21155 Yacht Club Dr #2003",    city:"Aventura",           zip:"33180", price:1_850_000, beds:3, baths:3,   sqft:1_890, type:"Condominium",              status:"Active"  },
+  { id:"F04", address:"2669 S Bayshore Dr #PH2",      city:"Coconut Grove",      zip:"33133", price:2_450_000, beds:3, baths:3.5, sqft:2_840, type:"Condominium",              status:"Active"  },
+  { id:"F05", address:"9705 Collins Ave #PH4",        city:"Bal Harbour",        zip:"33154", price:7_800_000, beds:4, baths:4.5, sqft:4_820, type:"Condominium",              status:"Active"  },
+  // cycle 2 — cheap · cheap · mid · mid · lux
+  { id:"F06", address:"9420 NW 24th St",              city:"Plantation",         zip:"33322", price:920_000,   beds:4, baths:2.5, sqft:2_720, type:"Single Family Residence", status:"Active"  },
+  { id:"F07", address:"15803 SW 15th Ct",             city:"Pembroke Pines",     zip:"33027", price:795_000,   beds:4, baths:2,   sqft:2_410, type:"Single Family Residence", status:"Active"  },
+  { id:"F08", address:"1085 Brickell Ave #4504",      city:"Miami",              zip:"33131", price:2_200_000, beds:3, baths:3,   sqft:2_480, type:"Condominium",              status:"Active"  },
+  { id:"F09", address:"4701 Beacon Cir",              city:"Weston",             zip:"33326", price:2_850_000, beds:5, baths:4.5, sqft:5_100, type:"Single Family Residence", status:"Pending" },
+  { id:"F10", address:"6075 North Bay Rd",            city:"Miami Beach",        zip:"33140", price:9_500_000, beds:5, baths:6,   sqft:5_800, type:"Single Family Residence", status:"Active"  },
+  // cycle 3 — cheap · cheap · mid · mid · lux
+  { id:"F11", address:"9701 NW 6th Manor",            city:"Coral Springs",      zip:"33071", price:855_000,   beds:4, baths:2,   sqft:2_280, type:"Single Family Residence", status:"Active"  },
+  { id:"F12", address:"5801 SW 114th Ave",            city:"Davie",              zip:"33328", price:1_150_000, beds:5, baths:3,   sqft:3_200, type:"Single Family Residence", status:"Active"  },
+  { id:"F13", address:"19575 Collins Ave #3703",      city:"Sunny Isles Beach",  zip:"33160", price:3_200_000, beds:3, baths:3.5, sqft:2_100, type:"Condominium",              status:"Active"  },
+  { id:"F14", address:"9820 Lakeside Dr",             city:"Coral Gables",       zip:"33133", price:4_200_000, beds:5, baths:5,   sqft:5_920, type:"Single Family Residence", status:"Active"  },
+  { id:"F15", address:"3 Indian Creek Island Rd",     city:"Indian Creek",       zip:"33154", price:14_500_000,beds:6, baths:6.5, sqft:8_600, type:"Single Family Residence", status:"Active"  },
+  // cycle 4 — cheap · cheap · mid · mid (lux exhausted)
+  { id:"F16", address:"3115 SW 139th Ave",            city:"Miramar",            zip:"33027", price:840_000,   beds:4, baths:3,   sqft:2_590, type:"Single Family Residence", status:"Active"  },
+  { id:"F17", address:"1840 S Ocean Dr #2603",        city:"Hallandale Beach",   zip:"33009", price:1_250_000, beds:3, baths:2,   sqft:1_480, type:"Condominium",              status:"Pending" },
+  { id:"F18", address:"1111 Crandon Blvd #C1004",     city:"Key Biscayne",       zip:"33149", price:3_100_000, beds:4, baths:3.5, sqft:2_640, type:"Condominium",              status:"Active"  },
+  { id:"F19", address:"55 SE 6th St #4002",           city:"Miami",              zip:"33131", price:1_975_000, beds:3, baths:3,   sqft:1_980, type:"Condominium",              status:"Active"  },
+  // remainder — cheap
+  { id:"F20", address:"7555 SW 95th St",              city:"Miami",              zip:"33173", price:1_100_000, beds:4, baths:3,   sqft:2_850, type:"Single Family Residence", status:"Active"  },
 ];
 
 // Section 6 (compliance): these are active South Florida MLS comparables, not
