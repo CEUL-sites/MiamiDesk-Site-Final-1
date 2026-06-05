@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Secrets — never commit
+.env
+credentials/
+
+# Generated output
+output/
+
+# OS / editor noise
+.DS_Store
+*.log
+npm-debug.log*
+.vscode/
+.idea/
+
+# Keep the empty tracked dirs (gitkeep files are force-added)
+!**/.gitkeep

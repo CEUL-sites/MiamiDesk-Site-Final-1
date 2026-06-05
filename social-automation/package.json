@@ -1,0 +1,22 @@
+{
+  "name": "carlosre-social-automation",
+  "version": "1.0.0",
+  "description": "Autonomous real estate social media pipeline for Carlos Uzcategui (United Realty Group): RSS -> Claude copy -> Gemini Nano Banana image -> Canva design -> Google Drive -> Buffer.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node --env-file=.env src/run.js",
+    "dry-run": "node --env-file=.env src/run.js --dry-run",
+    "instagram": "node --env-file=.env src/run.js --platform=instagram",
+    "linkedin": "node --env-file=.env src/run.js --platform=linkedin",
+    "facebook": "node --env-file=.env src/run.js --platform=facebook"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.0",
+    "@google/genai": "^1.30.0",
+    "googleapis": "^144.0.0"
+  }
+}
