@@ -24,17 +24,41 @@ export default function AboutPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
+          "@id": "https://homesprofessional.com/#agent",
           "name": "Carlos Uzcategui",
           "jobTitle": "REALTOR®, CLHMS",
-          "worksFor": { "@type": "Organization", "name": "United Realty Group" },
-          "hasCredential": [
-            { "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "Florida Real Estate License SL705771" },
-            { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Luxury Home Marketing Specialist (CLHMS)" }
-          ],
-          "areaServed": "South Florida",
+          "description": "South Florida REALTOR® and Certified Luxury Home Marketing Specialist (CLHMS) with 25 years of market experience. Florida License SL705771. United Realty Group.",
+          "image": "https://homesprofessional.com/images/carlos-headshot.png",
           "url": "https://homesprofessional.com/about",
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
+          "knowsLanguage": ["en", "es"],
+          "worksFor": {
+            "@type": "Organization",
+            "@id": "https://homesprofessional.com/#organization",
+            "name": "United Realty Group"
+          },
+          "hasCredential": [
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": "Florida Real Estate License SL705771", "recognizedBy": { "@type": "Organization", "name": "Florida DBPR" } },
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Certified Luxury Home Marketing Specialist (CLHMS)" }
+          ],
+          "areaServed": ["Miami-Dade County", "Broward County", "Palm Beach County"],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "15951 SW 41 St #700",
+            "addressLocality": "Weston",
+            "addressRegion": "FL",
+            "postalCode": "33331",
+            "addressCountry": "US"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "sameAs": [CONTACT.linkedin]
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

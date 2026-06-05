@@ -206,6 +206,8 @@ export default function LaComisionSecretaPage() {
                         <img
                           src="/images/carlos-headshot.png"
                           alt="Carlos Uzcategui"
+                          width="36"
+                          height="36"
                           className="h-9 w-9 rounded-full object-cover object-top"
                         />
                         <div>
@@ -374,6 +376,8 @@ export default function LaComisionSecretaPage() {
                 <img
                   src="/images/carlos-headshot.png"
                   alt="Carlos Uzcategui — FL SL705771"
+                  width="112"
+                  height="112"
                   className="h-28 w-28 rounded-full object-cover object-top ring-2 ring-gold/30"
                 />
                 <div className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center bg-gold">

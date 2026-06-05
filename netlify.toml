@@ -46,6 +46,19 @@
   status = 301
   force = true
 
+# ── Sell page canonical consolidation (301) ────────────────────────────────
+[[redirects]]
+  from = "/sell"
+  to = "/sell-south-florida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/madrid"
+  to = "/markets"
+  status = 301
+  force = true
+
 # ── Retired per-city market pages → consolidated Markets page (301) ─────────
 [[redirects]]
   from = "/market/*"

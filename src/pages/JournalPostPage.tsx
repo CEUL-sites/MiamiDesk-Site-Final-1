@@ -19,26 +19,45 @@ export default function JournalPostPage() {
     return <Navigate to="/journal" replace />;
   }
 
+  const ogImage = post.image
+    ? `https://homesprofessional.com${post.image}`
+    : 'https://homesprofessional.com/images/carlos-headshot.png';
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
+    dateModified: post.date,
+    image: ogImage,
     author: {
       '@type': 'Person',
+      '@id': 'https://homesprofessional.com/#agent',
       name: 'Carlos Uzcategui',
       url: 'https://homesprofessional.com/about',
       jobTitle: 'Florida Licensed Realtor®',
-      description: 'Florida Licensed Realtor® SL705771 · United Realty Group · Weston, FL',
     },
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://homesprofessional.com/#organization',
       name: 'United Realty Group',
       url: 'https://homesprofessional.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://homesprofessional.com/images/urg-logo-original.png',
+      },
     },
     url: `https://homesprofessional.com/journal/${post.slug}`,
-    mainEntityOfPage: `https://homesprofessional.com/journal/${post.slug}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://homesprofessional.com/journal/${post.slug}`,
+    },
+    isPartOf: {
+      '@type': 'Blog',
+      '@id': 'https://homesprofessional.com/journal',
+      name: 'South Florida Real Estate Journal',
+    },
   };
 
   return (
@@ -47,14 +66,16 @@ export default function JournalPostPage() {
         <title>{post.title} | Carlos Uzcategui · South Florida Real Estate</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://homesprofessional.com/journal/${post.slug}`} />
-        {post.image && <meta property="og:image" content={`https://homesprofessional.com${post.image}`} />}
         <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://homesprofessional.com/journal/${post.slug}`} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:alt" content={post.title} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Carlos Uzcategui`} />
         <meta name="twitter:description" content={post.excerpt} />
-        {post.image && <meta name="twitter:image" content={`https://homesprofessional.com${post.image}`} />}
+        <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       </Helmet>
 

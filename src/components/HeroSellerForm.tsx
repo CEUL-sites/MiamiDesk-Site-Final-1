@@ -260,6 +260,8 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
             src={`https://maps.googleapis.com/maps/api/staticmap?center=${mapPin.lat},${mapPin.lng}&zoom=15&size=600x160&scale=2&markers=color:0xB08D57%7Clabel:%7C${mapPin.lat},${mapPin.lng}&map_id=&style=feature:poi|visibility:off&style=feature:transit|visibility:off&key=${MAPS_KEY}`}
             alt={`Map pin: ${mapPin.address}`}
             className="w-full object-cover"
+            width="600"
+            height="160"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />

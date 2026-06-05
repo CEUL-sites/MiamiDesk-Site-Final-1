@@ -27,13 +27,32 @@ export default function JournalListPage() {
     })),
   };
 
+  const blogSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': 'https://homesprofessional.com/journal',
+    name: 'South Florida Real Estate Market Journal',
+    description: 'Market analysis and seller insights for South Florida real estate by Carlos Uzcategui, FL SL705771.',
+    url: 'https://homesprofessional.com/journal',
+    author: { '@type': 'Person', '@id': 'https://homesprofessional.com/#agent' },
+    publisher: { '@type': 'Organization', '@id': 'https://homesprofessional.com/#organization' },
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      datePublished: post.date,
+      url: `https://homesprofessional.com/journal/${post.slug}`,
+      ...(post.image && { image: `https://homesprofessional.com${post.image}` }),
+    })),
+  };
+
   return (
     <>
       <Helmet>
         <title>Market Journal | South Florida Real Estate | Carlos Uzcategui</title>
         <meta
           name="description"
-          content="Quarterly market analysis and seller insights for South Florida real estate. Absorption rates, international capital flows, and positioning strategy by Carlos Uzcategui, United Realty Group."
+          content="South Florida real estate market analysis and seller insights. Absorption rates, international capital flows, positioning strategy. Carlos Uzcategui, FL SL705771."
         />
         <link rel="canonical" href="https://homesprofessional.com/journal" />
         <meta property="og:title" content="Market Journal | South Florida Real Estate | Carlos Uzcategui" />
@@ -46,6 +65,7 @@ export default function JournalListPage() {
         <meta name="twitter:description" content="Quarterly market analysis and seller insights for South Florida real estate. Absorption rates, international capital flows, and positioning strategy." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
       </Helmet>
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
