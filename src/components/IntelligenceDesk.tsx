@@ -1,7 +1,8 @@
 import { BadgeCheck, Bot, ChevronRight, FileText, Globe2, Loader2, MapPin, MessageCircle, PhoneCall, Send, UserCheck } from "lucide-react";
-import { motion, useInView } from "motion/react";
+import { motion, AnimatePresence, useInView } from "motion/react";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { CONTACT } from "../constants";
+import { AiRobotMascot } from "./AiRobotMascot";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -325,7 +326,13 @@ export const IntelligenceDesk = () => {
             initial={{ opacity: 0, y: 32 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
+            className="relative"
           >
+            {/* Robot mascot — sits bottom-left of the panel */}
+            <div className="absolute -bottom-10 -left-8 z-20 hidden lg:block">
+              <AiRobotMascot />
+            </div>
+
             <div className="overflow-hidden border border-gold/20 bg-navy-deep shadow-2xl shadow-black/40">
               {/* Window chrome */}
               <div className="flex items-center justify-between border-b border-white/8 bg-navy/60 px-5 py-3.5">
@@ -339,9 +346,15 @@ export const IntelligenceDesk = () => {
                     miamidesk.ai · intelligence desk
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/70">Gemini · Live</span>
+                <div className="flex items-center gap-3">
+                  <span className="flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
+                    <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/70">Gemini · Live</span>
+                  </span>
+                  {/* Robot badge — mobile only (desktop robot floats outside) */}
+                  <span className="lg:hidden">
+                    <AiRobotMascot />
+                  </span>
                 </div>
               </div>
 
