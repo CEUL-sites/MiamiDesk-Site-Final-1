@@ -6,8 +6,8 @@ import { HeroSellerForm } from "./HeroSellerForm";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const VIDEO_BUBBLES = [
+  { src: "/videos/miami_madrid_transition.mp4",  label: "Global Reach",        delay: 1.25, featured: false, mobileHidden: false },
   { src: "/videos/dollhouse_rotating_hands.mp4", label: "Professional Agents", delay: 1.1,  featured: true,  mobileHidden: false },
-  { src: "/videos/globe-bg.mp4",                 label: "Global Reach",        delay: 1.25, featured: false, mobileHidden: false },
   { src: "/videos/gemini_property_vision.mp4",   label: "AI Marketing",        delay: 1.4,  featured: false, mobileHidden: false },
 ];
 
