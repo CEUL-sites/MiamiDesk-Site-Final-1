@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-label="South Florida is not one market, Carlos Uzcategui seller strategy graphic">
+<defs>
+  <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071A33" stop-opacity="0.92"/><stop offset="0.45" stop-color="#071A33" stop-opacity="0.68"/><stop offset="1" stop-color="#071A33" stop-opacity="0.30"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000" flood-opacity="0.26"/></filter>
+  <clipPath id="portrait"><rect x="108" y="116" width="188" height="210" rx="8"/></clipPath>
+</defs>
+<image href="https://homesprofessional.com/images/urg-hq.jpg" x="0" y="0" width="1080" height="1350" preserveAspectRatio="xMidYMid slice"/>
+<rect width="1080" height="1350" fill="url(#shade)"/>
+<rect x="0" y="0" width="1080" height="24" fill="#B08D57"/>
+<rect x="72" y="76" width="936" height="1190" rx="8" fill="#FFFFFF" opacity="0.96" filter="url(#shadow)"/>
+<rect x="72" y="76" width="936" height="292" rx="8" fill="#F9F7F2"/>
+<image href="https://lh3.googleusercontent.com/d/1JZ1hv1IfBykkfoy2TYmGK9M5N2Xwwklx" x="108" y="116" width="188" height="210" clip-path="url(#portrait)" preserveAspectRatio="xMidYMid slice"/>
+<text x="330" y="158" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#071A33">Carlos Uzcategui</text>
+<text x="330" y="206" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#1F2933">Florida Licensed Realtor® SL705771</text>
+<text x="330" y="244" font-family="Arial, Helvetica, sans-serif" font-size="25" fill="#1F2933">Miami · South Florida</text>
+<image href="https://homesprofessional.com/images/urg-logo-original.png" x="330" y="272" width="326" preserveAspectRatio="xMidYMid meet"/>
+<text x="118" y="510" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#071A33">South Florida</text>
+<text x="118" y="598" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#071A33">Is Not One</text>
+<text x="118" y="686" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#071A33">Market</text>
+<rect x="118" y="740" width="720" height="5" fill="#B08D57"/>
+<text x="118" y="824" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#1F2933">Before listing, compare:</text>
+<text x="118" y="906" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#071A33">Price position</text>
+<text x="118" y="968" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#071A33">Inventory</text>
+<text x="118" y="1030" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#071A33">Timing</text>
+<text x="118" y="1092" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#071A33">Buyer-agent visibility</text>
+<text x="118" y="1154" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#071A33">MLS exposure</text>
+<text x="118" y="1228" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="700" fill="#B08D57">Request a private seller strategy conversation.</text>
+<text x="86" y="1310" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#FFFFFF">Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group</text>
+<text x="86" y="1335" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#FFFFFF">Equal Housing Opportunity · HomesProfessional.com</text>
+</svg>
