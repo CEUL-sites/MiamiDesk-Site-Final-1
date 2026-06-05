@@ -778,16 +778,14 @@ export default function AgentsPage() {
                     </ul>
                   </div>
 
-                  {/* CTA — will become sales page link */}
+                  {/* CTA */}
                   <div className="border-t border-white/10 px-8 py-6">
                     <a
-                      href={CONTACT.whatsappUS}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="/la-comision-secreta"
                       className="group flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
                     >
                       <BookOpen size={13} />
-                      Get Notified When It Launches
+                      Learn More &amp; Get Notified
                     </a>
                     <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
                       By Carlos Uzcategui · FL SL705771 · United Realty Group
