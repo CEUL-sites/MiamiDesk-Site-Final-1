@@ -19,6 +19,15 @@ export default function BuyersPage() {
         <meta name="description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — full MLS access, negotiation, and closing. Spain buyers referred to trusted local partners. United Realty Group · FL SL705771." />
         <meta name="keywords" content="buy home South Florida, Miami real estate buyer, Coral Gables homes for sale, Brickell condos, Miami Beach real estate, South Florida buyer agent, relocation Miami" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
+        <meta property="og:title" content="Buy in South Florida | Full MLS Access | Carlos Uzcategui" />
+        <meta property="og:description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — full MLS access, negotiation, and closing. Bilingual English/Spanish. United Realty Group · FL SL705771." />
+        <meta property="og:url" content="https://homesprofessional.com/buy" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Buy in South Florida | Full MLS Access | Carlos Uzcategui" />
+        <meta name="twitter:description" content="Full MLS access, negotiation, and closing across Miami-Dade, Broward, and Palm Beach. Bilingual English/Spanish." />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",

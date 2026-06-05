@@ -16,6 +16,15 @@ export default function ContactPage() {
         <meta name="description" content="Submit a confidential property positioning review request. South Florida sellers, international property owners, agencies, developers, and cooperating brokers. Carlos Uzcategui, FL SL705771, United Realty Group." />
         <meta name="keywords" content="listing review South Florida, Miami MLS listing request, international property exposure, contact Carlos Uzcategui, United Realty Group contact" />
         <link rel="canonical" href="https://homesprofessional.com/contact" />
+        <meta property="og:title" content="Request a Private Listing Review | HomesProfessional.com" />
+        <meta property="og:description" content="Submit a confidential property positioning review. South Florida sellers, international property owners, agencies, and developers. Carlos Uzcategui, FL SL705771." />
+        <meta property="og:url" content="https://homesprofessional.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Request a Private Listing Review | HomesProfessional.com" />
+        <meta name="twitter:description" content="Submit a confidential property review. South Florida sellers and international property owners. Carlos Uzcategui, FL SL705771." />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ContactPage",

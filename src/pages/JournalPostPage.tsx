@@ -51,6 +51,10 @@ export default function JournalPostPage() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} | Carlos Uzcategui`} />
+        <meta name="twitter:description" content={post.excerpt} />
+        {post.image && <meta name="twitter:image" content={`https://homesprofessional.com${post.image}`} />}
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       </Helmet>
 

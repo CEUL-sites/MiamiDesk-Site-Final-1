@@ -64,6 +64,11 @@ export default function GlobalDeskPage() {
         />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Global Desk — Miami MLS International Activation | HomesProfessional.com" />
+        <meta name="twitter:description" content="Your inventory. The U.S. market. One licensed principal. Formal MLS listing, documented agent outreach, and campaign reporting." />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

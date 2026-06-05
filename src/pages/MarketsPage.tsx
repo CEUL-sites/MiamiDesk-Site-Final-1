@@ -119,6 +119,15 @@ export default function MarketsPage() {
           content={`South Florida full MLS coverage across Miami-Dade, Broward, and Palm Beach — ${URG_CITIES.length} cities through United Realty Group's ${CONTACT.stats.urgOffices} offices. Madrid and Spain through professional referral relationships. Carlos Uzcategui, FL SL705771.`}
         />
         <link rel="canonical" href="https://homesprofessional.com/markets" />
+        <meta property="og:title" content="Markets Served: South Florida · Madrid · International | HomesProfessional.com" />
+        <meta property="og:description" content="Full MLS coverage across Miami-Dade, Broward, and Palm Beach through United Realty Group's 20 offices. Madrid and Spain through professional referral. Carlos Uzcategui, FL SL705771." />
+        <meta property="og:url" content="https://homesprofessional.com/markets" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Markets Served: South Florida · Madrid · International | HomesProfessional.com" />
+        <meta name="twitter:description" content="Full MLS coverage across Miami-Dade, Broward, and Palm Beach. 25 cities. Madrid and Spain through professional referral." />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

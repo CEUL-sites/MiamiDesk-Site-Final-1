@@ -12,6 +12,15 @@ export default function AboutPage() {
         <title>About Carlos Uzcategui | United Realty Group | South Florida REALTOR®</title>
         <meta name="description" content="Carlos Uzcategui, FL SL705771, is a South Florida REALTOR® with United Realty Group — the #1 transaction volume real estate company in Florida. Serving Miami-Dade, Broward, and Palm Beach." />
         <link rel="canonical" href="https://homesprofessional.com/about" />
+        <meta property="og:title" content="About Carlos Uzcategui | United Realty Group | South Florida REALTOR®" />
+        <meta property="og:description" content="Florida Licensed Realtor® SL705771. 25 years in South Florida real estate. CLHMS certified. United Realty Group — Miami-Dade, Broward, and Palm Beach." />
+        <meta property="og:url" content="https://homesprofessional.com/about" />
+        <meta property="og:type" content="profile" />
+        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Carlos Uzcategui | South Florida REALTOR® | United Realty Group" />
+        <meta name="twitter:description" content="Florida Licensed Realtor® SL705771. 25 years in South Florida real estate. CLHMS certified. Bilingual English/Spanish." />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
