@@ -98,13 +98,15 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
     propertyAddress: "",
     city: t.markets[0],
     timeline: t.timelines[0],
+    lat: "", lng: "", placeId: "",
   };
-  const [form, setForm]     = useState(initial);
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [error, setError]   = useState("");
-  const addressRef          = useRef<HTMLInputElement>(null);
+  const [form, setForm]       = useState(initial);
+  const [status, setStatus]   = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [error, setError]     = useState("");
+  const [mapPin, setMapPin]   = useState<{ lat: number; lng: number; address: string } | null>(null);
+  const addressRef            = useRef<HTMLInputElement>(null);
 
-  // Wire up Google Places Autocomplete once the API is ready
+  // Wire up Google Places Autocomplete — capture lat/lng for map pin
   useEffect(() => {
     loadGooglePlaces(() => {
       const input = addressRef.current;
@@ -113,13 +115,25 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       const ac = new window.google.maps.places.Autocomplete(input, {
         types: ["address"],
         componentRestrictions: { country: ["us", "es"] },
-        fields: ["formatted_address"],
+        fields: ["formatted_address", "geometry", "place_id"],
       });
 
       ac.addListener("place_changed", () => {
         const place = ac.getPlace();
-        const addr = place.formatted_address ?? input.value;
-        setForm((f) => ({ ...f, propertyAddress: addr }));
+        const addr   = place.formatted_address ?? input.value;
+        const lat    = place.geometry?.location?.lat() ?? null;
+        const lng    = place.geometry?.location?.lng() ?? null;
+        const placeId = place.place_id ?? "";
+        setForm((f) => ({
+          ...f,
+          propertyAddress: addr,
+          lat: lat != null ? String(lat) : "",
+          lng: lng != null ? String(lng) : "",
+          placeId,
+        }));
+        if (lat != null && lng != null) {
+          setMapPin({ lat, lng, address: addr });
+        }
       });
     });
   }, []);
@@ -144,6 +158,9 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           "bot-field": "",
           ...form,
           sourcePage: `hero-${lang}`,
+          mapUrl: form.lat && form.lng
+            ? `https://www.google.com/maps?q=${form.lat},${form.lng}`
+            : "",
           ...getAttribution(),
         }),
       });
@@ -200,7 +217,10 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       className="rounded-2xl bg-[#0A1525]/90 border border-white/12 backdrop-blur-xl p-5 sm:p-7 text-left shadow-2xl shadow-black/60"
     >
       <input type="hidden" name="form-name" value="seller-hero" />
-      <input type="hidden" name="email" value={form.email} />
+      <input type="hidden" name="email"   value={form.email} />
+      <input type="hidden" name="lat"     value={form.lat} />
+      <input type="hidden" name="lng"     value={form.lng} />
+      <input type="hidden" name="placeId" value={form.placeId} />
       <p aria-hidden="true" className="hidden">
         <label>Don't fill this out: <input name="bot-field" /></label>
       </p>
@@ -227,6 +247,28 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           aria-label={t.address}
         />
       </div>
+
+      {/* Map pin preview — appears after Google Places selection */}
+      {mapPin && MAPS_KEY && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.35 }}
+          className="mt-3 overflow-hidden rounded-lg border border-gold/30 relative"
+        >
+          <img
+            src={`https://maps.googleapis.com/maps/api/staticmap?center=${mapPin.lat},${mapPin.lng}&zoom=15&size=600x160&scale=2&markers=color:0xB08D57%7Clabel:%7C${mapPin.lat},${mapPin.lng}&map_id=&style=feature:poi|visibility:off&style=feature:transit|visibility:off&key=${MAPS_KEY}`}
+            alt={`Map pin: ${mapPin.address}`}
+            className="w-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 flex items-center gap-2 px-3 py-2.5">
+            <MapPin size={11} className="text-gold flex-shrink-0" />
+            <p className="font-mono text-[8.5px] uppercase tracking-[0.16em] text-gold/90 truncate">{mapPin.address}</p>
+          </div>
+        </motion.div>
+      )}
 
       {/* Name + Phone */}
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
