@@ -477,12 +477,20 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Network Stats ─────────────────────────────────────────── */}
-        <section className="bg-ivory py-16 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center mb-10">
+        <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-white">
+          <LazyVideo
+            src="/videos/split_miami_spain_mls.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.12] pointer-events-none"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/85 to-navy-deep pointer-events-none" />
+          <div className="relative mx-auto max-w-5xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center mb-3">
               The network behind the Miami Desk
             </p>
-            <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-3">
+            <h2 className="mx-auto mb-12 max-w-2xl text-center font-serif text-3xl leading-tight text-white md:text-4xl">
+              Infrastructure, not adjectives.
+            </h2>
+            <div className="grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
               {[
                 {
                   value: "93,000",
@@ -500,10 +508,10 @@ export default function AgentsPage() {
                   desc: "Carlos Uzcategui has been licensed in Florida since 2001. Bilingual English/Spanish. Physically connected to South Florida and Madrid markets.",
                 },
               ].map((s) => (
-                <div key={s.value} className="bg-white p-10">
-                  <div className="font-serif text-4xl text-gold">{s.value}</div>
-                  <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-navy/45">{s.label}</div>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-ink-primary/60">{s.desc}</p>
+                <div key={s.value} className="bg-navy-deep p-10">
+                  <div className="font-serif text-4xl text-gold md:text-5xl">{s.value}</div>
+                  <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/60">{s.label}</div>
+                  <p className="mt-4 font-sans text-sm leading-relaxed text-white/60">{s.desc}</p>
                 </div>
               ))}
             </div>

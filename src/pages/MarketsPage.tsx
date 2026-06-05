@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import { ChevronRight, MessageSquare, MapPin, Globe } from "lucide-react";
+import { ChevronRight, MessageSquare, MapPin, Globe, Building2, Palmtree, Landmark, Plane, GraduationCap, TrendingUp } from "lucide-react";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { LazyVideo } from "../components/LazyVideo";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
 import { Testimonials } from "../components/Testimonials";
 import { CONTACT, URG_CITIES } from "../constants";
@@ -31,6 +32,40 @@ const COUNTIES = [
     stat: `${PALM_BEACH.length} cities covered`,
     character: "Financial-sector migration and seasonal luxury. Boca Raton and Delray Beach attract professional relocators from the Northeast; West Palm Beach anchors a growing institutional market. Demand is driven by both domestic migration and international buyers at the $2M+ tier.",
     cities: PALM_BEACH,
+  },
+];
+
+// Qualitative structural drivers — no performance figures, compliance-safe
+const SOUTH_FL_DRIVERS = [
+  {
+    icon: Landmark,
+    title: "No state income tax",
+    body: "Florida is one of a small number of U.S. states with no personal state income tax — a structural pull for domestic relocators, business owners, and high-earning households moving from the Northeast and California.",
+  },
+  {
+    icon: Plane,
+    title: "The U.S. gateway to the Americas",
+    body: "Miami International Airport and PortMiami make South Florida the primary landing point for Latin American and European capital. The region trades as an international city, not a regional one.",
+  },
+  {
+    icon: Landmark,
+    title: "Brickell — a financial migration",
+    body: "Asset managers, private-equity offices, and fintech firms have expanded South Florida footprints over the past several years, reinforcing demand for urban-core condos and waterfront single-family inventory.",
+  },
+  {
+    icon: Building2,
+    title: "A deep new-construction pipeline",
+    body: "Branded residences and pre-construction towers across Miami-Dade and the Broward waterfront continue to draw international pre-sale buyers — a segment where MLS positioning and agent-network reach matter most.",
+  },
+  {
+    icon: GraduationCap,
+    title: "A-rated school corridors",
+    body: "Weston, Parkland, Pinecrest, and Coral Gables anchor the family move-up market. School-district quality drives sustained domestic demand independent of the luxury and investor segments.",
+  },
+  {
+    icon: Palmtree,
+    title: "A year-round destination market",
+    body: "Beaches, marinas, and a no-winter climate keep South Florida liquid as a second-home and lifestyle market through every season — buyer demand is not confined to a single window.",
   },
 ];
 
@@ -107,8 +142,13 @@ export default function MarketsPage() {
 
         {/* ── Hero ──────────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
+          <LazyVideo
+            eager
+            src="/videos/south_florida_showcase.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.16] pointer-events-none"
+          />
           <AuroraBackground variant="warm" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.88),rgba(6,17,31,0.97))]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
           <div className="relative mx-auto max-w-4xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida · Madrid & Spain · International Referral</p>
@@ -201,6 +241,97 @@ export default function MarketsPage() {
 
             <p className="mt-6 font-sans text-xs text-ink-primary/40 italic">
               All markets served directly through Florida License SL705771, United Realty Group, and full Miami and South Florida REALTORS® MLS access.
+            </p>
+          </div>
+        </section>
+
+        {/* ── Inside United Realty Group — team video ────────────── */}
+        <section className="bg-ivory py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+              {/* Left — context */}
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Inside the Network</p>
+                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  The agents who move South Florida.
+                </h2>
+                <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
+                  United Realty Group is one of Florida's largest independently owned brokerages —
+                  {" "}{CONTACT.stats.urgAgents} agents across {CONTACT.stats.urgOffices} South Florida offices.
+                  That is the network a listing enters the moment it is represented: working buyer agents
+                  with active clients, not a directory of names.
+                </p>
+                <ul className="mt-7 space-y-3">
+                  {[
+                    `${CONTACT.stats.urgAgents} licensed agents across Miami-Dade, Broward, Palm Beach & Orange`,
+                    "Full Miami and South Florida REALTORS® MLS access",
+                    "Bilingual English / Spanish representation",
+                    "Independent brokerage — established 2002",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
+                      <span className="font-sans text-[14px] leading-snug text-ink-primary/70">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* Right — video */}
+              <div className="overflow-hidden border border-hairline bg-navy-deep shadow-xl shadow-navy/10">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/M8Hx5D5ghag?si=Mno7hIj23lN-mTbU&rel=0&modestbranding=1"
+                    title="United Realty Group — the South Florida agent network"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                </div>
+                <div className="bg-navy-deep px-5 py-4">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · The Team</p>
+                  <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/55">
+                    {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} offices · South Florida
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── South Florida Market Intelligence ──────────────────── */}
+        <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-white">
+          <LazyVideo
+            src="/videos/luxury_waterfront_drone.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.10] pointer-events-none"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/85 to-navy-deep pointer-events-none" />
+          <div className="relative mx-auto max-w-6xl px-6">
+            <div className="flex items-center gap-2">
+              <TrendingUp size={13} className="text-gold flex-shrink-0" />
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Market Intelligence</p>
+            </div>
+            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
+              Why capital keeps moving to South Florida.
+            </h2>
+            <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/60">
+              South Florida does not trade on weather alone. A small number of structural forces keep
+              demand deep across price bands — from first move-up buyers to international ultra-prime.
+              Understanding which force drives a given submarket is the first step in positioning a listing correctly.
+            </p>
+            <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
+              {SOUTH_FL_DRIVERS.map((d) => (
+                <div key={d.title} className="bg-navy-deep p-8">
+                  <d.icon size={20} className="text-gold" strokeWidth={1.5} />
+                  <h3 className="mt-5 font-serif text-lg text-white">{d.title}</h3>
+                  <p className="mt-3 font-sans text-[14px] leading-relaxed text-white/60">{d.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 font-sans text-xs italic text-white/35 max-w-3xl">
+              Context only. Structural market drivers are described qualitatively and do not predict price, timing, or
+              outcome for any individual property. Neighborhood-specific data is reviewed live as part of every seller strategy session,
+              sourced from the Miami and South Florida REALTORS® MLS.
             </p>
           </div>
         </section>
