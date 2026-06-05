@@ -1,4 +1,4 @@
-import { Bot, ChevronRight, FileText, Globe2, Loader2, MapPin, MessageCircle, Send, UserCheck } from "lucide-react";
+import { BadgeCheck, Bot, ChevronRight, FileText, Globe2, Loader2, MapPin, MessageCircle, PhoneCall, Send, UserCheck } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { CONTACT } from "../constants";
@@ -26,24 +26,68 @@ interface Message {
   content: string;
 }
 
-function buildWhatsAppUrl(query: string) {
-  const text = encodeURIComponent(
-    `Hello Carlos, I have a question about South Florida real estate: ${query}`
+
+function HandoffPanel({ history }: { history: Message[] }) {
+  const summary = history
+    .slice(-6)
+    .map((m) => `${m.role === "user" ? "You" : "AI"}: ${m.content}`)
+    .join("\n");
+  const waText = encodeURIComponent(
+    `Hello Carlos, I was speaking with your AI Desk. Here is a summary of my inquiry:\n\n${summary}\n\nPlease review and contact me.`
   );
-  return `https://wa.me/${CONTACT.phoneUS.replace(/\D/g, "")}?text=${text}`;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="border border-gold/40 bg-gold/[0.06] p-5 backdrop-blur-sm"
+    >
+      <div className="flex items-center gap-2 mb-3">
+        <BadgeCheck size={15} className="text-gold flex-shrink-0" />
+        <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-gold">Inquiry routed to Carlos</span>
+      </div>
+      <p className="font-sans text-sm leading-relaxed text-white/75 mb-5">
+        Your conversation has been organised and sent to Carlos. He reviews every AI Desk conversation personally and responds within one business day. For the fastest reply, continue on WhatsApp now.
+      </p>
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <a
+          href={`https://wa.me/${CONTACT.phoneUS.replace(/\D/g, "")}?text=${waText}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 bg-gold px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+        >
+          <MessageCircle size={13} />
+          Continue on WhatsApp
+        </a>
+        <a
+          href={CONTACT.phoneUSLink}
+          className="inline-flex items-center justify-center gap-2 border border-white/20 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/65 transition-colors hover:border-white/40 hover:text-white"
+        >
+          <PhoneCall size={13} />
+          Call {CONTACT.phoneUSDisplay}
+        </a>
+      </div>
+      <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+        Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+      </p>
+    </motion.div>
+  );
 }
 
 function AiPanel() {
-  const [input, setInput]         = useState("");
-  const [loading, setLoading]     = useState(false);
-  const [history, setHistory]     = useState<Message[]>([]);
-  const [lastQuery, setLastQuery] = useState("");
-  const [error, setError]         = useState("");
+  const [input, setInput]           = useState("");
+  const [loading, setLoading]       = useState(false);
+  const [history, setHistory]       = useState<Message[]>([]);
+  const [lastQuery, setLastQuery]   = useState("");
+  const [error, setError]           = useState("");
+  const [handoffDone, setHandoff]   = useState(false);
+  const [turnCount, setTurnCount]   = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   async function submit(query: string) {
     const q = query.trim();
-    if (!q || loading) return;
+    if (!q || loading || handoffDone) return;
 
     setInput("");
     setLoading(true);
@@ -52,12 +96,14 @@ function AiPanel() {
 
     const newHistory: Message[] = [...history, { role: "user", content: q }];
     setHistory(newHistory);
+    const newTurn = turnCount + 1;
+    setTurnCount(newTurn);
 
     try {
       const res = await fetch("/.netlify/functions/ai-desk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newHistory }),
+        body: JSON.stringify({ messages: newHistory, turnCount: newTurn }),
       });
 
       const data = await res.json();
@@ -70,12 +116,17 @@ function AiPanel() {
 
       const aiResponse: string = data.response;
       setHistory((h) => [...h, { role: "assistant", content: aiResponse }]);
+
+      if (data.handoffReady) {
+        setTimeout(() => setHandoff(true), 1200);
+      }
     } catch {
       setError("Network error. Please try again or contact us directly.");
       setHistory((h) => h.slice(0, -1));
     } finally {
       setLoading(false);
       inputRef.current?.focus();
+      setTimeout(() => scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" }), 100);
     }
   }
 
@@ -85,11 +136,32 @@ function AiPanel() {
 
   const lastAssistantMsg = [...history].reverse().find((m) => m.role === "assistant");
 
+  const HANDOFF_THRESHOLD = 10;
+  const progressPct = Math.min(100, (turnCount / HANDOFF_THRESHOLD) * 100);
+
   return (
     <div className="flex flex-col gap-4">
+
+      {/* Turn progress bar — visible after first message */}
+      {turnCount > 0 && !handoffDone && (
+        <div className="flex items-center gap-2">
+          <div className="h-0.5 flex-1 bg-white/10 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gold/60 rounded-full transition-all duration-500"
+              style={{ width: `${progressPct}%` }}
+            />
+          </div>
+          <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30 whitespace-nowrap">
+            {turnCount < HANDOFF_THRESHOLD
+              ? `${HANDOFF_THRESHOLD - turnCount} questions to team review`
+              : "Routing to Carlos"}
+          </span>
+        </div>
+      )}
+
       {/* Chat history */}
       {history.length > 0 && (
-        <div className="space-y-3 max-h-72 overflow-y-auto pr-1">
+        <div ref={scrollRef} className="space-y-3 max-h-72 overflow-y-auto pr-1 scroll-smooth">
           {history.map((msg, i) => (
             <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
               {msg.role === "assistant" && (
@@ -100,7 +172,7 @@ function AiPanel() {
               <div className={`max-w-[82%] rounded-2xl px-4 py-2.5 font-sans text-sm leading-relaxed ${
                 msg.role === "user"
                   ? "rounded-br-none bg-gold text-navy font-medium"
-                  : "rounded-bl-none bg-white/8 text-white/85"
+                  : "rounded-bl-none bg-white/[0.08] text-white/85"
               }`}>
                 {msg.content}
               </div>
@@ -111,7 +183,7 @@ function AiPanel() {
               <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gold/20 ring-1 ring-gold/30">
                 <Bot size={12} className="text-gold" />
               </div>
-              <div className="flex gap-1 rounded-2xl rounded-bl-none bg-white/8 px-4 py-3">
+              <div className="flex gap-1 rounded-2xl rounded-bl-none bg-white/[0.08] px-4 py-3">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold/70 animate-bounce [animation-delay:0ms]" />
                 <span className="h-1.5 w-1.5 rounded-full bg-gold/70 animate-bounce [animation-delay:150ms]" />
                 <span className="h-1.5 w-1.5 rounded-full bg-gold/70 animate-bounce [animation-delay:300ms]" />
@@ -121,82 +193,66 @@ function AiPanel() {
         </div>
       )}
 
-      {/* AI response card — visible after first reply */}
-      {lastAssistantMsg && !loading && (
-        <motion.div
-          key={lastAssistantMsg.content.slice(0, 20)}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
-          className="border-l-2 border-gold bg-white/5 backdrop-blur-sm px-4 py-3"
-        >
-          <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-gold mb-2">Carlos AI Desk</p>
-          <p className="font-sans text-sm leading-relaxed text-white/80">{lastAssistantMsg.content}</p>
+      {/* Handoff panel — replaces input after routing */}
+      {handoffDone ? (
+        <HandoffPanel history={history} />
+      ) : (
+        <>
+          {/* Error state */}
+          {error && (
+            <p className="font-mono text-[10px] text-red-400/80">{error}</p>
+          )}
 
-          {/* WhatsApp escalation */}
-          <a
-            href={buildWhatsAppUrl(lastQuery)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-2 border border-gold/40 bg-gold/10 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-gold transition-all hover:bg-gold hover:text-navy"
-          >
-            <MessageCircle size={11} />
-            Continue on WhatsApp →
-          </a>
-        </motion.div>
+          {/* Input bar */}
+          <div className="flex items-center gap-2 rounded-xl bg-white/5 px-4 py-3 ring-1 ring-white/10 focus-within:ring-gold/40 transition-all">
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder={history.length === 0 ? "Ask anything about South Florida…" : "Continue the conversation…"}
+              maxLength={500}
+              className="flex-1 bg-transparent font-sans text-sm text-white/80 placeholder:text-white/25 outline-none"
+              aria-label="Ask the AI desk a question"
+              disabled={loading}
+            />
+            <button
+              type="button"
+              onClick={() => submit(input)}
+              disabled={loading || !input.trim()}
+              aria-label="Send question"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/20 hover:bg-gold/40 transition-colors disabled:opacity-40"
+            >
+              {loading
+                ? <Loader2 size={12} className="text-gold animate-spin" />
+                : <Send size={12} className="text-gold" />
+              }
+            </button>
+          </div>
+
+          <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/20 text-center">
+            AI intake · Carlos responds personally within one business day
+          </p>
+
+          {/* Suggestion chips — only before first message */}
+          {history.length === 0 && (
+            <div className="flex flex-wrap gap-2">
+              {PROMPTS.map((prompt) => (
+                <button
+                  key={prompt}
+                  type="button"
+                  onClick={() => submit(prompt)}
+                  disabled={loading}
+                  className="rounded-full border border-gold/20 bg-navy-deep px-4 py-2 font-sans text-[11px] text-white/55 transition-colors hover:border-gold/50 hover:text-gold disabled:opacity-40"
+                >
+                  {prompt}
+                </button>
+              ))}
+            </div>
+          )}
+        </>
       )}
-
-      {/* Error state */}
-      {error && (
-        <p className="font-mono text-[10px] text-red-400/80">{error}</p>
-      )}
-
-      {/* Input bar */}
-      <div className="flex items-center gap-2 rounded-xl bg-white/5 px-4 py-3 ring-1 ring-white/10 focus-within:ring-gold/40 transition-all">
-        <input
-          ref={inputRef}
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Ask anything about South Florida…"
-          maxLength={500}
-          className="flex-1 bg-transparent font-sans text-sm text-white/80 placeholder:text-white/25 outline-none"
-          aria-label="Ask the AI desk a question"
-          disabled={loading}
-        />
-        <button
-          type="button"
-          onClick={() => submit(input)}
-          disabled={loading || !input.trim()}
-          aria-label="Send question"
-          className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/20 hover:bg-gold/40 transition-colors disabled:opacity-40"
-        >
-          {loading
-            ? <Loader2 size={12} className="text-gold animate-spin" />
-            : <Send size={12} className="text-gold" />
-          }
-        </button>
-      </div>
-
-      <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/20 text-center">
-        AI intake preview · Carlos responds personally within one business day
-      </p>
-
-      {/* Suggestion chips */}
-      <div className="flex flex-wrap gap-2">
-        {PROMPTS.map((prompt) => (
-          <button
-            key={prompt}
-            type="button"
-            onClick={() => submit(prompt)}
-            disabled={loading}
-            className="rounded-full border border-gold/20 bg-navy-deep px-4 py-2 font-sans text-[11px] text-white/55 transition-colors hover:border-gold/50 hover:text-gold disabled:opacity-40"
-          >
-            {prompt}
-          </button>
-        ))}
-      </div>
     </div>
   );
 }

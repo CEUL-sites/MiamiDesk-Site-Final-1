@@ -99,12 +99,28 @@ Agent/referral Spanish: Carlos trabaja referidos profesionales mediante acuerdos
 Spain Desk Spanish: La Mesa Espana conecta conversaciones inmobiliarias entre South Florida, Madrid, Espana y Latinoamerica mediante coordinacion bilingue, referidos profesionales y revision de oportunidades.
 Compliance Spanish: La informacion compartida por este asistente es general y no constituye asesoria legal, fiscal, financiera, migratoria, hipotecaria ni de inversion.`;
 
-export const buildAiDeskSystemInstruction = (intent: AiDeskIntent, mlsContext?: AiMlsContext, leadSummary?: string) => {
+export const HANDOFF_SIGNAL = "[HANDOFF_READY]";
+
+export const HANDOFF_PROTOCOL = `
+Turn-based handoff protocol:
+After 8 or more user messages in this conversation, you MUST include the exact token ${HANDOFF_SIGNAL} anywhere in your response — it will be stripped before display.
+Also include ${HANDOFF_SIGNAL} earlier if ALL of the following are true:
+  (a) The visitor has stated a clear intent (buying, selling, investing, or referral).
+  (b) A location or property type is known.
+  (c) The visitor has provided their name AND at least one contact method (phone or email).
+When you include ${HANDOFF_SIGNAL}, add this sentence to your visible reply:
+"I have enough context to route this to Carlos. He will review your situation and respond personally — typically within one business day."
+Do not include ${HANDOFF_SIGNAL} on the very first exchange.
+`;
+
+export const buildAiDeskSystemInstruction = (intent: AiDeskIntent, mlsContext?: AiMlsContext, leadSummary?: string, turnCount?: number) => {
   const sections = [
     AI_DESK_SYSTEM_PROMPT,
+    HANDOFF_PROTOCOL,
     `Current classified visitor type: ${intent.visitorType}`,
     `Current MLS need: ${intent.mlsNeed}`,
     `Detected language: ${intent.language}`,
+    `Current turn count (user messages so far): ${turnCount ?? 0}`,
   ];
 
   if (mlsContext?.used) {
