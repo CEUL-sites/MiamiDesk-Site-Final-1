@@ -15,7 +15,7 @@ export default function ListingsPage() {
         <title>South Florida Listings — New Developments + Active MLS | United Realty Group</title>
         <meta
           name="description"
-          content="Browse new pre-construction developments and active MLS listings across Miami-Dade, Broward, and Palm Beach. Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group."
+          content="Browse pre-construction developments and active MLS listings across Miami-Dade, Broward & Palm Beach. Carlos Uzcategui, FL SL705771, United Realty Group."
         />
         <link rel="canonical" href="https://homesprofessional.com/listings" />
         <meta property="og:title" content="South Florida Listings — New Developments + Active MLS" />

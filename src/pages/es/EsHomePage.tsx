@@ -50,7 +50,7 @@ export default function EsHomePage() {
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
-          content="Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group — 25 años de transacciones inmobiliarias en Sur de Florida. Representación de vendedores y compradores en Miami, Coral Gables, Weston y todo el Sur de Florida."
+          content="Carlos Uzcategui, REALTOR® FL SL705771 — 25 años en Sur de Florida. Representación de vendedores y compradores en Miami, Coral Gables y Weston."
         />
         <link rel="canonical" href="https://homesprofessional.com/es" />
         <meta property="og:title" content="Bienes Raíces en Sur de Florida | United Realty Group | HomesProfessional.com" />

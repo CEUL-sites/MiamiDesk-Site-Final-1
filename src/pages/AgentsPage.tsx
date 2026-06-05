@@ -130,7 +130,7 @@ export default function AgentsPage() {
         <title>Miami Desk for International Listing Agents | Win More Listings | HomesProfessional.com</title>
         <meta
           name="description"
-          content="International agents: add a Miami-facing exposure layer to your listing presentations. Florida-licensed Realtor® partner connected to 93,000 Miami REALTORS® members. You keep the mandate."
+          content="International agents: add a Miami exposure layer to your listings. Florida-licensed Realtor® connected to 93,000 Miami REALTORS®. You keep the mandate."
         />
         <meta
           name="keywords"

@@ -135,7 +135,7 @@ export default function EsComprarPage() {
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
-          content="Representación bilingüe para compradores internacionales en Sur de Florida. Compradores de España y Latinoamérica bienvenidos. Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group."
+          content="Representación bilingüe para compradores internacionales en Sur de Florida. España y Latinoamérica bienvenidos. Carlos Uzcategui, FL SL705771."
         />
         <link
           rel="canonical"

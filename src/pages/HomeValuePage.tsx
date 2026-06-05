@@ -48,7 +48,7 @@ export default function HomeValuePage() {
         <title>What Is My South Florida Home Worth? Free Professional Valuation | HomesProfessional.com</title>
         <meta
           name="description"
-          content="Get a free, professional home valuation from a licensed South Florida REALTOR® with 25 years of market experience. Not an algorithm — a real MLS analysis specific to your property. Carlos Uzcategui, FL SL705771."
+          content="Free professional home valuation from a licensed South Florida REALTOR® — a real MLS analysis, not an algorithm. Carlos Uzcategui, FL SL705771."
         />
         <meta
           name="keywords"

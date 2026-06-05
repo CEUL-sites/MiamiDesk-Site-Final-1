@@ -16,7 +16,7 @@ export default function BuyersPage() {
     <>
       <Helmet>
         <title>Buy in South Florida or Spain With the Right Local Professional | HomesProfessional.com</title>
-        <meta name="description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — full MLS access, negotiation, and closing. Spain buyers referred to trusted local partners. United Realty Group · FL SL705771." />
+        <meta name="description" content="Buyer representation across Miami-Dade, Broward & Palm Beach — full MLS access, negotiation, closing. Bilingual EN/ES. United Realty Group · FL SL705771." />
         <meta name="keywords" content="buy home South Florida, Miami real estate buyer, Coral Gables homes for sale, Brickell condos, Miami Beach real estate, South Florida buyer agent, relocation Miami" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/buy" />

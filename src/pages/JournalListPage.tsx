@@ -52,7 +52,7 @@ export default function JournalListPage() {
         <title>Market Journal | South Florida Real Estate | Carlos Uzcategui</title>
         <meta
           name="description"
-          content="South Florida real estate market analysis and seller insights. Absorption rates, international capital flows, positioning strategy. Carlos Uzcategui, FL SL705771."
+          content="South Florida real estate market analysis and seller insights — absorption rates, international capital flows, positioning. Carlos Uzcategui, FL SL705771."
         />
         <link rel="canonical" href="https://homesprofessional.com/journal" />
         <meta property="og:title" content="Market Journal | South Florida Real Estate | Carlos Uzcategui" />

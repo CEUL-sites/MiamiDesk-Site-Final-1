@@ -13,7 +13,7 @@ export default function NewConstructionPage() {
         <title>New Construction | Florida Pre-Construction Inventory | Carlos Uzcategui</title>
         <meta
           name="description"
-          content="Florida pre-construction inventory, professionally accessed. Advisory positioning for Spanish and Latin American developers and international buyers via Carlos Uzcategui, United Realty Group."
+          content="Florida pre-construction inventory, professionally accessed. Advisory for international buyers and developers. Carlos Uzcategui, United Realty Group."
         />
         <link rel="canonical" href="https://homesprofessional.com/new-construction" />
       </Helmet>

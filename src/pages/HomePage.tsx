@@ -15,7 +15,7 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>South Florida Listing Agent · Sell Your Home | Carlos Uzcategui | HomesProfessional.com</title>
-        <meta name="description" content="Carlos Uzcategui, FL SL705771 · South Florida listing agent · MLS exposure and buyer-agent activation across Miami-Dade, Broward, and Palm Beach. United Realty Group." />
+        <meta name="description" content="Carlos Uzcategui, FL SL705771 · South Florida listing agent · MLS exposure and buyer-agent activation across Miami-Dade, Broward & Palm Beach." />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="South Florida Listing Agent · Sell Your Home | HomesProfessional.com" />
         <meta name="twitter:description" content="Local representation. Professional distribution. Global buyer reach — 93,000 Miami REALTORS® member agents." />

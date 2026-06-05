@@ -291,7 +291,7 @@ export default function EsAgentesPage() {
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
-          content="Colaboraciones bilaterales para agentes y agencias en España, Florida y Latinoamérica. Acceso a la red de 93.000 agentes de Miami and South Florida REALTORS®. Honorarios de referral confirmados por escrito."
+          content="Colaboraciones bilaterales para agentes en España, Florida y Latinoamérica. Red de 93.000 agentes de Miami REALTORS®. Honorarios confirmados por escrito."
         />
         <link
           rel="canonical"

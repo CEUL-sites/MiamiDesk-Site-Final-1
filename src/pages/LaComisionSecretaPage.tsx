@@ -83,7 +83,7 @@ export default function LaComisionSecretaPage() {
         <title>La Comisión Secreta — The South Florida Real Estate Career Guide | HomesProfessional.com</title>
         <meta
           name="description"
-          content="La Comisión Secreta: 248-page Spanish-language guide to building a real estate career in South Florida. Licensing, brokerage selection, the Latin American buyer market, and what 25 years in this market actually teaches. By Carlos Uzcategui, FL SL705771."
+          content="La Comisión Secreta — 248-page Spanish guide to a real estate career in South Florida. Licensing, MLS, the Latin American buyer market. By Carlos Uzcategui."
         />
         <meta
           name="keywords"

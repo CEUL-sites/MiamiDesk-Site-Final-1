@@ -121,7 +121,7 @@ export default function EsVenderPage() {
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
-          content="Representación de vendedores en Sur de Florida. Activación en el MLS de Miami, 93.000 agentes miembros, 200+ portales globales. Carlos Uzcategui, REALTOR® FL SL705771, United Realty Group."
+          content="Representación de vendedores en Sur de Florida. Activación en el MLS de Miami, 93.000 agentes, 200+ portales. Carlos Uzcategui, FL SL705771."
         />
         <link
           rel="canonical"
