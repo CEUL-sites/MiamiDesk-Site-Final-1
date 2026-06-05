@@ -130,6 +130,14 @@ export default function MarketsPage() {
         <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Markets", "item": "https://homesprofessional.com/markets" }
+          ]
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
             {
@@ -141,6 +149,21 @@ export default function MarketsPage() {
               "@type": "Question",
               "name": "Does Carlos sell real estate in Spain?",
               "acceptedAnswer": { "@type": "Answer", "text": "Carlos is licensed exclusively in Florida (SL705771). Spain and Madrid properties are handled through formal professional referral relationships with established local agencies — not direct sales by Carlos in Spain." }
+            },
+            {
+              "@type": "Question",
+              "name": "Which cities in South Florida does United Realty Group cover?",
+              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group covers ${URG_CITIES.length} cities across three counties: Miami-Dade (including Miami, Coral Gables, Brickell, Aventura, Miami Beach, Doral, and Hialeah), Broward (including Weston, Plantation, Fort Lauderdale, Coral Springs, and Pembroke Pines), and Palm Beach (including Boca Raton, Delray Beach, and West Palm Beach).` }
+            },
+            {
+              "@type": "Question",
+              "name": "What is United Realty Group's South Florida footprint?",
+              "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group operates 20 offices across South Florida with 3,500+ licensed agents statewide. It is one of Florida's largest independently owned brokerages, established in 2002." }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the Miami MLS reach international buyers?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association with 93,000 member agents — holds 437+ signed international agreements across 75+ countries. Eligible listed properties can be distributed to 200+ global portals in 19 languages." }
             },
           ]
         })}</script>
