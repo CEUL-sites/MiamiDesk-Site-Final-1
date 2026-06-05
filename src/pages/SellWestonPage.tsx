@@ -35,7 +35,7 @@ export default function SellWestonPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Weston, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
-        <meta name="description" content="Selling your home in Weston, FL? Carlos Uzcategui delivers professional MLS positioning, buyer-agent activation, and international distribution for Weston sellers. Free confidential strategy review. FL SL705771, United Realty Group." />
+        <meta name="description" content="Weston, FL listing agent — MLS positioning, international distribution, buyer-agent activation. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Weston FL, Weston Florida listing agent, Weston real estate agent, sell house Weston Florida, Weston FL realtor, Broward County listing agent, Weston gated community homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-weston" />
         <meta property="og:type" content="website" />
@@ -87,7 +87,14 @@ export default function SellWestonPage() {
             "postalCode": "33331",
             "addressCountry": "US"
           },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" }
+          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

@@ -35,7 +35,7 @@ export default function SellCoralSpringsPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Coral Springs, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
-        <meta name="description" content="Selling your home in Coral Springs, FL? Carlos Uzcategui delivers professional MLS positioning, buyer-agent activation, and school-zone expertise for Coral Springs sellers. Free confidential strategy review. FL SL705771, United Realty Group." />
+        <meta name="description" content="Coral Springs, FL listing agent — MLS positioning, buyer-agent activation, school-zone expertise. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Coral Springs FL, Coral Springs listing agent, Coral Springs real estate agent, sell house Coral Springs Florida, Coral Springs FL realtor, Broward County listing agent, Coral Springs gated homes" />
         <link rel="canonical" href="https://homesprofessional.com/sell-coral-springs" />
         <meta property="og:type" content="website" />
@@ -74,7 +74,14 @@ export default function SellCoralSpringsPage() {
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" }
+          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

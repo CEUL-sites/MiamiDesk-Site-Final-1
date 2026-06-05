@@ -35,7 +35,7 @@ export default function SellCoralGablesPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Coral Gables, FL | Luxury MLS Positioning | Carlos Uzcategui</title>
-        <meta name="description" content="Coral Gables listing agent: professional MLS positioning, luxury buyer network access, and international distribution for Coral Gables home sellers. Carlos Uzcategui, FL SL705771, United Realty Group. Free strategy review." />
+        <meta name="description" content="Coral Gables listing agent — MLS positioning, luxury buyer network, international distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Coral Gables FL, Coral Gables listing agent, Coral Gables real estate agent, luxury homes Coral Gables, sell house Coral Gables, Miami-Dade luxury realtor, Coral Gables waterfront homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-coral-gables" />
         <meta property="og:type" content="website" />
@@ -87,7 +87,14 @@ export default function SellCoralGablesPage() {
             "postalCode": "33331",
             "addressCountry": "US"
           },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" }
+          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

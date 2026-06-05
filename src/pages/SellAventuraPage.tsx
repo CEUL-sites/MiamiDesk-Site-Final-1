@@ -35,7 +35,7 @@ export default function SellAventuraPage() {
     <>
       <Helmet>
         <title>Sell Your Property in Aventura, FL | MLS Positioning | Carlos Uzcategui</title>
-        <meta name="description" content="Selling property in Aventura, FL? Carlos Uzcategui delivers professional MLS positioning, international buyer activation, and buyer-agent network access for Aventura sellers. Free confidential strategy review. FL SL705771, United Realty Group." />
+        <meta name="description" content="Aventura, FL listing agent — MLS positioning, international buyer activation, buyer-agent network. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell condo Aventura FL, Aventura Florida listing agent, Aventura real estate agent, sell home Aventura Florida, Aventura FL realtor, Miami-Dade listing agent, Aventura luxury condo" />
         <link rel="canonical" href="https://homesprofessional.com/sell-aventura" />
         <meta property="og:type" content="website" />
@@ -74,7 +74,14 @@ export default function SellAventuraPage() {
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" }
+          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

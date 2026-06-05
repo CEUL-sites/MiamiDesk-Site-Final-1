@@ -35,7 +35,7 @@ export default function SellPlantationPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Plantation, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
-        <meta name="description" content="Selling your home in Plantation, FL? Carlos Uzcategui delivers professional MLS positioning, buyer-agent activation, and established neighborhood expertise for Plantation sellers. Free confidential strategy review. FL SL705771, United Realty Group." />
+        <meta name="description" content="Plantation, FL listing agent — MLS positioning, buyer-agent activation, neighborhood expertise. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Plantation FL, Plantation Florida listing agent, Plantation real estate agent, sell house Plantation Florida, Plantation FL realtor, Broward County listing agent, Plantation FL homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-plantation" />
         <meta property="og:type" content="website" />
@@ -74,7 +74,14 @@ export default function SellPlantationPage() {
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
           "address": { "@type": "PostalAddress", "streetAddress": "1200 S Pine Island Rd Suite 600", "addressLocality": "Plantation", "addressRegion": "FL", "postalCode": "33324", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" }
+          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

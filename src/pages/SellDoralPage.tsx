@@ -35,7 +35,7 @@ export default function SellDoralPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Doral, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
-        <meta name="description" content="Selling your home in Doral, FL? Carlos Uzcategui delivers professional MLS positioning, Latin American buyer activation, and buyer-agent network access for Doral sellers. Free confidential strategy review. FL SL705771, United Realty Group." />
+        <meta name="description" content="Doral, FL listing agent — MLS positioning, Latin American buyer activation, buyer-agent network. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Doral FL, Doral Florida listing agent, Doral real estate agent, sell house Doral Florida, Doral FL realtor, Miami-Dade listing agent, Doral gated community homes" />
         <link rel="canonical" href="https://homesprofessional.com/sell-doral" />
         <meta property="og:type" content="website" />
@@ -74,7 +74,14 @@ export default function SellDoralPage() {
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" }
+          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

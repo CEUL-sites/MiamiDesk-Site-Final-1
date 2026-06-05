@@ -35,7 +35,7 @@ export default function SellFortLauderdalePage() {
     <>
       <Helmet>
         <title>Sell Your Home in Fort Lauderdale, FL | Waterfront MLS Positioning | Carlos Uzcategui</title>
-        <meta name="description" content="Selling your home in Fort Lauderdale, FL? Carlos Uzcategui delivers professional MLS positioning, waterfront buyer activation, and international distribution for Fort Lauderdale sellers. Free confidential strategy review. FL SL705771, United Realty Group." />
+        <meta name="description" content="Fort Lauderdale listing agent — MLS positioning, waterfront buyer activation, international distribution. Free strategy review. FL SL705771." />
         <meta name="keywords" content="sell home Fort Lauderdale FL, Fort Lauderdale listing agent, Fort Lauderdale real estate agent, sell house Fort Lauderdale Florida, Fort Lauderdale FL realtor, waterfront homes Fort Lauderdale, Las Olas real estate" />
         <link rel="canonical" href="https://homesprofessional.com/sell-fort-lauderdale" />
         <meta property="og:type" content="website" />
@@ -74,7 +74,14 @@ export default function SellFortLauderdalePage() {
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" }
+          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "15",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
