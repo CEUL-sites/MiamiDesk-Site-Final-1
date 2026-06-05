@@ -115,8 +115,8 @@ export function Hero() {
             <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
               <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
               <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
-                <span className="sm:hidden">South Florida · Global Network</span>
-                <span className="hidden sm:inline">South Florida · Miami Realtors Association · Global Real Estate Network</span>
+                <span className="sm:hidden">South Florida · Global Reach</span>
+                <span className="hidden sm:inline">South Florida · Miami Realtors Network · Global Reach</span>
               </span>
             </span>
           </motion.div>
