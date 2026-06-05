@@ -109,14 +109,15 @@ export default function SellSouthFloridaPage() {
             className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
             style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
           >
-            Get your property in front of every agent<br />
-            <em className="not-italic italic text-gold">who already has a buyer for it.</em>
+            Your buyer already has a Realtor®.<br />
+            <em className="not-italic italic text-gold">Make sure that agent has your listing.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
             Features describe a property. Distribution determines its price.
             Buyer demand is often created online — but transactions are executed through
-            professional relationships. MLS positioning, buyer-agent activation, and
-            international distribution for sellers who need a complete strategy.
+            professional buyer-agent relationships. MLS positioning, professional marketing,
+            and negotiation for buyer-agent activation, and international distribution —
+            for sellers who need a complete strategy.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
