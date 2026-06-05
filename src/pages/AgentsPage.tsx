@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { BadgeCheck, ChevronRight, MessageSquare, Globe2, Languages, Building2, Handshake } from "lucide-react";
+import { BadgeCheck, ChevronRight, MessageSquare, Globe2, Languages, Building2, Handshake, UserPlus, BookOpen, Star, Users } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -650,6 +650,152 @@ export default function AgentsPage() {
                 opportunities may be handled through formal broker-to-broker agreements depending on jurisdiction
                 and applicable regulations.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Join United Realty Group ──────────────────────────────── */}
+        <section className="bg-ivory py-20 md:py-28" id="join-urg">
+          <div className="mx-auto max-w-6xl px-6">
+
+            {/* Section header */}
+            <div className="mb-14">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Career Opportunity · South Florida</p>
+              <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                Build your real estate career<br />
+                <span className="text-gold">inside South Florida's network.</span>
+              </h2>
+              <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
+                United Realty Group is one of Florida's largest independently owned brokerages — {CONTACT.stats.urgAgents} agents
+                across {CONTACT.stats.urgOffices} South Florida offices. Whether you are already licensed and looking for the
+                right home, or exploring real estate as a career, this is a professional environment built for independent
+                agents who want to work at scale.
+              </p>
+            </div>
+
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+
+              {/* Left — join reasons + CTA */}
+              <div>
+                <div className="grid gap-px border border-hairline bg-hairline sm:grid-cols-2">
+                  {[
+                    {
+                      icon: Building2,
+                      title: "Florida's independent brokerage",
+                      body: "United Realty Group was established in 2002 and operates across 20 South Florida offices. Independent ownership. Professional infrastructure. Local market depth.",
+                    },
+                    {
+                      icon: Globe2,
+                      title: "The MLS network behind the name",
+                      body: "Every affiliated agent enters the Miami and South Florida REALTORS® ecosystem — 93,000-member association, 200+ global portals in 19 languages, and 437+ international referral agreements.",
+                    },
+                    {
+                      icon: Users,
+                      title: "Bilingual professional environment",
+                      body: "A South Florida market runs on English and Spanish. URG's agent base reflects that. International sellers and buyers work with agents who understand both markets and both languages.",
+                    },
+                    {
+                      icon: Star,
+                      title: "25 years of in-market relationships",
+                      body: "Carlos Uzcategui has worked this market since 2001. Agents affiliated with this office access an active professional who is working the same MLS — not a branch manager reviewing paperwork.",
+                    },
+                  ].map((item) => (
+                    <div key={item.title} className="bg-white p-7">
+                      <item.icon size={18} className="text-gold" strokeWidth={1.5} />
+                      <h3 className="mt-4 font-serif text-base text-navy-deep">{item.title}</h3>
+                      <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/60">{item.body}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <a
+                    href={CONTACT.whatsappUS}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 bg-navy-deep px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+                  >
+                    <UserPlus size={14} />
+                    Ask About Joining URG
+                  </a>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-navy/35">
+                    Personal response from Carlos
+                  </p>
+                </div>
+
+                <p className="mt-5 font-sans text-xs italic text-ink-primary/40">
+                  All license affiliations are subject to United Realty Group's standard broker requirements, Florida DBPR licensing,
+                  and applicable MLS membership rules. Contact Carlos directly for current availability and affiliate terms.
+                </p>
+              </div>
+
+              {/* Right — booklet teaser card */}
+              <div className="lg:sticky lg:top-24">
+                <div className="relative overflow-hidden border border-gold/30 bg-navy-deep shadow-2xl shadow-navy/20">
+                  {/* Coming-soon badge */}
+                  <div className="absolute right-4 top-4 z-10">
+                    <span className="bg-gold px-3 py-1 font-mono text-[8px] uppercase tracking-[0.22em] text-navy-deep">
+                      Coming Soon
+                    </span>
+                  </div>
+
+                  {/* Visual header */}
+                  <div className="relative overflow-hidden bg-[radial-gradient(ellipse_at_30%_40%,rgba(176,141,87,0.18),rgba(6,17,31,1))] px-8 pt-10 pb-8">
+                    <div className="mb-6">
+                      <BookOpen size={36} className="text-gold" strokeWidth={1.25} />
+                    </div>
+                    <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold/70 mb-3">
+                      The South Florida Career Guide
+                    </p>
+                    <h3 className="font-serif text-2xl leading-snug text-white">
+                      How to Become a Successful<br />
+                      <em className="not-italic italic text-gold">Real Estate Agent in South Florida</em>
+                    </h3>
+                    <p className="mt-4 font-sans text-sm leading-relaxed text-white/60">
+                      A practical guide to starting and building a real estate career in one of the most
+                      competitive and internationally connected markets in the United States — from
+                      licensing, to your first transaction, to working inside a professional network.
+                    </p>
+                  </div>
+
+                  {/* What's inside */}
+                  <div className="border-t border-white/10 px-8 py-6">
+                    <p className="mb-4 font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60">What's inside</p>
+                    <ul className="space-y-2.5">
+                      {[
+                        "Florida real estate licensing — step by step",
+                        "Choosing the right brokerage for your career",
+                        "Building a pipeline from zero in South Florida",
+                        "Working with international and Latin American buyers",
+                        "MLS, listing strategy, and the agent network",
+                        "What 25 years in this market actually teaches you",
+                      ].map((item) => (
+                        <li key={item} className="flex items-start gap-2.5">
+                          <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
+                          <span className="font-sans text-[13px] leading-snug text-white/65">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA — will become sales page link */}
+                  <div className="border-t border-white/10 px-8 py-6">
+                    <a
+                      href={CONTACT.whatsappUS}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                    >
+                      <BookOpen size={13} />
+                      Get Notified When It Launches
+                    </a>
+                    <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+                      By Carlos Uzcategui · FL SL705771 · United Realty Group
+                    </p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
