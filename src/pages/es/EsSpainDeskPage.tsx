@@ -125,8 +125,8 @@ export default function EsSpainDeskPage() {
         <meta name="description" content="Servicio B2B de exposición y referral para agencias y promotores. Ayude a su agencia a ganar más mandatos de venta ofreciendo a los propietarios exposición documentada hacia Sur de Florida a través de Carlos Uzcategui, Realtor® licenciado en Florida SL705771, United Realty Group. Usted mantiene el mandato local." />
         <meta name="keywords" content="ganar mandatos de venta España Sur de Florida, exposición Sur de Florida agencias españolas, listing España Sur de Florida, partnership agencia España Sur de Florida, cooperating broker España Florida, United Realty Group España, exposición internacional de listings" />
         <link rel="canonical" href="https://homesprofessional.com/es/spain-desk" />
-        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/spain-desk" />
-        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/spain-desk" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/es/spain-desk" />

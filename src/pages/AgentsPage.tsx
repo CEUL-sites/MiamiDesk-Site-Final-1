@@ -137,6 +137,9 @@ export default function AgentsPage() {
           content="international real estate exposure, Miami real estate network, Miami REALTORS, South Florida buyer network, Spain luxury real estate, Madrid luxury properties, Marbella luxury real estate, international listing exposure, real estate referral network, U.S. buyer exposure Spanish properties, Miami Desk, Florida Realtor partner, cross-border real estate referrals"
         />
         <link rel="canonical" href="https://homesprofessional.com/agents" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/agents" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/agents" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/agentes" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/agents" />
         <meta property="og:title" content="Win More Seller Mandates With a South Florida Exposure Strategy" />

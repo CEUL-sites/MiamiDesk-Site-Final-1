@@ -136,8 +136,8 @@ export default function EsVenderPage() {
         <meta name="twitter:title" content="Vender en Sur de Florida | Estrategia de Venta | Carlos Uzcategui" />
         <meta name="twitter:description" content="Activación en el MLS de Miami, 93.000 agentes miembros, 200+ portales globales. United Realty Group · FL SL705771." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
-        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell" />
-        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-south-florida" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-south-florida" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender" />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbJsonLd)}

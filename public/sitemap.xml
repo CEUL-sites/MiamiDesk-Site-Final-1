@@ -23,6 +23,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.97</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-south-florida"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender"/>
   </url>
 
   <url>
@@ -121,6 +122,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/buy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/comprar"/>
   </url>
 
   <url>
@@ -154,6 +156,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
 
   <!-- ── Professionals ──────────────────────────────────────────── -->
@@ -164,6 +167,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.87</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/agents"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/agentes"/>
   </url>
 
   <!-- ── Reviews ──────────────────────────────────────────────────── -->
@@ -273,6 +277,7 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-south-florida"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender"/>
   </url>
 
@@ -281,7 +286,27 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/buy"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/comprar"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/agentes</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/agents"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/agents"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/agentes"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/spain-desk</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
 
   <!-- ── Legal ──────────────────────────────────────────────────── -->

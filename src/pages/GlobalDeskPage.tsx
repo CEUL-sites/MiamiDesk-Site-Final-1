@@ -57,6 +57,9 @@ export default function GlobalDeskPage() {
           content="Carlos Uzcategui places eligible international inventory directly into the Miami and South Florida REALTORS® MLS as the licensed principal of record — 93,000 member agents, 200+ global portals, 19 languages."
         />
         <link rel="canonical" href="https://homesprofessional.com/global-desk" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:title" content="Global Desk — Miami MLS International Activation" />
         <meta
           property="og:description"
