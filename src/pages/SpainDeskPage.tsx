@@ -130,11 +130,11 @@ export default function SpainDeskPage() {
         <meta property="og:url" content="https://homesprofessional.com/spain-desk" />
         <meta property="og:title" content="Global Desk | Spanish Property into the South Florida Network | Carlos Uzcategui" />
         <meta property="og:description" content="A Florida-based bridge listing international property into the Miami MLS — 93,000 member agents and a global referral network. Not a referral, a formal listing." />
-        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Global Desk | Spanish Property into the Miami MLS | Carlos Uzcategui" />
         <meta name="twitter:description" content="List international property into the South Florida network through one licensed Florida principal. Free, confidential review." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",

@@ -59,11 +59,11 @@ export default function HomeValuePage() {
         <meta property="og:description" content="Free MLS-based home valuation from a licensed South Florida REALTOR® with 25 years of market experience. Not an algorithm — a real analysis for your property." />
         <meta property="og:url" content="https://homesprofessional.com/home-value" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="What Is My South Florida Home Worth? Free Professional Valuation" />
         <meta name="twitter:description" content="Free MLS-based home valuation from a licensed South Florida REALTOR® — not an algorithm. 25 years of market experience. No obligation." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

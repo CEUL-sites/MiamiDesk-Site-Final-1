@@ -20,11 +20,11 @@ export default function ContactPage() {
         <meta property="og:description" content="Submit a confidential property positioning review. South Florida sellers, international property owners, agencies, and developers. Carlos Uzcategui, FL SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/contact" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Request a Private Listing Review | HomesProfessional.com" />
         <meta name="twitter:description" content="Submit a confidential property review. South Florida sellers and international property owners. Carlos Uzcategui, FL SL705771." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ContactPage",

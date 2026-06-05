@@ -42,11 +42,11 @@ export default function SellCoralSpringsPage() {
         <meta property="og:url" content="https://homesprofessional.com/sell-coral-springs" />
         <meta property="og:title" content="Sell Your Coral Springs, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
         <meta property="og:description" content="Professional seller representation in Coral Springs, FL — MLS activation, school-zone positioning, and buyer-agent network access. Free confidential strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Coral Springs, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Coral Springs, FL home sellers. Free strategy review — no listing commitment." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

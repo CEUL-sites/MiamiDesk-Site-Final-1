@@ -40,11 +40,11 @@ export default function JournalListPage() {
         <meta property="og:description" content="Quarterly market analysis and seller insights for South Florida real estate. Absorption rates, international capital flows, and positioning strategy." />
         <meta property="og:url" content="https://homesprofessional.com/journal" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Market Journal | South Florida Real Estate | Carlos Uzcategui" />
         <meta name="twitter:description" content="Quarterly market analysis and seller insights for South Florida real estate. Absorption rates, international capital flows, and positioning strategy." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/urg-hq.jpg" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
       </Helmet>
 
