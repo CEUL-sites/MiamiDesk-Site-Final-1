@@ -10,9 +10,11 @@ const jsonHeaders = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
-// Nano Banana = Gemini 2.0 Flash image generation (gemini-2.0-flash-preview-image-generation)
-// "nano banana" branding per Google DeepMind's Gemini image model family
-const NANO_BANANA_MODEL = "gemini-2.0-flash-preview-image-generation";
+// Nano Banana 🍌 = Gemini 2.5 Flash Image model
+// Confirmed: google-gemini/generative-ai GitHub notebook "Gemini 2.5 Flash Image (Nano Banana 🍌) Generation"
+// Falls back to 2.0 flash preview if 2.5 preview is unavailable on the account tier
+const NANO_BANANA_MODEL = "gemini-2.5-flash-image-preview";
+const NANO_BANANA_FALLBACK = "gemini-2.0-flash-preview-image-generation";
 
 const SCENE_PROMPTS: Record<string, string> = {
   "miami-waterfront": [
@@ -74,13 +76,25 @@ export const handler: Handler = async (event: HandlerEvent) => {
   try {
     const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
-    const result = await ai.models.generateContent({
-      model: NANO_BANANA_MODEL,
-      contents: [{ role: "user", parts: [{ text: prompt }] }],
-      config: {
-        responseModalities: ["IMAGE"],
-      },
-    });
+    // Try Nano Banana 🍌 (gemini-2.5-flash-image-preview) first, fall back to 2.0 preview
+    let result;
+    let modelUsed = NANO_BANANA_MODEL;
+    try {
+      result = await ai.models.generateContent({
+        model: NANO_BANANA_MODEL,
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        config: { responseModalities: ["IMAGE"] },
+      });
+    } catch {
+      console.log("[nano-banana-stage] 2.5 preview unavailable, falling back to 2.0");
+      modelUsed = NANO_BANANA_FALLBACK;
+      result = await ai.models.generateContent({
+        model: NANO_BANANA_FALLBACK,
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        config: { responseModalities: ["IMAGE"] },
+      });
+    }
+    console.log(`[nano-banana-stage] Model used: ${modelUsed}`);
 
     const parts = result.candidates?.[0]?.content?.parts ?? [];
     const imagePart = parts.find(
