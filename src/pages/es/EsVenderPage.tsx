@@ -104,9 +104,9 @@ const DISTRIBUTION_STATS = [
     label: "MLSs en EE. UU.",
   },
   {
-    value: "$69B",
+    value: "#1",
     // TODO: native Madrid editor review
-    label: "Volumen 2025",
+    label: "Bróker en Florida",
   },
 ];
 

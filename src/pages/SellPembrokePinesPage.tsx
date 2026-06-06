@@ -163,7 +163,7 @@ export default function SellPembrokePinesPage() {
                   <em className="not-italic italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network that drives South Florida's $69B annual transaction volume — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of the #1 transactional brokerage in Florida by closed transactions — not a portal, a professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[

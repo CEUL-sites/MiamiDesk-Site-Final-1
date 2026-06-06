@@ -19,12 +19,12 @@ const TOP_STATS = [
     desc: "MIAMI REALTORS® holds 437+ formal international agreements — the most of any local REALTOR® association in the world — connecting South Florida with global buyer markets across 75+ countries.",
   },
   {
-    value: 69,
-    display: "$69B",
+    value: 1,
+    display: "#1",
     suffix: "",
-    label: "2025 Transaction Volume",
-    sublabel: "Miami & South Florida REALTORS®",
-    desc: "The Miami and South Florida REALTORS® recorded $69 billion in combined 2025 transaction volume — the market force behind every listing that enters this MLS.",
+    label: "Transactional Brokerage · Florida",
+    sublabel: "United Realty Group",
+    desc: "United Realty Group is the #1 transactional brokerage in Florida by closed transactions — the professional network a listing enters the moment it is represented through this office.",
   },
 ];
 
@@ -195,7 +195,7 @@ export const ReachAdvantage = () => {
           {[
             { v: "437+", l: "International Agreements" },
             { v: "19",   l: "Languages" },
-            { v: "Day 1", l: "MLS Activation" },
+            { v: "Full", l: "MLS Network" },
             { v: "CLHMS", l: "Luxury Certified" },
           ].map((item) => (
             <div key={item.l} className="text-center">

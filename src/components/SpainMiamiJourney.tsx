@@ -70,7 +70,7 @@ const STEPS = [
     label: "THE RESULT",
     headline: "The buyer no one else could reach.",
     sub: "A Spanish property owner found their LatAm buyer through the only pipeline that connects both markets at institutional level. No workaround. A licensed U.S. principal of record.",
-    stat: "$69 Billion — 2025 combined transaction volume",
+    stat: "United Realty Group — #1 transactional brokerage in Florida",
     side: "right" as const,
     color: GOLD_SOFT,
   },

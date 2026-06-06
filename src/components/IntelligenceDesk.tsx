@@ -160,6 +160,18 @@ function AiPanel() {
         </div>
       )}
 
+      {/* Opening message — shown before first user message */}
+      {history.length === 0 && (
+        <div className="flex gap-2 justify-start">
+          <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gold/20 ring-1 ring-gold/30 mt-0.5">
+            <Bot size={12} className="text-gold" />
+          </div>
+          <div className="max-w-[90%] rounded-2xl rounded-bl-none bg-white/[0.08] px-4 py-2.5 font-sans text-sm leading-relaxed text-white/85">
+            Welcome. Tell me what brings you here — a South Florida sale, a purchase, a cross-border inquiry, or an agent referral — and I'll gather the right details so Carlos can respond with strategy, not a questionnaire.
+          </div>
+        </div>
+      )}
+
       {/* Chat history */}
       {history.length > 0 && (
         <div ref={scrollRef} className="space-y-3 max-h-72 overflow-y-auto pr-1 scroll-smooth">

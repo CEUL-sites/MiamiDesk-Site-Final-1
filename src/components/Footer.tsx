@@ -124,7 +124,7 @@ export function Footer() {
 
       <div className="relative z-10 border-t border-white/5 px-6 py-8">
         <div className="mx-auto max-w-7xl space-y-8">
-          <div className="max-w-5xl space-y-4 font-sans text-[10px] font-light leading-loose text-white/40">
+          <div className="max-w-5xl space-y-4 font-sans text-[10px] font-light leading-loose text-white/40" data-nosnippet>
             <p>
               Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
             </p>

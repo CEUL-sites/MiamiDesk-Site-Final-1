@@ -565,7 +565,7 @@ export default function EsAgentesPage() {
               </div>
               <div className="bg-white p-6 text-center">
                 <div className="font-serif text-3xl text-navy-deep">
-                  $69.000M
+                  #1 en Florida
                 </div>
                 <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}

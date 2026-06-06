@@ -35,6 +35,9 @@
 
   body {
     @apply bg-white-soft text-navy font-sans antialiased;
+  }
+
+  #root {
     overflow-x: hidden;
   }
 

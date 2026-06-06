@@ -16,8 +16,8 @@ const PROCESS_STEPS = [
     tag: "Property Owners",
     title: "Spanish Property Into the Miami MLS",
     body: "Your property enters the Miami & South Florida REALTORS® MLS as a listed asset — not a referral, not a portal upload. 93,000 member agents, 500+ global websites in 19 languages, and an international referral network reaching 2 million+ professionals.",
-    outcome: "Structural distribution. The same infrastructure behind South Florida's $69B annual sales volume.",
-    stat: "93,000 agents · Day One",
+    outcome: "Structural distribution. The infrastructure of Florida's #1 transactional brokerage by closed transactions.",
+    stat: "93,000 agents · Full MLS",
   },
   {
     num: "02",

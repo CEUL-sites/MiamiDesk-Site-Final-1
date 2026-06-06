@@ -76,7 +76,7 @@ export const ASSOCIATION_STATS = {
   countries: 75,
   usMls: 260,
   mlsDataExchanges: 11,
-  annualVolume: "$69B",
+  urgRank: "Florida's #1",
   urgAgents: "3,500+",
   urgOffices: 20,
   urgFounded: 2002,

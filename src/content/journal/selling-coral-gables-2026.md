@@ -38,7 +38,7 @@ The Coral Gables buyer — particularly the LATAM multi-generational buyer and t
 
 A listing entered through the **Miami and South Florida REALTORS® MLS** connects to the National Association of REALTORS® infrastructure: 93,000 REALTORS® with access to 385 MLSs via RPR, over 200 international websites in 19 languages, and 437+ formal international agreements that create direct referral pathways from producing agents in Mexico, Colombia, Venezuela, Brazil, and the broader LATAM corridor. United Realty Group's network of 3,000+ agents across 19 Florida offices provides additional distribution depth within the state — relevant when buyers are also evaluating properties elsewhere in South Florida before committing.
 
-The $69 billion in 2025 volume transacted through this professional network reflects what is actually happening in the Miami-Dade market. The buyers responsible for that activity are in the system. A listing that is positioned correctly and entered with full professional infrastructure behind it is visible to that buyer pool from day one.
+United Realty Group — the #1 transactional brokerage in Florida by closed transactions — operates within this professional network. The buyers responsible for Miami-Dade's market activity are in the system. A listing that is positioned correctly and entered with full professional infrastructure behind it is visible to that buyer pool from the day it is activated.
 
 ## Starting the Conversation
 
