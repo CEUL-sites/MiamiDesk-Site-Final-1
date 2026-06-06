@@ -207,22 +207,55 @@ export default function MarketsPage() {
           </div>
         </section>
 
-        {/* ── URG Footprint strip ────────────────────────────────── */}
+        {/* ── Network reach visual stat panel ───────────────────── */}
         <div className="bg-navy-deep border-t border-white/10">
-          <div className="mx-auto max-w-5xl px-6 py-6">
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-center">
+          <div className="mx-auto max-w-6xl px-6 py-10">
+            {/* SVG network connector row */}
+            <div className="hidden lg:block mb-8 px-4">
+              <svg viewBox="0 0 900 48" className="w-full" aria-hidden="true">
+                {/* Connecting line */}
+                <line x1="112" y1="24" x2="788" y2="24" stroke="#B08D57" strokeWidth="0.5" strokeDasharray="4 6" opacity="0.35" />
+                {/* Dots at stat centers */}
+                {[112, 337, 562, 788].map((cx) => (
+                  <g key={cx}>
+                    <circle cx={cx} cy="24" r="3" fill="#B08D57" opacity="0.6" />
+                    <circle cx={cx} cy="24" r="7" fill="none" stroke="#B08D57" strokeWidth="0.5" opacity="0.25" />
+                  </g>
+                ))}
+              </svg>
+            </div>
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 lg:grid-cols-4">
               {[
-                { value: CONTACT.stats.urgOffices, label: "United Realty Group offices — South Florida" },
-                { value: CONTACT.stats.urgAgents,  label: "URG agents statewide" },
-                { value: String(URG_CITIES.length), label: "cities served across 3 counties" },
-                { value: "260+", label: "U.S. MLSs in our network" },
+                { value: CONTACT.stats.urgOffices, label: "URG offices", sub: "across South Florida" },
+                { value: CONTACT.stats.urgAgents,  label: "URG agents", sub: "statewide · bilingual" },
+                { value: String(URG_CITIES.length), label: "cities served", sub: "across 3 counties" },
+                { value: "93,000", label: "MIAMI REALTORS®", sub: "world's largest local association" },
               ].map((s) => (
-                <div key={s.label} className="flex flex-col items-center">
-                  <span className="font-serif text-2xl text-gold">{s.value}</span>
-                  <span className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/45">{s.label}</span>
+                <div key={s.label} className="flex flex-col items-center bg-navy-deep px-6 py-8 text-center">
+                  <span className="font-serif text-4xl text-gold md:text-5xl">{s.value}</span>
+                  <span className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/70">{s.label}</span>
+                  <span className="mt-1 font-sans text-[10px] text-white/35">{s.sub}</span>
                 </div>
               ))}
             </div>
+            {/* Second row — MLS reach */}
+            <div className="mt-px grid grid-cols-3 gap-px border border-t-0 border-white/10 bg-white/10">
+              {[
+                { value: "437+", label: "International agreements", sub: "across 75+ countries" },
+                { value: "200+", label: "Global portals", sub: "eligible listing syndication" },
+                { value: "19", label: "Languages", sub: "property presentation" },
+              ].map((s) => (
+                <div key={s.label} className="flex flex-col items-center bg-navy-deep/60 px-6 py-5 text-center">
+                  <span className="font-serif text-2xl text-gold/80">{s.value}</span>
+                  <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">{s.label}</span>
+                  <span className="mt-0.5 font-sans text-[9px] text-white/30">{s.sub}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-white/25">
+              Miami and South Florida REALTORS® · United Realty Group · Carlos Uzcategui FL SL705771
+            </p>
           </div>
         </div>
 

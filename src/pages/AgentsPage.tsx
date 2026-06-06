@@ -442,7 +442,31 @@ export default function AgentsPage() {
               The Miami Desk is designed to complement local market representation — not replace it. The local agent
               maintains full authority over the seller relationship, the mandate, and local market operations.
             </p>
-            <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+            {/* Visual flow diagram */}
+            <div className="mt-10 mb-10">
+              <svg viewBox="0 0 800 80" className="w-full max-w-3xl mx-auto" aria-hidden="true">
+                {/* Flow line */}
+                <line x1="160" y1="40" x2="380" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
+                <line x1="420" y1="40" x2="640" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
+                {/* Arrowheads */}
+                <polygon points="376,35 386,40 376,45" fill="#B08D57" opacity="0.5" />
+                <polygon points="636,35 646,40 636,45" fill="#B08D57" opacity="0.5" />
+                {/* Node 1: Local Agent */}
+                <rect x="0" y="20" width="158" height="40" rx="2" fill="#B08D5712" stroke="#B08D57" strokeWidth="0.75" opacity="0.7" />
+                <text x="79" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">LOCAL AGENT</text>
+                <text x="79" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">Mandate · Client · Fee</text>
+                {/* Node 2: Miami Desk */}
+                <rect x="390" y="16" width="120" height="48" rx="2" fill="#B08D5720" stroke="#B08D57" strokeWidth="1.25" />
+                <text x="450" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">MIAMI DESK</text>
+                <text x="450" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">FL SL705771</text>
+                {/* Node 3: Buyers */}
+                <rect x="642" y="20" width="158" height="40" rx="2" fill="#B08D5712" stroke="#B08D57" strokeWidth="0.75" opacity="0.7" />
+                <text x="721" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">U.S. · LATAM</text>
+                <text x="721" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">93,000 Agents</text>
+              </svg>
+            </div>
+
+            <div className="grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
               {[
                 {
                   role: "Local Agent",
