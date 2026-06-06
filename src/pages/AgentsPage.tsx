@@ -432,8 +432,13 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Collaboration Model ───────────────────────────────────── */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
-          <div className="mx-auto max-w-5xl px-6">
+        <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-white">
+          <LazyVideo
+            src="/videos/luxury_listing_showcase.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.10] pointer-events-none"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-deep via-navy-deep/90 to-navy-deep/70 pointer-events-none" />
+          <div className="relative mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Collaboration Works</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
               You keep the mandate. We support the international layer.
@@ -503,31 +508,59 @@ export default function AgentsPage() {
         {/* ── Ideal For ─────────────────────────────────────────────── */}
         <section className="bg-white py-20 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Ideal For</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              Selected listings and agencies.
-            </h2>
-            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60">
-              The Miami Desk reviews every submission individually. Not every property qualifies — positioning
-              for U.S. and LATAM buyers requires the right product type, price point, and market context.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              {IDEAL_FOR.map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex items-center gap-2 border border-navy/10 bg-ivory px-4 py-2.5 font-sans text-sm text-navy-deep"
-                >
-                  <span className="h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
-                  {item}
-                </span>
-              ))}
-            </div>
-            <div className="mt-10 border-t border-hairline pt-8">
-              <p className="max-w-2xl font-sans text-sm italic leading-relaxed text-ink-primary/50">
-                Properties reviewed include: Madrid luxury apartments and penthouses, Marbella and Costa del Sol villas,
-                Ibiza and Mallorca premium residences, new developments seeking U.S. and LatAm visibility, and agencies
-                managing international seller mandates. Submissions are reviewed within 5 business days.
-              </p>
+            <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Ideal For</p>
+                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  Selected listings and agencies.
+                </h2>
+                <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
+                  The Miami Desk reviews every submission individually. Not every property qualifies — positioning
+                  for U.S. and LATAM buyers requires the right product type, price point, and market context.
+                </p>
+                <div className="mt-8 space-y-5">
+                  <div>
+                    <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/80 mb-3">Property types</p>
+                    <div className="flex flex-wrap gap-2">
+                      {IDEAL_FOR.slice(0, 4).map((item) => (
+                        <span key={item} className="inline-flex items-center gap-2 border border-gold/20 bg-gold/5 px-4 py-2 font-sans text-sm text-navy-deep">
+                          <span className="h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-navy/35 mb-3">Agencies &amp; teams</p>
+                    <div className="flex flex-wrap gap-2">
+                      {IDEAL_FOR.slice(4).map((item) => (
+                        <span key={item} className="inline-flex items-center gap-2 border border-navy/10 bg-ivory px-4 py-2 font-sans text-sm text-navy-deep">
+                          <span className="h-1 w-1 flex-shrink-0 rounded-full bg-navy/30" />
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="mt-8 font-sans text-xs italic text-ink-primary/40">
+                  Submissions reviewed within 5 business days.
+                </p>
+              </div>
+
+              {/* Right: cinematic property visual */}
+              <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "70%" }}>
+                <LazyVideo
+                  src="/videos/gemini_property_vision.mp4"
+                  className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/80 mb-1">Miami Desk</p>
+                  <p className="font-serif text-lg text-white leading-snug">
+                    Premium properties.<br />International buyers.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -575,15 +608,15 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Process ───────────────────────────────────────────────── */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
+        <section className="bg-ivory py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-16 lg:grid-cols-[0.4fr_0.6fr] lg:items-start">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Collaboration Process</p>
-                <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
+                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
                   Four steps.<br />No ambiguity.
                 </h2>
-                <p className="mt-5 font-sans text-sm leading-relaxed text-white/55">
+                <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
                   Every engagement is reviewed, scoped, documented, and activated in a defined sequence.
                   No surprises on structure or professional terms.
                 </p>
@@ -593,14 +626,14 @@ export default function AgentsPage() {
                 {PROCESS_STEPS.map((step, i) => (
                   <div key={step.number} className="relative flex gap-7 items-start pb-10 last:pb-0">
                     {i < PROCESS_STEPS.length - 1 && (
-                      <div className="absolute left-[20px] top-11 bottom-0 w-px bg-white/10" />
+                      <div className="absolute left-[20px] top-11 bottom-0 w-px bg-navy/10" />
                     )}
-                    <div className="relative z-10 flex-shrink-0 h-10 w-10 border border-gold/40 bg-navy-deep flex items-center justify-center">
+                    <div className="relative z-10 flex-shrink-0 h-10 w-10 border border-gold/50 bg-white flex items-center justify-center">
                       <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold">{step.number}</span>
                     </div>
                     <div className="pt-1">
-                      <h3 className="font-serif text-lg text-white">{step.title}</h3>
-                      <p className="mt-2 font-sans text-sm leading-relaxed text-white/60">{step.body}</p>
+                      <h3 className="font-serif text-lg text-navy-deep">{step.title}</h3>
+                      <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{step.body}</p>
                     </div>
                   </div>
                 ))}
@@ -676,25 +709,47 @@ export default function AgentsPage() {
         {/* ── South Florida Cross-Border Referral Desk (secondary) ──── */}
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Also Available · South Florida</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              South Florida cross-border referral desk.
-            </h2>
-            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60">
-              Licensed real estate professionals with clients buying or selling in South Florida can refer
-              those transactions through a documented professional channel. Formal written agreement. Paid at closing.
-            </p>
-            <div className="mt-10 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
-              {SOUTH_FL_PATHWAYS.map((p) => (
-                <div key={p.number} className="flex flex-col bg-white p-8">
-                  <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-4">{p.number}</div>
-                  <h3 className="font-serif text-xl text-navy-deep leading-snug">{p.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65 flex-1">{p.body}</p>
-                  <a href="#south-florida-referral" className="mt-6 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-gold hover:underline underline-offset-2">
-                    Submit a referral →
-                  </a>
+            <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Also Available · South Florida</p>
+                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  South Florida cross-border referral desk.
+                </h2>
+                <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
+                  Licensed real estate professionals with clients buying or selling in South Florida can refer
+                  those transactions through a documented professional channel. Formal written agreement. Paid at closing.
+                </p>
+                <div className="mt-8 divide-y divide-hairline border border-hairline">
+                  {SOUTH_FL_PATHWAYS.map((p) => (
+                    <div key={p.number} className="flex flex-col bg-white p-7">
+                      <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-3">{p.number}</div>
+                      <h3 className="font-serif text-lg text-navy-deep leading-snug">{p.title}</h3>
+                      <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65 flex-1">{p.body}</p>
+                      <a href="#south-florida-referral" className="mt-5 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-gold hover:underline underline-offset-2">
+                        Submit a referral →
+                      </a>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Right: cinematic video accent */}
+              <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "85%" }}>
+                <LazyVideo
+                  src="/videos/cinematic_house_reach.mp4"
+                  className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/80 mb-2">South Florida</p>
+                  <p className="font-serif text-xl text-white leading-snug">
+                    Miami-Dade · Broward<br />Palm Beach
+                  </p>
+                  <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.16em] text-white/40">
+                    Full MLS · Bilingual · 25 years
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -727,8 +782,13 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Join United Realty Group ──────────────────────────────── */}
-        <section className="bg-ivory py-20 md:py-28" id="join-urg">
-          <div className="mx-auto max-w-6xl px-6">
+        <section className="relative overflow-hidden bg-ivory py-20 md:py-28" id="join-urg">
+          <LazyVideo
+            src="/videos/advisor-brand.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.07] pointer-events-none"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-ivory via-ivory/95 to-ivory/80 pointer-events-none" />
+          <div className="relative mx-auto max-w-6xl px-6">
 
             {/* Section header */}
             <div className="mb-14">

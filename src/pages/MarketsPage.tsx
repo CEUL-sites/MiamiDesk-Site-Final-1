@@ -362,7 +362,7 @@ export default function MarketsPage() {
         </section>
 
         {/* ── Inside United Realty Group — team video ────────────── */}
-        <section className="bg-ivory py-20 md:py-28">
+        <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
               {/* Left — context */}
