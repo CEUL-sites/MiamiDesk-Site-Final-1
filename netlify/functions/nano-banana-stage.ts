@@ -1,0 +1,115 @@
+import type { Handler, HandlerEvent } from "@netlify/functions";
+import { GoogleGenAI } from "@google/genai";
+
+const GEMINI_API_KEY = (process.env.GEMINI_API_KEY ?? process.env.Gemini_API_Key ?? "").trim();
+
+const jsonHeaders = {
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+// Nano Banana = Gemini 2.0 Flash image generation (gemini-2.0-flash-preview-image-generation)
+// "nano banana" branding per Google DeepMind's Gemini image model family
+const NANO_BANANA_MODEL = "gemini-2.0-flash-preview-image-generation";
+
+const SCENE_PROMPTS: Record<string, string> = {
+  "miami-waterfront": [
+    "Luxury Miami waterfront living room, floor-to-ceiling windows overlooking Biscayne Bay,",
+    "modern white and warm-toned furniture, professionally staged, soft natural light,",
+    "high-end real estate photography, Brickell or Coconut Grove style, ultra-realistic.",
+  ].join(" "),
+  "coral-gables": [
+    "Elegant Coral Gables Mediterranean Revival home interior, arched doorways,",
+    "terracotta tile floors, warm cream and gold tones, tasteful antique and modern mix,",
+    "professional real estate staging, abundant natural light, photorealistic.",
+  ].join(" "),
+  "brickell-condo": [
+    "Modern Brickell Miami high-rise condo, floor-to-ceiling glass, Miami skyline and bay view,",
+    "contemporary minimalist white staging, polished concrete or marble floors,",
+    "luxury real estate photography quality, twilight golden-hour light, photorealistic.",
+  ].join(" "),
+  "weston-family": [
+    "Spacious Weston Florida family home, open-plan kitchen and living area,",
+    "A-rated school suburb aesthetic, warm neutral staging, large backyard glimpse,",
+    "bright cheerful natural light, professional real estate photography, photorealistic.",
+  ].join(" "),
+  "madrid-luxury": [
+    "Luxury Madrid apartment interior, Salamanca or Recoletos district, classic Spanish architecture,",
+    "high ceilings with ornate moldings, warm cream and gold tones, modern art on walls,",
+    "professional luxury real estate photography, Mediterranean afternoon light, photorealistic.",
+  ].join(" "),
+};
+
+export const handler: Handler = async (event: HandlerEvent) => {
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 200, headers: jsonHeaders, body: "" };
+  }
+
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, headers: jsonHeaders, body: JSON.stringify({ error: "Method not allowed" }) };
+  }
+
+  if (!GEMINI_API_KEY) {
+    return {
+      statusCode: 503,
+      headers: jsonHeaders,
+      body: JSON.stringify({
+        error: "Nano Banana image generation is not yet activated. Add GEMINI_API_KEY to your Netlify environment to enable AI property visualization.",
+      }),
+    };
+  }
+
+  let scene: string;
+  try {
+    const parsed = JSON.parse(event.body || "{}");
+    scene = typeof parsed.scene === "string" && SCENE_PROMPTS[parsed.scene] ? parsed.scene : "miami-waterfront";
+  } catch {
+    return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: "Invalid request." }) };
+  }
+
+  const prompt = SCENE_PROMPTS[scene];
+
+  try {
+    const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+
+    const result = await ai.models.generateContent({
+      model: NANO_BANANA_MODEL,
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      config: {
+        responseModalities: ["IMAGE"],
+      },
+    });
+
+    const parts = result.candidates?.[0]?.content?.parts ?? [];
+    const imagePart = parts.find(
+      (p: unknown) => typeof p === "object" && p !== null && "inlineData" in p,
+    ) as { inlineData: { data: string; mimeType: string } } | undefined;
+
+    if (!imagePart?.inlineData?.data) {
+      throw new Error("No image returned from Nano Banana model");
+    }
+
+    return {
+      statusCode: 200,
+      headers: jsonHeaders,
+      body: JSON.stringify({
+        imageData: imagePart.inlineData.data,
+        mimeType: imagePart.inlineData.mimeType || "image/png",
+        scene,
+      }),
+    };
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("[nano-banana-stage] Error:", message);
+    return {
+      statusCode: 500,
+      headers: jsonHeaders,
+      body: JSON.stringify({
+        error: "Image generation temporarily unavailable.",
+        detail: message,
+      }),
+    };
+  }
+};

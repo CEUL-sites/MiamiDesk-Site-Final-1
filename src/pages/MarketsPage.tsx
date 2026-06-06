@@ -8,6 +8,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
 import { Testimonials } from "../components/Testimonials";
+import { NanaBananaStager } from "../components/NanaBananaStager";
 import { CONTACT, URG_CITIES } from "../constants";
 
 // Group URG cities by county
@@ -332,6 +333,30 @@ export default function MarketsPage() {
 
             <p className="mt-6 font-sans text-xs text-ink-primary/40 italic">
               All markets served directly through Florida License SL705771, United Realty Group, and full Miami and South Florida REALTORS® MLS access.
+            </p>
+          </div>
+        </section>
+
+        {/* ── AI Property Visualization — Nano Banana ────────────── */}
+        <section className="bg-ivory py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                AI Property Visualization · Nano Banana
+              </p>
+              <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                See the markets. <em className="not-italic italic text-gold">Visualized by AI.</em>
+              </h2>
+              <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
+                Generate AI property visualizations for South Florida submarkets and Madrid using
+                Nano Banana — Google's Gemini image generation model. Select a submarket and generate
+                a professional AI staging concept.
+              </p>
+            </div>
+            <NanaBananaStager />
+            <p className="mt-4 font-sans text-[11px] italic text-ink-primary/35">
+              AI-generated visualizations are illustrative only and do not represent any actual property listing.
+              Powered by Nano Banana (Google Gemini image generation). Requires GEMINI_API_KEY in Netlify environment.
             </p>
           </div>
         </section>
