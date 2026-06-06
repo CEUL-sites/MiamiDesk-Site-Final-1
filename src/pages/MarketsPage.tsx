@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { ChevronRight, MessageSquare, MapPin, Globe, Building2, Palmtree, Landmark, Plane, GraduationCap, TrendingUp } from "lucide-react";
 import { AuroraBackground } from "../components/AuroraBackground";
@@ -110,6 +111,7 @@ const PILLARS = [
 ];
 
 export default function MarketsPage() {
+  const [activeCounty, setActiveCounty] = useState(0);
   return (
     <>
       <Helmet>
@@ -240,35 +242,59 @@ export default function MarketsPage() {
               </p>
             </div>
 
-            <div className="space-y-px border border-hairline bg-hairline">
-              {COUNTIES.map((county) => (
-                <div key={county.name} className="bg-white p-8 md:p-10">
-                  <div className="md:flex md:gap-12">
-                    {/* Left: county heading */}
-                    <div className="md:w-64 md:flex-shrink-0">
-                      <div className="flex items-center gap-2">
-                        <MapPin size={13} className="text-gold flex-shrink-0" />
-                        <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">{county.stat}</span>
-                      </div>
-                      <h3 className="mt-3 font-serif text-2xl text-navy-deep">{county.name}</h3>
-                    </div>
-                    {/* Right: description + city chips */}
-                    <div className="mt-5 md:mt-0 md:flex-1">
-                      <p className="font-sans text-[15px] leading-relaxed text-ink-primary/70">{county.character}</p>
-                      <div className="mt-6 flex flex-wrap gap-2">
-                        {county.cities.map((city) => (
-                          <span
-                            key={city}
-                            className="inline-block border border-navy/10 bg-ivory px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/65"
-                          >
-                            {city}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+            {/* Interactive county tab switcher */}
+            <div className="flex divide-x divide-hairline border border-hairline overflow-hidden">
+              {COUNTIES.map((county, i) => (
+                <button
+                  key={county.name}
+                  onClick={() => setActiveCounty(i)}
+                  className={`flex-1 px-4 py-5 text-left transition-all duration-200 ${
+                    activeCounty === i
+                      ? "bg-navy-deep text-white"
+                      : "bg-white text-navy/50 hover:bg-ivory hover:text-navy"
+                  }`}
+                >
+                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] font-semibold block">
+                    {county.name.replace(" County", "")}
+                  </span>
+                  <span className={`font-mono text-[8px] uppercase tracking-[0.14em] mt-1.5 block ${
+                    activeCounty === i ? "text-gold" : "text-navy/35"
+                  }`}>
+                    {county.stat}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* County detail panel */}
+            <div className="border border-t-0 border-hairline bg-white p-8 md:p-12">
+              <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-start">
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <MapPin size={13} className="text-gold flex-shrink-0" />
+                    <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">
+                      {COUNTIES[activeCounty].stat}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-2xl text-navy-deep">{COUNTIES[activeCounty].name}</h3>
+                  <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/70">
+                    {COUNTIES[activeCounty].character}
+                  </p>
+                </div>
+                <div>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/35 mb-4">Cities covered</p>
+                  <div className="flex flex-wrap gap-2">
+                    {COUNTIES[activeCounty].cities.map((city) => (
+                      <span
+                        key={city}
+                        className="inline-block border border-navy/10 bg-ivory px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/65 hover:border-gold/40 hover:text-navy transition-colors cursor-default"
+                      >
+                        {city}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
 
             <p className="mt-6 font-sans text-xs text-ink-primary/40 italic">
@@ -335,9 +361,9 @@ export default function MarketsPage() {
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-white">
           <LazyVideo
             src="/videos/luxury_waterfront_drone.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.10] pointer-events-none"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/85 to-navy-deep pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/95 via-navy-deep/80 to-navy-deep pointer-events-none" />
           <div className="relative mx-auto max-w-6xl px-6">
             <div className="flex items-center gap-2">
               <TrendingUp size={13} className="text-gold flex-shrink-0" />
@@ -351,15 +377,37 @@ export default function MarketsPage() {
               demand deep across price bands — from first move-up buyers to international ultra-prime.
               Understanding which force drives a given submarket is the first step in positioning a listing correctly.
             </p>
-            <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
-              {SOUTH_FL_DRIVERS.map((d) => (
-                <div key={d.title} className="bg-navy-deep p-8">
-                  <d.icon size={20} className="text-gold" strokeWidth={1.5} />
-                  <h3 className="mt-5 font-serif text-lg text-white">{d.title}</h3>
-                  <p className="mt-3 font-sans text-[14px] leading-relaxed text-white/60">{d.body}</p>
-                </div>
-              ))}
+
+            {/* Featured top driver (wide) + remaining grid */}
+            <div className="mt-12">
+              {(() => {
+                const FeaturedIcon = SOUTH_FL_DRIVERS[0].icon;
+                return (
+                  <div className="border border-white/10 bg-white/[0.04] p-8 md:p-10 mb-px">
+                    <div className="grid md:grid-cols-[auto_1fr] md:gap-10 md:items-start">
+                      <FeaturedIcon size={28} className="text-gold mb-4 md:mb-0 md:mt-1" strokeWidth={1.25} />
+                      <div>
+                        <h3 className="font-serif text-2xl text-white">{SOUTH_FL_DRIVERS[0].title}</h3>
+                        <p className="mt-3 font-sans text-[15px] leading-relaxed text-white/65">{SOUTH_FL_DRIVERS[0].body}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+              <div className="grid gap-px border border-white/10 border-t-0 bg-white/10 md:grid-cols-2 lg:grid-cols-5">
+                {SOUTH_FL_DRIVERS.slice(1).map((d, i) => {
+                  const Icon = d.icon;
+                  return (
+                    <div key={d.title} className={`bg-navy-deep p-8 ${i === 0 ? "lg:col-span-2" : i === 1 ? "lg:col-span-3" : ""}`}>
+                      <Icon size={20} className="text-gold" strokeWidth={1.5} />
+                      <h3 className="mt-5 font-serif text-lg text-white">{d.title}</h3>
+                      <p className="mt-3 font-sans text-[14px] leading-relaxed text-white/60">{d.body}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
+
             <p className="mt-8 font-sans text-xs italic text-white/35 max-w-3xl">
               Context only. Structural market drivers are described qualitatively and do not predict price, timing, or
               outcome for any individual property. Neighborhood-specific data is reviewed live as part of every seller strategy session,
@@ -368,76 +416,89 @@ export default function MarketsPage() {
           </div>
         </section>
 
-        {/* ── Madrid & Spain ────────────────────────────────────── */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="md:flex md:gap-16">
-              {/* Left column */}
-              <div className="md:w-96 md:flex-shrink-0">
-                <div className="flex items-center gap-2">
-                  <Globe size={13} className="text-gold flex-shrink-0" />
-                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Madrid & Spain</p>
+        {/* ── Madrid & Spain — cinematic split ──────────────────── */}
+        <section className="overflow-hidden bg-navy-deep text-white">
+          <div className="grid lg:grid-cols-[0.45fr_0.55fr]">
+
+            {/* Left: cinematic video panel */}
+            <div className="relative min-h-[320px] lg:min-h-0">
+              <LazyVideo
+                src="/videos/miami_madrid_transition.mp4"
+                className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/20 via-transparent to-navy-deep pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 lg:hidden pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 top-0 flex flex-col justify-end p-8 lg:justify-center lg:p-12 pointer-events-none">
+                <div className="flex items-center gap-2 mb-3">
+                  <Globe size={13} className="text-gold" />
+                  <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">Madrid &amp; Spain</p>
                 </div>
-                <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
+                <p className="font-serif text-2xl text-white leading-tight max-w-xs">
                   Spain, through formal professional partnership.
-                </h2>
-                <p className="mt-5 font-sans text-[15px] leading-relaxed text-white/60">
-                  Carlos is licensed exclusively in Florida (SL705771). Spain and Madrid properties are not sold directly —
-                  they are served through formal referral relationships with established local agencies and, where appropriate,
-                  through Miami MLS exposure as a licensed U.S. principal of record.
-                </p>
-                <p className="mt-4 font-sans text-[15px] leading-relaxed text-white/60">
-                  Spanish property owners, developers, and agencies seeking Miami-facing distribution access a compliant,
-                  documented professional channel — not a marketing promise or unlicensed representation.
-                </p>
-                <div className="mt-8 flex gap-4 flex-wrap">
-                  <a
-                    href="/global-desk"
-                    className="group inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
-                  >
-                    Global Desk — how it works
-                    <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
-                <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-                  Spain introductions · Referral & cooperating agency · Not direct sales in Spain
                 </p>
               </div>
+            </div>
 
-              {/* Right column — Madrid neighborhoods */}
-              <div className="mt-12 md:mt-0 md:flex-1">
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35 mb-5">
+            {/* Right: content */}
+            <div className="py-16 px-8 lg:px-14 lg:py-24">
+              <p className="font-sans text-[15px] leading-relaxed text-white/60">
+                Carlos is licensed exclusively in Florida (SL705771). Spain and Madrid properties are not sold directly —
+                they are served through formal referral relationships with established local agencies and, where appropriate,
+                through Miami MLS exposure as a licensed U.S. principal of record.
+              </p>
+              <p className="mt-4 font-sans text-[15px] leading-relaxed text-white/60">
+                Spanish property owners, developers, and agencies seeking Miami-facing distribution access a compliant,
+                documented professional channel — not a marketing promise or unlicensed representation.
+              </p>
+
+              <div className="mt-8">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-4">What the Global Desk provides</p>
+                <ul className="space-y-3">
+                  {[
+                    "Miami MLS listing as U.S. licensed principal of record",
+                    "Distribution to 93,000 MIAMI REALTORS® member agents",
+                    "Syndication to 200+ global portals in 19 languages",
+                    "Formal referral introductions from Spanish agencies",
+                    "Bilingual English/Spanish representation and reporting",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
+                      <span className="font-sans text-[14px] leading-snug text-white/65">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-8">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35 mb-4">
                   Madrid districts &amp; submarkets referenced
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {MADRID_NEIGHBORHOODS.map((n) => (
                     <span
                       key={n}
-                      className="inline-block border border-white/15 bg-white/5 px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55"
+                      className="inline-block border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55"
                     >
                       {n}
                     </span>
                   ))}
                 </div>
-                <div className="mt-10 border-t border-white/10 pt-8">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-4">What the Global Desk provides</p>
-                  <ul className="space-y-3">
-                    {[
-                      "Miami MLS listing as U.S. licensed principal of record",
-                      "Distribution to 93,000 MIAMI REALTORS® member agents",
-                      "Syndication to 200+ global portals in 19 languages",
-                      "Formal referral introductions from Spanish agencies",
-                      "Bilingual English/Spanish representation and reporting",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2.5">
-                        <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
-                        <span className="font-sans text-[14px] leading-snug text-white/65">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
+
+              <div className="mt-10 flex gap-4 flex-wrap">
+                <a
+                  href="/global-desk"
+                  className="group inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                >
+                  Global Desk — how it works
+                  <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
+              <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+                Spain introductions · Referral &amp; cooperating agency · Not direct sales in Spain
+              </p>
             </div>
+
           </div>
         </section>
 
@@ -453,9 +514,9 @@ export default function MarketsPage() {
               The Miami and South Florida REALTORS® network holds 437+ signed international agreements across 75+ countries.
               Buyer-side referral introductions flow through professional brokerage coordination.
             </p>
-            <div className="mt-12 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
               {INTL_MARKETS.map((m) => (
-                <div key={m.region} className="bg-white p-8 md:p-10">
+                <div key={m.region} className="border-l-2 border-gold/50 bg-ivory pl-6 pr-6 py-6">
                   <h3 className="font-serif text-xl text-navy-deep">{m.region}</h3>
                   <p className="mt-3 font-sans text-[15px] leading-relaxed text-ink-primary/65">{m.note}</p>
                 </div>
@@ -471,11 +532,16 @@ export default function MarketsPage() {
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
               Price, distribute, reach the right buyer.
             </h2>
-            <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
-              {PILLARS.map((p) => (
-                <div key={p.title} className="bg-navy-deep p-8 md:p-10">
-                  <h3 className="font-serif text-xl text-white">{p.title}</h3>
-                  <p className="mt-3 font-sans text-[15px] leading-relaxed text-white/60">{p.body}</p>
+            <div className="mt-12 divide-y divide-white/10 border border-white/10">
+              {PILLARS.map((p, i) => (
+                <div key={p.title} className="flex items-start gap-8 p-8 md:p-10">
+                  <div className="font-serif text-5xl text-gold/20 leading-none mt-1 w-14 flex-shrink-0 text-right">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-xl text-white">{p.title}</h3>
+                    <p className="mt-3 font-sans text-[15px] leading-relaxed text-white/60">{p.body}</p>
+                  </div>
                 </div>
               ))}
             </div>

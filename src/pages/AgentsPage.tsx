@@ -258,7 +258,7 @@ export default function AgentsPage() {
         {/* ── Problem ──────────────────────────────────────────────── */}
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-14 md:grid-cols-2 md:items-center">
+            <div className="grid gap-14 md:grid-cols-2 md:items-start">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Competitive Gap</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -277,7 +277,22 @@ export default function AgentsPage() {
                     winning the mandate.
                   </p>
                 </div>
+
+                {/* Cinematic video accent */}
+                <div className="mt-8 relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "52%" }}>
+                  <LazyVideo
+                    src="/videos/best_exposure_listings.mp4"
+                    className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/30 pointer-events-none" />
+                  <div className="absolute bottom-4 left-5">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/80">
+                      International listing exposure · South Florida network
+                    </p>
+                  </div>
+                </div>
               </div>
+
               <div className="border border-hairline bg-ivory p-10">
                 <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/40 mb-6">What sellers increasingly ask</p>
                 <div className="space-y-5">
@@ -317,7 +332,7 @@ export default function AgentsPage() {
               their property will reach serious, qualified buyers — including buyers they may not find through local
               channels alone. The agent who delivers a credible international story earns the mandate.
             </p>
-            <div className="mt-14 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+            <div className="mt-14 divide-y divide-white/10 border border-white/10">
               {[
                 {
                   q: "Where?",
@@ -332,9 +347,9 @@ export default function AgentsPage() {
                   a: "Not a generic portal subscription. A professional listing relationship with a licensed Florida Realtor® — documented exposure, bilingual packaging, professional referral coordination.",
                 },
               ].map((item) => (
-                <div key={item.q} className="bg-navy-deep p-10">
-                  <div className="font-serif text-4xl text-gold mb-5">{item.q}</div>
-                  <p className="font-sans text-sm leading-relaxed text-white/60">{item.a}</p>
+                <div key={item.q} className="grid md:grid-cols-[200px_1fr] md:items-start gap-6 p-8 md:p-10">
+                  <div className="font-serif text-5xl text-gold leading-none">{item.q}</div>
+                  <p className="font-sans text-[15px] leading-relaxed text-white/65 md:pt-1">{item.a}</p>
                 </div>
               ))}
             </div>
@@ -348,14 +363,27 @@ export default function AgentsPage() {
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               Six reasons international agents work with the Miami Desk.
             </h2>
-            <div className="mt-12 grid gap-px border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-3">
-              {ADVANTAGES.map((a) => (
-                <div key={a.number} className="bg-white p-8">
-                  <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-4">{a.number}</div>
-                  <h3 className="font-serif text-lg text-navy-deep">{a.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{a.body}</p>
+            <div className="mt-12">
+              {/* Featured first advantage */}
+              <div className="border border-hairline bg-ivory p-8 md:p-10 mb-px">
+                <div className="grid md:grid-cols-[auto_1fr] md:gap-10 md:items-start">
+                  <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-3 md:mb-0 md:mt-1">{ADVANTAGES[0].number}</div>
+                  <div>
+                    <h3 className="font-serif text-2xl text-navy-deep">{ADVANTAGES[0].title}</h3>
+                    <p className="mt-3 font-sans text-base leading-relaxed text-ink-primary/65">{ADVANTAGES[0].body}</p>
+                  </div>
                 </div>
-              ))}
+              </div>
+              {/* Remaining advantages */}
+              <div className="grid gap-px border border-hairline border-t-0 bg-hairline md:grid-cols-2 lg:grid-cols-3">
+                {ADVANTAGES.slice(1).map((a) => (
+                  <div key={a.number} className="bg-white p-8">
+                    <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-4">{a.number}</div>
+                    <h3 className="font-serif text-lg text-navy-deep">{a.title}</h3>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{a.body}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -390,12 +418,13 @@ export default function AgentsPage() {
               Scope varies by property type, market, and collaboration model. Every engagement is reviewed individually
               and documented in a professional written agreement before activation.
             </p>
-            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-12 grid gap-5 md:grid-cols-2">
               {SERVICES.map((s) => (
-                <div key={s.title} className="border border-hairline bg-white p-7">
-                  <div className="mb-4 h-px w-8 bg-gold" />
-                  <h3 className="font-sans text-sm font-semibold text-navy-deep">{s.title}</h3>
-                  <p className="mt-3 font-sans text-xs leading-relaxed text-ink-primary/60">{s.body}</p>
+                <div key={s.title} className="flex gap-5 border-l-2 border-gold/40 pl-5 py-1">
+                  <div>
+                    <h3 className="font-sans text-sm font-semibold text-navy-deep">{s.title}</h3>
+                    <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/60">{s.body}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -482,8 +511,8 @@ export default function AgentsPage() {
         {/* ── Network Stats ─────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-white">
           <LazyVideo
-            src="/videos/split_miami_spain_mls.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.12] pointer-events-none"
+            src="/videos/dollhouse_global_reach.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.18] pointer-events-none"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/85 to-navy-deep pointer-events-none" />
           <div className="relative mx-auto max-w-5xl px-6">
@@ -524,18 +553,34 @@ export default function AgentsPage() {
         {/* ── Process ───────────────────────────────────────────────── */}
         <section className="bg-navy-deep py-20 md:py-28 text-white">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Collaboration Process</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
-              Four steps. No ambiguity.
-            </h2>
-            <div className="mt-12 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-4">
-              {PROCESS_STEPS.map((step) => (
-                <div key={step.number} className="bg-navy-deep p-8">
-                  <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-5">{step.number}</div>
-                  <h3 className="font-serif text-lg text-white">{step.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-white/60">{step.body}</p>
-                </div>
-              ))}
+            <div className="grid gap-16 lg:grid-cols-[0.4fr_0.6fr] lg:items-start">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Collaboration Process</p>
+                <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
+                  Four steps.<br />No ambiguity.
+                </h2>
+                <p className="mt-5 font-sans text-sm leading-relaxed text-white/55">
+                  Every engagement is reviewed, scoped, documented, and activated in a defined sequence.
+                  No surprises on structure or professional terms.
+                </p>
+              </div>
+              {/* Vertical timeline */}
+              <div className="space-y-0">
+                {PROCESS_STEPS.map((step, i) => (
+                  <div key={step.number} className="relative flex gap-7 items-start pb-10 last:pb-0">
+                    {i < PROCESS_STEPS.length - 1 && (
+                      <div className="absolute left-[20px] top-11 bottom-0 w-px bg-white/10" />
+                    )}
+                    <div className="relative z-10 flex-shrink-0 h-10 w-10 border border-gold/40 bg-navy-deep flex items-center justify-center">
+                      <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold">{step.number}</span>
+                    </div>
+                    <div className="pt-1">
+                      <h3 className="font-serif text-lg text-white">{step.title}</h3>
+                      <p className="mt-2 font-sans text-sm leading-relaxed text-white/60">{step.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
