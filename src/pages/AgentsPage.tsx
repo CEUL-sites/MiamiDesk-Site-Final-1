@@ -256,7 +256,7 @@ export default function AgentsPage() {
         </div>
 
         {/* ── Problem ──────────────────────────────────────────────── */}
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-ivory py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-14 md:grid-cols-2 md:items-start">
               <div>
@@ -293,7 +293,7 @@ export default function AgentsPage() {
                 </div>
               </div>
 
-              <div className="border border-hairline bg-ivory p-10">
+              <div className="border border-hairline bg-white p-10">
                 <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/40 mb-6">What sellers increasingly ask</p>
                 <div className="space-y-5">
                   {[

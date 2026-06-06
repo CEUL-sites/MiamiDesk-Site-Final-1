@@ -474,6 +474,29 @@ export default function MarketsPage() {
           </div>
         </section>
 
+        {/* ── International Referral Markets ────────────────────── */}
+        <section className="bg-white py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">International Referral Markets</p>
+            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+              The markets that drive South Florida demand —<br />
+              <span className="text-gold">reached through professional cooperation.</span>
+            </h2>
+            <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
+              The Miami and South Florida REALTORS® network holds 437+ signed international agreements across 75+ countries.
+              Buyer-side referral introductions flow through professional brokerage coordination.
+            </p>
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {INTL_MARKETS.map((m) => (
+                <div key={m.region} className="border-l-2 border-gold/50 bg-ivory pl-6 pr-6 py-6">
+                  <h3 className="font-serif text-xl text-navy-deep">{m.region}</h3>
+                  <p className="mt-3 font-sans text-[15px] leading-relaxed text-ink-primary/65">{m.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── Madrid & Spain — cinematic split ──────────────────── */}
         <section className="overflow-hidden bg-navy-deep text-white">
           <div className="grid lg:grid-cols-[0.45fr_0.55fr]">
@@ -560,50 +583,27 @@ export default function MarketsPage() {
           </div>
         </section>
 
-        {/* ── International Referral Markets ────────────────────── */}
+        {/* ── How the strategy works ────────────────────────────── */}
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">International Referral Markets</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              The markets that drive South Florida demand —<br />
-              <span className="text-gold">reached through professional cooperation.</span>
-            </h2>
-            <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
-              The Miami and South Florida REALTORS® network holds 437+ signed international agreements across 75+ countries.
-              Buyer-side referral introductions flow through professional brokerage coordination.
-            </p>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {INTL_MARKETS.map((m) => (
-                <div key={m.region} className="border-l-2 border-gold/50 bg-ivory pl-6 pr-6 py-6">
-                  <h3 className="font-serif text-xl text-navy-deep">{m.region}</h3>
-                  <p className="mt-3 font-sans text-[15px] leading-relaxed text-ink-primary/65">{m.note}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── How the strategy works ────────────────────────────── */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
-          <div className="mx-auto max-w-6xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The listing strategy</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
+            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               Price, distribute, reach the right buyer.
             </h2>
-            <div className="mt-12 divide-y divide-white/10 border border-white/10">
+            <div className="mt-12 divide-y divide-hairline border border-hairline">
               {PILLARS.map((p, i) => (
                 <div key={p.title} className="flex items-start gap-8 p-8 md:p-10">
-                  <div className="font-serif text-5xl text-gold/20 leading-none mt-1 w-14 flex-shrink-0 text-right">
+                  <div className="font-serif text-5xl text-gold/30 leading-none mt-1 w-14 flex-shrink-0 text-right">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <div>
-                    <h3 className="font-serif text-xl text-white">{p.title}</h3>
-                    <p className="mt-3 font-sans text-[15px] leading-relaxed text-white/60">{p.body}</p>
+                    <h3 className="font-serif text-xl text-navy-deep">{p.title}</h3>
+                    <p className="mt-3 font-sans text-[15px] leading-relaxed text-ink-primary/65">{p.body}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-8 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+            <p className="mt-8 font-mono text-[9px] uppercase tracking-[0.18em] text-ink-primary/35">
               Live MLS market data available on request as part of every seller strategy review.
             </p>
           </div>
