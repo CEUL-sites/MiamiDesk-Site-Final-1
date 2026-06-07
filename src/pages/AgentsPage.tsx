@@ -917,7 +917,7 @@ export default function AgentsPage() {
                       className="group flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
                     >
                       <BookOpen size={13} />
-                      Learn More &amp; Get Notified
+                      Preview the Book
                     </a>
                     <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
                       By Carlos Uzcategui · FL SL705771 · United Realty Group
