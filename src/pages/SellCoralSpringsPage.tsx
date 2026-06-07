@@ -226,7 +226,7 @@ export default function SellCoralSpringsPage() {
               </a>
               <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What South Florida Sellers Need to Know</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What Coral Springs Sellers Need to Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
               </a>
             </div>
