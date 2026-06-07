@@ -151,7 +151,7 @@ export default function SellCoralGablesPage() {
               </a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              United Realty Group · CLHMS · Certified Luxury Home Marketing Specialist · FL SL705771
+              United Realty Group · CLHMS · Certified Luxury Home Marketing Specialist · FL SL705771 · 25 Years Licensed in Florida
             </p>
             <HeroReachBar />
           </div>

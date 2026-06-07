@@ -119,7 +119,7 @@ export default function SellPlantationPage() {
               </a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              United Realty Group · CLHMS · FL SL705771 · Broward Office: Plantation, FL 33324
+              United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Broward Office: Plantation, FL 33324
             </p>
             <HeroReachBar />
           </div>

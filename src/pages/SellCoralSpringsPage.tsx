@@ -119,7 +119,7 @@ export default function SellCoralSpringsPage() {
               </a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              United Realty Group · CLHMS · FL SL705771 · Office: Weston, FL 33331
+              United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Office: Weston, FL 33331
             </p>
             <HeroReachBar />
           </div>
