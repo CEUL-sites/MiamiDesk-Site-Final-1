@@ -6,6 +6,7 @@ import { IntelligenceDesk } from "../components/IntelligenceDesk";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { InternationalReachStrip } from "../components/InternationalReachStrip";
 import { Testimonials } from "../components/Testimonials";
+import { LeadMagnetStrip } from "../components/LeadMagnetStrip";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -78,6 +79,7 @@ export default function HomePage() {
         </div>
         <ReachAdvantage />
         <Testimonials />
+        <LeadMagnetStrip />
         <IntelligenceDesk />
         <BuyersRelocation />
         <InternationalReachStrip />
