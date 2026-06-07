@@ -160,7 +160,7 @@ export default function JournalListPage() {
               to="/contact"
               className="mt-8 inline-block border border-gold px-8 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy"
             >
-              Start the conversation
+              Request a Strategy Review
             </Link>
           </div>
         </section>
