@@ -262,7 +262,7 @@ export default function ReviewsPage() {
               Free Home Valuation
             </a>
             <a href="/contact" className="border border-white/25 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">
-              Contact Carlos
+              Request a Strategy Review
             </a>
           </div>
           <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25">
