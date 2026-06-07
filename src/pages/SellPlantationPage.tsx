@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
+import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
@@ -120,6 +121,7 @@ export default function SellPlantationPage() {
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               United Realty Group · CLHMS · FL SL705771 · Broward Office: Plantation, FL 33324
             </p>
+            <HeroReachBar />
           </div>
         </section>
 

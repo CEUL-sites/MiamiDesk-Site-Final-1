@@ -5,6 +5,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
+import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
@@ -152,6 +153,7 @@ export default function SellSouthFloridaPage() {
           <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
             United Realty Group · CLHMS · Certified Seller Rep · FL SL705771 · 25 Years Licensed in Florida
           </p>
+          <HeroReachBar />
           </div>{/* end relative */}
         </section>
 

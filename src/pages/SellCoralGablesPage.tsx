@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
+import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
@@ -152,6 +153,7 @@ export default function SellCoralGablesPage() {
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               United Realty Group · CLHMS · Certified Luxury Home Marketing Specialist · FL SL705771
             </p>
+            <HeroReachBar />
           </div>
         </section>
 
