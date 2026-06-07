@@ -312,6 +312,25 @@ export default function HomeValuePage() {
           </div>
         </section>
 
+        {/* Journal crosslinks */}
+        <section className="bg-white border-t border-hairline py-12">
+          <div className="mx-auto max-w-3xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Further Reading</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <a href="/journal/what-is-my-home-worth-south-florida-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the valuation guide →</p>
+              </a>
+              <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide →</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
         <Footer />
         <MobileStickyCTA />
       </main>
