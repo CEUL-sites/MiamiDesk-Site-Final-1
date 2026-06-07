@@ -15,14 +15,14 @@ const REACH_FIGURES: { value: string; label: string }[] = [
 export function HeroReachBar({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`mx-auto mt-8 flex max-w-3xl flex-wrap items-stretch justify-center divide-x divide-white/10 border-y border-white/10 ${className}`}
+      className={`mx-auto mt-8 flex max-w-md flex-wrap items-start justify-center gap-x-6 gap-y-3 border-y border-white/10 py-4 sm:max-w-3xl sm:gap-x-10 ${className}`}
       role="list"
       aria-label="Distribution network reach"
     >
       {REACH_FIGURES.map((f) => (
-        <div key={f.label} role="listitem" className="flex-1 min-w-[6.5rem] px-3 py-3 text-center">
-          <div className="font-serif text-xl text-gold leading-none md:text-2xl">{f.value}</div>
-          <div className="mt-1.5 font-mono text-[7.5px] uppercase tracking-[0.16em] text-white/45 md:text-[8px]">
+        <div key={f.label} role="listitem" className="min-w-[5rem] text-center">
+          <div className="font-serif text-xl leading-none text-gold md:text-2xl">{f.value}</div>
+          <div className="mt-1.5 font-mono text-[7.5px] uppercase tracking-[0.14em] text-white/45 md:text-[8px]">
             {f.label}
           </div>
         </div>

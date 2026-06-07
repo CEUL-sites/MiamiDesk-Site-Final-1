@@ -4,11 +4,16 @@ import { CONTACT } from "../constants";
 
 export function MobileStickyCTA() {
   const [hidden, setHidden] = useState(false);
+  // Default to the main seller funnel; if the current page has its own
+  // in-page form (#contact), target that instead so we never navigate the
+  // user away mid-page.
+  const [sellHref, setSellHref] = useState("/sell-south-florida#contact");
 
   // Hide when the seller form is visible — user is already in the funnel
   useEffect(() => {
     const el = document.getElementById("contact");
     if (!el) return;
+    setSellHref("#contact");
     const observer = new IntersectionObserver(
       ([entry]) => setHidden(entry.isIntersecting),
       { threshold: 0.15 }
@@ -40,7 +45,7 @@ export function MobileStickyCTA() {
           WhatsApp
         </a>
         <a
-          href="/#list-here"
+          href={sellHref}
           className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.12em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
           Sell My Home
