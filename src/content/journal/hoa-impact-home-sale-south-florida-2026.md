@@ -55,11 +55,11 @@ This documentation, assembled before the listing goes live, eliminates the "buye
 
 The HOA factor is most material in markets where community amenities are a primary value driver:
 
-- **Weston** — gated master-planned communities with shared amenity infrastructure
-- **Doral** — gated communities with significant HOA presence
-- **Coral Springs** — planned communities where HOA condition reflects directly on the neighborhood's appeal
-- **Pembroke Pines** — master-planned sections (Silver Lakes, Pembroke Falls, Chapel Trail)
-- **Sunrise** — Sawgrass-corridor communities competing with Weston's profile
+- **[Weston](/sell-weston)** — gated master-planned communities with shared amenity infrastructure
+- **[Doral](/sell-doral)** — gated communities with significant HOA presence
+- **[Coral Springs](/sell-coral-springs)** — planned communities where HOA condition reflects directly on the neighborhood's appeal
+- **[Pembroke Pines](/sell-pembroke-pines)** — master-planned sections (Silver Lakes, Pembroke Falls, Chapel Trail)
+- **[Sunrise](/sell-sunrise)** — Sawgrass-corridor communities competing with Weston's profile
 - **Brickell and Miami Beach** — high-rise condominiums with complex HOA, condo association, and board dynamics
 
 In these markets, the HOA package is a sales document. Sellers who present it proactively — before buyers ask — are demonstrating control of the transaction from the outset.

@@ -52,7 +52,7 @@ The closing costs on a properly run South Florida transaction typically fall in 
 
 Many sellers approach the listing decision by estimating the value of their property first, then working backward to what they will receive. The more reliable approach is to build the net sheet first: understand the cost structure, the outstanding loan balance, and the realistic price range — and then evaluate whether the net proceeds justify the transaction.
 
-The [Seller's Net Sheet](https://homesprofessional.com/#resources) modelled at representative sale prices for Miami-Dade, Broward, and Palm Beach County is available as a free download. A property-specific analysis requires knowing your address, current loan balance, and HOA structure — that is covered in the strategy review.
+The Seller's Net Sheet modelled at representative sale prices for Miami-Dade, Broward, and Palm Beach County is available as a [free download](/south-florida-sellers-net-sheet-2026.pdf). A property-specific analysis requires knowing your address, current loan balance, and HOA structure — that is covered in the [seller strategy review](/sell-south-florida).
 
 ---
 
