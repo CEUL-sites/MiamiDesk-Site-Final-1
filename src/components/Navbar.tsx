@@ -10,6 +10,7 @@ type NavItem = { name: string; href: string };
 
 const NAV_ITEMS: NavItem[] = [
   { name: "Sellers",     href: "/sell-south-florida" },
+  { name: "Home Value",  href: "/home-value" },
   { name: "Buyers",      href: "/buy" },
   { name: "Markets",     href: "/markets" },
   { name: "Agents",      href: "/agents" },

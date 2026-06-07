@@ -124,7 +124,7 @@ export default function SellSouthFloridaPage() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="/contact"
+              href="#contact"
               className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
             >
               Request a Confidential Property Review
@@ -215,9 +215,17 @@ export default function SellSouthFloridaPage() {
             <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-5">Sell by Neighborhood</p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "Weston", href: "/sell-weston" },
-                { label: "Coral Gables", href: "/sell-coral-gables" },
-                { label: "All South Florida Markets", href: "/markets" },
+                { label: "Weston",           href: "/sell-weston" },
+                { label: "Coral Gables",     href: "/sell-coral-gables" },
+                { label: "Aventura",         href: "/sell-aventura" },
+                { label: "Brickell",         href: "/sell-brickell" },
+                { label: "Doral",            href: "/sell-doral" },
+                { label: "Fort Lauderdale",  href: "/sell-fort-lauderdale" },
+                { label: "Coral Springs",    href: "/sell-coral-springs" },
+                { label: "Pembroke Pines",   href: "/sell-pembroke-pines" },
+                { label: "Plantation",       href: "/sell-plantation" },
+                { label: "Sunrise",          href: "/sell-sunrise" },
+                { label: "All Markets",      href: "/markets" },
               ].map((n) => (
                 <a
                   key={n.href}
