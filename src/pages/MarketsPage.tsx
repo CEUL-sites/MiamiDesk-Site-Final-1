@@ -609,6 +609,35 @@ export default function MarketsPage() {
           </div>
         </section>
 
+        {/* ── Sell by Neighborhood ────────────────────────────────── */}
+        <section className="bg-ivory border-t border-hairline py-10">
+          <div className="mx-auto max-w-6xl px-6">
+            <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-5">Sell by Neighborhood</p>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: "Weston",           href: "/sell-weston" },
+                { label: "Coral Gables",     href: "/sell-coral-gables" },
+                { label: "Aventura",         href: "/sell-aventura" },
+                { label: "Brickell",         href: "/sell-brickell" },
+                { label: "Doral",            href: "/sell-doral" },
+                { label: "Fort Lauderdale",  href: "/sell-fort-lauderdale" },
+                { label: "Coral Springs",    href: "/sell-coral-springs" },
+                { label: "Pembroke Pines",   href: "/sell-pembroke-pines" },
+                { label: "Plantation",       href: "/sell-plantation" },
+                { label: "Sunrise",          href: "/sell-sunrise" },
+              ].map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  className="border border-hairline px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/60 hover:border-gold/50 hover:text-gold transition-colors"
+                >
+                  {n.label} →
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── Cross-border CTA ──────────────────────────────────── */}
         <section className="bg-ivory py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-6 text-center">
