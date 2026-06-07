@@ -201,7 +201,7 @@ export default function DevelopersAgenciesPage() {
               {[
                 { n: "01", h: "Professional Review", b: "Every property or project is reviewed personally for exposure fit, compliance pathway, and positioning strategy before any commitment is made." },
                 { n: "02", h: "Structured Pathway", b: "Referral agreements, cooperating broker documentation, and marketing representation proposals are structured before activation. No ambiguity." },
-                { n: "03", h: "Miami Network Activation", b: "Distribution into the 93,000-agent Miami and South Florida REALTORS® network, 500+ global portals, and 437+ international referral channels." },
+                { n: "03", h: "Miami Network Activation", b: "Distribution into the 93,000-agent Miami and South Florida REALTORS® network, 200+ global portals, and 437+ international agreements." },
               ].map((item) => (
                 <div key={item.n} className="border border-hairline p-8">
                   <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-4">{item.n}</div>

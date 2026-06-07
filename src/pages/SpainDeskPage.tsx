@@ -15,7 +15,7 @@ const PROCESS_STEPS = [
     num: "01",
     tag: "Property Owners",
     title: "Spanish Property Into the Miami MLS",
-    body: "Your property enters the Miami & South Florida REALTORS® MLS as a listed asset — not a referral, not a portal upload. 93,000 member agents, 500+ global websites in 19 languages, and an international referral network reaching 2 million+ professionals.",
+    body: "Your property enters the Miami & South Florida REALTORS® MLS as a listed asset — not a referral, not a portal upload. 93,000 member agents, 200+ global portals in 19 languages, and 437+ international agreements across 75+ countries.",
     outcome: "Structural distribution. The infrastructure of Florida's #1 transactional brokerage by closed transactions.",
     stat: "93,000 agents · Full MLS",
   },
@@ -39,9 +39,9 @@ const PROCESS_STEPS = [
     num: "04",
     tag: "Developers · Large Portfolios",
     title: "Full Network Distribution Channel",
-    body: "One professional relationship opens the entire South Florida infrastructure: 93,000 MLS member agents, United Realty Group's 3,500+ agents across 20 Florida offices, 300+ international partner associations in 75+ countries, and direct access to the LATAM referral pipeline.",
+    body: "One professional relationship opens the entire South Florida infrastructure: 93,000 MLS member agents, United Realty Group's 3,500+ agents across 20 Florida offices, 437+ international agreements across 75+ countries, and direct access to the LATAM referral pipeline.",
     outcome: "Not a marketing package. A licensed Florida channel into the world's most internationally connected local REALTOR® network.",
-    stat: "300+ partner associations · 75+ countries",
+    stat: "437+ international agreements · 75+ countries",
   },
 ];
 
@@ -55,7 +55,7 @@ const SERVICE_TIERS = [
     description: "For agencies activating a curated selection of properties into the South Florida channel.",
     includes: [
       "MLS activation through URG as Florida broker of record",
-      "Syndication to 500+ portals in 19 languages",
+      "Syndication to 200+ global portals in 19 languages",
       "Bilingual property presentation (EN/ES)",
       "Written referral agreement — client relationship protected",
       "Distribution to 93,000 Miami REALTORS® member agents",
@@ -578,8 +578,8 @@ export default function SpainDeskPage() {
                 <div className="grid grid-cols-2 gap-y-5 gap-x-4">
                   {[
                     { value: "93,000", label: "MLS member agents" },
-                    { value: "500+", label: "Portals where eligible" },
-                    { value: "4,000+", label: "URG agents · 21 offices" },
+                    { value: "200+", label: "Portals where eligible" },
+                    { value: "3,500+", label: "URG agents · 20 offices" },
                     { value: "75+", label: "Countries · partner network" },
                   ].map(({ value, label }) => (
                     <div key={label}>
