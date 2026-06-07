@@ -28,6 +28,20 @@ interface LazyVideoProps {
  * Behaviour matches the previous inline tags: muted, looped, inline, decorative
  * (aria-hidden), object-cover via className.
  */
+/**
+ * Skip heavy decorative video on data-saver or slow (2g) connections —
+ * these clips are purely decorative, so on constrained mobile links we
+ * leave the navy background in place rather than spend the user's data and
+ * delay first paint. Safe during SSR/prerender (navigator.connection is
+ * absent in Node → returns false, so the prerendered markup is unchanged).
+ */
+function prefersLightMedia(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const c = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+  if (!c) return false;
+  return Boolean(c.saveData) || /(^|-)2g$/.test(c.effectiveType ?? "");
+}
+
 export function LazyVideo({
   src,
   className,
@@ -37,9 +51,10 @@ export function LazyVideo({
   rootMargin = "300px",
 }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [active, setActive] = useState(eager);
+  const [active, setActive] = useState(eager && !prefersLightMedia());
 
   useEffect(() => {
+    if (prefersLightMedia()) return; // skip heavy video on data-saver/slow links
     if (eager) return; // already active
     const el = ref.current;
     if (!el) return;
@@ -82,11 +97,11 @@ export function LazyVideo({
       loop
       playsInline
       aria-hidden="true"
-      preload={eager ? "auto" : "none"}
+      preload={active ? "auto" : "none"}
       poster={poster}
       className={className}
       style={style}
-      {...(eager ? { autoPlay: true } : {})}
+      {...(active ? { autoPlay: true } : {})}
     >
       {active && <source src={src} type="video/mp4" />}
     </video>
