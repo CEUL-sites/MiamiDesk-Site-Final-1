@@ -4,6 +4,7 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
 import { getPostBySlug, getAllPosts } from '../lib/markdown';
+import { CONTACT } from '../constants';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -160,12 +161,22 @@ export default function JournalPostPage() {
               position in the current market, a private consultation with Carlos Uzcategui
               is the appropriate starting point — no obligation, no generic scripts.
             </p>
-            <Link
-              to="/contact"
-              className="mt-7 inline-block border border-navy px-7 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-navy hover:text-white"
-            >
-              Request a private consultation
-            </Link>
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-block border border-navy bg-navy px-7 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:border-gold"
+              >
+                Request a Seller Strategy Review
+              </Link>
+              <a
+                href={CONTACT.whatsappUS}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+              >
+                Or message on WhatsApp →
+              </a>
+            </div>
           </div>
         </section>
 
