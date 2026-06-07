@@ -219,9 +219,9 @@ export default function SellCoralSpringsPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Coral Springs Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/how-to-choose-a-listing-agent-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+              <a href="/journal/selling-coral-springs-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">How to Choose a Listing Agent in South Florida — What Sellers Need to Evaluate</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Coral Springs Home — How School-Zone Positioning Drives Buyer Demand</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the seller guide →</p>
               </a>
               <a href="/sell-south-florida" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
