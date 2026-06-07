@@ -226,10 +226,10 @@ export default function SellBrickellPage() {
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling a Brickell Condo in 2026 — Positioning, Pricing, and the International Buyer</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market guide →</p>
               </a>
-              <a href="/sell-south-florida" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Advisory</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">South Florida Seller Strategy — How MLS Distribution Works</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the full seller guide →</p>
+              <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Condo's Sale Price — Reserve Funds, Recertification, and Financing Eligibility</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
               </a>
             </div>
           </div>
