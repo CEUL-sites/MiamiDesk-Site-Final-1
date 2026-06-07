@@ -172,6 +172,18 @@ export function Testimonials() {
             <h2 className="font-serif text-3xl text-white">
               What Clients Say
             </h2>
+            <div className="mt-3 flex items-center gap-2.5">
+              <span className="flex gap-0.5" aria-hidden="true">
+                {[1,2,3,4,5].map(i => (
+                  <svg key={i} width="14" height="14" viewBox="0 0 12 12" fill="currentColor" className="text-gold">
+                    <path d="M6 1l1.39 2.82L10.5 4.24l-2.25 2.19.53 3.1L6 8.02l-2.78 1.51.53-3.1L1.5 4.24l3.11-.42z"/>
+                  </svg>
+                ))}
+              </span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">
+                5.0 average · Verified Realtor.com® reviews
+              </span>
+            </div>
           </div>
           <a
             href="https://www.realtor.com/realestateagents/carlos-uzcategui_plantation_fl_13543289_496481835"
