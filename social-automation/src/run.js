@@ -22,7 +22,7 @@
 
 import path from 'node:path';
 import { config, requireKeys } from '../config/config.js';
-import { logger, ensureDir, writeJson, fileStamp, isoDate, checkAllCompliance } from './utils.js';
+import { logger, ensureDir, writeJson, readJson, fileStamp, isoDate, checkAllCompliance } from './utils.js';
 import { fetchTopStories } from './fetcher.js';
 import { writeCopy } from './copywriter.js';
 import { generateImage } from './image_gen.js';
@@ -33,7 +33,7 @@ import { publish } from './buffer_publisher.js';
 // ---- CLI parsing ----------------------------------------------------------
 
 function parseArgs(argv) {
-  const args = { dryRun: false, platforms: null, topic: null };
+  const args = { dryRun: false, platforms: null, topic: null, copyFile: null };
   for (const raw of argv.slice(2)) {
     if (raw === '--dry-run') args.dryRun = true;
     else if (raw.startsWith('--platform=')) {
@@ -42,6 +42,10 @@ function parseArgs(argv) {
       else logger.warn(`Unknown platform "${p}" — ignoring.`);
     } else if (raw.startsWith('--topic=')) {
       args.topic = raw.slice('--topic='.length).trim();
+    } else if (raw.startsWith('--copy-file=')) {
+      // Inject pre-written copy (e.g. authored by Claude Code, the brain),
+      // bypassing the Claude API call so no ANTHROPIC_API_KEY is needed.
+      args.copyFile = raw.slice('--copy-file='.length).trim();
     } else {
       logger.warn(`Unrecognized argument: ${raw}`);
     }
@@ -85,8 +89,10 @@ async function main() {
   };
 
   // Validate the minimum keys needed for this mode early, with a clean message.
+  // When copy is injected (--copy-file), no Anthropic API key is required —
+  // Claude Code (the brain) authored the captions directly.
   try {
-    requireKeys(['anthropic.apiKey']); // copy is required in every mode
+    if (!args.copyFile) requireKeys(['anthropic.apiKey']);
     if (!args.dryRun) requireKeys(['gemini.apiKey']);
   } catch (err) {
     logger.error(err.message);
@@ -106,7 +112,9 @@ async function main() {
     topCandidates: fetched.candidates.map((c) => ({ title: c.title, source: c.source, score: c.score })),
   };
 
-  if (!fetched.candidates.length) {
+  // With injected copy we proceed even if fetch found nothing (the brain
+  // already selected the story); otherwise no stories means a graceful exit.
+  if (!fetched.candidates.length && !args.copyFile) {
     logger.warn('No relevant news found across any source. Exiting gracefully.');
     run.steps.fetch.result = 'no-stories';
     run.endedAt = new Date().toISOString();
@@ -114,22 +122,40 @@ async function main() {
     logger.info('Nothing to publish today. Try --topic="..." to force a topic.');
     return;
   }
-  logger.ok(`Top story: "${fetched.candidates[0].title}" (${fetched.candidates[0].source})`);
+  if (fetched.candidates.length) {
+    logger.ok(`Top story: "${fetched.candidates[0].title}" (${fetched.candidates[0].source})`);
+  }
 
   // --- Step 2: Select + Write ---------------------------------------------
-  logger.step('[2/6] Selecting story and writing captions...');
   let copy, compliance;
-  try {
-    const result = await writeCopy(fetched.candidates, { topicOverride: args.topic });
-    copy = result.copy;
-    compliance = result.compliance;
-  } catch (err) {
-    logger.error(`Copywriting failed: ${err.message}`);
-    run.steps.copy = { ok: false, error: err.message };
-    run.endedAt = new Date().toISOString();
-    await writeRunLog(run);
-    process.exitCode = 1;
-    return;
+  if (args.copyFile) {
+    logger.step(`[2/6] Loading injected copy from ${args.copyFile} ...`);
+    try {
+      copy = await readJson(args.copyFile);
+      compliance = checkAllCompliance(copy.captions || {});
+      logger.ok('Injected copy loaded (Claude Code authored — no Anthropic API call).');
+    } catch (err) {
+      logger.error(`Could not load --copy-file: ${err.message}`);
+      run.steps.copy = { ok: false, error: err.message };
+      run.endedAt = new Date().toISOString();
+      await writeRunLog(run);
+      process.exitCode = 1;
+      return;
+    }
+  } else {
+    logger.step('[2/6] Selecting story and writing captions...');
+    try {
+      const result = await writeCopy(fetched.candidates, { topicOverride: args.topic });
+      copy = result.copy;
+      compliance = result.compliance;
+    } catch (err) {
+      logger.error(`Copywriting failed: ${err.message}`);
+      run.steps.copy = { ok: false, error: err.message };
+      run.endedAt = new Date().toISOString();
+      await writeRunLog(run);
+      process.exitCode = 1;
+      return;
+    }
   }
 
   // Final compliance gate (defense in depth on top of the regenerate loop).
