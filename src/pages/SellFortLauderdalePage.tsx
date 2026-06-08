@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
+import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
@@ -118,8 +119,9 @@ export default function SellFortLauderdalePage() {
               </a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              United Realty Group · CLHMS · FL SL705771 · Office: Weston, FL 33331
+              United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Office: Weston, FL 33331
             </p>
+            <HeroReachBar />
           </div>
         </section>
 
@@ -226,10 +228,10 @@ export default function SellFortLauderdalePage() {
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Waterfront in Fort Lauderdale — What 2026 Buyers Are Actually Evaluating</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market guide →</p>
               </a>
-              <a href="/sell-south-florida" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Advisory</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">South Florida Seller Strategy — How MLS Distribution Works</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the full seller guide →</p>
+              <a href="/journal/seller-closing-costs-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the cost guide →</p>
               </a>
             </div>
           </div>

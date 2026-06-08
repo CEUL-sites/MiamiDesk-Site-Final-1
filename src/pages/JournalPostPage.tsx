@@ -3,7 +3,8 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
-import { getPostBySlug } from '../lib/markdown';
+import { getPostBySlug, getAllPosts } from '../lib/markdown';
+import { CONTACT } from '../constants';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -14,6 +15,9 @@ function formatDate(iso: string): string {
 export default function JournalPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
+  const relatedPosts = post
+    ? getAllPosts().filter((p) => p.slug !== post.slug).slice(0, 3)
+    : [];
 
   if (!post) {
     return <Navigate to="/journal" replace />;
@@ -157,14 +161,46 @@ export default function JournalPostPage() {
               position in the current market, a private consultation with Carlos Uzcategui
               is the appropriate starting point — no obligation, no generic scripts.
             </p>
-            <Link
-              to="/contact"
-              className="mt-7 inline-block border border-navy px-7 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-navy hover:text-white"
-            >
-              Request a private consultation
-            </Link>
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-block border border-navy bg-navy px-7 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:border-gold"
+              >
+                Request a Seller Strategy Review
+              </Link>
+              <a
+                href={CONTACT.whatsappUS}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+              >
+                Or message on WhatsApp →
+              </a>
+            </div>
           </div>
         </section>
+
+        {/* More from the journal */}
+        {relatedPosts.length > 0 && (
+          <section className="bg-ivory py-12 md:py-16">
+            <div className="mx-auto max-w-3xl px-5 lg:px-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">More from the Journal</p>
+              <div className="grid gap-4 sm:grid-cols-3">
+                {relatedPosts.map((rp) => (
+                  <Link
+                    key={rp.slug}
+                    to={`/journal/${rp.slug}`}
+                    className="block border border-hairline bg-white p-5 hover:border-gold/40 transition-colors"
+                  >
+                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-2">{rp.category}</p>
+                    <h3 className="font-serif text-base text-navy-deep leading-snug">{rp.title}</h3>
+                    <p className="mt-2 font-sans text-xs text-ink-primary/50">Read →</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Back link */}
         <div className="mx-auto max-w-3xl px-5 pb-10 lg:px-8">

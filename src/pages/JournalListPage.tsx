@@ -52,7 +52,7 @@ export default function JournalListPage() {
         <title>Market Journal | South Florida Real Estate | Carlos Uzcategui</title>
         <meta
           name="description"
-          content="South Florida real estate market analysis and seller insights — absorption rates, international capital flows, positioning. Carlos Uzcategui, FL SL705771."
+          content="Market analysis and seller guides for South Florida real estate — HOA financials, closing costs, timing strategy, international capital flows. Carlos Uzcategui, FL SL705771."
         />
         <link rel="canonical" href="https://homesprofessional.com/journal" />
         <meta property="og:title" content="Market Journal | South Florida Real Estate | Carlos Uzcategui" />
@@ -82,9 +82,9 @@ export default function JournalListPage() {
             Market Journal
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Quarterly analysis of South Florida real estate conditions — absorption patterns,
-            international capital flows, and what current data means for sellers positioning
-            in this market.
+            Market analysis and seller guides for South Florida real estate — absorption patterns,
+            HOA financials, closing cost structure, international capital flows, and what
+            current data means for sellers positioning in this market.
           </p>
           <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.22em] text-white/30">
             Carlos Uzcategui · FL SL705771 · 25 Years South Florida Market Experience
@@ -160,7 +160,7 @@ export default function JournalListPage() {
               to="/contact"
               className="mt-8 inline-block border border-gold px-8 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy"
             >
-              Start the conversation
+              Request a Strategy Review
             </Link>
           </div>
         </section>

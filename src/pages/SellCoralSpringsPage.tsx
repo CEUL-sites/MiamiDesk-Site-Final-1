@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
+import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
@@ -118,8 +119,9 @@ export default function SellCoralSpringsPage() {
               </a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              United Realty Group · CLHMS · FL SL705771 · Office: Weston, FL 33331
+              United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Office: Weston, FL 33331
             </p>
+            <HeroReachBar />
           </div>
         </section>
 
@@ -219,15 +221,15 @@ export default function SellCoralSpringsPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Coral Springs Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/how-to-choose-a-listing-agent-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+              <a href="/journal/selling-coral-springs-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">How to Choose a Listing Agent in South Florida — What Sellers Need to Evaluate</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Coral Springs Home — How School-Zone Positioning Drives Buyer Demand</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the seller guide →</p>
               </a>
-              <a href="/sell-south-florida" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Advisory</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">South Florida Seller Strategy — How MLS Distribution Works</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the full seller guide →</p>
+              <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What Coral Springs Sellers Need to Know</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
               </a>
             </div>
           </div>

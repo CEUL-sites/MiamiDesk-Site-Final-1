@@ -155,17 +155,18 @@ export function LeadForm() {
             </p>
           )}
 
-          <p className="font-mono text-center text-[9px] uppercase tracking-[0.2em] text-navy/40 mt-2">
-            Prefer WhatsApp?{" "}
-            <a
-              href={CONTACT.whatsappUS}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold underline hover:text-gold-deep"
-            >
-              Message Carlos directly
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/40">
+            <span className="text-navy/30">Prefer to talk now?</span>
+            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold underline hover:text-gold-deep">
+              WhatsApp US +1 954-865-6622
             </a>
-          </p>
+            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="text-gold underline hover:text-gold-deep">
+              WhatsApp ES +34 646 85 30 78
+            </a>
+            <a href={`mailto:${CONTACT.email}`} className="text-gold underline hover:text-gold-deep">
+              {CONTACT.email}
+            </a>
+          </div>
 
           <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-5 font-sans text-xs font-bold uppercase tracking-[0.28em] text-white shadow-lg shadow-gold/10 transition-all hover:bg-gold disabled:opacity-60">
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}

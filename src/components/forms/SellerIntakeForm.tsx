@@ -95,6 +95,12 @@ export function SellerIntakeForm() {
         <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">Confidential Seller Desk</p>
         <h3 className="mt-2 font-serif text-2xl text-white">Schedule a 30-minute listing strategy call</h3>
         <p className="mt-2 font-sans text-sm text-white/50">Share the essentials — Carlos reviews every submission personally before responding.</p>
+        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">
+          <span className="text-white/35">Prefer to talk now?</span>
+          <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold transition-colors hover:text-white">WhatsApp US +1 954-865-6622</a>
+          <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="text-gold transition-colors hover:text-white">WhatsApp ES +34 646 85 30 78</a>
+          <a href={`mailto:${CONTACT.email}`} className="text-gold transition-colors hover:text-white">{CONTACT.email}</a>
+        </div>
       </div>
 
       <form

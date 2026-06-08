@@ -7,6 +7,7 @@ import { BuyersRelocation } from "../components/BuyersRelocation";
 import { InternationalReachStrip } from "../components/InternationalReachStrip";
 import { Testimonials } from "../components/Testimonials";
 import { HowCarlosWorks } from "../components/HowCarlosWorks";
+import { LeadMagnetStrip } from "../components/LeadMagnetStrip";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -67,7 +68,7 @@ export default function HomePage() {
         <div className="bg-gold/10 border-t border-b border-gold/20 py-4">
           <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 text-center sm:text-left">
-              Thinking about selling? Get a free, professional South Florida home valuation — no commitment required.
+              Know your home's value before you list — a professional South Florida valuation built on current MLS data, with no listing commitment.
             </p>
             <a
               href="/home-value"
@@ -78,11 +79,14 @@ export default function HomePage() {
           </div>
         </div>
         <ReachAdvantage />
+        <Testimonials />
+        <LeadMagnetStrip />
         <IntelligenceDesk />
         <BuyersRelocation />
         <InternationalReachStrip />
         <Testimonials />
         <HowCarlosWorks />
+        <LeadMagnetStrip />
         <AboutContact />
         <Footer />
         <MobileStickyCTA />

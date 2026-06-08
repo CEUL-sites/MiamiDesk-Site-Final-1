@@ -40,10 +40,14 @@ function parseFrontmatter(raw: string): { meta: Record<string, string>; body: st
 // Inline formatter — runs on text within block elements
 // ---------------------------------------------------------------------------
 function inline(text: string): string {
-  // Links: [text](url)
+  // Links: [text](url) — external links open in new tab, internal links navigate in-place
   text = text.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
-    '<a href="$2" class="text-gold underline underline-offset-2 hover:text-gold/70 transition-colors" target="_blank" rel="noopener noreferrer">$1</a>',
+    (_m, label: string, href: string) => {
+      const isExternal = href.startsWith('http');
+      const attrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+      return `<a href="${href}" class="text-gold underline underline-offset-2 hover:text-gold/70 transition-colors"${attrs}>${label}</a>`;
+    },
   );
   // Bold: **text**
   text = text.replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-navy">$1</strong>');

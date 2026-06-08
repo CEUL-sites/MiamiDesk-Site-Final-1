@@ -10,6 +10,7 @@ type NavItem = { name: string; href: string };
 
 const NAV_ITEMS: NavItem[] = [
   { name: "Sellers",     href: "/sell-south-florida" },
+  { name: "Home Value",  href: "/home-value" },
   { name: "Buyers",      href: "/buy" },
   { name: "Markets",     href: "/markets" },
   { name: "Agents",      href: "/agents" },
@@ -100,7 +101,7 @@ export function Navbar() {
                 : "border border-gold/60 text-white hover:bg-gold hover:text-navy"
             }`}
           >
-            List Here!
+            Sell My Home
           </a>
         </div>
 
@@ -185,7 +186,7 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="flex w-full items-center justify-center bg-gold px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-navy font-semibold"
                 >
-                  List Here!
+                  Sell My Home
                 </a>
               </div>
             </div>
