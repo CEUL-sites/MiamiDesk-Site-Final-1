@@ -29,6 +29,21 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check deploy credentials
+        # Fail loudly if the token is missing rather than silently no-oping
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+            echo "::error title=Missing NETLIFY_AUTH_TOKEN::Deploy skipped — NETLIFY_AUTH_TOKEN secret is not set."
+            echo ""
+            echo "To fix: app.netlify.com → User Settings → Applications → Personal access tokens → New token"
+            echo "Then: GitHub repo Settings → Secrets and variables → Actions → set NETLIFY_AUTH_TOKEN"
+            exit 1
+          fi
+          echo "Credentials present — proceeding to deploy."
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
       - name: Deploy to Netlify
         # Only deploy on pushes to main (not on PRs)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
