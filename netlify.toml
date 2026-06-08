@@ -1,5 +1,5 @@
 [build]
-  command = "yarn build"
+  command = "bash scripts/fetch-videos.sh && yarn build"
   publish = "dist"
   functions = "netlify/functions"
 
