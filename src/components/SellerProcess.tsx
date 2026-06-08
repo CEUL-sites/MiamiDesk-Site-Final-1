@@ -22,8 +22,8 @@ const STEPS = [
     number: "03",
     name: "Launch",
     headline: "Day-one MLS entry and global reach — simultaneously.",
-    body: "Your listing enters the Miami and South Florida REALTORS® MLS on activation day. Where eligible under MLS rules and platform participation, it syndicates to 500+ websites in 19 languages — reaching international buyer pools actively searching in your price range. Exposure timing and sequencing are calibrated to your submarket.",
-    benefit: "One MLS entry. Eligible exposure across 500+ platforms in 19 languages.",
+    body: "Your listing enters the Miami and South Florida REALTORS® MLS on activation day. Where eligible under MLS rules and platform participation, it syndicates to 200+ portals in 19 languages — reaching international buyer pools actively searching in your price range. Exposure timing and sequencing are calibrated to your submarket.",
+    benefit: "One MLS entry. Eligible exposure across 200+ portals in 19 languages.",
   },
   {
     number: "04",

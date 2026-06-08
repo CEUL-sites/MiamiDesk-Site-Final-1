@@ -44,7 +44,7 @@ A precise CMA based on current MLS data — not portal estimates, not tax assess
 
 ## International distribution for Aventura sellers
 
-Eligible Aventura listings enter the Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association, with over 93,000 member agents. Eligible listings may be distributed across 500+ websites in 19 languages through approved syndication channels. The international referral network reaches partner associations in 75+ countries.
+Eligible Aventura listings enter the Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association, with over 93,000 member agents. Eligible listings may be distributed across 200+ portals in 19 languages through approved syndication channels. The international referral network reaches partner associations in 75+ countries.
 
 For an Aventura seller, that infrastructure matters more than any single portal placement.
 
