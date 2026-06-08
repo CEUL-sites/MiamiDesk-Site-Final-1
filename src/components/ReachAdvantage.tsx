@@ -19,12 +19,12 @@ const TOP_STATS = [
     desc: "MIAMI REALTORS® holds 437+ formal international agreements — the most of any local REALTOR® association in the world — connecting South Florida with global buyer markets across 75+ countries.",
   },
   {
-    value: 1,
-    display: "#1",
-    suffix: "",
-    label: "Transactional Brokerage · Florida",
-    sublabel: "United Realty Group",
-    desc: "United Realty Group is the #1 transactional brokerage in Florida by closed transactions — the professional network a listing enters the moment it is represented through this office.",
+    value: 3500,
+    display: "3,500",
+    suffix: "+",
+    label: "United Realty Group Agents",
+    sublabel: "#1 Florida · Most Closed Homes",
+    desc: "United Realty Group — ranked #1 in Florida by most closed homes — backs every listing with 3,500+ agents across 20 South Florida offices: professionals in Miami-Dade, Broward, and Palm Beach who know the inventory and the neighborhoods.",
   },
 ];
 
@@ -140,8 +140,8 @@ export const ReachAdvantage = () => {
           className="mx-auto mt-6 max-w-5xl font-serif leading-[1.08] text-white"
           style={{ fontSize: "clamp(2.4rem, 5vw, 4.5rem)" }}
         >
-          The day your listing goes live,<br />
-          <em className="not-italic italic text-gold">it reaches 93,000 professional agents.</em>
+          Your listing enters the system<br />
+          <em className="not-italic italic text-gold">93,000 South Florida agents open every day.</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -150,7 +150,10 @@ export const ReachAdvantage = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55"
         >
-          This is not a single listing. It is a distribution infrastructure — every number below is active the moment your property enters the MLS.
+          Listing on the Miami MLS places the property inside the working inventory that member agents
+          already search for their clients — shareable under their own branding, through the MLS tools
+          built for exactly that. International listings sit in the MLS international property section,
+          visible across the member network.
         </motion.p>
 
         {/* MIAMI REALTORS® attribution — source of the reach network */}

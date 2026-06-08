@@ -4,49 +4,48 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
-import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
-const SUNRISE_FAQS = [
+const POMPANO_BEACH_FAQS = [
   {
-    q: "What is the current home market like in Sunrise, FL?",
-    a: "Sunrise offers a broad mix of single-family homes, townhomes, and condominiums across established and newer communities — including the Sawgrass area near the expressway corridor. Per Miami and South Florida REALTORS® MLS data, pricing varies by community age, amenities, and proximity to major access points. Carlos provides a community-specific pricing analysis as part of every seller strategy review.",
+    q: "What is driving Pompano Beach's market activity?",
+    a: "Pompano Beach has seen sustained activity driven by a combination of coastal access, active development along its main corridors, and a property mix that spans beachfront, intracoastal, and single-family inland options. The market draws both seasonal buyers from the Northeast and Midwest and investor buyers targeting income-producing properties. Per Miami and South Florida REALTORS® MLS data, conditions vary by property type and proximity to water. Carlos provides a property-specific analysis as part of every seller strategy review.",
   },
   {
-    q: "How does Sunrise compare to Weston for home sellers?",
-    a: "Sunrise offers competitive value pricing relative to adjacent Weston, which can expand the buyer pool — particularly for buyers priced out of Weston's gated community market. Properties in Sunrise's Sawgrass corridor and well-maintained communities attract buyers who prioritize expressway access and school quality alongside affordability. Carlos provides a comparative market analysis covering both markets as needed.",
+    q: "How do waterfront and intracoastal properties differ in positioning versus inland homes?",
+    a: "Waterfront and intracoastal properties in Pompano Beach command a pricing premium and attract a more concentrated buyer profile — typically seasonal buyers, second-home purchasers, and investors who prioritize water access and lifestyle. Inland single-family homes draw a broader pool including primary residence buyers and value-focused investors. Each property type requires distinct MLS positioning and buyer-agent messaging. Carlos tailors the strategy to the specific property category.",
   },
   {
-    q: "Is there strong Latin American buyer demand in Sunrise?",
-    a: "Yes — Sunrise has meaningful Venezuelan, Colombian, and broader Latin American buyer demand, driven by the city's proximity to Weston's established LATAM community infrastructure and its accessible price points. Carlos's bilingual professional network and LATAM buyer pipeline directly serve this demand profile.",
+    q: "What buyer profiles target Pompano Beach?",
+    a: "Pompano Beach attracts a diverse mix: seasonal buyers from the Northeast and Midwest, national investors seeking Broward County rental income, and international buyers — particularly from Latin America and Canada — who value the beach access and price points relative to Fort Lauderdale and Boca Raton. Carlos's network reaches all of these buyer types through the Miami and South Florida REALTORS® MLS, 200+ global portals in 19 languages, and a direct international referral pipeline.",
   },
   {
-    q: "Which Sunrise communities generate the most buyer activity?",
-    a: "Communities with newer construction, controlled access, and proximity to the Sawgrass Expressway and top-rated Broward schools consistently generate strong buyer interest in Sunrise. HOA financial health, build quality, and school zone assignment all affect positioning strategy — Carlos reviews these factors as part of the seller strategy review.",
+    q: "How does new development affect pricing of existing homes?",
+    a: "Pompano Beach's active development corridor is expanding the inventory of new construction, which can influence buyer comparisons with existing resale properties. For existing home sellers, this means MLS positioning, condition, and pricing need to account for the competitive new-construction alternative. Carlos incorporates current development activity into the pricing and positioning strategy for every Pompano Beach seller review.",
   },
   {
-    q: "What is the seller strategy review?",
-    a: "A free, confidential session where Carlos reviews your property, its MLS positioning potential, current market comparables, and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
+    q: "What does the seller strategy review cover?",
+    a: "A free, confidential session where Carlos reviews your property's type, condition, water proximity, and MLS positioning potential — alongside current market comparables and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
   },
 ];
 
-export default function SellSunrisePage() {
+export default function SellPompanoBeachPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Sunrise, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
-        <meta name="description" content="Sunrise, FL listing agent — MLS positioning, buyer-agent activation, Latin American buyer access. Free strategy review. Carlos Uzcategui, FL SL705771." />
-        <meta name="keywords" content="sell home Sunrise FL, Sunrise Florida listing agent, Sunrise real estate agent, sell house Sunrise Florida, Sunrise FL realtor, Broward County listing agent, Sawgrass homes for sale" />
-        <link rel="canonical" href="https://homesprofessional.com/sell-sunrise" />
+        <title>Sell Your Home in Pompano Beach, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
+        <meta name="description" content="Pompano Beach, FL listing agent — MLS positioning, seasonal and investor buyer activation, coastal and intracoastal market strategy. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <meta name="keywords" content="sell home Pompano Beach FL, Pompano Beach Florida listing agent, Pompano Beach real estate agent, sell house Pompano Beach Florida, Pompano Beach FL realtor, Broward County listing agent, Pompano Beach waterfront homes" />
+        <link rel="canonical" href="https://homesprofessional.com/sell-pompano-beach" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://homesprofessional.com/sell-sunrise" />
-        <meta property="og:title" content="Sell Your Sunrise, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
-        <meta property="og:description" content="Professional seller representation in Sunrise, FL — MLS activation, Latin American buyer-agent network access, and global distribution. Free confidential strategy review." />
+        <meta property="og:url" content="https://homesprofessional.com/sell-pompano-beach" />
+        <meta property="og:title" content="Sell Your Pompano Beach, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
+        <meta property="og:description" content="Professional seller representation in Pompano Beach, FL — MLS activation, seasonal and investor buyer-agent network, international distribution. Free confidential strategy review." />
         <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sell Your Sunrise, FL Home | Carlos Uzcategui, FL SL705771" />
-        <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Sunrise, FL home sellers. Free strategy review — no listing commitment." />
+        <meta name="twitter:title" content="Sell Your Pompano Beach, FL Home | Carlos Uzcategui, FL SL705771" />
+        <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Pompano Beach, FL home sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -54,13 +53,13 @@ export default function SellSunrisePage() {
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
             { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell-south-florida" },
-            { "@type": "ListItem", "position": 3, "name": "Sell in Sunrise", "item": "https://homesprofessional.com/sell-sunrise" }
+            { "@type": "ListItem", "position": 3, "name": "Sell in Pompano Beach", "item": "https://homesprofessional.com/sell-pompano-beach" }
           ]
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": SUNRISE_FAQS.map(faq => ({
+          "mainEntity": POMPANO_BEACH_FAQS.map(faq => ({
             "@type": "Question",
             "name": faq.q,
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
@@ -69,9 +68,9 @@ export default function SellSunrisePage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
-          "name": "Carlos Uzcategui — Sunrise FL Listing Agent",
-          "url": "https://homesprofessional.com/sell-sunrise",
-          "areaServed": { "@type": "City", "name": "Sunrise", "addressRegion": "FL", "postalCode": "33325", "addressCountry": "US" },
+          "name": "Carlos Uzcategui — Pompano Beach FL Listing Agent",
+          "url": "https://homesprofessional.com/sell-pompano-beach",
+          "areaServed": { "@type": "City", "name": "Pompano Beach", "addressRegion": "FL", "postalCode": "33060", "addressCountry": "US" },
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
@@ -93,15 +92,15 @@ export default function SellSunrisePage() {
           <LazyVideo eager src="/videos/advisor-brand.mp4" className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Sunrise, FL · Seller Advisory</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pompano Beach, FL · Seller Advisory</p>
             <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Sunrise home with the reach<br />
+              Sell your Pompano Beach home with the reach<br />
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Sunrise's diverse communities, Sawgrass corridor access, and Latin American buyer demand require
-              a listing agent who understands competitive positioning relative to adjacent markets and can activate the full international buyer network.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              Pompano Beach's coastal access, active development corridor, and mix of beach, intracoastal, and inland
+              property types attract seasonal and investor buyers from across the country and internationally.
+              Professional MLS positioning. Buyer-agent activation. Seasonal buyer pipeline.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -119,31 +118,31 @@ export default function SellSunrisePage() {
               </a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
-              United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Office: Weston, FL 33331
+              United Realty Group · CLHMS · FL SL705771 · Office: Weston, FL 33331
             </p>
-            <HeroReachBar />
           </div>
         </section>
 
         {/* Market positioning */}
         <section className="bg-ivory py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Sunrise</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Pompano Beach</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              A diverse Broward market with strong Latin American demand and Sawgrass corridor access.
+              Coastal access, an active development corridor, and strong seasonal and investor buyer demand.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              Sunrise combines accessible pricing relative to adjacent Weston with strong Latin American community
-              infrastructure and direct Sawgrass Expressway access. The city's diverse housing inventory —
-              from established single-family communities to newer townhome developments — attracts a broad
-              buyer pool including families relocating from Venezuela, Colombia, and across South America who
-              are drawn by the Sawgrass corridor's bilingual services and school access.
+              Pompano Beach spans a range of property types — beachfront and Intracoastal condos and single-family
+              homes, inland residential neighborhoods, and an expanding new construction corridor. This breadth
+              produces a correspondingly diverse buyer pool: seasonal buyers from the Northeast and Midwest who
+              return consistently, investor buyers targeting Broward County income properties, and international
+              buyers attracted by beach access at price points more accessible than Fort Lauderdale or Boca Raton.
+              Each property type and price point requires a distinct positioning approach.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "Diverse + LATAM", sub: "Strong Venezuelan and Colombian demand; Weston-adjacent pricing" },
-                { label: "Access", value: "Sawgrass Corridor", sub: "Direct expressway access and proximity to Weston infrastructure" },
-                { label: "Value Position", value: "Competitive Entry", sub: "Accessible pricing relative to Weston expands buyer pool" },
+                { label: "Property Mix", value: "Beach · Intracoastal · Single-Family", sub: "Diverse property types across price points — each with its own buyer profile and positioning strategy" },
+                { label: "Buyer Profile", value: "Seasonal + Investor", sub: "National and international buyers — seasonal Northeast/Midwest demand and income-property investor interest" },
+                { label: "Corridor", value: "Active Development", sub: "New construction expanding existing inventory — a relevant competitive factor for resale positioning" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
                   <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
@@ -162,7 +161,7 @@ export default function SellSunrisePage() {
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Network Advantage</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
-                  Your Sunrise listing reaches every buyer,<br />
+                  Your Pompano Beach listing reaches every buyer,<br />
                   <em className="not-italic italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
@@ -173,7 +172,7 @@ export default function SellSunrisePage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across 20 Florida offices",
-                    "Direct LATAM and European buyer pipeline",
+                    "Seasonal buyer pipeline + national relocation network",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
@@ -185,9 +184,9 @@ export default function SellSunrisePage() {
               </div>
               <div className="space-y-px border border-white/10">
                 {[
-                  { label: "Strategy", text: "Pricing analysis + CMA with competitive positioning vs. Weston and Coral Springs" },
+                  { label: "Strategy", text: "Pricing analysis specific to property type and proximity to water, beach, or new development corridors" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
-                  { label: "Distribution", text: "Buyer-agent outreach + LATAM referral network" },
+                  { label: "Distribution", text: "Seasonal buyer pipeline + national relocation network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
@@ -204,11 +203,11 @@ export default function SellSunrisePage() {
         <section className="border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Sunrise Sellers Ask</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pompano Beach Sellers Ask</p>
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Common questions.</h2>
             </div>
             <div className="divide-y divide-white/8">
-              {SUNRISE_FAQS.map((faq) => (
+              {POMPANO_BEACH_FAQS.map((faq) => (
                 <div key={faq.q} className="py-6">
                   <p className="font-serif text-lg text-white leading-snug mb-3">{faq.q}</p>
                   <p className="font-sans text-[0.9rem] leading-relaxed text-white/65">{faq.a}</p>
@@ -221,17 +220,17 @@ export default function SellSunrisePage() {
         {/* Journal crosslinks */}
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Sunrise Market Research</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Pompano Beach Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/selling-sunrise-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Sunrise, FL Home — Pricing Strategy in a Weston-Adjacent Market</h3>
+              <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers in South Florida 2026 — Where They're Looking and What They're Buying</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
-              <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What Sawgrass-Area Sellers Need to Know</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
+              <a href="/sell-south-florida" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Advisory</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">South Florida Seller Strategy — How MLS Distribution Works</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the full seller guide →</p>
               </a>
             </div>
           </div>
@@ -241,10 +240,10 @@ export default function SellSunrisePage() {
         <section className="bg-navy-deep py-16 md:py-24" id="contact">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Sunrise Seller Review</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pompano Beach Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every Sunrise submission personally before responding — typically within one business day.
+                No listing commitment required. Carlos reviews every Pompano Beach submission personally before responding — typically within one business day.
               </p>
             </div>
             <SellerIntakeForm />
@@ -263,7 +262,7 @@ export default function SellSunrisePage() {
               {" · "}
               <a href="/sell-south-florida" className="hover:text-gold">Sell in South Florida</a>
               {" · "}
-              Sunrise, FL
+              Pompano Beach, FL
             </p>
           </div>
         </section>

@@ -6,6 +6,7 @@ import { IntelligenceDesk } from "../components/IntelligenceDesk";
 import { BuyersRelocation } from "../components/BuyersRelocation";
 import { InternationalReachStrip } from "../components/InternationalReachStrip";
 import { Testimonials } from "../components/Testimonials";
+import { HowCarlosWorks } from "../components/HowCarlosWorks";
 import { LeadMagnetStrip } from "../components/LeadMagnetStrip";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
@@ -83,6 +84,9 @@ export default function HomePage() {
         <IntelligenceDesk />
         <BuyersRelocation />
         <InternationalReachStrip />
+        <Testimonials />
+        <HowCarlosWorks />
+        <LeadMagnetStrip />
         <AboutContact />
         <Footer />
         <MobileStickyCTA />

@@ -16,7 +16,7 @@ const SERVICE_TIERS = [
     description: "Para agencias que activan una selección curada de inmuebles en el canal de Sur de Florida.",
     includes: [
       "Alta en el MLS a través de URG como broker de registro en Florida",
-      "Sindicación a 200+ portales globales en 19 idiomas",
+      "Distribución a 200+ portales en 19 idiomas",
       "Presentación bilingüe del inmueble (EN / ES)",
       "Acuerdo de referral escrito — relación con el cliente protegida",
       "Distribución a 93.000 agentes miembro de Miami REALTORS®",
@@ -262,7 +262,7 @@ export default function EsSpainDeskPage() {
                 <div className="h-px w-10 bg-gold/30" />
 
                 <p className="font-sans text-sm leading-relaxed text-white/65">
-                  Un acuerdo mensual por listing que incluye alta y mantenimiento en el MLS, sindicación a 200+ portales globales,
+                  Un acuerdo mensual por listing que incluye alta y mantenimiento en el MLS, distribución a 200+ portales,
                   outreach a agentes compradores y materiales de marketing bilingüe. Se abona como tarifa de servicios profesionales
                   por la infraestructura de distribución — no es contingente a la venta.
                 </p>
@@ -270,7 +270,7 @@ export default function EsSpainDeskPage() {
                 <ul className="space-y-2.5">
                   {[
                     "Alta y mantenimiento del listing en el MLS",
-                    "Sindicación a 200+ portales globales en 19 idiomas",
+                    "Distribución a 200+ portales en 19 idiomas",
                     "Outreach dirigido a agentes compradores",
                     "Materiales de presentación bilingüe (EN/ES)",
                     "Reporting mensual de rendimiento",
@@ -567,7 +567,7 @@ export default function EsSpainDeskPage() {
                 <div className="font-serif text-4xl text-navy-deep">200+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
                   {/* TODO: native Madrid editor review */}
-                  Portales globales · 19 idiomas
+                  Portales · 19 idiomas
                 </div>
               </div>
               <div className="px-8 py-10 text-center">

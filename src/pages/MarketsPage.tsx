@@ -374,7 +374,7 @@ export default function MarketsPage() {
                 <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
                   United Realty Group is one of Florida's largest independently owned brokerages —
                   {" "}{CONTACT.stats.urgAgents} agents across {CONTACT.stats.urgOffices} South Florida offices.
-                  That is the network a listing enters the moment it is represented: working buyer agents
+                  That is the network a listing enters when it is represented: working buyer agents
                   with active clients, not a directory of names.
                 </p>
                 <ul className="mt-7 space-y-3">

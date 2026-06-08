@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 const STEPS = [
   {
     num: "01", title: "Position", sub: "Set the Foundation",
-    badge: "Strategy in 24 Hours",
+    badge: "Strategy Before Launch",
     text: "Pricing, timing, buyer profile, property narrative, and preparation strategy — all aligned before a single door opens to the market.",
-    stats: [{ v: "24h", l: "Turnaround" }, { v: "100%", l: "Tailored" }, { v: "Step 1", l: "of 5" }],
+    stats: [{ v: "Custom", l: "Pricing Model" }, { v: "100%", l: "Tailored" }, { v: "Step 1", l: "of 5" }],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>`,
   },
   {
@@ -18,9 +18,9 @@ const STEPS = [
   },
   {
     num: "03", title: "Launch", sub: "Maximum Exposure",
-    badge: "93K Agent Pipeline — Day One",
+    badge: "93K Member Network",
     text: "Professional MLS positioning and eligible syndication across approved distribution channels, buyer-agent visibility, and expanded exposure infrastructure where applicable.",
-    stats: [{ v: "93K", l: "Agents Notified" }, { v: "200+", l: "Global Portals" }, { v: "19", l: "Languages" }],
+    stats: [{ v: "93K", l: "Member Network" }, { v: "200+", l: "Global Portals" }, { v: "19", l: "Languages" }],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`,
   },
   {

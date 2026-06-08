@@ -37,7 +37,7 @@ const MARQUEE_ITEMS: { t: string; gold?: true }[] = [
   { t: "260+ MLS Connections"                        },
   { t: "437+ International Agreements"               },
   { t: "200+ Global Portals",            gold: true  },
-  { t: "#1 Transactional Brokerage · Florida"        },
+  { t: "3,500+ Agents · 20 Florida Offices"          },
   { t: "Licensed Since 2001",            gold: true  },
 ];
 
