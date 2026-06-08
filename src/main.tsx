@@ -24,6 +24,12 @@ const SellPembrokePinesPage          = lazy(() => import('./pages/SellPembrokePi
 const SellFortLauderdalePage         = lazy(() => import('./pages/SellFortLauderdalePage'));
 const SellPlantationPage             = lazy(() => import('./pages/SellPlantationPage'));
 const SellSunrisePage                = lazy(() => import('./pages/SellSunrisePage'));
+const SellMiamiPage                  = lazy(() => import('./pages/SellMiamiPage'));
+const SellKendallPage                = lazy(() => import('./pages/SellKendallPage'));
+const SellDowntownMiamiPage          = lazy(() => import('./pages/SellDowntownMiamiPage'));
+const SellNorthMiamiPage             = lazy(() => import('./pages/SellNorthMiamiPage'));
+const SellPompanoBeachPage           = lazy(() => import('./pages/SellPompanoBeachPage'));
+const SellHallandaleBeachPage        = lazy(() => import('./pages/SellHallandaleBeachPage'));
 const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
 const GlobalDeskPage                 = lazy(() => import('./pages/GlobalDeskPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
@@ -78,6 +84,12 @@ if (rootElement) {
                 <Route path="/sell-fort-lauderdale"          element={<SellFortLauderdalePage />} />
                 <Route path="/sell-plantation"               element={<SellPlantationPage />} />
                 <Route path="/sell-sunrise"                  element={<SellSunrisePage />} />
+                <Route path="/sell-miami"                    element={<SellMiamiPage />} />
+                <Route path="/sell-kendall"                  element={<SellKendallPage />} />
+                <Route path="/sell-downtown-miami"           element={<SellDowntownMiamiPage />} />
+                <Route path="/sell-north-miami"              element={<SellNorthMiamiPage />} />
+                <Route path="/sell-pompano-beach"            element={<SellPompanoBeachPage />} />
+                <Route path="/sell-hallandale-beach"         element={<SellHallandaleBeachPage />} />
                 <Route path="/global-desk"                   element={<GlobalDeskPage />} />
                 <Route path="/miami-mls-international-desk"  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/developers-agencies"           element={<Navigate to="/global-desk" replace />} />
