@@ -31,12 +31,11 @@ export interface VideoBubble {
   caption: string;
 }
 
-// ── Placeholder config — swap for real listing films ────────────────────────
 export const VIDEO_BUBBLES: VideoBubble[] = [
-  { src: "/videos/luxury_listing_showcase.mp4", caption: "Listing film — luxury single-family" },
-  { src: "/videos/luxury_waterfront_drone.mp4", caption: "Aerial tour — waterfront estate" },
-  { src: "/videos/south_florida_showcase.mp4", caption: "South Florida market showcase" },
-  { src: "/videos/cinematic_house_reach.mp4", caption: "Cinematic property feature" },
+  { src: "/videos/dollhouse_rotating_hands.mp4", caption: "3D dollhouse model — every angle" },
+  { src: "/videos/cinematic_house_reach.mp4", caption: "Cinematic listing reach" },
+  { src: "/videos/digital_twin_exposure.mp4", caption: "Digital twin exposure" },
+  { src: "/videos/dollhouse_hand_reach.mp4", caption: "Property in your hands" },
 ];
 
 function prefersReducedMotion(): boolean {
