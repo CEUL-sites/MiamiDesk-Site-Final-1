@@ -26,11 +26,8 @@ const SellPlantationPage             = lazy(() => import('./pages/SellPlantation
 const SellSunrisePage                = lazy(() => import('./pages/SellSunrisePage'));
 const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
 const GlobalDeskPage                 = lazy(() => import('./pages/GlobalDeskPage'));
-const MiamiMLSInternationalDeskPage  = lazy(() => import('./pages/MiamiMLSInternationalDeskPage'));
-const DevelopersAgenciesPage         = lazy(() => import('./pages/DevelopersAgenciesPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
-const SpainDeskPage      = lazy(() => import('./pages/SpainDeskPage'));
 const NewConstructionPage = lazy(() => import('./pages/NewConstructionPage'));
 const ContactPage        = lazy(() => import('./pages/ContactPage'));
 const ListingsPage       = lazy(() => import('./pages/ListingsPage'));

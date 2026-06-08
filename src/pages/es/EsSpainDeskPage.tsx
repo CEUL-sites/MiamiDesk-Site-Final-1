@@ -16,7 +16,7 @@ const SERVICE_TIERS = [
     description: "Para agencias que activan una selección curada de inmuebles en el canal de Sur de Florida.",
     includes: [
       "Alta en el MLS a través de URG como broker de registro en Florida",
-      "Sindicación a 500+ portales en 19 idiomas",
+      "Distribución a 200+ portales en 19 idiomas",
       "Presentación bilingüe del inmueble (EN / ES)",
       "Acuerdo de referral escrito — relación con el cliente protegida",
       "Distribución a 93.000 agentes miembro de Miami REALTORS®",
@@ -262,7 +262,7 @@ export default function EsSpainDeskPage() {
                 <div className="h-px w-10 bg-gold/30" />
 
                 <p className="font-sans text-sm leading-relaxed text-white/65">
-                  Un acuerdo mensual por listing que incluye alta y mantenimiento en el MLS, sindicación a 500+ portales,
+                  Un acuerdo mensual por listing que incluye alta y mantenimiento en el MLS, distribución a 200+ portales,
                   outreach a agentes compradores y materiales de marketing bilingüe. Se abona como tarifa de servicios profesionales
                   por la infraestructura de distribución — no es contingente a la venta.
                 </p>
@@ -270,7 +270,7 @@ export default function EsSpainDeskPage() {
                 <ul className="space-y-2.5">
                   {[
                     "Alta y mantenimiento del listing en el MLS",
-                    "Sindicación a 500+ portales en 19 idiomas",
+                    "Distribución a 200+ portales en 19 idiomas",
                     "Outreach dirigido a agentes compradores",
                     "Materiales de presentación bilingüe (EN/ES)",
                     "Reporting mensual de rendimiento",
@@ -387,7 +387,7 @@ export default function EsSpainDeskPage() {
                 <div className="grid grid-cols-2 gap-y-5 gap-x-4">
                   {[
                     { value: "93.000", label: "Agentes miembro MLS" },
-                    { value: "500+", label: "Portales · 19 idiomas" },
+                    { value: "200+", label: "Portales · 19 idiomas" },
                     { value: "3.500+", label: "Agentes URG · 20 oficinas" },
                     { value: "75+", label: "Países · red de partners" },
                   ].map(({ value, label }) => (
@@ -564,10 +564,10 @@ export default function EsSpainDeskPage() {
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
-                <div className="font-serif text-4xl text-navy-deep">500+</div>
+                <div className="font-serif text-4xl text-navy-deep">200+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
                   {/* TODO: native Madrid editor review */}
-                  Sitios web · 19 idiomas
+                  Portales · 19 idiomas
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
@@ -670,7 +670,7 @@ export default function EsSpainDeskPage() {
               </p>
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
                 {/* TODO: native Madrid editor review */}
-                Desde el primer día de activación, la propiedad llega a 93.000 agentes miembros de la mayor asociación local de REALTORS® del mundo, con distribución simultánea a 500+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
+                Desde el primer día de activación, la propiedad llega a 93.000 agentes miembros de la mayor asociación local de REALTORS® del mundo, con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
 

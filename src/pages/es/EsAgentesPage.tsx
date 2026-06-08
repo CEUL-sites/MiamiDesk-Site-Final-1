@@ -812,7 +812,7 @@ export default function EsAgentesPage() {
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
                 {/* TODO: native Madrid editor review */}
                 Afiliado a United Realty Group — empresa de mayor volumen
-                transaccional en Florida, con más de 3.000 agentes y 19
+                transaccional en Florida, con más de 3.500 agentes y 20
                 oficinas.
               </p>
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
