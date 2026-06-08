@@ -50,7 +50,8 @@ jobs:
           fi
           # Mask the token so it never appears in logs
           echo "::add-mask::$TOKEN"
-          npx netlify-cli deploy \
+          npm install -g netlify-cli --prefer-offline --no-audit --loglevel error
+          netlify deploy \
             --auth "$TOKEN" \
             --site b85e7947-5d72-4bc2-ab4c-82caad1477fb \
             --dir ./dist \
