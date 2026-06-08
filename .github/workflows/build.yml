@@ -2,6 +2,11 @@ name: Build & Deploy
 
 on:
   workflow_dispatch:
+    inputs:
+      netlify_token:
+        description: 'Netlify personal access token (get from app.netlify.com → User Settings → Applications → Personal access tokens). Leave blank to use the NETLIFY_AUTH_TOKEN secret instead.'
+        required: false
+        type: string
   pull_request:
   push:
     branches:
@@ -29,34 +34,26 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Check deploy credentials
-        # Fail loudly if the token is missing rather than silently no-oping
+      - name: Deploy to Netlify
+        # Deploy on pushes to main or manual dispatch — uses input token if provided, falls back to secret
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
         run: |
-          if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
-            echo "::error title=Missing NETLIFY_AUTH_TOKEN::Deploy skipped — NETLIFY_AUTH_TOKEN secret is not set."
-            echo ""
-            echo "To fix: app.netlify.com → User Settings → Applications → Personal access tokens → New token"
-            echo "Then: GitHub repo Settings → Secrets and variables → Actions → set NETLIFY_AUTH_TOKEN"
+          # Prefer input token (manual dispatch), fall back to repo secret
+          TOKEN="${{ inputs.netlify_token }}"
+          if [ -z "$TOKEN" ]; then
+            TOKEN="${{ secrets.NETLIFY_AUTH_TOKEN }}"
+          fi
+          if [ -z "$TOKEN" ]; then
+            echo "::error title=No Netlify token::Trigger this workflow manually via 'Run workflow' and enter your Netlify token in the input field."
+            echo "Get a token at: app.netlify.com → User Settings → Applications → Personal access tokens"
             exit 1
           fi
-          echo "Credentials present — proceeding to deploy."
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
-      - name: Deploy to Netlify
-        # Only deploy on pushes to main (not on PRs)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
-        uses: nwtgck/actions-netlify@v3
-        with:
-          publish-dir: './dist'
-          production-branch: main
-          production-deploy: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions — ${{ github.sha }}"
-          enable-pull-request-comment: false
-          enable-commit-comment: false
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          # Site ID is not sensitive; baked in so only the auth token needs to be set as a secret.
-          NETLIFY_SITE_ID: b85e7947-5d72-4bc2-ab4c-82caad1477fb
+          # Mask the token so it never appears in logs
+          echo "::add-mask::$TOKEN"
+          npx netlify-cli deploy \
+            --auth "$TOKEN" \
+            --site b85e7947-5d72-4bc2-ab4c-82caad1477fb \
+            --dir ./dist \
+            --no-build \
+            --prod \
+            --message "Deploy from GitHub Actions — ${{ github.sha }}"
