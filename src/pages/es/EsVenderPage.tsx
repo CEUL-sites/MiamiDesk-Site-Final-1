@@ -104,9 +104,9 @@ const DISTRIBUTION_STATS = [
     label: "MLSs en EE. UU.",
   },
   {
-    value: "#1",
+    value: "3.500+",
     // TODO: native Madrid editor review
-    label: "Bróker en Florida",
+    label: "Agentes URG · 20 oficinas",
   },
 ];
 

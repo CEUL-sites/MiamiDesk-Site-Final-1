@@ -9,7 +9,7 @@ const STEPS = [
     name: "Position",
     headline: "Price it right before it goes public.",
     body: "We run absorption rate analysis against active competition in your exact submarket. You receive the realistic price range — and the strategic entry point — before the listing activates. This prevents the most common seller mistake: starting high, then chasing the market down with price reductions that signal weakness to buyers.",
-    benefit: "Accurate pricing from day one reduces time on market and protects your net proceeds.",
+    benefit: "Accurate pricing from the start reduces time on market and protects your net proceeds.",
   },
   {
     number: "02",
@@ -21,15 +21,15 @@ const STEPS = [
   {
     number: "03",
     name: "Launch",
-    headline: "Day-one MLS entry and global reach — simultaneously.",
-    body: "Your listing enters the Miami and South Florida REALTORS® MLS on activation day. Where eligible under MLS rules and platform participation, it syndicates to 200+ portals in 19 languages — reaching international buyer pools actively searching in your price range. Exposure timing and sequencing are calibrated to your submarket.",
+    headline: "MLS entry and global distribution reach.",
+    body: "Your listing enters the Miami and South Florida REALTORS® MLS when it is activated. Where eligible under MLS rules and platform participation, it syndicates to 200+ portals in 19 languages — reaching international buyer pools actively searching in your price range. Exposure timing and sequencing are calibrated to your submarket.",
     benefit: "One MLS entry. Eligible exposure across 200+ portals in 19 languages.",
   },
   {
     number: "04",
     name: "Activate",
-    headline: "93,000 buyer agents receive a direct signal.",
-    body: "Beyond the automated MLS feed, we activate targeted outreach inside the 93,000-member United Realty Group network — the world's largest local REALTOR® association. LATAM and European buyer pipelines are engaged through international referral channels. For properties with cross-border appeal, the Spain and Madrid desk coordinates inquiries directly.",
+    headline: "Inside the inventory 93,000 member agents work from.",
+    body: "Beyond MLS placement, we activate targeted outreach inside United Realty Group's 3,500-agent South Florida network and the 93,000-member Miami and South Florida REALTORS® association — the world's largest local REALTOR® association. LATAM and European buyer pipelines are engaged through international referral channels. For properties with cross-border appeal, the Spain and Madrid desk coordinates inquiries directly.",
     benefit: "Your listing reaches working buyer agents — not just search portals waiting for clicks.",
   },
   {

@@ -117,7 +117,7 @@ const sitewideSchema: JsonLdSchema[] = [
     knowsLanguage: ["en", "es"],
     sameAs: [
       CONTACT.linkedin,
-      "https://www.realtor.com/realestateagents/carlos-uzcategui_plantation_fl_13543289_496481835",
+      "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51",
     ],
     aggregateRating: {
       "@type": "AggregateRating",

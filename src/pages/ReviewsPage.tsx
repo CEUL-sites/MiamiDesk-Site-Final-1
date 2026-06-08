@@ -174,7 +174,7 @@ export default function ReviewsPage() {
           </div>
           <div className="mt-4">
             <a
-              href="https://www.realtor.com/realestateagents/carlos-uzcategui_plantation_fl_13543289_496481835"
+              href="https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 hover:text-gold transition-colors"
