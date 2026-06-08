@@ -7,6 +7,10 @@ on:
         description: 'Netlify personal access token (get from app.netlify.com → User Settings → Applications → Personal access tokens). Leave blank to use the NETLIFY_AUTH_TOKEN secret instead.'
         required: false
         type: string
+      proxy_path:
+        description: 'Netlify MCP proxy URL (from netlify-deploy-services-updater). Deploys via @netlify/mcp without a personal token.'
+        required: false
+        type: string
   pull_request:
   push:
     branches:
@@ -35,20 +39,35 @@ jobs:
         run: npm run build
 
       - name: Deploy to Netlify
-        # Deploy on pushes to main or manual dispatch — uses input token if provided, falls back to secret
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        env:
+          PROXY_PATH: ${{ inputs.proxy_path }}
+          INPUT_TOKEN: ${{ inputs.netlify_token }}
+          SECRET_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          # Prefer input token (manual dispatch), fall back to repo secret
-          TOKEN="${{ inputs.netlify_token }}"
+          # proxy_path (from Netlify MCP) takes priority — no personal token needed
+          if [ -n "$PROXY_PATH" ]; then
+            echo "Deploying via Netlify MCP proxy..."
+            npx -y @netlify/mcp@latest \
+              --site-id b85e7947-5d72-4bc2-ab4c-82caad1477fb \
+              --proxy-path "$PROXY_PATH"
+            exit 0
+          fi
+
+          # Fall back to personal token (input or secret)
+          TOKEN="$INPUT_TOKEN"
           if [ -z "$TOKEN" ]; then
-            TOKEN="${{ secrets.NETLIFY_AUTH_TOKEN }}"
+            TOKEN="$SECRET_TOKEN"
           fi
           if [ -z "$TOKEN" ]; then
-            echo "::error title=No Netlify token::Trigger this workflow manually via 'Run workflow' and enter your Netlify token in the input field."
-            echo "Get a token at: app.netlify.com → User Settings → Applications → Personal access tokens"
-            exit 1
+            if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+              echo "::error title=No deploy credentials::Provide proxy_path or netlify_token as workflow input, or set the NETLIFY_AUTH_TOKEN secret."
+              exit 1
+            else
+              echo "No deploy credentials — skipping deploy. Set NETLIFY_AUTH_TOKEN secret to enable auto-deploy on push."
+              exit 0
+            fi
           fi
-          # Mask the token so it never appears in logs
           echo "::add-mask::$TOKEN"
           npm install -g netlify-cli --prefer-offline --no-audit --loglevel error
           netlify deploy \
