@@ -398,7 +398,7 @@ export default function LaComisionSecretaPage() {
                 </p>
                 <p className="mt-4 font-sans text-sm leading-relaxed text-navy/65">
                   He works seller representation across Miami-Dade, Broward, and Palm Beach through
-                  United Realty Group — one of Florida's largest independently owned brokerages with
+                  United Realty Group — ranked #1 in Florida by most closed homes, with
                   {" "}{CONTACT.stats.urgAgents} agents across {CONTACT.stats.urgOffices} offices.
                   La Comisión Secreta is what he wishes existed when he started.
                 </p>

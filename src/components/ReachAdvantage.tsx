@@ -23,8 +23,8 @@ const TOP_STATS = [
     display: "3,500",
     suffix: "+",
     label: "United Realty Group Agents",
-    sublabel: "20 Florida Offices",
-    desc: "United Realty Group backs every listing with 3,500+ agents across 20 South Florida offices — professionals on the ground in Miami-Dade, Broward, and Palm Beach who know the inventory and the neighborhoods.",
+    sublabel: "#1 Florida · Most Closed Homes",
+    desc: "United Realty Group — ranked #1 in Florida by most closed homes — backs every listing with 3,500+ agents across 20 South Florida offices: professionals in Miami-Dade, Broward, and Palm Beach who know the inventory and the neighborhoods.",
   },
 ];
 

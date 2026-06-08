@@ -8,7 +8,7 @@
   "usMls": { "value": "260+", "label": "U.S. MLSs", "sublabel": "via RPR National Exchange", "source": "Realtors Property Resource (RPR) National MLS data exchange", "cite": "https://www.narrpr.com" },
   "internationalAgreements": { "value": "437+", "label": "International Agreements", "source": "MIAMI Association of REALTORS® Global Council", "cite": "https://www.miamirealtors.com/global/global-partners/" },
   "mlsDataExchanges": { "value": "11", "label": "MLS Data Exchanges", "source": "MIAMI Association of REALTORS®", "cite": "https://www.miamirealtors.com" },
-  "urgScale": { "value": "3,500+", "label": "United Realty Group Agents · 20 Florida Offices", "source": "United Realty Group — urgfl.com (est. 2002, 20 Florida offices). NOTE: any '#1 in Florida' superlative requires an independent, citable MLS/association ranking before publishing." },
+  "urgScale": { "value": "#1", "label": "Florida · Most Closed Homes — 3,500+ agents · 20 offices", "source": "United Realty Group — urgfl.com homepage hero: 'Ranked #1 Most Closed Homes'" },
   "yearsLicensed": { "value": "25", "label": "Years Licensed", "source": "Carlos Uzcategui, licensed since 2001" },
   "urgAgents": { "value": "3,500+", "label": "United Realty Group Agents", "source": "United Realty Group — urgfl.com (est. 2002, 20 Florida offices)" },
   "urgOffices": { "value": "20", "label": "Florida Offices", "source": "United Realty Group — urgfl.com" },

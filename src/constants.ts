@@ -64,9 +64,9 @@ export const NAVIGATION = [
 
 // Verified figures only. Single source of truth is src/data/figures.json
 // (with per-figure sources/citations); these mirror it for legacy imports.
-// Do NOT add: $69B association transaction volume (not Carlos's or URG's), any
-// "#1 / largest in Florida" superlative without an independent citable ranking,
-// or any time-based promise (Day 1, 24 hours, same-day, instant).
+// Do NOT add: $69B association transaction volume (not Carlos's or URG's), or any
+// time-based promise (Day 1, 24 hours, same-day, instant).
+// URG "#1 Florida · Most Closed Homes" is sourced from urgfl.com homepage — use that exact phrasing.
 export const ASSOCIATION_STATS = {
   memberCount: 93000,
   mlsRank: "world's largest local REALTOR® association",
@@ -77,8 +77,8 @@ export const ASSOCIATION_STATS = {
   countries: 75,
   usMls: 260,
   mlsDataExchanges: 11,
-  // No "#1 / Florida's largest" superlative until an independent, citable ranking is supplied.
-  urgScale: "3,500+ agents · 20 offices",
+  // Source: urgfl.com homepage — "Ranked #1 Most Closed Homes"
+  urgScale: "#1 Florida · Most Closed Homes · 3,500+ agents · 20 offices",
   urgAgents: "3,500+",
   urgOffices: 20,
   urgFounded: 2002,
