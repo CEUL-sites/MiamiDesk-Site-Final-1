@@ -109,23 +109,27 @@ export function BuyersRelocation() {
             ))}
           </div>
 
-          {/* Professional home-marketing clips — floating bubbles */}
-          <div className="mb-14 border-y border-bone py-12">
-            <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-2">
+          {/* Professional home-marketing clips — single sequencing bubble */}
+          <div className="mb-14 border-y border-bone py-14">
+            <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
+              {/* Text */}
+              <div className="lg:flex-1">
+                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-3">
                   The Work
                 </p>
-                <h3 className="font-serif text-2xl text-navy">
-                  How the marketing actually looks.
+                <h3 className="font-serif text-3xl text-navy mb-4 leading-snug">
+                  How the marketing<br className="hidden sm:block" /> actually looks.
                 </h3>
+                <p className="font-sans text-sm leading-relaxed text-navy/55 max-w-xs">
+                  Cinematic listing films and property tours — the presentation standard
+                  behind every South Florida listing.
+                </p>
               </div>
-              <p className="max-w-sm font-sans text-sm leading-relaxed text-navy/55">
-                Cinematic listing films and property tours — the presentation standard behind a
-                South Florida listing.
-              </p>
+              {/* Single auto-sequencing bubble */}
+              <div className="flex justify-center lg:flex-1">
+                <VideoBubbles />
+              </div>
             </div>
-            <VideoBubbles />
           </div>
 
           {/* Three pillars */}

@@ -1,41 +1,17 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Play, X } from "lucide-react";
 
-/**
- * Floating video "bubbles" surfacing short clips of Carlos's professional
- * home-marketing work (cinematic tours, listing films).
- *
- * Config-driven: edit VIDEO_BUBBLES below (or pass a `bubbles` prop) to swap in
- * real listing films later. Each entry needs a clip `src`; `poster` and
- * `caption` are optional.
- *
- * Performance + accessibility:
- *  - Clips are NOT fetched until the row scrolls near the viewport
- *    (IntersectionObserver, preload="none"). No video downloads on first paint.
- *  - Reserved aspect-ratio tiles → zero cumulative layout shift.
- *  - Tiles are buttons; click/tap opens a lightbox with native controls.
- *  - Hover-preview (muted, looped) on pointer-fine devices only, and never when
- *    the user prefers reduced motion. Mobile degrades to a simple tappable grid.
- *  - Lightbox is a focus-trapped role="dialog"; Escape and backdrop close it.
- *
- * NOTE: the clips referenced below are existing cinematic placeholders from
- * /public/videos. Replace `src`/`poster`/`caption` with real listing films.
- */
-
 export interface VideoBubble {
-  /** Path to the .mp4 clip. */
   src: string;
-  /** Optional poster still shown before play (prevents a flash of empty tile). */
   poster?: string;
-  /** Short caption shown under the bubble and used as the accessible label. */
   caption: string;
 }
 
 export const VIDEO_BUBBLES: VideoBubble[] = [
-  { src: "/videos/dollhouse_rotating_hands.mp4", caption: "3D dollhouse model — every angle" },
-  { src: "/videos/cinematic_house_reach.mp4", caption: "Cinematic listing reach" },
-  { src: "/videos/digital_twin_exposure.mp4", caption: "Digital twin exposure" },
-  { src: "/videos/dollhouse_hand_reach.mp4", caption: "Property in your hands" },
+  { src: "/videos/dollhouse_rotating_hands.mp4",  caption: "3D dollhouse — every angle" },
+  { src: "/videos/cinematic_house_reach.mp4",      caption: "Cinematic listing reach" },
+  { src: "/videos/digital_twin_exposure.mp4",      caption: "Digital twin exposure" },
+  { src: "/videos/dollhouse_hand_reach.mp4",       caption: "Property in your hands" },
 ];
 
 function prefersReducedMotion(): boolean {
@@ -43,47 +19,12 @@ function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function HoverPreviewVideo({ bubble }: { bubble: VideoBubble }) {
-  const ref = useRef<HTMLVideoElement>(null);
-  const onEnter = () => {
-    if (prefersReducedMotion()) return;
-    const v = ref.current;
-    if (!v) return;
-    const p = v.play();
-    if (p && typeof p.catch === "function") p.catch(() => {});
-  };
-  const onLeave = () => {
-    const v = ref.current;
-    if (!v) return;
-    v.pause();
-    v.currentTime = 0;
-  };
-  return (
-    <video
-      ref={ref}
-      muted
-      loop
-      playsInline
-      preload="none"
-      poster={bubble.poster}
-      aria-hidden="true"
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-      className="absolute inset-0 h-full w-full object-cover"
-    >
-      <source src={bubble.src} type="video/mp4" />
-    </video>
-  );
-}
-
 function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     closeRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -99,7 +40,7 @@ function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => voi
       aria-modal="true"
       aria-label={bubble.caption}
       onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0A1628]/90 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0A1628]/92 p-4 backdrop-blur-sm"
     >
       <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
         <button
@@ -111,8 +52,10 @@ function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => voi
         >
           Close <X size={15} />
         </button>
-        <div className="relative w-full overflow-hidden border border-gold/25 bg-black" style={{ aspectRatio: "16 / 9" }}>
-          {/* autoPlay is user-initiated (they clicked the tile), so it is allowed */}
+        <div
+          className="relative w-full overflow-hidden border border-gold/25 bg-black"
+          style={{ aspectRatio: "16 / 9" }}
+        >
           <video
             controls
             autoPlay
@@ -132,92 +75,137 @@ function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => voi
 }
 
 export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubble[] }) {
-  const rowRef = useRef<HTMLDivElement>(null);
-  const [near, setNear] = useState(false);
-  const [open, setOpen] = useState<VideoBubble | null>(null);
+  const wrapRef   = useRef<HTMLDivElement>(null);
+  const videoRef  = useRef<HTMLVideoElement>(null);
+  const [near,      setNear]      = useState(false);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [progress,  setProgress]  = useState(0); // 0–1 progress for active clip
+  const [open,      setOpen]      = useState(false);
   const reduced = prefersReducedMotion();
 
-  // Only allow hover-preview where a precise pointer exists (desktop).
-  const [hoverCapable, setHoverCapable] = useState(false);
+  // Defer load until near viewport
   useEffect(() => {
-    if (typeof window !== "undefined" && window.matchMedia) {
-      setHoverCapable(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
-    }
-  }, []);
-
-  useEffect(() => {
-    const el = rowRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
-      setNear(true);
-      return;
-    }
+    const el = wrapRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") { setNear(true); return; }
     const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setNear(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "300px" },
+      (entries) => { if (entries.some((e) => e.isIntersecting)) { setNear(true); io.disconnect(); } },
+      { rootMargin: "250px" },
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
-  const close = useCallback(() => setOpen(null), []);
+  // Load & play the active clip whenever it changes
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || !near) return;
+    v.src = bubbles[activeIdx].src;
+    v.load();
+    setProgress(0);
+    const tryPlay = () => {
+      const p = v.play();
+      if (p) p.catch(() => {});
+    };
+    v.addEventListener("canplay", tryPlay, { once: true });
+    return () => v.removeEventListener("canplay", tryPlay);
+  }, [activeIdx, near, bubbles]);
+
+  const handleTimeUpdate = () => {
+    const v = videoRef.current;
+    if (!v || !v.duration) return;
+    setProgress(v.currentTime / v.duration);
+  };
+
+  const handleEnded = useCallback(() => {
+    setActiveIdx((i) => (i + 1) % bubbles.length);
+  }, [bubbles.length]);
+
+  const close = useCallback(() => setOpen(false), []);
 
   return (
-    <div>
-      <div
-        ref={rowRef}
-        className="grid grid-cols-2 gap-4 sm:grid-cols-4"
-        role="list"
-        aria-label="Professional home-marketing clips"
+    <div ref={wrapRef} className="flex flex-col items-center">
+
+      {/* ── Single video bubble ──────────────────────────────────────────── */}
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-label={`Watch: ${bubbles[activeIdx].caption}`}
+        className={`group relative block ${reduced ? "" : "video-bubble-float"}`}
+        style={{
+          width: "clamp(200px, 55vw, 340px)",
+          aspectRatio: "1 / 1",
+        }}
       >
+        {/* Outer glow ring */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -inset-[3px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{ background: "radial-gradient(circle, rgba(176,141,87,0.35) 0%, transparent 72%)" }}
+        />
+
+        {/* Circle */}
+        <span className="absolute inset-0 rounded-full overflow-hidden border border-gold/30 bg-[#0F2038] shadow-2xl shadow-navy/50 transition-all duration-500 group-hover:border-gold/55">
+          {/* Auto-playing clip */}
+          {near && (
+            <video
+              ref={videoRef}
+              muted
+              playsInline
+              onTimeUpdate={handleTimeUpdate}
+              onEnded={handleEnded}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          )}
+
+          {/* Vignette so edges read clean */}
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{ background: "radial-gradient(circle at center, transparent 55%, rgba(10,22,40,0.55) 100%)" }}
+          />
+
+          {/* Play icon — subtle, shows on hover */}
+          <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/55 bg-[#0A1628]/60 text-gold backdrop-blur-sm shadow-lg">
+              <Play size={20} className="ml-0.5" fill="currentColor" />
+            </span>
+          </span>
+        </span>
+      </button>
+
+      {/* ── Story-style progress segments ───────────────────────────────── */}
+      <div className="mt-5 flex items-center gap-1.5" role="group" aria-label="Clip sequence">
         {bubbles.map((b, i) => (
           <button
             key={b.src}
             type="button"
-            role="listitem"
-            onClick={() => { setNear(true); setOpen(b); }}
-            aria-label={`Play clip: ${b.caption}`}
-            className={`group relative flex flex-col text-left focus-visible:outline-none ${
-              reduced ? "" : "video-bubble-float"
-            }`}
-            style={reduced ? undefined : { animationDelay: `${i * 0.4}s` }}
+            onClick={() => { setActiveIdx(i); setProgress(0); }}
+            aria-label={`Clip ${i + 1}: ${b.caption}`}
+            className="relative h-[3px] rounded-full overflow-hidden transition-all duration-300"
+            style={{ width: i === activeIdx ? "2.25rem" : "0.65rem" }}
           >
-            {/* Reserved-ratio tile → no layout shift */}
-            <span
-              className="relative block w-full overflow-hidden rounded-full border border-gold/25 bg-[#0F2038] shadow-lg shadow-black/30 transition-all duration-300 group-hover:border-gold/60 group-hover:shadow-gold/10 group-focus-visible:border-gold"
-              style={{ aspectRatio: "1 / 1" }}
-            >
-              {/* Poster / gradient base (always present, prevents flash) */}
+            {/* Track */}
+            <span className="absolute inset-0 rounded-full bg-navy/15" />
+            {/* Fill */}
+            {i < activeIdx && (
+              <span className="absolute inset-0 rounded-full bg-gold/70" />
+            )}
+            {i === activeIdx && (
               <span
-                aria-hidden="true"
-                className="absolute inset-0"
-                style={
-                  b.poster
-                    ? { backgroundImage: `url(${b.poster})`, backgroundSize: "cover", backgroundPosition: "center" }
-                    : { background: "radial-gradient(circle at 35% 30%, #1E3352, #0A1628)" }
-                }
+                className="absolute inset-y-0 left-0 rounded-full bg-gold"
+                style={{ width: `${progress * 100}%`, transition: "width 0.15s linear" }}
               />
-              {/* Hover-preview clip (desktop, motion-OK, only once near viewport) */}
-              {near && hoverCapable && !reduced && <HoverPreviewVideo bubble={b} />}
-              {/* Play affordance */}
-              <span className="absolute inset-0 flex items-center justify-center">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/50 bg-[#0A1628]/55 text-gold backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-                  <Play size={16} className="ml-0.5" fill="currentColor" />
-                </span>
-              </span>
-            </span>
-            <span className="mt-3 px-1 font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-white/55 transition-colors group-hover:text-gold/80">
-              {b.caption}
-            </span>
+            )}
           </button>
         ))}
       </div>
 
-      {open && <Lightbox bubble={open} onClose={close} />}
+      {/* ── Caption ─────────────────────────────────────────────────────── */}
+      <p className="mt-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-navy/45 text-center transition-all duration-300">
+        {bubbles[activeIdx].caption}
+      </p>
+
+      {open && <Lightbox bubble={bubbles[activeIdx]} onClose={close} />}
     </div>
   );
 }
