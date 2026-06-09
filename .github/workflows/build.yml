@@ -2,6 +2,11 @@ name: Build & Deploy
 
 on:
   workflow_dispatch:
+    inputs:
+      netlify_token:
+        description: 'Netlify personal access token (get from app.netlify.com → User Settings → Applications → Personal access tokens). Leave blank to use the NETLIFY_AUTH_TOKEN secret instead.'
+        required: false
+        type: string
   pull_request:
   push:
     branches:
@@ -26,22 +31,38 @@ jobs:
       - name: Type check
         run: npm run lint
 
+      - name: Prefetch video assets
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        run: bash scripts/fetch-videos.sh
+
       - name: Build
         run: npm run build
 
       - name: Deploy to Netlify
-        # Only deploy on pushes to main (not on PRs)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
-        uses: nwtgck/actions-netlify@v3
-        with:
-          publish-dir: './dist'
-          production-branch: main
-          production-deploy: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions — ${{ github.sha }}"
-          enable-pull-request-comment: false
-          enable-commit-comment: false
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          # Site ID is not sensitive; baked in so only the auth token needs to be set as a secret.
-          NETLIFY_SITE_ID: b85e7947-5d72-4bc2-ab4c-82caad1477fb
+          INPUT_TOKEN: ${{ inputs.netlify_token }}
+          SECRET_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          TOKEN="$INPUT_TOKEN"
+          if [ -z "$TOKEN" ]; then
+            TOKEN="$SECRET_TOKEN"
+          fi
+          if [ -z "$TOKEN" ]; then
+            if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+              echo "::error title=No deploy credentials::Provide netlify_token as workflow input, or set the NETLIFY_AUTH_TOKEN secret."
+              exit 1
+            else
+              echo "No deploy credentials — skipping deploy. Set NETLIFY_AUTH_TOKEN secret to enable auto-deploy on push."
+              exit 0
+            fi
+          fi
+          echo "::add-mask::$TOKEN"
+          npm install -g netlify-cli --prefer-offline --no-audit --loglevel error
+          netlify deploy \
+            --auth "$TOKEN" \
+            --site b85e7947-5d72-4bc2-ab4c-82caad1477fb \
+            --dir ./dist \
+            --no-build \
+            --prod \
+            --message "Deploy from GitHub Actions — ${{ github.sha }}"
