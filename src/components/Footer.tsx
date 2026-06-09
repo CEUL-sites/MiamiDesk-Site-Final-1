@@ -155,6 +155,12 @@ export function Footer() {
               <a href="/sell-fort-lauderdale" className="transition-colors hover:text-gold">Sell in Fort Lauderdale</a>
               <a href="/sell-plantation" className="transition-colors hover:text-gold">Sell in Plantation</a>
               <a href="/sell-sunrise" className="transition-colors hover:text-gold">Sell in Sunrise</a>
+              <a href="/sell-miami" className="transition-colors hover:text-gold">Sell in Miami</a>
+              <a href="/sell-kendall" className="transition-colors hover:text-gold">Sell in Kendall</a>
+              <a href="/sell-downtown-miami" className="transition-colors hover:text-gold">Sell in Downtown Miami</a>
+              <a href="/sell-north-miami" className="transition-colors hover:text-gold">Sell in North Miami</a>
+              <a href="/sell-pompano-beach" className="transition-colors hover:text-gold">Sell in Pompano Beach</a>
+              <a href="/sell-hallandale-beach" className="transition-colors hover:text-gold">Sell in Hallandale Beach</a>
               <a href="/home-value" className="transition-colors hover:text-gold">Free Home Valuation</a>
               <a href="/global-desk" className="transition-colors hover:text-gold">Global Desk</a>
               <a href="/markets" className="transition-colors hover:text-gold">Markets</a>
