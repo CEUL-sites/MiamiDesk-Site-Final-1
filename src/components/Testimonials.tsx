@@ -1,5 +1,10 @@
 import type { FC } from "react";
 
+// Carlos's verified Realtor.com agent profile — the third-party source for these
+// reviews. Surfaced as a prominent link-out so the trust signal is verifiable.
+const REALTOR_PROFILE_URL =
+  "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51";
+
 const REVIEWS_ROW1 = [
   {
     name: "Maria Isabel Onate",
@@ -164,13 +169,13 @@ export function Testimonials() {
   return (
     <section className="bg-navy-deep pt-12 pb-16 overflow-hidden border-t border-gold/10">
       <div className="mx-auto max-w-7xl px-6 mb-12">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3">
               Client Reviews
             </p>
             <h2 className="font-serif text-3xl text-white">
-              What Clients Say
+              What My Clients Say
             </h2>
             <div className="mt-3 flex items-center gap-2.5">
               <span className="flex gap-0.5" aria-hidden="true">
@@ -186,12 +191,12 @@ export function Testimonials() {
             </div>
           </div>
           <a
-            href="https://www.realtor.com/realestateagents/carlos-uzcategui_plantation_fl_13543289_496481835"
+            href={REALTOR_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/40 hover:text-gold transition-colors flex-shrink-0"
+            className="inline-flex flex-shrink-0 items-center gap-2 self-start border border-gold/40 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10 sm:self-auto"
           >
-            View on Realtor.com® →
+            Reviews verified on Realtor.com® →
           </a>
         </div>
       </div>
@@ -212,7 +217,11 @@ export function Testimonials() {
 
       <div className="mx-auto max-w-7xl px-6 mt-10">
         <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/25">
-          Reviews sourced from Realtor.com® Verified Reviews and client testimonials. Individual results vary.
+          Reviews sourced from Carlos's{" "}
+          <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="text-white/40 underline hover:text-gold">
+            verified Realtor.com® profile
+          </a>{" "}
+          and client testimonials. Individual results vary.
         </p>
       </div>
     </section>

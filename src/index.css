@@ -306,3 +306,15 @@ video {
 }
 .prose-journal a:hover { color: #8a6d3f; }
 .prose-journal strong { color: #0B1E3F; }
+
+/* ── VideoBubbles — gentle float (disabled under reduced-motion) ───────────── */
+@keyframes video-bubble-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+.video-bubble-float {
+  animation: video-bubble-bob 5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-bubble-float { animation: none; }
+}

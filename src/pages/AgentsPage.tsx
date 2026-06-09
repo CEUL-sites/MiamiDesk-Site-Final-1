@@ -798,7 +798,7 @@ export default function AgentsPage() {
                 <span className="text-gold">inside South Florida's network.</span>
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
-                United Realty Group is one of Florida's largest independently owned brokerages — {CONTACT.stats.urgAgents} agents
+                United Realty Group is ranked #1 in Florida by most closed homes — {CONTACT.stats.urgAgents} agents
                 across {CONTACT.stats.urgOffices} South Florida offices. Whether you are already licensed and looking for the
                 right home, or exploring real estate as a career, this is a professional environment built for independent
                 agents who want to work at scale.

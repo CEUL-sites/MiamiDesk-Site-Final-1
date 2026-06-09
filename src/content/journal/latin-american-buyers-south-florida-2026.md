@@ -47,7 +47,7 @@ Understanding LATAM buyer behavior patterns helps sellers prepare their properti
 
 ## How South Florida Sellers Reach LATAM Buyers
 
-The Miami and South Florida REALTORS® Association maintains 300+ international partner associations, including relationships with real estate organizations in Colombia, Brazil, Argentina, Mexico, and other LATAM countries. Listing through a Miami REALTORS® member activates this referral infrastructure on day one.
+The Miami and South Florida REALTORS® Association maintains 300+ international partner associations, including relationships with real estate organizations in Colombia, Brazil, Argentina, Mexico, and other LATAM countries. Listing through a Miami REALTORS® member activates this referral infrastructure.
 
 Beyond MLS distribution, LATAM buyer activation requires:
 

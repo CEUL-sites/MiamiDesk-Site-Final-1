@@ -565,11 +565,11 @@ export default function EsAgentesPage() {
               </div>
               <div className="bg-white p-6 text-center">
                 <div className="font-serif text-3xl text-navy-deep">
-                  #1 en Florida
+                  3.500+
                 </div>
                 <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
-                  Volumen 2025
+                  Agentes URG · 20 oficinas
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
@@ -812,7 +812,7 @@ export default function EsAgentesPage() {
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
                 {/* TODO: native Madrid editor review */}
                 Afiliado a United Realty Group — empresa de mayor volumen
-                transaccional en Florida, con más de 3.000 agentes y 19
+                transaccional en Florida, con más de 3.500 agentes y 20
                 oficinas.
               </p>
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
