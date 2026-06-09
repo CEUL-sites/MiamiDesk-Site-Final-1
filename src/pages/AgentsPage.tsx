@@ -127,10 +127,10 @@ export default function AgentsPage() {
   return (
     <>
       <Helmet>
-        <title>Miami Desk for International Listing Agents | Win More Listings | HomesProfessional.com</title>
+        <title>For Real Estate Agents | Referrals, Miami Exposure & Careers | HomesProfessional.com</title>
         <meta
           name="description"
-          content="International agents: add a Miami exposure layer to your listings. Florida-licensed Realtor® connected to 93,000 Miami REALTORS®. You keep the mandate."
+          content="Three ways agents work with Carlos: refer a buyer or seller for a fee at closing, add Miami-facing exposure to a listing, or join URG with 25-year mentorship. Florida-licensed Realtor®, 93,000 Miami REALTORS®."
         />
         <meta
           name="keywords"
@@ -198,27 +198,27 @@ export default function AgentsPage() {
             <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/[0.06] px-4 py-1.5 mb-7 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
               <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">
-                Miami Desk · International Listing Exposure · Spain · Latin America · Global
+                For Agents · Referrals · International Exposure · Careers
               </span>
             </div>
             <h1
               className="mx-auto max-w-4xl font-serif leading-[1.08] text-white"
               style={{ fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)" }}
             >
-              Win More Listings With a<br />
-              <em className="not-italic italic text-gold">Miami-Facing Exposure Strategy.</em>
+              Three Ways the Best Agents<br />
+              <em className="not-italic italic text-gold">Work With Carlos.</em>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/65">
-              Give your sellers a stronger reason to choose you. Selected properties can be packaged for
-              U.S.-facing exposure through a Florida-licensed Realtor® partner connected to the South Florida
-              real estate network, bilingual presentation, and international referral channels.
+              Refer a buyer or seller and get paid at closing. Give a listing serious U.S. and
+              international reach. Or build your own career alongside a Florida-licensed Realtor® with
+              25 years inside South Florida's network. Pick your path below.
             </p>
-            <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
               <a
-                href="#submit-listing"
+                href="#choose-path"
                 className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
               >
-                Submit a Listing for Review
+                See How It Works
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
@@ -228,7 +228,7 @@ export default function AgentsPage() {
                 className="inline-flex items-center gap-2 border border-white/20 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 <MessageSquare size={14} />
-                Request Agency Partnership Call
+                Message Carlos Directly
               </a>
             </div>
             <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
@@ -254,6 +254,75 @@ export default function AgentsPage() {
             ))}
           </div>
         </div>
+
+        {/* ── Choose Your Path ─────────────────────────────────────── */}
+        <section className="bg-white py-20 md:py-28" id="choose-path">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-12 text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Agents Work With Carlos</p>
+              <h2 className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                One desk. Three ways to win.
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl font-sans text-[15px] leading-relaxed text-ink-primary/60">
+                Wherever you are in your business, there is a structured, documented way to work together —
+                and a personal response from Carlos, not a call center.
+              </p>
+            </div>
+            <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-3">
+              {[
+                {
+                  icon: Handshake,
+                  tag: "Path 01 · Referrals",
+                  title: "Refer a buyer or seller",
+                  body: "Have a client buying or selling in South Florida — or a U.S./international buyer looking abroad? Send the referral, keep the relationship, and get paid at closing under a written agreement.",
+                  points: ["Both directions — buyers and sellers", "Local + cross-border", "Documented fee at closing"],
+                  cta: "Submit a referral",
+                  href: "#south-florida-referral",
+                },
+                {
+                  icon: Globe2,
+                  tag: "Path 02 · Exposure",
+                  title: "Give a listing international reach",
+                  body: "International or premium listing agents can add a Miami-facing exposure layer — bilingual packaging into the South Florida network and U.S./LATAM buyer channels. You keep the mandate.",
+                  points: ["You keep the mandate & client", "93,000-agent network access", "Bilingual U.S./LATAM channels"],
+                  cta: "Submit a listing",
+                  href: "#submit-listing",
+                },
+                {
+                  icon: UserPlus,
+                  tag: "Path 03 · Careers",
+                  title: "Join URG or get mentored",
+                  body: "New to real estate, or an experienced agent ready for a change? Build your career inside Florida's #1 brokerage by closed homes — with hands-on guidance from a 25-year agent who works the same MLS.",
+                  points: ["New agents — start strong", "Switching from another agency", "Direct mentorship from Carlos"],
+                  cta: "Explore joining",
+                  href: "#join-urg",
+                },
+              ].map((p) => (
+                <div key={p.title} className="flex flex-col bg-white p-8">
+                  <p.icon size={22} className="text-gold" strokeWidth={1.5} />
+                  <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80">{p.tag}</p>
+                  <h3 className="mt-2 font-serif text-xl text-navy-deep leading-snug">{p.title}</h3>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{p.body}</p>
+                  <ul className="mt-5 space-y-2">
+                    {p.points.map((pt) => (
+                      <li key={pt} className="flex items-start gap-2.5">
+                        <BadgeCheck size={13} className="mt-0.5 flex-shrink-0 text-gold/70" />
+                        <span className="font-sans text-[13px] leading-snug text-ink-primary/70">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={p.href}
+                    className="group mt-7 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold"
+                  >
+                    {p.cta}
+                    <ChevronRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* ── Problem ──────────────────────────────────────────────── */}
         <section className="bg-ivory py-20 md:py-28">
@@ -791,7 +860,7 @@ export default function AgentsPage() {
           <div className="relative mx-auto max-w-6xl px-6">
 
             {/* Section header */}
-            <div className="mb-14">
+            <div className="mb-12">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Career Opportunity · South Florida</p>
               <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
                 Build your real estate career<br />
@@ -799,10 +868,34 @@ export default function AgentsPage() {
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
                 United Realty Group is ranked #1 in Florida by most closed homes — {CONTACT.stats.urgAgents} agents
-                across {CONTACT.stats.urgOffices} South Florida offices. Whether you are already licensed and looking for the
-                right home, or exploring real estate as a career, this is a professional environment built for independent
-                agents who want to work at scale.
+                across {CONTACT.stats.urgOffices} South Florida offices. Whatever stage you are at, you work directly
+                with Carlos — an active 25-year agent on the same MLS, not a branch manager reviewing paperwork.
               </p>
+            </div>
+
+            {/* Two audiences — new vs. experienced */}
+            <div className="mb-14 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+              {[
+                {
+                  icon: UserPlus,
+                  tag: "New to real estate",
+                  title: "Start your career the right way.",
+                  body: "From licensing to your first closing, you get a clear path and a mentor who has done it for 25 years — instead of a desk and a login. Learn the MLS, listing strategy, and how to build a pipeline from zero in a competitive, international market.",
+                },
+                {
+                  icon: Handshake,
+                  tag: "Experienced · switching agency",
+                  title: "Ready for a change and real guidance.",
+                  body: "Already licensed but underserved by your current brokerage? Bring your book, keep your independence, and gain a hands-on partner working the same market. For agents who want mentorship and growth — not just a lower split and silence.",
+                },
+              ].map((a) => (
+                <div key={a.tag} className="bg-white p-8">
+                  <a.icon size={20} className="text-gold" strokeWidth={1.5} />
+                  <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80">{a.tag}</p>
+                  <h3 className="mt-2 font-serif text-xl text-navy-deep leading-snug">{a.title}</h3>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{a.body}</p>
+                </div>
+              ))}
             </div>
 
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
