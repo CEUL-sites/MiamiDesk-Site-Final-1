@@ -14,6 +14,8 @@
   "reactSnap": {
     "source": "dist",
     "destination": "dist",
+    "skipThirdPartyRequests": true,
+    "crashOnError": false,
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
