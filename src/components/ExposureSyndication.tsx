@@ -75,12 +75,6 @@ const TIER_CLASSES: Record<1 | 2 | 3, string> = {
   3: "px-4 py-2 text-[11px] font-normal uppercase tracking-wider",
 };
 
-const BOTTOM_STATS = [
-  { value: "200+", label: "Global Portals" },
-  { value: "11",   label: "MLS Data Exchanges" },
-  { value: "260+", label: "U.S. MLSs via RPR" },
-  { value: "437+", label: "Intl. Agreements" },
-];
 
 export const ExposureSyndication = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -156,29 +150,6 @@ export const ExposureSyndication = () => {
         ))}
       </motion.div>
 
-      {/* ── Bottom stats bar ── */}
-      <div className="mx-auto max-w-5xl px-6 mt-14">
-        <div className="h-px w-full bg-gold/25" />
-        <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 py-10">
-          {BOTTOM_STATS.map((stat, i) => (
-            <div key={stat.label} className="flex items-center gap-10">
-              <div className="text-center">
-                <div className="font-serif text-4xl text-gold">{stat.value}</div>
-                <div className="font-mono mt-1.5 text-[9px] uppercase tracking-[0.22em] text-white/55">
-                  {stat.label}
-                </div>
-              </div>
-              {i < BOTTOM_STATS.length - 1 && (
-                <div className="hidden sm:block w-px h-10 bg-white/10" />
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="h-px w-full bg-gold/25" />
-        <p className="font-mono text-center text-[9px] uppercase tracking-[0.22em] text-white/40 mt-5">
-          Source: Miami and South Florida REALTORS® · Verified syndication data
-        </p>
-      </div>
     </section>
   );
 };
