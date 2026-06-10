@@ -26,10 +26,12 @@
 
   <url>
     <loc>https://homesprofessional.com/sell-weston</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-weston"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-weston"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-weston"/>
   </url>
 
   <url>
@@ -50,10 +52,12 @@
 
   <url>
     <loc>https://homesprofessional.com/sell-doral</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-doral"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-doral"/>
   </url>
 
   <url>
@@ -66,18 +70,22 @@
 
   <url>
     <loc>https://homesprofessional.com/sell-miami</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-miami"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-miami"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-miami"/>
   </url>
 
   <url>
     <loc>https://homesprofessional.com/sell-kendall</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-kendall"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-kendall"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-kendall"/>
   </url>
 
   <url>
@@ -279,6 +287,46 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/vender-doral</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-doral"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-doral"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/vender-weston</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-weston"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-weston"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-weston"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/vender-kendall</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-kendall"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-kendall"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-kendall"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/vender-miami</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-miami"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-miami"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-miami"/>
   </url>
 
   <url>

@@ -48,6 +48,9 @@ export default function SellWestonPage() {
         <meta name="twitter:title" content="Sell Your Weston, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Weston, FL home sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-weston" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender-weston" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-weston" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

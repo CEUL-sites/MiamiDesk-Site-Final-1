@@ -52,6 +52,10 @@ const EsComprarPage      = lazy(() => import('./pages/es/EsComprarPage'));
 const EsAgentesPage      = lazy(() => import('./pages/es/EsAgentesPage'));
 const EsGraciasAgentePage = lazy(() => import('./pages/es/EsGraciasAgentePage'));
 const EsSpainDeskPage    = lazy(() => import('./pages/es/EsSpainDeskPage'));
+const EsVenderDoralPage  = lazy(() => import('./pages/es/EsVenderDoralPage'));
+const EsVenderWestonPage = lazy(() => import('./pages/es/EsVenderWestonPage'));
+const EsVenderKendallPage = lazy(() => import('./pages/es/EsVenderKendallPage'));
+const EsVenderMiamiPage  = lazy(() => import('./pages/es/EsVenderMiamiPage'));
 const ReviewsPage              = lazy(() => import('./pages/ReviewsPage'));
 const LaComisionSecretaPage    = lazy(() => import('./pages/LaComisionSecretaPage'));
 const NotFoundPage             = lazy(() => import('./pages/NotFoundPage'));
@@ -124,6 +128,10 @@ if (rootElement) {
                 <Route path="/es/agentes"         element={<EsAgentesPage />} />
                 <Route path="/es/gracias/agente"  element={<EsGraciasAgentePage />} />
                 <Route path="/es/spain-desk"      element={<EsSpainDeskPage />} />
+                <Route path="/es/vender-doral"    element={<EsVenderDoralPage />} />
+                <Route path="/es/vender-weston"   element={<EsVenderWestonPage />} />
+                <Route path="/es/vender-kendall"  element={<EsVenderKendallPage />} />
+                <Route path="/es/vender-miami"    element={<EsVenderMiamiPage />} />
                 <Route path="/es/madrid"          element={<Navigate to="/markets" replace />} />
 <Route path="*"                   element={<NotFoundPage />} />
               </Routes>

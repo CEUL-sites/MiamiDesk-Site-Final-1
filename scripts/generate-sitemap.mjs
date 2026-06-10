@@ -46,13 +46,13 @@ const STATIC = [
       { lang: 'es', path: '/es/vender' },
     ],
   },
-  { path: '/sell-weston',         lastmod: '2026-06-03', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-weston' }] },
+  { path: '/sell-weston',         lastmod: '2026-06-10', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-weston' }, { lang: 'es', path: '/es/vender-weston' }, { lang: 'x-default', path: '/sell-weston' }] },
   { path: '/sell-coral-gables',   lastmod: '2026-06-03', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-coral-gables' }] },
   { path: '/sell-aventura',       lastmod: '2026-06-04', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-aventura' }] },
-  { path: '/sell-doral',          lastmod: '2026-06-04', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-doral' }] },
+  { path: '/sell-doral',          lastmod: '2026-06-10', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-doral' }, { lang: 'es', path: '/es/vender-doral' }, { lang: 'x-default', path: '/sell-doral' }] },
   { path: '/sell-brickell',       lastmod: '2026-06-04', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-brickell' }] },
-  { path: '/sell-miami',          lastmod: '2026-06-09', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-miami' }] },
-  { path: '/sell-kendall',        lastmod: '2026-06-09', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-kendall' }] },
+  { path: '/sell-miami',          lastmod: '2026-06-10', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-miami' }, { lang: 'es', path: '/es/vender-miami' }, { lang: 'x-default', path: '/sell-miami' }] },
+  { path: '/sell-kendall',        lastmod: '2026-06-10', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-kendall' }, { lang: 'es', path: '/es/vender-kendall' }, { lang: 'x-default', path: '/sell-kendall' }] },
   { path: '/sell-downtown-miami', lastmod: '2026-06-09', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-downtown-miami' }] },
   { path: '/sell-north-miami',    lastmod: '2026-06-09', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-north-miami' }] },
   { path: '/sell-pompano-beach',  lastmod: '2026-06-09', changefreq: 'monthly', priority: 0.92, hreflang: [{ lang: 'en', path: '/sell-pompano-beach' }] },
@@ -154,6 +154,52 @@ const STATIC = [
     hreflang: [
       { lang: 'en', path: '/global-desk' },
       { lang: 'es', path: '/es/spain-desk' },
+    ],
+  },
+
+  // Spanish city seller pages
+  {
+    path: '/es/vender-doral',
+    lastmod: '2026-06-10',
+    changefreq: 'monthly',
+    priority: 0.82,
+    hreflang: [
+      { lang: 'en', path: '/sell-doral' },
+      { lang: 'es', path: '/es/vender-doral' },
+      { lang: 'x-default', path: '/sell-doral' },
+    ],
+  },
+  {
+    path: '/es/vender-weston',
+    lastmod: '2026-06-10',
+    changefreq: 'monthly',
+    priority: 0.82,
+    hreflang: [
+      { lang: 'en', path: '/sell-weston' },
+      { lang: 'es', path: '/es/vender-weston' },
+      { lang: 'x-default', path: '/sell-weston' },
+    ],
+  },
+  {
+    path: '/es/vender-kendall',
+    lastmod: '2026-06-10',
+    changefreq: 'monthly',
+    priority: 0.82,
+    hreflang: [
+      { lang: 'en', path: '/sell-kendall' },
+      { lang: 'es', path: '/es/vender-kendall' },
+      { lang: 'x-default', path: '/sell-kendall' },
+    ],
+  },
+  {
+    path: '/es/vender-miami',
+    lastmod: '2026-06-10',
+    changefreq: 'monthly',
+    priority: 0.82,
+    hreflang: [
+      { lang: 'en', path: '/sell-miami' },
+      { lang: 'es', path: '/es/vender-miami' },
+      { lang: 'x-default', path: '/sell-miami' },
     ],
   },
 

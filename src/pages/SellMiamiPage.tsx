@@ -47,6 +47,9 @@ export default function SellMiamiPage() {
         <meta name="twitter:title" content="Sell Your Miami, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Miami, FL home sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-miami" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender-miami" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-miami" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
