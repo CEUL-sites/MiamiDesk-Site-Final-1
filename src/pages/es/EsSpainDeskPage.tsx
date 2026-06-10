@@ -132,7 +132,7 @@ export default function EsSpainDeskPage() {
         <meta property="og:url" content="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:title" content="Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | Carlos Uzcategui" />
         <meta property="og:description" content="Dé a su agencia una ventaja en la presentación de captación: exposición documentada hacia Sur de Florida para sus vendedores, cuando es elegible. Representación local en España; exposición hacia Sur de Florida a través de un Realtor® licenciado en Florida." />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

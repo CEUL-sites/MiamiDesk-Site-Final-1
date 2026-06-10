@@ -21,14 +21,14 @@ export default function HomePage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="South Florida Listing Agent · Sell Your Home | HomesProfessional.com" />
         <meta name="twitter:description" content="Local representation. Professional distribution. Global buyer reach — 93,000 Miami REALTORS® member agents." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <meta name="keywords" content="south florida listing agent, miami listing agent, sell home miami, sell home coral gables, sell home weston florida, miami beach listing agent, brickell condo listing agent, south florida realtor, miami mls listing, united realty group miami" />
         <link rel="canonical" href="https://homesprofessional.com/" />
         <meta property="og:title" content="South Florida Listing Agent · Sell Your Home | HomesProfessional.com" />
         <meta property="og:description" content="Local representation. Professional distribution. Global buyer reach. MLS exposure plus buyer-agent activation across 93,000 member agents — South Florida and international markets." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
@@ -42,7 +42,7 @@ export default function HomePage() {
           "url": "https://homesprofessional.com/",
           "telephone": "+19548656622",
           "email": "contact@carlosre.com",
-          "image": "https://homesprofessional.com/images/carlos-headshot.png",
+          "image": "https://homesprofessional.com/images/social/og-default.jpg",
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
           "areaServed": ["Miami-Dade County", "Broward County", "Palm Beach County"],
           "memberOf": { "@type": "Organization", "name": "Miami and South Florida REALTORS®" },

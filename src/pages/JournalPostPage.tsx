@@ -25,7 +25,7 @@ export default function JournalPostPage() {
 
   const ogImage = post.image
     ? `https://homesprofessional.com${post.image}`
-    : 'https://homesprofessional.com/images/carlos-headshot.png';
+    : 'https://homesprofessional.com/images/social/og-default.jpg';
 
   const articleSchema = {
     '@context': 'https://schema.org',

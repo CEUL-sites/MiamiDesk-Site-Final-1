@@ -131,11 +131,11 @@ export default function EsVenderPage() {
         <meta property="og:description" content="Representación de vendedores en Sur de Florida. Activación en el MLS de Miami, 93.000 agentes miembros, 200+ portales globales. Carlos Uzcategui, REALTOR® FL SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/es/vender" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Vender en Sur de Florida | Estrategia de Venta | Carlos Uzcategui" />
         <meta name="twitter:description" content="Activación en el MLS de Miami, 93.000 agentes miembros, 200+ portales globales. United Realty Group · FL SL705771." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-south-florida" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-south-florida" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender" />

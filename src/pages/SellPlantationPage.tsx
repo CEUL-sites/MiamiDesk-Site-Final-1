@@ -43,11 +43,11 @@ export default function SellPlantationPage() {
         <meta property="og:url" content="https://homesprofessional.com/sell-plantation" />
         <meta property="og:title" content="Sell Your Plantation, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
         <meta property="og:description" content="Professional seller representation in Plantation, FL — MLS activation, buyer-agent network access, and established neighborhood expertise. Free confidential strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Plantation, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Plantation, FL home sellers. Free strategy review — no listing commitment." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

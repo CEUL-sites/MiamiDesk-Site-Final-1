@@ -26,11 +26,11 @@ export default function BuyersPage() {
         <meta property="og:description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — full MLS access, negotiation, and closing. Bilingual English/Spanish. United Realty Group · FL SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/buy" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Buy in South Florida | Full MLS Access | Carlos Uzcategui" />
         <meta name="twitter:description" content="Full MLS access, negotiation, and closing across Miami-Dade, Broward, and Palm Beach. Bilingual English/Spanish." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",

@@ -43,11 +43,11 @@ export default function SellPembrokePinesPage() {
         <meta property="og:url" content="https://homesprofessional.com/sell-pembroke-pines" />
         <meta property="og:title" content="Sell Your Pembroke Pines, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
         <meta property="og:description" content="Professional seller representation in Pembroke Pines, FL — MLS activation, Latin American buyer-agent network access, and global distribution. Free confidential strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Pembroke Pines, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Pembroke Pines, FL home sellers. Free strategy review — no listing commitment." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

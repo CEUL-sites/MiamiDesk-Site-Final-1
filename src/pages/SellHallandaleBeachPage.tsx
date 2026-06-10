@@ -42,11 +42,11 @@ export default function SellHallandaleBeachPage() {
         <meta property="og:url" content="https://homesprofessional.com/sell-hallandale-beach" />
         <meta property="og:title" content="Sell Your Hallandale Beach, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
         <meta property="og:description" content="Professional seller representation in Hallandale Beach, FL — MLS activation, international buyer pipeline, condo-specific positioning. Free confidential strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Hallandale Beach, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and international buyer-agent activation for Hallandale Beach, FL sellers. Free strategy review — no listing commitment." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/social/og-default.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
