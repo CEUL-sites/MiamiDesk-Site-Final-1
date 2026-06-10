@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import { Compass, BarChart3, PlaneLanding } from "lucide-react";
 import { VideoBubbles } from "./VideoBubbles";
 
 // Two directions of representation. Sellers first — the primary funnel — then
@@ -23,29 +22,6 @@ const REPRESENTATION = [
   },
 ];
 
-const PILLARS = [
-  {
-    number: "01",
-    icon: Compass,
-    title: "Strategic Acquisitions",
-    desc: "Neighborhood intelligence and offer structure for buyers, refined by 25 years of South Florida transactions — paired with positioning discipline for sellers entering the same market.",
-    tag: "MIAMI-DADE · BROWARD · PALM BEACH",
-  },
-  {
-    number: "02",
-    icon: BarChart3,
-    title: "Portfolio Positioning",
-    desc: "Analytical support for owners and investors weighing asset types, location fundamentals, and long-term capital positioning across residential and commercial South Florida.",
-    tag: "RESIDENTIAL · COMMERCIAL · MIXED-USE",
-  },
-  {
-    number: "03",
-    icon: PlaneLanding,
-    title: "LATAM & International",
-    desc: "A bilingual bridge for owners and buyers moving capital between Latin America, Europe, and South Florida — 25 years of authentic client relationships, built deal by deal.",
-    tag: "BILINGUAL · ENGLISH & SPANISH",
-  },
-];
 
 export function BuyersRelocation() {
   return (
@@ -130,32 +106,6 @@ export function BuyersRelocation() {
                 <VideoBubbles />
               </div>
             </div>
-          </div>
-
-          {/* Three pillars */}
-          <div className="grid lg:grid-cols-3 gap-6">
-            {PILLARS.map((card, i) => (
-              <motion.div
-                key={card.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 border border-bone hover:border-gold/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group relative overflow-hidden"
-              >
-                <div className="absolute top-4 right-4 font-serif text-6xl font-bold text-navy/5 leading-none select-none">
-                  {card.number}
-                </div>
-                <div className="w-10 h-10 bg-navy/5 flex items-center justify-center mb-6 group-hover:bg-gold/10 transition-colors duration-300">
-                  <card.icon size={20} className="text-gold" />
-                </div>
-                <h3 className="font-serif text-xl text-navy mb-3">{card.title}</h3>
-                <p className="text-navy/60 text-sm leading-relaxed mb-5">{card.desc}</p>
-                <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold/60">
-                  {card.tag}
-                </p>
-              </motion.div>
-            ))}
           </div>
 
         </div>
