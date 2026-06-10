@@ -222,16 +222,21 @@ export default function SellHallandaleBeachPage() {
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Hallandale Beach Market Research</p>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers in South Florida 2026 — Where They're Looking and What They're Buying</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
-              <a href="/sell-south-florida" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Advisory</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">South Florida Seller Strategy — How MLS Distribution Works</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the full seller guide →</p>
+              <a href="/journal/seller-closing-costs-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the cost guide →</p>
+              </a>
+              <a href="/journal/what-is-my-home-worth-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the valuation guide →</p>
               </a>
             </div>
           </div>

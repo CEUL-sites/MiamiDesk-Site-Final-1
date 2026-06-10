@@ -203,13 +203,16 @@ export default function LaComisionSecretaPage() {
                     </p>
                     <div className="mt-10 border-t border-white/10 pt-6">
                       <div className="flex items-center gap-3">
-                        <img
-                          src="/images/carlos-headshot.png"
-                          alt="Carlos Uzcategui"
-                          width="36"
-                          height="36"
-                          className="h-9 w-9 rounded-full object-cover object-top"
-                        />
+                        <picture>
+                          <source srcSet="/images/carlos-headshot.webp" type="image/webp" />
+                          <img
+                            src="/images/carlos-headshot.png"
+                            alt="Carlos Uzcategui"
+                            width="36"
+                            height="36"
+                            className="h-9 w-9 rounded-full object-cover object-top"
+                          />
+                        </picture>
                         <div>
                           <p className="font-serif text-sm text-white">Carlos Uzcategui</p>
                           <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
@@ -373,13 +376,16 @@ export default function LaComisionSecretaPage() {
           <div className="mx-auto max-w-4xl px-6">
             <div className="grid gap-10 sm:grid-cols-[auto_1fr] sm:items-start">
               <div className="relative">
-                <img
-                  src="/images/carlos-headshot.png"
-                  alt="Carlos Uzcategui — FL SL705771"
-                  width="112"
-                  height="112"
-                  className="h-28 w-28 rounded-full object-cover object-top ring-2 ring-gold/30"
-                />
+                <picture>
+                  <source srcSet="/images/carlos-headshot.webp" type="image/webp" />
+                  <img
+                    src="/images/carlos-headshot.png"
+                    alt="Carlos Uzcategui — FL SL705771"
+                    width="112"
+                    height="112"
+                    className="h-28 w-28 rounded-full object-cover object-top ring-2 ring-gold/30"
+                  />
+                </picture>
                 <div className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center bg-gold">
                   <Award size={13} className="text-navy-deep" />
                 </div>

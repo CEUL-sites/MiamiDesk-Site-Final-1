@@ -222,7 +222,7 @@ export default function SellAventuraPage() {
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Aventura Market Research</p>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <a href="/journal/selling-aventura-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Aventura Property in 2026: Market Positioning and International Demand</h3>
@@ -232,6 +232,11 @@ export default function SellAventuraPage() {
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Condo's Sale Price — Reserve Funds, Recertification, and Financing Eligibility</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
+              </a>
+              <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers and South Florida Real Estate — A 2026 Market Perspective</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the buyer analysis →</p>
               </a>
             </div>
           </div>

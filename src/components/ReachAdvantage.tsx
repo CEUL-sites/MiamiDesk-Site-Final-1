@@ -164,15 +164,18 @@ export const ReachAdvantage = () => {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-10 flex flex-col items-center gap-3"
         >
-          <img
-            src="/images/miami-realtors-logo.png"
-            alt="MIAMI Association of REALTORS®"
-            width="170"
-            height="58"
-            loading="lazy"
-            className="h-9 w-auto opacity-85"
-            style={{ filter: "brightness(0) invert(1)" }}
-          />
+          <picture>
+            <source srcSet="/images/miami-realtors-logo.webp" type="image/webp" />
+            <img
+              src="/images/miami-realtors-logo.png"
+              alt="MIAMI Association of REALTORS®"
+              width="170"
+              height="58"
+              loading="lazy"
+              className="h-9 w-auto opacity-85"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
+          </picture>
           <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
             Powered by membership in the Miami and South Florida REALTORS®
           </p>

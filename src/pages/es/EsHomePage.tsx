@@ -82,19 +82,22 @@ export default function EsHomePage() {
 
           {/* Photo layer */}
           <div className="absolute inset-0">
-            <img
-              src="/images/miami-realtors-rworld.jpg"
-              alt=""
-              aria-hidden="true"
-              width="1920"
-              height="1080"
-              loading="eager"
-              fetchPriority="high"
-              className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
-              onLoad={(e) => {
-                (e.target as HTMLImageElement).style.opacity = "0.28";
-              }}
-            />
+            <picture>
+              <source srcSet="/images/miami-realtors-rworld.webp" type="image/webp" />
+              <img
+                src="/images/miami-realtors-rworld.jpg"
+                alt=""
+                aria-hidden="true"
+                width="1920"
+                height="1080"
+                loading="eager"
+                fetchPriority="high"
+                className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
+                onLoad={(e) => {
+                  (e.target as HTMLImageElement).style.opacity = "0.28";
+                }}
+              />
+            </picture>
             <div className="absolute inset-0 bg-navy-deep/55" />
           </div>
 

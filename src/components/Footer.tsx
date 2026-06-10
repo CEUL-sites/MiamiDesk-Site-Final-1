@@ -17,15 +17,18 @@ export function Footer() {
 
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <img
-            src="/images/urg-logo-original.png"
-            alt="United Realty Group"
-            width="160"
-            height="48"
-            loading="lazy"
-            className="mb-5 h-10 w-auto opacity-85"
-            style={{ filter: "brightness(0) invert(1)" }}
-          />
+          <picture>
+            <source srcSet="/images/urg-logo-original.webp" type="image/webp" />
+            <img
+              src="/images/urg-logo-original.png"
+              alt="United Realty Group"
+              width="160"
+              height="48"
+              loading="lazy"
+              className="mb-5 h-10 w-auto opacity-85"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
+          </picture>
           <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
           <p className="font-mono mt-2 text-[9px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
           <p className="mt-5 max-w-xs font-sans text-sm font-light leading-relaxed text-white/55">
@@ -44,15 +47,18 @@ export function Footer() {
           {/* MIAMI REALTORS® membership affiliation */}
           <div className="mt-8 border-t border-white/10 pt-6">
             <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-white/30">Proud Member</p>
-            <img
-              src="/images/miami-realtors-logo.png"
-              alt="Member of the MIAMI Association of REALTORS®"
-              width="150"
-              height="51"
-              loading="lazy"
-              className="mt-3 h-8 w-auto opacity-80"
-              style={{ filter: "brightness(0) invert(1)" }}
-            />
+            <picture>
+              <source srcSet="/images/miami-realtors-logo.webp" type="image/webp" />
+              <img
+                src="/images/miami-realtors-logo.png"
+                alt="Member of the MIAMI Association of REALTORS®"
+                width="150"
+                height="51"
+                loading="lazy"
+                className="mt-3 h-8 w-auto opacity-80"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+            </picture>
             <p className="mt-3 max-w-xs font-sans text-[11px] font-light leading-relaxed text-white/40">
               United Realty Group is a member of the MIAMI Association of REALTORS® — the largest local REALTOR® association in the U.S.
             </p>

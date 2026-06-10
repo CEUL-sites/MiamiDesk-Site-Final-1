@@ -22,15 +22,18 @@ export function MiamiRealtorsBadge({
   const dark = variant === "dark";
   return (
     <div className={`flex flex-col items-center gap-2 ${className}`}>
-      <img
-        src="/images/miami-realtors-logo.png"
-        alt={text}
-        width="160"
-        height="55"
-        loading="lazy"
-        className="h-8 w-auto opacity-85"
-        style={dark ? { filter: "brightness(0) invert(1)" } : undefined}
-      />
+      <picture>
+        <source srcSet="/images/miami-realtors-logo.webp" type="image/webp" />
+        <img
+          src="/images/miami-realtors-logo.png"
+          alt={text}
+          width="160"
+          height="55"
+          loading="lazy"
+          className="h-8 w-auto opacity-85"
+          style={dark ? { filter: "brightness(0) invert(1)" } : undefined}
+        />
+      </picture>
       <p className={`font-mono text-[9px] uppercase tracking-[0.22em] ${dark ? "text-white/35" : "text-navy/45"}`}>
         {text}
       </p>

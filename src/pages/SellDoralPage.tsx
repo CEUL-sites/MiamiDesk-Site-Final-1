@@ -221,7 +221,7 @@ export default function SellDoralPage() {
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Doral Market Research</p>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <a href="/journal/selling-doral-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Doral Home — What the Latin American Buyer Pool Actually Means for Price and Timeline</h3>
@@ -231,6 +231,11 @@ export default function SellDoralPage() {
                 <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What Doral Sellers Need to Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
+              </a>
+              <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers and South Florida Real Estate — A 2026 Market Perspective</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the buyer analysis →</p>
               </a>
             </div>
           </div>

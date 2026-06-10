@@ -118,14 +118,17 @@ export function GlobalPartnerNetwork({ lang = "en" }: { lang?: Lang }) {
             className="flex-shrink-0 lg:w-[260px]"
           >
             <div className="overflow-hidden rounded-lg border border-gold/15 bg-white/[0.03]">
-              <img
-                src="/images/miami-realtors-rworld.jpg"
-                alt={t.imgAlt}
-                width="520"
-                height="292"
-                loading="lazy"
-                className="h-auto w-full opacity-80 mix-blend-luminosity transition-opacity duration-500 hover:opacity-95"
-              />
+              <picture>
+                <source srcSet="/images/miami-realtors-rworld.webp" type="image/webp" />
+                <img
+                  src="/images/miami-realtors-rworld.jpg"
+                  alt={t.imgAlt}
+                  width="520"
+                  height="292"
+                  loading="lazy"
+                  className="h-auto w-full opacity-80 mix-blend-luminosity transition-opacity duration-500 hover:opacity-95"
+                />
+              </picture>
               <div className="px-4 py-3 text-center">
                 <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/35">{t.imgCaption}</p>
               </div>
