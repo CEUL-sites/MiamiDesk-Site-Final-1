@@ -45,15 +45,9 @@ export function HowCarlosWorks() {
               The strongest offer usually arrives with the buyer's own agent.
             </h3>
             <p className="mt-4 font-sans text-sm leading-relaxed text-white/65">
-              Twenty-five years representing South Florida sellers taught me a simple lesson: you
-              work in teams with other agents. The vast majority of strong offers come through a
-              buyer's own agent — so cooperating openly with agents across many agencies, not only
-              United Realty Group, is part of delivering professional service to a homeowner. It
-              widens the qualified-buyer field instead of narrowing it.
-            </p>
-            <p className="mt-4 font-sans text-sm leading-relaxed text-white/45">
-              That is the opposite of keeping a listing in-house. The objective is the best outcome
-              for the seller, and the best outcome lives in the widest professional network.
+              Twenty-five years taught me a simple lesson: the strongest offers come through a
+              buyer's own agent. So I cooperate openly with agents across every agency —
+              widening your buyer field instead of guarding it.
             </p>
           </motion.div>
 
@@ -70,14 +64,9 @@ export function HowCarlosWorks() {
               Local listing agent — and international distribution partner.
             </h3>
             <p className="mt-4 font-sans text-sm leading-relaxed text-white/65">
-              I am an active listing agent in South Florida, representing homeowners directly since
-              2001. I also represent prime properties under agreement with international real estate
-              agencies and developers, placing their inventory on the Miami MLS, with referral
-              cooperation coordinated through United Realty Group as the licensed Florida broker.
-            </p>
-            <p className="mt-4 font-sans text-sm leading-relaxed text-white/45">
-              The bilateral role is the point: it widens reach for my South Florida sellers and for
-              the international partners whose inventory I bring into the American market.
+              I've listed South Florida homes directly since 2001 — and I place international
+              inventory on the Miami MLS for overseas agencies and developers. Both roles
+              widen the reach of every listing I represent.
             </p>
           </motion.div>
         </div>

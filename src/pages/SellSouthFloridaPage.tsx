@@ -4,6 +4,8 @@ import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
+import { ExitIntentModal } from "../components/ExitIntentModal";
 import { LazyVideo } from "../components/LazyVideo";
 import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerSection } from "../components/SellerSection";
@@ -18,19 +20,19 @@ import { CONTACT, LEAD_MAGNETS, SOURCES, MESSAGING } from "../constants";
 const WHO_THIS_IS_FOR = [
   {
     title: "South Florida Homeowners",
-    body: "Selling a primary residence in Miami-Dade, Broward, or Palm Beach? The right MLS strategy and buyer-agent activation determine outcome more than the listing platform.",
+    body: "Selling a home in Miami-Dade, Broward, or Palm Beach — where MLS strategy decides the outcome.",
   },
   {
     title: "International Property Owners in Florida",
-    body: "Florida-based property owned by non-resident or internationally-based sellers. Full advisory, MLS positioning, and coordination through every step — regardless of where you are located.",
+    body: "Non-resident owners of Florida property. Full advisory and MLS positioning, wherever you live.",
   },
   {
     title: "Investors Exiting South Florida Positions",
-    body: "Condo investors, portfolio sellers, and buy-to-let holders across the Miami MLS footprint. Pricing discipline and structural distribution matter most at exit.",
+    body: "Condo investors and portfolio sellers. Pricing discipline and distribution matter most at exit.",
   },
   {
     title: "Latin American & European Sellers",
-    body: "Spanish and Latin American property owners with Florida assets. Bilingual advisory in English and Spanish. Compliant representation through a licensed Florida professional.",
+    body: "Bilingual advisory in English and Spanish, through a licensed Florida professional.",
   },
 ];
 
@@ -116,12 +118,10 @@ export default function SellSouthFloridaPage() {
             Your buyer already has a Realtor®.<br />
             <em className="not-italic italic text-gold">Make sure that agent has your listing.</em>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-            Features describe a property. Distribution determines its price.
-            Buyer demand is often created online — but transactions are executed through
-            professional buyer-agent relationships. MLS positioning, professional marketing,
-            and negotiation for buyer-agent activation, and international distribution —
-            for sellers who need a complete strategy.
+          <p className="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60">
+            Most serious buyers arrive through their own agent. My job is to make sure
+            every one of those agents — local and international — can find, show, and
+            defend your home.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -168,9 +168,7 @@ export default function SellSouthFloridaPage() {
                 The case for professional representation — from the Association itself.
               </h2>
               <p className="mx-auto mt-5 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/60">
-                Miami and South Florida REALTORS® is the world's largest local REALTOR® association. This is their explanation
-                of what a REALTOR® brings to every transaction — and why it matters in one of the most competitive real estate
-                markets in the United States.
+                In the Association's own words: what a REALTOR® changes about your transaction.
               </p>
             </div>
             {/* Responsive 16:9 video embed */}
@@ -261,11 +259,8 @@ export default function SellSouthFloridaPage() {
                 <em className="not-italic italic text-gold">are half the strategy.</em>
               </h2>
               <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                Many sellers focus only on consumer exposure. That is incomplete.
-                {" "}{SOURCES.buyerAgentStatement} The listing agent must therefore manage
-                two audiences simultaneously: the buyer, and the buyer's representative.
-                A strong listing strategy makes the property easy for buyer agents to understand,
-                share, show, defend, and recommend.
+                {SOURCES.buyerAgentStatement} A strong listing makes your property easy
+                for those agents to find, show, defend, and recommend.
               </p>
               <div className="mt-4 border-l-2 border-gold/40 pl-5">
                 <p className="font-serif text-lg text-white/80 italic leading-relaxed">
@@ -365,6 +360,8 @@ export default function SellSouthFloridaPage() {
 
         <Footer />
         <MobileStickyCTA />
+        <DesktopStickyCTA />
+        <ExitIntentModal />
       </main>
     </>
   );

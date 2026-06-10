@@ -11,6 +11,8 @@ import { HowCarlosWorks } from "../components/HowCarlosWorks";
 import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
+import { ExitIntentModal } from "../components/ExitIntentModal";
 
 export default function HomePage() {
   return (
@@ -68,7 +70,7 @@ export default function HomePage() {
         <div className="bg-gold/10 border-t border-b border-gold/20 py-4">
           <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 text-center sm:text-left">
-              Know your home's value before you list — a professional South Florida valuation built on current MLS data, with no listing commitment.
+              Know your number before you list — free MLS-based valuation, no commitment.
             </p>
             <a
               href="/home-value"
@@ -88,6 +90,8 @@ export default function HomePage() {
         <AboutContact />
         <Footer />
         <MobileStickyCTA />
+        <DesktopStickyCTA />
+        <ExitIntentModal />
       </main>
     </>
   );

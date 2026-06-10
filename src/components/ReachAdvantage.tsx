@@ -8,7 +8,7 @@ const TOP_STATS = [
     suffix: "",
     label: "Member Agents",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "Listing through a member places your property inside the world's largest local REALTOR® association — 93,000 member agents representing active buyer demand across the region.",
+    desc: "The world's largest local REALTOR® association — every member agent can put your home in front of their active buyers.",
   },
   {
     value: 437,
@@ -16,7 +16,7 @@ const TOP_STATS = [
     suffix: "+",
     label: "International Agreements",
     sublabel: "MIAMI Global Council",
-    desc: "MIAMI REALTORS® holds 437+ formal international agreements — the most of any local REALTOR® association in the world — connecting South Florida with global buyer markets across 75+ countries.",
+    desc: "More international agreements than any local REALTOR® association in the world — buyer markets across 75+ countries.",
   },
   {
     value: 3500,
@@ -24,7 +24,7 @@ const TOP_STATS = [
     suffix: "+",
     label: "United Realty Group Agents",
     sublabel: "#1 Florida · Most Closed Homes",
-    desc: "United Realty Group — ranked #1 in Florida by most closed homes — backs every listing with 3,500+ agents across 20 South Florida offices: professionals in Miami-Dade, Broward, and Palm Beach who know the inventory and the neighborhoods.",
+    desc: "Florida's #1 brokerage by closed homes — 3,500+ agents across 20 South Florida offices behind every listing.",
   },
 ];
 
@@ -35,7 +35,7 @@ const BOTTOM_STATS = [
     suffix: "+",
     label: "Global Portals",
     sublabel: "Where Eligible Listings May Appear",
-    desc: "Through MIAMI REALTORS® distribution, eligible listings may be featured on 200+ global portals around the world — across 19 languages, where available and subject to platform participation.",
+    desc: "Eligible listings may appear on 200+ global portals in 19 languages, subject to platform participation.",
   },
   {
     value: 260,
@@ -43,7 +43,7 @@ const BOTTOM_STATS = [
     suffix: "+",
     label: "MLS Connections",
     sublabel: "Through RPR Nationwide",
-    desc: "MIAMI MLS listings are shared through RPR with more than 260 MLSs across the country — giving eligible properties nationwide professional visibility.",
+    desc: "Shared through RPR with 260+ MLSs across the country — professional visibility far beyond South Florida.",
   },
   {
     value: 25,
@@ -51,7 +51,7 @@ const BOTTOM_STATS = [
     suffix: "",
     label: "Years Active",
     sublabel: "Licensed Since 2001",
-    desc: "A quarter-century of South Florida transactions. The relationships, pricing discipline, and market intelligence behind every strategy review.",
+    desc: "A quarter-century of South Florida transactions behind every pricing call and negotiation.",
   },
 ];
 
@@ -150,10 +150,9 @@ export const ReachAdvantage = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55"
         >
-          Listing on the Miami MLS places the property inside the working inventory that member agents
-          already search for their clients — shareable under their own branding, through the MLS tools
-          built for exactly that. International listings sit in the MLS international property section,
-          visible across the member network.
+          Buyers don't find homes — their agents do. Your listing goes straight into the
+          working inventory those agents search for their clients every day, in South Florida
+          and in 75+ countries.
         </motion.p>
 
         {/* MIAMI REALTORS® attribution — source of the reach network */}
