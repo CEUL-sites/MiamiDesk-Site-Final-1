@@ -216,6 +216,22 @@ export default function EsVenderKendallPage() {
           </div>
         </section>
 
+        {/* Otras ciudades */}
+        <section className="bg-ivory py-10 border-t border-hairline">
+          <div className="mx-auto max-w-5xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-4">Otras Ciudades</p>
+            <p className="font-sans text-sm text-ink-primary/60">
+              <a href="/es/vender-doral" className="text-navy-deep underline underline-offset-2 hover:text-gold">Vender en Doral</a>
+              {" · "}
+              <a href="/es/vender-weston" className="text-navy-deep underline underline-offset-2 hover:text-gold">Vender en Weston</a>
+              {" · "}
+              <a href="/es/vender-miami" className="text-navy-deep underline underline-offset-2 hover:text-gold">Vender en Miami</a>
+              {" · "}
+              <a href="/es/vender" className="text-navy-deep underline underline-offset-2 hover:text-gold">Vender en Sur de Florida</a>
+            </p>
+          </div>
+        </section>
+
         {/* Breadcrumb */}
         <section className="bg-ivory py-6 border-t border-hairline">
           <div className="mx-auto max-w-5xl px-6">

@@ -3,7 +3,7 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
-import { getPostBySlug, getAllPosts } from '../lib/markdown';
+import { getPostBySlug, getAllPosts, getPostCover } from '../lib/markdown';
 import { CONTACT } from '../constants';
 
 function formatDate(iso: string): string {
@@ -23,9 +23,7 @@ export default function JournalPostPage() {
     return <Navigate to="/journal" replace />;
   }
 
-  const ogImage = post.image
-    ? `https://homesprofessional.com${post.image}`
-    : 'https://homesprofessional.com/images/social/og-default.jpg';
+  const ogImage = `https://homesprofessional.com${getPostCover(post)}`;
 
   const articleSchema = {
     '@context': 'https://schema.org',

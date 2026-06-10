@@ -4,7 +4,7 @@ import { AuroraBackground } from '../components/AuroraBackground';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
-import { getAllPosts } from '../lib/markdown';
+import { getAllPosts, getPostCover } from '../lib/markdown';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -42,7 +42,7 @@ export default function JournalListPage() {
       description: post.excerpt,
       datePublished: post.date,
       url: `https://homesprofessional.com/journal/${post.slug}`,
-      ...(post.image && { image: `https://homesprofessional.com${post.image}` }),
+      image: `https://homesprofessional.com${getPostCover(post)}`,
     })),
   };
 
@@ -110,6 +110,18 @@ export default function JournalListPage() {
                 >
                   {/* Card top accent */}
                   <div className="h-1 w-full gold-gradient" />
+
+                  {/* Category cover */}
+                  <Link to={`/journal/${post.slug}`} className="block overflow-hidden">
+                    <img
+                      src={getPostCover(post)}
+                      alt={post.title}
+                      loading="lazy"
+                      width="1200"
+                      height="630"
+                      className="aspect-[1200/630] w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                  </Link>
 
                   <div className="flex flex-1 flex-col p-7">
                     {/* Category badge */}

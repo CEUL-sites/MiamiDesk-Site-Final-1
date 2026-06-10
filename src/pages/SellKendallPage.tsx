@@ -121,6 +121,11 @@ export default function SellKendallPage() {
                 Download Seller's Net Sheet 2026
               </a>
             </div>
+            <div className="mt-3 flex items-center justify-center">
+              <a href="/es/vender-kendall" className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
+                ¿Prefiere leer esto en español?
+              </a>
+            </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               United Realty Group · CLHMS · FL SL705771 · Office: Weston, FL 33331
             </p>

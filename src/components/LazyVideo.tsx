@@ -5,7 +5,7 @@ interface LazyVideoProps {
   src: string;
   className?: string;
   style?: CSSProperties;
-  /** Optional poster image shown before the video loads. */
+  /** Poster painted before the video loads — defaults to the navy brand poster so first paint never waits on video frames. */
   poster?: string;
   /**
    * Eagerly load + play as soon as mounted (use for above-the-fold hero videos).
@@ -46,7 +46,7 @@ export function LazyVideo({
   src,
   className,
   style,
-  poster,
+  poster = "/images/video-poster.jpg",
   eager = false,
   rootMargin = "300px",
 }: LazyVideoProps) {

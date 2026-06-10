@@ -200,3 +200,24 @@ export function getAllPosts(): PostMeta[] {
 export function getPostBySlug(slug: string): PostMeta | undefined {
   return getAllPosts().find((p) => p.slug === slug);
 }
+
+// Branded cover images generated per category in public/images/journal/covers/.
+// Posts without an explicit `image` frontmatter field fall back to their
+// category's cover, so future posts get covers automatically.
+const CATEGORY_COVERS = new Set([
+  'market-analysis',
+  'seller-strategy',
+  'international',
+  'new-construction',
+  'buyer-guide',
+  'buyer-intelligence',
+  'weston-market-report',
+  'south-florida-market-intelligence',
+]);
+
+export function getPostCover(post: PostMeta): string {
+  if (post.image) return post.image;
+  const slug = (post.category ?? '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  if (CATEGORY_COVERS.has(slug)) return `/images/journal/covers/${slug}.jpg`;
+  return '/images/social/og-default.jpg';
+}

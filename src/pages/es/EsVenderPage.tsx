@@ -329,6 +329,38 @@ export default function EsVenderPage() {
           </div>
         </section>
 
+        {/* ─── Vender por Ciudad ────────────────────────────────── */}
+        <section className="bg-ivory py-12 md:py-16">
+          <div className="mx-auto max-w-5xl px-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-3">Vender por Ciudad</p>
+            <h2 className="font-serif text-2xl text-navy-deep mb-6">
+              Estrategia de venta específica para su mercado local.
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <a href="/es/vender-doral" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Miami-Dade</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Vender en Doral</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Comunidades cerradas y compradores latinoamericanos →</p>
+              </a>
+              <a href="/es/vender-weston" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Broward</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Vender en Weston</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Lujo familiar y escuelas A+ →</p>
+              </a>
+              <a href="/es/vender-kendall" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Miami-Dade</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Vender en Kendall</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">El mercado familiar del suroeste →</p>
+              </a>
+              <a href="/es/vender-miami" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Miami-Dade</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Vender en Miami</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Submercados y compradores internacionales →</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* ─── CTA Band ─────────────────────────────────────────── */}
         <section className="bg-gold py-14">
           <div className="mx-auto max-w-3xl px-6 text-center">
