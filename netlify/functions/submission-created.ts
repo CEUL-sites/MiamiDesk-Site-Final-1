@@ -1,4 +1,10 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
+import { getStore } from "@netlify/blobs";
+import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
+
+// Seller forms whose leads enter the automated nurture sequence
+// (sent by the scheduled seller-nurture function).
+const NURTURE_FORMS = new Set(["seller-intake", "seller-hero", "seller-consultation"]);
 
 // Env var names — set these in Netlify → Site settings → Environment variables.
 // GOOGLE_SHEETS_WEBHOOK_URL  — Google Apps Script web app URL (doPost webhook)
@@ -169,6 +175,33 @@ export const handler: Handler = async (event: HandlerEvent) => {
         }
       } catch (waErr) {
         console.error("WhatsApp notification error:", waErr);
+      }
+    }
+
+    // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────
+    // First submission wins — a repeat submission never resets a lead's
+    // position in the sequence.
+    if (NURTURE_FORMS.has(formName) && email.includes("@")) {
+      try {
+        const store = getStore(NURTURE_STORE);
+        const key = email.trim().toLowerCase();
+        const existing = await store.get(key, { type: "json" });
+        if (!existing) {
+          const lead: NurtureLead = {
+            email: key,
+            name,
+            city,
+            timeline,
+            formName,
+            enrolledAt: new Date().toISOString(),
+            stage: 0,
+            lastSentAt: null,
+            unsubscribed: false,
+          };
+          await store.setJSON(key, lead);
+        }
+      } catch (nurtureErr) {
+        console.error("Nurture enrollment error:", nurtureErr);
       }
     }
 

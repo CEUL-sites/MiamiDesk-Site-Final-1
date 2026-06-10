@@ -6,6 +6,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
+import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const CORAL_SPRINGS_FAQS = [
@@ -234,6 +235,9 @@ export default function SellCoralSpringsPage() {
             </div>
           </div>
         </section>
+
+        {/* Live market snapshot — Bridge IDX via city-stats */}
+        <NeighborhoodMarketStats city="Coral Springs" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">

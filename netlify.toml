@@ -7,6 +7,10 @@
 [functions."refresh-market-feed"]
   schedule = "@weekly"
 
+# ── Daily seller nurture sequence (Resend drip from Blobs queue) ───────────
+[functions."seller-nurture"]
+  schedule = "@daily"
+
 [build.environment]
   NODE_VERSION = "22"
   NPM_FLAGS = "--version"

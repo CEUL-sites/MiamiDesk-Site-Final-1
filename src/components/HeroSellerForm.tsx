@@ -4,35 +4,9 @@ import { useState, useRef, useEffect, type ChangeEvent, type FormEvent } from "r
 import { CONTACT } from "../constants";
 import { trackLead } from "../lib/analytics";
 import { getAttribution } from "../lib/attribution";
+import { loadGooglePlaces, MAPS_KEY } from "../lib/googlePlaces";
 
 type Lang = "en" | "es";
-
-// Google Places — declared globally, loaded lazily below
-declare global {
-  interface Window {
-    google: typeof google;
-    initGooglePlaces?: () => void;
-  }
-}
-
-const MAPS_KEY = (import.meta.env as Record<string, string>)["VITE_GOOGLE_MAPS_KEY"] ?? "";
-
-function loadGooglePlaces(onReady: () => void) {
-  if (window.google?.maps?.places) { onReady(); return; }
-  if (!MAPS_KEY) return; // no key — plain input fallback
-  if (document.getElementById("gm-places-script")) {
-    // already loading — wait for callback
-    window.initGooglePlaces = onReady;
-    return;
-  }
-  window.initGooglePlaces = onReady;
-  const s = document.createElement("script");
-  s.id = "gm-places-script";
-  s.src = `https://maps.googleapis.com/maps/api/js?key=${MAPS_KEY}&libraries=places&loading=async&callback=initGooglePlaces`;
-  s.async = true;
-  s.defer = true;
-  document.head.appendChild(s);
-}
 
 const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
