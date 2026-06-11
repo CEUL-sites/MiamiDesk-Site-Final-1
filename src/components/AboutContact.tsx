@@ -2,13 +2,6 @@ import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT } from "../constants";
 import { LeadForm } from "./LeadForm";
 
-const STATS = [
-  { value: "25", label: "Years Licensed" },
-  { value: "93,000", label: "Member Agents in Association" },
-  { value: "3,500+", label: "URG Agents Statewide" },
-  { value: "20", label: "URG Florida Offices" }
-];
-
 export function AboutContact() {
   return (
     <section id="contact" className="bg-ivory py-14 md:py-24">
@@ -33,16 +26,7 @@ export function AboutContact() {
 
           <div className="mt-12 max-w-4xl space-y-6 font-sans text-lg leading-relaxed text-navy/68">
             <p>Twenty-five years of active South Florida real estate transactions, residential, luxury, and commercial. The relationships Carlos has inside the Miami professional community were built through closed deals, not directory listings.</p>
-            <p>From his Weston, Florida office, he serves South Florida sellers and buyers through United Realty Group — established in 2002 and today ranked #1 in Florida by most closed homes, with 3,500+ agents across 20 offices in Miami-Dade, Broward, Palm Beach, and Orange Counties. He also works directly with international developers, agencies, and HNW property owners who need a licensed U.S. principal to activate their assets in the American market through the Miami MLS.</p>
-          </div>
-
-          <div className="mt-12 grid grid-cols-2 gap-px border border-bone bg-bone lg:max-w-3xl">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="bg-white-soft p-6">
-                <div className="font-serif text-4xl text-gold">{stat.value}</div>
-                <div className="font-mono mt-2 text-[9px] uppercase tracking-[0.2em] text-navy/50">{stat.label}</div>
-              </div>
-            ))}
+            <p>From his Weston, Florida office, he serves South Florida sellers and buyers through United Realty Group, ranked #1 in Florida by closed homes. He also works directly with international developers, agencies, and HNW property owners who need a licensed U.S. principal to bring their assets to market through the Miami MLS.</p>
           </div>
 
           {/* URG Headquarters — video */}

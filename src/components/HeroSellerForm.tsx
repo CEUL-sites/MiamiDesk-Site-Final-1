@@ -13,8 +13,8 @@ const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).t
 
 const COPY = {
   en: {
-    eyebrow: "Private Seller Strategy Review",
-    badge: "Free · Confidential",
+    eyebrow: "Free Home Valuation",
+    badge: "Confidential · No Obligation",
     address: "Property address — South Florida or Spain",
     name: "Full name",
     phone: "Phone / WhatsApp",
@@ -27,21 +27,23 @@ const COPY = {
       "Other",
     ],
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
-    submit: "Request My Strategy Review",
+    submit: "Get My Free Home Valuation",
     sending: "Sending…",
     consent: "I agree to receive updates by WhatsApp/SMS at this number. Msg & data rates may apply. Reply STOP to opt out.",
     prefer: "Prefer WhatsApp?",
     preferLink: "Message Carlos directly",
-    successTag: "Seller Request Received",
+    proofQuote: "Under contract in 10 days at 12% over asking.",
+    proofName: "Andres P. · Weston · Verified Review",
+    successTag: "Valuation Request Received",
     successTitle: "Carlos will personally review your property.",
-    successBody: "Expect a confidential response within one business day. For urgent timing, reach us on WhatsApp.",
+    successBody: "Expect your MLS-based valuation and a confidential response within one business day. For urgent timing, reach us on WhatsApp.",
     successCta: "Continue on WhatsApp →",
     timeout: "Request timed out — please use WhatsApp or try again.",
     failed: "Couldn't send — please use WhatsApp or try again.",
   },
   es: {
-    eyebrow: "Revisión Privada de Estrategia de Venta",
-    badge: "Gratis · Confidencial",
+    eyebrow: "Valoración Gratuita",
+    badge: "Confidencial · Sin Compromiso",
     address: "Dirección de la propiedad — Miami o España",
     name: "Nombre completo",
     phone: "Teléfono / WhatsApp",
@@ -54,14 +56,16 @@ const COPY = {
       "Otra",
     ],
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
-    submit: "Solicitar Mi Revisión de Estrategia",
+    submit: "Obtener Mi Valoración Gratuita",
     sending: "Enviando…",
     consent: "Acepto recibir actualizaciones por WhatsApp/SMS a este número. Pueden aplicar tarifas. Responda STOP para darse de baja.",
     prefer: "¿Prefiere WhatsApp?",
     preferLink: "Escriba a Carlos directamente",
+    proofQuote: "Bajo contrato en 10 días, 12% sobre el precio inicial.",
+    proofName: "Andres P. · Weston · Reseña Verificada",
     successTag: "Solicitud Recibida",
     successTitle: "Carlos revisará su propiedad personalmente.",
-    successBody: "Recibirá una respuesta confidencial en un día hábil. Para asuntos urgentes, contáctenos por WhatsApp.",
+    successBody: "Recibirá su valoración y una respuesta confidencial en un día hábil. Para asuntos urgentes, contáctenos por WhatsApp.",
     successCta: "Continuar por WhatsApp →",
     timeout: "La solicitud expiró — use WhatsApp o inténtelo de nuevo.",
     failed: "No se pudo enviar — use WhatsApp o inténtelo de nuevo.",
@@ -319,8 +323,16 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           : <>{t.submit}<ArrowRight size={15} /></>}
       </button>
 
+      {/* Concrete outcome at the point of conversion */}
+      <p className="mt-4 text-center font-serif text-[13px] italic leading-snug text-white/60">
+        "{t.proofQuote}"{" "}
+        <span className="not-italic font-mono text-[8px] uppercase tracking-[0.14em] text-white/35 whitespace-nowrap">
+          — {t.proofName}
+        </span>
+      </p>
+
       {/* Single trust row — stars + proof */}
-      <div className="mt-4 flex items-center justify-center gap-2">
+      <div className="mt-2.5 flex items-center justify-center gap-2">
         <span className="flex gap-0.5 shrink-0" aria-hidden="true">
           {[0,1,2,3,4].map(i => (
             <svg key={i} width="11" height="11" viewBox="0 0 12 12" fill="#B08D57">

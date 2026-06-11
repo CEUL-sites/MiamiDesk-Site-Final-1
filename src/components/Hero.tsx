@@ -31,14 +31,7 @@ const MARQUEE_ITEMS: { t: string; gold?: true }[] = [
   { t: "Hialeah · Kendall"                           },
   { t: "Delray Beach · Wellington"                   },
   { t: "United Realty Group · Est. 2002", gold: true },
-  { t: "20 Florida Offices",             gold: true  },
-  { t: "3,500+ URG Agents Statewide"                 },
-  { t: "93,000 Network Members",         gold: true  },
-  { t: "260+ MLS Connections"                        },
-  { t: "437+ International Agreements"               },
-  { t: "200+ Global Portals",            gold: true  },
   { t: "3,500+ Agents · 20 Florida Offices"          },
-  { t: "Licensed Since 2001",            gold: true  },
 ];
 
 export function Hero() {
@@ -163,17 +156,10 @@ export function Hero() {
             ))}
           </motion.div>
 
-          {/* Divider */}
-          <motion.div variants={item} className="mt-6 flex w-full max-w-md items-center gap-3">
-            <div className="h-px flex-1 bg-white/[0.07]" />
-            <span className="font-mono text-[7px] uppercase tracking-[0.24em] text-white/25 whitespace-nowrap">Your property. Our reach.</span>
-            <div className="h-px flex-1 bg-white/[0.07]" />
-          </motion.div>
-
           {/* Subtitle */}
           <motion.p
             variants={item}
-            className="mt-4 font-serif text-white/70 italic"
+            className="mt-6 font-serif text-white/70 italic"
             style={{ fontSize: "clamp(1rem, 2.2vw, 1.35rem)" }}
           >
             Real Estate is local — Peak Value is Global.

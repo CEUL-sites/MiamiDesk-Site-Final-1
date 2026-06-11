@@ -10,6 +10,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { ProofStrip } from "../components/ProofStrip";
+import { SellerCtaBand } from "../components/SellerCtaBand";
 
 // Below-the-fold sections — split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
@@ -72,23 +73,10 @@ export default function HomePage() {
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />
-        {/* Home value entry strip */}
-        <div className="bg-gold/10 border-t border-b border-gold/20 py-4">
-          <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 text-center sm:text-left">
-              Know your number before you list — free MLS-based valuation, no commitment.
-            </p>
-            <a
-              href="/home-value"
-              className="flex-shrink-0 border border-gold px-6 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold hover:text-navy whitespace-nowrap"
-            >
-              What's My Home Worth?
-            </a>
-          </div>
-        </div>
         <ProofStrip />
         <ReachAdvantage />
         <Testimonials />
+        <SellerCtaBand />
         <LeadMagnetStrip />
         <Suspense fallback={null}>
           <IntelligenceDesk />
