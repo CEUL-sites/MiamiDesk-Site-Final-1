@@ -8,7 +8,7 @@ const TOP_STATS = [
     suffix: "",
     label: "Member Agents",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "The world's largest local REALTOR® association — every member agent can put your home in front of their active buyers.",
+    desc: "Every member agent can put your home in front of their active buyers.",
   },
   {
     value: 437,
@@ -16,7 +16,7 @@ const TOP_STATS = [
     suffix: "+",
     label: "International Agreements",
     sublabel: "MIAMI Global Council",
-    desc: "More international agreements than any local REALTOR® association in the world — buyer markets across 75+ countries.",
+    desc: "Direct buyer markets across 75+ countries — more than any other local association.",
   },
   {
     value: 3500,
@@ -24,34 +24,7 @@ const TOP_STATS = [
     suffix: "+",
     label: "United Realty Group Agents",
     sublabel: "#1 Florida · Most Closed Homes",
-    desc: "Florida's #1 brokerage by closed homes — 3,500+ agents across 20 South Florida offices behind every listing.",
-  },
-];
-
-const BOTTOM_STATS = [
-  {
-    value: 200,
-    display: "200",
-    suffix: "+",
-    label: "Global Portals",
-    sublabel: "Where Eligible Listings May Appear",
-    desc: "Eligible listings may appear on 200+ global portals in 19 languages, subject to platform participation.",
-  },
-  {
-    value: 260,
-    display: "260",
-    suffix: "+",
-    label: "MLS Connections",
-    sublabel: "Through RPR Nationwide",
-    desc: "Shared through RPR with 260+ MLSs across the country — professional visibility far beyond South Florida.",
-  },
-  {
-    value: 25,
-    display: "25",
-    suffix: "",
-    label: "Years Active",
-    sublabel: "Licensed Since 2001",
-    desc: "A quarter-century of South Florida transactions behind every pricing call and negotiation.",
+    desc: "Florida's #1 brokerage by closed homes, behind every listing.",
   },
 ];
 
@@ -150,9 +123,8 @@ export const ReachAdvantage = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55"
         >
-          Buyers don't find homes — their agents do. Your listing goes straight into the
-          working inventory those agents search for their clients every day, in South Florida
-          and in 75+ countries.
+          Buyers don't find homes — their agents do. Your listing goes straight into
+          the inventory those agents search every day, in South Florida and in 75+ countries.
         </motion.p>
 
         {/* MIAMI REALTORS® attribution — source of the reach network */}
@@ -178,40 +150,10 @@ export const ReachAdvantage = () => {
         </motion.div>
       </div>
 
-      {/* ── Top Stats Row ─────────────────────────────────────── */}
+      {/* ── Stats Row ─────────────────────────────────────────── */}
       <div className="relative grid border-b border-gold/15 lg:grid-cols-3">
         {TOP_STATS.map((stat, i) => (
           <StatCard key={stat.label} stat={stat} index={i} />
-        ))}
-      </div>
-
-      {/* ── Mid Divider — featured callout ────────────────────── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="relative border-b border-gold/15 bg-gold/[0.04] px-6 py-10 text-center"
-      >
-        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5">
-          {[
-            { v: "437+", l: "International Agreements" },
-            { v: "19",   l: "Languages" },
-            { v: "Full", l: "MLS Network" },
-            { v: "CLHMS", l: "Luxury Certified" },
-          ].map((item) => (
-            <div key={item.l} className="text-center">
-              <div className="font-serif text-2xl font-bold text-gold lg:text-3xl">{item.v}</div>
-              <div className="font-mono mt-1 text-[8px] uppercase tracking-[0.22em] text-white/40">{item.l}</div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* ── Bottom Stats Row ──────────────────────────────────── */}
-      <div className="relative grid border-b border-gold/15 lg:grid-cols-3">
-        {BOTTOM_STATS.map((stat, i) => (
-          <StatCard key={stat.label} stat={stat} index={i} delay={0.1} />
         ))}
       </div>
 

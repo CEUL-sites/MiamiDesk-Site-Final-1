@@ -238,6 +238,11 @@ export function SellerIntakeForm() {
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </button>
 
+          <p className="text-center font-serif text-[13px] italic leading-snug text-navy/55">
+            "Under contract in 10 days at 12% over asking."{" "}
+            <span className="not-italic font-mono text-[8px] uppercase tracking-[0.14em] text-navy/35 whitespace-nowrap">— Andres P. · Weston · Verified Review</span>
+          </p>
+
           <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/30">
             Free · Confidential · No listing commitment · {CONTACT.licenseDisplay}
           </p>

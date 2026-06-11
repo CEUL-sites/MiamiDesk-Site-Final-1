@@ -28,7 +28,7 @@ const PILLARS = [
     number: "01",
     icon: Compass,
     title: "Strategic Acquisitions",
-    desc: "Neighborhood intelligence and offer structure for buyers, refined by 25 years of South Florida transactions — paired with positioning discipline for sellers entering the same market.",
+    desc: "Neighborhood intelligence and offer structure for buyers — paired with positioning discipline for sellers entering the same market.",
     tag: "MIAMI-DADE · BROWARD · PALM BEACH",
   },
   {
@@ -42,7 +42,7 @@ const PILLARS = [
     number: "03",
     icon: PlaneLanding,
     title: "LATAM & International",
-    desc: "A bilingual bridge for owners and buyers moving capital between Latin America, Europe, and South Florida — 25 years of authentic client relationships, built deal by deal.",
+    desc: "A bilingual bridge for owners and buyers moving capital between Latin America, Europe, and South Florida.",
     tag: "BILINGUAL · ENGLISH & SPANISH",
   },
 ];
@@ -67,9 +67,8 @@ export function BuyersRelocation() {
               </h2>
               <p className="text-navy/65 text-lg leading-relaxed max-w-xl">
                 Representation in both directions — sellers and buyers — across Miami-Dade,
-                Broward, and Palm Beach. Every client is backed by United Realty Group's South
-                Florida network of 3,500+ agents across 20 offices, and anchored by 25 years of
-                Carlos's transactions in this market since 2001.
+                Broward, and Palm Beach, backed by the full United Realty Group network
+                and 25 years of closed transactions.
               </p>
             </div>
             <div className="lg:text-right">
