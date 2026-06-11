@@ -13,6 +13,13 @@ import { getStore } from "@netlify/blobs";
 
 export const DEDUP_STORE = "lead-alert-dedup";
 
+// Deliveries are deduplicated per channel: "alert" covers email/WhatsApp to
+// Carlos; "sheets" covers the Google Sheets row. Tracked separately so that a
+// lead-notify run that reached Sheets but failed to alert (e.g. Resend
+// misconfigured) doesn't cause submission-created to write a duplicate Sheets
+// row — and vice versa.
+export type DedupChannel = "alert" | "sheets";
+
 // How long two alerts for the same contact are treated as the same lead.
 // A genuine new inquiry from the same person later still alerts.
 const WINDOW_MS = 30 * 60 * 1000; // 30 minutes
@@ -26,11 +33,11 @@ export function dedupKey(email?: string, phone?: string): string | null {
   return null;
 }
 
-/** True if Carlos was already alerted about this lead within the window. */
-export async function wasAlerted(key: string | null): Promise<boolean> {
+/** True if this channel already delivered for this lead within the window. */
+export async function wasAlerted(key: string | null, channel: DedupChannel = "alert"): Promise<boolean> {
   if (!key) return false;
   try {
-    const v = (await getStore(DEDUP_STORE).get(key, { type: "json" })) as { at: string } | null;
+    const v = (await getStore(DEDUP_STORE).get(channel + "|" + key, { type: "json" })) as { at: string } | null;
     if (!v?.at) return false;
     return Date.now() - new Date(v.at).getTime() < WINDOW_MS;
   } catch {
@@ -39,11 +46,11 @@ export async function wasAlerted(key: string | null): Promise<boolean> {
   }
 }
 
-/** Record that Carlos has been alerted about this lead. Non-fatal on error. */
-export async function markAlerted(key: string | null): Promise<void> {
+/** Record that this channel delivered for this lead. Non-fatal on error. */
+export async function markAlerted(key: string | null, channel: DedupChannel = "alert"): Promise<void> {
   if (!key) return;
   try {
-    await getStore(DEDUP_STORE).setJSON(key, { at: new Date().toISOString() });
+    await getStore(DEDUP_STORE).setJSON(channel + "|" + key, { at: new Date().toISOString() });
   } catch {
     /* non-fatal — dedup is best-effort */
   }

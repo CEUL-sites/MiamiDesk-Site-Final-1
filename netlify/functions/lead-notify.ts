@@ -108,6 +108,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
   const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
   const results: Record<string, string> = {};
+  const alertKey = dedupKey(lead.email, lead.phone);
   let alerted = false; // true once an actual alert (email/WhatsApp) reaches Carlos
 
   // ── 1. Google Sheets via Apps Script webhook ────────────────────────────
@@ -132,6 +133,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
         }),
       });
       results.sheets = res.ok ? "ok" : `error ${res.status}`;
+      // Mark the Sheets channel so submission-created doesn't write a 2nd row.
+      if (res.ok) await markAlerted(alertKey, "sheets");
     } catch (err) {
       results.sheets = `failed: ${err instanceof Error ? err.message : "unknown"}`;
     }
@@ -193,9 +196,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
     results.whatsapp = "not configured";
   }
 
-  // Only suppress the primary path if an alert actually reached Carlos.
+  // Only suppress the primary path's alert if one actually reached Carlos.
   if (alerted) {
-    await markAlerted(dedupKey(lead.email, lead.phone));
+    await markAlerted(alertKey, "alert");
   }
 
   return {

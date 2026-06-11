@@ -70,15 +70,16 @@ export const handler: Handler = async (event: HandlerEvent) => {
     }
     const fullDetails = extraParts.join(" | ");
 
-    // If the synchronous backup notifier (lead-notify) already alerted Carlos
-    // about this lead, skip the Sheets/email/WhatsApp fan-out here to avoid
-    // notifying him twice. Nurture enrollment (below) still always runs.
+    // The synchronous backup notifier (lead-notify) may have already delivered
+    // some of these channels. Each channel is deduped independently so that, for
+    // example, a backup run that logged to Sheets but failed to email Carlos
+    // doesn't block the email here (and never produces a duplicate Sheets row).
     const alertKey = dedupKey(email, phone);
-    const alreadyAlerted = await wasAlerted(alertKey);
-    if (!alreadyAlerted) {
 
     // ── 1. Google Sheets via Apps Script webhook ─────────────────────────
-    if (GOOGLE_SHEETS_WEBHOOK_URL) {
+    if (await wasAlerted(alertKey, "sheets")) {
+      console.log("submission-created: Sheets row already written by backup notifier — skipping", alertKey);
+    } else if (GOOGLE_SHEETS_WEBHOOK_URL) {
       try {
         const sheetsRes = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
           method: "POST",
@@ -101,6 +102,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
         });
         if (!sheetsRes.ok) {
           console.error("Google Sheets webhook returned", sheetsRes.status, await sheetsRes.text());
+        } else {
+          await markAlerted(alertKey, "sheets");
         }
       } catch (sheetErr) {
         console.error("Google Sheets error:", sheetErr);
@@ -109,86 +112,96 @@ export const handler: Handler = async (event: HandlerEvent) => {
       console.error("GOOGLE_SHEETS_WEBHOOK_URL is not set — submission not logged to Sheets.");
     }
 
-    // ── 2. Email notification via Resend ────────────────────────────────
-    if (RESEND_API_KEY) {
-      const emailBody = [
-        `New lead from HomesProfessional.com`,
-        ``,
-        `Form: ${formName}`,
-        `Received: ${timestamp} ET`,
-        ``,
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Property / Location: ${propertyAddress}${city ? ", " + city : ""}`,
-        `Timeline / Type: ${timeline}`,
-        `Message: ${message}`,
-        ``,
-        `📊 Lead Source: ${leadSource}`,
-        landingPage ? `Landing page: ${landingPage}` : "",
-        ``,
-        `All fields:`,
-        fullDetails,
-        ``,
-        `---`,
-        `Carlos Uzcategui · FL SL705771 · United Realty Group`,
-        `HomesProfessional.com`,
-      ].join("\n");
-
-      try {
-        const resendRes = await fetch("https://api.resend.com/emails", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${RESEND_API_KEY}`,
-          },
-          body: JSON.stringify({
-            from: FROM_EMAIL,
-            to: TO_EMAIL,
-            subject: `New Lead: ${formName} — HomesProfessional.com`,
-            text: emailBody,
-          }),
-        });
-        if (!resendRes.ok) {
-          console.error("Resend error:", resendRes.status, await resendRes.text());
-        }
-      } catch (emailErr) {
-        console.error("Email send error:", emailErr);
-      }
+    // ── 2 & 3. Email + WhatsApp alert to Carlos (deduped together) ────────
+    if (await wasAlerted(alertKey, "alert")) {
+      console.log("submission-created: Carlos already alerted by backup notifier — skipping email/WhatsApp", alertKey);
     } else {
-      console.error("RESEND_API_KEY is not set — email notification skipped.");
-    }
+      let alerted = false;
 
-    // ── 3. WhatsApp notification via CallMeBot ───────────────────────────
-    if (CALLMEBOT_APIKEY) {
-      const waLines = [
-        `🏠 New Lead — HomesProfessional.com`,
-        ``,
-        `👤 ${name || "—"}`,
-        `📞 ${phone || "—"}`,
-        `📧 ${email || "—"}`,
-        `📍 ${propertyAddress}${city ? ", " + city : ""}`,
-        `⏱ ${timeline || "—"}`,
-        message ? `💬 ${message.slice(0, 200)}` : "",
-        ``,
-        `Via: ${formName}`,
-        `📊 Source: ${leadSource}`,
-      ].filter(Boolean).join("\n");
+      // ── 2. Email notification via Resend ──────────────────────────────
+      if (RESEND_API_KEY) {
+        const emailBody = [
+          `New lead from HomesProfessional.com`,
+          ``,
+          `Form: ${formName}`,
+          `Received: ${timestamp} ET`,
+          ``,
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Phone: ${phone}`,
+          `Property / Location: ${propertyAddress}${city ? ", " + city : ""}`,
+          `Timeline / Type: ${timeline}`,
+          `Message: ${message}`,
+          ``,
+          `📊 Lead Source: ${leadSource}`,
+          landingPage ? `Landing page: ${landingPage}` : "",
+          ``,
+          `All fields:`,
+          fullDetails,
+          ``,
+          `---`,
+          `Carlos Uzcategui · FL SL705771 · United Realty Group`,
+          `HomesProfessional.com`,
+        ].join("\n");
 
-      try {
-        const waUrl = `https://api.callmebot.com/whatsapp.php?phone=${NOTIFY_PHONE}&text=${encodeURIComponent(waLines)}&apikey=${CALLMEBOT_APIKEY}`;
-        const waRes = await fetch(waUrl);
-        if (!waRes.ok) {
-          console.error("CallMeBot WhatsApp error:", waRes.status);
+        try {
+          const resendRes = await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${RESEND_API_KEY}`,
+            },
+            body: JSON.stringify({
+              from: FROM_EMAIL,
+              to: TO_EMAIL,
+              subject: `New Lead: ${formName} — HomesProfessional.com`,
+              text: emailBody,
+            }),
+          });
+          if (!resendRes.ok) {
+            console.error("Resend error:", resendRes.status, await resendRes.text());
+          } else {
+            alerted = true;
+          }
+        } catch (emailErr) {
+          console.error("Email send error:", emailErr);
         }
-      } catch (waErr) {
-        console.error("WhatsApp notification error:", waErr);
+      } else {
+        console.error("RESEND_API_KEY is not set — email notification skipped.");
       }
-    }
 
-      await markAlerted(alertKey);
-    } else {
-      console.log("submission-created: lead already alerted by backup notifier — skipping Sheets/email/WhatsApp", alertKey);
+      // ── 3. WhatsApp notification via CallMeBot ─────────────────────────
+      if (CALLMEBOT_APIKEY) {
+        const waLines = [
+          `🏠 New Lead — HomesProfessional.com`,
+          ``,
+          `👤 ${name || "—"}`,
+          `📞 ${phone || "—"}`,
+          `📧 ${email || "—"}`,
+          `📍 ${propertyAddress}${city ? ", " + city : ""}`,
+          `⏱ ${timeline || "—"}`,
+          message ? `💬 ${message.slice(0, 200)}` : "",
+          ``,
+          `Via: ${formName}`,
+          `📊 Source: ${leadSource}`,
+        ].filter(Boolean).join("\n");
+
+        try {
+          const waUrl = `https://api.callmebot.com/whatsapp.php?phone=${NOTIFY_PHONE}&text=${encodeURIComponent(waLines)}&apikey=${CALLMEBOT_APIKEY}`;
+          const waRes = await fetch(waUrl);
+          if (!waRes.ok) {
+            console.error("CallMeBot WhatsApp error:", waRes.status);
+          } else {
+            alerted = true;
+          }
+        } catch (waErr) {
+          console.error("WhatsApp notification error:", waErr);
+        }
+      }
+
+      // Only mark the alert channel if something actually reached Carlos, so a
+      // total failure here doesn't suppress a later retry.
+      if (alerted) await markAlerted(alertKey, "alert");
     }
 
     // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────
