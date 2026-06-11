@@ -3,7 +3,8 @@ import { ArrowRight, MapPin, Loader2, CheckCircle2 } from "lucide-react";
 import { useState, useRef, useEffect, type ChangeEvent, type FormEvent } from "react";
 import { CONTACT } from "../constants";
 import { trackLead } from "../lib/analytics";
-import { getAttribution } from "../lib/attribution";
+import { getAttribution, getLeadSource } from "../lib/attribution";
+import { notifyLeadDirect } from "../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../lib/googlePlaces";
 
 type Lang = "en" | "es";
@@ -142,6 +143,11 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
+      notifyLeadDirect({
+        name: form.name, email: form.email, phone: form.phone,
+        propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
+        sourcePage: `hero-${lang}`, leadSource: getLeadSource(),
+      });
       trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });
       setStatus("success");
       setForm(initial);

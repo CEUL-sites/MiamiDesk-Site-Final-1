@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, MapPin, Send, TrendingUp } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { trackLead, trackFunnelEvent } from "../../lib/analytics";
-import { getAttribution } from "../../lib/attribution";
+import { getAttribution, getLeadSource } from "../../lib/attribution";
+import { notifyLeadDirect } from "../../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../../lib/googlePlaces";
 
 const CITIES = [
@@ -135,6 +136,11 @@ export function SellerIntakeForm() {
         body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage: "seller-intake", ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
+      notifyLeadDirect({
+        name: form.name, email: form.email, phone: form.phone,
+        propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
+        message: form.priorListing, sourcePage: "seller-intake", leadSource: getLeadSource(),
+      });
       // Trigger auto-reply
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",

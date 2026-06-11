@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { trackLead } from "../../lib/analytics";
-import { getAttribution } from "../../lib/attribution";
+import { getAttribution, getLeadSource } from "../../lib/attribution";
+import { notifyLeadDirect } from "../../lib/leadNotify";
 
 const COUNTRIES = [
   "United States", "Spain", "Venezuela", "Colombia", "Argentina", "Mexico",
@@ -61,6 +62,12 @@ export function BuyerMandateForm() {
         body: encodeForm({ "form-name": "buyer-mandate", "bot-field": "", ...submission, sourcePage: "buyer-mandate", ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
+      notifyLeadDirect({
+        name: form.name, email: form.email,
+        propertyAddress: submission.targetNeighborhoods, city: form.country, timeline: form.timeline,
+        message: `Budget ${form.priceRange || "—"} · Financing ${form.financing || "—"}${form.visaStatus ? ` · Visa ${form.visaStatus}` : ""}`,
+        sourcePage: "buyer-mandate", leadSource: getLeadSource(),
+      });
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

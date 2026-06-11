@@ -1,6 +1,7 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
+import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
@@ -68,6 +69,13 @@ export const handler: Handler = async (event: HandlerEvent) => {
       }
     }
     const fullDetails = extraParts.join(" | ");
+
+    // If the synchronous backup notifier (lead-notify) already alerted Carlos
+    // about this lead, skip the Sheets/email/WhatsApp fan-out here to avoid
+    // notifying him twice. Nurture enrollment (below) still always runs.
+    const alertKey = dedupKey(email, phone);
+    const alreadyAlerted = await wasAlerted(alertKey);
+    if (!alreadyAlerted) {
 
     // ── 1. Google Sheets via Apps Script webhook ─────────────────────────
     if (GOOGLE_SHEETS_WEBHOOK_URL) {
@@ -176,6 +184,11 @@ export const handler: Handler = async (event: HandlerEvent) => {
       } catch (waErr) {
         console.error("WhatsApp notification error:", waErr);
       }
+    }
+
+      await markAlerted(alertKey);
+    } else {
+      console.log("submission-created: lead already alerted by backup notifier — skipping Sheets/email/WhatsApp", alertKey);
     }
 
     // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────

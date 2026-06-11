@@ -95,3 +95,9 @@ export function getAttribution(): Attribution {
     return {};
   }
 }
+
+/** A compact "source / medium / campaign" label for alert messages. */
+export function getLeadSource(): string {
+  const a = getAttribution();
+  return [a.utm_source || "direct", a.utm_medium, a.utm_campaign].filter(Boolean).join(" / ") || "direct";
+}
