@@ -255,6 +255,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
 
+  <url>
+    <loc>https://homesprofessional.com/spain-mls-listing</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
   <!-- ── Professionals ──────────────────────────────────────────── -->
 
   <url>

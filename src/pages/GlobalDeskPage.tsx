@@ -584,6 +584,24 @@ export default function GlobalDeskPage() {
           </div>
         </section>
 
+        {/* ── Bridge: Agency & Developer partnership page ── */}
+        <section className="border-t border-gold/20 bg-navy-deep px-6 py-12 text-center text-white">
+          <div className="mx-auto max-w-3xl">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Agencies · Developers · Family Offices</p>
+            <h2 className="mt-4 font-serif text-2xl leading-tight md:text-3xl">
+              Representing prime Spanish inventory?<br />
+              <em className="not-italic italic text-gold">There is a dedicated desk for you.</em>
+            </h2>
+            <a
+              href="/spain-mls-listing"
+              className="group mt-7 inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            >
+              List Spanish Inventory on the Miami MLS
+              <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+        </section>
+
         {/* ── FAQ (NAVY) ── */}
         <section className="border-t border-gold/15 bg-navy py-16 md:py-24 px-6 text-white">
           <div className="mx-auto max-w-4xl">

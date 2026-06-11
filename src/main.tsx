@@ -32,6 +32,7 @@ const SellPompanoBeachPage           = lazy(() => import('./pages/SellPompanoBea
 const SellHallandaleBeachPage        = lazy(() => import('./pages/SellHallandaleBeachPage'));
 const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
 const GlobalDeskPage                 = lazy(() => import('./pages/GlobalDeskPage'));
+const SpainMlsListingPage            = lazy(() => import('./pages/SpainMlsListingPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
 const NewConstructionPage = lazy(() => import('./pages/NewConstructionPage'));
@@ -91,6 +92,7 @@ if (rootElement) {
                 <Route path="/sell-pompano-beach"            element={<SellPompanoBeachPage />} />
                 <Route path="/sell-hallandale-beach"         element={<SellHallandaleBeachPage />} />
                 <Route path="/global-desk"                   element={<GlobalDeskPage />} />
+                <Route path="/spain-mls-listing"             element={<SpainMlsListingPage />} />
                 <Route path="/miami-mls-international-desk"  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/developers-agencies"           element={<Navigate to="/global-desk" replace />} />
                 {/* Legacy routes — redirect to new canonical URLs */}
