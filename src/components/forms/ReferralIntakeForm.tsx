@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { trackLead } from "../../lib/analytics";
-import { getAttribution } from "../../lib/attribution";
+import { getAttribution, getLeadSource } from "../../lib/attribution";
+import { notifyLeadDirect } from "../../lib/leadNotify";
 
 const INITIAL: Record<string, string> = {
   licenseeName: "", brokerageName: "", email: "", phone: "", country: "", referralType: "",
@@ -35,6 +36,12 @@ export function ReferralIntakeForm() {
         body: encodeForm({ "form-name": "referral-intake", "bot-field": "", ...form, sourcePage: "referral-intake", ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
+      notifyLeadDirect({
+        name: form.licenseeName, email: form.email, phone: form.phone,
+        city: form.country, timeline: form.referralType,
+        message: `${form.brokerageName ? form.brokerageName + " · " : ""}${form.clientSummary}`,
+        sourcePage: "referral-intake", leadSource: getLeadSource(),
+      });
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { pushEvent } from "../../lib/analytics";
+import { notifyLeadDirect } from "../../lib/leadNotify";
 
 const INITIAL: Record<string, string> = {
   agentName: "",
@@ -56,6 +57,12 @@ export function AgencyPartnerForm() {
         }),
       });
       if (!res.ok) throw new Error("submission_failed");
+      notifyLeadDirect({
+        name: form.agentName, email: form.email, phone: form.whatsapp,
+        city: form.country, propertyAddress: form.agency,
+        message: `${form.role ? form.role + " · " : ""}${form.inventoryType ? form.inventoryType + " · " : ""}${form.message}`,
+        sourcePage: "agency-partner-intake",
+      });
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

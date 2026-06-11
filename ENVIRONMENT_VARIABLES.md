@@ -12,6 +12,25 @@ RESEND_API_KEY
   Used by: netlify/functions/submission-created.ts
   How to get: resend.com → API Keys → Create API Key → verify homesprofessional.com domain
 
+VITE_GOOGLE_MAPS_KEY
+  What it does: Powers the address autocomplete + map-pin preview on the seller
+                forms (Property Address field). WITHOUT this key the field still
+                works as a plain text box, but no address suggestions drop down
+                and no map preview appears.
+  Used by: src/lib/googlePlaces.ts → HeroSellerForm + SellerIntakeForm (client-side)
+  IMPORTANT: Must be prefixed VITE_ so Vite exposes it to the browser at build time.
+             After setting it, trigger a new deploy — it is baked in at build time,
+             not read at runtime.
+  How to get: console.cloud.google.com → APIs & Services
+    1. Enable BOTH "Maps JavaScript API" and "Places API"
+    2. Ensure billing is enabled on the project (Google requires it even for
+       free-tier usage; without billing the API silently returns no results)
+    3. Credentials → Create API key
+    4. Restrict the key: Application restriction → HTTP referrers →
+       add https://homesprofessional.com/* and https://*.netlify.app/*
+       (and http://localhost:*/ for local dev)
+    5. API restriction → limit to Maps JavaScript API + Places API
+
 GEMINI_API_KEY
   What it does: Powers the AI Intelligence Desk
   Used by: netlify/functions/ai-desk.ts server-side only
