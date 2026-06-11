@@ -303,47 +303,86 @@
     <!-- Pixel noscript fallbacks (must be in body, not head) -->
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1342120122583302&ev=PageView&noscript=1" /></noscript>
     <noscript><img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=537660125&fmt=gif" /></noscript>
-    <!-- Netlify Forms — static declarations required for deploy-time detection -->
+    <!--
+      Netlify Forms — static declarations required for deploy-time detection.
+      IMPORTANT: Netlify only records fields that are declared here. Any field a
+      form POSTs that is NOT listed below is silently dropped before it reaches
+      the submission-created function (and Google Sheets / email / WhatsApp).
+      So every field the React forms send MUST be declared, including the shared
+      lead-source attribution fields (utm_*, click IDs, referrer, landing_page,
+      first_seen) injected on every submission by src/lib/attribution.ts.
+      The attribution input block below is duplicated into each form for that
+      reason — keep them in sync with src/lib/attribution.ts.
+    -->
     <form name="seller-consultation" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="seller-consultation" />
       <input name="bot-field" /><input name="name" /><input name="email" />
       <input name="phone" /><input name="propertyAddress" /><input name="city" />
-      <input name="timeline" /><textarea name="message"></textarea><input name="sourcePage" />
+      <input name="timeline" /><textarea name="message"></textarea>
+      <input name="source" /><input name="sourcePage" />
+      <input name="utm_source" /><input name="utm_medium" /><input name="utm_campaign" />
+      <input name="utm_term" /><input name="utm_content" /><input name="gclid" />
+      <input name="fbclid" /><input name="msclkid" /><input name="li_fat_id" />
+      <input name="referrer" /><input name="landing_page" /><input name="first_seen" />
     </form>
     <form name="seller-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="seller-intake" />
       <input name="bot-field" /><input name="name" /><input name="email" />
       <input name="phone" /><input name="propertyAddress" /><input name="city" />
       <input name="valueBand" /><input name="occupancy" /><input name="timeline" />
-      <input name="priorListing" /><input name="preferredContact" /><input name="sourcePage" />
+      <input name="priorListing" /><input name="preferredContact" />
       <input name="lat" /><input name="lng" /><input name="placeId" /><input name="messagingConsent" />
+      <input name="source" /><input name="sourcePage" />
+      <input name="utm_source" /><input name="utm_medium" /><input name="utm_campaign" />
+      <input name="utm_term" /><input name="utm_content" /><input name="gclid" />
+      <input name="fbclid" /><input name="msclkid" /><input name="li_fat_id" />
+      <input name="referrer" /><input name="landing_page" /><input name="first_seen" />
     </form>
     <form name="buyer-mandate" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="buyer-mandate" />
       <input name="bot-field" /><input name="name" /><input name="email" />
       <input name="country" /><input name="targetNeighborhoods" /><input name="priceRange" />
       <input name="financing" /><input name="timeline" /><input name="visaStatus" />
-      <input name="preferredContact" /><input name="sourcePage" />
+      <input name="preferredContact" />
+      <input name="source" /><input name="sourcePage" />
+      <input name="utm_source" /><input name="utm_medium" /><input name="utm_campaign" />
+      <input name="utm_term" /><input name="utm_content" /><input name="gclid" />
+      <input name="fbclid" /><input name="msclkid" /><input name="li_fat_id" />
+      <input name="referrer" /><input name="landing_page" /><input name="first_seen" />
     </form>
     <form name="referral-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="referral-intake" />
       <input name="bot-field" /><input name="licenseeName" /><input name="brokerageName" />
-      <input name="country" /><input name="referralType" />
+      <input name="email" /><input name="phone" /><input name="country" /><input name="referralType" />
       <textarea name="clientSummary"></textarea>
-      <input name="preferredContact" /><input name="sourcePage" />
+      <input name="preferredContact" /><input name="source" /><input name="sourcePage" />
+      <input name="utm_source" /><input name="utm_medium" /><input name="utm_campaign" />
+      <input name="utm_term" /><input name="utm_content" /><input name="gclid" />
+      <input name="fbclid" /><input name="msclkid" /><input name="li_fat_id" />
+      <input name="referrer" /><input name="landing_page" /><input name="first_seen" />
     </form>
     <form name="referral-intake-es" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="referral-intake-es" />
       <input name="bot-field" /><input name="licenseeName" /><input name="brokerageName" />
-      <input name="country" /><input name="referralType" />
+      <input name="email" /><input name="phone" /><input name="country" /><input name="referralType" />
       <textarea name="clientSummary"></textarea>
-      <input name="preferredContact" /><input name="sourcePage" />
+      <input name="preferredContact" /><input name="source" /><input name="sourcePage" />
+      <input name="utm_source" /><input name="utm_medium" /><input name="utm_campaign" />
+      <input name="utm_term" /><input name="utm_content" /><input name="gclid" />
+      <input name="fbclid" /><input name="msclkid" /><input name="li_fat_id" />
+      <input name="referrer" /><input name="landing_page" /><input name="first_seen" />
     </form>
     <form name="seller-hero" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="seller-hero" />
       <input name="bot-field" /><input name="name" /><input name="phone" />
       <input name="email" /><input name="propertyAddress" /><input name="city" />
-      <input name="timeline" /><input name="sourcePage" /><input name="messagingConsent" />
+      <input name="timeline" /><input name="messagingConsent" />
+      <input name="lat" /><input name="lng" /><input name="placeId" /><input name="mapUrl" />
+      <input name="source" /><input name="sourcePage" />
+      <input name="utm_source" /><input name="utm_medium" /><input name="utm_campaign" />
+      <input name="utm_term" /><input name="utm_content" /><input name="gclid" />
+      <input name="fbclid" /><input name="msclkid" /><input name="li_fat_id" />
+      <input name="referrer" /><input name="landing_page" /><input name="first_seen" />
     </form>
     <form name="agency-partner-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="agency-partner-intake" />
@@ -351,12 +390,22 @@
       <input name="email" /><input name="whatsapp" /><input name="country" />
       <input name="website" /><input name="role" /><input name="inventoryType" />
       <input name="numberOfListings" /><input name="priceRange" /><input name="listingUrl" />
-      <textarea name="message"></textarea><input name="consent" /><input name="source" />
+      <textarea name="message"></textarea><input name="consent" />
+      <input name="source" /><input name="sourcePage" />
+      <input name="utm_source" /><input name="utm_medium" /><input name="utm_campaign" />
+      <input name="utm_term" /><input name="utm_content" /><input name="gclid" />
+      <input name="fbclid" /><input name="msclkid" /><input name="li_fat_id" />
+      <input name="referrer" /><input name="landing_page" /><input name="first_seen" />
     </form>
     <form name="seller-valuation-step1" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="seller-valuation-step1" />
       <input name="bot-field" /><input name="propertyAddress" /><input name="city" />
-      <input name="lat" /><input name="lng" /><input name="placeId" /><input name="sourcePage" />
+      <input name="lat" /><input name="lng" /><input name="placeId" />
+      <input name="source" /><input name="sourcePage" />
+      <input name="utm_source" /><input name="utm_medium" /><input name="utm_campaign" />
+      <input name="utm_term" /><input name="utm_content" /><input name="gclid" />
+      <input name="fbclid" /><input name="msclkid" /><input name="li_fat_id" />
+      <input name="referrer" /><input name="landing_page" /><input name="first_seen" />
     </form>
     <form name="lead-magnet-download" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="lead-magnet-download" />
