@@ -44,6 +44,11 @@ const CITY_GUIDES: Record<string, { slug: string; label: string }> = {
   "pembroke pines": { slug: "selling-pembroke-pines-home-2026", label: "Selling Your Pembroke Pines Home in 2026" },
   "plantation": { slug: "selling-plantation-home-2026", label: "Selling Your Plantation Home in 2026" },
   "sunrise": { slug: "selling-sunrise-home-2026", label: "Selling Your Sunrise Home in 2026" },
+  "hallandale beach": { slug: "selling-hallandale-beach-condo-2026", label: "Selling Your Hallandale Beach Condo in 2026" },
+  "kendall": { slug: "selling-kendall-home-2026", label: "Selling Your Kendall Home in 2026" },
+  "north miami": { slug: "selling-north-miami-home-2026", label: "Selling Your North Miami Home in 2026" },
+  "pompano beach": { slug: "selling-pompano-beach-home-2026", label: "Selling Your Pompano Beach Home in 2026" },
+  "downtown miami": { slug: "selling-downtown-miami-condo-2026", label: "Selling Your Downtown Miami Condo in 2026" },
 };
 const DEFAULT_GUIDE = { slug: "when-to-list-south-florida-home-2026", label: "When to List Your South Florida Home" };
 
