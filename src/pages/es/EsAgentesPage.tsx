@@ -50,6 +50,8 @@ const breadcrumbJsonLd = {
 const INITIAL_FORM: Record<string, string> = {
   licenseeName: "",
   brokerageName: "",
+  email: "",
+  phone: "",
   country: "",
   referralType: "",
   clientSummary: "",
@@ -97,6 +99,8 @@ function EsReferralForm() {
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
         name: form.licenseeName,
+        email: form.email,
+        phone: form.phone,
         city: form.country,
         timeline: form.referralType,
         message: `${form.brokerageName ? form.brokerageName + " · " : ""}${form.clientSummary}`,
@@ -158,6 +162,39 @@ function EsReferralForm() {
             className="form-input"
             value={form.brokerageName}
             onChange={set("brokerageName")}
+          />
+        </div>
+      </div>
+
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="flex flex-col gap-1.5">
+          <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+            {/* TODO: native Madrid editor review */}
+            Email *
+          </label>
+          <input
+            required
+            name="email"
+            type="email"
+            placeholder="su@email.com"
+            className="form-input"
+            value={form.email}
+            onChange={set("email")}
+          />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+            {/* TODO: native Madrid editor review */}
+            Teléfono / WhatsApp *
+          </label>
+          <input
+            required
+            name="phone"
+            type="tel"
+            placeholder="+34 600 000 000"
+            className="form-input"
+            value={form.phone}
+            onChange={set("phone")}
           />
         </div>
       </div>
