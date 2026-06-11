@@ -225,8 +225,9 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           value={form.propertyAddress}
           onChange={update("propertyAddress")}
           placeholder={t.address}
-          autoComplete="off"
-          className="w-full rounded-lg bg-white/[0.08] border border-gold/25 px-4 py-4 pl-11 font-sans text-[15px] text-white placeholder:text-white/30 outline-none transition-all focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
+          autoComplete="street-address"
+          style={{ paddingLeft: "2.75rem" }}
+          className="w-full rounded-lg bg-white/[0.08] border border-gold/25 px-4 py-4 font-sans text-[15px] text-white placeholder:text-white/30 outline-none transition-all focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
           aria-label={t.address}
         />
       </div>

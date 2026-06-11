@@ -91,6 +91,36 @@ video {
   .hero-cta-main:hover { transform: none; }
 }
 
+/* Google Places Autocomplete dropdown — ensure it appears above the mobile
+   virtual keyboard and above any fixed/sticky nav bars. Without this the
+   dropdown can appear behind the keyboard on Android, which causes the input
+   to lose focus (appearing to "block" typing) when the dropdown tries to show. */
+.pac-container {
+  z-index: 9999 !important;
+  font-family: var(--font-sans);
+  border: 1px solid #E8E0D0;
+  border-top: none;
+  box-shadow: 0 4px 16px rgba(6, 17, 31, 0.12);
+}
+.pac-item {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #0B1E3F;
+  cursor: pointer;
+}
+.pac-item:hover,
+.pac-item-selected {
+  background-color: #F9F7F2;
+}
+.pac-item-query {
+  font-size: 13px;
+  color: #0B1E3F;
+}
+.pac-matched {
+  color: #B08D57;
+  font-weight: 600;
+}
+
 .gold-gradient {
   background: linear-gradient(135deg, #B08D57 0%, #D4AE78 100%);
 }

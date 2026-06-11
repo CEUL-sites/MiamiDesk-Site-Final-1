@@ -215,8 +215,9 @@ export function SellerIntakeForm() {
                 name="propertyAddress"
                 type="text"
                 placeholder={MAPS_KEY ? "Start typing your street address…" : "Street address or building name"}
-                autoComplete="off"
-                className="form-input w-full pl-10"
+                autoComplete="street-address"
+                style={{ paddingLeft: "2.75rem" }}
+                className="form-input w-full"
                 value={form.propertyAddress}
                 onChange={set("propertyAddress")}
               />
