@@ -28,6 +28,7 @@ const COPY = {
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
     submit: "Request My Strategy Review",
     sending: "Sending…",
+    consent: "I agree to receive updates by WhatsApp/SMS at this number. Msg & data rates may apply. Reply STOP to opt out.",
     prefer: "Prefer WhatsApp?",
     preferLink: "Message Carlos directly",
     successTag: "Seller Request Received",
@@ -54,6 +55,7 @@ const COPY = {
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
     submit: "Solicitar Mi Revisión de Estrategia",
     sending: "Enviando…",
+    consent: "Acepto recibir actualizaciones por WhatsApp/SMS a este número. Pueden aplicar tarifas. Responda STOP para darse de baja.",
     prefer: "¿Prefiere WhatsApp?",
     preferLink: "Escriba a Carlos directamente",
     successTag: "Solicitud Recibida",
@@ -73,6 +75,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
     city: t.markets[0],
     timeline: t.timelines[0],
     lat: "", lng: "", placeId: "",
+    messagingConsent: "no",
   };
   const [form, setForm]       = useState(initial);
   const [status, setStatus]   = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -281,6 +284,18 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
         </div>
       </div>
+
+      {/* WhatsApp/SMS consent — optional opt-in */}
+      <label className="mt-3 flex cursor-pointer items-start gap-2.5">
+        <input
+          type="checkbox"
+          name="messagingConsent"
+          checked={form.messagingConsent === "yes"}
+          onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
+          className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 accent-[#B08D57]"
+        />
+        <span className="font-sans text-[10px] leading-relaxed text-white/40">{t.consent}</span>
+      </label>
 
       {status === "error" && (
         <p className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>

@@ -22,7 +22,7 @@ const INITIAL: Record<string, string> = {
   name: "", email: "", phone: "", propertyAddress: "", city: "",
   valueBand: "", occupancy: "", timeline: "", priorListing: "",
   preferredContact: "WhatsApp", source: "seller-intake",
-  lat: "", lng: "", placeId: "",
+  lat: "", lng: "", placeId: "", messagingConsent: "no",
 };
 
 interface CitySnapshot {
@@ -355,6 +355,20 @@ export function SellerIntakeForm() {
           <Field label="Prior Listing History (optional)">
             <textarea name="priorListing" rows={3} placeholder="Has this property been listed before? Any relevant context about prior attempts, pricing history, or condition." className="form-input" value={form.priorListing} onChange={set("priorListing")} />
           </Field>
+
+          <label className="flex cursor-pointer items-start gap-3">
+            <input
+              type="checkbox"
+              name="messagingConsent"
+              checked={form.messagingConsent === "yes"}
+              onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
+              className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
+            />
+            <span className="font-sans text-xs leading-relaxed text-navy/55">
+              I agree to receive updates about my inquiry by WhatsApp or SMS at the number provided.
+              Message and data rates may apply. Reply STOP to opt out. (Optional)
+            </span>
+          </label>
 
           {status === "error" && (
             <p className="font-sans text-sm text-red-600">{err}</p>

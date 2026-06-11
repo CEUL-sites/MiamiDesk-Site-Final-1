@@ -1,19 +1,24 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { ReachAdvantage } from "../components/ReachAdvantage";
-import { IntelligenceDesk } from "../components/IntelligenceDesk";
-import { BuyersRelocation } from "../components/BuyersRelocation";
-import { InternationalReachStrip } from "../components/InternationalReachStrip";
 import { Testimonials } from "../components/Testimonials";
 import { LeadMagnetStrip } from "../components/LeadMagnetStrip";
-import { HowCarlosWorks } from "../components/HowCarlosWorks";
-import { AboutContact } from "../components/AboutContact";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { ProofStrip } from "../components/ProofStrip";
+
+// Below-the-fold sections — split out of the initial bundle. With
+// hydrateRoot + Suspense, React keeps the prerendered HTML visible and
+// hydrates these progressively once their chunks arrive.
+const IntelligenceDesk = lazy(() => import("../components/IntelligenceDesk").then((m) => ({ default: m.IntelligenceDesk })));
+const BuyersRelocation = lazy(() => import("../components/BuyersRelocation").then((m) => ({ default: m.BuyersRelocation })));
+const InternationalReachStrip = lazy(() => import("../components/InternationalReachStrip").then((m) => ({ default: m.InternationalReachStrip })));
+const HowCarlosWorks = lazy(() => import("../components/HowCarlosWorks").then((m) => ({ default: m.HowCarlosWorks })));
+const AboutContact = lazy(() => import("../components/AboutContact").then((m) => ({ default: m.AboutContact })));
 
 export default function HomePage() {
   return (
@@ -85,11 +90,13 @@ export default function HomePage() {
         <ReachAdvantage />
         <Testimonials />
         <LeadMagnetStrip />
-        <IntelligenceDesk />
-        <BuyersRelocation />
-        <InternationalReachStrip />
-        <HowCarlosWorks />
-        <AboutContact />
+        <Suspense fallback={null}>
+          <IntelligenceDesk />
+          <BuyersRelocation />
+          <InternationalReachStrip />
+          <HowCarlosWorks />
+          <AboutContact />
+        </Suspense>
         <Footer />
         <MobileStickyCTA />
         <DesktopStickyCTA />
