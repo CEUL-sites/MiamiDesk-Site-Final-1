@@ -1,5 +1,6 @@
 import { trackLead } from "../../lib/analytics";
-import { getAttribution } from "../../lib/attribution";
+import { getAttribution, getLeadSource } from "../../lib/attribution";
+import { notifyLeadDirect } from "../../lib/leadNotify";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, type Variants } from "motion/react";
@@ -94,6 +95,14 @@ function EsReferralForm() {
         }),
       });
       if (!res.ok) throw new Error("submission_failed");
+      notifyLeadDirect({
+        name: form.licenseeName,
+        city: form.country,
+        timeline: form.referralType,
+        message: `${form.brokerageName ? form.brokerageName + " · " : ""}${form.clientSummary}`,
+        sourcePage: "referral-intake-es",
+        leadSource: getLeadSource(),
+      });
       trackLead("agent", { form: "referral-intake-es" }); window.location.href = "/es/gracias/agente";
     } catch (e: unknown) {
       setErr(
