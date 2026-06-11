@@ -52,11 +52,11 @@ export default function SellSouthFloridaPage() {
         <meta property="og:url" content="https://homesprofessional.com/sell-south-florida" />
         <meta property="og:title" content="Sell With South Florida MLS Exposure | Carlos Uzcategui, United Realty Group" />
         <meta property="og:description" content="Professional MLS positioning, buyer-agent activation, and distribution through the network that moves serious South Florida transactions. Free, confidential seller strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell With South Florida MLS Exposure | Carlos Uzcategui" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent distribution for South Florida sellers. Free, confidential strategy review." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

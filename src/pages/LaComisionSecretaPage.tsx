@@ -94,11 +94,11 @@ export default function LaComisionSecretaPage() {
         <meta property="og:description" content="248-page Spanish-language guide to building a real estate career in South Florida. Licensing, pipeline, the Latin American buyer market — by Carlos Uzcategui, FL SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/la-comision-secreta" />
         <meta property="og:type" content="product" />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="La Comisión Secreta — South Florida Real Estate Career Guide" />
         <meta name="twitter:description" content="248-page Spanish guide to a real estate career in South Florida — licensing, MLS, the Latin American buyer market. By Carlos Uzcategui, FL SL705771." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="robots" content="noindex, nofollow" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
