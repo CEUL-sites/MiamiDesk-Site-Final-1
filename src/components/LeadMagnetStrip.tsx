@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Download, ArrowRight, Loader2, CheckCircle2, FileText } from "lucide-react";
 import { LEAD_MAGNETS } from "../constants";
+import { trackFunnelEvent } from "../lib/analytics";
 
 const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
@@ -24,6 +25,7 @@ export function LeadMagnetStrip() {
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
+      trackFunnelEvent("net_sheet_download", { gate: "email" });
       setStatus("success");
     } catch {
       setStatus("error");

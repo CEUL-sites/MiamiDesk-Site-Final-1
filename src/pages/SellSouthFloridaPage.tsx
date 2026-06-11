@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
+import { ProofStrip } from "../components/ProofStrip";
 import { LazyVideo } from "../components/LazyVideo";
 import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerSection } from "../components/SellerSection";
@@ -157,6 +158,7 @@ export default function SellSouthFloridaPage() {
           </div>{/* end relative */}
         </section>
 
+        <ProofStrip />
         <ReachAdvantage />
 
         {/* Miami Realtors Association — Why You Need a Miami Realtor */}

@@ -13,6 +13,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
+import { ProofStrip } from "../components/ProofStrip";
 
 export default function HomePage() {
   return (
@@ -80,6 +81,7 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+        <ProofStrip />
         <ReachAdvantage />
         <Testimonials />
         <LeadMagnetStrip />

@@ -187,6 +187,18 @@ export const handler: Handler = async (event: HandlerEvent) => {
         const key = email.trim().toLowerCase();
         const existing = await store.get(key, { type: "json" });
         if (!existing) {
+          // Detect language at enrollment time. Treat missing as "en".
+          // "es" when: sourcePage contains "-es" or starts with "es",
+          //            name contains Spanish diacritics/punctuation, or
+          //            city/market value names a Spanish-speaking location.
+          const sourcePage = fields.sourcePage || "";
+          const isSpanish =
+            /(?:^|-)es(?:-|$)/i.test(sourcePage) ||
+            sourcePage.toLowerCase().startsWith("es") ||
+            /[áéíóúüñ¿¡]/i.test(name) ||
+            /\b(?:España|Madrid|Marbella|Sur de Florida)\b/i.test(city);
+          const language: "en" | "es" = isSpanish ? "es" : "en";
+
           const lead: NurtureLead = {
             email: key,
             name,
@@ -197,6 +209,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
             stage: 0,
             lastSentAt: null,
             unsubscribed: false,
+            language,
           };
           await store.setJSON(key, lead);
         }

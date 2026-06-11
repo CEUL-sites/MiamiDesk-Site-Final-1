@@ -51,8 +51,13 @@ function firstName(name: string): string {
   return name.trim().split(/\s+/)[0] || "there";
 }
 
-function wrap(bodyHtml: string, email: string): string {
+function wrap(bodyHtml: string, email: string, language: "en" | "es" = "en"): string {
   const unsub = `${SITE}/.netlify/functions/nurture-unsubscribe?email=${encodeURIComponent(email)}&token=${nurtureToken(email)}`;
+  const footerDisclaimer = language === "es"
+    ? `Recibe este correo porque solicitó una revisión de estrategia de venta en HomesProfessional.com.
+          <a href="${unsub}" style="color: rgba(11,30,63,0.45);">Cancelar suscripción</a>`
+    : `You're receiving this because you requested a seller strategy review at HomesProfessional.com.
+          <a href="${unsub}" style="color: rgba(11,30,63,0.45);">Unsubscribe</a>`;
   return `
     <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #0B1E3F;">
       <div style="border-bottom: 2px solid #B08D57; padding-bottom: 16px; margin-bottom: 24px;">
@@ -67,8 +72,7 @@ function wrap(bodyHtml: string, email: string): string {
           15951 SW 41 St #700, Weston, FL 33331 · ${WHATSAPP_US} · ${CARLOS_EMAIL}
         </p>
         <p style="font-family: Helvetica, Arial, sans-serif; font-size: 11px; color: rgba(11,30,63,0.35); margin: 12px 0 0;">
-          You're receiving this because you requested a seller strategy review at HomesProfessional.com.
-          <a href="${unsub}" style="color: rgba(11,30,63,0.45);">Unsubscribe</a>
+          ${footerDisclaimer}
         </p>
       </div>
     </div>
@@ -80,6 +84,10 @@ const H_STYLE = `font-size: 24px; font-weight: 400; line-height: 1.2; margin: 0 
 const A_STYLE = `color: #B08D57;`;
 
 function buildEmail(stage: number, lead: NurtureLead): { subject: string; html: string } {
+  return (lead.language ?? "en") === "es" ? buildEmailES(stage, lead) : buildEmailEN(stage, lead);
+}
+
+function buildEmailEN(stage: number, lead: NurtureLead): { subject: string; html: string } {
   const fn = firstName(lead.name);
   const guide = CITY_GUIDES[lead.city.toLowerCase()] ?? DEFAULT_GUIDE;
 
@@ -155,6 +163,89 @@ function buildEmail(stage: number, lead: NurtureLead): { subject: string; html: 
           </p>
           <p style="${P_STYLE}">This is the last note in this series — I won't keep emailing unless you'd like me to.</p>
         `, lead.email),
+      };
+  }
+}
+
+// Spanish track — formal "usted" tone matching lead-acknowledgment.ts.
+// Same stages, links, and compliance rules as the English sequence; the
+// linked guides themselves are in English and are flagged as such.
+function buildEmailES(stage: number, lead: NurtureLead): { subject: string; html: string } {
+  const fn = lead.name.trim() ? firstName(lead.name) : "cliente";
+  const guide = CITY_GUIDES[lead.city.toLowerCase()] ?? DEFAULT_GUIDE;
+
+  switch (stage) {
+    case 1:
+      return {
+        subject: "Lo que realmente conservaría de una venta en el Sur de Florida",
+        html: wrap(`
+          <h1 style="${H_STYLE}">El número que importa no es el precio de venta.</h1>
+          <p style="${P_STYLE}">Estimado/a ${fn},<br><br>
+            Mientras el análisis de su propiedad está en preparación, le comparto el recurso que los vendedores consultan primero:
+            el <a href="${SITE}/south-florida-sellers-net-sheet-2026.pdf" style="${A_STYLE}"><strong>South Florida Seller's Net Sheet 2026</strong></a> (documento en inglés) —
+            un desglose línea por línea de comisiones, impuestos y costos de cierre, para que vea lo que una venta realmente le dejaría.</p>
+          <p style="${P_STYLE}">Su revisión completa incluirá comparables activos y cerrados, absorción en su submercado y una recomendación de posicionamiento —
+            elaborada con datos del MLS de Miami and South Florida REALTORS®, no con un algoritmo.</p>
+          <p style="${P_STYLE}">¿Preguntas mientras tanto? Responda a este correo o escríbame por WhatsApp al <a href="${WHATSAPP_LINK}" style="${A_STYLE}">${WHATSAPP_US}</a>.</p>
+        `, lead.email, "es"),
+      };
+    case 2:
+      return {
+        subject: "Seis preguntas antes de elegir a su agente de listado",
+        html: wrap(`
+          <h1 style="${H_STYLE}">Cómo entrevistar a un agente de listado — incluido yo.</h1>
+          <p style="${P_STYLE}">Estimado/a ${fn},<br><br>
+            Con quien sea que termine listando su propiedad, conviene entrevistarlo bien. Publiqué las seis preguntas
+            que considero que todo vendedor del Sur de Florida debería hacer — sobre posicionamiento en el MLS, activación
+            de agentes de compradores y cómo se toman realmente las decisiones de precio:</p>
+          <p style="${P_STYLE}"><a href="${SITE}/journal/how-to-choose-a-listing-agent-south-florida-2026" style="${A_STYLE}"><strong>Cómo elegir un agente de listado en el Sur de Florida → (guía en inglés)</strong></a></p>
+          <p style="${P_STYLE}">Hágale estas preguntas a cualquier agente con quien hable. Si desea hacérmelas directamente, mi calendario está abierto: <a href="${CALENDLY}" style="${A_STYLE}">${CALENDLY}</a>.</p>
+        `, lead.email, "es"),
+      };
+    case 3:
+      return {
+        subject: `Su mercado local, bien leído${lead.city && lead.city !== "Other" ? ` — ${lead.city}` : ""}`,
+        html: wrap(`
+          <h1 style="${H_STYLE}">Lo que realmente mueve la aguja en su mercado.</h1>
+          <p style="${P_STYLE}">Estimado/a ${fn},<br><br>
+            Cada submercado del Sur de Florida se comporta de manera distinta — el perfil del comprador, los días en el mercado,
+            y qué preparación realmente recupera su costo. Esta guía cubre la dinámica más relevante para su propiedad:</p>
+          <p style="${P_STYLE}"><a href="${SITE}/journal/${guide.slug}" style="${A_STYLE}"><strong>${guide.label} → (guía en inglés)</strong></a></p>
+          <p style="${P_STYLE}">Cuando quiera números específicos de su calle y no de su ciudad, eso es exactamente lo que cubre la revisión
+            confidencial: <a href="${SITE}/home-value" style="${A_STYLE}">solicítela aquí</a> o simplemente responda a este correo.</p>
+        `, lead.email, "es"),
+      };
+    case 4:
+      return {
+        subject: "Costos de cierre y el momento de listar — lo que más se subestima",
+        html: wrap(`
+          <h1 style="${H_STYLE}">Planifique la salida antes de listar.</h1>
+          <p style="${P_STYLE}">Estimado/a ${fn},<br><br>
+            Dos tareas le ahorran más dinero a un vendedor: entender la estructura completa de costos antes de aceptar una oferta,
+            y elegir la ventana de listado de forma deliberada, no por inercia.</p>
+          <p style="${P_STYLE}">
+            <a href="${SITE}/journal/seller-closing-costs-south-florida-2026" style="${A_STYLE}"><strong>Costos de cierre para vendedores en el Sur de Florida →</strong></a><br>
+            <a href="${SITE}/journal/when-to-list-south-florida-home-2026" style="${A_STYLE}"><strong>Cuándo listar su propiedad en el Sur de Florida →</strong></a>
+          </p>
+          <p style="${P_STYLE}">Ambas guías (en inglés) se basan en datos del MLS de Miami and South Florida REALTORS®. Si sus planes han avanzado desde la última vez,
+            responda aquí o escríbame por WhatsApp al <a href="${WHATSAPP_LINK}" style="${A_STYLE}">${WHATSAPP_US}</a> y actualizaré su análisis.</p>
+        `, lead.email, "es"),
+      };
+    default:
+      return {
+        subject: "¿Sigue considerando vender? Su análisis puede actualizarse",
+        html: wrap(`
+          <h1 style="${H_STYLE}">Sin presión — solo una puerta abierta.</h1>
+          <p style="${P_STYLE}">Estimado/a ${fn},<br><br>
+            Han pasado algunas semanas desde que consultó sobre vender${lead.city && lead.city !== "Other" ? ` en ${lead.city}` : " en el Sur de Florida"}.
+            Los mercados se mueven; si la pregunta del momento oportuno sigue abierta para usted, con gusto vuelvo a correr los comparables
+            y le doy una lectura actualizada — sin compromiso de listado, como siempre.</p>
+          <p style="${P_STYLE}">
+            Reserve 30 minutos: <a href="${CALENDLY}" style="${A_STYLE}">${CALENDLY}</a><br>
+            O escríbame directamente por WhatsApp: <a href="${WHATSAPP_LINK}" style="${A_STYLE}">${WHATSAPP_US}</a>
+          </p>
+          <p style="${P_STYLE}">Este es el último correo de esta serie — no seguiré escribiéndole salvo que usted lo desee.</p>
+        `, lead.email, "es"),
       };
   }
 }

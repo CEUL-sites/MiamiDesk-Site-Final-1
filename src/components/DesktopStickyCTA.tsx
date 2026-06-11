@@ -1,6 +1,7 @@
 import { ArrowRight, MessageSquare, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CONTACT } from "../constants";
+import { trackFunnelEvent } from "../lib/analytics";
 
 // Desktop counterpart to MobileStickyCTA — a slim bottom bar that appears
 // after the visitor scrolls past the hero and keeps one valuation CTA in
@@ -69,6 +70,7 @@ export function DesktopStickyCTA() {
             </a>
             <a
               href="/home-value"
+              onClick={() => trackFunnelEvent("sticky_cta_home_value")}
               className="group inline-flex items-center gap-2 bg-gold px-6 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy-deep transition-opacity hover:opacity-90"
             >
               Get My Home Value

@@ -1,6 +1,6 @@
 import { getAttribution } from "./attribution";
 
-type EventPayload = Record<string, unknown>;
+export type EventPayload = Record<string, unknown>;
 
 declare global {
   interface Window {
@@ -13,6 +13,47 @@ declare global {
 export function pushEvent(eventName: string, payload?: EventPayload): void {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: eventName, ...payload });
+}
+
+/** Convert snake_case to PascalCase for Meta custom event names. */
+function toPascalCase(name: string): string {
+  return name
+    .split("_")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join("");
+}
+
+/**
+ * Fire a mid-funnel intent signal to GTM and Meta Pixel as a CUSTOM event.
+ *
+ * These are NOT full lead conversions — they are warm-intent signals used to
+ * build retargeting audiences in Meta Ads Manager and GA4 (via GTM):
+ *   - seller_intake_step1   → visitor entered a property address
+ *   - exit_intent_shown     → exit-intent modal was displayed
+ *   - exit_intent_capture   → visitor submitted their email in the exit modal
+ *   - net_sheet_download    → visitor downloaded the Seller's Net Sheet
+ *   - sticky_cta_home_value → visitor clicked "Get My Home Value" in sticky bar
+ *
+ * GTM: pushed as snake_case dataLayer events (same pattern as pushEvent).
+ * Meta Pixel: fired as fbq("trackCustom", PascalCaseName) so they appear in
+ *   Events Manager as custom events and can be used to define Custom Audiences.
+ * LinkedIn: intentionally omitted — Insight Tag custom conversions are
+ *   URL-match / conversion-ID based and don't benefit from JS custom events.
+ *
+ * Attribution (UTM / referrer / landing page) is attached automatically,
+ * identical to trackLead, so every audience segment is source-attributable.
+ */
+export function trackFunnelEvent(name: string, payload?: EventPayload): void {
+  const attribution = getAttribution();
+  const detail: EventPayload = { ...attribution, ...payload };
+
+  // GTM / GA4 dataLayer
+  pushEvent(name, detail);
+
+  // Meta Pixel — custom event (not standard Lead)
+  if (typeof window.fbq === "function") {
+    window.fbq("trackCustom", toPascalCase(name), detail);
+  }
 }
 
 export type LeadType = "seller" | "buyer" | "agent";

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, MapPin, Send, TrendingUp } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { trackLead, pushEvent } from "../../lib/analytics";
+import { trackLead, trackFunnelEvent } from "../../lib/analytics";
 import { getAttribution } from "../../lib/attribution";
 import { loadGooglePlaces, MAPS_KEY } from "../../lib/googlePlaces";
 
@@ -108,7 +108,7 @@ export function SellerIntakeForm() {
         ...getAttribution(),
       }),
     }).catch(() => {});
-    pushEvent("seller_intake_step1", { city: form.city });
+    trackFunnelEvent("seller_intake_step1", { city: form.city });
 
     // Market snapshot for the interstitial — best-effort, never blocks step 2.
     setSnapshot(null);

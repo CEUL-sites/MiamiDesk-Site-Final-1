@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { CheckCircle2, Download, FileText, Loader2, X } from "lucide-react";
 import { LEAD_MAGNETS } from "../constants";
-import { pushEvent } from "../lib/analytics";
+import { trackFunnelEvent } from "../lib/analytics";
 
 // Exit-intent capture — desktop only, once per session, deliberately quiet.
 // When the cursor leaves through the top of the viewport (closing/leaving),
@@ -32,7 +32,7 @@ export function ExitIntentModal() {
       if (!armed || e.relatedTarget || e.clientY > 0) return;
       try { sessionStorage.setItem(SHOWN_KEY, "1"); } catch { /* private mode */ }
       setOpen(true);
-      pushEvent("exit_intent_shown", { offer: "seller-net-sheet" });
+      trackFunnelEvent("exit_intent_shown", { offer: "seller-net-sheet" });
       document.removeEventListener("mouseout", onMouseOut);
     };
     document.addEventListener("mouseout", onMouseOut);
@@ -67,7 +67,7 @@ export function ExitIntentModal() {
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
-      pushEvent("exit_intent_capture", { offer: "seller-net-sheet" });
+      trackFunnelEvent("exit_intent_capture", { offer: "seller-net-sheet" });
       setStatus("success");
     } catch {
       setStatus("error");

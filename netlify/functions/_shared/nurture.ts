@@ -23,4 +23,6 @@ export interface NurtureLead {
   stage: number;
   lastSentAt: string | null;
   unsubscribed: boolean;
+  /** ISO 639-1 language code for the nurture sequence. Defaults to "en" when absent (legacy leads). */
+  language?: "en" | "es";
 }
