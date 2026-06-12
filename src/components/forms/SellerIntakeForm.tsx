@@ -35,7 +35,9 @@ interface CitySnapshot {
   medianPricePerSqft: number | null;
 }
 
-const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+// minimumFractionDigits set explicitly — older ICU defaults it to 2 for
+// currency and throws RangeError when min > max, killing prerendering.
+const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
 function encodeForm(data: Record<string, string>) {
   return new URLSearchParams(data).toString();

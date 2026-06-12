@@ -16,11 +16,11 @@ export default function AboutPage() {
         <meta property="og:description" content="Florida Licensed Realtor® SL705771. 25 years in South Florida real estate. CLHMS certified. United Realty Group — Miami-Dade, Broward, and Palm Beach." />
         <meta property="og:url" content="https://homesprofessional.com/about" />
         <meta property="og:type" content="profile" />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Carlos Uzcategui | South Florida REALTOR® | United Realty Group" />
         <meta name="twitter:description" content="Florida Licensed Realtor® SL705771. 25 years in South Florida real estate. CLHMS certified. Bilingual English/Spanish." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",

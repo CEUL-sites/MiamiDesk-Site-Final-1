@@ -25,7 +25,7 @@ export default function JournalPostPage() {
 
   const ogImage = post.image
     ? `https://homesprofessional.com${post.image}`
-    : 'https://homesprofessional.com/images/carlos-headshot.png';
+    : 'https://homesprofessional.com/images/og-default.png';
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -64,10 +64,37 @@ export default function JournalPostPage() {
     },
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://homesprofessional.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Journal',
+        item: 'https://homesprofessional.com/journal',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `https://homesprofessional.com/journal/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <Helmet>
-        <title>{post.title} | Carlos Uzcategui · South Florida Real Estate</title>
+        {/* react-helmet-async needs a single string child in <title>;
+            mixed JSX children render an empty tag. */}
+        <title>{`${post.title} | Carlos Uzcategui · South Florida Real Estate`}</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://homesprofessional.com/journal/${post.slug}`} />
         <meta property="og:type" content="article" />
@@ -76,11 +103,15 @@ export default function JournalPostPage() {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:alt" content={post.title} />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:author" content="Carlos Uzcategui" />
+        <meta property="article:section" content={post.category} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Carlos Uzcategui`} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

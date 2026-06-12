@@ -43,11 +43,11 @@ export default function SellMiamiPage() {
         <meta property="og:url" content="https://homesprofessional.com/sell-miami" />
         <meta property="og:title" content="Sell Your Miami, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
         <meta property="og:description" content="Professional seller representation in Miami, FL — MLS activation, international buyer-agent network access, and global distribution. Free confidential strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Miami, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Miami, FL home sellers. Free strategy review — no listing commitment." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

@@ -44,11 +44,11 @@ export default function SellCoralGablesPage() {
         <meta property="og:url" content="https://homesprofessional.com/sell-coral-gables" />
         <meta property="og:title" content="Sell Your Coral Gables Home | Professional MLS Positioning | Carlos Uzcategui" />
         <meta property="og:description" content="Professional luxury seller representation in Coral Gables, FL — MLS activation, international buyer network, and distribution through the Miami MLS. Free confidential strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Coral Gables Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and international buyer activation for Coral Gables, FL sellers. Free strategy review — no listing commitment." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

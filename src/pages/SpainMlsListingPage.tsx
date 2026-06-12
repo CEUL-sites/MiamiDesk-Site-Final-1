@@ -176,11 +176,11 @@ export default function SpainMlsListingPage() {
         <meta property="og:url" content="https://homesprofessional.com/spain-mls-listing" />
         <meta property="og:title" content="Your Spanish Listings, in Front of 93,000 Miami Agents" />
         <meta property="og:description" content="Formal Miami MLS activation for Spanish prime inventory. Sell more through buyer agents — and win more mandates with exposure competing agencies cannot offer." />
-        <meta property="og:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="List Spanish Luxury Property on the Miami MLS" />
         <meta name="twitter:description" content="Agency & developer partnerships — LATAM and U.S. buyer-agent reach through United Realty Group, the licensed Florida broker." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/carlos-headshot.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
