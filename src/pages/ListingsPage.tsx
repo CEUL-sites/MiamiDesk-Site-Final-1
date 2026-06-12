@@ -18,6 +18,7 @@ export default function ListingsPage() {
           content="Browse pre-construction developments and active MLS listings across Miami-Dade, Broward & Palm Beach. Carlos Uzcategui, FL SL705771, United Realty Group."
         />
         <link rel="canonical" href="https://homesprofessional.com/listings" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta property="og:title" content="South Florida Listings — New Developments + Active MLS" />
         <meta property="og:url" content="https://homesprofessional.com/listings" />
       </Helmet>

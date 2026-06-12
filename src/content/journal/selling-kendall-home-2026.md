@@ -4,7 +4,7 @@ date: "2026-06-11"
 slug: "selling-kendall-home-2026"
 excerpt: "Kendall's suburban single-family market rewards sellers who understand how school zones, community corridors, and pricing precision interact. Here is what determines the outcome."
 category: "Seller Strategy"
-image: ""
+image: "/images/journal/og/selling-kendall-home-2026.jpg"
 ---
 
 Kendall is not a municipality. It is an unincorporated community in western Miami-Dade County — a distinction that matters to buyers and sellers because it shapes everything from tax structure to zoning governance to what "location" actually means in a listing conversation. There is no single Kendall market. There is a Kendall West market, a Kendall Lakes market, a Kendale Lakes corridor, and a series of distinct subdivisions that trade against each other based on school zone assignment, commute access, and community age.

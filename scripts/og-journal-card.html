@@ -1,0 +1,92 @@
+<!doctype html>
+<!--
+  Journal post OG card template — 1200x630.
+  The double-brace placeholders (category, title, date, readtime) are
+  replaced by scripts/render-journal-og.mjs. CSS avoids flex `gap` and
+  `inset` because the react-snap puppeteer Chromium that renders this is old.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@400;500;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; overflow: hidden; }
+  .card {
+    width: 1200px; height: 630px; position: relative;
+    background: linear-gradient(135deg, #0B1E3F 0%, #0a1628 55%, #102a52 100%);
+    font-family: 'Raleway', sans-serif;
+  }
+  .glow {
+    position: absolute; top: -200px; right: -150px; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(176,141,87,0.16) 0%, rgba(176,141,87,0) 65%);
+  }
+  .frame {
+    position: absolute; top: 28px; left: 28px; right: 28px; bottom: 28px;
+    border: 1px solid rgba(176,141,87,0.45);
+  }
+  .inner {
+    position: absolute; top: 0; left: 96px; right: 96px; height: 630px;
+  }
+  .brand {
+    position: absolute; top: 72px; left: 0;
+    font-size: 15px; letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(249,247,242,0.55); font-weight: 600;
+  }
+  .category {
+    position: absolute; top: 72px; right: 0;
+    font-size: 15px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: #B08D57; font-weight: 600;
+  }
+  .titlebox {
+    position: absolute; top: 150px; left: 0; right: 0; height: 330px;
+    overflow: hidden;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif; font-weight: 500;
+    line-height: 1.16; color: #F9F7F2;
+  }
+  .meta {
+    position: absolute; bottom: 64px; left: 0; right: 0;
+  }
+  .meta .rule { width: 84px; height: 2px; background: #B08D57; margin-bottom: 22px; }
+  .meta .line {
+    font-size: 17px; color: rgba(249,247,242,0.72); letter-spacing: 0.04em;
+  }
+  .meta .line strong { color: #F9F7F2; font-weight: 600; }
+  .meta .line .sep { color: rgba(176,141,87,0.85); padding: 0 14px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="glow"></div>
+    <div class="frame"></div>
+    <div class="inner">
+      <div class="brand">HomesProfessional.com · Journal</div>
+      <div class="category">{{CATEGORY}}</div>
+      <div class="titlebox"><h1 id="t">{{TITLE}}</h1></div>
+      <div class="meta">
+        <div class="rule"></div>
+        <div class="line">
+          <strong>Carlos Uzcategui</strong> · REALTOR® FL SL705771
+          <span class="sep">·</span>United Realty Group
+          <span class="sep">·</span>{{DATE}}{{READTIME}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Shrink the title until it fits its box (long titles vary 40–100 chars).
+    (function () {
+      var t = document.getElementById('t');
+      var box = t.parentElement;
+      var size = 60;
+      t.style.fontSize = size + 'px';
+      while (t.scrollHeight > box.clientHeight && size > 30) {
+        size -= 2;
+        t.style.fontSize = size + 'px';
+      }
+    })();
+  </script>
+</body>
+</html>

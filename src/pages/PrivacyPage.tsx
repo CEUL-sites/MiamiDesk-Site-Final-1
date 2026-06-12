@@ -15,6 +15,7 @@ export default function PrivacyPage() {
         <title>Privacy Policy | HomesProfessional.com</title>
         <meta name="description" content="Privacy policy for HomesProfessional.com — how we collect, use, and protect your information." />
         <link rel="canonical" href="https://homesprofessional.com/privacy" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="robots" content="noindex" />
       </Helmet>
       <main className="min-h-screen bg-white pb-20">

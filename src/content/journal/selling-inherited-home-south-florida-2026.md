@@ -4,7 +4,7 @@ date: "2026-06-11"
 slug: "selling-inherited-home-south-florida-2026"
 excerpt: "Inheriting a South Florida property comes with deadlines, carrying costs, and decisions. A practical walkthrough of the process from probate to closing."
 category: "Seller Strategy"
-image: ""
+image: "/images/journal/og/selling-inherited-home-south-florida-2026.jpg"
 ---
 
 Inheriting a property in South Florida usually arrives bundled with everything else an estate involves: grief, paperwork, family coordination, and a house that keeps generating bills whether anyone lives in it or not. This guide walks through the practical sequence most heirs face — what has to happen before a sale, what the property costs while you decide, and how to run the sale itself well.

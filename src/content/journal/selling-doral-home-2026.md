@@ -4,7 +4,7 @@ date: "2026-06-07"
 slug: "selling-doral-home-2026"
 excerpt: "Doral has one of the highest Venezuelan and Colombian buyer concentrations in Miami-Dade. Here is how that demand actually flows into a listing and what it means for pricing strategy."
 category: "Seller Strategy"
-image: ""
+image: "/images/journal/og/selling-doral-home-2026.jpg"
 ---
 
 Doral is one of the most distinctive residential markets in Miami-Dade County — not because of its price point, but because of the specificity of its buyer pool. The city's master-planned communities, bilingual infrastructure, international airport proximity, and established Latin American community have created a demand profile that differs materially from most suburban South Florida markets. For a seller, understanding that profile is the foundation of a defensible pricing strategy.

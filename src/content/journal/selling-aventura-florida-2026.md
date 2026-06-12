@@ -4,7 +4,7 @@ date: "2026-06-03"
 slug: "selling-aventura-florida-2026"
 excerpt: "Aventura's condo and waterfront market is driven by Latin American and international buyers — which means listing strategy, pricing discipline, and international distribution matter more than portal volume."
 category: "Seller Strategy"
-image: ""
+image: "/images/journal/og/selling-aventura-florida-2026.jpg"
 ---
 
 Aventura is one of South Florida's most internationally active real estate markets — a high-density, high-value corridor where the buyer pool skews heavily toward Latin American investors, Venezuelan and Colombian families establishing U.S. residency, and European HNW individuals diversifying into U.S. assets.
