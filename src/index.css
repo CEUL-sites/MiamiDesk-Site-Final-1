@@ -348,3 +348,10 @@ video {
 @media (prefers-reduced-motion: reduce) {
   .video-bubble-float { animation: none; }
 }
+
+/* ── Floating WhatsApp pill — yields to the desktop sticky CTA bar ────────────
+   DesktopStickyCTA carries its own WhatsApp action, so while the bar is on
+   screen the standalone pill hides to avoid two stacked WhatsApp CTAs. */
+body[data-desktop-cta] .whatsapp-float {
+  display: none;
+}

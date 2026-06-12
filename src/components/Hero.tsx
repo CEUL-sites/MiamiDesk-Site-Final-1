@@ -20,23 +20,7 @@ const item: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 
-const MARQUEE_ITEMS: { t: string; gold?: true }[] = [
-  { t: "South Florida",                  gold: true  },
-  { t: "Miami-Dade County"                           },
-  { t: "Broward County"                              },
-  { t: "Palm Beach County"                           },
-  { t: "Weston · Plantation · Aventura"              },
-  { t: "Boca Raton · Coral Springs"                  },
-  { t: "Fort Lauderdale · Pembroke Pines"            },
-  { t: "Hialeah · Kendall"                           },
-  { t: "Delray Beach · Wellington"                   },
-  { t: "United Realty Group · Est. 2002", gold: true },
-  { t: "3,500+ Agents · 20 Florida Offices"          },
-];
-
 export function Hero() {
-  const marqueeContent = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS];
-
   return (
     <section className="hero-root relative overflow-hidden bg-[#060D18] text-white flex flex-col">
 
@@ -68,24 +52,8 @@ export function Hero() {
           will-change: transform;
         }
         .exposure-track:hover { animation-play-state: paused; }
-        @keyframes marquee-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        .hero-marquee-track {
-          animation: marquee-scroll 38s linear infinite;
-          display: flex;
-          align-items: center;
-          will-change: transform;
-        }
-        .hero-marquee-track:hover { animation-play-state: paused; }
-        .hero-marquee-bar {
-          background: rgba(10,21,37,0.85);
-          border-top: 1px solid rgba(176,141,87,0.15);
-          backdrop-filter: blur(16px);
-        }
         @media (prefers-reduced-motion: reduce) {
-          .exposure-track, .hero-marquee-track { animation: none; }
+          .exposure-track { animation: none; }
         }
       `}</style>
 
@@ -226,28 +194,6 @@ export function Hero() {
           Eligible exposure varies by property type, MLS rules, platform participation, and syndication partner availability.
         </motion.p>
 
-      </motion.div>
-
-      {/* ── Bottom marquee — markets + URG offices + network ───── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.9, duration: 0.7 }}
-        className="relative z-10 hero-marquee-bar w-full overflow-hidden select-none"
-        aria-hidden="true"
-      >
-        <div className="hero-marquee-track py-2.5">
-          {marqueeContent.map((m, i) => (
-            <span key={i} className="flex shrink-0 items-center">
-              <span className={`font-mono text-[9px] uppercase tracking-[0.18em] whitespace-nowrap px-3 ${
-                m.gold ? "text-gold/80" : "text-white/35"
-              }`}>
-                {m.t}
-              </span>
-              <span className="text-white/15 text-xs">·</span>
-            </span>
-          ))}
-        </div>
       </motion.div>
 
     </section>

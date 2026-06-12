@@ -41,7 +41,17 @@ export function DesktopStickyCTA() {
     };
   }, []);
 
-  if (dismissed || !scrolled || formVisible) return null;
+  const visible = !dismissed && scrolled && !formVisible;
+
+  // Flag the bar's presence on <body> so the standalone WhatsApp float
+  // (rendered in a separate tree) can yield — the bar has its own WhatsApp
+  // action, and the two otherwise stack at the same bottom edge.
+  useEffect(() => {
+    document.body.toggleAttribute("data-desktop-cta", visible);
+    return () => document.body.removeAttribute("data-desktop-cta");
+  }, [visible]);
+
+  if (!visible) return null;
 
   const dismiss = () => {
     setDismissed(true);

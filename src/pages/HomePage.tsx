@@ -10,7 +10,6 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { ProofStrip } from "../components/ProofStrip";
-import { SellerCtaBand } from "../components/SellerCtaBand";
 import { ListingSystem } from "../components/ListingSystem";
 import { MarketPulse } from "../components/MarketPulse";
 
@@ -19,7 +18,6 @@ import { MarketPulse } from "../components/MarketPulse";
 // hydrates these progressively once their chunks arrive.
 const IntelligenceDesk = lazy(() => import("../components/IntelligenceDesk").then((m) => ({ default: m.IntelligenceDesk })));
 const BuyersRelocation = lazy(() => import("../components/BuyersRelocation").then((m) => ({ default: m.BuyersRelocation })));
-const InternationalReachStrip = lazy(() => import("../components/InternationalReachStrip").then((m) => ({ default: m.InternationalReachStrip })));
 const HowCarlosWorks = lazy(() => import("../components/HowCarlosWorks").then((m) => ({ default: m.HowCarlosWorks })));
 const AboutContact = lazy(() => import("../components/AboutContact").then((m) => ({ default: m.AboutContact })));
 
@@ -80,12 +78,10 @@ export default function HomePage() {
         <ListingSystem />
         <Testimonials />
         <MarketPulse />
-        <SellerCtaBand />
         <LeadMagnetStrip />
         <Suspense fallback={null}>
           <IntelligenceDesk />
           <BuyersRelocation />
-          <InternationalReachStrip />
           <HowCarlosWorks />
           <AboutContact />
         </Suspense>
