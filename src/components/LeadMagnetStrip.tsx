@@ -98,7 +98,9 @@ export function LeadMagnetStrip() {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     placeholder="Your email address"
-                    className="w-full border border-hairline bg-ivory px-4 py-3 font-sans text-sm text-ink-primary placeholder:text-ink-primary/35 outline-none transition-colors focus:border-gold/50"
+                    autoComplete="email"
+                    inputMode="email"
+                    className="w-full border border-hairline bg-ivory px-4 py-3 font-sans text-base text-ink-primary placeholder:text-ink-primary/35 outline-none transition-colors focus:border-gold/50"
                     aria-label="Email address to receive the guide"
                   />
                   {status === "error" && (
