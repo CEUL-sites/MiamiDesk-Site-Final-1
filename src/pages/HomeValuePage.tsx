@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
+import { SellerNetCalculator } from "../components/SellerNetCalculator";
 import { CONTACT } from "../constants";
 
 const HOW_IT_WORKS = [
@@ -251,6 +252,8 @@ export default function HomeValuePage() {
             </div>
           </div>
         </section>
+
+        <SellerNetCalculator sourcePage="home-value" />
 
         {/* Form */}
         <section className="bg-navy-deep py-16 md:py-24" id="valuation-form">

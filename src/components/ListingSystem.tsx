@@ -1,0 +1,85 @@
+import { ArrowRight, Camera, Globe2, MessagesSquare, Radar } from "lucide-react";
+
+// Homepage services section — makes the listing offer concrete. The network
+// stats sections say WHO Carlos is connected to; this says WHAT a seller
+// actually receives, step by step, which is the deciding question for a
+// homeowner comparing listing agents.
+
+const PILLARS = [
+  {
+    icon: Camera,
+    step: "01",
+    title: "Media that earns the click",
+    body:
+      "Professional photography, cinematic video, and staging direction — reviewed and approved before launch. Buyers screen online first; your listing competes on its first image.",
+  },
+  {
+    icon: Globe2,
+    step: "02",
+    title: "Distribution beyond the MLS",
+    body:
+      "MLS entry verified line by line, then syndication across major U.S. portals and international channels through the MIAMI REALTORS® global network — 19 languages, 200+ portals.",
+  },
+  {
+    icon: Radar,
+    step: "03",
+    title: "Buyer-agent activation",
+    body:
+      "Direct outreach to the agents working buyers in your bracket — local, relocation, and international desks — so your home is shown, not just listed.",
+  },
+  {
+    icon: MessagesSquare,
+    step: "04",
+    title: "Weekly reporting, real strategy",
+    body:
+      "Showings, feedback, and portal analytics in a weekly summary by WhatsApp or email — with pricing and positioning adjustments recommended from the data, not guesswork.",
+  },
+];
+
+export function ListingSystem() {
+  return (
+    <section className="bg-navy-deep py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-6">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Listing System</p>
+        <div className="mt-5 flex flex-wrap items-end justify-between gap-6">
+          <h2 className="max-w-2xl font-serif text-3xl leading-tight text-white md:text-4xl">
+            What actually happens when your home lists with Carlos.
+          </h2>
+          <p className="max-w-md font-sans text-sm leading-relaxed text-white/55">
+            Not a sign in the yard and a prayer. A documented marketing sequence, run the same
+            disciplined way for a Kendall townhome or a Weston estate.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-px bg-white/10 border border-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          {PILLARS.map(({ icon: Icon, step, title, body }) => (
+            <div key={step} className="bg-navy-deep p-7">
+              <div className="flex items-center justify-between">
+                <Icon size={18} className="text-gold" />
+                <span className="font-mono text-[10px] tracking-[0.2em] text-white/25">{step}</span>
+              </div>
+              <h3 className="mt-5 font-serif text-lg leading-snug text-white">{title}</h3>
+              <p className="mt-3 font-sans text-[13px] leading-relaxed text-white/55">{body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center gap-5">
+          <a
+            href="/sell-south-florida#contact"
+            className="group inline-flex items-center gap-2.5 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+          >
+            Request a Listing Consultation
+            <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="/home-value"
+            className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline underline-offset-4 transition-colors hover:text-gold"
+          >
+            Or start with your home's value →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -11,6 +11,8 @@ import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { ProofStrip } from "../components/ProofStrip";
 import { SellerCtaBand } from "../components/SellerCtaBand";
+import { ListingSystem } from "../components/ListingSystem";
+import { MarketPulse } from "../components/MarketPulse";
 
 // Below-the-fold sections — split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
@@ -75,7 +77,9 @@ export default function HomePage() {
         <Hero />
         <ProofStrip />
         <ReachAdvantage />
+        <ListingSystem />
         <Testimonials />
+        <MarketPulse />
         <SellerCtaBand />
         <LeadMagnetStrip />
         <Suspense fallback={null}>
