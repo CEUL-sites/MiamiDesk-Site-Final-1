@@ -226,7 +226,7 @@ function AiPanel() {
               onKeyDown={handleKeyDown}
               placeholder={history.length === 0 ? "Ask anything about South Florida…" : "Continue the conversation…"}
               maxLength={500}
-              className="flex-1 bg-transparent font-sans text-sm text-white/80 placeholder:text-white/25 outline-none"
+              className="flex-1 bg-transparent font-sans text-base sm:text-sm text-white/80 placeholder:text-white/25 outline-none"
               aria-label="Ask the AI desk a question"
               disabled={loading}
             />

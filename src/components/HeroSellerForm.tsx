@@ -153,6 +153,12 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         sourcePage: `hero-${lang}`, leadSource: getLeadSource(),
       });
       trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });
+      // Auto-acknowledgment (email/WhatsApp confirmation) — best-effort
+      fetch("/.netlify/functions/lead-acknowledgment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formName: "seller-hero", name: form.name, email: form.email, phone: form.phone }),
+      }).catch(() => {});
       setStatus("success");
       setForm(initial);
     } catch (err) {
@@ -189,8 +195,9 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
     );
   }
 
+  // text-base (16px) prevents iOS Safari from auto-zooming on input focus
   const inputCls =
-    "w-full rounded-lg bg-white/[0.05] border border-white/12 px-4 py-3 font-sans text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-gold/50 focus:bg-white/[0.08]";
+    "w-full rounded-lg bg-white/[0.05] border border-white/12 px-4 py-3 font-sans text-base text-white placeholder:text-white/30 outline-none transition-colors focus:border-gold/50 focus:bg-white/[0.08]";
   const selectCls =
     inputCls + " cursor-pointer appearance-none pr-9";
 
@@ -204,7 +211,6 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       className="rounded-2xl bg-[#0A1525]/90 border border-white/12 backdrop-blur-xl p-5 sm:p-7 text-left shadow-2xl shadow-black/60"
     >
       <input type="hidden" name="form-name" value="seller-hero" />
-      <input type="hidden" name="email"   value={form.email} />
       <input type="hidden" name="lat"     value={form.lat} />
       <input type="hidden" name="lng"     value={form.lng} />
       <input type="hidden" name="placeId" value={form.placeId} />
@@ -231,7 +237,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           placeholder={t.address}
           autoComplete="street-address"
           style={{ paddingLeft: "2.75rem" }}
-          className="w-full rounded-lg bg-white/[0.08] border border-gold/25 px-4 py-4 font-sans text-[15px] text-white placeholder:text-white/30 outline-none transition-all focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
+          className="w-full rounded-lg bg-white/[0.08] border border-gold/25 px-4 py-4 font-sans text-base text-white placeholder:text-white/30 outline-none transition-all focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
           aria-label={t.address}
         />
       </div>
@@ -265,14 +271,24 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         <input
           required name="name" type="text"
           value={form.name} onChange={update("name")}
-          placeholder={t.name} className={inputCls} aria-label={t.name}
+          placeholder={t.name} autoComplete="name"
+          className={inputCls} aria-label={t.name}
         />
         <input
           required name="phone" type="tel"
           value={form.phone} onChange={update("phone")}
-          placeholder={t.phone} className={inputCls} aria-label={t.phone}
+          placeholder={t.phone} autoComplete="tel" inputMode="tel"
+          className={inputCls} aria-label={t.phone}
         />
       </div>
+
+      {/* Email — optional; enables the written valuation + auto-acknowledgment */}
+      <input
+        name="email" type="email"
+        value={form.email} onChange={update("email")}
+        placeholder={t.email} autoComplete="email" inputMode="email"
+        className={inputCls + " mt-3"} aria-label={t.email}
+      />
 
       {/* Market + Timeline — each full-width row so labels never truncate */}
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -303,9 +319,9 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           name="messagingConsent"
           checked={form.messagingConsent === "yes"}
           onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
-          className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 accent-[#B08D57]"
+          className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
         />
-        <span className="font-sans text-[10px] leading-relaxed text-white/40">{t.consent}</span>
+        <span className="font-sans text-[11px] leading-relaxed text-white/40">{t.consent}</span>
       </label>
 
       {status === "error" && (

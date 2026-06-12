@@ -21,7 +21,9 @@ function isSpanishContext(country: string, name: string): boolean {
 }
 
 function buildEmailEN(formName: string, name: string): { subject: string; html: string } {
-  const intro = formName === "seller-intake"
+  const intro = formName === "seller-hero"
+    ? "Your home valuation request has been received. Carlos will prepare your MLS-based valuation personally and follow up within one business day."
+    : formName === "seller-intake"
     ? "Your seller strategy review request has been received. Carlos will review your property details personally and follow up within one business day."
     : formName === "buyer-mandate"
     ? "Your Miami buyer brief request has been received. Carlos will prepare a brief tailored to your search parameters and follow up within one business day."
@@ -30,7 +32,9 @@ function buildEmailEN(formName: string, name: string): { subject: string; html: 
     : "Your referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up within one business day.";
 
   return {
-    subject: formName === "seller-intake"
+    subject: formName === "seller-hero"
+      ? "Home Valuation Request Confirmed — HomesProfessional.com"
+      : formName === "seller-intake"
       ? "Seller Strategy Review Request Confirmed — HomesProfessional.com"
       : formName === "buyer-mandate"
       ? "Miami Buyer Brief Request Confirmed — HomesProfessional.com"
@@ -64,7 +68,9 @@ function buildEmailEN(formName: string, name: string): { subject: string; html: 
 }
 
 function buildEmailES(formName: string, name: string): { subject: string; html: string } {
-  const intro = formName === "seller-intake"
+  const intro = formName === "seller-hero"
+    ? "Su solicitud de valoración de propiedad ha sido recibida. Carlos preparará su valoración basada en el MLS personalmente y le responderá dentro de un día hábil."
+    : formName === "seller-intake"
     ? "Su solicitud de revisión de estrategia de venta ha sido recibida. Carlos revisará los detalles de su propiedad personalmente y le responderá dentro de un día hábil."
     : formName === "buyer-mandate"
     ? "Su solicitud de informe de comprador en Miami ha sido recibida. Carlos preparará un informe adaptado a sus parámetros de búsqueda y le responderá dentro de un día hábil."
@@ -73,7 +79,9 @@ function buildEmailES(formName: string, name: string): { subject: string; html: 
     : "Su consulta de referido ha sido recibida. Carlos gestiona todas las consultas de profesionales licenciados de forma confidencial y le responderá dentro de un día hábil.";
 
   return {
-    subject: formName === "seller-intake"
+    subject: formName === "seller-hero"
+      ? "Solicitud de Valoración Confirmada — HomesProfessional.com"
+      : formName === "seller-intake"
       ? "Solicitud de Revisión de Estrategia Confirmada — HomesProfessional.com"
       : formName === "buyer-mandate"
       ? "Solicitud de Informe de Comprador Confirmada — HomesProfessional.com"
