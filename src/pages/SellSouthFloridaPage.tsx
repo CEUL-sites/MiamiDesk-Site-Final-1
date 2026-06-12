@@ -16,6 +16,7 @@ import { AdvisorBrand } from "../components/AdvisorBrand";
 import { FAQ } from "../components/FAQ";
 import { Testimonials } from "../components/Testimonials";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
+import { SellerNetCalculator } from "../components/SellerNetCalculator";
 import { CONTACT, LEAD_MAGNETS, SOURCES, MESSAGING } from "../constants";
 
 const WHO_THIS_IS_FOR = [
@@ -316,6 +317,7 @@ export default function SellSouthFloridaPage() {
         <ExposureSyndication />
         <Testimonials />
         <AdvisorBrand />
+        <SellerNetCalculator sourcePage="sell-south-florida" />
         <FAQ />
 
         {/* Journal crosslinks */}
