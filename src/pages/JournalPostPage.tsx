@@ -15,8 +15,14 @@ function formatDate(iso: string): string {
 export default function JournalPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
+  // Same-category posts first (already newest-first), padded with recent ones.
   const relatedPosts = post
-    ? getAllPosts().filter((p) => p.slug !== post.slug).slice(0, 3)
+    ? (() => {
+        const others = getAllPosts().filter((p) => p.slug !== post.slug);
+        const sameCategory = others.filter((p) => p.category === post.category);
+        const rest = others.filter((p) => p.category !== post.category);
+        return [...sameCategory, ...rest].slice(0, 3);
+      })()
     : [];
 
   if (!post) {

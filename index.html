@@ -3,13 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>South Florida Real Estate | United Realty Group | HomesProfessional.com</title>
-    <meta name="description" content="Carlos Uzcategui, REALTOR® FL SL705771 · South Florida listing agent · 93,000-agent MLS network across Miami-Dade, Broward & Palm Beach. Free seller strategy review." />
-    <link rel="canonical" href="https://homesprofessional.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/" />
-    <link rel="alternate" hreflang="en" href="https://homesprofessional.com/" />
-    <!-- TODO: Replace with /es/* sub-routes as Phase 3 locale expands -->
-    <link rel="alternate" hreflang="es" href="https://homesprofessional.com/es" />
+    <!-- <title>, meta description, canonical, and hreflang alternates are set
+         per page by react-helmet-async and baked into every prerendered page
+         by react-snap. Static copies here would ship on EVERY page — a
+         homepage canonical on every URL is a canonicalization hazard. -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,67 +36,12 @@
     <meta name="ICBM" content="25.7617, -80.1918" />
 
     <!--
-      WebSite / Organization / RealEstateAgent / Service JSON-LD is emitted
-      app-wide by src/components/SEO/SchemaOrg.tsx (single source of truth)
-      and baked into every prerendered page by react-snap. Only the FAQPage
-      schema lives here because it has no React counterpart.
+      All JSON-LD structured data is emitted per page by React components
+      (src/components/SEO/SchemaOrg.tsx app-wide; page Helmets for
+      page-specific schemas like FAQPage and Article) and baked into the
+      prerendered HTML by react-snap. Keep this template free of schema so
+      pages never emit duplicates.
     -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is United Realty Group?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "United Realty Group is ranked #1 in Florida by most closed homes, with 3,500+ agents across 20 South Florida offices. Carlos Uzcategui lists through United Realty Group within the Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association, with 93,000 member agents."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What areas does Carlos Uzcategui serve?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Carlos Uzcategui serves all of Miami-Dade, Broward, and Palm Beach counties including Miami, Coral Gables, Brickell, Miami Beach, Aventura, Weston, Doral, Fort Lauderdale, Boca Raton, and West Palm Beach."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Carlos Uzcategui work with international buyers?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Bilingual (English/Spanish) representation is available with a dedicated Spain Desk for buyers from Spain and Latin America relocating to or investing in South Florida."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I get a free seller strategy review?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Contact our team via the form on homesprofessional.com/sell, call +1 954-865-6622, or message via WhatsApp. The review is free with no listing commitment required."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the MLS exposure for my South Florida listing?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Every listing entered through United Realty Group reaches 93,000 member agents via the Miami and South Florida REALTORS® MLS with eligible syndication across approved distribution channels including 200+ global portals in 19 languages."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can out-of-state agents refer clients to you?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. We have a formal agent-to-agent referral program with signed agreements. Licensed agents from any state or country can refer buyers and sellers to our team through the agents page on homesprofessional.com."
-            }
-          }
-        ]
-      }
-    </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

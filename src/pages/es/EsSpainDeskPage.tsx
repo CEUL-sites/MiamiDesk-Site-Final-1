@@ -134,6 +134,7 @@ export default function EsSpainDeskPage() {
         <meta property="og:description" content="Dé a su agencia una ventaja en la presentación de captación: exposición documentada hacia Sur de Florida para sus vendedores, cuando es elegible. Representación local en España; exposición hacia Sur de Florida a través de un Realtor® licenciado en Florida." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
