@@ -4,7 +4,7 @@
 
 The `/journal` section is a flat-file blog. No CMS, no database. Publishing = drop a `.md` file, commit, push.
 
-### 4 steps
+### 5 steps
 
 **1. Create the file**
 
@@ -57,10 +57,21 @@ Standard Markdown. Supported formatting:
 
 Copy `src/content/journal/_template.md` as a starting point.
 
-**4. Commit and push**
+**4. Generate the share card + register the route**
 
 ```bash
-git add src/content/journal/<slug>.md
+node scripts/render-journal-og.mjs   # renders public/images/journal/og/<slug>.jpg for new posts
+```
+
+Then set the post's frontmatter to `image: "/images/journal/og/<slug>.jpg"`, add
+`/journal/<slug>` to the `reactSnap.include` list in `package.json`, and add the
+URL to `public/sitemap.xml`. Posts missing from the include list are NOT
+prerendered — crawlers and social scrapers would see an empty JS shell.
+
+**5. Commit and push**
+
+```bash
+git add -A
 git commit -m "Add journal: <post title>"
 git push origin main
 ```
