@@ -166,7 +166,7 @@ export function SellerIntakeForm() {
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Strategy Review Requested</p>
         <h3 className="mt-3 font-serif text-2xl text-navy">Carlos will review your property details personally.</h3>
         <p className="mt-4 font-sans text-sm leading-relaxed text-navy/55 max-w-md mx-auto">
-          You will receive a confirmation to {form.email || "your email"} within minutes. Carlos responds within one business day from his Weston, Florida office.
+          You will receive a confirmation to {form.email || "your email"} shortly. Carlos responds personally from his Weston, Florida office.
         </p>
         <p className="mt-6 font-sans text-sm text-navy/55">
           For immediate questions:{" "}

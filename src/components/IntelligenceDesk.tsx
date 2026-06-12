@@ -48,7 +48,7 @@ function HandoffPanel({ history }: { history: Message[] }) {
         <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-gold">Inquiry routed to Carlos</span>
       </div>
       <p className="font-sans text-sm leading-relaxed text-white/75 mb-5">
-        Your conversation has been organised and sent to Carlos. He reviews every AI Desk conversation personally and responds within one business day. For the fastest reply, continue on WhatsApp now.
+        Your conversation has been organised and sent to Carlos. He reviews every AI Desk conversation personally and responds directly. For the fastest reply, continue on WhatsApp now.
       </p>
       <div className="flex flex-col gap-3 sm:flex-row">
         <a
@@ -245,7 +245,7 @@ function AiPanel() {
           </div>
 
           <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/20 text-center">
-            AI intake · Carlos responds personally within one business day
+            AI intake · Carlos responds personally
           </p>
 
           {/* Suggestion chips — only before first message */}

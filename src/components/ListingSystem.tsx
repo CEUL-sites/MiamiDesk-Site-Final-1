@@ -18,7 +18,7 @@ const PILLARS = [
     step: "02",
     title: "Distribution beyond the MLS",
     body:
-      "MLS entry verified line by line, then syndication across major U.S. portals and international channels through the MIAMI REALTORS® global network — 19 languages, 200+ portals.",
+      "Your listing enters the Miami MLS — the inventory 93,000 member agents search daily — then syndicates to major U.S. portals and 200+ international channels in 19 languages through the MIAMI REALTORS® global network.",
   },
   {
     icon: Radar,

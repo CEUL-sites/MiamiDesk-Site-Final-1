@@ -109,7 +109,7 @@ Also include ${HANDOFF_SIGNAL} earlier if ALL of the following are true:
   (b) A location or property type is known.
   (c) The visitor has provided their name AND at least one contact method (phone or email).
 When you include ${HANDOFF_SIGNAL}, add this sentence to your visible reply:
-"I have enough context to route this to Carlos. He will review your situation and respond personally — typically within one business day."
+"I have enough context to route this to Carlos. He will review your situation and respond personally."
 Do not include ${HANDOFF_SIGNAL} on the very first exchange.
 `;
 

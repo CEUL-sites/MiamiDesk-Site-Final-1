@@ -76,7 +76,7 @@ export function DesktopStickyCTA() {
               className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
               <MessageSquare size={12} className="text-gold" />
-              WhatsApp
+              WhatsApp Carlos
             </a>
             <a
               href="/home-value"

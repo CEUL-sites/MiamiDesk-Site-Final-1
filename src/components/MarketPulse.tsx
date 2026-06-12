@@ -76,7 +76,7 @@ export function MarketPulse() {
           })}
         </div>
 
-        <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/40">
+        <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/55">
           Source: MIAMI REALTORS® + RWorld {MARKET_STATS_PERIOD} city reports, based on MLS sales
           data compiled by Florida Realtors®. Closed residential sales; estimates and medians are
           not a guarantee of any individual sale outcome.

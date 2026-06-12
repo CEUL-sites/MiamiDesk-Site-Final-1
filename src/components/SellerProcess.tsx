@@ -9,7 +9,7 @@ const STEPS = [
     name: "Position",
     headline: "Price it right before it goes public.",
     body: "We run absorption rate analysis against active competition in your exact submarket. You receive the realistic price range — and the strategic entry point — before the listing activates. This prevents the most common seller mistake: starting high, then chasing the market down with price reductions that signal weakness to buyers.",
-    benefit: "Accurate pricing from day one reduces time on market and protects your net proceeds.",
+    benefit: "Accurate pricing at launch reduces time on market and protects your net proceeds.",
   },
   {
     number: "02",

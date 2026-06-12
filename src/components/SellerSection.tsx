@@ -177,8 +177,8 @@ export function SellerSection() {
           <div className="flex-1 max-w-2xl">
             <p className="font-mono mb-4 text-[10px] uppercase tracking-[0.3em] text-gold">Seller Strategy</p>
             <h2 className="font-serif leading-[1.05] text-white" style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)" }}>
-              The MLS Gets You In.<br />
-              <em className="not-italic italic text-gold">Strategy Gets You Sold.</em>
+              The MLS Reaches 93,000 Agents.<br />
+              <em className="not-italic italic text-gold">Strategy Gets Your Home Shown.</em>
             </h2>
             <p className="mt-7 max-w-xl font-sans text-lg leading-relaxed text-white/60">
               Every seller enters the same MLS. Not every seller enters it correctly. Positioning, professional media,
@@ -189,7 +189,7 @@ export function SellerSection() {
                 Request a Seller Strategy Review
               </a>
               <a href={CONTACT.whatsappUS} className="inline-flex items-center border border-white/20 px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-gold/60 hover:text-white">
-                WhatsApp Carlos
+                Discuss Your Property on WhatsApp
               </a>
             </div>
           </div>

@@ -67,7 +67,7 @@ export function ReferralIntakeForm() {
           <CheckCircle2 size={30} />
         </div>
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Referral Inquiry Received</p>
-        <h3 className="mt-3 font-serif text-2xl text-navy">Carlos will follow up directly within one business day.</h3>
+        <h3 className="mt-3 font-serif text-2xl text-navy">Carlos will follow up with you directly.</h3>
         <p className="mt-4 font-sans text-sm leading-relaxed text-navy/55 max-w-md mx-auto">
           All licensed professional inquiries are handled confidentially. A formal written referral agreement is executed before any client engagement.
         </p>

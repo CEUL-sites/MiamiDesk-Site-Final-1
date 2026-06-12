@@ -32,8 +32,8 @@ export default function EsGraciasAgentePage() {
             <p className="mx-auto mt-6 max-w-lg font-sans text-base leading-relaxed text-white/60">
               {/* TODO: native Madrid editor review */}
               Carlos gestiona todas las consultas de profesionales licenciados
-              de forma confidencial. Le responderá directamente en el plazo de
-              un día hábil. Se firma un acuerdo de colaboración por escrito
+              de forma confidencial. Le responderá directamente
+              y de forma personal. Se firma un acuerdo de colaboración por escrito
               antes de cualquier presentación de cliente.
             </p>
 

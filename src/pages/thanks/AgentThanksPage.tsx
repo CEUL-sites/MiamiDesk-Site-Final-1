@@ -21,7 +21,7 @@ export default function AgentThanksPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confirmed</p>
             <h1 className="mt-4 font-serif text-4xl text-white">Referral inquiry received.</h1>
             <p className="mx-auto mt-6 max-w-lg font-sans text-base leading-relaxed text-white/60">
-              Carlos handles all licensed professional inquiries confidentially. He will follow up with you directly within one business day. A formal written referral agreement is executed before any client engagement.
+              Carlos handles all licensed professional inquiries confidentially. He will follow up with you directly. A formal written referral agreement is executed before any client engagement.
             </p>
             <div className="mx-auto mt-8 max-w-md border border-gold/25 bg-gold/5 p-6 text-left">
               <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">Reference Document</p>

@@ -20,7 +20,7 @@ export const CONTACT = {
   linkedin: "https://linkedin.com/in/carlosuz",
   calendly: "https://calendly.com/carlosre",
   web: "HomesProfessional.com",
-  headshot: "https://lh3.googleusercontent.com/d/1JZ1hv1IfBykkfoy2TYmGK9M5N2Xwwklx",
+  headshot: "/images/carlos-headshot.png",
   stats: {
     experience: "25",
     agents: "93,000",
