@@ -237,7 +237,7 @@ export default function SellDoralPage() {
           </div>
         </section>
 
-        {/* Live market snapshot — Bridge IDX via city-stats */}
+        {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Doral" />
 
         {/* Confidential intake */}

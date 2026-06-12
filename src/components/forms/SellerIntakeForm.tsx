@@ -5,6 +5,7 @@ import { trackLead, trackFunnelEvent } from "../../lib/analytics";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../../lib/googlePlaces";
+import { getCityMarketStats, MARKET_STATS_PERIOD } from "../../data/cityMarketStats";
 
 const CITIES = [
   "Aventura", "Bal Harbour", "Boca Raton", "Brickell", "Coconut Grove",
@@ -26,15 +27,6 @@ const INITIAL: Record<string, string> = {
   lat: "", lng: "", placeId: "", messagingConsent: "no",
 };
 
-interface CitySnapshot {
-  available: boolean;
-  city: string;
-  activeCount: number;
-  medianListPrice: number | null;
-  avgDaysOnMarket: number | null;
-  medianPricePerSqft: number | null;
-}
-
 // minimumFractionDigits set explicitly — older ICU defaults it to 2 for
 // currency and throws RangeError when min > max, killing prerendering.
 const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 });
@@ -49,8 +41,19 @@ export function SellerIntakeForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
   const [stepErr, setStepErr] = useState("");
-  const [snapshot, setSnapshot] = useState<CitySnapshot | null>(null);
   const addressRef = useRef<HTMLInputElement>(null);
+
+  // Market snapshot for the step-2 interstitial — official MIAMI REALTORS®
+  // closed-sales figures (src/data/cityMarketStats.ts), looked up locally.
+  const snapshot = form.city && form.city !== "Other" ? getCityMarketStats(form.city) : null;
+  const snapshotSeg = snapshot
+    ? (() => {
+        const { singleFamily: sf, condoTownhome: condo } = snapshot.stats;
+        if (sf && condo) return sf.ytdClosedSales >= condo.ytdClosedSales
+          ? { seg: sf, name: "single-family" } : { seg: condo, name: "condo/townhome" };
+        return sf ? { seg: sf, name: "single-family" } : { seg: condo!, name: "condo/townhome" };
+      })()
+    : null;
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -113,14 +116,6 @@ export function SellerIntakeForm() {
     }).catch(() => {});
     trackFunnelEvent("seller_intake_step1", { city: form.city });
 
-    // Market snapshot for the interstitial — best-effort, never blocks step 2.
-    setSnapshot(null);
-    if (form.city && form.city !== "Other") {
-      fetch(`/.netlify/functions/city-stats?city=${encodeURIComponent(form.city)}`)
-        .then((r) => (r.ok ? r.json() : null))
-        .then((d: CitySnapshot | null) => { if (d?.available) setSnapshot(d); })
-        .catch(() => {});
-    }
     setStep(2);
   };
 
@@ -269,35 +264,32 @@ export function SellerIntakeForm() {
             <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
           </div>
 
-          {/* Market snapshot interstitial — live MLS context for their city */}
-          {snapshot && (
+          {/* Market snapshot interstitial — official closed-sales context for their city */}
+          {snapshot && snapshotSeg && (
             <div className="border border-gold/30 bg-ivory p-5">
               <div className="flex items-center gap-2">
                 <TrendingUp size={14} className="text-gold" />
                 <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold">
-                  {form.city} market right now
+                  {form.city} market · {MARKET_STATS_PERIOD}
                 </p>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-4">
-                {snapshot.medianListPrice != null && (
-                  <div>
-                    <p className="font-serif text-xl text-navy">{usd.format(snapshot.medianListPrice)}</p>
-                    <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Median asking price</p>
-                  </div>
-                )}
-                {snapshot.avgDaysOnMarket != null && (
-                  <div>
-                    <p className="font-serif text-xl text-navy">{snapshot.avgDaysOnMarket} days</p>
-                    <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Avg. on market</p>
-                  </div>
-                )}
                 <div>
-                  <p className="font-serif text-xl text-navy">{snapshot.activeCount.toLocaleString("en-US")}</p>
-                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Active listings</p>
+                  <p className="font-serif text-xl text-navy">{usd.format(snapshotSeg.seg.medianSalePrice)}</p>
+                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Median sale price</p>
+                </div>
+                <div>
+                  <p className="font-serif text-xl text-navy">{snapshotSeg.seg.medianDaysToContract} days</p>
+                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Median to contract</p>
+                </div>
+                <div>
+                  <p className="font-serif text-xl text-navy">{snapshotSeg.seg.monthsSupply} months</p>
+                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Supply of inventory</p>
                 </div>
               </div>
               <p className="mt-4 font-sans text-xs leading-relaxed text-navy/55">
-                Active residential listings in {snapshot.city}, per Miami and South Florida REALTORS® MLS via IDX.
+                {MARKET_STATS_PERIOD} {snapshotSeg.name} closed sales reported for {snapshot.dataCity}, per
+                MIAMI REALTORS® + RWorld, based on MLS data compiled by Florida Realtors®.
                 Your full analysis — comparables, absorption, and positioning — is prepared personally by Carlos. Complete the details below to receive it.
               </p>
             </div>
