@@ -4,7 +4,7 @@ date: "2026-06-07"
 slug: "hoa-impact-home-sale-south-florida-2026"
 excerpt: "In South Florida's master-planned and gated communities, HOA health is a direct pricing variable. Here is what buyers evaluate and how sellers should prepare."
 category: "Seller Strategy"
-image: ""
+image: "/images/journal/og/hoa-impact-home-sale-south-florida-2026.jpg"
 ---
 
 A significant portion of South Florida's residential housing stock sits within homeowner associations — master-planned communities in Weston, Coral Springs, Pembroke Pines, Sunrise, Doral, Plantation, and dozens of smaller gated and non-gated developments. In these markets, the HOA is not a background fact. It is an active pricing variable that affects buyer confidence, offer structure, and how quickly a transaction closes.

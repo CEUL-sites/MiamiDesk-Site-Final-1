@@ -16,6 +16,7 @@ export default function NewConstructionPage() {
           content="Florida pre-construction inventory, professionally accessed. Advisory for international buyers and developers. Carlos Uzcategui, United Realty Group."
         />
         <link rel="canonical" href="https://homesprofessional.com/new-construction" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
 
       <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">

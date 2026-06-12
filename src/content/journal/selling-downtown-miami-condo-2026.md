@@ -4,7 +4,7 @@ date: "2026-06-11"
 slug: "selling-downtown-miami-condo-2026"
 excerpt: "Downtown Miami's high-rise inventory, investor-heavy ownership profile, and Brightline connectivity create a distinct seller calculus. Here is what determines which listings close and which accumulate days."
 category: "Seller Strategy"
-image: ""
+image: "/images/journal/og/selling-downtown-miami-condo-2026.jpg"
 ---
 
 Downtown Miami's residential condo market is one of the most strategically interesting and tactically complex in South Florida. It is a market defined by high-rise inventory, a large share of investor-owned units, significant new supply absorption, and a location story that has changed materially over the past decade with the build-out of Brickell City Centre, the Brightline intercity rail connection, and the transformation of the Wynwood and Design District corridors to the north.

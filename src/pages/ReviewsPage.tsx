@@ -138,6 +138,7 @@ export default function ReviewsPage() {
         <meta name="description" content="Verified client reviews for Carlos Uzcategui, FL SL705771 — South Florida REALTOR®, United Realty Group. What Miami, Weston & Coral Gables clients say." />
         <meta name="keywords" content="Carlos Uzcategui reviews, South Florida realtor reviews, Miami real estate agent reviews, Weston realtor reviews, United Realty Group agent reviews" />
         <link rel="canonical" href="https://homesprofessional.com/reviews" />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta property="og:title" content="Client Reviews — Carlos Uzcategui, South Florida REALTOR®" />
         <meta property="og:description" content="Verified client reviews for Carlos Uzcategui, FL SL705771. 15 five-star reviews from sellers and buyers across South Florida." />
         <meta property="og:url" content="https://homesprofessional.com/reviews" />

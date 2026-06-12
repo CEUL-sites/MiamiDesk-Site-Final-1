@@ -4,7 +4,7 @@ date: "2026-06-08"
 slug: "seller-closing-costs-south-florida-2026"
 excerpt: "Florida seller closing costs are not complicated, but they are often misunderstood. Here is what you actually pay — and how to calculate what you keep."
 category: "Seller Strategy"
-image: ""
+image: "/images/journal/og/seller-closing-costs-south-florida-2026.jpg"
 ---
 
 One of the most common questions a South Florida seller has before agreeing to list is a simple one: what will I actually receive? The answer depends on several variables — your sale price, your outstanding mortgage, the costs of the transaction, and any credits you agree to in negotiation. This guide covers each category honestly.

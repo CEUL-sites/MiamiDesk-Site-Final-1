@@ -4,6 +4,7 @@ date: "2026-06-02"
 slug: "weston-4-bedroom-single-family-market-june-2026"
 excerpt: "A focused Weston market report for 4-bedroom single-family homes, using Bridge / Miami MLS data from May 3 through June 2, 2026."
 category: "Weston Market Report"
+image: "/images/journal/og/weston-4-bedroom-single-family-market-june-2026.jpg"
 ---
 
 ## The Segment That Matters
