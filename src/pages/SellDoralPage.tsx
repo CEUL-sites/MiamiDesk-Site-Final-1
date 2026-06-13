@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const DORAL_FAQS = [
   {
@@ -100,9 +101,7 @@ export default function SellDoralPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Doral's master-planned communities and one of the highest Latin American buyer concentrations in Miami-Dade
-              demand a listing agent who understands both the local market and the international demand that drives it.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              Doral's master-planned communities and the highest LATAM buyer concentration in Miami-Dade demand an agent who knows both markets. MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -183,19 +182,12 @@ export default function SellDoralPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
-                  { label: "Strategy", text: "Pricing analysis + CMA specific to your Doral community and build year" },
-                  { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
-                  { label: "Distribution", text: "Buyer-agent outreach + LATAM referral network" },
-                  { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+              <CityProcessSteps steps={[
+                { label: "Strategy", text: "Pricing analysis + CMA specific to your Doral community and build year" },
+                { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
+                { label: "Distribution", text: "Buyer-agent outreach + LATAM referral network" },
+                { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
+              ]} />
             </div>
           </div>
         </section>

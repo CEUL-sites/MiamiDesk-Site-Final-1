@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const PLANTATION_FAQS = [
   {
@@ -100,9 +101,7 @@ export default function SellPlantationPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Plantation's established neighborhoods, central Broward location, and family buyer demand require
-              a listing agent who understands neighborhood-level value drivers and can activate the full buyer-agent network.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              Plantation's established neighborhoods and central Broward location draw family and professional buyers who value neighborhood-level pricing precision and full buyer-agent network activation. MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -134,10 +133,7 @@ export default function SellPlantationPage() {
               An established Broward suburb with mature neighborhoods and central market access.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              Plantation's tree-canopied streets, established neighborhood character, and central Broward
-              County location between Miami and Fort Lauderdale make it a consistent destination for families,
-              professionals, and move-up buyers. The city's proximity to the Sawgrass Expressway, top-rated schools,
-              and the United Realty Group Plantation office creates natural advantages for seller representation.
+              Plantation's tree-lined streets, established neighborhoods, and central Broward location between Miami and Fort Lauderdale draw consistent family and professional demand — with Sawgrass access and top-rated schools as primary drivers.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
@@ -183,19 +179,12 @@ export default function SellPlantationPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
+              <CityProcessSteps steps={[
                   { label: "Strategy", text: "Pricing analysis + CMA specific to your Plantation neighborhood and lot" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
                   { label: "Distribution", text: "Buyer-agent outreach + local and international referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+                ]} />
             </div>
           </div>
         </section>

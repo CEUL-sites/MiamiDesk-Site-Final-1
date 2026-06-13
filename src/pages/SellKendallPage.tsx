@@ -7,6 +7,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const KENDALL_FAQS = [
   {
@@ -99,10 +100,7 @@ export default function SellKendallPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Kendall's established single-family neighborhoods and family-oriented buyer pool demand a listing agent
-              who understands suburban Miami-Dade positioning, HOA community dynamics, and the Latin American buyer
-              demand that consistently drives this market. Professional MLS positioning. Buyer-agent activation.
-              International distribution.
+              Kendall's established single-family neighborhoods and family-oriented buyer pool demand an agent who knows suburban Miami-Dade positioning, HOA community dynamics, and the LATAM buyer demand driving this market. MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -133,10 +131,7 @@ export default function SellKendallPage() {
               Established single-family neighborhoods, a family-oriented buyer pool, and strong Turnpike corridor access.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              Kendall is SW Miami-Dade's largest established residential market — built around well-maintained subdivisions,
-              strong school zones, and proximity to the Florida Turnpike and major expressways. The buyer pool is
-              predominantly owner-occupant families and Latin American buyers prioritizing suburban stability and
-              community infrastructure, creating consistent demand for correctly positioned single-family inventory.
+              SW Miami-Dade's largest residential market — well-maintained subdivisions, strong school zones, and Turnpike access drive consistent demand from owner-occupant families and Latin American buyers prioritizing suburban stability.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
@@ -182,19 +177,12 @@ export default function SellKendallPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
+              <CityProcessSteps steps={[
                   { label: "Strategy", text: "Pricing analysis + CMA specific to your Kendall subdivision, school zone, and build year" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group with HOA documentation preparation" },
                   { label: "Distribution", text: "Buyer-agent outreach targeting family relocations and Latin American buyer network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+                ]} />
             </div>
           </div>
         </section>

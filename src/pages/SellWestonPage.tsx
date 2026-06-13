@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const WESTON_FAQS = [
   {
@@ -120,9 +121,7 @@ export default function SellWestonPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Weston's gated communities, A-rated schools, and Latin American buyer base demand a listing agent
-              who understands both the local market and the international demand that drives it.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              Weston's A-rated schools, gated communities, and deep LATAM buyer pool demand an agent who knows both the local market and the international pipeline behind it. MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
@@ -213,19 +212,12 @@ export default function SellWestonPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
-                  { label: "Strategy", text: "Pricing analysis + CMA specific to your Weston community" },
-                  { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
-                  { label: "Distribution", text: "Buyer-agent outreach + international referral network" },
-                  { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+              <CityProcessSteps steps={[
+                { label: "Strategy", text: "Pricing analysis + CMA specific to your Weston community" },
+                { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
+                { label: "Distribution", text: "Buyer-agent outreach + international referral network" },
+                { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
+              ]} />
             </div>
           </div>
         </section>

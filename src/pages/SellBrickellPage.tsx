@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const BRICKELL_FAQS = [
   {
@@ -100,9 +101,7 @@ export default function SellBrickellPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Brickell's urban luxury market and high international investor demand require a listing agent
-              who activates both the local professional network and the global capital flow that defines Miami's financial district.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              Brickell's luxury towers and international investor concentration require an agent who activates both the local MLS network and the global capital flows defining Miami's financial district. MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -184,19 +183,12 @@ export default function SellBrickellPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
-                  { label: "Strategy", text: "Pricing analysis + CMA specific to your Brickell building and unit tier" },
-                  { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
-                  { label: "Distribution", text: "International investor outreach + buyer-agent network" },
-                  { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+              <CityProcessSteps steps={[
+                { label: "Strategy", text: "Pricing analysis + CMA specific to your Brickell building and unit tier" },
+                { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
+                { label: "Distribution", text: "International investor outreach + buyer-agent network" },
+                { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
+              ]} />
             </div>
           </div>
         </section>

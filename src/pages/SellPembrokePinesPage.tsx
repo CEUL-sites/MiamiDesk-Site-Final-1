@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const PEMBROKE_PINES_FAQS = [
   {
@@ -100,9 +101,7 @@ export default function SellPembrokePinesPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Pembroke Pines' master-planned communities, strong schools, and active Latin American buyer market
-              demand a listing agent who understands community-level demand and the international connections that drive local pricing.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              Pembroke Pines' master-planned communities, strong schools, and active LATAM buyer market demand an agent who understands community-level demand and the international network that shapes local pricing. MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -134,10 +133,7 @@ export default function SellPembrokePinesPage() {
               One of Broward's most diverse and consistently active residential markets.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              Pembroke Pines combines master-planned community infrastructure with a broad, diverse buyer pool — including
-              a substantial Latin American community that makes it one of the most bilingual markets in South Florida.
-              The city's range of price points, strong school access, and suburban character attract both first-time buyers
-              and established move-up families from across the region.
+              Pembroke Pines's master-planned communities and substantial Latin American population make it one of South Florida's most bilingual markets — drawing first-time buyers and move-up families across a broad price range.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
@@ -183,19 +179,12 @@ export default function SellPembrokePinesPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
+              <CityProcessSteps steps={[
                   { label: "Strategy", text: "Pricing analysis + CMA specific to your Pembroke Pines community" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
                   { label: "Distribution", text: "Buyer-agent outreach + LATAM referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+                ]} />
             </div>
           </div>
         </section>

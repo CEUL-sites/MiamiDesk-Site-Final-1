@@ -7,6 +7,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const POMPANO_BEACH_FAQS = [
   {
@@ -99,9 +100,7 @@ export default function SellPompanoBeachPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Pompano Beach's coastal access, active development corridor, and mix of beach, intracoastal, and inland
-              property types attract seasonal and investor buyers from across the country and internationally.
-              Professional MLS positioning. Buyer-agent activation. Seasonal buyer pipeline.
+              Pompano Beach's coastal access and mix of beach, intracoastal, and inland properties attract seasonal and investor buyers nationally and internationally. MLS positioning. Buyer-agent activation. Seasonal buyer pipeline.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -183,19 +182,12 @@ export default function SellPompanoBeachPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
+              <CityProcessSteps steps={[
                   { label: "Strategy", text: "Pricing analysis specific to property type and proximity to water, beach, or new development corridors" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
                   { label: "Distribution", text: "Seasonal buyer pipeline + national relocation network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+                ]} />
             </div>
           </div>
         </section>

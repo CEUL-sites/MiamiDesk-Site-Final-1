@@ -7,6 +7,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const NORTH_MIAMI_FAQS = [
   {
@@ -99,9 +100,7 @@ export default function SellNorthMiamiPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              North Miami's growing submarket, coastal adjacency, and diverse buyer pool require a listing agent who
-              understands both the local demand landscape and the international network capable of reaching every
-              qualified buyer. Professional MLS positioning. Buyer-agent activation. International distribution.
+              North Miami's coastal adjacency, value positioning within the Aventura corridor, and diverse buyer pool require an agent who activates both the local MLS and the international network behind it. MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -132,12 +131,7 @@ export default function SellNorthMiamiPage() {
               A growing submarket with coastal adjacency and value positioning within the Aventura corridor.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              North Miami sits in the northeast quadrant of Miami-Dade County, bordered by North Miami Beach and the
-              Aventura corridor — markets that command a significant coastal premium. That proximity gives North Miami
-              sellers a structural advantage: buyers seeking coastal access and community infrastructure at accessible
-              price points consistently look here. The submarket draws a genuinely diverse buyer pool, from local
-              move-up buyers to domestic relocators and international buyers who prioritize value relative to the
-              directly coastal alternatives.
+              North Miami's proximity to North Miami Beach and the Aventura corridor gives sellers a structural advantage: buyers seeking coastal infrastructure at accessible price points consistently look here rather than the directly coastal alternatives.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
@@ -183,19 +177,12 @@ export default function SellNorthMiamiPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
+              <CityProcessSteps steps={[
                   { label: "Strategy", text: "Pricing analysis specific to the North Miami submarket, including proximity-to-coast and neighborhood-level comparables" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
                   { label: "Distribution", text: "Buyer-agent outreach + international referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+                ]} />
             </div>
           </div>
         </section>

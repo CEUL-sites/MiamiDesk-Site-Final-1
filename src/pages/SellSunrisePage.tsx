@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const SUNRISE_FAQS = [
   {
@@ -100,9 +101,7 @@ export default function SellSunrisePage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Sunrise's diverse communities, Sawgrass corridor access, and Latin American buyer demand require
-              a listing agent who understands competitive positioning relative to adjacent markets and can activate the full international buyer network.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              Sunrise's diverse communities, Sawgrass corridor access, and active LATAM buyer demand require an agent who knows competitive positioning relative to adjacent markets and activates the full international network. MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -134,11 +133,7 @@ export default function SellSunrisePage() {
               A diverse Broward market with strong Latin American demand and Sawgrass corridor access.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              Sunrise combines accessible pricing relative to adjacent Weston with strong Latin American community
-              infrastructure and direct Sawgrass Expressway access. The city's diverse housing inventory —
-              from established single-family communities to newer townhome developments — attracts a broad
-              buyer pool including families relocating from Venezuela, Colombia, and across South America who
-              are drawn by the Sawgrass corridor's bilingual services and school access.
+              Sunrise offers Weston-adjacent quality at more accessible price points — Sawgrass Expressway access, diverse housing inventory, and strong Latin American community infrastructure attract Venezuelan, Colombian, and South American families.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
@@ -184,19 +179,12 @@ export default function SellSunrisePage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
+              <CityProcessSteps steps={[
                   { label: "Strategy", text: "Pricing analysis + CMA with competitive positioning vs. Weston and Coral Springs" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
                   { label: "Distribution", text: "Buyer-agent outreach + LATAM referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+                ]} />
             </div>
           </div>
         </section>

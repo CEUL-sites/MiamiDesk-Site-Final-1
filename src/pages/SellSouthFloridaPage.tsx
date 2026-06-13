@@ -22,19 +22,19 @@ import { CONTACT, LEAD_MAGNETS, SOURCES, MESSAGING } from "../constants";
 const WHO_THIS_IS_FOR = [
   {
     title: "South Florida Homeowners",
-    body: "Selling a home in Miami-Dade, Broward, or Palm Beach — where MLS strategy decides the outcome.",
+    body: "Miami-Dade, Broward, or Palm Beach — where MLS strategy decides the outcome.",
   },
   {
-    title: "International Property Owners in Florida",
-    body: "Non-resident owners of Florida property. Full advisory and MLS positioning, wherever you live.",
+    title: "International Property Owners",
+    body: "Non-resident Florida owners. Full advisory and MLS positioning, wherever you are.",
   },
   {
-    title: "Investors Exiting South Florida Positions",
-    body: "Condo investors and portfolio sellers. Pricing discipline and distribution matter most at exit.",
+    title: "Investors Exiting South Florida",
+    body: "Portfolio and condo sellers. Pricing discipline and distribution matter most at exit.",
   },
   {
     title: "Latin American & European Sellers",
-    body: "Bilingual advisory in English and Spanish, through a licensed Florida professional.",
+    body: "Bilingual advisory in English and Spanish through a licensed Florida professional.",
   },
 ];
 
@@ -278,23 +278,23 @@ export default function SellSouthFloridaPage() {
             <div className="mt-14 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2">
               {[
                 {
-                  title: "What a buyer agent needs from your listing",
+                  title: "What buyer agents need from your listing",
                   items: [
-                    "Clear MLS positioning and accurate data",
+                    "Accurate MLS data and clear positioning",
                     "Strong broker remarks where MLS rules allow",
-                    "Fast response to agent inquiries and showing requests",
-                    "Access instructions that reduce friction, not create it",
-                    "Buyer-agent follow-up after showings",
+                    "Fast response to showing requests",
+                    "Frictionless access instructions",
+                    "Post-showing follow-up",
                   ],
                 },
                 {
-                  title: "What builds confidence for the buyer's decision",
+                  title: "What closes the buyer's decision",
                   items: [
-                    "Pre-positioned disclosures and documentation",
-                    "Improvement history and HOA detail package",
+                    "Pre-positioned disclosures and docs",
+                    "Improvement history and HOA package",
                     "Seller terms and timeline clarity",
-                    "Neighborhood context and comparable support",
-                    "Offer-quality review and negotiation strategy",
+                    "Comparable support for the buyer's agent",
+                    "Offer-quality review and negotiation",
                   ],
                 },
               ].map((col) => (

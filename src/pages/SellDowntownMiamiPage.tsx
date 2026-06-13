@@ -7,6 +7,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const DOWNTOWN_MIAMI_FAQS = [
   {
@@ -99,9 +100,7 @@ export default function SellDowntownMiamiPage() {
               <em className="not-italic italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Downtown Miami's high-rise condo market demands specialist positioning — building-level documentation,
-              investor buyer activation, and international distribution to the Latin American and global buyer pool
-              that drives urban core demand. Professional MLS positioning. Buyer-agent activation. Global distribution.
+              Downtown Miami's high-rise condo market demands specialist positioning — building-level documentation, investor activation, and international reach to the Latin American and global buyer pool driving urban core demand. MLS positioning. Buyer-agent activation. Global distribution.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
@@ -182,19 +181,12 @@ export default function SellDowntownMiamiPage() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
+              <CityProcessSteps steps={[
                   { label: "Strategy", text: "Pricing analysis + CMA specific to your building, floor, view, and current Downtown Miami condo comparables" },
                   { label: "Positioning", text: "Professional MLS activation with complete condo disclosure package preparation" },
                   { label: "Distribution", text: "Buyer-agent outreach + investor and international referral network activation across 75+ countries" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination for domestic and international transactions" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+                ]} />
             </div>
           </div>
         </section>

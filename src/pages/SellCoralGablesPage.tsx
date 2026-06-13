@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { CityProcessSteps } from "../components/CityProcessSteps";
 
 const CORAL_GABLES_FAQS = [
   {
@@ -120,9 +121,7 @@ export default function SellCoralGablesPage() {
               <em className="not-italic italic text-gold">and global buyer-network access.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Coral Gables's luxury buyer pool is international by nature. Mediterranean architecture, Miracle Mile,
-              and Brickell adjacency create consistent demand — from domestic executives to Latin American HNW families
-              and European investors. Sell with the reach that matches that audience.
+              Coral Gables draws domestic executives, LATAM HNW families, and European investors — drawn by Mediterranean architecture, Miracle Mile, and Brickell adjacency. Sell with the reach that matches that audience.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
@@ -201,19 +200,12 @@ export default function SellCoralGablesPage() {
                   The strongest Coral Gables transactions are won before the listing goes live — through pricing discipline, professional presentation, and buyer-agent relationship activation. Carlos builds the strategy before the MLS entry.
                 </p>
               </div>
-              <div className="space-y-px border border-white/10">
-                {[
-                  { label: "Pricing", text: "CMA built on current Miami MLS data — sold comps, active competition, expired listings, days on market by price band" },
-                  { label: "Presentation", text: "Professional photography guidance, MLS narrative, and documentation package for buyer agents" },
-                  { label: "Distribution", text: "Miami MLS activation → 93,000 agents → eligible syndication → 200+ global portals in 19 languages" },
-                  { label: "Buyer pipeline", text: "Direct LATAM and European buyer channels via international referral network and partner associations in 75+ countries" },
-                ].map((step) => (
-                  <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-28 flex-shrink-0 pt-0.5">{step.label}</span>
-                    <p className="font-sans text-sm text-white/65">{step.text}</p>
-                  </div>
-                ))}
-              </div>
+              <CityProcessSteps steps={[
+                { label: "Pricing", text: "CMA built on current Miami MLS data — sold comps, active competition, expired listings, days on market by price band" },
+                { label: "Presentation", text: "Professional photography guidance, MLS narrative, and documentation package for buyer agents" },
+                { label: "Distribution", text: "Miami MLS activation → 93,000 agents → eligible syndication → 200+ global portals in 19 languages" },
+                { label: "Buyer pipeline", text: "Direct LATAM and European buyer channels via international referral network and partner associations in 75+ countries" },
+              ]} />
             </div>
           </div>
         </section>
