@@ -148,13 +148,19 @@ export default function ReviewsPage() {
       bestRating: "5",
       worstRating: "1",
     },
-    review: VERIFIED_REVIEWS.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.name },
-      datePublished: new Date(r.date).toISOString().slice(0, 10),
-      reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5", worstRating: "1" },
-      reviewBody: r.text,
-    })),
+    review: VERIFIED_REVIEWS.map((r) => {
+      // Guard against a malformed date string slipping in — new Date(bad)
+      // .toISOString() throws RangeError and would blank the prerendered page.
+      const d = new Date(r.date);
+      const validDate = !Number.isNaN(d.getTime());
+      return {
+        "@type": "Review",
+        author: { "@type": "Person", name: r.name },
+        ...(validDate ? { datePublished: d.toISOString().slice(0, 10) } : {}),
+        reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5", worstRating: "1" },
+        reviewBody: r.text,
+      };
+    }),
   };
   return (
     <>

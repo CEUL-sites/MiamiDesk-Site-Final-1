@@ -1,0 +1,11 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HomesProfessional">
+  <!-- Full-bleed background so iOS (rounds it) and Android maskable (masks it)
+       both render cleanly. House sits within the central 80% safe zone. -->
+  <rect width="512" height="512" fill="#0B1E3F"/>
+  <!-- Roofline -->
+  <path d="M160 247 L256 169 L352 247" fill="none" stroke="#B08D57" stroke-width="20.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- House body -->
+  <rect x="190" y="247" width="132" height="102" rx="9" fill="none" stroke="#B08D57" stroke-width="20.4"/>
+  <!-- Door -->
+  <rect x="238" y="295" width="36" height="54" fill="#B08D57"/>
+</svg>
