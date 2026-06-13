@@ -18,7 +18,7 @@ export function Footer() {
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <img
-            src="/images/urg-logo-original.png"
+            src="/images/urg-logo-original.webp"
             alt="United Realty Group"
             width="160"
             height="48"

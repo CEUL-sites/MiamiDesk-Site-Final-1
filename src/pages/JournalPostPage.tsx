@@ -55,7 +55,7 @@ export default function JournalPostPage() {
       url: 'https://homesprofessional.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://homesprofessional.com/images/urg-logo-original.png',
+        url: 'https://homesprofessional.com/images/urg-logo-original.webp',
       },
     },
     url: `https://homesprofessional.com/journal/${post.slug}`,
