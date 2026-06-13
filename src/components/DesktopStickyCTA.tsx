@@ -1,7 +1,7 @@
 import { ArrowRight, MessageSquare, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CONTACT } from "../constants";
-import { trackFunnelEvent } from "../lib/analytics";
+import { trackContact, trackFunnelEvent } from "../lib/analytics";
 
 // Desktop counterpart to MobileStickyCTA — a slim bottom bar that appears
 // after the visitor scrolls past the hero and keeps one valuation CTA in
@@ -73,6 +73,7 @@ export function DesktopStickyCTA() {
               href={CONTACT.whatsappUS}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackContact("whatsapp", "desktop_sticky")}
               className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
               <MessageSquare size={12} className="text-gold" />

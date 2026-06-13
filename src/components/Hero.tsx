@@ -1,7 +1,9 @@
 import { motion, type Variants } from "motion/react";
-import { Globe, ShieldCheck, Tag } from "lucide-react";
+import { ArrowRight, Globe, ShieldCheck, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
+import { LazyVideo } from "./LazyVideo";
+import { trackFunnelEvent } from "../lib/analytics";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -93,6 +95,18 @@ export function Hero() {
             <em className="italic text-gold">World's Largest Local Realtor® Network.</em>
           </motion.h1>
 
+          {/* Mobile-only quick CTA — on phones the seller form sits well below
+              the fold, so give an immediate, above-the-fold path to it. */}
+          <motion.a
+            variants={item}
+            href="#list-here"
+            onClick={() => trackFunnelEvent("hero_cta_mobile")}
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90 sm:hidden"
+          >
+            Get My Free Home Value
+            <ArrowRight size={14} />
+          </motion.a>
+
           {/* Video bubble trio */}
           <motion.div variants={item} className="mt-8 flex items-start justify-center gap-4 sm:gap-7">
             {VIDEO_BUBBLES.map((b) => (
@@ -111,10 +125,7 @@ export function Hero() {
                       : "0 0 16px rgba(176,141,87,0.15)",
                   }}
                 >
-                  <video autoPlay muted loop playsInline aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover">
-                    <source src={b.src} type="video/mp4" />
-                  </video>
+                  <LazyVideo src={b.src} className="absolute inset-0 h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
                 </motion.div>
                 <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">

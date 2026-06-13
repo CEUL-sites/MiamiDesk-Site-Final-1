@@ -1,6 +1,7 @@
 import { MessageSquare } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { CONTACT } from "../constants";
+import { trackContact } from "../lib/analytics";
 
 // Section 15 — floating WhatsApp CTA, language/route-aware.
 // Desktop right-rail. Mobile WhatsApp is already provided by MobileStickyCTA,
@@ -20,6 +21,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
+      onClick={() => trackContact("whatsapp", "float")}
       className="whatsapp-float group fixed bottom-8 right-6 z-40 hidden items-center gap-2.5 rounded-full border border-gold/30 bg-navy-deep/95 px-5 py-3.5 shadow-2xl shadow-black/50 backdrop-blur-md transition-all duration-200 hover:border-gold hover:bg-navy-deep lg:inline-flex"
     >
       <MessageSquare size={16} className="text-gold" />
