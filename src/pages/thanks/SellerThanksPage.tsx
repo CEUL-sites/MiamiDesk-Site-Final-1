@@ -9,7 +9,7 @@ export default function SellerThanksPage() {
     <>
       <Helmet>
         <title>Seller Strategy Review Requested | HomesProfessional.com</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />

@@ -9,7 +9,7 @@ export default function AgentThanksPage() {
     <>
       <Helmet>
         <title>Referral Submitted | Agent Partner Desk | HomesProfessional.com</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />

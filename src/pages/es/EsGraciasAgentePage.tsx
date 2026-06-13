@@ -12,7 +12,7 @@ export default function EsGraciasAgentePage() {
         <title>
           Consulta de colaboración recibida · Agentes · HomesProfessional.com
         </title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />

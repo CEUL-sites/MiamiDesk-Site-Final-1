@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon / app icons. SVG covers all modern browsers; apple-touch-icon
+         falls back to the same vector for iOS home-screen pins. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#0B1E3F" />
+    <link rel="manifest" href="/site.webmanifest" />
     <!-- <title>, meta description, canonical, and hreflang alternates are set
          per page by react-helmet-async and baked into every prerendered page
          by react-snap. Static copies here would ship on EVERY page — a
@@ -26,7 +33,8 @@
       properties belong below.
     -->
     <meta property="og:site_name" content="HomesProfessional.com" />
-    <meta property="og:locale" content="en_US" />
+    <!-- og:locale is set per route by <HtmlLang> (en_US / es_ES) so Spanish
+         pages don't advertise en_US. -->
     <meta name="twitter:site" content="@unitedrealty" />
 
     <meta name="theme-color" content="#0a1628" />

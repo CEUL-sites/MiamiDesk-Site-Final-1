@@ -1,0 +1,17 @@
+{
+  "name": "HomesProfessional.com — Carlos Uzcategui",
+  "short_name": "HomesPro",
+  "description": "South Florida listing agent. MLS exposure and global buyer-agent reach across Miami-Dade, Broward & Palm Beach.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1E3F",
+  "theme_color": "#0a1628",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

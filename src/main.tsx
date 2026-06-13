@@ -4,6 +4,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
+import { HtmlLang } from './components/SEO/HtmlLang';
 import { CookieBanner } from './components/CookieBanner';
 import { Analytics } from './components/Analytics';
 import { WhatsAppFloat } from './components/WhatsAppFloat';
@@ -70,6 +71,7 @@ if (rootElement) {
         <>
           <SchemaOrg />
           <BrowserRouter>
+            <HtmlLang />
             <Suspense fallback={null}>
               <Routes>
                 <Route path="/"                              element={<HomePage />} />
