@@ -11,28 +11,28 @@ const PILLARS = [
     step: "01",
     title: "Media that earns the click",
     body:
-      "Professional photography, cinematic video, and staging direction — reviewed and approved before launch. Buyers screen online first; your listing competes on its first image.",
+      "Pro photography, cinematic video, and staging direction — approved before launch. Buyers screen online first; your home wins on the first frame.",
   },
   {
     icon: Globe2,
     step: "02",
     title: "Distribution beyond the MLS",
     body:
-      "Your listing enters the Miami MLS — the inventory 93,000 member agents search daily — then syndicates to major U.S. portals and 200+ international channels in 19 languages through the MIAMI REALTORS® global network.",
+      "Into the Miami MLS that 93,000 agents search daily — then syndicated to major U.S. portals and 200+ international channels in 19 languages.",
   },
   {
     icon: Radar,
     step: "03",
     title: "Buyer-agent activation",
     body:
-      "Direct outreach to the agents working buyers in your bracket — local, relocation, and international desks — so your home is shown, not just listed.",
+      "Direct outreach to the agents working buyers in your price band — local, relocation, and international — so your home is shown, not just listed.",
   },
   {
     icon: MessagesSquare,
     step: "04",
     title: "Weekly reporting, real strategy",
     body:
-      "Showings, feedback, and portal analytics in a weekly summary by WhatsApp or email — with pricing and positioning adjustments recommended from the data, not guesswork.",
+      "Showings, feedback, and analytics every week by WhatsApp or email — with pricing moves recommended from the data, not guesswork.",
   },
 ];
 
@@ -51,13 +51,14 @@ export function ListingSystem() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-px bg-white/10 border border-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map(({ icon: Icon, step, title, body }) => (
-            <div key={step} className="bg-navy-deep p-7">
+            <div key={step} className="group relative bg-navy-deep p-7 transition-colors duration-300 hover:bg-white/[0.03]">
               <div className="flex items-center justify-between">
-                <Icon size={18} className="text-gold" />
-                <span className="font-mono text-[10px] tracking-[0.2em] text-white/25">{step}</span>
+                <span className="font-serif text-[2.6rem] leading-none text-gold/90">{step}</span>
+                <Icon size={20} className="text-gold/45 transition-colors duration-300 group-hover:text-gold" />
               </div>
+              <div className="mt-5 h-px w-10 bg-gold/40 transition-all duration-300 group-hover:w-16" />
               <h3 className="mt-5 font-serif text-lg leading-snug text-white">{title}</h3>
               <p className="mt-3 font-sans text-[13px] leading-relaxed text-white/55">{body}</p>
             </div>

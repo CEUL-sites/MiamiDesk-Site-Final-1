@@ -8,7 +8,7 @@ const REPRESENTATION = [
   {
     side: "Sellers",
     title: "Positioning, pricing, distribution, negotiation.",
-    desc: "Absorption-based pricing, presentation strategy, MLS distribution, and personal negotiation through to closing — the property positioned correctly before it goes public.",
+    desc: "Absorption-based pricing, presentation strategy, MLS distribution, and hands-on negotiation to closing — positioned correctly before it goes public.",
     href: "/sell-south-florida",
     cta: "Request a seller strategy review",
     tag: "LISTING REPRESENTATION",
@@ -16,7 +16,7 @@ const REPRESENTATION = [
   {
     side: "Buyers",
     title: "Acquisition strategy, neighborhood intelligence, offer structure.",
-    desc: "Submarket-level intelligence, offer structure, and disciplined acquisition support — the right property, at the right price, in the right timing window.",
+    desc: "Submarket intelligence, offer structure, and disciplined acquisition support — the right property, the right price, the right timing.",
     href: "/buy",
     cta: "Brief your search",
     tag: "BUYER REPRESENTATION",
@@ -35,7 +35,7 @@ const PILLARS = [
     number: "02",
     icon: BarChart3,
     title: "Portfolio Positioning",
-    desc: "Analytical support for owners and investors weighing asset types, location fundamentals, and long-term capital positioning across residential and commercial South Florida.",
+    desc: "Analytical support for owners and investors weighing asset types, location, and long-term positioning across residential and commercial South Florida.",
     tag: "RESIDENTIAL · COMMERCIAL · MIXED-USE",
   },
   {
@@ -110,16 +110,16 @@ export function BuyersRelocation() {
 
           {/* Professional home-marketing clips — single sequencing bubble */}
           <div className="mb-14 border-y border-bone py-14">
-            <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
+            <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
               {/* Text */}
-              <div className="lg:flex-1">
+              <div className="lg:max-w-md">
                 <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-3">
                   The Work
                 </p>
-                <h3 className="font-serif text-3xl text-navy mb-4 leading-snug">
+                <h3 className="font-serif text-3xl text-navy mb-4 leading-snug md:text-4xl">
                   How the marketing<br className="hidden sm:block" /> actually looks.
                 </h3>
-                <p className="font-sans text-sm leading-relaxed text-navy/55 max-w-xs">
+                <p className="font-sans text-base leading-relaxed text-navy/60 max-w-sm">
                   Cinematic listing films and property tours — the presentation standard
                   behind every South Florida listing.
                 </p>
