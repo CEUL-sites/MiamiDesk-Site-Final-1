@@ -236,7 +236,7 @@ export function SellerIntakeForm() {
           </button>
 
           <p className="text-center font-serif text-[13px] italic leading-snug text-navy/55">
-            "Under contract in 10 days at 12% over asking."{" "}
+            "Sharp pricing, professional marketing, and constant communication — Carlos made selling feel handled."{" "}
             <span className="not-italic font-mono text-[8px] uppercase tracking-[0.14em] text-navy/35 whitespace-nowrap">— Andres P. · Weston · Verified Review</span>
           </p>
 
