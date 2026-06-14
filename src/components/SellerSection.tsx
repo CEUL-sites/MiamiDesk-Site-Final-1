@@ -59,7 +59,20 @@ function PhoneFrame({ children }: { children: ReactNode }) {
 }
 
 // ── Video slide labels ─────────────────────────────────────────────────────────
+// The phone frame is portrait, so vertical Matterport-style walkthrough tours lead
+// the reel — they fill the screen natively and show sellers exactly how their home
+// is presented to buyers.
 const SLIDES = [
+  {
+    src: "/videos/matterport_tour.mp4",
+    label: "3D walkthrough tour",
+    badge: "3D TOUR",
+  },
+  {
+    src: "/videos/virtual_tour_showcase.mp4",
+    label: "Virtual property tour",
+    badge: "VIRTUAL TOUR",
+  },
   {
     src: "/videos/dollhouse_global_reach.mp4",
     label: "Global property marketing reach",
