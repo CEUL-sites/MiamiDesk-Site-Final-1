@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
-import { ArrowRight, MapPin, Loader2, CheckCircle2 } from "lucide-react";
+import { ArrowRight, MapPin, Loader2, CheckCircle2, Download } from "lucide-react";
 import { useState, useRef, useEffect, type ChangeEvent, type FormEvent } from "react";
-import { CONTACT } from "../constants";
-import { trackLead } from "../lib/analytics";
+import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { trackLead, trackFunnelEvent } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
 import { notifyLeadDirect } from "../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../lib/googlePlaces";
@@ -37,6 +37,8 @@ const COPY = {
     successTag: "Valuation Request Received",
     successTitle: "Carlos will personally review your property.",
     successBody: "Expect your MLS-based valuation and a confidential, personal response. For urgent timing, reach us on WhatsApp.",
+    netSheetIntro: "While Carlos prepares your valuation, here's your free Seller's Net Sheet — what you actually keep at closing:",
+    netSheetCta: "Download the Seller's Net Sheet",
     successCta: "Continue on WhatsApp →",
     timeout: "Request timed out — please use WhatsApp or try again.",
     failed: "Couldn't send — please use WhatsApp or try again.",
@@ -66,6 +68,8 @@ const COPY = {
     successTag: "Solicitud Recibida",
     successTitle: "Carlos revisará su propiedad personalmente.",
     successBody: "Recibirá su valoración y una respuesta confidencial y personal. Para asuntos urgentes, contáctenos por WhatsApp.",
+    netSheetIntro: "Mientras Carlos prepara su valoración, aquí tiene su Hoja de Ganancias del Vendedor — lo que realmente recibe al cierre:",
+    netSheetCta: "Descargar la Hoja de Ganancias",
     successCta: "Continuar por WhatsApp →",
     timeout: "La solicitud expiró — use WhatsApp o inténtelo de nuevo.",
     failed: "No se pudo enviar — use WhatsApp o inténtelo de nuevo.",
@@ -183,6 +187,21 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-2">{t.successTag}</p>
         <h3 className="font-serif text-2xl text-white">{t.successTitle}</h3>
         <p className="mx-auto mt-3 max-w-sm font-sans text-sm leading-relaxed text-white/55">{t.successBody}</p>
+
+        {/* Instant value at peak intent — deliver the Net Sheet now, not just "we'll get back to you" */}
+        <div className="mt-6 border-t border-white/10 pt-5">
+          <p className="mx-auto mb-3 max-w-sm font-sans text-[13px] leading-relaxed text-white/65">{t.netSheetIntro}</p>
+          <a
+            href={LEAD_MAGNETS.sellerNetSheet.url}
+            download
+            onClick={() => trackFunnelEvent("net_sheet_download", { source: "hero-success", lang })}
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
+          >
+            <Download size={14} />
+            {t.netSheetCta}
+          </a>
+        </div>
+
         <a
           href={CONTACT.whatsappUS}
           target="_blank"
