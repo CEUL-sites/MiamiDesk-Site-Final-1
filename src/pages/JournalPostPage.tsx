@@ -175,7 +175,7 @@ export default function JournalPostPage() {
             </h1>
 
             {/* Date + byline + read time */}
-            <div className="mt-5 flex flex-wrap items-center gap-4 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
               <span>{formatDate(post.date)}</span>
               <span aria-hidden="true">·</span>
               <span>Carlos Uzcategui · FL SL705771</span>
@@ -190,14 +190,14 @@ export default function JournalPostPage() {
             </div>
 
             {/* Excerpt */}
-            <p className="mt-7 font-serif text-lg italic leading-relaxed text-white/60 border-l-2 border-gold/40 pl-5">
+            <p className="mt-8 max-w-2xl font-serif text-xl italic leading-relaxed text-white/65 border-l-2 border-gold/40 pl-6">
               {post.excerpt}
             </p>
           </div>
         </header>
 
         {/* Article body */}
-        <article className="mx-auto max-w-3xl px-5 py-14 lg:px-8">
+        <article className="mx-auto max-w-3xl px-5 py-16 lg:px-8 lg:py-20">
           <div
             className="prose-journal"
             dangerouslySetInnerHTML={{ __html: post.body }}
@@ -206,23 +206,23 @@ export default function JournalPostPage() {
 
         {/* Frequently asked questions — eligible for FAQ rich results */}
         {faqs.length > 0 && (
-          <section className="mx-auto max-w-3xl px-5 pb-4 lg:px-8">
-            <h2 className="font-serif text-2xl text-navy mt-2 mb-5 border-b border-bone pb-2">
+          <section className="mx-auto max-w-3xl px-5 pb-6 lg:px-8">
+            <h2 className="font-serif text-2xl text-navy mt-2 mb-7 border-b border-bone pb-3">
               Frequently asked questions
             </h2>
             <div className="divide-y divide-bone border-t border-bone">
               {faqs.map((faq) => (
-                <details key={faq.q} className="group py-4">
-                  <summary className="flex cursor-pointer items-start justify-between gap-4 font-serif text-lg leading-snug text-navy marker:content-['']">
+                <details key={faq.q} className="group py-6">
+                  <summary className="flex cursor-pointer items-start justify-between gap-5 font-serif text-lg leading-snug text-navy marker:content-['']">
                     <span>{faq.q}</span>
                     <span
                       aria-hidden="true"
-                      className="mt-1 font-mono text-gold transition-transform group-open:rotate-45"
+                      className="mt-1 shrink-0 font-mono text-gold transition-transform group-open:rotate-45"
                     >
                       +
                     </span>
                   </summary>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-navy/70">
+                  <p className="mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-navy/70">
                     {faq.a}
                   </p>
                 </details>
@@ -271,19 +271,19 @@ export default function JournalPostPage() {
 
         {/* More from the journal */}
         {relatedPosts.length > 0 && (
-          <section className="bg-ivory py-12 md:py-16">
+          <section className="bg-ivory py-14 md:py-20">
             <div className="mx-auto max-w-3xl px-5 lg:px-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">More from the Journal</p>
-              <div className="grid gap-4 sm:grid-cols-3">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-8">More from the Journal</p>
+              <div className="grid gap-5 sm:grid-cols-3">
                 {relatedPosts.map((rp) => (
                   <Link
                     key={rp.slug}
                     to={`/journal/${rp.slug}`}
-                    className="block border border-hairline bg-white p-5 hover:border-gold/40 transition-colors"
+                    className="flex flex-col border border-hairline bg-white p-6 hover:border-gold/40 hover:shadow-sm transition-all"
                   >
-                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-2">{rp.category}</p>
+                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">{rp.category}</p>
                     <h3 className="font-serif text-base text-navy-deep leading-snug">{rp.title}</h3>
-                    <p className="mt-2 font-sans text-xs text-ink-primary/50">Read →</p>
+                    <p className="mt-4 font-sans text-xs uppercase tracking-[0.14em] text-gold/70">Read →</p>
                   </Link>
                 ))}
               </div>

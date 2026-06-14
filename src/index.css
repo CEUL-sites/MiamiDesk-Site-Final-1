@@ -321,8 +321,8 @@ video {
 
 /* ── Journal post body ──────────────────────────────────── */
 .prose-journal {
-  font-size: 1.0625rem;
-  line-height: 1.8;
+  font-size: 1.125rem;
+  line-height: 1.85;
   color: rgba(11, 30, 63, 0.85);
 }
 .prose-journal > * + * {
