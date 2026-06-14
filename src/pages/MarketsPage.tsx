@@ -439,6 +439,23 @@ export default function MarketsPage() {
                     </div>
                   );
                 })}
+                {/* Video tile fills the trailing grid cells (5 drivers left an empty
+                    gap before) and shows the listing-marketing standard. */}
+                <div className="relative overflow-hidden bg-navy-deep lg:col-span-2">
+                  <LazyVideo
+                    src="/videos/luxury_home_walkthrough.mp4"
+                    className="absolute inset-0 h-full w-full object-cover opacity-[0.5]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/40 to-navy-deep/10 pointer-events-none" />
+                  <div className="relative flex h-full flex-col justify-end p-8">
+                    <TrendingUp size={20} className="text-gold" strokeWidth={1.5} />
+                    <h3 className="mt-5 font-serif text-lg text-white">Marketed to match the demand</h3>
+                    <p className="mt-3 font-sans text-[14px] leading-relaxed text-white/70">
+                      Cinematic media and virtual tours position each listing for the buyer
+                      pool these forces create — local, domestic, and international.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 

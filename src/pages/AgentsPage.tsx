@@ -347,11 +347,12 @@ export default function AgentsPage() {
                   </p>
                 </div>
 
-                {/* Cinematic video accent */}
+                {/* Cinematic video accent — landscape property walkthrough fills the
+                    wide frame cleanly (replaces the portrait clip that cropped mid-frame). */}
                 <div className="mt-8 relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "52%" }}>
                   <LazyVideo
-                    src="/videos/best_exposure_listings.mp4"
-                    className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
+                    src="/videos/luxury_home_walkthrough.mp4"
+                    className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/30 pointer-events-none" />
                   <div className="absolute bottom-4 left-5">
