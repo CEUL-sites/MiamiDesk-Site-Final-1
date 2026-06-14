@@ -46,6 +46,8 @@ Net proceeds = Sale price − Outstanding mortgage balance − Seller closing co
 
 The closing costs on a properly run South Florida transaction typically fall in the range of 5–8% of the sale price, depending primarily on the commission structure and any negotiated concessions. At the high end of the market, the percentage may be lower in absolute terms, though absolute dollar amounts are larger.
 
+Closing costs are distinct from any *tax* on your gain. For a primary residence, the [federal home-sale capital gains exclusion](/journal/home-sale-capital-gains-exclusion-500k-2026) shelters up to $250,000 of gain ($500,000 for a married couple) — a separate calculation from the closing costs above, and one worth raising with a tax professional early.
+
 > A professional seller analysis — a seller's net sheet — models this calculation for your specific property at multiple sale price scenarios. That is different from an automated estimate of home value; it is the document that tells you what you actually receive at each price point.
 
 ## Why the net sheet is the starting document

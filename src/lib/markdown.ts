@@ -10,6 +10,8 @@ const modules = import.meta.glob('../content/journal/[^_]*.md', {
 export interface PostMeta {
   title: string;
   date: string;
+  /** Optional `updated:` frontmatter (YYYY-MM-DD). Drives schema dateModified. */
+  updated: string;
   slug: string;
   excerpt: string;
   category: string;
@@ -177,6 +179,7 @@ function parseAll(): PostMeta[] {
     posts.push({
       title:    meta.title,
       date:     meta.date     ?? '',
+      updated:  meta.updated  ?? '',
       slug:     meta.slug,
       excerpt:  meta.excerpt  ?? '',
       category: meta.category ?? 'General',
