@@ -36,7 +36,7 @@ const COPY = {
     proofName: "Andres P. · Weston · Verified Review",
     successTag: "Valuation Request Received",
     successTitle: "Carlos will personally review your property.",
-    successBody: "Expect your MLS-based valuation and a confidential response within one business day. For urgent timing, reach us on WhatsApp.",
+    successBody: "Expect your MLS-based valuation and a confidential, personal response. For urgent timing, reach us on WhatsApp.",
     successCta: "Continue on WhatsApp →",
     timeout: "Request timed out — please use WhatsApp or try again.",
     failed: "Couldn't send — please use WhatsApp or try again.",
@@ -65,7 +65,7 @@ const COPY = {
     proofName: "Andres P. · Weston · Reseña Verificada",
     successTag: "Solicitud Recibida",
     successTitle: "Carlos revisará su propiedad personalmente.",
-    successBody: "Recibirá su valoración y una respuesta confidencial en un día hábil. Para asuntos urgentes, contáctenos por WhatsApp.",
+    successBody: "Recibirá su valoración y una respuesta confidencial y personal. Para asuntos urgentes, contáctenos por WhatsApp.",
     successCta: "Continuar por WhatsApp →",
     timeout: "La solicitud expiró — use WhatsApp o inténtelo de nuevo.",
     failed: "No se pudo enviar — use WhatsApp o inténtelo de nuevo.",
@@ -357,7 +357,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           ))}
         </span>
         <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/35 leading-snug">
-          5.0 · Replies within 1 business day · No listing commitment
+          5.0 · Personal reply from Carlos · No listing commitment
         </span>
       </div>
 

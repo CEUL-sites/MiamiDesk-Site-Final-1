@@ -95,7 +95,7 @@ export function BuyerMandateForm() {
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Buyer Mandate Received</p>
         <h3 className="mt-3 font-serif text-2xl text-navy">Carlos will prepare your Miami buyer brief.</h3>
         <p className="mt-4 font-sans text-sm leading-relaxed text-navy/55 max-w-md mx-auto">
-          Confirmation sent to your email. Carlos responds within one business day from his Weston, Florida office.
+          Confirmation sent to your email. Carlos responds personally from his Weston, Florida office.
         </p>
         <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block font-sans text-sm text-gold underline">
           WhatsApp for immediate questions

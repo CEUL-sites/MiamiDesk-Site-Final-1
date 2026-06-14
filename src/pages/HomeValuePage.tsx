@@ -98,7 +98,7 @@ export default function HomeValuePage() {
               name: "Is the home valuation request really free?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Yes. Carlos Uzcategui provides a confidential market analysis at no cost, with no obligation to list. Submit your property address and details — Carlos reviews every request personally and responds within one business day.",
+                text: "Yes. Carlos Uzcategui provides a confidential market analysis at no cost, with no obligation to list. Submit your property address and details — Carlos reviews every request personally and responds directly.",
               },
             },
           ],
@@ -139,8 +139,8 @@ export default function HomeValuePage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
             Not an algorithm. A real MLS-based analysis from a licensed REALTOR® with
-            25 years in South Florida. Carlos reviews every request personally and
-            responds within one business day.
+            25 years in South Florida. Carlos reviews and answers
+            every request himself.
           </p>
           <a
             href="#valuation-form"
@@ -253,6 +253,23 @@ export default function HomeValuePage() {
           </div>
         </section>
 
+        {/* Bridge: valuation -> listing distribution funnel */}
+        <section className="border-t border-hairline bg-white py-12">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <p className="font-sans text-base leading-relaxed text-navy/70">
+              A valuation tells you what your home is worth. Selling at that number is a
+              distribution question — your listing in front of the 93,000 member agents who
+              search the Miami MLS for their buyers every day, in South Florida and abroad.
+            </p>
+            <a
+              href="/sell-south-florida"
+              className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 transition-colors hover:text-navy"
+            >
+              See how the listing system works →
+            </a>
+          </div>
+        </section>
+
         <SellerNetCalculator sourcePage="home-value" />
 
         {/* Form */}
@@ -267,7 +284,6 @@ export default function HomeValuePage() {
               </h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
                 Carlos reviews every submission personally. No listing commitment required.
-                Response within one business day.
               </p>
             </div>
             <SellerIntakeForm />
@@ -299,7 +315,7 @@ export default function HomeValuePage() {
                 },
                 {
                   q: "How long does the valuation take?",
-                  a: "Carlos responds within one business day. For properties in active submarkets with good comparable data, the analysis can be prepared quickly. For unique properties in thin markets, slightly more time allows for a more rigorous analysis.",
+                  a: "Carlos responds personally to every request. For properties in active submarkets with good comparable data, the analysis can be prepared quickly. For unique properties in thin markets, slightly more time allows for a more rigorous analysis.",
                 },
                 {
                   q: "Do you serve areas outside Miami-Dade?",

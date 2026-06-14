@@ -9,7 +9,7 @@ export default function SellerThanksPage() {
     <>
       <Helmet>
         <title>Seller Strategy Review Requested | HomesProfessional.com</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />
@@ -21,7 +21,7 @@ export default function SellerThanksPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confirmed</p>
             <h1 className="mt-4 font-serif text-4xl text-white">Strategy review requested.</h1>
             <p className="mx-auto mt-6 max-w-lg font-sans text-base leading-relaxed text-white/60">
-              Carlos reviews every seller submission personally before responding. You will receive a confirmation by email, and Carlos will follow up within one business day from his Weston, Florida office.
+              Carlos reviews every seller submission personally before responding. You will receive a confirmation by email, and Carlos will follow up directly from his Weston, Florida office.
             </p>
             <div className="mx-auto mt-8 max-w-md border border-gold/25 bg-gold/5 p-6 text-left">
               <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">While You Wait</p>

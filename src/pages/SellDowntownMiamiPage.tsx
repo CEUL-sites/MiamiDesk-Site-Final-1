@@ -246,7 +246,7 @@ export default function SellDowntownMiamiPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Downtown Miami Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every Downtown Miami submission personally before responding — typically within one business day.
+                No listing commitment required. Carlos reviews every Downtown Miami submission personally before responding.
               </p>
             </div>
             <SellerIntakeForm />

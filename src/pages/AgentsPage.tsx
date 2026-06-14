@@ -205,7 +205,7 @@ export default function AgentsPage() {
               className="mx-auto max-w-4xl font-serif leading-[1.08] text-white"
               style={{ fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)" }}
             >
-              Three Ways the Best Agents<br />
+              Three Ways Agents<br />
               <em className="not-italic italic text-gold">Work With Carlos.</em>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/65">
@@ -613,7 +613,7 @@ export default function AgentsPage() {
                   </div>
                 </div>
                 <p className="mt-8 font-sans text-xs italic text-ink-primary/40">
-                  Submissions reviewed within 5 business days.
+                  Every submission is reviewed personally.
                 </p>
               </div>
 
@@ -720,7 +720,7 @@ export default function AgentsPage() {
               <h2 className="mt-3 font-serif text-3xl text-white">Give your sellers a stronger international story.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
                 Submit a listing, portfolio, or agency profile for review. Carlos evaluates every submission personally
-                and responds within 5 business days.
+                and responds to every serious submission directly.
               </p>
             </div>
             <AgencyPartnerForm />

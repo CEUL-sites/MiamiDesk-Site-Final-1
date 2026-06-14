@@ -672,8 +672,8 @@ export default function GlobalDeskPage() {
               Put your property inside the network that already holds its buyer.
             </h2>
             <p className="mt-5 font-sans text-base leading-relaxed text-navy/60">
-              Start with a private distribution assessment. Carlos reviews each property personally
-              and responds within one business day.
+              Start with a private distribution assessment. Carlos reviews each property
+              and responds himself.
             </p>
             <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
               <a

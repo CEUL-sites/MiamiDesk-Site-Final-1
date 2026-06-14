@@ -254,12 +254,40 @@
 
   <url>
     <loc>https://homesprofessional.com/journal</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.86</priority>
   </url>
 
   <!-- ── Journal posts ──────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://homesprofessional.com/journal/florida-homestead-portability-benefits-2026</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/journal/home-sale-capital-gains-exclusion-500k-2026</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/journal/1031-exchange-south-florida-investment-property-2026</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-agreement-south-florida-2026</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
 
   <url>
     <loc>https://homesprofessional.com/journal/pre-listing-checklist-south-florida-2026</loc>

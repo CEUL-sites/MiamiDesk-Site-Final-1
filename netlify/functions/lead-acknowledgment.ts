@@ -22,14 +22,14 @@ function isSpanishContext(country: string, name: string): boolean {
 
 function buildEmailEN(formName: string, name: string): { subject: string; html: string } {
   const intro = formName === "seller-hero"
-    ? "Your home valuation request has been received. Carlos will prepare your MLS-based valuation personally and follow up within one business day."
+    ? "Your home valuation request has been received. Carlos will prepare your MLS-based valuation personally and follow up with you directly."
     : formName === "seller-intake"
-    ? "Your seller strategy review request has been received. Carlos will review your property details personally and follow up within one business day."
+    ? "Your seller strategy review request has been received. Carlos will review your property details personally and follow up with you directly."
     : formName === "buyer-mandate"
-    ? "Your Miami buyer brief request has been received. Carlos will prepare a brief tailored to your search parameters and follow up within one business day."
+    ? "Your Miami buyer brief request has been received. Carlos will prepare a brief tailored to your search parameters and follow up with you directly."
     : formName === "referral-intake-es"
-    ? "Your cross-border referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up within one business day."
-    : "Your referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up within one business day.";
+    ? "Your cross-border referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up with you directly."
+    : "Your referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up with you directly.";
 
   return {
     subject: formName === "seller-hero"

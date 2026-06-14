@@ -127,7 +127,7 @@ export function InternationalBridge() {
               WhatsApp Spain Desk
             </a>
           </div>
-          <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/70">Spanish inquiries answered in Spanish within one business day.</p>
+          <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/70">Spanish inquiries answered in Spanish.</p>
         </div>
 
       </div>

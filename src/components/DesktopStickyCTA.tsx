@@ -1,7 +1,7 @@
 import { ArrowRight, MessageSquare, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CONTACT } from "../constants";
-import { trackFunnelEvent } from "../lib/analytics";
+import { trackContact, trackFunnelEvent } from "../lib/analytics";
 
 // Desktop counterpart to MobileStickyCTA — a slim bottom bar that appears
 // after the visitor scrolls past the hero and keeps one valuation CTA in
@@ -41,7 +41,17 @@ export function DesktopStickyCTA() {
     };
   }, []);
 
-  if (dismissed || !scrolled || formVisible) return null;
+  const visible = !dismissed && scrolled && !formVisible;
+
+  // Flag the bar's presence on <body> so the standalone WhatsApp float
+  // (rendered in a separate tree) can yield — the bar has its own WhatsApp
+  // action, and the two otherwise stack at the same bottom edge.
+  useEffect(() => {
+    document.body.toggleAttribute("data-desktop-cta", visible);
+    return () => document.body.removeAttribute("data-desktop-cta");
+  }, [visible]);
+
+  if (!visible) return null;
 
   const dismiss = () => {
     setDismissed(true);
@@ -63,10 +73,11 @@ export function DesktopStickyCTA() {
               href={CONTACT.whatsappUS}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackContact("whatsapp", "desktop_sticky")}
               className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
               <MessageSquare size={12} className="text-gold" />
-              WhatsApp
+              WhatsApp Carlos
             </a>
             <a
               href="/home-value"

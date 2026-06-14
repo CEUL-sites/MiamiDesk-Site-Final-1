@@ -73,7 +73,7 @@ function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index
       </div>
 
       {/* Description — reveals on hover, visible always on mobile */}
-      <p className="mt-5 font-sans text-sm leading-relaxed text-white/45 transition-colors duration-300 group-hover:text-white/65">
+      <p className="mt-5 font-sans text-sm leading-relaxed text-white/70">
         {stat.desc}
       </p>
     </motion.div>
@@ -121,7 +121,7 @@ export const ReachAdvantage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55"
+          className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/70"
         >
           Buyers don't find homes — their agents do. Your listing goes straight into
           the inventory those agents search every day, in South Florida and in 75+ countries.

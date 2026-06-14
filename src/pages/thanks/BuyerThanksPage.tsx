@@ -9,7 +9,7 @@ export default function BuyerThanksPage() {
     <>
       <Helmet>
         <title>Buyer Brief Requested | HomesProfessional.com</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />
@@ -21,7 +21,7 @@ export default function BuyerThanksPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confirmed</p>
             <h1 className="mt-4 font-serif text-4xl text-white">Miami buyer brief requested.</h1>
             <p className="mx-auto mt-6 max-w-lg font-sans text-base leading-relaxed text-white/60">
-              Carlos will prepare a Miami buyer brief tailored to your neighborhoods, budget, and timeline. You will receive a confirmation by email within minutes.
+              Carlos will prepare a Miami buyer brief tailored to your neighborhoods, budget, and timeline. You will receive a confirmation by email shortly.
             </p>
             <div className="mx-auto mt-8 max-w-md border border-gold/25 bg-gold/5 p-6 text-left">
               <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">While You Wait</p>

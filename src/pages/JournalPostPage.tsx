@@ -4,6 +4,7 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
 import { getPostBySlug, getAllPosts } from '../lib/markdown';
+import { JOURNAL_FAQS } from '../content/journal-faqs';
 import { CONTACT } from '../constants';
 
 function formatDate(iso: string): string {
@@ -32,6 +33,10 @@ export default function JournalPostPage() {
   const ogImage = post.image
     ? `https://homesprofessional.com${post.image}`
     : 'https://homesprofessional.com/images/og-default.png';
+  const ogImageType = ogImage.endsWith('.png') ? 'image/png' : 'image/jpeg';
+
+  const dateModified = post.updated || post.date;
+  const faqs = JOURNAL_FAQS[post.slug] ?? [];
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -39,7 +44,7 @@ export default function JournalPostPage() {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified,
     image: ogImage,
     author: {
       '@type': 'Person',
@@ -55,7 +60,7 @@ export default function JournalPostPage() {
       url: 'https://homesprofessional.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://homesprofessional.com/images/urg-logo-original.png',
+        url: 'https://homesprofessional.com/images/urg-logo-original.webp',
       },
     },
     url: `https://homesprofessional.com/journal/${post.slug}`,
@@ -69,6 +74,18 @@ export default function JournalPostPage() {
       name: 'South Florida Real Estate Journal',
     },
   };
+
+  const faqSchema = faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }
+    : null;
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -109,15 +126,23 @@ export default function JournalPostPage() {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:alt" content={post.title} />
+        <meta property="og:image:type" content={ogImageType} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="article:published_time" content={post.date} />
+        <meta property="article:modified_time" content={dateModified} />
         <meta property="article:author" content="Carlos Uzcategui" />
         <meta property="article:section" content={post.category} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Carlos Uzcategui`} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={post.title} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {faqSchema && (
+          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        )}
       </Helmet>
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
@@ -150,7 +175,7 @@ export default function JournalPostPage() {
             </h1>
 
             {/* Date + byline + read time */}
-            <div className="mt-5 flex flex-wrap items-center gap-4 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
               <span>{formatDate(post.date)}</span>
               <span aria-hidden="true">·</span>
               <span>Carlos Uzcategui · FL SL705771</span>
@@ -165,19 +190,46 @@ export default function JournalPostPage() {
             </div>
 
             {/* Excerpt */}
-            <p className="mt-7 font-serif text-lg italic leading-relaxed text-white/60 border-l-2 border-gold/40 pl-5">
+            <p className="mt-8 max-w-2xl font-serif text-xl italic leading-relaxed text-white/65 border-l-2 border-gold/40 pl-6">
               {post.excerpt}
             </p>
           </div>
         </header>
 
         {/* Article body */}
-        <article className="mx-auto max-w-3xl px-5 py-14 lg:px-8">
+        <article className="mx-auto max-w-3xl px-5 py-16 lg:px-8 lg:py-20">
           <div
             className="prose-journal"
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
         </article>
+
+        {/* Frequently asked questions — eligible for FAQ rich results */}
+        {faqs.length > 0 && (
+          <section className="mx-auto max-w-3xl px-5 pb-6 lg:px-8">
+            <h2 className="font-serif text-2xl text-navy mt-2 mb-7 border-b border-bone pb-3">
+              Frequently asked questions
+            </h2>
+            <div className="divide-y divide-bone border-t border-bone">
+              {faqs.map((faq) => (
+                <details key={faq.q} className="group py-6">
+                  <summary className="flex cursor-pointer items-start justify-between gap-5 font-serif text-lg leading-snug text-navy marker:content-['']">
+                    <span>{faq.q}</span>
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 shrink-0 font-mono text-gold transition-transform group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-navy/70">
+                    {faq.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Divider */}
         <div className="mx-auto max-w-3xl px-5 lg:px-8">
@@ -219,19 +271,19 @@ export default function JournalPostPage() {
 
         {/* More from the journal */}
         {relatedPosts.length > 0 && (
-          <section className="bg-ivory py-12 md:py-16">
+          <section className="bg-ivory py-14 md:py-20">
             <div className="mx-auto max-w-3xl px-5 lg:px-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">More from the Journal</p>
-              <div className="grid gap-4 sm:grid-cols-3">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-8">More from the Journal</p>
+              <div className="grid gap-5 sm:grid-cols-3">
                 {relatedPosts.map((rp) => (
                   <Link
                     key={rp.slug}
                     to={`/journal/${rp.slug}`}
-                    className="block border border-hairline bg-white p-5 hover:border-gold/40 transition-colors"
+                    className="flex flex-col border border-hairline bg-white p-6 hover:border-gold/40 hover:shadow-sm transition-all"
                   >
-                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-2">{rp.category}</p>
+                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">{rp.category}</p>
                     <h3 className="font-serif text-base text-navy-deep leading-snug">{rp.title}</h3>
-                    <p className="mt-2 font-sans text-xs text-ink-primary/50">Read →</p>
+                    <p className="mt-4 font-sans text-xs uppercase tracking-[0.14em] text-gold/70">Read →</p>
                   </Link>
                 ))}
               </div>

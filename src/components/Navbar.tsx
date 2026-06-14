@@ -3,6 +3,7 @@ import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT } from "../constants";
+import { trackContact } from "../lib/analytics";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { UrgLogo } from "./UrgLogo";
 
@@ -85,6 +86,7 @@ export function Navbar() {
 
           <a
             href={CONTACT.phoneUSLink}
+            onClick={() => trackContact("phone", "navbar")}
             className={`hidden items-center gap-1.5 font-mono text-[10px] tracking-[0.12em] transition-colors duration-200 2xl:flex ${
               scrolled ? "text-navy/70 hover:text-gold" : "text-white/65 hover:text-white"
             }`}
@@ -176,6 +178,7 @@ export function Navbar() {
                 </p>
                 <a
                   href={CONTACT.phoneUSLink}
+                  onClick={() => trackContact("phone", "navbar_mobile")}
                   className="flex w-full items-center justify-center gap-2.5 border border-white/20 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white transition-colors hover:border-gold hover:text-gold"
                 >
                   <Phone size={14} className="text-gold" />

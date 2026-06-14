@@ -131,6 +131,37 @@ function Stars({ count = 5 }: { count?: number }) {
 }
 
 export default function ReviewsPage() {
+  // Emit the actual verified reviews (visible on this page) as Review nodes so
+  // Google can show star rich-snippets — an AggregateRating alone is weak and
+  // can be ignored without the underlying reviews present. reviewCount stays at
+  // the sitewide figure (15) used by every other page's schema for the same
+  // #agent entity; the nodes below are the on-page representative sample.
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "@id": "https://homesprofessional.com/#agent",
+    name: "Carlos Uzcategui",
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      reviewCount: "15",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: VERIFIED_REVIEWS.map((r) => {
+      // Guard against a malformed date string slipping in — new Date(bad)
+      // .toISOString() throws RangeError and would blank the prerendered page.
+      const d = new Date(r.date);
+      const validDate = !Number.isNaN(d.getTime());
+      return {
+        "@type": "Review",
+        author: { "@type": "Person", name: r.name },
+        ...(validDate ? { datePublished: d.toISOString().slice(0, 10) } : {}),
+        reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5", worstRating: "1" },
+        reviewBody: r.text,
+      };
+    }),
+  };
   return (
     <>
       <Helmet>
@@ -140,21 +171,9 @@ export default function ReviewsPage() {
         <link rel="canonical" href="https://homesprofessional.com/reviews" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta property="og:title" content="Client Reviews — Carlos Uzcategui, South Florida REALTOR®" />
-        <meta property="og:description" content="Verified client reviews for Carlos Uzcategui, FL SL705771. 15 five-star reviews from sellers and buyers across South Florida." />
+        <meta property="og:description" content="Verified five-star client reviews for Carlos Uzcategui, FL SL705771 — sellers and buyers across South Florida." />
         <meta property="og:url" content="https://homesprofessional.com/reviews" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "RealEstateAgent",
-          "@id": "https://homesprofessional.com/#agent",
-          "name": "Carlos Uzcategui",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "15",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
-        })}</script>
+        <script type="application/ld+json">{JSON.stringify(reviewSchema)}</script>
       </Helmet>
 
       <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">

@@ -58,6 +58,36 @@ export function trackFunnelEvent(name: string, payload?: EventPayload): void {
 
 export type LeadType = "seller" | "buyer" | "agent";
 
+export type ContactMethod = "phone" | "whatsapp";
+
+/**
+ * Fire a contact-intent conversion when a visitor taps a call or WhatsApp link.
+ *
+ * Phone calls and WhatsApp chats are a major share of seller contacts (the
+ * equity-rich seller demographic skews toward calling), but were previously
+ * untracked — so Meta/Google couldn't optimize ad delivery toward call-intent
+ * users, and the channel's ROI was invisible.
+ *   • GTM / GA4  — `contact_click` event with method + location
+ *   • Meta Pixel — standard `Contact` event (ad sets can optimize for it)
+ *
+ * Attribution (UTM/referrer/landing page) is attached so each contact is
+ * source-attributable, identical to trackLead. We deliberately fire `Contact`
+ * (not `Lead`) so form submissions remain the clean primary conversion and
+ * calls/chats are a distinct, measurable mid-funnel signal.
+ */
+export function trackContact(method: ContactMethod, location: string): void {
+  const attribution = getAttribution();
+  const detail: EventPayload = { contact_method: method, location, ...attribution };
+
+  // GTM / GA4 dataLayer
+  pushEvent("contact_click", detail);
+
+  // Meta Pixel — standard Contact event.
+  if (typeof window.fbq === "function") {
+    window.fbq("track", "Contact", detail);
+  }
+}
+
 /**
  * Fire a lead conversion across every connected channel at once:
  *   • GTM dataLayer  — `generate_lead` + the existing form_submit_* event

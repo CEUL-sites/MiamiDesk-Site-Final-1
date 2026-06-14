@@ -184,21 +184,25 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
             type="button"
             onClick={() => { setActiveIdx(i); setProgress(0); }}
             aria-label={`Clip ${i + 1}: ${b.caption}`}
-            className="relative h-[3px] rounded-full overflow-hidden transition-all duration-300"
+            className="group relative flex h-6 items-center transition-all duration-300"
             style={{ width: i === activeIdx ? "2.25rem" : "0.65rem" }}
           >
-            {/* Track */}
-            <span className="absolute inset-0 rounded-full bg-navy/15" />
-            {/* Fill */}
-            {i < activeIdx && (
-              <span className="absolute inset-0 rounded-full bg-gold/70" />
-            )}
-            {i === activeIdx && (
-              <span
-                className="absolute inset-y-0 left-0 rounded-full bg-gold"
-                style={{ width: `${progress * 100}%`, transition: "width 0.15s linear" }}
-              />
-            )}
+            {/* 3px progress bar — visual only; the button itself carries a
+                taller, finger-friendly tap target (h-6) around it. */}
+            <span className="relative block h-[3px] w-full overflow-hidden rounded-full">
+              {/* Track */}
+              <span className="absolute inset-0 rounded-full bg-navy/15" />
+              {/* Fill */}
+              {i < activeIdx && (
+                <span className="absolute inset-0 rounded-full bg-gold/70" />
+              )}
+              {i === activeIdx && (
+                <span
+                  className="absolute inset-y-0 left-0 rounded-full bg-gold"
+                  style={{ width: `${progress * 100}%`, transition: "width 0.15s linear" }}
+                />
+              )}
+            </span>
           </button>
         ))}
       </div>
