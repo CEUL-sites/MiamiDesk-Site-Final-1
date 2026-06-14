@@ -25,7 +25,7 @@ For real estate, "like-kind" is interpreted broadly. Most real property held for
 
 This is the distinction that catches owners off guard:
 
-- **Your primary residence does not qualify.** A 1031 exchange is for investment and business property. The sale of a main home is governed instead by the Section 121 exclusion.
+- **Your primary residence does not qualify.** A 1031 exchange is for investment and business property. The sale of a main home is governed instead by the [Section 121 home-sale exclusion](/journal/home-sale-capital-gains-exclusion-500k-2026).
 - **Property held primarily for resale** ("flips") generally does not qualify.
 - **Vacation homes** qualify only under narrow conditions tied to genuine rental use and limited personal use.
 

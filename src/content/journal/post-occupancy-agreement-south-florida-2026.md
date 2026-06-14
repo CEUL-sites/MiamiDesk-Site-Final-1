@@ -38,7 +38,7 @@ Beyond convenience, the ability to negotiate a short rent-back can be a genuine 
 
 ## What sellers should do early
 
-Because the occupancy terms are negotiated as part of the contract, the time to raise them is **before** offers are evaluated — ideally as part of the listing strategy. A seller who knows they will need three weeks after closing should have that built into how the property is marketed and how offers are weighed, not discovered during final negotiations.
+Because the occupancy terms are negotiated as part of the contract, the time to raise them is **before** offers are evaluated — ideally as part of the listing strategy. A seller who knows they will need three weeks after closing should have that built into how the property is marketed and how offers are weighed, not discovered during final negotiations. Timing matters on the tax side too: if you are moving to a new Florida home, the [Homestead Exemption and Save Our Homes portability](/journal/florida-homestead-portability-benefits-2026) rules reward establishing your next homestead within a defined window.
 
 ---
 

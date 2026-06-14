@@ -30,7 +30,7 @@ A vacant South Florida home is not a neutral asset — it is an exposed one. Whi
 - **Maintain the exterior.** Overgrown landscaping invites code enforcement attention and signals an unattended property.
 - **Control humidity.** Air conditioning left completely off in a closed Florida house invites mold. Mold remediation costs far more than months of moderate electricity.
 - **Stay current on the carrying costs.** Property taxes, association dues, and utilities continue to accrue. Unpaid association dues in particular can become liens that complicate closing.
-- **Watch the homestead clock.** If the decedent had a homestead exemption, that exemption ends, and the property's assessed-value cap can reset — meaning the tax bill may rise. Factor this into how long the family carries the home.
+- **Watch the homestead clock.** If the decedent had a homestead exemption, that exemption ends, and the property's assessed-value cap can reset — meaning the tax bill may rise. Factor this into how long the family carries the home. (For how the [Homestead Exemption and Save Our Homes cap](/journal/florida-homestead-portability-benefits-2026) work in the first place, see our separate guide.)
 
 ## Step Three: Decide — Together, in Writing
 
@@ -40,7 +40,7 @@ Most inherited-property sales stall on family alignment, not market conditions. 
 2. **Sell as-is or prepare first?** An inherited home often carries decades of contents and deferred maintenance. Sometimes targeted preparation adds more than it costs; sometimes an as-is sale is the rational choice. This is a property-specific calculation, not a rule.
 3. **Who is the single point of contact?** One authorized decision-maker for the agent, the attorney, and the buyers keeps a multi-heir sale moving.
 
-On taxes: heirs generally receive a *stepped-up basis* — the property's value reset at the date of death — which is often the single most important number in the entire transaction. An appraisal near the date of death documents it. Confirm specifics with a tax professional before deciding anything else.
+On taxes: heirs generally receive a *stepped-up basis* — the property's value reset at the date of death — which is often the single most important number in the entire transaction. An appraisal near the date of death documents it. The stepped-up basis is a different mechanism from the [home-sale capital gains exclusion](/journal/home-sale-capital-gains-exclusion-500k-2026) that applies to a primary residence, so confirm which rules apply to your situation with a tax professional before deciding anything else.
 
 ## Step Four: Run the Sale Like Any High-Stakes Listing
 

@@ -4,6 +4,7 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
 import { getPostBySlug, getAllPosts } from '../lib/markdown';
+import { JOURNAL_FAQS } from '../content/journal-faqs';
 import { CONTACT } from '../constants';
 
 function formatDate(iso: string): string {
@@ -33,13 +34,16 @@ export default function JournalPostPage() {
     ? `https://homesprofessional.com${post.image}`
     : 'https://homesprofessional.com/images/og-default.png';
 
+  const dateModified = post.updated || post.date;
+  const faqs = JOURNAL_FAQS[post.slug] ?? [];
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified,
     image: ogImage,
     author: {
       '@type': 'Person',
@@ -69,6 +73,18 @@ export default function JournalPostPage() {
       name: 'South Florida Real Estate Journal',
     },
   };
+
+  const faqSchema = faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }
+    : null;
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -110,6 +126,7 @@ export default function JournalPostPage() {
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:alt" content={post.title} />
         <meta property="article:published_time" content={post.date} />
+        <meta property="article:modified_time" content={dateModified} />
         <meta property="article:author" content="Carlos Uzcategui" />
         <meta property="article:section" content={post.category} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -118,6 +135,9 @@ export default function JournalPostPage() {
         <meta name="twitter:image" content={ogImage} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {faqSchema && (
+          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        )}
       </Helmet>
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
@@ -178,6 +198,33 @@ export default function JournalPostPage() {
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
         </article>
+
+        {/* Frequently asked questions — eligible for FAQ rich results */}
+        {faqs.length > 0 && (
+          <section className="mx-auto max-w-3xl px-5 pb-4 lg:px-8">
+            <h2 className="font-serif text-2xl text-navy mt-2 mb-5 border-b border-bone pb-2">
+              Frequently asked questions
+            </h2>
+            <div className="divide-y divide-bone border-t border-bone">
+              {faqs.map((faq) => (
+                <details key={faq.q} className="group py-4">
+                  <summary className="flex cursor-pointer items-start justify-between gap-4 font-serif text-lg leading-snug text-navy marker:content-['']">
+                    <span>{faq.q}</span>
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 font-mono text-gold transition-transform group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-navy/70">
+                    {faq.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Divider */}
         <div className="mx-auto max-w-3xl px-5 lg:px-8">

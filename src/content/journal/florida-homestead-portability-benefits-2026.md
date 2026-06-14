@@ -38,7 +38,9 @@ A few key points on how portability generally works:
 
 For a long-tenured Florida owner weighing a move, portability changes the math. The property-tax advantage you have accumulated over the years is not necessarily lost when you sell — much of it can move with you to your next Florida home, provided you meet the timing and filing requirements. That can make a move that looked expensive on paper considerably more manageable.
 
-It also matters for *timing*. Because the new homestead must be established within a set number of tax years, the sequence and calendar of selling one home and buying the next is not a detail to leave to chance.
+It also matters for *timing*. Because the new homestead must be established within a set number of tax years, the sequence and calendar of selling one home and buying the next is not a detail to leave to chance. If your move depends on staying in your current home briefly after closing, a [post-closing occupancy agreement](/journal/post-occupancy-agreement-south-florida-2026) can bridge the gap.
+
+Portability is a *Florida property-tax* benefit. It is separate from the *federal* tax treatment of your sale — for most primary-residence sellers that is governed by the [home-sale capital gains exclusion](/journal/home-sale-capital-gains-exclusion-500k-2026), which can exclude up to $250,000, or $500,000 for a married couple, of gain.
 
 ---
 
