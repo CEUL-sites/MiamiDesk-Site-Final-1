@@ -88,21 +88,21 @@ function markdownToHtml(md: string): string {
     // Horizontal rule (--- or ***) — must check before list detection
     if (/^[-*]{3,}$/.test(t)) {
       close();
-      html.push('<hr class="border-bone my-8" />');
+      html.push('<hr class="border-bone my-12" />');
       continue;
     }
 
     // H3 ###
     if (t.startsWith('### ')) {
       close();
-      html.push(`<h3 class="font-serif text-xl text-navy mt-8 mb-3">${inline(t.slice(4))}</h3>`);
+      html.push(`<h3 class="font-serif text-xl text-navy mt-11 mb-3.5">${inline(t.slice(4))}</h3>`);
       continue;
     }
 
     // H2 ##
     if (t.startsWith('## ')) {
       close();
-      html.push(`<h2 class="font-serif text-2xl text-navy mt-10 mb-4 border-b border-bone pb-2">${inline(t.slice(3))}</h2>`);
+      html.push(`<h2 class="font-serif text-2xl text-navy mt-14 mb-5 border-b border-bone pb-3">${inline(t.slice(3))}</h2>`);
       continue;
     }
 
@@ -110,7 +110,7 @@ function markdownToHtml(md: string): string {
     if (t.startsWith('> ')) {
       if (state !== 'blockquote') {
         close();
-        html.push('<blockquote class="border-l-2 border-gold/50 pl-5 italic text-navy/60 my-6 space-y-2">');
+        html.push('<blockquote class="border-l-2 border-gold/50 pl-6 italic text-lg leading-relaxed text-navy/60 my-9 space-y-2">');
         state = 'blockquote';
       }
       html.push(`<p>${inline(t.slice(2))}</p>`);
@@ -121,10 +121,10 @@ function markdownToHtml(md: string): string {
     if (/^[-*] /.test(t)) {
       if (state !== 'ul') {
         close();
-        html.push('<ul class="list-disc pl-6 mb-5 space-y-1.5 text-navy/85">');
+        html.push('<ul class="list-disc pl-6 mb-7 space-y-3 text-navy/85 marker:text-gold/60">');
         state = 'ul';
       }
-      html.push(`<li class="leading-relaxed">${inline(t.slice(2))}</li>`);
+      html.push(`<li class="leading-relaxed pl-1.5">${inline(t.slice(2))}</li>`);
       continue;
     }
 
@@ -132,10 +132,10 @@ function markdownToHtml(md: string): string {
     if (/^\d+\. /.test(t)) {
       if (state !== 'ol') {
         close();
-        html.push('<ol class="list-decimal pl-6 mb-5 space-y-1.5 text-navy/85">');
+        html.push('<ol class="list-decimal pl-6 mb-7 space-y-3 text-navy/85 marker:text-gold/60">');
         state = 'ol';
       }
-      html.push(`<li class="leading-relaxed">${inline(t.replace(/^\d+\. /, ''))}</li>`);
+      html.push(`<li class="leading-relaxed pl-1.5">${inline(t.replace(/^\d+\. /, ''))}</li>`);
       continue;
     }
 
@@ -143,14 +143,14 @@ function markdownToHtml(md: string): string {
     const img = t.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (img) {
       close();
-      html.push(`<img src="${img[2]}" alt="${img[1]}" loading="lazy" class="w-full my-8 border border-bone" />`);
+      html.push(`<img src="${img[2]}" alt="${img[1]}" loading="lazy" class="w-full my-10 border border-bone" />`);
       continue;
     }
 
     // Paragraph text
     if (state !== 'p') {
       close();
-      html.push('<p class="leading-relaxed text-navy/85 mb-5">');
+      html.push('<p class="leading-relaxed text-navy/85 mb-6">');
       state = 'p';
     } else {
       html.push(' ');
