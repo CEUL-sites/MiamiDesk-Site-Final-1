@@ -1,4 +1,5 @@
 import { motion, type Variants } from "motion/react";
+import { useEffect, useRef } from "react";
 import { Globe, ShieldCheck, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
@@ -10,6 +11,33 @@ const VIDEO_BUBBLES = [
   { src: "/videos/dollhouse_rotating_hands.mp4", label: "Professional Agents", delay: 1.1,  featured: true,  mobileHidden: false },
   { src: "/videos/gemini_property_vision.mp4",   label: "AI Marketing",        delay: 1.4,  featured: false, mobileHidden: false },
 ];
+
+// Mobile Chrome requires a programmatic play() call — the autoPlay attribute
+// alone is ignored when multiple videos are in the initial viewport. This
+// wrapper fires play() after mount and silently ignores autoplay rejections.
+function HeroVideoCircle({ src }: { src: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = true;
+    const p = v.play();
+    if (p) p.catch(() => {});
+  }, []);
+  return (
+    <video
+      ref={ref}
+      muted
+      loop
+      playsInline
+      preload="auto"
+      aria-hidden="true"
+      className="absolute inset-0 h-full w-full object-cover"
+    >
+      <source src={src} type="video/mp4" />
+    </video>
+  );
+}
 
 const container: Variants = {
   hidden:  {},
@@ -133,7 +161,7 @@ export function Hero() {
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 260, damping: 20, delay: b.delay }}
-                  className="relative overflow-hidden rounded-full flex-shrink-0"
+                  className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
                   style={{
                     width:  b.featured ? "clamp(100px,16vw,148px)" : "clamp(78px,11vw,108px)",
                     height: b.featured ? "clamp(100px,16vw,148px)" : "clamp(78px,11vw,108px)",
@@ -143,10 +171,7 @@ export function Hero() {
                       : "0 0 16px rgba(176,141,87,0.15)",
                   }}
                 >
-                  <video autoPlay muted loop playsInline aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover">
-                    <source src={b.src} type="video/mp4" />
-                  </video>
+                  <HeroVideoCircle src={b.src} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
                 </motion.div>
                 <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
