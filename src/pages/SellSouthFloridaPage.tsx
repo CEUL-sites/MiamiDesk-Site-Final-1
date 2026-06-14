@@ -340,6 +340,21 @@ export default function SellSouthFloridaPage() {
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide →</p>
               </a>
+              <a href="/journal/florida-homestead-portability-benefits-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Florida Homestead and Save Our Homes Portability — What Owners Should Understand Before They Sell</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the homestead guide →</p>
+              </a>
+              <a href="/journal/home-sale-capital-gains-exclusion-500k-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">The $250,000 / $500,000 Home Sale Capital Gains Exclusion — How It Works for Primary Residences</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the tax-exclusion guide →</p>
+              </a>
+              <a href="/journal/1031-exchange-south-florida-investment-property-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">The 1031 Exchange — Deferring Capital Gains When You Sell South Florida Investment Property</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the 1031 guide →</p>
+              </a>
             </div>
           </div>
         </section>

@@ -124,7 +124,7 @@ const sitewideSchema: JsonLdSchema[] = [
       ratingValue: "5.0",
       reviewCount: "15",
       bestRating: "5",
-      worstRating: "5",
+      worstRating: "1",
     },
   },
   {
