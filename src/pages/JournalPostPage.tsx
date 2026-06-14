@@ -33,6 +33,7 @@ export default function JournalPostPage() {
   const ogImage = post.image
     ? `https://homesprofessional.com${post.image}`
     : 'https://homesprofessional.com/images/og-default.png';
+  const ogImageType = ogImage.endsWith('.png') ? 'image/png' : 'image/jpeg';
 
   const dateModified = post.updated || post.date;
   const faqs = JOURNAL_FAQS[post.slug] ?? [];
@@ -125,6 +126,9 @@ export default function JournalPostPage() {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:alt" content={post.title} />
+        <meta property="og:image:type" content={ogImageType} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:modified_time" content={dateModified} />
         <meta property="article:author" content="Carlos Uzcategui" />
@@ -133,6 +137,7 @@ export default function JournalPostPage() {
         <meta name="twitter:title" content={`${post.title} | Carlos Uzcategui`} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={post.title} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         {faqSchema && (
