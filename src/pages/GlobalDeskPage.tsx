@@ -9,6 +9,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
+import { SpainReel } from "../components/SpainReel";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
 import { CONTACT } from "../constants";
 
@@ -360,9 +361,11 @@ export default function GlobalDeskPage() {
                 className="relative mx-auto w-full max-w-[300px] overflow-hidden border border-gold/25 shadow-2xl shadow-navy-deep/50"
                 style={{ aspectRatio: "9 / 16" }}
               >
-                <LazyVideo
-                  src="/videos/spain_seller_journey.mp4"
-                  className="absolute inset-0 h-full w-full object-cover"
+                <SpainReel
+                  clips={[
+                    "/videos/spain_seller_journey.mp4",
+                    "/videos/spain_seller_journey_2.mp4",
+                  ]}
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/10" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
