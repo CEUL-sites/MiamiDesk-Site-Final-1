@@ -357,17 +357,20 @@ export default function GlobalDeskPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: EASE }}
-                className="relative overflow-hidden border border-gold/20"
-                style={{ paddingBottom: "62%" }}
+                className="relative mx-auto w-full max-w-[300px] overflow-hidden border border-gold/25 shadow-2xl shadow-navy-deep/50"
+                style={{ aspectRatio: "9 / 16" }}
               >
                 <LazyVideo
-                  src="/videos/best_exposure_listings.mp4"
+                  src="/videos/spain_seller_journey.mp4"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-5">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-white/60">
-                    Miami MLS · Institutional Exposure
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/10" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold/85">
+                    Spain → Miami MLS
+                  </p>
+                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.22em] text-white/55">
+                    Institutional Exposure · Principal of Record
                   </p>
                 </div>
               </motion.div>

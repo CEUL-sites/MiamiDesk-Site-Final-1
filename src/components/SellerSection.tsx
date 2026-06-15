@@ -64,6 +64,11 @@ function PhoneFrame({ children }: { children: ReactNode }) {
 // is presented to buyers.
 const SLIDES = [
   {
+    src: "/videos/signature_marketing_reel.mp4",
+    label: "Signature marketing reel",
+    badge: "SIGNATURE",
+  },
+  {
     src: "/videos/matterport_tour.mp4",
     label: "3D walkthrough tour",
     badge: "3D TOUR",
