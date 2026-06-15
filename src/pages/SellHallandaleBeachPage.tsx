@@ -5,7 +5,6 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
-import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const HALLANDALE_BEACH_FAQS = [
@@ -79,7 +78,6 @@ export default function SellHallandaleBeachPage() {
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
-            "reviewCount": "15",
             "bestRating": "5",
             "worstRating": "1"
           }
@@ -239,7 +237,6 @@ export default function SellHallandaleBeachPage() {
         </section>
 
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
-        <NeighborhoodMarketStats city="Hallandale Beach" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">

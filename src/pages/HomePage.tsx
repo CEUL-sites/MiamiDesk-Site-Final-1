@@ -57,7 +57,6 @@ export default function HomePage() {
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
-            "reviewCount": "15",
             "bestRating": "5",
             "worstRating": "1"
           },

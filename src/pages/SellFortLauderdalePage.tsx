@@ -6,7 +6,6 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
-import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const FORT_LAUDERDALE_FAQS = [
@@ -80,7 +79,6 @@ export default function SellFortLauderdalePage() {
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
-            "reviewCount": "15",
             "bestRating": "5",
             "worstRating": "1"
           }
@@ -239,7 +237,6 @@ export default function SellFortLauderdalePage() {
         </section>
 
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
-        <NeighborhoodMarketStats city="Fort Lauderdale" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">
