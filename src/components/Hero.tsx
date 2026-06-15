@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Globe, ShieldCheck, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
@@ -7,10 +7,22 @@ import { trackFunnelEvent } from "../lib/analytics";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const VIDEO_BUBBLES = [
-  { src: "/videos/miami_madrid_transition.mp4",  label: "Global Reach",        delay: 1.25, featured: false, mobileHidden: false },
-  { src: "/videos/dollhouse_rotating_hands.mp4", label: "Professional Agents", delay: 1.1,  featured: true,  mobileHidden: false },
-  { src: "/videos/gemini_property_vision.mp4",   label: "AI Marketing",        delay: 1.4,  featured: false, mobileHidden: false },
+const FEATURE_SIZE = "clamp(100px,16vw,148px)";
+const SMALL_SIZE = "clamp(78px,11vw,108px)";
+
+// Side bubbles — static loops, one each side of the cycling center bubble.
+const SIDE_BUBBLES = [
+  { src: "/videos/miami_madrid_transition.mp4", label: "Global Reach", delay: 1.25 },
+  { src: "/videos/gemini_property_vision.mp4",  label: "AI Marketing", delay: 1.4  },
+];
+
+// Center bubble — auto-cycles through these in order, then loops back to start.
+// Opens on the "home in hands" signature clip the client loves.
+const HERO_FEATURE_VIDEOS = [
+  { src: "/videos/dollhouse_rotating_hands.mp4", label: "Signature Marketing"   },
+  { src: "/videos/matterport_tour.mp4",          label: "3D Matterport Tour"    },
+  { src: "/videos/virtual_tour_showcase.mp4",    label: "Virtual Tour"          },
+  { src: "/videos/luxury_home_walkthrough.mp4",  label: "Cinematic Walkthrough" },
 ];
 
 // Mobile Chrome requires a programmatic play() call — the autoPlay attribute
@@ -40,6 +52,102 @@ function HeroVideoCircle({ src }: { src: string }) {
   );
 }
 
+// Center bubble that auto-advances through HERO_FEATURE_VIDEOS on each video's
+// end, with Instagram-style progress segments below. Clicking a segment jumps
+// to that video. Does NOT loop a single clip — onEnded drives the sequence.
+function HeroCyclingBubble() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [progress, setProgress] = useState(0); // 0–1 progress for active clip
+
+  // Load & play the active clip whenever it changes.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.src = HERO_FEATURE_VIDEOS[activeIdx].src;
+    v.load();
+    setProgress(0);
+    const tryPlay = () => {
+      const p = v.play();
+      if (p) p.catch(() => {});
+    };
+    v.addEventListener("canplay", tryPlay, { once: true });
+    return () => v.removeEventListener("canplay", tryPlay);
+  }, [activeIdx]);
+
+  const handleTimeUpdate = () => {
+    const v = videoRef.current;
+    if (!v || !v.duration) return;
+    setProgress(v.currentTime / v.duration);
+  };
+
+  const handleEnded = () => {
+    setActiveIdx((i) => (i + 1) % HERO_FEATURE_VIDEOS.length);
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-2.5">
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.1 }}
+        className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
+        style={{
+          width: FEATURE_SIZE,
+          height: FEATURE_SIZE,
+          border: "2px solid rgba(176,141,87,0.65)",
+          boxShadow:
+            "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)",
+        }}
+      >
+        <video
+          ref={videoRef}
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={handleEnded}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+      </motion.div>
+
+      {/* Story-style progress segments */}
+      <div className="flex items-center gap-1.5" role="group" aria-label="Featured clip sequence">
+        {HERO_FEATURE_VIDEOS.map((v, i) => (
+          <button
+            key={v.src}
+            type="button"
+            onClick={() => { setActiveIdx(i); setProgress(0); }}
+            aria-label={`Clip ${i + 1}: ${v.label}`}
+            className="relative flex items-center transition-all duration-300"
+            style={{ width: i === activeIdx ? "1.75rem" : "0.45rem" }}
+          >
+            <span className="relative block h-[2px] w-full overflow-hidden rounded-full">
+              <span className="absolute inset-0 rounded-full bg-white/15" />
+              {i < activeIdx && (
+                <span className="absolute inset-0 rounded-full bg-gold/70" />
+              )}
+              {i === activeIdx && (
+                <span
+                  className="absolute inset-y-0 left-0 rounded-full bg-gold"
+                  style={{ width: `${progress * 100}%`, transition: "width 0.15s linear" }}
+                />
+              )}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {/* Current video label */}
+      <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
+        {HERO_FEATURE_VIDEOS[activeIdx].label}
+      </span>
+    </div>
+  );
+}
+
 const container: Variants = {
   hidden:  {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
@@ -48,6 +156,31 @@ const item: Variants = {
   hidden:  { opacity: 0, y: 22 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
+
+function SideBubble({ src, label, delay }: { src: string; label: string; delay: number }) {
+  return (
+    <div className="flex flex-col items-center gap-2.5">
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20, delay }}
+        className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
+        style={{
+          width: SMALL_SIZE,
+          height: SMALL_SIZE,
+          border: "2px solid rgba(176,141,87,0.30)",
+          boxShadow: "0 0 16px rgba(176,141,87,0.15)",
+        }}
+      >
+        <HeroVideoCircle src={src} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+      </motion.div>
+      <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
+        {label}
+      </span>
+    </div>
+  );
+}
 
 export function Hero() {
   return (
@@ -134,32 +267,13 @@ export function Hero() {
             <ArrowRight size={14} />
           </motion.a>
 
-          {/* Video bubble trio */}
-          <motion.div variants={item} className="mt-8 flex items-start justify-center gap-4 sm:gap-7">
-            {VIDEO_BUBBLES.map((b) => (
-              <div key={b.src} className={`flex flex-col items-center gap-2.5${b.mobileHidden ? " hidden sm:flex" : ""}`}>
-                <motion.div
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20, delay: b.delay }}
-                  className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
-                  style={{
-                    width:  b.featured ? "clamp(100px,16vw,148px)" : "clamp(78px,11vw,108px)",
-                    height: b.featured ? "clamp(100px,16vw,148px)" : "clamp(78px,11vw,108px)",
-                    border: b.featured ? "2px solid rgba(176,141,87,0.65)" : "2px solid rgba(176,141,87,0.30)",
-                    boxShadow: b.featured
-                      ? "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)"
-                      : "0 0 16px rgba(176,141,87,0.15)",
-                  }}
-                >
-                  <HeroVideoCircle src={b.src} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-                </motion.div>
-                <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
-                  {b.label}
-                </span>
-              </div>
-            ))}
+          {/* Video bubble trio — static side bubbles flank the auto-cycling
+              center bubble. items-center keeps them vertically aligned since
+              the center is taller (progress bar + label). */}
+          <motion.div variants={item} className="mt-8 flex items-center justify-center gap-4 sm:gap-7">
+            <SideBubble {...SIDE_BUBBLES[0]} />
+            <HeroCyclingBubble />
+            <SideBubble {...SIDE_BUBBLES[1]} />
           </motion.div>
 
           {/* Subtitle */}
