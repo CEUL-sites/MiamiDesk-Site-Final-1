@@ -84,7 +84,7 @@ export function DesktopStickyCTA() {
               onClick={() => trackFunnelEvent("sticky_cta_home_value")}
               className="group inline-flex items-center gap-2 bg-gold px-6 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy-deep transition-opacity hover:opacity-90"
             >
-              Get My Home Value
+              Get My Free Home Value
               <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
             </a>
             <button

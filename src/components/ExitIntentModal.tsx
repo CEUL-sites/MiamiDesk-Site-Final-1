@@ -5,11 +5,14 @@ import { trackFunnelEvent } from "../lib/analytics";
 
 // Exit-intent capture — desktop only, once per session, deliberately quiet.
 // When the cursor leaves through the top of the viewport (closing/leaving),
-// offer the Seller's Net Sheet in exchange for an email. Arms only after a
-// 12s dwell so quick bounces and accidental moves never see it.
+// offer the Seller's Net Sheet in exchange for an email. Arms once the visitor
+// has shown engagement — EITHER a 12s dwell OR scrolling past 45% of the page,
+// whichever comes first — so quick bounces never see it, but a fast reader who
+// scrolls deep and then leaves early still gets the offer.
 
 const SHOWN_KEY = "hp_exit_intent_shown";
 const ARM_DELAY_MS = 12_000;
+const ARM_SCROLL_RATIO = 0.45;
 
 const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
@@ -28,6 +31,17 @@ export function ExitIntentModal() {
     let armed = false;
     const armTimer = window.setTimeout(() => { armed = true; }, ARM_DELAY_MS);
 
+    // Secondary arm: deep scroll signals engagement faster than the dwell timer.
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      if (scrollable > 0 && doc.scrollTop / scrollable >= ARM_SCROLL_RATIO) {
+        armed = true;
+        window.removeEventListener("scroll", onScroll);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
     const onMouseOut = (e: MouseEvent) => {
       if (!armed || e.relatedTarget || e.clientY > 0) return;
       try { sessionStorage.setItem(SHOWN_KEY, "1"); } catch { /* private mode */ }
@@ -38,6 +52,7 @@ export function ExitIntentModal() {
     document.addEventListener("mouseout", onMouseOut);
     return () => {
       window.clearTimeout(armTimer);
+      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mouseout", onMouseOut);
     };
   }, []);

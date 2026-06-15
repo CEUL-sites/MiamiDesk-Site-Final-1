@@ -3,14 +3,15 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronRight, ChevronDown, Globe2, Building2, Landmark, Crown,
-  FileCheck, BarChart3, Network, ShieldCheck, Languages, MessageCircle,
+  FileCheck, BarChart3, Network, ShieldCheck, Languages, MessageCircle, FileDown,
 } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
-import { CONTACT } from "../constants";
+import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { trackFunnelEvent } from "../lib/analytics";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -559,6 +560,23 @@ export default function GlobalDeskPage() {
                 infrastructure that puts a single property in front of representing agents on four
                 continents. Platform appearance is subject to eligibility and MLS rules.
               </p>
+
+              {/* Downloadable methodology brief — for agencies/owners doing due diligence */}
+              <a
+                href={LEAD_MAGNETS.spainActivation.url}
+                download
+                onClick={() => trackFunnelEvent("spain_brief_download", { source: "global-desk-distribution" })}
+                className="group mt-7 inline-flex items-center gap-3 border border-gold/40 bg-white px-5 py-4 transition-colors hover:border-gold"
+              >
+                <FileDown size={18} className="flex-shrink-0 text-gold-deep" />
+                <span className="text-left">
+                  <span className="block font-serif text-sm text-navy">{LEAD_MAGNETS.spainActivation.title}</span>
+                  <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-navy/45">
+                    Free methodology brief · PDF
+                  </span>
+                </span>
+                <ChevronRight size={14} className="ml-1 flex-shrink-0 text-gold-deep transition-transform group-hover:translate-x-1" />
+              </a>
             </motion.div>
 
             <motion.div

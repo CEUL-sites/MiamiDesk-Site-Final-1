@@ -7,6 +7,11 @@ const QUOTES = [
     location: "Weston, FL",
   },
   {
+    text: "Carlos demonstrated a deep understanding of the local market and provided invaluable insights. His professionalism and superb communication made the entire process smooth and stress-free.",
+    name: "Maria Isabel Onate",
+    location: "Weston, FL",
+  },
+  {
     text: "Carlos was exceptional in selling our home swiftly at a great price and securing a beneficial 7-month post-occupancy that eased our family's relocation.",
     name: "Diego Tolotto",
     location: "Weston, FL",
