@@ -7,6 +7,9 @@ import { trackFunnelEvent } from "../lib/analytics";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
+// Inline navy poster — shows instantly, prevents black-flash while video loads.
+const NAVY_POSTER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%230B1E3F'/%3E%3C/svg%3E";
+
 const FEATURE_SIZE = "clamp(100px,16vw,148px)";
 const SMALL_SIZE = "clamp(78px,11vw,108px)";
 
@@ -26,30 +29,35 @@ const HERO_FEATURE_VIDEOS = [
   { src: "/videos/luxury_home_walkthrough.mp4",  label: "Cinematic Walkthrough" },
 ];
 
-// Mobile Chrome requires a programmatic play() call — the autoPlay attribute
-// alone is ignored when multiple videos are in the initial viewport. This
-// wrapper fires play() after mount and silently ignores autoplay rejections.
+// Side-bubble video loader. Defers the network fetch until 600 ms after mount
+// so the browser scanner never preloads these eagerly and LCP content (headline
+// + form) paints first. The circles animate in at 1.25 s / 1.4 s so the video
+// is mid-download by the time each bubble becomes visible — no empty flash.
+// Navy poster prevents a black circle before the first frame arrives.
 function HeroVideoCircle({ src }: { src: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
     v.muted = true;
-    const p = v.play();
-    if (p) p.catch(() => {});
-  }, []);
+    const t = setTimeout(() => {
+      v.src = src;
+      v.load();
+      v.play().catch(() => {});
+    }, 600);
+    return () => clearTimeout(t);
+  }, [src]);
   return (
     <video
       ref={ref}
       muted
       loop
       playsInline
-      preload="auto"
+      preload="none"
+      poster={NAVY_POSTER}
       aria-hidden="true"
       className="absolute inset-0 h-full w-full object-cover"
-    >
-      <source src={src} type="video/mp4" />
-    </video>
+    />
   );
 }
 
@@ -106,6 +114,7 @@ function HeroCyclingBubble() {
           muted
           playsInline
           preload="auto"
+          poster={NAVY_POSTER}
           aria-hidden="true"
           onTimeUpdate={handleTimeUpdate}
           onEnded={handleEnded}
