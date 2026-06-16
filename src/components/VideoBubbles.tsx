@@ -82,6 +82,7 @@ function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => voi
 export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubble[] }) {
   const wrapRef   = useRef<HTMLDivElement>(null);
   const videoRef  = useRef<HTMLVideoElement>(null);
+  const sourceRef = useRef<HTMLSourceElement>(null);
   const [near,      setNear]      = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
   const [progress,  setProgress]  = useState(0); // 0–1 progress for active clip
@@ -100,11 +101,16 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
     return () => io.disconnect();
   }, []);
 
-  // Load & play the active clip whenever it changes
+  // Load & play the active clip whenever it changes. Updating the <source>
+  // element's src (instead of the <video>'s src directly) and then calling
+  // load() avoids a spurious DEMUXER_ERROR_NO_SUPPORTED_STREAMS that
+  // Chromium throws when video.src is set directly.
   useEffect(() => {
     const v = videoRef.current;
-    if (!v || !near) return;
-    v.src = bubbles[activeIdx].src;
+    const s = sourceRef.current;
+    if (!v || !s || !near) return;
+    v.muted = true;
+    s.src = bubbles[activeIdx].src;
     v.load();
     setProgress(0);
     const tryPlay = () => {
@@ -159,7 +165,9 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
               onTimeUpdate={handleTimeUpdate}
               onEnded={handleEnded}
               className="absolute inset-0 h-full w-full object-cover"
-            />
+            >
+              <source ref={sourceRef} type="video/mp4" />
+            </video>
           )}
 
           {/* Vignette so edges read clean */}

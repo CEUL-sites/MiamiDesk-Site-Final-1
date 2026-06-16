@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 export function SpainReel({ clips }: { clips: string[] }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sourceRef = useRef<HTMLSourceElement>(null);
   const [near, setNear] = useState(false);
   const [idx, setIdx] = useState(0);
 
@@ -25,11 +26,16 @@ export function SpainReel({ clips }: { clips: string[] }) {
     return () => io.disconnect();
   }, []);
 
-  // Load & play the active clip whenever it changes.
+  // Load & play the active clip whenever it changes. Updating the <source>
+  // element's src (instead of the <video>'s src directly) and then calling
+  // load() avoids a spurious DEMUXER_ERROR_NO_SUPPORTED_STREAMS that
+  // Chromium throws when video.src is set directly.
   useEffect(() => {
     const v = videoRef.current;
-    if (!v || !near) return;
-    v.src = clips[idx];
+    const s = sourceRef.current;
+    if (!v || !s || !near) return;
+    v.muted = true;
+    s.src = clips[idx];
     v.load();
     const tryPlay = () => { const p = v.play(); if (p) p.catch(() => {}); };
     v.addEventListener("canplay", tryPlay, { once: true });
@@ -50,7 +56,9 @@ export function SpainReel({ clips }: { clips: string[] }) {
           loop={clips.length === 1}
           onEnded={handleEnded}
           className="absolute inset-0 h-full w-full object-cover"
-        />
+        >
+          <source ref={sourceRef} type="video/mp4" />
+        </video>
       )}
 
       {clips.length > 1 && (

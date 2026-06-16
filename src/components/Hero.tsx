@@ -58,14 +58,21 @@ function HeroVideoCircle({ src }: { src: string }) {
 // to that video. Does NOT loop a single clip — onEnded drives the sequence.
 function HeroCyclingBubble() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const sourceRef = useRef<HTMLSourceElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const [progress, setProgress] = useState(0); // 0–1 progress for active clip
 
-  // Load & play the active clip whenever it changes.
+  // Load & play the active clip whenever it changes. Updating the <source>
+  // element's src (instead of the <video>'s src directly) and then calling
+  // load() is the pattern Chromium's demuxer handles reliably here — setting
+  // video.src directly intermittently surfaces a spurious
+  // DEMUXER_ERROR_NO_SUPPORTED_STREAMS even for a perfectly valid file.
   useEffect(() => {
     const v = videoRef.current;
-    if (!v) return;
-    v.src = HERO_FEATURE_VIDEOS[activeIdx].src;
+    const s = sourceRef.current;
+    if (!v || !s) return;
+    v.muted = true;
+    s.src = HERO_FEATURE_VIDEOS[activeIdx].src;
     v.load();
     setProgress(0);
     const tryPlay = () => {
@@ -110,7 +117,9 @@ function HeroCyclingBubble() {
           onTimeUpdate={handleTimeUpdate}
           onEnded={handleEnded}
           className="absolute inset-0 h-full w-full object-cover"
-        />
+        >
+          <source ref={sourceRef} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
       </motion.div>
 
