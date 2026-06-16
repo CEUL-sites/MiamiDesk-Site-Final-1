@@ -39,9 +39,17 @@ export default function ListingsPage() {
             South Florida Properties
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            New pre-construction developments and active MLS listings —
-            Miami-Dade, Broward, and Palm Beach.
+            Search the live Miami and South Florida REALTORS® MLS, plus new
+            pre-construction developments — Miami-Dade, Broward, and Palm Beach.
           </p>
+          <div className="mt-8">
+            <a
+              href="#search"
+              className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            >
+              Search Active Listings
+            </a>
+          </div>
           <div className="mt-7 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm">
             <BadgeCheck size={14} className="flex-shrink-0 text-gold" />
             <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
