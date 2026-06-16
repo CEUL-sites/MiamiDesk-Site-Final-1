@@ -97,7 +97,9 @@ function syncUrl(filters: Filters) {
     if (filters[k] && filters[k] !== DEFAULTS[k]) p.set(k, filters[k]);
   });
   const qs = p.toString();
-  const url = `${window.location.pathname}${qs ? `?${qs}` : ""}#search`;
+  // Only anchor to #search when an actual search is active, so a clean
+  // /listings load (and reloads) don't jump past the hero.
+  const url = `${window.location.pathname}${qs ? `?${qs}#search` : ""}`;
   window.history.replaceState(null, "", url);
 }
 
