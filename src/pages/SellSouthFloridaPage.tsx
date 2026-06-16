@@ -9,6 +9,7 @@ import { ExitIntentModal } from "../components/ExitIntentModal";
 import { ProofStrip } from "../components/ProofStrip";
 import { LazyVideo } from "../components/LazyVideo";
 import { HeroReachBar } from "../components/HeroReachBar";
+import { VideoBubbles } from "../components/VideoBubbles";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
@@ -155,6 +156,20 @@ export default function SellSouthFloridaPage() {
           <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
             United Realty Group · CLHMS · Certified Seller Rep · FL SL705771 · 25 Years Licensed in Florida
           </p>
+
+          {/* How the marketing actually looks — cinematic proof, inside the seller hero */}
+          <div className="mt-12 border-t border-white/10 pt-10">
+            <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-3">The Work</p>
+            <h2 className="font-serif text-2xl text-white mb-3">How the marketing actually looks.</h2>
+            <p className="mx-auto max-w-md font-sans text-sm leading-relaxed text-white/55 mb-7">
+              Cinematic listing films and property tours — the presentation standard
+              behind every South Florida listing Carlos represents.
+            </p>
+            <div className="flex justify-center">
+              <VideoBubbles theme="dark" />
+            </div>
+          </div>
+
           <HeroReachBar />
           </div>{/* end relative */}
         </section>

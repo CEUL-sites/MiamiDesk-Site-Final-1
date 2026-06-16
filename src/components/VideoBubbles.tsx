@@ -79,7 +79,14 @@ function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => voi
   );
 }
 
-export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubble[] }) {
+export function VideoBubbles({
+  bubbles = VIDEO_BUBBLES,
+  theme = "light",
+}: {
+  bubbles?: VideoBubble[];
+  /** "dark" tunes the caption + progress-track contrast for use on navy/dark sections. */
+  theme?: "light" | "dark";
+}) {
   const wrapRef   = useRef<HTMLDivElement>(null);
   const videoRef  = useRef<HTMLVideoElement>(null);
   const [near,      setNear]      = useState(false);
@@ -193,7 +200,7 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
                 taller, finger-friendly tap target (h-6) around it. */}
             <span className="relative block h-[3px] w-full overflow-hidden rounded-full">
               {/* Track */}
-              <span className="absolute inset-0 rounded-full bg-navy/15" />
+              <span className={`absolute inset-0 rounded-full ${theme === "dark" ? "bg-white/15" : "bg-navy/15"}`} />
               {/* Fill */}
               {i < activeIdx && (
                 <span className="absolute inset-0 rounded-full bg-gold/70" />
@@ -210,7 +217,7 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
       </div>
 
       {/* ── Caption ─────────────────────────────────────────────────────── */}
-      <p className="mt-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-navy/45 text-center transition-all duration-300">
+      <p className={`mt-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-center transition-all duration-300 ${theme === "dark" ? "text-white/55" : "text-navy/45"}`}>
         {bubbles[activeIdx].caption}
       </p>
 

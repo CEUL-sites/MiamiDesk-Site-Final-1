@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { Compass, BarChart3, PlaneLanding } from "lucide-react";
-import { VideoBubbles } from "./VideoBubbles";
 
 // Two directions of representation. Sellers first — the primary funnel — then
 // buyers. Both are backed by the same URG network and Carlos's 25-year record.
@@ -106,29 +105,6 @@ export function BuyersRelocation() {
                 </a>
               </motion.div>
             ))}
-          </div>
-
-          {/* Professional home-marketing clips — single sequencing bubble */}
-          <div className="mb-14 border-y border-bone py-14">
-            <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-              {/* Text */}
-              <div className="lg:max-w-md">
-                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-3">
-                  The Work
-                </p>
-                <h3 className="font-serif text-3xl text-navy mb-4 leading-snug md:text-4xl">
-                  How the marketing<br className="hidden sm:block" /> actually looks.
-                </h3>
-                <p className="font-sans text-base leading-relaxed text-navy/60 max-w-sm">
-                  Cinematic listing films and property tours — the presentation standard
-                  behind every South Florida listing.
-                </p>
-              </div>
-              {/* Single auto-sequencing bubble */}
-              <div className="flex justify-center lg:flex-1">
-                <VideoBubbles />
-              </div>
-            </div>
           </div>
 
           {/* Three pillars */}
