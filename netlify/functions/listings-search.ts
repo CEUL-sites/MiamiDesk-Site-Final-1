@@ -21,6 +21,13 @@ const ALLOWED_ZONES = new Set([
 const ALLOWED_TYPES = new Set(["Residential", "Condominium", "Single Family Residence"]);
 const ALLOWED_STATUS = new Set(["Active", "Pending"]);
 
+// Whitelisted sort orders — never interpolate raw client input into $orderby.
+const SORTS: Record<string, string> = {
+  newest: "ModificationTimestamp desc",
+  "price-desc": "ListPrice desc",
+  "price-asc": "ListPrice asc",
+};
+
 export const handler: Handler = async (event: HandlerEvent) => {
   if (event.httpMethod !== "GET") {
     return { statusCode: 405, body: "Method Not Allowed" };
@@ -42,6 +49,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const maxPrice = qs.maxPrice ? parseInt(qs.maxPrice, 10) : 0;
   const beds = qs.beds ? Math.max(0, parseInt(qs.beds, 10)) : 0;
   const propType = ALLOWED_TYPES.has(qs.type ?? "") ? (qs.type as string) : "";
+  const orderby = SORTS[qs.sort ?? "newest"] ?? SORTS.newest;
+  // Keyword search across street address / building name. Escaped + length-capped.
+  const keyword = (qs.q ?? "").trim().replace(/'/g, "''").slice(0, 60);
   const page = Math.max(1, parseInt(qs.page ?? "1", 10));
   const perPage = 24;
   const skip = (page - 1) * perPage;
@@ -60,10 +70,11 @@ export const handler: Handler = async (event: HandlerEvent) => {
   if (maxPrice > 0) filters.push(`ListPrice le ${maxPrice}`);
   if (beds > 0) filters.push(`BedroomsTotal ge ${beds}`);
   if (propType) filters.push(`PropertyType eq '${propType.replace(/'/g, "''")}'`);
+  if (keyword) filters.push(`(contains(UnparsedAddress,'${keyword}') or contains(City,'${keyword}'))`);
 
   const $filter = filters.join(" and ");
 
-  const cacheKey = `${$filter}|${page}`;
+  const cacheKey = `${$filter}|${orderby}|${page}`;
   const cached = cache.get(cacheKey);
   if (cached && cached.expires > Date.now()) {
     return {
@@ -75,7 +86,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
   const params = new URLSearchParams({
     $filter,
-    $orderby: "ModificationTimestamp desc",
+    $orderby: orderby,
     $top: String(perPage),
     $skip: String(skip),
     $count: "true",

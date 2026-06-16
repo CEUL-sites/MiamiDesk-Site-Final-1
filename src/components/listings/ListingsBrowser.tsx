@@ -1,12 +1,11 @@
-import { Fragment, useEffect, useMemo, useRef, useState, type ChangeEvent } from "react";
-import { X } from "lucide-react";
+import { Fragment, useCallback, useEffect, useRef, useState, type ChangeEvent } from "react";
+import { ChevronLeft, ChevronRight, Loader2, Search, X } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { formatPrice } from "../../lib/format";
 import {
   type BridgeListing,
   type ListingsSearchResponse,
   listingKey,
-  listingPhoto,
   listingLocality,
   mostRecentModification,
   formatListingDate,
@@ -32,6 +31,17 @@ const TYPES = [
   { value: "Residential", label: "Residential" },
 ];
 
+const STATUSES = [
+  { value: "Active", label: "For sale" },
+  { value: "Pending", label: "Under contract" },
+];
+
+const SORTS = [
+  { value: "newest", label: "Newest" },
+  { value: "price-desc", label: "Price: High to Low" },
+  { value: "price-asc", label: "Price: Low to High" },
+];
+
 const PRICE_STEPS = [
   { value: "", label: "No min" },
   { value: "300000", label: "$300K" },
@@ -52,19 +62,61 @@ const BEDS = [
 ];
 
 interface Filters {
+  q: string;
   zone: string;
   type: string;
+  status: string;
   minPrice: string;
   maxPrice: string;
   beds: string;
+  sort: string;
 }
 
-const INITIAL: Filters = { zone: "", type: "", minPrice: "", maxPrice: "", beds: "" };
+const DEFAULTS: Filters = {
+  q: "", zone: "", type: "", status: "Active", minPrice: "", maxPrice: "", beds: "", sort: "newest",
+};
+
+const PER_PAGE = 24;
+
+// ── URL <-> filter state (shareable, bookmarkable searches) ────────────────
+function filtersFromUrl(): Filters {
+  if (typeof window === "undefined") return { ...DEFAULTS };
+  const p = new URLSearchParams(window.location.search);
+  const next = { ...DEFAULTS };
+  (Object.keys(DEFAULTS) as (keyof Filters)[]).forEach((k) => {
+    const v = p.get(k);
+    if (v != null) next[k] = v;
+  });
+  return next;
+}
+
+function syncUrl(filters: Filters) {
+  if (typeof window === "undefined") return;
+  const p = new URLSearchParams();
+  (Object.keys(filters) as (keyof Filters)[]).forEach((k) => {
+    if (filters[k] && filters[k] !== DEFAULTS[k]) p.set(k, filters[k]);
+  });
+  const qs = p.toString();
+  const url = `${window.location.pathname}${qs ? `?${qs}` : ""}#search`;
+  window.history.replaceState(null, "", url);
+}
+
+function buildQuery(filters: Filters, page: number): string {
+  const p = new URLSearchParams({ status: filters.status, sort: filters.sort, page: String(page) });
+  if (filters.q.trim()) p.set("q", filters.q.trim());
+  if (filters.zone) p.set("zone", filters.zone);
+  if (filters.type) p.set("type", filters.type);
+  if (filters.minPrice) p.set("minPrice", filters.minPrice);
+  if (filters.maxPrice) p.set("maxPrice", filters.maxPrice);
+  if (filters.beds) p.set("beds", filters.beds);
+  return p.toString();
+}
 
 function selectClass() {
   return "w-full appearance-none border border-white/15 bg-navy/60 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white/80 focus:border-gold focus:outline-none";
 }
 
+// ── Detail modal with photo gallery ────────────────────────────────────────
 function DetailRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-baseline justify-between gap-4 border-b border-white/10 py-2.5">
@@ -75,53 +127,94 @@ function DetailRow({ label, value }: { label: string; value: string }) {
 }
 
 function DetailModal({ listing, onClose }: { listing: BridgeListing; onClose: () => void }) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  const photos = (listing.Media ?? []).map((m) => m.MediaURL).filter(Boolean).slice(0, 12) as string[];
+  const [idx, setIdx] = useState(0);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
-  const photo = listingPhoto(listing);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight" && photos.length > 1) setIdx((i) => (i + 1) % photos.length);
+      if (e.key === "ArrowLeft" && photos.length > 1) setIdx((i) => (i - 1 + photos.length) % photos.length);
+    };
+    document.addEventListener("keydown", onKey);
+    // Lock background scroll + move focus into the dialog.
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose, photos.length]);
+
   const locality = listingLocality(listing);
+  const psf =
+    listing.ListPrice && listing.LivingArea && listing.LivingArea > 0
+      ? `${formatPrice(Math.round(listing.ListPrice / listing.LivingArea))}/sqft`
+      : null;
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-navy-deep/80 p-4 backdrop-blur-sm sm:items-center"
+      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-navy-deep/85 p-4 backdrop-blur-sm sm:items-center"
       role="dialog"
       aria-modal="true"
+      aria-label={listing.UnparsedAddress ?? "Listing detail"}
       onClick={onClose}
     >
       <div
-        className="relative my-8 w-full max-w-2xl border border-gold/25 bg-navy-deep shadow-2xl"
+        className="relative my-8 w-full max-w-3xl border border-gold/25 bg-navy-deep shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
+          ref={closeRef}
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center bg-navy/70 text-white/70 transition-colors hover:text-gold"
+          className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center bg-navy/80 text-white/70 transition-colors hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold"
         >
           <X size={18} />
         </button>
 
-        {photo && (
-          <img
-            src={photo}
-            alt={listing.UnparsedAddress ?? "Property photo"}
-            className="h-56 w-full object-cover sm:h-64"
-          />
+        {/* Gallery */}
+        {photos.length > 0 && (
+          <div className="relative h-64 w-full bg-navy/40 sm:h-80">
+            <img src={photos[idx]} alt={`${listing.UnparsedAddress ?? "Property"} — photo ${idx + 1}`} className="h-full w-full object-cover" />
+            {photos.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Previous photo"
+                  onClick={() => setIdx((i) => (i - 1 + photos.length) % photos.length)}
+                  className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center bg-navy/70 text-white/80 transition-colors hover:text-gold"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next photo"
+                  onClick={() => setIdx((i) => (i + 1) % photos.length)}
+                  className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center bg-navy/70 text-white/80 transition-colors hover:text-gold"
+                >
+                  <ChevronRight size={18} />
+                </button>
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-navy/70 px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.18em] text-white/70">
+                  {idx + 1} / {photos.length}
+                </div>
+              </>
+            )}
+          </div>
         )}
 
         <div className="p-6 sm:p-8">
-          <p className="font-serif text-3xl font-semibold text-white">
-            {listing.ListPrice != null ? formatPrice(listing.ListPrice) : "Price on request"}
-          </p>
-          <p className="mt-2 font-sans text-sm text-white/80">
-            {listing.UnparsedAddress ?? "Address on request"}
-          </p>
-          {locality && (
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">{locality}</p>
-          )}
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <p className="font-serif text-3xl font-semibold text-white">
+              {listing.ListPrice != null ? formatPrice(listing.ListPrice) : "Price on request"}
+            </p>
+            {psf && <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70">{psf}</p>}
+          </div>
+          <p className="mt-2 font-sans text-sm text-white/80">{listing.UnparsedAddress ?? "Address on request"}</p>
+          {locality && <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">{locality}</p>}
 
           <div className="mt-6">
             {listing.PropertyType && <DetailRow label="Type" value={listing.PropertyType} />}
@@ -132,10 +225,9 @@ function DetailModal({ listing, onClose }: { listing: BridgeListing; onClose: ()
               <DetailRow label="Living area" value={`${listing.LivingArea.toLocaleString()} sqft`} />
             )}
             {listing.DaysOnMarket != null && <DetailRow label="Days on market" value={String(listing.DaysOnMarket)} />}
+            {listing.ListingId && <DetailRow label="MLS #" value={listing.ListingId} />}
             {listing.ListOfficeName && <DetailRow label="Listing brokerage" value={listing.ListOfficeName} />}
-            {listing.ModificationTimestamp && (
-              <DetailRow label="Last updated" value={formatListingDate(listing.ModificationTimestamp)} />
-            )}
+            {listing.ModificationTimestamp && <DetailRow label="Last updated" value={formatListingDate(listing.ModificationTimestamp)} />}
           </div>
 
           <a
@@ -158,57 +250,51 @@ function DetailModal({ listing, onClose }: { listing: BridgeListing; onClose: ()
   );
 }
 
-/**
- * Searchable live MLS browser for /listings. Filters (zone, type, price, beds)
- * refetch through the listings-search proxy with a 400ms debounce. The Bridge
- * server token stays server-side; this component only ever sees the proxy.
- */
+// ── Main browser ───────────────────────────────────────────────────────────
+type Status = "loading" | "loadingMore" | "ready" | "empty" | "error";
+
 export function ListingsBrowser() {
-  const [filters, setFilters] = useState<Filters>(INITIAL);
+  const [filters, setFilters] = useState<Filters>(filtersFromUrl);
   const [listings, setListings] = useState<BridgeListing[]>([]);
   const [total, setTotal] = useState(0);
-  const [status, setStatus] = useState<"loading" | "ready" | "empty" | "error">("loading");
+  const [page, setPage] = useState(1);
+  const [status, setStatus] = useState<Status>("loading");
   const [selected, setSelected] = useState<BridgeListing | null>(null);
-  const abortRef = useRef<AbortController | null>(null);
+  const reqId = useRef(0);
 
-  const set = (k: keyof Filters) => (e: ChangeEvent<HTMLSelectElement>) =>
+  const set = (k: keyof Filters) => (e: ChangeEvent<HTMLSelectElement | HTMLInputElement>) =>
     setFilters((f) => ({ ...f, [k]: e.target.value }));
 
+  const run = useCallback(async (f: Filters, nextPage: number, append: boolean) => {
+    const id = ++reqId.current;
+    setStatus(append ? "loadingMore" : "loading");
+    try {
+      const res = await fetch(`/.netlify/functions/listings-search?${buildQuery(f, nextPage)}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = (await res.json()) as ListingsSearchResponse;
+      if (id !== reqId.current) return; // a newer request superseded this one
+      const value = json.value ?? [];
+      setTotal(json.totalCount ?? value.length);
+      setPage(nextPage);
+      setListings((prev) => (append ? [...prev, ...value] : value));
+      setStatus(!append && value.length === 0 ? "empty" : "ready");
+    } catch {
+      if (id !== reqId.current) return;
+      if (!append) setStatus("error");
+      else setStatus("ready"); // keep what we have; a failed "load more" is non-fatal
+    }
+  }, []);
+
+  // Debounced fresh search whenever filters change; also keep the URL in sync.
   useEffect(() => {
-    const t = window.setTimeout(() => {
-      abortRef.current?.abort();
-      const ctrl = new AbortController();
-      abortRef.current = ctrl;
-      setStatus("loading");
-
-      const params = new URLSearchParams({ status: "Active" });
-      if (filters.zone) params.set("zone", filters.zone);
-      if (filters.type) params.set("type", filters.type);
-      if (filters.minPrice) params.set("minPrice", filters.minPrice);
-      if (filters.maxPrice) params.set("maxPrice", filters.maxPrice);
-      if (filters.beds) params.set("beds", filters.beds);
-
-      fetch(`/.netlify/functions/listings-search?${params.toString()}`, { signal: ctrl.signal })
-        .then((res) => {
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          return res.json() as Promise<ListingsSearchResponse>;
-        })
-        .then((json) => {
-          const value = json.value ?? [];
-          setListings(value);
-          setTotal(json.totalCount ?? value.length);
-          setStatus(value.length === 0 ? "empty" : "ready");
-        })
-        .catch((err) => {
-          if ((err as { name?: string }).name === "AbortError") return;
-          setStatus("error");
-        });
-    }, 400);
-
+    syncUrl(filters);
+    const t = window.setTimeout(() => run(filters, 1, false), 400);
     return () => window.clearTimeout(t);
-  }, [filters]);
+  }, [filters, run]);
 
-  const lastUpdated = useMemo(() => mostRecentModification(listings), [listings]);
+  const hasMore = status === "ready" && listings.length < total;
+  const hasActiveFilters = (Object.keys(DEFAULTS) as (keyof Filters)[]).some((k) => filters[k] !== DEFAULTS[k]);
+  const lastUpdated = mostRecentModification(listings);
 
   return (
     <section className="bg-navy-deep py-12 md:py-16" id="search">
@@ -223,8 +309,21 @@ export function ListingsBrowser() {
           </p>
         </div>
 
+        {/* Keyword search */}
+        <div className="relative mb-3">
+          <Search size={15} className="pointer-events-none absolute left-3.5 top-1/2 z-10 -translate-y-1/2 text-gold/70" />
+          <input
+            type="search"
+            value={filters.q}
+            onChange={set("q")}
+            placeholder="Search by address, building, or city…"
+            aria-label="Search listings by address, building, or city"
+            className="w-full border border-white/15 bg-navy/60 py-3 pl-10 pr-4 font-sans text-sm text-white placeholder:text-white/35 focus:border-gold focus:outline-none"
+          />
+        </div>
+
         {/* Filter bar */}
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-7">
           <div>
             <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Area</label>
             <select className={selectClass()} value={filters.zone} onChange={set("zone")}>
@@ -236,6 +335,12 @@ export function ListingsBrowser() {
             <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Type</label>
             <select className={selectClass()} value={filters.type} onChange={set("type")}>
               {TYPES.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
+            </select>
+          </div>
+          <div>
+            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Status</label>
+            <select className={selectClass()} value={filters.status} onChange={set("status")}>
+              {STATUSES.map((s) => <option key={s.value} value={s.value}>{s.label}</option>)}
             </select>
           </div>
           <div>
@@ -257,19 +362,27 @@ export function ListingsBrowser() {
               {BEDS.map((b) => <option key={b.value} value={b.value}>{b.label}</option>)}
             </select>
           </div>
+          <div>
+            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Sort</label>
+            <select className={selectClass()} value={filters.sort} onChange={set("sort")}>
+              {SORTS.map((s) => <option key={s.value} value={s.value}>{s.label}</option>)}
+            </select>
+          </div>
         </div>
 
-        {/* Result count / reset */}
+        {/* Result summary / reset */}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
           <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
-            {status === "ready" || status === "empty"
-              ? `${total.toLocaleString()} active listing${total !== 1 ? "s" : ""}`
-              : "Searching…"}
+            {status === "loading"
+              ? "Searching…"
+              : status === "empty" || status === "error"
+              ? "0 listings"
+              : `Showing ${listings.length.toLocaleString()} of ${total.toLocaleString()} listing${total !== 1 ? "s" : ""}`}
           </p>
-          {(filters.zone || filters.type || filters.minPrice || filters.maxPrice || filters.beds) && (
+          {hasActiveFilters && (
             <button
               type="button"
-              onClick={() => setFilters(INITIAL)}
+              onClick={() => setFilters({ ...DEFAULTS })}
               className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline underline-offset-4 transition-colors hover:text-gold"
             >
               Reset filters
@@ -285,7 +398,7 @@ export function ListingsBrowser() {
             </div>
           )}
 
-          {status === "ready" && (
+          {(status === "ready" || status === "loadingMore") && (
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {listings.map((l, i) => (
                 <Fragment key={listingKey(l, i)}>
@@ -306,6 +419,21 @@ export function ListingsBrowser() {
               >
                 Speak With Carlos →
               </a>
+            </div>
+          )}
+
+          {/* Load more */}
+          {(hasMore || status === "loadingMore") && (
+            <div className="mt-10 flex justify-center">
+              <button
+                type="button"
+                disabled={status === "loadingMore"}
+                onClick={() => run(filters, page + 1, true)}
+                className="inline-flex items-center gap-2 border border-gold/40 px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold hover:text-navy disabled:opacity-60"
+              >
+                {status === "loadingMore" ? <Loader2 size={15} className="animate-spin" /> : null}
+                {status === "loadingMore" ? "Loading…" : "Load more listings"}
+              </button>
             </div>
           )}
         </div>
