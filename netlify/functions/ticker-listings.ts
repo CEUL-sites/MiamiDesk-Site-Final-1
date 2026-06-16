@@ -1,7 +1,9 @@
 import type { Handler } from "@netlify/functions";
 
 const BRIDGE_TOKEN = process.env.BRIDGE_API_TOKEN ?? "";
-const BRIDGE_BASE  = "https://api.bridgedataoutput.com/api/v2/OData/miamire/Property";
+// Dataset slug is configurable so this matches every other Bridge function.
+const BRIDGE_DATASET_ID = (process.env.BRIDGE_DATASET_ID ?? "miamire").trim();
+const BRIDGE_BASE  = `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET_ID}/Property`;
 
 let cache: { body: string; expires: number } | null = null;
 const CACHE_TTL_MS = 3600 * 1000;

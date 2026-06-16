@@ -1,7 +1,10 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 
 const BRIDGE_TOKEN = process.env.BRIDGE_API_TOKEN ?? "";
-const BRIDGE_BASE = "https://api.bridgedataoutput.com/api/v2/OData/miamire/Property";
+// Dataset slug is configurable so this matches every other Bridge function.
+// Default "miamire" (Miami Realtors Exchange); override via BRIDGE_DATASET_ID.
+const BRIDGE_DATASET_ID = (process.env.BRIDGE_DATASET_ID ?? "miamire").trim();
+const BRIDGE_BASE = `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET_ID}/Property`;
 
 const cache: Map<string, { body: string; expires: number }> = new Map();
 const CACHE_TTL_MS = 1800 * 1000; // 30-minute cache for listings page
