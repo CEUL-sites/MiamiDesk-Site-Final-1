@@ -12,6 +12,7 @@ const ALLOWED_ZONES = new Set([
   "Pinecrest", "Doral", "Hialeah", "Homestead", "Kendall",
   "Fort Lauderdale", "Hollywood", "Hallandale Beach", "Pembroke Pines",
   "Coral Springs", "Boca Raton", "Plantation", "Miramar",
+  "Sunrise", "North Miami", "Pompano Beach",
 ]);
 
 const ALLOWED_TYPES = new Set(["Residential", "Condominium", "Single Family Residence"]);
@@ -75,7 +76,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     $top: String(perPage),
     $skip: String(skip),
     $count: "true",
-    $select: "ListingId,UnparsedAddress,City,StateOrProvince,PostalCode,ListPrice,BedroomsTotal,BathroomsTotalDecimal,LivingArea,PropertyType,StandardStatus,DaysOnMarket,ListOfficeName,Media",
+    $select: "ListingId,UnparsedAddress,City,StateOrProvince,PostalCode,ListPrice,BedroomsTotal,BathroomsTotalDecimal,LivingArea,PropertyType,StandardStatus,DaysOnMarket,ListOfficeName,ModificationTimestamp,Media",
   });
 
   try {

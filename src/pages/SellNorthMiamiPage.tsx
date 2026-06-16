@@ -6,6 +6,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
+import { CityListingsSample } from "../components/CityListingsSample";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const NORTH_MIAMI_FAQS = [
@@ -239,6 +240,7 @@ export default function SellNorthMiamiPage() {
 
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="North Miami" />
+        <CityListingsSample city="North Miami" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">
@@ -250,7 +252,7 @@ export default function SellNorthMiamiPage() {
                 No listing commitment required. Carlos reviews every North Miami submission personally before responding.
               </p>
             </div>
-            <SellerIntakeForm />
+            <SellerIntakeForm sourcePage="sell-north-miami" />
             <div className="mt-6 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professional · Equal Housing Opportunity

@@ -6,6 +6,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { MLSTicker } from "../components/MLSTicker";
 import { NeoListingsEmbed } from "../components/NeoListingsEmbed";
 import { PropertyMarketFeed } from "../components/PropertyMarketFeed";
+import { ListingsBrowser } from "../components/listings/ListingsBrowser";
 import { CONTACT } from "../constants";
 
 export default function ListingsPage() {
@@ -51,6 +52,9 @@ export default function ListingsPage() {
 
         {/* ── Live MLS ticker strip ─────────────────────────────── */}
         <MLSTicker />
+
+        {/* ── Searchable live MLS browser (Bridge IDX proxy) ─────── */}
+        <ListingsBrowser />
 
         {/* ── Weston market feed (weekly-cached Bridge API data) ── */}
         <PropertyMarketFeed />

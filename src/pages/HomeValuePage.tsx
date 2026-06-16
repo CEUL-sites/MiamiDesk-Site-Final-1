@@ -286,7 +286,7 @@ export default function HomeValuePage() {
                 Carlos reviews every submission personally. No listing commitment required.
               </p>
             </div>
-            <SellerIntakeForm />
+            <SellerIntakeForm sourcePage="home-value" />
             <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · No commitment required · Equal Housing Opportunity

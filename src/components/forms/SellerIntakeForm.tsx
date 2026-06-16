@@ -35,8 +35,8 @@ function encodeForm(data: Record<string, string>) {
   return new URLSearchParams(data).toString();
 }
 
-export function SellerIntakeForm() {
-  const [form, setForm] = useState(INITIAL);
+export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?: string } = {}) {
+  const [form, setForm] = useState({ ...INITIAL, source: sourcePage });
   const [step, setStep] = useState<1 | 2>(1);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
@@ -110,11 +110,11 @@ export function SellerIntakeForm() {
         lat: form.lat,
         lng: form.lng,
         placeId: form.placeId,
-        sourcePage: "seller-intake-step1",
+        sourcePage: `${sourcePage}-step1`,
         ...getAttribution(),
       }),
     }).catch(() => {});
-    trackFunnelEvent("seller_intake_step1", { city: form.city });
+    trackFunnelEvent("seller_intake_step1", { city: form.city, page: sourcePage });
 
     setStep(2);
   };
@@ -130,13 +130,13 @@ export function SellerIntakeForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage: "seller-intake", ...getAttribution() }),
+        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage, ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
-        message: form.priorListing, sourcePage: "seller-intake", leadSource: getLeadSource(),
+        message: form.priorListing, sourcePage, leadSource: getLeadSource(),
       });
       // Trigger auto-reply
       fetch("/.netlify/functions/lead-acknowledgment", {
@@ -144,7 +144,7 @@ export function SellerIntakeForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "seller-intake", name: form.name, email: form.email, phone: form.phone }),
       }).catch(() => {});
-      trackLead("seller", { form: "seller-intake" }); window.location.href = "/thanks/seller";
+      trackLead("seller", { form: "seller-intake", page: sourcePage }); window.location.href = "/thanks/seller";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"
@@ -254,7 +254,8 @@ export function SellerIntakeForm() {
           className="space-y-6 p-8"
         >
           <input type="hidden" name="form-name" value="seller-intake" />
-          <input type="hidden" name="source" value="seller-intake" />
+          <input type="hidden" name="source" value={sourcePage} />
+          <input type="hidden" name="sourcePage" value={sourcePage} />
           <input type="hidden" name="propertyAddress" value={form.propertyAddress} />
           <input type="hidden" name="city" value={form.city} />
           <input type="hidden" name="lat" value={form.lat} />

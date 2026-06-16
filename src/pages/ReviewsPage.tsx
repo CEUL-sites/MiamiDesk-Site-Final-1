@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { Testimonials } from "../components/Testimonials";
+import { RecentlyRepresented } from "../components/RecentlyRepresented";
 
 const VERIFIED_REVIEWS = [
   {
@@ -249,6 +250,9 @@ export default function ReviewsPage() {
             </div>
           </div>
         </section>
+
+        {/* Recently represented — renders only when Carlos has populated the curated data file */}
+        <RecentlyRepresented />
 
         {/* Client testimonials */}
         <section className="bg-ivory py-20">

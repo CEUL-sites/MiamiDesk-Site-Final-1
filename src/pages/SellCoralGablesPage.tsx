@@ -7,6 +7,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
+import { CityListingsSample } from "../components/CityListingsSample";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const CORAL_GABLES_FAQS = [
@@ -259,6 +260,7 @@ export default function SellCoralGablesPage() {
 
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Coral Gables" />
+        <CityListingsSample city="Coral Gables" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">
@@ -270,7 +272,7 @@ export default function SellCoralGablesPage() {
                 No listing commitment required. Carlos reviews every submission personally.
               </p>
             </div>
-            <SellerIntakeForm />
+            <SellerIntakeForm sourcePage="sell-coral-gables" />
             <div className="mt-6 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professional · Equal Housing Opportunity
