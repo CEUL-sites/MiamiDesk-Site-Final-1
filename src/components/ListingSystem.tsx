@@ -70,7 +70,7 @@ export function ListingSystem() {
             href="/sell-south-florida#contact"
             className="group inline-flex items-center gap-2.5 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
           >
-            Request a Listing Consultation
+            Get My Home Value
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
           </a>
           <a

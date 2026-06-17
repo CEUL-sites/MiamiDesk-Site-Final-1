@@ -6,6 +6,7 @@ import { MobileStickyCTA } from '../components/MobileStickyCTA';
 import { getPostBySlug, getAllPosts } from '../lib/markdown';
 import { JOURNAL_FAQS } from '../content/journal-faqs';
 import { CONTACT } from '../constants';
+import { ShareBar } from '../components/ShareBar';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -37,6 +38,7 @@ export default function JournalPostPage() {
 
   const dateModified = post.updated || post.date;
   const faqs = JOURNAL_FAQS[post.slug] ?? [];
+  const postUrl = `https://homesprofessional.com/journal/${post.slug}`;
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -193,6 +195,11 @@ export default function JournalPostPage() {
             <p className="mt-8 max-w-2xl font-serif text-xl italic leading-relaxed text-white/65 border-l-2 border-gold/40 pl-6">
               {post.excerpt}
             </p>
+
+            {/* Share row — dark, immediate */}
+            <div className="mt-9 border-t border-white/10 pt-6">
+              <ShareBar url={postUrl} title={post.title} summary={post.excerpt} theme="dark" />
+            </div>
           </div>
         </header>
 
@@ -202,6 +209,11 @@ export default function JournalPostPage() {
             className="prose-journal"
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
+
+          {/* Share row — light, end-of-read */}
+          <div className="mt-14 border-t border-bone pt-8">
+            <ShareBar url={postUrl} title={post.title} summary={post.excerpt} theme="light" />
+          </div>
         </article>
 
         {/* Frequently asked questions — eligible for FAQ rich results */}

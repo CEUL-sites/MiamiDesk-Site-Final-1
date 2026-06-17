@@ -1,6 +1,58 @@
-import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
+import { BadgeCheck, Mail, MapPin, Phone, Play } from "lucide-react";
 import { CONTACT } from "../constants";
 import { LeadForm } from "./LeadForm";
+
+const YT_ID = "jlOLDjImd2g";
+const YT_TITLE = "United Realty Group — Florida's leading independently owned brokerage";
+
+// Click-to-load facade: shows YouTube thumbnail on first render; inserts the
+// iframe only when the user clicks, keeping YouTube's JS/cookies entirely
+// off the page until requested. Single external image request (~20 KB) vs
+// the full iframe (~180 KB + 3rd-party scripts) on initial load.
+function YouTubeFacade() {
+  const [active, setActive] = useState(false);
+  if (active) {
+    return (
+      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+        <iframe
+          src={`https://www.youtube.com/embed/${YT_ID}?autoplay=1&rel=0&modestbranding=1`}
+          title={YT_TITLE}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full border-0"
+        />
+      </div>
+    );
+  }
+  return (
+    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+      <button
+        type="button"
+        onClick={() => setActive(true)}
+        aria-label={`Play video: ${YT_TITLE}`}
+        className="group absolute inset-0 h-full w-full"
+      >
+        <img
+          src={`https://img.youtube.com/vi/${YT_ID}/maxresdefault.jpg`}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover"
+          loading="lazy"
+          width="1280"
+          height="720"
+        />
+        <span className="absolute inset-0 bg-navy-deep/45 transition-opacity duration-300 group-hover:bg-navy-deep/25" />
+        <span className="absolute inset-0 flex items-center justify-center">
+          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/60 bg-navy-deep/70 text-gold shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+            <Play size={24} fill="currentColor" className="ml-1" />
+          </span>
+        </span>
+      </button>
+    </div>
+  );
+}
 
 export function AboutContact() {
   return (
@@ -31,18 +83,7 @@ export function AboutContact() {
 
           {/* URG Headquarters — video */}
           <div className="mt-12 overflow-hidden border border-bone">
-            {/* Responsive 16:9 YouTube embed — plays inline, no navigation away */}
-            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                src="https://www.youtube.com/embed/jlOLDjImd2g?si=bcS_Ogl9eNhOakQv&rel=0&modestbranding=1"
-                title="United Realty Group — Florida's leading independently owned brokerage"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full border-0"
-                loading="lazy"
-              />
-            </div>
+            <YouTubeFacade />
             <div className="bg-navy-deep px-5 py-4">
               <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · Est. 2002</p>
               <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/60">Ranked #1 Florida · Most Closed Homes · 3,500+ agents · 20 offices</p>

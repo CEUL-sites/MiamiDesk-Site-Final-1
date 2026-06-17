@@ -183,7 +183,7 @@ export function SellerProcess() {
             href="/contact"
             className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
           >
-            Request a Confidential Property Review
+            Get My Home Value
           </a>
           <a
             href="/home-value"

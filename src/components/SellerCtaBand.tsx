@@ -22,7 +22,7 @@ export function SellerCtaBand() {
           href="/home-value"
           className="group inline-flex flex-shrink-0 items-center gap-2.5 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
         >
-          Get My Free Valuation
+          Get My Home Value
           <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
         </a>
       </div>

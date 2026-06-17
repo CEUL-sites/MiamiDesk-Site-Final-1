@@ -1,6 +1,7 @@
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { LazyVideo } from "./LazyVideo";
+import { GlobalReachMap } from "./GlobalReachMap";
 const TOP_STATS = [
   {
     value: 93000,
@@ -155,6 +156,11 @@ export const ReachAdvantage = () => {
         {TOP_STATS.map((stat, i) => (
           <StatCard key={stat.label} stat={stat} index={i} />
         ))}
+      </div>
+
+      {/* ── Signature arc map ─────────────────────────────────── */}
+      <div className="px-6 pb-14 md:px-10">
+        <GlobalReachMap />
       </div>
 
     </section>

@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { CheckCircle2, Download, FileText, Loader2, X } from "lucide-react";
 import { LEAD_MAGNETS } from "../constants";
-import { trackFunnelEvent } from "../lib/analytics";
+import { trackFunnelEvent, trackLead } from "../lib/analytics";
 
 // Exit-intent capture — desktop only, once per session, deliberately quiet.
 // When the cursor leaves through the top of the viewport (closing/leaving),
@@ -68,6 +68,15 @@ export function ExitIntentModal() {
       });
       if (!res.ok) throw new Error(String(res.status));
       trackFunnelEvent("exit_intent_capture", { offer: "seller-net-sheet" });
+      // Escalate to full lead conversion — email capture is a bottom-funnel
+      // signal equivalent to a form submission, so it should appear in GA4,
+      // Meta Ads, and LinkedIn as a generate_lead event, not just a custom
+      // warm-intent signal.
+      trackLead("seller", {
+        form: "lead-magnet-download",
+        source_page: window.location.pathname,
+        offer: "seller-net-sheet",
+      });
       setStatus("success");
     } catch {
       setStatus("error");

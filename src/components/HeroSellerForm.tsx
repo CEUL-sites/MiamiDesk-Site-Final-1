@@ -27,7 +27,7 @@ const COPY = {
       "Other",
     ],
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
-    submit: "Get My Free Home Valuation",
+    submit: "Get My Home Value",
     sending: "Sending…",
     consent: "I agree to receive updates by WhatsApp/SMS at this number. Msg & data rates may apply. Reply STOP to opt out.",
     prefer: "Prefer WhatsApp?",

@@ -11,7 +11,8 @@ import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { ProofStrip } from "../components/ProofStrip";
 import { ListingSystem } from "../components/ListingSystem";
-import { MarketPulse } from "../components/MarketPulse";
+import { CredentialBar } from "../components/CredentialBar";
+import { ListingGallery } from "../components/ListingGallery";
 
 // Below-the-fold sections — split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
@@ -73,11 +74,12 @@ export default function HomePage() {
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />
+        <CredentialBar />
         <ProofStrip />
         <ReachAdvantage />
         <ListingSystem />
+        <ListingGallery />
         <Testimonials />
-        <MarketPulse />
         <LeadMagnetStrip />
         <Suspense fallback={null}>
           <IntelligenceDesk />
