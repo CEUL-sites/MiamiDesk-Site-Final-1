@@ -131,7 +131,7 @@ export default function SellSouthFloridaPage() {
               href="#contact"
               className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
             >
-              Request a Confidential Property Review
+              Get My Home Value
               <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a

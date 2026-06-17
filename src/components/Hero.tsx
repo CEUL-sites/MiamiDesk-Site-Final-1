@@ -273,7 +273,7 @@ export function Hero() {
             onClick={() => trackFunnelEvent("hero_cta_mobile")}
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90 sm:hidden"
           >
-            Get My Free Home Value
+            Get My Home Value
             <ArrowRight size={14} />
           </motion.a>
 

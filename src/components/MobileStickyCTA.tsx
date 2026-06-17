@@ -51,7 +51,7 @@ export function MobileStickyCTA() {
           href={sellHref}
           className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.12em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
-          Sell My Home
+          Get My Home Value
         </a>
       </div>
     </div>
