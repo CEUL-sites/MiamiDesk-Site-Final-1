@@ -111,6 +111,9 @@ export function ProofStrip() {
           All reviews →
         </a>
       </div>
+      <p className="mx-auto max-w-5xl px-6 pt-2.5 font-mono text-[8px] uppercase tracking-[0.18em] text-navy/30">
+        Individual results vary.
+      </p>
     </div>
   );
 }
