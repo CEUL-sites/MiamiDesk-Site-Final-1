@@ -5,6 +5,10 @@ slug: "south-florida-april-2026-market-signal-home-sellers"
 excerpt: "MIAMI REALTORS April 2026 data shows stronger single-family sales and tighter inventory across Miami-Dade, Broward, and Palm Beach. For serious sellers, the signal is to review positioning before launch."
 category: "South Florida Market Intelligence"
 image: "/images/journal/og/south-florida-april-2026-market-signal-home-sellers.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "awareness"
+content_goal: "market_report"
 ---
 
 South Florida's April 2026 single-family data gives property owners a useful signal: buyers were still moving, and available supply tightened across Miami-Dade, Broward, and Palm Beach. That combination can create opportunity for sellers, but only when the property is positioned with discipline before launch.

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
-import { trackLead } from "../lib/analytics";
+import { trackLead, pushEvent } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
 import { notifyLeadDirect } from "../lib/leadNotify";
 
@@ -22,6 +22,17 @@ export function LeadForm() {
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const formStartFired = useRef(false);
+
+  const handleFormFocus = () => {
+    if (formStartFired.current || navigator.webdriver) return;
+    formStartFired.current = true;
+    pushEvent("form_start", {
+      form_name: "seller-consultation",
+      page_path: window.location.pathname,
+      funnel_stage: "bottom_funnel",
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,7 +113,7 @@ export function LeadForm() {
           </p>
         </div>
 
-        <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-6">
+        <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
           <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }} aria-hidden="true">
             <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />

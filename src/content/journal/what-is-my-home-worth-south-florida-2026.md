@@ -5,6 +5,10 @@ slug: "what-is-my-home-worth-south-florida-2026"
 excerpt: "Online estimates miss the nuances that determine your real sale price. Here is how a licensed South Florida REALTOR® evaluates your property against current MLS data — and why the gap matters."
 category: "Seller Strategy"
 image: "/images/journal/og/what-is-my-home-worth-south-florida-2026.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 ## Why Online Estimates Miss the Mark

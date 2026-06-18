@@ -5,6 +5,10 @@ slug: "international-owners-south-florida-mls-2026"
 excerpt: "Foreign owners of South Florida real estate often hold prime assets but lack access to the professional network that reaches buyers. Here is how that access actually works."
 category: "International"
 image: "/images/journal/og/international-owners-south-florida-mls-2026.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "awareness"
+content_goal: "international_listing"
 ---
 
 A significant share of prime South Florida real estate is owned by people who do not live in the United States — Latin American families, European investors, and international buyers who acquired during earlier cycles. When it comes time to sell, many of these owners face the same problem: they hold a strong asset but have no direct line into the professional network through which South Florida transactions are actually executed.

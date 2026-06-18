@@ -5,6 +5,10 @@ slug: "selling-coral-gables-2026"
 excerpt: "The Gables is not a price-per-square-foot market. It is a positioning market. Here is what separates the listings that close from the ones that accumulate days."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-coral-gables-2026.jpg"
+created_by: "claude"
+market: "Coral Gables"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 Coral Gables does not behave like the rest of Miami-Dade. It is a municipality with its own zoning authority, its own architectural review board, and a deed-restriction framework that has governed the built environment since George Merrick laid out the original plats in the 1920s. The result is a market defined by scarcity and specificity — not volume. Comparable sales are often separated by significant qualitative differences that raw MLS data cannot capture. Buyers here are not shopping on price per square foot. They are evaluating a specific address, a specific era of construction, a specific relationship between lot and structure. That operational reality changes everything about how a seller should approach the market.
