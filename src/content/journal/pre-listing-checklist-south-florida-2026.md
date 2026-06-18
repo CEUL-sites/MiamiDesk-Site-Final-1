@@ -5,6 +5,10 @@ slug: "pre-listing-checklist-south-florida-2026"
 excerpt: "The first two weeks on market set the tone for the entire sale. This 12-point checklist covers what disciplined South Florida sellers resolve before launch."
 category: "Seller Strategy"
 image: "/images/journal/og/pre-listing-checklist-south-florida-2026.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 A listing only launches once. The first days on market are when buyer agents flag the property for clients, when saved-search alerts fire, and when the listing earns — or loses — its position in the comparison set. Problems discovered after launch cost leverage; problems resolved before launch cost only preparation time.

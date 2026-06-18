@@ -5,6 +5,10 @@ slug: "selling-miami-beach-condo-2026"
 excerpt: "Miami Beach condo prices are driven by building, floor, line, and view — not ZIP code. Here is how to position your unit correctly in a market where precision beats optimism."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-miami-beach-condo-2026.jpg"
+created_by: "claude"
+market: "Miami Beach"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 ## Why Miami Beach Is Not One Market

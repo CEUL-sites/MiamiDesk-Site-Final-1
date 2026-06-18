@@ -76,6 +76,16 @@
   status = 301
   force = true
 
+# ── Kill prerendered 404 artifact — redirect direct visits to home ──────────
+# react-snap generates dist/404.html as its fallback prerender output.
+# Without this redirect, bots visiting /404.html directly would inflate
+# GA4 Direct sessions and contaminate landing-page attribution data.
+[[redirects]]
+  from = "/404.html"
+  to = "/"
+  status = 301
+  force = true
+
 # ── SPA client-side routing ────────────────────────────────────────────────
 [[redirects]]
   from = "/*"

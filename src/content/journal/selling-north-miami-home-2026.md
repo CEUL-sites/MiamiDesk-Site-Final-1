@@ -5,6 +5,10 @@ slug: "selling-north-miami-home-2026"
 excerpt: "North Miami's mixed housing stock, value-entry price points, and proximity to the Biscayne corridor create a market where preparation and positioning discipline determine seller outcomes."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-north-miami-home-2026.jpg"
+created_by: "claude"
+market: "North Miami"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 North Miami occupies a distinct position in the Miami-Dade residential market. It is neither the premium coastal corridor of Miami Beach nor the established suburban enclave of Coral Gables — it is a mid-market municipality with a genuinely mixed housing stock, an active and diverse buyer population, and a location that gives it access to some of the county's most important employment and education nodes.

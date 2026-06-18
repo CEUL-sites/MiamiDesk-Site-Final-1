@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, MapPin, Send, TrendingUp } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { trackLead, trackFunnelEvent } from "../../lib/analytics";
+import { trackLead, trackFunnelEvent, pushEvent } from "../../lib/analytics";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../../lib/googlePlaces";
@@ -42,6 +42,17 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   const [err, setErr] = useState("");
   const [stepErr, setStepErr] = useState("");
   const addressRef = useRef<HTMLInputElement>(null);
+  const formStartFired = useRef(false);
+
+  const handleFormFocus = () => {
+    if (formStartFired.current || navigator.webdriver) return;
+    formStartFired.current = true;
+    pushEvent("form_start", {
+      form_name: "seller-intake",
+      page_path: window.location.pathname,
+      funnel_stage: "bottom_funnel",
+    });
+  };
 
   // Market snapshot for the step-2 interstitial — official MIAMI REALTORS®
   // closed-sales figures (src/data/cityMarketStats.ts), looked up locally.
@@ -202,7 +213,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
       </div>
 
       {step === 1 ? (
-        <form onSubmit={handleStep1} className="space-y-6 p-8">
+        <form onSubmit={handleStep1} onFocus={handleFormFocus} className="space-y-6 p-8">
           <Field label="Property Address *">
             <div className="relative">
               <MapPin size={15} className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gold/70 z-10" />
@@ -251,6 +262,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
           data-netlify="true"
           netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
+          onFocus={handleFormFocus}
           className="space-y-6 p-8"
         >
           <input type="hidden" name="form-name" value="seller-intake" />

@@ -5,6 +5,10 @@ slug: "selling-sunrise-home-2026"
 excerpt: "Sunrise sits next to one of South Florida's strongest markets. How that proximity affects your buyer pool, your pricing strategy, and the ceiling on your sale."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-sunrise-home-2026.jpg"
+created_by: "claude"
+market: "Sunrise"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 Sunrise occupies a specific and strategically interesting position in the western Broward market: it borders Weston, one of South Florida's most consistently sought-after suburban communities, while offering a different price point and a different community configuration. For a seller, that positioning is both an asset and a constraint — and understanding which it is for your specific property determines the right pricing approach.

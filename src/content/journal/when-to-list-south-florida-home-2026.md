@@ -5,6 +5,10 @@ slug: "when-to-list-south-florida-home-2026"
 excerpt: "South Florida does not have a traditional selling season. Here is how timing actually works in this market and what the data says about when sellers get the best outcome."
 category: "Market Analysis"
 image: "/images/journal/og/when-to-list-south-florida-home-2026.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "awareness"
+content_goal: "market_report"
 ---
 
 One of the most common questions sellers ask before listing is whether to wait — for a better season, a stronger market, or a price peak that may or may not arrive. In South Florida, the conventional answers to this question are frequently wrong. Here is how timing actually works in this market.

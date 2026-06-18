@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight, MapPin, Loader2, CheckCircle2, Download } from "lucide-react";
 import { useState, useRef, useEffect, type ChangeEvent, type FormEvent } from "react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
-import { trackLead, trackFunnelEvent } from "../lib/analytics";
+import { trackLead, trackFunnelEvent, pushEvent } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
 import { notifyLeadDirect } from "../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../lib/googlePlaces";
@@ -91,6 +91,17 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const [error, setError]     = useState("");
   const [mapPin, setMapPin]   = useState<{ lat: number; lng: number; address: string } | null>(null);
   const addressRef            = useRef<HTMLInputElement>(null);
+  const formStartFired        = useRef(false);
+
+  const handleFormFocus = () => {
+    if (formStartFired.current || navigator.webdriver) return;
+    formStartFired.current = true;
+    pushEvent("form_start", {
+      form_name: "seller-hero",
+      page_path: window.location.pathname,
+      funnel_stage: "bottom_funnel",
+    });
+  };
 
   // Wire up Google Places Autocomplete — capture lat/lng for map pin
   useEffect(() => {
@@ -227,6 +238,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
+      onFocus={handleFormFocus}
       className="rounded-2xl bg-[#0A1525]/90 border border-white/12 backdrop-blur-xl p-5 sm:p-7 text-left shadow-2xl shadow-black/60"
     >
       <input type="hidden" name="form-name" value="seller-hero" />
