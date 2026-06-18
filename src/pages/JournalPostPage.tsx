@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
@@ -6,6 +7,8 @@ import { MobileStickyCTA } from '../components/MobileStickyCTA';
 import { getPostBySlug, getAllPosts } from '../lib/markdown';
 import { JOURNAL_FAQS } from '../content/journal-faqs';
 import { CONTACT } from '../constants';
+import { pushEvent } from '../lib/analytics';
+import { getAttribution } from '../lib/attribution';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -16,6 +19,22 @@ function formatDate(iso: string): string {
 export default function JournalPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
+
+  // journal_view — fires once per slug, suppressed during react-snap prerender
+  useEffect(() => {
+    if (!post || navigator.webdriver) return;
+    pushEvent("journal_view", {
+      journal_slug: post.slug,
+      page_title: post.title,
+      category: post.category,
+      market: post.market ?? "South Florida",
+      funnel_stage: post.funnel_stage ?? "awareness",
+      created_by: post.created_by ?? "unknown",
+      content_goal: post.content_goal ?? "seller_lead",
+      ...getAttribution(),
+    });
+  }, [post?.slug]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Same-category posts first (already newest-first), padded with recent ones.
   const relatedPosts = post
     ? (() => {
@@ -253,6 +272,19 @@ export default function JournalPostPage() {
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
+                onClick={() => {
+                  if (navigator.webdriver) return;
+                  pushEvent("journal_cta_click", {
+                    cta_type: "seller_strategy_review",
+                    cta_location: "post_bottom",
+                    journal_slug: post.slug,
+                    category: post.category,
+                    market: post.market ?? "South Florida",
+                    funnel_stage: post.funnel_stage ?? "awareness",
+                    content_goal: post.content_goal ?? "seller_lead",
+                    ...getAttribution(),
+                  });
+                }}
                 className="inline-block border border-navy bg-navy px-7 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:border-gold"
               >
                 Request a Seller Strategy Review
@@ -261,6 +293,19 @@ export default function JournalPostPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  if (navigator.webdriver) return;
+                  pushEvent("journal_cta_click", {
+                    cta_type: "whatsapp_us",
+                    cta_location: "post_bottom",
+                    journal_slug: post.slug,
+                    category: post.category,
+                    market: post.market ?? "South Florida",
+                    funnel_stage: post.funnel_stage ?? "awareness",
+                    content_goal: post.content_goal ?? "seller_lead",
+                    ...getAttribution(),
+                  });
+                }}
                 className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
               >
                 Or message on WhatsApp →
