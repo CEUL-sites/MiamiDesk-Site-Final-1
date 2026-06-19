@@ -2,7 +2,7 @@ import { ArrowRight, TrendingUp } from "lucide-react";
 import { getCityMarketStats, MARKET_STATS_PERIOD } from "../data/cityMarketStats";
 
 // City-level market snapshot for the Sell[City] pages — official closed-sales
-// figures from the MIAMI REALTORS® + RWorld April 2026 city reports (see
+// figures from the MIAMI REALTORS® May 2026 city reports (see
 // src/data/cityMarketStats.ts). Rendered statically so the verified numbers
 // are baked into the prerendered HTML and can never be replaced by a bad
 // live-feed response. Renders nothing if the city has no published data.
@@ -75,7 +75,7 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
           ))}
         </div>
         <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/40">
-          Source: MIAMI REALTORS® + RWorld {MARKET_STATS_PERIOD} city report, based on MLS sales
+          Source: MIAMI REALTORS® {MARKET_STATS_PERIOD} city report, based on MLS sales
           data compiled by Florida Realtors®. Figures reflect closed residential sales reported for{" "}
           {isParentCityData ? `the City of ${dataCity}, which includes ${label}` : dataCity}.
           Information is deemed reliable but not guaranteed and is subject to change without notice.
