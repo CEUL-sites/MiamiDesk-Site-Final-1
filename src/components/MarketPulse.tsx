@@ -48,9 +48,7 @@ export function MarketPulse() {
             if (!stats) return null;
             const sf = stats.singleFamily;
             const condo = stats.condoTownhome;
-            const lead = sf && condo
-              ? (sf.ytdClosedSales >= condo.ytdClosedSales ? { seg: sf, name: "Single-family" } : { seg: condo, name: "Condo/townhome" })
-              : sf ? { seg: sf, name: "Single-family" } : { seg: condo!, name: "Condo/townhome" };
+            const lead = sf ? { seg: sf, name: "Single-family" } : { seg: condo!, name: "Condo/townhome" };
             return (
               <Link
                 key={city}

@@ -20,16 +20,7 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
   const sf = stats.singleFamily;
   const condo = stats.condoTownhome;
 
-  // Days-to-contract and supply come from the segment with more YTD sales —
-  // the market most sellers in this city are actually in.
-  const lead =
-    sf && condo
-      ? sf.ytdClosedSales >= condo.ytdClosedSales
-        ? { seg: sf, name: "Single-family" }
-        : { seg: condo, name: "Condo/townhome" }
-      : sf
-        ? { seg: sf, name: "Single-family" }
-        : { seg: condo!, name: "Condo/townhome" };
+  const lead = sf ? { seg: sf, name: "Single-family" } : { seg: condo!, name: "Condo/townhome" };
 
   const tiles = [
     sf && {
