@@ -164,6 +164,7 @@ export function Footer() {
               <a href="/home-value" className="transition-colors hover:text-gold">Free Home Valuation</a>
               <a href="/global-desk" className="transition-colors hover:text-gold">Global Desk</a>
               <a href="/markets" className="transition-colors hover:text-gold">Markets</a>
+              <a href="/market-data" className="transition-colors hover:text-gold">Market Data</a>
               <a href="/reviews" className="transition-colors hover:text-gold">Reviews</a>
               <a href="/about" className="transition-colors hover:text-gold">About Carlos</a>
               <a href="/contact" className="transition-colors hover:text-gold">Contact</a>

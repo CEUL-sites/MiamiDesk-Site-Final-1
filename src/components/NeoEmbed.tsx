@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { NEO, CONTACT } from "../constants";
+import { NEO } from "../constants";
 
 export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
@@ -42,7 +42,7 @@ export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
         </p>
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href={`https://wa.me/${CONTACT.whatsapp}?text=I%20would%20like%20information%20on%20pre-construction%20developments%20in%20South%20Florida.`}
+            href="https://wa.me/19548656622?text=I%20would%20like%20information%20on%20pre-construction%20developments%20in%20South%20Florida."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"

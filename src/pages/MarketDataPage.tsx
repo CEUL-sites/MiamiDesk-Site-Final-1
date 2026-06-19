@@ -313,13 +313,13 @@ function CityTable() {
 export default function MarketDataPage() {
   const sfhMedianMD = (stats.countyRecords as MarketRecord[]).find(
     (r) => r.county === "Miami-Dade" && r.reportType === "Single Family Homes"
-  )?.medianPrice;
+  )?.medianPrice ?? null;
   const sfhMedianBroward = (stats.countyRecords as MarketRecord[]).find(
     (r) => r.county === "Broward" && r.reportType === "Single Family Homes"
-  )?.medianPrice;
+  )?.medianPrice ?? null;
   const sfhMedianPB = (stats.countyRecords as MarketRecord[]).find(
     (r) => r.county === "Palm Beach" && r.reportType === "Single Family Homes"
-  )?.medianPrice;
+  )?.medianPrice ?? null;
 
   const metaDesc = `South Florida real estate market data for May 2026. Miami-Dade single-family median ${formatPrice(sfhMedianMD)}, Broward ${formatPrice(sfhMedianBroward)}, Palm Beach ${formatPrice(sfhMedianPB)}. Current figures from Miami Realtors Association.`;
 

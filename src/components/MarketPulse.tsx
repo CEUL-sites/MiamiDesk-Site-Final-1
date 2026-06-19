@@ -74,6 +74,16 @@ export function MarketPulse() {
           })}
         </div>
 
+        <div className="mt-5">
+          <Link
+            to="/market-data"
+            className="group inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:text-gold/70"
+          >
+            See full county and city market data
+            <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </div>
+
         <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/55">
           Source: MIAMI REALTORS® {MARKET_STATS_PERIOD} city reports, based on MLS sales data
           compiled by Florida Realtors®. Closed residential sales; estimates and medians are
