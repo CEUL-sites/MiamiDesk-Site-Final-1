@@ -77,4 +77,36 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'Usually yes — the addendum commonly sets a daily or monthly occupancy fee, often approximating the buyer’s carrying costs, plus a refundable security deposit. The terms are negotiated as part of the contract.',
     },
   ],
+  'listing-online-vs-activating-the-market-south-florida-2026': [
+    {
+      q: 'What is the difference between listing a home online and activating the market?',
+      a: 'Listing online makes a property findable by buyers already searching that price band and starts the days-on-market clock. Activating the market is the deliberate work of positioning a correctly priced property in front of qualified buyers and the agents who represent them — through MLS distribution, buyer-agent outreach, and international and relocation channels — before days-on-market begins to work against the seller.',
+    },
+    {
+      q: 'Does more online exposure guarantee a higher sale price?',
+      a: 'No. No agent can guarantee a price or timeline. Broad distribution creates a structural advantage — more qualified buyers and agents become aware of the property — but the result still depends on pricing supported by current MLS data, condition, presentation, timing, and negotiation.',
+    },
+    {
+      q: 'What questions should a South Florida seller ask before listing?',
+      a: 'Beyond "what is my home worth," a seller should ask who will actually see the property, how it will be positioned against current competition, which buyers and agents will be activated, what market data supports the price, and what the plan is after the sale — for example downsizing, relocating, a 1031 exchange, or porting a homestead benefit.',
+    },
+    {
+      q: 'How does MLS distribution help a South Florida seller reach more buyers?',
+      a: 'A property listed through the Miami and South Florida REALTORS® enters the infrastructure of the world’s largest local REALTOR® association — roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international agreements, and syndication across 260+ U.S. MLSs — plus United Realty Group’s 3,500+ agents across 20 offices. This widens the pool of qualified buyer agents who can present the property.',
+    },
+  ],
+  'review-equity-before-selling-south-florida-2026': [
+    {
+      q: 'Why should I review my equity before listing my home?',
+      a: 'Because sale price is not what you keep. A short equity review estimates your net proceeds after commissions, closing costs, loan payoff, and prorations — the number that actually shapes whether you can downsize, relocate, or reinvest comfortably.',
+    },
+    {
+      q: 'What is a seller net sheet?',
+      a: 'A seller net sheet is an itemized estimate of what a seller would keep from a sale after typical costs are deducted from the sale price. It is illustrative, not a guarantee; actual proceeds vary by lender payoff and negotiated terms.',
+    },
+    {
+      q: 'Is a home value review the same as an online estimate?',
+      a: 'No. An online estimate compares your property to broad datasets. A professional home value review uses current Miami and South Florida REALTORS® MLS data and adjusts for condition, location, view, and submarket dynamics that automated models miss.',
+    },
+  ],
 };
