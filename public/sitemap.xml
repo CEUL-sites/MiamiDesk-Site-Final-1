@@ -539,6 +539,15 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
 
+  <!-- ── Market Data ──────────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://homesprofessional.com/market-data</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
   <!-- ── Legal ──────────────────────────────────────────────────── -->
 
   <url>
