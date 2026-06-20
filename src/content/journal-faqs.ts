@@ -109,4 +109,40 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'No. An online estimate compares your property to broad datasets. A professional home value review uses current Miami and South Florida REALTORS® MLS data and adjusts for condition, location, view, and submarket dynamics that automated models miss.',
     },
   ],
+  'south-florida-may-2026-market-report-home-sellers': [
+    {
+      q: 'What did South Florida single-family inventory do in May 2026?',
+      a: 'Per Florida REALTORS® and MIAMI REALTORS® data released June 16, 2026, single-family active inventory fell about 19.1% year-over-year in Miami-Dade (to 4,599 listings) and about 22.2% in Broward (to 4,560 listings). Months’ supply dropped to 5.2 in Miami-Dade and 4.5 in Broward.',
+    },
+    {
+      q: 'What was the median single-family sale price in Miami-Dade and Broward in May 2026?',
+      a: 'The median single-family sale price was $680,000 in Miami-Dade (up 0.7% year-over-year) and $630,000 in Broward (up 0.8%), according to Florida REALTORS®/MIAMI REALTORS® May 2026 statistics.',
+    },
+    {
+      q: 'Does lower inventory mean every South Florida seller can raise their price?',
+      a: 'No. Lower months’ supply strengthens conditions for well-prepared, correctly priced homes, but a property’s defensible price still depends on its submarket, condition, lot, and active competition. Median figures reflect the mix of homes sold, not individual-home appreciation.',
+    },
+    {
+      q: 'How fast were homes going under contract in May 2026?',
+      a: 'Median time to contract was about 41 days in Miami-Dade and 35 days in Broward, with sellers receiving roughly 95–96% of original list price — a signal that correctly priced single-family homes were transacting close to ask.',
+    },
+  ],
+  'miami-dade-condo-sellers-may-2026-market': [
+    {
+      q: 'Is the Miami-Dade condo market a buyer’s market in 2026?',
+      a: 'By the conventional months-of-supply measure, yes. May 2026 data from Florida REALTORS®/MIAMI REALTORS® showed about 12.9 months of condo and townhouse supply in Miami-Dade — well above the roughly six-month threshold generally used to define a buyer’s market.',
+    },
+    {
+      q: 'What was the median Miami-Dade condo sale price in May 2026?',
+      a: 'The median townhouse/condo sale price was $415,000, down 2.4% year-over-year, with the average sale price down 9.1%, per May 2026 statistics released June 16, 2026. Median time to sale was about 106 days.',
+    },
+    {
+      q: 'How should a condo seller approach a high-supply market?',
+      a: 'With pricing discipline, strong presentation, and active distribution. With over a year of supply, homes priced to the current comparable set and exposed to the widest pool of qualified buyers and buyer agents tend to compete best. No approach guarantees a price or timeline.',
+    },
+    {
+      q: 'Why does distribution matter more when condo inventory is high?',
+      a: 'When inventory is scarce, almost any listing is seen. With 12,000-plus active condos, visibility is not automatic — the property must be carried to the right buyers through MLS, buyer-agent, relocation, and international referral channels rather than published and left to wait.',
+    },
+  ],
 };
