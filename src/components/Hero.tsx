@@ -18,37 +18,73 @@ const SIDE_BUBBLES = [
 
 // Center bubble — auto-cycles through these in order, then loops back to start.
 // Opens on the "home in hands" signature clip the client loves.
+// NOTE: virtual_tour_showcase.mp4 (14MB) and luxury_home_walkthrough.mp4 (13MB)
+// were intentionally removed from this rotation — at the ~148px bubble size their
+// extra weight is invisible, but they were pulling ~27MB of mobile data here.
+// Both clips remain live where they show full-size (SellerSection, VideoBubbles,
+// Agents & Markets pages). Re-add a line below to restore one to the hero loop.
 const HERO_FEATURE_VIDEOS = [
   { src: "/videos/dollhouse_rotating_hands.mp4", label: "Signature Marketing"   },
   { src: "/videos/matterport_tour.mp4",          label: "3D Matterport Tour"    },
   { src: "/videos/matterport_tour_2.mp4",        label: "3D Matterport Tour"    },
-  { src: "/videos/virtual_tour_showcase.mp4",    label: "Virtual Tour"          },
-  { src: "/videos/luxury_home_walkthrough.mp4",  label: "Cinematic Walkthrough" },
 ];
+
+// Decorative hero clips are skipped entirely on data-saver / slow (2g) links —
+// the navy bubble background stays in place rather than spending the visitor's
+// data and delaying the lead form below. Safe during prerender (no navigator
+// → returns false, so the prerendered markup is unchanged).
+function prefersLightMedia(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const c = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+  if (!c) return false;
+  return Boolean(c.saveData) || /(^|-)2g$/.test(c.effectiveType ?? "");
+}
+
+// Pauses/defers the hero videos until the hero is actually on-screen, so they
+// never compete with the above-the-fold lead form for bandwidth and stop
+// fetching once the visitor scrolls past.
+function useInView<T extends HTMLElement>(rootMargin = "200px") {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") { setInView(true); return; }
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [rootMargin]);
+  return [ref, inView] as const;
+}
 
 // Mobile Chrome requires a programmatic play() call — the autoPlay attribute
 // alone is ignored when multiple videos are in the initial viewport. This
-// wrapper fires play() after mount and silently ignores autoplay rejections.
-function HeroVideoCircle({ src }: { src: string }) {
+// wrapper fires play() once active (hero on-screen + not a data-saver link)
+// and silently ignores autoplay rejections. preload="none" keeps the browser
+// from fetching the clip before play() is called, off the critical path.
+function HeroVideoCircle({ src, active }: { src: string; active: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
-    v.muted = true;
-    const p = v.play();
-    if (p) p.catch(() => {});
-  }, []);
+    if (active) {
+      v.muted = true;
+      const p = v.play();
+      if (p) p.catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [active]);
   return (
     <video
       ref={ref}
       muted
       loop
       playsInline
-      preload="auto"
+      preload="none"
       aria-hidden="true"
       className="absolute inset-0 h-full w-full object-cover"
     >
-      <source src={src} type="video/mp4" />
+      {active && <source src={src} type="video/mp4" />}
     </video>
   );
 }
@@ -56,21 +92,24 @@ function HeroVideoCircle({ src }: { src: string }) {
 // Center bubble that auto-advances through HERO_FEATURE_VIDEOS on each video's
 // end, with Instagram-style progress segments below. Clicking a segment jumps
 // to that video. Does NOT loop a single clip — onEnded drives the sequence.
-function HeroCyclingBubble() {
+function HeroCyclingBubble({ active }: { active: boolean }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sourceRef = useRef<HTMLSourceElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const [progress, setProgress] = useState(0); // 0–1 progress for active clip
 
-  // Load & play the active clip whenever it changes. Updating the <source>
-  // element's src (instead of the <video>'s src directly) and then calling
-  // load() is the pattern Chromium's demuxer handles reliably here — setting
-  // video.src directly intermittently surfaces a spurious
-  // DEMUXER_ERROR_NO_SUPPORTED_STREAMS even for a perfectly valid file.
+  // Load & play the active clip whenever it changes — but only while the hero
+  // is on-screen (active). When the visitor scrolls past, the clip pauses and
+  // the sequence stops advancing, so we never fetch the next clip in the
+  // background. Updating the <source> element's src (instead of the <video>'s
+  // src directly) and then calling load() is the pattern Chromium's demuxer
+  // handles reliably here — setting video.src directly intermittently surfaces
+  // a spurious DEMUXER_ERROR_NO_SUPPORTED_STREAMS even for a valid file.
   useEffect(() => {
     const v = videoRef.current;
     const s = sourceRef.current;
     if (!v || !s) return;
+    if (!active) { v.pause(); return; }
     v.muted = true;
     s.src = HERO_FEATURE_VIDEOS[activeIdx].src;
     v.load();
@@ -81,7 +120,7 @@ function HeroCyclingBubble() {
     };
     v.addEventListener("canplay", tryPlay, { once: true });
     return () => v.removeEventListener("canplay", tryPlay);
-  }, [activeIdx]);
+  }, [activeIdx, active]);
 
   const handleTimeUpdate = () => {
     const v = videoRef.current;
@@ -112,7 +151,7 @@ function HeroCyclingBubble() {
           ref={videoRef}
           muted
           playsInline
-          preload="auto"
+          preload="none"
           aria-hidden="true"
           onTimeUpdate={handleTimeUpdate}
           onEnded={handleEnded}
@@ -167,7 +206,7 @@ const item: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 
-function SideBubble({ src, label, delay }: { src: string; label: string; delay: number }) {
+function SideBubble({ src, label, delay, active }: { src: string; label: string; delay: number; active: boolean }) {
   return (
     <div className="flex flex-col items-center gap-2.5">
       <motion.div
@@ -182,7 +221,7 @@ function SideBubble({ src, label, delay }: { src: string; label: string; delay: 
           boxShadow: "0 0 16px rgba(176,141,87,0.15)",
         }}
       >
-        <HeroVideoCircle src={src} />
+        <HeroVideoCircle src={src} active={active} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
       </motion.div>
       <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
@@ -193,6 +232,13 @@ function SideBubble({ src, label, delay }: { src: string; label: string; delay: 
 }
 
 export function Hero() {
+  // Decorative hero videos only load/play while the hero is on-screen and the
+  // visitor isn't on a data-saver/slow link — keeps them off the critical path
+  // so the headline and lead form paint first.
+  const [trioRef, inView] = useInView<HTMLDivElement>();
+  const [lightMedia] = useState(prefersLightMedia);
+  const videosActive = inView && !lightMedia;
+
   return (
     <section className="hero-root relative overflow-hidden bg-[#060D18] text-white flex flex-col">
 
@@ -280,10 +326,10 @@ export function Hero() {
           {/* Video bubble trio — static side bubbles flank the auto-cycling
               center bubble. items-center keeps them vertically aligned since
               the center is taller (progress bar + label). */}
-          <motion.div variants={item} className="mt-8 flex items-center justify-center gap-4 sm:gap-7">
-            <SideBubble {...SIDE_BUBBLES[0]} />
-            <HeroCyclingBubble />
-            <SideBubble {...SIDE_BUBBLES[1]} />
+          <motion.div ref={trioRef} variants={item} className="mt-8 flex items-center justify-center gap-4 sm:gap-7">
+            <SideBubble {...SIDE_BUBBLES[0]} active={videosActive} />
+            <HeroCyclingBubble active={videosActive} />
+            <SideBubble {...SIDE_BUBBLES[1]} active={videosActive} />
           </motion.div>
 
           {/* Subtitle */}
