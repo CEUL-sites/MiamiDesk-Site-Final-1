@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, MapPin, Send, TrendingUp } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { trackLead, trackFunnelEvent, pushEvent } from "../../lib/analytics";
@@ -43,6 +43,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   const [stepErr, setStepErr] = useState("");
   const addressRef = useRef<HTMLInputElement>(null);
   const formStartFired = useRef(false);
+  const placesReady = useRef(false);
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -70,9 +71,12 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
   // Google Places Autocomplete on the step-1 address field — captures lat/lng
-  // and auto-selects the city when it matches our list.
-  useEffect(() => {
-    if (step !== 1) return;
+  // and auto-selects the city when it matches our list. Loads only when the
+  // visitor focuses the address field, keeping the heavy Maps JS API off the
+  // initial page load.
+  const initPlaces = () => {
+    if (placesReady.current) return;
+    placesReady.current = true;
     loadGooglePlaces(() => {
       const input = addressRef.current;
       if (!input || !window.google?.maps?.places) return;
@@ -98,7 +102,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         }));
       });
     });
-  }, [step]);
+  };
 
   const handleStep1 = (e: React.FormEvent) => {
     e.preventDefault();
@@ -228,6 +232,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
                 className="form-input w-full"
                 value={form.propertyAddress}
                 onChange={set("propertyAddress")}
+                onFocus={initPlaces}
               />
             </div>
           </Field>

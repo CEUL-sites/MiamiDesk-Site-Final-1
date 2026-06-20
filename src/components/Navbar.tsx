@@ -38,7 +38,25 @@ export function Navbar() {
   const navText  = onLight ? "text-navy/75 hover:text-gold" : "text-white/70 hover:text-white";
 
   return (
-    <nav
+    <>
+      {/* Skip link — first Tab stop on every page (WCAG 2.4.1 Bypass Blocks).
+          Targets the page's <main> generically, so no per-page id is needed. */}
+      <a
+        href="#main-content"
+        onClick={(e) => {
+          e.preventDefault();
+          const main = document.querySelector("main");
+          if (main) {
+            main.setAttribute("tabindex", "-1");
+            (main as HTMLElement).focus();
+            main.scrollIntoView();
+          }
+        }}
+        className="skip-link"
+      >
+        Skip to content
+      </a>
+      <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white/97 backdrop-blur-xl border-b border-bone/60 shadow-sm py-3"
@@ -196,6 +214,7 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+      </nav>
+    </>
   );
 }

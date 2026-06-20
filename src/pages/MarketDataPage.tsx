@@ -360,6 +360,7 @@ export default function MarketDataPage() {
 
       <Navbar />
 
+      <main>
       {/* Hero */}
       <section className="bg-navy-deep pt-28 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
@@ -468,6 +469,7 @@ export default function MarketDataPage() {
           </p>
         </div>
       </section>
+      </main>
 
       <Footer />
       <MobileStickyCTA />
