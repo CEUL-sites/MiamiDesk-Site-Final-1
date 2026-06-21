@@ -8,6 +8,75 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
 const FROM_ADDRESS = process.env.RESEND_FROM ?? "Carlos Uzcategui <no-reply@homesprofessional.com>";
 const CARLOS_EMAIL = "contact@carlosre.com";
 const WHATSAPP_US = "+1 954-865-6622";
+const WHATSAPP_LINK = "https://wa.me/19548656622";
+const SITE = "https://homesprofessional.com";
+
+// Lead-magnet downloads (exit-intent modal + free-resources strip) submit the
+// "lead-magnet-download" form with a `guide` value. We map it to the actual PDF
+// so the capture is delivered by email — the lead keeps the guide even if they
+// never click the on-page download, and gets a branded, down-funnel touch.
+function resolveGuide(guide: string): { title: string; path: string } {
+  const g = (guide || "").toLowerCase();
+  if (g.includes("buyer")) {
+    return { title: "Miami Buyer Brief Q3 2026", path: "/miami-buyer-brief-q3-2026.pdf" };
+  }
+  if (g.includes("spain") || g.includes("activation")) {
+    return { title: "Activating Spanish Inventory in the Miami MLS", path: "/spain-mls-activation-methodology-brief.pdf" };
+  }
+  return { title: "South Florida Seller's Net Sheet 2026", path: "/south-florida-sellers-net-sheet-2026.pdf" };
+}
+
+function buildLeadMagnetEmail(guide: string, name: string, useSpanish: boolean): { subject: string; html: string } {
+  const { title, path } = resolveGuide(guide);
+  const url = `${SITE}${path}`;
+  const isBuyer = path.includes("buyer");
+  const P = `font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.7; color: rgba(11,30,63,0.7);`;
+  const nextHref = isBuyer ? `${SITE}/buy` : `${SITE}/home-value`;
+
+  const bodyEN = `
+        <h1 style="font-size: 24px; font-weight: 400; line-height: 1.2; margin: 0 0 16px;">Your guide is ready to download.</h1>
+        <p style="${P}">Dear ${name || "there"},<br><br>
+          Thank you for requesting the <strong>${title}</strong>. You can download it here:</p>
+        <p style="${P}">
+          <a href="${url}" style="display:inline-block;background:#B08D57;color:#0B1E3F;text-decoration:none;padding:12px 22px;font-family:monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;">Download the guide →</a>
+        </p>
+        <p style="${P}">${isBuyer
+          ? `When you're ready to act on it, the next step is a tailored buyer brief for your specific search — <a href="${nextHref}" style="color:#B08D57;">start here</a>.`
+          : `When you'd like numbers specific to your property rather than general ranges, a free, no-obligation valuation is the natural next step — <a href="${nextHref}" style="color:#B08D57;">request yours here</a>.`}</p>
+        <p style="${P}">Questions in the meantime? Reply to this email or WhatsApp me at <a href="${WHATSAPP_LINK}" style="color:#B08D57;">${WHATSAPP_US}</a>.</p>`;
+
+  const bodyES = `
+        <h1 style="font-size: 24px; font-weight: 400; line-height: 1.2; margin: 0 0 16px;">Su guía está lista para descargar.</h1>
+        <p style="${P}">Estimado/a ${name || "cliente"},<br><br>
+          Gracias por solicitar el <strong>${title}</strong> (documento en inglés). Puede descargarlo aquí:</p>
+        <p style="${P}">
+          <a href="${url}" style="display:inline-block;background:#B08D57;color:#0B1E3F;text-decoration:none;padding:12px 22px;font-family:monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;">Descargar la guía →</a>
+        </p>
+        <p style="${P}">${isBuyer
+          ? `Cuando quiera actuar, el siguiente paso es un informe de comprador adaptado a su búsqueda — <a href="${nextHref}" style="color:#B08D57;">comience aquí</a>.`
+          : `Cuando quiera números específicos de su propiedad y no rangos generales, una valoración gratuita y sin compromiso es el siguiente paso natural — <a href="${nextHref}" style="color:#B08D57;">solicítela aquí</a>.`}</p>
+        <p style="${P}">¿Preguntas mientras tanto? Responda a este correo o escríbame por WhatsApp al <a href="${WHATSAPP_LINK}" style="color:#B08D57;">${WHATSAPP_US}</a>.</p>`;
+
+  return {
+    subject: useSpanish ? `Su guía: ${title}` : `Your guide: ${title}`,
+    html: `
+      <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #0B1E3F;">
+        <div style="border-bottom: 2px solid #B08D57; padding-bottom: 16px; margin-bottom: 24px;">
+          <p style="font-family: monospace; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: #B08D57; margin: 0;">HomesProfessional.com</p>
+        </div>
+        ${useSpanish ? bodyES : bodyEN}
+        <div style="border-top: 1px solid #e8e3da; margin-top: 32px; padding-top: 16px;">
+          <p style="font-family: monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(11,30,63,0.35); margin: 0;">
+            Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+          </p>
+          <p style="font-family: monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(11,30,63,0.25); margin: 6px 0 0;">
+            15951 SW 41 St #700, Weston, FL 33331 · ${WHATSAPP_US} · ${CARLOS_EMAIL}
+          </p>
+        </div>
+      </div>
+    `,
+  };
+}
 
 const SPANISH_COUNTRIES = new Set([
   "spain", "venezuela", "colombia", "argentina", "mexico", "peru", "chile",
@@ -125,14 +194,14 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "no_key" }) };
   }
 
-  let body: { formName?: string; name?: string; email?: string; country?: string; brokerage?: string };
+  let body: { formName?: string; name?: string; email?: string; country?: string; brokerage?: string; guide?: string };
   try {
     body = JSON.parse(event.body ?? "{}");
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: "Invalid JSON" }) };
   }
 
-  const { formName = "", name = "", email = "", country = "" } = body;
+  const { formName = "", name = "", email = "", country = "", guide = "" } = body;
 
   if (!email || !email.includes("@")) {
     // No valid email — skip silently (referral form doesn't always have one)
@@ -140,7 +209,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   const useSpanish = isSpanishContext(country, name);
-  const { subject, html } = useSpanish
+  const { subject, html } = formName === "lead-magnet-download"
+    ? buildLeadMagnetEmail(guide, name, useSpanish)
+    : useSpanish
     ? buildEmailES(formName, name)
     : buildEmailEN(formName, name);
 

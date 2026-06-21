@@ -25,6 +25,13 @@ export function LeadMagnetStrip() {
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
+      // Deliver the guide by email so the lead keeps it even without clicking
+      // the on-page download, and gets a branded, down-funnel touch.
+      fetch("/.netlify/functions/lead-acknowledgment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formName: "lead-magnet-download", email, guide: "seller-net-sheet-2026" }),
+      }).catch(() => {});
       trackFunnelEvent("net_sheet_download", { gate: "email" });
       setStatus("success");
     } catch {
@@ -83,6 +90,12 @@ export function LeadMagnetStrip() {
                     <Download size={13} />
                     Download Net Sheet
                   </a>
+                  <p className="font-sans text-xs text-ink-primary/55">
+                    We've emailed you a copy too. Want numbers for your specific property?{" "}
+                    <a href="/home-value" className="text-gold underline underline-offset-2 hover:text-navy-deep">
+                      Get a free home valuation →
+                    </a>
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
