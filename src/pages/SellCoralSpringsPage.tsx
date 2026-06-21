@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CityListingsSample } from "../components/CityListingsSample";
+import { NearbyMarkets } from "../components/NearbyMarkets";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const CORAL_SPRINGS_FAQS = [
@@ -272,6 +273,7 @@ export default function SellCoralSpringsPage() {
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Coral Springs" />
         <CityListingsSample city="Coral Springs" />
+        <NearbyMarkets current="sell-coral-springs" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">

@@ -7,6 +7,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CityListingsSample } from "../components/CityListingsSample";
+import { NearbyMarkets } from "../components/NearbyMarkets";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const KENDALL_FAQS = [
@@ -272,6 +273,7 @@ export default function SellKendallPage() {
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Kendall" />
         <CityListingsSample city="Kendall" />
+        <NearbyMarkets current="sell-kendall" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">
