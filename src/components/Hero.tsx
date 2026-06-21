@@ -58,22 +58,36 @@ function useInView<T extends HTMLElement>(rootMargin = "200px") {
 
 // Mobile Chrome requires a programmatic play() call — the autoPlay attribute
 // alone is ignored when multiple videos are in the initial viewport. This
-// wrapper fires play() once active (hero on-screen + not a data-saver link)
-// and silently ignores autoplay rejections. preload="none" keeps the browser
-// from fetching the clip before play() is called, off the critical path.
+// wrapper attaches the source + calls load() once active (hero on-screen + not
+// a data-saver link), then plays on `canplay`, and silently ignores autoplay
+// rejections. preload="none" keeps the browser from fetching the clip before
+// it's active, off the critical path.
+//
+// IMPORTANT: the <source> is always present with a ref and its src is set
+// imperatively followed by load(). Conditionally rendering the <source> child
+// and relying on play() alone does NOT reliably trigger the browser's resource
+// selection on a preload="none" element, which left these bubbles blank — set
+// source.src + load() is the pattern Chromium handles reliably (same as the
+// center cycling bubble below).
 function HeroVideoCircle({ src, active }: { src: string; active: boolean }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const sourceRef = useRef<HTMLSourceElement>(null);
   useEffect(() => {
     const v = ref.current;
-    if (!v) return;
-    if (active) {
-      v.muted = true;
-      const p = v.play();
-      if (p) p.catch(() => {});
-    } else {
-      v.pause();
+    const s = sourceRef.current;
+    if (!v || !s) return;
+    if (!active) { v.pause(); return; }
+    v.muted = true;
+    // Only (re)load if the source isn't already set to this clip.
+    if (s.getAttribute("src") !== src) {
+      s.src = src;
+      v.load();
     }
-  }, [active]);
+    const tryPlay = () => { const p = v.play(); if (p) p.catch(() => {}); };
+    if (v.readyState >= 2) tryPlay();
+    else v.addEventListener("canplay", tryPlay, { once: true });
+    return () => v.removeEventListener("canplay", tryPlay);
+  }, [active, src]);
   return (
     <video
       ref={ref}
@@ -84,7 +98,7 @@ function HeroVideoCircle({ src, active }: { src: string; active: boolean }) {
       aria-hidden="true"
       className="absolute inset-0 h-full w-full object-cover"
     >
-      {active && <source src={src} type="video/mp4" />}
+      <source ref={sourceRef} type="video/mp4" />
     </video>
   );
 }
