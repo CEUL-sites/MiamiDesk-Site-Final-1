@@ -12,6 +12,28 @@ RESEND_API_KEY
   Used by: netlify/functions/submission-created.ts
   How to get: resend.com → API Keys → Create API Key → verify homesprofessional.com domain
 
+CALLMEBOT_APIKEY
+  What it does: Sends an instant WhatsApp alert to Carlos on every lead.
+  Used by: netlify/functions/submission-created.ts and lead-notify.ts
+           (via netlify/functions/_shared/whatsapp.ts)
+  How to get (one-time activation, tied to the RECIPIENT number):
+    1. From Carlos's WhatsApp, add the CallMeBot number +34 644 51 95 23 to contacts
+    2. Send this exact message to it: "I allow callmebot to send me messages"
+    3. The bot replies with an API key — that value is CALLMEBOT_APIKEY
+    4. Reference: https://www.callmebot.com/blog/free-api-whatsapp-messages/
+  IMPORTANT: The key is bound to the phone number that activated it. If the
+             notify number changes, re-activate AND update CALLMEBOT_PHONE.
+  Diagnosing: CallMeBot returns HTTP 200 even on errors; the functions log the
+              real reason (Netlify → Functions → logs) as "CallMeBot: <reason>"
+              when a send is rejected (bad key, number not registered, etc.).
+
+CALLMEBOT_PHONE
+  What it does: The WhatsApp number that receives lead alerts. Optional —
+                defaults to +19548656622 (Carlos). Must include the country
+                code with a leading "+".
+  Used by: netlify/functions/_shared/whatsapp.ts
+  Note: Must be the same number that activated CALLMEBOT_APIKEY above.
+
 VITE_GOOGLE_MAPS_KEY
   What it does: Powers the address autocomplete + map-pin preview on the seller
                 forms (Property Address field). WITHOUT this key the field still
