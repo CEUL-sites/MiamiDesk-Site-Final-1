@@ -84,7 +84,7 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
     },
     {
       q: 'How much is the Florida documentary stamp tax when I sell?',
-      a: 'Florida charges documentary stamp tax on the deed at $0.70 per $100 of the sale price in most of the state, and $0.60 per $100 in Miami-Dade County (which has a separate surtax structure). On a $1,000,000 sale that is roughly $6,000–$7,000.',
+      a: 'Florida charges documentary stamp tax on the deed at $0.70 per $100 of the sale price in most of the state. Miami-Dade County is different: the base rate is $0.60 per $100, plus a $0.45 per $100 surtax that applies to every property type except a single-family residence. So in Miami-Dade a $1,000,000 single-family home is about $6,000, while a $1,000,000 condo, multifamily, land, or commercial transfer is about $10,500. Confirm your figure with the closing agent (source: Florida Department of Revenue).',
     },
     {
       q: 'Is the real estate commission a fixed rate in Florida?',
