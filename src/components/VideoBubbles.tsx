@@ -19,6 +19,10 @@ export const VIDEO_BUBBLES: VideoBubble[] = [
   { src: "/videos/dollhouse_hand_reach.mp4",       caption: "Property in your hands" },
 ];
 
+// Crossfade duration between clips (ms). Kept in sync with the CSS opacity
+// transition on each video layer.
+const FADE_MS = 650;
+
 function prefersReducedMotion(): boolean {
   if (typeof window === "undefined" || !window.matchMedia) return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -80,16 +84,46 @@ function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => voi
 }
 
 export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubble[] }) {
-  const wrapRef   = useRef<HTMLDivElement>(null);
-  const videoRef  = useRef<HTMLVideoElement>(null);
-  const sourceRef = useRef<HTMLSourceElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  // Two stacked video layers. The front one is visible and playing; the back
+  // one silently preloads the NEXT clip so we can dissolve between them with no
+  // black frame. Roles swap on every transition.
+  const v0 = useRef<HTMLVideoElement>(null);
+  const v1 = useRef<HTMLVideoElement>(null);
+  const s0 = useRef<HTMLSourceElement>(null);
+  const s1 = useRef<HTMLSourceElement>(null);
+  const vids = [v0, v1] as const;
+  const srcs = [s0, s1] as const;
+
   const [near,      setNear]      = useState(false);
+  const [front,     setFront]     = useState(0);   // which layer is in front (0|1)
   const [activeIdx, setActiveIdx] = useState(0);
-  const [progress,  setProgress]  = useState(0); // 0–1 progress for active clip
+  const [progress,  setProgress]  = useState(0);   // 0–1 progress for the front clip
   const [open,      setOpen]      = useState(false);
   const reduced = prefersReducedMotion();
+  const n = bubbles.length;
 
-  // Defer load until near viewport
+  // Refs mirror state so the media event handlers (attached once) always read
+  // current values without re-binding.
+  const frontRef  = useRef(0);
+  const activeRef = useRef(0);
+  const busy      = useRef(false);                 // guards overlapping transitions
+  const loadedIdx = useRef<[number, number]>([-1, -1]); // clip index loaded per layer
+  useEffect(() => { frontRef.current = front; }, [front]);
+  useEffect(() => { activeRef.current = activeIdx; }, [activeIdx]);
+
+  const loadInto = useCallback((layer: number, idx: number) => {
+    const v = vids[layer].current;
+    const s = srcs[layer].current;
+    if (!v || !s || loadedIdx.current[layer] === idx) return;
+    s.src = bubbles[idx].src;
+    v.muted = true;
+    v.load();
+    loadedIdx.current[layer] = idx;
+  }, [bubbles, vids, srcs]);
+
+  // Defer everything until the bubble is near the viewport.
   useEffect(() => {
     const el = wrapRef.current;
     if (!el || typeof IntersectionObserver === "undefined") { setNear(true); return; }
@@ -101,42 +135,80 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
     return () => io.disconnect();
   }, []);
 
-  // Load & play the active clip whenever it changes. Updating the <source>
-  // element's src (instead of the <video>'s src directly) and then calling
-  // load() avoids a spurious DEMUXER_ERROR_NO_SUPPORTED_STREAMS that
-  // Chromium throws when video.src is set directly.
+  // Once near: play the first clip in the front layer and preload the next in
+  // the back layer so the first transition is already seamless.
   useEffect(() => {
-    const v = videoRef.current;
-    const s = sourceRef.current;
-    if (!v || !s || !near) return;
-    v.muted = true;
-    s.src = bubbles[activeIdx].src;
-    v.load();
-    setProgress(0);
-    const tryPlay = () => {
-      const p = v.play();
-      if (p) p.catch(() => {});
-    };
-    v.addEventListener("canplay", tryPlay, { once: true });
-    return () => v.removeEventListener("canplay", tryPlay);
-  }, [activeIdx, near, bubbles]);
+    if (!near) return;
+    loadInto(0, 0);
+    const v = vids[0].current;
+    const play = () => { const p = v?.play(); if (p) p.catch(() => {}); };
+    v?.addEventListener("canplay", play, { once: true });
+    loadInto(1, 1 % n);
+    return () => v?.removeEventListener("canplay", play);
+  }, [near, loadInto, n, vids]);
 
-  const handleTimeUpdate = () => {
-    const v = videoRef.current;
+  // Crossfade to a target clip. The back layer already holds the next clip for
+  // auto-advance (instant); for a tapped segment it loads on demand, then fades.
+  const goTo = useCallback((target: number) => {
+    if (busy.current || !near || target === activeRef.current) return;
+    const back = frontRef.current === 0 ? 1 : 0;
+    const bv = vids[back].current;
+    if (!bv) return;
+    busy.current = true;
+    loadInto(back, target);
+
+    const start = () => {
+      try { bv.currentTime = 0; } catch { /* not seekable yet — fine */ }
+      bv.muted = true;
+      const p = bv.play(); if (p) p.catch(() => {});
+      setProgress(0);
+      setFront(back);        // CSS opacity transition does the dissolve
+      setActiveIdx(target);
+      window.setTimeout(() => {
+        const oldFront = back === 0 ? 1 : 0;
+        vids[oldFront].current?.pause();      // free the now-hidden decoder
+        loadInto(oldFront, (target + 1) % n); // preload the next clip
+        busy.current = false;
+      }, reduced ? 0 : FADE_MS);
+    };
+
+    if (loadedIdx.current[back] === target && bv.readyState >= 2) start();
+    else bv.addEventListener("canplay", start, { once: true });
+  }, [near, loadInto, n, vids, reduced]);
+
+  const onTime = (layer: number) => () => {
+    if (layer !== frontRef.current) return;
+    const v = vids[layer].current;
     if (!v || !v.duration) return;
     setProgress(v.currentTime / v.duration);
   };
-
-  const handleEnded = useCallback(() => {
-    setActiveIdx((i) => (i + 1) % bubbles.length);
-  }, [bubbles.length]);
+  const onEnded = (layer: number) => () => {
+    if (layer !== frontRef.current) return;
+    goTo((activeRef.current + 1) % n);
+  };
 
   const close = useCallback(() => setOpen(false), []);
 
   return (
     <div ref={wrapRef} className="flex flex-col items-center">
+      <style>{`
+        @keyframes vb-caption-in {
+          from { opacity: 0; transform: translateY(5px); }
+          to   { opacity: 1; transform: none; }
+        }
+        .vb-caption { animation: vb-caption-in 0.55s cubic-bezier(0.22,1,0.36,1) both; }
+        @keyframes vb-kenburns {
+          from { transform: scale(1); }
+          to   { transform: scale(1.07); }
+        }
+        .vb-kenburns { animation: vb-kenburns 14s ease-in-out infinite alternate; }
+        @media (prefers-reduced-motion: reduce) {
+          .vb-caption { animation: none; }
+          .vb-kenburns { animation: none; }
+        }
+      `}</style>
 
-      {/* ── Single video bubble ──────────────────────────────────────────── */}
+      {/* ── Video bubble (two crossfading layers) ────────────────────────── */}
       <button
         type="button"
         onClick={() => setOpen(true)}
@@ -156,19 +228,25 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
 
         {/* Circle */}
         <span className="absolute inset-0 rounded-full overflow-hidden border border-gold/30 bg-[#0F2038] shadow-2xl shadow-navy/50 transition-all duration-500 group-hover:border-gold/55">
-          {/* Auto-playing clip */}
-          {near && (
+          {near && [0, 1].map((layer) => (
             <video
-              ref={videoRef}
+              key={layer}
+              ref={vids[layer]}
               muted
               playsInline
-              onTimeUpdate={handleTimeUpdate}
-              onEnded={handleEnded}
-              className="absolute inset-0 h-full w-full object-cover"
+              preload="auto"
+              aria-hidden="true"
+              onTimeUpdate={onTime(layer)}
+              onEnded={onEnded(layer)}
+              className={`absolute inset-0 h-full w-full object-cover ${reduced ? "" : "vb-kenburns"}`}
+              style={{
+                opacity: layer === front ? 1 : 0,
+                transition: reduced ? "none" : `opacity ${FADE_MS}ms ease-in-out`,
+              }}
             >
-              <source ref={sourceRef} type="video/mp4" />
+              <source ref={srcs[layer]} type="video/mp4" />
             </video>
-          )}
+          ))}
 
           {/* Vignette so edges read clean */}
           <span
@@ -192,7 +270,7 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
           <button
             key={b.src}
             type="button"
-            onClick={() => { setActiveIdx(i); setProgress(0); }}
+            onClick={() => goTo(i)}
             aria-label={`Clip ${i + 1}: ${b.caption}`}
             className="group relative flex h-6 items-center transition-all duration-300"
             style={{ width: i === activeIdx ? "2.25rem" : "0.65rem" }}
@@ -217,8 +295,11 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
         ))}
       </div>
 
-      {/* ── Caption ─────────────────────────────────────────────────────── */}
-      <p className="mt-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-navy/45 text-center transition-all duration-300">
+      {/* ── Caption (cross-fades on change) ─────────────────────────────── */}
+      <p
+        key={activeIdx}
+        className="vb-caption mt-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-navy/45 text-center"
+      >
         {bubbles[activeIdx].caption}
       </p>
 
