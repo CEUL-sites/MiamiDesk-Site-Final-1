@@ -22,6 +22,7 @@ const HERO_FEATURE_VIDEOS = [
   { src: "/videos/dollhouse_rotating_hands.mp4", label: "Signature Marketing"   },
   { src: "/videos/matterport_tour.mp4",          label: "3D Matterport Tour"    },
   { src: "/videos/matterport_tour_2.mp4",        label: "3D Matterport Tour"    },
+  { src: "/videos/matterport_tour_3.mp4",        label: "3D Matterport Tour"    },
   { src: "/videos/virtual_tour_showcase.mp4",    label: "Virtual Tour"          },
   { src: "/videos/luxury_home_walkthrough.mp4",  label: "Cinematic Walkthrough" },
 ];

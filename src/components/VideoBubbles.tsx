@@ -13,6 +13,7 @@ export const VIDEO_BUBBLES: VideoBubble[] = [
   { src: "/videos/virtual_tour_showcase.mp4",      caption: "Virtual property tour" },
   { src: "/videos/matterport_tour.mp4",            caption: "3D walkthrough tour" },
   { src: "/videos/matterport_tour_2.mp4",          caption: "3D walkthrough tour" },
+  { src: "/videos/matterport_tour_3.mp4",          caption: "3D walkthrough tour" },
   { src: "/videos/dollhouse_rotating_hands.mp4",  caption: "3D dollhouse — every angle" },
   { src: "/videos/cinematic_house_reach.mp4",      caption: "Cinematic listing reach" },
   { src: "/videos/digital_twin_exposure.mp4",      caption: "Digital twin exposure" },

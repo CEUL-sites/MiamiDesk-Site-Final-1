@@ -79,6 +79,11 @@ const SLIDES = [
     badge: "3D TOUR",
   },
   {
+    src: "/videos/matterport_tour_3.mp4",
+    label: "3D walkthrough tour",
+    badge: "3D TOUR",
+  },
+  {
     src: "/videos/virtual_tour_showcase.mp4",
     label: "Virtual property tour",
     badge: "VIRTUAL TOUR",
