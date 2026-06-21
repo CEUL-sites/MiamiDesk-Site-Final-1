@@ -82,7 +82,11 @@
           if(attrs){for(var k in attrs){s.setAttribute(k,attrs[k]);}}
           document.head.appendChild(s);}
         function loadPixels(){
-          if(loaded)return;loaded=true;
+          if(loaded)return;
+          // Respect a prior "Decline" — don't load the third-party pixel
+          // libraries (LinkedIn Insight auto-fires an impression on load).
+          try{if(localStorage.getItem('hp_cookie_consent')==='declined'){return;}}catch(e){}
+          loaded=true;
           add('https://connect.facebook.net/en_US/fbevents.js');
           add('https://snap.licdn.com/li.lms-analytics/insight.min.js');
           add('https://r2.leadsy.ai/tag.js',{id:'vtag-ai-js','data-pid':'avGlx7YMReNKhjgi','data-version':'062024'});
