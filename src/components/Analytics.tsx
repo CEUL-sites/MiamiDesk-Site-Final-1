@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { pushEvent } from "../lib/analytics";
 import { captureAttribution } from "../lib/attribution";
+import { isTrackingAllowed } from "../lib/consent";
 
 // react-snap (puppeteer) sets navigator.webdriver = true during prerender builds.
 // We use this to suppress all analytics during the static-site generation pass
@@ -42,7 +43,7 @@ export function Analytics() {
   }, []);
 
   useEffect(() => {
-    if (isPrerender) return;
+    if (isPrerender || !isTrackingAllowed()) return; // visitor declined analytics cookies
     const path = location.pathname + location.search;
 
     window.dataLayer = window.dataLayer || [];

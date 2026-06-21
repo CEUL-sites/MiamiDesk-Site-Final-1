@@ -1,36 +1,19 @@
 import { useEffect, useState } from "react";
-
-const COOKIE_KEY = "hp_cookie_consent";
-
-type Consent = "accepted" | "declined" | null;
-
-function getStoredConsent(): Consent {
-  try {
-    return (localStorage.getItem(COOKIE_KEY) as Consent) ?? null;
-  } catch {
-    return null;
-  }
-}
-
-function storeConsent(value: "accepted" | "declined") {
-  try {
-    localStorage.setItem(COOKIE_KEY, value);
-  } catch {
-    // storage unavailable — banner will reappear next visit
-  }
-}
+import { getConsent, setConsent as storeConsent, type Consent } from "../lib/consent";
 
 export function CookieBanner() {
-  const [consent, setConsent] = useState<Consent>("accepted"); // start hidden to avoid SSR flash
+  const [consent, setConsentState] = useState<Consent>("accepted"); // start hidden to avoid SSR flash
 
   useEffect(() => {
-    setConsent(getStoredConsent());
+    setConsentState(getConsent());
   }, []);
 
   if (consent !== null) return null;
 
-  const accept = () => { storeConsent("accepted"); setConsent("accepted"); };
-  const decline = () => { storeConsent("declined"); setConsent("declined"); };
+  // storeConsent persists the choice and emits "hp-consent-change" so the
+  // tracking layer (src/lib/analytics.ts) honors it immediately this session.
+  const accept = () => { storeConsent("accepted"); setConsentState("accepted"); };
+  const decline = () => { storeConsent("declined"); setConsentState("declined"); };
 
   return (
     <div

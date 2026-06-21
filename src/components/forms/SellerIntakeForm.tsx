@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, MapPin, Send, TrendingUp } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { trackLead, trackFunnelEvent, pushEvent } from "../../lib/analytics";
@@ -43,6 +43,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   const [stepErr, setStepErr] = useState("");
   const addressRef = useRef<HTMLInputElement>(null);
   const formStartFired = useRef(false);
+  const placesInput = useRef<HTMLInputElement | null>(null);
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -70,12 +71,18 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
   // Google Places Autocomplete on the step-1 address field — captures lat/lng
-  // and auto-selects the city when it matches our list.
-  useEffect(() => {
-    if (step !== 1) return;
+  // and auto-selects the city when it matches our list. Loads only when the
+  // visitor focuses the address field, keeping the heavy Maps JS API off the
+  // initial page load.
+  const initPlaces = () => {
+    const input = addressRef.current;
+    // Returning to step 1 via "Edit address" remounts a fresh input element —
+    // track the element Places is bound to (not a one-shot boolean) so the new
+    // input gets autocomplete and a corrected address still refreshes lat/lng.
+    if (!input || placesInput.current === input) return;
+    placesInput.current = input;
     loadGooglePlaces(() => {
-      const input = addressRef.current;
-      if (!input || !window.google?.maps?.places) return;
+      if (!window.google?.maps?.places || addressRef.current !== input) return;
       const ac = new window.google.maps.places.Autocomplete(input, {
         types: ["address"],
         componentRestrictions: { country: ["us"] },
@@ -98,7 +105,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         }));
       });
     });
-  }, [step]);
+  };
 
   const handleStep1 = (e: React.FormEvent) => {
     e.preventDefault();
@@ -228,6 +235,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
                 className="form-input w-full"
                 value={form.propertyAddress}
                 onChange={set("propertyAddress")}
+                onFocus={initPlaces}
               />
             </div>
           </Field>

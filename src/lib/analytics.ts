@@ -1,4 +1,5 @@
 import { getAttribution } from "./attribution";
+import { isTrackingAllowed } from "./consent";
 
 export type EventPayload = Record<string, unknown>;
 
@@ -11,6 +12,7 @@ declare global {
 }
 
 export function pushEvent(eventName: string, payload?: EventPayload): void {
+  if (!isTrackingAllowed()) return; // visitor declined analytics cookies
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: eventName, ...payload });
 }
@@ -51,7 +53,7 @@ export function trackFunnelEvent(name: string, payload?: EventPayload): void {
   pushEvent(name, detail);
 
   // Meta Pixel — custom event (not standard Lead)
-  if (typeof window.fbq === "function") {
+  if (isTrackingAllowed() && typeof window.fbq === "function") {
     window.fbq("trackCustom", toPascalCase(name), detail);
   }
 }
@@ -83,7 +85,7 @@ export function trackContact(method: ContactMethod, location: string): void {
   pushEvent("contact_click", detail);
 
   // Meta Pixel — standard Contact event.
-  if (typeof window.fbq === "function") {
+  if (isTrackingAllowed() && typeof window.fbq === "function") {
     window.fbq("track", "Contact", detail);
   }
 }
@@ -106,7 +108,7 @@ export function trackLead(type: LeadType, payload?: EventPayload): void {
   pushEvent(`form_submit_${type}`, detail);
 
   // Meta Pixel — standard Lead event.
-  if (typeof window.fbq === "function") {
+  if (isTrackingAllowed() && typeof window.fbq === "function") {
     window.fbq("track", "Lead", {
       content_category: type,
       content_name: payload?.form ?? type,
@@ -115,7 +117,7 @@ export function trackLead(type: LeadType, payload?: EventPayload): void {
   }
 
   // LinkedIn Insight Tag conversion.
-  if (typeof window.lintrk === "function") {
+  if (isTrackingAllowed() && typeof window.lintrk === "function") {
     window.lintrk("track", { conversion_id: `lead_${type}` });
   }
 }

@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { AuroraBackground } from "./AuroraBackground";
 
 const FAQS = [
@@ -30,11 +31,27 @@ const FAQS = [
   },
 ];
 
+// FAQPage structured data — exposes every answer to search engines and AI
+// answer engines. Without this, only the open accordion item (index 0) is in
+// the prerendered HTML, so the other five answers are invisible to crawlers.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section id="faq" className="relative overflow-hidden border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <AuroraBackground variant="subtle" />
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-12 text-center">
