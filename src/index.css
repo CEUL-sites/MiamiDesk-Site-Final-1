@@ -33,6 +33,29 @@
     scroll-behavior: smooth;
   }
 
+  /* Skip-to-content link — off-screen until keyboard-focused (WCAG 2.4.1). */
+  .skip-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform: translateY(-120%);
+    background: #0B1E3F;
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid #B08D57;
+    transition: transform 0.18s ease;
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+    outline: 2px solid #B08D57;
+    outline-offset: 2px;
+  }
+
   body {
     @apply bg-white-soft text-navy font-sans antialiased;
   }

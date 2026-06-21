@@ -5,6 +5,10 @@ slug: "selling-brickell-condo-2026"
 excerpt: "Brickell's condo market is defined by new supply, building-specific pricing, and an internationally weighted buyer pool. Here is what determines a seller's outcome."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-brickell-condo-2026.jpg"
+created_by: "claude"
+market: "Brickell"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 Brickell is Miami's densest high-rise market and one of the most internationally weighted condominium corridors in the United States. For a seller, that combination — high inventory, building-specific pricing, and a buyer pool that is frequently represented and frequently abroad — means the listing strategy matters as much as the property itself.

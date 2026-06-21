@@ -5,6 +5,10 @@ slug: "florida-homestead-portability-benefits-2026"
 excerpt: "Florida's Homestead Exemption and Save Our Homes cap protect homeowners — and portability lets you carry the benefit to your next home. Here is how it works."
 category: "Seller Strategy"
 image: "/images/journal/og/florida-homestead-portability-benefits-2026.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 Two of the most valuable benefits available to a Florida homeowner have nothing to do with the sale price of the property — they live on the property tax roll. The Homestead Exemption and the Save Our Homes assessment cap quietly reduce what a primary-residence owner pays in property tax every year. And when you sell and buy again within Florida, a feature called *portability* can let you carry a large part of that benefit forward. This article explains the mechanics in plain terms so you can ask the right questions before you list.

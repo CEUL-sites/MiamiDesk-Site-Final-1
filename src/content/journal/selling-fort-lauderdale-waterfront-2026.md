@@ -5,6 +5,10 @@ slug: "selling-fort-lauderdale-waterfront-2026"
 excerpt: "Fort Lauderdale waterfront value turns on dockage, bridge clearance, and ocean access — variables a generic CMA flattens. Here is what a serious listing strategy addresses."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-fort-lauderdale-waterfront-2026.jpg"
+created_by: "claude"
+market: "Fort Lauderdale"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 Fort Lauderdale's waterfront market is one of the most specific in South Florida. A canal-front home with deep-water dockage and no fixed-bridge restriction is a fundamentally different asset than a comparable house one street back — and the buyers know it. For a seller, getting that distinction priced and documented correctly is the difference between a clean sale and a listing that lingers.

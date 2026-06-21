@@ -2,6 +2,12 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { pushEvent } from "../lib/analytics";
 import { captureAttribution } from "../lib/attribution";
+import { isTrackingAllowed } from "../lib/consent";
+
+// react-snap (puppeteer) sets navigator.webdriver = true during prerender builds.
+// We use this to suppress all analytics during the static-site generation pass
+// so build-time page visits don't appear as real sessions in GA4 / Meta / LinkedIn.
+const isPrerender = typeof navigator !== "undefined" && navigator.webdriver;
 
 function handleGlobalClick(e: MouseEvent) {
   const target = (e.target as Element).closest("a");
@@ -9,14 +15,12 @@ function handleGlobalClick(e: MouseEvent) {
 
   const href = target.getAttribute("href") ?? "";
 
-  // WhatsApp click events
   if (href.includes("wa.me/1954")) {
     pushEvent("whatsapp_click_us", { destination: href });
   } else if (href.includes("wa.me/346")) {
     pushEvent("whatsapp_click_madrid", { destination: href });
   }
 
-  // Lead magnet download events
   if (target.hasAttribute("download")) {
     const url = target.getAttribute("href") ?? "";
     const filename = url.split("/").pop() ?? url;
@@ -27,19 +31,19 @@ function handleGlobalClick(e: MouseEvent) {
 export function Analytics() {
   const location = useLocation();
 
-  // Capture first-touch lead source (UTM / referrer) once, as early as possible.
   useEffect(() => {
+    if (isPrerender) return;
     captureAttribution();
   }, []);
 
-  // Global click delegation — covers WhatsApp + download links across all pages
   useEffect(() => {
+    if (isPrerender) return;
     document.addEventListener("click", handleGlobalClick);
     return () => document.removeEventListener("click", handleGlobalClick);
   }, []);
 
-  // Virtual pageview on every route change
   useEffect(() => {
+    if (isPrerender || !isTrackingAllowed()) return; // visitor declined analytics cookies
     const path = location.pathname + location.search;
 
     window.dataLayer = window.dataLayer || [];

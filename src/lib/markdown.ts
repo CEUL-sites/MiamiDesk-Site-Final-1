@@ -18,6 +18,14 @@ export interface PostMeta {
   image: string;
   readTime: number;
   body: string;
+  /** Who produced this post — used for attribution reporting. */
+  created_by?: "claude" | "codex" | "manual" | "unknown";
+  /** Primary conversion goal — used for GA4 event context. */
+  content_goal?: "seller_lead" | "buyer_lead" | "agent_referral" | "international_listing" | "credibility" | "market_report";
+  /** Primary geographic market targeted by this post. */
+  market?: string;
+  /** Funnel position of this content. */
+  funnel_stage?: "awareness" | "consideration" | "bottom_funnel";
 }
 
 // ---------------------------------------------------------------------------
@@ -177,15 +185,19 @@ function parseAll(): PostMeta[] {
     const wordCount = body.trim().split(/\s+/).length;
 
     posts.push({
-      title:    meta.title,
-      date:     meta.date     ?? '',
-      updated:  meta.updated  ?? '',
-      slug:     meta.slug,
-      excerpt:  meta.excerpt  ?? '',
-      category: meta.category ?? 'General',
-      image:    meta.image    ?? '',
-      readTime: Math.max(1, Math.ceil(wordCount / 200)),
-      body:     markdownToHtml(body),
+      title:        meta.title,
+      date:         meta.date         ?? '',
+      updated:      meta.updated      ?? '',
+      slug:         meta.slug,
+      excerpt:      meta.excerpt      ?? '',
+      category:     meta.category     ?? 'General',
+      image:        meta.image        ?? '',
+      readTime:     Math.max(1, Math.ceil(wordCount / 200)),
+      body:         markdownToHtml(body),
+      created_by:   (meta.created_by  as PostMeta['created_by'])   ?? 'unknown',
+      content_goal: (meta.content_goal as PostMeta['content_goal']) ?? 'seller_lead',
+      market:       meta.market       ?? 'South Florida',
+      funnel_stage: (meta.funnel_stage as PostMeta['funnel_stage']) ?? 'awareness',
     });
   }
 

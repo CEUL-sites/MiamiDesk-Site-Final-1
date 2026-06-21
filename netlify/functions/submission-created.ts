@@ -2,6 +2,7 @@ import type { Handler, HandlerEvent } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
 import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
+import { sendWhatsAppAlert } from "./_shared/whatsapp";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
@@ -14,7 +15,6 @@ const NURTURE_FORMS = new Set(["seller-intake", "seller-hero", "seller-consultat
 const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "";
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
 const CALLMEBOT_APIKEY = process.env.CALLMEBOT_APIKEY ?? "";
-const NOTIFY_PHONE = "19548656622"; // Carlos's WhatsApp — no + or spaces
 const TO_EMAIL = "contact@carlosre.com";
 const FROM_EMAIL = process.env.RESEND_FROM ?? "leads@homesprofessional.com";
 
@@ -171,7 +171,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
       }
 
       // ── 3. WhatsApp notification via CallMeBot ─────────────────────────
-      if (CALLMEBOT_APIKEY) {
+      // CallMeBot returns HTTP 200 even on rejection, so sendWhatsAppAlert
+      // inspects the body and reports the true outcome (logged for diagnosis).
+      {
         const waLines = [
           `🏠 New Lead — HomesProfessional.com`,
           ``,
@@ -186,17 +188,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
           `📊 Source: ${leadSource}`,
         ].filter(Boolean).join("\n");
 
-        try {
-          const waUrl = `https://api.callmebot.com/whatsapp.php?phone=${NOTIFY_PHONE}&text=${encodeURIComponent(waLines)}&apikey=${CALLMEBOT_APIKEY}`;
-          const waRes = await fetch(waUrl);
-          if (!waRes.ok) {
-            console.error("CallMeBot WhatsApp error:", waRes.status);
-          } else {
-            alerted = true;
-          }
-        } catch (waErr) {
-          console.error("WhatsApp notification error:", waErr);
-        }
+        const wa = await sendWhatsAppAlert(waLines, CALLMEBOT_APIKEY);
+        if (wa.ok) alerted = true;
+        else if (CALLMEBOT_APIKEY) console.error("submission-created CallMeBot:", wa.detail);
       }
 
       // Only mark the alert channel if something actually reached Carlos, so a

@@ -5,6 +5,10 @@ slug: "latin-american-buyers-south-florida-2026"
 excerpt: "LATAM capital has shaped the South Florida residential market for decades. Here is who is buying, where, at what price points, and what sellers need to understand about reaching this audience."
 category: "International"
 image: "/images/journal/og/latin-american-buyers-south-florida-2026.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "awareness"
+content_goal: "international_listing"
 ---
 
 ## Why South Florida and Latin America Are Linked

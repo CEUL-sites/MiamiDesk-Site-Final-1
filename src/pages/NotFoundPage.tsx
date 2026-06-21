@@ -1,8 +1,21 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { pushEvent } from "../lib/analytics";
 
 export default function NotFoundPage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (navigator.webdriver) return;
+    pushEvent("404_view", {
+      page_path: location.pathname + location.search,
+      referrer: document.referrer,
+    });
+  }, [location.pathname, location.search]);
+
   return (
     <>
       <Helmet>

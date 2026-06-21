@@ -5,6 +5,10 @@ slug: "home-sale-capital-gains-exclusion-500k-2026"
 excerpt: "Federal law lets many homeowners exclude up to $250,000 — or $500,000 for married couples — of gain from selling a primary residence. Here are the rules."
 category: "Seller Strategy"
 image: "/images/journal/og/home-sale-capital-gains-exclusion-500k-2026.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 One of the most generous provisions in the federal tax code for ordinary homeowners is the exclusion of capital gain on the sale of a primary residence. Under Section 121 of the Internal Revenue Code, a qualifying taxpayer can exclude up to **$250,000** of gain from the sale of a main home — and a married couple filing jointly can exclude up to **$500,000.** For many South Florida sellers who have owned through a period of strong appreciation, this is the single largest tax consideration in the entire transaction. This article explains the tests that determine whether you qualify.

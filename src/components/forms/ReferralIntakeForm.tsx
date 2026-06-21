@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { trackLead } from "../../lib/analytics";
+import { trackLead, pushEvent } from "../../lib/analytics";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 
@@ -18,6 +18,17 @@ export function ReferralIntakeForm() {
   const [form, setForm] = useState(INITIAL);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
+  const formStartFired = useRef(false);
+
+  const handleFormFocus = () => {
+    if (formStartFired.current || navigator.webdriver) return;
+    formStartFired.current = true;
+    pushEvent("form_start", {
+      form_name: "referral-intake",
+      page_path: window.location.pathname,
+      funnel_stage: "consideration",
+    });
+  };
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -92,6 +103,7 @@ export function ReferralIntakeForm() {
         data-netlify="true"
         netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
+        onFocus={handleFormFocus}
         className="space-y-6 p-8"
       >
         <input type="hidden" name="form-name" value="referral-intake" />

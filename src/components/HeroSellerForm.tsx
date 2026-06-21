@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { ArrowRight, MapPin, Loader2, CheckCircle2, Download } from "lucide-react";
-import { useState, useRef, useEffect, type ChangeEvent, type FormEvent } from "react";
+import { useState, useRef, type ChangeEvent, type FormEvent } from "react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
-import { trackLead, trackFunnelEvent } from "../lib/analytics";
+import { trackLead, trackFunnelEvent, pushEvent } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
 import { notifyLeadDirect } from "../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../lib/googlePlaces";
@@ -91,9 +91,26 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const [error, setError]     = useState("");
   const [mapPin, setMapPin]   = useState<{ lat: number; lng: number; address: string } | null>(null);
   const addressRef            = useRef<HTMLInputElement>(null);
+  const formStartFired        = useRef(false);
+  const placesReady           = useRef(false);
 
-  // Wire up Google Places Autocomplete — capture lat/lng for map pin
-  useEffect(() => {
+  const handleFormFocus = () => {
+    if (formStartFired.current || navigator.webdriver) return;
+    formStartFired.current = true;
+    pushEvent("form_start", {
+      form_name: "seller-hero",
+      page_path: window.location.pathname,
+      funnel_stage: "bottom_funnel",
+    });
+  };
+
+  // Google Places loads only when the visitor focuses the address field — this
+  // keeps the Maps JS API (a heavy third-party script) off the initial page
+  // load on every landing page where this form appears. Autocomplete attaches
+  // on focus, before the visitor finishes typing the address.
+  const initPlaces = () => {
+    if (placesReady.current) return;
+    placesReady.current = true;
     loadGooglePlaces(() => {
       const input = addressRef.current;
       if (!input || !window.google?.maps?.places) return;
@@ -122,7 +139,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         }
       });
     });
-  }, []);
+  };
 
   const update = (k: keyof typeof initial) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
@@ -227,6 +244,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
+      onFocus={handleFormFocus}
       className="rounded-2xl bg-[#0A1525]/90 border border-white/12 backdrop-blur-xl p-5 sm:p-7 text-left shadow-2xl shadow-black/60"
     >
       <input type="hidden" name="form-name" value="seller-hero" />
@@ -253,6 +271,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           type="text"
           value={form.propertyAddress}
           onChange={update("propertyAddress")}
+          onFocus={initPlaces}
           placeholder={t.address}
           autoComplete="street-address"
           style={{ paddingLeft: "2.75rem" }}

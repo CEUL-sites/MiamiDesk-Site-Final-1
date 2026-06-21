@@ -5,6 +5,10 @@ slug: "1031-exchange-south-florida-investment-property-2026"
 excerpt: "A 1031 exchange lets investors defer capital gains tax by reinvesting in like-kind real property. Here are the rules, deadlines, and what they mean for sellers."
 category: "Seller Strategy"
 image: "/images/journal/og/1031-exchange-south-florida-investment-property-2026.jpg"
+created_by: "claude"
+market: "South Florida"
+funnel_stage: "consideration"
+content_goal: "seller_lead"
 ---
 
 For owners of investment or business real estate — a rental condo in Brickell, a small multifamily building, a commercial unit — the federal tax code offers a powerful planning tool when it is time to sell: the Section 1031 exchange. Done correctly, it lets an investor **defer** the capital gains tax that would otherwise be due on a sale by reinvesting the proceeds into another qualifying property. This article explains what a 1031 exchange is, the strict deadlines that govern it, and where it does — and does not — apply.

@@ -1,11 +1,14 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
+import { JournalSellerCTA } from '../components/JournalSellerCTA';
 import { getPostBySlug, getAllPosts } from '../lib/markdown';
 import { JOURNAL_FAQS } from '../content/journal-faqs';
-import { CONTACT } from '../constants';
+import { pushEvent } from '../lib/analytics';
+import { getAttribution } from '../lib/attribution';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -16,6 +19,22 @@ function formatDate(iso: string): string {
 export default function JournalPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
+
+  // journal_view — fires once per slug, suppressed during react-snap prerender
+  useEffect(() => {
+    if (!post || navigator.webdriver) return;
+    pushEvent("journal_view", {
+      journal_slug: post.slug,
+      page_title: post.title,
+      category: post.category,
+      market: post.market ?? "South Florida",
+      funnel_stage: post.funnel_stage ?? "awareness",
+      created_by: post.created_by ?? "unknown",
+      content_goal: post.content_goal ?? "seller_lead",
+      ...getAttribution(),
+    });
+  }, [post?.slug]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Same-category posts first (already newest-first), padded with recent ones.
   const relatedPosts = post
     ? (() => {
@@ -196,6 +215,9 @@ export default function JournalPostPage() {
           </div>
         </header>
 
+        {/* Top CTA — compact strip visible before reading */}
+        <JournalSellerCTA variant="top" post={post} />
+
         {/* Article body */}
         <article className="mx-auto max-w-3xl px-5 py-16 lg:px-8 lg:py-20">
           <div
@@ -203,6 +225,9 @@ export default function JournalPostPage() {
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
         </article>
+
+        {/* Mid CTA — catches readers who finished the article */}
+        <JournalSellerCTA variant="mid" post={post} />
 
         {/* Frequently asked questions — eligible for FAQ rich results */}
         {faqs.length > 0 && (
@@ -236,38 +261,8 @@ export default function JournalPostPage() {
           <hr className="border-bone" />
         </div>
 
-        {/* Post-body CTA */}
-        <section className="mx-auto max-w-3xl px-5 py-14 lg:px-8">
-          <div className="border border-bone bg-ivory p-8 md:p-10">
-            <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
-              Private Seller Desk · United Realty Group
-            </p>
-            <h2 className="mt-4 font-serif text-2xl leading-snug text-navy">
-              Request a strategy review for your South Florida property
-            </h2>
-            <p className="mt-3 font-sans text-sm leading-relaxed text-navy/65">
-              A property-level analysis requires specific data. If you are evaluating your
-              position in the current market, a private consultation with Carlos Uzcategui
-              is the appropriate starting point — no obligation, no generic scripts.
-            </p>
-            <div className="mt-7 flex flex-wrap items-center gap-4">
-              <Link
-                to="/contact"
-                className="inline-block border border-navy bg-navy px-7 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:border-gold"
-              >
-                Request a Seller Strategy Review
-              </Link>
-              <a
-                href={CONTACT.whatsappUS}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
-              >
-                Or message on WhatsApp →
-              </a>
-            </div>
-          </div>
-        </section>
+        {/* Bottom CTA */}
+        <JournalSellerCTA variant="bottom" post={post} />
 
         {/* More from the journal */}
         {relatedPosts.length > 0 && (
