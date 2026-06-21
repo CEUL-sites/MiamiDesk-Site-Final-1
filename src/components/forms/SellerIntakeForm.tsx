@@ -43,7 +43,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   const [stepErr, setStepErr] = useState("");
   const addressRef = useRef<HTMLInputElement>(null);
   const formStartFired = useRef(false);
-  const placesReady = useRef(false);
+  const placesInput = useRef<HTMLInputElement | null>(null);
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -75,11 +75,14 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   // visitor focuses the address field, keeping the heavy Maps JS API off the
   // initial page load.
   const initPlaces = () => {
-    if (placesReady.current) return;
-    placesReady.current = true;
+    const input = addressRef.current;
+    // Returning to step 1 via "Edit address" remounts a fresh input element —
+    // track the element Places is bound to (not a one-shot boolean) so the new
+    // input gets autocomplete and a corrected address still refreshes lat/lng.
+    if (!input || placesInput.current === input) return;
+    placesInput.current = input;
     loadGooglePlaces(() => {
-      const input = addressRef.current;
-      if (!input || !window.google?.maps?.places) return;
+      if (!window.google?.maps?.places || addressRef.current !== input) return;
       const ac = new window.google.maps.places.Autocomplete(input, {
         types: ["address"],
         componentRestrictions: { country: ["us"] },
