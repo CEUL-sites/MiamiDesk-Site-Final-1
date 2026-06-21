@@ -8,6 +8,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CityListingsSample } from "../components/CityListingsSample";
+import { NearbyMarkets } from "../components/NearbyMarkets";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const SUNRISE_FAQS = [
@@ -274,6 +275,7 @@ export default function SellSunrisePage() {
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Sunrise" />
         <CityListingsSample city="Sunrise" />
+        <NearbyMarkets current="sell-sunrise" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">

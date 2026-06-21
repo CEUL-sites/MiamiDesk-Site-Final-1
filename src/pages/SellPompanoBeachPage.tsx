@@ -7,6 +7,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CityListingsSample } from "../components/CityListingsSample";
+import { NearbyMarkets } from "../components/NearbyMarkets";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const POMPANO_BEACH_FAQS = [
@@ -273,6 +274,7 @@ export default function SellPompanoBeachPage() {
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Pompano Beach" />
         <CityListingsSample city="Pompano Beach" />
+        <NearbyMarkets current="sell-pompano-beach" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">

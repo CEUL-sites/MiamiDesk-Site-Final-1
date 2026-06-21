@@ -248,12 +248,18 @@ export default function SellSouthFloridaPage() {
             <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-5">Sell by Neighborhood</p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "Weston",           href: "/sell-weston" },
-                { label: "Coral Gables",     href: "/sell-coral-gables" },
-                { label: "Aventura",         href: "/sell-aventura" },
+                { label: "Miami",            href: "/sell-miami" },
                 { label: "Brickell",         href: "/sell-brickell" },
+                { label: "Downtown Miami",   href: "/sell-downtown-miami" },
+                { label: "Coral Gables",     href: "/sell-coral-gables" },
                 { label: "Doral",            href: "/sell-doral" },
+                { label: "Kendall",          href: "/sell-kendall" },
+                { label: "Aventura",         href: "/sell-aventura" },
+                { label: "North Miami",      href: "/sell-north-miami" },
+                { label: "Hallandale Beach", href: "/sell-hallandale-beach" },
+                { label: "Weston",           href: "/sell-weston" },
                 { label: "Fort Lauderdale",  href: "/sell-fort-lauderdale" },
+                { label: "Pompano Beach",    href: "/sell-pompano-beach" },
                 { label: "Coral Springs",    href: "/sell-coral-springs" },
                 { label: "Pembroke Pines",   href: "/sell-pembroke-pines" },
                 { label: "Plantation",       href: "/sell-plantation" },
