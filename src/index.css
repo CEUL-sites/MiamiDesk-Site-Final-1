@@ -360,6 +360,44 @@ video {
 .prose-journal a:hover { color: #8a6d3f; }
 .prose-journal strong { color: #0B1E3F; }
 
+/* Tables — currency/comparison data renders as a bordered card.
+   Wrapper scrolls horizontally on narrow screens. */
+.prose-journal .prose-table {
+  margin: 2.25rem 0;
+  overflow-x: auto;
+  border: 1px solid rgba(11, 30, 63, 0.12);
+}
+.prose-journal table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.prose-journal thead th {
+  background: #0B1E3F;
+  color: #F9F7F2;
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+.prose-journal th,
+.prose-journal td {
+  padding: 0.65rem 0.95rem;
+  border-bottom: 1px solid rgba(11, 30, 63, 0.1);
+  vertical-align: top;
+}
+/* Value/comparison columns (everything after the label column) align right. */
+.prose-journal th + th,
+.prose-journal td + td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.prose-journal tbody tr:nth-child(even) { background: rgba(176, 141, 87, 0.05); }
+.prose-journal tbody tr:last-child td { border-bottom: none; }
+/* A row whose label is bold reads as a total/highlight row. */
+.prose-journal tbody td strong { color: #0B1E3F; }
+
 /* ── VideoBubbles — gentle float (disabled under reduced-motion) ───────────── */
 @keyframes video-bubble-bob {
   0%, 100% { transform: translateY(0); }

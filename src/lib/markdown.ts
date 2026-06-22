@@ -87,7 +87,13 @@ function markdownToHtml(md: string): string {
     state = 'none';
   };
 
-  for (const line of lines) {
+  // Splits a pipe-delimited table row into trimmed cells, ignoring the
+  // optional leading/trailing pipes.
+  const splitRow = (row: string): string[] =>
+    row.replace(/^\s*\|/, '').replace(/\|\s*$/, '').split('|').map((c) => c.trim());
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     const t = line.trim();
 
     // Blank line — close current block
@@ -98,6 +104,31 @@ function markdownToHtml(md: string): string {
       close();
       html.push('<hr class="border-bone my-12" />');
       continue;
+    }
+
+    // Table: a | cell | cell | header row directly followed by a
+    // | --- | --- | separator row. Cells support inline formatting.
+    if (t.startsWith('|') && i + 1 < lines.length) {
+      const sep = lines[i + 1].trim();
+      if (/^\|?[\s:|-]+\|?$/.test(sep) && sep.includes('-')) {
+        close();
+        const head = splitRow(t);
+        const headerEmpty = head.every((c) => c === '');
+        const rows: string[][] = [];
+        i += 1; // consume separator row
+        while (i + 1 < lines.length && lines[i + 1].trim().startsWith('|')) {
+          i += 1;
+          rows.push(splitRow(lines[i].trim()));
+        }
+        const thead = headerEmpty
+          ? ''
+          : `<thead><tr>${head.map((c) => `<th>${inline(c)}</th>`).join('')}</tr></thead>`;
+        const tbody = `<tbody>${rows
+          .map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`)
+          .join('')}</tbody>`;
+        html.push(`<div class="prose-table"><table>${thead}${tbody}</table></div>`);
+        continue;
+      }
     }
 
     // H3 ###
