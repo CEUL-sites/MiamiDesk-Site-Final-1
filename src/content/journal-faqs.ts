@@ -9,6 +9,28 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'weston-to-boca-downsizing': [
+    {
+      q: 'Can I buy a Boca Raton condo with the equity from selling my Weston home?',
+      a: 'Often, yes. In a June 2026 example, a Weston home sold for $1,170,000; after a $520,000 mortgage payoff and roughly 6% in seller closing costs, net proceeds were about $579,800 — enough to cover roughly 98% of a $580,000 Boca Raton condo plus closing costs, with a small balance brought from savings at closing and no new mortgage. Your numbers depend on your sale price, payoff, and the home you buy.',
+    },
+    {
+      q: 'How much can downsizing from a South Florida house to a condo save each month?',
+      a: 'In this case study, monthly housing cost fell from about $6,623 in Weston to about $2,019 in Boca Raton — roughly $4,604 a month, or about $55,000 a year. The savings come from eliminating the mortgage, lower property taxes with homestead portability, and replacing pool, lawn, insurance, and utility line items with a single condo maintenance fee. Actual figures vary by property.',
+    },
+    {
+      q: 'How does Florida homestead portability work when you downsize?',
+      a: 'When you downsize to a home of lower just value, the transferable Save Our Homes benefit is prorated: SOH differential multiplied by (new value divided by old value). In this example a $291,842 differential became about $144,674 of benefit transferred to the new homestead, lowering its taxable value from day one. Portability is requested on form DR-501T with your county property appraiser. Confirm your figures with the appraiser and a tax professional.',
+    },
+    {
+      q: 'Does a Boca Raton condo maintenance fee replace a house\'s separate bills?',
+      a: 'Largely, yes. The Boca Grand maintenance fee of $1,253 per month in this example includes building insurance, water, sewer, trash, pest control, security, parking, pool, and recreation — costs that appear as separate line items for a single-family home such as pool service, lawn care, flood and homeowner\'s insurance, and several utilities.',
+    },
+    {
+      q: 'How long do I have to apply for portability after selling my Weston home?',
+      a: 'Florida law gives you up to three tax years after the year you abandon your prior homestead to establish a new Florida homestead and apply for portability. Because the window is fixed, the sale date, purchase date, and county filing deadline should be coordinated before you list. Verify timing with your county property appraiser.',
+    },
+  ],
   'florida-homestead-portability-benefits-2026': [
     {
       q: 'What is the Florida Homestead Exemption worth?',

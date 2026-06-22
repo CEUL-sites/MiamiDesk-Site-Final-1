@@ -1,8 +1,8 @@
 ---
-title: "You're Paying $6,180 a Month for a Chapter That's Already Closed"
+title: "You're Paying $6,623 a Month for a Chapter That's Already Closed"
 date: "2026-06-22"
 slug: "weston-to-boca-downsizing"
-excerpt: "A Weston empty-nester sells, buys a Boca Raton condo debt-free, and cuts monthly housing costs from $6,180 to $2,019 — Florida homestead portability applied."
+excerpt: "A Weston empty-nester sells, buys a Boca Raton condo debt-free, and cuts monthly housing costs from $6,623 to $2,019 — with Florida homestead portability applied."
 category: "Seller Strategy"
 image: ""
 created_by: "claude"
@@ -13,11 +13,11 @@ content_goal: "seller_lead"
 
 **Two June 2026 South Florida closings. One question every empty nester should answer before they decide not to sell.**
 
-> **$6,180 → $2,019 a month.** The same household. A different address. About **$50,000 a year** that stops leaving the account.
+> **$6,623 → $2,019 a month.** The same household. A different address. About **$55,000 a year** that stops leaving the account.
 
 The kids finished school. The bedrooms are quiet. The mortgage, the taxes, the flood insurance, the pool service, and the lawn crew keep running exactly the same as they did when the house was full.
 
-Here is what the alternative actually looks like — in real numbers, from two real transactions closed last month.
+Here is what the alternative actually looks like — in real numbers, from two real transactions closed last month: a five-bedroom home in Weston's gated **The Lakes** community, and a two-bedroom condo in **Boca Grand**, in the heart of downtown Boca Raton.
 
 ## What the Sale Puts in Your Hands
 
@@ -26,9 +26,9 @@ Here is what the alternative actually looks like — in real numbers, from two r
 | | |
 |---|---|
 | Sale price | $1,170,000 |
-| Mortgage payoff | ($450,000) |
+| Mortgage payoff | ($520,000) |
 | Seller closing costs (6% — commissions + title + fees) | ($70,200) |
-| **Net proceeds** | **$649,800** |
+| **Net proceeds** | **$579,800** |
 
 ## What It Buys in Boca Raton — Debt Free
 
@@ -39,28 +39,29 @@ Here is what the alternative actually looks like — in real numbers, from two r
 | Purchase price | $580,000 |
 | Buyer closing costs (~2% — title, doc stamps, fees) | ($11,600) |
 | **Total to close** | **$591,600** |
+| Covered by Weston net proceeds | $579,800 |
+| Balance brought at closing (~2%) | $11,800 |
 | **New mortgage** | **$0** |
-| **Cash remaining after purchase** | **$58,200** |
 
-The equity in your family home pays for the next chapter in full — with **$58,200 left over**.
+The equity in your family home covers the next chapter almost dollar-for-dollar — about **98% of the purchase**. A modest balance of roughly $11,800 comes from savings at closing, and the Boca Raton condo is owned **outright. No mortgage.**
 
 ## The Monthly Difference
 
 | | Weston · Before | Boca · After |
 |---|---|---|
-| Mortgage (6.5% on $450,000) | $2,844 | **$0** |
+| Mortgage (6.5% on $520,000) | $3,287 | **$0** |
 | Property taxes | $1,311 | $546 ¹ |
 | HOA / Maintenance ² | $200 | $1,253 |
 | Flood + homeowner's insurance | $825 | $100 |
 | Pool, lawn, pest control, water, trash | $600 | **$0** |
 | Utilities | $400 | $120 |
-| **Monthly total** | **$6,180** | **$2,019** |
+| **Monthly total** | **$6,623** | **$2,019** |
 
-**Monthly savings: $4,161 · Annual savings: ~$50,000**
+**Monthly savings: $4,604 · Annual savings: ~$55,000**
 
 ¹ With Florida homestead portability applied — see below.
 
-² The Boca maintenance fee of $1,253/month includes building insurance, water, sewer, trash removal, pest control, security patrol, parking, pool, and recreation — expenses that appear as separate line items in a house.
+² The Boca Grand maintenance fee of $1,253/month includes building insurance, water, sewer, trash removal, pest control, security patrol, parking, pool, and recreation — expenses that appear as separate line items in a house.
 
 ## The Homestead Portability Calculation
 
@@ -102,15 +103,15 @@ Here is how the math works for this specific scenario:
 
 | Outcome | Result |
 |---|---|
-| Monthly housing cost — before | $6,180 |
+| Monthly housing cost — before | $6,623 |
 | Monthly housing cost — after | $2,019 |
-| **Monthly reduction** | **$4,161** |
-| **Annual reduction** | **~$50,000** |
+| **Monthly reduction** | **$4,604** |
+| **Annual reduction** | **~$55,000** |
 | New mortgage | **$0** |
-| Cash remaining after purchase | **$58,200** |
+| Share of Boca purchase covered by equity | **~98%** |
 | Starting tax vs. buyer with no portability | $205/month less |
 
-The school district that justified the five-bedroom house funded a debt-free property at the coast — with money left in the bank and $50,000 less going out every year. If a Weston move is on your mind, the [Weston seller's market read](/journal/selling-weston-florida-2026) and the [Boca Raton seller guide](/journal/selling-boca-raton-home-2026) are useful companions to this case study.
+The school district that justified the five-bedroom house funded a debt-free property at the coast — owned outright, with about **$55,000 a year less** going out the door. If a Weston move is on your mind, the [Weston seller's market read](/journal/selling-weston-florida-2026) and the [Boca Raton seller guide](/journal/selling-boca-raton-home-2026) are useful companions to this case study.
 
 ## The Timing Matters
 
@@ -126,6 +127,6 @@ contact@carlosre.com · [Schedule a seller strategy session →](https://wa.me/1
 
 ---
 
-*All figures based on two South Florida MLS closings, June 2026. Mortgage payment calculated at 6.5% on a $450,000 balance, 30-year fixed — illustrative; actual payment depends on loan terms. Seller closing cost of 6% includes commission and customary Florida transaction expenses. Buyer closing cost estimate of ~2% for a cash purchase. Portability calculation uses Weston assessed value derived from the 2025 tax bill ($15,735) at an approximate blended Broward County millage of 19 mills; Boca Raton taxes estimated at an approximate Palm Beach County blended millage of 17 mills. Actual portability benefits are determined by each county's property appraiser and require timely application by the homeowner. Insurance, maintenance, and utility line items are market-based estimates; actual costs vary. This content is informational only and does not constitute tax or legal advice. Consult a licensed tax professional and the relevant county property appraiser's office for guidance specific to your situation.*
+*All figures based on two South Florida MLS closings, June 2026. Mortgage payment calculated at 6.5% on a $520,000 balance, 30-year fixed — illustrative; actual payment depends on loan terms. Seller closing cost of 6% includes commission and customary Florida transaction expenses. Buyer closing cost estimate of ~2% for a cash purchase. Portability calculation uses Weston assessed value derived from the 2025 tax bill ($15,735) at an approximate blended Broward County millage of 19 mills; Boca Raton taxes estimated at an approximate Palm Beach County blended millage of 17 mills. Actual portability benefits are determined by each county's property appraiser and require timely application by the homeowner. Insurance, maintenance, and utility line items are market-based estimates; actual costs vary. This content is informational only and does not constitute tax or legal advice. Consult a licensed tax professional and the relevant county property appraiser's office for guidance specific to your situation.*
 
 Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
