@@ -107,26 +107,26 @@ export default function GlobalDeskPage() {
   return (
     <>
       <Helmet>
-        <title>The Global Desk — Premium Property in the Miami REALTORS® Network | HomesProfessional.com</title>
+        <title>The Global Desk — Position Premium Property Abroad for American &amp; Global Buyers | Miami REALTORS® MLS</title>
         <meta
           name="description"
-          content="The Global Desk places eligible premium property — anywhere in the world — formally inside the Miami REALTORS® MLS through a licensed principal of record, reaching the Latin American, European, and North American buyers the network already represents."
+          content="Owners of premium property in Spain, Europe, and Latin America gain formal position inside the Miami REALTORS® MLS through a licensed U.S. principal of record — reaching the American high-net-worth and global buyers who move through Miami. A formal listing position, not a referral."
         />
         <link rel="canonical" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
-        <meta property="og:title" content="The Global Desk — Premium Property in the Miami REALTORS® Network" />
+        <meta property="og:title" content="The Global Desk — Premium Property Positioned for American &amp; Global Buyers" />
         <meta
           property="og:description"
-          content="Eligible premium property placed formally inside the Miami REALTORS® MLS by a licensed principal of record — reaching the Latin American and global buyers who move through Miami. A formal listing position, not a referral."
+          content="International owners of premium property gain formal position inside the Miami REALTORS® MLS through a licensed U.S. principal of record — reaching the American high-net-worth and global buyers who move through Miami. A formal listing position, not a referral."
         />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="The Global Desk — Premium Property in the Miami REALTORS® Network | HomesProfessional.com" />
-        <meta name="twitter:description" content="Premium property positioned formally inside the Miami REALTORS® MLS by a licensed principal of record. A formal listing position, not a referral." />
+        <meta name="twitter:title" content="The Global Desk — Premium Property Positioned for American &amp; Global Buyers" />
+        <meta name="twitter:description" content="International premium property positioned formally inside the Miami REALTORS® MLS by a licensed U.S. principal of record — reaching American high-net-worth and global buyers. A formal listing position, not a referral." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -151,7 +151,7 @@ export default function GlobalDeskPage() {
           "name": "The Global Desk — Miami REALTORS® MLS Positioning",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "International Premium Property MLS Positioning",
-          "description": "Carlos Uzcategui, licensed Florida principal of record, places eligible premium property from any market formally inside the Miami REALTORS® MLS, where the network's member agents can present it to their buyers. Bilateral referral flow with affiliated Madrid agencies reaches European and Latin American buyers for South Florida property.",
+          "description": "Carlos Uzcategui, licensed Florida principal of record, places eligible premium property from any market formally inside the Miami REALTORS® MLS, where the network's member agents can present it to their American high-net-worth and global buyers. Bilateral referral flow with affiliated Madrid agencies reaches European and Latin American buyers for South Florida property.",
           "areaServed": ["Spain", "Latin America", "Europe", "North America", "South Florida"],
           "url": "https://homesprofessional.com/global-desk",
         })}</script>
@@ -186,24 +186,25 @@ export default function GlobalDeskPage() {
               className="mt-6 font-serif leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 400 }}
             >
-              Premium property, wherever it sits,
+              Premium property abroad,
               <br />
-              <em className="italic text-gold">positioned where the buyers already move.</em>
+              <em className="italic text-gold">positioned for American and global buyers.</em>
             </motion.h1>
             {/* Alternate headlines for Carlos to choose from:
-                 A) "The buyers move through Miami. Your listing should be inside the network."
-                 B) "List where Latin American and global capital already searches." */}
+                 A) "Your property abroad. America's most active buyers. One network."
+                 B) "Premium property, wherever it sits, positioned where American capital is buying."
+                 C) "The buyers move through Miami. Your listing should be inside the network." */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.16 }}
               className="mt-7 max-w-2xl font-sans text-lg leading-relaxed text-white/65"
             >
-              The world's most active buyers for prime real estate move through the Miami
-              REALTORS® network — the largest local REALTOR® association. The Global Desk places
-              eligible property from any market formally inside it, through a licensed principal of
-              record, so the network's member agents can present it to their buyers. Not adjacent to
-              the market. Inside it.
+              American high-net-worth buyers and global capital concentrate in one place — the
+              Miami REALTORS® network, the largest local REALTOR® association. The Global Desk gives
+              owners of premium property anywhere in the world a formal position inside it, through a
+              licensed U.S. principal of record, so the network's member agents can present the
+              property to their buyers. Not adjacent to the market. Inside it.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -267,7 +268,8 @@ export default function GlobalDeskPage() {
                   advertised — it is whether it sits inside the infrastructure the most active
                   buyers already work through. The Global Desk places eligible property directly
                   into the Miami REALTORS® MLS, where 93,000 member agents can present it to their
-                  buyer clients as part of their daily working ecosystem. Producing agents are
+                  American and international buyer clients as part of their daily working ecosystem.
+                  Producing agents are
                   extended referral-commission incentives to bring qualified buyers. Carlos serves
                   as the licensed Florida principal of record. This is a formal listing position —
                   not a referral passed to someone else.
@@ -318,11 +320,23 @@ export default function GlobalDeskPage() {
                 </div>
               ))}
             </motion.div>
-            {/* REVIEWER FLAG — $69B 2025 transaction volume. Previously removed from public copy.
-                If used, attribute strictly to the Miami and South Florida REALTORS® network's
-                combined 2025 volume — never to Carlos or United Realty Group. DO NOT publish
-                until Carlos confirms. Placeholder location for an approved figure, e.g.:
-                { v: "$69B", l: "Network 2025 Volume" } — left out pending approval. */}
+
+            {/* United Realty Group — Carlos's brokerage of record. Verified phrasing per urgfl.com. */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+              className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-navy/45"
+            >
+              <span className="text-gold-deep">United Realty Group</span>
+              <span className="text-gold/40">·</span>
+              <span>Ranked #1 in Florida — Most Closed Home Sales</span>
+              <span className="text-gold/40">·</span>
+              <span>3,500+ Agents</span>
+              <span className="text-gold/40">·</span>
+              <span>20 Florida Offices</span>
+            </motion.div>
           </div>
         </section>
 
