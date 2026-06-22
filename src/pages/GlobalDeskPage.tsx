@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ChevronRight, ChevronDown, Globe2, Network, FileCheck, BarChart3,
-  Layers, MessageCircle,
+  Layers, MessageCircle, Building2, Handshake, Landmark,
 } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -47,13 +47,13 @@ const BUYER_MARKETS = [
     key: "latam",
     label: "Latin America",
     headline: "The primary buyer engine.",
-    body: "Capital from Mexico, Colombia, Argentina, Brazil, Venezuela, and across the region treats South Florida as a dollar-denominated safe-harbor market. For owners in Spain and Europe whose own demand is driven by Latin American buyers, the network reaches those buyers' agents directly — the same buyers, sourced through the largest local REALTOR® association.",
+    body: "Capital from Mexico, Colombia, Argentina, Brazil, Venezuela, and across the region treats South Florida as a dollar-denominated safe-harbor market. For owners, developers, and agencies in Spain and Europe whose own demand is driven by Latin American buyers, the Miami REALTORS® network reaches those buyers' agents directly — the same buyers, sourced through the largest local REALTOR® association on earth.",
   },
   {
     key: "europe",
     label: "Europe",
     headline: "Second-home demand and asset diversification.",
-    body: "Spanish, Italian, French, and UK owners treat South Florida as a dollar-denominated second-home and diversification market — and increasingly position European premium property for Miami-network exposure to reach Latin American and North American buyers. The 437+ international agreements and 19-language syndication place prime listings in front of the European agents representing that demand.",
+    body: "Spanish, Italian, French, and UK buyers treat South Florida as a dollar-denominated second-home and diversification market. The 437+ international agreements and 19-language syndication place prime listings in front of the European agents representing that demand. Spanish luxury developers and agencies are served directly through the Spain Desk.",
   },
   {
     key: "northam",
@@ -91,13 +91,15 @@ const SERVICE_LEVELS = [
 ];
 
 // Verified figures only — see HARD CONSTRAINTS. Do not substitute or inflate.
+// $69B is attributed to the Miami and South Florida REALTORS® network's combined
+// 2025 transaction volume — never to Carlos or United Realty Group.
 const REACH_STATS = [
+  { v: "$69B",   l: "2025 Network Volume" },
   { v: "93,000", l: "Member Agents" },
   { v: "200+",   l: "Global Portals" },
   { v: "19",     l: "Languages" },
   { v: "260+",   l: "U.S. MLSs" },
   { v: "437+",   l: "Intl. Agreements" },
-  { v: "11",     l: "MLS Data Exchanges" },
 ];
 
 export default function GlobalDeskPage() {
@@ -107,26 +109,26 @@ export default function GlobalDeskPage() {
   return (
     <>
       <Helmet>
-        <title>The Global Desk — Position Premium Property Abroad for American &amp; Global Buyers | Miami REALTORS® MLS</title>
+        <title>Global Desk | Miami REALTORS® MLS Distribution for International Luxury Listings | Carlos Uzcategui</title>
         <meta
           name="description"
-          content="Owners of premium property in Spain, Europe, and Latin America gain formal position inside the Miami REALTORS® MLS through a licensed U.S. principal of record — reaching the American high-net-worth and global buyers who move through Miami. A formal listing position, not a referral."
+          content="The Global Desk places eligible premium property from Spain, Europe, and Latin America formally inside the Miami REALTORS® MLS — 93,000 member agents, $69B in network volume, licensed principal of record."
         />
         <link rel="canonical" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
-        <meta property="og:title" content="The Global Desk — Premium Property Positioned for American &amp; Global Buyers" />
+        <meta property="og:title" content="Global Desk — Miami REALTORS® MLS Distribution for International Luxury Listings" />
         <meta
           property="og:description"
-          content="International owners of premium property gain formal position inside the Miami REALTORS® MLS through a licensed U.S. principal of record — reaching the American high-net-worth and global buyers who move through Miami. A formal listing position, not a referral."
+          content="Spanish, European, and Latin American prime property placed formally inside the Miami REALTORS® MLS through a licensed U.S. principal of record — 93,000 member agents, $69B in network volume. A formal listing position, not a referral."
         />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="The Global Desk — Premium Property Positioned for American &amp; Global Buyers" />
-        <meta name="twitter:description" content="International premium property positioned formally inside the Miami REALTORS® MLS by a licensed U.S. principal of record — reaching American high-net-worth and global buyers. A formal listing position, not a referral." />
+        <meta name="twitter:title" content="Global Desk — Miami REALTORS® MLS Distribution for International Luxury Listings" />
+        <meta name="twitter:description" content="Spanish and international prime property placed formally inside the Miami REALTORS® MLS by a licensed U.S. principal of record — 93,000 member agents, $69B in network volume. A formal listing position, not a referral." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -151,7 +153,7 @@ export default function GlobalDeskPage() {
           "name": "The Global Desk — Miami REALTORS® MLS Positioning",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "International Premium Property MLS Positioning",
-          "description": "Carlos Uzcategui, licensed Florida principal of record, places eligible premium property from any market formally inside the Miami REALTORS® MLS, where the network's member agents can present it to their American high-net-worth and global buyers. Bilateral referral flow with affiliated Madrid agencies reaches European and Latin American buyers for South Florida property.",
+          "description": "Carlos Uzcategui, licensed Florida principal of record, places eligible premium property — including Spanish luxury developments and prime agency listings from Madrid, Marbella, and the Costa del Sol — formally inside the Miami REALTORS® MLS, where 93,000 member agents can present it to Latin American, North American, and global buyers. Bilateral referral flow with affiliated Madrid agencies reaches European and Latin American buyers for South Florida property.",
           "areaServed": ["Spain", "Latin America", "Europe", "North America", "South Florida"],
           "url": "https://homesprofessional.com/global-desk",
         })}</script>
@@ -186,25 +188,25 @@ export default function GlobalDeskPage() {
               className="mt-6 font-serif leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 400 }}
             >
-              Premium property abroad,
+              Your prime property deserves
               <br />
-              <em className="italic text-gold">positioned for American and global buyers.</em>
+              <em className="italic text-gold">the buyers Miami already commands.</em>
             </motion.h1>
             {/* Alternate headlines for Carlos to choose from:
-                 A) "Your property abroad. America's most active buyers. One network."
-                 B) "Premium property, wherever it sits, positioned where American capital is buying."
-                 C) "The buyers move through Miami. Your listing should be inside the network." */}
+                 A) "Premium property, wherever it sits, positioned where the buyers already move."
+                 B) "The buyers move through Miami. Your listing should be inside the network." */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.16 }}
               className="mt-7 max-w-2xl font-sans text-lg leading-relaxed text-white/65"
             >
-              American high-net-worth buyers and global capital concentrate in one place — the
-              Miami REALTORS® network, the largest local REALTOR® association. The Global Desk gives
-              owners of premium property anywhere in the world a formal position inside it, through a
-              licensed U.S. principal of record, so the network's member agents can present the
-              property to their buyers. Not adjacent to the market. Inside it.
+              The world's most active buyers for prime real estate transact through the Miami
+              REALTORS® network — the largest local REALTOR® association, with 93,000 member agents
+              and $69 billion in combined 2025 transaction volume. The Global Desk places eligible
+              property from any market formally inside it, through a licensed principal of record, so
+              the network's agents can present it to their buyers. Not adjacent to the market. Inside
+              it.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -247,7 +249,160 @@ export default function GlobalDeskPage() {
           </div>
         </section>
 
-        {/* ── 3.2 What the Global Desk does (IVORY) ── */}
+        {/* ── 3.2 The Spain Desk — lead pillar (NAVY-DEEP panel) ── */}
+        {/* AGENT NOTE: do not name any specific third-party agency or developer in public copy.
+            Write to the partner profile only until a signed cooperation agreement and the firm's
+            written consent are in place. */}
+        <section className="relative overflow-hidden border-y-2 border-gold/40 bg-navy-deep py-20 md:py-28 px-6 text-white">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_15%_0%,rgba(201,168,76,0.10),transparent_70%)]" />
+          <div className="relative mx-auto max-w-6xl">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+              className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+            >
+              The Spain Desk · Madrid · Marbella · Costa del Sol
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.06 }}
+              className="mt-5 max-w-4xl font-serif text-3xl leading-[1.15] md:text-5xl"
+            >
+              Spanish prime inventory,
+              <br />
+              <em className="italic text-gold">placed inside the U.S. network its buyers already use.</em>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.12 }}
+              className="mt-7 max-w-3xl font-sans text-lg leading-[1.85] text-white/70"
+            >
+              Prime demand in Madrid, Marbella, and the Costa del Sol is driven by Latin American and
+              North American capital. Those buyers — and the agents who represent them — work through
+              the Miami REALTORS® network. The Spain Desk gives luxury developers and established
+              agencies a licensed U.S. distribution channel into that network: Spanish prime property
+              placed formally inside the Miami REALTORS® MLS through a licensed Florida principal of
+              record.
+            </motion.p>
+
+            {/* Two audience blocks */}
+            <div className="mt-12 grid gap-5 md:grid-cols-2">
+              <motion.div
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6 }}
+                className="flex flex-col border border-gold/25 bg-white/[0.04] p-8"
+              >
+                <div className="flex h-11 w-11 items-center justify-center border border-gold/30 bg-gold/8">
+                  <Building2 size={18} className="text-gold" />
+                </div>
+                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                  For Developers
+                </p>
+                <h3 className="mt-2 font-serif text-2xl text-white">New-build and prime developments.</h3>
+                <p className="mt-3 font-sans text-base leading-[1.8] text-white/65">
+                  Place eligible units from a Spanish development into the Miami REALTORS® MLS, where
+                  93,000 member agents can present them to Latin American and North American buyers as
+                  part of their daily working ecosystem. Producing agents are extended
+                  referral-commission incentives to bring qualified buyers. Carlos serves as the
+                  licensed Florida principal of record under a written cooperation agreement — formal
+                  institutional exposure for a Spanish development, not an advertising placement.
+                </p>
+                <a
+                  href="/contact?desk=spain-developer"
+                  className="mt-7 inline-flex items-center gap-2 self-start bg-gold px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                >
+                  Request a Developer Distribution Brief
+                  <ChevronRight size={13} />
+                </a>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.08 }}
+                className="flex flex-col border border-gold/25 bg-white/[0.04] p-8"
+              >
+                <div className="flex h-11 w-11 items-center justify-center border border-gold/30 bg-gold/8">
+                  <Handshake size={18} className="text-gold" />
+                </div>
+                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                  For Agencies
+                </p>
+                <h3 className="mt-2 font-serif text-2xl text-white">Agency-to-agency cooperation.</h3>
+                <p className="mt-3 font-sans text-base leading-[1.8] text-white/65">
+                  Your prime listings gain Miami-network distribution while your agency keeps the
+                  local mandate — showings, negotiation, and buyer qualification in Spain remain
+                  yours. Carlos lists the property into the Miami REALTORS® MLS as the licensed U.S.
+                  principal of record. The flow runs both ways: buyers relocating or investing from
+                  the Miami network into Spain are routed to your agency, and South Florida sellers
+                  with Spanish and Latin American buyer profiles reach your market through coordinated
+                  referral.
+                </p>
+                <a
+                  href="/contact?desk=spain-agency"
+                  className="mt-7 inline-flex items-center gap-2 self-start bg-gold px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                >
+                  Request an Agency Cooperation Proposal
+                  <ChevronRight size={13} />
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Legitimacy callout */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mt-10 flex flex-col items-start gap-4 border-y border-gold/40 py-7 sm:flex-row sm:items-center sm:gap-8"
+            >
+              <Landmark size={22} className="flex-shrink-0 text-gold" />
+              <div className="flex flex-wrap gap-x-8 gap-y-2 font-serif text-lg text-white/90">
+                <span>A licensed Florida principal of record.</span>
+                <span>Written cooperation in both directions.</span>
+                <span className="text-gold">No workaround.</span>
+              </div>
+            </motion.div>
+
+            {/* Spain Desk CTAs */}
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a
+                href="/contact?desk=spain-agency"
+                className="inline-flex items-center gap-2 border border-white/25 px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80 transition-colors hover:border-gold/60 hover:text-white"
+              >
+                Request an Agency Cooperation Proposal
+                <ChevronRight size={13} />
+              </a>
+              <a
+                href="/contact?desk=spain-developer"
+                className="inline-flex items-center gap-2 border border-white/25 px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80 transition-colors hover:border-gold/60 hover:text-white"
+              >
+                Request a Developer Distribution Brief
+                <ChevronRight size={13} />
+              </a>
+              <a
+                href={WA_MADRID}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+              >
+                <MessageCircle size={13} />
+                WhatsApp the Madrid Desk
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 3.3 What the Global Desk does (IVORY) ── */}
         <section className="bg-ivory py-16 md:py-24 px-6 text-navy">
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -258,21 +413,20 @@ export default function GlobalDeskPage() {
                 transition={{ duration: 0.7 }}
               >
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-deep">
-                  What the Global Desk Does
+                  The Mechanism
                 </p>
                 <h2 className="mt-5 max-w-2xl font-serif text-3xl leading-[1.18] md:text-4xl">
                   Formal position inside the network, not exposure adjacent to it.
                 </h2>
                 <p className="mt-7 max-w-2xl font-sans text-lg leading-[1.85] text-navy/70">
-                  For an owner of premium property, the question is not whether a listing is
-                  advertised — it is whether it sits inside the infrastructure the most active
-                  buyers already work through. The Global Desk places eligible property directly
-                  into the Miami REALTORS® MLS, where 93,000 member agents can present it to their
-                  American and international buyer clients as part of their daily working ecosystem.
-                  Producing agents are
+                  For an owner, developer, or cooperating agency, the question is not whether a
+                  listing is advertised — it is whether it sits inside the infrastructure the most
+                  active buyers already work through. The Global Desk places eligible property
+                  directly into the Miami REALTORS® MLS, where 93,000 member agents can present it to
+                  their buyer clients as part of their daily working ecosystem. Producing agents are
                   extended referral-commission incentives to bring qualified buyers. Carlos serves
-                  as the licensed Florida principal of record. This is a formal listing position —
-                  not a referral passed to someone else.
+                  as the licensed Florida principal of record. A formal listing position — not a
+                  referral passed to someone else.
                 </p>
                 <div className="mt-8">
                   <MiamiRealtorsBadge />
@@ -321,7 +475,9 @@ export default function GlobalDeskPage() {
               ))}
             </motion.div>
 
-            {/* United Realty Group — Carlos's brokerage of record. Verified phrasing per urgfl.com. */}
+            {/* United Realty Group — Carlos's brokerage of record. Approved figures only (§6).
+                The "#1 Most Closed Homes" ranking (sourced from urgfl.com) is held out of public
+                copy pending Carlos's confirmation against the verified-figures list. */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -331,7 +487,7 @@ export default function GlobalDeskPage() {
             >
               <span className="text-gold-deep">United Realty Group</span>
               <span className="text-gold/40">·</span>
-              <span>Ranked #1 in Florida — Most Closed Home Sales</span>
+              <span>Carlos's Brokerage of Record</span>
               <span className="text-gold/40">·</span>
               <span>3,500+ Agents</span>
               <span className="text-gold/40">·</span>
@@ -340,7 +496,7 @@ export default function GlobalDeskPage() {
           </div>
         </section>
 
-        {/* ── 3.3 Where the demand comes from (region selector, WHITE) ── */}
+        {/* ── 3.4 Where the demand comes from (region selector, WHITE) ── */}
         <section className="bg-white py-16 md:py-24 px-6 text-navy">
           <div className="mx-auto max-w-5xl">
             <motion.p
@@ -413,7 +569,7 @@ export default function GlobalDeskPage() {
           </div>
         </section>
 
-        {/* ── 3.4 Bilateral flow (NAVY-DEEP) ── */}
+        {/* ── 3.5 Two directions, one network (NAVY) ── */}
         <section className="border-t border-gold/15 bg-navy-deep py-16 md:py-24 px-6 text-white">
           <div className="mx-auto max-w-5xl">
             <motion.p
@@ -491,7 +647,7 @@ export default function GlobalDeskPage() {
           </div>
         </section>
 
-        {/* ── 3.5 Service levels (IVORY) ── */}
+        {/* ── 3.6 Service levels (IVORY) ── */}
         <section className="bg-ivory py-16 md:py-24 px-6 text-navy">
           <div className="mx-auto max-w-5xl">
             <motion.p
@@ -643,7 +799,7 @@ export default function GlobalDeskPage() {
           </div>
         </section>
 
-        {/* ── 3.6 Closing CTA (IVORY) ── */}
+        {/* ── 3.7 Closing CTA (IVORY) ── */}
         <section className="bg-ivory py-16 md:py-20 px-6 text-center text-navy">
           <div className="mx-auto max-w-3xl">
             <h2 className="font-serif italic leading-tight text-navy" style={{ fontSize: "clamp(1.7rem, 3vw, 2.6rem)" }}>
@@ -680,7 +836,7 @@ export default function GlobalDeskPage() {
                 WhatsApp Madrid Desk
               </a>
             </div>
-            {/* ── 3.7 Compliance footer ── */}
+            {/* ── 3.8 Compliance footer ── */}
             <p className="mt-9 font-mono text-[9px] uppercase tracking-[0.2em] text-navy/35">
               Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
             </p>
