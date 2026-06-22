@@ -124,6 +124,7 @@
     "@types/google.maps": "^3.65.0",
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.5.0",
+    "puppeteer": "^25.1.0",
     "react-snap": "^1.23.0",
     "tailwindcss": "^4.3.0",
     "tsx": "^4.22.0",
