@@ -3,13 +3,17 @@ import { CheckCircle2, Download, FileText, Loader2, X } from "lucide-react";
 import { LEAD_MAGNETS } from "../constants";
 import { trackFunnelEvent } from "../lib/analytics";
 
-// Exit-intent capture — desktop only, once per session, deliberately quiet.
-// When the cursor leaves through the top of the viewport (closing/leaving),
-// offer the Seller's Net Sheet in exchange for an email. Arms only after a
-// 12s dwell so quick bounces and accidental moves never see it.
+// Abandonment capture — once per session, deliberately quiet.
+// Desktop: when the cursor leaves through the top of the viewport (closing or
+// switching tabs), offer the Seller's Net Sheet for an email. Arms after a 12s
+// dwell so quick bounces never see it.
+// Mobile (no exit-intent signal exists): arms after a longer dwell AND requires
+// engagement (the visitor scrolled into the page), then fires on a genuine
+// "leaving" gesture — a quick scroll back to the top, or tabbing away.
 
 const SHOWN_KEY = "hp_exit_intent_shown";
 const ARM_DELAY_MS = 12_000;
+const MOBILE_ARM_DELAY_MS = 20_000;
 
 const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
@@ -22,24 +26,58 @@ export function ExitIntentModal() {
     try {
       if (sessionStorage.getItem(SHOWN_KEY) === "1") return;
     } catch { return; }
-    // Touch-primary devices have no exit-intent signal — skip entirely
-    if (window.matchMedia("(pointer: coarse)").matches) return;
 
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
     let armed = false;
-    const armTimer = window.setTimeout(() => { armed = true; }, ARM_DELAY_MS);
 
-    const onMouseOut = (e: MouseEvent) => {
-      if (!armed || e.relatedTarget || e.clientY > 0) return;
+    const trigger = (reason: string) => {
       try { sessionStorage.setItem(SHOWN_KEY, "1"); } catch { /* private mode */ }
       setOpen(true);
-      trackFunnelEvent("exit_intent_shown", { offer: "seller-net-sheet" });
-      document.removeEventListener("mouseout", onMouseOut);
+      trackFunnelEvent("exit_intent_shown", {
+        offer: "seller-net-sheet",
+        device: isTouch ? "mobile" : "desktop",
+        trigger: reason,
+      });
+      cleanup();
     };
-    document.addEventListener("mouseout", onMouseOut);
-    return () => {
+
+    // Desktop — cursor leaves through the top of the viewport.
+    const onMouseOut = (e: MouseEvent) => {
+      if (!armed || e.relatedTarget || e.clientY > 0) return;
+      trigger("mouseout");
+    };
+
+    // Mobile — engaged (scrolled in) + a leaving gesture.
+    let engaged = false;
+    let lastY = typeof window !== "undefined" ? window.scrollY : 0;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      if (docH > 0 && y / docH > 0.4) engaged = true;
+      // Fast scroll back up to the top after engaging = "I'm leaving."
+      if (armed && engaged && y < 80 && lastY - y > 12) trigger("scroll-up");
+      lastY = y;
+    };
+    const onVisibility = () => {
+      if (armed && engaged && document.visibilityState === "hidden") trigger("hidden");
+    };
+
+    const armTimer = window.setTimeout(() => { armed = true; }, isTouch ? MOBILE_ARM_DELAY_MS : ARM_DELAY_MS);
+
+    function cleanup() {
       window.clearTimeout(armTimer);
       document.removeEventListener("mouseout", onMouseOut);
-    };
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("visibilitychange", onVisibility);
+    }
+
+    if (isTouch) {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      document.addEventListener("visibilitychange", onVisibility);
+    } else {
+      document.addEventListener("mouseout", onMouseOut);
+    }
+    return cleanup;
   }, []);
 
   useEffect(() => {
@@ -67,6 +105,13 @@ export function ExitIntentModal() {
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
+      // Deliver the guide by email so the lead keeps it even if they never click
+      // the on-page download, and gets a branded, down-funnel touch.
+      fetch("/.netlify/functions/lead-acknowledgment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formName: "lead-magnet-download", email, guide: "seller-net-sheet-2026-exit-intent" }),
+      }).catch(() => {});
       trackFunnelEvent("exit_intent_capture", { offer: "seller-net-sheet" });
       setStatus("success");
     } catch {
@@ -76,7 +121,7 @@ export function ExitIntentModal() {
 
   return (
     <div
-      className="fixed inset-0 z-[60] hidden items-center justify-center bg-navy-deep/70 backdrop-blur-sm lg:flex"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-navy-deep/70 p-4 backdrop-blur-sm"
       onClick={() => setOpen(false)}
     >
       <div
@@ -116,6 +161,13 @@ export function ExitIntentModal() {
                 <Download size={13} />
                 Download Net Sheet
               </a>
+              <p className="font-sans text-sm leading-relaxed text-navy/60">
+                A copy is on its way to your inbox. When you'd like numbers for your
+                specific property,{" "}
+                <a href="/home-value" className="text-gold underline underline-offset-2 hover:text-navy">
+                  request a free, no-obligation valuation →
+                </a>
+              </p>
             </div>
           ) : (
             <>
