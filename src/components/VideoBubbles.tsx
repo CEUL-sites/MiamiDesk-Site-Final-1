@@ -9,16 +9,16 @@ export interface VideoBubble {
 
 export const VIDEO_BUBBLES: VideoBubble[] = [
   { src: "/videos/signature_marketing_reel.mp4",      caption: "Signature marketing reel" },
+  { src: "/videos/luxury_home_walkthrough.mp4",       caption: "Cinematic home walkthrough" },
   { src: "/videos/luxury_waterfront_estate.mp4",      caption: "Waterfront estate tour" },
   { src: "/videos/matterport_miami_beach.mp4",        caption: "Matterport — Miami Beach" },
-  { src: "/videos/matterport_style.mp4",              caption: "3D Matterport tour" },
-  { src: "/videos/infinity_pool_ocean_views.mp4",     caption: "Infinity pool · ocean views" },
-  { src: "/videos/luxury_home_walkthrough.mp4",       caption: "Cinematic home walkthrough" },
+  { src: "/videos/matterport_style.mp4",              caption: "Immersive 3D walkthrough" },
+  { src: "/videos/infinity_pool_ocean_views.mp4",     caption: "Lifestyle, not just listings" },
   { src: "/videos/dollhouse_hand_reach_1.mp4",        caption: "Your property, in hand" },
   { src: "/videos/dollhouse_rotating_in_hands.mp4",   caption: "3D dollhouse — every angle" },
   { src: "/videos/cinematic_house_reach.mp4",         caption: "Cinematic listing reach" },
-  { src: "/videos/digital_twin_exposure.mp4",         caption: "Digital twin exposure" },
-  { src: "/videos/home_tour_reach.mp4",               caption: "Global distribution reach" },
+  { src: "/videos/digital_twin_exposure.mp4",         caption: "Global digital exposure" },
+  { src: "/videos/home_tour_reach.mp4",               caption: "200+ portals · 19 languages" },
   { src: "/videos/ceul_team_dollhouse.mp4",           caption: "Your home, our team" },
 ];
 
