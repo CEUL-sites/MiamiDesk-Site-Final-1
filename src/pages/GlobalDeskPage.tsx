@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, type Variants } from "motion/react";
 import {
   ChevronRight, ChevronDown, Globe2, Network, FileCheck, BarChart3,
-  Layers, MessageCircle, Building2, Handshake, Landmark,
+  Layers, MessageCircle, Building2, Handshake, Landmark, ShieldCheck,
 } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -13,6 +13,15 @@ import { SpainReel } from "../components/SpainReel";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const heroContainer: Variants = {
+  hidden:  {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+};
+const heroItem: Variants = {
+  hidden:  { opacity: 0, y: 22 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+};
 
 // US WhatsApp for the desk; Madrid WhatsApp for international-seller blocks.
 const WA_US = "https://wa.me/19548656622";
@@ -162,57 +171,197 @@ export default function GlobalDeskPage() {
         <Navbar />
 
         {/* ── 3.1 Hero ── */}
-        <section className="relative overflow-hidden bg-[#060D18] pt-28 pb-16 md:pt-36 md:pb-24 px-6 text-white">
+        <section className="relative overflow-hidden bg-[#060D18] text-white flex flex-col">
+
+          <style>{`
+            .gd-grain {
+              position:absolute; inset:0; pointer-events:none; opacity:0.025;
+              background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+              background-size: 180px;
+            }
+            .gd-grid {
+              position:absolute; inset:0; pointer-events:none;
+              background-image:
+                linear-gradient(rgba(176,141,87,0.03) 1px, transparent 1px),
+                linear-gradient(90deg,rgba(176,141,87,0.03) 1px, transparent 1px);
+              background-size:64px 64px;
+              mask-image:radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
+            }
+            .gd-vignette {
+              position:absolute; bottom:0; left:0; right:0; height:220px; pointer-events:none;
+              background:linear-gradient(to top, rgba(6,13,24,0.95) 0%, transparent 100%);
+            }
+            @keyframes gd-ticker {
+              from { transform: translateX(0); }
+              to   { transform: translateX(-50%); }
+            }
+            .gd-ticker-track {
+              animation: gd-ticker 14s linear infinite;
+              display: flex;
+              will-change: transform;
+            }
+            .gd-ticker-track:hover { animation-play-state: paused; }
+            @media (prefers-reduced-motion: reduce) {
+              .gd-ticker-track { animation: none; }
+            }
+          `}</style>
+
           <LazyVideo
             src="/videos/dollhouse_global_reach.mp4"
             eager
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.28]"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.20]"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/70 via-[#060D18]/55 to-[#060D18]" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.30),transparent_70%)]" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_70%,rgba(176,141,87,0.10),transparent_70%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/75 via-[#060D18]/50 to-[#060D18]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.32),transparent_70%)]" />
+          <div className="gd-grain"    aria-hidden="true" />
+          <div className="gd-grid"     aria-hidden="true" />
+          <div className="gd-vignette" aria-hidden="true" />
 
-          <div className="relative mx-auto max-w-5xl">
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
-            >
-              The Global Desk · Miami REALTORS® MLS · Licensed Principal of Record
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.08 }}
-              className="mt-6 font-serif leading-[1.05] text-white"
-              style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 400 }}
-            >
-              Your prime property deserves
-              <br />
-              <em className="italic text-gold">the buyers Miami already commands.</em>
-            </motion.h1>
-            {/* Alternate headlines for Carlos to choose from:
-                 A) "Premium property, wherever it sits, positioned where the buyers already move."
-                 B) "The buyers move through Miami. Your listing should be inside the network." */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.16 }}
-              className="mt-7 max-w-2xl font-sans text-lg leading-relaxed text-white/65"
-            >
-              The world's most active buyers for prime real estate transact through the Miami
-              REALTORS® network — the largest local REALTOR® association, with 93,000 member agents
-              and $69 billion in combined 2025 transaction volume. The Global Desk places eligible
-              property from any market formally inside it, through a licensed principal of record, so
-              the network's agents can present it to their buyers. Not adjacent to the market. Inside
-              it.
-            </motion.p>
+          <motion.div
+            variants={heroContainer}
+            initial="hidden"
+            animate="visible"
+            className="relative z-10 flex flex-1 flex-col items-center px-4 pt-[72px] sm:pt-24 md:pt-28 pb-16 sm:px-8"
+          >
+            <div className="w-full max-w-4xl flex flex-col items-center text-center">
+
+              {/* Eyebrow pill */}
+              <motion.div variants={heroItem}>
+                <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
+                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                  <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
+                    <span className="sm:hidden">Global Desk · Miami REALTORS® MLS</span>
+                    <span className="hidden sm:inline">Global Desk · Miami REALTORS® MLS · Licensed Principal of Record</span>
+                  </span>
+                </span>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1
+                variants={heroItem}
+                className="mt-6 font-serif leading-[1.05] text-white"
+                style={{ fontSize: "clamp(1.9rem, 5.5vw, 4.8rem)", fontWeight: 400 }}
+              >
+                List With the Reach of the
+                <br className="hidden md:block" aria-hidden="true" />{" "}
+                <em className="italic text-gold">World's Most Active International Buyer Network.</em>
+              </motion.h1>
+
+              {/* Video bubble trio */}
+              <motion.div variants={heroItem} className="mt-9 flex items-center justify-center gap-4 sm:gap-7">
+                {/* Left bubble */}
+                <div className="flex flex-col items-center gap-2.5">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.25 }}
+                    className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
+                    style={{
+                      width: "clamp(78px,11vw,108px)",
+                      height: "clamp(78px,11vw,108px)",
+                      border: "2px solid rgba(176,141,87,0.30)",
+                      boxShadow: "0 0 16px rgba(176,141,87,0.15)",
+                    }}
+                  >
+                    <LazyVideo
+                      src="/videos/miami_madrid_transition.mp4"
+                      eager
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                  </motion.div>
+                  <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
+                    Spain · Europe
+                  </span>
+                </div>
+
+                {/* Center bubble (larger) */}
+                <div className="flex flex-col items-center gap-2.5">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.1 }}
+                    className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
+                    style={{
+                      width: "clamp(100px,16vw,148px)",
+                      height: "clamp(100px,16vw,148px)",
+                      border: "2px solid rgba(176,141,87,0.65)",
+                      boxShadow: "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)",
+                    }}
+                  >
+                    <LazyVideo
+                      src="/videos/split_miami_spain_mls.mp4"
+                      eager
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                  </motion.div>
+                  <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
+                    Global MLS Reach
+                  </span>
+                </div>
+
+                {/* Right bubble */}
+                <div className="flex flex-col items-center gap-2.5">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.4 }}
+                    className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
+                    style={{
+                      width: "clamp(78px,11vw,108px)",
+                      height: "clamp(78px,11vw,108px)",
+                      border: "2px solid rgba(176,141,87,0.30)",
+                      boxShadow: "0 0 16px rgba(176,141,87,0.15)",
+                    }}
+                  >
+                    <LazyVideo
+                      src="/videos/luxury_waterfront_drone.mp4"
+                      eager
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                  </motion.div>
+                  <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
+                    Premium Inventory
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* Subtitle */}
+              <motion.p
+                variants={heroItem}
+                className="mt-6 font-serif text-white/70 italic"
+                style={{ fontSize: "clamp(1rem, 2.2vw, 1.35rem)" }}
+              >
+                International Sellers. A Formal Listing Position. Not a Referral.
+              </motion.p>
+
+              {/* Network ticker */}
+              <motion.div variants={heroItem} className="relative mt-5 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
+                <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-[#060D18] to-transparent" />
+                <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
+                <div className="gd-ticker-track">
+                  {[0, 1].map((copy) => (
+                    <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
+                      <span className="text-gold/75">Network</span>{" "}·{" "}
+                      <span className="text-white/85">$69B</span> 2025 Volume{" "}·{" "}
+                      <span className="text-white/85">93,000</span> Member Agents{" "}·{" "}
+                      <span className="text-white/85">200+</span> Global Portals{" "}·{" "}
+                      <span className="text-white/85">437+</span> Intl. Agreements{" "}·{" "}
+                      <span className="text-white/85">19</span> Languages{" "}·{" "}
+                      <span className="text-white/85">260+</span> U.S. MLSs
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+
+            </div>
+
+            {/* CTA buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.26 }}
-              className="mt-10 flex flex-wrap gap-4"
+              variants={heroItem}
+              className="mt-10 flex flex-wrap justify-center gap-4"
             >
               <a
                 href="/contact"
@@ -231,22 +380,36 @@ export default function GlobalDeskPage() {
               </a>
             </motion.div>
 
-            {/* Trust strip */}
+            {/* Trust row */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/10 pt-7 font-mono text-[9px] uppercase tracking-[0.22em] text-white/40"
+              transition={{ delay: 1.0, duration: 0.6 }}
+              className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
             >
-              <span>Formal MLS Listing</span>
-              <span className="text-gold/40">·</span>
-              <span>Documented Outreach</span>
-              <span className="text-gold/40">·</span>
-              <span>Written Reporting</span>
-              <span className="text-gold/40">·</span>
-              <span>Not a Referral</span>
+              {[
+                { icon: ShieldCheck, text: "Licensed Since 2001 · FL SL705771" },
+                { icon: Handshake,   text: "Formal MLS Listing" },
+                { icon: Globe2,      text: "Not a Referral" },
+              ].map(({ icon: Icon, text }) => (
+                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] text-white/40">
+                  <Icon size={11} className="text-gold/60 flex-shrink-0" />
+                  {text}
+                </span>
+              ))}
             </motion.div>
-          </div>
+
+            {/* Compliance */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.1, duration: 0.5 }}
+              className="mt-3 font-mono text-[7.5px] uppercase tracking-[0.14em] text-white/20 max-w-sm text-center"
+            >
+              Eligible exposure varies by property type, MLS rules, platform participation, and syndication partner availability.
+            </motion.p>
+
+          </motion.div>
         </section>
 
         {/* ── 3.2 The Spain Desk — lead pillar (NAVY-DEEP panel) ── */}
