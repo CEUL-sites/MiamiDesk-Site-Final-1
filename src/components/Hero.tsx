@@ -24,6 +24,7 @@ const FADE_MS = 600;
 // they show full-size (SellerSection, VideoBubbles, Agents & Markets pages).
 const HERO_FEATURE_VIDEOS = [
   { src: "/videos/dollhouse_rotating_hands.mp4", label: "Signature Marketing" },
+  { src: "/videos/luxury_waterfront_estate.mp4", label: "Waterfront Estate"   },
   { src: "/videos/matterport_tour.mp4",          label: "3D Matterport Tour"  },
   { src: "/videos/miami_madrid_transition.mp4",  label: "Global Reach"        },
   { src: "/videos/gemini_property_vision.mp4",   label: "AI Marketing"        },
