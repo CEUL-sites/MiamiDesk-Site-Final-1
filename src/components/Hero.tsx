@@ -23,11 +23,11 @@ const FADE_MS = 600;
 // weight is invisible but they pull ~27MB of mobile data. Both remain live where
 // they show full-size (SellerSection, VideoBubbles, Agents & Markets pages).
 const HERO_FEATURE_VIDEOS = [
-  { src: "/videos/dollhouse_rotating_hands.mp4", label: "Signature Marketing" },
-  { src: "/videos/luxury_waterfront_estate.mp4", label: "Waterfront Estate"   },
-  { src: "/videos/matterport_tour.mp4",          label: "3D Matterport Tour"  },
-  { src: "/videos/miami_madrid_transition.mp4",  label: "Global Reach"        },
-  { src: "/videos/gemini_property_vision.mp4",   label: "AI Marketing"        },
+  { src: "/videos/dollhouse_rotating_in_hands.mp4", label: "Signature Marketing" },
+  { src: "/videos/luxury_waterfront_estate.mp4",    label: "Waterfront Estate"   },
+  { src: "/videos/matterport_miami_beach.mp4",      label: "3D Matterport Tour"  },
+  { src: "/videos/digital_twin_exposure.mp4",       label: "Global Exposure"     },
+  { src: "/videos/gemini_property_vision.mp4",      label: "AI Marketing"        },
 ];
 
 // Decorative hero clips are skipped entirely on data-saver / slow (2g) links —

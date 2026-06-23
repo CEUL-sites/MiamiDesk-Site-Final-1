@@ -8,17 +8,18 @@ export interface VideoBubble {
 }
 
 export const VIDEO_BUBBLES: VideoBubble[] = [
-  { src: "/videos/signature_marketing_reel.mp4",   caption: "Signature marketing reel" },
-  { src: "/videos/luxury_waterfront_estate.mp4",   caption: "Waterfront estate tour" },
-  { src: "/videos/luxury_home_walkthrough.mp4",    caption: "Cinematic home walkthrough" },
-  { src: "/videos/virtual_tour_showcase.mp4",      caption: "Virtual property tour" },
-  { src: "/videos/matterport_tour.mp4",            caption: "3D walkthrough tour" },
-  { src: "/videos/matterport_tour_2.mp4",          caption: "3D walkthrough tour" },
-  { src: "/videos/matterport_tour_3.mp4",          caption: "3D walkthrough tour" },
-  { src: "/videos/dollhouse_rotating_hands.mp4",  caption: "3D dollhouse — every angle" },
-  { src: "/videos/cinematic_house_reach.mp4",      caption: "Cinematic listing reach" },
-  { src: "/videos/digital_twin_exposure.mp4",      caption: "Digital twin exposure" },
-  { src: "/videos/dollhouse_hand_reach.mp4",       caption: "Property in your hands" },
+  { src: "/videos/signature_marketing_reel.mp4",      caption: "Signature marketing reel" },
+  { src: "/videos/luxury_waterfront_estate.mp4",      caption: "Waterfront estate tour" },
+  { src: "/videos/matterport_miami_beach.mp4",        caption: "Matterport — Miami Beach" },
+  { src: "/videos/matterport_style.mp4",              caption: "3D Matterport tour" },
+  { src: "/videos/infinity_pool_ocean_views.mp4",     caption: "Infinity pool · ocean views" },
+  { src: "/videos/luxury_home_walkthrough.mp4",       caption: "Cinematic home walkthrough" },
+  { src: "/videos/dollhouse_hand_reach_1.mp4",        caption: "Your property, in hand" },
+  { src: "/videos/dollhouse_rotating_in_hands.mp4",   caption: "3D dollhouse — every angle" },
+  { src: "/videos/cinematic_house_reach.mp4",         caption: "Cinematic listing reach" },
+  { src: "/videos/digital_twin_exposure.mp4",         caption: "Digital twin exposure" },
+  { src: "/videos/home_tour_reach.mp4",               caption: "Global distribution reach" },
+  { src: "/videos/ceul_team_dollhouse.mp4",           caption: "Your home, our team" },
 ];
 
 // Crossfade duration between clips (ms). Kept in sync with the CSS opacity
