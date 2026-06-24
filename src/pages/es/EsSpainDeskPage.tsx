@@ -799,17 +799,17 @@ export default function EsSpainDeskPage() {
             </div>
 
             <div className="space-y-5">
-              <p className="font-sans text-base leading-relaxed text-navy-deep/70">
+              <p className="font-sans text-base leading-relaxed text-white/70">
                 {/* TODO: native Madrid editor review */}
-                Carlos Uzcategui actúa como principal licenciado de registro en Florida, lo que permite a agencias españolas colocar su inventario directamente en el MLS de Miami y Sur de Florida. La agencia española mantiene la representación local del propietario — sin ceder el mandato.
+                Carlos Uzcategui actúa como principal licenciado de registro en Florida, lo que permite a las agencias españolas colocar su inventario premium directamente en el MLS de Miami y Sur de Florida. La agencia española mantiene la representación local del propietario en todo momento — sin ceder el mandato.
               </p>
-              <p className="font-sans text-base leading-relaxed text-navy-deep/70">
+              <p className="font-sans text-base leading-relaxed text-white/70">
                 {/* TODO: native Madrid editor review */}
-                Desde el primer día de activación, la propiedad llega a 93.000 agentes miembros de la mayor asociación local de REALTORS® del mundo, con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
+                Desde el primer día de activación, la propiedad premium alcanza a los 93.000 agentes miembro de la mayor asociación local de REALTORS® del mundo — los agentes que representan a los compradores — con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
 
-              <div>
+              <div className="mt-10">
                 <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/35 mb-5">Lo Que Conserva su Agencia</p>
                 <ul className="space-y-5">
                   {[
