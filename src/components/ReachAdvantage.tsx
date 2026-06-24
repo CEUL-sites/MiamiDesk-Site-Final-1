@@ -23,8 +23,8 @@ const TOP_STATS = [
     display: "3,500",
     suffix: "+",
     label: "United Realty Group Agents",
-    sublabel: "#1 Florida · Most Closed Homes",
-    desc: "Florida's #1 brokerage by closed homes, behind every listing.",
+    sublabel: "Founded 2002 · 20 Florida offices",
+    desc: "A full-service brokerage with an in-house title company behind every listing.",
   },
 ];
 

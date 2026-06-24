@@ -250,7 +250,7 @@ export default function GlobalDeskPage() {
             </motion.h1>
             {/* Alternate headlines for Carlos to choose from — all in the
                 main hero's "...the Reach of..." voice:
-                 A) "Premium Property, Backed by the Reach of the World's Largest Local Realtor® Network."
+                 A) "Premium Property, Backed by the Reach of the World's Largest Local Realtor® Association."
                  B) "Premium Property, in Front of Every Buyer Agent in the Miami Network." */}
 
             {/* Italic serif subtitle — matches the homepage hero cadence */}
@@ -567,8 +567,8 @@ export default function GlobalDeskPage() {
             </motion.div>
 
             {/* United Realty Group — Carlos's brokerage of record. Approved figures only (§6).
-                The "#1 Most Closed Homes" ranking (sourced from urgfl.com) is held out of public
-                copy pending Carlos's confirmation against the verified-figures list. */}
+                No unverifiable brokerage ranking ("#1", "Most Closed Homes") appears in public
+                copy — none is independently substantiated; only defensible, attributed facts. */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}

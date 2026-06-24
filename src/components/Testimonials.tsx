@@ -77,7 +77,7 @@ const REVIEWS_ROW2 = [
     location: "Miami, FL",
     date: "Nov 2022",
     verified: true,
-    text: "Thank you for your amazing professional skills in negotiating the sale of our property and purchase through a 1031 exchange of our next investment. I recommend Carlos for sure — maybe the best Realtor in Miami. Thank you!!!",
+    text: "Thank you for your professional skills in negotiating the sale of our property and purchase through a 1031 exchange of our next investment. I recommend Carlos for sure. Thank you.",
   },
   {
     name: "Gustavo Riveira",
@@ -221,7 +221,7 @@ export function Testimonials() {
           <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="text-white/40 underline hover:text-gold">
             verified Realtor.com® profile
           </a>{" "}
-          and client testimonials. Individual results vary.
+          and client testimonials. Individual results vary and are not a prediction of any sale outcome.
         </p>
       </div>
     </section>

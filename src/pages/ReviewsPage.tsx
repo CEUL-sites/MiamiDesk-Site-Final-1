@@ -44,7 +44,7 @@ const VERIFIED_REVIEWS = [
     date: "November 9, 2022",
     rating: 5,
     categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Thank you for your amazing professional skills in negotiating the sale of our property and purchase also through a 1031 exchange of our next investment. I recommend Carlos for sure, maybe the best Realtor in Miami. Thank you!!!",
+    text: "Thank you for your professional skills in negotiating the sale of our property and purchase also through a 1031 exchange of our next investment. I recommend Carlos for sure. Thank you.",
   },
   {
     name: "Marisela",
@@ -248,6 +248,9 @@ export default function ReviewsPage() {
                 </div>
               ))}
             </div>
+            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.2em] text-navy/35">
+              Individual results vary and are not a prediction of any sale outcome.
+            </p>
           </div>
         </section>
 

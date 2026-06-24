@@ -42,7 +42,7 @@ The approach that works is precision: a price anchored in current MLS comparable
 
 A listing through a member brokerage activates the Miami and South Florida REALTORS® MLS — more than 93,000 member agents across Miami-Dade, Broward, and Palm Beach. Through approved syndication channels, eligible listings may reach 200+ global portals in 19 languages, and the association's 437+ international agreements extend reach into partner markets in more than 75 countries — directly relevant for buyers still located in Venezuela, Colombia, or across South America who are evaluating Doral from abroad.
 
-United Realty Group, through which this desk operates, is the #1 transactional brokerage in Florida by closed transactions.
+United Realty Group, through which this desk operates, is a full-service brokerage founded in 2002 — with an in-house title company, 3,500+ agents, and 20 Florida offices.
 
 ## What a Doral listing strategy includes
 

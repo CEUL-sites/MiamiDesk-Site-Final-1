@@ -66,7 +66,9 @@ export const NAVIGATION = [
 // (with per-figure sources/citations); these mirror it for legacy imports.
 // Do NOT add: $69B association transaction volume (not Carlos's or URG's), or any
 // time-based promise (Day 1, 24 hours, same-day, instant).
-// URG "#1 Florida · Most Closed Homes" is sourced from urgfl.com homepage — use that exact phrasing.
+// Do NOT add unverifiable brokerage superlatives ("#1 Florida", "Most Closed Homes",
+// "leading transactional brokerage"): no independent authority supports them and they
+// create Fla. Admin. Code R. 61J2-10.025(1) deceptive-advertising exposure.
 export const ASSOCIATION_STATS = {
   memberCount: 93000,
   mlsRank: "world's largest local REALTOR® association",
@@ -77,8 +79,8 @@ export const ASSOCIATION_STATS = {
   countries: 75,
   usMls: 260,
   mlsDataExchanges: 11,
-  // Source: urgfl.com homepage — "Ranked #1 Most Closed Homes"
-  urgScale: "#1 Florida · Most Closed Homes · 3,500+ agents · 20 offices",
+  // Defensible, attributed URG description — no unverifiable ranking.
+  urgScale: "Founded 2002 · 3,500+ agents · 20 Florida offices",
   urgAgents: "3,500+",
   urgOffices: 20,
   urgFounded: 2002,
