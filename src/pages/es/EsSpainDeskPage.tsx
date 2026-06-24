@@ -694,22 +694,19 @@ export default function EsSpainDeskPage() {
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">93.000</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
-                  {/* TODO: native Madrid editor review */}
                   Agentes miembro
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">200+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
-                  {/* TODO: native Madrid editor review */}
                   Portales globales · 19 idiomas
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">260+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
-                  {/* TODO: native Madrid editor review */}
-                  MLSs en EE.UU. vía RPR
+                  MLS de EE.UU. vía RPR
                 </div>
               </div>
             </div>
@@ -722,11 +719,9 @@ export default function EsSpainDeskPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                {/* TODO: native Madrid editor review */}
                 PARA QUIÉN ES ESTA ASESORÍA
               </p>
               <h2 className="mt-3 font-serif text-3xl text-navy-deep">
-                {/* TODO: native Madrid editor review */}
                 Tres perfiles de cliente.
               </h2>
             </div>
@@ -758,11 +753,9 @@ export default function EsSpainDeskPage() {
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                {/* TODO: native Madrid editor review */}
                 EL PROCESO
               </p>
               <h2 className="mt-3 font-serif text-3xl text-white">
-                {/* TODO: native Madrid editor review */}
                 Cuatro pasos desde la consulta inicial hasta el cierre.
               </h2>
             </div>
@@ -800,11 +793,9 @@ export default function EsSpainDeskPage() {
 
             <div className="space-y-5">
               <p className="font-sans text-base leading-relaxed text-white/70">
-                {/* TODO: native Madrid editor review */}
                 Carlos Uzcategui actúa como principal licenciado de registro en Florida, lo que permite a las agencias españolas colocar su inventario premium directamente en el MLS de Miami y Sur de Florida. La agencia española mantiene la representación local del propietario en todo momento — sin ceder el mandato.
               </p>
               <p className="font-sans text-base leading-relaxed text-white/70">
-                {/* TODO: native Madrid editor review */}
                 Desde el primer día de activación, la propiedad premium alcanza a los 93.000 agentes miembro de la mayor asociación local de REALTORS® del mundo — los agentes que representan a los compradores — con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
