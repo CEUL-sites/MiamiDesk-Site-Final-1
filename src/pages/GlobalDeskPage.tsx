@@ -58,25 +58,25 @@ const BUYER_MARKETS = [
     key: "latam",
     label: "Latin America",
     headline: "The primary buyer engine.",
-    body: "Capital from Mexico, Colombia, Argentina, Brazil, Venezuela, and across the region treats South Florida as a dollar-denominated safe-harbor market. For owners, developers, and agencies in Spain and Europe whose own demand is driven by Latin American buyers, the Miami REALTORS® network reaches those buyers' agents directly — the same buyers, sourced through the largest local REALTOR® association on earth.",
+    body: "Capital from Mexico, Colombia, Argentina, Brazil, Venezuela, and across the region treats South Florida as a dollar-denominated safe-harbor market. For owners, developers, and agencies whose own demand is driven by Latin American buyers, the Miami REALTORS® network reaches those buyers' agents directly — the same buyers, through the agents who already represent them, inside the largest local REALTOR® association on earth.",
   },
   {
     key: "europe",
     label: "Europe",
     headline: "Second-home demand and asset diversification.",
-    body: "Spanish, Italian, French, and UK buyers treat South Florida as a dollar-denominated second-home and diversification market. The 437+ international agreements and 19-language syndication place prime listings in front of the European agents representing that demand. Spanish luxury developers and agencies are served directly through the Spain Desk.",
+    body: "Spanish, Italian, French, and UK buyers treat South Florida as a dollar-denominated second-home and diversification market. 437+ international agreements and 19-language syndication put prime listings in front of the European agents who represent that demand. Spanish luxury developers and agencies are served directly through the Spain Desk.",
   },
   {
     key: "northam",
     label: "North America",
     headline: "Relocation and second-home acquisition.",
-    body: "U.S. and Canadian buyers relocating or acquiring second homes move through the network's 260+ syndicated U.S. MLSs and 11 MLS data exchanges with the largest U.S. and Canadian systems.",
+    body: "U.S. and Canadian buyers relocating or acquiring second homes move through the network's 260+ syndicated U.S. MLSs and 11 MLS data exchanges with the largest U.S. and Canadian systems — reaching the agents who manage those moves.",
   },
   {
     key: "gulf",
     label: "Middle East & Asia",
     headline: "Dollar-asset acquisition.",
-    body: "Private and institutional capital seeking U.S. dollar real estate assets reaches South Florida through 200+ global portals publishing in 19 languages.",
+    body: "Private and institutional capital seeking U.S. dollar real estate assets reaches South Florida through 200+ global portals publishing in 19 languages — and through the agents who place that capital.",
   },
 ];
 
@@ -85,19 +85,19 @@ const SERVICE_LEVELS = [
     num: "01",
     icon: Network,
     title: "MLS Positioning",
-    body: "Formal placement of eligible property inside the Miami REALTORS® MLS through a licensed Florida principal of record. The property enters the daily working ecosystem of the network's member agents, who can present it to their own buyers. Monthly marketing engagement. Written confirmation of placement.",
+    body: "Eligible premium property placed formally inside the Miami REALTORS® MLS through a licensed Florida principal of record — the entry point to the network's 93,000 member agents. The listing enters their daily working ecosystem, where they can present it to their own buyers. Monthly marketing engagement. Written confirmation of placement.",
   },
   {
     num: "02",
     icon: FileCheck,
     title: "Positioning + Network Outreach",
-    body: "Everything in MLS Positioning, plus documented outreach campaigns to cooperating agents across target buyer markets, referral-commission incentives extended to producing agents, and periodic written reporting on outreach activity.",
+    body: "Everything in MLS Positioning, plus documented outreach campaigns that put the property directly in front of cooperating buyer agents across your target markets. Referral-commission incentives are extended to producing agents, with periodic written reporting on outreach activity.",
   },
   {
     num: "03",
     icon: BarChart3,
     title: "Managed Distribution",
-    body: "A full-service mandate: MLS positioning, multi-market agent outreach and campaign management, CRM-tracked buyer and agent pipeline, referral-fee and commission transaction coordination through United Realty Group, and monthly written performance reporting.",
+    body: "A full-service mandate: MLS positioning, multi-market buyer-agent outreach and campaign management, a CRM-tracked buyer and agent pipeline, referral-fee and commission coordination through United Realty Group, and monthly written performance reporting.",
   },
 ];
 
@@ -365,7 +365,7 @@ export default function GlobalDeskPage() {
             >
               Spanish prime inventory,
               <br />
-              <em className="italic text-gold">placed inside the U.S. network its buyers already use.</em>
+              <em className="italic text-gold">placed where its buyers' agents already work.</em>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -375,11 +375,11 @@ export default function GlobalDeskPage() {
               className="mt-7 max-w-3xl font-sans text-lg leading-[1.85] text-white/70"
             >
               Prime demand in Madrid, Marbella, and the Costa del Sol is driven by Latin American and
-              North American capital. Those buyers — and the agents who represent them — work through
-              the Miami REALTORS® network. The Spain Desk gives luxury developers and established
-              agencies a licensed U.S. distribution channel into that network: Spanish prime property
-              placed formally inside the Miami REALTORS® MLS through a licensed Florida principal of
-              record.
+              North American capital — and the agents who represent that capital work through the Miami
+              REALTORS® network every day. The Spain Desk gives luxury developers and established
+              agencies a licensed U.S. channel into those agents: Spanish prime property placed
+              formally inside the Miami REALTORS® MLS through a licensed Florida principal of record,
+              in front of the 93,000 member agents who hold the buyers.
             </motion.p>
 
             {/* Two audience blocks */}
@@ -722,9 +722,10 @@ export default function GlobalDeskPage() {
                   For South Florida owners with European or LATAM buyer profiles
                 </p>
                 <p className="mt-4 font-sans text-base leading-[1.85] text-white/65">
-                  Carlos coordinates with affiliated Madrid agencies to reach buyers relocating and
-                  investing from Europe and Latin America into Florida. Bilateral referral flow, in
-                  both directions.
+                  Carlos coordinates with affiliated Madrid agencies to put your South Florida listing
+                  in front of the European and Latin American buyers — and the agents who represent
+                  them — relocating and investing into Florida. The referral flow runs in both
+                  directions.
                 </p>
                 <a
                   href="/sell-south-florida"

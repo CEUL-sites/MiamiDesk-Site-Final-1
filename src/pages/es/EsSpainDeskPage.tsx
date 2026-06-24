@@ -25,7 +25,7 @@ const SERVICE_TIERS = [
   {
     tier: "01",
     name: "Hasta 5 Listings",
-    description: "Para agencias que activan una selección curada de inmuebles en el canal de Sur de Florida.",
+    description: "Para agencias que dan a una selección curada de inmuebles premium el alcance de los agentes compradores de la red de Sur de Florida.",
     includes: [
       "Alta en el MLS a través de URG como broker de registro en Florida",
       "Sindicación a 200+ portales globales en 19 idiomas",
