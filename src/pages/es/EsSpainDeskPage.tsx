@@ -560,12 +560,12 @@ export default function EsSpainDeskPage() {
             <div className="mb-12">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Estructura de Servicio</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
-                Tres niveles. Precio por listing,<br />
-                <em className="not-italic italic text-gold">por mes.</em>
+                Tres niveles de alcance.<br />
+                <em className="not-italic italic text-gold">Precio por listing, por mes.</em>
               </h2>
               <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Cada nivel activa la infraestructura completa del MLS de Miami REALTORS® a través de URG como broker de registro.
-                La diferencia es la profundidad del marketing activo, el outreach y el soporte estratégico.
+                Cada nivel da a la propiedad premium el alcance de los 93.000 agentes miembro de la red de Miami REALTORS® — los que representan a los compradores — activado a través de URG como broker de registro.
+                La diferencia es la profundidad del marketing activo, el outreach a agentes compradores y el soporte estratégico.
                 La tarifa mensual es independiente de la comisión de referral al cierre.
               </p>
             </div>

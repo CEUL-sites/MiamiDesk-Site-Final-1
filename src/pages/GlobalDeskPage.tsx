@@ -507,12 +507,12 @@ export default function GlobalDeskPage() {
                   The Mechanism
                 </p>
                 <h2 className="mt-5 max-w-2xl font-serif text-3xl leading-[1.18] md:text-4xl">
-                  Formal position inside the network, not exposure adjacent to it.
+                  The reach isn't a portal. It's 93,000 agents who hold the buyers.
                 </h2>
                 <p className="mt-7 max-w-2xl font-sans text-lg leading-[1.85] text-navy/70">
                   For an owner, developer, or cooperating agency, the question is not whether a
                   listing is advertised — it is whether it sits inside the infrastructure the most
-                  active buyers already work through. The Global Desk places eligible property
+                  active buyers already work through. The Global Desk places eligible premium property
                   directly into the Miami REALTORS® MLS, where 93,000 member agents can present it to
                   their buyer clients as part of their daily working ecosystem. Producing agents are
                   extended referral-commission incentives to bring qualified buyers. Carlos serves
@@ -757,7 +757,7 @@ export default function GlobalDeskPage() {
               transition={{ duration: 0.7, delay: 0.06 }}
               className="mt-5 max-w-3xl font-serif text-3xl leading-[1.2] md:text-4xl"
             >
-              Three levels of distribution. One standard of placement.
+              Three levels of reach. One standard of placement.
             </motion.h2>
 
             <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -894,11 +894,12 @@ export default function GlobalDeskPage() {
         <section className="bg-ivory py-16 md:py-20 px-6 text-center text-navy">
           <div className="mx-auto max-w-3xl">
             <h2 className="font-serif italic leading-tight text-navy" style={{ fontSize: "clamp(1.7rem, 3vw, 2.6rem)" }}>
-              Position your property where the buyers already are.
+              Put your property in front of the agents who hold the buyers.
             </h2>
             <p className="mt-5 font-sans text-base leading-relaxed text-navy/60">
-              Begin with a distribution assessment: a written read on which buyer markets the
-              network reaches for your property, and which service level fits the mandate.
+              Begin with a distribution assessment: a written read on which buyer markets — and which
+              of the network's 93,000 member agents — the reach connects to your property, and which
+              service level fits the mandate.
             </p>
             <div className="mt-9 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
               <a
