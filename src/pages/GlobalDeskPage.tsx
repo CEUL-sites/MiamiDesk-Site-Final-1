@@ -244,13 +244,14 @@ export default function GlobalDeskPage() {
               className="mt-6 font-serif leading-[1.05] text-white"
               style={{ fontSize: "clamp(2.1rem, 5.5vw, 4.5rem)", fontWeight: 400 }}
             >
-              Your prime property deserves
+              Give Premium Property the Reach of
               <br className="hidden md:block" aria-hidden="true" />{" "}
-              <em className="italic text-gold">the buyers Miami already commands.</em>
+              <em className="italic text-gold">93,000 Miami Buyer Agents.</em>
             </motion.h1>
-            {/* Alternate headlines for Carlos to choose from:
-                 A) "Premium property, wherever it sits, positioned where the buyers already move."
-                 B) "The buyers move through Miami. Your listing should be inside the network." */}
+            {/* Alternate headlines for Carlos to choose from — all in the
+                main hero's "...the Reach of..." voice:
+                 A) "Premium Property, Backed by the Reach of the World's Largest Local Realtor® Network."
+                 B) "Premium Property, in Front of Every Buyer Agent in the Miami Network." */}
 
             {/* Italic serif subtitle — matches the homepage hero cadence */}
             <motion.p
