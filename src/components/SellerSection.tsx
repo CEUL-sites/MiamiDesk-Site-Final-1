@@ -79,6 +79,11 @@ const SLIDES = [
     badge: "3D TOUR",
   },
   {
+    src: "/videos/matterport_tour_3.mp4",
+    label: "3D walkthrough tour",
+    badge: "3D TOUR",
+  },
+  {
     src: "/videos/virtual_tour_showcase.mp4",
     label: "Virtual property tour",
     badge: "VIRTUAL TOUR",
@@ -111,9 +116,22 @@ function PhoneBubblePlayer() {
   const [popping, setPopping] = useState(false);
   const [showParticles, setShowParticles] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
 
-  // Auto-cycle every 10 s
+  // Only load/play the rotating clips (one is ~14MB) while this section is on
+  // screen. Off-screen it fetches nothing and the 10s rotation is paused.
   useEffect(() => {
+    const el = rootRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") { setInView(true); return; }
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin: "200px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Auto-cycle every 10 s — only while visible
+  useEffect(() => {
+    if (!inView) return;
     const t = setTimeout(() => {
       setPopping(true);
       setShowParticles(true);
@@ -124,12 +142,12 @@ function PhoneBubblePlayer() {
       }, 550);
     }, 10000);
     return () => clearTimeout(t);
-  }, [slide]);
+  }, [slide, inView]);
 
   const current = SLIDES[slide];
 
   return (
-    <div className="relative flex items-center justify-center" style={{ width: 260, height: 500 }}>
+    <div ref={rootRef} className="relative flex items-center justify-center" style={{ width: 260, height: 500 }}>
       {/* Glow behind phone */}
       <div className="absolute inset-8 rounded-full bg-gold/20 blur-2xl" />
 
@@ -152,11 +170,12 @@ function PhoneBubblePlayer() {
               <PhoneFrame>
                 <video
                   ref={videoRef}
-                  src={current.src}
+                  src={inView ? current.src : undefined}
                   autoPlay
                   muted
                   loop
                   playsInline
+                  preload="none"
                   className="h-full w-full object-cover"
                 />
 

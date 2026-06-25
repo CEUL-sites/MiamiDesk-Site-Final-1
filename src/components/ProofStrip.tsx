@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 
 const QUOTES = [
   {
-    text: "Our house went under contract 10 days after we put it on the market at 12% over asking price.",
-    name: "Andres P.",
-    location: "Weston, FL",
+    text: "Carlos maintained the same level of professionalism and dedication through the whole experience — available at all times, from listing to closing.",
+    name: "A. Martinez",
+    location: "Sunrise, FL",
   },
   {
     text: "Carlos was exceptional in selling our home swiftly at a great price and securing a beneficial 7-month post-occupancy that eased our family's relocation.",

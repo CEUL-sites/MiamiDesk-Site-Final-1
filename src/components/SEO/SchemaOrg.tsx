@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { ASSOCIATION_STATS, CONTACT } from "../../constants";
+import { AGGREGATE_RATING } from "../../data/reviews";
 
 type JsonLdSchema = Record<string, unknown> & {
   "@id"?: string;
@@ -119,13 +120,7 @@ const sitewideSchema: JsonLdSchema[] = [
       CONTACT.linkedin,
       "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51",
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "15",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    aggregateRating: AGGREGATE_RATING,
   },
   {
     "@context": "https://schema.org",

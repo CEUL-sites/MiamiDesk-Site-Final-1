@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AGGREGATE_RATING } from "../data/reviews";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -8,6 +9,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CityListingsSample } from "../components/CityListingsSample";
+import { NearbyMarkets } from "../components/NearbyMarkets";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const PEMBROKE_PINES_FAQS = [
@@ -78,13 +80,20 @@ export default function SellPembrokePinesPage() {
           "email": CONTACT.email,
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
           "memberOf": { "@type": "Organization", "name": "United Realty Group" },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "15",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
+          "aggregateRating": AGGREGATE_RATING
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — Pembroke Pines, FL",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "City", "name": "Pembroke Pines", "addressRegion": "FL", "addressCountry": "US" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-pembroke-pines"
+          },
+          "url": "https://homesprofessional.com/sell-pembroke-pines"
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
@@ -92,7 +101,7 @@ export default function SellPembrokePinesPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
-          <LazyVideo eager src="/videos/advisor-brand.mp4" className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none" />
+          <LazyVideo eager src="/videos/luxury_listing_showcase.mp4" className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pembroke Pines, FL · Seller Advisory</p>
@@ -105,19 +114,51 @@ export default function SellPembrokePinesPage() {
               demand a listing agent who understands community-level demand and the international connections that drive local pricing.
               Professional MLS positioning. Buyer-agent activation. International distribution.
             </p>
+            <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
+              {[
+                "MLS-based pricing & positioning",
+                "Your most likely buyer — local & global",
+                "A clear net-proceeds estimate",
+              ].map((item) => (
+                <li key={item} className="inline-flex items-center gap-2 font-sans text-[13px] text-white/75">
+                  <BadgeCheck size={15} className="flex-shrink-0 text-gold" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
-                Request a Free Strategy Review
+                Get My Pembroke Pines Home Value &amp; Strategy
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
                 WhatsApp Carlos
               </a>
             </div>
-            <div className="mt-6 flex items-center justify-center gap-2">
+
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
+              <span className="flex gap-0.5" aria-hidden="true">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg key={i} width="12" height="12" viewBox="0 0 12 12" fill="#B08D57">
+                    <path d="M6 0l1.35 4.15H12L8.32 6.72 9.67 10.87 6 8.3 2.33 10.87 3.68 6.72 0 4.15h4.65z" />
+                  </svg>
+                ))}
+              </span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
+                5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
+              </span>
+            </div>
+
+            <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
+              <p className="font-sans text-sm italic leading-relaxed text-white/55">"Professional, responsive, and knowledgeable about the Pembroke Pines market. The strategy review was detailed and genuinely useful from the start."</p>
+              <footer className="mt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/50">— Patricia M., Pembroke Pines, FL</footer>
+            </blockquote>
+
+            <div className="mt-5 flex items-center justify-center gap-2">
               <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
-                Download Seller's Net Sheet 2026
+                Or download the Seller's Net Sheet 2026
               </a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
@@ -167,7 +208,7 @@ export default function SellPembrokePinesPage() {
                   <em className="not-italic italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of Florida's #1 brokerage by closed homes — 3,500+ agents across 20 South Florida offices — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 20 South Florida offices — not a portal, a professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[
@@ -241,6 +282,7 @@ export default function SellPembrokePinesPage() {
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Pembroke Pines" />
         <CityListingsSample city="Pembroke Pines" />
+        <NearbyMarkets current="sell-pembroke-pines" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">

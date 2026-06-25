@@ -29,7 +29,7 @@ const STEPS = [
     number: "04",
     name: "Activate",
     headline: "93,000 buyer agents receive a direct signal.",
-    body: "Beyond the automated MLS feed, we activate targeted outreach inside the 93,000-member United Realty Group network — the world's largest local REALTOR® association. LATAM and European buyer pipelines are engaged through international referral channels. For properties with cross-border appeal, the Spain and Madrid desk coordinates inquiries directly.",
+    body: "Beyond the automated MLS feed, we activate targeted outreach across the 93,000 member agents of Miami and South Florida REALTORS® — the world's largest local REALTOR® association — working alongside the United Realty Group brokerage. LATAM and European buyer pipelines are engaged through international referral channels. For properties with cross-border appeal, the Spain and Madrid desk coordinates inquiries directly.",
     benefit: "Your listing reaches working buyer agents — not just search portals waiting for clicks.",
   },
   {

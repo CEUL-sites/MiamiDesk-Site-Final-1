@@ -39,7 +39,7 @@ That is the difference between simply being listed and being strategically intro
 
 ## The Distribution Advantage
 
-When a seller lists with Carlos Uzcategui, the property enters the world's largest local Realtor association's distribution infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges, and $69B in 2025 transaction volume.
+When a seller lists with Carlos Uzcategui, the property enters the world's largest local Realtor association's distribution infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges, and $69B in combined 2025 network transaction volume.
 
 That exposure does not guarantee a result. It does create a structural advantage. In a market where inventory tightened and buyers were still closing, distribution can affect how many qualified agents and buyers become aware of the property, how the listing is positioned, and how much competitive pressure can be created during the launch period.
 

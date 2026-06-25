@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { BadgeCheck, ChevronRight, Download, MessageSquare, Check, Shield, FileText } from "lucide-react";
+import { motion, type Variants } from "motion/react";
+import { BadgeCheck, ChevronRight, Download, MessageSquare, Check, Shield, FileText, Globe } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
@@ -9,11 +10,22 @@ import { AgencyPartnerForm } from "../../components/forms/AgencyPartnerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 
+// Hero stagger — mirrors the homepage / English Global Desk hero so all three
+// heros animate in identically.
+const heroContainer: Variants = {
+  hidden:  {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+};
+const heroItem: Variants = {
+  hidden:  { opacity: 0, y: 22 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+};
+
 const SERVICE_TIERS = [
   {
     tier: "01",
     name: "Hasta 5 Listings",
-    description: "Para agencias que activan una selección curada de inmuebles en el canal de Sur de Florida.",
+    description: "Para agencias que dan a una selección curada de inmuebles premium el alcance de los agentes compradores de la red de Sur de Florida.",
     includes: [
       "Alta en el MLS a través de URG como broker de registro en Florida",
       "Sindicación a 200+ portales globales en 19 idiomas",
@@ -168,36 +180,115 @@ export default function EsSpainDeskPage() {
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
-        {/* ── Hero ──────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-14 md:pt-28 md:pb-18 text-center sm:px-10">
+        {/* ── Hero ── Mirrors the homepage / English Global Desk hero: centered
+            column, layered grain/grid/vignette texture, pill eyebrow, gold-italic
+            serif headline, italic subtitle, scrolling network ticker, and an icon
+            trust row. Copy, CTAs, PDF download and compliance line preserved. */}
+        <section className="hero-root relative overflow-hidden bg-[#060D18] px-6 pt-24 pb-16 md:pt-32 md:pb-24 text-center sm:px-10 text-white">
+          <style>{`
+            .gd-hero-grain {
+              position:absolute; inset:0; pointer-events:none; opacity:0.025;
+              background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+              background-size: 180px;
+            }
+            .gd-hero-grid {
+              position:absolute; inset:0; pointer-events:none;
+              background-image:
+                linear-gradient(rgba(176,141,87,0.03) 1px, transparent 1px),
+                linear-gradient(90deg,rgba(176,141,87,0.03) 1px, transparent 1px);
+              background-size:64px 64px;
+              mask-image:radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
+            }
+            .gd-hero-vignette {
+              position:absolute; bottom:0; left:0; right:0; height:220px; pointer-events:none;
+              background:linear-gradient(to top, rgba(6,13,24,0.95) 0%, transparent 100%);
+            }
+            @keyframes gd-exposure-scroll {
+              from { transform: translateX(0); }
+              to   { transform: translateX(-50%); }
+            }
+            .gd-exposure-track {
+              animation: gd-exposure-scroll 12s linear infinite;
+              display: flex;
+              will-change: transform;
+            }
+            .gd-exposure-track:hover { animation-play-state: paused; }
+            @media (prefers-reduced-motion: reduce) {
+              .gd-exposure-track { animation: none; }
+            }
+          `}</style>
+
           <LazyVideo
             eager
-            src="/videos/spain-desk.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.18] pointer-events-none"
+            src="/videos/dollhouse_global_reach.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-navy-deep/30 to-navy-deep/90 pointer-events-none" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/75 via-[#060D18]/60 to-[#060D18]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.30),transparent_70%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_70%,rgba(176,141,87,0.10),transparent_70%)]" />
+          <div className="gd-hero-grain"    aria-hidden="true" />
+          <div className="gd-hero-grid"     aria-hidden="true" />
+          <div className="gd-hero-vignette" aria-hidden="true" />
 
-          <div className="relative mx-auto max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.06] px-4 py-1.5 mb-6">
-              <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">Mesa Global · Partnership de Agencias · United Realty Group</span>
-            </div>
+          <motion.div
+            variants={heroContainer}
+            initial="hidden"
+            animate="visible"
+            className="relative z-10 mx-auto flex max-w-4xl flex-col items-center"
+          >
+            {/* Eyebrow pill */}
+            <motion.div variants={heroItem}>
+              <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
+                <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
+                  <span className="sm:hidden">Mesa Global · United Realty Group</span>
+                  <span className="hidden sm:inline">Mesa Global · Partnership de Agencias · United Realty Group</span>
+                </span>
+              </span>
+            </motion.div>
 
-            <h1 className="font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5vw, 3.2rem)" }}>
-              Venda con el Alcance de la Red Local de<br />
-              <em className="not-italic italic text-gold">Realtor® Más Grande del Mundo.</em>
-            </h1>
+            {/* Headline */}
+            <motion.h1
+              variants={heroItem}
+              className="mt-6 font-serif leading-[1.05] text-white"
+              style={{ fontSize: "clamp(2.1rem, 5.5vw, 4.5rem)", fontWeight: 400 }}
+            >
+              Dé a la Propiedad Premium el Alcance de
+              <br className="hidden md:block" aria-hidden="true" />{" "}
+              <em className="italic text-gold">93.000 Agentes Compradores de Miami.</em>
+            </motion.h1>
+            {/* Titulares alternativos para que Carlos elija — en la voz "...el Alcance de...":
+                 A) "Propiedad Premium, con el Alcance de la Red Local de Realtor® Más Grande del Mundo."
+                 B) "Propiedad Premium, ante Cada Agente Comprador de la Red de Miami." */}
 
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
+            {/* Italic serif subtitle */}
+            <motion.p
+              variants={heroItem}
+              className="mt-6 font-serif italic text-white/70"
+              style={{ fontSize: "clamp(1rem, 2.2vw, 1.35rem)" }}
+            >
+              Su mercado es local — los compradores son globales.
+            </motion.p>
+
+            {/* Supporting copy */}
+            <motion.p
+              variants={heroItem}
+              className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/65"
+            >
               Ayude a su agencia a ganar más mandatos de venta. Ofrezca a los propietarios exposición
               documentada hacia el mercado de Sur de Florida a través de Carlos Uzcategui — Realtor® licenciado en Florida
               desde 2001, afiliado a United Realty Group — junto a su marketing local. Representación local en España.
               Exposición hacia Sur de Florida a través de un Realtor® licenciado en Florida. Usted mantiene la relación con el cliente.
-            </p>
+            </motion.p>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            {/* CTAs */}
+            <motion.div
+              variants={heroItem}
+              className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center"
+            >
               <a
                 href="#enviar-listing"
-                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
               >
                 Solicitar Términos de Partnership
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -211,9 +302,9 @@ export default function EsSpainDeskPage() {
                 <MessageSquare size={14} />
                 WhatsApp: Agencia a Agencia
               </a>
-            </div>
+            </motion.div>
 
-            <div className="mt-6">
+            <motion.div variants={heroItem} className="mt-6">
               <a
                 href={LEAD_MAGNETS.spainActivation.url}
                 download
@@ -222,12 +313,55 @@ export default function EsSpainDeskPage() {
                 <Download size={11} />
                 Descargar: Metodología de Activación MLS — PDF
               </a>
-            </div>
+            </motion.div>
 
-            <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            {/* Network ticker — same scrolling marquee as the homepage hero */}
+            <motion.div
+              variants={heroItem}
+              className="relative mt-9 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]"
+            >
+              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-[#060D18] to-transparent" />
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
+              <div className="gd-exposure-track">
+                {[0, 1].map((copy) => (
+                  <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
+                    <span className="text-gold/75">Red</span>{" "}·{" "}
+                    <span className="text-white/85">93.000</span> Agentes Miembro{" "}·{" "}
+                    <span className="text-white/85">200+</span> Portales Globales{" "}·{" "}
+                    <span className="text-white/85">19</span> Idiomas{" "}·{" "}
+                    <span className="text-white/85">260+</span> MLSs en EE.UU.{" "}·{" "}
+                    <span className="text-white/85">3.500+</span> Agentes URG{" "}·{" "}
+                    <span className="text-white/85">75+</span> Países
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Trust row — reflects this page's referral/partnership model */}
+            <motion.div
+              variants={heroItem}
+              className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
+            >
+              {[
+                { icon: Shield,     text: "Broker Licenciado en Florida" },
+                { icon: FileText,   text: "Acuerdos por Escrito" },
+                { icon: BadgeCheck, text: "Usted Mantiene el Mandato" },
+                { icon: Globe,      text: "Alcance a 93.000 Agentes" },
+              ].map(({ icon: Icon, text }) => (
+                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] text-white/40">
+                  <Icon size={11} className="text-gold/60 flex-shrink-0" />
+                  {text}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.p
+              variants={heroItem}
+              className="mt-6 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30"
+            >
               United Realty Group · FL SL705771 · Miami and South Florida REALTORS® · Equal Housing Opportunity
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </section>
 
         {/* ── Dos Flujos de Ingresos ─────────────────────────────────── */}
@@ -426,12 +560,12 @@ export default function EsSpainDeskPage() {
             <div className="mb-12">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Estructura de Servicio</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
-                Tres niveles. Precio por listing,<br />
-                <em className="not-italic italic text-gold">por mes.</em>
+                Tres niveles de alcance.<br />
+                <em className="not-italic italic text-gold">Precio por listing, por mes.</em>
               </h2>
               <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Cada nivel activa la infraestructura completa del MLS de Miami REALTORS® a través de URG como broker de registro.
-                La diferencia es la profundidad del marketing activo, el outreach y el soporte estratégico.
+                Cada nivel da a la propiedad premium el alcance de los 93.000 agentes miembro de la red de Miami REALTORS® — los que representan a los compradores — activado a través de URG como broker de registro.
+                La diferencia es la profundidad del marketing activo, el outreach a agentes compradores y el soporte estratégico.
                 La tarifa mensual es independiente de la comisión de referral al cierre.
               </p>
             </div>
@@ -560,22 +694,19 @@ export default function EsSpainDeskPage() {
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">93.000</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
-                  {/* TODO: native Madrid editor review */}
                   Agentes miembro
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">200+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
-                  {/* TODO: native Madrid editor review */}
                   Portales globales · 19 idiomas
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">260+</div>
                 <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
-                  {/* TODO: native Madrid editor review */}
-                  MLSs en EE.UU. vía RPR
+                  MLS de EE.UU. vía RPR
                 </div>
               </div>
             </div>
@@ -588,11 +719,9 @@ export default function EsSpainDeskPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                {/* TODO: native Madrid editor review */}
                 PARA QUIÉN ES ESTA ASESORÍA
               </p>
               <h2 className="mt-3 font-serif text-3xl text-navy-deep">
-                {/* TODO: native Madrid editor review */}
                 Tres perfiles de cliente.
               </h2>
             </div>
@@ -624,11 +753,9 @@ export default function EsSpainDeskPage() {
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                {/* TODO: native Madrid editor review */}
                 EL PROCESO
               </p>
               <h2 className="mt-3 font-serif text-3xl text-white">
-                {/* TODO: native Madrid editor review */}
                 Cuatro pasos desde la consulta inicial hasta el cierre.
               </h2>
             </div>
@@ -665,17 +792,15 @@ export default function EsSpainDeskPage() {
             </div>
 
             <div className="space-y-5">
-              <p className="font-sans text-base leading-relaxed text-navy-deep/70">
-                {/* TODO: native Madrid editor review */}
-                Carlos Uzcategui actúa como principal licenciado de registro en Florida, lo que permite a agencias españolas colocar su inventario directamente en el MLS de Miami y Sur de Florida. La agencia española mantiene la representación local del propietario — sin ceder el mandato.
+              <p className="font-sans text-base leading-relaxed text-white/70">
+                Carlos Uzcategui actúa como principal licenciado de registro en Florida, lo que permite a las agencias españolas colocar su inventario premium directamente en el MLS de Miami y Sur de Florida. La agencia española mantiene la representación local del propietario en todo momento — sin ceder el mandato.
               </p>
-              <p className="font-sans text-base leading-relaxed text-navy-deep/70">
-                {/* TODO: native Madrid editor review */}
-                Desde el primer día de activación, la propiedad llega a 93.000 agentes miembros de la mayor asociación local de REALTORS® del mundo, con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
+              <p className="font-sans text-base leading-relaxed text-white/70">
+                Desde el primer día de activación, la propiedad premium alcanza a los 93.000 agentes miembro de la mayor asociación local de REALTORS® del mundo — los agentes que representan a los compradores — con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
 
-              <div>
+              <div className="mt-10">
                 <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/35 mb-5">Lo Que Conserva su Agencia</p>
                 <ul className="space-y-5">
                   {[

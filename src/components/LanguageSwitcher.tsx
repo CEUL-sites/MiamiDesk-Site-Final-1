@@ -4,21 +4,24 @@
  * instead of slicing the path prefix (which produces bare 404 routes).
  */
 
+// Canonical EN ↔ ES route pairs. Keys must be the live canonical paths (not
+// legacy redirect routes like /sell or /spain-desk), so the toggle lands on
+// the real page in one hop and matches the reciprocal hreflang clusters.
 const ES_TO_EN: Record<string, string> = {
   "/es": "/",
-  "/es/vender": "/sell",
+  "/es/vender": "/sell-south-florida",
   "/es/comprar": "/buy",
   "/es/agentes": "/agents",
-  "/es/spain-desk": "/spain-desk",
+  "/es/spain-desk": "/global-desk",
   "/es/gracias/agente": "/thanks/agent",
 };
 
 const EN_TO_ES: Record<string, string> = {
   "/": "/es",
-  "/sell": "/es/vender",
+  "/sell-south-florida": "/es/vender",
   "/buy": "/es/comprar",
   "/agents": "/es/agentes",
-  "/spain-desk": "/es/spain-desk",
+  "/global-desk": "/es/spain-desk",
   "/thanks/agent": "/es/gracias/agente",
 };
 

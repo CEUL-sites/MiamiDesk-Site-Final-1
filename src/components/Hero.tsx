@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, Globe, ShieldCheck, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
@@ -7,94 +7,158 @@ import { trackFunnelEvent } from "../lib/analytics";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const FEATURE_SIZE = "clamp(100px,16vw,148px)";
-const SMALL_SIZE = "clamp(78px,11vw,108px)";
+// Single hero bubble — sized as the centerpiece now that it stands alone.
+const FEATURE_SIZE = "clamp(150px,34vw,250px)";
 
-// Side bubbles — static loops, one each side of the cycling center bubble.
-const SIDE_BUBBLES = [
-  { src: "/videos/miami_madrid_transition.mp4", label: "Global Reach", delay: 1.25 },
-  { src: "/videos/gemini_property_vision.mp4",  label: "AI Marketing", delay: 1.4  },
-];
+// Crossfade duration between clips (ms). Kept in sync with the CSS opacity
+// transition on each video layer so swaps dissolve with no black frame.
+const FADE_MS = 600;
 
-// Center bubble — auto-cycles through these in order, then loops back to start.
-// Opens on the "home in hands" signature clip the client loves.
+// One circle, auto-cycling through these in order, then looping back to start.
+// Opens on the "home in hands" signature clip the client loves, then folds in
+// the Global Reach + AI Marketing clips that used to live in the (removed) side
+// bubbles so none of that content is lost.
+// NOTE: virtual_tour_showcase.mp4 (14MB) and luxury_home_walkthrough.mp4 (13MB)
+// are intentionally kept OUT of this rotation — at this bubble size their extra
+// weight is invisible but they pull ~27MB of mobile data. Both remain live where
+// they show full-size (SellerSection, VideoBubbles, Agents & Markets pages).
 const HERO_FEATURE_VIDEOS = [
-  { src: "/videos/dollhouse_rotating_hands.mp4", label: "Signature Marketing"   },
-  { src: "/videos/matterport_tour.mp4",          label: "3D Matterport Tour"    },
-  { src: "/videos/matterport_tour_2.mp4",        label: "3D Matterport Tour"    },
-  { src: "/videos/virtual_tour_showcase.mp4",    label: "Virtual Tour"          },
-  { src: "/videos/luxury_home_walkthrough.mp4",  label: "Cinematic Walkthrough" },
+  { src: "/videos/dollhouse_rotating_in_hands.mp4", label: "Signature Marketing" },
+  { src: "/videos/luxury_waterfront_estate.mp4",    label: "Waterfront Estate"   },
+  { src: "/videos/matterport_miami_beach.mp4",      label: "3D Matterport Tour"  },
+  { src: "/videos/digital_twin_exposure.mp4",       label: "Global Exposure"     },
+  { src: "/videos/gemini_property_vision.mp4",      label: "AI Marketing"        },
 ];
 
-// Mobile Chrome requires a programmatic play() call — the autoPlay attribute
-// alone is ignored when multiple videos are in the initial viewport. This
-// wrapper fires play() after mount and silently ignores autoplay rejections.
-function HeroVideoCircle({ src }: { src: string }) {
-  const ref = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
-    v.muted = true;
-    const p = v.play();
-    if (p) p.catch(() => {});
-  }, []);
-  return (
-    <video
-      ref={ref}
-      muted
-      loop
-      playsInline
-      preload="auto"
-      aria-hidden="true"
-      className="absolute inset-0 h-full w-full object-cover"
-    >
-      <source src={src} type="video/mp4" />
-    </video>
-  );
+// Decorative hero clips are skipped entirely on data-saver / slow (2g) links —
+// the navy bubble background stays in place rather than spending the visitor's
+// data and delaying the lead form below. Safe during prerender (no navigator
+// → returns false, so the prerendered markup is unchanged).
+function prefersLightMedia(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const c = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+  if (!c) return false;
+  return Boolean(c.saveData) || /(^|-)2g$/.test(c.effectiveType ?? "");
 }
 
-// Center bubble that auto-advances through HERO_FEATURE_VIDEOS on each video's
-// end, with Instagram-style progress segments below. Clicking a segment jumps
-// to that video. Does NOT loop a single clip — onEnded drives the sequence.
-function HeroCyclingBubble() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const sourceRef = useRef<HTMLSourceElement>(null);
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [progress, setProgress] = useState(0); // 0–1 progress for active clip
-
-  // Load & play the active clip whenever it changes. Updating the <source>
-  // element's src (instead of the <video>'s src directly) and then calling
-  // load() is the pattern Chromium's demuxer handles reliably here — setting
-  // video.src directly intermittently surfaces a spurious
-  // DEMUXER_ERROR_NO_SUPPORTED_STREAMS even for a perfectly valid file.
+// Pauses/defers the hero videos until the hero is actually on-screen, so they
+// never compete with the above-the-fold lead form for bandwidth and stop
+// fetching once the visitor scrolls past.
+function useInView<T extends HTMLElement>(rootMargin = "200px") {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(false);
   useEffect(() => {
-    const v = videoRef.current;
-    const s = sourceRef.current;
-    if (!v || !s) return;
-    v.muted = true;
-    s.src = HERO_FEATURE_VIDEOS[activeIdx].src;
-    v.load();
-    setProgress(0);
-    const tryPlay = () => {
-      const p = v.play();
-      if (p) p.catch(() => {});
-    };
-    v.addEventListener("canplay", tryPlay, { once: true });
-    return () => v.removeEventListener("canplay", tryPlay);
-  }, [activeIdx]);
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") { setInView(true); return; }
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [rootMargin]);
+  return [ref, inView] as const;
+}
 
-  const handleTimeUpdate = () => {
-    const v = videoRef.current;
+// Single hero bubble that auto-advances through HERO_FEATURE_VIDEOS on each
+// clip's end, with Instagram-style progress segments below. Clicking a segment
+// jumps to that clip.
+//
+// Two stacked video layers crossfade between clips so there is NEVER a black
+// frame on a swap: the front layer plays the current clip while the back layer
+// silently preloads the NEXT one; on advance we dissolve (CSS opacity) between
+// them and the roles swap. This is the same seamless technique used by the
+// VideoBubbles component.
+//
+// Loading stays off the critical path: preload="none" + sources attached
+// imperatively (source.src + load() — the pattern Chromium's demuxer handles
+// reliably, vs. setting video.src directly which can surface a spurious
+// DEMUXER_ERROR_NO_SUPPORTED_STREAMS) only once the hero is on-screen and the
+// visitor isn't on a data-saver link.
+function HeroCyclingBubble({ active }: { active: boolean }) {
+  const v0 = useRef<HTMLVideoElement>(null);
+  const v1 = useRef<HTMLVideoElement>(null);
+  const s0 = useRef<HTMLSourceElement>(null);
+  const s1 = useRef<HTMLSourceElement>(null);
+  const vids = [v0, v1] as const;
+  const srcs = [s0, s1] as const;
+
+  const [front, setFront] = useState(0);     // which layer is in front (0|1)
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [progress, setProgress] = useState(0); // 0–1 progress for the front clip
+
+  // Refs mirror state so the (once-attached) media handlers always read current
+  // values without re-binding.
+  const frontRef = useRef(0);
+  const activeRef = useRef(0);
+  const busy = useRef(false);                 // guards overlapping transitions
+  const loadedIdx = useRef<[number, number]>([-1, -1]); // clip loaded per layer
+  const n = HERO_FEATURE_VIDEOS.length;
+  useEffect(() => { frontRef.current = front; }, [front]);
+  useEffect(() => { activeRef.current = activeIdx; }, [activeIdx]);
+
+  const loadInto = useCallback((layer: number, idx: number) => {
+    const v = vids[layer].current;
+    const s = srcs[layer].current;
+    if (!v || !s || loadedIdx.current[layer] === idx) return;
+    s.src = HERO_FEATURE_VIDEOS[idx].src;
+    v.muted = true;
+    v.load();
+    loadedIdx.current[layer] = idx;
+  }, [vids, srcs]);
+
+  // Start/stop with `active`: play the front clip and preload the next in back
+  // when on-screen; pause both when the visitor scrolls past.
+  useEffect(() => {
+    if (!active) { v0.current?.pause(); v1.current?.pause(); return; }
+    loadInto(frontRef.current, activeRef.current);
+    const v = vids[frontRef.current].current;
+    const play = () => { const p = v?.play(); if (p) p.catch(() => {}); };
+    if (v && v.readyState >= 2) play();
+    else v?.addEventListener("canplay", play, { once: true });
+    loadInto(frontRef.current === 0 ? 1 : 0, (activeRef.current + 1) % n);
+    return () => v?.removeEventListener("canplay", play);
+  }, [active, loadInto, n, vids]);
+
+  // Crossfade to a target clip. The back layer already holds the next clip for
+  // auto-advance (instant); a tapped segment loads on demand, then fades.
+  const goTo = useCallback((target: number) => {
+    if (busy.current || !active || target === activeRef.current) return;
+    const back = frontRef.current === 0 ? 1 : 0;
+    const bv = vids[back].current;
+    if (!bv) return;
+    busy.current = true;
+    loadInto(back, target);
+
+    const start = () => {
+      try { bv.currentTime = 0; } catch { /* not seekable yet — fine */ }
+      bv.muted = true;
+      const p = bv.play(); if (p) p.catch(() => {});
+      setProgress(0);
+      setFront(back);          // CSS opacity transition does the dissolve
+      setActiveIdx(target);
+      window.setTimeout(() => {
+        const oldFront = back === 0 ? 1 : 0;
+        vids[oldFront].current?.pause();      // free the now-hidden decoder
+        loadInto(oldFront, (target + 1) % n); // preload the next clip
+        busy.current = false;
+      }, FADE_MS);
+    };
+
+    if (loadedIdx.current[back] === target && bv.readyState >= 2) start();
+    else bv.addEventListener("canplay", start, { once: true });
+  }, [active, loadInto, n, vids]);
+
+  const onTime = (layer: number) => () => {
+    if (layer !== frontRef.current) return;
+    const v = vids[layer].current;
     if (!v || !v.duration) return;
     setProgress(v.currentTime / v.duration);
   };
-
-  const handleEnded = () => {
-    setActiveIdx((i) => (i + 1) % HERO_FEATURE_VIDEOS.length);
+  const onEnded = (layer: number) => () => {
+    if (layer !== frontRef.current) return;
+    goTo((activeRef.current + 1) % n);
   };
 
   return (
-    <div className="flex flex-col items-center gap-2.5">
+    <div className="flex flex-col items-center gap-3">
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -108,18 +172,25 @@ function HeroCyclingBubble() {
             "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)",
         }}
       >
-        <video
-          ref={videoRef}
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-          onTimeUpdate={handleTimeUpdate}
-          onEnded={handleEnded}
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source ref={sourceRef} type="video/mp4" />
-        </video>
+        {[0, 1].map((layer) => (
+          <video
+            key={layer}
+            ref={vids[layer]}
+            muted
+            playsInline
+            preload="none"
+            aria-hidden="true"
+            onTimeUpdate={onTime(layer)}
+            onEnded={onEnded(layer)}
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{
+              opacity: layer === front ? 1 : 0,
+              transition: `opacity ${FADE_MS}ms ease-in-out`,
+            }}
+          >
+            <source ref={srcs[layer]} type="video/mp4" />
+          </video>
+        ))}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
       </motion.div>
 
@@ -129,10 +200,10 @@ function HeroCyclingBubble() {
           <button
             key={v.src}
             type="button"
-            onClick={() => { setActiveIdx(i); setProgress(0); }}
+            onClick={() => goTo(i)}
             aria-label={`Clip ${i + 1}: ${v.label}`}
-            className="relative flex items-center transition-all duration-300"
-            style={{ width: i === activeIdx ? "1.75rem" : "0.45rem" }}
+            className="relative flex h-5 items-center transition-all duration-300"
+            style={{ width: i === activeIdx ? "1.9rem" : "0.5rem" }}
           >
             <span className="relative block h-[2px] w-full overflow-hidden rounded-full">
               <span className="absolute inset-0 rounded-full bg-white/15" />
@@ -151,7 +222,7 @@ function HeroCyclingBubble() {
       </div>
 
       {/* Current video label */}
-      <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
+      <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.18em] text-white/55 whitespace-nowrap leading-none">
         {HERO_FEATURE_VIDEOS[activeIdx].label}
       </span>
     </div>
@@ -167,32 +238,14 @@ const item: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 
-function SideBubble({ src, label, delay }: { src: string; label: string; delay: number }) {
-  return (
-    <div className="flex flex-col items-center gap-2.5">
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20, delay }}
-        className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
-        style={{
-          width: SMALL_SIZE,
-          height: SMALL_SIZE,
-          border: "2px solid rgba(176,141,87,0.30)",
-          boxShadow: "0 0 16px rgba(176,141,87,0.15)",
-        }}
-      >
-        <HeroVideoCircle src={src} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-      </motion.div>
-      <span className="font-mono text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/50 whitespace-nowrap leading-none">
-        {label}
-      </span>
-    </div>
-  );
-}
-
 export function Hero() {
+  // Decorative hero videos only load/play while the hero is on-screen and the
+  // visitor isn't on a data-saver/slow link — keeps them off the critical path
+  // so the headline and lead form paint first.
+  const [trioRef, inView] = useInView<HTMLDivElement>();
+  const [lightMedia] = useState(prefersLightMedia);
+  const videosActive = inView && !lightMedia;
+
   return (
     <section className="hero-root relative overflow-hidden bg-[#060D18] text-white flex flex-col">
 
@@ -262,7 +315,7 @@ export function Hero() {
           >
             Sell With the Reach of the
             <br className="hidden md:block" aria-hidden="true" />{" "}
-            <em className="italic text-gold">World's Largest Local Realtor® Network.</em>
+            <em className="italic text-gold">World's Largest Local Realtor® Association.</em>
           </motion.h1>
 
           {/* Mobile-only quick CTA — on phones the seller form sits well below
@@ -277,13 +330,10 @@ export function Hero() {
             <ArrowRight size={14} />
           </motion.a>
 
-          {/* Video bubble trio — static side bubbles flank the auto-cycling
-              center bubble. items-center keeps them vertically aligned since
-              the center is taller (progress bar + label). */}
-          <motion.div variants={item} className="mt-8 flex items-center justify-center gap-4 sm:gap-7">
-            <SideBubble {...SIDE_BUBBLES[0]} />
-            <HeroCyclingBubble />
-            <SideBubble {...SIDE_BUBBLES[1]} />
+          {/* Single auto-cycling video bubble — crossfades seamlessly through
+              the featured clips (no black frame between them). */}
+          <motion.div ref={trioRef} variants={item} className="mt-8 flex items-center justify-center">
+            <HeroCyclingBubble active={videosActive} />
           </motion.div>
 
           {/* Subtitle */}

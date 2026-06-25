@@ -9,6 +9,32 @@ interface Props {
   variant: 'top' | 'mid' | 'bottom';
 }
 
+// Map a post's market to its dedicated city seller page when one exists, so a
+// city-specific article passes topical relevance to the matching money page
+// instead of only the generic hub. Markets without a page fall back to the hub.
+const SELL_PAGE_BY_MARKET: Record<string, string> = {
+  'Miami': '/sell-miami',
+  'Brickell': '/sell-brickell',
+  'Downtown Miami': '/sell-downtown-miami',
+  'Coral Gables': '/sell-coral-gables',
+  'Doral': '/sell-doral',
+  'Kendall': '/sell-kendall',
+  'Aventura': '/sell-aventura',
+  'North Miami': '/sell-north-miami',
+  'Hallandale Beach': '/sell-hallandale-beach',
+  'Weston': '/sell-weston',
+  'Fort Lauderdale': '/sell-fort-lauderdale',
+  'Pompano Beach': '/sell-pompano-beach',
+  'Coral Springs': '/sell-coral-springs',
+  'Pembroke Pines': '/sell-pembroke-pines',
+  'Plantation': '/sell-plantation',
+  'Sunrise': '/sell-sunrise',
+};
+
+function sellPageFor(post: PostMeta): string {
+  return (post.market && SELL_PAGE_BY_MARKET[post.market]) || '/sell-south-florida';
+}
+
 function track(ctaType: string, location: string, post: PostMeta) {
   if (navigator.webdriver) return;
   pushEvent('journal_cta_click', {
@@ -25,15 +51,20 @@ function track(ctaType: string, location: string, post: PostMeta) {
 
 export function JournalSellerCTA({ post, variant }: Props) {
   if (variant === 'top') {
+    const sellHref = sellPageFor(post);
     return (
       <div className="mx-auto max-w-3xl px-5 pt-8 pb-2 lg:px-8">
         <div className="flex flex-wrap items-center justify-between gap-3 border border-bone bg-ivory px-6 py-3.5">
           <p className="font-sans text-sm text-navy/70">
-            <span className="font-semibold text-navy">Thinking about selling?</span>{' '}
+            <span className="font-semibold text-navy">
+              {post.market && SELL_PAGE_BY_MARKET[post.market]
+                ? `Thinking about selling in ${post.market}?`
+                : 'Thinking about selling?'}
+            </span>{' '}
             Carlos reviews every submission personally.
           </p>
           <Link
-            to="/sell-south-florida"
+            to={sellHref}
             onClick={() => track('seller_strategy_review', 'post_top', post)}
             className="shrink-0 inline-block border border-navy px-5 py-2 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:border-gold hover:text-gold"
           >

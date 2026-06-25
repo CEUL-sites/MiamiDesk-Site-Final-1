@@ -97,6 +97,19 @@ export default function SellSouthFloridaPage() {
             { "@type": "Question", "name": "Is the seller strategy review really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property." } }
           ]
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — South Florida",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "AdministrativeArea", "name": "South Florida" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-south-florida"
+          },
+          "url": "https://homesprofessional.com/sell-south-florida"
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
@@ -117,20 +130,35 @@ export default function SellSouthFloridaPage() {
             className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
             style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
           >
-            Your buyer already has a Realtor®.<br />
-            <em className="not-italic italic text-gold">Make sure that agent has your listing.</em>
+            The more agents who can sell your home,{" "}
+            <em className="not-italic italic text-gold">the more it sells for.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60">
-            Most serious buyers arrive through their own agent. My job is to make sure
-            every one of those agents — local and international — can find, show, and
-            defend your home.
+            Most serious buyers — local and international — arrive through their own
+            agent. I put your home in front of all of them, so the right buyer finds
+            it and competes for it.
           </p>
+
+          {/* What you get — the concrete deliverables of the review */}
+          <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
+            {[
+              "MLS-based pricing & positioning",
+              "Your most likely buyer — local & global",
+              "A clear net-proceeds estimate",
+            ].map((item) => (
+              <li key={item} className="inline-flex items-center gap-2 font-sans text-[13px] text-white/75">
+                <BadgeCheck size={15} className="flex-shrink-0 text-gold" />
+                {item}
+              </li>
+            ))}
+          </ul>
+
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#contact"
               className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
             >
-              Request a Confidential Property Review
+              Get My Home Value &amp; Strategy
               <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a
@@ -142,14 +170,29 @@ export default function SellSouthFloridaPage() {
               WhatsApp Carlos
             </a>
           </div>
-          <div className="mt-6 flex items-center justify-center gap-2">
+
+          {/* Risk-reversal + social proof — lowers friction right at the CTA */}
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
+            <span className="flex gap-0.5" aria-hidden="true">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <svg key={i} width="12" height="12" viewBox="0 0 12 12" fill="#B08D57">
+                  <path d="M6 0l1.35 4.15H12L8.32 6.72 9.67 10.87 6 8.3 2.33 10.87 3.68 6.72 0 4.15h4.65z" />
+                </svg>
+              ))}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
+              5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
+            </span>
+          </div>
+
+          <div className="mt-5 flex items-center justify-center gap-2">
             <a
               href={LEAD_MAGNETS.sellerNetSheet.url}
               download
               className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
             >
               <Download size={11} />
-              Download Seller's Net Sheet 2026
+              Or download the Seller's Net Sheet 2026
             </a>
           </div>
           <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
@@ -218,12 +261,18 @@ export default function SellSouthFloridaPage() {
             <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-5">Sell by Neighborhood</p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "Weston",           href: "/sell-weston" },
-                { label: "Coral Gables",     href: "/sell-coral-gables" },
-                { label: "Aventura",         href: "/sell-aventura" },
+                { label: "Miami",            href: "/sell-miami" },
                 { label: "Brickell",         href: "/sell-brickell" },
+                { label: "Downtown Miami",   href: "/sell-downtown-miami" },
+                { label: "Coral Gables",     href: "/sell-coral-gables" },
                 { label: "Doral",            href: "/sell-doral" },
+                { label: "Kendall",          href: "/sell-kendall" },
+                { label: "Aventura",         href: "/sell-aventura" },
+                { label: "North Miami",      href: "/sell-north-miami" },
+                { label: "Hallandale Beach", href: "/sell-hallandale-beach" },
+                { label: "Weston",           href: "/sell-weston" },
                 { label: "Fort Lauderdale",  href: "/sell-fort-lauderdale" },
+                { label: "Pompano Beach",    href: "/sell-pompano-beach" },
                 { label: "Coral Springs",    href: "/sell-coral-springs" },
                 { label: "Pembroke Pines",   href: "/sell-pembroke-pines" },
                 { label: "Plantation",       href: "/sell-plantation" },

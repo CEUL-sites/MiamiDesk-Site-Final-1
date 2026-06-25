@@ -259,7 +259,7 @@ Carlos Uzcategui · REALTOR® Licenciado en Florida SL705771 · United Realty Gr
 - **Spanish agency remains licensed party in Spain.** The structure requires a licensed Spanish agency as co-party. Do not imply Carlos can act as an agent in Spain.
 - **Equal Housing Opportunity.** All U.S.-side activity is conducted in compliance with the Equal Housing Opportunity Act. Include "Equal Housing Opportunity" in any printed or HTML correspondence using these templates.
 - **MLS eligibility is not guaranteed.** Property-by-property MLS eligibility is subject to Miami and South Florida REALTORS® MLS rules for international listings. Do not represent any specific property as pre-approved for MLS activation.
-- **Source citations.** Agent count (93,000), international agreements (437+), and brokerage ranking ("URG #1 Florida · Most Closed Homes") must not be modified. Source: Miami and South Florida REALTORS®; urgfl.com.
+- **Source citations.** Agent count (93,000) and international agreements (437+) are attributed to Miami and South Florida REALTORS®. Describe United Realty Group only with defensible, attributed facts — "full-service brokerage founded in 2002, in-house title company (South Florida Title Associates), 3,500+ agents, 20 Florida offices." Do NOT use unverifiable brokerage superlatives ("#1 Florida", "Most Closed Homes", "leading transactional brokerage").
 
 ---
 

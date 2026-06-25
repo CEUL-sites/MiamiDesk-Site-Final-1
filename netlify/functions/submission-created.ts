@@ -2,6 +2,7 @@ import type { Handler, HandlerEvent } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
 import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
+import { sendWhatsAppAlert } from "./_shared/whatsapp";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
@@ -14,7 +15,6 @@ const NURTURE_FORMS = new Set(["seller-intake", "seller-hero", "seller-consultat
 const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "";
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
 const CALLMEBOT_APIKEY = process.env.CALLMEBOT_APIKEY ?? "";
-const NOTIFY_PHONE = "19548656622"; // Carlos's WhatsApp — no + or spaces
 const TO_EMAIL = "contact@carlosre.com";
 const FROM_EMAIL = process.env.RESEND_FROM ?? "leads@homesprofessional.com";
 
@@ -27,6 +27,21 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
     const formName = payload.form_name || fields["form-name"] || "unknown";
     const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
+
+    // ── Spam hardening: honeypot + submit-time heuristic ─────────────────
+    // Netlify drops honeypot-filled submissions before this event fires, but
+    // we re-check defensively. The timestamp heuristic rejects bot posts that
+    // arrive within ~1.5s of the form rendering (a human cannot complete a
+    // multi-field lead form that fast). Submissions without formRenderedAt are
+    // allowed through unchanged for backward compatibility.
+    const honeypot = (fields["bot-field"] || "").trim();
+    const renderedAt = Number(fields.formRenderedAt || 0);
+    const elapsedMs = renderedAt > 0 ? Date.now() - renderedAt : null;
+    const tooFast = elapsedMs !== null && elapsedMs >= 0 && elapsedMs < 1500;
+    if (honeypot !== "" || tooFast) {
+      console.log("submission-created: rejected as spam", { honeypotFilled: honeypot !== "", elapsedMs });
+      return { statusCode: 200, body: "OK" };
+    }
 
     // ── Normalised fields (shared across all forms) ──────────────────────
     const name    = fields.name || fields.licenseeName || "";
@@ -58,7 +73,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // Capture everything the narrow mapping above would otherwise drop.
     const extraParts: string[] = [];
     const SKIP_KEYS = new Set([
-      "bot-field", "form-name", "source", "sourcePage",
+      "bot-field", "form-name", "source", "sourcePage", "formRenderedAt",
       // attribution surfaced separately as leadSource — don't duplicate in dump
       "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
       "gclid", "fbclid", "msclkid", "li_fat_id", "landing_page", "first_seen", "referrer",
@@ -171,7 +186,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
       }
 
       // ── 3. WhatsApp notification via CallMeBot ─────────────────────────
-      if (CALLMEBOT_APIKEY) {
+      // CallMeBot returns HTTP 200 even on rejection, so sendWhatsAppAlert
+      // inspects the body and reports the true outcome (logged for diagnosis).
+      {
         const waLines = [
           `🏠 New Lead — HomesProfessional.com`,
           ``,
@@ -186,17 +203,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
           `📊 Source: ${leadSource}`,
         ].filter(Boolean).join("\n");
 
-        try {
-          const waUrl = `https://api.callmebot.com/whatsapp.php?phone=${NOTIFY_PHONE}&text=${encodeURIComponent(waLines)}&apikey=${CALLMEBOT_APIKEY}`;
-          const waRes = await fetch(waUrl);
-          if (!waRes.ok) {
-            console.error("CallMeBot WhatsApp error:", waRes.status);
-          } else {
-            alerted = true;
-          }
-        } catch (waErr) {
-          console.error("WhatsApp notification error:", waErr);
-        }
+        const wa = await sendWhatsAppAlert(waLines, CALLMEBOT_APIKEY);
+        if (wa.ok) alerted = true;
+        else if (CALLMEBOT_APIKEY) console.error("submission-created CallMeBot:", wa.detail);
       }
 
       // Only mark the alert channel if something actually reached Carlos, so a

@@ -1,5 +1,6 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { dedupKey, markAlerted } from "./_shared/leadDedup";
+import { sendWhatsAppAlert } from "./_shared/whatsapp";
 
 // Synchronous backup notifier. The forms call this directly (keepalive) at the
 // same time they POST to Netlify Forms, so a lead is delivered even if Netlify
@@ -15,7 +16,6 @@ import { dedupKey, markAlerted } from "./_shared/leadDedup";
 const SHEET_WEBHOOK = process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "";
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
 const CALLMEBOT_KEY = process.env.CALLMEBOT_APIKEY ?? "";
-const NOTIFY_PHONE = "19548656622"; // Carlos's WhatsApp — no + or spaces
 const TO_EMAIL = "contact@carlosre.com";
 const FROM_EMAIL = process.env.RESEND_FROM ?? "leads@homesprofessional.com";
 
@@ -183,18 +183,12 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   // ── 3. WhatsApp notification via CallMeBot ──────────────────────────────
-  if (CALLMEBOT_KEY) {
-    try {
-      const text = encodeURIComponent(buildWhatsAppMessage(lead));
-      const res = await fetch(`https://api.callmebot.com/whatsapp.php?phone=${NOTIFY_PHONE}&text=${text}&apikey=${CALLMEBOT_KEY}`);
-      results.whatsapp = res.ok ? "ok" : `error ${res.status}`;
-      if (res.ok) alerted = true;
-    } catch (err) {
-      results.whatsapp = `failed: ${err instanceof Error ? err.message : "unknown"}`;
-    }
-  } else {
-    results.whatsapp = "not configured";
-  }
+  // CallMeBot returns HTTP 200 even on rejection, so sendWhatsAppAlert inspects
+  // the body and reports the true outcome (logged for diagnosis).
+  const wa = await sendWhatsAppAlert(buildWhatsAppMessage(lead), CALLMEBOT_KEY);
+  results.whatsapp = wa.detail;
+  if (wa.ok) alerted = true;
+  else if (CALLMEBOT_KEY) console.error("lead-notify CallMeBot:", wa.detail);
 
   // Only suppress the primary path's alert if one actually reached Carlos.
   if (alerted) {

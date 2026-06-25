@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AGGREGATE_RATING } from "../data/reviews";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -8,6 +9,7 @@ import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CityListingsSample } from "../components/CityListingsSample";
+import { NearbyMarkets } from "../components/NearbyMarkets";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const WESTON_FAQS = [
@@ -91,13 +93,20 @@ export default function SellWestonPage() {
             "addressCountry": "US"
           },
           "memberOf": { "@type": "Organization", "name": "United Realty Group" },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "15",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
+          "aggregateRating": AGGREGATE_RATING
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — Weston, FL",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "City", "name": "Weston", "addressRegion": "FL", "addressCountry": "US" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-weston"
+          },
+          "url": "https://homesprofessional.com/sell-weston"
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
@@ -125,31 +134,51 @@ export default function SellWestonPage() {
               who understands both the local market and the international demand that drives it.
               Professional MLS positioning. Buyer-agent activation. International distribution.
             </p>
+            <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
+              {[
+                "MLS-based pricing & positioning",
+                "Your most likely buyer — local & global",
+                "A clear net-proceeds estimate",
+              ].map((item) => (
+                <li key={item} className="inline-flex items-center gap-2 font-sans text-[13px] text-white/75">
+                  <BadgeCheck size={15} className="flex-shrink-0 text-gold" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
-              >
-                Request a Free Strategy Review
+              <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
+                Get My Weston Home Value &amp; Strategy
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a
-                href={CONTACT.whatsappUS}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
-              >
+              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
                 WhatsApp Carlos
               </a>
             </div>
-            <div className="mt-6 flex items-center justify-center gap-2">
-              <a
-                href={LEAD_MAGNETS.sellerNetSheet.url}
-                download
-                className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
-              >
+
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
+              <span className="flex gap-0.5" aria-hidden="true">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg key={i} width="12" height="12" viewBox="0 0 12 12" fill="#B08D57">
+                    <path d="M6 0l1.35 4.15H12L8.32 6.72 9.67 10.87 6 8.3 2.33 10.87 3.68 6.72 0 4.15h4.65z" />
+                  </svg>
+                ))}
+              </span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
+                5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
+              </span>
+            </div>
+
+            <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
+              <p className="font-sans text-sm italic leading-relaxed text-white/55">"I interviewed three agents before calling Carlos. His knowledge of the Weston community market — and the Latin American buyer pipeline — was genuinely different."</p>
+              <footer className="mt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/50">— Maria R., Weston, FL</footer>
+            </blockquote>
+
+            <div className="mt-5 flex items-center justify-center gap-2">
+              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
-                Download Seller's Net Sheet 2026
+                Or download the Seller's Net Sheet 2026
               </a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
@@ -197,7 +226,7 @@ export default function SellWestonPage() {
                   <em className="not-italic italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of Florida's #1 brokerage by closed homes — 3,500+ agents across 20 South Florida offices — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 20 South Florida offices — not a portal, a professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[
@@ -278,6 +307,7 @@ export default function SellWestonPage() {
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Weston" />
         <CityListingsSample city="Weston" />
+        <NearbyMarkets current="sell-weston" />
 
         {/* Confidential intake */}
         <section className="bg-navy-deep py-16 md:py-24" id="contact">

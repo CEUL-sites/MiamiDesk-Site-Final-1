@@ -1,120 +1,10 @@
 import type { FC } from "react";
-
-// Carlos's verified Realtor.com agent profile — the third-party source for these
-// reviews. Surfaced as a prominent link-out so the trust signal is verifiable.
-const REALTOR_PROFILE_URL =
-  "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51";
-
-const REVIEWS_ROW1 = [
-  {
-    name: "Maria Isabel Onate",
-    location: "Weston, FL",
-    date: "Jan 2024",
-    verified: true,
-    text: "Carlos demonstrated a deep understanding of the local housing market and provided invaluable insights that helped me make informed decisions. His professionalism, attention to detail, and superb communication skills made the entire process smooth and stress-free.",
-  },
-  {
-    name: "Andres P.",
-    location: "Weston, FL",
-    date: "Oct 2020",
-    verified: true,
-    text: "Our house went under contract 10 days after we put it on the market at 12% over asking price. Carlos was incredibly friendly and helpful and walked us through every step of the closing process. It couldn't have been a more pleasant experience.",
-  },
-  {
-    name: "Diego Tolotto",
-    location: "Weston, FL",
-    date: "Dec 2023",
-    verified: true,
-    text: "Carlos was exceptional in selling our home swiftly at a great price and securing a beneficial 7-month post-occupancy that eased our family's relocation. His professionalism and skillful negotiation made the entire process seamless.",
-  },
-  {
-    name: "Hind",
-    location: "Weston, FL",
-    date: "Dec 2021",
-    verified: true,
-    text: "Despite the low inventory and the very competitive market, Carlos got us our dream home. He understood my personality and my needs and was very patient. He is a fantastic agent and more importantly an awesome human being!",
-  },
-  {
-    name: "A. Martinez",
-    location: "Sunrise, FL",
-    date: "Oct 2020",
-    verified: true,
-    text: "Carlos maintained the same level of professionalism and dedication through the whole experience. From the moment he listed the property until we closed the transaction he made himself available at all times.",
-  },
-  {
-    name: "Isabel Caicedo",
-    location: "South Florida",
-    date: "",
-    verified: false,
-    text: "Carlos is an outstanding realtor agent and human being. He was very knowledgeable and professional. He showed us different options that fitted our budget and was very patient. With him we were able to find our dream home. I extremely recommend him.",
-  },
-  {
-    name: "Rafael Caraballo",
-    location: "South Florida",
-    date: "",
-    verified: false,
-    text: "Carlos is a professional Realtor — he has all the knowledge and experience and always kept me informed of every action during the selling process. I am extremely satisfied with Carlos, so I highly recommend him.",
-  },
-];
-
-const REVIEWS_ROW2 = [
-  {
-    name: "Juan J.",
-    location: "Boca Raton, FL",
-    date: "Oct 2020",
-    verified: true,
-    text: "This was our first time buying a house and I am extremely grateful to have met Carlos. He expertly guided us through the whole process and was there for us every step of the way. He was our advocate in every decision we had to make. Thank you Carlos for getting us our dream home!",
-  },
-  {
-    name: "Raimundo Vazquez",
-    location: "Doral, FL",
-    date: "Nov 2022",
-    verified: true,
-    text: "Amazing negotiating skills and professional work on a 1031 exchange — sold a retail property and bought two properties in Miami. I definitely recommend Carlos as your go-to realtor for any real estate needs.",
-  },
-  {
-    name: "Railiss LLC",
-    location: "Miami, FL",
-    date: "Nov 2022",
-    verified: true,
-    text: "Thank you for your amazing professional skills in negotiating the sale of our property and purchase through a 1031 exchange of our next investment. I recommend Carlos for sure — maybe the best Realtor in Miami. Thank you!!!",
-  },
-  {
-    name: "Gustavo Riveira",
-    location: "Weston, FL",
-    date: "Oct 2020",
-    verified: true,
-    text: "Carlos made our negotiation fluid and quick. He is an excellent professional — always was there until the end of the process. We left completely satisfied with his job.",
-  },
-  {
-    name: "Marisela",
-    location: "Weston, FL",
-    date: "Oct 2020",
-    verified: true,
-    text: "Carlos is an excellent realtor, with high professionalism, always there for you in the process from the beginning through the end. Carlos is my realtor and my family realtor and we recommend him without any doubt.",
-  },
-  {
-    name: "Juan",
-    location: "Pembroke Pines, FL",
-    date: "Oct 2020",
-    verified: true,
-    text: "I have been working with Carlos for more than 10 years and I am very happy with the results. I have bought and sold units with him and it's been a great investment working with him and following his recommendations. I recommend Carlos 100%.",
-  },
-  {
-    name: "Crisanto Bello",
-    location: "South Florida",
-    date: "",
-    verified: false,
-    text: "Te escribo para agradecerte el habernos conseguido el apartamento. Estamos muy contentos. Y la vista es espectacular. Sabemos que nos conseguiste buen precio — ya que se estaban vendiendo muy por encima de lo que compramos. Todo gracias a tu gestión.",
-  },
-  {
-    name: "Julio Bango Jimenez",
-    location: "South Florida",
-    date: "",
-    verified: false,
-    text: "Gracias Carlos por un trabajo tan profesional por tantos años y en varias transacciones exitosas.",
-  },
-];
+import {
+  REVIEWS,
+  REALTOR_PROFILE_URL,
+  RATING_VALUE,
+  formatReviewDateShort,
+} from "../data/reviews";
 
 function StarRow() {
   return (
@@ -186,7 +76,7 @@ export function Testimonials() {
                 ))}
               </span>
               <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">
-                5.0 average · Verified Realtor.com® reviews
+                {RATING_VALUE} average · Verified Realtor.com® reviews
               </span>
             </div>
           </div>
@@ -201,15 +91,15 @@ export function Testimonials() {
         </div>
       </div>
 
-      {/* Single scrolling row — all reviews */}
+      {/* Single scrolling row — all reviews, sourced from src/data/reviews.ts */}
       <div className="marquee-container">
         <div className="marquee-track-slow flex" style={{ animationDuration: "120s" }}>
-          {[...REVIEWS_ROW1, ...REVIEWS_ROW2].map((r, i) => (
-            <ReviewCard key={`r${i}`} name={r.name} location={r.location} date={r.date} verified={r.verified} text={r.text} />
+          {REVIEWS.map((r, i) => (
+            <ReviewCard key={`r${i}`} name={r.name} location={r.location ?? ""} date={formatReviewDateShort(r.date)} verified={r.verified} text={r.cardText ?? r.text} />
           ))}
           <div aria-hidden="true" className="flex">
-            {[...REVIEWS_ROW1, ...REVIEWS_ROW2].map((r, i) => (
-              <ReviewCard key={`c${i}`} name={r.name} location={r.location} date={r.date} verified={r.verified} text={r.text} />
+            {REVIEWS.map((r, i) => (
+              <ReviewCard key={`c${i}`} name={r.name} location={r.location ?? ""} date={formatReviewDateShort(r.date)} verified={r.verified} text={r.cardText ?? r.text} />
             ))}
           </div>
         </div>
@@ -221,7 +111,7 @@ export function Testimonials() {
           <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="text-white/40 underline hover:text-gold">
             verified Realtor.com® profile
           </a>{" "}
-          and client testimonials. Individual results vary.
+          and client testimonials. Individual results vary and are not a prediction of any sale outcome.
         </p>
       </div>
     </section>

@@ -70,7 +70,7 @@ const STEPS = [
     label: "THE RESULT",
     headline: "The buyer no one else could reach.",
     sub: "A Spanish property owner found their LatAm buyer through the only pipeline that connects both markets at institutional level. No workaround. A licensed U.S. principal of record.",
-    stat: "United Realty Group — ranked #1 in Florida · most closed homes",
+    stat: "United Realty Group — full-service brokerage · in-house title company",
     side: "right" as const,
     color: GOLD_SOFT,
   },
