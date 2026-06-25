@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
-import { AGGREGATE_RATING } from "../data/reviews";
+import { AGGREGATE_RATING, VERIFIED_REVIEWS, buildReviewSchema } from "../data/reviews";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { ReachAdvantage } from "../components/ReachAdvantage";
@@ -58,11 +58,7 @@ export default function HomePage() {
           "memberOf": { "@type": "Organization", "name": "Miami and South Florida REALTORS®" },
           "worksFor": { "@type": "Organization", "name": "United Realty Group" },
           "aggregateRating": AGGREGATE_RATING,
-          "review": [
-            { "@type": "Review", "author": { "@type": "Person", "name": "Andres P." }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Our house went under contract 10 days after we put it on the market at 12% over asking price. Carlos was incredibly friendly and helpful and walked us through every step of the closing process." },
-            { "@type": "Review", "author": { "@type": "Person", "name": "Maria Isabel Onate" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Carlos demonstrated a deep understanding of the local housing market and provided invaluable insights. His professionalism, attention to detail, and superb communication skills made the entire process smooth and stress-free." },
-            { "@type": "Review", "author": { "@type": "Person", "name": "Diego Tolotto" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Carlos was exceptional in selling our home swiftly at a great price. His professionalism and skillful negotiation made the entire process seamless." }
-          ]
+          "review": buildReviewSchema(VERIFIED_REVIEWS.slice(0, 3))
         })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
