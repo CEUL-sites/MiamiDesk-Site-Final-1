@@ -145,4 +145,22 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'When inventory is scarce, almost any listing is seen. With 12,000-plus active condos, visibility is not automatic — the property must be carried to the right buyers through MLS, buyer-agent, relocation, and international referral channels rather than published and left to wait.',
     },
   ],
+  'downsizing-south-florida-homestead-portability-example-2026': [
+    {
+      q: 'How much can a married couple exclude from capital gains when selling a primary home?',
+      a: 'Under IRC Section 121, a married couple filing jointly can exclude up to $500,000 of gain on the sale of a primary residence if they meet the ownership and use tests — generally owning and living in the home at least two of the five years before the sale. Documented capital improvements add to your cost basis and can further reduce taxable gain. Confirm your situation with a CPA.',
+    },
+    {
+      q: 'How is Florida portability calculated when you downsize?',
+      a: 'When you buy a less expensive home, Florida transfers a proportional share of your Save Our Homes benefit: (new market value ÷ old market value) × your accumulated benefit, up to $500,000. For example, moving from a $1.1M home to a $550,000 home transfers 50% of the benefit. Your county property appraiser calculates the exact figure.',
+    },
+    {
+      q: 'Can downsizing eliminate a mortgage payment?',
+      a: 'Often, yes. If net sale proceeds exceed the price of the replacement home, a seller can purchase the next home outright and remove the mortgage principal and interest entirely — typically the largest line in a monthly housing budget — while also lowering property taxes through portability and reducing insurance on a smaller home.',
+    },
+    {
+      q: 'Does a higher sale price change the whole downsizing plan?',
+      a: 'Yes. Net proceeds drive every later step — the cash available for the next home, the reserve left over, and the monthly cost reset. Because the realized sale price depends heavily on how the home is positioned and distributed, the sale strategy is the most controllable variable in the plan.',
+    },
+  ],
 };
