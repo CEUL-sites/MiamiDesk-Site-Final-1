@@ -87,6 +87,19 @@ export default function SellSunrisePage() {
             "worstRating": "1"
           }
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — Sunrise, FL",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "City", "name": "Sunrise", "addressRegion": "FL", "addressCountry": "US" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-sunrise"
+          },
+          "url": "https://homesprofessional.com/sell-sunrise"
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

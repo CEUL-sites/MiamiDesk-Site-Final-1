@@ -87,6 +87,19 @@ export default function SellCoralSpringsPage() {
             "worstRating": "1"
           }
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — Coral Springs, FL",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "City", "name": "Coral Springs", "addressRegion": "FL", "addressCountry": "US" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-coral-springs"
+          },
+          "url": "https://homesprofessional.com/sell-coral-springs"
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

@@ -100,6 +100,19 @@ export default function SellWestonPage() {
             "worstRating": "1"
           }
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — Weston, FL",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "City", "name": "Weston", "addressRegion": "FL", "addressCountry": "US" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-weston"
+          },
+          "url": "https://homesprofessional.com/sell-weston"
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

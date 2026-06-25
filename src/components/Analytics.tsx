@@ -9,22 +9,35 @@ import { isTrackingAllowed } from "../lib/consent";
 // so build-time page visits don't appear as real sessions in GA4 / Meta / LinkedIn.
 const isPrerender = typeof navigator !== "undefined" && navigator.webdriver;
 
+// Delegated tracking for every contact CTA on the site (WhatsApp, phone, and
+// guide downloads) so we don't have to wire an onClick into each of the dozens
+// of anchors spread across pages. Fires both the legacy event names (kept for
+// existing GTM triggers) and the standardized Batch-2 names with a
+// form_location param so each contact is attributable to the page it came from.
 function handleGlobalClick(e: MouseEvent) {
   const target = (e.target as Element).closest("a");
   if (!target) return;
 
   const href = target.getAttribute("href") ?? "";
+  const form_location = typeof window !== "undefined" ? window.location.pathname : "";
 
   if (href.includes("wa.me/1954")) {
     pushEvent("whatsapp_click_us", { destination: href });
-  } else if (href.includes("wa.me/346")) {
+    pushEvent("contact_whatsapp", { line: "us", destination: href, form_location });
+  } else if (href.includes("wa.me/346") || href.includes("wa.me/34")) {
     pushEvent("whatsapp_click_madrid", { destination: href });
+    pushEvent("contact_whatsapp", { line: "es", destination: href, form_location });
+  }
+
+  if (href.startsWith("tel:")) {
+    pushEvent("contact_call", { destination: href, form_location });
   }
 
   if (target.hasAttribute("download")) {
     const url = target.getAttribute("href") ?? "";
     const filename = url.split("/").pop() ?? url;
     pushEvent("lead_magnet_download", { file: filename, url });
+    pushEvent("download_guide", { guide: filename, form_location });
   }
 }
 

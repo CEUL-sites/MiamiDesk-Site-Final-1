@@ -87,6 +87,19 @@ export default function SellBrickellPage() {
             "worstRating": "1"
           }
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — Brickell, FL",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "City", "name": "Brickell", "addressRegion": "FL", "addressCountry": "US" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-brickell"
+          },
+          "url": "https://homesprofessional.com/sell-brickell"
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

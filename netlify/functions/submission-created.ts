@@ -28,6 +28,21 @@ export const handler: Handler = async (event: HandlerEvent) => {
     const formName = payload.form_name || fields["form-name"] || "unknown";
     const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
 
+    // ── Spam hardening: honeypot + submit-time heuristic ─────────────────
+    // Netlify drops honeypot-filled submissions before this event fires, but
+    // we re-check defensively. The timestamp heuristic rejects bot posts that
+    // arrive within ~1.5s of the form rendering (a human cannot complete a
+    // multi-field lead form that fast). Submissions without formRenderedAt are
+    // allowed through unchanged for backward compatibility.
+    const honeypot = (fields["bot-field"] || "").trim();
+    const renderedAt = Number(fields.formRenderedAt || 0);
+    const elapsedMs = renderedAt > 0 ? Date.now() - renderedAt : null;
+    const tooFast = elapsedMs !== null && elapsedMs >= 0 && elapsedMs < 1500;
+    if (honeypot !== "" || tooFast) {
+      console.log("submission-created: rejected as spam", { honeypotFilled: honeypot !== "", elapsedMs });
+      return { statusCode: 200, body: "OK" };
+    }
+
     // ── Normalised fields (shared across all forms) ──────────────────────
     const name    = fields.name || fields.licenseeName || "";
     const email   = fields.email || "";
@@ -58,7 +73,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // Capture everything the narrow mapping above would otherwise drop.
     const extraParts: string[] = [];
     const SKIP_KEYS = new Set([
-      "bot-field", "form-name", "source", "sourcePage",
+      "bot-field", "form-name", "source", "sourcePage", "formRenderedAt",
       // attribution surfaced separately as leadSource — don't duplicate in dump
       "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
       "gclid", "fbclid", "msclkid", "li_fat_id", "landing_page", "first_seen", "referrer",

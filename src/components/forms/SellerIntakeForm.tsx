@@ -43,6 +43,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   const [stepErr, setStepErr] = useState("");
   const addressRef = useRef<HTMLInputElement>(null);
   const formStartFired = useRef(false);
+  const renderedAt = useRef(Date.now());
   const placesInput = useRef<HTMLInputElement | null>(null);
 
   const handleFormFocus = () => {
@@ -148,7 +149,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", ...form, sourcePage, ...getAttribution() }),
+        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", formRenderedAt: String(renderedAt.current), ...form, sourcePage, ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
@@ -162,7 +163,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "seller-intake", name: form.name, email: form.email, phone: form.phone }),
       }).catch(() => {});
-      trackLead("seller", { form: "seller-intake", page: sourcePage }); window.location.href = "/thanks/seller";
+      trackLead("seller", { form: "seller-intake", form_location: sourcePage, page: sourcePage }); window.location.href = "/thanks/seller";
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"
@@ -247,7 +248,9 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             </select>
           </Field>
 
-          {stepErr && <p className="font-sans text-sm text-red-600">{stepErr}</p>}
+          <p role="alert" aria-live="assertive" className="min-h-0">
+            {stepErr && <span className="font-sans text-sm text-red-700">{stepErr}</span>}
+          </p>
 
           <button type="submit" className="group flex w-full items-center justify-center gap-3 bg-navy py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-all hover:bg-gold">
             See My Market Snapshot
@@ -397,9 +400,9 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             </span>
           </label>
 
-          {status === "error" && (
-            <p className="font-sans text-sm text-red-600">{err}</p>
-          )}
+          <p role="alert" aria-live="assertive" className="min-h-0">
+            {status === "error" && <span className="font-sans text-sm text-red-700">{err}</span>}
+          </p>
 
           <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-all hover:bg-gold disabled:opacity-60">
             {status === "submitting" ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
@@ -416,10 +419,12 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  // The control is nested inside the <label>, giving every input a
+  // programmatic label (implicit association) without needing per-field ids.
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">{label}</label>
+    <label className="flex flex-col gap-1.5">
+      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/65">{label}</span>
       {children}
-    </div>
+    </label>
   );
 }

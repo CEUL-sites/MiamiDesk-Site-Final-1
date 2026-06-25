@@ -5,10 +5,12 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
 import { JournalSellerCTA } from '../components/JournalSellerCTA';
+import { AuthorBio } from '../components/AuthorBio';
 import { getPostBySlug, getAllPosts } from '../lib/markdown';
 import { JOURNAL_FAQS } from '../content/journal-faqs';
 import { pushEvent } from '../lib/analytics';
 import { getAttribution } from '../lib/attribution';
+import { CONTACT } from '../constants';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -66,11 +68,44 @@ export default function JournalPostPage() {
     dateModified,
     image: ogImage,
     author: {
-      '@type': 'Person',
+      '@type': ['Person', 'RealEstateAgent'],
       '@id': 'https://homesprofessional.com/#agent',
       name: 'Carlos Uzcategui',
       url: 'https://homesprofessional.com/about',
       jobTitle: 'Florida Licensed Realtor®',
+      knowsLanguage: ['en', 'es'],
+      knowsAbout: [
+        'South Florida real estate',
+        'Miami MLS',
+        'seller representation',
+        'international buyers',
+      ],
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Florida Real Estate License',
+          identifier: 'SL705771',
+          credentialCategory: 'license',
+          recognizedBy: {
+            '@type': 'Organization',
+            name: 'Florida Department of Business and Professional Regulation',
+          },
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Certified Luxury Home Marketing Specialist (CLHMS)',
+          credentialCategory: 'designation',
+        },
+      ],
+      worksFor: {
+        '@type': 'Organization',
+        '@id': 'https://homesprofessional.com/#organization',
+        name: 'United Realty Group',
+      },
+      sameAs: [
+        'https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51',
+        CONTACT.linkedin,
+      ],
     },
     publisher: {
       '@type': 'Organization',
@@ -260,6 +295,61 @@ export default function JournalPostPage() {
         <div className="mx-auto max-w-3xl px-5 lg:px-8">
           <hr className="border-bone" />
         </div>
+
+        {/* Author bio — E-E-A-T signal, rendered after article body and FAQ */}
+        <div className="mx-auto max-w-3xl px-5 py-10 lg:px-8">
+          <AuthorBio />
+        </div>
+
+        {/* Internal links — money pages */}
+        <section className="mx-auto max-w-3xl px-5 pb-10 lg:px-8">
+          <div className="border border-bone bg-ivory p-7">
+            <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-5">
+              Continue Your Research
+            </p>
+            <ul className="divide-y divide-bone">
+              <li className="py-3">
+                <Link
+                  to="/home-value"
+                  className="group flex items-start justify-between gap-4"
+                >
+                  <span className="font-serif text-[15px] leading-snug text-navy group-hover:text-gold transition-colors">
+                    Get a no-cost home valuation for your South Florida property
+                  </span>
+                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
+                    →
+                  </span>
+                </Link>
+              </li>
+              <li className="py-3">
+                <Link
+                  to="/sell-south-florida"
+                  className="group flex items-start justify-between gap-4"
+                >
+                  <span className="font-serif text-[15px] leading-snug text-navy group-hover:text-gold transition-colors">
+                    How professional MLS positioning works for sellers
+                  </span>
+                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
+                    →
+                  </span>
+                </Link>
+              </li>
+              <li className="py-3">
+                <Link
+                  to="/global-desk"
+                  className="group flex items-start justify-between gap-4"
+                >
+                  <span className="font-serif text-[15px] leading-snug text-navy group-hover:text-gold transition-colors">
+                    International owners: list South Florida property through a licensed U.S. principal
+                  </span>
+                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
+                    →
+                  </span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </section>
 
         {/* Bottom CTA */}
         <JournalSellerCTA variant="bottom" post={post} />

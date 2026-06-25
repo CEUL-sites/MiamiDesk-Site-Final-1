@@ -100,6 +100,19 @@ export default function SellCoralGablesPage() {
             "worstRating": "1"
           }
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — Coral Gables, FL",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "City", "name": "Coral Gables", "addressRegion": "FL", "addressCountry": "US" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-coral-gables"
+          },
+          "url": "https://homesprofessional.com/sell-coral-gables"
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
