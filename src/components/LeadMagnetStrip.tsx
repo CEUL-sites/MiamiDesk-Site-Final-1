@@ -167,6 +167,7 @@ export function LeadMagnetStrip() {
       {/* Netlify form detection (build-time) — a single definition covers both
           magnets since `guide` distinguishes them. */}
       <form name="lead-magnet-download" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input name="formRenderedAt" type="hidden" />
         <input name="email" type="email" />
         <input name="guide" type="hidden" />
         <input name="language" type="hidden" />
