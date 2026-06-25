@@ -315,7 +315,7 @@ export function Hero() {
           >
             Sell With the Reach of the
             <br className="hidden md:block" aria-hidden="true" />{" "}
-            <em className="italic text-gold">World's Largest Local Realtor® Network.</em>
+            <em className="italic text-gold">World's Largest Local Realtor® Association.</em>
           </motion.h1>
 
           {/* Mobile-only quick CTA — on phones the seller form sits well below

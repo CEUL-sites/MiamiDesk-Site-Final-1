@@ -75,7 +75,7 @@
   }
 
   .input-label {
-    @apply text-[9px] uppercase font-semibold tracking-[0.3em] text-navy/40;
+    @apply text-[9px] uppercase font-semibold tracking-[0.3em] text-navy/65;
   }
 
   .form-input {

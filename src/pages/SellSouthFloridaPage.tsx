@@ -97,6 +97,19 @@ export default function SellSouthFloridaPage() {
             { "@type": "Question", "name": "Is the seller strategy review really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property." } }
           ]
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Seller representation and MLS listing — South Florida",
+          "serviceType": "Real estate listing and seller representation",
+          "areaServed": { "@type": "AdministrativeArea", "name": "South Florida" },
+          "provider": {
+            "@type": "RealEstateAgent",
+            "name": "Carlos Uzcategui",
+            "url": "https://homesprofessional.com/sell-south-florida"
+          },
+          "url": "https://homesprofessional.com/sell-south-florida"
+        })}</script>
       </Helmet>
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useId, useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../constants";
 import { trackLead, pushEvent } from "../lib/analytics";
@@ -23,6 +23,9 @@ export function LeadForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const formStartFired = useRef(false);
+  const renderedAt = useRef(Date.now());
+  const uid = useId();
+  const fid = (k: string) => `${uid}-${k}`;
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -50,6 +53,7 @@ export function LeadForm() {
         body: encodeForm({
           "form-name": "seller-consultation",
           "bot-field": "",
+          formRenderedAt: String(renderedAt.current),
           ...formData,
           sourcePage: "seller-consultation",
           ...getAttribution()
@@ -64,7 +68,7 @@ export function LeadForm() {
         propertyAddress: formData.propertyAddress, city: formData.city, timeline: formData.timeline,
         message: formData.message, sourcePage: "seller-consultation", leadSource: getLeadSource(),
       });
-      trackLead("seller", { form: "seller-consultation", page: "spain-desk" });
+      trackLead("seller", { form: "seller-consultation", form_location: window.location.pathname });
       setStatus("success");
       setFormData(INITIAL_FORM_DATA);
     } catch (error) {
@@ -81,7 +85,7 @@ export function LeadForm() {
 
   if (status === "success") {
     return (
-      <div className="relative overflow-hidden border border-bone bg-gradient-to-b from-white to-ivory p-8 shadow-2xl lg:p-12">
+      <div role="status" aria-live="polite" className="relative overflow-hidden border border-bone bg-gradient-to-b from-white to-ivory p-8 shadow-2xl lg:p-12">
         <div className="absolute inset-x-0 top-0 h-1 bg-gold" />
         <div className="relative z-10 py-12 text-center">
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
@@ -121,24 +125,24 @@ export function LeadForm() {
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
-              <label className="input-label">Full Name</label>
-              <input required name="name" type="text" placeholder="Name" className="form-input" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+              <label className="input-label" htmlFor={fid("name")}>Full Name</label>
+              <input required id={fid("name")} name="name" type="text" autoComplete="name" placeholder="Name" className="form-input" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="input-label">Email Address</label>
-              <input required name="email" type="email" placeholder="Email" className="form-input" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+              <label className="input-label" htmlFor={fid("email")}>Email Address</label>
+              <input required id={fid("email")} name="email" type="email" autoComplete="email" placeholder="Email" className="form-input" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
             </div>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
-              <label className="input-label">Phone / WhatsApp</label>
-              <input required name="phone" type="tel" placeholder="+1..." className="form-input" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
+              <label className="input-label" htmlFor={fid("phone")}>Phone / WhatsApp</label>
+              <input required id={fid("phone")} name="phone" type="tel" autoComplete="tel" placeholder="+1..." className="form-input" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="input-label">Timeline</label>
+              <label className="input-label" htmlFor={fid("timeline")}>Timeline</label>
               <div className="relative">
-                <select name="timeline" className="form-input w-full cursor-pointer appearance-none pr-9" value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}>
+                <select id={fid("timeline")} name="timeline" className="form-input w-full cursor-pointer appearance-none pr-9" value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}>
                   <option>Immediately</option>
                   <option>30-90 days</option>
                   <option>3-6 months</option>
@@ -152,25 +156,27 @@ export function LeadForm() {
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="flex flex-col gap-2">
-              <label className="input-label">Property Address</label>
-              <input required name="propertyAddress" type="text" placeholder="Street address" className="form-input" value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} />
+              <label className="input-label" htmlFor={fid("propertyAddress")}>Property Address</label>
+              <input required id={fid("propertyAddress")} name="propertyAddress" type="text" autoComplete="street-address" placeholder="Street address" className="form-input" value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="input-label">City</label>
-              <input required name="city" type="text" placeholder="Weston, Coral Gables, Brickell" className="form-input" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
+              <label className="input-label" htmlFor={fid("city")}>City</label>
+              <input required id={fid("city")} name="city" type="text" autoComplete="address-level2" placeholder="Weston, Coral Gables, Brickell" className="form-input" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="input-label">Message</label>
-            <textarea name="message" rows={4} placeholder="What should our team know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+            <label className="input-label" htmlFor={fid("message")}>Message</label>
+            <textarea id={fid("message")} name="message" rows={4} placeholder="What should our team know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
           </div>
 
-          {status === "error" && (
-            <p className="font-sans text-sm text-red-600 font-medium mt-2">
-              {errorMessage}
-            </p>
-          )}
+          <p role="alert" aria-live="assertive" className="min-h-0">
+            {status === "error" && (
+              <span className="font-sans text-sm text-red-700 font-medium mt-2 inline-block">
+                {errorMessage}
+              </span>
+            )}
+          </p>
 
           <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/40">
             <span className="text-navy/30">Prefer to talk now?</span>

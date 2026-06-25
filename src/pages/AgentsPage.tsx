@@ -292,7 +292,7 @@ export default function AgentsPage() {
                   icon: UserPlus,
                   tag: "Path 03 · Careers",
                   title: "Join URG or get mentored",
-                  body: "New to real estate, or an experienced agent ready for a change? Build your career inside Florida's #1 brokerage by closed homes — with hands-on guidance from a 25-year agent who works the same MLS.",
+                  body: "New to real estate, or an experienced agent ready for a change? Build your career inside a full-service brokerage founded in 2002 — with hands-on guidance from a 25-year agent who works the same MLS.",
                   points: ["New agents — start strong", "Switching from another agency", "Direct mentorship from Carlos"],
                   cta: "Explore joining",
                   href: "#join-urg",
@@ -868,8 +868,8 @@ export default function AgentsPage() {
                 <span className="text-gold">inside South Florida's network.</span>
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
-                United Realty Group is ranked #1 in Florida by most closed homes — {CONTACT.stats.urgAgents} agents
-                across {CONTACT.stats.urgOffices} South Florida offices. Whatever stage you are at, you work directly
+                United Realty Group is a full-service brokerage founded in 2002 — {CONTACT.stats.urgAgents} agents
+                across {CONTACT.stats.urgOffices} Florida offices. Whatever stage you are at, you work directly
                 with Carlos — an active 25-year agent on the same MLS, not a branch manager reviewing paperwork.
               </p>
             </div>
