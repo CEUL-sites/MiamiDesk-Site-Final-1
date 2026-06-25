@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AGGREGATE_RATING } from "../data/reviews";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -51,13 +52,7 @@ export default function AboutPage() {
             "postalCode": "33331",
             "addressCountry": "US"
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "15",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
+          "aggregateRating": AGGREGATE_RATING,
           "sameAs": [CONTACT.linkedin]
         })}</script>
       </Helmet>

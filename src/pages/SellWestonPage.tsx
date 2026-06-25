@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AGGREGATE_RATING } from "../data/reviews";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -92,13 +93,7 @@ export default function SellWestonPage() {
             "addressCountry": "US"
           },
           "memberOf": { "@type": "Organization", "name": "United Realty Group" },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "15",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
+          "aggregateRating": AGGREGATE_RATING
         })}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",

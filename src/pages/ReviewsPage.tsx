@@ -4,120 +4,15 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { Testimonials } from "../components/Testimonials";
 import { RecentlyRepresented } from "../components/RecentlyRepresented";
-
-const VERIFIED_REVIEWS = [
-  {
-    name: "Maria Isabel Onate",
-    location: "Weston, FL",
-    date: "January 21, 2024",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "I recently had the pleasure of working with Carlos Uzcategui and I can't speak highly enough of the exceptional service I received. From the moment we started working together, Carlos demonstrated a deep understanding of the local housing market and was able to provide me with invaluable insights that helped me make informed decisions. His professionalism, attention to detail, and superb communication skills made the entire process smooth and stress-free. Carlos went above and beyond to ensure that my needs and preferences were met. I was continually impressed by his knowledge, negotiation skills, and dedication to achieving the best possible outcome.",
-  },
-  {
-    name: "Diego Tolotto",
-    location: "Weston, FL",
-    date: "December 18, 2023",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Carlos was exceptional in selling our home swiftly at a great price and securing a beneficial 7-month post-occupancy that eased our family's relocation, at a low rental per month. His professionalism and skillful negotiation made the entire process seamless. We're grateful for the smooth transition he facilitated for our family.",
-  },
-  {
-    name: "Hind",
-    location: "Weston, FL",
-    date: "December 6, 2021",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Despite the low inventory and the very competitive market Carlos got us our dream home. He understood my personality and my needs and was very patient. He is very professional what made the experience very smooth and very pleasant. He is a fantastic agent and more importantly an awesome human being!",
-  },
-  {
-    name: "Raimundo Vazquez",
-    location: "Doral, FL",
-    date: "November 9, 2022",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Amazing negotiating skills and professional work on time with a 1031 exchange that was wonderfully done, sold a retail property (KFC tenant) Bought both this house and another in Miami. I definitely recommend Carlos as your go to realtor for any real estate needs.",
-  },
-  {
-    name: "Railiss LLC",
-    location: "Miami, FL",
-    date: "November 9, 2022",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Thank you for your professional skills in negotiating the sale of our property and purchase also through a 1031 exchange of our next investment. I recommend Carlos for sure. Thank you.",
-  },
-  {
-    name: "Marisela",
-    location: "Weston, FL",
-    date: "October 26, 2020",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Carlos is an excellent realtor, with high professionalism, always there for you in the process from the beginning through the end. Carlos is my realtor and my family realtor and we recommend him without any doubt.",
-  },
-  {
-    name: "A. Martinez",
-    location: "Sunrise, FL",
-    date: "October 16, 2020",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Carlos maintained the same level of professionalism and dedication through the whole experience. From the moment he listed the property until we closed the transaction he made himself available at all times.",
-  },
-  {
-    name: "Gustavo Riveira",
-    location: "Weston, FL",
-    date: "October 16, 2020",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Carlos made our negotiation fluid and quick. He is a excellent professional; always was there until the end of the process. We left completely satisfied with his job.",
-  },
-  {
-    name: "Juan J.",
-    location: "Boca Raton, FL",
-    date: "October 15, 2020",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "This was our first time buying a house and I have to say that I am extremely grateful to have met Carlos. He expertly guided us though the whole process and was there for us every step of the way. He was our advocate in every decision we had to make, and went above and beyond to guarantee that everything was the way we wanted it to be but also that we were making the right choices. Thank you Carlos for getting us our dream home!",
-  },
-  {
-    name: "Juan",
-    location: "Pembroke Pines, FL",
-    date: "October 15, 2020",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "I have been working with Carlos for more than 10 years and I am very happy with the results, I have buy and sell units with him and it's been a great investment working with him and following his recommendations, I recommend Carlos 100%.",
-  },
-  {
-    name: "Andres P.",
-    location: "Weston, FL",
-    date: "October 15, 2020",
-    rating: 5,
-    categories: { Responsiveness: 5, "Market expertise": 5, "Negotiation skills": 5, "Professionalism & communication": 5 },
-    text: "Our house went under contract 10 days after we put it on the market at 12% over asking price. We accepted and Carlos who was incredibly friendly and helpful walked us through every step of the closing process. It couldn't have been a more pleasant experience.",
-  },
-];
-
-const TESTIMONIALS = [
-  {
-    name: "Isabel Caicedo",
-    text: "Carlos is an outstanding realtor agent and human being. He was very knowledgable and professional. He showed us different options that fitted our budget and was very patient. With him we were able to find our dream home. I extremely recommend him.",
-  },
-  {
-    name: "Rafael Caraballo",
-    text: "Carlos is a professional Realtor, he has all the knowledge/experience and always kept me informed of every action during the selling process. I am extremely satisfied with Carlos, so I highly recommend him!!!",
-  },
-  {
-    name: "Marzia Piazza",
-    text: "Excelente persona, tiene muy buenos lugares para mostrar. Es muy cumplido y ayuda en la búsqueda adecuada que la persona necesita. Te atiende con agrado siempre que lo necesitas aún después de la venta. Lo recomiendo ampliamente.",
-  },
-  {
-    name: "Crisanto Bello",
-    text: "Te escribo para agradecerte el habernos conseguido el apartamento. Estamos muy contentos. Y la vista es espectacular. Sabemos que nos conseguiste buen precio — ya que se estaban vendiendo muy por encima de lo que compramos. Todo gracias a tu gestión.",
-  },
-  {
-    name: "Julio Bango Jimenez",
-    text: "Gracias Carlos por un trabajo tan profesional por tantos años y en varias transacciones exitosas.",
-  },
-];
+import {
+  VERIFIED_REVIEWS,
+  CLIENT_TESTIMONIALS,
+  REVIEW_COUNT,
+  RATING_VALUE,
+  AGGREGATE_RATING,
+  buildReviewSchema,
+  formatReviewDateLong,
+} from "../data/reviews";
 
 function Stars({ count = 5 }: { count?: number }) {
   return (
@@ -134,34 +29,16 @@ function Stars({ count = 5 }: { count?: number }) {
 export default function ReviewsPage() {
   // Emit the actual verified reviews (visible on this page) as Review nodes so
   // Google can show star rich-snippets — an AggregateRating alone is weak and
-  // can be ignored without the underlying reviews present. reviewCount stays at
-  // the sitewide figure (15) used by every other page's schema for the same
-  // #agent entity; the nodes below are the on-page representative sample.
+  // can be ignored without the underlying reviews present. Both the rating and
+  // the review nodes derive from src/data/reviews.ts, so the count here always
+  // matches the verified reviews rendered below and the sitewide #agent schema.
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": "https://homesprofessional.com/#agent",
     name: "Carlos Uzcategui",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "15",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: VERIFIED_REVIEWS.map((r) => {
-      // Guard against a malformed date string slipping in — new Date(bad)
-      // .toISOString() throws RangeError and would blank the prerendered page.
-      const d = new Date(r.date);
-      const validDate = !Number.isNaN(d.getTime());
-      return {
-        "@type": "Review",
-        author: { "@type": "Person", name: r.name },
-        ...(validDate ? { datePublished: d.toISOString().slice(0, 10) } : {}),
-        reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5", worstRating: "1" },
-        reviewBody: r.text,
-      };
-    }),
+    aggregateRating: AGGREGATE_RATING,
+    review: buildReviewSchema(VERIFIED_REVIEWS),
   };
   return (
     <>
@@ -187,11 +64,11 @@ export default function ReviewsPage() {
             What Clients Say
           </h1>
           <p className="mx-auto mt-5 max-w-xl font-sans text-base leading-relaxed text-white/55">
-            15 five-star reviews from sellers and buyers across South Florida — sourced from Realtor.com® Verified Reviews.
+            {REVIEW_COUNT} five-star reviews from sellers and buyers across South Florida — sourced from Realtor.com® Verified Reviews.
           </p>
           <div className="mt-6 flex items-center justify-center gap-2">
             <Stars />
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">5.0 · 15 Reviews</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">{RATING_VALUE} · {REVIEW_COUNT} Reviews</span>
           </div>
           <div className="mt-4">
             <a
@@ -224,7 +101,7 @@ export default function ReviewsPage() {
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
                       <p className="font-sans font-semibold text-navy-deep">{r.name}</p>
-                      <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-navy/40 mt-0.5">{r.location} · {r.date}</p>
+                      <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-navy/40 mt-0.5">{r.location} · {formatReviewDateLong(r.date)}</p>
                     </div>
                     <div className="flex-shrink-0 flex items-center gap-1 border border-gold/20 bg-gold/5 px-2 py-0.5">
                       <svg width="9" height="9" viewBox="0 0 20 20" fill="currentColor" className="text-gold">
@@ -235,7 +112,7 @@ export default function ReviewsPage() {
                   </div>
                   <Stars />
                   <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 mb-5">
-                    {Object.entries(r.categories).map(([cat]) => (
+                    {Object.entries(r.categories ?? {}).map(([cat]) => (
                       <div key={cat} className="flex items-center gap-1.5">
                         <svg width="8" height="8" viewBox="0 0 12 12" fill="currentColor" className="text-gold flex-shrink-0">
                           <path d="M6 1l1.39 2.82L10.5 4.24l-2.25 2.19.53 3.1L6 8.02l-2.78 1.51.53-3.1L1.5 4.24l3.11-.42z"/>
@@ -262,7 +139,7 @@ export default function ReviewsPage() {
           <div className="mx-auto max-w-6xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-10">Client Testimonials</p>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {TESTIMONIALS.map((t) => (
+              {CLIENT_TESTIMONIALS.map((t) => (
                 <div key={t.name} className="border border-hairline bg-white p-7">
                   <Stars />
                   <p className="mt-4 font-sans text-sm leading-relaxed text-ink-primary/70 italic">"{t.text}"</p>
