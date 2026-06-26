@@ -51,6 +51,18 @@ export const LEAD_MAGNETS = {
   },
 };
 
+// Where past clients are routed to leave a public review (Fix 17 funnel).
+// Realtor.com is Carlos's verified agent profile (direct review link).
+// GOOGLE: no Google Business Profile Place ID is on file, so this opens Maps
+// to his business listing where a review can be left. When the GBP Place ID is
+// known, replace `google` with the direct deep link:
+//   https://search.google.com/local/writereview?placeid=<PLACE_ID>
+export const REVIEW_PROFILES = {
+  realtor: "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51",
+  google:
+    "https://www.google.com/maps/search/?api=1&query=Carlos%20Uzcategui%20United%20Realty%20Group%20Weston%20FL",
+};
+
 export const NAVIGATION = [
   { name: "Sellers",      href: "/sell-south-florida" },
   { name: "Home Value",   href: "/home-value" },

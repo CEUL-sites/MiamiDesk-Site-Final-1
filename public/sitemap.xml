@@ -234,6 +234,13 @@
     <priority>0.82</priority>
   </url>
 
+  <url>
+    <loc>https://homesprofessional.com/leave-a-review</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
   <!-- ── About & contact ────────────────────────────────────────── -->
 
   <url>

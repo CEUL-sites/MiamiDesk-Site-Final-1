@@ -55,6 +55,7 @@ const EsAgentesPage      = lazy(() => import('./pages/es/EsAgentesPage'));
 const EsGraciasAgentePage = lazy(() => import('./pages/es/EsGraciasAgentePage'));
 const EsSpainDeskPage    = lazy(() => import('./pages/es/EsSpainDeskPage'));
 const ReviewsPage              = lazy(() => import('./pages/ReviewsPage'));
+const LeaveReviewPage          = lazy(() => import('./pages/LeaveReviewPage'));
 const LaComisionSecretaPage    = lazy(() => import('./pages/LaComisionSecretaPage'));
 const MarketDataPage           = lazy(() => import('./pages/MarketDataPage'));
 const NotFoundPage             = lazy(() => import('./pages/NotFoundPage'));
@@ -112,6 +113,7 @@ if (rootElement) {
                 <Route path="/listings"           element={<ListingsPage />} />
                 <Route path="/about"              element={<AboutPage />} />
                 <Route path="/reviews"                   element={<ReviewsPage />} />
+                <Route path="/leave-a-review"            element={<LeaveReviewPage />} />
                 <Route path="/la-comision-secreta"       element={<LaComisionSecretaPage />} />
                 <Route path="/markets"            element={<MarketsPage />} />
                 <Route path="/market-data"       element={<MarketDataPage />} />
