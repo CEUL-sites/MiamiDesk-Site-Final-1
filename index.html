@@ -52,6 +52,44 @@
       prerendered HTML by react-snap. Keep this template free of schema so
       pages never emit duplicates.
     -->
+    <!-- Google Consent Mode v2 — MUST run before GTM/GA so the default
+         consent state is registered before any tag fires. Region-gated:
+         EU/EEA + UK + Spain default to DENIED (opt-in) per GDPR/ePrivacy;
+         everywhere else (incl. the US, the primary market) defaults to
+         GRANTED (opt-out). The Accept/Decline cookie banner sends a
+         consent 'update' (see src/lib/consent.ts). A returning visitor's
+         stored choice is replayed immediately below. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      // Global default — granted (US / rest of world keep opt-out behaviour).
+      gtag('consent','default',{
+        ad_storage:'granted', ad_user_data:'granted',
+        ad_personalization:'granted', analytics_storage:'granted'
+      });
+      // Region override — denied until consent for EU/EEA + UK + Spain.
+      gtag('consent','default',{
+        ad_storage:'denied', ad_user_data:'denied',
+        ad_personalization:'denied', analytics_storage:'denied',
+        wait_for_update:500,
+        region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR',
+          'HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI',
+          'ES','SE','IS','LI','NO','GB']
+      });
+      // Replay a returning visitor's explicit choice immediately.
+      try {
+        var hpC = localStorage.getItem('hp_cookie_consent');
+        if (hpC === 'accepted') gtag('consent','update',{
+          ad_storage:'granted', ad_user_data:'granted',
+          ad_personalization:'granted', analytics_storage:'granted'});
+        else if (hpC === 'declined') gtag('consent','update',{
+          ad_storage:'denied', ad_user_data:'denied',
+          ad_personalization:'denied', analytics_storage:'denied'});
+      } catch(e){}
+    </script>
+    <!-- End Google Consent Mode v2 -->
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -81,11 +119,23 @@
         function add(src,attrs){var s=document.createElement('script');s.async=true;s.src=src;
           if(attrs){for(var k in attrs){s.setAttribute(k,attrs[k]);}}
           document.head.appendChild(s);}
+        // Consent gate for the non-Google pixels (Meta/LinkedIn don't read
+        // Google Consent Mode). Mirrors the region split above: a stored
+        // choice always wins; with no choice yet, EU/EEA/UK/ES visitors are
+        // held until they Accept (opt-in), everyone else loads (opt-out).
+        // Timezone is a dependency-free region proxy (Spain = Europe/Madrid).
+        function pixelsAllowed(){
+          try{
+            var c=localStorage.getItem('hp_cookie_consent');
+            if(c==='declined')return false;
+            if(c==='accepted')return true;
+            var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone)||'';
+            return tz.indexOf('Europe/')!==0;
+          }catch(e){return true;}
+        }
         function loadPixels(){
           if(loaded)return;
-          // Respect a prior "Decline" — don't load the third-party pixel
-          // libraries (LinkedIn Insight auto-fires an impression on load).
-          try{if(localStorage.getItem('hp_cookie_consent')==='declined'){return;}}catch(e){}
+          if(!pixelsAllowed())return;
           loaded=true;
           add('https://connect.facebook.net/en_US/fbevents.js');
           add('https://snap.licdn.com/li.lms-analytics/insight.min.js');
@@ -93,6 +143,9 @@
           window.removeEventListener('pointerdown',loadPixels);
           window.removeEventListener('keydown',loadPixels);
         }
+        // Exposed so the cookie banner can load pixels immediately on Accept
+        // (e.g. an EU visitor who was held until they opted in).
+        window.hpLoadPixels=loadPixels;
         if('requestIdleCallback' in window){requestIdleCallback(loadPixels,{timeout:4000});}
         else{setTimeout(loadPixels,3500);}
         window.addEventListener('pointerdown',loadPixels,{once:true});
