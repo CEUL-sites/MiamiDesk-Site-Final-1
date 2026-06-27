@@ -291,7 +291,6 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
       pushEvent("form_submit_global_desk_listing", { language: lang, submitter_type: submitterType });
       setStatus("success");
-      window.scrollTo({ top: window.scrollY, behavior: "auto" });
     } catch (e: unknown) {
       setErr((e as { name?: string }).name === "AbortError" ? t.errTimeout : t.errGeneric);
       setStatus("error");
@@ -514,6 +513,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               chooseLabel={t.chooseFiles}
               countLabel={t.filesSelected}
               accept="image/*"
+              fieldName="images"
               files={images}
               onFiles={setImages}
               full
@@ -524,6 +524,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               chooseLabel={t.chooseFiles}
               countLabel={t.filesSelected}
               accept="image/*,application/pdf,.pdf,.doc,.docx"
+              fieldName="documents"
               files={documents}
               onFiles={setDocuments}
               full
@@ -604,10 +605,10 @@ function YesNo({
 }
 
 function FileField({
-  label, hint, chooseLabel, countLabel, accept, files, onFiles, full,
+  label, hint, chooseLabel, countLabel, accept, fieldName, files, onFiles, full,
 }: {
   label: string; hint?: string; chooseLabel: string;
-  countLabel: (n: number) => string; accept: string;
+  countLabel: (n: number) => string; accept: string; fieldName: string;
   files: File[]; onFiles: (f: File[]) => void; full?: boolean;
 }) {
   const ref = useRef<HTMLInputElement>(null);
@@ -631,8 +632,9 @@ function FileField({
       <input
         ref={ref}
         type="file"
-        // The `images`/`documents` name carries each file to Netlify Forms.
-        name={label.toLowerCase().includes("imag") ? "images" : "documents"}
+        // Explicit field name — must match the AJAX FormData keys and the
+        // Netlify detection form (a label-derived name breaks under i18n).
+        name={fieldName}
         accept={accept}
         multiple
         onChange={(e) => onFiles(Array.from(e.target.files ?? []))}
