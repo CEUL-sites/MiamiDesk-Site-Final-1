@@ -163,6 +163,24 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'Yes. Net proceeds drive every later step — the cash available for the next home, the reserve left over, and the monthly cost reset. Because the realized sale price depends heavily on how the home is positioned and distributed, the sale strategy is the most controllable variable in the plan.',
     },
   ],
+  'relocating-out-of-south-florida-sequence-the-sale-2026': [
+    {
+      q: 'Should I sell my South Florida home before or after buying out of state?',
+      a: 'It depends on your numbers. Selling first locks in your proceeds and lets you buy with certainty, but may create an interim gap. Buying first means one move but possibly carrying two homes. Concurrent closings are ideal but require disciplined timing. The right sequence depends on your equity, whether the new purchase needs the Florida proceeds, and your moving deadline.',
+    },
+    {
+      q: 'Does Florida portability transfer if I move to another state?',
+      a: 'No. The Save Our Homes assessment benefit and portability apply only to a Florida homestead. When you establish residency in another state, that accumulated benefit is left behind. Portability can only be transferred to another home within Florida.',
+    },
+    {
+      q: 'Do I still get the capital gains exclusion if I move out of Florida?',
+      a: 'The federal IRC Section 121 exclusion (up to $250,000 single / $500,000 married filing jointly) follows you regardless of where you move, provided you meet the ownership and use tests on the home you are selling. Documented improvements raise your basis and reduce taxable gain. Confirm eligibility with a CPA, especially when changing state residency.',
+    },
+    {
+      q: 'How can I avoid moving twice when relocating?',
+      a: 'A post-closing occupancy agreement (a seller leaseback) lets you remain in the home for a defined short period after closing under agreed terms, which can turn two moves into one. It is negotiated as part of the contract and has constraints tied to the buyer’s financing, so plan it early.',
+    },
+  ],
   'seller-closing-costs-south-florida-2026': [
     {
       q: 'What closing costs does a seller pay in South Florida?',
