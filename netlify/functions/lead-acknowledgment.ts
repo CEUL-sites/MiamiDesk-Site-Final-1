@@ -78,6 +78,49 @@ function buildLeadMagnetEmail(guide: string, name: string, useSpanish: boolean):
   };
 }
 
+// Global Desk listing-request acknowledgment (§8). No prices, no commitments.
+// Language is chosen explicitly on the page (Spanish default), passed as `language`.
+function buildGlobalDeskEmail(useSpanish: boolean): { subject: string; html: string } {
+  const P = `font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.7; color: rgba(11,30,63,0.72);`;
+  const subject = useSpanish
+    ? "Su solicitud de listado — recibida para revisión"
+    : "Your listing request — received for review";
+  const bodyES = `
+        <h1 style="font-size: 22px; font-weight: 400; line-height: 1.25; margin: 0 0 16px;">Su solicitud de listado ha sido recibida para revisión.</h1>
+        <p style="${P}">Gracias. Su solicitud de listado ha sido recibida para revisión de colocación en la sección internacional del Miami MLS.</p>
+        <p style="${P}">Tras la revisión, recibirá una propuesta de cooperación y colocación a medida. La cooperación de referidos se formaliza operación por operación mediante los formularios de la Asociación de REALTORS® de Miami, vía United Realty Group. Todos los términos comerciales se tratan de forma privada.</p>
+        <p style="${P}">Carlos Uzcategui<br>
+          REALTOR® con licencia en Florida SL705771 · United Realty Group<br>
+          WhatsApp España +34 646 85 30 78 · EE. UU. +1 954-865-6622<br>
+          <a href="mailto:${CARLOS_EMAIL}" style="color:#B08D57;">${CARLOS_EMAIL}</a><br>
+          Equal Housing Opportunity</p>`;
+  const bodyEN = `
+        <h1 style="font-size: 22px; font-weight: 400; line-height: 1.25; margin: 0 0 16px;">Your listing request has been received for review.</h1>
+        <p style="${P}">Thank you. Your listing request has been received for placement review in the international listings section of the Miami MLS.</p>
+        <p style="${P}">After review, you will receive a tailored cooperation and placement proposal. Referral cooperation is formalized transaction by transaction on Miami REALTORS® Association forms, via United Realty Group. All commercial terms are handled privately.</p>
+        <p style="${P}">Carlos Uzcategui<br>
+          Florida Licensed Realtor® SL705771 · United Realty Group<br>
+          WhatsApp Spain +34 646 85 30 78 · USA +1 954-865-6622<br>
+          <a href="mailto:${CARLOS_EMAIL}" style="color:#B08D57;">${CARLOS_EMAIL}</a><br>
+          Equal Housing Opportunity</p>`;
+  return {
+    subject,
+    html: `
+      <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #0B1E3F;">
+        <div style="border-bottom: 2px solid #B08D57; padding-bottom: 16px; margin-bottom: 24px;">
+          <p style="font-family: monospace; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: #B08D57; margin: 0;">Global Desk · HomesProfessional.com</p>
+        </div>
+        ${useSpanish ? bodyES : bodyEN}
+        <div style="border-top: 1px solid #e8e3da; margin-top: 32px; padding-top: 16px;">
+          <p style="font-family: monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(11,30,63,0.25); margin: 0;">
+            15951 SW 41 St #700, Weston, FL 33331 · ${WHATSAPP_US} · ${CARLOS_EMAIL}
+          </p>
+        </div>
+      </div>
+    `,
+  };
+}
+
 const SPANISH_COUNTRIES = new Set([
   "spain", "venezuela", "colombia", "argentina", "mexico", "peru", "chile",
   "ecuador", "panama", "dominican republic", "cuba", "bolivia", "uruguay",
@@ -194,22 +237,27 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "no_key" }) };
   }
 
-  let body: { formName?: string; name?: string; email?: string; country?: string; brokerage?: string; guide?: string };
+  let body: { formName?: string; name?: string; email?: string; country?: string; brokerage?: string; guide?: string; language?: string };
   try {
     body = JSON.parse(event.body ?? "{}");
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: "Invalid JSON" }) };
   }
 
-  const { formName = "", name = "", email = "", country = "", guide = "" } = body;
+  const { formName = "", name = "", email = "", country = "", guide = "", language = "" } = body;
 
   if (!email || !email.includes("@")) {
     // No valid email — skip silently (referral form doesn't always have one)
     return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "no_email" }) };
   }
 
-  const useSpanish = isSpanishContext(country, name);
-  const { subject, html } = formName === "lead-magnet-download"
+  // Global Desk uses an explicit on-page language choice; everything else
+  // infers Spanish from country/name context.
+  const useSpanish =
+    formName === "global-desk-listing" ? language === "es" : isSpanishContext(country, name);
+  const { subject, html } = formName === "global-desk-listing"
+    ? buildGlobalDeskEmail(useSpanish)
+    : formName === "lead-magnet-download"
     ? buildLeadMagnetEmail(guide, name, useSpanish)
     : useSpanish
     ? buildEmailES(formName, name)
