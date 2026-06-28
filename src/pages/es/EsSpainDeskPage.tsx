@@ -27,11 +27,11 @@ const SERVICE_TIERS = [
     name: "Hasta 5 Listings",
     description: "Para agencias que dan a una selección curada de inmuebles premium el alcance de los agentes compradores de la red de Sur de Florida.",
     includes: [
-      "Alta en el MLS a través de URG como broker de registro en Florida",
-      "Sindicación a 200+ portales globales en 19 idiomas",
+      "Alta a través de URG como broker de registro en Florida",
+      "Colocación en el MIAMI International MLS (RWorld) — sindicación internacional",
+      "Sindicación a la red global de agentes y brokers en 100+ idiomas",
       "Presentación bilingüe del inmueble (EN / ES)",
       "Acuerdo de referral escrito — relación con el cliente protegida",
-      "Distribución a 93.000 agentes miembro de Miami REALTORS®",
     ],
   },
   {
@@ -80,7 +80,7 @@ const PROCESS_STEPS = [
   {
     num: "04",
     title: "La Exposición se Activa",
-    body: "Cuando el inmueble es elegible, United Realty Group coordina el alta en el MLS de Miami y la sindicación a portales partner, sujeto a las normas del MLS y la disponibilidad de cada plataforma. Su agencia mantiene la relación con el cliente en todo momento.",
+    body: "Cuando el inmueble es elegible, United Realty Group coordina la colocación en el MIAMI International MLS (RWorld) y la sindicación a la red global de agentes y brokers, sujeto a las normas del MLS y la disponibilidad de cada plataforma. Su agencia mantiene la relación con el cliente en todo momento.",
   },
 ];
 
@@ -95,15 +95,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cómo se paga la comisión de referral al cierre?",
-    a: "United Realty Group (broker licenciado en Florida) abona la comisión de referral a la agencia española en el momento del cierre, según el acuerdo de referral firmado. Aproximadamente el 1% del precio de venta — negociado y documentado antes de la activación.",
+    a: "United Realty Group (broker licenciado en Florida) abona la comisión de referral a la agencia española en el momento del cierre, según el acuerdo de referral firmado. Los términos se negocian y documentan por escrito antes de la activación; no se publican públicamente.",
   },
   {
     q: "¿Qué ocurre si el inmueble no se vende?",
     a: "La tarifa mensual de marketing cubre los servicios (mantenimiento del MLS, sindicación, outreach, reporting) independientemente del resultado. La comisión de referral solo se activa en caso de cierre exitoso.",
   },
   {
-    q: "¿Cómo aparece un inmueble español en el MLS de Miami?",
-    a: "United Realty Group crea el alta en el MLS como broker licenciado en Florida. El inmueble se activa como una oportunidad de referral internacional dentro de la infraestructura de Miami y Sur de Florida REALTORS®, llegando a 93.000 agentes miembro.",
+    q: "¿En qué MLS entra realmente un inmueble español?",
+    a: "Un inmueble situado fuera de EE.UU. no entra en el sistema de búsqueda diaria del Southeast Florida MLS (SEFMLS), cuyas reglas presuponen contratos de listing firmados por el propietario dentro del área de servicio de Sur de Florida. El inventario internacional se coloca en el MIAMI International MLS (RWorld) — la plataforma de sindicación internacional de la asociación, que distribuye a miles de webs de agentes y brokers partner en todo el mundo en 100+ idiomas — con Carlos como principal de registro licenciado en Florida a través de United Realty Group. La colocación está sujeta a las normas del MLS y a la elegibilidad de cada inmueble.",
   },
   {
     q: "¿Cuál es la diferencia entre la tarifa mensual y la comisión de referral?",
@@ -221,6 +221,7 @@ export default function EsSpainDeskPage() {
           <LazyVideo
             eager
             src="/videos/dollhouse_global_reach.mp4"
+            poster="/images/og-default.png"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/75 via-[#060D18]/60 to-[#060D18]" />
@@ -240,7 +241,7 @@ export default function EsSpainDeskPage() {
             <motion.div variants={heroItem}>
               <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
                 <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
+                <span className="font-mono text-[11px] sm:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
                   <span className="sm:hidden">Mesa Global · United Realty Group</span>
                   <span className="hidden sm:inline">Mesa Global · Partnership de Agencias · United Realty Group</span>
                 </span>
@@ -308,7 +309,7 @@ export default function EsSpainDeskPage() {
               <a
                 href={LEAD_MAGNETS.spainActivation.url}
                 download
-                className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
+                className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
               >
                 <Download size={11} />
                 Descargar: Metodología de Activación MLS — PDF
@@ -324,7 +325,7 @@ export default function EsSpainDeskPage() {
               <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
               <div className="gd-exposure-track">
                 {[0, 1].map((copy) => (
-                  <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
+                  <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
                     <span className="text-gold/75">Red</span>{" "}·{" "}
                     <span className="text-white/85">93.000</span> Agentes Miembro{" "}·{" "}
                     <span className="text-white/85">200+</span> Portales Globales{" "}·{" "}
@@ -348,16 +349,30 @@ export default function EsSpainDeskPage() {
                 { icon: BadgeCheck, text: "Usted Mantiene el Mandato" },
                 { icon: Globe,      text: "Alcance a 93.000 Agentes" },
               ].map(({ icon: Icon, text }) => (
-                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] text-white/40">
-                  <Icon size={11} className="text-gold/60 flex-shrink-0" />
+                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-white/60">
+                  <Icon size={12} className="text-gold flex-shrink-0" />
                   {text}
                 </span>
               ))}
             </motion.div>
 
+            {/* Tira de credibilidad institucional — solo afiliaciones verificadas (§9). */}
+            <motion.div
+              variants={heroItem}
+              className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-white/55"
+            >
+              <span className="text-gold">CLHMS</span>
+              <span className="text-gold/40">·</span>
+              <span>MIAMI REALTORS® Global Council / RWorld</span>
+              <span className="text-gold/40">·</span>
+              <span>25 Años de Licencia (SL705771)</span>
+              <span className="text-gold/40">·</span>
+              <span>URG Broker de Registro · §475</span>
+            </motion.div>
+
             <motion.p
               variants={heroItem}
-              className="mt-6 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30"
+              className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-white/40"
             >
               United Realty Group · FL SL705771 · Miami and South Florida REALTORS® · Equal Housing Opportunity
             </motion.p>
@@ -368,7 +383,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cómo Funciona el Partnership</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Cómo Funciona el Partnership</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Un modelo B2B claro.<br />
                 <em className="not-italic italic text-gold">Documentado antes de empezar.</em>
@@ -384,14 +399,14 @@ export default function EsSpainDeskPage() {
               <div className="bg-navy-deep p-8 md:p-10 flex flex-col gap-5">
                 <div className="flex items-center gap-3">
                   <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
-                    <span className="font-mono text-[10px] font-bold text-gold">A</span>
+                    <span className="font-mono text-[11px] font-bold text-gold">A</span>
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Principal · Por Listing · Mensual</span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold/70">Principal · Por Listing · Mensual</span>
                 </div>
 
                 <div>
                   <h3 className="font-serif text-2xl text-white">Servicios Mensuales de Marketing</h3>
-                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Abonado por la agencia española o el propietario</p>
+                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">Abonado por la agencia española o el propietario</p>
                 </div>
 
                 <div className="h-px w-10 bg-gold/30" />
@@ -418,7 +433,7 @@ export default function EsSpainDeskPage() {
                 </ul>
 
                 <div className="border-t border-white/[0.08] pt-5 mt-auto">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Precio</p>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">Precio</p>
                   <p className="mt-1.5 font-sans text-sm text-white/60">Tarifa mensual por listing según nivel de servicio. Ver niveles de servicio abajo o solicitar detalle.</p>
                 </div>
               </div>
@@ -427,14 +442,14 @@ export default function EsSpainDeskPage() {
               <div className="bg-navy p-8 md:p-10 flex flex-col gap-5">
                 <div className="flex items-center gap-3">
                   <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
-                    <span className="font-mono text-[10px] font-bold text-gold">B</span>
+                    <span className="font-mono text-[11px] font-bold text-gold">B</span>
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/70">Ventaja Secundaria · Solo en el Cierre</span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold/70">Ventaja Secundaria · Solo en el Cierre</span>
                 </div>
 
                 <div>
                   <h3 className="font-serif text-2xl text-white">Comisión de Referral al Cierre</h3>
-                  <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Abonada a través de United Realty Group · Broker licenciado en Florida</p>
+                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">Abonada a través de United Realty Group · Broker licenciado en Florida</p>
                 </div>
 
                 <div className="h-px w-10 bg-gold/30" />
@@ -442,14 +457,14 @@ export default function EsSpainDeskPage() {
                 <p className="font-sans text-sm leading-relaxed text-white/65">
                   Cuando una operación cierra a través de la red de Miami, United Realty Group (el broker licenciado en Florida)
                   abona la comisión de referral a la agencia española según el acuerdo escrito firmado.
-                  Aproximadamente el 1% del precio de venta — negociado y documentado antes de la activación.
+                  Los términos se negocian y documentan por escrito antes de la activación; no se publican públicamente.
                 </p>
 
                 <ul className="space-y-2.5">
                   {[
                     "Acuerdo de referral escrito previo a cualquier presentación de comprador",
                     "Abonado por URG (broker licenciado en FL) al cierre exitoso",
-                    "Aproximadamente el 1% del precio de venta — negociado por inmueble",
+                    "Términos negociados y documentados por escrito antes de la activación",
                     "La titularidad del cliente permanece en la agencia española",
                     "Estructura de compensación documentada antes de la activación en el MLS",
                   ].map((item) => (
@@ -461,13 +476,13 @@ export default function EsSpainDeskPage() {
                 </ul>
 
                 <div className="border-t border-white/[0.08] pt-5 mt-auto">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">Mecanismo</p>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">Mecanismo</p>
                   <p className="mt-1.5 font-sans text-sm text-white/60">Documentado mediante acuerdo de referral formal con United Realty Group antes de cualquier presentación de comprador o activación en el MLS.</p>
                 </div>
               </div>
             </div>
 
-            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.15em] text-white/25">
+            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.15em] text-white/25">
               Ambos flujos de ingresos se formalizan por escrito antes de iniciar cualquier acción de marketing. Sin acuerdos informales.
             </p>
           </div>
@@ -477,7 +492,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy pt-14 pb-16 md:pt-20 md:pb-24 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Arquitectura de Compliance</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Arquitectura de Compliance</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 El mecanismo legal,<br />
                 <em className="not-italic italic text-gold">explicado con claridad.</em>
@@ -493,13 +508,13 @@ export default function EsSpainDeskPage() {
                 },
                 {
                   step: "02",
-                  label: "URG Activa el Listing en el MLS",
-                  body: "United Realty Group — broker licenciado en Florida — crea el alta en el MLS de Miami y Sur de Florida REALTORS®. Un listing formal, no una subida a un portal.",
+                  label: "URG Activa el Listing",
+                  body: "United Realty Group — broker licenciado en Florida — coloca el inmueble en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional de la asociación. Un listing formal, no una subida a un portal.",
                 },
                 {
                   step: "03",
                   label: "Distribución en Red",
-                  body: "El inmueble se pone a disposición del ecosistema de Miami y Sur de Florida REALTORS® y de portales partner cuando es elegible — la misma infraestructura que respalda el mercado de Sur de Florida. El alcance varía según el inmueble y la plataforma.",
+                  body: "El inmueble se distribuye a la red global de agentes y brokers del MIAMI International MLS (RWorld) en 100+ idiomas cuando es elegible. El alcance varía según el inmueble y la plataforma.",
                 },
                 {
                   step: "04",
@@ -518,7 +533,7 @@ export default function EsSpainDeskPage() {
 
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               <div className="border border-white/10 bg-white/[0.02] p-6">
-                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60 mb-4">Infraestructura de Red</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold/60 mb-4">Infraestructura de Red</p>
                 <div className="grid grid-cols-2 gap-y-5 gap-x-4">
                   {[
                     { value: "93.000", label: "Agentes miembro MLS" },
@@ -528,14 +543,14 @@ export default function EsSpainDeskPage() {
                   ].map(({ value, label }) => (
                     <div key={label}>
                       <div className="font-serif text-2xl text-white">{value}</div>
-                      <div className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/40 mt-0.5">{label}</div>
+                      <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/40 mt-0.5">{label}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="border border-white/10 bg-white/[0.02] p-6">
-                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60 mb-4">Notas de Compliance</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold/60 mb-4">Notas de Compliance</p>
                 <ul className="space-y-3">
                   {[
                     "Carlos Uzcategui tiene licencia solo en Florida (FL SL705771)",
@@ -558,13 +573,13 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Estructura de Servicio</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Estructura de Servicio</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Tres niveles de alcance.<br />
                 <em className="not-italic italic text-gold">Precio por listing, por mes.</em>
               </h2>
               <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Cada nivel da a la propiedad premium el alcance de los 93.000 agentes miembro de la red de Miami REALTORS® — los que representan a los compradores — activado a través de URG como broker de registro.
+                Cada nivel da a la propiedad premium el alcance de la red internacional del MIAMI International MLS (RWorld) — los agentes y brokers que representan a los compradores — activado a través de URG como broker de registro en Florida.
                 La diferencia es la profundidad del marketing activo, el outreach a agentes compradores y el soporte estratégico.
                 La tarifa mensual es independiente de la comisión de referral al cierre.
               </p>
@@ -579,13 +594,13 @@ export default function EsSpainDeskPage() {
                   {tier.popular && (
                     <>
                       <div className="absolute top-0 inset-x-0 h-px bg-gold/50" />
-                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold px-3 py-0.5 font-mono text-[8px] uppercase tracking-[0.18em] text-navy-deep whitespace-nowrap">
+                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold px-3 py-0.5 font-mono text-[11px] uppercase tracking-[0.18em] text-navy-deep whitespace-nowrap">
                         Más Seleccionado
                       </span>
                     </>
                   )}
 
-                  <span className="font-mono text-[10px] font-semibold text-gold/55 tracking-[0.22em]">{tier.tier}</span>
+                  <span className="font-mono text-[11px] font-semibold text-gold/55 tracking-[0.22em]">{tier.tier}</span>
 
                   <div>
                     <h3 className="font-serif text-xl text-white">{tier.name}</h3>
@@ -605,7 +620,7 @@ export default function EsSpainDeskPage() {
 
                   <a
                     href="#enviar-listing"
-                    className="mt-2 flex items-center justify-center gap-2 border border-gold/35 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/75 transition-colors hover:border-gold hover:text-gold"
+                    className="mt-2 flex items-center justify-center gap-2 border border-gold/35 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold/75 transition-colors hover:border-gold hover:text-gold"
                   >
                     Solicitar Precio
                     <ChevronRight size={12} />
@@ -614,7 +629,7 @@ export default function EsSpainDeskPage() {
               ))}
             </div>
 
-            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.15em] text-white/25">
+            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.15em] text-white/25">
               Todos los niveles incluyen acuerdo de referral escrito y activación en el MLS con URG como broker de registro.
               La tarifa mensual no incluye la comisión de referral — ese es un pago contingente y separado, abonado al cierre.
             </p>
@@ -625,7 +640,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy pt-14 pb-16 md:pt-20 md:pb-24 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cómo Trabajar Juntos</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Cómo Trabajar Juntos</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Cuatro pasos desde la consulta<br />
                 <em className="not-italic italic text-gold">hasta la activación de la exposición.</em>
@@ -670,7 +685,7 @@ export default function EsSpainDeskPage() {
         {/* ── Para Quién Es ──────────────────────────────────────────── */}
         <section className="bg-navy-deep py-14 md:py-18 text-white">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Perfil Ideal</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold mb-6">Perfil Ideal</p>
             <div className="flex flex-wrap gap-2.5 mb-10">
               {[
                 "Agencias de Lujo en Madrid",
@@ -684,7 +699,7 @@ export default function EsSpainDeskPage() {
                 "Carteras Multi-Inmueble",
                 "Proyectos de Nueva Promoción",
               ].map((tag) => (
-                <span key={tag} className="rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-white/50">
+                <span key={tag} className="rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/50">
                   {tag}
                 </span>
               ))}
@@ -693,19 +708,19 @@ export default function EsSpainDeskPage() {
             <div className="grid grid-cols-3 divide-x divide-bone rounded-none bg-bone/40">
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">93.000</div>
-                <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
+                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold/65">
                   Agentes miembro
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">200+</div>
-                <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
+                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold/65">
                   Portales globales · 19 idiomas
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">260+</div>
-                <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
+                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold/65">
                   MLS de EE.UU. vía RPR
                 </div>
               </div>
@@ -718,7 +733,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-bone/40 py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">
                 PARA QUIÉN ES ESTA ASESORÍA
               </p>
               <h2 className="mt-3 font-serif text-3xl text-navy-deep">
@@ -752,7 +767,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-20">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">
                 EL PROCESO
               </p>
               <h2 className="mt-3 font-serif text-3xl text-white">
@@ -784,7 +799,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy py-14 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-10">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Marco Profesional</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Marco Profesional</p>
               <h2 className="mt-4 font-serif text-3xl text-white leading-tight md:text-4xl">
                 Qué queda documentado.<br />
                 <em className="not-italic italic text-gold">Qué queda protegido.</em>
@@ -793,15 +808,17 @@ export default function EsSpainDeskPage() {
 
             <div className="space-y-5">
               <p className="font-sans text-base leading-relaxed text-white/70">
-                Carlos Uzcategui actúa como principal licenciado de registro en Florida, lo que permite a las agencias españolas colocar su inventario premium directamente en el MLS de Miami y Sur de Florida. La agencia española mantiene la representación local del propietario en todo momento — sin ceder el mandato.
+                Carlos Uzcategui actúa como principal licenciado de registro en Florida, lo que permite a las agencias españolas colocar su inventario premium en el MIAMI International MLS (RWorld) — la plataforma de sindicación internacional de la asociación. La agencia española mantiene la representación local del propietario en todo momento — sin ceder el mandato.
               </p>
               <p className="font-sans text-base leading-relaxed text-white/70">
-                Desde el primer día de activación, la propiedad premium alcanza a los 93.000 agentes miembro de la mayor asociación local de REALTORS® del mundo — los agentes que representan a los compradores — con distribución simultánea a 200+ portales globales en 19 idiomas. Una vía institucional hacia el mercado americano, operada por un profesional con 25 años de licencia activa en Florida.
+                {/* Datos del segmento prime, 2025: los internacionales dominan; los americanos son
+                    la cohorte de mayor crecimiento y gasto; el capital latinoamericano lidera en Madrid. */}
+                La demanda prime española es mayoritariamente internacional: aproximadamente dos tercios de las ventas por encima de €2,5M son a compradores no residentes. En Marbella y la Costa del Sol las nacionalidades líderes son británica, alemana, neerlandesa y — cada vez más — americana, la cohorte de mayor crecimiento y gasto; el capital latinoamericano lidera específicamente en Madrid. Los agentes compradores estadounidenses y latinoamericanos que representan esa demanda ya trabajan a través de la red del MIAMI International MLS (RWorld), con distribución a la red global de agentes y brokers en 100+ idiomas. Una vía institucional operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
 
               <div className="mt-10">
-                <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/35 mb-5">Lo Que Conserva su Agencia</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/35 mb-5">Lo Que Conserva su Agencia</p>
                 <ul className="space-y-5">
                   {[
                     {
@@ -838,7 +855,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-24" id="enviar-listing">
           <div className="mx-auto max-w-3xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Mesa España · Consulta de Agencia</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Mesa España · Consulta de Agencia</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Envíe un listing o consulta de agencia.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
                 Para agencias españolas, promotores y profesionales del listing. Todas las solicitudes son confidenciales.
@@ -852,7 +869,7 @@ export default function EsSpainDeskPage() {
         {/* ── FAQ ───────────────────────────────────────────────────── */}
         <section className="bg-navy py-16 md:py-20 text-white">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-8">Preguntas Frecuentes</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold mb-8">Preguntas Frecuentes</p>
             <div className="divide-y divide-white/[0.08]">
               {FAQ_ITEMS.map(({ q, a }) => (
                 <div key={q} className="py-6">
@@ -874,7 +891,7 @@ export default function EsSpainDeskPage() {
               </a>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45 underline-offset-2 hover:text-white hover:underline"
+                className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/45 underline-offset-2 hover:text-white hover:underline"
               >
                 {CONTACT.email}
               </a>
@@ -883,9 +900,9 @@ export default function EsSpainDeskPage() {
             <div className="mt-8 border-t border-white/[0.08] pt-6">
               <div className="flex items-center gap-2 mb-3">
                 <BadgeCheck size={14} className="text-gold flex-shrink-0" />
-                <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">Licenciado · Compliant · Confidencial</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/30">Licenciado · Compliant · Confidencial</p>
               </div>
-              <p className="font-sans text-[10px] leading-relaxed text-white/25">
+              <p className="font-sans text-[11px] leading-relaxed text-white/25">
                 Los servicios de corretaje inmobiliario en Florida son proporcionados a través de United Realty Group (URG).
                 Carlos Uzcategui (FL SL705771) es Realtor® licenciado en Florida y afiliado a URG. No está licenciado como broker inmobiliario en España.
                 Las oportunidades en España e internacionales se gestionan mediante acuerdos de referral, marketing, cooperating broker o asesoría, según jurisdicción, tipo de inmueble y normativa aplicable.
