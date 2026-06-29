@@ -14,7 +14,7 @@ const COPY = {
     h1a: "Your Spanish listings,",
     h1b: "in front of 93,000 Miami agents.",
     heroSub:
-      "Most buyers of Spanish luxury property are Latin American and U.S. investors — and those buyers already keep Realtor® relationships in Miami. A formal MLS listing puts your inventory in their agents' hands.",
+      "Spanish prime is overwhelmingly an international buyer market — Americans are its fastest-growing, highest-spending cohort and Latin American capital leads in Madrid. Those U.S. and LATAM buyer agents already work through the MIAMI International MLS (RWorld) network. A formal placement puts your inventory in their hands.",
     ctaPrimary: "Request a Partnership Conversation",
     ctaWhatsApp: "WhatsApp — Spain Desk",
     ctaBrief: "Download the MLS Activation Methodology Brief",
@@ -25,7 +25,7 @@ const COPY = {
       "Your inventory reaches the buyer's own Realtor®: 93,000 member agents, with buyer-agent referral cooperation offered through United Realty Group as the licensed Florida broker. A financially motivated distribution network — not another listing site.",
     winTitle: "Win more mandates — in your own listing presentations",
     winBody:
-      "\"Your property will also be activated on the Miami MLS international section\" is an exposure claim competing agencies cannot make. Use it to win the seller before you ever need to find the buyer.",
+      "\"Your property will also be placed into the MIAMI International MLS (RWorld) syndication platform\" is an exposure claim competing agencies cannot make. Use it to win the seller before you ever need to find the buyer.",
     whyEyebrow: "Why Miami",
     whyH2: "The largest local agent network in the world — built on Latin American demand.",
     stats: [
@@ -65,7 +65,7 @@ const COPY = {
     h1a: "Sus propiedades en España,",
     h1b: "ante 93.000 agentes de Miami.",
     heroSub:
-      "La mayoría de los compradores de propiedad de lujo en España son inversores latinoamericanos y estadounidenses — y esos compradores ya mantienen relaciones con Realtors® en Miami. Un listado formal en el MLS pone su inventario en manos de sus agentes.",
+      "El prime español es mayoritariamente un mercado de compradores internacionales — los americanos son la cohorte de mayor crecimiento y gasto, y el capital latinoamericano lidera en Madrid. Esos agentes compradores estadounidenses y latinoamericanos ya trabajan a través de la red del MIAMI International MLS (RWorld). Una colocación formal pone su inventario en sus manos.",
     ctaPrimary: "Solicitar una Conversación de Alianza",
     ctaWhatsApp: "WhatsApp — Mesa de España",
     ctaBrief: "Descargar el informe metodológico de activación MLS",
@@ -76,7 +76,7 @@ const COPY = {
       "Su inventario llega al Realtor® del comprador: 93.000 agentes miembros, con cooperación de referidos para agentes de compradores ofrecida a través de United Realty Group como broker licenciado de Florida. Una red de distribución con incentivo económico — no otro portal.",
     winTitle: "Gane más mandatos — en sus propias presentaciones de captación",
     winBody:
-      "\"Su propiedad también será activada en la sección internacional del MLS de Miami\" es un argumento de exposición que las agencias competidoras no pueden ofrecer. Úselo para ganar al vendedor antes de necesitar al comprador.",
+      "\"Su propiedad también será colocada en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional\" es un argumento de exposición que las agencias competidoras no pueden ofrecer. Úselo para ganar al vendedor antes de necesitar al comprador.",
     whyEyebrow: "Por Qué Miami",
     whyH2: "La mayor red local de agentes del mundo — construida sobre demanda latinoamericana.",
     stats: [
@@ -117,7 +117,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
   en: [
     {
       q: "Is this a formal MLS listing or just a referral?",
-      a: "A formal listing. Eligible Spanish properties are activated on the Miami MLS international property section through United Realty Group as the licensed Florida principal of record — visible to the member agent network, subject to MLS rules.",
+      a: "A formal listing. Eligible Spanish properties are placed into the MIAMI International MLS (RWorld) syndication platform through United Realty Group as the licensed Florida principal of record — distributed to the international agent and broker network in 100+ languages, subject to MLS rules. A Spain-located property does not enter the core Southeast Florida MLS daily-search system.",
     },
     {
       q: "Do we lose the client relationship?",
@@ -139,7 +139,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
   es: [
     {
       q: "¿Es un listado formal en el MLS o solo un referido?",
-      a: "Un listado formal. Las propiedades españolas elegibles se activan en la sección internacional del MLS de Miami a través de United Realty Group como principal licenciado de Florida — visibles para la red de agentes miembros, sujeto a las reglas del MLS.",
+      a: "Un listado formal. Las propiedades españolas elegibles se colocan en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional, a través de United Realty Group como principal licenciado de Florida — distribuidas a la red internacional de agentes y brokers en 100+ idiomas, sujeto a las reglas del MLS. Un inmueble situado en España no entra en el sistema de búsqueda diaria del Southeast Florida MLS.",
     },
     {
       q: "¿Perdemos la relación con el cliente?",

@@ -25,7 +25,31 @@ function encodeForm(data: Record<string, string>) {
   return new URLSearchParams(data).toString();
 }
 
-export function AgencyPartnerForm() {
+/**
+ * Shared agency / developer intake form.
+ *
+ * Optional props let a host page tailor the framing without forking the form:
+ *  - `markets`  → renders a market <select> (e.g. Madrid / Marbella / Costa del
+ *    Sol / Other) in place of the free-text "Country / Market" field. The chosen
+ *    value still posts under the existing `country` field, so the lead pipeline
+ *    is unchanged.
+ *  - `eyebrow` / `heading` / `intro` → override the header copy.
+ *  - `source` → overrides the analytics/source tag so submissions can be
+ *    attributed to the embedding desk (e.g. "spain-desk-intake").
+ */
+export function AgencyPartnerForm({
+  markets,
+  eyebrow = "Miami Desk · International Listing Review",
+  heading = "Submit a listing or agency inquiry",
+  intro = "For agents, agencies, and developers outside South Florida. All submissions are treated as confidential. Carlos reviews every inquiry personally before responding.",
+  source = "agency-partner-intake",
+}: {
+  markets?: string[];
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+  source?: string;
+} = {}) {
   const [form, setForm] = useState(INITIAL);
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [err, setErr] = useState("");
@@ -35,7 +59,7 @@ export function AgencyPartnerForm() {
     if (formStartFired.current || navigator.webdriver) return;
     formStartFired.current = true;
     pushEvent("form_start", {
-      form_name: "agency-partner-intake",
+      form_name: source,
       page_path: window.location.pathname,
       funnel_stage: "consideration",
     });
@@ -64,6 +88,7 @@ export function AgencyPartnerForm() {
           "form-name": "agency-partner-intake",
           "bot-field": "",
           ...form,
+          source,
           sourcePage: window.location.pathname,
         }),
       });
@@ -84,7 +109,7 @@ export function AgencyPartnerForm() {
           brokerage: form.agency,
         }),
       }).catch(() => {});
-      pushEvent("form_submit_agency_partner");
+      pushEvent("form_submit_agency_partner", { source });
       window.location.href = "/thanks/agent";
     } catch (e: unknown) {
       setErr(
@@ -101,12 +126,9 @@ export function AgencyPartnerForm() {
   return (
     <div className="border border-white/10">
       <div className="border-b border-white/10 bg-white/[0.03] px-8 py-6">
-        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">Miami Desk · International Listing Review</p>
-        <h3 className="mt-2 font-serif text-2xl text-white">Submit a listing or agency inquiry</h3>
-        <p className="mt-2 font-sans text-sm text-white/45">
-          For agents, agencies, and developers outside South Florida. All submissions are treated as confidential.
-          Carlos reviews every inquiry personally before responding.
-        </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-gold">{eyebrow}</p>
+        <h3 className="mt-2 font-serif text-2xl text-white">{heading}</h3>
+        <p className="mt-2 font-sans text-sm text-white/55">{intro}</p>
       </div>
 
       <form
@@ -119,7 +141,7 @@ export function AgencyPartnerForm() {
         className="space-y-6 p-8"
       >
         <input type="hidden" name="form-name" value="agency-partner-intake" />
-        <input type="hidden" name="source" value="agency-partner-intake" />
+        <input type="hidden" name="source" value={source} />
         <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
           <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
         </div>
@@ -146,8 +168,17 @@ export function AgencyPartnerForm() {
               <option>Other</option>
             </select>
           </Field>
-          <Field label="Country / Market *">
-            <input required name="country" type="text" placeholder="Spain, Colombia, Mexico…" className="form-input-dark" value={form.country} onChange={set("country")} />
+          <Field label={markets ? "Market *" : "Country / Market *"}>
+            {markets ? (
+              <select required name="country" className="form-input-dark w-full" value={form.country} onChange={set("country")}>
+                <option value="">Select…</option>
+                {markets.map((m) => (
+                  <option key={m}>{m}</option>
+                ))}
+              </select>
+            ) : (
+              <input required name="country" type="text" placeholder="Spain, Colombia, Mexico…" className="form-input-dark" value={form.country} onChange={set("country")} />
+            )}
           </Field>
         </div>
 
