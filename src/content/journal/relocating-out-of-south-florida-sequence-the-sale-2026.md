@@ -1,6 +1,6 @@
 ---
 title: "Relocating Out of South Florida: How to Sequence the Sale"
-date: "2026-06-25"
+date: "2026-06-26"
 slug: "relocating-out-of-south-florida-sequence-the-sale-2026"
 excerpt: "Moving out of Florida is a sequencing problem, not just a sale. How to time the listing, protect net proceeds, and bridge two homes without a costly gap."
 category: "Seller Strategy"
