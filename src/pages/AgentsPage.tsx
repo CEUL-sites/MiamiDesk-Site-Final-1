@@ -356,15 +356,28 @@ export default function AgentsPage() {
                 </div>
 
                 {/* Cinematic video accent — landscape property walkthrough fills the
-                    wide frame cleanly (replaces the portrait clip that cropped mid-frame). */}
-                <div className="mt-8 relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "52%" }}>
+                    wide frame cleanly. The panel is a designed navy gradient so it
+                    still reads as an intentional luxury frame when the decorative
+                    video is skipped (data-saver / reduce-motion) or still loading,
+                    rather than collapsing to a dead black box. */}
+                <div
+                  className="luxury-gradient mt-8 relative overflow-hidden border border-gold/25"
+                  style={{ paddingBottom: "52%" }}
+                >
                   <LazyVideo
                     src="/videos/luxury_home_walkthrough.mp4"
-                    className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
+                    poster="/images/miami-realtors-rworld.jpg"
+                    className="absolute inset-0 h-full w-full object-cover opacity-80"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/30 pointer-events-none" />
-                  <div className="absolute bottom-4 left-5">
-                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/80">
+                  {/* Soft vignette: dark only at the bottom for caption legibility,
+                      letting the imagery read clearly through the rest of the frame. */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/85 via-navy-deep/10 to-transparent pointer-events-none" />
+                  {/* Thin inset gold rule — luxury framing that holds the composition
+                      together even with no video playing. */}
+                  <div className="absolute inset-3 border border-gold/15 pointer-events-none" />
+                  <div className="absolute bottom-4 left-5 right-5 flex items-center gap-2.5">
+                    <span className="h-px w-6 flex-shrink-0 bg-gold/70" />
+                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold-soft">
                       International listing exposure · South Florida network
                     </p>
                   </div>
