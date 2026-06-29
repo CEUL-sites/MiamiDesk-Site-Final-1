@@ -181,6 +181,24 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'A post-closing occupancy agreement (a seller leaseback) lets you remain in the home for a defined short period after closing under agreed terms, which can turn two moves into one. It is negotiated as part of the contract and has constraints tied to the buyer’s financing, so plan it early.',
     },
   ],
+  'downsizing-lower-housing-costs-south-florida-homestead-playbook-2026': [
+    {
+      q: 'What housing costs can downsizing actually reduce?',
+      a: 'Beyond a smaller mortgage (or none, if you buy the next home outright), downsizing can lower property taxes, homeowner/windstorm/flood insurance, HOA or CDD fees, maintenance and major-system replacement costs, and monthly utilities. It can also free equity that was otherwise sitting idle in an over-large home.',
+    },
+    {
+      q: 'Do I lose my Homestead tax benefits if I downsize?',
+      a: 'Not if you stay within Florida. You can claim a new Homestead Exemption on your next permanent residence and use portability to carry up to $500,000 of your accumulated Save Our Homes benefit. When downsizing, the benefit transfers proportionally — (new market value ÷ old market value) × your benefit — as calculated by your county property appraiser.',
+    },
+    {
+      q: 'Can downsizing eliminate my mortgage payment entirely?',
+      a: 'Often, yes. If the net proceeds from your sale exceed the price of the replacement home, you may be able to purchase the next home with cash and remove the principal-and-interest payment — typically the largest recurring housing cost — while keeping a cash reserve.',
+    },
+    {
+      q: 'Are lower monthly costs guaranteed after downsizing?',
+      a: 'No. Savings depend on choices: high HOA dues can offset reduced maintenance, and a coastal condo may carry insurance comparable to a larger inland home. The goal is a net reduction in predictable monthly cost, which is why a property-specific review of taxes, insurance, dues, and reserves matters before you commit.',
+    },
+  ],
   'seller-closing-costs-south-florida-2026': [
     {
       q: 'What closing costs does a seller pay in South Florida?',
