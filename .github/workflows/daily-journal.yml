@@ -1,0 +1,54 @@
+name: Daily Journal Publisher
+
+on:
+  schedule:
+    # 8:35 AM America/New_York during daylight saving time.
+    - cron: '35 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-journal-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Generate and publish one SEO journal post
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate daily journal post
+        run: node scripts/daily-journal-publisher.mjs
+
+      - name: Verify TypeScript
+        run: npm run lint
+
+      - name: Verify production build
+        run: npm run build
+
+      - name: Commit published journal post
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No new journal post generated today."
+            exit 0
+          fi
+          git config user.name "homesprofessional-journal-bot"
+          git config user.email "actions@github.com"
+          git add src/content/journal package.json public/sitemap.xml
+          git commit -m "Publish daily SEO journal post"
+          git push
