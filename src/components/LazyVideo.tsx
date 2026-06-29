@@ -42,6 +42,21 @@ function prefersLightMedia(): boolean {
   return Boolean(c.saveData) || /(^|-)2g$/.test(c.effectiveType ?? "");
 }
 
+/**
+ * Honor the OS "reduce motion" setting: decorative autoplay video is motion the
+ * user has asked to avoid, so we leave the poster frame in place instead. Safe
+ * during SSR/prerender (matchMedia absent in Node → false).
+ */
+function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/** Don't load/animate decorative video on data-saver, slow links, or reduce-motion. */
+function shouldSkipVideo(): boolean {
+  return prefersLightMedia() || prefersReducedMotion();
+}
+
 export function LazyVideo({
   src,
   className,
@@ -51,10 +66,10 @@ export function LazyVideo({
   rootMargin = "300px",
 }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [active, setActive] = useState(eager && !prefersLightMedia());
+  const [active, setActive] = useState(eager && !shouldSkipVideo());
 
   useEffect(() => {
-    if (prefersLightMedia()) return; // skip heavy video on data-saver/slow links
+    if (shouldSkipVideo()) return; // skip heavy video on data-saver, slow links, or reduce-motion
     if (eager) return; // already active
     const el = ref.current;
     if (!el) return;

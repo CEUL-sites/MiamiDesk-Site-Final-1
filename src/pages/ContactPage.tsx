@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useSearchParams } from "react-router-dom";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -8,7 +9,32 @@ import { LeadForm } from "../components/LeadForm";
 import { BadgeCheck } from "lucide-react";
 import { CONTACT } from "../constants";
 
+// Contextual framing for Global Desk arrivals. The ?desk= param carried by the
+// Global Desk CTAs is read here so the request lands pre-segmented rather than
+// dropping the visitor onto the generic seller desk.
+const DESK_CONTEXT: Record<string, { eyebrow: string; heading: string; intro: string }> = {
+  "spain-developer": {
+    eyebrow: "Spain Desk · Developer Distribution Brief",
+    heading: "Request a Developer Distribution Brief",
+    intro: "For Spanish developers placing new-build or prime units into the MIAMI International MLS (RWorld) network through a licensed Florida principal of record. Share the development, market, and unit count — Carlos reviews every submission personally.",
+  },
+  "spain-agency": {
+    eyebrow: "Spain Desk · Agency Cooperation Proposal",
+    heading: "Request an Agency Cooperation Proposal",
+    intro: "For established Spanish agencies seeking MIAMI International MLS (RWorld) distribution while keeping the local mandate. Written cooperation runs in both directions. Carlos reviews every submission personally.",
+  },
+  global: {
+    eyebrow: "Global Desk · Distribution Assessment",
+    heading: "Request a Distribution Assessment",
+    intro: "A written read on which buyer markets — and which of the network's member agents — the reach connects to your property, and which service level fits the mandate.",
+  },
+};
+
 export default function ContactPage() {
+  const [searchParams] = useSearchParams();
+  const deskParam = searchParams.get("desk") ?? "";
+  const deskCtx = DESK_CONTEXT[deskParam];
+
   return (
     <>
       <Helmet>
@@ -51,12 +77,12 @@ export default function ContactPage() {
         <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20 text-center">
           <AuroraBackground variant="warm" />
           <div className="relative z-10">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential · Private Review</p>
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">{deskCtx?.eyebrow ?? "Confidential · Private Review"}</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
-            Request a Private Listing Review
+            {deskCtx?.heading ?? "Request a Private Listing Review"}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            For South Florida sellers, international property owners, agencies, developers, and cooperating brokers. Share the essentials — Carlos reviews every submission personally. No listing commitment required.
+            {deskCtx?.intro ?? "For South Florida sellers, international property owners, agencies, developers, and cooperating brokers. Share the essentials — Carlos reviews every submission personally. No listing commitment required."}
           </p>
           </div>
         </section>
@@ -67,8 +93,8 @@ export default function ContactPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential · Private Review Desk</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Submit your listing for private review</h2>
             </div>
-            <LeadForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            <LeadForm desk={deskParam || undefined} />
+            <div className="mt-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>
