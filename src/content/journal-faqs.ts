@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'doral-home-prices-may-2026-market-report': [
+    {
+      q: 'What was the median single-family home price in Doral in May 2026?',
+      a: 'The median single-family sale price in Doral was $1,074,000 in May 2026, up about 30% year-over-year, according to Florida REALTORS®/MIAMI REALTORS® City and ZIP statistics released June 16, 2026. Median figures reflect the mix of homes sold in the period, not individual-home appreciation.',
+    },
+    {
+      q: 'Is Doral a seller’s market in 2026?',
+      a: 'May 2026 data showed strong demand in Doral single-family homes — closed sales up about 26% year-over-year and new pending sales up about 83% — while active inventory was down about 9%. New listings also rose about 45%, so sellers face more competition even with demand strong. Conditions vary by community and price band.',
+    },
+    {
+      q: 'Why did the Doral median price rise so much year-over-year?',
+      a: 'A large move in a citywide median usually reflects a shift in the mix of homes that sold — for example, more higher-end closings — rather than a uniform jump in every home’s value. A property-specific analysis against comparable sales in the same community is the right way to estimate an individual home’s price.',
+    },
+    {
+      q: 'What should a Doral homeowner do before listing?',
+      a: 'Start with a property-specific home value review against current MLS comparables, identify the active listings and recent closed sales in the same community and price band, and set a distribution plan that reaches qualified buyers and agents — including Doral’s international buyer segment — before the listing goes public.',
+    },
+  ],
   'florida-homestead-portability-benefits-2026': [
     {
       q: 'What is the Florida Homestead Exemption worth?',
