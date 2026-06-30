@@ -96,6 +96,7 @@ if (rootElement) {
                 <Route path="/sell-pompano-beach"            element={<SellPompanoBeachPage />} />
                 <Route path="/sell-hallandale-beach"         element={<SellHallandaleBeachPage />} />
                 <Route path="/global-desk"                   element={<GlobalDeskPage />} />
+                <Route path="/madrid-miami"                  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/spain-mls-listing"             element={<SpainMlsListingPage />} />
                 <Route path="/miami-mls-international-desk"  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/developers-agencies"           element={<Navigate to="/global-desk" replace />} />
