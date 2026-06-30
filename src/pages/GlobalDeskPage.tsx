@@ -432,7 +432,7 @@ export default function GlobalDeskPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.12 }}
-              className="mt-7 max-w-3xl font-sans text-lg leading-[1.85] text-white/70"
+              className="mt-7 max-w-3xl font-sans text-lg leading-relaxed text-white/70"
             >
               {/* Spanish prime-segment demand framing — prime-segment market data, 2025.
                   Internationals dominate; Americans are the fastest-growing and highest-spending
@@ -577,7 +577,7 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── 3.3 What the Global Desk does (IVORY) ── */}
-        <section className="bg-ivory py-16 md:py-24 px-6 text-navy">
+        <section className="bg-ivory py-12 md:py-20 px-6 text-navy">
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <motion.div
@@ -592,7 +592,7 @@ export default function GlobalDeskPage() {
                 <h2 className="mt-5 max-w-2xl font-serif text-3xl leading-[1.18] md:text-4xl">
                   The reach isn't a portal. It's the agents who hold the buyers.
                 </h2>
-                <p className="mt-7 max-w-2xl font-sans text-lg leading-[1.85] text-navy/70">
+                <p className="mt-7 max-w-2xl font-sans text-lg leading-relaxed text-navy/70">
                   For an owner, developer, or cooperating agency, the question is not whether a
                   listing is advertised — it is whether it sits inside the infrastructure the most
                   active buyers already work through. The Global Desk places eligible premium property
@@ -678,7 +678,7 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── 3.4 Where the demand comes from (region selector, WHITE) ── */}
-        <section className="bg-white py-16 md:py-24 px-6 text-navy">
+        <section className="bg-white py-12 md:py-20 px-6 text-navy">
           <div className="mx-auto max-w-5xl">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -742,7 +742,7 @@ export default function GlobalDeskPage() {
                 <h3 className="mt-4 font-serif text-2xl text-navy md:text-3xl">
                   {BUYER_MARKETS[activeMarket].headline}
                 </h3>
-                <p className="mt-4 max-w-3xl font-sans text-base leading-[1.85] text-navy/70">
+                <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-navy/70">
                   {BUYER_MARKETS[activeMarket].body}
                 </p>
               </motion.div>
@@ -751,7 +751,7 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── 3.5 Two directions, one network (NAVY) ── */}
-        <section className="border-t border-gold/15 bg-navy-deep py-16 md:py-24 px-6 text-white">
+        <section className="border-t border-gold/15 bg-navy-deep py-12 md:py-20 px-6 text-white">
           <div className="mx-auto max-w-5xl">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -783,7 +783,7 @@ export default function GlobalDeskPage() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-gold">
                   For owners outside the United States
                 </p>
-                <p className="mt-4 font-sans text-base leading-[1.85] text-white/70">
+                <p className="mt-4 font-sans text-base leading-relaxed text-white/70">
                   Carlos places eligible premium property into the MIAMI International MLS (RWorld)
                   syndication platform as the licensed Florida principal of record. The listing gains
                   formal U.S.-backed market position and reaches the international agent and broker
@@ -812,7 +812,7 @@ export default function GlobalDeskPage() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold">
                   For South Florida owners with European or LATAM buyer profiles
                 </p>
-                <p className="mt-4 font-sans text-base leading-[1.85] text-white/65">
+                <p className="mt-4 font-sans text-base leading-relaxed text-white/65">
                   Carlos coordinates with affiliated Madrid agencies to put your South Florida listing
                   in front of the European and Latin American buyers — and the agents who represent
                   them — relocating and investing into Florida. The referral flow runs in both
@@ -831,7 +831,7 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── 3.6 Service levels (IVORY) ── */}
-        <section className="bg-ivory py-16 md:py-24 px-6 text-navy">
+        <section className="bg-ivory py-12 md:py-20 px-6 text-navy">
           <div className="mx-auto max-w-5xl">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -921,7 +921,7 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── FAQ (NAVY) ── */}
-        <section className="border-t border-gold/15 bg-navy py-16 md:py-24 px-6 text-white">
+        <section className="border-t border-gold/15 bg-navy py-12 md:py-20 px-6 text-white">
           <div className="mx-auto max-w-4xl">
             <div className="text-center">
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Common Questions</p>

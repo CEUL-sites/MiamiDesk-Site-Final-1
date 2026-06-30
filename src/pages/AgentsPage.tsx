@@ -216,7 +216,7 @@ export default function AgentsPage() {
               Three Ways Agents<br />
               <em className="not-italic italic text-gold">Work With Carlos.</em>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/65">
+            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-relaxed text-white/65">
               Refer a buyer or seller and get paid at closing. Give a listing serious U.S. and
               international reach. Or build your own career alongside a Florida-licensed Realtor® with
               25 years inside South Florida's network. Pick your path below.

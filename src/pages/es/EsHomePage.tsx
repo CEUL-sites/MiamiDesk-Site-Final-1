@@ -132,7 +132,7 @@ export default function EsHomePage() {
               {/* Subhead */}
               <motion.p
                 variants={itemVariants}
-                className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
+                className="mx-auto mt-6 font-sans font-light text-white/68 leading-relaxed max-w-[520px]"
                 style={{ fontSize: "1.05rem" }}
               >
                 {/* TODO: native Madrid editor review */}
