@@ -18,7 +18,13 @@ const INITIAL_FORM_DATA = {
 const encodeForm = (data: Record<string, string>) =>
   new URLSearchParams(data).toString();
 
-export function LeadForm() {
+/**
+ * @param desk Optional desk segment from the contact-page query string
+ *   (e.g. "spain-developer", "spain-agency", "global"). When present it is
+ *   submitted with the lead and attached to analytics so inbound requests
+ *   arrive pre-segmented to the right desk.
+ */
+export function LeadForm({ desk }: { desk?: string } = {}) {
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -55,6 +61,7 @@ export function LeadForm() {
           "bot-field": "",
           formRenderedAt: String(renderedAt.current),
           ...formData,
+          ...(desk ? { desk } : {}),
           sourcePage: "seller-consultation",
           ...getAttribution()
         })
@@ -68,7 +75,7 @@ export function LeadForm() {
         propertyAddress: formData.propertyAddress, city: formData.city, timeline: formData.timeline,
         message: formData.message, sourcePage: "seller-consultation", leadSource: getLeadSource(),
       });
-      trackLead("seller", { form: "seller-consultation", form_location: window.location.pathname });
+      trackLead("seller", { form: "seller-consultation", form_location: window.location.pathname, ...(desk ? { desk } : {}) });
       setStatus("success");
       setFormData(INITIAL_FORM_DATA);
     } catch (error) {
@@ -119,6 +126,7 @@ export function LeadForm() {
 
         <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
+          {desk && <input type="hidden" name="desk" value={desk} readOnly />}
           <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }} aria-hidden="true">
             <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
           </div>

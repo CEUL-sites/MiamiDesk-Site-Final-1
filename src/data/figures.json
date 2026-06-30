@@ -13,5 +13,8 @@
   "urgAgents": { "value": "3,500+", "label": "United Realty Group Agents", "source": "United Realty Group — urgfl.com (est. 2002, 20 Florida offices)" },
   "urgOffices": { "value": "20", "label": "Florida Offices", "source": "United Realty Group — urgfl.com" },
   "license": { "value": "SL705771", "label": "Florida Licensed Realtor®", "source": "Florida DBPR" },
+  "clhms": { "value": "CLHMS", "label": "Certified Luxury Home Marketing Specialist", "source": "The Institute for Luxury Home Marketing" },
+  "networkVolume": { "value": "$69B", "label": "2025 Network Volume", "source": "Miami & South Florida REALTORS® combined member transaction volume, 2025" },
+  "rworldLanguages": { "value": "100+", "label": "Languages", "source": "MIAMI International MLS (RWorld) syndication platform" },
   "mergerDate": "May 11, 2026"
 }

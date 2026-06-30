@@ -123,6 +123,14 @@ const SOUTH_FL_PATHWAYS = [
   },
 ];
 
+// Careers-specific WhatsApp deep link — the generic CONTACT.whatsappUS opens with
+// seller copy, which misframes a recruiting conversation. This pre-fills the intent.
+const WA_CAREERS =
+  "https://wa.me/19548656622?text=" +
+  encodeURIComponent(
+    "Hi Carlos, I'm a real estate agent (or getting licensed) and I'd like to learn about building my career with you at United Realty Group.",
+  );
+
 export default function AgentsPage() {
   return (
     <>
@@ -292,8 +300,8 @@ export default function AgentsPage() {
                   icon: UserPlus,
                   tag: "Path 03 · Careers",
                   title: "Join URG or get mentored",
-                  body: "New to real estate, or an experienced agent ready for a change? Build your career inside a full-service brokerage founded in 2002 — with hands-on guidance from a 25-year agent who works the same MLS.",
-                  points: ["New agents — start strong", "Switching from another agency", "Direct mentorship from Carlos"],
+                  body: "New to real estate, or an experienced agent ready for a change? Build your career alongside an active 25-year agent who runs live seller, buyer, and cross-border desks on the same MLS you'll work.",
+                  points: ["New agents — start strong", "Switching from another agency", "Mentorship from an active producer"],
                   cta: "Explore joining",
                   href: "#join-urg",
                 },
@@ -854,7 +862,7 @@ export default function AgentsPage() {
         {/* ── Join United Realty Group ──────────────────────────────── */}
         <section className="relative overflow-hidden bg-ivory py-20 md:py-28" id="join-urg">
           <LazyVideo
-            src="/videos/advisor-brand.mp4"
+            src="/videos/ceul_team_dollhouse.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.07] pointer-events-none"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-ivory via-ivory/95 to-ivory/80 pointer-events-none" />
@@ -864,14 +872,64 @@ export default function AgentsPage() {
             <div className="mb-12">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Career Opportunity · South Florida</p>
               <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                Build your real estate career<br />
-                <span className="text-gold">inside South Florida's network.</span>
+                Don't just join a brokerage.<br />
+                <span className="text-gold">Join a desk that already moves business.</span>
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
                 United Realty Group is a full-service brokerage founded in 2002 — {CONTACT.stats.urgAgents} agents
-                across {CONTACT.stats.urgOffices} Florida offices. Whatever stage you are at, you work directly
-                with Carlos — an active 25-year agent on the same MLS, not a branch manager reviewing paperwork.
+                across {CONTACT.stats.urgOffices} Florida offices, with an in-house title company. Whatever stage you
+                are at, you work directly with Carlos — an active 25-year agent on the same MLS, not a branch manager
+                reviewing paperwork.
               </p>
+            </div>
+
+            {/* Featured United Realty brand film — the recruiting "ad" + the business case */}
+            <div className="mb-14 grid gap-px overflow-hidden border border-gold/25 bg-gold/10 md:grid-cols-[1.15fr_0.85fr]">
+              {/* Brand film */}
+              <div className="relative min-h-[300px] overflow-hidden bg-navy-deep md:min-h-[440px]">
+                <LazyVideo
+                  src="/videos/advisor-brand.mp4"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/15 to-navy-deep/20 pointer-events-none" />
+                <div className="absolute left-6 top-6">
+                  <span className="inline-flex items-center gap-2 border border-gold/40 bg-navy-deep/60 px-3 py-1.5 font-mono text-[8.5px] uppercase tracking-[0.22em] text-gold backdrop-blur-sm">
+                    <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
+                    United Realty Group · Brand Film
+                  </span>
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <p className="font-serif text-xl leading-snug text-white md:text-2xl">
+                    See what working inside the brokerage looks like.
+                  </p>
+                  <p className="mt-2 font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/45">
+                    Founded 2002 · {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} Florida offices · In-house title
+                  </p>
+                </div>
+              </div>
+
+              {/* The business case for why agents grow here */}
+              <div className="flex flex-col justify-center bg-navy-deep p-8 md:p-10">
+                <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80">Why agents grow here</p>
+                <p className="mt-4 font-sans text-[15px] leading-[1.8] text-white/70">
+                  The agents who build the fastest are the ones who plug into demand that already exists instead of
+                  generating every lead alone. Carlos runs active seller, buyer, and cross-border desks on the same
+                  MLS you will work — and brings 25 years of in-market relationships to the agents around him.
+                </p>
+                <ul className="mt-6 space-y-3">
+                  {[
+                    "Mentorship from an active producer — not a back-office manager",
+                    "A bilingual, international niche most local agents cannot serve",
+                    "Where appropriate, qualified overflow inquiries are routed to affiliated agents",
+                    "Full-service infrastructure: listing marketing, MLS reach, and in-house title",
+                  ].map((point) => (
+                    <li key={point} className="flex items-start gap-2.5">
+                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold/70" />
+                      <span className="font-sans text-sm leading-snug text-white/75">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Two audiences — new vs. experienced */}
@@ -907,23 +965,23 @@ export default function AgentsPage() {
                   {[
                     {
                       icon: Building2,
-                      title: "Florida's independent brokerage",
-                      body: "United Realty Group was established in 2002 and operates across 20 South Florida offices. Independent ownership. Professional infrastructure. Local market depth.",
+                      title: "A platform that closes, not just lists",
+                      body: "United Realty Group has operated since 2002 across 20 South Florida offices, with an in-house title company. Fewer deals stall at closing, and the ancillary side of every transaction stays under one roof.",
                     },
                     {
                       icon: Globe2,
-                      title: "The MLS network behind the name",
-                      body: "Every affiliated agent enters the Miami and South Florida REALTORS® ecosystem — 93,000-member association, 200+ global portals in 19 languages, and 437+ international referral agreements.",
+                      title: "Reach from day one",
+                      body: "Every affiliated agent enters the Miami and South Florida REALTORS® ecosystem — a 93,000-member association, 200+ global portals in 19 languages, and 437+ international referral agreements. You present like a luxury team without building one yourself.",
                     },
                     {
                       icon: Users,
-                      title: "Bilingual professional environment",
-                      body: "A South Florida market runs on English and Spanish. URG's agent base reflects that. International sellers and buyers work with agents who understand both markets and both languages.",
+                      title: "Built for a bilingual market",
+                      body: "South Florida runs on English and Spanish — and so does the international buyer pool. An agent who can work both markets fluently competes for mandates and clients that monolingual agents simply can't reach.",
                     },
                     {
                       icon: Star,
-                      title: "25 years of in-market relationships",
-                      body: "Carlos Uzcategui has worked this market since 2001. Agents affiliated with this office access an active professional who is working the same MLS — not a branch manager reviewing paperwork.",
+                      title: "A mentor who is still in the game",
+                      body: "Carlos has worked this market since 2001 and is closing deals on the same MLS today. You learn current strategy from someone doing the work now — not a branch manager reviewing paperwork.",
                     },
                   ].map((item) => (
                     <div key={item.title} className="bg-white p-7">
@@ -936,7 +994,7 @@ export default function AgentsPage() {
 
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a
-                    href={CONTACT.whatsappUS}
+                    href={WA_CAREERS}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group inline-flex items-center gap-2 bg-navy-deep px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"

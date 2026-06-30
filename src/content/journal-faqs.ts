@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'doral-home-prices-may-2026-market-report': [
+    {
+      q: 'What was the median single-family home price in Doral in May 2026?',
+      a: 'The median single-family sale price in Doral was $1,074,000 in May 2026, up about 30% year-over-year, according to Florida REALTORS®/MIAMI REALTORS® City and ZIP statistics released June 16, 2026. Median figures reflect the mix of homes sold in the period, not individual-home appreciation.',
+    },
+    {
+      q: 'Is Doral a seller’s market in 2026?',
+      a: 'May 2026 data showed strong demand in Doral single-family homes — closed sales up about 26% year-over-year and new pending sales up about 83% — while active inventory was down about 9%. New listings also rose about 45%, so sellers face more competition even with demand strong. Conditions vary by community and price band.',
+    },
+    {
+      q: 'Why did the Doral median price rise so much year-over-year?',
+      a: 'A large move in a citywide median usually reflects a shift in the mix of homes that sold — for example, more higher-end closings — rather than a uniform jump in every home’s value. A property-specific analysis against comparable sales in the same community is the right way to estimate an individual home’s price.',
+    },
+    {
+      q: 'What should a Doral homeowner do before listing?',
+      a: 'Start with a property-specific home value review against current MLS comparables, identify the active listings and recent closed sales in the same community and price band, and set a distribution plan that reaches qualified buyers and agents — including Doral’s international buyer segment — before the listing goes public.',
+    },
+  ],
   'florida-homestead-portability-benefits-2026': [
     {
       q: 'What is the Florida Homestead Exemption worth?',
@@ -161,6 +179,42 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
     {
       q: 'Does a higher sale price change the whole downsizing plan?',
       a: 'Yes. Net proceeds drive every later step — the cash available for the next home, the reserve left over, and the monthly cost reset. Because the realized sale price depends heavily on how the home is positioned and distributed, the sale strategy is the most controllable variable in the plan.',
+    },
+  ],
+  'relocating-out-of-south-florida-sequence-the-sale-2026': [
+    {
+      q: 'Should I sell my South Florida home before or after buying out of state?',
+      a: 'It depends on your numbers. Selling first locks in your proceeds and lets you buy with certainty, but may create an interim gap. Buying first means one move but possibly carrying two homes. Concurrent closings are ideal but require disciplined timing. The right sequence depends on your equity, whether the new purchase needs the Florida proceeds, and your moving deadline.',
+    },
+    {
+      q: 'Does Florida portability transfer if I move to another state?',
+      a: 'No. The Save Our Homes assessment benefit and portability apply only to a Florida homestead. When you establish residency in another state, that accumulated benefit is left behind. Portability can only be transferred to another home within Florida.',
+    },
+    {
+      q: 'Do I still get the capital gains exclusion if I move out of Florida?',
+      a: 'The federal IRC Section 121 exclusion (up to $250,000 single / $500,000 married filing jointly) follows you regardless of where you move, provided you meet the ownership and use tests on the home you are selling. Documented improvements raise your basis and reduce taxable gain. Confirm eligibility with a CPA, especially when changing state residency.',
+    },
+    {
+      q: 'How can I avoid moving twice when relocating?',
+      a: 'A post-closing occupancy agreement (a seller leaseback) lets you remain in the home for a defined short period after closing under agreed terms, which can turn two moves into one. It is negotiated as part of the contract and has constraints tied to the buyer’s financing, so plan it early.',
+    },
+  ],
+  'downsizing-lower-housing-costs-south-florida-homestead-playbook-2026': [
+    {
+      q: 'What housing costs can downsizing actually reduce?',
+      a: 'Beyond a smaller mortgage (or none, if you buy the next home outright), downsizing can lower property taxes, homeowner/windstorm/flood insurance, HOA or CDD fees, maintenance and major-system replacement costs, and monthly utilities. It can also free equity that was otherwise sitting idle in an over-large home.',
+    },
+    {
+      q: 'Do I lose my Homestead tax benefits if I downsize?',
+      a: 'Not if you stay within Florida. You can claim a new Homestead Exemption on your next permanent residence and use portability to carry up to $500,000 of your accumulated Save Our Homes benefit. When downsizing, the benefit transfers proportionally — (new market value ÷ old market value) × your benefit — as calculated by your county property appraiser.',
+    },
+    {
+      q: 'Can downsizing eliminate my mortgage payment entirely?',
+      a: 'Often, yes. If the net proceeds from your sale exceed the price of the replacement home, you may be able to purchase the next home with cash and remove the principal-and-interest payment — typically the largest recurring housing cost — while keeping a cash reserve.',
+    },
+    {
+      q: 'Are lower monthly costs guaranteed after downsizing?',
+      a: 'No. Savings depend on choices: high HOA dues can offset reduced maintenance, and a coastal condo may carry insurance comparable to a larger inland home. The goal is a net reduction in predictable monthly cost, which is why a property-specific review of taxes, insurance, dues, and reserves matters before you commit.',
     },
   ],
   'seller-closing-costs-south-florida-2026': [
