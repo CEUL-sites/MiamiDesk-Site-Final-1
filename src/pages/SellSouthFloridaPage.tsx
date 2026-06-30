@@ -239,7 +239,7 @@ export default function SellSouthFloridaPage() {
         </section>
 
         {/* Who This Is For */}
-        <section className="bg-ivory py-16 md:py-20">
+        <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Who this is for</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -295,7 +295,7 @@ export default function SellSouthFloridaPage() {
         <SellerSection />
 
         {/* Why Buyer-Agent Relationships Matter */}
-        <section className="relative overflow-hidden bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
+        <section className="relative overflow-hidden bg-navy-deep pt-12 pb-14 md:pt-16 md:pb-20 text-white">
           <AuroraBackground variant="subtle" />
           <LazyVideo
             src="/videos/best_exposure_listings.mp4"
