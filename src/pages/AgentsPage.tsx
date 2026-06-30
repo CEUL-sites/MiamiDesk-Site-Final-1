@@ -638,8 +638,10 @@ export default function AgentsPage() {
                 </p>
               </div>
 
-              {/* Right: cinematic property visual */}
-              <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "70%" }}>
+              {/* Right: cinematic property visual. luxury-gradient base keeps the
+                  frame an intentional navy panel when the decorative video is
+                  skipped (data-saver / reduce-motion) instead of a flat black box. */}
+              <div className="luxury-gradient relative overflow-hidden" style={{ paddingBottom: "70%" }}>
                 <LazyVideo
                   src="/videos/gemini_property_vision.mp4"
                   className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
@@ -824,8 +826,10 @@ export default function AgentsPage() {
                 </div>
               </div>
 
-              {/* Right: cinematic video accent */}
-              <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "85%" }}>
+              {/* Right: cinematic video accent. luxury-gradient base keeps the
+                  frame an intentional navy panel when the decorative video is
+                  skipped (data-saver / reduce-motion) instead of a flat black box. */}
+              <div className="luxury-gradient relative overflow-hidden" style={{ paddingBottom: "85%" }}>
                 <LazyVideo
                   src="/videos/cinematic_house_reach.mp4"
                   className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
@@ -898,10 +902,13 @@ export default function AgentsPage() {
 
             {/* Featured United Realty brand film — the recruiting "ad" + the business case */}
             <div className="mb-14 grid gap-px overflow-hidden border border-gold/25 bg-gold/10 md:grid-cols-[1.15fr_0.85fr]">
-              {/* Brand film */}
-              <div className="relative min-h-[300px] overflow-hidden bg-navy-deep md:min-h-[440px]">
+              {/* Brand film — poster (URG HQ) + luxury-gradient base so this
+                  prominent featured block always shows a real frame, never a
+                  dead black box, when the film is skipped or still loading. */}
+              <div className="luxury-gradient relative min-h-[300px] overflow-hidden md:min-h-[440px]">
                 <LazyVideo
                   src="/videos/advisor-brand.mp4"
+                  poster="/images/urg-hq.jpg"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/15 to-navy-deep/20 pointer-events-none" />
