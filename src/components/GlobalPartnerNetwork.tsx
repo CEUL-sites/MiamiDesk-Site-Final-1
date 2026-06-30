@@ -119,7 +119,7 @@ export function GlobalPartnerNetwork({ lang = "en" }: { lang?: Lang }) {
           >
             <div className="overflow-hidden rounded-lg border border-gold/15 bg-white/[0.03]">
               <img
-                src="/images/miami-realtors-rworld.jpg"
+                src="/images/video-posters/miami-realtors-rworld-960.jpg"
                 alt={t.imgAlt}
                 width="520"
                 height="292"
