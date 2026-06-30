@@ -366,7 +366,7 @@ export default function AgentsPage() {
                 >
                   <LazyVideo
                     src="/videos/luxury_home_walkthrough.mp4"
-                    poster="/images/miami-realtors-rworld.jpg"
+                    poster="/images/video-posters/miami-realtors-rworld-960.jpg"
                     className="absolute inset-0 h-full w-full object-cover opacity-80"
                   />
                   {/* Soft vignette: dark only at the bottom for caption legibility,

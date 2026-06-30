@@ -295,17 +295,25 @@ export default function GlobalDeskPage() {
               Your market is local — the buyers are global.
             </motion.p>
 
-            {/* Supporting copy */}
+            {/* Supporting copy — split into two shorter blocks so the dense
+                network claim and the "inside it" payoff each read on their own,
+                instead of one wall of text. Wording and the attributed network
+                figures are unchanged. */}
             <motion.p
               variants={heroItem}
               className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/65 md:text-lg"
             >
               The world's most active buyers for prime real estate transact through the Miami
               REALTORS® network — the largest local REALTOR® association, with 93,000 member agents
-              and $69 billion in combined 2025 transaction volume. The Global Desk places eligible
-              property from any market formally inside it, through a licensed principal of record, so
-              the network's agents can present it to their buyers. Not adjacent to the market. Inside
-              it.
+              and $69 billion in combined 2025 transaction volume.
+            </motion.p>
+            <motion.p
+              variants={heroItem}
+              className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/65 md:text-lg"
+            >
+              The Global Desk places eligible property from any market formally inside it, through a
+              licensed principal of record, so the network's agents can present it to their buyers.{" "}
+              <span className="text-white/90">Not adjacent to the market. Inside it.</span>
             </motion.p>
 
             {/* CTAs */}
