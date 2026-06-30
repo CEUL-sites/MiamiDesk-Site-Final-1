@@ -206,7 +206,7 @@ export default function SellSouthFloridaPage() {
         <ReachAdvantage />
 
         {/* Miami Realtors Association — Why You Need a Miami Realtor */}
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-white py-14 md:py-20">
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Miami MLS Representation Matters</p>

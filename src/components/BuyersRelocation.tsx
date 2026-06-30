@@ -50,7 +50,7 @@ const PILLARS = [
 export function BuyersRelocation() {
   return (
     <section id="buyers" className="bg-bone-warm">
-      <div className="py-14 md:py-20">
+      <div className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* Header */}

@@ -4,7 +4,7 @@ import { LeadForm } from "./LeadForm";
 
 export function AboutContact() {
   return (
-    <section id="contact" className="bg-ivory py-14 md:py-24">
+    <section id="contact" className="bg-ivory py-12 md:py-20">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div className="grid gap-10 md:grid-cols-[280px_1fr] md:items-start">

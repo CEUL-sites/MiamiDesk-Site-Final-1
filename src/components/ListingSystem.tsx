@@ -38,7 +38,7 @@ const PILLARS = [
 
 export function ListingSystem() {
   return (
-    <section className="bg-navy-deep py-16 md:py-24">
+    <section className="bg-navy-deep py-12 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Listing System</p>
         <div className="mt-5 flex flex-wrap items-end justify-between gap-6">
