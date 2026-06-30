@@ -172,6 +172,17 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
             "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)",
         }}
       >
+        {/* Branded fallback behind the video layers — shows when the decorative
+            clips are skipped (data-saver / reduce-motion) or still loading, so
+            the hero centerpiece is never an empty navy circle. The opaque video
+            layers cover it once a clip is playing. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ background: "radial-gradient(circle at 50% 38%, #14315f 0%, #0B1E3F 55%, #060D18 100%)" }}
+        >
+          <Globe size={48} strokeWidth={1} className="text-gold/30" />
+        </div>
         {[0, 1].map((layer) => (
           <video
             key={layer}
