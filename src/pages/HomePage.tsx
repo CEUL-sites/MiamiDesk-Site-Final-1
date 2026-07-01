@@ -13,6 +13,7 @@ import { ExitIntentModal } from "../components/ExitIntentModal";
 import { ProofStrip } from "../components/ProofStrip";
 import { ListingSystem } from "../components/ListingSystem";
 import { MarketPulse } from "../components/MarketPulse";
+import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
 
 // Below-the-fold sections — split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
@@ -69,6 +70,7 @@ export default function HomePage() {
         <ListingSystem />
         <Testimonials />
         <MarketPulse />
+        <GlobalDeskTeaser />
         <LeadMagnetStrip />
         <Suspense fallback={null}>
           <IntelligenceDesk />
