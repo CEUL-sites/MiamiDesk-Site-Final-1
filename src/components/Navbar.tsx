@@ -129,6 +129,8 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Open navigation menu"
+          aria-expanded={isOpen}
+          aria-haspopup="menu"
           onClick={() => setIsOpen(true)}
           className={`xl:hidden transition-colors ${scrolled ? "text-navy" : "text-white"}`}
         >
