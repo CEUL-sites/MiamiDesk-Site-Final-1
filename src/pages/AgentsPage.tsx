@@ -343,15 +343,12 @@ export default function AgentsPage() {
                 </h2>
                 <div className="mt-6 space-y-4 font-sans text-[15px] leading-[1.8] text-ink-primary/70">
                   <p>
-                    Most agencies competing for the same mandates offer the same visibility: Idealista, Fotocasa, Kyero,
-                    Habitaclia, their agency website, and perhaps one or two international portals. Sellers at the premium
-                    level see through undifferentiated exposure promises.
+                    Every competing agency offers the same visibility: Idealista, Fotocasa, Kyero, Habitaclia, their own
+                    website, maybe one or two international portals. Premium sellers see through it.
                   </p>
                   <p>
-                    Luxury sellers increasingly want to know whether their property is being positioned in front of the
-                    right international buyer channels — not simply listed on the same platforms as every other agency.
-                    The agent who can explain a stronger, documented exposure strategy has a meaningful advantage in
-                    winning the mandate.
+                    They want to know their property is in front of the right international buyer channels — not just
+                    listed where everyone else lists. The agent with a documented exposure strategy wins the mandate.
                   </p>
                 </div>
 
