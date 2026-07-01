@@ -120,10 +120,10 @@ export const ExposureSyndication = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55"
         >
-          A properly prepared MLS listing can be distributed through approved syndication
-          channels, professional search platforms, and international exposure pathways
-          where applicable. The goal is not simply to appear online — it is to position
-          the property where qualified demand is more likely to form.
+          A properly prepared MLS listing distributes through approved syndication channels,
+          professional search platforms, and — where applicable — international exposure
+          pathways. The goal isn't just to appear online; it's to position the property
+          where qualified demand is more likely to form.
         </motion.p>
       </div>
 

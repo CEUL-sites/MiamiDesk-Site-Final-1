@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { RATING_VALUE, REVIEW_COUNT } from "../data/reviews";
 
 const QUOTES = [
   {
@@ -71,7 +72,7 @@ export function ProofStrip() {
         <div className="flex flex-col gap-1 flex-shrink-0">
           <StarRow />
           <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/50 whitespace-nowrap">
-            5.0 · Verified Client Reviews
+            {RATING_VALUE} · {REVIEW_COUNT} Verified Client Reviews
           </p>
         </div>
 

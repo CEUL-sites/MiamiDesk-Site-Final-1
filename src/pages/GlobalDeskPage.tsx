@@ -593,16 +593,24 @@ export default function GlobalDeskPage() {
                   The reach isn't a portal. It's the agents who hold the buyers.
                 </h2>
                 <p className="mt-7 max-w-2xl font-sans text-lg leading-relaxed text-navy/70">
-                  For an owner, developer, or cooperating agency, the question is not whether a
-                  listing is advertised — it is whether it sits inside the infrastructure the most
-                  active buyers already work through. The Global Desk places eligible premium property
-                  formally, with Carlos as the licensed Florida principal of record, through the
-                  vehicle that fits the property: South Florida property enters the core Southeast
-                  Florida MLS — the daily working ecosystem of the network's 93,000 member agents;
-                  Spanish and international property is placed into the MIAMI International MLS (RWorld)
-                  syndication platform, reaching the global agent and broker network in 100+
-                  languages. Producing agents are extended referral-commission incentives to bring
-                  qualified buyers. A formal listing position — not a referral passed to someone else.
+                  The question isn't whether a listing is advertised — it's whether it sits inside the
+                  infrastructure the most active buyers already work through. The Global Desk places
+                  eligible premium property formally, with Carlos as the licensed Florida principal of
+                  record, through the vehicle that fits it:
+                </p>
+                <ul className="mt-4 max-w-2xl space-y-3">
+                  <li className="flex gap-3 font-sans text-base leading-relaxed text-navy/70">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                    <span><span className="font-semibold text-navy">South Florida property</span> enters the core Southeast Florida MLS — the daily working ecosystem of the network's 93,000 member agents.</span>
+                  </li>
+                  <li className="flex gap-3 font-sans text-base leading-relaxed text-navy/70">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                    <span><span className="font-semibold text-navy">Spanish &amp; international property</span> is placed into the MIAMI International MLS (RWorld) syndication platform, reaching the global agent and broker network in 100+ languages.</span>
+                  </li>
+                </ul>
+                <p className="mt-4 max-w-2xl font-sans text-lg leading-relaxed text-navy/70">
+                  Producing agents are extended referral-commission incentives to bring qualified
+                  buyers. A formal listing position — not a referral passed to someone else.
                 </p>
                 <div className="mt-8">
                   <MiamiRealtorsBadge />
