@@ -70,7 +70,7 @@ export default function BuyersPage() {
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Representation · Spain Buyer Introductions</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
             Buy in South Florida or Spain<br />
-            <em className="not-italic italic text-gold">with the right local professional.</em>
+            <em className="italic text-gold">with the right local professional.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
             Full MLS access and direct buyer representation across Miami-Dade, Broward, and Palm Beach.

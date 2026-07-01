@@ -43,7 +43,7 @@ export function AdvisorBrand() {
                 style={{ fontSize: "clamp(2.6rem, 5vw, 4.8rem)" }}
               >
                 Not a listing agent.<br />
-                <em className="not-italic italic text-gold">A strategy partner.</em>
+                <em className="italic text-gold">A strategy partner.</em>
               </motion.h2>
 
               <motion.p

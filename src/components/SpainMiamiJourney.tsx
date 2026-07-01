@@ -425,7 +425,7 @@ export function SpainMiamiJourney() {
           >
             The buyer for your<br />
             Spanish property is<br />
-            <em className="not-italic italic text-gold">already in Miami.</em>
+            <em className="italic text-gold">already in Miami.</em>
           </h2>
           <p className="font-sans text-white/40 text-base leading-relaxed max-w-md mx-auto mb-8">
             How LatAm capital moves from Caracas to Coral Gables — and why your listing needs to be visible in that pipeline.
@@ -473,7 +473,7 @@ export function SpainMiamiJourney() {
             style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontWeight: 400 }}
           >
             Your property.<br />
-            <em className="not-italic italic text-gold">The entire American market.</em>
+            <em className="italic text-gold">The entire American market.</em>
           </h3>
           <p className="font-sans text-white/30 text-sm tracking-widest mb-10">
             Real estate is local. Peak value is global.

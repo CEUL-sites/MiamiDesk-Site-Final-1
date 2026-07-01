@@ -114,7 +114,7 @@ export const ReachAdvantage = () => {
           style={{ fontSize: "clamp(2.4rem, 5vw, 4.5rem)" }}
         >
           Your listing enters the system<br />
-          <em className="not-italic italic text-gold">93,000 South Florida agents open every day.</em>
+          <em className="italic text-gold">93,000 South Florida agents open every day.</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}

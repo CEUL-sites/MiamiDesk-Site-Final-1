@@ -76,7 +76,7 @@ export function GlobalPartnerNetwork({ lang = "en" }: { lang?: Lang }) {
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.8rem)" }}
             >
               {t.headlineA}<br />
-              <em className="not-italic italic text-gold">{t.headlineB}</em>
+              <em className="italic text-gold">{t.headlineB}</em>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 14 }}

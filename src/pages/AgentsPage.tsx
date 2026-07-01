@@ -214,7 +214,7 @@ export default function AgentsPage() {
               style={{ fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)" }}
             >
               Three Ways Agents<br />
-              <em className="not-italic italic text-gold">Work With Carlos.</em>
+              <em className="italic text-gold">Work With Carlos.</em>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/65">
               Refer a buyer or seller and get paid at closing. Give a listing serious U.S. and
@@ -1033,7 +1033,7 @@ export default function AgentsPage() {
                     </p>
                     <h3 className="font-serif text-2xl leading-snug text-white">
                       How to Become a Successful<br />
-                      <em className="not-italic italic text-gold">Real Estate Agent in South Florida</em>
+                      <em className="italic text-gold">Real Estate Agent in South Florida</em>
                     </h3>
                     <p className="mt-4 font-sans text-sm leading-relaxed text-white/60">
                       A practical guide to starting and building a real estate career in one of the most

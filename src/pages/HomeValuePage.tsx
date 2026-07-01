@@ -135,7 +135,7 @@ export default function HomeValuePage() {
             style={{ fontSize: "clamp(2rem, 5.5vw, 3.4rem)" }}
           >
             What Is Your South Florida<br />
-            <em className="not-italic italic text-gold">Property Worth Today?</em>
+            <em className="italic text-gold">Property Worth Today?</em>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
             Not an algorithm. A real MLS-based analysis from a licensed REALTOR® with

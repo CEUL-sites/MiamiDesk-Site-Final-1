@@ -29,7 +29,7 @@ export default function NewConstructionPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pre-Construction · South Florida</p>
             <h1 className="mx-auto mt-6 max-w-3xl font-serif leading-[1.1] text-white" style={{ fontSize: "clamp(2.1rem, 5vw, 3.4rem)" }}>
               Florida pre-construction inventory,<br />
-              <em className="not-italic italic text-gold">professionally accessed.</em>
+              <em className="italic text-gold">professionally accessed.</em>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
               New-development inventory across South Florida, accessed through United Realty Group and the Miami and
