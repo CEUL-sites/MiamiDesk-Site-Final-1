@@ -32,7 +32,7 @@ const C = {
     waES: "WhatsApp España",
     waUS: "WhatsApp EE. UU.",
     heroEyebrow: "Global Desk · Sección internacional del Miami MLS",
-    heroTitle: "Exposición institucional al comprador estadounidense para la propiedad de lujo española.",
+    heroTitle: "Compradores estadounidenses cualificados para su propiedad de lujo española.",
     heroSub:
       "Su inventario, colocado en la sección internacional del Miami MLS por un principal de registro con licencia en Florida. Representación local en España, preservada.",
     heroCta: "Enviar una solicitud de listado",
@@ -80,7 +80,7 @@ const C = {
     waES: "WhatsApp Spain",
     waUS: "WhatsApp USA",
     heroEyebrow: "Global Desk · Miami MLS international listings section",
-    heroTitle: "Institutional American-buyer exposure for Spanish luxury property.",
+    heroTitle: "Qualified American buyers for your Spanish luxury property.",
     heroSub:
       "Your inventory, placed into the international listings section of the Miami MLS by a licensed Florida principal of record. Local Spanish representation preserved.",
     heroCta: "Submit a listing request",
