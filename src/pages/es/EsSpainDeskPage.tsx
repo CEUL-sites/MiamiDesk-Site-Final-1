@@ -386,7 +386,7 @@ export default function EsSpainDeskPage() {
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Cómo Funciona el Partnership</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Un modelo B2B claro.<br />
-                <em className="not-italic italic text-gold">Documentado antes de empezar.</em>
+                <em className="italic text-gold">Documentado antes de empezar.</em>
               </h2>
               <p className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-white/55">
                 El partnership se basa en paquetes mensuales de exposición de listings y en la promoción de carteras seleccionadas — el engagement principal —
@@ -495,7 +495,7 @@ export default function EsSpainDeskPage() {
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Arquitectura de Compliance</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 El mecanismo legal,<br />
-                <em className="not-italic italic text-gold">explicado con claridad.</em>
+                <em className="italic text-gold">explicado con claridad.</em>
               </h2>
             </div>
 
@@ -576,7 +576,7 @@ export default function EsSpainDeskPage() {
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Estructura de Servicio</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Tres niveles de alcance.<br />
-                <em className="not-italic italic text-gold">Precio por listing, por mes.</em>
+                <em className="italic text-gold">Precio por listing, por mes.</em>
               </h2>
               <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
                 Cada nivel da a la propiedad premium el alcance de la red internacional del MIAMI International MLS (RWorld) — los agentes y brokers que representan a los compradores — activado a través de URG como broker de registro en Florida.
@@ -643,7 +643,7 @@ export default function EsSpainDeskPage() {
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Cómo Trabajar Juntos</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Cuatro pasos desde la consulta<br />
-                <em className="not-italic italic text-gold">hasta la activación de la exposición.</em>
+                <em className="italic text-gold">hasta la activación de la exposición.</em>
               </h2>
             </div>
 
@@ -802,7 +802,7 @@ export default function EsSpainDeskPage() {
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Marco Profesional</p>
               <h2 className="mt-4 font-serif text-3xl text-white leading-tight md:text-4xl">
                 Qué queda documentado.<br />
-                <em className="not-italic italic text-gold">Qué queda protegido.</em>
+                <em className="italic text-gold">Qué queda protegido.</em>
               </h2>
             </div>
 

@@ -188,7 +188,7 @@ export default function EsComprarPage() {
                 Comprar en Sur de Florida desde España o Latinoamérica.
                 <br />
                 {/* TODO: native Madrid editor review */}
-                <em className="not-italic italic text-gold">
+                <em className="italic text-gold">
                   Privado. Bilingüe. Con 25 años de experiencia.
                 </em>
               </motion.h1>

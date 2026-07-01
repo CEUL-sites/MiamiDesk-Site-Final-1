@@ -118,14 +118,14 @@ export default function EsHomePage() {
               <motion.h1
                 variants={itemVariants}
                 className="font-serif text-white leading-[1.05]"
-                style={{ fontSize: "clamp(2.1rem, 6vw, 6.5rem)", fontWeight: 400 }}
+                style={{ fontSize: "clamp(2.1rem, 6vw, 4.6rem)", fontWeight: 400 }}
               >
                 {/* TODO: native Madrid editor review */}
-                Los bienes raíces son locales.
+                Venda en el Sur de Florida
                 <br />
                 {/* TODO: native Madrid editor review */}
-                <em className="text-gold not-italic font-serif italic">
-                  El precio máximo es global.
+                <em className="text-gold font-serif italic">
+                  a compradores locales — y del mundo entero.
                 </em>
               </motion.h1>
 

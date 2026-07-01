@@ -236,7 +236,7 @@ export default function SpainMlsListingPage() {
             </div>
             <h1 className="mt-8 font-serif leading-tight" style={{ fontSize: "clamp(2rem, 5.5vw, 3.4rem)" }}>
               {t.h1a}<br />
-              <em className="not-italic italic text-gold">{t.h1b}</em>
+              <em className="italic text-gold">{t.h1b}</em>
             </h1>
             <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">{t.heroSub}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">

@@ -131,12 +131,12 @@ export default function SellSouthFloridaPage() {
             style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
           >
             The more agents who can sell your home,{" "}
-            <em className="not-italic italic text-gold">the more it sells for.</em>
+            <em className="italic text-gold">the more buyers compete for it.</em>
           </h1>
           <p className="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60">
             Most serious buyers — local and international — arrive through their own
             agent. I put your home in front of all of them, so the right buyer finds
-            it and competes for it.
+            it — wherever in the world they're searching from.
           </p>
 
           {/* What you get — the concrete deliverables of the review */}
@@ -308,7 +308,7 @@ export default function SellSouthFloridaPage() {
               </p>
               <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Why buyer-agent relationships<br />
-                <em className="not-italic italic text-gold">are half the strategy.</em>
+                <em className="italic text-gold">are half the strategy.</em>
               </h2>
               <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
                 {SOURCES.buyerAgentStatement} A strong listing makes your property easy

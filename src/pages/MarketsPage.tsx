@@ -188,7 +188,7 @@ export default function MarketsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida · Madrid & Spain · International Referral</p>
             <h1 className="mx-auto mt-6 max-w-3xl font-serif leading-[1.1] text-white" style={{ fontSize: "clamp(2.1rem, 5vw, 3.6rem)" }}>
               South Florida's full MLS footprint.<br />
-              <em className="not-italic italic text-gold">Madrid, through professional partnership.</em>
+              <em className="italic text-gold">Madrid, through professional partnership.</em>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
               Direct coverage across Miami-Dade, Broward, and Palm Beach through United Realty Group's {CONTACT.stats.urgOffices} South Florida offices

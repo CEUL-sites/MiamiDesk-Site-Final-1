@@ -174,7 +174,7 @@ export default function EsVenderPage() {
                 Su propiedad merece más que visibilidad local.
                 <br />
                 {/* TODO: native Madrid editor review */}
-                <em className="not-italic italic text-gold">
+                <em className="italic text-gold">
                   Merece alcance global.
                 </em>
               </motion.h1>

@@ -311,11 +311,11 @@ export function Hero() {
           <motion.h1
             variants={item}
             className="mt-6 font-serif leading-[1.05] text-white"
-            style={{ fontSize: "clamp(1.9rem, 5.5vw, 4.8rem)", fontWeight: 400 }}
+            style={{ fontSize: "clamp(1.9rem, 5.5vw, 4.2rem)", fontWeight: 400 }}
           >
-            Sell With the Reach of the
+            Sell Your South Florida Home
             <br className="hidden md:block" aria-hidden="true" />{" "}
-            <em className="italic text-gold">World's Largest Local Realtor® Association.</em>
+            <em className="italic text-gold">to Buyers Across the Street — and Around the World.</em>
           </motion.h1>
 
           {/* Mobile-only quick CTA — on phones the seller form sits well below
@@ -342,7 +342,7 @@ export function Hero() {
             className="mt-6 font-serif text-white/70 italic"
             style={{ fontSize: "clamp(1rem, 2.2vw, 1.35rem)" }}
           >
-            Real Estate is local — Peak Value is Global.
+            One listing, marketed through the world's largest local Realtor® association.
           </motion.p>
 
           {/* Network ticker */}

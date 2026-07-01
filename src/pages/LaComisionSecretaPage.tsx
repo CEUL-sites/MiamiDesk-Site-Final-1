@@ -143,7 +143,7 @@ export default function LaComisionSecretaPage() {
                   style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}
                 >
                   La Comisión<br />
-                  <em className="not-italic italic text-gold">Secreta</em>
+                  <em className="italic text-gold">Secreta</em>
                 </h1>
                 <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white/40">
                   How to Build a Real Estate Career in South Florida

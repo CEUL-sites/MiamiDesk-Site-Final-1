@@ -26,7 +26,7 @@ export function HowCarlosWorks() {
           </p>
           <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
             A listing principal who works in teams —{" "}
-            <em className="not-italic italic text-gold">and across two markets.</em>
+            <em className="italic text-gold">and across two markets.</em>
           </h2>
         </div>
 

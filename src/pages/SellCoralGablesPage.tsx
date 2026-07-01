@@ -126,11 +126,11 @@ export default function SellCoralGablesPage() {
               className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
               style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
             >
-              Sell your Coral Gables property with precision positioning<br />
-              <em className="not-italic italic text-gold">and global buyer-network access.</em>
+              Sell your Coral Gables property with the reach<br />
+              <em className="italic text-gold">of the world's largest local Realtor® network.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Coral Gables's luxury buyer pool is international by nature. Mediterranean architecture, Miracle Mile,
+              The Coral Gables luxury buyer pool is international by nature. Mediterranean architecture, Miracle Mile,
               and Brickell adjacency create consistent demand — from domestic executives to Latin American HNW families
               and European investors. Sell with the reach that matches that audience.
             </p>
@@ -225,7 +225,7 @@ export default function SellCoralGablesPage() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Luxury Listing Strategy</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
                   Coral Gables listings require<br />
-                  <em className="not-italic italic text-gold">a complete strategy, not a sign.</em>
+                  <em className="italic text-gold">a complete strategy, not a sign.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
                   The strongest Coral Gables transactions are won before the listing goes live — through pricing discipline, professional presentation, and buyer-agent relationship activation. Carlos builds the strategy before the MLS entry.

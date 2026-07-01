@@ -36,7 +36,7 @@ export default function ListingsPage() {
             className="mx-auto mt-5 max-w-4xl font-serif leading-tight text-white"
             style={{ fontSize: "clamp(1.9rem, 5vw, 4rem)" }}
           >
-            South Florida Properties
+            Search Live South Florida MLS Listings
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
             Search the live Miami and South Florida REALTORS® MLS, plus new

@@ -220,7 +220,7 @@ export function SellerSection() {
             <p className="font-mono mb-4 text-[10px] uppercase tracking-[0.3em] text-gold">Seller Strategy</p>
             <h2 className="font-serif leading-[1.05] text-white" style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)" }}>
               The MLS Reaches 93,000 Agents.<br />
-              <em className="not-italic italic text-gold">Strategy Gets Your Home Shown.</em>
+              <em className="italic text-gold">Strategy Gets Your Home Shown.</em>
             </h2>
             <p className="mt-7 max-w-xl font-sans text-lg leading-relaxed text-white/60">
               Every seller enters the same MLS. Not every seller enters it correctly. Positioning, professional media,
