@@ -3,6 +3,7 @@ import {
   REVIEWS,
   REALTOR_PROFILE_URL,
   RATING_VALUE,
+  REVIEW_COUNT,
   formatReviewDateShort,
 } from "../data/reviews";
 
@@ -76,7 +77,7 @@ export function Testimonials() {
                 ))}
               </span>
               <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">
-                {RATING_VALUE} average · Verified Realtor.com® reviews
+                {RATING_VALUE} average · {REVIEW_COUNT} verified Realtor.com® reviews
               </span>
             </div>
           </div>

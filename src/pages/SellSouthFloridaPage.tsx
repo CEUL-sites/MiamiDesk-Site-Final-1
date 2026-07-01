@@ -18,6 +18,7 @@ import { Testimonials } from "../components/Testimonials";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { SellerNetCalculator } from "../components/SellerNetCalculator";
 import { CONTACT, LEAD_MAGNETS, SOURCES, MESSAGING } from "../constants";
+import { RATING_VALUE, REVIEW_COUNT } from "../data/reviews";
 
 const WHO_THIS_IS_FOR = [
   {
@@ -181,7 +182,7 @@ export default function SellSouthFloridaPage() {
               ))}
             </span>
             <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
-              5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
+              {RATING_VALUE} · {REVIEW_COUNT} verified reviews · Free &amp; confidential · No listing commitment
             </span>
           </div>
 
@@ -206,7 +207,7 @@ export default function SellSouthFloridaPage() {
         <ReachAdvantage />
 
         {/* Miami Realtors Association — Why You Need a Miami Realtor */}
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-white py-14 md:py-20">
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Miami MLS Representation Matters</p>
@@ -229,6 +230,7 @@ export default function SellSouthFloridaPage() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
+                loading="lazy"
               />
             </div>
             <p className="mt-4 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/35">
@@ -238,7 +240,7 @@ export default function SellSouthFloridaPage() {
         </section>
 
         {/* Who This Is For */}
-        <section className="bg-ivory py-16 md:py-20">
+        <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Who this is for</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -294,7 +296,7 @@ export default function SellSouthFloridaPage() {
         <SellerSection />
 
         {/* Why Buyer-Agent Relationships Matter */}
-        <section className="relative overflow-hidden bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
+        <section className="relative overflow-hidden bg-navy-deep pt-12 pb-14 md:pt-16 md:pb-20 text-white">
           <AuroraBackground variant="subtle" />
           <LazyVideo
             src="/videos/best_exposure_listings.mp4"

@@ -83,11 +83,11 @@ export default function EsHomePage() {
           {/* Photo layer */}
           <div className="absolute inset-0">
             <img
-              src="/images/miami-realtors-rworld.jpg"
+              src="/images/video-posters/miami-realtors-rworld-1280.jpg"
               alt=""
               aria-hidden="true"
-              width="1920"
-              height="1080"
+              width="1280"
+              height="720"
               loading="eager"
               fetchPriority="high"
               className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
@@ -132,7 +132,7 @@ export default function EsHomePage() {
               {/* Subhead */}
               <motion.p
                 variants={itemVariants}
-                className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
+                className="mx-auto mt-6 font-sans font-light text-white/68 leading-relaxed max-w-[520px]"
                 style={{ fontSize: "1.05rem" }}
               >
                 {/* TODO: native Madrid editor review */}

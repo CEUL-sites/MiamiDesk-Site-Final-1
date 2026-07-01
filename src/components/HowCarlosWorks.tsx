@@ -17,7 +17,7 @@ const CREDENTIALS = [
 
 export function HowCarlosWorks() {
   return (
-    <section id="how-i-work" className="bg-navy-deep py-16 md:py-24 text-white">
+    <section id="how-i-work" className="bg-navy-deep py-12 md:py-20 text-white">
       <div className="mx-auto max-w-6xl px-6">
 
         <div className="mb-12 max-w-3xl">

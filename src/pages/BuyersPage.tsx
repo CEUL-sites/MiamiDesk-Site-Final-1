@@ -73,8 +73,8 @@ export default function BuyersPage() {
             <em className="not-italic italic text-gold">with the right local professional.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Full MLS access and direct buyer representation across Miami-Dade, Broward, and Palm Beach.
-            Spain-based buyers are introduced to trusted local professional partners through a formal referral relationship.
+            Full MLS access and direct buyer representation across Miami-Dade, Broward, and Palm Beach — plus
+            formal referral introductions for Spain-based buyers to trusted local partners.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a

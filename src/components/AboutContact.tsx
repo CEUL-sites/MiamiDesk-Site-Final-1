@@ -4,7 +4,7 @@ import { LeadForm } from "./LeadForm";
 
 export function AboutContact() {
   return (
-    <section id="contact" className="bg-ivory py-14 md:py-24">
+    <section id="contact" className="bg-ivory py-12 md:py-20">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div className="grid gap-10 md:grid-cols-[280px_1fr] md:items-start">
@@ -24,9 +24,9 @@ export function AboutContact() {
             </div>
           </div>
 
-          <div className="mt-12 max-w-4xl space-y-6 font-sans text-lg leading-relaxed text-navy/68">
-            <p>Twenty-five years of active South Florida real estate transactions, residential, luxury, and commercial. The relationships Carlos has inside the Miami professional community were built through closed deals, not directory listings.</p>
-            <p>From his Weston, Florida office, he serves South Florida sellers and buyers through United Realty Group, a full-service brokerage founded in 2002 with an in-house title company. He also works directly with international developers, agencies, and HNW property owners who need a licensed U.S. principal to bring their assets to market through the Miami MLS.</p>
+          <div className="mt-12 max-w-2xl space-y-5 font-sans text-base leading-relaxed text-navy/68">
+            <p>Twenty-five years of active South Florida transactions — residential, luxury, and commercial. Carlos's relationships across the Miami professional community were built through closed deals, not directory listings.</p>
+            <p>From his Weston office, he represents South Florida sellers and buyers through United Realty Group — a full-service brokerage founded in 2002 with an in-house title company. He also brings international developers, agencies, and HNW owners to market through the Miami MLS as their licensed U.S. principal of record.</p>
           </div>
 
           {/* URG Headquarters — video */}

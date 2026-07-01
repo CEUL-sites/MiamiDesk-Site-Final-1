@@ -190,9 +190,10 @@ export default function MarketsPage() {
               South Florida's full MLS footprint.<br />
               <em className="not-italic italic text-gold">Madrid, through professional partnership.</em>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
-              Direct coverage across Miami-Dade, Broward, and Palm Beach through United Realty Group's {CONTACT.stats.urgOffices} South Florida offices
-              and {CONTACT.stats.agents}-member MLS. Spain and international markets served through formal referral and cooperating broker relationships.
+            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-relaxed text-white/60">
+              Direct coverage across Miami-Dade, Broward, and Palm Beach — United Realty Group's {CONTACT.stats.urgOffices} South
+              Florida offices and a {CONTACT.stats.agents}-member MLS. Spain and international markets served through formal
+              referral partnerships.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href="/contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">

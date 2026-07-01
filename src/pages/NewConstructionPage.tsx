@@ -31,10 +31,10 @@ export default function NewConstructionPage() {
               Florida pre-construction inventory,<br />
               <em className="not-italic italic text-gold">professionally accessed.</em>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
-              New-development inventory across South Florida, accessed through United Realty Group and the Miami and
-              South Florida REALTORS® network. Advisory representation for international buyers and for Spanish and
-              Latin American developers entering the U.S. market.
+            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-relaxed text-white/60">
+              South Florida new-development inventory, accessed through United Realty Group and the Miami and South
+              Florida REALTORS® network — advisory for international buyers and for Spanish and Latin American
+              developers entering the U.S. market.
             </p>
           </div>
         </section>

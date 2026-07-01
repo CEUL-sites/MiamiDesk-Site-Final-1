@@ -23,7 +23,7 @@ const SPOTLIGHT: { city: string; href: string }[] = [
 
 export function MarketPulse() {
   return (
-    <section className="border-t border-hairline bg-ivory py-16 md:py-24">
+    <section className="border-t border-hairline bg-ivory py-12 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex items-center gap-2">
           <TrendingUp size={14} className="text-gold" />
