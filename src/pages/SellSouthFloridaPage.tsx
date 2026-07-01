@@ -18,6 +18,7 @@ import { Testimonials } from "../components/Testimonials";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { SellerNetCalculator } from "../components/SellerNetCalculator";
 import { CONTACT, LEAD_MAGNETS, SOURCES, MESSAGING } from "../constants";
+import { RATING_VALUE, REVIEW_COUNT } from "../data/reviews";
 
 const WHO_THIS_IS_FOR = [
   {
@@ -181,7 +182,7 @@ export default function SellSouthFloridaPage() {
               ))}
             </span>
             <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
-              5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
+              {RATING_VALUE} · {REVIEW_COUNT} verified reviews · Free &amp; confidential · No listing commitment
             </span>
           </div>
 
