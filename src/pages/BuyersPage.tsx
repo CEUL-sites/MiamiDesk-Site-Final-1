@@ -15,7 +15,7 @@ export default function BuyersPage() {
   return (
     <>
       <Helmet>
-        <title>Buy in South Florida or Spain With the Right Local Professional | HomesProfessional.com</title>
+        <title>Buy in South Florida or Spain · Licensed Buyer Representation | HomesProfessional.com</title>
         <meta name="description" content="Buyer representation across Miami-Dade, Broward & Palm Beach — full MLS access, negotiation, closing. Bilingual EN/ES. United Realty Group · FL SL705771." />
         <meta name="keywords" content="buy home South Florida, Miami real estate buyer, Coral Gables homes for sale, Brickell condos, Miami Beach real estate, South Florida buyer agent, relocation Miami" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
@@ -69,12 +69,13 @@ export default function BuyersPage() {
           <div className="relative z-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Representation · Spain Buyer Introductions</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
-            Buy in South Florida or Spain<br />
-            <em className="italic text-gold">with the right local professional.</em>
+            Buy in South Florida or Spain —<br />
+            <em className="italic text-gold">licensed representation here, trusted partners there.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Full MLS access and direct buyer representation across Miami-Dade, Broward, and Palm Beach.
-            Spain-based buyers are introduced to trusted local professional partners through a formal referral relationship.
+            Full MLS access and direct buyer representation across Miami-Dade, Broward, and Palm Beach —
+            in English or Spanish. Buying in Spain? Carlos introduces you to trusted local professionals
+            through a formal referral relationship.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
