@@ -56,7 +56,7 @@ export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
             Contact Form
           </a>
         </div>
-        <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+        <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
           FL SL705771 · United Realty Group
         </p>
       </div>
@@ -67,7 +67,7 @@ export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
     <>
       {status === "loading" && (
         <div className="flex min-h-[40vh] items-center justify-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-primary/40">
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-primary/70">
             Loading inventory…
           </span>
         </div>

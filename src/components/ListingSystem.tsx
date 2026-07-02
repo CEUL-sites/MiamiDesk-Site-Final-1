@@ -75,7 +75,7 @@ export function ListingSystem() {
           </a>
           <a
             href="/home-value"
-            className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline underline-offset-4 transition-colors hover:text-gold"
+            className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 transition-colors hover:text-gold-soft"
           >
             Or start with your home's value →
           </a>

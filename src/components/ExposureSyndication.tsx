@@ -175,7 +175,7 @@ export const ExposureSyndication = () => {
           ))}
         </div>
         <div className="h-px w-full bg-gold/25" />
-        <p className="font-mono text-center text-[9px] uppercase tracking-[0.22em] text-white/40 mt-5">
+        <p className="font-mono text-center text-[9px] uppercase tracking-[0.22em] text-white/55 mt-5">
           Source: Miami and South Florida REALTORS® · Verified syndication data
         </p>
       </div>

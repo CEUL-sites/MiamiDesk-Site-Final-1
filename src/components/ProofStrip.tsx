@@ -70,7 +70,7 @@ export function ProofStrip() {
         {/* Left: stars + label */}
         <div className="flex flex-col gap-1 flex-shrink-0">
           <StarRow />
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/50 whitespace-nowrap">
+          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/70 whitespace-nowrap">
             5.0 · Verified Client Reviews
           </p>
         </div>
@@ -93,7 +93,7 @@ export function ProofStrip() {
               "{quote.text}"
             </p>
             <footer className="mt-1.5">
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-navy/40">
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-navy/70">
                 — {quote.name} · {quote.location}
               </span>
             </footer>
@@ -105,7 +105,7 @@ export function ProofStrip() {
           href="https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden sm:inline-flex flex-shrink-0 items-center gap-1 font-mono text-[9px] uppercase tracking-[0.18em] text-gold hover:text-navy transition-colors whitespace-nowrap"
+          className="hidden sm:inline-flex flex-shrink-0 items-center gap-1 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink hover:text-navy transition-colors whitespace-nowrap"
           aria-label="Read all verified client reviews on Realtor.com"
         >
           All reviews →

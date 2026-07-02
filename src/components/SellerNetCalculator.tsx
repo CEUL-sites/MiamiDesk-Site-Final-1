@@ -83,7 +83,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex items-center gap-2">
           <Calculator size={14} className="text-gold" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller Net Proceeds · Estimator</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Seller Net Proceeds · Estimator</p>
         </div>
         <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
           What would you actually walk away with?
@@ -98,7 +98,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
           <div className="space-y-7">
             <div>
               <div className="flex items-baseline justify-between">
-                <label htmlFor="calc-price" className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/55">
+                <label htmlFor="calc-price" className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/70">
                   Estimated sale price
                 </label>
                 <span className="font-serif text-2xl text-navy-deep">{usd.format(price)}</span>
@@ -108,14 +108,14 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                 value={price} onChange={(e) => setPrice(Number(e.target.value))}
                 className="mt-3 w-full accent-[#B08D57]"
               />
-              <div className="mt-1 flex justify-between font-mono text-[8px] uppercase tracking-[0.14em] text-navy/30">
+              <div className="mt-1 flex justify-between font-mono text-[8px] uppercase tracking-[0.14em] text-navy/70">
                 <span>$200K</span><span>$5M</span>
               </div>
             </div>
 
             <div>
               <div className="flex items-baseline justify-between">
-                <label htmlFor="calc-payoff" className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/55">
+                <label htmlFor="calc-payoff" className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/70">
                   Remaining mortgage payoff
                 </label>
                 <span className="font-serif text-2xl text-navy-deep">{usd.format(payoff)}</span>
@@ -125,13 +125,13 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                 value={payoff} onChange={(e) => setPayoff(Number(e.target.value))}
                 className="mt-3 w-full accent-[#B08D57]"
               />
-              <div className="mt-1 flex justify-between font-mono text-[8px] uppercase tracking-[0.14em] text-navy/30">
+              <div className="mt-1 flex justify-between font-mono text-[8px] uppercase tracking-[0.14em] text-navy/70">
                 <span>$0</span><span>$3M</span>
               </div>
             </div>
 
             <div>
-              <label className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/55">
+              <label className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/70">
                 Total commission — fully negotiable, set at listing
               </label>
               <div className="mt-3 flex gap-2">
@@ -141,7 +141,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                     className={`flex-1 border px-3 py-2.5 font-mono text-[11px] tracking-[0.08em] transition-colors ${
                       commission === c
                         ? "border-gold bg-gold/10 text-navy-deep font-bold"
-                        : "border-hairline bg-white text-navy/50 hover:border-gold/40"
+                        : "border-hairline bg-white text-navy/70 hover:border-gold/40"
                     }`}
                     aria-pressed={commission === c}
                   >
@@ -154,7 +154,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
 
           {/* Live breakdown */}
           <div className="border border-hairline bg-ivory p-7 md:p-8">
-            <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold">Estimated breakdown</p>
+            <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold-ink">Estimated breakdown</p>
             <dl className="mt-5 space-y-3 font-sans text-sm">
               {[
                 ["Sale price", usd.format(price), false],
@@ -164,20 +164,20 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                 ["Mortgage payoff", `− ${usd.format(payoff)}`, false],
               ].map(([label, value]) => (
                 <div key={label as string} className="flex items-baseline justify-between gap-4">
-                  <dt className="text-navy/55">{label}</dt>
+                  <dt className="text-navy/70">{label}</dt>
                   <dd className="font-mono text-[13px] text-navy-deep whitespace-nowrap">{value}</dd>
                 </div>
               ))}
             </dl>
             <div className="mt-5 border-t border-gold/30 pt-4 flex items-baseline justify-between gap-4">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/55">Estimated net proceeds</p>
+              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/70">Estimated net proceeds</p>
               <p className="font-serif text-3xl text-navy-deep">{usd.format(Math.max(0, rows.net))}</p>
             </div>
 
             {/* Email gate */}
             {status === "success" ? (
               <div className="mt-6 border border-gold/30 bg-white p-5">
-                <p className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold">
+                <p className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink">
                   <CheckCircle2 size={13} /> On its way
                 </p>
                 <p className="mt-2 font-sans text-sm leading-relaxed text-navy/65">
@@ -221,15 +221,15 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                     ? <><Loader2 size={14} className="animate-spin" /> Sending…</>
                     : <>Email Me My Net Sheet <ArrowRight size={14} /></>}
                 </button>
-                <p className="mt-2.5 inline-flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-navy/35">
-                  <Lock size={9} className="text-gold/70" /> Confidential · No listing commitment · No spam
+                <p className="mt-2.5 inline-flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.14em] text-navy/70">
+                  <Lock size={9} className="text-gold-ink" /> Confidential · No listing commitment · No spam
                 </p>
               </form>
             )}
           </div>
         </div>
 
-        <p className="mt-6 max-w-3xl font-sans text-[11px] leading-relaxed text-ink-primary/40">
+        <p className="mt-6 max-w-3xl font-sans text-[11px] leading-relaxed text-ink-primary/70">
           Estimates for planning purposes only — not a guarantee of sale price, costs, or proceeds.
           Commissions are fully negotiable and not set by law. Documentary stamp, title, and closing
           figures use typical Florida rates; actual amounts vary by county, contract terms, and

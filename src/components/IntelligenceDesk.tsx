@@ -68,7 +68,7 @@ function HandoffPanel({ history }: { history: Message[] }) {
           Call {CONTACT.phoneUSDisplay}
         </a>
       </div>
-      <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+      <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-white/55">
         Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
       </p>
     </motion.div>
@@ -152,7 +152,7 @@ function AiPanel() {
               style={{ width: `${progressPct}%` }}
             />
           </div>
-          <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30 whitespace-nowrap">
+          <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/55 whitespace-nowrap">
             {turnCount < HANDOFF_THRESHOLD
               ? `${HANDOFF_THRESHOLD - turnCount} questions to team review`
               : "Routing to Carlos"}
@@ -244,7 +244,7 @@ function AiPanel() {
             </button>
           </div>
 
-          <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/20 text-center">
+          <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/55 text-center">
             AI intake · Carlos responds personally
           </p>
 
@@ -354,14 +354,14 @@ export const IntelligenceDesk = () => {
                     <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                     <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                   </div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-white/40">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-white/55">
                     miamidesk.ai · intelligence desk
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-                    <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/70">Gemini · Live</span>
+                    <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold">Gemini · Live</span>
                   </span>
                   {/* Robot badge — mobile only (desktop robot floats outside) */}
                   <span className="lg:hidden">

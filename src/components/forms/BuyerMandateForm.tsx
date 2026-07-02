@@ -103,12 +103,12 @@ export function BuyerMandateForm() {
         <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center bg-gold/10 text-gold">
           <CheckCircle2 size={30} />
         </div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Buyer Mandate Received</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Buyer Mandate Received</p>
         <h3 className="mt-3 font-serif text-2xl text-navy">Carlos will prepare your Miami buyer brief.</h3>
-        <p className="mt-4 font-sans text-sm leading-relaxed text-navy/55 max-w-md mx-auto">
+        <p className="mt-4 font-sans text-sm leading-relaxed text-navy/70 max-w-md mx-auto">
           Confirmation sent to your email. Carlos responds personally from his Weston, Florida office.
         </p>
-        <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block font-sans text-sm text-gold underline">
+        <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block font-sans text-sm text-gold-ink underline">
           WhatsApp for immediate questions
         </a>
       </div>
@@ -174,7 +174,7 @@ export function BuyerMandateForm() {
                 className={`border px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.15em] transition-colors ${
                   neighborhoodSel.includes(n)
                     ? "border-gold bg-gold/10 text-gold"
-                    : "border-bone text-navy/50 hover:border-gold/40"
+                    : "border-bone text-navy/70 hover:border-gold/40"
                 }`}
               >
                 {n}
@@ -225,7 +225,7 @@ export function BuyerMandateForm() {
           {status === "submitting" ? "Sending…" : "Request Miami Buyer Brief"}
         </button>
 
-        <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/30">
+        <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/70">
           {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
         </p>
       </form>
@@ -234,10 +234,12 @@ export function BuyerMandateForm() {
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  // The control is nested inside the <label>, giving every input/select a
+  // programmatic label (implicit association) without needing per-field ids.
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">{label}</label>
+    <label className="flex flex-col gap-1.5">
+      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/70">{label}</span>
       {children}
-    </div>
+    </label>
   );
 }

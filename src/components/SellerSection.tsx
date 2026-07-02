@@ -277,7 +277,7 @@ export function SellerSection() {
               WhatsApp Carlos
             </a>
           </div>
-          <p className="font-mono mx-auto mt-6 max-w-2xl text-[9px] uppercase tracking-[0.2em] text-white/35">
+          <p className="font-mono mx-auto mt-6 max-w-2xl text-[9px] uppercase tracking-[0.2em] text-white/55">
             {CONTACT.licenseDisplay} · {CONTACT.brokerage}
           </p>
         </div>

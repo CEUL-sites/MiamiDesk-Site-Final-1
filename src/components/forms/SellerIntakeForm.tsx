@@ -182,14 +182,14 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center bg-gold/10 text-gold">
           <CheckCircle2 size={30} />
         </div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Strategy Review Requested</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Strategy Review Requested</p>
         <h3 className="mt-3 font-serif text-2xl text-navy">Carlos will review your property details personally.</h3>
-        <p className="mt-4 font-sans text-sm leading-relaxed text-navy/55 max-w-md mx-auto">
+        <p className="mt-4 font-sans text-sm leading-relaxed text-navy/70 max-w-md mx-auto">
           You will receive a confirmation to {form.email || "your email"} shortly. Carlos responds personally from his Weston, Florida office.
         </p>
-        <p className="mt-6 font-sans text-sm text-navy/55">
+        <p className="mt-6 font-sans text-sm text-navy/70">
           For immediate questions:{" "}
-          <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold underline">
+          <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold-ink underline">
             WhatsApp {CONTACT.phoneUS}
           </a>
         </p>
@@ -211,12 +211,12 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         </p>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">
-            <span className="text-white/35">Prefer to talk now?</span>
-            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold transition-colors hover:text-white">WhatsApp US +1 954-865-6622</a>
-            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="text-gold transition-colors hover:text-white">WhatsApp ES +34 646 85 30 78</a>
-            <a href={`mailto:${CONTACT.email}`} className="text-gold transition-colors hover:text-white">{CONTACT.email}</a>
+            <span className="text-white/55">Prefer to talk now?</span>
+            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">WhatsApp US +1 954-865-6622</a>
+            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">WhatsApp ES +34 646 85 30 78</a>
+            <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">{CONTACT.email}</a>
           </div>
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">Step {step} of 2</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">Step {step} of 2</span>
         </div>
       </div>
 
@@ -257,12 +257,12 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </button>
 
-          <p className="text-center font-serif text-[13px] italic leading-snug text-navy/55">
+          <p className="text-center font-serif text-[13px] italic leading-snug text-navy/70">
             "Sharp pricing, professional marketing, and constant communication — Carlos made selling feel handled."{" "}
-            <span className="not-italic font-mono text-[8px] uppercase tracking-[0.14em] text-navy/35 whitespace-nowrap">— Andres P. · Weston · Verified Review</span>
+            <span className="not-italic font-mono text-[8px] uppercase tracking-[0.14em] text-navy/70 whitespace-nowrap">— Andres P. · Weston · Verified Review</span>
           </p>
 
-          <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/30">
+          <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/70">
             Free · Confidential · No listing commitment · {CONTACT.licenseDisplay}
           </p>
         </form>
@@ -292,26 +292,26 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
           {snapshot && snapshotSeg && (
             <div className="border border-gold/30 bg-ivory p-5">
               <div className="flex items-center gap-2">
-                <TrendingUp size={14} className="text-gold" />
-                <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold">
+                <TrendingUp size={14} className="text-gold-ink" />
+                <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold-ink">
                   {form.city} market · {MARKET_STATS_PERIOD}
                 </p>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-4">
                 <div>
                   <p className="font-serif text-xl text-navy">{usd.format(snapshotSeg.seg.medianSalePrice)}</p>
-                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Median sale price</p>
+                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">Median sale price</p>
                 </div>
                 <div>
                   <p className="font-serif text-xl text-navy">{snapshotSeg.seg.medianDaysToContract} days</p>
-                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Median to contract</p>
+                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">Median to contract</p>
                 </div>
                 <div>
                   <p className="font-serif text-xl text-navy">{snapshotSeg.seg.monthsSupply} months</p>
-                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/45">Supply of inventory</p>
+                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">Supply of inventory</p>
                 </div>
               </div>
-              <p className="mt-4 font-sans text-xs leading-relaxed text-navy/55">
+              <p className="mt-4 font-sans text-xs leading-relaxed text-navy/70">
                 {MARKET_STATS_PERIOD} {snapshotSeg.name} closed sales reported for {snapshot.dataCity}, per
                 MIAMI REALTORS® + RWorld, based on MLS data compiled by Florida Realtors®.
                 Your full analysis — comparables, absorption, and positioning — is prepared personally by Carlos. Complete the details below to receive it.
@@ -320,14 +320,14 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
           )}
 
           <div className="flex items-start justify-between gap-4">
-            <p className="font-sans text-sm text-navy/55">
+            <p className="font-sans text-sm text-navy/70">
               <span className="font-medium text-navy">{form.propertyAddress}</span>
               {form.city ? `, ${form.city}` : ""}
             </p>
             <button
               type="button"
               onClick={() => setStep(1)}
-              className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold hover:underline"
+              className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink hover:underline"
             >
               <ArrowLeft size={11} /> Edit address
             </button>
@@ -394,7 +394,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
               onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
               className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
             />
-            <span className="font-sans text-xs leading-relaxed text-navy/55">
+            <span className="font-sans text-xs leading-relaxed text-navy/70">
               I agree to receive updates about my inquiry by WhatsApp or SMS at the number provided.
               Message and data rates may apply. Reply STOP to opt out. (Optional)
             </span>
@@ -409,7 +409,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             {status === "submitting" ? "Sending…" : "Request My Confidential Analysis"}
           </button>
 
-          <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/30">
+          <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/70">
             {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
           </p>
         </form>

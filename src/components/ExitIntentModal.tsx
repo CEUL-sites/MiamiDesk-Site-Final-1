@@ -150,7 +150,7 @@ export function ExitIntentModal() {
         <div className="p-8">
           {status === "success" ? (
             <div className="flex flex-col items-start gap-4">
-              <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-gold">
+              <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-gold-ink">
                 <CheckCircle2 size={13} /> Ready to download
               </span>
               <a
@@ -161,10 +161,10 @@ export function ExitIntentModal() {
                 <Download size={13} />
                 Download Net Sheet
               </a>
-              <p className="font-sans text-sm leading-relaxed text-navy/60">
+              <p className="font-sans text-sm leading-relaxed text-navy/70">
                 A copy is on its way to your inbox. When you'd like numbers for your
                 specific property,{" "}
-                <a href="/home-value" className="text-gold underline underline-offset-2 hover:text-navy">
+                <a href="/home-value" className="text-gold-ink underline underline-offset-2 hover:text-navy">
                   request a free, no-obligation valuation →
                 </a>
               </p>
@@ -206,10 +206,10 @@ export function ExitIntentModal() {
                     : <><Download size={13} /> Send Me the Free Guide</>}
                 </button>
               </form>
-              <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.12em] text-navy/35">
+              <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.12em] text-navy/70">
                 One email. No subscription. No listing commitment.
               </p>
-              <a href="/home-value" className="mt-4 inline-block font-sans text-xs text-gold underline underline-offset-2 hover:text-navy">
+              <a href="/home-value" className="mt-4 inline-block font-sans text-xs text-gold-ink underline underline-offset-2 hover:text-navy">
                 Or get a free home valuation instead →
               </a>
             </>

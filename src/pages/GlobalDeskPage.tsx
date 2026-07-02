@@ -209,7 +209,7 @@ export default function GlobalDeskPage() {
           <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-serif text-lg leading-none text-white">Global Desk</p>
-              <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.22em] text-gold/70">{t.unit}</p>
+              <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.22em] text-gold">{t.unit}</p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <div
@@ -299,9 +299,9 @@ export default function GlobalDeskPage() {
             <p className="mt-6 font-serif text-2xl leading-[1.5] text-white/90 md:text-3xl md:leading-[1.5]">
               {t.marketBody}
             </p>
-            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.16em] text-white/55">
               {t.sourceLabel}:{" "}
-              <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" className="text-gold/80 underline-offset-2 hover:underline">
+              <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" className="text-gold underline-offset-2 hover:underline">
                 {t.sourceText}
               </a>
             </p>
@@ -311,16 +311,16 @@ export default function GlobalDeskPage() {
         {/* ── Section D — Distribution advantage (figure grid + activation) ── */}
         <section className="bg-ivory px-6 py-16 text-navy md:py-24">
           <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-deep">{t.distEyebrow}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.distEyebrow}</p>
             <p className="mt-5 max-w-3xl font-serif text-2xl leading-snug text-navy md:text-3xl">{t.distIntro}</p>
 
             <div className="mt-12 grid grid-cols-2 gap-px border border-navy/10 bg-navy/10 md:grid-cols-3">
               {FIGURES.map((f) => (
                 <div key={f.v} className="bg-ivory p-7">
-                  <div className="font-serif text-4xl text-gold-deep">{f.v}</div>
-                  <div className="mt-2 font-sans text-sm leading-snug text-navy/60">{f[lang]}</div>
+                  <div className="font-serif text-4xl text-gold-ink">{f.v}</div>
+                  <div className="mt-2 font-sans text-sm leading-snug text-navy/70">{f[lang]}</div>
                   {f.caption && (
-                    <p className="mt-3 font-mono text-[8px] uppercase leading-relaxed tracking-[0.14em] text-navy/45">
+                    <p className="mt-3 font-mono text-[8px] uppercase leading-relaxed tracking-[0.14em] text-navy/70">
                       {t.caption}
                     </p>
                   )}
@@ -350,7 +350,7 @@ export default function GlobalDeskPage() {
             variants={fade}
             className="mx-auto max-w-3xl"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-deep">{t.structureEyebrow}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.structureEyebrow}</p>
             <p className="mt-6 font-sans text-lg leading-[1.9] text-navy/75">{t.structureBody}</p>
           </motion.div>
         </section>
@@ -404,7 +404,7 @@ export default function GlobalDeskPage() {
 
             {/* Placement plan scopes (named, no prices) */}
             <div className="mt-8">
-              <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold/70">{t.scopesEyebrow}</p>
+              <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold">{t.scopesEyebrow}</p>
               <div className="mt-4 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-3">
                 {t.scopes.map(([name, desc]) => (
                   <div key={name} className="bg-navy-deep p-6">
@@ -431,16 +431,16 @@ export default function GlobalDeskPage() {
           <div className="mx-auto max-w-4xl text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">{t.footerCompliance}</p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/45">
-              <a href="mailto:contact@carlosre.com" className="hover:text-gold">contact@carlosre.com</a>
+              <a href="mailto:contact@carlosre.com" className="inline-flex items-center py-2 hover:text-gold">contact@carlosre.com</a>
               <span className="text-gold/40">·</span>
-              <a href={WA_US} target="_blank" rel="noopener noreferrer" className="hover:text-gold">{t.waUS} +1 954-865-6622</a>
+              <a href={WA_US} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 hover:text-gold">{t.waUS} +1 954-865-6622</a>
               <span className="text-gold/40">·</span>
-              <a href={WA_ES} target="_blank" rel="noopener noreferrer" className="hover:text-gold">{t.waES} +34 646 85 30 78</a>
+              <a href={WA_ES} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 hover:text-gold">{t.waES} +34 646 85 30 78</a>
               <span className="text-gold/40">·</span>
-              <a href="tel:+19544502000" className="underline underline-offset-2 hover:text-gold">1-954-450-2000</a>
+              <a href="tel:+19544502000" className="inline-flex items-center py-2 underline underline-offset-2 hover:text-gold">1-954-450-2000</a>
             </div>
-            <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-white/35">{t.footerAddress}</p>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-xs leading-relaxed text-white/40">{t.footerCredibility}</p>
+            <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-white/55">{t.footerAddress}</p>
+            <p className="mx-auto mt-6 max-w-2xl font-sans text-xs leading-relaxed text-white/55">{t.footerCredibility}</p>
           </div>
         </section>
 
