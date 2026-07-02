@@ -7,3 +7,6 @@ coverage/
 .env*
 !.env.example
 package-lock.json
+
+# Local Netlify folder
+.netlify
