@@ -11,7 +11,7 @@ export default function BuyerThanksPage() {
         <title>Buyer Brief Requested | HomesProfessional.com</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <main className="min-h-screen bg-white-soft grain-overlay">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />
         <section className="flex min-h-[75vh] items-center justify-center bg-navy-deep py-24">
           <div className="mx-auto max-w-2xl px-6 text-center">

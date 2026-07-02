@@ -120,7 +120,7 @@ export default function LaComisionSecretaPage() {
           "url": "https://homesprofessional.com/la-comision-secreta"
         }} />
 
-      <main className="min-h-screen bg-white-soft grain-overlay">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />
 
         {/* Hero */}

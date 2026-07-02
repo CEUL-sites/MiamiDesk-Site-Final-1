@@ -194,18 +194,22 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
       </motion.div>
 
-      {/* Story-style progress segments */}
-      <div className="flex items-center gap-1.5" role="group" aria-label="Featured clip sequence">
+      {/* Story-style progress segments — buttons carry a 24px+ touch area
+          (WCAG target size); the visible 2px bar is centered inside. */}
+      <div className="flex items-center" role="group" aria-label="Featured clip sequence">
         {HERO_FEATURE_VIDEOS.map((v, i) => (
           <button
             key={v.src}
             type="button"
             onClick={() => goTo(i)}
             aria-label={`Clip ${i + 1}: ${v.label}`}
-            className="relative flex h-5 items-center transition-all duration-300"
-            style={{ width: i === activeIdx ? "1.9rem" : "0.5rem" }}
+            className="relative flex h-6 items-center justify-center transition-all duration-300"
+            style={{ width: i === activeIdx ? "calc(1.9rem + 16px)" : "calc(0.5rem + 16px)" }}
           >
-            <span className="relative block h-[2px] w-full overflow-hidden rounded-full">
+            <span
+              className="relative block h-[2px] overflow-hidden rounded-full transition-all duration-300"
+              style={{ width: i === activeIdx ? "1.9rem" : "0.5rem" }}
+            >
               <span className="absolute inset-0 rounded-full bg-white/15" />
               {i < activeIdx && (
                 <span className="absolute inset-0 rounded-full bg-gold/70" />

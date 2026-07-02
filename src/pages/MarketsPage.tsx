@@ -172,7 +172,7 @@ export default function MarketsPage() {
           ]
         }} />
 
-      <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
         {/* ── Hero ──────────────────────────────────────────────── */}

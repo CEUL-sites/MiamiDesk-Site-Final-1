@@ -18,7 +18,7 @@ export default function TermsPage() {
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="robots" content="noindex" />
       </Helmet>
-      <main className="min-h-screen bg-white pb-20">
+      <main id="main-content" className="min-h-screen bg-white pb-20">
         <Navbar />
         <div className="mx-auto max-w-3xl px-6 py-20">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Legal</p>

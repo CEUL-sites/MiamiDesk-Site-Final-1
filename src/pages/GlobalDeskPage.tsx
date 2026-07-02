@@ -201,7 +201,7 @@ export default function GlobalDeskPage() {
           url: "https://homesprofessional.com/global-desk",
         }} />
 
-      <main className="min-h-screen bg-[#060D18] text-white">
+      <main id="main-content" className="min-h-screen bg-[#060D18] text-white">
         <Navbar />
 
         {/* ── Section A — Global Desk identity bar (own identity within site shell) ── */}
@@ -437,7 +437,7 @@ export default function GlobalDeskPage() {
               <span className="text-gold/40">·</span>
               <a href={WA_ES} target="_blank" rel="noopener noreferrer" className="hover:text-gold">{t.waES} +34 646 85 30 78</a>
               <span className="text-gold/40">·</span>
-              <a href="tel:+19544502000" className="hover:text-gold">1-954-450-2000</a>
+              <a href="tel:+19544502000" className="underline underline-offset-2 hover:text-gold">1-954-450-2000</a>
             </div>
             <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-white/35">{t.footerAddress}</p>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-xs leading-relaxed text-white/40">{t.footerCredibility}</p>

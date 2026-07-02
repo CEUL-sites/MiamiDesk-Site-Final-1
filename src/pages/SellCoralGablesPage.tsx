@@ -110,7 +110,7 @@ export default function SellCoralGablesPage() {
           },
           "url": "https://homesprofessional.com/sell-coral-gables"
         }} />
-      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
         {/* Hero */}

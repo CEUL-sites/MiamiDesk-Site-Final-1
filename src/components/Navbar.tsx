@@ -40,7 +40,8 @@ export function Navbar() {
   return (
     <>
       {/* Skip link — first Tab stop on every page (WCAG 2.4.1 Bypass Blocks).
-          Targets the page's <main> generically, so no per-page id is needed. */}
+          Href targets #main-content; the onClick also falls back to the first
+          <main> on the page for pages that haven't added the id yet. */}
       <a
         href="#main-content"
         onClick={(e) => {
@@ -66,9 +67,11 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
 
         {/* ── Logo ──────────────────────────────────────────── */}
+        {/* No aria-label: the accessible name composes from the visible
+            content (UrgLogo's own label + the visible spans), so it always
+            matches what's on screen at every breakpoint. */}
         <a
           href="/"
-          aria-label="HomesProfessional.com — Carlos Uzcategui, Florida REALTOR®"
           className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}
         >
           <UrgLogo className="h-8 w-auto sm:h-9" />

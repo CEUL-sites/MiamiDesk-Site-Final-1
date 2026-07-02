@@ -66,7 +66,7 @@ export default function HomePage() {
           "review": buildReviewSchema(VERIFIED_REVIEWS.slice(0, 3)),
         }}
       />
-      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />
         <ProofStrip />
