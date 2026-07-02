@@ -27,7 +27,7 @@ export function MarketPulse() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex items-center gap-2">
           <TrendingUp size={14} className="text-gold" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
             South Florida Market Pulse · {MARKET_STATS_PERIOD}
           </p>
         </div>
@@ -35,7 +35,7 @@ export function MarketPulse() {
           <h2 className="max-w-2xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
             Selling starts with knowing your market's real numbers.
           </h2>
-          <p className="max-w-md font-sans text-sm leading-relaxed text-ink-primary/60">
+          <p className="max-w-md font-sans text-sm leading-relaxed text-ink-primary/70">
             Closed-sale medians, speed to contract, and supply — by city, from the official
             MIAMI REALTORS® reports. Your street tells a more precise story; that's what a
             valuation is for.
@@ -57,15 +57,15 @@ export function MarketPulse() {
               >
                 <div className="flex items-baseline justify-between gap-3">
                   <h3 className="font-serif text-lg text-navy-deep">{city}</h3>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-navy/35">{lead.name}</span>
+                  <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">{lead.name}</span>
                 </div>
                 <p className="mt-3 font-serif text-2xl text-navy-deep">{usd.format(lead.seg.medianSalePrice)}</p>
-                <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-navy/40">Median sale price</p>
+                <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">Median sale price</p>
                 <div className="mt-4 flex items-center justify-between border-t border-hairline pt-3">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-navy/45">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-navy/70">
                     {lead.seg.medianDaysToContract} days to contract · {lead.seg.monthsSupply} mo supply
                   </span>
-                  <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.14em] text-gold/70 transition-colors group-hover:text-gold">
+                  <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.14em] text-gold-ink transition-colors group-hover:text-gold">
                     Sell here <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </div>
@@ -77,14 +77,14 @@ export function MarketPulse() {
         <div className="mt-5">
           <Link
             to="/market-data"
-            className="group inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:text-gold/70"
+            className="group inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-gold"
           >
             See full county and city market data
             <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
 
-        <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/55">
+        <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/70">
           Source: MIAMI REALTORS® {MARKET_STATS_PERIOD} city reports, based on MLS sales data
           compiled by Florida Realtors®. Closed residential sales; estimates and medians are
           not a guarantee of any individual sale outcome.
@@ -98,7 +98,7 @@ export function MarketPulse() {
             What's My Home Worth?
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </a>
-          <p className="font-sans text-sm text-ink-primary/50">
+          <p className="font-sans text-sm text-ink-primary/70">
             Free, confidential MLS-based valuation — prepared personally, not by an algorithm.
           </p>
         </div>

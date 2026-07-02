@@ -74,7 +74,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
   const cardBorder = isPrimary ? "border-gold/35" : "border-hairline";
   const iconWrap = isPrimary ? "border-gold/30 bg-gold/8" : "border-navy/15 bg-navy/5";
   const iconColor = isPrimary ? "text-gold" : "text-navy/50";
-  const eyebrowColor = isPrimary ? "text-gold" : "text-ink-primary/40";
+  const eyebrowColor = isPrimary ? "text-gold-ink" : "text-ink-primary/70";
   const submitBtn = isPrimary
     ? "bg-navy-deep text-white hover:opacity-90"
     : "bg-white text-navy-deep border border-navy/25 hover:border-gold hover:text-gold";
@@ -98,7 +98,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
       <div className="mt-6 flex-1 flex flex-col justify-end">
         {status === "success" ? (
           <div className="flex flex-col items-start gap-3" role="status" aria-live="polite">
-            <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-gold">
+            <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-gold-ink">
               <CheckCircle2 size={13} /> Ready to download
             </span>
             <a
@@ -109,16 +109,16 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
               <Download size={13} />
               Download guide
             </a>
-            <p className="font-sans text-xs text-ink-primary/55">
+            <p className="font-sans text-xs text-ink-primary/70">
               We have emailed you a copy as well. Want numbers for your specific property?{" "}
-              <a href="/home-value" className="text-gold underline underline-offset-2 hover:text-navy-deep">
+              <a href="/home-value" className="text-gold-ink underline underline-offset-2 hover:text-navy-deep">
                 Request a free home valuation
               </a>
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <label htmlFor={emailId} className="font-mono text-[9px] uppercase tracking-[0.16em] text-ink-primary/50">
+            <label htmlFor={emailId} className="font-mono text-[9px] uppercase tracking-[0.16em] text-ink-primary/70">
               Email address
             </label>
             <input
@@ -148,10 +148,10 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
                 ? <><Loader2 size={13} className="animate-spin" /> Sending…</>
                 : <><Download size={13} /> Get the free guide <ArrowRight size={13} /></>}
             </button>
-            <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-ink-primary/40">
+            <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-ink-primary/70">
               One email. No subscription. No listing commitment.
             </p>
-            <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-ink-primary/35">
+            <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-ink-primary/70">
               Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
             </p>
           </form>
@@ -175,11 +175,11 @@ export function LeadMagnetStrip() {
       </form>
 
       <div className="mx-auto max-w-5xl px-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-2">Free Resources</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink mb-2">Free Resources</p>
         <h2 className="font-serif text-3xl leading-tight text-navy-deep md:text-4xl max-w-2xl">
           Know your numbers before you list.
         </h2>
-        <p className="mt-3 font-sans text-base text-ink-primary/60 max-w-xl">
+        <p className="mt-3 font-sans text-base text-ink-primary/70 max-w-xl">
           Two professional guides — for sellers reviewing net proceeds and for buyers evaluating the South Florida market.
         </p>
 

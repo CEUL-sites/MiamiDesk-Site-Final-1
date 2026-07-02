@@ -10,7 +10,7 @@ export function Footer() {
       <div className="relative z-10 marquee-container border-b border-white/5 py-4">
         <div className="marquee-track-slow">
           {Array.from({ length: 8 }).map((_, index) => (
-            <span key={index} className="font-mono pr-8 text-[10px] uppercase tracking-[0.3em] text-white/20">{ticker}</span>
+            <span key={index} className="font-mono pr-8 text-[10px] uppercase tracking-[0.3em] text-white/55">{ticker}</span>
           ))}
         </div>
       </div>
@@ -43,7 +43,7 @@ export function Footer() {
 
           {/* MIAMI REALTORS® membership affiliation */}
           <div className="mt-8 border-t border-white/10 pt-6">
-            <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-white/30">Proud Member</p>
+            <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-white/55">Proud Member</p>
             <img
               src="/images/miami-realtors-logo.png"
               alt="Member of the MIAMI Association of REALTORS®"
@@ -53,7 +53,7 @@ export function Footer() {
               className="mt-3 h-8 w-auto opacity-80"
               style={{ filter: "brightness(0) invert(1)" }}
             />
-            <p className="mt-3 max-w-xs font-sans text-[11px] font-light leading-relaxed text-white/40">
+            <p className="mt-3 max-w-xs font-sans text-[11px] font-light leading-relaxed text-white/55">
               United Realty Group is a member of the MIAMI Association of REALTORS® — the largest local REALTOR® association in the U.S.
             </p>
           </div>
@@ -88,7 +88,7 @@ export function Footer() {
               href={CONTACT.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/35 hover:text-gold transition-colors"
+              className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55 hover:text-gold transition-colors"
             >
               LinkedIn →
             </a>
@@ -124,7 +124,7 @@ export function Footer() {
 
       <div className="relative z-10 border-t border-white/5 px-6 py-8">
         <div className="mx-auto max-w-7xl space-y-8">
-          <div className="max-w-5xl space-y-4 font-sans text-[10px] font-light leading-loose text-white/40" data-nosnippet>
+          <div className="max-w-5xl space-y-4 font-sans text-[10px] font-light leading-loose text-white/55" data-nosnippet>
             <p>
               Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
             </p>
@@ -142,8 +142,8 @@ export function Footer() {
             </p>
           </div>
           <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
-            <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/35">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
-            <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/35">
+            <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/55">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
+            <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[10px] uppercase tracking-widest text-white/55">
               <a href="/sell-south-florida" className="transition-colors hover:text-gold">Sell in South Florida</a>
               <a href="/sell-weston" className="transition-colors hover:text-gold">Sell in Weston</a>
               <a href="/sell-coral-gables" className="transition-colors hover:text-gold">Sell in Coral Gables</a>

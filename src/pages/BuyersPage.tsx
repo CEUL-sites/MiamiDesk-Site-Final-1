@@ -117,7 +117,7 @@ export default function BuyersPage() {
         <section className="bg-white py-12 md:py-16 border-t border-hairline">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mb-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">New Construction · South Florida</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">New Construction · South Florida</p>
               <h2 className="mt-3 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
                 Pre-construction inventory — live feed.
               </h2>
@@ -127,7 +127,7 @@ export default function BuyersPage() {
               </p>
               <a
                 href="/new-construction"
-                className="mt-4 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:text-gold/70"
+                className="mt-4 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-gold"
               >
                 Full pre-construction advisory →
               </a>
@@ -135,7 +135,7 @@ export default function BuyersPage() {
             <div className="w-full overflow-hidden">
               <NeoEmbed lang="en" />
             </div>
-            <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/35 text-center">
+            <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/70 text-center">
               Live pre-construction inventory via NEO · newestateonly.com · Subject to change without notice. Not a guarantee of availability or pricing.
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function BuyersPage() {
               <h2 className="mt-3 font-serif text-3xl text-white">Ready to start your search?</h2>
             </div>
             <BuyerMandateForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>

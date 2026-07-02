@@ -123,14 +123,14 @@ export function MLSTicker() {
               >
                 <div className="font-serif text-sm font-bold text-gold">{formatPrice(l.price)}</div>
                 <div className="font-sans text-[11px] text-white/70 truncate">{l.address}</div>
-                <div className="font-mono text-[9px] text-white/35 uppercase">{l.city}, FL</div>
-                <div className="font-mono text-[9px] text-white/35">
+                <div className="font-mono text-[9px] text-white/55 uppercase">{l.city}, FL</div>
+                <div className="font-mono text-[9px] text-white/55">
                   {l.beds}bd · {l.baths}ba{l.sqft > 0 ? ` · ${l.sqft.toLocaleString()} sf` : ""}
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+          <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/55">
             {TICKER_DISCLAIMER}
           </p>
         </div>
@@ -211,7 +211,7 @@ export function MLSTicker() {
         </div>
 
         {/* Compliance disclaimer (Section 6) */}
-        <p className="border-t border-white/5 px-4 py-1.5 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+        <p className="border-t border-white/5 px-4 py-1.5 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-white/55">
           {TICKER_DISCLAIMER}
         </p>
       </div>
@@ -247,14 +247,14 @@ function ListingCard({ l }: { l: Listing }) {
         <p className="font-sans text-[11px] font-medium text-white leading-tight truncate" style={{ maxWidth: 210 }}>
           {l.address}
         </p>
-        <p className="font-mono text-[9px] text-white/45 uppercase tracking-wider">
+        <p className="font-mono text-[9px] text-white/55 uppercase tracking-wider">
           {l.city}, FL {l.zip}
         </p>
         <div className="flex items-center gap-3 pt-0.5">
           <Stat label="bd" value={l.beds} />
           <Stat label="ba" value={l.baths % 1 === 0 ? l.baths : l.baths.toFixed(1)} />
           {l.sqft > 0 && <Stat label="sf" value={l.sqft.toLocaleString()} />}
-          <span className="font-mono text-[8px] text-white/30 truncate">
+          <span className="font-mono text-[8px] text-white/55 truncate">
             {l.type.replace("Single Family Residence", "SFR")}
           </span>
         </div>
@@ -267,7 +267,7 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   return (
     <span className="flex items-baseline gap-0.5">
       <span className="font-sans text-[11px] font-semibold text-white/80">{value}</span>
-      <span className="font-mono text-[8px] uppercase text-white/35">{label}</span>
+      <span className="font-mono text-[8px] uppercase text-white/55">{label}</span>
     </span>
   );
 }

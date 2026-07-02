@@ -315,7 +315,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
       <div className="border-b border-white/10 bg-white/[0.03] px-6 py-6 md:px-8">
         <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">{t.kicker}</p>
         <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{t.title}</h3>
-        <p className="mt-2 font-sans text-sm leading-relaxed text-white/50">{t.intro}</p>
+        <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{t.intro}</p>
       </div>
 
       <form
@@ -395,7 +395,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
         {/* Submitter block */}
         <div className="border-t border-white/10 pt-7">
-          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/40">
+          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/55">
             {t.submitterBlock}
           </p>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -465,7 +465,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
         {/* Property block */}
         <div className="border-t border-white/10 pt-7">
-          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/40">
+          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/55">
             {t.propertyBlock}
           </p>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -577,12 +577,14 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 function Field({
   label, hint, full, children,
 }: { label: string; hint?: string; full?: boolean; children: React.ReactNode }) {
+  // The control is nested inside the <label>, giving every input/select a
+  // programmatic label (implicit association) without needing per-field ids.
   return (
-    <div className={`flex flex-col gap-1.5 ${full ? "sm:col-span-2" : ""}`}>
-      <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/45">{label}</label>
+    <label className={`flex flex-col gap-1.5 ${full ? "sm:col-span-2" : ""}`}>
+      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">{label}</span>
       {children}
-      {hint && <p className="font-sans text-[11px] leading-snug text-white/30">{hint}</p>}
-    </div>
+      {hint && <p className="font-sans text-[11px] leading-snug text-white/55">{hint}</p>}
+    </label>
   );
 }
 
@@ -624,7 +626,7 @@ function FileField({
           {chooseLabel}
         </button>
         {files.length > 0 && (
-          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold/80">
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">
             {countLabel(files.length)}
           </span>
         )}

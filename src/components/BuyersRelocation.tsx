@@ -56,12 +56,12 @@ export function BuyersRelocation() {
           {/* Header */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-end mb-14">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.35em] text-gold mb-4">
+              <p className="font-mono text-[9px] uppercase tracking-[0.35em] text-gold-ink mb-4">
                 PROFESSIONAL REPRESENTATION · SOUTH FLORIDA
               </p>
               <h2 className="font-serif text-4xl lg:text-5xl text-navy leading-tight mb-6">
                 The right property.{" "}
-                <span className="text-gold italic font-light">
+                <span className="text-gold-ink italic font-light">
                   The right representation.
                 </span>
               </h2>
@@ -72,10 +72,10 @@ export function BuyersRelocation() {
               </p>
             </div>
             <div className="lg:text-right">
-              <p className="font-mono text-[9px] uppercase tracking-widest text-navy/40 mb-3">
+              <p className="font-mono text-[9px] uppercase tracking-widest text-navy/70 mb-3">
                 Carlos Uzcategui
               </p>
-              <p className="font-mono text-[9px] uppercase tracking-widest text-navy/30">
+              <p className="font-mono text-[9px] uppercase tracking-widest text-navy/70">
                 25 Years · CLHMS · Certified Seller Representative · United Realty Group · FL SL705771
               </p>
             </div>
@@ -92,12 +92,12 @@ export function BuyersRelocation() {
                 viewport={{ once: true }}
                 className="flex flex-col border border-bone bg-white p-8 hover:border-gold/40 transition-colors duration-500"
               >
-                <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold/70 mb-4">
+                <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold-ink mb-4">
                   {r.tag}
                 </p>
                 <h3 className="font-serif text-2xl text-navy mb-3">{r.side}</h3>
                 <p className="font-sans text-base font-medium text-navy/80 mb-3">{r.title}</p>
-                <p className="text-navy/60 text-sm leading-relaxed mb-7 flex-1">{r.desc}</p>
+                <p className="text-navy/70 text-sm leading-relaxed mb-7 flex-1">{r.desc}</p>
                 <a
                   href={r.href}
                   className="inline-block self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy transition-colors hover:text-gold"
@@ -113,13 +113,13 @@ export function BuyersRelocation() {
             <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
               {/* Text */}
               <div className="lg:max-w-md">
-                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-3">
+                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold-ink mb-3">
                   The Work
                 </p>
                 <h3 className="font-serif text-3xl text-navy mb-4 leading-snug md:text-4xl">
                   How the marketing<br className="hidden sm:block" /> actually looks.
                 </h3>
-                <p className="font-sans text-base leading-relaxed text-navy/60 max-w-sm">
+                <p className="font-sans text-base leading-relaxed text-navy/70 max-w-sm">
                   Cinematic listing films and property tours — the presentation standard
                   behind every South Florida listing.
                 </p>
@@ -149,8 +149,8 @@ export function BuyersRelocation() {
                   <card.icon size={20} className="text-gold" />
                 </div>
                 <h3 className="font-serif text-xl text-navy mb-3">{card.title}</h3>
-                <p className="text-navy/60 text-sm leading-relaxed mb-5">{card.desc}</p>
-                <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold/60">
+                <p className="text-navy/70 text-sm leading-relaxed mb-5">{card.desc}</p>
+                <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold-ink">
                   {card.tag}
                 </p>
               </motion.div>

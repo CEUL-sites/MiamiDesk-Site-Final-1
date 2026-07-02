@@ -98,9 +98,9 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
             <CheckCircle2 size={34} />
           </div>
-          <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold">Seller Request Received</div>
+          <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Seller Request Received</div>
           <h3 className="font-serif text-3xl text-navy">Our licensed team will review your property details personally.</h3>
-          <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/60">
+          <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/70">
             Your request has been routed through HomesProfessional.com. For urgent timing, use WhatsApp at {CONTACT.phoneUS}.
           </p>
           <button type="button" onClick={() => setStatus("idle")} className="mt-8 bg-navy px-8 py-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold">
@@ -117,9 +117,9 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
       <div className="absolute right-0 top-0 h-32 w-32 -translate-y-16 translate-x-16 -rotate-45 bg-ivory" />
       <div className="relative z-10">
         <div className="mb-8">
-          <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold">Confidential Seller Desk</div>
+          <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Confidential Seller Desk</div>
           <h3 className="font-serif text-3xl text-navy">Request a South Florida Seller Strategy Review</h3>
-          <p className="mt-3 font-sans text-[13px] font-light leading-relaxed text-navy/45">
+          <p className="mt-3 font-sans text-[13px] font-light leading-relaxed text-navy/70">
             Share the essentials early: email, phone, property address, city, timing, and the context our team should review before responding.
           </p>
         </div>
@@ -157,7 +157,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
                   <option>6+ months</option>
                   <option>Exploring options</option>
                 </select>
-                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold/60">▾</span>
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold-ink">▾</span>
               </div>
             </div>
           </div>
@@ -186,15 +186,15 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             )}
           </p>
 
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/40">
-            <span className="text-navy/30">Prefer to talk now?</span>
-            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline hover:text-gold-deep">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/70">
+            <span className="text-navy/70">Prefer to talk now?</span>
+            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
               WhatsApp US +1 954-865-6622
             </a>
-            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline hover:text-gold-deep">
+            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
               WhatsApp ES +34 646 85 30 78
             </a>
-            <a href={`mailto:${CONTACT.email}`} className="inline-flex min-h-6 items-center text-gold underline hover:text-gold-deep">
+            <a href={`mailto:${CONTACT.email}`} className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
               {CONTACT.email}
             </a>
           </div>
@@ -203,7 +203,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}
             {status === "submitting" ? "Sending…" : "Request Seller Strategy Review"}
           </button>
-          <p className="font-mono text-center text-[8px] uppercase tracking-[0.2em] text-navy/25">
+          <p className="font-mono text-center text-[8px] uppercase tracking-[0.2em] text-navy/70">
             Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
           </p>
         </form>

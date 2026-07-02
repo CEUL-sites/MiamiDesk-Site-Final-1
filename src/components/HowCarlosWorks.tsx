@@ -83,7 +83,7 @@ export function HowCarlosWorks() {
             "My job is not to hold a listing. It is to put it in front of every agent who might
             represent the right buyer — here in South Florida and abroad."
           </p>
-          <footer className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">
+          <footer className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
             Carlos Uzcategui · United Realty Group
           </footer>
         </motion.blockquote>
@@ -109,7 +109,7 @@ export function HowCarlosWorks() {
           >
             Request a seller strategy review →
           </a>
-          <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+          <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/55">
             {CONTACT.shortLicense} · United Realty Group · Equal Housing Opportunity
           </p>
         </div>

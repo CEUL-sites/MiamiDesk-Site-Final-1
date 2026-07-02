@@ -7,6 +7,7 @@
   --color-gold: #B08D57;
   --color-gold-soft: #D4AE78;
   --color-gold-deep: #8C6D3F;
+  --color-gold-ink: #80663C; /* WCAG AA-safe gold for text on light backgrounds (ivory/white/bone-warm) */
   --color-gold-glow: rgba(176, 141, 87, 0.15);
   --color-ivory: #F9F7F2;
   --color-bone: #E8E0D0;
