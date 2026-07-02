@@ -48,7 +48,7 @@ export default function LeaveReviewPage() {
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
 
-      <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
         {/* Hero */}

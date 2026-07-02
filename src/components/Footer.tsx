@@ -72,17 +72,17 @@ export function Footer() {
           <h4 className="font-mono mb-6 text-[10px] uppercase tracking-[0.28em] text-gold">Contact</h4>
           <div className="space-y-4 font-sans text-sm text-white/55">
             <p>Direct / WhatsApp:{" "}
-              <a href={CONTACT.phoneUSLink} className="text-white/75 underline-offset-2 hover:text-gold hover:underline">{CONTACT.phoneUS}</a>
+              <a href={CONTACT.phoneUSLink} className="text-white/75 underline underline-offset-2 hover:text-gold">{CONTACT.phoneUS}</a>
             </p>
             <p>Spain WhatsApp:{" "}
-              <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="text-white/75 underline-offset-2 hover:text-gold hover:underline">{CONTACT.phoneSpain}</a>
+              <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="text-white/75 underline underline-offset-2 hover:text-gold">{CONTACT.phoneSpain}</a>
             </p>
             <p>
-              <a href={`mailto:${CONTACT.email}`} className="text-white/75 underline-offset-2 hover:text-gold hover:underline">{CONTACT.email}</a>
+              <a href={`mailto:${CONTACT.email}`} className="text-white/75 underline underline-offset-2 hover:text-gold">{CONTACT.email}</a>
             </p>
             <p className="text-xs leading-relaxed">{CONTACT.address}</p>
             <p className="text-xs leading-relaxed">Brokerage office:{" "}
-              <a href={`tel:${CONTACT.officePhoneUS.replace(/[^0-9+]/g, "")}`} className="text-white/70 underline-offset-2 hover:text-gold hover:underline">{CONTACT.officePhoneUS}</a>
+              <a href={`tel:${CONTACT.officePhoneUS.replace(/[^0-9+]/g, "")}`} className="text-white/70 underline underline-offset-2 hover:text-gold">{CONTACT.officePhoneUS}</a>
             </p>
             <a
               href={CONTACT.linkedin}
@@ -117,7 +117,7 @@ export function Footer() {
           <p className="max-w-3xl font-sans text-xs leading-relaxed text-white/45">
             Seller representation across the Miami and South Florida REALTORS® footprint — Miami-Dade, Broward, Palm
             Beach, St. Lucie and parts of Martin counties.{" "}
-            <a href="/markets" className="text-gold transition-colors hover:text-gold-soft">View market intelligence →</a>
+            <a href="/markets" className="text-gold underline underline-offset-2 transition-colors hover:text-gold-soft">View market intelligence →</a>
           </p>
         </div>
       </div>

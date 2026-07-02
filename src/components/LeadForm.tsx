@@ -188,13 +188,13 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
 
           <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/40">
             <span className="text-navy/30">Prefer to talk now?</span>
-            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="text-gold underline hover:text-gold-deep">
+            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline hover:text-gold-deep">
               WhatsApp US +1 954-865-6622
             </a>
-            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="text-gold underline hover:text-gold-deep">
+            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline hover:text-gold-deep">
               WhatsApp ES +34 646 85 30 78
             </a>
-            <a href={`mailto:${CONTACT.email}`} className="text-gold underline hover:text-gold-deep">
+            <a href={`mailto:${CONTACT.email}`} className="inline-flex min-h-6 items-center text-gold underline hover:text-gold-deep">
               {CONTACT.email}
             </a>
           </div>

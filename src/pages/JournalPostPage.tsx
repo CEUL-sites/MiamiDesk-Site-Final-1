@@ -198,7 +198,7 @@ export default function JournalPostPage() {
       <JsonLd id={`journal-${post.slug}-breadcrumb`} data={breadcrumbSchema} />
       {faqSchema && <JsonLd id={`journal-${post.slug}-faq`} data={faqSchema} />}
 
-      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
         {/* Article header — dark navy band */}

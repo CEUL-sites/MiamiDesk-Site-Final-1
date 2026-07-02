@@ -212,7 +212,7 @@ export default function SpainMlsListingPage() {
             "acceptedAnswer": { "@type": "Answer", "text": f.a }
           }))
         }} />
-      <main className="min-h-screen bg-white-soft grain-overlay">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />
 
         {/* ── Hero ── */}

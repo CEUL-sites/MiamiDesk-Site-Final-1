@@ -268,19 +268,22 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
       </button>
 
       {/* ── Story-style progress segments ───────────────────────────────── */}
-      <div className="mt-5 flex items-center gap-1.5" role="group" aria-label="Clip sequence">
+      <div className="mt-5 flex items-center" role="group" aria-label="Clip sequence">
         {bubbles.map((b, i) => (
           <button
             key={b.src}
             type="button"
             onClick={() => goTo(i)}
             aria-label={`Clip ${i + 1}: ${b.caption}`}
-            className="group relative flex h-6 items-center transition-all duration-300"
-            style={{ width: i === activeIdx ? "2.25rem" : "0.65rem" }}
+            className="group relative flex h-6 items-center justify-center transition-all duration-300"
+            style={{ width: i === activeIdx ? "calc(2.25rem + 16px)" : "calc(0.65rem + 16px)" }}
           >
-            {/* 3px progress bar — visual only; the button itself carries a
-                taller, finger-friendly tap target (h-6) around it. */}
-            <span className="relative block h-[3px] w-full overflow-hidden rounded-full">
+            {/* 3px progress bar — visual only; the button carries a 24px+
+                touch area (WCAG target size) with the bar centered inside. */}
+            <span
+              className="relative block h-[3px] overflow-hidden rounded-full transition-all duration-300"
+              style={{ width: i === activeIdx ? "2.25rem" : "0.65rem" }}
+            >
               {/* Track */}
               <span className="absolute inset-0 rounded-full bg-navy/15" />
               {/* Fill */}

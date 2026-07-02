@@ -57,7 +57,7 @@ export default function AboutPage() {
           "aggregateRating": AGGREGATE_RATING,
           "sameAs": [CONTACT.linkedin]
         }} />
-      <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
         {/* Hero */}

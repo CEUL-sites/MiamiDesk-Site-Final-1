@@ -157,7 +157,7 @@ export default function EsComprarPage() {
       </Helmet>
       <JsonLd id="es-comprar-breadcrumb" data={breadcrumbJsonLd} />
 
-      <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}

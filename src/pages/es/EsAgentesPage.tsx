@@ -371,7 +371,7 @@ export default function EsAgentesPage() {
       </Helmet>
       <JsonLd id="es-agentes-breadcrumb" data={breadcrumbJsonLd} />
 
-      <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
