@@ -92,14 +92,14 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
 
   if (status === "success") {
     return (
-      <div role="status" aria-live="polite" className="relative overflow-hidden border border-bone bg-gradient-to-b from-white to-ivory p-8 shadow-2xl lg:p-12">
+      <div role="status" aria-live="polite" className="relative overflow-hidden border border-bone bg-gradient-to-b from-white to-ivory p-5 shadow-2xl md:p-8 lg:p-12">
         <div className="absolute inset-x-0 top-0 h-1 bg-gold" />
-        <div className="relative z-10 py-12 text-center">
-          <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold">
+        <div className="relative z-10 py-7 text-center md:py-12">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold md:mb-6">
             <CheckCircle2 size={34} />
           </div>
           <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Seller Request Received</div>
-          <h3 className="font-serif text-3xl text-navy">Our licensed team will review your property details personally.</h3>
+          <h3 className="font-serif text-2xl text-navy md:text-3xl">Our licensed team will review your property details personally.</h3>
           <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/70">
             Your request has been routed through HomesProfessional.com. For urgent timing, use WhatsApp at {CONTACT.phoneUS}.
           </p>
@@ -112,26 +112,26 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
   }
 
   return (
-    <div className="relative overflow-hidden border border-bone bg-white p-8 shadow-2xl lg:p-12">
+    <div className="relative overflow-hidden border border-bone bg-white p-5 shadow-2xl md:p-8 lg:p-12">
       <div className="absolute inset-x-0 top-0 h-1 bg-gold" />
       <div className="absolute right-0 top-0 h-32 w-32 -translate-y-16 translate-x-16 -rotate-45 bg-ivory" />
       <div className="relative z-10">
-        <div className="mb-8">
+        <div className="mb-5 md:mb-8">
           <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Confidential Seller Desk</div>
-          <h3 className="font-serif text-3xl text-navy">Request a South Florida Seller Strategy Review</h3>
+          <h3 className="font-serif text-2xl text-navy md:text-3xl">Request a South Florida Seller Strategy Review</h3>
           <p className="mt-3 font-sans text-[13px] font-light leading-relaxed text-navy/70">
             Share the essentials early: email, phone, property address, city, timing, and the context our team should review before responding.
           </p>
         </div>
 
-        <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-6">
+        <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-4 md:space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
           {desk && <input type="hidden" name="desk" value={desk} readOnly />}
           <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }} aria-hidden="true">
             <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-6">
             <div className="flex flex-col gap-2">
               <label className="input-label" htmlFor={fid("name")}>Full Name</label>
               <input required id={fid("name")} name="name" type="text" autoComplete="name" placeholder="Name" className="form-input" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
@@ -142,7 +142,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-6">
             <div className="flex flex-col gap-2">
               <label className="input-label" htmlFor={fid("phone")}>Phone / WhatsApp</label>
               <input required id={fid("phone")} name="phone" type="tel" autoComplete="tel" placeholder="+1..." className="form-input" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} />
@@ -162,7 +162,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-6">
             <div className="flex flex-col gap-2">
               <label className="input-label" htmlFor={fid("propertyAddress")}>Property Address</label>
               <input required id={fid("propertyAddress")} name="propertyAddress" type="text" autoComplete="street-address" placeholder="Street address" className="form-input" value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} />

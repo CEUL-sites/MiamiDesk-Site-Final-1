@@ -5,17 +5,17 @@ import { ChevronRight, Globe2 } from "lucide-react";
 // this teaser uses the site's English shell copy.
 export function GlobalDeskTeaser() {
   return (
-    <section className="border-y border-gold/20 bg-navy-deep px-6 py-16 md:py-20 text-white">
-      <div className="mx-auto flex max-w-5xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
+    <section className="border-y border-gold/20 bg-navy-deep px-6 py-10 md:py-20 text-white">
+      <div className="mx-auto flex max-w-5xl flex-col gap-5 md:flex-row md:items-center md:justify-between md:gap-8">
         <div className="max-w-2xl">
           <p className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
             <Globe2 size={13} className="text-gold" />
             Global Desk
           </p>
-          <h2 className="mt-4 font-serif text-2xl leading-snug text-white md:text-3xl">
+          <h2 className="mt-3 font-serif text-2xl leading-snug text-white md:mt-4 md:text-3xl">
             Global Desk — international exposure for luxury property
           </h2>
-          <p className="mt-4 font-sans text-base leading-relaxed text-white/65">
+          <p className="mt-3 font-sans text-base leading-relaxed text-white/65 md:mt-4">
             For developers and agencies: place Spanish luxury property into the Miami MLS
             international listings section, with local representation preserved.
           </p>

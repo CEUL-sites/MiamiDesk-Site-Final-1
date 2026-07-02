@@ -275,9 +275,9 @@ export const IntelligenceDesk = () => {
   const inView = useInView(sectionRef, { once: true, amount: 0.25 });
 
   return (
-    <section id="intelligence" ref={sectionRef} className="border-t border-gold/20 bg-navy py-14 md:py-24 text-white">
+    <section id="intelligence" ref={sectionRef} className="border-t border-gold/20 bg-navy py-10 md:py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+        <div className="grid gap-7 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-16">
 
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -295,16 +295,16 @@ export const IntelligenceDesk = () => {
               </span>
             </div>
 
-            <h2 className="mt-7 font-serif text-4xl leading-tight text-white lg:text-5xl">
+            <h2 className="mt-5 font-serif text-3xl leading-tight text-white lg:mt-7 lg:text-5xl">
               Your inquiry, qualified<br />
               <span className="italic text-gold">before our team calls you.</span>
             </h2>
 
-            <p className="mt-6 max-w-lg font-sans text-lg leading-relaxed text-white/65">
+            <p className="mt-3 max-w-lg font-sans text-base leading-relaxed text-white/65 md:mt-6 md:text-lg">
               The Miami Desk reads your situation — property, timeline, location, goals — and routes the full picture to our licensed professionals so their first response is already a strategy, not a questionnaire.
             </p>
 
-            <div className="mt-10 space-y-5">
+            <div className="mt-5 space-y-3 md:mt-10 md:space-y-5">
               {CAPABILITIES.map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-start gap-4">
                   <div className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center border border-gold/20 bg-gold/8">
@@ -315,7 +315,7 @@ export const IntelligenceDesk = () => {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3 md:mt-10">
               {LANGUAGES.map((lang) => (
                 <span key={lang} className="border border-white/20 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.25em] text-white/60">
                   {lang}
@@ -323,7 +323,7 @@ export const IntelligenceDesk = () => {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row md:mt-10">
               <a
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-2 bg-gold px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.18em] text-navy transition-all hover:bg-gold-soft"

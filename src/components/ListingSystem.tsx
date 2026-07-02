@@ -38,11 +38,11 @@ const PILLARS = [
 
 export function ListingSystem() {
   return (
-    <section className="bg-navy-deep py-16 md:py-24">
+    <section className="bg-navy-deep py-10 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Listing System</p>
-        <div className="mt-5 flex flex-wrap items-end justify-between gap-6">
-          <h2 className="max-w-2xl font-serif text-3xl leading-tight text-white md:text-4xl">
+        <div className="mt-4 flex flex-wrap items-end justify-between gap-4 md:mt-5 md:gap-6">
+          <h2 className="max-w-2xl font-serif text-2xl leading-tight text-white md:text-4xl">
             What actually happens when your home lists with Carlos.
           </h2>
           <p className="max-w-md font-sans text-sm leading-relaxed text-white/55">
@@ -51,24 +51,24 @@ export function ListingSystem() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-7 grid grid-cols-2 gap-px border border-white/10 bg-white/10 lg:grid-cols-4 md:mt-12">
           {PILLARS.map(({ icon: Icon, step, title, body }) => (
-            <div key={step} className="group relative bg-navy-deep p-7 transition-colors duration-300 hover:bg-white/[0.03]">
+            <div key={step} className="group relative bg-navy-deep p-4 transition-colors duration-300 hover:bg-white/[0.03] md:p-7">
               <div className="flex items-center justify-between">
-                <span className="font-serif text-[2.6rem] leading-none text-gold/90">{step}</span>
+                <span className="font-serif text-[2rem] leading-none text-gold/90 md:text-[2.6rem]">{step}</span>
                 <Icon size={20} className="text-gold/45 transition-colors duration-300 group-hover:text-gold" />
               </div>
-              <div className="mt-5 h-px w-10 bg-gold/40 transition-all duration-300 group-hover:w-16" />
-              <h3 className="mt-5 font-serif text-lg leading-snug text-white">{title}</h3>
-              <p className="mt-3 font-sans text-[13px] leading-relaxed text-white/55">{body}</p>
+              <div className="mt-3 h-px w-10 bg-gold/40 transition-all duration-300 group-hover:w-16 md:mt-5" />
+              <h3 className="mt-3 font-serif text-lg leading-snug text-white md:mt-5">{title}</h3>
+              <p className="mt-2 font-sans text-[13px] leading-relaxed text-white/55 md:mt-3">{body}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-5">
+        <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-10 md:gap-5">
           <a
             href="/sell-south-florida#contact"
-            className="group inline-flex items-center gap-2.5 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            className="group inline-flex items-center gap-2.5 bg-gold px-8 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 md:py-4"
           >
             Request a Listing Consultation
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />

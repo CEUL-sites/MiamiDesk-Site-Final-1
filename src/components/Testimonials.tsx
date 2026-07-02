@@ -57,8 +57,8 @@ const ReviewCard: FC<ReviewCardProps> = ({ name, location, date, verified, text 
 
 export function Testimonials() {
   return (
-    <section className="bg-navy-deep pt-12 pb-16 overflow-hidden border-t border-gold/10">
-      <div className="mx-auto max-w-7xl px-6 mb-12">
+    <section className="bg-navy-deep pt-8 pb-10 overflow-hidden border-t border-gold/10 md:pt-12 md:pb-16">
+      <div className="mx-auto max-w-7xl px-6 mb-7 md:mb-12">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3">
@@ -105,7 +105,7 @@ export function Testimonials() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 mt-10">
+      <div className="mx-auto max-w-7xl px-6 mt-6 md:mt-10">
         <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/55">
           Reviews sourced from Carlos's{" "}
           <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="text-white/55 underline hover:text-gold">

@@ -290,6 +290,15 @@ video {
   }
 }
 
+/* Mobile-only: shrink the headshot further to reduce vertical weight on
+   small phones. Desktop (>768px, covered by the rule above) is untouched. */
+@media (max-width: 480px) {
+  .carlos-headshot-card {
+    max-width: 190px;
+    padding: 10px;
+  }
+}
+
 /* ── Design utilities ── */
 
 .dot-grid {

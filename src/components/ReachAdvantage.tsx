@@ -56,10 +56,10 @@ function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.75, delay: delay + index * 0.09 }}
-      className="group relative flex flex-col justify-between border-b border-gold/15 p-5 transition-colors duration-500 hover:bg-white/[0.03] md:p-8 lg:border-b-0 lg:border-r lg:p-10 last:border-r-0"
+      className="group relative flex flex-col justify-between border-b border-gold/15 p-4 transition-colors duration-500 hover:bg-white/[0.03] md:p-8 lg:border-b-0 lg:border-r lg:p-10 last:border-r-0"
     >
       {/* Subtle gold accent bar at top */}
-      <div className="mb-4 md:mb-8 h-px w-10 bg-gold/40 transition-all duration-500 group-hover:w-full group-hover:bg-gold/20" />
+      <div className="mb-3 md:mb-8 h-px w-10 bg-gold/40 transition-all duration-500 group-hover:w-full group-hover:bg-gold/20" />
 
       {/* Number */}
       <div className="font-serif text-gold" style={{ fontSize: "clamp(3.2rem, 6vw, 5.5rem)", lineHeight: 1 }}>
@@ -67,13 +67,13 @@ function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index
       </div>
 
       {/* Labels */}
-      <div className="mt-5">
+      <div className="mt-3 md:mt-5">
         <p className="font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white">{stat.label}</p>
         <p className="font-mono mt-1 text-[9px] uppercase tracking-[0.2em] text-gold/60">{stat.sublabel}</p>
       </div>
 
       {/* Description — reveals on hover, visible always on mobile */}
-      <p className="mt-5 font-sans text-sm leading-relaxed text-white/70">
+      <p className="mt-3 font-sans text-sm leading-relaxed text-white/70 md:mt-5">
         {stat.desc}
       </p>
     </motion.div>
@@ -95,7 +95,7 @@ export const ReachAdvantage = () => {
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.04] blur-[120px]" />
 
       {/* ── Header ───────────────────────────────────────────── */}
-      <div className="relative border-b border-gold/15 px-6 py-10 md:py-16 text-center">
+      <div className="relative border-b border-gold/15 px-6 py-7 md:py-16 text-center">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ export const ReachAdvantage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mx-auto mt-6 max-w-5xl font-serif leading-[1.08] text-white"
+          className="mx-auto mt-4 max-w-5xl font-serif leading-[1.08] text-white md:mt-6"
           style={{ fontSize: "clamp(2.4rem, 5vw, 4.5rem)" }}
         >
           Your listing enters the system<br />
@@ -121,7 +121,7 @@ export const ReachAdvantage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/70"
+          className="mx-auto mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:mt-6"
         >
           Buyers don't find homes — their agents do. Your listing goes straight into
           the inventory those agents search every day, in South Florida and in 75+ countries.
@@ -133,7 +133,7 @@ export const ReachAdvantage = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-10 flex flex-col items-center gap-3"
+          className="mt-6 flex flex-col items-center gap-3 md:mt-10"
         >
           <img
             src="/images/miami-realtors-logo.png"

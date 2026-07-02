@@ -37,9 +37,14 @@ const C = {
     heroSub:
       "Su inventario, colocado en la sección internacional del Miami MLS por un principal de registro con licencia en Florida. Representación local en España, preservada.",
     heroCta: "Enviar una solicitud de listado",
+    heroWhatsApp: "WhatsApp España",
+    heroTrust: "Principal de registro con licencia de Florida · SL705771 · Licenciado desde 2001 · CLHMS · Carlos revisa cada solicitud personalmente",
     marketEyebrow: "El argumento de mercado",
+    marketStat: "62%",
+    marketStatLead:
+      "de los compradores en operaciones prime en España — por encima de 2,5 millones de euros — son internacionales, con los estadounidenses entre los grupos principales y de mayor crecimiento.",
     marketBody:
-      "En las operaciones prime en España por encima de 2,5 millones de euros, el 62% de los compradores son internacionales, y los estadounidenses figuran entre los grupos principales y de mayor crecimiento (Informe de Mercado 2026, Dils Lucas Fox). El Miami MLS es la puerta institucional a ese capital estadounidense. Para un propietario o promotor de lujo español, la colocación a través de un principal de registro en Florida es la vía más directa al comprador americano cualificado, con la representación local española preservada.",
+      "El Miami MLS es la puerta institucional a ese capital estadounidense. Para un propietario o promotor de lujo español, la colocación a través de un principal de registro en Florida es la vía más directa al comprador americano cualificado — con la representación local española preservada.",
     sourceLabel: "Fuente",
     sourceText: "Dils Lucas Fox — Informe de Mercado 2026",
     distEyebrow: "La ventaja de distribución",
@@ -69,6 +74,35 @@ const C = {
       ["Colocación + Difusión", "Añade campañas dirigidas a agentes REALTORS® del Gran Miami."],
       ["Mesa de Promotor", "Programa a medida para obra nueva y carteras de múltiples unidades."],
     ],
+    stepsTitle: "El proceso, en cuatro pasos",
+    steps: [
+      ["Envíe la propiedad", "Una sola propiedad o una cartera. Sin compromiso — Carlos revisa cada solicitud personalmente."],
+      ["Propuesta por escrito", "Vía de listado — exclusiva o plan de colocación — con alcance y términos en propuesta privada."],
+      ["Colocación en el Miami MLS", "Sección internacional del Miami MLS y sindicación asociada, por un principal de registro con licencia en Florida."],
+      ["Cooperación con agentes de EE. UU.", "La comisión cooperante activa a los agentes del comprador. Su representación local en España, preservada."],
+    ],
+    midCta: "Solicitar una propuesta privada",
+    midCtaAlt: "¿Prefiere hablar primero?",
+    faqEyebrow: "Preguntas frecuentes",
+    faqTitle: "Lo que todo propietario pregunta",
+    faqs: [
+      [
+        "¿Pierdo a mi agente o mi representación en España?",
+        "No. La representación local española se preserva. Las visitas, la negociación local y la cualificación del comprador en España las gestionan agencias con licencia de la red afiliada — su relación local no cambia.",
+      ],
+      [
+        "¿Cuánto cuesta?",
+        "En la vía exclusiva, la comisión la paga el vendedor al cierre — sin cuota mensual. Los planes de colocación de cartera se detallan en una propuesta privada, operación por operación.",
+      ],
+      [
+        "¿Quién atiende al comprador estadounidense?",
+        "Los agentes miembros de la red de REALTORS® de Miami. La comisión cooperante que ofrece el vendedor es lo que los activa para vender su propiedad, formalizada mediante los formularios de referido de la Asociación y canalizada a través de United Realty Group conforme al §475 de Florida.",
+      ],
+      [
+        "¿Es un acuerdo con licencia?",
+        "Sí. La colocación la realiza un principal de registro con licencia de Florida (SL705771, licenciado desde 2001). Es un acuerdo formal de principal de registro — no un atajo.",
+      ],
+    ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
       "Carlos Uzcategui — REALTOR® con licencia en Florida desde 2001. CLHMS. United Realty Group: 3,500+ agentes, 20 oficinas en Florida.",
@@ -85,9 +119,14 @@ const C = {
     heroSub:
       "Your inventory, placed into the international listings section of the Miami MLS by a licensed Florida principal of record. Local Spanish representation preserved.",
     heroCta: "Submit a listing request",
+    heroWhatsApp: "WhatsApp Spain",
+    heroTrust: "Florida-licensed principal of record · SL705771 · Licensed since 2001 · CLHMS · Carlos reviews every submission personally",
     marketEyebrow: "The market argument",
+    marketStat: "62%",
+    marketStatLead:
+      "of buyers in Spanish prime transactions — above €2.5M — are international, with Americans among the leading and fastest-growing groups.",
     marketBody:
-      "In Spanish prime transactions above €2.5M, 62% of buyers are international, with Americans among the leading and fastest-growing groups (Dils Lucas Fox 2026 Market Report). The Miami MLS is the institutional gateway to that American capital. For a Spanish luxury owner or developer, placement through a Florida principal of record is the most direct path to qualified American buyers, with local Spanish representation preserved.",
+      "The Miami MLS is the institutional gateway to that American capital. For a Spanish luxury owner or developer, placement through a Florida principal of record is the most direct path to qualified American buyers — with local Spanish representation preserved.",
     sourceLabel: "Source",
     sourceText: "Dils Lucas Fox — 2026 Market Report",
     distEyebrow: "Distribution advantage",
@@ -116,6 +155,35 @@ const C = {
       ["Placement", "Miami MLS international-section listing and associated syndication, with referral structure via URG."],
       ["Placement + Outreach", "Adds campaigns directed to Greater Miami REALTOR® agents."],
       ["Developer Desk", "Bespoke program for new-build and multi-unit portfolios."],
+    ],
+    stepsTitle: "The process, in four steps",
+    steps: [
+      ["Submit the property", "A single property or a portfolio. No commitment — Carlos reviews every submission personally."],
+      ["Written proposal", "Listing path — exclusive or placement plan — with scope and terms in a private proposal."],
+      ["Placement in the Miami MLS", "International listings section of the Miami MLS plus associated syndication, by a Florida-licensed principal of record."],
+      ["U.S. buyer-agent cooperation", "The cooperating commission activates buyer-side agents. Your local Spanish representation, preserved."],
+    ],
+    midCta: "Request a private proposal",
+    midCtaAlt: "Prefer to talk first?",
+    faqEyebrow: "Common questions",
+    faqTitle: "What every owner asks",
+    faqs: [
+      [
+        "Do I lose my agent or my representation in Spain?",
+        "No. Local Spanish representation is preserved. Showings, local negotiation, and buyer qualification in Spain are handled by licensed agencies within the affiliated network — your local relationship doesn't change.",
+      ],
+      [
+        "What does it cost?",
+        "On the exclusive path, the commission is paid by the seller at closing — no monthly fee. Portfolio placement plans are detailed in a private proposal, transaction by transaction.",
+      ],
+      [
+        "Who handles the American buyer?",
+        "Member agents of the Miami REALTORS® network. The cooperating commission the seller offers is what activates them to sell your property, formalized through the Association's referral forms and channeled through United Realty Group under Florida §475.",
+      ],
+      [
+        "Is this a licensed arrangement?",
+        "Yes. Placement is made by a Florida-licensed principal of record (SL705771, licensed since 2001). It is a formal principal-of-record arrangement — not a workaround.",
+      ],
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
@@ -274,7 +342,19 @@ export default function GlobalDeskPage() {
               {t.heroTitle}
             </h1>
             <p className="mt-7 max-w-2xl font-sans text-lg leading-relaxed text-white/65">{t.heroSub}</p>
-            <div className="mt-9">
+
+            {/* Network proof — the reason to keep reading, surfaced in the
+                first viewport instead of two screens down. */}
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+              {[FIGURES[0], FIGURES[1], FIGURES[3]].map((f) => (
+                <div key={f.v} className="flex items-baseline gap-2">
+                  <span className="font-serif text-2xl text-gold md:text-3xl">{f.v}</span>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">{f[lang]}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href="#listing-request"
                 className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
@@ -282,7 +362,22 @@ export default function GlobalDeskPage() {
                 {t.heroCta}
                 <ChevronRight size={14} />
               </a>
+              {/* WhatsApp is the default B2B channel for the Spanish market —
+                  a direct ES-number line lowers the first-contact barrier. */}
+              <a
+                href={WA_ES}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-white/25 px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80 transition-colors hover:border-gold/60 hover:text-gold"
+              >
+                <MessageCircle size={14} />
+                {t.heroWhatsApp}
+              </a>
             </div>
+
+            <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.16em] leading-relaxed text-white/55">
+              {t.heroTrust}
+            </p>
           </motion.div>
         </section>
 
@@ -296,7 +391,18 @@ export default function GlobalDeskPage() {
             className="mx-auto max-w-3xl"
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.marketEyebrow}</p>
-            <p className="mt-6 font-serif text-2xl leading-[1.5] text-white/90 md:text-3xl md:leading-[1.5]">
+
+            {/* The stat IS the pitch — display it, don't bury it mid-paragraph. */}
+            <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
+              <span className="font-serif leading-none text-gold" style={{ fontSize: "clamp(4rem, 9vw, 7rem)" }}>
+                {t.marketStat}
+              </span>
+              <p className="max-w-xl font-serif text-xl leading-[1.55] text-white/90 md:pt-3 md:text-2xl">
+                {t.marketStatLead}
+              </p>
+            </div>
+
+            <p className="mt-8 max-w-3xl font-sans text-lg leading-[1.85] text-white/70">
               {t.marketBody}
             </p>
             <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.16em] text-white/55">
@@ -360,6 +466,26 @@ export default function GlobalDeskPage() {
           <div className="mx-auto max-w-5xl">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.howEyebrow}</p>
 
+            {/* Four-step overview — the simple version first; the mechanics
+                blocks below carry the detail for readers who want it. */}
+            <h2 className="mt-6 font-serif text-2xl text-white md:text-3xl">{t.stepsTitle}</h2>
+            <ol className="mt-8 grid gap-5 md:grid-cols-4">
+              {t.steps.map(([title, body], i) => (
+                <motion.li
+                  key={title}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={fade}
+                  className="border-t-2 border-gold/60 pt-5"
+                >
+                  <span className="font-serif text-3xl text-gold">{i + 1}</span>
+                  <h3 className="mt-3 font-serif text-lg text-white">{title}</h3>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">{body}</p>
+                </motion.li>
+              ))}
+            </ol>
+
             {/* Block 1 — cooperating commission */}
             <motion.div
               initial="hidden"
@@ -415,9 +541,63 @@ export default function GlobalDeskPage() {
               </div>
             </div>
 
-            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">{t.twoWaysClosing}</p>
+            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.18em] text-white/55">{t.twoWaysClosing}</p>
+
+            {/* Mid-page conversion point — momentum dies without one between
+                the mechanics and the (long) intake form. */}
+            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-white/10 pt-10">
+              <a
+                href="#listing-request"
+                className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
+              >
+                {t.midCta}
+                <ChevronRight size={14} />
+              </a>
+              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/55">
+                {t.midCtaAlt}{" "}
+                <a href={WA_ES} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline underline-offset-2 hover:opacity-80">
+                  {t.waES}
+                </a>{" "}
+                ·{" "}
+                <a href={WA_US} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline underline-offset-2 hover:opacity-80">
+                  {t.waUS}
+                </a>
+              </p>
+            </div>
           </div>
         </section>
+
+        {/* ── Section F2 — FAQ (objection handling; content mirrors the
+             mechanics sections above, reformatted for scanning) ── */}
+        <section className="bg-white px-6 py-16 text-navy md:py-24">
+          <div className="mx-auto max-w-3xl">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.faqEyebrow}</p>
+            <h2 className="mt-5 font-serif text-2xl text-navy md:text-3xl">{t.faqTitle}</h2>
+            <div className="mt-9 divide-y divide-navy/10 border-y border-navy/10">
+              {t.faqs.map(([q, a]) => (
+                <details key={q} className="group py-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-navy">
+                    {q}
+                    <ChevronRight size={16} className="shrink-0 text-gold-ink transition-transform group-open:rotate-90" />
+                  </summary>
+                  <p className="mt-3 max-w-2xl font-sans text-base leading-[1.8] text-navy/70">{a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+        <JsonLd
+          id="global-desk-faq"
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": t.faqs.map(([q, a]) => ({
+              "@type": "Question",
+              "name": q,
+              "acceptedAnswer": { "@type": "Answer", "text": a },
+            })),
+          }}
+        />
 
         {/* ── Section G — Listing intake form ── */}
         <section id="listing-request" className="scroll-mt-20 bg-[#060D18] px-6 py-16 md:py-24">
