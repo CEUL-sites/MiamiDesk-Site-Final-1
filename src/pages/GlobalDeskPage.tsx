@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { motion } from "motion/react";
 import { ChevronRight, MessageCircle, FileCheck, KeyRound, ClipboardList } from "lucide-react";
 import { Navbar } from "../components/Navbar";
@@ -178,15 +179,16 @@ export default function GlobalDeskPage() {
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
         <meta property="og:title" content="Global Desk — Spanish luxury property into the Miami MLS international section" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="global-desk-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Home", item: "https://homesprofessional.com/" },
             { "@type": "ListItem", position: 2, name: "Global Desk", item: "https://homesprofessional.com/global-desk" },
           ],
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="global-desk-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           name: "Global Desk — Miami MLS International Placement",
@@ -197,8 +199,7 @@ export default function GlobalDeskPage() {
           areaServed: ["Spain", "United States", "South Florida"],
           availableLanguage: ["Spanish", "English"],
           url: "https://homesprofessional.com/global-desk",
-        })}</script>
-      </Helmet>
+        }} />
 
       <main className="min-h-screen bg-[#060D18] text-white">
         <Navbar />

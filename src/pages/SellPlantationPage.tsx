@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { AGGREGATE_RATING } from "../data/reviews";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
@@ -52,7 +53,8 @@ export default function SellPlantationPage() {
         <meta name="twitter:title" content="Sell Your Plantation, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Plantation, FL home sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="sell-plantation-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -60,8 +62,8 @@ export default function SellPlantationPage() {
             { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell-south-florida" },
             { "@type": "ListItem", "position": 3, "name": "Sell in Plantation", "item": "https://homesprofessional.com/sell-plantation" }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-plantation-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": PLANTATION_FAQS.map(faq => ({
@@ -69,8 +71,8 @@ export default function SellPlantationPage() {
             "name": faq.q,
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           }))
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-plantation-agent" data={{
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
           "name": "Carlos Uzcategui — Plantation FL Listing Agent",
@@ -81,8 +83,8 @@ export default function SellPlantationPage() {
           "address": { "@type": "PostalAddress", "streetAddress": "1200 S Pine Island Rd Suite 600", "addressLocality": "Plantation", "addressRegion": "FL", "postalCode": "33324", "addressCountry": "US" },
           "memberOf": { "@type": "Organization", "name": "United Realty Group" },
           "aggregateRating": AGGREGATE_RATING
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-plantation-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — Plantation, FL",
@@ -94,8 +96,7 @@ export default function SellPlantationPage() {
             "url": "https://homesprofessional.com/sell-plantation"
           },
           "url": "https://homesprofessional.com/sell-plantation"
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 

@@ -1,8 +1,8 @@
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { AuroraBackground } from "./AuroraBackground";
+import { JsonLd } from "./SEO/JsonLd";
 
 const FAQS = [
   {
@@ -49,9 +49,7 @@ export function FAQ() {
 
   return (
     <section id="faq" className="relative overflow-hidden border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <JsonLd id="site-faq" data={faqSchema} />
       <AuroraBackground variant="subtle" />
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-12 text-center">

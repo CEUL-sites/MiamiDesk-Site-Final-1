@@ -11,6 +11,7 @@ import { JOURNAL_FAQS } from '../content/journal-faqs';
 import { pushEvent } from '../lib/analytics';
 import { getAttribution } from '../lib/attribution';
 import { CONTACT } from '../constants';
+import { JsonLd } from '../components/SEO/JsonLd';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -192,12 +193,10 @@ export default function JournalPostPage() {
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={ogImage} />
         <meta name="twitter:image:alt" content={post.title} />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        {faqSchema && (
-          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        )}
       </Helmet>
+      <JsonLd id={`journal-${post.slug}-article`} data={articleSchema} />
+      <JsonLd id={`journal-${post.slug}-breadcrumb`} data={breadcrumbSchema} />
+      {faqSchema && <JsonLd id={`journal-${post.slug}-faq`} data={faqSchema} />}
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { AGGREGATE_RATING } from "../data/reviews";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
@@ -51,7 +52,8 @@ export default function SellNorthMiamiPage() {
         <meta name="twitter:title" content="Sell Your North Miami, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for North Miami, FL home sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="sell-north-miami-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -59,8 +61,8 @@ export default function SellNorthMiamiPage() {
             { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell-south-florida" },
             { "@type": "ListItem", "position": 3, "name": "Sell in North Miami", "item": "https://homesprofessional.com/sell-north-miami" }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-north-miami-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": NORTH_MIAMI_FAQS.map(faq => ({
@@ -68,8 +70,8 @@ export default function SellNorthMiamiPage() {
             "name": faq.q,
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           }))
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-north-miami-agent" data={{
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
           "name": "Carlos Uzcategui — North Miami FL Listing Agent",
@@ -80,8 +82,8 @@ export default function SellNorthMiamiPage() {
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
           "memberOf": { "@type": "Organization", "name": "United Realty Group" },
           "aggregateRating": AGGREGATE_RATING
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-north-miami-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — North Miami, FL",
@@ -93,8 +95,7 @@ export default function SellNorthMiamiPage() {
             "url": "https://homesprofessional.com/sell-north-miami"
           },
           "url": "https://homesprofessional.com/sell-north-miami"
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 

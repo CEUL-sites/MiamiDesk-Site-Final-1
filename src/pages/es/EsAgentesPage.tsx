@@ -1,4 +1,5 @@
 import { trackLead } from "../../lib/analytics";
+import { JsonLd } from "../../components/SEO/JsonLd";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 import React, { useState } from "react";
@@ -367,10 +368,8 @@ export default function EsAgentesPage() {
           hrefLang="es"
           href="https://homesprofessional.com/es/agentes"
         />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbJsonLd)}
-        </script>
       </Helmet>
+      <JsonLd id="es-agentes-breadcrumb" data={breadcrumbJsonLd} />
 
       <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />

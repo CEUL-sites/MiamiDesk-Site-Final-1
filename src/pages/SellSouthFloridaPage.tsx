@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
@@ -58,15 +59,16 @@ export default function SellSouthFloridaPage() {
         <meta name="twitter:title" content="Sell With South Florida MLS Exposure | Carlos Uzcategui" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent distribution for South Florida sellers. Free, confidential strategy review." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="sell-south-florida-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
             { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell-south-florida" }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-south-florida-howto" data={{
           "@context": "https://schema.org",
           "@type": "HowTo",
           "name": "How to Sell Your South Florida Property",
@@ -84,8 +86,8 @@ export default function SellSouthFloridaPage() {
             { "@type": "HowToStep", "position": 4, "name": "Activate", "text": "Targeted outreach to buyer agents, international referral channels, and LATAM and Spain pipeline activation." },
             { "@type": "HowToStep", "position": 5, "name": "Negotiate", "text": "Offer review, terms strategy, inspection response, and closing coordination." }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-south-florida-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
@@ -96,8 +98,8 @@ export default function SellSouthFloridaPage() {
             { "@type": "Question", "name": "Can a Spanish property be listed in the Miami MLS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. As a licensed Florida principal of record, Carlos can activate Spanish properties within the Miami MLS ecosystem — reaching 93,000 agents who represent LATAM and North American buyers. This is a formal MLS listing, not a referral." } },
             { "@type": "Question", "name": "Is the seller strategy review really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property." } }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-south-florida-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — South Florida",
@@ -109,8 +111,7 @@ export default function SellSouthFloridaPage() {
             "url": "https://homesprofessional.com/sell-south-florida"
           },
           "url": "https://homesprofessional.com/sell-south-florida"
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { AGGREGATE_RATING } from "../data/reviews";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
@@ -51,7 +52,8 @@ export default function SellDowntownMiamiPage() {
         <meta name="twitter:title" content="Sell Your Downtown Miami Condo | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Downtown Miami condo sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="sell-downtown-miami-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -59,8 +61,8 @@ export default function SellDowntownMiamiPage() {
             { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell-south-florida" },
             { "@type": "ListItem", "position": 3, "name": "Sell in Downtown Miami", "item": "https://homesprofessional.com/sell-downtown-miami" }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-downtown-miami-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": DOWNTOWN_MIAMI_FAQS.map(faq => ({
@@ -68,8 +70,8 @@ export default function SellDowntownMiamiPage() {
             "name": faq.q,
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           }))
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-downtown-miami-agent" data={{
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
           "name": "Carlos Uzcategui — Downtown Miami FL Listing Agent",
@@ -80,8 +82,8 @@ export default function SellDowntownMiamiPage() {
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
           "memberOf": { "@type": "Organization", "name": "United Realty Group" },
           "aggregateRating": AGGREGATE_RATING
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-downtown-miami-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — Downtown Miami, FL",
@@ -93,8 +95,7 @@ export default function SellDowntownMiamiPage() {
             "url": "https://homesprofessional.com/sell-downtown-miami"
           },
           "url": "https://homesprofessional.com/sell-downtown-miami"
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 

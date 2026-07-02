@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { ChevronRight, MessageSquare, MapPin, Globe, Building2, Palmtree, Landmark, Plane, GraduationCap, TrendingUp } from "lucide-react";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
@@ -130,15 +131,16 @@ export default function MarketsPage() {
         <meta name="twitter:title" content="Markets Served: South Florida · Madrid · International | HomesProfessional.com" />
         <meta name="twitter:description" content="Full MLS coverage across Miami-Dade, Broward, and Palm Beach. 25 cities. Madrid and Spain through professional referral." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="markets-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
             { "@type": "ListItem", "position": 2, "name": "Markets", "item": "https://homesprofessional.com/markets" }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="markets-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
@@ -168,8 +170,7 @@ export default function MarketsPage() {
               "acceptedAnswer": { "@type": "Answer", "text": "The Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association with 93,000 member agents — holds 437+ signed international agreements across 75+ countries. Eligible listed properties can be distributed to 200+ global portals in 19 languages." }
             },
           ]
-        })}</script>
-      </Helmet>
+        }} />
 
       <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />

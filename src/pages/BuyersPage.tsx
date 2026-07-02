@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -31,7 +32,8 @@ export default function BuyersPage() {
         <meta name="twitter:title" content="Buy in South Florida | Full MLS Access | Carlos Uzcategui" />
         <meta name="twitter:description" content="Full MLS access, negotiation, and closing across Miami-Dade, Broward, and Palm Beach. Bilingual English/Spanish." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="buyers-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "South Florida Buyer Representation",
@@ -45,8 +47,8 @@ export default function BuyersPage() {
             "availability": "https://schema.org/InStock",
             "description": "Free buyer consultation — no commitment required."
           }
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="buyers-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
@@ -54,8 +56,7 @@ export default function BuyersPage() {
             { "@type": "Question", "name": "Can I buy a home in South Florida from abroad?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in serving international buyers, particularly from Spain and Latin America. Bilingual English/Spanish representation and remote transaction management are available." } },
             { "@type": "Question", "name": "What is the buying process in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "The process includes buyer consultation, property search via full MLS access, offer submission, inspection period, financing coordination, and closing. Timeline is typically 30–60 days from accepted offer to close." } }
           ]
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <section className="relative overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">

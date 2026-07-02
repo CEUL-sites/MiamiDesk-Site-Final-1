@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { ChevronRight, MessageSquare, BadgeCheck } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
@@ -139,10 +140,8 @@ export default function EsVenderPage() {
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-south-florida" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-south-florida" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbJsonLd)}
-        </script>
       </Helmet>
+      <JsonLd id="es-vender-breadcrumb" data={breadcrumbJsonLd} />
 
       <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />

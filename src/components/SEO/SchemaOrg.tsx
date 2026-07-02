@@ -1,6 +1,6 @@
-import { Helmet } from "react-helmet-async";
 import { ASSOCIATION_STATS, CONTACT } from "../../constants";
 import { AGGREGATE_RATING } from "../../data/reviews";
+import { JsonLd } from "./JsonLd";
 
 type JsonLdSchema = Record<string, unknown> & {
   "@id"?: string;
@@ -177,14 +177,25 @@ const sitewideSchema: JsonLdSchema[] = [
   },
 ];
 
+// Derives a stable, descriptive JsonLd id from each schema's @id URL fragment
+// e.g. "https://homesprofessional.com/global-desk#service" -> "sitewide-global-desk-service"
+function schemaIdSlug(schema: JsonLdSchema): string {
+  const raw = (schema["@id"] as string | undefined) ?? schema.name;
+  const afterOrigin = raw.replace(SITE_URL, "").replace(/^\//, "");
+  const slug = afterOrigin
+    .replace(/[#/]+/g, "-")
+    .replace(/[^a-zA-Z0-9-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase();
+  return `sitewide-${slug || "schema"}`;
+}
+
 export function SchemaOrg() {
   return (
-    <Helmet>
+    <>
       {sitewideSchema.map((schema) => (
-        <script key={schema["@id"] ?? schema.name} type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
+        <JsonLd key={schema["@id"] ?? schema.name} id={schemaIdSlug(schema)} data={schema} />
       ))}
-    </Helmet>
+    </>
   );
 }

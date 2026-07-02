@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck, ChevronRight, Download, MessageSquare, Check, Shield, FileText, Globe } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
@@ -147,15 +148,16 @@ export default function EsSpainDeskPage() {
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="es-spain-desk-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://homesprofessional.com/es" },
             { "@type": "ListItem", "position": 2, "name": "Mesa España", "item": "https://homesprofessional.com/es/spain-desk" },
           ],
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="es-spain-desk-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Mesa España — Servicio de Partnership para Agencias Españolas",
@@ -165,8 +167,8 @@ export default function EsSpainDeskPage() {
           "areaServed": ["Sur de Florida", "España", "Madrid"],
           "url": "https://homesprofessional.com/es/spain-desk",
           "availableLanguage": ["English", "Spanish"],
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="es-spain-desk-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": FAQ_ITEMS.map(item => ({
@@ -174,8 +176,7 @@ export default function EsSpainDeskPage() {
             "name": item.q,
             "acceptedAnswer": { "@type": "Answer", "text": item.a }
           }))
-        })}</script>
-      </Helmet>
+        }} />
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

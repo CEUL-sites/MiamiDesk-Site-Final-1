@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -52,7 +53,8 @@ export default function SellDoralPage() {
         <meta name="twitter:title" content="Sell Your Doral, FL Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Doral, FL home sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="sell-doral-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -60,8 +62,8 @@ export default function SellDoralPage() {
             { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell-south-florida" },
             { "@type": "ListItem", "position": 3, "name": "Sell in Doral", "item": "https://homesprofessional.com/sell-doral" }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-doral-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": DORAL_FAQS.map(faq => ({
@@ -69,8 +71,8 @@ export default function SellDoralPage() {
             "name": faq.q,
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           }))
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-doral-agent" data={{
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
           "name": "Carlos Uzcategui — Doral FL Listing Agent",
@@ -81,8 +83,8 @@ export default function SellDoralPage() {
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
           "memberOf": { "@type": "Organization", "name": "United Realty Group" },
           "aggregateRating": AGGREGATE_RATING
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="sell-doral-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — Doral, FL",
@@ -94,8 +96,7 @@ export default function SellDoralPage() {
             "url": "https://homesprofessional.com/sell-doral"
           },
           "url": "https://homesprofessional.com/sell-doral"
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 

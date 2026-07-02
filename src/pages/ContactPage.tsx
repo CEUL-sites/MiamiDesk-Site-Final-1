@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { useSearchParams } from "react-router-dom";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
@@ -51,7 +52,8 @@ export default function ContactPage() {
         <meta name="twitter:title" content="Request a Private Listing Review | HomesProfessional.com" />
         <meta name="twitter:description" content="Submit a confidential property review. South Florida sellers and international property owners. Carlos Uzcategui, FL SL705771." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="contact-contactpage" data={{
           "@context": "https://schema.org",
           "@type": "ContactPage",
           "name": "Contact Carlos Uzcategui — United Realty Group",
@@ -70,8 +72,7 @@ export default function ContactPage() {
               "closes": "18:00"
             }
           }
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20 text-center">
