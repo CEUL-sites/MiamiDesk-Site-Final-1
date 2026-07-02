@@ -1,6 +1,6 @@
 import './i18n';
 import { StrictMode, lazy, Suspense } from 'react';
-import { createRoot, hydrateRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { SchemaOrg } from './components/SEO/SchemaOrg';
@@ -146,9 +146,13 @@ if (rootElement) {
     </StrictMode>
   );
 
-  if (rootElement.hasChildNodes()) {
-    hydrateRoot(rootElement, app);
-  } else {
-    createRoot(rootElement).render(app);
-  }
+  // Always client-render, even over react-snap's prerendered markup.
+  // react-snap snapshots a live browser DOM (no SSR/Suspense markers, no
+  // pre-animation framer-motion styles after fix-prerender-motion.mjs, no
+  // reflected `muted` attributes), so hydrateRoot can never match it — it
+  // threw React #418 on every route and fell back to a full client re-render
+  // anyway. createRoot gives the same result without the wasted hydration
+  // pass or the console errors; the prerendered HTML still serves crawlers,
+  // social scrapers, and the pre-JS first paint.
+  createRoot(rootElement).render(app);
 }
