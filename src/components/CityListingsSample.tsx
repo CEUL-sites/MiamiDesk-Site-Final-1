@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { CONTACT } from "../constants";
+import { JsonLd } from "./SEO/JsonLd";
 import {
   type BridgeListing,
   type ListingsSearchResponse,
@@ -92,9 +92,7 @@ export function CityListingsSample({
   return (
     <section className="bg-navy-deep py-14 md:py-20">
       {itemListSchema && (
-        <Helmet>
-          <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
-        </Helmet>
+        <JsonLd id={`city-listings-${queryZone.toLowerCase().replace(/\s+/g, "-")}`} data={itemListSchema} />
       )}
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">

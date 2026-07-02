@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { BadgeCheck, ChevronRight, MessageSquare, Globe2, Languages, Building2, Handshake, UserPlus, BookOpen, Star, Users } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -154,7 +155,8 @@ export default function AgentsPage() {
         <meta property="og:description" content="Give your agency a listing-presentation advantage local competitors cannot match: documented South Florida-facing exposure for your sellers, where eligible. You keep the mandate." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="agents-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Miami Desk — International Listing Exposure & Agent Referral",
@@ -164,8 +166,8 @@ export default function AgentsPage() {
           "areaServed": ["South Florida", "Spain", "Latin America", "Europe"],
           "url": "https://homesprofessional.com/agents",
           "availableLanguage": ["English", "Spanish"]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="agents-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
@@ -185,8 +187,7 @@ export default function AgentsPage() {
               "acceptedAnswer": { "@type": "Answer", "text": "Miami and South Florida REALTORS® is the world's largest local REALTOR® association, with 93,000 member agents across 385 MLSs. It has over 437 signed international agreements, providing a professional referral infrastructure across 70+ countries." }
             }
           ]
-        })}</script>
-      </Helmet>
+        }} />
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

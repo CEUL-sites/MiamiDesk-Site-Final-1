@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -51,8 +52,8 @@ export default function ReviewsPage() {
         <meta property="og:title" content="Client Reviews — Carlos Uzcategui, South Florida REALTOR®" />
         <meta property="og:description" content="Verified five-star client reviews for Carlos Uzcategui, FL SL705771 — sellers and buyers across South Florida." />
         <meta property="og:url" content="https://homesprofessional.com/reviews" />
-        <script type="application/ld+json">{JSON.stringify(reviewSchema)}</script>
       </Helmet>
+      <JsonLd id="reviews-review" data={reviewSchema} />
 
       <main className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />

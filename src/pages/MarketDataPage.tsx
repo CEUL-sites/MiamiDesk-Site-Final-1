@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, ExternalLink, MessageSquare } from "lucide-reac
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { JsonLd } from "../components/SEO/JsonLd";
 import stats from "../data/marketStats.json";
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -323,7 +324,7 @@ export default function MarketDataPage() {
 
   const metaDesc = `South Florida real estate market data for May 2026. Miami-Dade single-family median ${formatPrice(sfhMedianMD)}, Broward ${formatPrice(sfhMedianBroward)}, Palm Beach ${formatPrice(sfhMedianPB)}. Current figures from Miami Realtors Association.`;
 
-  const schemaJson = JSON.stringify({
+  const schemaData = {
     "@context": "https://schema.org",
     "@type": "Dataset",
     name: "South Florida Real Estate Market Statistics — May 2026",
@@ -347,7 +348,7 @@ export default function MarketDataPage() {
       "Year-Over-Year Price Change",
       "Closed Sales",
     ],
-  });
+  };
 
   return (
     <>
@@ -355,8 +356,8 @@ export default function MarketDataPage() {
         <title>South Florida Real Estate Market Data | May 2026 | Carlos Uzcategui</title>
         <meta name="description" content={metaDesc} />
         <link rel="canonical" href="https://homesprofessional.com/market-data" />
-        <script type="application/ld+json">{schemaJson}</script>
       </Helmet>
+      <JsonLd id="market-data-dataset" data={schemaData} />
 
       <Navbar />
 

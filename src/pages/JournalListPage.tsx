@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { JsonLd } from '../components/SEO/JsonLd';
 import { Link } from 'react-router-dom';
 import { AuroraBackground } from '../components/AuroraBackground';
 import { Navbar } from '../components/Navbar';
@@ -64,9 +65,9 @@ export default function JournalListPage() {
         <meta name="twitter:title" content="Market Journal | South Florida Real Estate | Carlos Uzcategui" />
         <meta name="twitter:description" content="Quarterly market analysis and seller insights for South Florida real estate. Absorption rates, international capital flows, and positioning strategy." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
       </Helmet>
+      <JsonLd id="journal-list-itemlist" data={itemListSchema} />
+      <JsonLd id="journal-list-blog" data={blogSchema} />
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

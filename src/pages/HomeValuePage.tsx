@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { BadgeCheck, TrendingUp, Clock, Target } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -65,7 +66,8 @@ export default function HomeValuePage() {
         <meta name="twitter:title" content="What Is My South Florida Home Worth? Free Professional Valuation" />
         <meta name="twitter:description" content="Free MLS-based home valuation from a licensed South Florida REALTOR® — not an algorithm. 25 years of market experience. No obligation." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="home-value-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: [
@@ -102,8 +104,8 @@ export default function HomeValuePage() {
               },
             },
           ],
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="home-value-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           name: "Free South Florida Home Valuation",
@@ -119,8 +121,7 @@ export default function HomeValuePage() {
             availability: "https://schema.org/InStock",
             description: "Free comparative market analysis — no listing commitment required.",
           },
-        })}</script>
-      </Helmet>
+        }} />
 
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />

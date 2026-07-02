@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { ArrowRight, BadgeCheck, Building2, ChevronRight, Download, Globe2, Handshake, Landmark, TrendingUp } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -181,7 +182,8 @@ export default function SpainMlsListingPage() {
         <meta name="twitter:title" content="List Spanish Luxury Property on the Miami MLS" />
         <meta name="twitter:description" content="Agency & developer partnerships — LATAM and U.S. buyer-agent reach through United Realty Group, the licensed Florida broker." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="spain-mls-listing-breadcrumb" data={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
@@ -189,8 +191,8 @@ export default function SpainMlsListingPage() {
             { "@type": "ListItem", "position": 2, "name": "Global Desk", "item": "https://homesprofessional.com/global-desk" },
             { "@type": "ListItem", "position": 3, "name": "Spain MLS Listing", "item": "https://homesprofessional.com/spain-mls-listing" }
           ]
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="spain-mls-listing-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Spanish Inventory Activation on the Miami MLS",
@@ -200,8 +202,8 @@ export default function SpainMlsListingPage() {
           "areaServed": ["Spain", "South Florida"],
           "availableLanguage": ["English", "Spanish"],
           "url": "https://homesprofessional.com/spain-mls-listing"
-        })}</script>
-        <script type="application/ld+json">{JSON.stringify({
+        }} />
+      <JsonLd id="spain-mls-listing-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": FAQS.en.map((f) => ({
@@ -209,8 +211,7 @@ export default function SpainMlsListingPage() {
             "name": f.q,
             "acceptedAnswer": { "@type": "Answer", "text": f.a }
           }))
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />
 

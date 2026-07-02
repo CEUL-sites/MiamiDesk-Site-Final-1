@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { AGGREGATE_RATING, VERIFIED_REVIEWS, buildReviewSchema } from "../data/reviews";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { ReachAdvantage } from "../components/ReachAdvantage";
@@ -43,7 +44,10 @@ export default function HomePage() {
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd
+        id="home-agent"
+        data={{
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
           "@id": "https://homesprofessional.com/#agent",
@@ -59,9 +63,9 @@ export default function HomePage() {
           "memberOf": { "@type": "Organization", "name": "Miami and South Florida REALTORS®" },
           "worksFor": { "@type": "Organization", "name": "United Realty Group" },
           "aggregateRating": AGGREGATE_RATING,
-          "review": buildReviewSchema(VERIFIED_REVIEWS.slice(0, 3))
-        })}</script>
-      </Helmet>
+          "review": buildReviewSchema(VERIFIED_REVIEWS.slice(0, 3)),
+        }}
+      />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />

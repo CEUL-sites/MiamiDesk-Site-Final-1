@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { BookOpen, BadgeCheck, ChevronRight, Lock, Star, Award } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -100,7 +101,8 @@ export default function LaComisionSecretaPage() {
         <meta name="twitter:description" content="248-page Spanish guide to a real estate career in South Florida — licensing, MLS, the Latin American buyer market. By Carlos Uzcategui, FL SL705771." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="robots" content="noindex, nofollow" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="la-comision-secreta-book" data={{
           "@context": "https://schema.org",
           "@type": "Book",
           "name": "La Comisión Secreta",
@@ -116,8 +118,7 @@ export default function LaComisionSecretaPage() {
           "genre": "Professional Development",
           "about": "Real Estate Career, South Florida, Florida Licensing",
           "url": "https://homesprofessional.com/la-comision-secreta"
-        })}</script>
-      </Helmet>
+        }} />
 
       <main className="min-h-screen bg-white-soft grain-overlay">
         <Navbar />

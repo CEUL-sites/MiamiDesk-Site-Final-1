@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { AGGREGATE_RATING } from "../data/reviews";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -22,7 +23,8 @@ export default function AboutPage() {
         <meta name="twitter:title" content="About Carlos Uzcategui | South Florida REALTOR® | United Realty Group" />
         <meta name="twitter:description" content="Florida Licensed Realtor® SL705771. 25 years in South Florida real estate. CLHMS certified. Bilingual English/Spanish." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <script type="application/ld+json">{JSON.stringify({
+      </Helmet>
+      <JsonLd id="about-person" data={{
           "@context": "https://schema.org",
           "@type": "Person",
           "@id": "https://homesprofessional.com/#agent",
@@ -54,8 +56,7 @@ export default function AboutPage() {
           },
           "aggregateRating": AGGREGATE_RATING,
           "sameAs": [CONTACT.linkedin]
-        })}</script>
-      </Helmet>
+        }} />
       <main className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
