@@ -83,7 +83,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
     : "border border-navy/25 text-navy-deep hover:border-gold hover:text-gold";
 
   return (
-    <div className={`border ${cardBorder} bg-white p-7 flex flex-col`}>
+    <div className={`border ${cardBorder} bg-white p-5 flex flex-col md:p-7`}>
       <div className="flex items-start gap-4">
         <div className={`flex-shrink-0 flex h-10 w-10 items-center justify-center border ${iconWrap}`}>
           <FileText size={18} className={iconColor} />
@@ -95,7 +95,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
         </div>
       </div>
 
-      <div className="mt-6 flex-1 flex flex-col justify-end">
+      <div className="mt-4 flex-1 flex flex-col justify-end md:mt-6">
         {status === "success" ? (
           <div className="flex flex-col items-start gap-3" role="status" aria-live="polite">
             <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-gold-ink">
@@ -163,7 +163,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
 
 export function LeadMagnetStrip() {
   return (
-    <section className="bg-ivory border-t border-b border-gold/15 py-14 md:py-20">
+    <section className="bg-ivory border-t border-b border-gold/15 py-8 md:py-20">
       {/* Netlify form detection (build-time) — a single definition covers both
           magnets since `guide` distinguishes them. */}
       <form name="lead-magnet-download" data-netlify="true" netlify-honeypot="bot-field" hidden>
@@ -183,7 +183,7 @@ export function LeadMagnetStrip() {
           Two professional guides — for sellers reviewing net proceeds and for buyers evaluating the South Florida market.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 grid gap-4 md:mt-10 md:grid-cols-2 md:gap-6">
           <MagnetGate
             variant="primary"
             guide="seller-net-sheet-2026"
