@@ -35,16 +35,27 @@ export const CONTACT = {
   }
 };
 
+// Strip trailing slashes so `/global-desk/` matches `/global-desk` — React
+// Router serves both, and useLocation().pathname keeps the visitor's slash.
+const normalizePath = (path: string): string => path.replace(/\/+$/, "") || "/";
+
 // Routes whose audience converts on the Spain WhatsApp line (+34) rather than
 // the US line. Shared by every floating/sticky contact control so a Spanish
 // prospect is never routed to the US number.
-export const isSpainMarketRoute = (path: string): boolean =>
-  path.startsWith("/es") ||
-  ["/madrid", "/spain-desk", "/global-desk", "/spain-mls-listing", "/la-comision-secreta"].includes(path);
+export const isSpainMarketRoute = (path: string): boolean => {
+  const p = normalizePath(path);
+  return (
+    p === "/es" ||
+    p.startsWith("/es/") ||
+    ["/madrid", "/spain-desk", "/global-desk", "/spain-mls-listing", "/la-comision-secreta"].includes(p)
+  );
+};
 
 // Routes rendered in Spanish — controls the language of sticky-CTA labels.
-export const isSpanishLangRoute = (path: string): boolean =>
-  path.startsWith("/es") || path === "/la-comision-secreta";
+export const isSpanishLangRoute = (path: string): boolean => {
+  const p = normalizePath(path);
+  return p === "/es" || p.startsWith("/es/") || p === "/la-comision-secreta";
+};
 
 export const LEAD_MAGNETS = {
   sellerNetSheet: {
