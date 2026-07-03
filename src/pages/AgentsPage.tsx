@@ -193,7 +193,7 @@ export default function AgentsPage() {
         <Navbar />
 
         {/* ── Hero ─────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 py-24 md:py-36 text-center sm:px-10">
+        <section className="relative overflow-hidden bg-navy-deep px-6 py-12 md:py-16 text-center sm:px-10">
           {/* Cinematic video backdrop */}
           <LazyVideo
             src="/videos/split_miami_spain_mls.mp4"
@@ -204,7 +204,7 @@ export default function AgentsPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/40 via-transparent to-navy-deep" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.10),transparent_55%)]" />
           <div className="relative mx-auto max-w-4xl">
-            <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/[0.06] px-4 py-1.5 mb-7 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/[0.06] px-4 py-1.5 mb-5 md:mb-7 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
               <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">
                 For Agents · Referrals · International Exposure · Careers
@@ -217,12 +217,12 @@ export default function AgentsPage() {
               Three Ways Agents<br />
               <em className="italic text-gold">Work With Carlos.</em>
             </h1>
-            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/65">
+            <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-[1.5] text-white/65 md:mt-7 md:leading-[1.85]">
               Refer a buyer or seller and get paid at closing. Give a listing serious U.S. and
               international reach. Or build your own career alongside a Florida-licensed Realtor® with
               25 years inside South Florida's network. Pick your path below.
             </p>
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap md:mt-9">
               <a
                 href="#choose-path"
                 className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
@@ -240,7 +240,7 @@ export default function AgentsPage() {
                 Message Carlos Directly
               </a>
             </div>
-            <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+            <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 md:mt-7">
               Carlos Uzcategui · FL SL705771 · United Realty Group · Miami and South Florida REALTORS® · 25 Years Licensed
             </p>
           </div>
@@ -255,7 +255,7 @@ export default function AgentsPage() {
               { icon: Languages, value: "19",      label: "Languages · 200+ global portals" },
               { icon: Building2, value: "25 yrs",  label: "Florida licensed · bilingual" },
             ].map((s) => (
-              <div key={s.label} className="flex flex-col items-center px-4 py-7 text-center">
+              <div key={s.label} className="flex flex-col items-center px-4 py-5 text-center md:py-7">
                 <s.icon size={18} className="text-gold" strokeWidth={1.5} />
                 <span className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">{s.value}</span>
                 <span className="mt-1.5 font-mono text-[8.5px] uppercase leading-snug tracking-[0.16em] text-navy/45">{s.label}</span>
@@ -265,14 +265,14 @@ export default function AgentsPage() {
         </div>
 
         {/* ── Choose Your Path ─────────────────────────────────────── */}
-        <section className="bg-white py-20 md:py-28" id="choose-path">
+        <section className="bg-white py-8 md:py-14" id="choose-path">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="mb-12 text-center">
+            <div className="mb-5 text-center md:mb-8">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Agents Work With Carlos</p>
-              <h2 className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+              <h2 className="mx-auto mt-4 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:mt-5 md:text-4xl">
                 One desk. Three ways to win.
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl font-sans text-[15px] leading-relaxed text-ink-primary/60">
+              <p className="mx-auto mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-ink-primary/60 md:mt-5">
                 Wherever you are in your business, there is a structured, documented way to work together —
                 and a personal response from Carlos, not a call center.
               </p>
@@ -307,12 +307,12 @@ export default function AgentsPage() {
                   href: "#join-urg",
                 },
               ].map((p) => (
-                <div key={p.title} className="flex flex-col bg-white p-8">
+                <div key={p.title} className="flex flex-col bg-white p-4 md:p-6">
                   <p.icon size={22} className="text-gold" strokeWidth={1.5} />
-                  <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80">{p.tag}</p>
+                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80 md:mt-5">{p.tag}</p>
                   <h3 className="mt-2 font-serif text-xl text-navy-deep leading-snug">{p.title}</h3>
                   <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{p.body}</p>
-                  <ul className="mt-5 space-y-2">
+                  <ul className="mt-4 space-y-2 md:mt-5">
                     {p.points.map((pt) => (
                       <li key={pt} className="flex items-start gap-2.5">
                         <BadgeCheck size={13} className="mt-0.5 flex-shrink-0 text-gold/70" />
@@ -322,7 +322,7 @@ export default function AgentsPage() {
                   </ul>
                   <a
                     href={p.href}
-                    className="group mt-7 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold"
+                    className="group mt-5 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold md:mt-7"
                   >
                     {p.cta}
                     <ChevronRight size={13} className="transition-transform group-hover:translate-x-0.5" />
@@ -334,15 +334,15 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Problem ──────────────────────────────────────────────── */}
-        <section className="bg-ivory py-20 md:py-28">
+        <section className="bg-ivory py-8 md:py-14">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-14 md:grid-cols-2 md:items-start">
+            <div className="grid gap-8 md:grid-cols-2 md:items-start md:gap-14">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Competitive Gap</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
                   Your listing presentation should not end at local portals.
                 </h2>
-                <div className="mt-6 space-y-4 font-sans text-[15px] leading-[1.8] text-ink-primary/70">
+                <div className="mt-6 space-y-4 font-sans text-[15px] leading-[1.5] text-ink-primary/70 md:leading-[1.8]">
                   <p>
                     Most agencies competing for the same mandates offer the same visibility: Idealista, Fotocasa, Kyero,
                     Habitaclia, their agency website, and perhaps one or two international portals. Sellers at the premium
@@ -358,7 +358,7 @@ export default function AgentsPage() {
 
                 {/* Cinematic video accent — landscape property walkthrough fills the
                     wide frame cleanly (replaces the portrait clip that cropped mid-frame). */}
-                <div className="mt-8 relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "52%" }}>
+                <div className="mt-6 relative overflow-hidden bg-navy-deep md:mt-8" style={{ paddingBottom: "52%" }}>
                   <LazyVideo
                     src="/videos/luxury_home_walkthrough.mp4"
                     className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
@@ -372,9 +372,9 @@ export default function AgentsPage() {
                 </div>
               </div>
 
-              <div className="border border-hairline bg-white p-10">
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/40 mb-6">What sellers increasingly ask</p>
-                <div className="space-y-5">
+              <div className="border border-hairline bg-white p-6 md:p-8">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/40 mb-4 md:mb-6">What sellers increasingly ask</p>
+                <div className="space-y-3 md:space-y-5">
                   {[
                     "Where exactly will my property be presented?",
                     "Who will actually see it — and can they buy it?",
@@ -388,7 +388,7 @@ export default function AgentsPage() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-8 border-t border-hairline pt-6">
+                <div className="mt-4 border-t border-hairline pt-4 md:mt-8 md:pt-6">
                   <p className="font-sans text-xs italic leading-relaxed text-ink-primary/50">
                     "The better question is not only 'Where will my property be advertised?' It is 'Who will actually
                     see it, present it, and connect it to potential buyers?'"
@@ -400,18 +400,18 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Seller Psychology ─────────────────────────────────────── */}
-        <section className="bg-navy-deep py-20 md:py-28 text-white">
+        <section className="bg-navy-deep py-8 md:py-14 text-white">
           <div className="mx-auto max-w-5xl px-6 text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller Psychology</p>
             <h2 className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
               What sellers really want to know.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.8] text-white/60">
+            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.5] text-white/60 md:leading-[1.8]">
               Premium sellers are not simply looking for the most portals. They are looking for evidence that
               their property will reach serious, qualified buyers — including buyers they may not find through local
               channels alone. The agent who delivers a credible international story earns the mandate.
             </p>
-            <div className="mt-14 divide-y divide-white/10 border border-white/10">
+            <div className="mt-8 divide-y divide-white/10 border border-white/10 md:mt-14">
               {[
                 {
                   q: "Where?",
@@ -426,7 +426,7 @@ export default function AgentsPage() {
                   a: "Not a generic portal subscription. A professional listing relationship with a licensed Florida Realtor® — documented exposure, bilingual packaging, professional referral coordination.",
                 },
               ].map((item) => (
-                <div key={item.q} className="grid md:grid-cols-[200px_1fr] md:items-start gap-6 p-8 md:p-10">
+                <div key={item.q} className="grid md:grid-cols-[200px_1fr] md:items-start gap-4 p-5 md:gap-6 md:p-8">
                   <div className="font-serif text-5xl text-gold leading-none">{item.q}</div>
                   <p className="font-sans text-[15px] leading-relaxed text-white/65 md:pt-1">{item.a}</p>
                 </div>
@@ -436,30 +436,30 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Agent Advantage ───────────────────────────────────────── */}
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-white py-8 md:py-14">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Agent Advantage</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               Six reasons international agents work with the Miami Desk.
             </h2>
-            <div className="mt-12">
+            <div className="mt-7 md:mt-8">
               {/* Featured first advantage */}
-              <div className="border border-hairline bg-ivory p-8 md:p-10 mb-px">
+              <div className="border border-hairline bg-ivory p-5 md:p-8 mb-px">
                 <div className="grid md:grid-cols-[auto_1fr] md:gap-10 md:items-start">
                   <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-3 md:mb-0 md:mt-1">{ADVANTAGES[0].number}</div>
                   <div>
-                    <h3 className="font-serif text-2xl text-navy-deep">{ADVANTAGES[0].title}</h3>
-                    <p className="mt-3 font-sans text-base leading-relaxed text-ink-primary/65">{ADVANTAGES[0].body}</p>
+                    <h3 className="font-serif text-xl text-navy-deep md:text-2xl">{ADVANTAGES[0].title}</h3>
+                    <p className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:text-base md:leading-relaxed">{ADVANTAGES[0].body}</p>
                   </div>
                 </div>
               </div>
               {/* Remaining advantages */}
-              <div className="grid gap-px border border-hairline border-t-0 bg-hairline md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-2 gap-px border border-hairline border-t-0 bg-hairline lg:grid-cols-3">
                 {ADVANTAGES.slice(1).map((a) => (
-                  <div key={a.number} className="bg-white p-8">
-                    <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-4">{a.number}</div>
-                    <h3 className="font-serif text-lg text-navy-deep">{a.title}</h3>
-                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{a.body}</p>
+                  <div key={a.number} className="bg-white p-3 md:p-6">
+                    <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-2 md:mb-4">{a.number}</div>
+                    <h3 className="font-serif text-base leading-snug text-navy-deep md:text-lg">{a.title}</h3>
+                    <p className="mt-2 font-sans text-xs leading-snug text-ink-primary/65 md:mt-3 md:text-sm md:leading-relaxed">{a.body}</p>
                   </div>
                 ))}
               </div>
@@ -468,7 +468,7 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Cinematic pull-quote band ─────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-24 md:py-32">
+        <section className="relative overflow-hidden bg-navy-deep py-14">
           <LazyVideo
             src="/videos/miami_madrid_transition.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.22]"
@@ -480,14 +480,14 @@ export default function AgentsPage() {
               "The internet creates visibility. <span className="text-gold">Agent networks create movement.</span>
               A listing is not fully marketed until buyer agents know how to present it."
             </blockquote>
-            <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.22em] text-white/45">
+            <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/45 md:mt-7">
               Carlos Uzcategui · Florida Licensed Realtor® · United Realty Group
             </p>
           </div>
         </section>
 
         {/* ── What the Miami Desk Provides ──────────────────────────── */}
-        <section className="bg-ivory py-20 md:py-28">
+        <section className="bg-ivory py-8 md:py-14">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Service Coverage</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -497,9 +497,9 @@ export default function AgentsPage() {
               Scope varies by property type, market, and collaboration model. Every engagement is reviewed individually
               and documented in a professional written agreement before activation.
             </p>
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
+            <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-4 md:mt-12 md:gap-5">
               {SERVICES.map((s) => (
-                <div key={s.title} className="flex gap-5 border-l-2 border-gold/40 pl-5 py-1">
+                <div key={s.title} className="flex gap-3 border-l-2 border-gold/40 pl-3 py-1 md:gap-5 md:pl-5">
                   <div>
                     <h3 className="font-sans text-sm font-semibold text-navy-deep">{s.title}</h3>
                     <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/60">{s.body}</p>
@@ -511,7 +511,7 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Collaboration Model ───────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-white">
+        <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
           <LazyVideo
             src="/videos/luxury_listing_showcase.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.10] pointer-events-none"
@@ -522,12 +522,12 @@ export default function AgentsPage() {
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
               You keep the mandate. We support the international layer.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.8] text-white/60">
+            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.5] text-white/60 md:leading-[1.8]">
               The Miami Desk is designed to complement local market representation — not replace it. The local agent
               maintains full authority over the seller relationship, the mandate, and local market operations.
             </p>
             {/* Visual flow diagram */}
-            <div className="mt-10 mb-10">
+            <div className="mt-6 mb-6 md:mt-10 md:mb-10">
               <svg viewBox="0 0 800 80" className="w-full max-w-3xl mx-auto" aria-hidden="true">
                 {/* Flow line */}
                 <line x1="160" y1="40" x2="380" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
@@ -550,7 +550,7 @@ export default function AgentsPage() {
               </svg>
             </div>
 
-            <div className="grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+            <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
               {[
                 {
                   role: "Local Agent",
@@ -568,13 +568,13 @@ export default function AgentsPage() {
                   highlight: false,
                 },
               ].map((col) => (
-                <div key={col.role} className={`p-10 ${col.highlight ? "bg-gold/[0.07] border border-gold/20" : "bg-navy-deep"}`}>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-5">{col.role}</p>
-                  <ul className="space-y-3">
+                <div key={col.role} className={`p-4 md:p-8 ${col.highlight ? "bg-gold/[0.07] border border-gold/20" : "bg-navy-deep"}`}>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-3 md:mb-5">{col.role}</p>
+                  <ul className="space-y-2 md:space-y-3">
                     {col.keeps.map((k) => (
                       <li key={k} className="flex items-start gap-2.5">
                         <BadgeCheck size={13} className="mt-0.5 flex-shrink-0 text-gold/70" />
-                        <span className="font-sans text-sm text-white/70">{k}</span>
+                        <span className="font-sans text-xs leading-snug text-white/70 md:text-sm md:leading-normal">{k}</span>
                       </li>
                     ))}
                   </ul>
@@ -585,9 +585,9 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Ideal For ─────────────────────────────────────────────── */}
-        <section className="bg-white py-20 md:py-24">
+        <section className="bg-white py-8 md:py-14">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+            <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-14">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Ideal For</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -597,7 +597,7 @@ export default function AgentsPage() {
                   The Miami Desk reviews every submission individually. Not every property qualifies — positioning
                   for U.S. and LATAM buyers requires the right product type, price point, and market context.
                 </p>
-                <div className="mt-8 space-y-5">
+                <div className="mt-6 space-y-4 md:mt-8 md:space-y-5">
                   <div>
                     <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/80 mb-3">Property types</p>
                     <div className="flex flex-wrap gap-2">
@@ -621,7 +621,7 @@ export default function AgentsPage() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-8 font-sans text-xs italic text-ink-primary/40">
+                <p className="mt-6 font-sans text-xs italic text-ink-primary/40 md:mt-8">
                   Every submission is reviewed personally.
                 </p>
               </div>
@@ -645,7 +645,7 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Network Stats ─────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-white">
+        <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
           <LazyVideo
             src="/videos/dollhouse_global_reach.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.18] pointer-events-none"
@@ -655,10 +655,10 @@ export default function AgentsPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center mb-3">
               The network behind the Miami Desk
             </p>
-            <h2 className="mx-auto mb-12 max-w-2xl text-center font-serif text-3xl leading-tight text-white md:text-4xl">
+            <h2 className="mx-auto mb-7 max-w-2xl text-center font-serif text-3xl leading-tight text-white md:mb-8 md:text-4xl">
               Infrastructure, not adjectives.
             </h2>
-            <div className="grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+            <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
               {[
                 {
                   value: "93,000",
@@ -676,10 +676,10 @@ export default function AgentsPage() {
                   desc: "Carlos Uzcategui has been licensed in Florida since 2001. Bilingual English/Spanish. Physically connected to South Florida and Madrid markets.",
                 },
               ].map((s) => (
-                <div key={s.value} className="bg-navy-deep p-10">
-                  <div className="font-serif text-4xl text-gold md:text-5xl">{s.value}</div>
+                <div key={s.value} className="bg-navy-deep p-4 md:p-8">
+                  <div className="font-serif text-3xl text-gold md:text-5xl">{s.value}</div>
                   <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/60">{s.label}</div>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-white/60">{s.desc}</p>
+                  <p className="mt-2 font-sans text-xs leading-snug text-white/60 md:mt-4 md:text-sm md:leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -687,9 +687,9 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Process ───────────────────────────────────────────────── */}
-        <section className="bg-ivory py-20 md:py-28">
+        <section className="bg-ivory py-8 md:py-14">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-16 lg:grid-cols-[0.4fr_0.6fr] lg:items-start">
+            <div className="grid gap-8 lg:grid-cols-[0.4fr_0.6fr] lg:items-start lg:gap-16">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Collaboration Process</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -703,7 +703,7 @@ export default function AgentsPage() {
               {/* Vertical timeline */}
               <div className="space-y-0">
                 {PROCESS_STEPS.map((step, i) => (
-                  <div key={step.number} className="relative flex gap-7 items-start pb-10 last:pb-0">
+                  <div key={step.number} className="relative flex gap-5 items-start pb-6 last:pb-0 md:gap-7 md:pb-10">
                     {i < PROCESS_STEPS.length - 1 && (
                       <div className="absolute left-[20px] top-11 bottom-0 w-px bg-navy/10" />
                     )}
@@ -722,9 +722,9 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Agency / Listing Submission Form ──────────────────────── */}
-        <section className="bg-navy-deep py-16 md:py-24" id="submit-listing">
+        <section className="bg-navy-deep py-8 md:py-14" id="submit-listing">
           <div className="mx-auto max-w-4xl px-6">
-            <div className="mb-10 text-center">
+            <div className="mb-6 text-center md:mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Miami Desk · Listing & Agency Inquiry</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Give your sellers a stronger international story.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
@@ -751,9 +751,9 @@ export default function AgentsPage() {
         </section>
 
         {/* ── WhatsApp / Calendar CTA ───────────────────────────────── */}
-        <section className="bg-gold/5 border-y border-gold/15 py-14">
+        <section className="bg-gold/5 border-y border-gold/15 py-6 md:py-8">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
+            <div className="flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between md:gap-6 md:text-left">
               <div>
                 <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">Prefer to speak directly?</p>
                 <p className="mt-2 font-serif text-2xl text-navy-deep">Request an agency partnership call.</p>
@@ -786,9 +786,9 @@ export default function AgentsPage() {
         </section>
 
         {/* ── South Florida Cross-Border Referral Desk (secondary) ──── */}
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-white py-8 md:py-14">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+            <div className="grid gap-7 lg:grid-cols-[1fr_0.8fr] lg:items-start lg:gap-12">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Also Available · South Florida</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -798,9 +798,9 @@ export default function AgentsPage() {
                   Licensed real estate professionals with clients buying or selling in South Florida can refer
                   those transactions through a documented professional channel. Formal written agreement. Paid at closing.
                 </p>
-                <div className="mt-8 divide-y divide-hairline border border-hairline">
+                <div className="mt-6 divide-y divide-hairline border border-hairline md:mt-8">
                   {SOUTH_FL_PATHWAYS.map((p) => (
-                    <div key={p.number} className="flex flex-col bg-white p-7">
+                    <div key={p.number} className="flex flex-col bg-white p-5 md:p-6">
                       <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-3">{p.number}</div>
                       <h3 className="font-serif text-lg text-navy-deep leading-snug">{p.title}</h3>
                       <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65 flex-1">{p.body}</p>
@@ -834,9 +834,9 @@ export default function AgentsPage() {
         </section>
 
         {/* South Florida Referral Form */}
-        <section className="bg-navy-deep py-16 md:py-24" id="south-florida-referral">
+        <section className="bg-navy-deep py-8 md:py-14" id="south-florida-referral">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-10 text-center">
+            <div className="mb-6 text-center md:mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Referral Desk</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Submit a South Florida cross-border referral.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
@@ -861,7 +861,7 @@ export default function AgentsPage() {
         </section>
 
         {/* ── Join United Realty Group ──────────────────────────────── */}
-        <section className="relative overflow-hidden bg-ivory py-20 md:py-28" id="join-urg">
+        <section className="relative overflow-hidden bg-ivory py-8 md:py-14" id="join-urg">
           <LazyVideo
             src="/videos/ceul_team_dollhouse.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.07] pointer-events-none"
@@ -870,13 +870,13 @@ export default function AgentsPage() {
           <div className="relative mx-auto max-w-6xl px-6">
 
             {/* Section header */}
-            <div className="mb-12">
+            <div className="mb-7 md:mb-8">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Career Opportunity · South Florida</p>
               <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
                 Don't just join a brokerage.<br />
                 <span className="text-gold">Join a desk that already moves business.</span>
               </h2>
-              <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/65">
+              <p className="mt-5 max-w-2xl font-sans text-base leading-snug text-ink-primary/65 md:leading-relaxed">
                 United Realty Group is a full-service brokerage founded in 2002 — {CONTACT.stats.urgAgents} agents
                 across {CONTACT.stats.urgOffices} Florida offices, with an in-house title company. Whatever stage you
                 are at, you work directly with Carlos — an active 25-year agent on the same MLS, not a branch manager
@@ -885,9 +885,9 @@ export default function AgentsPage() {
             </div>
 
             {/* Featured United Realty brand film — the recruiting "ad" + the business case */}
-            <div className="mb-14 grid gap-px overflow-hidden border border-gold/25 bg-gold/10 md:grid-cols-[1.15fr_0.85fr]">
+            <div className="mb-8 grid gap-px overflow-hidden border border-gold/25 bg-gold/10 md:mb-10 md:grid-cols-[1.15fr_0.85fr]">
               {/* Brand film */}
-              <div className="relative min-h-[300px] overflow-hidden bg-navy-deep md:min-h-[440px]">
+              <div className="relative min-h-[220px] overflow-hidden bg-navy-deep md:min-h-[440px]">
                 <LazyVideo
                   src="/videos/advisor-brand.mp4"
                   className="absolute inset-0 h-full w-full object-cover"
@@ -910,14 +910,14 @@ export default function AgentsPage() {
               </div>
 
               {/* The business case for why agents grow here */}
-              <div className="flex flex-col justify-center bg-navy-deep p-8 md:p-10">
+              <div className="flex flex-col justify-center bg-navy-deep p-5 md:p-6">
                 <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80">Why agents grow here</p>
-                <p className="mt-4 font-sans text-[15px] leading-[1.8] text-white/70">
+                <p className="mt-3 font-sans text-[15px] leading-[1.5] text-white/70 md:mt-4 md:leading-[1.8]">
                   The agents who build the fastest are the ones who plug into demand that already exists instead of
                   generating every lead alone. Carlos runs active seller, buyer, and cross-border desks on the same
                   MLS you will work — and brings 25 years of in-market relationships to the agents around him.
                 </p>
-                <ul className="mt-6 space-y-3">
+                <ul className="mt-4 space-y-2 md:mt-5 md:space-y-3">
                   {[
                     "Mentorship from an active producer — not a back-office manager",
                     "A bilingual, international niche most local agents cannot serve",
@@ -934,7 +934,7 @@ export default function AgentsPage() {
             </div>
 
             {/* Two audiences — new vs. experienced */}
-            <div className="mb-14 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+            <div className="mb-8 grid gap-px border border-hairline bg-hairline md:mb-10 md:grid-cols-2">
               {[
                 {
                   icon: UserPlus,
@@ -949,20 +949,20 @@ export default function AgentsPage() {
                   body: "Already licensed but underserved by your current brokerage? Bring your book, keep your independence, and gain a hands-on partner working the same market. For agents who want mentorship and growth — not just a lower split and silence.",
                 },
               ].map((a) => (
-                <div key={a.tag} className="bg-white p-8">
+                <div key={a.tag} className="bg-white p-5 md:p-6">
                   <a.icon size={20} className="text-gold" strokeWidth={1.5} />
-                  <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80">{a.tag}</p>
-                  <h3 className="mt-2 font-serif text-xl text-navy-deep leading-snug">{a.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{a.body}</p>
+                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80 md:mt-4">{a.tag}</p>
+                  <h3 className="mt-2 font-serif text-lg leading-snug text-navy-deep md:text-xl">{a.title}</h3>
+                  <p className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:leading-relaxed">{a.body}</p>
                 </div>
               ))}
             </div>
 
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-10">
 
               {/* Left — join reasons + CTA */}
               <div>
-                <div className="grid gap-px border border-hairline bg-hairline sm:grid-cols-2">
+                <div className="grid grid-cols-2 gap-px border border-hairline bg-hairline">
                   {[
                     {
                       icon: Building2,
@@ -985,15 +985,15 @@ export default function AgentsPage() {
                       body: "Carlos has worked this market since 2001 and is closing deals on the same MLS today. You learn current strategy from someone doing the work now — not a branch manager reviewing paperwork.",
                     },
                   ].map((item) => (
-                    <div key={item.title} className="bg-white p-7">
+                    <div key={item.title} className="bg-white p-3 md:p-6">
                       <item.icon size={18} className="text-gold" strokeWidth={1.5} />
-                      <h3 className="mt-4 font-serif text-base text-navy-deep">{item.title}</h3>
-                      <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/60">{item.body}</p>
+                      <h3 className="mt-2 font-serif text-sm leading-snug text-navy-deep md:mt-4 md:text-base">{item.title}</h3>
+                      <p className="mt-2 font-sans text-xs leading-snug text-ink-primary/60 md:text-sm md:leading-relaxed">{item.body}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4">
+                <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-6">
                   <a
                     href={WA_CAREERS}
                     target="_blank"
@@ -1008,7 +1008,7 @@ export default function AgentsPage() {
                   </p>
                 </div>
 
-                <p className="mt-5 font-sans text-xs italic text-ink-primary/40">
+                <p className="mt-4 font-sans text-xs italic text-ink-primary/40 md:mt-5">
                   All license affiliations are subject to United Realty Group's standard broker requirements, Florida DBPR licensing,
                   and applicable MLS membership rules. Contact Carlos directly for current availability and affiliate terms.
                 </p>
@@ -1025,8 +1025,8 @@ export default function AgentsPage() {
                   </div>
 
                   {/* Visual header */}
-                  <div className="relative overflow-hidden bg-[radial-gradient(ellipse_at_30%_40%,rgba(176,141,87,0.18),rgba(6,17,31,1))] px-8 pt-10 pb-8">
-                    <div className="mb-6">
+                  <div className="relative overflow-hidden bg-[radial-gradient(ellipse_at_30%_40%,rgba(176,141,87,0.18),rgba(6,17,31,1))] px-6 pt-5 pb-5 md:px-8 md:pt-8 md:pb-6">
+                    <div className="mb-3 md:mb-6">
                       <BookOpen size={36} className="text-gold" strokeWidth={1.25} />
                     </div>
                     <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold/70 mb-3">
@@ -1036,7 +1036,7 @@ export default function AgentsPage() {
                       How to Become a Successful<br />
                       <em className="italic text-gold">Real Estate Agent in South Florida</em>
                     </h3>
-                    <p className="mt-4 font-sans text-sm leading-relaxed text-white/60">
+                    <p className="mt-3 font-sans text-sm leading-snug text-white/60 md:mt-4 md:leading-relaxed">
                       A practical guide to starting and building a real estate career in one of the most
                       competitive and internationally connected markets in the United States — from
                       licensing, to your first transaction, to working inside a professional network.
@@ -1044,9 +1044,9 @@ export default function AgentsPage() {
                   </div>
 
                   {/* What's inside */}
-                  <div className="border-t border-white/10 px-8 py-6">
-                    <p className="mb-4 font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60">What's inside</p>
-                    <ul className="space-y-2.5">
+                  <div className="border-t border-white/10 px-6 py-4 md:px-8 md:py-5">
+                    <p className="mb-3 font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60 md:mb-4">What's inside</p>
+                    <ul className="space-y-1.5 md:space-y-2.5">
                       {[
                         "Florida real estate licensing — step by step",
                         "Choosing the right brokerage for your career",
@@ -1064,7 +1064,7 @@ export default function AgentsPage() {
                   </div>
 
                   {/* CTA */}
-                  <div className="border-t border-white/10 px-8 py-6">
+                  <div className="border-t border-white/10 px-6 py-4 md:px-8 md:py-5">
                     <a
                       href="/la-comision-secreta"
                       className="group flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
@@ -1072,7 +1072,7 @@ export default function AgentsPage() {
                       <BookOpen size={13} />
                       Preview the Book
                     </a>
-                    <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+                    <p className="mt-2 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-white/30 md:mt-3">
                       By Carlos Uzcategui · FL SL705771 · United Realty Group
                     </p>
                   </div>
@@ -1084,7 +1084,7 @@ export default function AgentsPage() {
         </section>
 
         {/* Compliance */}
-        <section className="bg-navy-deep py-12">
+        <section className="bg-navy-deep py-6 md:py-8">
           <div className="mx-auto max-w-5xl px-6">
             <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30 mb-3">
               <BadgeCheck size={14} className="text-gold" />
