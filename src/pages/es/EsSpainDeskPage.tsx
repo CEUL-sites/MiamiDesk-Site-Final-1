@@ -816,9 +816,7 @@ export default function EsSpainDeskPage() {
                 Carlos Uzcategui actúa como principal licenciado de registro en Florida, lo que permite a las agencias españolas colocar su inventario premium en el MIAMI International MLS (RWorld) — la plataforma de sindicación internacional de la asociación. La agencia española mantiene la representación local del propietario en todo momento — sin ceder el mandato.
               </p>
               <p className="font-sans text-base leading-relaxed text-white/70">
-                {/* Datos del segmento prime, 2025: los internacionales dominan; los americanos son
-                    la cohorte de mayor crecimiento y gasto; el capital latinoamericano lidera en Madrid. */}
-                La demanda prime española es mayoritariamente internacional: aproximadamente dos tercios de las ventas por encima de €2,5M son a compradores no residentes. En Marbella y la Costa del Sol las nacionalidades líderes son británica, alemana, neerlandesa y — cada vez más — americana, la cohorte de mayor crecimiento y gasto; el capital latinoamericano lidera específicamente en Madrid. Los agentes compradores estadounidenses y latinoamericanos que representan esa demanda ya trabajan a través de la red del MIAMI International MLS (RWorld), con distribución a la red global de agentes y brokers partner. Una vía institucional operada por un profesional con 25 años de licencia activa en Florida.
+                Una parte significativa de la demanda prime española es internacional — incluidos compradores americanos y capital latinoamericano, especialmente en Madrid. Los agentes compradores estadounidenses y latinoamericanos que representan esa demanda ya trabajan a través de la red del MIAMI International MLS (RWorld), con distribución a la red global de agentes y brokers partner. Una vía institucional operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
 

@@ -1,6 +1,7 @@
 {
   "members": { "value": "93,000", "label": "Member Agents", "source": "Miami and South Florida REALTORS®, post-merger May 11, 2026" },
-  "mlsRank": { "value": "3rd", "label": "Largest MLS in the United States", "phrase": "third-largest MLS in the United States", "source": "T3 Sixty 2025 rankings, per Florida Realtors May 2026", "cite": "https://www.floridarealtors.org/news-media" },
+  "mlsRank": { "value": "3rd", "label": "Largest MLS in the United States", "phrase": "third-largest MLS in the United States", "source": "T3 Sixty 2025 rankings (Bright MLS 101,000 and CRMLS 99,000 are larger), per MIAMI REALTORS / RWorld merger announcement April 2026", "cite": "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" },
+  "mlsAssociationOwned": { "value": "Largest", "label": "MLS owned by a single U.S. Realtor association", "phrase": "the largest MLS owned by a single U.S. Realtor association", "source": "MIAMI REALTORS / RWorld merger announcement, April 2026 — do NOT phrase as 'largest local MLS in the world'; Bright MLS and CRMLS have more subscribers", "cite": "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" },
   "globalWebsites": { "value": "200+", "label": "Global Portals", "source": "MIAMI Realtors International Referral Network — Partner Associations sheet" },
   "languages": { "value": "19", "label": "Languages", "source": "MIAMI Realtors syndication" },
   "partnerAssociations": { "value": "437+", "label": "International Agreements", "source": "MIAMI Association of REALTORS® Global Council", "cite": "https://www.miamirealtors.com/global/global-partners/" },
