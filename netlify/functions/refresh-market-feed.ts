@@ -2,7 +2,7 @@ import type { Handler, HandlerEvent } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
 
 const BRIDGE_TOKEN = process.env.BRIDGE_API_TOKEN ?? "";
-const BRIDGE_DATASET = process.env.BRIDGE_DATASET ?? "miamire";
+const BRIDGE_DATASET = (process.env.BRIDGE_DATASET_ID ?? process.env.BRIDGE_DATASET ?? "miamire").trim();
 const BRIDGE_BASE = process.env.BRIDGE_BASE_URL
   ?? `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET}/Property`;
 
