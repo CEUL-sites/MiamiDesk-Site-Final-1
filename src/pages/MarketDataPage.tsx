@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { ChevronDown, ChevronUp, ExternalLink, MessageSquare } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { SellerCtaBand } from "../components/SellerCtaBand";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { JsonLd } from "../components/SEO/JsonLd";
 import stats from "../data/marketStats.json";
@@ -472,7 +473,8 @@ export default function MarketDataPage() {
       </section>
       </main>
 
-      <Footer />
+      <SellerCtaBand />
+        <Footer />
       <MobileStickyCTA />
     </>
   );

@@ -12,6 +12,15 @@ interface LazyVideoProps {
    * Default false: the video only fetches + plays once it scrolls into view.
    */
   eager?: boolean;
+  /**
+   * Defer until the window `load` event plus an idle callback. Use for
+   * decorative above-the-fold backdrops (low-opacity hero washes): they are in
+   * view from first paint, so the IntersectionObserver path would fetch them
+   * immediately and compete with LCP and the lead form. `idle` lets the page
+   * finish first; the backdrop fades in a moment later. Takes precedence over
+   * the in-view observer; ignored if `eager` is set.
+   */
+  idle?: boolean;
   /** Margin around the viewport that counts as "in view" — preloads just before. */
   rootMargin?: string;
 }
@@ -63,14 +72,35 @@ export function LazyVideo({
   style,
   poster,
   eager = false,
+  idle = false,
   rootMargin = "300px",
 }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [active, setActive] = useState(eager && !shouldSkipVideo());
 
+  // idle mode — wait for window load, then an idle slot, then activate.
+  useEffect(() => {
+    if (!idle || eager || shouldSkipVideo()) return;
+    let cancelled = false;
+    const activate = () => {
+      const w = window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number };
+      if (typeof w.requestIdleCallback === "function") {
+        w.requestIdleCallback(() => { if (!cancelled) setActive(true); }, { timeout: 3000 });
+      } else {
+        window.setTimeout(() => { if (!cancelled) setActive(true); }, 1200);
+      }
+    };
+    if (document.readyState === "complete") activate();
+    else window.addEventListener("load", activate, { once: true });
+    return () => {
+      cancelled = true;
+      window.removeEventListener("load", activate);
+    };
+  }, [idle, eager]);
+
   useEffect(() => {
     if (shouldSkipVideo()) return; // skip heavy video on data-saver, slow links, or reduce-motion
-    if (eager) return; // already active
+    if (eager || idle) return; // handled above (or already active)
     const el = ref.current;
     if (!el) return;
 

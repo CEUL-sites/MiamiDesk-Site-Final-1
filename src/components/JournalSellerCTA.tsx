@@ -68,7 +68,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
             onClick={() => track('seller_strategy_review', 'post_top', post)}
             className="shrink-0 inline-block border border-navy px-5 py-2 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:border-gold hover:text-gold"
           >
-            Get started →
+            Request a Strategy Review →
           </Link>
         </div>
       </div>
