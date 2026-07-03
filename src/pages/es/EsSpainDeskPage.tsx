@@ -680,6 +680,10 @@ export default function EsSpainDeskPage() {
                 WhatsApp España
               </a>
             </div>
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-white/45">
+              ¿Agencia o promotora? Proceso completo de alta:{" "}
+              <a href="/spain-mls-listing" className="text-gold underline underline-offset-2 hover:text-white">Inmueble en España → listado en el Miami MLS</a>
+            </p>
           </div>
         </section>
 

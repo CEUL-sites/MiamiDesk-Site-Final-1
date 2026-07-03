@@ -4,6 +4,7 @@ import { JsonLd } from "../components/SEO/JsonLd";
 import { ArrowRight, BadgeCheck, Building2, ChevronRight, Download, Globe2, Handshake, Landmark, TrendingUp } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
@@ -212,7 +213,7 @@ export default function SpainMlsListingPage() {
             "acceptedAnswer": { "@type": "Answer", "text": f.a }
           }))
         }} />
-      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
         {/* ── Hero ── */}
@@ -245,7 +246,7 @@ export default function SpainMlsListingPage() {
                 {t.ctaPrimary}
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a href={CONTACT.whatsappBroker} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
+              <a href={CONTACT.whatsappBrokerSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
                 {t.ctaWhatsApp}
               </a>
             </div>
@@ -365,7 +366,7 @@ export default function SpainMlsListingPage() {
               <h2 className="mt-3 font-serif text-3xl text-white">{t.contactH2}</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">{t.contactSub}</p>
               <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em]">
-                <a href={CONTACT.whatsappBroker} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors">WhatsApp ES +34 646 85 30 78</a>
+                <a href={CONTACT.whatsappBrokerSpain} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors">WhatsApp ES +34 646 85 30 78</a>
                 <a href={CONTACT.calendly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-gold hover:text-white transition-colors">{t.calendly} <ArrowRight size={11} /></a>
               </div>
             </div>
@@ -378,6 +379,7 @@ export default function SpainMlsListingPage() {
         </section>
 
         <Footer />
+        <MobileStickyCTA />
       </main>
     </>
   );
