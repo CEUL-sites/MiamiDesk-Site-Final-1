@@ -79,23 +79,23 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
     "w-full border border-hairline bg-ivory px-4 py-3 font-sans text-base text-navy outline-none transition-colors placeholder:text-navy/35 focus:border-gold/50";
 
   return (
-    <section className="bg-white border-t border-hairline py-16 md:py-24" id="net-calculator">
+    <section className="bg-white border-t border-hairline py-10 md:py-24" id="net-calculator">
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex items-center gap-2">
           <Calculator size={14} className="text-gold" />
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Seller Net Proceeds · Estimator</p>
         </div>
-        <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+        <h2 className="mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:mt-5 md:text-4xl">
           What would you actually walk away with?
         </h2>
-        <p className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60">
+        <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60 md:mt-4">
           Move the sliders to model your sale. Selling costs in Florida are knowable in
           advance — sellers who see the full math early make better listing decisions.
         </p>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-2">
+        <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:gap-10 md:mt-10">
           {/* Controls */}
-          <div className="space-y-7">
+          <div className="space-y-5 md:space-y-7">
             <div>
               <div className="flex items-baseline justify-between">
                 <label htmlFor="calc-price" className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/70">
@@ -153,9 +153,9 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
           </div>
 
           {/* Live breakdown */}
-          <div className="border border-hairline bg-ivory p-7 md:p-8">
+          <div className="border border-hairline bg-ivory p-5 md:p-8">
             <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold-ink">Estimated breakdown</p>
-            <dl className="mt-5 space-y-3 font-sans text-sm">
+            <dl className="mt-4 space-y-2 font-sans text-sm md:mt-5 md:space-y-3">
               {[
                 ["Sale price", usd.format(price), false],
                 [`Commission (${commission}%)`, `− ${usd.format(rows.commissionAmt)}`, false],
@@ -169,14 +169,14 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                 </div>
               ))}
             </dl>
-            <div className="mt-5 border-t border-gold/30 pt-4 flex items-baseline justify-between gap-4">
+            <div className="mt-4 border-t border-gold/30 pt-3 flex items-baseline justify-between gap-4 md:mt-5 md:pt-4">
               <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/70">Estimated net proceeds</p>
               <p className="font-serif text-3xl text-navy-deep">{usd.format(Math.max(0, rows.net))}</p>
             </div>
 
             {/* Email gate */}
             {status === "success" ? (
-              <div className="mt-6 border border-gold/30 bg-white p-5">
+              <div className="mt-4 border border-gold/30 bg-white p-4 md:mt-6 md:p-5">
                 <p className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink">
                   <CheckCircle2 size={13} /> On its way
                 </p>
@@ -193,7 +193,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                 </a>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-6">
+              <form onSubmit={handleSubmit} className="mt-4 md:mt-6">
                 <p className="font-sans text-[13px] leading-relaxed text-navy/65">
                   Get this breakdown in writing — plus the line items this quick model can't show
                   (prorations, HOA estoppel, your county's exact rates):
@@ -229,7 +229,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
           </div>
         </div>
 
-        <p className="mt-6 max-w-3xl font-sans text-[11px] leading-relaxed text-ink-primary/70">
+        <p className="mt-4 max-w-3xl font-sans text-[11px] leading-relaxed text-ink-primary/70 md:mt-6">
           Estimates for planning purposes only — not a guarantee of sale price, costs, or proceeds.
           Commissions are fully negotiable and not set by law. Documentary stamp, title, and closing
           figures use typical Florida rates; actual amounts vary by county, contract terms, and

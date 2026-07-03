@@ -207,7 +207,7 @@ function PhoneBubblePlayer() {
 // ── Main section ───────────────────────────────────────────────────────────────
 export function SellerSection() {
   return (
-    <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-16 md:py-24 text-white">
+    <section id="sellers" className="relative overflow-hidden border-t border-gold/20 bg-navy py-10 md:py-24 text-white">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(20,45,90,0.8),transparent_55%)]" />
       <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/80" aria-hidden="true" />
       <div className="absolute right-0 top-0 h-[520px] w-[520px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/10 blur-[120px]" />
@@ -215,18 +215,18 @@ export function SellerSection() {
       <div className="relative mx-auto max-w-7xl px-6">
 
         {/* ── Header: headline left, phone right ── */}
-        <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:gap-16 mb-20">
+        <div className="flex flex-col items-center gap-8 mb-10 lg:flex-row lg:items-start lg:gap-16 lg:mb-20">
           <div className="flex-1 max-w-2xl">
-            <p className="font-mono mb-4 text-[10px] uppercase tracking-[0.3em] text-gold">Seller Strategy</p>
-            <h2 className="font-serif leading-[1.05] text-white" style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)" }}>
+            <p className="font-mono mb-3 text-[10px] uppercase tracking-[0.3em] text-gold md:mb-4">Seller Strategy</p>
+            <h2 className="font-serif leading-[1.05] text-white" style={{ fontSize: "clamp(1.9rem, 4.5vw, 3.8rem)" }}>
               The MLS Reaches 93,000 Agents.<br />
               <em className="italic text-gold">Strategy Gets Your Home Shown.</em>
             </h2>
-            <p className="mt-7 max-w-xl font-sans text-lg leading-relaxed text-white/60">
+            <p className="mt-4 max-w-xl font-sans text-lg leading-relaxed text-white/60 md:mt-7">
               Every seller enters the same MLS. Not every seller enters it correctly. Positioning, professional media,
               buyer-agent activation, and negotiation strategy are what separate a listing from a sale.
             </p>
-            <div className="mt-8 flex gap-4 flex-wrap">
+            <div className="mt-5 flex gap-3 flex-wrap md:mt-8 md:gap-4">
               <a href="/contact" className="inline-flex items-center bg-gold px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
                 Request a Seller Strategy Review
               </a>
@@ -243,7 +243,7 @@ export function SellerSection() {
         </div>
 
         {/* ── 5-step process ── */}
-        <div className="relative grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+        <div className="relative grid grid-cols-2 gap-2 md:grid-cols-2 md:gap-5 lg:grid-cols-5">
           <div className="absolute left-[10%] right-[10%] top-1/2 hidden border-t border-dashed border-gold/35 lg:block" />
           {STEPS.map((step, index) => (
             <motion.article
@@ -252,32 +252,32 @@ export function SellerSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: index * 0.08 }}
-              className="group relative z-10 overflow-hidden border border-bone/20 border-b-gold bg-white p-7 text-navy shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-gold hover:shadow-2xl hover:shadow-gold/10"
+              className="group relative z-10 overflow-hidden border border-bone/20 border-b-gold bg-white p-4 text-navy shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-gold hover:shadow-2xl hover:shadow-gold/10 md:p-7"
             >
-              <span className="absolute -right-2 top-2 font-serif text-8xl text-gold/12 transition-colors duration-500 group-hover:text-gold/30">
+              <span className="absolute -right-2 top-2 font-serif text-6xl text-gold/12 transition-colors duration-500 group-hover:text-gold/30 md:text-8xl">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <div className="relative mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 text-gold ring-1 ring-gold/30 transition-all duration-300 group-hover:bg-gold group-hover:text-navy group-hover:ring-0">
+              <div className="relative mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 text-gold ring-1 ring-gold/30 transition-all duration-300 group-hover:bg-gold group-hover:text-navy group-hover:ring-0 md:mb-8 md:h-12 md:w-12">
                 <step.icon size={23} />
               </div>
-              <h3 className="relative font-serif text-2xl text-navy">{step.title}</h3>
-              <p className="relative mt-4 font-sans text-sm leading-relaxed text-navy/62">{step.desc}</p>
+              <h3 className="relative font-serif text-lg text-navy md:text-2xl">{step.title}</h3>
+              <p className="relative mt-2 font-sans text-xs leading-snug text-navy/62 md:mt-4 md:text-sm md:leading-relaxed">{step.desc}</p>
             </motion.article>
           ))}
         </div>
 
         {/* ── CTA block ── */}
-        <div className="mt-12 bg-navy-deep px-6 py-10 text-center ring-1 ring-white/10">
-          <h3 className="font-serif text-3xl italic text-white">Ready to position your South Florida property correctly?</h3>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="/contact" className="inline-flex items-center justify-center bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft">
+        <div className="mt-6 bg-navy-deep px-5 py-6 text-center ring-1 ring-white/10 md:mt-12 md:px-6 md:py-10">
+          <h3 className="font-serif text-xl italic text-white md:text-3xl">Ready to position your South Florida property correctly?</h3>
+          <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row md:mt-8 md:gap-4">
+            <a href="/contact" className="inline-flex items-center justify-center bg-gold px-6 py-3.5 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft md:px-8 md:py-4">
               Request a Private Seller Strategy Review
             </a>
-            <a href={CONTACT.whatsappUS} className="inline-flex items-center justify-center border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">
+            <a href={CONTACT.whatsappUS} className="inline-flex items-center justify-center border border-white/30 px-6 py-3.5 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold md:px-8 md:py-4">
               WhatsApp Carlos
             </a>
           </div>
-          <p className="font-mono mx-auto mt-6 max-w-2xl text-[9px] uppercase tracking-[0.2em] text-white/55">
+          <p className="font-mono mx-auto mt-4 max-w-2xl text-[9px] uppercase tracking-[0.2em] text-white/55 md:mt-6">
             {CONTACT.licenseDisplay} · {CONTACT.brokerage}
           </p>
         </div>
