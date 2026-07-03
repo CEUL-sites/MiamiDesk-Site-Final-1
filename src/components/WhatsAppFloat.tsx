@@ -1,17 +1,15 @@
 import { MessageSquare } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { CONTACT } from "../constants";
+import { CONTACT, isSpainMarketRoute } from "../constants";
 import { trackContact } from "../lib/analytics";
 
 // Section 15 — floating WhatsApp CTA, language/route-aware.
 // Desktop right-rail. Mobile WhatsApp is already provided by MobileStickyCTA,
 // so this is hidden below lg to avoid a duplicate mobile control.
-const SPANISH_ROUTES = (path: string) =>
-  path.startsWith("/es") || path === "/madrid" || path === "/spain-desk";
 
 export function WhatsAppFloat() {
   const { pathname } = useLocation();
-  const spanish = SPANISH_ROUTES(pathname);
+  const spanish = isSpainMarketRoute(pathname);
   const href = spanish ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
   const label = spanish ? "WhatsApp España" : "WhatsApp Carlos";
 

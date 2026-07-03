@@ -1,6 +1,7 @@
 {
   "members": { "value": "93,000", "label": "Member Agents", "source": "Miami and South Florida REALTORS®, post-merger May 11, 2026" },
-  "mlsRank": { "value": "3rd", "label": "Largest MLS in the United States", "phrase": "third-largest MLS in the United States", "source": "T3 Sixty 2025 rankings, per Florida Realtors May 2026", "cite": "https://www.floridarealtors.org/news-media" },
+  "mlsRank": { "value": "3rd", "label": "Largest MLS in the United States", "phrase": "third-largest MLS in the United States", "source": "T3 Sixty 2025 rankings (Bright MLS 101,000 and CRMLS 99,000 are larger), per MIAMI REALTORS / RWorld merger announcement April 2026", "cite": "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" },
+  "mlsAssociationOwned": { "value": "Largest", "label": "MLS owned by a single U.S. Realtor association", "phrase": "the largest MLS owned by a single U.S. Realtor association", "source": "MIAMI REALTORS / RWorld merger announcement, April 2026 — do NOT phrase as 'largest local MLS in the world'; Bright MLS and CRMLS have more subscribers", "cite": "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" },
   "globalWebsites": { "value": "200+", "label": "Global Portals", "source": "MIAMI Realtors International Referral Network — Partner Associations sheet" },
   "languages": { "value": "19", "label": "Languages", "source": "MIAMI Realtors syndication" },
   "partnerAssociations": { "value": "437+", "label": "International Agreements", "source": "MIAMI Association of REALTORS® Global Council", "cite": "https://www.miamirealtors.com/global/global-partners/" },
@@ -14,7 +15,8 @@
   "urgOffices": { "value": "20", "label": "Florida Offices", "source": "United Realty Group — urgfl.com" },
   "license": { "value": "SL705771", "label": "Florida Licensed Realtor®", "source": "Florida DBPR" },
   "clhms": { "value": "CLHMS", "label": "Certified Luxury Home Marketing Specialist", "source": "The Institute for Luxury Home Marketing" },
-  "networkVolume": { "value": "$69B", "label": "2025 Network Volume", "source": "Miami & South Florida REALTORS® combined member transaction volume, 2025" },
+  "networkVolume": { "value": "$69B", "label": "2025 Network Volume", "source": "MIAMI and RWorld members sold $69 billion in total real estate volume in 2025 — merger announcement, April 20, 2026 (docs/sources/miami-rworld-merger-announcement-2026-04-20.pdf)" },
+  "memberComparison": { "value": "2×", "label": "More than double the next-largest U.S. local association", "phrase": "more than double the next-largest local association in the U.S. (43,000 members), larger than 47 state associations, and about 33 percent larger than the next largest in the world", "source": "MIAMI REALTORS / RWorld merger announcement, April 20, 2026 (docs/sources/miami-rworld-merger-announcement-2026-04-20.pdf)", "cite": "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" },
   "rworldLanguages": { "value": "100+", "label": "Languages", "source": "MIAMI International MLS (RWorld) syndication platform" },
   "mergerDate": "May 11, 2026"
 }

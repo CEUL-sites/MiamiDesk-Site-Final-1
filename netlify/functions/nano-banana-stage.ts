@@ -1,14 +1,8 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { GoogleGenAI } from "@google/genai";
+import { corsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
 
 const GEMINI_API_KEY = (process.env.GEMINI_API_KEY ?? process.env.Gemini_API_Key ?? "").trim();
-
-const jsonHeaders = {
-  "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
 
 // Nano Banana 🍌 = Gemini 2.5 Flash Image model
 // Confirmed: google-gemini/generative-ai GitHub notebook "Gemini 2.5 Flash Image (Nano Banana 🍌) Generation"
@@ -45,12 +39,28 @@ const SCENE_PROMPTS: Record<string, string> = {
 };
 
 export const handler: Handler = async (event: HandlerEvent) => {
+  const jsonHeaders = corsHeaders(event);
+
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 200, headers: jsonHeaders, body: "" };
   }
 
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, headers: jsonHeaders, body: JSON.stringify({ error: "Method not allowed" }) };
+  }
+
+  if (isForbiddenOrigin(event)) {
+    return { statusCode: 403, headers: jsonHeaders, body: JSON.stringify({ error: "Forbidden origin." }) };
+  }
+
+  // Image generation is the most expensive call on the site — throttle hard.
+  const retryAfter = rateLimit(event, "nb", 3, 60_000) ?? rateLimit(event, "nb-h", 15, 3_600_000);
+  if (retryAfter !== null) {
+    return {
+      statusCode: 429,
+      headers: { ...jsonHeaders, "Retry-After": String(retryAfter) },
+      body: JSON.stringify({ error: "Too many requests. Please wait a moment and try again." }),
+    };
   }
 
   if (!GEMINI_API_KEY) {

@@ -23,6 +23,14 @@ const RESTRICTED_PATTERNS: Array<{ pattern: RegExp; replacement: string }> = [
     pattern: /\b(good for venezuelans|family neighborhood|young professionals|safe area for women|mostly\s+[a-z]+\s+people)\b/gi,
     replacement: "area details should be evaluated through property features, budget, commute, amenities, and independent third-party sources",
   },
+  {
+    pattern: /\b(#\s?1|number one|top producer|best agent|top agent|highest[- ]rated agent)\b/gi,
+    replacement: "an experienced Florida-licensed listing agent",
+  },
+  {
+    pattern: /\b(from day one|on day one|within 24 hours|within \d+ hours|same[- ]day|instant(?:ly)?)\b/gi,
+    replacement: "as part of the listing process",
+  },
 ];
 
 export const guardAiDeskResponse = (text: string) => {

@@ -402,7 +402,7 @@ export default function EsAgentesPage() {
                 <br />
                 {/* TODO: native Madrid editor review */}
                 Su honorario,{" "}
-                <em className="italic text-gold">garantizado.</em>
+                <em className="italic text-gold">protegido por acuerdo escrito.</em>
               </motion.h1>
 
               <motion.p

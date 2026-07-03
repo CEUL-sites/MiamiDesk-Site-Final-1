@@ -2,7 +2,7 @@ import type { AiDeskIntent } from "./aiDeskIntentRouter";
 
 const getBridgeToken = () => (process.env.BRIDGE_API_TOKEN ?? "").trim();
 const getBridgeBase = () => {
-  const dataset = (process.env.BRIDGE_DATASET ?? "miamire").trim();
+  const dataset = (process.env.BRIDGE_DATASET_ID ?? process.env.BRIDGE_DATASET ?? "miamire").trim();
   return (process.env.BRIDGE_BASE_URL ?? `https://api.bridgedataoutput.com/api/v2/OData/${dataset}/Property`).trim();
 };
 

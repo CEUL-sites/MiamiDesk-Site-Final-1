@@ -34,6 +34,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
   const [commission, setCommission] = useState(5);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   const rows = useMemo(() => {
@@ -58,7 +59,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
         body: encodeForm({
           "form-name": "seller-consultation",
           "bot-field": "",
-          name, email, phone: "", propertyAddress: "", city: "",
+          name, email, phone, propertyAddress: "", city: "",
           timeline: "Exploring options",
           message: summary,
           source: "net-proceeds-calculator",
@@ -67,7 +68,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
-      notifyLeadDirect({ name, email, phone: "", message: summary, sourcePage, leadSource: getLeadSource() });
+      notifyLeadDirect({ name, email, phone, message: summary, sourcePage, leadSource: getLeadSource() });
       trackLead("seller", { form: "net-proceeds-calculator", page: sourcePage });
       setStatus("success");
     } catch {
@@ -210,6 +211,11 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                     className={inputCls}
                   />
                 </div>
+                <input
+                  type="tel" value={phone} onChange={(e) => setPhone(e.target.value)}
+                  placeholder="WhatsApp / phone (optional)" autoComplete="tel" inputMode="tel" aria-label="WhatsApp or phone (optional)"
+                  className={`${inputCls} mt-2.5`}
+                />
                 {status === "error" && (
                   <p className="mt-2 font-sans text-xs text-red-600/80">Could not send — please try again.</p>
                 )}

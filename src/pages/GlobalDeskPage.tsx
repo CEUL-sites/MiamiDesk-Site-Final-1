@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { ChevronRight, MessageCircle, FileCheck, KeyRound, ClipboardList } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
 
 type Lang = "es" | "en";
@@ -269,7 +270,7 @@ export default function GlobalDeskPage() {
           url: "https://homesprofessional.com/global-desk",
         }} />
 
-      <main id="main-content" className="min-h-screen bg-[#060D18] text-white">
+      <main id="main-content" className="min-h-screen bg-[#060D18] text-white pb-20 lg:pb-0">
         <Navbar />
 
         {/* ── Section A — Global Desk identity bar (own identity within site shell) ── */}
@@ -603,6 +604,15 @@ export default function GlobalDeskPage() {
         <section id="listing-request" className="scroll-mt-20 bg-[#060D18] px-6 py-16 md:py-24">
           <div className="mx-auto max-w-3xl">
             <GlobalDeskListingForm lang={lang} />
+            <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+              {lang === "es" ? (
+                <>¿Agencia o promotora? Vea el proceso completo de alta:{" "}
+                  <a href="/spain-mls-listing" className="text-gold underline underline-offset-2 hover:text-white">Inmueble en España → listado en el Miami MLS</a></>
+              ) : (
+                <>Agency or developer? Review the full activation process:{" "}
+                  <a href="/spain-mls-listing" className="text-gold underline underline-offset-2 hover:text-white">Spain property → Miami MLS listing</a></>
+              )}
+            </p>
           </div>
         </section>
 
@@ -625,6 +635,7 @@ export default function GlobalDeskPage() {
         </section>
 
         <Footer />
+        <MobileStickyCTA />
       </main>
     </>
   );

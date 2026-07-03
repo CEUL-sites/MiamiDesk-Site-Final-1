@@ -5,6 +5,8 @@ import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
+import { ExitIntentModal } from "../components/ExitIntentModal";
 import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
@@ -101,7 +103,7 @@ export default function SellNorthMiamiPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
-          <LazyVideo eager src="/videos/hand_house_reach.mp4" className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none" />
+          <LazyVideo idle src="/videos/hand_house_reach.mp4" className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">North Miami, FL · Seller Advisory</p>
@@ -318,6 +320,8 @@ export default function SellNorthMiamiPage() {
 
         <Footer />
         <MobileStickyCTA />
+        <DesktopStickyCTA />
+        <ExitIntentModal />
       </main>
     </>
   );

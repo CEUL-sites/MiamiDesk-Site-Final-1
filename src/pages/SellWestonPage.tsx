@@ -5,6 +5,8 @@ import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
+import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
+import { ExitIntentModal } from "../components/ExitIntentModal";
 import { LazyVideo } from "../components/LazyVideo";
 import { HeroReachBar } from "../components/HeroReachBar";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
@@ -116,7 +118,7 @@ export default function SellWestonPage() {
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
           <LazyVideo
-            eager
+            idle
             src="/videos/advisor-brand.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none"
           />
@@ -343,6 +345,8 @@ export default function SellWestonPage() {
 
         <Footer />
         <MobileStickyCTA />
+        <DesktopStickyCTA />
+        <ExitIntentModal />
       </main>
     </>
   );

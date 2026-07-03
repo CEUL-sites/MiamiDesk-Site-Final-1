@@ -4,6 +4,7 @@ import { JsonLd } from "../components/SEO/JsonLd";
 import { ArrowRight, BadgeCheck, Building2, ChevronRight, Download, Globe2, Handshake, Landmark, TrendingUp } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
@@ -118,7 +119,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
   en: [
     {
       q: "Is this a formal MLS listing or just a referral?",
-      a: "A formal listing. Eligible Spanish properties are placed into the MIAMI International MLS (RWorld) syndication platform through United Realty Group as the licensed Florida principal of record — distributed to the international agent and broker network in 100+ languages, subject to MLS rules. A Spain-located property does not enter the core Southeast Florida MLS daily-search system.",
+      a: "A formal listing. Eligible Spanish properties are placed into the MIAMI International MLS (RWorld) syndication platform through United Realty Group as the licensed Florida principal of record — distributed to the international agent and broker network, subject to MLS rules. A Spain-located property does not enter the core Southeast Florida MLS daily-search system.",
     },
     {
       q: "Do we lose the client relationship?",
@@ -140,7 +141,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
   es: [
     {
       q: "¿Es un listado formal en el MLS o solo un referido?",
-      a: "Un listado formal. Las propiedades españolas elegibles se colocan en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional, a través de United Realty Group como principal licenciado de Florida — distribuidas a la red internacional de agentes y brokers en 100+ idiomas, sujeto a las reglas del MLS. Un inmueble situado en España no entra en el sistema de búsqueda diaria del Southeast Florida MLS.",
+      a: "Un listado formal. Las propiedades españolas elegibles se colocan en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional, a través de United Realty Group como principal licenciado de Florida — distribuidas a la red internacional de agentes y brokers, sujeto a las reglas del MLS. Un inmueble situado en España no entra en el sistema de búsqueda diaria del Southeast Florida MLS.",
     },
     {
       q: "¿Perdemos la relación con el cliente?",
@@ -212,7 +213,7 @@ export default function SpainMlsListingPage() {
             "acceptedAnswer": { "@type": "Answer", "text": f.a }
           }))
         }} />
-      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
         {/* ── Hero ── */}
@@ -245,7 +246,7 @@ export default function SpainMlsListingPage() {
                 {t.ctaPrimary}
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a href={CONTACT.whatsappBroker} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
+              <a href={CONTACT.whatsappBrokerSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
                 {t.ctaWhatsApp}
               </a>
             </div>
@@ -365,7 +366,7 @@ export default function SpainMlsListingPage() {
               <h2 className="mt-3 font-serif text-3xl text-white">{t.contactH2}</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">{t.contactSub}</p>
               <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em]">
-                <a href={CONTACT.whatsappBroker} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors">WhatsApp ES +34 646 85 30 78</a>
+                <a href={CONTACT.whatsappBrokerSpain} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors">WhatsApp ES +34 646 85 30 78</a>
                 <a href={CONTACT.calendly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-gold hover:text-white transition-colors">{t.calendly} <ArrowRight size={11} /></a>
               </div>
             </div>
@@ -378,6 +379,7 @@ export default function SpainMlsListingPage() {
         </section>
 
         <Footer />
+        <MobileStickyCTA />
       </main>
     </>
   );

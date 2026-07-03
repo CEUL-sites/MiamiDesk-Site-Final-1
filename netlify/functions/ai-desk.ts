@@ -5,6 +5,7 @@ import { getBridgeMlsContextForAi } from "./_shared/bridgeMlsForAi";
 import { buildAiDeskSystemInstruction, HANDOFF_SIGNAL } from "./_shared/aiDeskSystemPrompt";
 import { formatLeadCaptureSummary } from "./_shared/leadCaptureFormatter";
 import { guardAiDeskResponse } from "./_shared/aiDeskResponseGuardrails";
+import { corsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
 
 const GOOGLE_SHEETS_WEBHOOK_URL = (process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "").trim();
 
@@ -42,16 +43,29 @@ async function postLeadToSheets(
 const GEMINI_API_KEY = (process.env.GEMINI_API_KEY ?? process.env.Gemini_API_Key ?? "").trim();
 const GEMINI_MODEL = "gemini-2.5-flash";
 
-const jsonHeaders = {
-  "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "*",
-};
-
 export const handler: Handler = async (event: HandlerEvent) => {
   console.log("[ai-desk] Function invoked");
+  const jsonHeaders = corsHeaders(event);
+
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 204, headers: jsonHeaders, body: "" };
+  }
 
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, headers: jsonHeaders, body: JSON.stringify({ error: "Method not allowed" }) };
+  }
+
+  if (isForbiddenOrigin(event)) {
+    return { statusCode: 403, headers: jsonHeaders, body: JSON.stringify({ error: "Forbidden origin." }) };
+  }
+
+  const retryAfter = rateLimit(event, "ai-desk", 10, 60_000) ?? rateLimit(event, "ai-desk-h", 60, 3_600_000);
+  if (retryAfter !== null) {
+    return {
+      statusCode: 429,
+      headers: { ...jsonHeaders, "Retry-After": String(retryAfter) },
+      body: JSON.stringify({ error: "Too many requests. Please wait a moment and try again." }),
+    };
   }
 
   if (!GEMINI_API_KEY) {
@@ -70,6 +84,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
     messages = parsed.messages;
     turnCount = typeof parsed.turnCount === "number" ? parsed.turnCount : 0;
     if (!Array.isArray(messages) || messages.length === 0) throw new Error("empty");
+    // Cost cap: refuse oversized conversations rather than forwarding them to Gemini.
+    if (messages.length > 40 || messages.some((m) => typeof m?.content !== "string" || m.content.length > 4000)) {
+      throw new Error("oversized");
+    }
   } catch {
     return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: "No messages provided." }) };
   }

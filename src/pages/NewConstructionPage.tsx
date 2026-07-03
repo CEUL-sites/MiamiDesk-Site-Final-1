@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { ChevronRight } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { SellerCtaBand } from "../components/SellerCtaBand";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { NeoEmbed } from "../components/NeoEmbed";
 import { CONTACT } from "../constants";
@@ -88,6 +89,7 @@ export default function NewConstructionPage() {
           </div>
         </section>
 
+        <SellerCtaBand />
         <Footer />
         <MobileStickyCTA />
       </main>
