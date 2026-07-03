@@ -21,7 +21,7 @@ export function AdvisorBrand() {
 
         {/* Content — left-anchored, vertically centred */}
         <div className="relative z-10 flex h-full items-center" style={{ minHeight: "520px" }}>
-          <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-14 lg:px-20">
+          <div className="mx-auto w-full max-w-7xl px-6 py-8 md:px-14 md:py-16 lg:px-20">
             <div className="max-w-xl">
 
               <motion.p
@@ -39,8 +39,8 @@ export function AdvisorBrand() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="mt-5 font-serif leading-[1.05] text-white"
-                style={{ fontSize: "clamp(2.6rem, 5vw, 4.8rem)" }}
+                className="mt-3 font-serif leading-[1.05] text-white md:mt-5"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4.8rem)" }}
               >
                 Not a listing agent.<br />
                 <em className="italic text-gold">A strategy partner.</em>
@@ -51,7 +51,7 @@ export function AdvisorBrand() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="mt-6 font-sans text-base leading-relaxed text-white/65 max-w-md"
+                className="mt-4 font-sans text-base leading-relaxed text-white/65 max-w-md md:mt-6"
               >
                 Twenty-five years of South Florida transactions — residential, luxury, and commercial. The relationships, the market intelligence, and the professional network that determine whether a listing becomes a result.
               </motion.p>
@@ -62,7 +62,7 @@ export function AdvisorBrand() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="mt-8 flex flex-wrap gap-2"
+                className="mt-5 flex flex-wrap gap-2 md:mt-8"
               >
                 {["CLHMS", "Certified Seller Rep", "United Realty Group", "Licensed Since 2001"].map((badge) => (
                   <span
@@ -79,7 +79,7 @@ export function AdvisorBrand() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.4 }}
-                className="mt-8 flex flex-wrap gap-3"
+                className="mt-5 flex flex-wrap gap-3 md:mt-8"
               >
                 <a
                   href="/contact"

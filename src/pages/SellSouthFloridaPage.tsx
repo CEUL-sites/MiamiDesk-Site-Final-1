@@ -207,14 +207,14 @@ export default function SellSouthFloridaPage() {
         <ReachAdvantage />
 
         {/* Miami Realtors Association — Why You Need a Miami Realtor */}
-        <section className="bg-white py-20 md:py-28">
+        <section className="bg-white py-10 md:py-28">
           <div className="mx-auto max-w-4xl px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6 md:mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Why Miami MLS Representation Matters</p>
-              <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl max-w-2xl mx-auto">
+              <h2 className="mt-3 font-serif text-2xl leading-tight text-navy-deep max-w-2xl mx-auto md:mt-5 md:text-4xl">
                 The case for professional representation — from the Association itself.
               </h2>
-              <p className="mx-auto mt-5 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/60">
+              <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/60 md:mt-5">
                 In the Association's own words: what a REALTOR® changes about your transaction.
               </p>
             </div>
@@ -232,24 +232,24 @@ export default function SellSouthFloridaPage() {
                 allowFullScreen
               />
             </div>
-            <p className="mt-4 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/70">
+            <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/70 md:mt-4">
               Video: Miami and South Florida REALTORS® · miamirealtors.com
             </p>
           </div>
         </section>
 
         {/* Who This Is For */}
-        <section className="bg-ivory py-16 md:py-20">
+        <section className="bg-ivory py-10 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Who this is for</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+            <h2 className="mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:mt-5 md:text-4xl">
               South Florida sellers at every stage and location.
             </h2>
-            <div className="mt-10 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+            <div className="mt-6 grid grid-cols-2 gap-px border border-hairline bg-hairline md:mt-10 md:grid-cols-2">
               {WHO_THIS_IS_FOR.map((item) => (
-                <div key={item.title} className="bg-white p-7">
-                  <h3 className="font-serif text-xl text-navy-deep">{item.title}</h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{item.body}</p>
+                <div key={item.title} className="bg-white p-3 md:p-7">
+                  <h3 className="font-serif text-base leading-snug text-navy-deep md:text-xl">{item.title}</h3>
+                  <p className="mt-1.5 font-sans text-xs leading-snug text-ink-primary/65 md:mt-2 md:text-sm md:leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -257,10 +257,10 @@ export default function SellSouthFloridaPage() {
         </section>
 
         {/* Neighborhood seller pages */}
-        <section className="bg-white border-t border-hairline py-10">
+        <section className="bg-white border-t border-hairline py-5 md:py-10">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold-ink mb-5">Sell by Neighborhood</p>
-            <div className="flex flex-wrap gap-3">
+            <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold-ink mb-3 md:mb-5">Sell by Neighborhood</p>
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {[
                 { label: "Miami",            href: "/sell-miami" },
                 { label: "Brickell",         href: "/sell-brickell" },
@@ -283,7 +283,7 @@ export default function SellSouthFloridaPage() {
                 <a
                   key={n.href}
                   href={n.href}
-                  className="border border-hairline px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/60 hover:border-gold/50 hover:text-gold transition-colors"
+                  className="border border-hairline px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/60 hover:border-gold/50 hover:text-gold transition-colors md:px-5 md:py-2.5"
                 >
                   {n.label} →
                 </a>
@@ -295,7 +295,7 @@ export default function SellSouthFloridaPage() {
         <SellerSection />
 
         {/* Why Buyer-Agent Relationships Matter */}
-        <section className="relative overflow-hidden bg-navy-deep pt-14 pb-16 md:pt-20 md:pb-24 text-white">
+        <section className="relative overflow-hidden bg-navy-deep pt-8 pb-10 md:pt-20 md:pb-24 text-white">
           <AuroraBackground variant="subtle" />
           <LazyVideo
             src="/videos/best_exposure_listings.mp4"
@@ -307,25 +307,25 @@ export default function SellSouthFloridaPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
                 The Professional Market
               </p>
-              <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
+              <h2 className="mt-3 font-serif text-2xl leading-tight text-white md:mt-5 md:text-4xl">
                 Why buyer-agent relationships<br />
                 <em className="italic text-gold">are half the strategy.</em>
               </h2>
-              <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
+              <p className="mt-4 font-sans text-base leading-relaxed text-white/65 md:mt-6">
                 {SOURCES.buyerAgentStatement} A strong listing makes your property easy
                 for those agents to find, show, defend, and recommend.
               </p>
-              <div className="mt-4 border-l-2 border-gold/40 pl-5">
+              <div className="mt-3 border-l-2 border-gold/40 pl-5 md:mt-4">
                 <p className="font-serif text-lg text-white/80 italic leading-relaxed">
                   "{MESSAGING.buyerAgentMessenger}"
                 </p>
               </div>
-              <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+              <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30 md:mt-3">
                 Source: {SOURCES.nar}
               </p>
             </div>
 
-            <div className="mt-14 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2">
+            <div className="mt-8 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 md:mt-14">
               {[
                 {
                   title: "What a buyer agent needs from your listing",
@@ -348,9 +348,9 @@ export default function SellSouthFloridaPage() {
                   ],
                 },
               ].map((col) => (
-                <div key={col.title} className="bg-navy p-8">
-                  <h3 className="font-serif text-lg text-white mb-5">{col.title}</h3>
-                  <ul className="space-y-3">
+                <div key={col.title} className="bg-navy p-5 md:p-8">
+                  <h3 className="font-serif text-lg text-white mb-3 md:mb-5">{col.title}</h3>
+                  <ul className="space-y-2 md:space-y-3">
                     {col.items.map((item) => (
                       <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/65">
                         <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
@@ -371,56 +371,56 @@ export default function SellSouthFloridaPage() {
         <FAQ />
 
         {/* Journal crosslinks */}
-        <section className="bg-ivory py-12 md:py-16">
+        <section className="bg-ivory py-8 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink mb-6">Seller Research Library</p>
-            <div className="grid gap-4 sm:grid-cols-3">
-              <a href="/journal/seller-closing-costs-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/70">Read the cost guide →</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink mb-4 md:mb-6">Seller Research Library</p>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
+              <a href="/journal/seller-closing-costs-south-florida-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the cost guide →</p>
               </a>
-              <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What South Florida Sellers Need to Know</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/70">Read the HOA guide →</p>
+              <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">HOA Financials and Your Home's Sale Price — What South Florida Sellers Need to Know</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the HOA guide →</p>
               </a>
-              <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-3">Market Analysis</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/70">Read the timing guide →</p>
+              <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Market Analysis</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the timing guide →</p>
               </a>
-              <a href="/journal/florida-homestead-portability-benefits-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Florida Homestead and Save Our Homes Portability — What Owners Should Understand Before They Sell</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/70">Read the homestead guide →</p>
+              <a href="/journal/florida-homestead-portability-benefits-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">Florida Homestead and Save Our Homes Portability — What Owners Should Understand Before They Sell</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the homestead guide →</p>
               </a>
-              <a href="/journal/home-sale-capital-gains-exclusion-500k-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">The $250,000 / $500,000 Home Sale Capital Gains Exclusion — How It Works for Primary Residences</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/70">Read the tax-exclusion guide →</p>
+              <a href="/journal/home-sale-capital-gains-exclusion-500k-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The $250,000 / $500,000 Home Sale Capital Gains Exclusion — How It Works for Primary Residences</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the tax-exclusion guide →</p>
               </a>
-              <a href="/journal/1031-exchange-south-florida-investment-property-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">The 1031 Exchange — Deferring Capital Gains When You Sell South Florida Investment Property</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/70">Read the 1031 guide →</p>
+              <a href="/journal/1031-exchange-south-florida-investment-property-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The 1031 Exchange — Deferring Capital Gains When You Sell South Florida Investment Property</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the 1031 guide →</p>
               </a>
             </div>
           </div>
         </section>
 
         {/* Confidential intake */}
-        <section className="bg-navy-deep py-16 md:py-24" id="contact">
+        <section className="bg-navy-deep py-10 md:py-24" id="contact">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-10 text-center">
+            <div className="mb-5 text-center md:mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Seller Desk</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+              <h2 className="mt-2 font-serif text-2xl text-white md:mt-3 md:text-3xl">Request a private property positioning review.</h2>
+              <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-white/50 md:mt-4">
                 No listing commitment required. Carlos reviews every submission personally before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-south-florida" />
-            <div className="mt-6 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
+            <div className="mt-3 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55 md:mt-6">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>

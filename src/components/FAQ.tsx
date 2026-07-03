@@ -48,13 +48,13 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative overflow-hidden border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
+    <section id="faq" className="relative overflow-hidden border-t border-gold/20 bg-navy py-8 md:py-20 text-white">
       <JsonLd id="site-faq" data={faqSchema} />
       <AuroraBackground variant="subtle" />
       <div className="relative z-10 mx-auto max-w-4xl px-6">
-        <div className="mb-12 text-center">
+        <div className="mb-6 text-center md:mb-12">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Common Questions</p>
-          <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">
+          <h2 className="mt-3 font-serif text-2xl leading-tight text-white md:mt-4 md:text-4xl lg:text-5xl">
             Questions we get asked.
           </h2>
         </div>
@@ -65,7 +65,7 @@ export function FAQ() {
               <button
                 type="button"
                 onClick={() => setOpen(open === i ? null : i)}
-                className="flex w-full items-start justify-between gap-6 py-6 text-left"
+                className="flex w-full items-start justify-between gap-6 py-4 text-left md:py-6"
                 aria-expanded={open === i}
               >
                 <span className="font-serif text-lg text-white leading-snug">{faq.q}</span>
@@ -83,7 +83,7 @@ export function FAQ() {
                     transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="pb-7 font-sans text-[0.9rem] leading-relaxed text-white/75">{faq.a}</p>
+                    <p className="pb-5 font-sans text-[0.9rem] leading-relaxed text-white/75 md:pb-7">{faq.a}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

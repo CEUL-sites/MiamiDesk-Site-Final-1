@@ -70,9 +70,9 @@ const DURATIONS   = ["7s", "9s", "11s", "8s", "10s"] as const;
 
 // Bubble size classes by tier — using only classes that exist in Tailwind v4
 const TIER_CLASSES: Record<1 | 2 | 3, string> = {
-  1: "px-7 py-4 text-[15px] font-semibold",
-  2: "px-5 py-3 text-[13px] font-medium",
-  3: "px-4 py-2 text-[11px] font-normal uppercase tracking-wider",
+  1: "px-5 py-2.5 text-[15px] font-semibold md:px-7 md:py-4",
+  2: "px-4 py-2 text-[13px] font-medium md:px-5 md:py-3",
+  3: "px-3 py-1.5 text-[11px] font-normal uppercase tracking-wider md:px-4 md:py-2",
 };
 
 const BOTTOM_STATS = [
@@ -90,14 +90,14 @@ export const ExposureSyndication = () => {
     <section
       id="syndication"
       ref={sectionRef}
-      className="bg-navy-deep py-12 md:py-20 text-white overflow-hidden"
+      className="bg-navy-deep py-8 md:py-20 text-white overflow-hidden"
       aria-label="Listing syndication network — 200 plus global portals in 19 languages"
     >
       {/* Inject float keyframes once */}
       <style>{FLOAT_STYLES}</style>
 
       {/* ── Section header ── */}
-      <div className="mx-auto max-w-4xl px-6 text-center mb-14">
+      <div className="mx-auto max-w-4xl px-6 text-center mb-8 md:mb-14">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -110,7 +110,7 @@ export const ExposureSyndication = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-5 font-serif text-4xl leading-tight text-white lg:text-5xl"
+          className="mt-3 font-serif text-2xl leading-tight text-white md:mt-5 md:text-4xl lg:text-5xl"
         >
           Your listing. Everywhere buyers search.
         </motion.h2>
@@ -118,7 +118,7 @@ export const ExposureSyndication = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55"
+          className="mx-auto mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/55 md:mt-6"
         >
           A properly prepared MLS listing can be distributed through approved syndication
           channels, professional search platforms, and international exposure pathways
@@ -132,7 +132,7 @@ export const ExposureSyndication = () => {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.35 }}
-        className="mx-auto max-w-5xl px-6 flex flex-wrap justify-center items-center gap-4"
+        className="mx-auto max-w-5xl px-6 flex flex-wrap justify-center items-center gap-2 md:gap-4"
       >
         {PORTALS.map((portal, i) => (
           <div
@@ -157,9 +157,9 @@ export const ExposureSyndication = () => {
       </motion.div>
 
       {/* ── Bottom stats bar ── */}
-      <div className="mx-auto max-w-5xl px-6 mt-14">
+      <div className="mx-auto max-w-5xl px-6 mt-8 md:mt-14">
         <div className="h-px w-full bg-gold/25" />
-        <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 py-10">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 py-6 md:gap-x-10 md:gap-y-6 md:py-10">
           {BOTTOM_STATS.map((stat, i) => (
             <div key={stat.label} className="flex items-center gap-10">
               <div className="text-center">
@@ -175,7 +175,7 @@ export const ExposureSyndication = () => {
           ))}
         </div>
         <div className="h-px w-full bg-gold/25" />
-        <p className="font-mono text-center text-[9px] uppercase tracking-[0.22em] text-white/55 mt-5">
+        <p className="font-mono text-center text-[9px] uppercase tracking-[0.22em] text-white/55 mt-3 md:mt-5">
           Source: Miami and South Florida REALTORS® · Verified syndication data
         </p>
       </div>
