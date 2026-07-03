@@ -8,6 +8,7 @@ created_by: "codex"
 market: "Coral Gables"
 funnel_stage: "consideration"
 content_goal: "buyer_and_seller_lead_generation"
+image: "/images/journal/og/buyer-discipline-coral-gables-2026-july.jpg"
 ---
 
 Coral Gables buyers need more than property alerts. They need a defined acquisition mandate, offer discipline, and representation that understands how serious sellers evaluate risk.
