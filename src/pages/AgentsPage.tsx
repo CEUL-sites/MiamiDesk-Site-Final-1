@@ -184,7 +184,7 @@ export default function AgentsPage() {
             {
               "@type": "Question",
               "name": "What is the Miami and South Florida REALTORS® network?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Miami and South Florida REALTORS® is the world's largest local REALTOR® association, with 93,000 member agents across 385 MLSs. It has over 437 signed international agreements, providing a professional referral infrastructure across 70+ countries." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Miami and South Florida REALTORS® is the world's largest local REALTOR® association, with 93,000 member agents and listing syndication reaching 260+ U.S. MLSs via the RPR data exchange. It has over 437 signed international agreements, providing a professional referral infrastructure across 75+ countries." }
             }
           ]
         }} />
@@ -251,7 +251,7 @@ export default function AgentsPage() {
           <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-hairline border-x border-hairline md:grid-cols-4">
             {[
               { icon: Globe2,    value: "93,000",  label: "MIAMI REALTORS® member agents" },
-              { icon: Handshake, value: "437+",    label: "International agreements · 70+ countries" },
+              { icon: Handshake, value: "437+",    label: "International agreements · 75+ countries" },
               { icon: Languages, value: "19",      label: "Languages · 200+ global portals" },
               { icon: Building2, value: "25 yrs",  label: "Florida licensed · bilingual" },
             ].map((s) => (
@@ -419,7 +419,7 @@ export default function AgentsPage() {
                 },
                 {
                   q: "Who sees it?",
-                  a: "South Florida buyer agents. U.S. and Latin American buyers with capital for European real estate. International buyer networks reached through 437+ MIAMI Association referral agreements in 70+ countries.",
+                  a: "South Florida buyer agents. U.S. and Latin American buyers with capital for European real estate. International buyer networks reached through 437+ MIAMI Association referral agreements in 75+ countries.",
                 },
                 {
                   q: "How is it different?",
@@ -668,7 +668,7 @@ export default function AgentsPage() {
                 {
                   value: "437+",
                   label: "International Agreements",
-                  desc: "Signed referral agreements with real estate organizations across 70+ countries, creating a professional infrastructure for cross-border introductions.",
+                  desc: "Signed referral agreements with real estate organizations across 75+ countries, creating a professional infrastructure for cross-border introductions.",
                 },
                 {
                   value: "25 yrs",
@@ -971,7 +971,7 @@ export default function AgentsPage() {
                     },
                     {
                       icon: Globe2,
-                      title: "Reach from day one",
+                      title: "Association reach, built in",
                       body: "Every affiliated agent enters the Miami and South Florida REALTORS® ecosystem — a 93,000-member association, 200+ global portals in 19 languages, and 437+ international referral agreements. You present like a luxury team without building one yourself.",
                     },
                     {

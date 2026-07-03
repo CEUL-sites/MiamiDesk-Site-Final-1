@@ -30,7 +30,7 @@ const SERVICE_TIERS = [
     includes: [
       "Alta a través de URG como broker de registro en Florida",
       "Colocación en el MIAMI International MLS (RWorld) — sindicación internacional",
-      "Sindicación a la red global de agentes y brokers en 100+ idiomas",
+      "Sindicación a la red global de agentes y brokers partner",
       "Presentación bilingüe del inmueble (EN / ES)",
       "Acuerdo de referral escrito — relación con el cliente protegida",
     ],
@@ -104,7 +104,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿En qué MLS entra realmente un inmueble español?",
-    a: "Un inmueble situado fuera de EE.UU. no entra en el sistema de búsqueda diaria del Southeast Florida MLS (SEFMLS), cuyas reglas presuponen contratos de listing firmados por el propietario dentro del área de servicio de Sur de Florida. El inventario internacional se coloca en el MIAMI International MLS (RWorld) — la plataforma de sindicación internacional de la asociación, que distribuye a miles de webs de agentes y brokers partner en todo el mundo en 100+ idiomas — con Carlos como principal de registro licenciado en Florida a través de United Realty Group. La colocación está sujeta a las normas del MLS y a la elegibilidad de cada inmueble.",
+    a: "Un inmueble situado fuera de EE.UU. no entra en el sistema de búsqueda diaria del Southeast Florida MLS (SEFMLS), cuyas reglas presuponen contratos de listing firmados por el propietario dentro del área de servicio de Sur de Florida. El inventario internacional se coloca en el MIAMI International MLS (RWorld) — la plataforma de sindicación internacional de la asociación, que distribuye a miles de webs de agentes y brokers partner en todo el mundo — con Carlos como principal de registro licenciado en Florida a través de United Realty Group. La colocación está sujeta a las normas del MLS y a la elegibilidad de cada inmueble.",
   },
   {
     q: "¿Cuál es la diferencia entre la tarifa mensual y la comisión de referral?",
@@ -515,7 +515,7 @@ export default function EsSpainDeskPage() {
                 {
                   step: "03",
                   label: "Distribución en Red",
-                  body: "El inmueble se distribuye a la red global de agentes y brokers del MIAMI International MLS (RWorld) en 100+ idiomas cuando es elegible. El alcance varía según el inmueble y la plataforma.",
+                  body: "El inmueble se distribuye a la red global de agentes y brokers del MIAMI International MLS (RWorld) cuando es elegible. El alcance varía según el inmueble y la plataforma.",
                 },
                 {
                   step: "04",
@@ -814,7 +814,7 @@ export default function EsSpainDeskPage() {
               <p className="font-sans text-base leading-relaxed text-white/70">
                 {/* Datos del segmento prime, 2025: los internacionales dominan; los americanos son
                     la cohorte de mayor crecimiento y gasto; el capital latinoamericano lidera en Madrid. */}
-                La demanda prime española es mayoritariamente internacional: aproximadamente dos tercios de las ventas por encima de €2,5M son a compradores no residentes. En Marbella y la Costa del Sol las nacionalidades líderes son británica, alemana, neerlandesa y — cada vez más — americana, la cohorte de mayor crecimiento y gasto; el capital latinoamericano lidera específicamente en Madrid. Los agentes compradores estadounidenses y latinoamericanos que representan esa demanda ya trabajan a través de la red del MIAMI International MLS (RWorld), con distribución a la red global de agentes y brokers en 100+ idiomas. Una vía institucional operada por un profesional con 25 años de licencia activa en Florida.
+                La demanda prime española es mayoritariamente internacional: aproximadamente dos tercios de las ventas por encima de €2,5M son a compradores no residentes. En Marbella y la Costa del Sol las nacionalidades líderes son británica, alemana, neerlandesa y — cada vez más — americana, la cohorte de mayor crecimiento y gasto; el capital latinoamericano lidera específicamente en Madrid. Los agentes compradores estadounidenses y latinoamericanos que representan esa demanda ya trabajan a través de la red del MIAMI International MLS (RWorld), con distribución a la red global de agentes y brokers partner. Una vía institucional operada por un profesional con 25 años de licencia activa en Florida.
               </p>
             </div>
 

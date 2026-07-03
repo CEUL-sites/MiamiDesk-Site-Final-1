@@ -55,7 +55,7 @@ A seller who can answer those five questions enters the market with leverage. A 
 
 When a property is listed with Carlos Uzcategui, it does not simply appear online. It is positioned through the distribution infrastructure of the **Miami and South Florida REALTORS®** — the world's largest local REALTOR® association, with roughly **93,000 member agents**, **200+ global property portals** publishing in **19 languages**, **437+ international cooperation agreements**, and syndication across **260+ U.S. MLSs** through **11 MLS data exchanges**.
 
-It is also carried by **United Realty Group**, ranked #1 in Florida for most closed homes, with **3,500+ agents across 20 offices**. For owners with Spanish or Latin American buyer profiles, Carlos coordinates a bilingual cross-border referral model that reaches buyers relocating or investing into South Florida.
+It is also carried by **United Realty Group**, a Florida brokerage with **3,500+ agents across 20 offices**. For owners with Spanish or Latin American buyer profiles, Carlos coordinates a bilingual cross-border referral model that reaches buyers relocating or investing into South Florida.
 
 None of this guarantees a result — no honest agent can promise a price or a timeline. What it creates is a *structural advantage*: more qualified exposure, clearer positioning, and a better chance of putting competitive pressure on the property at the right moment.
 

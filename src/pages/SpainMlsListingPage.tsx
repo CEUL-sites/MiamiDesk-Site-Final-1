@@ -118,7 +118,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
   en: [
     {
       q: "Is this a formal MLS listing or just a referral?",
-      a: "A formal listing. Eligible Spanish properties are placed into the MIAMI International MLS (RWorld) syndication platform through United Realty Group as the licensed Florida principal of record — distributed to the international agent and broker network in 100+ languages, subject to MLS rules. A Spain-located property does not enter the core Southeast Florida MLS daily-search system.",
+      a: "A formal listing. Eligible Spanish properties are placed into the MIAMI International MLS (RWorld) syndication platform through United Realty Group as the licensed Florida principal of record — distributed to the international agent and broker network, subject to MLS rules. A Spain-located property does not enter the core Southeast Florida MLS daily-search system.",
     },
     {
       q: "Do we lose the client relationship?",
@@ -140,7 +140,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
   es: [
     {
       q: "¿Es un listado formal en el MLS o solo un referido?",
-      a: "Un listado formal. Las propiedades españolas elegibles se colocan en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional, a través de United Realty Group como principal licenciado de Florida — distribuidas a la red internacional de agentes y brokers en 100+ idiomas, sujeto a las reglas del MLS. Un inmueble situado en España no entra en el sistema de búsqueda diaria del Southeast Florida MLS.",
+      a: "Un listado formal. Las propiedades españolas elegibles se colocan en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional, a través de United Realty Group como principal licenciado de Florida — distribuidas a la red internacional de agentes y brokers, sujeto a las reglas del MLS. Un inmueble situado en España no entra en el sistema de búsqueda diaria del Southeast Florida MLS.",
     },
     {
       q: "¿Perdemos la relación con el cliente?",
