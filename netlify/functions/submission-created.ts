@@ -3,6 +3,7 @@ import { getStore } from "@netlify/blobs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
 import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
 import { sendWhatsAppAlert } from "./_shared/whatsapp";
+import { storeDeadLetter } from "./_shared/leadDeadLetter";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
@@ -90,10 +91,13 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // example, a backup run that logged to Sheets but failed to email Carlos
     // doesn't block the email here (and never produces a duplicate Sheets row).
     const alertKey = dedupKey(email, phone);
+    let sheetsOk = false;   // true once a Sheets row exists for this lead (this run or the backup)
+    let alerted = false;    // true once Carlos was actually alerted (this run or the backup)
 
     // ── 1. Google Sheets via Apps Script webhook ─────────────────────────
     if (await wasAlerted(alertKey, "sheets")) {
       console.log("submission-created: Sheets row already written by backup notifier — skipping", alertKey);
+      sheetsOk = true;
     } else if (GOOGLE_SHEETS_WEBHOOK_URL) {
       try {
         const sheetsRes = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
@@ -119,6 +123,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
           console.error("Google Sheets webhook returned", sheetsRes.status, await sheetsRes.text());
         } else {
           await markAlerted(alertKey, "sheets");
+          sheetsOk = true;
         }
       } catch (sheetErr) {
         console.error("Google Sheets error:", sheetErr);
@@ -130,9 +135,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // ── 2 & 3. Email + WhatsApp alert to Carlos (deduped together) ────────
     if (await wasAlerted(alertKey, "alert")) {
       console.log("submission-created: Carlos already alerted by backup notifier — skipping email/WhatsApp", alertKey);
+      alerted = true;
     } else {
-      let alerted = false;
-
       // ── 2. Email notification via Resend ──────────────────────────────
       if (RESEND_API_KEY) {
         const emailBody = [
@@ -211,6 +215,22 @@ export const handler: Handler = async (event: HandlerEvent) => {
       // Only mark the alert channel if something actually reached Carlos, so a
       // total failure here doesn't suppress a later retry.
       if (alerted) await markAlerted(alertKey, "alert");
+    }
+
+    // If neither a Sheets row nor an alert to Carlos exists for this lead
+    // (this run or the backup notifier), the submission would otherwise only
+    // live in these function logs — preserve it so it can be recovered.
+    if (!sheetsOk && !alerted && (email.includes("@") || phone)) {
+      await storeDeadLetter("submission-created", {
+        formName,
+        name,
+        email,
+        phone,
+        propertyAddress,
+        city,
+        timeline,
+        message,
+      });
     }
 
     // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────

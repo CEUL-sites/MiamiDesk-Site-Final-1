@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send, Upload } from "lucide-react";
-import { pushEvent } from "../../lib/analytics";
+import { pushEvent, trackLead } from "../../lib/analytics";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 
 type Lang = "es" | "en";
@@ -289,6 +289,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
         }),
       }).catch(() => {});
 
+      trackLead("seller", { form: "global-desk-listing", language: lang });
       pushEvent("form_submit_global_desk_listing", { language: lang, submitter_type: submitterType });
       setStatus("success");
     } catch (e: unknown) {
