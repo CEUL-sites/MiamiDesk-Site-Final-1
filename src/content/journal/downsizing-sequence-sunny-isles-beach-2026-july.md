@@ -8,6 +8,7 @@ created_by: "github-actions"
 market: "Sunny Isles Beach"
 funnel_stage: "consideration"
 content_goal: "lead_generation"
+image: "/images/journal/og/downsizing-sequence-sunny-isles-beach-2026-july.jpg"
 ---
 
 Downsizing owners should coordinate valuation, timing, homestead portability questions, purchase planning, and post-closing occupancy before going public.
