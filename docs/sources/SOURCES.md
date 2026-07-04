@@ -43,3 +43,29 @@ Verified facts:
   used prominently).
 - Shared with **260+ MLSs across the country via RPR**.
 - Marketed in **19 languages**.
+
+## 3. United Realty Group office directory — July 2026
+
+File: `urg-office-directory-2026-07.jpg` (photo of URG's internal office
+directory, supplied by Carlos Uzcategui, July 2026)
+
+Verified facts:
+
+- **21 Florida offices** (supersedes the earlier "20 Florida offices" figure,
+  which was sourced from urgfl.com and undercounted by one). Breakdown:
+  - Broward County (11): Corporate Office (Plantation, 1200 S. Pine Island Rd
+    Suite 600), Cooper City, Coral Springs, Fort Lauderdale, Hollywood,
+    Lighthouse Point, Parkland, Pembroke Pines, Plantation/Vizcaya Square (975
+    N. Nob Hill Rd — a second, separate Plantation location), Tamarac, Weston
+    (15951 SW 41st Street, Suite 700 — Carlos's office).
+  - Orange County (1): Orlando.
+  - Palm Beach County (5): Boca Raton, Boynton Beach, Palm Beach Gardens,
+    Royal Palm Beach, Wellington.
+  - Miami-Dade County (3): Aventura, Hialeah Gardens, Kendall.
+  - Other Florida branches (1): Gainesville.
+- United Realty Group also operates a **Greensboro, NC** branch — this is
+  **not** a Florida office and must never be counted toward the "Florida
+  offices" figure or implied as part of Carlos's Florida license coverage.
+- Full addresses for every location are legible in the source photo, should a
+  future task need the exact street address of a specific office (e.g. a
+  location-specific schema block or an "Our Offices" page).

@@ -188,7 +188,7 @@ const C = {
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
-      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 20 Florida offices.",
+      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 21 Florida offices.",
     footerContacts: "Contact",
     footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
   },

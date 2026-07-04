@@ -967,7 +967,7 @@ export default function AgentsPage() {
                     {
                       icon: Building2,
                       title: "A platform that closes, not just lists",
-                      body: "United Realty Group has operated since 2002 across 20 South Florida offices, with an in-house title company. Fewer deals stall at closing, and the ancillary side of every transaction stays under one roof.",
+                      body: "United Realty Group has operated since 2002 across 21 South Florida offices, with an in-house title company. Fewer deals stall at closing, and the ancillary side of every transaction stays under one roof.",
                     },
                     {
                       icon: Globe2,

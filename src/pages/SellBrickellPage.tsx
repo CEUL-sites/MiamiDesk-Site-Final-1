@@ -212,13 +212,13 @@ export default function SellBrickellPage() {
                   <em className="italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 20 South Florida offices — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 21 South Florida offices — not a portal, a professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
-                    "United Realty Group — 3,500+ agents across 20 Florida offices",
+                    "United Realty Group — 3,500+ agents across 21 Florida offices",
                     "Direct LATAM and European buyer pipeline",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
