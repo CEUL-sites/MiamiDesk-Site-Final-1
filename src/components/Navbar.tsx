@@ -77,7 +77,7 @@ export function Navbar() {
           <UrgLogo className="h-8 w-auto sm:h-9" />
           <span className="hidden flex-col leading-none border-l border-current/20 pl-3 xl:flex">
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
-            <span className="font-mono uppercase leading-none opacity-50 mt-1" style={{ fontSize: "0.5rem", letterSpacing: "0.2em" }}>
+            <span className="font-mono uppercase leading-none opacity-70 mt-1" style={{ fontSize: "0.6875rem", letterSpacing: "0.2em" }}>
               Florida REALTOR® since 2001
             </span>
           </span>

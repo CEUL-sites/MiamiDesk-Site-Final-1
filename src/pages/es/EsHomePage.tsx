@@ -108,7 +108,7 @@ export default function EsHomePage() {
               <motion.p
                 variants={itemVariants}
                 className="font-mono mb-4 text-gold uppercase tracking-[0.22em]"
-                style={{ fontSize: "0.62rem" }}
+                style={{ fontSize: "0.6875rem" }}
               >
                 UNITED REALTY GROUP · CARLOS UZCATEGUI · FL REALTOR® SL705771
               </motion.p>

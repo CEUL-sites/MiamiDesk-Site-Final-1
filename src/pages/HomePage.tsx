@@ -4,24 +4,18 @@ import { AGGREGATE_RATING, VERIFIED_REVIEWS, buildReviewSchema } from "../data/r
 import { JsonLd } from "../components/SEO/JsonLd";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
-import { ReachAdvantage } from "../components/ReachAdvantage";
-import { Testimonials } from "../components/Testimonials";
-import { LeadMagnetStrip } from "../components/LeadMagnetStrip";
+import { Proof } from "../components/Proof";
+import { Distribution } from "../components/Distribution";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
-import { ProofStrip } from "../components/ProofStrip";
-import { ListingSystem } from "../components/ListingSystem";
 import { MarketPulse } from "../components/MarketPulse";
 import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
 
 // Below-the-fold sections — split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
 // hydrates these progressively once their chunks arrive.
-const IntelligenceDesk = lazy(() => import("../components/IntelligenceDesk").then((m) => ({ default: m.IntelligenceDesk })));
-const BuyersRelocation = lazy(() => import("../components/BuyersRelocation").then((m) => ({ default: m.BuyersRelocation })));
-const HowCarlosWorks = lazy(() => import("../components/HowCarlosWorks").then((m) => ({ default: m.HowCarlosWorks })));
 const AboutContact = lazy(() => import("../components/AboutContact").then((m) => ({ default: m.AboutContact })));
 
 export default function HomePage() {
@@ -69,17 +63,11 @@ export default function HomePage() {
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />
-        <ProofStrip />
-        <ReachAdvantage />
-        <ListingSystem />
-        <Testimonials />
-        <MarketPulse />
+        <Proof />
+        <Distribution />
         <GlobalDeskTeaser />
-        <LeadMagnetStrip />
+        <MarketPulse />
         <Suspense fallback={null}>
-          <IntelligenceDesk />
-          <BuyersRelocation />
-          <HowCarlosWorks />
           <AboutContact />
         </Suspense>
         <Footer />
