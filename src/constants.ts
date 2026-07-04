@@ -77,15 +77,18 @@ export const LEAD_MAGNETS = {
 
 // Where past clients are routed to leave a public review (Fix 17 funnel).
 // Realtor.com is Carlos's verified agent profile (direct review link).
-// GOOGLE: direct "write a review" deep link using the Google Business Profile
-// feature ID (ftid) for the Weston/Davie office (15951 SW 41st St #700), pulled
-// from Carlos's GBP share link — opens the review composer directly instead of
-// a Maps search. If the listing is ever re-verified under a new GBP location,
-// regenerate this ftid from the profile's share link.
+// GOOGLE: no verified Google Business Profile is on file yet (claim is
+// pending Google's owner-verification step), so this opens Maps to his
+// business listing where a review can still be left. Once the GBP is
+// verified, replace `google` with the direct deep link:
+//   https://search.google.com/local/writereview?ftid=<FEATURE_ID>
+// (feature ID pulled from the profile's share link — decode the base64
+// segment after "share.google/" to confirm it resolves to the right address
+// before wiring it in).
 export const REVIEW_PROFILES = {
   realtor: "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51",
   google:
-    "https://search.google.com/local/writereview?ftid=EisxNTk1MSBTVyA0MXN0IFN0ICM3MDAsIERhdmllLCBGTCAzMzMzMSwgVVNBIh8aHQoWChQKEgkJuPI3NKfZiBF2Y0md_hLZKxIDNzAw",
+    "https://www.google.com/maps/search/?api=1&query=Carlos%20Uzcategui%20United%20Realty%20Group%20Weston%20FL",
 };
 
 export const NAVIGATION = [
