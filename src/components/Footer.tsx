@@ -10,7 +10,7 @@ export function Footer() {
       <div className="relative z-10 marquee-container border-b border-white/5 py-4">
         <div className="marquee-track-slow">
           {Array.from({ length: 8 }).map((_, index) => (
-            <span key={index} className="font-mono pr-8 text-[10px] uppercase tracking-[0.3em] text-white/55">{ticker}</span>
+            <span key={index} className="font-mono pr-8 text-[10px] uppercase tracking-[0.3em] text-white/70">{ticker}</span>
           ))}
         </div>
       </div>
@@ -27,7 +27,7 @@ export function Footer() {
             style={{ filter: "brightness(0) invert(1)" }}
           />
           <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
-          <p className="font-mono mt-2 text-[9px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
+          <p className="font-mono mt-2 text-[11px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
           <p className="mt-3 max-w-xs font-sans text-sm font-light leading-relaxed text-white/55 md:mt-5">
             Florida listings. Miami MLS exposure. International property distribution. Led by Carlos Uzcategui — 25 years licensed in Florida.
           </p>
@@ -43,7 +43,7 @@ export function Footer() {
 
           {/* MIAMI REALTORS® membership affiliation */}
           <div className="mt-5 border-t border-white/10 pt-4 md:mt-8 md:pt-6">
-            <p className="font-mono text-[8px] uppercase tracking-[0.28em] text-white/55">Proud Member</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/70">Proud Member</p>
             <img
               src="/images/miami-realtors-logo.png"
               alt="Member of the MIAMI Association of REALTORS®"
@@ -53,7 +53,7 @@ export function Footer() {
               className="mt-3 h-8 w-auto opacity-80"
               style={{ filter: "brightness(0) invert(1)" }}
             />
-            <p className="mt-3 max-w-xs font-sans text-[11px] font-light leading-relaxed text-white/55">
+            <p className="mt-3 max-w-xs font-sans text-[11px] font-light leading-relaxed text-white/70">
               United Realty Group is a member of the MIAMI Association of REALTORS® — the largest local REALTOR® association in the U.S.
             </p>
           </div>
@@ -88,7 +88,7 @@ export function Footer() {
               href={CONTACT.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55 hover:text-gold transition-colors"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 hover:text-gold transition-colors"
             >
               LinkedIn →
             </a>
@@ -124,7 +124,7 @@ export function Footer() {
 
       <div className="relative z-10 border-t border-white/5 px-6 py-4 md:py-8">
         <div className="mx-auto max-w-7xl space-y-4 md:space-y-8">
-          <div className="max-w-5xl space-y-3 font-sans text-[10px] font-light leading-relaxed text-white/55 md:space-y-4 md:leading-loose" data-nosnippet>
+          <div className="max-w-5xl space-y-3 font-sans text-[10px] font-light leading-relaxed text-white/70 md:space-y-4 md:leading-loose" data-nosnippet>
             <p>
               Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
             </p>
@@ -142,8 +142,8 @@ export function Footer() {
             </p>
           </div>
           <div className="flex flex-col items-center justify-between gap-3 md:flex-row md:gap-5">
-            <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/55">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-widest text-white/55 md:gap-6">
+            <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/70">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-widest text-white/70 md:gap-6">
               <a href="/sell-south-florida" className="transition-colors hover:text-gold">Sell in South Florida</a>
               <a href="/sell-weston" className="transition-colors hover:text-gold">Sell in Weston</a>
               <a href="/sell-coral-gables" className="transition-colors hover:text-gold">Sell in Coral Gables</a>

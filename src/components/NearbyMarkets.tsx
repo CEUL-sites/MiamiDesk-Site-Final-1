@@ -60,7 +60,7 @@ export function NearbyMarkets({ current }: { current: string }) {
   return (
     <section className="bg-white border-t border-hairline py-10">
       <div className="mx-auto max-w-5xl px-6">
-        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-5">
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-5">
           Nearby Markets
         </p>
         <div className="flex flex-wrap gap-3">

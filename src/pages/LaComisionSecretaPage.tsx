@@ -135,7 +135,7 @@ export default function LaComisionSecretaPage() {
               <div>
                 <div className="mb-6 inline-flex items-center gap-2 border border-gold/25 px-3 py-1.5">
                   <Lock size={10} className="text-gold" />
-                  <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
                     Spanish · 248 Pages · Career Guide
                   </span>
                 </div>
@@ -146,7 +146,7 @@ export default function LaComisionSecretaPage() {
                   La Comisión<br />
                   <em className="italic text-gold">Secreta</em>
                 </h1>
-                <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white/40">
+                <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white/70">
                   How to Build a Real Estate Career in South Florida
                 </p>
                 <p className="mt-8 max-w-lg font-sans text-base leading-relaxed text-white/65">
@@ -170,11 +170,11 @@ export default function LaComisionSecretaPage() {
                     <BookOpen size={14} />
                     Get Notified at Launch
                   </a>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
                     No commitment · First access
                   </span>
                 </div>
-                <p className="mt-5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/25">
+                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
                   By {CONTACT.licenseDisplay} · United Realty Group
                 </p>
               </div>
@@ -190,7 +190,7 @@ export default function LaComisionSecretaPage() {
                           <Star key={i} size={10} className="fill-gold text-gold" />
                         ))}
                       </div>
-                      <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/60">
                         Career Guide · South Florida
                       </p>
                     </div>
@@ -199,7 +199,7 @@ export default function LaComisionSecretaPage() {
                       La Comisión<br />
                       <span className="text-gold italic">Secreta</span>
                     </h2>
-                    <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/40">
+                    <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
                       How to Build a Real Estate Career<br />in South Florida
                     </p>
                     <div className="mt-10 border-t border-white/10 pt-6">
@@ -213,15 +213,15 @@ export default function LaComisionSecretaPage() {
                         />
                         <div>
                           <p className="font-serif text-sm text-white">Carlos Uzcategui</p>
-                          <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+                          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
                             FL SL705771 · 25 Years
                           </p>
                         </div>
                       </div>
                     </div>
                     <div className="mt-6 flex items-center justify-between">
-                      <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/25">248 páginas</span>
-                      <span className="bg-gold/15 border border-gold/25 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.18em] text-gold">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">248 páginas</span>
+                      <span className="bg-gold/15 border border-gold/25 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
                         Coming Soon
                       </span>
                     </div>
@@ -305,7 +305,7 @@ export default function LaComisionSecretaPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-baseline gap-3">
                         <h3 className="font-serif text-xl text-white">{chapter.title}</h3>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/30">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
                           {chapter.subtitle}
                         </span>
                       </div>
@@ -314,7 +314,7 @@ export default function LaComisionSecretaPage() {
                       </p>
                     </div>
                     {i === 3 && (
-                      <span className="flex-shrink-0 border border-gold/30 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.18em] text-gold">
+                      <span className="flex-shrink-0 border border-gold/30 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
                         Title Chapter
                       </span>
                     )}
@@ -361,7 +361,7 @@ export default function LaComisionSecretaPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 border-t border-bone pt-5 font-mono text-[8px] uppercase tracking-[0.14em] text-navy/35">
+                <p className="mt-6 border-t border-bone pt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
                   248 páginas · Español · South Florida market
                 </p>
               </div>
@@ -386,9 +386,9 @@ export default function LaComisionSecretaPage() {
                 </div>
               </div>
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">El Autor</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">El Autor</p>
                 <h2 className="mt-2 font-serif text-2xl text-navy-deep">Carlos Uzcategui</h2>
-                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-navy/40 mt-1">
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-navy/70 mt-1">
                   Florida Licensed Realtor® SL705771 · United Realty Group · 25 Years
                 </p>
                 <p className="mt-5 font-sans text-sm leading-relaxed text-navy/65">
@@ -431,7 +431,7 @@ export default function LaComisionSecretaPage() {
               <BookOpen size={14} />
               Notify Me at Launch
             </a>
-            <p className="mt-5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/25">
+            <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
               {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
             </p>
           </div>

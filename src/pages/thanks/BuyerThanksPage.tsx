@@ -24,7 +24,7 @@ export default function BuyerThanksPage() {
               Carlos will prepare a Miami buyer brief tailored to your neighborhoods, budget, and timeline. You will receive a confirmation by email shortly.
             </p>
             <div className="mx-auto mt-8 max-w-md border border-gold/25 bg-gold/5 p-6 text-left">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">While You Wait</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">While You Wait</p>
               <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
                 {LEAD_MAGNETS.buyerBrief.description}
               </p>
@@ -37,7 +37,7 @@ export default function BuyerThanksPage() {
                 Download Buyer Brief — PDF
               </a>
             </div>
-            <p className="mx-auto mt-8 max-w-lg font-sans text-sm text-white/40">
+            <p className="mx-auto mt-8 max-w-lg font-sans text-sm text-white/70">
               For Spanish-speaking clients — Carlos is bilingual. WhatsApp directly in English or Spanish.
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
@@ -51,13 +51,13 @@ export default function BuyerThanksPage() {
               </a>
               <a
                 href="/listings"
-                className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 Browse Active Listings
               </a>
             </div>
             <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
                 {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
               </p>
             </div>

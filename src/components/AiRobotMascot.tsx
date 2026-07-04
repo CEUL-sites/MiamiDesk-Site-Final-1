@@ -112,7 +112,7 @@ export function AiRobotMascot() {
       </motion.div>
 
       {/* Label under robot */}
-      <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.2em] text-gold/50">AI Desk</p>
+      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/50">AI Desk</p>
 
       {/* Disclosure tooltip — appears on hover */}
       <AnimatePresence>
@@ -129,12 +129,12 @@ export function AiRobotMascot() {
             <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0"
               style={{ borderLeft: "6px solid transparent", borderRight: "6px solid transparent", borderTop: "6px solid rgba(176,141,87,0.25)" }}
             />
-            <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold mb-1.5">AI Disclosure</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-1.5">AI Disclosure</p>
             <p className="font-sans text-[11px] leading-relaxed text-white/70">
               This conversation is handled by AI (Gemini). Carlos Uzcategui reviews
               every qualified inquiry personally and responds directly.
             </p>
-            <p className="mt-2 font-mono text-[7.5px] uppercase tracking-[0.18em] text-gold/50">
+            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-gold/50">
               Powered by Google Gemini · FL SL705771
             </p>
           </motion.div>

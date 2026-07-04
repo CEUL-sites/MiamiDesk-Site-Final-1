@@ -38,13 +38,13 @@ export function RecentlyRepresented() {
                     <Home size={28} className="text-navy/20" />
                   </div>
                 )}
-                <div className="absolute left-3 top-3 bg-gold px-2 py-1 font-mono text-[7px] uppercase tracking-[0.18em] text-navy">
+                <div className="absolute left-3 top-3 bg-gold px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy">
                   {p.side} Side
                 </div>
               </div>
               <div className="flex flex-1 flex-col gap-2 p-6">
                 <p className="font-serif text-lg text-navy-deep">{p.location}</p>
-                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-navy/45">
+                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">
                   {[p.propertyType, p.year].filter(Boolean).join(" · ")}
                 </p>
                 {p.note && <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{p.note}</p>}
@@ -53,7 +53,7 @@ export function RecentlyRepresented() {
           ))}
         </div>
 
-        <p className="mt-8 border-t border-hairline pt-5 font-mono text-[8px] uppercase tracking-[0.14em] text-navy/35">
+        <p className="mt-8 border-t border-hairline pt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-navy/70">
           Representative transactions · {CONTACT.licenseDisplay} · {CONTACT.brokerage} · Equal Housing Opportunity
         </p>
       </div>

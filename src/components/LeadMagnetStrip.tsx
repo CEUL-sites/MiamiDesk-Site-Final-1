@@ -89,7 +89,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
           <FileText size={18} className={iconColor} />
         </div>
         <div className="flex-1 min-w-0">
-          <p className={`font-mono text-[9px] uppercase tracking-[0.2em] ${eyebrowColor}`}>{eyebrow}</p>
+          <p className={`font-mono text-[10px] uppercase tracking-[0.2em] ${eyebrowColor}`}>{eyebrow}</p>
           <h3 className="mt-1 font-serif text-xl leading-snug text-navy-deep">{title}</h3>
           <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/60">{description}</p>
         </div>
@@ -98,7 +98,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
       <div className="mt-4 flex-1 flex flex-col justify-end md:mt-6">
         {status === "success" ? (
           <div className="flex flex-col items-start gap-3" role="status" aria-live="polite">
-            <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-gold-ink">
+            <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">
               <CheckCircle2 size={13} /> Ready to download
             </span>
             <a
@@ -118,7 +118,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <label htmlFor={emailId} className="font-mono text-[9px] uppercase tracking-[0.16em] text-ink-primary/70">
+            <label htmlFor={emailId} className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/70">
               Email address
             </label>
             <input
@@ -132,7 +132,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
               autoComplete="email"
               inputMode="email"
               aria-describedby={status === "error" ? statusId : undefined}
-              className="w-full border border-hairline bg-ivory px-4 py-3 font-sans text-base text-ink-primary placeholder:text-ink-primary/45 outline-none transition-colors focus:border-gold focus:ring-2 focus:ring-gold/40"
+              className="w-full border border-hairline bg-ivory px-4 py-3 font-sans text-base text-ink-primary placeholder:text-ink-primary/70 outline-none transition-colors focus:border-gold focus:ring-2 focus:ring-gold/40"
             />
             <p id={statusId} role="status" aria-live="polite" className="min-h-0">
               {status === "error" && (
@@ -148,10 +148,10 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
                 ? <><Loader2 size={13} className="animate-spin" /> Sending…</>
                 : <><Download size={13} /> Get the free guide <ArrowRight size={13} /></>}
             </button>
-            <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-ink-primary/70">
+            <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-primary/70">
               One email. No subscription. No listing commitment.
             </p>
-            <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-ink-primary/70">
+            <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-primary/70">
               Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
             </p>
           </form>

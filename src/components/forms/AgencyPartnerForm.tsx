@@ -198,7 +198,7 @@ export function AgencyPartnerForm({
 
         {/* Inventory */}
         <div className="border-t border-white/10 pt-6">
-          <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/35 mb-5">Inventory Details</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 mb-5">Inventory Details</p>
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="Type of Inventory *">
               <select required name="inventoryType" className="form-input-dark w-full" value={form.inventoryType} onChange={set("inventoryType")}>
@@ -282,7 +282,7 @@ export function AgencyPartnerForm({
           {status === "submitting" ? "Sending…" : "Submit Listing for Review"}
         </button>
 
-        <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-white/25">
+        <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
           Confidential · No obligation · {CONTACT.shortLicense} · Equal Housing Opportunity
         </p>
       </form>
@@ -293,7 +293,7 @@ export function AgencyPartnerForm({
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/45">{label}</label>
+      <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{label}</label>
       {children}
     </div>
   );

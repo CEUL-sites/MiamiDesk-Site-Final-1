@@ -82,7 +82,7 @@ function StatusBadge({ status }: { status: string | undefined }) {
 
   return (
     <span
-      className={`inline-block border px-2 py-0.5 font-mono text-[7px] uppercase tracking-[0.2em] ${colorClass}`}
+      className={`inline-block border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.2em] ${colorClass}`}
     >
       {label}
     </span>
@@ -111,14 +111,14 @@ function ListingCard({ listing }: { listing: BridgeListing }) {
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-navy/30">
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
               Photo unavailable
             </span>
           </div>
         )}
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-navy/80 to-transparent" />
         {listing.PropertyType && (
-          <div className="absolute left-3 top-3 bg-gold px-2 py-1 font-mono text-[7px] uppercase tracking-[0.18em] text-navy">
+          <div className="absolute left-3 top-3 bg-gold px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy">
             {listing.PropertyType}
           </div>
         )}
@@ -140,7 +140,7 @@ function ListingCard({ listing }: { listing: BridgeListing }) {
             {listing.UnparsedAddress ?? "Address on request"}
           </p>
           {(listing.City || listing.PostalCode) && (
-            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mt-1">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mt-1">
               {[listing.City, listing.PostalCode].filter(Boolean).join(" · ")}
             </p>
           )}
@@ -149,22 +149,22 @@ function ListingCard({ listing }: { listing: BridgeListing }) {
         {/* Stats row */}
         <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-white/10 pt-3">
           {listing.BedroomsTotal != null && (
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/50">
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">
               {listing.BedroomsTotal} bd
             </span>
           )}
           {listing.BathroomsTotalDecimal != null && (
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/50">
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">
               {listing.BathroomsTotalDecimal} ba
             </span>
           )}
           {listing.LivingArea != null && listing.LivingArea > 0 && (
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/50">
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">
               {listing.LivingArea.toLocaleString()} sqft
             </span>
           )}
           {listing.DaysOnMarket != null && (
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/35 ml-auto">
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/70 ml-auto">
               {listing.DaysOnMarket}d on mkt
             </span>
           )}
@@ -209,7 +209,7 @@ export function PropertyMarketFeed() {
 
         {/* Header */}
         <div className="mb-10">
-          <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
             Weekly Feed · Weston, FL · Single-Family Residences
           </p>
           <h2
@@ -221,7 +221,7 @@ export function PropertyMarketFeed() {
 
           {/* Last updated */}
           {!loading && data?.lastUpdated && !isStale && (
-            <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
               Last updated: {formatDate(data.lastUpdated)}
             </p>
           )}
@@ -264,7 +264,7 @@ export function PropertyMarketFeed() {
 
             {/* CTA */}
             <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-8">
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
                 Showing {listings.length} active listing{listings.length !== 1 ? "s" : ""} ·
                 Weston, FL · $850K–$1.2M
               </p>
@@ -295,7 +295,7 @@ export function PropertyMarketFeed() {
 
         {/* IDX Disclaimer */}
         {data?.disclaimer && (
-          <p className="mt-8 font-mono text-[8px] uppercase tracking-[0.12em] leading-relaxed text-white/25">
+          <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.12em] leading-relaxed text-white/70">
             {data.disclaimer}
           </p>
         )}

@@ -64,7 +64,7 @@ export function DesktopStickyCTA() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3">
           <p className="font-sans text-sm text-white/80">
             <span className="font-serif text-base text-white">What's your South Florida home worth?</span>
-            <span className="ml-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
+            <span className="ml-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               Free MLS-based analysis · No listing commitment
             </span>
           </p>

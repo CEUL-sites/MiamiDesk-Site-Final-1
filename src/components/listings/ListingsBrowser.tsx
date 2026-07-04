@@ -122,7 +122,7 @@ function selectClass() {
 function DetailRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-baseline justify-between gap-4 border-b border-white/10 py-2.5">
-      <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/40">{label}</span>
+      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{label}</span>
       <span className="text-right font-sans text-sm text-white/85">{value}</span>
     </div>
   );
@@ -200,7 +200,7 @@ function DetailModal({ listing, onClose }: { listing: BridgeListing; onClose: ()
                 >
                   <ChevronRight size={18} />
                 </button>
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-navy/70 px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.18em] text-white/70">
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-navy/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
                   {idx + 1} / {photos.length}
                 </div>
               </>
@@ -240,7 +240,7 @@ function DetailModal({ listing, onClose }: { listing: BridgeListing; onClose: ()
           >
             Ask Carlos About This Property
           </a>
-          <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.14em] leading-relaxed text-white/30">
+          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] leading-relaxed text-white/70">
             {listing.ListOfficeName && !/united realty/i.test(listing.ListOfficeName)
               ? "Listed by a cooperating brokerage and displayed via IDX. "
               : ""}
@@ -302,7 +302,7 @@ export function ListingsBrowser() {
     <section className="bg-navy-deep py-12 md:py-16" id="search">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8">
-          <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">Live MLS Search</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Live MLS Search</p>
           <h2 className="mt-3 font-serif leading-tight text-white" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
             Search active South Florida listings
           </h2>
@@ -327,45 +327,45 @@ export function ListingsBrowser() {
         {/* Filter bar */}
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-7">
           <div>
-            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Area</label>
+            <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Area</label>
             <select className={selectClass()} value={filters.zone} onChange={set("zone")}>
               <option value="">All areas</option>
               {ZONES.map((z) => <option key={z} value={z}>{z}</option>)}
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Type</label>
+            <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Type</label>
             <select className={selectClass()} value={filters.type} onChange={set("type")}>
               {TYPES.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Status</label>
+            <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Status</label>
             <select className={selectClass()} value={filters.status} onChange={set("status")}>
               {STATUSES.map((s) => <option key={s.value} value={s.value}>{s.label}</option>)}
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Min price</label>
+            <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Min price</label>
             <select className={selectClass()} value={filters.minPrice} onChange={set("minPrice")}>
               {PRICE_STEPS.map((p) => <option key={`min-${p.value}`} value={p.value}>{p.label}</option>)}
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Max price</label>
+            <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Max price</label>
             <select className={selectClass()} value={filters.maxPrice} onChange={set("maxPrice")}>
               <option value="">No max</option>
               {PRICE_STEPS.slice(1).map((p) => <option key={`max-${p.value}`} value={p.value}>{p.label}</option>)}
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Beds</label>
+            <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Beds</label>
             <select className={selectClass()} value={filters.beds} onChange={set("beds")}>
               {BEDS.map((b) => <option key={b.value} value={b.value}>{b.label}</option>)}
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block font-mono text-[8px] uppercase tracking-[0.2em] text-white/40">Sort</label>
+            <label className="mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Sort</label>
             <select className={selectClass()} value={filters.sort} onChange={set("sort")}>
               {SORTS.map((s) => <option key={s.value} value={s.value}>{s.label}</option>)}
             </select>
@@ -374,7 +374,7 @@ export function ListingsBrowser() {
 
         {/* Result summary / reset */}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
             {status === "loading"
               ? "Searching…"
               : status === "empty" || status === "error"
@@ -385,7 +385,7 @@ export function ListingsBrowser() {
             <button
               type="button"
               onClick={() => setFilters({ ...DEFAULTS })}
-              className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline underline-offset-4 transition-colors hover:text-gold"
+              className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline underline-offset-4 transition-colors hover:text-gold"
             >
               Reset filters
             </button>
@@ -442,11 +442,11 @@ export function ListingsBrowser() {
 
         {/* REQUIRED IDX compliance footer */}
         <div className="mt-10 border-t border-white/10 pt-6">
-          <p className="font-mono text-[8px] uppercase tracking-[0.12em] leading-relaxed text-white/30">
+          <p className="font-mono text-[10px] uppercase tracking-[0.12em] leading-relaxed text-white/70">
             {IDX_DISCLAIMER}
             {lastUpdated ? ` Last updated: ${formatListingDate(lastUpdated)}.` : ""}
           </p>
-          <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">
+          <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
             {CONTACT.licenseDisplay} · {CONTACT.brokerage} · Equal Housing Opportunity · REALTOR®
           </p>
         </div>

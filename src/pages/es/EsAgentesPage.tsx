@@ -138,7 +138,7 @@ function EsReferralForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
-          <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+          <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
             {/* TODO: native Madrid editor review */}
             Nombre del agente / director de agencia *
           </label>
@@ -152,7 +152,7 @@ function EsReferralForm() {
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+          <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
             {/* TODO: native Madrid editor review */}
             Nombre de la agencia o bróker *
           </label>
@@ -169,7 +169,7 @@ function EsReferralForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
-          <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+          <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
             {/* TODO: native Madrid editor review */}
             Email *
           </label>
@@ -184,7 +184,7 @@ function EsReferralForm() {
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+          <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
             {/* TODO: native Madrid editor review */}
             Teléfono / WhatsApp *
           </label>
@@ -202,7 +202,7 @@ function EsReferralForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
-          <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+          <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
             {/* TODO: native Madrid editor review */}
             País *
           </label>
@@ -235,7 +235,7 @@ function EsReferralForm() {
           </select>
         </div>
         <div className="flex flex-col gap-1.5">
-          <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+          <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
             {/* TODO: native Madrid editor review */}
             Tipo de referencia *
           </label>
@@ -262,7 +262,7 @@ function EsReferralForm() {
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+        <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
           {/* TODO: native Madrid editor review */}
           Resumen del cliente o mandato *
         </label>
@@ -277,7 +277,7 @@ function EsReferralForm() {
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">
+        <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
           {/* TODO: native Madrid editor review */}
           Contacto preferido *
         </label>
@@ -317,7 +317,7 @@ function EsReferralForm() {
           : "Enviar referencia de colaboración"}
       </button>
 
-      <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/30">
+      <p className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
         {/* TODO: native Madrid editor review */}
         Confidencial · Solo profesionales licenciados · Acuerdos escritos ·{" "}
         {CONTACT.shortLicense}
@@ -484,7 +484,7 @@ export default function EsAgentesPage() {
                   clientes que desean listar en Florida. El acuerdo de referral
                   se firma antes de presentar al cliente.
                 </p>
-                <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
+                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Track A está diseñado para
                 </p>
@@ -528,7 +528,7 @@ export default function EsAgentesPage() {
                   reubicación, inversores. Representación completa de comprador
                   en Florida.
                 </p>
-                <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
+                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Track B está diseñado para
                 </p>
@@ -592,14 +592,14 @@ export default function EsAgentesPage() {
                 <div className="font-serif text-3xl text-navy-deep">
                   {ASSOCIATION_STATS.memberCount.toLocaleString("es-ES")}
                 </div>
-                <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Agentes miembro
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
                 <div className="font-serif text-3xl text-navy-deep">200+</div>
-                <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Portales globales · 19 idiomas
                 </div>
@@ -608,7 +608,7 @@ export default function EsAgentesPage() {
                 <div className="font-serif text-3xl text-navy-deep">
                   {ASSOCIATION_STATS.usMls}
                 </div>
-                <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   MLSs en EE.UU. vía RPR
                 </div>
@@ -617,14 +617,14 @@ export default function EsAgentesPage() {
                 <div className="font-serif text-3xl text-navy-deep">
                   3.500+
                 </div>
-                <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Agentes URG · 20 oficinas
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
                 <div className="font-serif text-3xl text-navy-deep">437+</div>
-                <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Acuerdos internacionales
                 </div>
@@ -633,7 +633,7 @@ export default function EsAgentesPage() {
                 <div className="font-serif text-3xl text-navy-deep">
                   {ASSOCIATION_STATS.mlsDataExchanges}
                 </div>
-                <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Intercambios de datos MLS
                 </div>
@@ -885,7 +885,7 @@ export default function EsAgentesPage() {
                   className="flex items-center gap-3 border border-gold/30 px-5 py-4"
                 >
                   <BadgeCheck size={14} className="flex-shrink-0 text-gold" />
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-navy-deep/70">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep/70">
                     {badge}
                   </span>
                 </div>
@@ -1001,7 +1001,7 @@ export default function EsAgentesPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2 border border-white/20 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 <ExternalLink size={13} />
                 {/* TODO: native Madrid editor review */}
@@ -1011,7 +1011,7 @@ export default function EsAgentesPage() {
 
             {/* Spain activation PDF download */}
             <div className="mt-8 border border-gold/25 bg-gold/5 p-6">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Documento de referencia
               </p>
@@ -1034,7 +1034,7 @@ export default function EsAgentesPage() {
         {/* ─── Footer Disclaimer ────────────────────────────────── */}
         <div className="bg-navy-deep border-t border-white/5 py-8">
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/25">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               {/* TODO: native Madrid editor review */}
               Carlos Uzcategui · Florida Licensed Realtor® SL705771 · Afiliado a
               United Realty Group · Miembro de Miami and South Florida

@@ -118,7 +118,7 @@ export function BuyerMandateForm() {
   return (
     <div className="border border-bone bg-white">
       <div className="border-b border-bone bg-navy-deep px-8 py-6">
-        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">Confidential Buyer Desk</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">Confidential Buyer Desk</p>
         <h3 className="mt-2 font-serif text-2xl text-white">Request a Miami buyer brief</h3>
         <p className="mt-2 font-sans text-sm text-white/50">Share your search parameters — Carlos builds a brief tailored to your budget and timeline.</p>
       </div>
@@ -171,7 +171,7 @@ export function BuyerMandateForm() {
                 key={n}
                 type="button"
                 onClick={() => toggleNeighborhood(n)}
-                className={`border px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.15em] transition-colors ${
+                className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] transition-colors ${
                   neighborhoodSel.includes(n)
                     ? "border-gold bg-gold/10 text-gold"
                     : "border-bone text-navy/70 hover:border-gold/40"
@@ -225,7 +225,7 @@ export function BuyerMandateForm() {
           {status === "submitting" ? "Sending…" : "Request Miami Buyer Brief"}
         </button>
 
-        <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/70">
+        <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-navy/70">
           {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
         </p>
       </form>
@@ -238,7 +238,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   // programmatic label (implicit association) without needing per-field ids.
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/70">{label}</span>
+      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">{label}</span>
       {children}
     </label>
   );

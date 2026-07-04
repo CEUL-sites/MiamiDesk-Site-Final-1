@@ -427,7 +427,7 @@ export function SpainMiamiJourney() {
             Spanish property is<br />
             <em className="italic text-gold">already in Miami.</em>
           </h2>
-          <p className="font-sans text-white/40 text-base leading-relaxed max-w-md mx-auto mb-8">
+          <p className="font-sans text-white/70 text-base leading-relaxed max-w-md mx-auto mb-8">
             How LatAm capital moves from Caracas to Coral Gables — and why your listing needs to be visible in that pipeline.
           </p>
           <div className="smj-divider">
@@ -475,7 +475,7 @@ export function SpainMiamiJourney() {
             Your property.<br />
             <em className="italic text-gold">The entire American market.</em>
           </h3>
-          <p className="font-sans text-white/30 text-sm tracking-widest mb-10">
+          <p className="font-sans text-white/70 text-sm tracking-widest mb-10">
             Real estate is local. Peak value is global.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-10">
@@ -494,7 +494,7 @@ export function SpainMiamiJourney() {
               {CONTACT.email}
             </a>
           </div>
-          <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-white/20 leading-loose">
+          <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-white/70 leading-loose">
             {CONTACT.licenseDisplay} · {CONTACT.brokerage}<br />
             Miami and South Florida REALTORS® Member · Equal Housing Opportunity
           </p>

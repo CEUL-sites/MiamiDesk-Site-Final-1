@@ -108,7 +108,7 @@ export default function EsHomePage() {
               <motion.p
                 variants={itemVariants}
                 className="font-mono mb-4 text-gold uppercase tracking-[0.22em]"
-                style={{ fontSize: "0.62rem" }}
+                style={{ fontSize: "0.6875rem" }}
               >
                 UNITED REALTY GROUP · CARLOS UZCATEGUI · FL REALTOR® SL705771
               </motion.p>
@@ -180,7 +180,7 @@ export default function EsHomePage() {
                     <div className="font-serif text-2xl text-white lg:text-3xl">
                       {s.value}
                     </div>
-                    <div className="font-mono mt-1 text-[7px] uppercase tracking-[0.18em] text-gold/65">
+                    <div className="font-mono mt-1 text-[10px] uppercase tracking-[0.18em] text-gold/65">
                       {s.label}
                     </div>
                   </div>
@@ -198,7 +198,7 @@ export default function EsHomePage() {
                 className="mt-7 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm"
               >
                 <BadgeCheck size={14} className="text-gold flex-shrink-0" />
-                <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
+                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
                   United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
                 </span>
               </motion.div>
@@ -208,7 +208,7 @@ export default function EsHomePage() {
                 variants={itemVariants}
                 className="mt-7 flex flex-wrap items-center justify-center gap-2"
               >
-                <span className="font-mono text-[8px] uppercase tracking-[0.25em] text-white/30">
+                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/70">
                   {/* TODO: native Madrid editor review */}
                   Soy:
                 </span>
@@ -232,7 +232,7 @@ export default function EsHomePage() {
                   <a
                     key={label}
                     href={href}
-                    className="border border-white/15 px-4 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55 transition-all duration-200 hover:border-gold hover:text-gold"
+                    className="border border-white/15 px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 transition-all duration-200 hover:border-gold hover:text-gold"
                   >
                     {label}
                   </a>
@@ -248,7 +248,7 @@ export default function EsHomePage() {
             transition={{ delay: 2.8, duration: 0.5 }}
             className="pointer-events-none absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
           >
-            <span className="font-mono text-[7px] uppercase tracking-[0.3em] text-white/25">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/70">
               {/* TODO: native Madrid editor review */}
               Desplazar
             </span>

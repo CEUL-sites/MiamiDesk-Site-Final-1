@@ -231,7 +231,7 @@ export default function EsComprarPage() {
                 ].map((s) => (
                   <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
                     <p className="font-serif text-2xl text-gold">{s.value}</p>
-                    <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.18em] text-white/50">{s.label}</p>
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{s.label}</p>
                   </div>
                 ))}
               </motion.div>
@@ -265,7 +265,7 @@ export default function EsComprarPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30"
+                className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70"
               >
                 United Realty Group · FL SL705771 · Miami-Dade · Broward · Palm Beach
               </motion.p>
@@ -367,8 +367,8 @@ export default function EsComprarPage() {
                   />
                 </div>
                 <div className="bg-navy-deep px-5 py-4">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · El Equipo</p>
-                  <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/55">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · El Equipo</p>
+                  <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
                     {CONTACT.stats.urgAgents} agentes · {CONTACT.stats.urgOffices} oficinas · Sede en Plantation · Est. {CONTACT.stats.urgFounded}
                   </p>
                 </div>
@@ -497,7 +497,7 @@ export default function EsComprarPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.18em] text-white/40">
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               Fuente: Miami and South Florida REALTORS® — «Top 20 Reasons to Buy &amp; Live in Miami» (MiamiRealtors.com)
             </p>
           </div>
@@ -607,7 +607,7 @@ export default function EsComprarPage() {
             </div>
             <div className="mt-6 flex items-center justify-center gap-2">
               <BadgeCheck size={14} className="text-navy-deep/50" />
-              <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-navy-deep/50">
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep/50">
                 {/* TODO: native Madrid editor review */}
                 Confidencial · Profesionales con Licencia · Igualdad de Acceso a la Vivienda
               </span>

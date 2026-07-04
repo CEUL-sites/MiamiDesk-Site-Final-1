@@ -16,7 +16,7 @@ function StatusBadge({ status }: { status: string | undefined }) {
     : "bg-white/10 text-white/50 border-white/15";
 
   return (
-    <span className={`inline-block border px-2 py-0.5 font-mono text-[7px] uppercase tracking-[0.2em] ${colorClass}`}>
+    <span className={`inline-block border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.2em] ${colorClass}`}>
       {label}
     </span>
   );
@@ -53,14 +53,14 @@ export function ListingCard({
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-navy/30">
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
               Photo unavailable
             </span>
           </div>
         )}
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-navy/80 to-transparent" />
         {listing.PropertyType && (
-          <div className="absolute left-3 top-3 bg-gold px-2 py-1 font-mono text-[7px] uppercase tracking-[0.18em] text-navy">
+          <div className="absolute left-3 top-3 bg-gold px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy">
             {listing.PropertyType}
           </div>
         )}
@@ -80,7 +80,7 @@ export function ListingCard({
             {listing.UnparsedAddress ?? "Address on request"}
           </p>
           {locality && (
-            <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70">
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70">
               {locality}
             </p>
           )}
@@ -88,16 +88,16 @@ export function ListingCard({
 
         <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-white/10 pt-3">
           {listing.BedroomsTotal != null && (
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/50">{listing.BedroomsTotal} bd</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">{listing.BedroomsTotal} bd</span>
           )}
           {listing.BathroomsTotalDecimal != null && (
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/50">{listing.BathroomsTotalDecimal} ba</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">{listing.BathroomsTotalDecimal} ba</span>
           )}
           {listing.LivingArea != null && listing.LivingArea > 0 && (
-            <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/50">{listing.LivingArea.toLocaleString()} sqft</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">{listing.LivingArea.toLocaleString()} sqft</span>
           )}
           {interactive && (
-            <span className="ml-auto font-mono text-[9px] uppercase tracking-[0.15em] text-gold/70 transition-colors group-hover:text-gold">
+            <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.15em] text-gold/70 transition-colors group-hover:text-gold">
               Details →
             </span>
           )}

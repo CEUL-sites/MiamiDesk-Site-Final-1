@@ -235,8 +235,8 @@ export default function MarketsPage() {
               ].map((s) => (
                 <div key={s.label} className="flex flex-col items-center bg-navy-deep px-6 py-8 text-center">
                   <span className="font-serif text-4xl text-gold md:text-5xl">{s.value}</span>
-                  <span className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/70">{s.label}</span>
-                  <span className="mt-1 font-sans text-[10px] text-white/35">{s.sub}</span>
+                  <span className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{s.label}</span>
+                  <span className="mt-1 font-sans text-[10px] text-white/70">{s.sub}</span>
                 </div>
               ))}
             </div>
@@ -249,12 +249,12 @@ export default function MarketsPage() {
               ].map((s) => (
                 <div key={s.label} className="flex flex-col items-center bg-navy-deep/60 px-6 py-5 text-center">
                   <span className="font-serif text-2xl text-gold/80">{s.value}</span>
-                  <span className="mt-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">{s.label}</span>
-                  <span className="mt-0.5 font-sans text-[9px] text-white/30">{s.sub}</span>
+                  <span className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{s.label}</span>
+                  <span className="mt-0.5 font-sans text-[10px] text-white/70">{s.sub}</span>
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-white/25">
+            <p className="mt-4 text-center font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
               Miami and South Florida REALTORS® · United Realty Group · Carlos Uzcategui FL SL705771
             </p>
           </div>
@@ -288,10 +288,10 @@ export default function MarketsPage() {
                       : "bg-white text-navy/50 hover:bg-ivory hover:text-navy"
                   }`}
                 >
-                  <span className="font-mono text-[9px] uppercase tracking-[0.2em] font-semibold block">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] font-semibold block">
                     {county.name.replace(" County", "")}
                   </span>
-                  <span className={`font-mono text-[8px] uppercase tracking-[0.14em] mt-1.5 block ${
+                  <span className={`font-mono text-[10px] uppercase tracking-[0.14em] mt-1.5 block ${
                     activeCounty === i ? "text-gold" : "text-navy/35"
                   }`}>
                     {county.stat}
@@ -306,7 +306,7 @@ export default function MarketsPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <MapPin size={13} className="text-gold flex-shrink-0" />
-                    <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
                       {COUNTIES[activeCounty].stat}
                     </span>
                   </div>
@@ -316,12 +316,12 @@ export default function MarketsPage() {
                   </p>
                 </div>
                 <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/35 mb-4">Cities covered</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70 mb-4">Cities covered</p>
                   <div className="flex flex-wrap gap-2">
                     {COUNTIES[activeCounty].cities.map((city) => (
                       <span
                         key={city}
-                        className="inline-block border border-navy/10 bg-ivory px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/65 hover:border-gold/40 hover:text-navy transition-colors cursor-default"
+                        className="inline-block border border-navy/10 bg-ivory px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70 hover:border-gold/40 hover:text-navy transition-colors cursor-default"
                       >
                         {city}
                       </span>
@@ -331,7 +331,7 @@ export default function MarketsPage() {
               </div>
             </div>
 
-            <p className="mt-6 font-sans text-xs text-ink-primary/40 italic">
+            <p className="mt-6 font-sans text-xs text-ink-primary/70 italic">
               All markets served directly through Florida License SL705771, United Realty Group, and full Miami and South Florida REALTORS® MLS access.
             </p>
           </div>
@@ -382,8 +382,8 @@ export default function MarketsPage() {
                   />
                 </div>
                 <div className="bg-navy-deep px-5 py-4">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · The Team</p>
-                  <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/55">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · The Team</p>
+                  <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
                     {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} offices · South Florida
                   </p>
                 </div>
@@ -460,7 +460,7 @@ export default function MarketsPage() {
               </div>
             </div>
 
-            <p className="mt-8 font-sans text-xs italic text-white/35 max-w-3xl">
+            <p className="mt-8 font-sans text-xs italic text-white/70 max-w-3xl">
               Context only. Structural market drivers are described qualitatively and do not predict price, timing, or
               outcome for any individual property. Neighborhood-specific data is reviewed live as part of every seller strategy session,
               sourced from the Miami and South Florida REALTORS® MLS.
@@ -506,7 +506,7 @@ export default function MarketsPage() {
               <div className="absolute inset-x-0 bottom-0 top-0 flex flex-col justify-end p-8 lg:justify-center lg:p-12 pointer-events-none">
                 <div className="flex items-center gap-2 mb-3">
                   <Globe size={13} className="text-gold" />
-                  <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">Madrid &amp; Spain</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Madrid &amp; Spain</p>
                 </div>
                 <p className="font-serif text-2xl text-white leading-tight max-w-xs">
                   Spain, through formal professional partnership.
@@ -527,7 +527,7 @@ export default function MarketsPage() {
               </p>
 
               <div className="mt-8">
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-4">What the Global Desk provides</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-4">What the Global Desk provides</p>
                 <ul className="space-y-3">
                   {[
                     "Miami MLS listing as U.S. licensed principal of record",
@@ -545,14 +545,14 @@ export default function MarketsPage() {
               </div>
 
               <div className="mt-8">
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35 mb-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 mb-4">
                   Madrid districts &amp; submarkets referenced
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {MADRID_NEIGHBORHOODS.map((n) => (
                     <span
                       key={n}
-                      className="inline-block border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/55"
+                      className="inline-block border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70"
                     >
                       {n}
                     </span>
@@ -569,7 +569,7 @@ export default function MarketsPage() {
                   <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
-              <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
                 Spain introductions · Referral &amp; cooperating agency · Not direct sales in Spain
               </p>
             </div>
@@ -597,7 +597,7 @@ export default function MarketsPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-8 font-mono text-[9px] uppercase tracking-[0.18em] text-ink-primary/35">
+            <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70">
               Live MLS market data available on request as part of every seller strategy review.
             </p>
           </div>
@@ -606,7 +606,7 @@ export default function MarketsPage() {
         {/* ── Sell by Neighborhood ────────────────────────────────── */}
         <section className="bg-ivory border-t border-hairline py-10">
           <div className="mx-auto max-w-6xl px-6">
-            <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-5">Sell by Neighborhood</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-5">Sell by Neighborhood</p>
             <div className="flex flex-wrap gap-3">
               {[
                 { label: "Weston",           href: "/sell-weston" },
@@ -659,7 +659,7 @@ export default function MarketsPage() {
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>
-            <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.18em] text-ink-primary/35">
+            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-primary/70">
               Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
             </p>
           </div>

@@ -95,7 +95,7 @@ export default function ContactPage() {
               <h2 className="mt-3 font-serif text-3xl text-white">Submit your listing for private review</h2>
             </div>
             <LeadForm desk={deskParam || undefined} />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
+            <div className="mt-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>

@@ -24,7 +24,7 @@ export default function AgentThanksPage() {
               Carlos handles all licensed professional inquiries confidentially. He will follow up with you directly. A formal written referral agreement is executed before any client engagement.
             </p>
             <div className="mx-auto mt-8 max-w-md border border-gold/25 bg-gold/5 p-6 text-left">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">Reference Document</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Reference Document</p>
               <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
                 {LEAD_MAGNETS.spainActivation.description}
               </p>
@@ -37,7 +37,7 @@ export default function AgentThanksPage() {
                 Download MLS Activation Brief — PDF
               </a>
             </div>
-            <p className="mx-auto mt-8 max-w-lg font-sans text-sm text-white/40">
+            <p className="mx-auto mt-8 max-w-lg font-sans text-sm text-white/70">
               For urgent referrals, WhatsApp Carlos directly to flag the timeline.
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
@@ -51,13 +51,13 @@ export default function AgentThanksPage() {
               </a>
               <a
                 href="/agents"
-                className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 Return to Agent Desk
               </a>
             </div>
             <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
                 Confidential · Licensed Professionals Only · Written Agreements · {CONTACT.shortLicense}
               </p>
             </div>

@@ -206,7 +206,7 @@ export default function AgentsPage() {
           <div className="relative mx-auto max-w-4xl">
             <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/[0.06] px-4 py-1.5 mb-5 md:mb-7 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold/85">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/85">
                 For Agents · Referrals · International Exposure · Careers
               </span>
             </div>
@@ -240,7 +240,7 @@ export default function AgentsPage() {
                 Message Carlos Directly
               </a>
             </div>
-            <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 md:mt-7">
+            <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70 md:mt-7">
               Carlos Uzcategui · FL SL705771 · United Realty Group · Miami and South Florida REALTORS® · 25 Years Licensed
             </p>
           </div>
@@ -258,7 +258,7 @@ export default function AgentsPage() {
               <div key={s.label} className="flex flex-col items-center px-4 py-5 text-center md:py-7">
                 <s.icon size={18} className="text-gold" strokeWidth={1.5} />
                 <span className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">{s.value}</span>
-                <span className="mt-1.5 font-mono text-[8.5px] uppercase leading-snug tracking-[0.16em] text-navy/45">{s.label}</span>
+                <span className="mt-1.5 font-mono text-[10px] uppercase leading-snug tracking-[0.16em] text-navy/70">{s.label}</span>
               </div>
             ))}
           </div>
@@ -309,7 +309,7 @@ export default function AgentsPage() {
               ].map((p) => (
                 <div key={p.title} className="flex flex-col bg-white p-4 md:p-6">
                   <p.icon size={22} className="text-gold" strokeWidth={1.5} />
-                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80 md:mt-5">{p.tag}</p>
+                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80 md:mt-5">{p.tag}</p>
                   <h3 className="mt-2 font-serif text-xl text-navy-deep leading-snug">{p.title}</h3>
                   <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{p.body}</p>
                   <ul className="mt-4 space-y-2 md:mt-5">
@@ -365,7 +365,7 @@ export default function AgentsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/30 pointer-events-none" />
                   <div className="absolute bottom-4 left-5">
-                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/80">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">
                       International listing exposure · South Florida network
                     </p>
                   </div>
@@ -373,7 +373,7 @@ export default function AgentsPage() {
               </div>
 
               <div className="border border-hairline bg-white p-6 md:p-8">
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-navy/40 mb-4 md:mb-6">What sellers increasingly ask</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 mb-4 md:mb-6">What sellers increasingly ask</p>
                 <div className="space-y-3 md:space-y-5">
                   {[
                     "Where exactly will my property be presented?",
@@ -446,7 +446,7 @@ export default function AgentsPage() {
               {/* Featured first advantage */}
               <div className="border border-hairline bg-ivory p-5 md:p-8 mb-px">
                 <div className="grid md:grid-cols-[auto_1fr] md:gap-10 md:items-start">
-                  <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-3 md:mb-0 md:mt-1">{ADVANTAGES[0].number}</div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3 md:mb-0 md:mt-1">{ADVANTAGES[0].number}</div>
                   <div>
                     <h3 className="font-serif text-xl text-navy-deep md:text-2xl">{ADVANTAGES[0].title}</h3>
                     <p className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:text-base md:leading-relaxed">{ADVANTAGES[0].body}</p>
@@ -457,7 +457,7 @@ export default function AgentsPage() {
               <div className="grid grid-cols-2 gap-px border border-hairline border-t-0 bg-hairline lg:grid-cols-3">
                 {ADVANTAGES.slice(1).map((a) => (
                   <div key={a.number} className="bg-white p-3 md:p-6">
-                    <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-2 md:mb-4">{a.number}</div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-2 md:mb-4">{a.number}</div>
                     <h3 className="font-serif text-base leading-snug text-navy-deep md:text-lg">{a.title}</h3>
                     <p className="mt-2 font-sans text-xs leading-snug text-ink-primary/65 md:mt-3 md:text-sm md:leading-relaxed">{a.body}</p>
                   </div>
@@ -480,7 +480,7 @@ export default function AgentsPage() {
               "The internet creates visibility. <span className="text-gold">Agent networks create movement.</span>
               A listing is not fully marketed until buyer agents know how to present it."
             </blockquote>
-            <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/45 md:mt-7">
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 md:mt-7">
               Carlos Uzcategui · Florida Licensed Realtor® · United Realty Group
             </p>
           </div>
@@ -569,7 +569,7 @@ export default function AgentsPage() {
                 },
               ].map((col) => (
                 <div key={col.role} className={`p-4 md:p-8 ${col.highlight ? "bg-gold/[0.07] border border-gold/20" : "bg-navy-deep"}`}>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold mb-3 md:mb-5">{col.role}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-3 md:mb-5">{col.role}</p>
                   <ul className="space-y-2 md:space-y-3">
                     {col.keeps.map((k) => (
                       <li key={k} className="flex items-start gap-2.5">
@@ -599,7 +599,7 @@ export default function AgentsPage() {
                 </p>
                 <div className="mt-6 space-y-4 md:mt-8 md:space-y-5">
                   <div>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-gold/80 mb-3">Property types</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/80 mb-3">Property types</p>
                     <div className="flex flex-wrap gap-2">
                       {IDEAL_FOR.slice(0, 4).map((item) => (
                         <span key={item} className="inline-flex items-center gap-2 border border-gold/20 bg-gold/5 px-4 py-2 font-sans text-sm text-navy-deep">
@@ -610,7 +610,7 @@ export default function AgentsPage() {
                     </div>
                   </div>
                   <div>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.22em] text-navy/35 mb-3">Agencies &amp; teams</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 mb-3">Agencies &amp; teams</p>
                     <div className="flex flex-wrap gap-2">
                       {IDEAL_FOR.slice(4).map((item) => (
                         <span key={item} className="inline-flex items-center gap-2 border border-navy/10 bg-ivory px-4 py-2 font-sans text-sm text-navy-deep">
@@ -621,7 +621,7 @@ export default function AgentsPage() {
                     </div>
                   </div>
                 </div>
-                <p className="mt-6 font-sans text-xs italic text-ink-primary/40 md:mt-8">
+                <p className="mt-6 font-sans text-xs italic text-ink-primary/70 md:mt-8">
                   Every submission is reviewed personally.
                 </p>
               </div>
@@ -634,7 +634,7 @@ export default function AgentsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
                 <div className="absolute inset-x-0 bottom-0 p-7">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/80 mb-1">Miami Desk</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80 mb-1">Miami Desk</p>
                   <p className="font-serif text-lg text-white leading-snug">
                     Premium properties.<br />International buyers.
                   </p>
@@ -678,7 +678,7 @@ export default function AgentsPage() {
               ].map((s) => (
                 <div key={s.value} className="bg-navy-deep p-4 md:p-8">
                   <div className="font-serif text-3xl text-gold md:text-5xl">{s.value}</div>
-                  <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/60">{s.label}</div>
+                  <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/60">{s.label}</div>
                   <p className="mt-2 font-sans text-xs leading-snug text-white/60 md:mt-4 md:text-sm md:leading-relaxed">{s.desc}</p>
                 </div>
               ))}
@@ -708,7 +708,7 @@ export default function AgentsPage() {
                       <div className="absolute left-[20px] top-11 bottom-0 w-px bg-navy/10" />
                     )}
                     <div className="relative z-10 flex-shrink-0 h-10 w-10 border border-gold/50 bg-white flex items-center justify-center">
-                      <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-gold">{step.number}</span>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-gold">{step.number}</span>
                     </div>
                     <div className="pt-1">
                       <h3 className="font-serif text-lg text-navy-deep">{step.title}</h3>
@@ -734,11 +734,11 @@ export default function AgentsPage() {
             </div>
             <AgencyPartnerForm />
             <div className="mt-6 space-y-3">
-              <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
                 <BadgeCheck size={14} className="text-gold" />
                 Confidential · No Obligation · Professional Review · Equal Housing Opportunity
               </div>
-              <p className="font-sans text-[10px] leading-relaxed text-white/25">
+              <p className="font-sans text-[10px] leading-relaxed text-white/70">
                 Exposure, marketing, and referral coordination do not guarantee a buyer, offer, sale, or closing.
                 All collaborations are subject to professional review, property suitability, local law, broker
                 compliance, MLS/platform rules where applicable, and written agreement. Florida real estate
@@ -755,7 +755,7 @@ export default function AgentsPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between md:gap-6 md:text-left">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">Prefer to speak directly?</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Prefer to speak directly?</p>
                 <p className="mt-2 font-serif text-2xl text-navy-deep">Request an agency partnership call.</p>
                 <p className="mt-2 font-sans text-sm text-ink-primary/60 max-w-md">
                   For agency directors and developer sales teams exploring ongoing collaboration. Carlos is bilingual
@@ -801,10 +801,10 @@ export default function AgentsPage() {
                 <div className="mt-6 divide-y divide-hairline border border-hairline md:mt-8">
                   {SOUTH_FL_PATHWAYS.map((p) => (
                     <div key={p.number} className="flex flex-col bg-white p-5 md:p-6">
-                      <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-3">{p.number}</div>
+                      <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3">{p.number}</div>
                       <h3 className="font-serif text-lg text-navy-deep leading-snug">{p.title}</h3>
                       <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65 flex-1">{p.body}</p>
-                      <a href="#south-florida-referral" className="mt-5 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.2em] text-gold hover:underline underline-offset-2">
+                      <a href="#south-florida-referral" className="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold hover:underline underline-offset-2">
                         Submit a referral →
                       </a>
                     </div>
@@ -820,11 +820,11 @@ export default function AgentsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
                 <div className="absolute inset-x-0 bottom-0 p-7">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold/80 mb-2">South Florida</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80 mb-2">South Florida</p>
                   <p className="font-serif text-xl text-white leading-snug">
                     Miami-Dade · Broward<br />Palm Beach
                   </p>
-                  <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.16em] text-white/40">
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
                     Full MLS · Bilingual · 25 years
                   </p>
                 </div>
@@ -846,11 +846,11 @@ export default function AgentsPage() {
             </div>
             <ReferralIntakeForm />
             <div className="mt-6 space-y-3">
-              <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
                 <BadgeCheck size={14} className="text-gold" />
                 Licensed Professionals Only · Written Agreements · Equal Housing Opportunity
               </div>
-              <p className="font-sans text-[10px] leading-relaxed text-white/25">
+              <p className="font-sans text-[10px] leading-relaxed text-white/70">
                 Referral fee compensation is subject to a written referral agreement executed prior to client engagement.
                 Florida real estate brokerage services are provided through United Realty Group. International referral
                 opportunities may be handled through formal broker-to-broker agreements depending on jurisdiction
@@ -894,7 +894,7 @@ export default function AgentsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/15 to-navy-deep/20 pointer-events-none" />
                 <div className="absolute left-6 top-6">
-                  <span className="inline-flex items-center gap-2 border border-gold/40 bg-navy-deep/60 px-3 py-1.5 font-mono text-[8.5px] uppercase tracking-[0.22em] text-gold backdrop-blur-sm">
+                  <span className="inline-flex items-center gap-2 border border-gold/40 bg-navy-deep/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold backdrop-blur-sm">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
                     United Realty Group · Brand Film
                   </span>
@@ -903,7 +903,7 @@ export default function AgentsPage() {
                   <p className="font-serif text-xl leading-snug text-white md:text-2xl">
                     See what working inside the brokerage looks like.
                   </p>
-                  <p className="mt-2 font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/45">
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
                     Founded 2002 · {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} Florida offices · In-house title
                   </p>
                 </div>
@@ -911,7 +911,7 @@ export default function AgentsPage() {
 
               {/* The business case for why agents grow here */}
               <div className="flex flex-col justify-center bg-navy-deep p-5 md:p-6">
-                <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80">Why agents grow here</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">Why agents grow here</p>
                 <p className="mt-3 font-sans text-[15px] leading-[1.5] text-white/70 md:mt-4 md:leading-[1.8]">
                   The agents who build the fastest are the ones who plug into demand that already exists instead of
                   generating every lead alone. Carlos runs active seller, buyer, and cross-border desks on the same
@@ -951,7 +951,7 @@ export default function AgentsPage() {
               ].map((a) => (
                 <div key={a.tag} className="bg-white p-5 md:p-6">
                   <a.icon size={20} className="text-gold" strokeWidth={1.5} />
-                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.24em] text-gold/80 md:mt-4">{a.tag}</p>
+                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80 md:mt-4">{a.tag}</p>
                   <h3 className="mt-2 font-serif text-lg leading-snug text-navy-deep md:text-xl">{a.title}</h3>
                   <p className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:leading-relaxed">{a.body}</p>
                 </div>
@@ -1003,12 +1003,12 @@ export default function AgentsPage() {
                     <UserPlus size={14} />
                     Ask About Joining URG
                   </a>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-navy/35">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
                     Personal response from Carlos
                   </p>
                 </div>
 
-                <p className="mt-4 font-sans text-xs italic text-ink-primary/40 md:mt-5">
+                <p className="mt-4 font-sans text-xs italic text-ink-primary/70 md:mt-5">
                   All license affiliations are subject to United Realty Group's standard broker requirements, Florida DBPR licensing,
                   and applicable MLS membership rules. Contact Carlos directly for current availability and affiliate terms.
                 </p>
@@ -1019,7 +1019,7 @@ export default function AgentsPage() {
                 <div className="relative overflow-hidden border border-gold/30 bg-navy-deep shadow-2xl shadow-navy/20">
                   {/* Coming-soon badge */}
                   <div className="absolute right-4 top-4 z-10">
-                    <span className="bg-gold px-3 py-1 font-mono text-[8px] uppercase tracking-[0.22em] text-navy-deep">
+                    <span className="bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-navy-deep">
                       Coming Soon
                     </span>
                   </div>
@@ -1029,7 +1029,7 @@ export default function AgentsPage() {
                     <div className="mb-3 md:mb-6">
                       <BookOpen size={36} className="text-gold" strokeWidth={1.25} />
                     </div>
-                    <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold/70 mb-3">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold/70 mb-3">
                       The South Florida Career Guide
                     </p>
                     <h3 className="font-serif text-2xl leading-snug text-white">
@@ -1045,7 +1045,7 @@ export default function AgentsPage() {
 
                   {/* What's inside */}
                   <div className="border-t border-white/10 px-6 py-4 md:px-8 md:py-5">
-                    <p className="mb-3 font-mono text-[8px] uppercase tracking-[0.22em] text-gold/60 md:mb-4">What's inside</p>
+                    <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/60 md:mb-4">What's inside</p>
                     <ul className="space-y-1.5 md:space-y-2.5">
                       {[
                         "Florida real estate licensing — step by step",
@@ -1072,7 +1072,7 @@ export default function AgentsPage() {
                       <BookOpen size={13} />
                       Preview the Book
                     </a>
-                    <p className="mt-2 text-center font-mono text-[8px] uppercase tracking-[0.16em] text-white/30 md:mt-3">
+                    <p className="mt-2 text-center font-mono text-[11px] uppercase tracking-[0.16em] text-white/70 md:mt-3">
                       By Carlos Uzcategui · FL SL705771 · United Realty Group
                     </p>
                   </div>
@@ -1086,11 +1086,11 @@ export default function AgentsPage() {
         {/* Compliance */}
         <section className="bg-navy-deep py-6 md:py-8">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30 mb-3">
+            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 mb-3">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>
-            <p className="font-sans text-[10px] leading-relaxed text-white/25">
+            <p className="font-sans text-[11px] leading-relaxed text-white/70">
               Carlos Uzcategui is a Florida Licensed Realtor® (SL705771) affiliated with United Realty Group. He is not licensed as a real estate broker in Spain.
               Miami MLS exposure, syndication, referral compensation, cooperation, and listing distribution are subject to MLS rules, broker approval, written agreements,
               property eligibility, local law, and platform availability. Network figures are provided for context. We do not guarantee buyers, offers, closings, syndication

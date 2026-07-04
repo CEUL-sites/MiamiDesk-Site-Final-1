@@ -99,12 +99,12 @@ export function GlobalPartnerNetwork({ lang = "en" }: { lang?: Lang }) {
               {t.stats.map((s) => (
                 <div key={s.label} className="bg-navy-deep px-5 py-5 text-center">
                   <div className="font-serif text-2xl text-gold md:text-3xl">{s.value}</div>
-                  <p className="mt-1.5 font-mono text-[8px] uppercase tracking-[0.18em] text-white/45">{s.label}</p>
+                  <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{s.label}</p>
                 </div>
               ))}
             </motion.div>
 
-            <p className="mt-5 font-mono text-[8px] uppercase tracking-[0.16em] text-white/25">
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
               {t.source}
             </p>
           </div>
@@ -127,7 +127,7 @@ export function GlobalPartnerNetwork({ lang = "en" }: { lang?: Lang }) {
                 className="h-auto w-full opacity-80 mix-blend-luminosity transition-opacity duration-500 hover:opacity-95"
               />
               <div className="px-4 py-3 text-center">
-                <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/35">{t.imgCaption}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{t.imgCaption}</p>
               </div>
             </div>
           </motion.div>

@@ -121,8 +121,8 @@ export function SellerProcess() {
                   {/* Name + headline */}
                   <div className="flex-1 min-w-0">
                     <span
-                      className={`font-mono text-[9px] uppercase tracking-[0.26em] transition-colors duration-200 ${
-                        isActive ? "text-gold" : "text-white/35"
+                      className={`font-mono text-[10px] uppercase tracking-[0.26em] transition-colors duration-200 ${
+                        isActive ? "text-gold" : "text-white/70"
                       }`}
                     >
                       {step.name}
@@ -164,7 +164,7 @@ export function SellerProcess() {
                         </p>
                         <div className="mt-5 inline-flex items-start gap-3 border border-gold/20 bg-gold/[0.06] px-4 py-3">
                           <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                          <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold/80 leading-relaxed">
+                          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80 leading-relaxed">
                             {step.benefit}
                           </p>
                         </div>
@@ -187,13 +187,13 @@ export function SellerProcess() {
           </a>
           <a
             href="/home-value"
-            className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/55 transition-colors hover:border-gold hover:text-gold"
+            className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-gold hover:text-gold"
           >
             Free Home Valuation
           </a>
         </div>
 
-        <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.14em] text-white/20">
+        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-white/70">
           United Realty Group · FL SL705771 · Equal Housing Opportunity · Eligible distribution subject to MLS rules and syndication partner availability
         </p>
       </div>

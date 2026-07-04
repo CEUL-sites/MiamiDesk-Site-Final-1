@@ -304,7 +304,7 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
       {/* ── Caption (cross-fades on change) ─────────────────────────────── */}
       <p
         key={activeIdx}
-        className="vb-caption mt-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-navy/70 text-center"
+        className="vb-caption mt-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 text-center"
       >
         {bubbles[activeIdx].caption}
       </p>

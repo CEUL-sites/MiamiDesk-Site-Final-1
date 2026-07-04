@@ -181,7 +181,7 @@ function PhoneBubblePlayer() {
 
                 {/* Overlay badge */}
                 <div className="absolute bottom-6 left-0 right-0 flex justify-center">
-                  <span className="rounded-full bg-black/60 px-3 py-1 font-mono text-[8px] uppercase tracking-[0.2em] text-gold backdrop-blur-sm">
+                  <span className="rounded-full bg-black/60 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold backdrop-blur-sm">
                     {current.badge}
                   </span>
                 </div>
@@ -277,7 +277,7 @@ export function SellerSection() {
               WhatsApp Carlos
             </a>
           </div>
-          <p className="font-mono mx-auto mt-4 max-w-2xl text-[9px] uppercase tracking-[0.2em] text-white/55 md:mt-6">
+          <p className="font-mono mx-auto mt-4 max-w-2xl text-[10px] uppercase tracking-[0.2em] text-white/70 md:mt-6">
             {CONTACT.licenseDisplay} · {CONTACT.brokerage}
           </p>
         </div>

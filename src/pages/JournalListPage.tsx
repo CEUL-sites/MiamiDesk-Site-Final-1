@@ -87,7 +87,7 @@ export default function JournalListPage() {
             HOA financials, closing cost structure, international capital flows, and what
             current data means for sellers positioning in this market.
           </p>
-          <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.22em] text-white/30">
+          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-white/70">
             Carlos Uzcategui · FL SL705771 · 25 Years South Florida Market Experience
           </p>
           </div>
@@ -114,7 +114,7 @@ export default function JournalListPage() {
 
                   <div className="flex flex-1 flex-col p-7">
                     {/* Category badge */}
-                    <span className="inline-block self-start border border-gold/40 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-gold">
+                    <span className="inline-block self-start border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
                       {post.category}
                     </span>
 
@@ -124,7 +124,7 @@ export default function JournalListPage() {
                     </h2>
 
                     {/* Date + read time */}
-                    <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/40">
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
                       {formatDate(post.date)}{post.readTime ? ` · ${post.readTime} min read` : ""}
                     </p>
 

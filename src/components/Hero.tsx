@@ -1,14 +1,23 @@
 import { motion, type Variants } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, Globe, ShieldCheck, Tag } from "lucide-react";
+import { Globe, ShieldCheck, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
-import { trackFunnelEvent } from "../lib/analytics";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-// Single hero bubble — sized as the centerpiece now that it stands alone.
-const FEATURE_SIZE = "clamp(150px,34vw,250px)";
+// Demoted to a secondary column beside the form — the seller form is the
+// centerpiece now, not the decorative clip.
+const FEATURE_SIZE = "clamp(120px,26vw,170px)";
+
+// Verified network-distribution figures — static, no counting-up animation.
+// Keep in sync with the network ticker figures used elsewhere on the site.
+const DISTRIBUTION_STATS = [
+  { value: "93,000", label: "Member Agents" },
+  { value: "200+",   label: "Global Portals · 19 Languages" },
+  { value: "260+",   label: "U.S. MLSs via RPR" },
+  { value: "437+",   label: "International Agreements" },
+];
 
 // Crossfade duration between clips (ms). Kept in sync with the CSS opacity
 // transition on each video layer so swaps dissolve with no black frame.
@@ -226,7 +235,7 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
       </div>
 
       {/* Current video label */}
-      <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.18em] text-white/55 whitespace-nowrap leading-none">
+      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 whitespace-nowrap leading-none">
         {HERO_FEATURE_VIDEOS[activeIdx].label}
       </span>
     </div>
@@ -271,19 +280,6 @@ export function Hero() {
           position:absolute; bottom:0; left:0; right:0; height:220px; pointer-events:none;
           background:linear-gradient(to top, rgba(6,13,24,0.95) 0%, transparent 100%);
         }
-        @keyframes exposure-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        .exposure-track {
-          animation: exposure-scroll 12s linear infinite;
-          display: flex;
-          will-change: transform;
-        }
-        .exposure-track:hover { animation-play-state: paused; }
-        @media (prefers-reduced-motion: reduce) {
-          .exposure-track { animation: none; }
-        }
       `}</style>
 
       <HeroBackground />
@@ -298,13 +294,13 @@ export function Hero() {
         animate="visible"
         className="relative z-10 flex flex-1 flex-col items-center px-4 pt-[72px] sm:pt-24 md:pt-28 pb-10 sm:px-8"
       >
-        <div className="w-full max-w-4xl flex flex-col items-center text-center">
+        <div className="w-full max-w-5xl flex flex-col items-center text-center">
 
           {/* Eyebrow */}
           <motion.div variants={item}>
             <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
               <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-              <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
                 <span className="sm:hidden">South Florida · Global Reach</span>
                 <span className="hidden sm:inline">South Florida · Miami Realtors Network · Global Reach</span>
               </span>
@@ -322,63 +318,61 @@ export function Hero() {
             <em className="italic text-gold">World's Largest Local Realtor® Association.</em>
           </motion.h1>
 
-          {/* Mobile-only quick CTA — on phones the seller form sits well below
-              the fold, so give an immediate, above-the-fold path to it. */}
-          <motion.a
-            variants={item}
-            href="#list-here"
-            onClick={() => trackFunnelEvent("hero_cta_mobile")}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90 sm:hidden"
-          >
-            Get My Free Home Value
-            <ArrowRight size={14} />
-          </motion.a>
-
-          {/* Single auto-cycling video bubble — crossfades seamlessly through
-              the featured clips (no black frame between them). */}
-          <motion.div ref={trioRef} variants={item} className="mt-8 flex items-center justify-center">
-            <HeroCyclingBubble active={videosActive} />
-          </motion.div>
-
-          {/* Subtitle */}
+          {/* Subtitle — kept directly under the headline as a short line; at
+              this size it reads as connective tissue rather than crowding the
+              stat row beneath it. */}
           <motion.p
             variants={item}
-            className="mt-6 font-serif text-white/70 italic"
-            style={{ fontSize: "clamp(1rem, 2.2vw, 1.35rem)" }}
+            className="mt-4 font-serif text-white/70 italic"
+            style={{ fontSize: "clamp(0.95rem, 2vw, 1.2rem)" }}
           >
             Real Estate is local — Peak Value is Global.
           </motion.p>
 
-          {/* Network ticker */}
-          <motion.div variants={item} className="relative mt-5 w-full max-w-xl overflow-hidden border border-gold/20 bg-white/[0.03]">
-            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-r from-[#060D18] to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
-            <div className="exposure-track">
-              {[0, 1].map((copy) => (
-                <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[8px] uppercase tracking-[0.16em] whitespace-nowrap text-white/40">
-                  <span className="text-gold/75">Network</span>{" "}·{" "}
-                  <span className="text-white/85">93,000</span> Member Agents{" "}·{" "}
-                  <span className="text-white/85">260+</span> U.S. MLSs{" "}·{" "}
-                  <span className="text-white/85">437+</span> International Agreements{" "}·{" "}
-                  <span className="text-white/85">200+</span> Global Portals{" "}·{" "}
-                  <span className="text-white/85">19</span> Languages{" "}·{" "}
-                  Licensed Since <span className="text-white/85">2001</span>
-                </span>
-              ))}
-            </div>
+          {/* Static distribution stat row — replaces the auto-scrolling
+              marquee. Static and readable is the point: no counting-up
+              animation, no motion. */}
+          <motion.div
+            variants={item}
+            className="mt-7 grid w-full max-w-2xl grid-cols-2 gap-x-4 gap-y-6 border-y border-gold/15 py-6 sm:grid-cols-4 sm:gap-x-6"
+          >
+            {DISTRIBUTION_STATS.map((s) => (
+              <div key={s.label}>
+                <div
+                  className="font-serif text-white"
+                  style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)", fontWeight: 400 }}
+                >
+                  {s.value}
+                </div>
+                <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </motion.div>
 
         </div>
 
-        {/* ── Centered form ──────────────────────────────────────── */}
+        {/* ── Form + video bubble ──────────────────────────────────
+            Desktop: form left, bubble demoted to a secondary column on the
+            right. Mobile: form first, bubble below it, reduced in size. */}
         <motion.div
-          id="list-here"
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: EASE, delay: 0.55 }}
-          className="mt-8 w-full max-w-lg scroll-mt-24"
+          variants={item}
+          className="mt-9 flex w-full max-w-5xl flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-center"
         >
-          <HeroSellerForm />
+          <motion.div
+            id="list-here"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.35 }}
+            className="w-full max-w-lg scroll-mt-24 lg:order-1"
+          >
+            <HeroSellerForm />
+          </motion.div>
+
+          <div ref={trioRef} className="flex items-center justify-center lg:order-2 lg:pt-6">
+            <HeroCyclingBubble active={videosActive} />
+          </div>
         </motion.div>
 
         {/* ── Trust row ──────────────────────────────────────────── */}
@@ -393,7 +387,7 @@ export function Hero() {
             { icon: Tag,         text: "CLHMS · Certified Seller Rep" },
             { icon: Globe,       text: "United Realty Group" },
           ].map(({ icon: Icon, text }) => (
-            <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] text-white/40">
+            <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
               <Icon size={11} className="text-gold/60 flex-shrink-0" />
               {text}
             </span>
@@ -405,7 +399,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1, duration: 0.5 }}
-          className="mt-3 font-mono text-[7.5px] uppercase tracking-[0.14em] text-white/20 max-w-sm text-center"
+          className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-white/70 max-w-sm text-center"
         >
           Eligible exposure varies by property type, MLS rules, platform participation, and syndication partner availability.
         </motion.p>

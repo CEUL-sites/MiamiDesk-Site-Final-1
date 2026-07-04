@@ -28,7 +28,7 @@ export function AuthorBio() {
         {/* Text block */}
         <div className="min-w-0">
           {/* Label */}
-          <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-2">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-2">
             About the Author
           </p>
 
@@ -38,7 +38,7 @@ export function AuthorBio() {
           </h3>
 
           {/* Credential line */}
-          <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-navy/50 leading-relaxed">
+          <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-navy/70 leading-relaxed">
             Florida Licensed Realtor® since 2001 · SL705771 · CLHMS · Certified Seller Representative · United Realty Group
           </p>
 
@@ -58,13 +58,13 @@ export function AuthorBio() {
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
             <Link
               to="/about"
-              className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+              className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
             >
               More about Carlos →
             </Link>
             <Link
               to="/contact"
-              className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+              className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
             >
               Request a private seller strategy review →
             </Link>

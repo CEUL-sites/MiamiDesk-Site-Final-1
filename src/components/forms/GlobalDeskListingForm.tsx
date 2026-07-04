@@ -313,7 +313,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
   return (
     <div className="border border-white/10 bg-white/[0.02]">
       <div className="border-b border-white/10 bg-white/[0.03] px-6 py-6 md:px-8">
-        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">{t.kicker}</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{t.kicker}</p>
         <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{t.title}</h3>
         <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{t.intro}</p>
       </div>
@@ -395,7 +395,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
         {/* Submitter block */}
         <div className="border-t border-white/10 pt-7">
-          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/55">
+          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
             {t.submitterBlock}
           </p>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -465,7 +465,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
         {/* Property block */}
         <div className="border-t border-white/10 pt-7">
-          <p className="mb-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/55">
+          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
             {t.propertyBlock}
           </p>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -581,9 +581,9 @@ function Field({
   // programmatic label (implicit association) without needing per-field ids.
   return (
     <label className={`flex flex-col gap-1.5 ${full ? "sm:col-span-2" : ""}`}>
-      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">{label}</span>
+      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{label}</span>
       {children}
-      {hint && <p className="font-sans text-[11px] leading-snug text-white/55">{hint}</p>}
+      {hint && <p className="font-sans text-[11px] leading-snug text-white/70">{hint}</p>}
     </label>
   );
 }

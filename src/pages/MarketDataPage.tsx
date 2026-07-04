@@ -258,7 +258,7 @@ function CityTable() {
                   <td className="py-3 pr-4 font-medium text-ink-primary whitespace-nowrap">
                     {r.area}
                     {r.flagged && (
-                      <span className="ml-1 text-[9px] font-mono text-amber-500 align-super">*</span>
+                      <span className="ml-1 text-[10px] font-mono text-amber-500 align-super">*</span>
                     )}
                   </td>
                   <td className="py-3 pr-4 text-right font-mono tabular-nums text-ink-primary">

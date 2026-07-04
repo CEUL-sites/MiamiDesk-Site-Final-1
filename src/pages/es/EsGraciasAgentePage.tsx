@@ -38,7 +38,7 @@ export default function EsGraciasAgentePage() {
             </p>
 
             <div className="mx-auto mt-8 max-w-md border border-gold/25 bg-gold/5 p-6 text-left">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Documento de referencia
               </p>
@@ -68,7 +68,7 @@ export default function EsGraciasAgentePage() {
               </a>
               <a
                 href="/es/agentes"
-                className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 {/* TODO: native Madrid editor review */}
                 Volver a la página de agentes
@@ -76,7 +76,7 @@ export default function EsGraciasAgentePage() {
             </div>
 
             <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
                 {/* TODO: native Madrid editor review */}
                 Confidencial · Solo profesionales licenciados · Acuerdos
                 escritos · SL705771 · United Realty Group · Equal Housing

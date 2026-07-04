@@ -56,7 +56,7 @@ export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
             Contact Form
           </a>
         </div>
-        <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
+        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
           FL SL705771 · United Realty Group
         </p>
       </div>

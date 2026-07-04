@@ -69,7 +69,7 @@ function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index
       {/* Labels */}
       <div className="mt-3 md:mt-5">
         <p className="font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white">{stat.label}</p>
-        <p className="font-mono mt-1 text-[9px] uppercase tracking-[0.2em] text-gold/60">{stat.sublabel}</p>
+        <p className="font-mono mt-1 text-[10px] uppercase tracking-[0.2em] text-gold/60">{stat.sublabel}</p>
       </div>
 
       {/* Description — reveals on hover, visible always on mobile */}
@@ -144,7 +144,7 @@ export const ReachAdvantage = () => {
             className="h-9 w-auto opacity-85"
             style={{ filter: "brightness(0) invert(1)" }}
           />
-          <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
             Powered by membership in the Miami and South Florida REALTORS®
           </p>
         </motion.div>
