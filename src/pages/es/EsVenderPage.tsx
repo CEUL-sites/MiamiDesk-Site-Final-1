@@ -329,7 +329,10 @@ export default function EsVenderPage() {
         </section>
 
         {/* ─── CTA Band ─────────────────────────────────────────── */}
-        <section className="bg-gold py-14">
+        {/* id="contact": landing anchor for MobileStickyCTA's Spanish "Vender
+            mi casa" pill and the /es homepage Distribution CTA — without it
+            both links scrolled nowhere on this page. */}
+        <section id="contact" className="scroll-mt-24 bg-gold py-14">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <h2 className="font-serif text-3xl text-navy-deep">
               {/* TODO: native Madrid editor review */}

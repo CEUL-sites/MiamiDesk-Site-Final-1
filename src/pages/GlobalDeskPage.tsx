@@ -243,7 +243,7 @@ export default function GlobalDeskPage() {
         <link rel="canonical" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
-        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/global-desk" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
         <meta property="og:title" content="Global Desk — Spanish luxury property into the Miami MLS international section" />
