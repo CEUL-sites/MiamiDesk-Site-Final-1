@@ -1,7 +1,18 @@
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
-import { ChevronRight, MessageSquare, BadgeCheck, MapPin } from "lucide-react";
+import {
+  ChevronRight,
+  MessageSquare,
+  BadgeCheck,
+  MapPin,
+  Banknote,
+  Sun,
+  Globe2,
+  HeartPulse,
+  Landmark,
+  Plane,
+} from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
@@ -136,7 +147,7 @@ export default function EsComprarPage() {
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
-          content="Representación bilingüe para compradores internacionales en Sur de Florida. España y Latinoamérica bienvenidos. Carlos Uzcategui, FL SL705771."
+          content="Representación bilingüe para compradores internacionales en Sur de Florida — 25 años de experiencia respaldados por United Realty Group: 3,500+ agentes y 20 oficinas en Florida. Carlos Uzcategui, FL SL705771."
         />
         <link
           rel="canonical"
@@ -199,10 +210,31 @@ export default function EsComprarPage() {
                 {/* TODO: native Madrid editor review */}
                 Acceso completo al MLS en Miami-Dade, Broward y Palm Beach, con
                 representación bilingüe en inglés y español en todas las etapas.
-                25 años de relaciones locales en Sur de Florida al servicio de
-                compradores internacionales que operan desde Europa y
-                Latinoamérica.
+                25 años de experiencia respaldados por United Realty Group — una
+                de las mayores agencias independientes de Florida, con{" "}
+                {CONTACT.stats.urgAgents} agentes y {CONTACT.stats.urgOffices}{" "}
+                oficinas que cubren prácticamente cada zona de Broward y
+                Miami-Dade.
               </motion.p>
+
+              {/* Escala — la fortaleza en cuatro cifras */}
+              <motion.div
+                variants={itemVariants}
+                className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-px border border-white/10 bg-white/10 sm:grid-cols-4"
+              >
+                {[
+                  // TODO: native Madrid editor review
+                  { value: `${CONTACT.stats.experience} años`, label: "Con licencia desde 2001" },
+                  { value: CONTACT.stats.urgAgents, label: "Agentes de URG" },
+                  { value: CONTACT.stats.urgOffices, label: "Oficinas en Florida" },
+                  { value: CONTACT.stats.urgFounded, label: "Fundación de URG" },
+                ].map((s) => (
+                  <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
+                    <p className="font-serif text-2xl text-gold">{s.value}</p>
+                    <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.18em] text-white/50">{s.label}</p>
+                  </div>
+                ))}
+              </motion.div>
 
               <motion.div
                 variants={itemVariants}
@@ -255,9 +287,10 @@ export default function EsComprarPage() {
               </h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-navy-deep/60">
                 {/* TODO: native Madrid editor review */}
-                La consultoría de comprador es gratuita — los honorarios de
-                representación corren a cargo del vendedor en todas las
-                operaciones de compraventa en Florida.
+                La consulta inicial de comprador es gratuita y sin compromiso.
+                Los honorarios de representación son negociables y, en muchas
+                operaciones, los asume el vendedor — se acuerdan con claridad
+                por escrito antes de empezar.
               </p>
             </div>
 
@@ -275,6 +308,71 @@ export default function EsComprarPage() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── La red detrás de cada compra — URG ───────────────── */}
+        <section className="bg-navy-deep/4 py-20 border-t border-navy-deep/10">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                  {/* TODO: native Madrid editor review */}
+                  La Red Detrás de Cada Compra
+                </p>
+                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  {/* TODO: native Madrid editor review */}
+                  Un agente negocia por usted.{" "}
+                  <span className="italic font-light text-gold-ink">
+                    {CONTACT.stats.urgAgents} lo respaldan.
+                  </span>
+                </h2>
+                <p className="mt-5 font-sans text-[15px] leading-relaxed text-navy-deep/65">
+                  {/* TODO: native Madrid editor review */}
+                  Carlos es asociado de United Realty Group — una de las mayores
+                  agencias inmobiliarias independientes de Florida. Fundada
+                  en {CONTACT.stats.urgFounded}, URG cuenta
+                  con {CONTACT.stats.urgAgents} agentes con licencia
+                  y {CONTACT.stats.urgOffices} oficinas en Florida, desde su sede
+                  central en Plantation hasta Broward, Miami-Dade y Palm Beach.
+                </p>
+                <ul className="mt-7 space-y-3">
+                  {[
+                    // TODO: native Madrid editor review
+                    `${CONTACT.stats.urgAgents} agentes con licencia en ${CONTACT.stats.urgOffices} oficinas de Florida`,
+                    "Cobertura local de Broward y Miami-Dade — Weston, Pembroke Pines, Kendall, Hialeah, Aventura, Fort Lauderdale y más",
+                    "Acceso completo al MLS de Miami and South Florida REALTORS®",
+                    "Representación bilingüe en inglés y español",
+                    "Agencia independiente de servicio completo — establecida en 2002",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
+                      <span className="font-sans text-[14px] leading-snug text-navy-deep/70">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* Video del equipo URG */}
+              <div className="overflow-hidden border border-navy-deep/10 bg-navy-deep shadow-xl shadow-navy/10">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/M8Hx5D5ghag?si=XAE-_zpkAJCVf_Yp&rel=0&modestbranding=1"
+                    title="United Realty Group — el equipo detrás de cada compra en Sur de Florida"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                </div>
+                <div className="bg-navy-deep px-5 py-4">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · El Equipo</p>
+                  <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/55">
+                    {CONTACT.stats.urgAgents} agentes · {CONTACT.stats.urgOffices} oficinas · Sede en Plantation · Est. {CONTACT.stats.urgFounded}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -340,6 +438,71 @@ export default function EsComprarPage() {
           </div>
         </section>
 
+        {/* ─── Por qué Florida ──────────────────────────────────── */}
+        <section className="bg-navy-deep py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-10 max-w-2xl">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                {/* TODO: native Madrid editor review */}
+                Mudarse a Florida
+              </p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
+                {/* TODO: native Madrid editor review */}
+                Por qué los compradores siguen eligiendo Sur de Florida.
+              </h2>
+            </div>
+            <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  icon: Banknote,
+                  // TODO: native Madrid editor review
+                  title: "Sin impuesto estatal sobre la renta",
+                  desc: "Florida no aplica impuesto estatal sobre la renta personal — una ventaja estructural para profesionales, jubilados y empresarios que se trasladan.",
+                },
+                {
+                  icon: Sun,
+                  // TODO: native Madrid editor review
+                  title: "Clima subtropical todo el año",
+                  desc: "Miami es la única gran ciudad subtropical de los EE. UU. continentales, con una temperatura media de 24 °C.",
+                },
+                {
+                  icon: Globe2,
+                  // TODO: native Madrid editor review
+                  title: "Mercado nº 1 para compradores globales",
+                  desc: "Uno de cada cinco compradores internacionales en EE. UU. compra en Florida — y el 52% de ellos lo hace en el área de Miami.",
+                },
+                {
+                  icon: HeartPulse,
+                  // TODO: native Madrid editor review
+                  title: "Ciudad más feliz y saludable de EE. UU.",
+                  desc: "Miami encabeza el Mindbody Wellness Index, con sistemas hospitalarios de primer nivel como Baptist Health y Bascom Palmer.",
+                },
+                {
+                  icon: Landmark,
+                  // TODO: native Madrid editor review
+                  title: "«La capital del capital»",
+                  desc: "Segundo centro financiero de la costa este: más de 60 bancos internacionales, 1.400+ multinacionales y el 2º hub tecnológico emergente de EE. UU. (Forbes).",
+                },
+                {
+                  icon: Plane,
+                  // TODO: native Madrid editor review
+                  title: "Puerta de las Américas",
+                  desc: "MIA es el 2º aeropuerto de EE. UU. en pasajeros internacionales, con el mayor número de vuelos a Latinoamérica y el Caribe, y conexión directa con España.",
+                },
+              ].map((r) => (
+                <div key={r.title} className="bg-navy-deep/90 p-6">
+                  <r.icon size={20} className="text-gold" />
+                  <h3 className="mt-4 font-serif text-lg leading-snug text-white">{r.title}</h3>
+                  <p className="mt-2 font-sans text-[13px] leading-relaxed text-white/55">{r.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.18em] text-white/40">
+              Fuente: Miami and South Florida REALTORS® — «Top 20 Reasons to Buy &amp; Live in Miami» (MiamiRealtors.com)
+            </p>
+          </div>
+        </section>
+
         {/* ─── Neighborhoods ────────────────────────────────────── */}
         <section className="bg-white py-20">
           <div className="mx-auto max-w-5xl px-6">
@@ -375,6 +538,34 @@ export default function EsComprarPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ─── ¿Compra en España? — servicio aparte ─────────────── */}
+        <section className="bg-navy-deep/4 py-14 border-t border-navy-deep/10">
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              {/* TODO: native Madrid editor review */}
+              Servicio Aparte · Comprar en España
+            </p>
+            <h2 className="mt-4 font-serif text-2xl text-navy-deep md:text-3xl">
+              {/* TODO: native Madrid editor review */}
+              ¿Busca propiedad en España? Es un servicio distinto.
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-navy-deep/60">
+              {/* TODO: native Madrid editor review */}
+              Carlos tiene licencia en Florida — no en España. Para compras en
+              España actúa como punto de introducción: le conecta con
+              profesionales locales de confianza mediante relaciones formales de
+              referido, con transparencia en cada paso.
+            </p>
+            <a
+              href="/es/spain-desk"
+              className="mt-6 inline-flex items-center gap-2 border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-colors hover:text-gold"
+            >
+              {/* TODO: native Madrid editor review */}
+              Conocer el Spain Desk →
+            </a>
           </div>
         </section>
 
