@@ -141,7 +141,7 @@ export function ExitIntentModal() {
         </button>
 
         <div className="border-b border-bone bg-navy-deep px-8 py-6">
-          <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">Before you go</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">Before you go</p>
           <h3 className="mt-2 font-serif text-2xl leading-snug text-white">
             Know what you'd actually keep.
           </h3>
@@ -150,7 +150,7 @@ export function ExitIntentModal() {
         <div className="p-8">
           {status === "success" ? (
             <div className="flex flex-col items-start gap-4">
-              <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-gold-ink">
+              <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">
                 <CheckCircle2 size={13} /> Ready to download
               </span>
               <a
@@ -206,7 +206,7 @@ export function ExitIntentModal() {
                     : <><Download size={13} /> Send Me the Free Guide</>}
                 </button>
               </form>
-              <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.12em] text-navy/70">
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-navy/70">
                 One email. No subscription. No listing commitment.
               </p>
               <a href="/home-value" className="mt-4 inline-block font-sans text-xs text-gold-ink underline underline-offset-2 hover:text-navy">

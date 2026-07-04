@@ -79,7 +79,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
     return (
       <section className="mx-auto max-w-3xl px-5 py-8 lg:px-8">
         <div className="border-l-4 border-gold/60 bg-ivory px-7 py-6">
-          <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">Private Seller Desk · South Florida</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Private Seller Desk · South Florida</p>
           <h3 className="mt-3 font-serif text-xl text-navy leading-snug">
             Your property's position in the current market — analyzed by Carlos, not an algorithm.
           </h3>
@@ -96,7 +96,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track('whatsapp_us', 'post_mid', post)}
-              className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+              className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
             >
               Or WhatsApp →
             </a>
@@ -109,7 +109,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
   return (
     <section className="mx-auto max-w-3xl px-5 py-14 lg:px-8">
       <div className="border border-bone bg-ivory p-8 md:p-10">
-        <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
           Private Seller Desk · United Realty Group
         </p>
         <h2 className="mt-4 font-serif text-2xl leading-snug text-navy">
@@ -133,7 +133,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track('whatsapp_us', 'post_bottom', post)}
-            className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+            className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
           >
             Or message on WhatsApp →
           </a>

@@ -57,15 +57,15 @@ export function MarketPulse() {
               >
                 <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
                   <h3 className="font-serif text-lg text-navy-deep">{city}</h3>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">{lead.name}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">{lead.name}</span>
                 </div>
                 <p className="mt-2 font-serif text-2xl text-navy-deep md:mt-3">{usd.format(lead.seg.medianSalePrice)}</p>
-                <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">Median sale price</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">Median sale price</p>
                 <div className="mt-3 flex flex-col items-start gap-1.5 border-t border-hairline pt-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3 md:mt-4">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-navy/70">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-navy/70">
                     {lead.seg.medianDaysToContract} days to contract · {lead.seg.monthsSupply} mo supply
                   </span>
-                  <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.14em] text-gold-ink transition-colors group-hover:text-gold">
+                  <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.14em] text-gold-ink transition-colors group-hover:text-gold">
                     Sell here <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
                   </span>
                 </div>

@@ -87,7 +87,7 @@ export default function LeaveReviewPage() {
                 rel="noopener noreferrer"
                 className="group flex flex-col border border-hairline bg-white p-8 transition-colors hover:border-gold"
               >
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">{d.label}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{d.label}</p>
                 <h2 className="mt-2 font-serif text-2xl text-navy-deep">{d.name}</h2>
                 <p className="mt-3 flex-1 font-sans text-sm leading-relaxed text-ink-primary/70">
                   {d.description}
@@ -120,7 +120,7 @@ export default function LeaveReviewPage() {
 
         {/* Compliance footer band */}
         <section className="bg-navy-deep py-12 text-center px-6">
-          <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/30">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
             {CONTACT.name} · {CONTACT.shortLicense} · {CONTACT.brokerage} · Equal Housing Opportunity
           </p>
         </section>

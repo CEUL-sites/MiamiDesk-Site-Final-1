@@ -278,7 +278,7 @@ export default function GlobalDeskPage() {
           <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-serif text-lg leading-none text-white">Global Desk</p>
-              <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.22em] text-gold">{t.unit}</p>
+              <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{t.unit}</p>
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <div
@@ -304,7 +304,7 @@ export default function GlobalDeskPage() {
                 href={WA_ES}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55 transition-colors hover:text-gold"
+                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-gold"
               >
                 <MessageCircle size={12} className="text-gold/70" />
                 {t.waES} +34 646 85 30 78
@@ -313,7 +313,7 @@ export default function GlobalDeskPage() {
                 href={WA_US}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55 transition-colors hover:text-gold"
+                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:text-gold"
               >
                 <MessageCircle size={12} className="text-gold/70" />
                 {t.waUS} +1 954-865-6622
@@ -334,7 +334,7 @@ export default function GlobalDeskPage() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3.5 py-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/85">{t.heroEyebrow}</span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/85">{t.heroEyebrow}</span>
             </span>
             <h1
               className="mt-7 max-w-3xl font-serif leading-[1.08] text-white"
@@ -350,7 +350,7 @@ export default function GlobalDeskPage() {
               {[FIGURES[0], FIGURES[1], FIGURES[3]].map((f) => (
                 <div key={f.v} className="flex items-baseline gap-2">
                   <span className="font-serif text-2xl text-gold md:text-3xl">{f.v}</span>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">{f[lang]}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">{f[lang]}</span>
                 </div>
               ))}
             </div>
@@ -376,7 +376,7 @@ export default function GlobalDeskPage() {
               </a>
             </div>
 
-            <p className="mt-7 font-mono text-[9px] uppercase tracking-[0.16em] leading-relaxed text-white/55">
+            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.16em] leading-relaxed text-white/70">
               {t.heroTrust}
             </p>
           </motion.div>
@@ -406,7 +406,7 @@ export default function GlobalDeskPage() {
             <p className="mt-8 max-w-3xl font-sans text-lg leading-[1.85] text-white/70">
               {t.marketBody}
             </p>
-            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.16em] text-white/55">
+            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
               {t.sourceLabel}:{" "}
               <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" className="text-gold underline-offset-2 hover:underline">
                 {t.sourceText}
@@ -427,7 +427,7 @@ export default function GlobalDeskPage() {
                   <div className="font-serif text-4xl text-gold-ink">{f.v}</div>
                   <div className="mt-2 font-sans text-sm leading-snug text-navy/70">{f[lang]}</div>
                   {f.caption && (
-                    <p className="mt-3 font-mono text-[8px] uppercase leading-relaxed tracking-[0.14em] text-navy/70">
+                    <p className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-navy/70">
                       {t.caption}
                     </p>
                   )}
@@ -531,7 +531,7 @@ export default function GlobalDeskPage() {
 
             {/* Placement plan scopes (named, no prices) */}
             <div className="mt-8">
-              <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold">{t.scopesEyebrow}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.scopesEyebrow}</p>
               <div className="mt-4 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-3">
                 {t.scopes.map(([name, desc]) => (
                   <div key={name} className="bg-navy-deep p-6">
@@ -542,7 +542,7 @@ export default function GlobalDeskPage() {
               </div>
             </div>
 
-            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.18em] text-white/55">{t.twoWaysClosing}</p>
+            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{t.twoWaysClosing}</p>
 
             {/* Mid-page conversion point — momentum dies without one between
                 the mechanics and the (long) intake form. */}
@@ -554,7 +554,7 @@ export default function GlobalDeskPage() {
                 {t.midCta}
                 <ChevronRight size={14} />
               </a>
-              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/55">
+              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
                 {t.midCtaAlt}{" "}
                 <a href={WA_ES} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline underline-offset-2 hover:opacity-80">
                   {t.waES}
@@ -604,7 +604,7 @@ export default function GlobalDeskPage() {
         <section id="listing-request" className="scroll-mt-20 bg-[#060D18] px-6 py-16 md:py-24">
           <div className="mx-auto max-w-3xl">
             <GlobalDeskListingForm lang={lang} />
-            <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">
+            <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               {lang === "es" ? (
                 <>¿Agencia o promotora? Vea el proceso completo de alta:{" "}
                   <a href="/spain-mls-listing" className="text-gold underline underline-offset-2 hover:text-white">Inmueble en España → listado en el Miami MLS</a></>
@@ -619,8 +619,8 @@ export default function GlobalDeskPage() {
         {/* ── Section H — Compliance footer block ── */}
         <section className="border-t border-gold/20 bg-navy-deep px-6 py-14">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">{t.footerCompliance}</p>
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/45">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">{t.footerCompliance}</p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
               <a href="mailto:contact@carlosre.com" className="inline-flex items-center py-2 hover:text-gold">contact@carlosre.com</a>
               <span className="text-gold/40">·</span>
               <a href={WA_US} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 hover:text-gold">{t.waUS} +1 954-865-6622</a>
@@ -629,7 +629,7 @@ export default function GlobalDeskPage() {
               <span className="text-gold/40">·</span>
               <a href="tel:+19544502000" className="inline-flex items-center py-2 underline underline-offset-2 hover:text-gold">1-954-450-2000</a>
             </div>
-            <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.14em] text-white/55">{t.footerAddress}</p>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">{t.footerAddress}</p>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-xs leading-relaxed text-white/55">{t.footerCredibility}</p>
           </div>
         </section>

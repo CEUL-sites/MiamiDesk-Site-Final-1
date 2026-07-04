@@ -83,7 +83,7 @@ export function InternationalBridge() {
             {["Miami · FL", "Madrid · España", "LATAM Network"].map((tag) => (
               <span key={tag} className="flex items-center gap-2 border border-gold/30 bg-white/5 px-4 py-2 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/80">{tag}</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">{tag}</span>
               </span>
             ))}
           </motion.div>

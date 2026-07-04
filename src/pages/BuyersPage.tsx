@@ -188,7 +188,7 @@ export default function BuyersPage() {
             ].map((s) => (
               <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
                 <p className="font-serif text-2xl text-gold">{s.value}</p>
-                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.18em] text-white/50">{s.label}</p>
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{s.label}</p>
               </div>
             ))}
           </div>
@@ -212,13 +212,13 @@ export default function BuyersPage() {
             <a
               href={LEAD_MAGNETS.buyerBrief.url}
               download
-              className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
             >
               <Download size={11} />
               Download Miami Buyer Brief Q3 2026
             </a>
           </div>
-          <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
             United Realty Group · CLHMS · FL SL705771 · Buyer representation across Miami-Dade, Broward &amp; Palm Beach
           </p>
           </div>
@@ -278,8 +278,8 @@ export default function BuyersPage() {
                   />
                 </div>
                 <div className="bg-navy-deep px-5 py-4">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · The Team</p>
-                  <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/55">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · The Team</p>
+                  <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
                     {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} offices · Plantation HQ · Est. {CONTACT.stats.urgFounded}
                   </p>
                 </div>
@@ -288,7 +288,7 @@ export default function BuyersPage() {
 
             {/* County coverage — every submarket, a local URG presence */}
             <div className="mt-14 border-t border-hairline pt-10">
-              <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold-ink">Coverage · Broward · Miami-Dade · Palm Beach</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Coverage · Broward · Miami-Dade · Palm Beach</p>
               <div className="mt-6 grid gap-8 md:grid-cols-3">
                 {COUNTY_ORDER.map((county) => (
                   <div key={county}>
@@ -299,7 +299,7 @@ export default function BuyersPage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-6 font-sans text-xs italic text-ink-primary/40">
+              <p className="mt-6 font-sans text-xs italic text-ink-primary/70">
                 All representation through Florida License SL705771 and United Realty Group, with full
                 Miami and South Florida REALTORS® MLS access.
               </p>
@@ -360,7 +360,7 @@ export default function BuyersPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.18em] text-white/40">
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               Source: Miami and South Florida REALTORS® — "Top 20 Reasons to Buy &amp; Live in Miami" (MiamiRealtors.com)
             </p>
           </div>
@@ -388,7 +388,7 @@ export default function BuyersPage() {
             <div className="w-full overflow-hidden">
               <NeoEmbed lang="en" />
             </div>
-            <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/70 text-center">
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70 text-center">
               Live pre-construction inventory via NEO · newestateonly.com · Subject to change without notice. Not a guarantee of availability or pricing.
             </p>
           </div>
@@ -439,7 +439,7 @@ export default function BuyersPage() {
                 </div>
               </div>
               <div className="border border-bone bg-white p-8">
-                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold-ink">How the two services differ</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">How the two services differ</p>
                 <div className="mt-5 space-y-5">
                   <div>
                     <h3 className="font-serif text-lg text-navy-deep">Florida — direct representation</h3>
@@ -470,7 +470,7 @@ export default function BuyersPage() {
               <h2 className="mt-3 font-serif text-3xl text-white">Ready to start your search?</h2>
             </div>
             <BuyerMandateForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
+            <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>

@@ -46,10 +46,10 @@ export default function NewConstructionPage() {
             <div className="w-full overflow-hidden">
               <NeoEmbed lang="en" />
             </div>
-            <p className="mt-4 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/40">
+            <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70">
               Live pre-construction inventory via NEO · newestateonly.com
             </p>
-            <p className="mt-3 text-center font-sans text-[10px] leading-relaxed text-ink-primary/40 max-w-3xl mx-auto">
+            <p className="mt-3 text-center font-sans text-[10px] leading-relaxed text-ink-primary/70 max-w-3xl mx-auto">
               Inventory availability, pricing, compensation, project details, and broker participation are subject to change without notice. Information presented is provided by third-party sources and is deemed reliable but not guaranteed. Consult with a licensed professional before making any purchase decision.
             </p>
           </div>
@@ -82,7 +82,7 @@ export default function NewConstructionPage() {
                 Request a Pre-Construction Consultation
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
                 Direct / WhatsApp: {CONTACT.phoneUSDisplay}
               </p>
             </div>

@@ -20,7 +20,6 @@
   --color-bg-primary: #faf8f5;
   --color-ink-primary: #1a1a1a;
   --color-ink-deep: #0a1628;
-  --color-accent-gold: #c9a961;
   --color-hairline: #e8e3da;
   --shadow-3xl: 0 35px 80px rgba(6, 17, 31, 0.28);
 
@@ -76,7 +75,7 @@
   }
 
   .input-label {
-    @apply text-[9px] uppercase font-semibold tracking-[0.3em] text-navy/65;
+    @apply text-[10px] uppercase font-semibold tracking-[0.3em] text-navy/70;
   }
 
   .form-input {

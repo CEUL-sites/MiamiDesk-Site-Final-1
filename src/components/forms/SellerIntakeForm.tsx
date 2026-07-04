@@ -200,7 +200,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   return (
     <div className="border border-bone bg-white">
       <div className="border-b border-bone bg-navy-deep px-8 py-6">
-        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">Confidential Seller Desk</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">Confidential Seller Desk</p>
         <h3 className="mt-2 font-serif text-2xl text-white">
           {step === 1 ? "Where is the property?" : "Schedule a 30-minute listing strategy call"}
         </h3>
@@ -210,13 +210,13 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             : "Almost done — Carlos reviews every submission personally before responding."}
         </p>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
             <span className="text-white/55">Prefer to talk now?</span>
             <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">WhatsApp US +1 954-865-6622</a>
             <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">WhatsApp ES +34 646 85 30 78</a>
             <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">{CONTACT.email}</a>
           </div>
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">Step {step} of 2</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Step {step} of 2</span>
         </div>
       </div>
 
@@ -259,10 +259,10 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
 
           <p className="text-center font-serif text-[13px] italic leading-snug text-navy/70">
             "Sharp pricing, professional marketing, and constant communication — Carlos made selling feel handled."{" "}
-            <span className="not-italic font-mono text-[8px] uppercase tracking-[0.14em] text-navy/70 whitespace-nowrap">— Andres P. · Weston · Verified Review</span>
+            <span className="not-italic font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70 whitespace-nowrap">— Andres P. · Weston · Verified Review</span>
           </p>
 
-          <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/70">
+          <p className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
             Free · Confidential · No listing commitment · {CONTACT.licenseDisplay}
           </p>
         </form>
@@ -293,22 +293,22 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             <div className="border border-gold/30 bg-ivory p-5">
               <div className="flex items-center gap-2">
                 <TrendingUp size={14} className="text-gold-ink" />
-                <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-gold-ink">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink">
                   {form.city} market · {MARKET_STATS_PERIOD}
                 </p>
               </div>
               <div className="mt-4 grid grid-cols-3 gap-4">
                 <div>
                   <p className="font-serif text-xl text-navy">{usd.format(snapshotSeg.seg.medianSalePrice)}</p>
-                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">Median sale price</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">Median sale price</p>
                 </div>
                 <div>
                   <p className="font-serif text-xl text-navy">{snapshotSeg.seg.medianDaysToContract} days</p>
-                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">Median to contract</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">Median to contract</p>
                 </div>
                 <div>
                   <p className="font-serif text-xl text-navy">{snapshotSeg.seg.monthsSupply} months</p>
-                  <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-navy/70">Supply of inventory</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">Supply of inventory</p>
                 </div>
               </div>
               <p className="mt-4 font-sans text-xs leading-relaxed text-navy/70">
@@ -327,7 +327,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             <button
               type="button"
               onClick={() => setStep(1)}
-              className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink hover:underline"
+              className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink hover:underline"
             >
               <ArrowLeft size={11} /> Edit address
             </button>
@@ -409,7 +409,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             {status === "submitting" ? "Sending…" : "Request My Confidential Analysis"}
           </button>
 
-          <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/70">
+          <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-navy/70">
             {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
           </p>
         </form>
@@ -423,7 +423,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   // programmatic label (implicit association) without needing per-field ids.
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/65">{label}</span>
+      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">{label}</span>
       {children}
     </label>
   );

@@ -18,7 +18,7 @@ export function AboutContact() {
 
               <div className="mt-5 flex flex-wrap gap-3 md:mt-8">
                 {["CLHMS", "Certified Seller Rep", "Licensed Since 2001"].map((badge) => (
-                  <span key={badge} className="border border-gold/45 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink">{badge}</span>
+                  <span key={badge} className="border border-gold/45 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">{badge}</span>
                 ))}
               </div>
             </div>
@@ -44,9 +44,9 @@ export function AboutContact() {
               />
             </div>
             <div className="bg-navy-deep px-5 py-3 md:py-4">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">United Realty Group · Est. 2002</p>
-              <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/60">Full-service brokerage · 3,500+ agents · 20 Florida offices</p>
-              <p className="font-mono mt-0.5 text-[8px] uppercase tracking-[0.12em] text-white/55">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · Est. 2002</p>
+              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">Full-service brokerage · 3,500+ agents · 20 Florida offices</p>
+              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
             </div>
           </div>
 
@@ -59,22 +59,22 @@ export function AboutContact() {
           <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:mt-12 md:gap-5">
             <a href={CONTACT.whatsappUS} className="flex items-start gap-3 border border-bone bg-white p-4 transition-colors hover:border-gold sm:p-5">
               <Phone className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/70">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
+              <div><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
             </a>
             <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 border border-bone bg-white p-4 transition-colors hover:border-gold sm:p-5">
               <Mail className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/70">Email</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.email}</div></div>
+              <div><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Email</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.email}</div></div>
             </a>
             <div className="col-span-2 flex items-start gap-3 border border-bone bg-white p-4 sm:col-span-1 sm:p-5">
               <MapPin className="text-gold" size={20} />
-              <div><div className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/70">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
+              <div><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
             </div>
           </div>
         </div>
 
         <div className="lg:sticky lg:top-24 lg:self-start">
           <LeadForm />
-          <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/70">
+          <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
             <BadgeCheck size={14} className="text-gold" />
             Confidential · Licensed Professionals · Equal Housing Opportunity
           </div>

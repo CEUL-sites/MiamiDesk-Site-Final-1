@@ -76,7 +76,7 @@ export default function ReviewsPage() {
               href="https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 hover:text-gold transition-colors"
+              className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 hover:text-gold transition-colors"
             >
               View on Realtor.com® →
             </a>
@@ -92,7 +92,7 @@ export default function ReviewsPage() {
                 <svg width="10" height="10" viewBox="0 0 20 20" fill="currentColor" className="text-gold flex-shrink-0">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd"/>
                 </svg>
-                <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-gold/80">Realtor.com® Verified</span>
+                <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-gold/80">Realtor.com® Verified</span>
               </div>
             </div>
 
@@ -102,13 +102,13 @@ export default function ReviewsPage() {
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
                       <p className="font-sans font-semibold text-navy-deep">{r.name}</p>
-                      <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-navy/40 mt-0.5">{r.location} · {formatReviewDateLong(r.date)}</p>
+                      <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70 mt-0.5">{r.location} · {formatReviewDateLong(r.date)}</p>
                     </div>
                     <div className="flex-shrink-0 flex items-center gap-1 border border-gold/20 bg-gold/5 px-2 py-0.5">
                       <svg width="9" height="9" viewBox="0 0 20 20" fill="currentColor" className="text-gold">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd"/>
                       </svg>
-                      <span className="font-mono text-[7px] uppercase tracking-[0.12em] text-gold/70">Verified</span>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold/70">Verified</span>
                     </div>
                   </div>
                   <Stars />
@@ -118,7 +118,7 @@ export default function ReviewsPage() {
                         <svg width="8" height="8" viewBox="0 0 12 12" fill="currentColor" className="text-gold flex-shrink-0">
                           <path d="M6 1l1.39 2.82L10.5 4.24l-2.25 2.19.53 3.1L6 8.02l-2.78 1.51.53-3.1L1.5 4.24l3.11-.42z"/>
                         </svg>
-                        <span className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-navy/40">{cat}</span>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-navy/70">{cat}</span>
                       </div>
                     ))}
                   </div>
@@ -126,7 +126,7 @@ export default function ReviewsPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.2em] text-navy/35">
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">
               Individual results vary and are not a prediction of any sale outcome.
             </p>
           </div>
@@ -145,7 +145,7 @@ export default function ReviewsPage() {
                   <Stars />
                   <p className="mt-4 font-sans text-sm leading-relaxed text-ink-primary/70 italic">"{t.text}"</p>
                   <p className="mt-5 font-sans text-xs font-semibold text-navy-deep">{t.name}</p>
-                  <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-navy/35 mt-0.5">South Florida</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70 mt-0.5">South Florida</p>
                 </div>
               ))}
             </div>
@@ -170,7 +170,7 @@ export default function ReviewsPage() {
               Request a Strategy Review
             </a>
           </div>
-          <p className="mt-6 font-mono text-[8px] uppercase tracking-[0.2em] text-white/25">
+          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
             Carlos Uzcategui · FL SL705771 · United Realty Group · Equal Housing Opportunity
           </p>
         </section>

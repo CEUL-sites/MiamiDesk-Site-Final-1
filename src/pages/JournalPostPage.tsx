@@ -206,7 +206,7 @@ export default function JournalPostPage() {
           <div className="mx-auto max-w-3xl">
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="mb-8">
-              <ol className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
+              <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
                 <li>
                   <Link to="/journal" className="hover:text-gold transition-colors">
                     Journal
@@ -218,7 +218,7 @@ export default function JournalPostPage() {
             </nav>
 
             {/* Category badge */}
-            <span className="inline-block border border-gold/40 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-gold">
+            <span className="inline-block border border-gold/40 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
               {post.category}
             </span>
 
@@ -228,7 +228,7 @@ export default function JournalPostPage() {
             </h1>
 
             {/* Date + byline + read time */}
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
               <span>{formatDate(post.date)}</span>
               <span aria-hidden="true">·</span>
               <span>Carlos Uzcategui · FL SL705771</span>
@@ -303,7 +303,7 @@ export default function JournalPostPage() {
         {/* Internal links — money pages */}
         <section className="mx-auto max-w-3xl px-5 pb-10 lg:px-8">
           <div className="border border-bone bg-ivory p-7">
-            <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold mb-5">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-5">
               Continue Your Research
             </p>
             <ul className="divide-y divide-bone">
@@ -315,7 +315,7 @@ export default function JournalPostPage() {
                   <span className="font-serif text-[15px] leading-snug text-navy group-hover:text-gold transition-colors">
                     Get a no-cost home valuation for your South Florida property
                   </span>
-                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
+                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
                     →
                   </span>
                 </Link>
@@ -328,7 +328,7 @@ export default function JournalPostPage() {
                   <span className="font-serif text-[15px] leading-snug text-navy group-hover:text-gold transition-colors">
                     How professional MLS positioning works for sellers
                   </span>
-                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
+                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
                     →
                   </span>
                 </Link>
@@ -341,7 +341,7 @@ export default function JournalPostPage() {
                   <span className="font-serif text-[15px] leading-snug text-navy group-hover:text-gold transition-colors">
                     International owners: list South Florida property through a licensed U.S. principal
                   </span>
-                  <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
+                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/60 group-hover:text-gold transition-colors mt-0.5">
                     →
                   </span>
                 </Link>
@@ -365,7 +365,7 @@ export default function JournalPostPage() {
                     to={`/journal/${rp.slug}`}
                     className="flex flex-col border border-hairline bg-white p-6 hover:border-gold/40 hover:shadow-sm transition-all"
                   >
-                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">{rp.category}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">{rp.category}</p>
                     <h3 className="font-serif text-base text-navy-deep leading-snug">{rp.title}</h3>
                     <p className="mt-4 font-sans text-xs uppercase tracking-[0.14em] text-gold/70">Read →</p>
                   </Link>
@@ -379,7 +379,7 @@ export default function JournalPostPage() {
         <div className="mx-auto max-w-3xl px-5 pb-10 lg:px-8">
           <Link
             to="/journal"
-            className="inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.2em] text-navy/45 transition-colors hover:text-gold"
+            className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70 transition-colors hover:text-gold"
           >
             <span aria-hidden="true">←</span> Back to Journal
           </Link>

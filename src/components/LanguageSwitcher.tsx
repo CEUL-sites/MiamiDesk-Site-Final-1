@@ -40,12 +40,12 @@ export function LanguageSwitcher({ onLight = false }: { onLight?: boolean }) {
     : (EN_TO_ES[path] ?? "/es");
 
   const baseClass =
-    "font-mono text-[9px] uppercase tracking-[0.22em] px-2 py-1 transition-colors duration-200";
+    "font-mono text-[10px] uppercase tracking-[0.22em] px-2 py-1 transition-colors duration-200";
   const activeClass = "text-gold font-semibold";
   const inactiveClass = onLight
     ? "text-navy/45 hover:text-gold"
     : "text-white/45 hover:text-gold";
-  const dividerClass = onLight ? "text-navy/20 text-[9px]" : "text-white/20 text-[9px]";
+  const dividerClass = onLight ? "text-navy/70 text-[10px]" : "text-white/70 text-[10px]";
 
   return (
     <div className="flex items-center gap-1" aria-label="Language selector">

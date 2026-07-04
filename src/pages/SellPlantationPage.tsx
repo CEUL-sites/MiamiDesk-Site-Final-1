@@ -148,23 +148,23 @@ export default function SellPlantationPage() {
                   </svg>
                 ))}
               </span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
                 5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
               </span>
             </div>
 
             <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
               <p className="font-sans text-sm italic leading-relaxed text-white/55">"Central Broward location but the buyer pool requires specific activation. Carlos understood that and came with the right network approach from the start."</p>
-              <footer className="mt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/50">— Roberto F., Plantation, FL</footer>
+              <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/50">— Roberto F., Plantation, FL</footer>
             </blockquote>
 
             <div className="mt-5 flex items-center justify-center gap-2">
-              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
+              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
                 Or download the Seller's Net Sheet 2026
               </a>
             </div>
-            <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
               United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Broward Office: Plantation, FL 33324
             </p>
             <HeroReachBar />
@@ -191,7 +191,7 @@ export default function SellPlantationPage() {
                 { label: "Buyer Profile", value: "Family + Professional", sub: "Domestic move-up and relocation buyers across segments" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
                   <p className="mt-3 font-serif text-2xl text-navy-deep">{stat.value}</p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{stat.sub}</p>
                 </div>
@@ -236,7 +236,7 @@ export default function SellPlantationPage() {
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
                     <p className="font-sans text-sm text-white/65">{step.text}</p>
                   </div>
                 ))}
@@ -269,12 +269,12 @@ export default function SellPlantationPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Plantation Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
               <a href="/journal/selling-plantation-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Plantation, FL Home — How Established Neighborhoods Are Priced and Positioned</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the seller guide →</p>
               </a>
               <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide →</p>
               </a>
@@ -298,7 +298,7 @@ export default function SellPlantationPage() {
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-plantation" />
-            <div className="mt-6 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            <div className="mt-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professional · Equal Housing Opportunity
             </div>
@@ -308,7 +308,7 @@ export default function SellPlantationPage() {
         {/* Footer breadcrumb */}
         <section className="bg-ivory py-6 border-t border-hairline">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-sans text-xs text-ink-primary/40">
+            <p className="font-sans text-xs text-ink-primary/70">
               <a href="/" className="hover:text-gold">Home</a>
               {" · "}
               <a href="/sell-south-florida" className="hover:text-gold">Sell in South Florida</a>

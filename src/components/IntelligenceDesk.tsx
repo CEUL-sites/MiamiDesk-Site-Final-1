@@ -45,7 +45,7 @@ function HandoffPanel({ history }: { history: Message[] }) {
     >
       <div className="flex items-center gap-2 mb-3">
         <BadgeCheck size={15} className="text-gold flex-shrink-0" />
-        <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-gold">Inquiry routed to Carlos</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">Inquiry routed to Carlos</span>
       </div>
       <p className="font-sans text-sm leading-relaxed text-white/75 mb-5">
         Your conversation has been organised and sent to Carlos. He reviews every AI Desk conversation personally and responds directly. For the fastest reply, continue on WhatsApp now.
@@ -62,13 +62,13 @@ function HandoffPanel({ history }: { history: Message[] }) {
         </a>
         <a
           href={CONTACT.phoneUSLink}
-          className="inline-flex items-center justify-center gap-2 border border-white/20 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/65 transition-colors hover:border-white/40 hover:text-white"
+          className="inline-flex items-center justify-center gap-2 border border-white/20 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
         >
           <PhoneCall size={13} />
           Call {CONTACT.phoneUSDisplay}
         </a>
       </div>
-      <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.18em] text-white/55">
+      <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
         Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
       </p>
     </motion.div>
@@ -152,7 +152,7 @@ function AiPanel() {
               style={{ width: `${progressPct}%` }}
             />
           </div>
-          <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/55 whitespace-nowrap">
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 whitespace-nowrap">
             {turnCount < HANDOFF_THRESHOLD
               ? `${HANDOFF_THRESHOLD - turnCount} questions to team review`
               : "Routing to Carlos"}
@@ -226,7 +226,7 @@ function AiPanel() {
               onKeyDown={handleKeyDown}
               placeholder={history.length === 0 ? "Ask anything about South Florida…" : "Continue the conversation…"}
               maxLength={500}
-              className="flex-1 bg-transparent font-sans text-base sm:text-sm text-white/80 placeholder:text-white/25 outline-none"
+              className="flex-1 bg-transparent font-sans text-base sm:text-sm text-white/80 placeholder:text-white/70 outline-none"
               aria-label="Ask the AI desk a question"
               disabled={loading}
             />
@@ -244,7 +244,7 @@ function AiPanel() {
             </button>
           </div>
 
-          <p className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/55 text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 text-center">
             AI intake · Carlos responds personally
           </p>
 
@@ -257,7 +257,7 @@ function AiPanel() {
                   type="button"
                   onClick={() => submit(prompt)}
                   disabled={loading}
-                  className="rounded-full border border-gold/20 bg-navy-deep px-4 py-2 font-sans text-[11px] text-white/55 transition-colors hover:border-gold/50 hover:text-gold disabled:opacity-40"
+                  className="rounded-full border border-gold/20 bg-navy-deep px-4 py-2 font-sans text-[11px] text-white/70 transition-colors hover:border-gold/50 hover:text-gold disabled:opacity-40"
                 >
                   {prompt}
                 </button>
@@ -290,7 +290,7 @@ export const IntelligenceDesk = () => {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
               </span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
                 AI Intelligence Desk · Powered by Gemini
               </span>
             </div>
@@ -317,7 +317,7 @@ export const IntelligenceDesk = () => {
 
             <div className="mt-5 flex flex-wrap gap-3 md:mt-10">
               {LANGUAGES.map((lang) => (
-                <span key={lang} className="border border-white/20 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.25em] text-white/60">
+                <span key={lang} className="border border-white/20 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-white/70">
                   {lang}
                 </span>
               ))}
@@ -354,14 +354,14 @@ export const IntelligenceDesk = () => {
                     <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                     <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
                   </div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-white/55">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/70">
                     miamidesk.ai · intelligence desk
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-                    <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-gold">Gemini · Live</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Gemini · Live</span>
                   </span>
                   {/* Robot badge — mobile only (desktop robot floats outside) */}
                   <span className="lg:hidden">

@@ -164,7 +164,7 @@ export const ExposureSyndication = () => {
             <div key={stat.label} className="flex items-center gap-10">
               <div className="text-center">
                 <div className="font-serif text-4xl text-gold">{stat.value}</div>
-                <div className="font-mono mt-1.5 text-[9px] uppercase tracking-[0.22em] text-white/55">
+                <div className="font-mono mt-1.5 text-[10px] uppercase tracking-[0.22em] text-white/70">
                   {stat.label}
                 </div>
               </div>
@@ -175,7 +175,7 @@ export const ExposureSyndication = () => {
           ))}
         </div>
         <div className="h-px w-full bg-gold/25" />
-        <p className="font-mono text-center text-[9px] uppercase tracking-[0.22em] text-white/55 mt-3 md:mt-5">
+        <p className="font-mono text-center text-[10px] uppercase tracking-[0.22em] text-white/70 mt-3 md:mt-5">
           Source: Miami and South Florida REALTORS® · Verified syndication data
         </p>
       </div>

@@ -56,12 +56,12 @@ export function NanaBananaStager() {
                 : "bg-white text-navy/50 hover:bg-ivory hover:text-navy"
             }`}
           >
-            <span className={`font-mono text-[9px] uppercase tracking-[0.18em] block font-semibold ${
+            <span className={`font-mono text-[10px] uppercase tracking-[0.18em] block font-semibold ${
               activeScene === s.key ? "text-white" : ""
             }`}>
               {s.label}
             </span>
-            <span className={`font-mono text-[8px] uppercase tracking-[0.13em] mt-1 block ${
+            <span className={`font-mono text-[10px] uppercase tracking-[0.13em] mt-1 block ${
               activeScene === s.key ? "text-gold" : "text-navy/30"
             }`}>
               {s.sub}
@@ -84,7 +84,7 @@ export function NanaBananaStager() {
               <div className="h-10 w-10 border border-gold/30 rounded-full animate-spin border-t-gold" />
               <Sparkles size={16} className="text-gold absolute inset-0 m-auto" />
             </div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/70 animate-pulse">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 animate-pulse">
               Nano Banana generating…
             </p>
           </div>
@@ -105,7 +105,7 @@ export function NanaBananaStager() {
         {/* Watermark overlay when image shown */}
         {imageData && (
           <div className="absolute bottom-3 right-3 bg-navy-deep/70 backdrop-blur-sm px-3 py-1.5">
-            <p className="font-mono text-[7px] uppercase tracking-[0.16em] text-white/50">
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
               AI visualization · Nano Banana · Not an actual property photo
             </p>
           </div>
@@ -115,10 +115,10 @@ export function NanaBananaStager() {
       {/* Controls */}
       <div className="flex items-center justify-between gap-4 border-t border-hairline px-5 py-4">
         <div>
-          <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-navy/40">
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
             Powered by Nano Banana · Google Gemini image generation
           </p>
-          <p className="font-sans text-[10px] text-navy/30 mt-0.5">
+          <p className="font-sans text-[10px] text-navy/70 mt-0.5">
             AI-generated visualizations for illustrative purposes only.
           </p>
         </div>

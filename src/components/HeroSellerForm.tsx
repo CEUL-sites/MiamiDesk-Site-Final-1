@@ -201,7 +201,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 text-gold">
           <CheckCircle2 size={26} />
         </div>
-        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold mb-2">{t.successTag}</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-2">{t.successTag}</p>
         <h3 className="font-serif text-2xl text-white">{t.successTitle}</h3>
         <p className="mx-auto mt-3 max-w-sm font-sans text-sm leading-relaxed text-white/55">{t.successBody}</p>
 
@@ -257,8 +257,8 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
 
       {/* Header row */}
       <div className="mb-5 flex items-center justify-between gap-3">
-        <span className="font-mono text-[9px] uppercase tracking-[0.26em] text-gold">{t.eyebrow}</span>
-        <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">{t.badge}</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">{t.eyebrow}</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">{t.badge}</span>
       </div>
 
       {/* Address — Google Places Autocomplete */}
@@ -299,7 +299,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 flex items-center gap-2 px-3 py-2.5">
             <MapPin size={11} className="text-gold flex-shrink-0" />
-            <p className="font-mono text-[8.5px] uppercase tracking-[0.16em] text-gold/90 truncate">{mapPin.address}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold/90 truncate">{mapPin.address}</p>
           </div>
         </motion.div>
       )}
@@ -359,7 +359,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
           className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
         />
-        <span className="font-sans text-[11px] leading-relaxed text-white/40">{t.consent}</span>
+        <span className="font-sans text-[11px] leading-relaxed text-white/70">{t.consent}</span>
       </label>
 
       {status === "error" && (
@@ -380,7 +380,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       {/* Concrete outcome at the point of conversion */}
       <p className="mt-4 text-center font-serif text-[13px] italic leading-snug text-white/60">
         "{t.proofQuote}"{" "}
-        <span className="not-italic font-mono text-[8px] uppercase tracking-[0.14em] text-white/35 whitespace-nowrap">
+        <span className="not-italic font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 whitespace-nowrap">
           — {t.proofName}
         </span>
       </p>
@@ -394,13 +394,13 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
             </svg>
           ))}
         </span>
-        <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-white/35 leading-snug">
+        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 leading-snug">
           5.0 · Personal reply from Carlos · No listing commitment
         </span>
       </div>
 
       {/* WhatsApp fallback */}
-      <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.14em] text-white/25">
+      <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
         {t.prefer}{" "}
         <a
           href={CONTACT.whatsappUS}

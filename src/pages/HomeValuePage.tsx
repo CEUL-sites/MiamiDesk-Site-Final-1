@@ -149,7 +149,7 @@ export default function HomeValuePage() {
           >
             Request My Free Valuation
           </a>
-          <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+          <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
             {CONTACT.licenseDisplay} · United Realty Group · 25 Years Licensed
           </p>
         </section>
@@ -186,14 +186,14 @@ export default function HomeValuePage() {
         {/* Service area chips */}
         <section className="border-t border-b border-bone bg-ivory py-10">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="mb-5 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-navy/40">
+            <p className="mb-5 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
               Service areas — Miami-Dade · Broward · Palm Beach
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {NEIGHBORHOODS.map((n) => (
                 <span
                   key={n}
-                  className="border border-bone px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-navy/60"
+                  className="border border-bone px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70"
                 >
                   {n}
                 </span>
@@ -246,7 +246,7 @@ export default function HomeValuePage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 border-t border-bone pt-5 font-mono text-[8px] uppercase tracking-[0.14em] text-navy/35">
+                <p className="mt-6 border-t border-bone pt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
                   No listing commitment · No automated reports · No obligation
                 </p>
               </div>
@@ -288,7 +288,7 @@ export default function HomeValuePage() {
               </p>
             </div>
             <SellerIntakeForm sourcePage="home-value" />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · No commitment required · Equal Housing Opportunity
             </div>
@@ -338,12 +338,12 @@ export default function HomeValuePage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Further Reading</p>
             <div className="grid gap-4 sm:grid-cols-2">
               <a href="/journal/what-is-my-home-worth-south-florida-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the valuation guide →</p>
               </a>
               <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide →</p>
               </a>

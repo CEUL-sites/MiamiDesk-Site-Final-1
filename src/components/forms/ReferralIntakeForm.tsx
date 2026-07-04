@@ -92,7 +92,7 @@ export function ReferralIntakeForm() {
   return (
     <div className="border border-bone bg-white">
       <div className="border-b border-bone bg-navy-deep px-8 py-6">
-        <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold">Agent & Agency Partner Desk</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">Agent & Agency Partner Desk</p>
         <h3 className="mt-2 font-serif text-2xl text-white">Submit a cross-border referral</h3>
         <p className="mt-2 font-sans text-sm text-white/50">Licensed professionals only. All submissions are handled confidentially. Written referral agreement executed before client engagement.</p>
       </div>
@@ -176,7 +176,7 @@ export function ReferralIntakeForm() {
           {status === "submitting" ? "Sending…" : "Submit Cross-Border Referral"}
         </button>
 
-        <p className="text-center font-mono text-[8px] uppercase tracking-[0.18em] text-navy/30">
+        <p className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
           Confidential · Licensed Professionals Only · Written Agreements · {CONTACT.shortLicense}
         </p>
       </form>
@@ -187,7 +187,7 @@ export function ReferralIntakeForm() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="font-mono text-[9px] uppercase tracking-[0.2em] text-navy/55">{label}</label>
+      <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">{label}</label>
       {children}
     </div>
   );

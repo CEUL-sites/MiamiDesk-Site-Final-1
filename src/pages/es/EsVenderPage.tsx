@@ -219,7 +219,7 @@ export default function EsVenderPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30"
+                className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70"
               >
                 United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
               </motion.p>
@@ -272,13 +272,13 @@ export default function EsVenderPage() {
                   <div className="font-serif text-4xl text-white">
                     {stat.value}
                   </div>
-                  <div className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-gold/65">
+                  <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/65">
                     {stat.label}
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-white/25">
+            <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               {/* TODO: native Madrid editor review */}
               Cifras correspondientes a la Asociación de REALTORS® de Miami y Sur de Florida · United Realty Group · 2025
             </p>
@@ -374,7 +374,7 @@ export default function EsVenderPage() {
                 WhatsApp España
               </a>
             </div>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-[8px] uppercase tracking-[0.18em] text-navy-deep/50">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep/50">
               <div className="flex items-center gap-2">
                 <BadgeCheck size={14} className="text-navy-deep/50" />
                 <span>Confidencial · Profesionales con Licencia · Igualdad de Acceso a la Vivienda</span>

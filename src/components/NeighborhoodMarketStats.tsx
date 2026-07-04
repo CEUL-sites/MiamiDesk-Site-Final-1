@@ -59,13 +59,13 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
         <div className={`mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-2 ${tiles.length >= 4 ? "lg:grid-cols-4" : tiles.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}>
           {tiles.map((t) => (
             <div key={t.label} className="bg-white p-7">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-gold">{t.label}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{t.label}</p>
               <p className="mt-3 font-serif text-2xl text-navy-deep">{t.value}</p>
               <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{t.sub}</p>
             </div>
           ))}
         </div>
-        <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/40">
+        <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/70">
           Source: MIAMI REALTORS® {MARKET_STATS_PERIOD} city report, based on MLS sales
           data compiled by Florida Realtors®. Figures reflect closed residential sales reported for{" "}
           {isParentCityData ? `the City of ${dataCity}, which includes ${label}` : dataCity}.

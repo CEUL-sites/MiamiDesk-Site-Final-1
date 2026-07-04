@@ -36,17 +36,17 @@ const ReviewCard: FC<ReviewCardProps> = ({ name, location, date, verified, text 
       <div className="mt-5 flex items-end justify-between gap-2 border-t border-white/10 pt-4">
         <div>
           <p className="font-sans text-xs font-semibold text-white">{name}</p>
-          <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/55 mt-0.5">
+          <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/70 mt-0.5">
             {location}{date ? ` · ${date}` : ""}
           </p>
         </div>
         {verified ? (
-          <span className="flex-shrink-0 flex items-center gap-1 font-mono text-[8px] uppercase tracking-[0.12em] text-gold">
+          <span className="flex-shrink-0 flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] text-gold">
             <svg width="10" height="10" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd"/></svg>
             Verified
           </span>
         ) : (
-          <span className="flex-shrink-0 font-mono text-[8px] uppercase tracking-[0.12em] text-white/55">
+          <span className="flex-shrink-0 font-mono text-[10px] uppercase tracking-[0.12em] text-white/70">
             Realtor.com
           </span>
         )}
@@ -75,7 +75,7 @@ export function Testimonials() {
                   </svg>
                 ))}
               </span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/55">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
                 {RATING_VALUE} average · Verified Realtor.com® reviews
               </span>
             </div>
@@ -106,7 +106,7 @@ export function Testimonials() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 mt-6 md:mt-10">
-        <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/55">
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
           Reviews sourced from Carlos's{" "}
           <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="text-white/55 underline hover:text-gold">
             verified Realtor.com® profile

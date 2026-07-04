@@ -221,7 +221,7 @@ export default function SpainMlsListingPage() {
           <div className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[760px] -translate-x-1/2 rounded-full bg-gold/[0.05] blur-[120px]" />
           <div className="relative mx-auto max-w-4xl">
             <div className="flex items-center justify-between gap-4">
-              <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.26em] text-gold">{t.eyebrow}</p>
+              <p className="font-mono text-[10px] sm:text-[10px] uppercase tracking-[0.26em] text-gold">{t.eyebrow}</p>
               <div className="flex flex-shrink-0 items-center border border-white/15 font-mono text-[10px] uppercase">
                 {(["en", "es"] as const).map((l) => (
                   <button
@@ -250,11 +250,11 @@ export default function SpainMlsListingPage() {
                 {t.ctaWhatsApp}
               </a>
             </div>
-            <a href={LEAD_MAGNETS.spainActivation.url} download className="mt-6 inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
+            <a href={LEAD_MAGNETS.spainActivation.url} download className="mt-6 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
               <Download size={11} />
               {t.ctaBrief}
             </a>
-            <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               {CONTACT.licenseDisplay} · United Realty Group · Madrid Desk +34 646 853 078
             </p>
           </div>
@@ -293,7 +293,7 @@ export default function SpainMlsListingPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-4 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
               Source: Miami and South Florida REALTORS® · Eligible syndication subject to MLS rules and platform participation
             </p>
           </div>
@@ -371,7 +371,7 @@ export default function SpainMlsListingPage() {
               </div>
             </div>
             <AgencyPartnerForm />
-            <div className="mt-6 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+            <div className="mt-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
             </div>

@@ -67,7 +67,7 @@ export function AdvisorBrand() {
                 {["CLHMS", "Certified Seller Rep", "United Realty Group", "Licensed Since 2001"].map((badge) => (
                   <span
                     key={badge}
-                    className="border border-gold/35 px-3 py-1.5 font-mono text-[8px] uppercase tracking-[0.18em] text-gold/80"
+                    className="border border-gold/35 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/80"
                   >
                     {badge}
                   </span>

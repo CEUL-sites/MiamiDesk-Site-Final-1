@@ -56,7 +56,7 @@ export function BuyersRelocation() {
           {/* Header */}
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-end mb-6 md:mb-14">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.35em] text-gold-ink mb-3 md:mb-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-gold-ink mb-3 md:mb-4">
                 PROFESSIONAL REPRESENTATION · SOUTH FLORIDA
               </p>
               <h2 className="font-serif text-3xl lg:text-5xl text-navy leading-tight mb-4 md:mb-6">
@@ -72,10 +72,10 @@ export function BuyersRelocation() {
               </p>
             </div>
             <div className="lg:text-right">
-              <p className="font-mono text-[9px] uppercase tracking-widest text-navy/70 mb-3">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-navy/70 mb-3">
                 Carlos Uzcategui
               </p>
-              <p className="font-mono text-[9px] uppercase tracking-widest text-navy/70">
+              <p className="font-mono text-[11px] uppercase tracking-widest text-navy/70">
                 25 Years · CLHMS · Certified Seller Representative · United Realty Group · FL SL705771
               </p>
             </div>
@@ -92,7 +92,7 @@ export function BuyersRelocation() {
                 viewport={{ once: true }}
                 className="flex flex-col border border-bone bg-white p-4 hover:border-gold/40 transition-colors duration-500 md:p-8"
               >
-                <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold-ink mb-3 md:mb-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-ink mb-3 md:mb-4">
                   {r.tag}
                 </p>
                 <h3 className="font-serif text-2xl text-navy mb-3">{r.side}</h3>
@@ -113,7 +113,7 @@ export function BuyersRelocation() {
             <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
               {/* Text */}
               <div className="lg:max-w-md">
-                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold-ink mb-3">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink mb-3">
                   The Work
                 </p>
                 <h3 className="font-serif text-2xl text-navy mb-4 leading-snug md:text-4xl">
@@ -150,7 +150,7 @@ export function BuyersRelocation() {
                 </div>
                 <h3 className="font-serif text-xl text-navy mb-2 md:mb-3">{card.title}</h3>
                 <p className="text-navy/70 text-sm leading-relaxed mb-4 md:mb-5">{card.desc}</p>
-                <p className="font-mono text-[8px] uppercase tracking-[0.25em] text-gold-ink">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-ink">
                   {card.tag}
                 </p>
               </motion.div>

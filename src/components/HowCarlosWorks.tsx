@@ -93,7 +93,7 @@ export function HowCarlosWorks() {
           {CREDENTIALS.map((c) => (
             <span
               key={c}
-              className="inline-flex items-center gap-2 border border-gold/25 px-4 py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-white/65"
+              className="inline-flex items-center gap-2 border border-gold/25 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70"
             >
               <BadgeCheck size={13} className="flex-shrink-0 text-gold" />
               {c}
@@ -109,7 +109,7 @@ export function HowCarlosWorks() {
           >
             Request a seller strategy review →
           </a>
-          <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/55">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
             {CONTACT.shortLicense} · United Realty Group · Equal Housing Opportunity
           </p>
         </div>

@@ -186,7 +186,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             )}
           </p>
 
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-navy/70">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
             <span className="text-navy/70">Prefer to talk now?</span>
             <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
               WhatsApp US +1 954-865-6622
@@ -203,7 +203,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}
             {status === "submitting" ? "Sending…" : "Request Seller Strategy Review"}
           </button>
-          <p className="font-mono text-center text-[8px] uppercase tracking-[0.2em] text-navy/70">
+          <p className="font-mono text-center text-[11px] uppercase tracking-[0.2em] text-navy/70">
             Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
           </p>
         </form>

@@ -118,7 +118,7 @@ export function Navbar() {
 
           <a
             href="/#list-here"
-            className={`inline-flex items-center whitespace-nowrap px-4 py-2 font-mono text-[9px] uppercase tracking-[0.16em] transition-all duration-300 ${
+            className={`inline-flex items-center whitespace-nowrap px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] transition-all duration-300 ${
               scrolled
                 ? "bg-navy text-white hover:bg-gold hover:text-navy"
                 : "border border-gold/60 text-white hover:bg-gold hover:text-navy"
@@ -155,7 +155,7 @@ export function Navbar() {
               <div className="flex items-start justify-between">
                 <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
                   <UrgLogo className="h-9 w-auto" />
-                  <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/40">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
                     Carlos Uzcategui · Florida REALTOR® since 2001
                   </span>
                 </a>
@@ -194,7 +194,7 @@ export function Navbar() {
               {/* Drawer footer */}
               <div className="mt-auto space-y-4 border-t border-gold/20 pt-8">
                 <LanguageSwitcher />
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 leading-loose">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70 leading-loose">
                   United Realty Group · FL SL705771 · Equal Housing Opportunity
                 </p>
                 <a

@@ -52,7 +52,7 @@ export default function ListingsPage() {
           </div>
           <div className="mt-7 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm">
             <BadgeCheck size={14} className="flex-shrink-0 text-gold" />
-            <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
               {CONTACT.licenseDisplay} · Equal Housing Opportunity
             </span>
           </div>
@@ -73,14 +73,14 @@ export default function ListingsPage() {
           <div className="border-b border-gold/20 bg-navy-deep px-6 py-5">
             <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
                   New Pre-Construction Developments
                 </p>
-                <p className="mt-1 font-sans text-xs text-white/40">
+                <p className="mt-1 font-sans text-xs text-white/70">
                   Miami Realtor Association · Powered by New Estate Only
                 </p>
               </div>
-              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/25">
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
                 FL SL705771 · {CONTACT.brokerage}
               </span>
             </div>
@@ -118,7 +118,7 @@ export default function ListingsPage() {
               WhatsApp Our Team
             </a>
           </div>
-          <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/25">
+          <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
             {CONTACT.licenseDisplay} · {CONTACT.brokerage} · Equal Housing Opportunity
           </p>
         </section>

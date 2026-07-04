@@ -181,7 +181,7 @@ export default function SellSouthFloridaPage() {
                 </svg>
               ))}
             </span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/45">
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
               5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
             </span>
           </div>
@@ -190,13 +190,13 @@ export default function SellSouthFloridaPage() {
             <a
               href={LEAD_MAGNETS.sellerNetSheet.url}
               download
-              className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
             >
               <Download size={11} />
               Or download the Seller's Net Sheet 2026
             </a>
           </div>
-          <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+          <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
             United Realty Group · CLHMS · Certified Seller Rep · FL SL705771 · 25 Years Licensed in Florida
           </p>
           <HeroReachBar />
@@ -232,7 +232,7 @@ export default function SellSouthFloridaPage() {
                 allowFullScreen
               />
             </div>
-            <p className="mt-3 text-center font-mono text-[8px] uppercase tracking-[0.18em] text-ink-primary/70 md:mt-4">
+            <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70 md:mt-4">
               Video: Miami and South Florida REALTORS® · miamirealtors.com
             </p>
           </div>
@@ -259,7 +259,7 @@ export default function SellSouthFloridaPage() {
         {/* Neighborhood seller pages */}
         <section className="bg-white border-t border-hairline py-5 md:py-10">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[9px] uppercase tracking-[0.28em] text-gold-ink mb-3 md:mb-5">Sell by Neighborhood</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold-ink mb-3 md:mb-5">Sell by Neighborhood</p>
             <div className="flex flex-wrap gap-2 md:gap-3">
               {[
                 { label: "Miami",            href: "/sell-miami" },
@@ -320,7 +320,7 @@ export default function SellSouthFloridaPage() {
                   "{MESSAGING.buyerAgentMessenger}"
                 </p>
               </div>
-              <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30 md:mt-3">
+              <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 md:mt-3">
                 Source: {SOURCES.nar}
               </p>
             </div>
@@ -376,32 +376,32 @@ export default function SellSouthFloridaPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink mb-4 md:mb-6">Seller Research Library</p>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
               <a href="/journal/seller-closing-costs-south-florida-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds</h3>
                 <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the cost guide →</p>
               </a>
               <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">HOA Financials and Your Home's Sale Price — What South Florida Sellers Need to Know</h3>
                 <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the HOA guide →</p>
               </a>
               <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Market Analysis</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Market Analysis</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
                 <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the timing guide →</p>
               </a>
               <a href="/journal/florida-homestead-portability-benefits-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">Florida Homestead and Save Our Homes Portability — What Owners Should Understand Before They Sell</h3>
                 <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the homestead guide →</p>
               </a>
               <a href="/journal/home-sale-capital-gains-exclusion-500k-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The $250,000 / $500,000 Home Sale Capital Gains Exclusion — How It Works for Primary Residences</h3>
                 <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the tax-exclusion guide →</p>
               </a>
               <a href="/journal/1031-exchange-south-florida-investment-property-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The 1031 Exchange — Deferring Capital Gains When You Sell South Florida Investment Property</h3>
                 <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the 1031 guide →</p>
               </a>
@@ -420,7 +420,7 @@ export default function SellSouthFloridaPage() {
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-south-florida" />
-            <div className="mt-3 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.18em] text-white/55 md:mt-6">
+            <div className="mt-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 md:mt-6">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>
