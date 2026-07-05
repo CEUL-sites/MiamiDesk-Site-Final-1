@@ -1,7 +1,7 @@
 // Loads all journal posts from /src/content/journal/*.md at build time via Vite's import.meta.glob.
 // Files prefixed with _ (e.g. _template.md) are excluded — use them as drafts or starters.
 
-const modules = import.meta.glob('../content/journal/[^_]*.md', {
+const modules = import.meta.glob('../content/journal/*.md', {
   eager: true,
   query: '?raw',
   import: 'default',
@@ -176,8 +176,11 @@ function markdownToHtml(md: string): string {
 function parseAll(): PostMeta[] {
   const posts: PostMeta[] = [];
 
-  for (const [, raw] of Object.entries(modules)) {
+  for (const [filePath, raw] of Object.entries(modules)) {
     if (typeof raw !== 'string') continue;
+
+    const fileName = filePath.split('/').pop() ?? '';
+    if (fileName.startsWith('_')) continue;
 
     const { meta, body } = parseFrontmatter(raw);
     if (!meta.slug || !meta.title) continue;
