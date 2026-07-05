@@ -1,6 +1,7 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { dedupKey, markAlerted } from "./_shared/leadDedup";
 import { sendWhatsAppAlert } from "./_shared/whatsapp";
+import { storeDeadLetter } from "./_shared/leadDeadLetter";
 
 // Synchronous backup notifier. The forms call this directly (keepalive) at the
 // same time they POST to Netlify Forms, so a lead is delivered even if Netlify
@@ -193,6 +194,13 @@ export const handler: Handler = async (event: HandlerEvent) => {
   // Only suppress the primary path's alert if one actually reached Carlos.
   if (alerted) {
     await markAlerted(alertKey, "alert");
+  }
+
+  // If nothing reached Carlos and the Sheets row wasn't written either, the
+  // lead would otherwise only exist in these logs — preserve it.
+  if (!alerted && results.sheets !== "ok") {
+    await storeDeadLetter("lead-notify", { ...lead, results });
+    results.deadLetter = "stored";
   }
 
   return {

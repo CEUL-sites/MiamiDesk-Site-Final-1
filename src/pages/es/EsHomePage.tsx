@@ -8,6 +8,8 @@ import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
+import { EsProof } from "../../components/es/EsProof";
+import { EsDistribution } from "../../components/es/EsDistribution";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -265,6 +267,9 @@ export default function EsHomePage() {
             </span>
           </motion.div>
         </section>
+
+        <EsProof />
+        <EsDistribution />
 
         <Footer />
         <MobileStickyCTA />

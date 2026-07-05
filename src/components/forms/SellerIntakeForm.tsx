@@ -35,6 +35,15 @@ function encodeForm(data: Record<string, string>) {
   return new URLSearchParams(data).toString();
 }
 
+// Best-effort city detection from free-typed address text (e.g. "...,
+// Weston, FL 33331") — the fallback for visitors who type their address
+// instead of choosing a Google Places suggestion, so step 1 never depends
+// on Places actually working.
+function matchCityFromAddress(address: string): string {
+  const lower = address.toLowerCase();
+  return CITIES.find((c) => c !== "Other" && lower.includes(c.toLowerCase())) ?? "";
+}
+
 export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?: string } = {}) {
   const [form, setForm] = useState({ ...INITIAL, source: sourcePage });
   const [step, setStep] = useState<1 | 2>(1);
@@ -110,11 +119,21 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
 
   const handleStep1 = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.propertyAddress.trim() || !form.city) {
-      setStepErr("Please enter the property address and city to continue.");
+    const address = form.propertyAddress.trim();
+    if (!address) {
+      setStepErr("Please enter the property address to continue.");
       return;
     }
+    // City is a convenience for the step-2 market-snapshot lookup, not a hard
+    // gate — it previously only ever got set by picking a Google Places
+    // suggestion, so a visitor who typed a full address by hand (very common,
+    // and the only option whenever Places is slow, unavailable, or doesn't
+    // recognize the locality) was stuck on step 1 indefinitely. Fall back to
+    // matching a city name in the typed address, then "Other", so entering an
+    // address always lets you continue.
+    const city = form.city || matchCityFromAddress(address) || "Other";
     setStepErr("");
+    setForm((f) => ({ ...f, city }));
 
     // Record the partial lead immediately — even if the visitor never
     // completes step 2, Carlos sees the address in the lead sheet.
@@ -124,8 +143,8 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
       body: encodeForm({
         "form-name": "seller-valuation-step1",
         "bot-field": "",
-        propertyAddress: form.propertyAddress,
-        city: form.city,
+        propertyAddress: address,
+        city,
         lat: form.lat,
         lng: form.lng,
         placeId: form.placeId,
@@ -133,7 +152,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         ...getAttribution(),
       }),
     }).catch(() => {});
-    trackFunnelEvent("seller_intake_step1", { city: form.city, page: sourcePage });
+    trackFunnelEvent("seller_intake_step1", { city, page: sourcePage });
 
     setStep(2);
   };
@@ -241,8 +260,8 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             </div>
           </Field>
 
-          <Field label="City *">
-            <select required name="city" className="form-input w-full" value={form.city} onChange={set("city")}>
+          <Field label="City (auto-detected from your address if left blank)">
+            <select name="city" className="form-input w-full" value={form.city} onChange={set("city")}>
               <option value="">Select city…</option>
               {CITIES.map((c) => <option key={c}>{c}</option>)}
             </select>

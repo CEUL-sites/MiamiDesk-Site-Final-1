@@ -188,7 +188,7 @@ const C = {
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
-      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 20 Florida offices.",
+      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 21 Florida offices.",
     footerContacts: "Contact",
     footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
   },
@@ -243,7 +243,7 @@ export default function GlobalDeskPage() {
         <link rel="canonical" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
-        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/global-desk" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
         <meta property="og:title" content="Global Desk — Spanish luxury property into the Miami MLS international section" />

@@ -116,6 +116,23 @@ The consultation CTA block, author byline, and breadcrumb are injected automatic
 | `netlify/functions/submission-created.ts` | Form lead handler |
 | `netlify/functions/ticker-listings.ts` | Bridge IDX proxy |
 
+## Verified figures — never invent a number
+
+Every network/brokerage statistic used anywhere on the site (member counts,
+office counts, agent counts, MLS counts, etc.) must trace back to
+`src/data/figures.json`, which is the single source of truth (`src/constants.ts`
+mirrors it for legacy imports). Each entry there carries a `source` field —
+check `docs/sources/SOURCES.md` for the primary documents backing those
+sources before changing or adding a figure.
+
+**United Realty Group office count**: 21 Florida offices (not 20 — that was
+an undercount from urgfl.com, corrected July 2026 against URG's own internal
+office directory, photographed by Carlos and saved at
+`docs/sources/urg-office-directory-2026-07.jpg`; full per-office addresses are
+in that photo and in `docs/sources/SOURCES.md` §3). URG also has a
+Greensboro, NC branch — it is explicitly **not** counted as a Florida office
+and must never be implied as part of Carlos's Florida coverage.
+
 ## Routes
 
 | Path | Page |

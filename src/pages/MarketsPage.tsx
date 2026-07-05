@@ -147,7 +147,7 @@ export default function MarketsPage() {
             {
               "@type": "Question",
               "name": "What counties does Carlos Uzcategui serve in South Florida?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Carlos serves Miami-Dade, Broward, and Palm Beach counties directly through United Realty Group's 20 South Florida offices and full Miami and South Florida REALTORS® MLS access." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Carlos serves Miami-Dade, Broward, and Palm Beach counties directly through United Realty Group's 21 South Florida offices and full Miami and South Florida REALTORS® MLS access." }
             },
             {
               "@type": "Question",

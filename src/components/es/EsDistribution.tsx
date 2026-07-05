@@ -1,38 +1,42 @@
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Camera, Globe2, MessagesSquare, Radar } from "lucide-react";
-import { LazyVideo } from "./LazyVideo";
+import { LazyVideo } from "../LazyVideo";
 
-// Homepage-only merge of ReachAdvantage + ListingSystem — the structural
-// argument made once, at full strength: what happens to the listing in the
-// MLS ecosystem, then how the listing system executes on that placement.
-// ReachAdvantage and ListingSystem remain unchanged for SellSouthFloridaPage,
-// which still uses them as separate sections.
+// Spanish counterpart of components/Distribution.tsx — same TOP_STATS
+// figures and PILLARS structure, same classes/animations, copy translated
+// to Spanish. CTA points to /es/vender#contact (not the English page).
 
 const TOP_STATS = [
   {
     value: 93000,
     display: "93,000",
     suffix: "",
-    label: "Member Agents",
+    // TODO: native Madrid editor review
+    label: "Agentes Miembros",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "Every member agent works from the same MLS inventory your home is placed into.",
+    // TODO: native Madrid editor review
+    desc: "Cada agente miembro trabaja desde el mismo inventario del MLS en el que se coloca su propiedad.",
   },
   {
     value: 437,
     display: "437",
     suffix: "+",
-    label: "International Agreements",
+    // TODO: native Madrid editor review
+    label: "Acuerdos Internacionales",
     sublabel: "MIAMI Global Council",
-    desc: "Direct buyer markets across 75+ countries — more than any other local association.",
+    // TODO: native Madrid editor review
+    desc: "Mercados directos de compradores en más de 75 países — más que cualquier otra asociación local.",
   },
   {
     value: 3500,
     display: "3,500",
     suffix: "+",
-    label: "United Realty Group Agents",
-    sublabel: "Founded 2002 · 21 Florida offices",
-    desc: "A full-service brokerage with an in-house title company behind every listing.",
+    // TODO: native Madrid editor review
+    label: "Agentes de United Realty Group",
+    sublabel: "Fundada en 2002 · 20 oficinas en Florida",
+    // TODO: native Madrid editor review
+    desc: "Una correduría de servicio completo con una compañía de título interna detrás de cada propiedad.",
   },
 ];
 
@@ -40,30 +44,38 @@ const PILLARS = [
   {
     icon: Camera,
     step: "01",
-    title: "Media that earns the click",
+    // TODO: native Madrid editor review
+    title: "Material visual que gana el clic",
+    // TODO: native Madrid editor review
     body:
-      "Pro photography, cinematic video, and staging direction — approved before launch. Buyers screen online first; your home wins on the first frame.",
+      "Fotografía profesional, video cinematográfico y dirección de puesta en escena — aprobados antes del lanzamiento. Los compradores buscan primero en línea; su propiedad gana desde el primer fotograma.",
   },
   {
     icon: Globe2,
     step: "02",
-    title: "Distribution beyond the MLS",
+    // TODO: native Madrid editor review
+    title: "Distribución más allá del MLS",
+    // TODO: native Madrid editor review
     body:
-      "Into the Miami MLS ecosystem 93,000 agents work from daily — then syndicated to major U.S. portals and 200+ international channels in 19 languages.",
+      "Hacia el ecosistema del MLS de Miami que 93,000 agentes usan a diario — luego distribuido a los principales portales de EE. UU. y a más de 200 canales internacionales en 19 idiomas.",
   },
   {
     icon: Radar,
     step: "03",
-    title: "Buyer-agent activation",
+    // TODO: native Madrid editor review
+    title: "Activación de agentes compradores",
+    // TODO: native Madrid editor review
     body:
-      "Direct outreach to the agents working buyers in your price band — local, relocation, and international — so your home is shown, not just listed.",
+      "Contacto directo con los agentes que trabajan con compradores en su rango de precio — locales, de reubicación e internacionales — para que su propiedad se muestre, no solo se liste.",
   },
   {
     icon: MessagesSquare,
     step: "04",
-    title: "Weekly reporting, real strategy",
+    // TODO: native Madrid editor review
+    title: "Reportes semanales, estrategia real",
+    // TODO: native Madrid editor review
     body:
-      "Showings, feedback, and analytics every week by WhatsApp or email — with pricing moves recommended from the data, not guesswork.",
+      "Visitas, comentarios y análisis cada semana por WhatsApp o correo electrónico — con ajustes de precio recomendados a partir de los datos, no de conjeturas.",
   },
 ];
 
@@ -108,7 +120,7 @@ function StatCard({ stat, index }: { stat: typeof TOP_STATS[0]; index: number; k
   );
 }
 
-export function Distribution() {
+export function EsDistribution() {
   return (
     <section id="reach" className="relative overflow-hidden bg-navy-deep text-white">
 
@@ -129,7 +141,8 @@ export function Distribution() {
           transition={{ duration: 0.6 }}
           className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
         >
-          Distribution · United Realty Group
+          {/* TODO: native Madrid editor review */}
+          Distribución · United Realty Group
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -139,8 +152,10 @@ export function Distribution() {
           className="mx-auto mt-4 max-w-5xl font-serif leading-[1.08] text-white md:mt-6"
           style={{ fontSize: "clamp(2.2rem, 4.6vw, 4rem)" }}
         >
-          Your listing enters the ecosystem<br />
-          <em className="italic text-gold">93,000 South Florida agents work from every day.</em>
+          {/* TODO: native Madrid editor review */}
+          Su propiedad entra al ecosistema<br />
+          {/* TODO: native Madrid editor review */}
+          <em className="italic text-gold">que 93,000 agentes del Sur de Florida usan cada día.</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -149,8 +164,10 @@ export function Distribution() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mx-auto mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:mt-6"
         >
-          Buyers don't find homes — their agents do. Your listing goes into the same
-          MLS inventory those agents search daily, in South Florida and in 75+ countries.
+          {/* TODO: native Madrid editor review */}
+          Los compradores no encuentran propiedades — sus agentes lo hacen. Su propiedad
+          entra en el mismo inventario del MLS que esos agentes consultan a diario, en el
+          Sur de Florida y en más de 75 países.
         </motion.p>
 
         <motion.div
@@ -169,8 +186,9 @@ export function Distribution() {
             className="h-9 w-auto opacity-85"
             style={{ filter: "brightness(0) invert(1)" }}
           />
+          {/* TODO: native Madrid editor review */}
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
-            Powered by membership in the Miami and South Florida REALTORS®
+            Impulsado por la membresía en Miami and South Florida REALTORS®
           </p>
         </motion.div>
       </div>
@@ -184,9 +202,11 @@ export function Distribution() {
 
       {/* ── How the listing system executes ─────────────────────── */}
       <div className="relative mx-auto max-w-6xl px-6 py-10 md:py-16">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Listing System</p>
+        {/* TODO: native Madrid editor review */}
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">El Sistema de Listado</p>
+        {/* TODO: native Madrid editor review */}
         <h3 className="mt-4 max-w-2xl font-serif text-2xl leading-tight text-white md:mt-5 md:text-4xl">
-          What actually happens when your home lists with Carlos.
+          Lo que realmente sucede cuando su propiedad se lista con Carlos.
         </h3>
 
         <div className="mt-7 grid grid-cols-2 gap-px border border-white/10 bg-white/10 lg:grid-cols-4 md:mt-12">
@@ -206,10 +226,11 @@ export function Distribution() {
         {/* Single CTA naming a specific outcome */}
         <div className="mt-8 flex justify-center md:mt-12">
           <a
-            href="/sell-south-florida#contact"
+            href="/es/vender#contact"
             className="group inline-flex items-center gap-2.5 bg-gold px-8 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 md:py-4"
           >
-            Request Your Distribution Analysis
+            {/* TODO: native Madrid editor review */}
+            Solicite Su Análisis de Distribución
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
           </a>
         </div>
