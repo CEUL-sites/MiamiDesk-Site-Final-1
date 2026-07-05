@@ -35,6 +35,9 @@ jobs:
       - name: Generate daily journal post
         run: node scripts/daily-journal-publisher.mjs
 
+      - name: Verify journal content
+        run: npm run verify:journal
+
       - name: Verify TypeScript
         run: npm run lint
 
