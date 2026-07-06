@@ -1,4 +1,4 @@
-import { MessageSquare, Phone } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT, isSpainMarketRoute, isSpanishLangRoute } from "../constants";
@@ -33,7 +33,6 @@ export function MobileStickyCTA() {
 
   if (hidden) return null;
 
-  const phoneHref = spainLine ? CONTACT.phoneSpainLink : CONTACT.phoneUSLink;
   const whatsappHref = spainLine ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
   const sellLabel = spanishLabels
     ? "Vender mi casa"
@@ -44,15 +43,6 @@ export function MobileStickyCTA() {
   return (
     <div className="pointer-events-none fixed bottom-5 left-0 right-0 z-50 flex justify-center lg:hidden">
       <div className="pointer-events-auto flex items-center gap-2 rounded-full border border-gold/25 bg-navy-deep/92 px-2.5 py-2 shadow-2xl shadow-black/60 backdrop-blur-md">
-        <a
-          href={phoneHref}
-          aria-label={spanishLabels ? "Llamar a Carlos" : "Call Carlos"}
-          onClick={() => trackContact("phone", "mobile_sticky")}
-          className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-white/85 transition-all duration-100 active:scale-95"
-        >
-          <Phone size={13} className="text-gold" />
-          {spanishLabels ? "Llamar" : "Call"}
-        </a>
         <a
           href={whatsappHref}
           target="_blank"
