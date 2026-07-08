@@ -30,7 +30,7 @@ Request a Private Seller Strategy Review focused on downsizing. The outcome shou
 
 ## Why Carlos Uzcategui
 
-Carlos Uzcategui is a Florida Licensed Realtor(R) SL705771, licensed since 2001, with 25 years of South Florida market experience. He is a Certified Luxury Home Marketing Specialist, a Certified Seller Representative, bilingual in English and Spanish, and affiliated with United Realty Group, which has 3,500+ agents and 21 Florida offices.
+Carlos Uzcategui is a Florida Licensed Realtor(R) SL705771, licensed since 2001, with 25 years of South Florida market experience. He is a Certified Luxury Home Marketing Specialist, a Certified Seller Representative, bilingual in English and Spanish, and affiliated with United Realty Group, which has 3,500+ agents and 20 Florida offices.
 
 The advantage for an owner is not generic marketing. It is a structured process: position, prepare, launch, activate, and negotiate with the support of institutional MLS distribution and a bilingual South Florida, Spain, and LATAM referral model.
 

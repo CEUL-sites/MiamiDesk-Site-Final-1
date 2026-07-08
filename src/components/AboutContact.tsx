@@ -45,7 +45,7 @@ export function AboutContact() {
             </div>
             <div className="bg-navy-deep px-5 py-3 md:py-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · Est. 2002</p>
-              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">Full-service brokerage · 3,500+ agents · 21 Florida offices</p>
+              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">Full-service brokerage · 3,500+ agents · 20 Florida offices</p>
               <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
             </div>
           </div>

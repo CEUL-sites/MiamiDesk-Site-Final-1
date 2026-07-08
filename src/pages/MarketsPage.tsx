@@ -519,7 +519,7 @@ export default function MarketsPage() {
               <p className="font-sans text-[15px] leading-relaxed text-white/60">
                 Carlos is licensed exclusively in Florida (SL705771). Spain and Madrid properties are not sold directly —
                 they are served through formal referral relationships with established local agencies and, where appropriate,
-                through Miami MLS exposure as a licensed U.S. principal of record.
+                through South Florida buyer-agent activation via Carlos Uzcategui, Florida Realtor®, and United Realty Group.
               </p>
               <p className="mt-4 font-sans text-[15px] leading-relaxed text-white/60">
                 Spanish property owners, developers, and agencies seeking Miami-facing distribution access a compliant,
@@ -530,9 +530,9 @@ export default function MarketsPage() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-4">What the Global Desk provides</p>
                 <ul className="space-y-3">
                   {[
-                    "Miami MLS listing as U.S. licensed principal of record",
-                    "Distribution to 93,000 MIAMI REALTORS® member agents",
-                    "Syndication to 200+ global portals in 19 languages",
+                    "Professional presentation for selected international inventory",
+                    "Buyer-agent activation in the South Florida professional ecosystem",
+                    "Eligible platform and portal activity subject to applicable requirements",
                     "Formal referral introductions from Spanish agencies",
                     "Bilingual English/Spanish representation and reporting",
                   ].map((item) => (

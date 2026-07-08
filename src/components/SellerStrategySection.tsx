@@ -26,7 +26,7 @@ const STEPS = [
   {
     num: "04", title: "Activate", sub: "Agents on the Ground",
     badge: "3,500+ Agents · 20 Offices",
-    text: "United Realty Group's 3,500+ agents across 21 Florida offices begin showing, qualifying buyers, following up — and activating the South Florida and LATAM referral pipeline.",
+    text: "United Realty Group's 3,500+ agents across 20 Florida offices begin showing, qualifying buyers, following up — and activating the South Florida and LATAM referral pipeline.",
     stats: [{ v: "3.5K+", l: "Active Agents" }, { v: "20", l: "Offices" }, { v: "2", l: "Continents" }],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
   },

@@ -29,58 +29,58 @@ const FIGURES = [
 
 const C = {
   es: {
-    unit: "un servicio de homesprofessional.com",
+    unit: "Miami Global Listing Desk · un servicio de homesprofessional.com",
     toggleLabel: "Idioma",
     waES: "WhatsApp España",
     waUS: "WhatsApp EE. UU.",
-    heroEyebrow: "Global Desk · Sección internacional del Miami MLS",
-    heroTitle: "Compradores estadounidenses cualificados para su propiedad de lujo española.",
+    heroEyebrow: "Miami Global Listing Desk · Activación internacional de propiedades",
+    heroTitle: "Conectando propiedad prime española con agentes compradores del área de Miami.",
     heroSub:
-      "Su inventario, colocado en la sección internacional del Miami MLS por un principal de registro con licencia en Florida. Representación local en España, preservada.",
-    heroCta: "Enviar una solicitud de listado",
+      "Miami Global Listing Desk ayuda a propiedades prime seleccionadas de España y otros mercados internacionales a entrar en el ecosistema inmobiliario profesional del sur de Florida. Operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group.",
+    heroCta: "Solicitar una presentación privada",
     heroWhatsApp: "WhatsApp España",
-    heroTrust: "Principal de registro con licencia de Florida · SL705771 · Licenciado desde 2001 · CLHMS · Carlos revisa cada solicitud personalmente",
+    heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · sujeto a requisitos de corretaje, plataforma y cumplimiento",
     marketEyebrow: "El argumento de mercado",
     marketStat: "62%",
     marketStatLead:
       "de los compradores en operaciones prime en España — por encima de 2,5 millones de euros — son internacionales, con los estadounidenses entre los grupos principales y de mayor crecimiento.",
     marketBody:
-      "El Miami MLS es la puerta institucional a ese capital estadounidense. Para un propietario o promotor de lujo español, la colocación a través de un principal de registro en Florida es la vía más directa al comprador americano cualificado — con la representación local española preservada.",
+      "El ecosistema profesional del sur de Florida permite que inventario internacional seleccionado sea presentado con claridad a agentes compradores del área de Miami. Para un propietario, promotor o agencia española, la ventaja está en combinar presentación local, materiales bilingües y una estructura profesional de cooperación sujeta a requisitos de corretaje, plataforma y cumplimiento.",
     sourceLabel: "Fuente",
     sourceText: "Dils Lucas Fox — Informe de Mercado 2026",
     distEyebrow: "La ventaja de distribución",
     distIntro:
-      "Al listar, la propiedad entra en la infraestructura de distribución de la mayor asociación local de REALTORS® del mundo:",
+      "La activación se apoya en la infraestructura profesional de distribución inmobiliaria del sur de Florida:",
     caption: "Cifra de la red asociativa, no del principal ni de United Realty Group.",
     activation:
-      "La exposición es la infraestructura. La compensación que el vendedor ofrece a los agentes del comprador es lo que activa a esos agentes miembros para vender su propiedad concreta.",
+      "La exposición es infraestructura. La activación de agentes compradores depende de información clara, cooperación profesional, compensación cuando corresponda y requisitos de corretaje, plataforma y cumplimiento.",
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
-      "El principal de registro con licencia en Florida coloca la propiedad en la sección internacional del Miami MLS. La representación del comprador en España la gestionan agencias con licencia de la red afiliada: visitas, negociación local y cualificación del comprador. El propietario obtiene acceso al comprador local español y exposición internacional en el Miami MLS de forma simultánea. Es un acuerdo de principal de registro con licencia, no un atajo.",
+      "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en España puede ser gestionada por agencias profesionales afiliadas: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
     howEyebrow: "Cómo funciona",
-    coopTitle: "La comisión cooperante — en cada operación",
+    coopTitle: "Cooperación profesional — operación por operación",
     coopBody:
-      "En cada operación, el vendedor ofrece una comisión a los agentes del comprador, formalizada operación por operación mediante los formularios de referido de la Asociación de REALTORS® de Miami y canalizada a través de United Realty Group conforme al §475 de Florida. Esa oferta es lo que motiva a la red de agentes de Miami a vender la propiedad. Sin compensación cooperante, listar en el MLS no genera compradores.",
+      "Cada oportunidad se estructura operación por operación. Cuando corresponde, la compensación, los referidos, la cooperación entre agencias, la presentación en plataformas y cualquier actividad MLS se documentan y canalizan a través del marco profesional aplicable, incluyendo United Realty Group y los requisitos legales y de cumplimiento correspondientes. No se garantiza colocación, leads, compradores, comisiones ni ventas.",
     twoWaysTitle: "Dos formas de listar",
     wayExclusiveTitle: "Una propiedad, en exclusiva",
     wayExclusiveBody:
       "Liste una sola propiedad (o varias concretas) bajo un acuerdo de exclusiva de venta a seis meses. La comisión la paga el vendedor al cierre. Sin cuota mensual.",
-    wayPortfolioTitle: "Una cartera, con plan de colocación",
+    wayPortfolioTitle: "Una cartera, con plan de activación",
     wayPortfolioBody:
-      "Liste varias propiedades bajo un plan de colocación y marketing, sin exclusiva. Incluye la estructura de referidos vía United Realty Group; algunos planes añaden campañas dirigidas a agentes REALTORS® del Gran Miami.",
+      "Presente varias propiedades bajo un plan de activación y marketing, sin exclusiva. Incluye la estructura de referidos vía United Realty Group; algunos planes añaden difusión profesional dirigida a agentes compradores del área de Miami.",
     twoWaysClosing: "Términos y condiciones, en propuesta privada.",
-    scopesEyebrow: "Planes de colocación",
+    scopesEyebrow: "Planes de activación",
     scopes: [
-      ["Colocación", "Listado en la sección internacional del Miami MLS y sindicación asociada, con estructura de referidos vía URG."],
-      ["Colocación + Difusión", "Añade campañas dirigidas a agentes REALTORS® del Gran Miami."],
+      ["Preparación", "Presentación profesional para inventario internacional seleccionado, con datos claros, materiales bilingües y marco de cooperación vía URG."],
+      ["Activación", "Añade difusión profesional dirigida a agentes compradores del área de Miami, sujeta a requisitos de corretaje, plataforma y cumplimiento."],
       ["Mesa de Promotor", "Programa a medida para obra nueva y carteras de múltiples unidades."],
     ],
     stepsTitle: "El proceso, en cuatro pasos",
     steps: [
       ["Envíe la propiedad", "Una sola propiedad o una cartera. Sin compromiso — Carlos revisa cada solicitud personalmente."],
-      ["Propuesta por escrito", "Vía de listado — exclusiva o plan de colocación — con alcance y términos en propuesta privada."],
-      ["Colocación en el Miami MLS", "Sección internacional del Miami MLS y sindicación asociada, por un principal de registro con licencia en Florida."],
-      ["Cooperación con agentes de EE. UU.", "La comisión cooperante activa a los agentes del comprador. Su representación local en España, preservada."],
+      ["Propuesta por escrito", "Vía de representación — exclusiva o plan de activación — con alcance y términos en propuesta privada."],
+      ["Activación en el sur de Florida", "Presentación profesional, materiales bilingües y rutas de cooperación para agentes compradores del área de Miami."],
+      ["Cooperación profesional", "La cooperación se estructura operación por operación. Su representación local en España puede preservarse."],
     ],
     midCta: "Solicitar una propuesta privada",
     midCtaAlt: "¿Prefiere hablar primero?",
@@ -97,11 +97,11 @@ const C = {
       ],
       [
         "¿Quién atiende al comprador estadounidense?",
-        "Los agentes miembros de la red de REALTORS® de Miami. La comisión cooperante que ofrece el vendedor es lo que los activa para vender su propiedad, formalizada mediante los formularios de referido de la Asociación y canalizada a través de United Realty Group conforme al §475 de Florida.",
+        "Agentes compradores del ecosistema profesional del sur de Florida pueden revisar, compartir y cooperar sobre inventario seleccionado cuando la información, el marco de corretaje y los requisitos de cumplimiento lo permiten.",
       ],
       [
         "¿Es un acuerdo con licencia?",
-        "Sí. La colocación la realiza un principal de registro con licencia de Florida (SL705771, licenciado desde 2001). Es un acuerdo formal de principal de registro — no un atajo.",
+        "Sí. El servicio es operado por Carlos Uzcategui, Florida Realtor® SL705771, a través de United Realty Group. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a aprobación y requisitos aplicables.",
       ],
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
@@ -111,58 +111,58 @@ const C = {
     footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
   },
   en: {
-    unit: "a homesprofessional.com business unit",
+    unit: "Miami Global Listing Desk · a homesprofessional.com service",
     toggleLabel: "Language",
     waES: "WhatsApp Spain",
     waUS: "WhatsApp USA",
-    heroEyebrow: "Global Desk · Miami MLS international listings section",
-    heroTitle: "Qualified American buyers for your Spanish luxury property.",
+    heroEyebrow: "Miami Global Listing Desk · International property activation",
+    heroTitle: "Connecting Spanish Prime Real Estate With Miami-Area Buyer Agents",
     heroSub:
-      "Your inventory, placed into the international listings section of the Miami MLS by a licensed Florida principal of record. Local Spanish representation preserved.",
-    heroCta: "Submit a listing request",
+      "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group.",
+    heroCta: "Request a Private Introduction",
     heroWhatsApp: "WhatsApp Spain",
-    heroTrust: "Florida-licensed principal of record · SL705771 · Licensed since 2001 · CLHMS · Carlos reviews every submission personally",
+    heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · subject to brokerage, platform, and compliance requirements",
     marketEyebrow: "The market argument",
     marketStat: "62%",
     marketStatLead:
       "of buyers in Spanish prime transactions — above €2.5M — are international, with Americans among the leading and fastest-growing groups.",
     marketBody:
-      "The Miami MLS is the institutional gateway to that American capital. For a Spanish luxury owner or developer, placement through a Florida principal of record is the most direct path to qualified American buyers — with local Spanish representation preserved.",
+      "The South Florida professional real estate ecosystem gives selected international inventory a clearer path to buyer-agent discovery. For a Spanish luxury owner, developer, or agency, the advantage is bilingual presentation, brokerage structure, and buyer-agent activation through a compliant professional framework.",
     sourceLabel: "Source",
     sourceText: "Dils Lucas Fox — 2026 Market Report",
     distEyebrow: "Distribution advantage",
     distIntro:
-      "On listing, the property enters the distribution infrastructure of the world's largest local REALTORS® association:",
+      "The service is built around South Florida's professional real estate distribution infrastructure:",
     caption: "Association-network figure — not the principal's or United Realty Group's volume.",
     activation:
-      "Exposure is the infrastructure. The compensation the seller offers to buyer-side agents is what activates those member agents to sell your specific property.",
+      "Exposure is infrastructure. Buyer-agent activation depends on clear information, professional cooperation, appropriate compensation where applicable, and brokerage, platform, and compliance requirements.",
     structureEyebrow: "The structure, stated plainly",
     structureBody:
-      "The licensed Florida principal of record places the property into the international listings section of the Miami MLS. Buyer-side representation in Spain is handled by licensed agencies within the affiliated network — showings, local negotiation, and buyer qualification. The owner gains local Spanish buyer access and Miami MLS international exposure simultaneously. This is a licensed principal-of-record arrangement, not a workaround.",
+      "Miami Global Listing Desk helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.",
     howEyebrow: "How it works",
-    coopTitle: "The cooperating commission — on every transaction",
+    coopTitle: "Professional cooperation — transaction by transaction",
     coopBody:
-      "On every transaction, the seller offers a commission to buyer-side agents, formalized transaction by transaction on Miami REALTORS® Association referral forms and routed through United Realty Group under Florida §475. That offer is what motivates the Miami agent network to sell the property. Without cooperating compensation, listing on the MLS does not produce buyers.",
+      "Each opportunity is structured transaction by transaction. Where applicable, compensation, referrals, inter-agency cooperation, platform presentation, and any MLS activity are documented through the appropriate professional framework, including United Realty Group and applicable legal and compliance requirements. No placement, lead, buyer, commission, or sale is guaranteed.",
     twoWaysTitle: "Two ways to list",
     wayExclusiveTitle: "A single property, exclusive",
     wayExclusiveBody:
       "List one property (or specific properties) under a six-month exclusive right-to-sell agreement. Commission is paid by the seller at close. No monthly fee.",
-    wayPortfolioTitle: "A portfolio, placement plan",
+    wayPortfolioTitle: "A portfolio, activation plan",
     wayPortfolioBody:
-      "List multiple properties under a placement and marketing plan, non-exclusive. Includes the referral structure via United Realty Group; some plans add campaigns directed to Greater Miami REALTOR® agents.",
+      "Present multiple properties under an activation and marketing plan, non-exclusive. Includes the referral structure via United Realty Group; some plans add professional outreach directed to Miami-area buyer agents.",
     twoWaysClosing: "Terms and conditions in a private proposal.",
-    scopesEyebrow: "Placement plans",
+    scopesEyebrow: "Activation plans",
     scopes: [
-      ["Placement", "Miami MLS international-section listing and associated syndication, with referral structure via URG."],
-      ["Placement + Outreach", "Adds campaigns directed to Greater Miami REALTOR® agents."],
+      ["Readiness", "Professional presentation for selected international inventory, with clear facts, bilingual materials, and a cooperation framework via URG."],
+      ["Activation", "Adds professional buyer-agent outreach in the Miami-area ecosystem, subject to brokerage, platform, and compliance requirements."],
       ["Developer Desk", "Bespoke program for new-build and multi-unit portfolios."],
     ],
     stepsTitle: "The process, in four steps",
     steps: [
       ["Submit the property", "A single property or a portfolio. No commitment — Carlos reviews every submission personally."],
-      ["Written proposal", "Listing path — exclusive or placement plan — with scope and terms in a private proposal."],
-      ["Placement in the Miami MLS", "International listings section of the Miami MLS plus associated syndication, by a Florida-licensed principal of record."],
-      ["U.S. buyer-agent cooperation", "The cooperating commission activates buyer-side agents. Your local Spanish representation, preserved."],
+      ["Written proposal", "Representation path — exclusive or activation plan — with scope and terms in a private proposal."],
+      ["South Florida activation", "Professional presentation, bilingual materials, and cooperation pathways for Miami-area buyer agents."],
+      ["Professional cooperation", "Cooperation is structured transaction by transaction. Your local Spanish representation can be preserved."],
     ],
     midCta: "Request a private proposal",
     midCtaAlt: "Prefer to talk first?",
@@ -175,20 +175,20 @@ const C = {
       ],
       [
         "What does it cost?",
-        "On the exclusive path, the commission is paid by the seller at closing — no monthly fee. Portfolio placement plans are detailed in a private proposal, transaction by transaction.",
+        "On the exclusive path, the commission is paid by the seller at closing — no monthly fee. Portfolio activation plans are detailed in a private proposal, transaction by transaction.",
       ],
       [
         "Who handles the American buyer?",
-        "Member agents of the Miami REALTORS® network. The cooperating commission the seller offers is what activates them to sell your property, formalized through the Association's referral forms and channeled through United Realty Group under Florida §475.",
+        "Miami-area buyer agents in the South Florida professional real estate ecosystem may review, share, and cooperate on selected inventory when the information, brokerage framework, and compliance requirements support it.",
       ],
       [
         "Is this a licensed arrangement?",
-        "Yes. Placement is made by a Florida-licensed principal of record (SL705771, licensed since 2001). It is a formal principal-of-record arrangement — not a workaround.",
+        "Yes. The service is operated by Carlos Uzcategui, Florida Realtor® SL705771, through United Realty Group. Any MLS, portal, brokerage, or cooperation activity is subject to applicable approval and requirements.",
       ],
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
-      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 21 Florida offices.",
+      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 20 Florida offices.",
     footerContacts: "Contact",
     footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
   },
@@ -229,15 +229,15 @@ export default function GlobalDeskPage() {
         <html lang={lang} />
         <title>
           {lang === "es"
-            ? "Global Desk — Propiedad de lujo española en la sección internacional del Miami MLS"
-            : "Global Desk — Spanish Luxury Property in the Miami MLS International Section"}
+            ? "Miami Global Listing Desk — Activación internacional de propiedades"
+            : "Miami Global Listing Desk — International Property Distribution"}
         </title>
         <meta
           name="description"
           content={
             lang === "es"
-              ? "Coloque propiedad de lujo española en la sección internacional del Miami MLS a través de un principal de registro con licencia en Florida. Representación local preservada."
-              : "Place Spanish luxury property into the Miami MLS international listings section through a licensed Florida principal of record. Local Spanish representation preserved."
+              ? "Servicio de distribución internacional y activación de agentes compradores operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group."
+              : "South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group."
           }
         />
         <link rel="canonical" href="https://homesprofessional.com/global-desk" />
@@ -246,7 +246,7 @@ export default function GlobalDeskPage() {
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
-        <meta property="og:title" content="Global Desk — Spanish luxury property into the Miami MLS international section" />
+        <meta property="og:title" content="Miami Global Listing Desk — International Property Distribution" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="global-desk-breadcrumb" data={{
@@ -260,11 +260,11 @@ export default function GlobalDeskPage() {
       <JsonLd id="global-desk-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Global Desk — Miami MLS International Placement",
+          name: "Miami Global Listing Desk — International Property Activation",
           provider: { "@id": "https://homesprofessional.com/#agent" },
-          serviceType: "International luxury property MLS placement",
+          serviceType: "International property distribution and buyer-agent activation",
           description:
-            "A licensed Florida principal of record places Spanish luxury property into the international listings section of the Miami MLS, with cooperating referral commission routed through United Realty Group under Florida §475 and local Spanish representation preserved.",
+            "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group. Activity is subject to brokerage, platform, MLS, association, legal, and compliance requirements.",
           areaServed: ["Spain", "United States", "South Florida"],
           availableLanguage: ["Spanish", "English"],
           url: "https://homesprofessional.com/global-desk",

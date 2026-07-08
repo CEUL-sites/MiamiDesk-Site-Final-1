@@ -15,19 +15,19 @@ import { CONTACT } from "../constants";
 // dropping the visitor onto the generic seller desk.
 const DESK_CONTEXT: Record<string, { eyebrow: string; heading: string; intro: string }> = {
   "spain-developer": {
-    eyebrow: "Spain Desk · Developer Distribution Brief",
-    heading: "Request a Developer Distribution Brief",
-    intro: "For Spanish developers placing new-build or prime units into the MIAMI International MLS (RWorld) network through a licensed Florida principal of record. Share the development, market, and unit count — Carlos reviews every submission personally.",
+    eyebrow: "Miami Global Listing Desk · Developer Brief",
+    heading: "Request a Developer Activation Brief",
+    intro: "For Spanish developers evaluating South Florida buyer-agent activation for selected new-build or prime units through Carlos Uzcategui, Florida Realtor®, and United Realty Group. Share the development, market, and unit count — Carlos reviews every submission personally.",
   },
   "spain-agency": {
-    eyebrow: "Spain Desk · Agency Cooperation Proposal",
+    eyebrow: "Miami Global Listing Desk · Agency Cooperation Proposal",
     heading: "Request an Agency Cooperation Proposal",
-    intro: "For established Spanish agencies seeking MIAMI International MLS (RWorld) distribution while keeping the local mandate. Written cooperation runs in both directions. Carlos reviews every submission personally.",
+    intro: "For established Spanish agencies seeking South Florida-facing buyer-agent activation while keeping the local mandate. Written cooperation is subject to brokerage, platform, and compliance requirements. Carlos reviews every submission personally.",
   },
   global: {
     eyebrow: "Global Desk · Distribution Assessment",
     heading: "Request a Distribution Assessment",
-    intro: "A written read on which buyer markets — and which of the network's member agents — the reach connects to your property, and which service level fits the mandate.",
+    intro: "A written read on whether selected international inventory fits the South Florida buyer-agent ecosystem, which activation path is appropriate, and which compliance requirements apply.",
   },
 };
 

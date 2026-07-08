@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Mail, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
 import { CONTACT } from "../constants";
 import { LazyVideo } from "./LazyVideo";
@@ -6,21 +6,21 @@ import { AuroraBackground } from "./AuroraBackground";
 
 const CAPABILITIES = [
   {
-    title: "MLS Placement",
-    body: "Your property enters the Miami and South Florida REALTORS® MLS as a listed asset, reaching 93,000 member agents and their buyer pipelines. Not a referral. A formal listing."
+    title: "Distribution Readiness",
+    body: "Selected international inventory is prepared for South Florida buyer-agent review with clear facts, brokerage context, and bilingual materials, subject to brokerage, platform, MLS, and compliance requirements."
   },
   {
-    title: "Active Outreach",
-    body: "Targeted, professional outreach campaigns to South Florida Realtors who are actively working with qualified LATAM buyers. Campaigns are documented and reported."
+    title: "Buyer-Agent Activation",
+    body: "Miami-area buyer agents receive a professional property narrative they can understand, evaluate, and share with U.S. and Latin American clients where cooperation is appropriate."
   },
   {
-    title: "Campaign Reporting",
-    body: "Full activity reporting delivered to your agency or ownership team: agent contacts made, showing requests received, market positioning data, and professional feedback."
+    title: "Brokerage Framework",
+    body: "Carlos operates the desk as a Florida Realtor® through United Realty Group, coordinating introductions and cooperation pathways without implying MLS ownership, endorsement, or guaranteed outcomes."
   }
 ];
 
-const SPAIN_COPY = "For Spain agencies, developers, and ownership teams, our licensed professionals create a formal U.S. channel into the Miami MLS ecosystem with bilingual presentation support, agent-facing exposure, and cross-border advisory coordination.";
-const OWNER_COPY = "For South Florida owners, the same Miami and Madrid presence adds international buyer awareness, referral pathways, and a more sophisticated property narrative for listings with global appeal.";
+const SPAIN_COPY = "For Spain agencies, developers, and ownership teams, Miami Global Listing Desk creates a South Florida-facing presentation channel for selected prime inventory, with bilingual materials, buyer-agent activation, and a professional brokerage cooperation framework.";
+const OWNER_COPY = "For South Florida owners, the same Miami and Madrid presence can add international buyer awareness, referral pathways, and a more sophisticated property narrative for listings with global appeal, without guaranteeing leads, buyers, commissions, or sales.";
 
 export function InternationalBridge() {
   return (
@@ -50,7 +50,7 @@ export function InternationalBridge() {
             transition={{ duration: 0.6 }}
             className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
           >
-            International Activation Bridge
+            Miami Global Listing Desk
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -59,8 +59,7 @@ export function InternationalBridge() {
             transition={{ duration: 0.75, delay: 0.1 }}
             className="mt-5 font-serif text-4xl leading-tight text-white lg:text-6xl"
           >
-            Your inventory. The U.S. market.<br />
-            <span className="italic text-gold">One licensed principal.</span>
+            International Property Distribution Through South Florida's Buyer-Agent Ecosystem
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +68,7 @@ export function InternationalBridge() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-[1.9] text-white/65"
           >
-            The majority of luxury real estate buyers in Spain, particularly in Madrid, Marbella, and the Costa del Sol, come from Latin America and North America. Our team lists your property into the Miami MLS, putting it in front of 93,000 professional agents who represent those exact buyers. No workaround. No intermediary. A licensed Florida principal of record.
+            Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group. The service helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem so qualified inventory is easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.
           </motion.p>
 
           {/* Location tags */}
@@ -117,17 +116,26 @@ export function InternationalBridge() {
         </div>
 
         <div className="pt-16 text-center">
-          <h3 className="font-serif text-3xl italic text-white">Ready to give your property the reach of the world's largest local Realtor® network?</h3>
+          <h3 className="font-serif text-3xl italic text-white">Discuss whether your property fits a South Florida buyer-agent activation strategy.</h3>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="/contact" className="group inline-flex items-center justify-center gap-2 bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-all hover:bg-gold-soft active:scale-95">
-              Request a Private Seller Strategy Review
+            <a href={`mailto:${CONTACT.email}`} className="group inline-flex items-center justify-center gap-2 bg-gold px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-all hover:bg-gold-soft active:scale-95">
+              <Mail size={16} />
+              Request a Private Introduction
               <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center border border-white/30 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-white transition-all hover:border-gold hover:text-gold active:scale-95">
-              WhatsApp Spain Desk
+              <MessageCircle size={16} />
+              Discuss International Property Activation
+            </a>
+            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center border border-gold/60 px-8 py-4 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold transition-all hover:bg-gold hover:text-navy active:scale-95">
+              <MessageCircle size={16} />
+              Connect With Carlos
             </a>
           </div>
-          <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/70">Spanish inquiries answered in Spanish.</p>
+          <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/70">{CONTACT.email} · USA WhatsApp {CONTACT.phoneUS} · Spain WhatsApp {CONTACT.phoneSpain}</p>
+          <p className="mx-auto mt-5 max-w-3xl font-sans text-xs leading-relaxed text-white/55">
+            MLS, portal, brokerage, and cooperation activity is subject to applicable brokerage, platform, MLS, association, legal, and compliance requirements. No endorsement by MIAMI REALTORS® and no buyer, lead, commission, placement, or sale is guaranteed.
+          </p>
         </div>
 
       </div>

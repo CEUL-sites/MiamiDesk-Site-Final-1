@@ -155,14 +155,14 @@ const sitewideSchema: JsonLdSchema[] = [
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${SITE_URL}/global-desk#service`,
-    name: "Global Desk — Miami MLS International Activation",
+    name: "Miami Global Listing Desk — International Property Activation",
     provider: { "@id": `${SITE_URL}/#agent` },
-    serviceType: "International Real Estate MLS Activation",
+    serviceType: "International Real Estate Buyer-Agent Activation",
     areaServed: ["South Florida", "Spain", "Latin America"],
     url: `${SITE_URL}/global-desk`,
     availableLanguage: ["English", "Spanish"],
     description:
-      "Carlos Uzcategui places eligible international inventory directly into the Miami and South Florida REALTORS® MLS as the licensed principal of record — 93,000 member agents, 200+ global portals, 19 languages.",
+      "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group. Activity is subject to brokerage, platform, MLS, association, legal, and compliance requirements.",
   },
   {
     "@context": "https://schema.org",

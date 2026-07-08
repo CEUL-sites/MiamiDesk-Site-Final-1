@@ -10,8 +10,8 @@ const FORM_NAME = "global-desk-listing";
 // Bilingual labels. Spanish is primary; English mirrors via toggle.
 const L = {
   es: {
-    kicker: "Solicitud de listado · Sección internacional del Miami MLS",
-    title: "Envíe una solicitud de listado",
+    kicker: "Solicitud · Miami Global Listing Desk",
+    title: "Solicite una activación internacional",
     intro:
       "Una sola propiedad es válida. No se requiere una cartera. Carlos revisa cada solicitud antes de responder con una propuesta a medida.",
     // Q1
@@ -93,12 +93,12 @@ const L = {
     filesSelected: (n: number) => `${n} archivo(s) seleccionado(s)`,
     // Checkboxes
     authorization:
-      "Confirmo que tengo autoridad o mandato para listar esta propiedad y autorizo su colocación para revisión.",
+      "Confirmo que tengo autoridad o mandato para presentar esta propiedad y autorizo su revisión para una posible activación internacional sujeta a requisitos de corretaje, plataforma y cumplimiento.",
     consent: "Entiendo que todos los términos comerciales se tratan de forma privada.",
-    submit: "Enviar solicitud de listado",
+    submit: "Enviar solicitud",
     submitting: "Enviando…",
     success:
-      "Recibido. Recibirá una propuesta de cooperación y colocación a medida tras la revisión.",
+      "Recibido. Recibirá una propuesta privada de cooperación y activación tras la revisión.",
     errAuth: "Debe confirmar la autorización y el consentimiento para continuar.",
     errImages: "Añada al menos una imagen de la propiedad.",
     errGeneric: "No se pudo enviar. Escriba por WhatsApp o correo.",
@@ -107,8 +107,8 @@ const L = {
     select: "Seleccione…",
   },
   en: {
-    kicker: "Listing request · Miami MLS international section",
-    title: "Submit a listing request",
+    kicker: "Request · Miami Global Listing Desk",
+    title: "Request international property activation",
     intro:
       "A single property is valid. A portfolio is not required. Carlos reviews every request before responding with a tailored proposal.",
     q1: "Submitter type",
@@ -181,12 +181,12 @@ const L = {
     chooseFiles: "Choose files",
     filesSelected: (n: number) => `${n} file(s) selected`,
     authorization:
-      "I confirm I have authority or mandate to list this property and authorize its placement for review.",
+      "I confirm I have authority or mandate to present this property and authorize its review for possible international activation, subject to brokerage, platform, and compliance requirements.",
     consent: "I understand all commercial terms are handled privately.",
-    submit: "Submit listing request",
+    submit: "Submit request",
     submitting: "Submitting…",
     success:
-      "Received. You will receive a tailored cooperation and placement proposal after review.",
+      "Received. You will receive a private cooperation and activation proposal after review.",
     errAuth: "Please confirm the authorization and consent to proceed.",
     errImages: "Please add at least one property image.",
     errGeneric: "Could not submit. Please try WhatsApp or email.",

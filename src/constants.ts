@@ -26,9 +26,9 @@ export const CONTACT = {
   stats: {
     experience: "25",
     agents: "93,000",
-    offices: "21",
+    offices: "20",
     urgAgents: "3,500+",
-    urgOffices: "21",
+    urgOffices: "20",
     urgFounded: "2002",
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
@@ -70,8 +70,8 @@ export const LEAD_MAGNETS = {
   },
   spainActivation: {
     url: "/spain-mls-activation-methodology-brief.pdf",
-    title: "Activating Spanish Inventory in the Miami MLS",
-    description: "The professional framework for listing Spanish-owned property through a licensed U.S. principal of record — with structured access to institutional American market exposure.",
+    title: "Activating Spanish Inventory Through South Florida",
+    description: "The professional framework for selected Spanish-owned property to pursue South Florida buyer-agent activation through Carlos Uzcategui, Florida Realtor®, and United Realty Group.",
   },
 };
 
@@ -116,9 +116,9 @@ export const ASSOCIATION_STATS = {
   usMls: 260,
   mlsDataExchanges: 11,
   // Defensible, attributed URG description — no unverifiable ranking.
-  urgScale: "Founded 2002 · 3,500+ agents · 21 Florida offices",
+  urgScale: "Founded 2002 · 3,500+ agents · 20 Florida offices",
   urgAgents: "3,500+",
-  urgOffices: 21,
+  urgOffices: 20,
   urgFounded: 2002,
   associationName: "Miami and South Florida REALTORS®"
 };

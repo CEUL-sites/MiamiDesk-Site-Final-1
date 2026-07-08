@@ -114,14 +114,14 @@ export default function BuyersPage() {
     <>
       <Helmet>
         <title>Buy in South Florida · 25 Years + a 3,500-Agent Network | HomesProfessional.com</title>
-        <meta name="description" content="Buyer representation across Miami-Dade, Broward & Palm Beach — 25 years of experience backed by United Realty Group's 3,500+ agents and 21 Florida offices. Bilingual EN/ES. FL SL705771." />
+        <meta name="description" content="Buyer representation across Miami-Dade, Broward & Palm Beach — 25 years of experience backed by United Realty Group's 3,500+ agents and 20 Florida offices. Bilingual EN/ES. FL SL705771." />
         <meta name="keywords" content="buy home South Florida, Miami real estate buyer, United Realty Group buyer agent, Broward County homes, Miami-Dade real estate, relocation Florida, South Florida buyer agent, moving to Florida" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/comprar" />
         <meta property="og:title" content="Buy in South Florida | 25 Years + 3,500+ Agents Behind Every Purchase | Carlos Uzcategui" />
-        <meta property="og:description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by United Realty Group: 3,500+ agents, 21 Florida offices. Bilingual English/Spanish. FL SL705771." />
+        <meta property="og:description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by United Realty Group: 3,500+ agents, 20 Florida offices. Bilingual English/Spanish. FL SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/buy" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
@@ -136,7 +136,7 @@ export default function BuyersPage() {
           "name": "South Florida Buyer Representation",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "Real Estate Buyer Representation",
-          "description": "Full-service buyer representation including full MLS access, neighborhood analysis, offer strategy, and closing coordination across Miami-Dade, Broward, and Palm Beach counties — backed by the United Realty Group network of 3,500+ agents across 21 Florida offices.",
+          "description": "Full-service buyer representation including full MLS access, neighborhood analysis, offer strategy, and closing coordination across Miami-Dade, Broward, and Palm Beach counties — backed by the United Realty Group network of 3,500+ agents across 20 Florida offices.",
           "areaServed": "South Florida",
           "url": "https://homesprofessional.com/buy",
           "offers": {
@@ -150,7 +150,7 @@ export default function BuyersPage() {
           "@type": "FAQPage",
           "mainEntity": [
             { "@type": "Question", "name": "Do I need a buyer's agent in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "A buyer's agent gives you full MLS access, negotiation support, market analysis, and closing coordination. Working with an agent backed by a large brokerage network also means earlier visibility on inventory circulating between agents." } },
-            { "@type": "Question", "name": "What does United Realty Group's size mean for me as a buyer?", "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group has more than 3,500 agents across 21 Florida offices, with deep coverage of Broward and Miami-Dade counties. For a buyer, that means local agent knowledge in virtually every submarket, and access to inventory and intelligence that circulates inside the network." } },
+            { "@type": "Question", "name": "What does United Realty Group's size mean for me as a buyer?", "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group has more than 3,500 agents across 20 Florida offices, with deep coverage of Broward and Miami-Dade counties. For a buyer, that means local agent knowledge in virtually every submarket, and access to inventory and intelligence that circulates inside the network." } },
             { "@type": "Question", "name": "Can I buy a home in South Florida from abroad?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in serving international buyers, particularly from Spain and Latin America. Bilingual English/Spanish representation, foreign-national financing introductions, and remote transaction management are available." } },
             { "@type": "Question", "name": "What is the buying process in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "The process includes buyer consultation, property search via full MLS access, offer submission, inspection period, financing coordination, and closing. Timeline is typically 30–60 days from accepted offer to close." } }
           ]

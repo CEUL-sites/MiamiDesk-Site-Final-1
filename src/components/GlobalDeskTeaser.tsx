@@ -13,11 +13,10 @@ export function GlobalDeskTeaser() {
             Global Desk
           </p>
           <h2 className="mt-3 font-serif text-2xl leading-snug text-white md:mt-4 md:text-3xl">
-            Global Desk — international exposure for luxury property
+            Miami Global Listing Desk — buyer-agent activation for prime property
           </h2>
           <p className="mt-3 font-sans text-base leading-relaxed text-white/65 md:mt-4">
-            For developers and agencies: place Spanish luxury property into the Miami MLS
-            international listings section, with local representation preserved.
+            For developers and agencies: prepare selected Spanish and international prime inventory for South Florida buyer-agent discovery through a professional brokerage framework.
           </p>
         </div>
         <div className="flex-shrink-0">

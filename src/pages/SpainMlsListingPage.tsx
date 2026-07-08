@@ -12,22 +12,22 @@ type Lang = "en" | "es";
 
 const COPY = {
   en: {
-    eyebrow: "Spain → Miami MLS · Agency & Developer Partnerships",
+    eyebrow: "Spain → South Florida · Agency & Developer Partnerships",
     h1a: "Your Spanish listings,",
     h1b: "in front of 93,000 Miami agents.",
     heroSub:
-      "Spanish prime is overwhelmingly an international buyer market — Americans are its fastest-growing, highest-spending cohort and Latin American capital leads in Madrid. Those U.S. and LATAM buyer agents already work through the MIAMI International MLS (RWorld) network. A formal placement puts your inventory in their hands.",
+      "Spanish prime is overwhelmingly an international buyer market — Americans are its fastest-growing, highest-spending cohort and Latin American capital leads in Madrid. Miami Global Listing Desk helps selected inventory become easier for South Florida buyer agents to understand, share, and evaluate through a professional brokerage framework.",
     ctaPrimary: "Request a Partnership Conversation",
     ctaWhatsApp: "WhatsApp — Spain Desk",
-    ctaBrief: "Download the MLS Activation Methodology Brief",
+    ctaBrief: "Download the Activation Methodology Brief",
     twoSidedEyebrow: "The Two-Sided Case",
     twoSidedH2: "Sell more. Win more mandates.",
     sellTitle: "Sell more — through agents, not portals",
     sellBody:
-      "Your inventory reaches the buyer's own Realtor®: 93,000 member agents, with buyer-agent referral cooperation offered through United Realty Group as the licensed Florida broker. A financially motivated distribution network — not another listing site.",
+      "Your inventory is prepared for the buyer's own Realtor®: clear facts, bilingual materials, and buyer-agent cooperation pathways through United Realty Group where appropriate. A professional activation channel — not another listing site.",
     winTitle: "Win more mandates — in your own listing presentations",
     winBody:
-      "\"Your property will also be placed into the MIAMI International MLS (RWorld) syndication platform\" is an exposure claim competing agencies cannot make. Use it to win the seller before you ever need to find the buyer.",
+      "\"Your property can be prepared for South Florida buyer-agent activation through Miami Global Listing Desk\" is a concrete distribution argument. Use it to explain a professional cooperation path before you ever need to find the buyer.",
     whyEyebrow: "Why Miami",
     whyH2: "The largest local agent network in the world — built on Latin American demand.",
     stats: [
@@ -40,7 +40,7 @@ const COPY = {
     howH2: "Four steps. Your client stays yours.",
     steps: [
       { t: "Agreement", d: "Written cooperation agreement — your agency remains the client-facing agent in Spain." },
-      { t: "Activation", d: "Formal MLS listing through United Realty Group as the licensed Florida principal of record — not a referral note." },
+      { t: "Activation", d: "Professional presentation, buyer-agent activation, and cooperation pathways through United Realty Group, subject to applicable requirements." },
       { t: "Distribution", d: "Buyer-agent referral compensation offered broker-to-broker, per written agreement." },
       { t: "Coordination", d: "Inquiries, showings, and offers coordinated with your team. Your client relationship stays yours." },
     ],
@@ -67,18 +67,18 @@ const COPY = {
     h1a: "Sus propiedades en España,",
     h1b: "ante 93.000 agentes de Miami.",
     heroSub:
-      "El prime español es mayoritariamente un mercado de compradores internacionales — los americanos son la cohorte de mayor crecimiento y gasto, y el capital latinoamericano lidera en Madrid. Esos agentes compradores estadounidenses y latinoamericanos ya trabajan a través de la red del MIAMI International MLS (RWorld). Una colocación formal pone su inventario en sus manos.",
+      "El prime español es mayoritariamente un mercado de compradores internacionales — los americanos son la cohorte de mayor crecimiento y gasto, y el capital latinoamericano lidera en Madrid. Miami Global Listing Desk ayuda a que inventario seleccionado sea más fácil de entender, compartir y evaluar para agentes compradores del sur de Florida dentro de un marco profesional de corretaje.",
     ctaPrimary: "Solicitar una Conversación de Alianza",
     ctaWhatsApp: "WhatsApp — Mesa de España",
-    ctaBrief: "Descargar el informe metodológico de activación MLS",
+    ctaBrief: "Descargar el informe metodológico de activación",
     twoSidedEyebrow: "El Argumento de Doble Vía",
     twoSidedH2: "Venda más. Gane más mandatos.",
     sellTitle: "Venda más — a través de agentes, no de portales",
     sellBody:
-      "Su inventario llega al Realtor® del comprador: 93.000 agentes miembros, con cooperación de referidos para agentes de compradores ofrecida a través de United Realty Group como broker licenciado de Florida. Una red de distribución con incentivo económico — no otro portal.",
+      "Su inventario se prepara para el Realtor® del comprador: datos claros, materiales bilingües y rutas de cooperación para agentes compradores a través de United Realty Group cuando corresponda. Un canal profesional de activación — no otro portal.",
     winTitle: "Gane más mandatos — en sus propias presentaciones de captación",
     winBody:
-      "\"Su propiedad también será colocada en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional\" es un argumento de exposición que las agencias competidoras no pueden ofrecer. Úselo para ganar al vendedor antes de necesitar al comprador.",
+      "\"Su propiedad puede prepararse para activación con agentes compradores del sur de Florida a través de Miami Global Listing Desk\" es un argumento concreto de distribución. Úselo para explicar una vía profesional de cooperación antes de necesitar al comprador.",
     whyEyebrow: "Por Qué Miami",
     whyH2: "La mayor red local de agentes del mundo — construida sobre demanda latinoamericana.",
     stats: [
@@ -91,7 +91,7 @@ const COPY = {
     howH2: "Cuatro pasos. Su cliente sigue siendo suyo.",
     steps: [
       { t: "Acuerdo", d: "Acuerdo de cooperación por escrito — su agencia sigue siendo el agente del cliente en España." },
-      { t: "Activación", d: "Listado formal en el MLS a través de United Realty Group como principal licenciado de Florida — no una nota de referido." },
+      { t: "Activación", d: "Presentación profesional, activación de agentes compradores y rutas de cooperación a través de United Realty Group, sujetas a requisitos aplicables." },
       { t: "Distribución", d: "Compensación de referidos para agentes de compradores, broker a broker, según acuerdo escrito." },
       { t: "Coordinación", d: "Consultas, visitas y ofertas coordinadas con su equipo. La relación con su cliente sigue siendo suya." },
     ],
@@ -119,7 +119,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
   en: [
     {
       q: "Is this a formal MLS listing or just a referral?",
-      a: "A formal listing. Eligible Spanish properties are placed into the MIAMI International MLS (RWorld) syndication platform through United Realty Group as the licensed Florida principal of record — distributed to the international agent and broker network, subject to MLS rules. A Spain-located property does not enter the core Southeast Florida MLS daily-search system.",
+      a: "It is a professional activation review, not a guaranteed placement. Eligible Spanish properties may be prepared for buyer-agent discovery and platform activity through United Realty Group, subject to MLS, platform, brokerage, legal, and compliance requirements.",
     },
     {
       q: "Do we lose the client relationship?",
@@ -172,7 +172,7 @@ export default function SpainMlsListingPage() {
       <Helmet>
         <title>List Spanish Luxury Property on the Miami MLS | Agency & Developer Partnerships — Carlos Uzcategui</title>
         <meta name="description" content="Formal Miami MLS activation for Spanish prime inventory — agencies, developers, and family offices. LATAM and U.S. buyer-agent reach through United Realty Group." />
-        <meta name="keywords" content="list Spanish property Miami MLS, Spain real estate Miami exposure, luxury agency partnership Miami, Spanish developer US buyers, Miami MLS international listings, referral commission buyer agents Miami" />
+        <meta name="keywords" content="Spanish property South Florida activation, Spain real estate Miami exposure, luxury agency partnership Miami, Spanish developer US buyers, international property distribution, buyer agent activation Miami" />
         <link rel="canonical" href="https://homesprofessional.com/spain-mls-listing" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/spain-mls-listing" />
