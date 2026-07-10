@@ -274,7 +274,7 @@ export default function GlobalDeskPage() {
         <Navbar />
 
         {/* ── Section A — Global Desk identity bar (own identity within site shell) ── */}
-        <div className="border-b border-gold/20 bg-navy-deep">
+        <div className="border-b border-gold/20 bg-navy-deep pt-[4.5rem] sm:pt-[4.75rem]">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="font-serif text-lg leading-none text-white">Global Desk</p>
