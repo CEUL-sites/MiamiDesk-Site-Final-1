@@ -32,8 +32,8 @@ const FL_SERVICES = [
   },
   {
     number: "02",
-    title: "Full MLS access — plus the network",
-    desc: `Every active listing across Miami-Dade, Broward, and Palm Beach through the Miami and South Florida REALTORS® MLS — plus what circulates inside ${CONTACT.stats.urgAgents} United Realty Group agents before and beside the portals.`,
+    title: "Professional MLS search — plus the network",
+    desc: `Eligible inventory across Miami-Dade, Broward, and Palm Beach is reviewed through the applicable professional MLS and brokerage framework, supported by ${CONTACT.stats.urgAgents} United Realty Group agents.`,
   },
   {
     number: "03",
@@ -67,43 +67,43 @@ const WHY_FLORIDA = [
   },
   {
     icon: Sun,
-    title: "A subtropical climate, year-round",
-    desc: "Miami is the only major subtropical city in the continental U.S., with an average temperature of 75°F / 23°C.",
+    title: "A subtropical, year-round market",
+    desc: "South Florida's climate supports permanent residents, seasonal owners, and international buyers across the calendar.",
   },
   {
     icon: Globe2,
-    title: "#1 U.S. market for global buyers",
-    desc: "One of every five international buyers in the U.S. buys in Florida — and 52% of them buy in the Miami area.",
+    title: "An established international buyer ecosystem",
+    desc: "Bilingual professional services, global transportation links, and long-established international communities support cross-border purchasers.",
   },
   {
     icon: HeartPulse,
-    title: "Ranked happiest & healthiest U.S. city",
-    desc: "Miami ranks No. 1 happiest and healthiest city in the Mindbody Wellness Index — with world-class hospital systems including Baptist Health and Bascom Palmer.",
+    title: "Healthcare and quality-of-life infrastructure",
+    desc: "Major hospital systems, outdoor living, and year-round recreation are practical considerations for relocations and second-home purchases.",
   },
   {
     icon: Landmark,
-    title: "“The Capital of Capital”",
-    desc: "The second-largest financial center on the East Coast: 60+ international banks, 1,400+ multinational companies, and the No. 2 emerging tech hub in the U.S. (Forbes).",
+    title: "Finance and business connectivity",
+    desc: "Brickell and the wider South Florida business corridor support professionals, entrepreneurs, investors, and relocating companies.",
   },
   {
     icon: Waves,
-    title: "84 miles of Atlantic coastline",
-    desc: "More than 15 miles of world-famous beaches and 67 square miles of inland waterways across Greater Miami.",
+    title: "Waterfront and coastal property choices",
+    desc: "Oceanfront, bayfront, riverfront, and boating communities create distinct property types with different insurance, maintenance, and ownership considerations.",
   },
   {
     icon: GraduationCap,
-    title: "Top-rated schools & universities",
-    desc: "The 4th-largest public school district in the U.S. and more than 375,000 higher-education students across a dozen regional colleges and universities.",
+    title: "Schools and university access",
+    desc: "Public, private, and higher-education options shape neighborhood selection for families and long-term relocations.",
   },
   {
     icon: Plane,
-    title: "Gateway to the Americas",
-    desc: "MIA is America's second-busiest airport for international passengers, with Brightline high-speed rail linking Miami to Palm Beach and Orlando.",
+    title: "Regional and international connectivity",
+    desc: "International air service, major highways, seaports, and intercity rail connect South Florida with domestic and overseas markets.",
   },
   {
     icon: Trophy,
-    title: "Culture, dining & pro sports",
-    desc: "The only city in the world with NFL, NBA, MLB, NHL, MLS, and Formula 1 — plus Art Basel, Michelin-Guide dining, and Wynwood's art scene.",
+    title: "Culture, dining, and professional sports",
+    desc: "Arts, culinary districts, major events, and professional sports give buyers a wide range of urban and lifestyle environments.",
   },
 ];
 
@@ -127,7 +127,7 @@ export default function BuyersPage() {
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Buy in South Florida | 25 Years + 3,500+ Agents Behind Every Purchase" />
-        <meta name="twitter:description" content="Full MLS access, negotiation, and closing across Miami-Dade, Broward, and Palm Beach — backed by United Realty Group's statewide network." />
+        <meta name="twitter:description" content="Professional MLS search, negotiation, and closing coordination across Miami-Dade, Broward, and Palm Beach through United Realty Group." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="buyers-service" data={{
@@ -136,7 +136,7 @@ export default function BuyersPage() {
           "name": "South Florida Buyer Representation",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "Real Estate Buyer Representation",
-          "description": "Full-service buyer representation including full MLS access, neighborhood analysis, offer strategy, and closing coordination across Miami-Dade, Broward, and Palm Beach counties — backed by the United Realty Group network of 3,500+ agents across 20 Florida offices.",
+          "description": "Buyer representation including professional MLS search, neighborhood analysis, offer strategy, and closing coordination across Miami-Dade, Broward, and Palm Beach counties — backed by United Realty Group's 3,500+ agents and 20 Florida offices.",
           "areaServed": "South Florida",
           "url": "https://homesprofessional.com/buy",
           "offers": {
@@ -149,10 +149,10 @@ export default function BuyersPage() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "Do I need a buyer's agent in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "A buyer's agent gives you full MLS access, negotiation support, market analysis, and closing coordination. Working with an agent backed by a large brokerage network also means earlier visibility on inventory circulating between agents." } },
-            { "@type": "Question", "name": "What does United Realty Group's size mean for me as a buyer?", "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group has more than 3,500 agents across 20 Florida offices, with deep coverage of Broward and Miami-Dade counties. For a buyer, that means local agent knowledge in virtually every submarket, and access to inventory and intelligence that circulates inside the network." } },
+            { "@type": "Question", "name": "Do I need a buyer's agent in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "A buyer's agent provides professional property search, negotiation support, market analysis, and closing coordination. Carlos works through United Realty Group's brokerage framework and applicable MLS, platform, legal, and compliance requirements." } },
+            { "@type": "Question", "name": "What does United Realty Group's size mean for me as a buyer?", "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group has 3,500+ agents across 20 Florida offices. For a buyer, that supports local coordination and buyer-agent cooperation across South Florida, subject to brokerage, platform, and compliance requirements." } },
             { "@type": "Question", "name": "Can I buy a home in South Florida from abroad?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in serving international buyers, particularly from Spain and Latin America. Bilingual English/Spanish representation, foreign-national financing introductions, and remote transaction management are available." } },
-            { "@type": "Question", "name": "What is the buying process in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "The process includes buyer consultation, property search via full MLS access, offer submission, inspection period, financing coordination, and closing. Timeline is typically 30–60 days from accepted offer to close." } }
+            { "@type": "Question", "name": "What is the buying process in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "The process includes buyer consultation, professional property search, offer submission, inspection, financing coordination, title review, and closing. Timing depends on the contract, financing, property, and parties involved." } }
           ]
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
@@ -162,7 +162,7 @@ export default function BuyersPage() {
         <section className="relative overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
           <LazyVideo
             src="/videos/south_florida_showcase.mp4"
-            eager
+            idle
             className="absolute inset-0 h-full w-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/40 to-navy-deep/80" />
@@ -174,9 +174,9 @@ export default function BuyersPage() {
             <em className="italic text-gold">and {CONTACT.stats.urgAgents} agents behind every purchase.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Direct buyer representation across Miami-Dade, Broward, and Palm Beach — in English or
-            Spanish — backed by United Realty Group, one of Florida's largest independent brokerages,
-            with {CONTACT.stats.urgOffices} offices covering virtually every submarket of Broward and Miami-Dade.
+            Direct buyer representation across Miami-Dade, Broward, and Palm Beach — in English or Spanish —
+            through United Realty Group's professional Florida brokerage framework, with {CONTACT.stats.urgAgents} agents
+            and {CONTACT.stats.urgOffices} Florida offices.
           </p>
           {/* Scale strip — the strength story in four figures */}
           <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-px border border-white/10 bg-white/10 sm:grid-cols-4">
@@ -184,7 +184,7 @@ export default function BuyersPage() {
               { value: `${CONTACT.stats.experience} yrs`, label: "Licensed since 2001" },
               { value: CONTACT.stats.urgAgents, label: "URG agents statewide" },
               { value: CONTACT.stats.urgOffices, label: "Florida offices" },
-              { value: CONTACT.stats.urgFounded, label: "URG founded" },
+              { value: "EN / ES", label: "Bilingual coordination" },
             ].map((s) => (
               <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
                 <p className="font-serif text-2xl text-gold">{s.value}</p>
@@ -238,11 +238,9 @@ export default function BuyersPage() {
                   <span className="italic text-gold-ink font-light">{CONTACT.stats.urgAgents} stand behind him.</span>
                 </h2>
                 <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
-                  Carlos is an associate of United Realty Group — one of Florida's largest independent
-                  brokerages, self-described as the home of Florida's #1 transactional brokerage
-                  (urgfl.com). Founded in {CONTACT.stats.urgFounded}, URG has grown
-                  to {CONTACT.stats.urgAgents} licensed agents and {CONTACT.stats.urgOffices} Florida
-                  offices — from its Plantation headquarters across Broward, Miami-Dade, and Palm Beach.
+                  Carlos represents buyers through United Realty Group's professional Florida brokerage framework:
+                  {" "}{CONTACT.stats.urgAgents} agents and {CONTACT.stats.urgOffices} Florida offices. That scale supports
+                  local coordination across Miami-Dade, Broward, and Palm Beach while Carlos remains the accountable buyer representative.
                 </p>
                 <p className="mt-4 font-sans text-[15px] leading-relaxed text-ink-primary/65">
                   For a buyer, scale is practical: agents who live and work in every submarket you are
@@ -253,9 +251,9 @@ export default function BuyersPage() {
                   {[
                     `${CONTACT.stats.urgAgents} licensed agents across ${CONTACT.stats.urgOffices} Florida offices`,
                     "Deep office coverage of Broward & Miami-Dade — Plantation HQ, Weston, Pembroke Pines, Kendall, Hialeah, Aventura, Fort Lauderdale & more",
-                    "Full Miami and South Florida REALTORS® MLS access",
+                    "Eligible MLS search and buyer-agent coordination",
                     "Bilingual English / Spanish representation",
-                    "Independent, full-service brokerage — established 2002",
+                    "Professional brokerage and compliance framework",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
@@ -264,8 +262,25 @@ export default function BuyersPage() {
                   ))}
                 </ul>
               </div>
-              {/* URG team video */}
-              <div className="overflow-hidden border border-hairline bg-navy-deep shadow-xl shadow-navy/10">
+              {/* Local market proof and URG team video */}
+              <div className="space-y-px overflow-hidden border border-hairline bg-hairline shadow-xl shadow-navy/10">
+                <figure className="bg-navy-deep">
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img
+                      src="/images/carlos-miami-river.webp"
+                      alt="Carlos Uzcategui at a Miami waterfront property"
+                      width={1920}
+                      height={1081}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover object-[center_42%]"
+                    />
+                  </div>
+                  <figcaption className="bg-navy-deep px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                    Carlos Uzcategui · Local property review · Miami waterfront
+                  </figcaption>
+                </figure>
+                <div className="bg-navy-deep">
                 <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                   <iframe
                     src="https://www.youtube.com/embed/M8Hx5D5ghag?si=XAE-_zpkAJCVf_Yp&rel=0&modestbranding=1"
@@ -280,8 +295,9 @@ export default function BuyersPage() {
                 <div className="bg-navy-deep px-5 py-4">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · The Team</p>
                   <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
-                    {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} offices · Plantation HQ · Est. {CONTACT.stats.urgFounded}
+                    {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} Florida offices
                   </p>
+                </div>
                 </div>
               </div>
             </div>
@@ -300,8 +316,8 @@ export default function BuyersPage() {
                 ))}
               </div>
               <p className="mt-6 font-sans text-xs italic text-ink-primary/70">
-                All representation through Florida License SL705771 and United Realty Group, with full
-                Miami and South Florida REALTORS® MLS access.
+                All representation is through Florida License SL705771 and United Realty Group. MLS search and related
+                activity are subject to brokerage, platform, legal, and compliance requirements.
               </p>
             </div>
           </div>
@@ -426,7 +442,7 @@ export default function BuyersPage() {
                     href="/global-desk"
                     className="inline-flex items-center gap-2 bg-navy-deep px-7 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90"
                   >
-                    Visit the Global Desk →
+                    Visit Miami Global Listing Desk →
                   </a>
                   <a
                     href={CONTACT.whatsappSpain}
@@ -444,8 +460,8 @@ export default function BuyersPage() {
                   <div>
                     <h3 className="font-serif text-lg text-navy-deep">Florida — direct representation</h3>
                     <p className="mt-1.5 font-sans text-[13px] leading-relaxed text-ink-primary/60">
-                      Licensed buyer representation (FL SL705771) with full MLS access, negotiation, and
-                      closing coordination — backed by the United Realty Group network.
+                      Licensed buyer representation (FL SL705771) with professional MLS search, negotiation, and
+                      closing coordination through United Realty Group and applicable platform requirements.
                     </p>
                   </div>
                   <div className="border-t border-bone pt-5">
