@@ -12,7 +12,7 @@
   "urgScale": { "value": "2002", "label": "Founded · 3,500+ agents · 20 Florida offices", "source": "United Realty Group — full-service brokerage founded 2002, in-house title company (South Florida Title Associates)" },
   "yearsLicensed": { "value": "25", "label": "Years Licensed", "source": "Carlos Uzcategui, licensed since 2001" },
   "urgAgents": { "value": "3,500+", "label": "United Realty Group Agents", "source": "United Realty Group — urgfl.com (est. 2002, 20 Florida offices)" },
-  "urgOffices": { "value": "21", "label": "Florida Offices", "source": "United Realty Group internal office directory, supplied July 2026 (docs/sources/urg-office-directory-2026-07.jpg) — supersedes the earlier urgfl.com-sourced count of 20. Excludes URG's Greensboro, NC branch, which is not a Florida office." },
+  "urgOffices": { "value": "20", "label": "Florida Offices", "source": "United Realty Group Florida office directory, supplied July 2026 (docs/sources/urg-office-directory-2026-07.jpg). Excludes URG's Greensboro, NC branch, which is not a Florida office." },
   "license": { "value": "SL705771", "label": "Florida Licensed Realtor®", "source": "Florida DBPR" },
   "clhms": { "value": "CLHMS", "label": "Certified Luxury Home Marketing Specialist", "source": "The Institute for Luxury Home Marketing" },
   "networkVolume": { "value": "$69B", "label": "2025 Network Volume", "source": "MIAMI and RWorld members sold $69 billion in total real estate volume in 2025 — merger announcement, April 20, 2026 (docs/sources/miami-rworld-merger-announcement-2026-04-20.pdf)" },
