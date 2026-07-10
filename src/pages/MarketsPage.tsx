@@ -168,7 +168,7 @@ export default function MarketsPage() {
             {
               "@type": "Question",
               "name": "What is United Realty Group's South Florida footprint?",
-              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group was founded in ${ASSOCIATION_STATS.urgFounded} and has ${ASSOCIATION_STATS.urgAgents} licensed agents and ${ASSOCIATION_STATS.urgOffices} Florida offices. Carlos works from the Weston office as a Florida Licensed Realtor® SL705771.` }
+              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group has ${ASSOCIATION_STATS.urgAgents} licensed agents and ${ASSOCIATION_STATS.urgOffices} Florida offices. Carlos works from the Weston office as a Florida Licensed Realtor® SL705771.` }
             },
             {
               "@type": "Question",
@@ -339,7 +339,7 @@ export default function MarketsPage() {
             </div>
 
             <p className="mt-6 font-sans text-xs text-ink-primary/70 italic">
-              All markets served directly through Florida License SL705771, United Realty Group, and full Miami and South Florida REALTORS® MLS access.
+              Markets are served through Florida License SL705771 and United Realty Group, with eligible MLS and distribution activity subject to applicable brokerage, platform, legal, and compliance requirements.
             </p>
           </div>
         </section>
@@ -365,7 +365,7 @@ export default function MarketsPage() {
                     `${CONTACT.stats.urgAgents} agents across ${CONTACT.stats.urgOffices} Florida offices`,
                     "Eligible MLS and approved distribution-channel positioning",
                     "Bilingual English / Spanish representation",
-                    "United Realty Group — established 2002",
+                    "Professional brokerage and compliance framework",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
@@ -551,7 +551,7 @@ export default function MarketsPage() {
               </p>
 
               <div className="mt-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-4">What the Global Desk provides</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-4">What Miami Global Listing Desk provides</p>
                 <ul className="space-y-3">
                   {[
                     "Professional presentation for selected international inventory",
@@ -589,7 +589,7 @@ export default function MarketsPage() {
                   href="/global-desk"
                   className="group inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
                 >
-                  Global Desk — how it works
+                  Miami Global Listing Desk — how it works
                   <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
@@ -679,7 +679,7 @@ export default function MarketsPage() {
                 href="/global-desk"
                 className="group inline-flex items-center gap-2 border border-navy/25 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy hover:bg-navy hover:text-white"
               >
-                Global Desk — Spain &amp; International
+                Miami Global Listing Desk — Spain &amp; International
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
             </div>
