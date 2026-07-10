@@ -53,7 +53,7 @@ const FL_SERVICES = [
   {
     number: "06",
     title: "Inspection, escrow & closing",
-    desc: "Inspection period management, repair negotiation, title and escrow coordination through closing day — with in-house title available through the URG family.",
+    desc: "Inspection period management, repair negotiation, and coordination with the selected title, escrow, lending, and closing professionals.",
   },
 ];
 
@@ -243,9 +243,9 @@ export default function BuyersPage() {
                   local coordination across Miami-Dade, Broward, and Palm Beach while Carlos remains the accountable buyer representative.
                 </p>
                 <p className="mt-4 font-sans text-[15px] leading-relaxed text-ink-primary/65">
-                  For a buyer, scale is practical: agents who live and work in every submarket you are
-                  considering, earlier awareness of inventory moving inside the network, and in-house
-                  title through the URG family — all coordinated by one accountable representative.
+                  For a buyer, scale supports coordinated local market review and professional cooperation
+                  across South Florida. Carlos remains the accountable representative for search strategy,
+                  property analysis, offer preparation, and transaction coordination.
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
@@ -302,7 +302,7 @@ export default function BuyersPage() {
               </div>
             </div>
 
-            {/* County coverage — every submarket, a local URG presence */}
+            {/* County coverage — regional URG presence */}
             <div className="mt-14 border-t border-hairline pt-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Coverage · Broward · Miami-Dade · Palm Beach</p>
               <div className="mt-6 grid gap-8 md:grid-cols-3">
@@ -439,10 +439,10 @@ export default function BuyersPage() {
                 </ul>
                 <div className="mt-7 flex flex-wrap items-center gap-4">
                   <a
-                    href="/global-desk"
+                    href="/contact"
                     className="inline-flex items-center gap-2 bg-navy-deep px-7 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90"
                   >
-                    Visit Miami Global Listing Desk →
+                    Request a Spain Buyer Introduction →
                   </a>
                   <a
                     href={CONTACT.whatsappSpain}
