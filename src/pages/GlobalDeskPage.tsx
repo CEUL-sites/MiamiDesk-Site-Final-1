@@ -57,6 +57,12 @@ const C = {
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
       "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en España puede ser gestionada por agencias profesionales afiliadas: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
+    proofEyebrow: "Preparación profesional",
+    proofTitle: "Inventario preparado para una cooperación clara.",
+    proofBody:
+      "Carlos coordina fotografía y materiales de presentación para que inventario seleccionado pueda ser entendido y evaluado por agentes compradores del sur de Florida dentro del marco profesional aplicable.",
+    proofAlt: "Carlos Uzcategui con un equipo de medios de propiedad en Miami",
+    proofCaption: "Carlos Uzcategui con un equipo profesional de medios en una propiedad de Miami.",
     howEyebrow: "Cómo funciona",
     coopTitle: "Cooperación profesional — operación por operación",
     coopBody:
@@ -139,6 +145,12 @@ const C = {
     structureEyebrow: "The structure, stated plainly",
     structureBody:
       "Miami Global Listing Desk helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.",
+    proofEyebrow: "Professional preparation",
+    proofTitle: "Inventory prepared for clear professional cooperation.",
+    proofBody:
+      "Carlos coordinates photography and property-presentation materials so selected inventory can be understood and evaluated by South Florida buyer agents within the applicable professional framework.",
+    proofAlt: "Carlos Uzcategui with a property media team in Miami",
+    proofCaption: "Carlos Uzcategui with a professional property media team at a Miami property.",
     howEyebrow: "How it works",
     coopTitle: "Professional cooperation — transaction by transaction",
     coopBody:
@@ -460,6 +472,44 @@ export default function GlobalDeskPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.structureEyebrow}</p>
             <p className="mt-6 font-sans text-lg leading-[1.9] text-navy/75">{t.structureBody}</p>
           </motion.div>
+        </section>
+
+        {/* Property-presentation proof — authentic media, secondary to the service explanation */}
+        <section className="bg-bone-warm px-6 py-16 text-navy md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <motion.figure
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fade}
+              className="overflow-hidden bg-navy-deep"
+            >
+              <div className="aspect-[16/10] overflow-hidden sm:aspect-video">
+                <img
+                  src="/images/carlos-property-media-team.webp"
+                  alt={t.proofAlt}
+                  width={1920}
+                  height={1081}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+              <figcaption className="px-5 py-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+                {t.proofCaption}
+              </figcaption>
+            </motion.figure>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fade}
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.proofEyebrow}</p>
+              <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.proofTitle}</h2>
+              <p className="mt-5 font-sans text-base leading-[1.85] text-navy/70">{t.proofBody}</p>
+            </motion.div>
+          </div>
         </section>
 
         {/* ── Section F — How it works (the constant + two ways to list) ── */}
