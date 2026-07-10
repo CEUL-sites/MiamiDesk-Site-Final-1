@@ -9,12 +9,18 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { MiamiRealtorsBadge } from "../components/MiamiRealtorsBadge";
 import { Testimonials } from "../components/Testimonials";
-import { CONTACT, URG_CITIES } from "../constants";
+import { ASSOCIATION_STATS, CONTACT, URG_CITIES } from "../constants";
 
 // Group URG cities by county
 const MIAMI_DADE = URG_CITIES.filter((c) => c.region === "Miami-Dade County").map((c) => c.city);
 const BROWARD    = URG_CITIES.filter((c) => c.region === "Broward County").map((c) => c.city);
 const PALM_BEACH = URG_CITIES.filter((c) => c.region === "Palm Beach County").map((c) => c.city);
+
+const MEMBER_COUNT = ASSOCIATION_STATS.memberCount.toLocaleString("en-US");
+const GLOBAL_PORTALS = `${ASSOCIATION_STATS.globalWebsites}+`;
+const US_MLS = `${ASSOCIATION_STATS.usMls}+`;
+const INTERNATIONAL_AGREEMENTS = `${ASSOCIATION_STATS.internationalAgreements}+`;
+const MLS_DATA_EXCHANGES = String(ASSOCIATION_STATS.mlsDataExchanges);
 
 const COUNTIES = [
   {
@@ -84,7 +90,7 @@ const INTL_MARKETS = [
   },
   {
     region: "Spain & Portugal",
-    note: "Madrid, Barcelona, Marbella, Lisbon — direct referral relationships with established local agencies and family offices. The formal referral mechanism is documented and compliant with both Florida and Spanish professional standards.",
+    note: "Madrid, Barcelona, Marbella, Lisbon — coordinated through established local agencies and family offices. The formal referral mechanism is documented and compliant with both Florida and Spanish professional standards.",
   },
   {
     region: "United Kingdom & Europe",
@@ -103,11 +109,11 @@ const PILLARS = [
   },
   {
     title: "Structural MLS distribution",
-    body: "Listing through a Miami and South Florida REALTORS® member places the property inside the world's largest local REALTOR® association — 93,000 member agents, eligible listings on 200+ global portals in 19 languages.",
+    body: `Listing through a Miami and South Florida REALTORS® member places the property inside the world's largest local REALTOR® association: ${MEMBER_COUNT} member agents, eligible listings on ${GLOBAL_PORTALS} global portals in ${ASSOCIATION_STATS.languages} languages, and syndication through ${US_MLS} U.S. MLSs via RPR.`,
   },
   {
-    title: "International demand access",
-    body: "The Miami MLS is backed by 437+ international agreements across 75+ countries — reaching the agents who represent Latin American, European, and Gulf buyers actively searching for South Florida property.",
+    title: "International activation path",
+    body: "Miami Global Listing Desk is the international activation mechanism: selected inventory is reviewed for fit, positioned for buyer-agent understanding, and handled subject to brokerage, platform, MLS, legal, and compliance requirements.",
   },
 ];
 
@@ -116,20 +122,20 @@ export default function MarketsPage() {
   return (
     <>
       <Helmet>
-        <title>Markets Served: South Florida · Madrid · International | HomesProfessional.com</title>
+        <title>Markets Served: Miami Global Listing Desk Distribution | HomesProfessional.com</title>
         <meta
           name="description"
-          content={`South Florida full MLS coverage across Miami-Dade, Broward, and Palm Beach — ${URG_CITIES.length} cities through United Realty Group's ${CONTACT.stats.urgOffices} offices. Madrid and Spain through professional referral relationships. Carlos Uzcategui, FL SL705771.`}
+          content={`Miami Global Listing Desk positions South Florida and selected international sellers through ${ASSOCIATION_STATS.associationName} distribution: ${MEMBER_COUNT} members, ${GLOBAL_PORTALS} portals, ${ASSOCIATION_STATS.languages} languages, ${US_MLS} U.S. MLSs, ${INTERNATIONAL_AGREEMENTS} agreements, and ${MLS_DATA_EXCHANGES} MLS data exchanges.`}
         />
         <link rel="canonical" href="https://homesprofessional.com/markets" />
-        <meta property="og:title" content="Markets Served: South Florida · Madrid · International | HomesProfessional.com" />
-        <meta property="og:description" content="Full MLS coverage across Miami-Dade, Broward, and Palm Beach through United Realty Group's 20 offices. Madrid and Spain through professional referral. Carlos Uzcategui, FL SL705771." />
+        <meta property="og:title" content="Markets Served: Miami Global Listing Desk Distribution | HomesProfessional.com" />
+        <meta property="og:description" content="South Florida listing distribution and selected international activation through Carlos Uzcategui, Florida Licensed Realtor® SL705771, United Realty Group, and Miami Global Listing Desk." />
         <meta property="og:url" content="https://homesprofessional.com/markets" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Markets Served: South Florida · Madrid · International | HomesProfessional.com" />
-        <meta name="twitter:description" content="Full MLS coverage across Miami-Dade, Broward, and Palm Beach. 25 cities. Madrid and Spain through professional referral." />
+        <meta name="twitter:title" content="Markets Served: Miami Global Listing Desk Distribution | HomesProfessional.com" />
+        <meta name="twitter:description" content="Seller distribution positioning across South Florida, Spain, and international referral channels through Miami Global Listing Desk." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="markets-breadcrumb" data={{
@@ -147,12 +153,12 @@ export default function MarketsPage() {
             {
               "@type": "Question",
               "name": "What counties does Carlos Uzcategui serve in South Florida?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Carlos serves Miami-Dade, Broward, and Palm Beach counties directly through United Realty Group's 21 South Florida offices and full Miami and South Florida REALTORS® MLS access." }
+              "acceptedAnswer": { "@type": "Answer", "text": `Carlos serves Miami-Dade, Broward, and Palm Beach counties through Florida License SL705771, United Realty Group, and ${ASSOCIATION_STATS.associationName} listing-distribution infrastructure.` }
             },
             {
               "@type": "Question",
               "name": "Does Carlos sell real estate in Spain?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Carlos is licensed exclusively in Florida (SL705771). Spain and Madrid properties are handled through formal professional referral relationships with established local agencies — not direct sales by Carlos in Spain." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Carlos is licensed exclusively in Florida (SL705771). Where applicable, he acts as the Florida licensed principal of record for Miami Global Listing Desk activation while affiliated local Spanish agencies handle local buyer qualification, showings, and negotiation." }
             },
             {
               "@type": "Question",
@@ -162,12 +168,12 @@ export default function MarketsPage() {
             {
               "@type": "Question",
               "name": "What is United Realty Group's South Florida footprint?",
-              "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group operates 20 offices across South Florida with 3,500+ licensed agents statewide. It is one of Florida's largest independently owned brokerages, established in 2002." }
+              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group was founded in ${ASSOCIATION_STATS.urgFounded} and has ${ASSOCIATION_STATS.urgAgents} licensed agents and ${ASSOCIATION_STATS.urgOffices} Florida offices. Carlos works from the Weston office as a Florida Licensed Realtor® SL705771.` }
             },
             {
               "@type": "Question",
               "name": "How does the Miami MLS reach international buyers?",
-              "acceptedAnswer": { "@type": "Answer", "text": "The Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association with 93,000 member agents — holds 437+ signed international agreements across 75+ countries. Eligible listed properties can be distributed to 200+ global portals in 19 languages." }
+              "acceptedAnswer": { "@type": "Answer", "text": `${ASSOCIATION_STATS.associationName} is the world's largest local REALTOR® association with ${MEMBER_COUNT} member agents. Eligible listings may be distributed to ${GLOBAL_PORTALS} global portals in ${ASSOCIATION_STATS.languages} languages, syndicated through ${US_MLS} U.S. MLSs via RPR, supported by ${INTERNATIONAL_AGREEMENTS} signed international agreements and ${MLS_DATA_EXCHANGES} MLS data exchanges. ${ASSOCIATION_STATS.networkVolume} is attributed to the association network's ${ASSOCIATION_STATS.networkVolumeLabel}. Any activation is subject to brokerage, platform, MLS, legal, and compliance requirements.` }
             },
           ]
         }} />
@@ -178,7 +184,7 @@ export default function MarketsPage() {
         {/* ── Hero ──────────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
           <LazyVideo
-            eager
+            idle
             src="/videos/south_florida_showcase.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.16] pointer-events-none"
           />
@@ -186,18 +192,19 @@ export default function MarketsPage() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.88),rgba(6,17,31,0.97))]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
           <div className="relative mx-auto max-w-4xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida · Madrid & Spain · International Referral</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Miami Global Listing Desk · South Florida · Spain</p>
             <h1 className="mx-auto mt-6 max-w-3xl font-serif leading-[1.1] text-white" style={{ fontSize: "clamp(2.1rem, 5vw, 3.6rem)" }}>
-              South Florida's full MLS footprint.<br />
-              <em className="italic text-gold">Madrid, through professional partnership.</em>
+              International property distribution through<br />
+              <em className="italic text-gold">South Florida's buyer-agent ecosystem.</em>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
-              Direct coverage across Miami-Dade, Broward, and Palm Beach through United Realty Group's {CONTACT.stats.urgOffices} South Florida offices
-              and {CONTACT.stats.agents}-member MLS. Spain and international markets served through formal referral and cooperating broker relationships.
+              Carlos Uzcategui operates Miami Global Listing Desk through United Realty Group, connecting South Florida seller representation
+              and selected international inventory with professional buyer-agent and referral channels. Activity is subject to brokerage,
+              platform, MLS, legal, and compliance requirements.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href="/contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
-                Request a Private Listing Review
+                Request a Private Listing-Distribution Review
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/25 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">
@@ -225,13 +232,13 @@ export default function MarketsPage() {
                 ))}
               </svg>
             </div>
-            {/* Stats grid */}
+            {/* Primary distribution proof */}
             <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 lg:grid-cols-4">
               {[
-                { value: CONTACT.stats.urgOffices, label: "URG offices", sub: "across South Florida" },
-                { value: CONTACT.stats.urgAgents,  label: "URG agents", sub: "statewide · bilingual" },
-                { value: String(URG_CITIES.length), label: "cities served", sub: "across 3 counties" },
-                { value: "93,000", label: "MIAMI REALTORS®", sub: "world's largest local association" },
+                { value: MEMBER_COUNT, label: "Member agents", sub: "professional association network" },
+                { value: GLOBAL_PORTALS, label: "Global portals", sub: "eligible listing distribution" },
+                { value: US_MLS, label: "U.S. MLSs", sub: "via RPR national exchange" },
+                { value: INTERNATIONAL_AGREEMENTS, label: "International agreements", sub: "professional cooperation" },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col items-center bg-navy-deep px-6 py-8 text-center">
                   <span className="font-serif text-4xl text-gold md:text-5xl">{s.value}</span>
@@ -240,12 +247,12 @@ export default function MarketsPage() {
                 </div>
               ))}
             </div>
-            {/* Second row — MLS reach */}
-            <div className="mt-px grid grid-cols-3 gap-px border border-t-0 border-white/10 bg-white/10">
+            {/* Supporting distribution proof */}
+            <div className="mt-px grid grid-cols-1 gap-px border border-t-0 border-white/10 bg-white/10 sm:grid-cols-3">
               {[
-                { value: "437+", label: "International agreements", sub: "across 75+ countries" },
-                { value: "200+", label: "Global portals", sub: "eligible listing syndication" },
-                { value: "19", label: "Languages", sub: "property presentation" },
+                { value: String(ASSOCIATION_STATS.languages), label: "Languages", sub: "property presentation" },
+                { value: MLS_DATA_EXCHANGES, label: "MLS data exchanges", sub: "approved data cooperation" },
+                { value: ASSOCIATION_STATS.networkVolume, label: "2025 network volume", sub: "combined association-network volume" },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col items-center bg-navy-deep/60 px-6 py-5 text-center">
                   <span className="font-serif text-2xl text-gold/80">{s.value}</span>
@@ -267,12 +274,12 @@ export default function MarketsPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Coverage</p>
               <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
                 Three counties, one integrated MLS.<br />
-                <span className="text-gold">Direct access across every market.</span>
+                <span className="text-gold">One professional distribution structure.</span>
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
-                United Realty Group operates {CONTACT.stats.urgOffices} offices across South Florida. Every listing represented by
-                Carlos enters the Miami and South Florida REALTORS® MLS — {CONTACT.stats.agents} member agents with reach into
-                200+ global portals in 19 languages.
+                Carlos represents South Florida sellers through United Realty Group, with {CONTACT.stats.urgAgents} agents and
+                {CONTACT.stats.urgOffices} Florida offices. Eligible listings may enter the professional association distribution
+                infrastructure and approved syndication channels according to property, brokerage, platform, and compliance requirements.
               </p>
             </div>
 
@@ -349,17 +356,16 @@ export default function MarketsPage() {
                   The agents who move South Florida.
                 </h2>
                 <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
-                  United Realty Group is one of Florida's largest independently owned brokerages —
-                  {" "}{CONTACT.stats.urgAgents} agents across {CONTACT.stats.urgOffices} South Florida offices.
-                  That is the network a listing enters when it is represented: working buyer agents
-                  with active clients, not a directory of names.
+                  United Realty Group provides the brokerage framework behind Carlos's South Florida representation:
+                  {" "}{CONTACT.stats.urgAgents} agents and {CONTACT.stats.urgOffices} Florida offices. The objective is to prepare
+                  each eligible property for clear professional presentation to buyer agents and cooperating referral partners.
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
-                    `${CONTACT.stats.urgAgents} licensed agents across Miami-Dade, Broward, Palm Beach & Orange`,
-                    "Full Miami and South Florida REALTORS® MLS access",
+                    `${CONTACT.stats.urgAgents} agents across ${CONTACT.stats.urgOffices} Florida offices`,
+                    "Eligible MLS and approved distribution-channel positioning",
                     "Bilingual English / Spanish representation",
-                    "Independent brokerage — established 2002",
+                    "United Realty Group — established 2002",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
@@ -368,8 +374,25 @@ export default function MarketsPage() {
                   ))}
                 </ul>
               </div>
-              {/* Right — video */}
-              <div className="overflow-hidden border border-hairline bg-navy-deep shadow-xl shadow-navy/10">
+              {/* Right — authentic brokerage proof and team video */}
+              <div className="space-y-px overflow-hidden border border-hairline bg-hairline shadow-xl shadow-navy/10">
+                <figure className="bg-navy-deep">
+                  <div className="aspect-[4/3] overflow-hidden sm:aspect-[16/10]">
+                    <img
+                      src="/images/urg-weston-office.webp"
+                      alt="United Realty Group office interior in Weston, Florida"
+                      width={1920}
+                      height={2560}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover object-[center_42%]"
+                    />
+                  </div>
+                  <figcaption className="bg-navy-deep px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                    United Realty Group · Weston office · Florida brokerage framework
+                  </figcaption>
+                </figure>
+                <div className="bg-navy-deep">
                 <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                   <iframe
                     src="https://www.youtube.com/embed/M8Hx5D5ghag?si=Mno7hIj23lN-mTbU&rel=0&modestbranding=1"
@@ -386,6 +409,7 @@ export default function MarketsPage() {
                   <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
                     {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} offices · South Florida
                   </p>
+                </div>
                 </div>
               </div>
             </div>
@@ -477,8 +501,8 @@ export default function MarketsPage() {
               <span className="text-gold">reached through professional cooperation.</span>
             </h2>
             <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
-              The Miami and South Florida REALTORS® network holds 437+ signed international agreements across 75+ countries.
-              Buyer-side referral introductions flow through professional brokerage coordination.
+              The professional association network includes {INTERNATIONAL_AGREEMENTS} signed international agreements.
+              Buyer-side referral introductions flow through documented brokerage coordination, subject to applicable requirements.
             </p>
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {INTL_MARKETS.map((m) => (
@@ -517,9 +541,9 @@ export default function MarketsPage() {
             {/* Right: content */}
             <div className="py-16 px-8 lg:px-14 lg:py-24">
               <p className="font-sans text-[15px] leading-relaxed text-white/60">
-                Carlos is licensed exclusively in Florida (SL705771). Spain and Madrid properties are not sold directly —
-                they are served through formal referral relationships with established local agencies and, where appropriate,
-                through South Florida buyer-agent activation via Carlos Uzcategui, Florida Realtor®, and United Realty Group.
+                Carlos is licensed exclusively in Florida (SL705771). Where applicable, he serves as the Florida licensed principal
+                of record for Miami Global Listing Desk activation. Affiliated local Spanish agencies handle local buyer qualification,
+                showings, negotiation, and other Spain-side activity.
               </p>
               <p className="mt-4 font-sans text-[15px] leading-relaxed text-white/60">
                 Spanish property owners, developers, and agencies seeking Miami-facing distribution access a compliant,
@@ -637,18 +661,18 @@ export default function MarketsPage() {
           <div className="mx-auto max-w-3xl px-6 text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Start Here</p>
             <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              South Florida seller or international property inquiry.
+              Review the property's distribution path before market launch.
             </h2>
             <p className="mt-6 font-sans text-[17px] leading-[1.7] text-ink-primary/70">
-              Whether the property is in Weston, Brickell, or Madrid — every inquiry gets a direct response from Carlos, a
-              clear scope of what representation looks like, and a market positioning review before any commitment.
+              Carlos will review property fit, positioning, and the applicable South Florida or international activation path before
+              any representation commitment. No placement, lead, buyer, offer, commission, or sale is guaranteed.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
                 href="/contact"
                 className="group inline-flex items-center gap-2 bg-navy-deep px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
               >
-                Request a Market Review
+                Request a Private Listing-Distribution Review
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
