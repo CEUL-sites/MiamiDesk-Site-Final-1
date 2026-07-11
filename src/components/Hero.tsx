@@ -1,6 +1,6 @@
 import { motion, type Variants } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Globe, ShieldCheck, Tag } from "lucide-react";
+import { ChevronRight, Globe, ShieldCheck, Star, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
 
@@ -350,6 +350,16 @@ export function Hero() {
               </div>
             ))}
           </motion.div>
+
+          <motion.a
+            variants={item}
+            href="#client-reviews"
+            className="mt-5 inline-flex items-center gap-2 border border-white/15 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/75 transition-colors hover:border-gold/45 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep"
+          >
+            <Star size={14} aria-hidden="true" className="text-gold" />
+            Verified client experiences
+            <ChevronRight size={14} aria-hidden="true" />
+          </motion.a>
 
         </div>
 

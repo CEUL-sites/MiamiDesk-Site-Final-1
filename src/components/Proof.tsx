@@ -19,7 +19,7 @@ function StarRow({ size = 12 }: { size?: number }) {
 
 export function Proof() {
   return (
-    <section className="border-t border-gold/10 bg-navy-deep py-10 md:py-16">
+    <section id="client-reviews" className="scroll-mt-24 border-t border-gold/10 bg-navy-deep py-10 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-4 border-b border-white/10 pb-7 sm:flex-row sm:items-end sm:justify-between md:pb-10">
           <div>

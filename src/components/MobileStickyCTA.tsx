@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT, isSpainMarketRoute, isSpanishLangRoute } from "../constants";
 import { trackContact } from "../lib/analytics";
+import { getConsent } from "../lib/consent";
+import { shouldRenderMobileSticky } from "./mobileStickyModel";
 
 export function MobileStickyCTA() {
   const { pathname } = useLocation();
@@ -10,8 +12,9 @@ export function MobileStickyCTA() {
   const spanishLabels = isSpanishLangRoute(pathname);
 
   const [hidden, setHidden] = useState(false);
+  const [consentPending, setConsentPending] = useState(true);
   // Default to the main seller funnel; if the current page has its own
-  // in-page form (#contact or #listing-request), target that instead so we
+  // in-page form (#list-here, #contact, or #listing-request), target that instead so we
   // never navigate the user away mid-page.
   const [sellHref, setSellHref] = useState(
     spanishLabels ? "/es/vender#contact" : "/sell-south-florida#contact"
@@ -20,7 +23,9 @@ export function MobileStickyCTA() {
   // Hide when the seller form is visible — user is already in the funnel
   useEffect(() => {
     const el =
-      document.getElementById("contact") ?? document.getElementById("listing-request");
+      document.getElementById("list-here") ??
+      document.getElementById("contact") ??
+      document.getElementById("listing-request");
     if (!el) return;
     setSellHref(`#${el.id}`);
     const observer = new IntersectionObserver(
@@ -31,7 +36,16 @@ export function MobileStickyCTA() {
     return () => observer.disconnect();
   }, []);
 
-  if (hidden) return null;
+  // The cookie dialog temporarily owns the mobile bottom action area. Hiding
+  // this bar until a choice is made prevents two competing fixed controls.
+  useEffect(() => {
+    const syncConsent = () => setConsentPending(getConsent() === null);
+    syncConsent();
+    window.addEventListener("hp-consent-change", syncConsent);
+    return () => window.removeEventListener("hp-consent-change", syncConsent);
+  }, []);
+
+  if (!shouldRenderMobileSticky({ formVisible: hidden, consentPending })) return null;
 
   const whatsappHref = spainLine ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
   const sellLabel = spanishLabels
