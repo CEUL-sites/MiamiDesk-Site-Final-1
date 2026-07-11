@@ -121,13 +121,13 @@ const C = {
     toggleLabel: "Language",
     waES: "WhatsApp Spain",
     waUS: "WhatsApp USA",
-    heroEyebrow: "Miami Global Listing Desk · International property activation",
-    heroTitle: "Connecting Spanish Prime Real Estate With Miami-Area Buyer Agents",
+    heroEyebrow: "Miami Global Listing Desk · International property distribution",
+    heroTitle: "Prepare Selected International Inventory for Miami-Area Buyer-Agent Discovery",
     heroSub:
-      "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group.",
+      "For international property owners, developers, and listing agents: prepare selected inventory for discovery and professional cooperation by Miami-area buyer agents. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group.",
     heroCta: "Request a Private Introduction",
     heroWhatsApp: "WhatsApp Spain",
-    heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · subject to brokerage, platform, and compliance requirements",
+    heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · subject to brokerage, platform, property-eligibility, and compliance requirements",
     marketEyebrow: "The market argument",
     marketStat: "62%",
     marketStatLead:
@@ -195,7 +195,7 @@ const C = {
       ],
       [
         "Is this a licensed arrangement?",
-        "Yes. The service is operated by Carlos Uzcategui, Florida Realtor® SL705771, through United Realty Group. Any MLS, portal, brokerage, or cooperation activity is subject to applicable approval and requirements.",
+        "Yes. Carlos Uzcategui, Florida Realtor® SL705771, provides the service through United Realty Group. Any MLS, portal, brokerage, or cooperation activity is subject to applicable approval and requirements.",
       ],
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
@@ -212,8 +212,8 @@ const fade = {
 };
 
 export default function GlobalDeskPage() {
-  // Spanish is the default render; the choice persists across visits.
-  const [lang, setLang] = useState<Lang>("es");
+  // English is the default render; an explicit visitor choice persists across visits.
+  const [lang, setLang] = useState<Lang>("en");
 
   useEffect(() => {
     try {
@@ -276,7 +276,7 @@ export default function GlobalDeskPage() {
           provider: { "@id": "https://homesprofessional.com/#agent" },
           serviceType: "International property distribution and buyer-agent activation",
           description:
-            "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group. Activity is subject to brokerage, platform, MLS, association, legal, and compliance requirements.",
+            "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service provided by Carlos Uzcategui, Florida Realtor®, through United Realty Group. Activity is subject to brokerage, platform, MLS, association, legal, and compliance requirements.",
           areaServed: ["Spain", "United States", "South Florida"],
           availableLanguage: ["Spanish", "English"],
           url: "https://homesprofessional.com/global-desk",
@@ -298,7 +298,7 @@ export default function GlobalDeskPage() {
                 role="group"
                 aria-label={t.toggleLabel}
               >
-                {(["es", "en"] as const).map((l) => (
+                {(["en", "es"] as const).map((l) => (
                   <button
                     key={l}
                     type="button"

@@ -1,7 +1,7 @@
 import { ChevronRight, Globe2 } from "lucide-react";
 
 // Homepage entry point to the Global Desk business unit (/global-desk).
-// The landing page itself renders Spanish by default with an EN/ES toggle;
+// The landing page itself renders English by default with an EN/ES toggle;
 // this teaser uses the site's English shell copy.
 export function GlobalDeskTeaser() {
   return (
