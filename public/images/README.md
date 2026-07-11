@@ -13,4 +13,7 @@ Place these files in this folder exactly as named:
 | `carlos-miami-river.webp` | Source: `.superpowers/sdd/raw/carlos-miami-river.jpg` → Miami River market and principal-of-record context |
 | `carlos-property-media-team.webp` | Source: `.superpowers/sdd/raw/carlos-property-media-team.jpg` → Property media workflow proof; depicts Carlos with a property media team without identifying the other people as United Realty Group agents |
 
+- `madrid-gran-via-editorial.webp` — source: Google Drive, `Madrid Granvia aerial.jpg`, file ID `1h1Nn0VQfxj9XpwnIIuczXW9pdNu0RqLy`; approved use: Miami Global Listing Desk international-market editorial band.
+- `segovia-aqueduct-editorial.webp` — source: Google Drive, `Spain Historicsites.jpg`, file ID `1opvbiP72aptYs4W-e29rf8Mc41DI0U4r`; approved use: Miami Global Listing Desk international-market editorial band.
+
 Upload via GitHub: go to this folder → Add file → Upload files.

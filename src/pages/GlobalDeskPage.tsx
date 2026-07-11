@@ -54,6 +54,14 @@ const C = {
     caption: "Cifra de la red asociativa, no del principal ni de United Realty Group.",
     activation:
       "La exposición es infraestructura. La activación de agentes compradores depende de información clara, cooperación profesional, compensación cuando corresponda y requisitos de corretaje, plataforma y cumplimiento.",
+    bridgeEyebrow: "España, en su contexto local",
+    bridgeTitle: "Un mercado contemporáneo y una identidad de lugar histórica.",
+    bridgeBody:
+      "La conversación empieza por cómo se entiende un lugar localmente y lleva inventario seleccionado a una conversación clara y profesional con agentes compradores del área de Miami.",
+    granViaAlt: "Vista sobre Gran Vía y los edificios del centro de Madrid",
+    granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
+    segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
+    segoviaCaption: "Segovia, España: el acueducto romano junto al casco histórico.",
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
       "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en España puede ser gestionada por agencias profesionales afiliadas: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
@@ -142,6 +150,14 @@ const C = {
     caption: "Association-network figure — not the principal's or United Realty Group's volume.",
     activation:
       "Exposure is infrastructure. Buyer-agent activation depends on clear information, professional cooperation, appropriate compensation where applicable, and brokerage, platform, and compliance requirements.",
+    bridgeEyebrow: "Spain, in local context",
+    bridgeTitle: "A contemporary market and a historic place identity.",
+    bridgeBody:
+      "The conversation starts with how a place is understood locally, then carries selected inventory into a clear, professional discussion with Miami-area buyer agents.",
+    granViaAlt: "View over Gran Via and central Madrid buildings",
+    granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
+    segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
+    segoviaCaption: "Segovia, Spain: the Roman aqueduct along the historic city edge.",
     structureEyebrow: "The structure, stated plainly",
     structureBody:
       "Miami Global Listing Desk helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.",
@@ -457,6 +473,69 @@ export default function GlobalDeskPage() {
             >
               {t.activation}
             </motion.p>
+          </div>
+        </section>
+
+        {/* Spain editorial bridge — authentic place context before the service mechanics. */}
+        <section className="bg-white px-6 py-16 text-navy md:py-24">
+          <div className="mx-auto max-w-6xl">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fade}
+              className="max-w-3xl"
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.bridgeEyebrow}</p>
+              <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.bridgeTitle}</h2>
+              <p className="mt-5 font-sans text-base leading-[1.85] text-navy/70 md:text-lg">{t.bridgeBody}</p>
+            </motion.div>
+
+            <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-10">
+              <motion.figure
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fade}
+              >
+                <div className="aspect-[9/16] overflow-hidden">
+                  <img
+                    src="/images/madrid-gran-via-editorial.webp"
+                    alt={t.granViaAlt}
+                    width={1081}
+                    height={1920}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
+                  {t.granViaCaption}
+                </figcaption>
+              </motion.figure>
+
+              <motion.figure
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fade}
+              >
+                <div className="aspect-[9/16] overflow-hidden">
+                  <img
+                    src="/images/segovia-aqueduct-editorial.webp"
+                    alt={t.segoviaAlt}
+                    width={1081}
+                    height={1920}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
+                  {t.segoviaCaption}
+                </figcaption>
+              </motion.figure>
+            </div>
           </div>
         </section>
 
