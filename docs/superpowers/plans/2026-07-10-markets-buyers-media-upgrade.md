@@ -373,4 +373,3 @@ Expected: only approved copy, media, data, and page-layout changes.
 - [ ] **Step 5: Publish and verify production**
 
 Push the reviewed commits to the repository's production branch. Confirm the corresponding Netlify production deploy is ready, then verify the three live URLs and their image assets on `https://homesprofessional.com`.
-
