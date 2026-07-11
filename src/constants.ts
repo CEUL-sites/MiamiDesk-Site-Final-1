@@ -119,10 +119,9 @@ export const ASSOCIATION_STATS = {
   networkVolume: "$69B",
   networkVolumeLabel: "combined 2025 association-network transaction volume",
   // Defensible, attributed URG description — no unverifiable ranking.
-  urgScale: "Founded 2002 · 3,500+ agents · 20 Florida offices",
+  urgScale: "3,500+ agents · 20 Florida offices",
   urgAgents: "3,500+",
   urgOffices: 20,
-  urgFounded: 2002,
   associationName: "Miami and South Florida REALTORS®"
 };
 
