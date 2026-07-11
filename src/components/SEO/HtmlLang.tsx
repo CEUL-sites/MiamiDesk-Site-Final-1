@@ -10,9 +10,12 @@ import { useLocation } from "react-router-dom";
 // og:locale is emitted here (not statically in index.html) so Spanish pages
 // no longer advertise en_US — a static tag would ship on every URL.
 const SPANISH = (path: string) => path.startsWith("/es") || path === "/la-comision-secreta";
+const PAGE_OWNS_LANGUAGE_METADATA = (path: string) => path === "/global-desk";
 
 export function HtmlLang() {
   const { pathname } = useLocation();
+  if (PAGE_OWNS_LANGUAGE_METADATA(pathname)) return null;
+
   const spanish = SPANISH(pathname);
   return (
     <Helmet htmlAttributes={{ lang: spanish ? "es" : "en" }}>

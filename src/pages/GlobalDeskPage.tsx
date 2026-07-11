@@ -12,8 +12,6 @@ type Lang = "es" | "en";
 
 const WA_ES = "https://wa.me/34646853078";
 const WA_US = "https://wa.me/19548656622";
-const SOURCE_URL =
-  "https://www.lucasfox.es/noticias-y-prensa/articulos/dils-lucas-fox-2026-informe-de-mercado";
 
 // Verified figures only (§3.5). Do not substitute or inflate.
 // $69B is the association network's combined 2025 transaction volume —
@@ -40,14 +38,12 @@ const C = {
     heroCta: "Solicitar una presentación privada",
     heroWhatsApp: "WhatsApp España",
     heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · sujeto a requisitos de corretaje, plataforma y cumplimiento",
-    marketEyebrow: "El argumento de mercado",
-    marketStat: "62%",
-    marketStatLead:
-      "de los compradores en operaciones prime en España — por encima de 2,5 millones de euros — son internacionales, con los estadounidenses entre los grupos principales y de mayor crecimiento.",
+    marketEyebrow: "Mercados y compradores",
+    marketTitle: "Inventario internacional preparado para conversaciones profesionales con agentes compradores.",
+    marketLead:
+      "Los propietarios internacionales necesitan algo mas preciso que publicidad generica: materiales claros, contexto bilingue y una via de cooperacion que agentes compradores del area de Miami puedan entender y compartir con clientes de Estados Unidos y America Latina.",
     marketBody:
       "El ecosistema profesional del sur de Florida permite que inventario internacional seleccionado sea presentado con claridad a agentes compradores del área de Miami. Para un propietario, promotor o agencia española, la ventaja está en combinar presentación local, materiales bilingües y una estructura profesional de cooperación sujeta a requisitos de corretaje, plataforma y cumplimiento.",
-    sourceLabel: "Fuente",
-    sourceText: "Dils Lucas Fox — Informe de Mercado 2026",
     distEyebrow: "La ventaja de distribución",
     distIntro:
       "La activación se apoya en la infraestructura profesional de distribución inmobiliaria del sur de Florida:",
@@ -136,14 +132,12 @@ const C = {
     heroCta: "Request a Private Introduction",
     heroWhatsApp: "WhatsApp Spain",
     heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · subject to brokerage, platform, property-eligibility, and compliance requirements",
-    marketEyebrow: "The market argument",
-    marketStat: "62%",
-    marketStatLead:
-      "of buyers in Spanish prime transactions — above €2.5M — are international, with Americans among the leading and fastest-growing groups.",
+    marketEyebrow: "Markets and buyers",
+    marketTitle: "International inventory prepared for professional buyer-agent conversations.",
+    marketLead:
+      "International property owners need something more precise than generic exposure: clear materials, bilingual context, and a cooperation path that Miami-area buyer agents can understand and share with U.S. and Latin American clients.",
     marketBody:
       "The South Florida professional real estate ecosystem gives selected international inventory a clearer path to buyer-agent discovery. For a Spanish luxury owner, developer, or agency, the advantage is bilingual presentation, brokerage structure, and buyer-agent activation through a compliant professional framework.",
-    sourceLabel: "Source",
-    sourceText: "Dils Lucas Fox — 2026 Market Report",
     distEyebrow: "Distribution advantage",
     distIntro:
       "The service is built around South Florida's professional real estate distribution infrastructure:",
@@ -250,31 +244,30 @@ export default function GlobalDeskPage() {
   };
 
   const t = C[lang];
+  const pageTitle =
+    lang === "es"
+      ? "Miami Global Listing Desk — Activación internacional de propiedades"
+      : "Miami Global Listing Desk — International Property Distribution";
+  const pageDescription =
+    lang === "es"
+      ? "Servicio de distribución internacional y activación de agentes compradores operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group."
+      : "South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group.";
 
   return (
     <>
       <Helmet>
         <html lang={lang} />
-        <title>
-          {lang === "es"
-            ? "Miami Global Listing Desk — Activación internacional de propiedades"
-            : "Miami Global Listing Desk — International Property Distribution"}
-        </title>
-        <meta
-          name="description"
-          content={
-            lang === "es"
-              ? "Servicio de distribución internacional y activación de agentes compradores operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group."
-              : "South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group."
-          }
-        />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
         <link rel="canonical" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
-        <meta property="og:title" content="Miami Global Listing Desk — International Property Distribution" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="global-desk-breadcrumb" data={{
@@ -285,19 +278,6 @@ export default function GlobalDeskPage() {
             { "@type": "ListItem", position: 2, name: "Global Desk", item: "https://homesprofessional.com/global-desk" },
           ],
         }} />
-      <JsonLd id="global-desk-service" data={{
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Miami Global Listing Desk — International Property Activation",
-          provider: { "@id": "https://homesprofessional.com/#agent" },
-          serviceType: "International property distribution and buyer-agent activation",
-          description:
-            "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service provided by Carlos Uzcategui, Florida Realtor®, through United Realty Group. Activity is subject to brokerage, platform, MLS, association, legal, and compliance requirements.",
-          areaServed: ["Spain", "United States", "South Florida"],
-          availableLanguage: ["Spanish", "English"],
-          url: "https://homesprofessional.com/global-desk",
-        }} />
-
       <main id="main-content" className="min-h-screen bg-[#060D18] text-white pb-20 lg:pb-0">
         <Navbar />
 
@@ -421,24 +401,15 @@ export default function GlobalDeskPage() {
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.marketEyebrow}</p>
 
-            {/* The stat IS the pitch — display it, don't bury it mid-paragraph. */}
-            <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
-              <span className="font-serif leading-none text-gold" style={{ fontSize: "clamp(4rem, 9vw, 7rem)" }}>
-                {t.marketStat}
-              </span>
-              <p className="max-w-xl font-serif text-xl leading-[1.55] text-white/90 md:pt-3 md:text-2xl">
-                {t.marketStatLead}
-              </p>
-            </div>
+            <h2 className="mt-8 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
+              {t.marketTitle}
+            </h2>
+            <p className="mt-6 max-w-3xl font-serif text-xl leading-[1.55] text-white/90 md:text-2xl">
+              {t.marketLead}
+            </p>
 
             <p className="mt-8 max-w-3xl font-sans text-lg leading-[1.85] text-white/70">
               {t.marketBody}
-            </p>
-            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-              {t.sourceLabel}:{" "}
-              <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer" className="text-gold underline-offset-2 hover:underline">
-                {t.sourceText}
-              </a>
             </p>
           </motion.div>
         </section>
@@ -476,65 +447,68 @@ export default function GlobalDeskPage() {
           </div>
         </section>
 
-        {/* Spain editorial bridge — authentic place context before the service mechanics. */}
+        {/* Spain-to-Miami editorial bridge — authentic place context before the service mechanics. */}
         <section className="bg-white px-6 py-16 text-navy md:py-24">
           <div className="mx-auto max-w-6xl">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fade}
-              className="max-w-3xl"
-            >
+            <div className="max-w-3xl">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.bridgeEyebrow}</p>
               <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.bridgeTitle}</h2>
               <p className="mt-5 font-sans text-base leading-[1.85] text-navy/70 md:text-lg">{t.bridgeBody}</p>
-            </motion.div>
+            </div>
 
-            <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-10">
-              <motion.figure
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fade}
-              >
-                <div className="aspect-[9/16] overflow-hidden">
+            <div className="mt-10 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
+                <figure>
+                  <div className="aspect-[9/16] overflow-hidden md:aspect-[4/5] lg:aspect-[9/16]">
+                    <img
+                      src="/images/madrid-gran-via-editorial.webp"
+                      alt={t.granViaAlt}
+                      width={1081}
+                      height={1920}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
+                    {t.granViaCaption}
+                  </figcaption>
+                </figure>
+
+                <figure>
+                  <div className="aspect-[9/16] overflow-hidden md:aspect-[4/5] lg:aspect-[9/16]">
+                    <img
+                      src="/images/segovia-aqueduct-editorial.webp"
+                      alt={t.segoviaAlt}
+                      width={1081}
+                      height={1920}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
+                    {t.segoviaCaption}
+                  </figcaption>
+                </figure>
+              </div>
+
+              <figure className="lg:h-full">
+                <div className="aspect-[4/5] overflow-hidden lg:h-full lg:min-h-[42rem] lg:aspect-auto">
                   <img
-                    src="/images/madrid-gran-via-editorial.webp"
-                    alt={t.granViaAlt}
-                    width={1081}
-                    height={1920}
+                    src="/images/carlos-property-media-team.webp"
+                    alt={t.proofAlt}
+                    width={1920}
+                    height={1081}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                  {t.granViaCaption}
+                  {t.proofCaption}
                 </figcaption>
-              </motion.figure>
-
-              <motion.figure
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fade}
-              >
-                <div className="aspect-[9/16] overflow-hidden">
-                  <img
-                    src="/images/segovia-aqueduct-editorial.webp"
-                    alt={t.segoviaAlt}
-                    width={1081}
-                    height={1920}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                  {t.segoviaCaption}
-                </figcaption>
-              </motion.figure>
+              </figure>
             </div>
           </div>
         </section>

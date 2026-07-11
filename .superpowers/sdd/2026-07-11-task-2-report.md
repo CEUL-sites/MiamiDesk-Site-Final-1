@@ -42,3 +42,22 @@ Implementation commit: `Add accessible client review spotlight`.
 
 - The final post-restoration full `tsx` and TypeScript rerun could not be executed because the execution service rejected an escalated command after its usage limit was reached. The only subsequent source edit restored existing Realtor.com registered-mark attribution in JSX; the last successful full type check preceded that textual restoration.
 - Browser console checks showed a repeated failed fetch from the pre-existing external `https://r2.leadsy.ai/tag.js` tag. No spotlight-specific runtime error was observed.
+
+## Review Fix Round 1
+
+- Fixed independent pause reasons in `ReviewSpotlight` so hover, focus, pointer, and touch states cannot accidentally resume auto-rotation while focus remains inside the component.
+- Replaced variable active-card minimum height with fixed responsive heights and internal text scrolling so long verbatim reviews do not shift navigation or following content.
+
+Verification after fix:
+
+```powershell
+& 'C:\Users\carlo\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' node_modules\tsx\dist\cli.mjs scripts\verify-review-spotlight.ts
+& 'C:\Users\carlo\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe' node_modules\typescript\bin\tsc --noEmit
+rg -n "REVIEWS\.length|reviewCount|marquee-track-slow" src\components\Proof.tsx src\components\Testimonials.tsx src\components\reviews\ReviewSpotlight.tsx
+```
+
+Outcomes:
+
+- `review spotlight model verified`
+- TypeScript exited `0`
+- Scoped review-count/marquee scan returned no matches

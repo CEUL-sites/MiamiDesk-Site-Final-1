@@ -59,7 +59,10 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
   const touchStartX = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [inView, setInView] = useState(false);
-  const [paused, setPaused] = useState(false);
+  const [hoverPaused, setHoverPaused] = useState(false);
+  const [focusPaused, setFocusPaused] = useState(false);
+  const [pointerPaused, setPointerPaused] = useState(false);
+  const [touchPaused, setTouchPaused] = useState(false);
   const [documentVisible, setDocumentVisible] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -104,6 +107,7 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
     return () => media.removeEventListener("change", updatePreference);
   }, []);
 
+  const paused = hoverPaused || focusPaused || pointerPaused || touchPaused;
   const canAutoAdvance = shouldAutoAdvance({ inView, paused, documentVisible, reducedMotion });
 
   useEffect(() => {
@@ -119,26 +123,27 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
   const activeTransition = reducedMotion
     ? undefined
     : { initial: { opacity: 0, x: 18 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: -18 }, transition: { duration: 0.25 } };
-  const activeCardHeight = compact ? "min-h-[20rem] sm:min-h-[18rem]" : "min-h-[23rem] sm:min-h-[20rem]";
+  const activeCardHeight = compact ? "h-[31rem] sm:h-[27rem]" : "h-[36rem] sm:h-[31rem] lg:h-[29rem]";
 
   return (
     <div
       ref={sectionRef}
       className="mt-8"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
+      onMouseEnter={() => setHoverPaused(true)}
+      onMouseLeave={() => setHoverPaused(false)}
+      onFocusCapture={() => setFocusPaused(true)}
       onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setPaused(false);
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocusPaused(false);
       }}
-      onPointerDown={() => setPaused(true)}
-      onPointerUp={() => setPaused(false)}
+      onPointerDown={() => setPointerPaused(true)}
+      onPointerUp={() => setPointerPaused(false)}
+      onPointerCancel={() => setPointerPaused(false)}
       onTouchStart={(event) => {
-        setPaused(true);
+        setTouchPaused(true);
         touchStartX.current = event.touches[0]?.clientX ?? null;
       }}
       onTouchEnd={(event) => {
-        setPaused(false);
+        setTouchPaused(false);
         const startX = touchStartX.current;
         const endX = event.changedTouches[0]?.clientX;
         touchStartX.current = null;
@@ -149,7 +154,7 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
       }}
       onTouchCancel={() => {
         touchStartX.current = null;
-        setPaused(false);
+        setTouchPaused(false);
       }}
     >
       <div className="grid items-stretch gap-5 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.4fr)_minmax(0,0.75fr)]">
@@ -157,11 +162,11 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
           <ReviewPreview review={reviews[previous]} />
         </div>
 
-        <div className={`${activeCardHeight} border border-gold/30 bg-white/[0.05] p-6 sm:p-8`}>
+        <div className={`${activeCardHeight} overflow-hidden border border-gold/30 bg-white/[0.05] p-6 sm:p-8`}>
           <AnimatePresence initial={false} mode="wait">
-            <motion.article key={activeReview.name} aria-live="polite" {...activeTransition}>
+            <motion.article key={activeReview.name} aria-live="polite" className="flex h-full flex-col" {...activeTransition}>
               <ReviewStars rating={activeReview.rating} />
-              <p className="mt-4 font-serif text-lg leading-relaxed text-white sm:text-xl">
+              <p className="mt-4 flex-1 overflow-y-auto pr-2 font-serif text-lg leading-relaxed text-white sm:text-xl">
                 &ldquo;{activeReview.text}&rdquo;
               </p>
               <ReviewMeta review={activeReview} />
