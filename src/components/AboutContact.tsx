@@ -26,7 +26,7 @@ export function AboutContact() {
 
           <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-12 md:space-y-6 md:text-lg">
             <p>Twenty-five years of active South Florida real estate transactions, residential, luxury, and commercial. The relationships Carlos has inside the Miami professional community were built through closed deals, not directory listings.</p>
-            <p>From his Weston, Florida office, Carlos serves South Florida sellers and buyers through United Realty Group, with 3,500+ agents and 20 Florida offices. He also coordinates selected international property opportunities through documented professional and brokerage relationships, subject to brokerage, platform, property-eligibility, and compliance requirements.</p>
+            <p>From his Weston, Florida office, Carlos serves South Florida sellers and buyers through United Realty Group, with 3,500+ agents and 21 Florida offices. He also coordinates selected international property opportunities through documented professional and brokerage relationships, subject to brokerage, platform, property-eligibility, and compliance requirements.</p>
           </div>
 
           {/* URG Headquarters — video */}
@@ -35,7 +35,7 @@ export function AboutContact() {
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
               <iframe
                 src="https://www.youtube.com/embed/jlOLDjImd2g?si=bcS_Ogl9eNhOakQv&rel=0&modestbranding=1"
-                title="United Realty Group — 3,500+ agents and 20 Florida offices"
+                title="United Realty Group — 3,500+ agents and 21 Florida offices"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -45,7 +45,7 @@ export function AboutContact() {
             </div>
             <div className="bg-navy-deep px-5 py-3 md:py-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · 3,500+ agents</p>
-              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">20 Florida offices · Carlos Uzcategui, Florida Licensed Realtor® SL705771</p>
+              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">21 Florida offices · Carlos Uzcategui, Florida Licensed Realtor® SL705771</p>
               <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
             </div>
           </div>

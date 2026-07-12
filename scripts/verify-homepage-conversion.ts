@@ -3,19 +3,24 @@ import { readFile } from "node:fs/promises";
 import { shouldRenderMobileSticky } from "../src/components/mobileStickyModel";
 
 assert.equal(
-  shouldRenderMobileSticky({ formVisible: false, consentPending: false }),
+  shouldRenderMobileSticky({ formVisible: false, consentPending: false, guardVisible: false }),
   true,
   "the seller CTA should remain available when no other bottom action is active",
 );
 assert.equal(
-  shouldRenderMobileSticky({ formVisible: true, consentPending: false }),
+  shouldRenderMobileSticky({ formVisible: true, consentPending: false, guardVisible: false }),
   false,
   "the seller CTA should hide while the in-page form is visible",
 );
 assert.equal(
-  shouldRenderMobileSticky({ formVisible: false, consentPending: true }),
+  shouldRenderMobileSticky({ formVisible: false, consentPending: true, guardVisible: false }),
   false,
   "the seller CTA should hide while the cookie choice occupies the bottom action area",
+);
+assert.equal(
+  shouldRenderMobileSticky({ formVisible: false, consentPending: false, guardVisible: true }),
+  false,
+  "the seller CTA should hide while a guarded element (e.g. the review card) crosses the bottom action area",
 );
 
 const [hero, proof, about, mobileSticky] = await Promise.all([
@@ -28,11 +33,16 @@ const [hero, proof, about, mobileSticky] = await Promise.all([
 assert.match(hero, /href="#client-reviews"/);
 assert.match(proof, /id="client-reviews"/);
 assert.doesNotMatch(about, /founded in 2002|in-house title|Est\. 2002/i);
-assert.match(about, /3,500\+ agents and 20 Florida offices/);
+assert.match(about, /3,500\+ agents and 21 Florida offices/);
 assert.match(
   mobileSticky,
   /getElementById\("list-here"\)\s*\?\?\s*document\.getElementById\("contact"\)/,
   "the homepage hero form must take priority over the lower contact section",
+);
+assert.match(
+  mobileSticky,
+  /querySelectorAll\("\[data-sticky-cta-guard\]"\)/,
+  "the seller CTA must observe guarded elements so it never covers them",
 );
 
 console.log("homepage conversion contract verified");

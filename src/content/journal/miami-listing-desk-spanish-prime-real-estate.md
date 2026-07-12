@@ -152,7 +152,7 @@ The strategic advantage is that the developer is not attempting to manage dozens
 
 The Miami Listing Desk is not operating as an isolated consultant or independent marketing intermediary.
 
-It is supported through United Realty Group, a substantial Florida brokerage platform with 3,500+ agents and 20 Florida offices.
+It is supported through United Realty Group, a substantial Florida brokerage platform with 3,500+ agents and 21 Florida offices.
 
 That brokerage infrastructure matters for several reasons. It provides:
 

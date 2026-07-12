@@ -110,7 +110,7 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
     },
     {
       q: 'How does MLS distribution help a South Florida seller reach more buyers?',
-      a: 'A property listed through the Miami and South Florida REALTORS® enters the infrastructure of the world’s largest local REALTOR® association — roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international agreements, and syndication across 260+ U.S. MLSs — plus United Realty Group’s 3,500+ agents across 20 offices. This widens the pool of qualified buyer agents who can present the property.',
+      a: 'A property listed through the Miami and South Florida REALTORS® enters the infrastructure of the world’s largest local REALTOR® association — roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international agreements, and syndication across 260+ U.S. MLSs — plus United Realty Group’s 3,500+ agents across 21 offices. This widens the pool of qualified buyer agents who can present the property.',
     },
   ],
   'review-equity-before-selling-south-florida-2026': [

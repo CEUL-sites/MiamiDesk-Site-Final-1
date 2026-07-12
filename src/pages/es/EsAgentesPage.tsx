@@ -619,7 +619,7 @@ export default function EsAgentesPage() {
                 </div>
                 <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
-                  Agentes URG · 20 oficinas
+                  Agentes URG · 21 oficinas
                 </div>
               </div>
               <div className="bg-white p-6 text-center">

@@ -128,6 +128,7 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
   return (
     <div
       ref={sectionRef}
+      data-sticky-cta-guard=""
       className="mt-8"
       onMouseEnter={() => setHoverPaused(true)}
       onMouseLeave={() => setHoverPaused(false)}

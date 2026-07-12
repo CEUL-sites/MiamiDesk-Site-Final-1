@@ -539,7 +539,7 @@ export default function EsSpainDeskPage() {
                   {[
                     { value: "93.000", label: "Agentes miembro MLS" },
                     { value: "200+", label: "Portales · 19 idiomas" },
-                    { value: "3.500+", label: "Agentes URG · 20 oficinas" },
+                    { value: "3.500+", label: "Agentes URG · 21 oficinas" },
                     { value: "75+", label: "Países · red de partners" },
                   ].map(({ value, label }) => (
                     <div key={label}>
