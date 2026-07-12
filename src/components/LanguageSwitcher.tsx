@@ -12,7 +12,7 @@ const ES_TO_EN: Record<string, string> = {
   "/es/vender": "/sell-south-florida",
   "/es/comprar": "/buy",
   "/es/agentes": "/agents",
-  "/es/spain-desk": "/global-desk",
+  "/es/global-desk": "/global-desk",
   "/es/gracias/agente": "/thanks/agent",
 };
 
@@ -21,7 +21,7 @@ const EN_TO_ES: Record<string, string> = {
   "/sell-south-florida": "/es/vender",
   "/buy": "/es/comprar",
   "/agents": "/es/agentes",
-  "/global-desk": "/es/spain-desk",
+  "/global-desk": "/es/global-desk",
   "/thanks/agent": "/es/gracias/agente",
 };
 

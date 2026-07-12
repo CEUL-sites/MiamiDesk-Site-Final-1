@@ -51,6 +51,18 @@
   force = true
 
 [[redirects]]
+  from = "/spain-mls-listing"
+  to = "/global-desk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/spain-desk"
+  to = "/es/global-desk"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/es/madrid"
   to = "/markets"
   status = 301

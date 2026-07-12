@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
 import { pushEvent } from "../../lib/analytics";
 import { notifyLeadDirect } from "../../lib/leadNotify";
+
+type Lang = "en" | "es";
 
 const INITIAL: Record<string, string> = {
   agentName: "",
@@ -21,35 +23,158 @@ const INITIAL: Record<string, string> = {
   source: "agency-partner-intake",
 };
 
+// Bilingual labels. Option values stay in English so the lead pipeline
+// (Netlify form, Google Sheet, notifications) reads one vocabulary.
+const L = {
+  en: {
+    name: "Your Name *",
+    namePh: "First and last name",
+    agency: "Agency / Company *",
+    agencyPh: "Firm or developer name",
+    role: "Your Role *",
+    roles: [
+      ["Listing Agent", "Listing Agent"],
+      ["Team Lead / Sales Director", "Team Lead / Sales Director"],
+      ["Agency Director / Owner", "Agency Director / Owner"],
+      ["Developer / Project Sales", "Developer / Project Sales"],
+      ["Family Office / Authorized Representative", "Family Office / Authorized Representative"],
+      ["Property Owner", "Property Owner"],
+      ["Other", "Other"],
+    ],
+    market: "Market *",
+    country: "Country / Market *",
+    countryPh: "Spain, Colombia, Mexico…",
+    email: "Email *",
+    emailPh: "your@agency.com",
+    whatsapp: "WhatsApp / Phone",
+    website: "Agency / Company Website",
+    inventoryHeading: "Inventory Details",
+    inventoryType: "Type of Inventory *",
+    inventoryTypes: [
+      ["Luxury Apartments / Penthouses", "Luxury Apartments / Penthouses"],
+      ["Villas / Single-Family Estates", "Villas / Single-Family Estates"],
+      ["New Development / Pre-Construction", "New Development / Pre-Construction"],
+      ["Branded Residences", "Branded Residences"],
+      ["Mixed Portfolio", "Mixed Portfolio"],
+      ["Commercial / Investment", "Commercial / Investment"],
+      ["Other", "Other"],
+    ],
+    priceRange: "Price Range *",
+    priceRanges: [
+      ["€500K – €1M", "€500K – €1M"],
+      ["€1M – €2.5M", "€1M – €2.5M"],
+      ["€2.5M – €5M", "€2.5M – €5M"],
+      ["€5M – €10M", "€5M – €10M"],
+      ["€10M+", "€10M+"],
+      ["Varies across portfolio", "Varies across portfolio"],
+    ],
+    listings: "Number of Properties",
+    listingUrl: "Listing URL (optional)",
+    listingUrlPh: "Link to property or portfolio page",
+    message: "Brief Description / Objective *",
+    messagePh:
+      "Briefly describe the property or portfolio, what kind of exposure or cooperation you are looking for, and any context that will help Carlos respond accurately.",
+    consent:
+      "I authorize Carlos Uzcategui (HomesProfessional.com) to contact me regarding the submitted inquiry. I understand this submission does not create a binding agreement and that any cooperation is subject to review, brokerage approval, and written agreement.",
+    consentErr: "Please confirm your consent to proceed.",
+    timeoutErr: "Request timed out. Please WhatsApp Carlos directly.",
+    genericErr: "Could not submit. Please try WhatsApp or email.",
+    sending: "Sending…",
+    submit: "Request a Confidential Inventory Review",
+    footer: "Confidential · No obligation",
+    select: "Select…",
+  },
+  es: {
+    name: "Su nombre *",
+    namePh: "Nombre y apellidos",
+    agency: "Agencia / empresa *",
+    agencyPh: "Nombre de la agencia o promotora",
+    role: "Su función *",
+    roles: [
+      ["Listing Agent", "Agente de captación"],
+      ["Team Lead / Sales Director", "Director/a comercial o de equipo"],
+      ["Agency Director / Owner", "Director/a o propietario/a de agencia"],
+      ["Developer / Project Sales", "Promotor / ventas de proyecto"],
+      ["Family Office / Authorized Representative", "Family office / representante autorizado"],
+      ["Property Owner", "Propietario/a"],
+      ["Other", "Otro"],
+    ],
+    market: "Mercado *",
+    country: "País / mercado *",
+    countryPh: "España, Colombia, México…",
+    email: "Correo electrónico *",
+    emailPh: "su@agencia.com",
+    whatsapp: "WhatsApp / teléfono",
+    website: "Web de la agencia / empresa",
+    inventoryHeading: "Datos del inventario",
+    inventoryType: "Tipo de inventario *",
+    inventoryTypes: [
+      ["Luxury Apartments / Penthouses", "Apartamentos de lujo / áticos"],
+      ["Villas / Single-Family Estates", "Villas / residencias unifamiliares"],
+      ["New Development / Pre-Construction", "Obra nueva / preconstrucción"],
+      ["Branded Residences", "Residencias con marca"],
+      ["Mixed Portfolio", "Cartera mixta"],
+      ["Commercial / Investment", "Comercial / inversión"],
+      ["Other", "Otro"],
+    ],
+    priceRange: "Rango de precio *",
+    priceRanges: [
+      ["€500K – €1M", "500 mil – 1 M €"],
+      ["€1M – €2.5M", "1 – 2,5 M €"],
+      ["€2.5M – €5M", "2,5 – 5 M €"],
+      ["€5M – €10M", "5 – 10 M €"],
+      ["€10M+", "Más de 10 M €"],
+      ["Varies across portfolio", "Varía según la cartera"],
+    ],
+    listings: "Número de propiedades",
+    listingUrl: "Enlace al inmueble (opcional)",
+    listingUrlPh: "Enlace a la propiedad o a la cartera",
+    message: "Breve descripción / objetivo *",
+    messagePh:
+      "Describa brevemente la propiedad o cartera, qué tipo de exposición o colaboración busca, y cualquier contexto que ayude a Carlos a responder con precisión.",
+    consent:
+      "Autorizo a Carlos Uzcategui (HomesProfessional.com) a contactarme en relación con esta consulta. Entiendo que este envío no crea un acuerdo vinculante y que toda colaboración está sujeta a revisión, aprobación del broker y acuerdo por escrito.",
+    consentErr: "Debe confirmar su consentimiento para continuar.",
+    timeoutErr: "La solicitud expiró. Escriba a Carlos por WhatsApp.",
+    genericErr: "No se pudo enviar. Pruebe por WhatsApp o correo.",
+    sending: "Enviando…",
+    submit: "Solicitar una revisión confidencial de inventario",
+    footer: "Confidencial · Sin compromiso",
+    select: "Seleccione…",
+  },
+} as const;
+
 function encodeForm(data: Record<string, string>) {
   return new URLSearchParams(data).toString();
 }
 
 /**
- * Shared agency / developer intake form.
+ * Shared agency / developer / owner intake form (bilingual).
  *
  * Optional props let a host page tailor the framing without forking the form:
- *  - `markets`  → renders a market <select> (e.g. Madrid / Marbella / Costa del
- *    Sol / Other) in place of the free-text "Country / Market" field. The chosen
- *    value still posts under the existing `country` field, so the lead pipeline
- *    is unchanged.
+ *  - `lang` → renders Spanish labels; posted option values stay in English.
+ *  - `markets`  → renders a market <select> in place of the free-text
+ *    "Country / Market" field (still posts under `country`).
  *  - `eyebrow` / `heading` / `intro` → override the header copy.
  *  - `source` → overrides the analytics/source tag so submissions can be
- *    attributed to the embedding desk (e.g. "spain-desk-intake").
+ *    attributed to the embedding desk (e.g. "global-desk-inquiry").
  */
 export function AgencyPartnerForm({
+  lang = "en",
   markets,
   eyebrow = "Miami Desk · International Listing Review",
   heading = "Submit a listing or agency inquiry",
   intro = "For agents, agencies, and developers outside South Florida. All submissions are treated as confidential. Carlos reviews every inquiry personally before responding.",
   source = "agency-partner-intake",
 }: {
+  lang?: Lang;
   markets?: string[];
   eyebrow?: string;
   heading?: string;
   intro?: string;
   source?: string;
 } = {}) {
+  const t = L[lang];
   const [form, setForm] = useState(INITIAL);
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [err, setErr] = useState("");
@@ -72,13 +197,13 @@ export function AgencyPartnerForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.consent) {
-      setErr("Please confirm your consent to proceed.");
+      setErr(t.consentErr);
       return;
     }
     setStatus("submitting");
     setErr("");
     const ctrl = new AbortController();
-    const t = window.setTimeout(() => ctrl.abort(), 12000);
+    const timer = window.setTimeout(() => ctrl.abort(), 12000);
     try {
       const res = await fetch("/", {
         method: "POST",
@@ -97,7 +222,7 @@ export function AgencyPartnerForm({
         name: form.agentName, email: form.email, phone: form.whatsapp,
         city: form.country, propertyAddress: form.agency,
         message: `${form.role ? form.role + " · " : ""}${form.inventoryType ? form.inventoryType + " · " : ""}${form.message}`,
-        sourcePage: "agency-partner-intake",
+        sourcePage: source,
       });
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
@@ -107,19 +232,18 @@ export function AgencyPartnerForm({
           name: form.agentName,
           email: form.email,
           brokerage: form.agency,
+          language: lang,
         }),
       }).catch(() => {});
-      pushEvent("form_submit_agency_partner", { source });
-      window.location.href = "/thanks/agent";
+      pushEvent("form_submit_agency_partner", { source, language: lang });
+      window.location.href = lang === "es" ? "/es/gracias/agente" : "/thanks/agent";
     } catch (e: unknown) {
       setErr(
-        (e as { name?: string }).name === "AbortError"
-          ? "Request timed out. Please WhatsApp Carlos directly."
-          : "Could not submit. Please try WhatsApp or email."
+        (e as { name?: string }).name === "AbortError" ? t.timeoutErr : t.genericErr
       );
       setStatus("error");
     } finally {
-      window.clearTimeout(t);
+      window.clearTimeout(timer);
     }
   };
 
@@ -146,101 +270,91 @@ export function AgencyPartnerForm({
           <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
         </div>
 
-        {/* Agent identity */}
+        {/* Identity */}
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Your Name *">
-            <input required name="agentName" type="text" placeholder="First and last name" className="form-input-dark" value={form.agentName} onChange={set("agentName")} />
+          <Field label={t.name}>
+            <input required name="agentName" type="text" placeholder={t.namePh} className="form-input-dark" value={form.agentName} onChange={set("agentName")} />
           </Field>
-          <Field label="Agency / Company *">
-            <input required name="agency" type="text" placeholder="Firm or developer name" className="form-input-dark" value={form.agency} onChange={set("agency")} />
+          <Field label={t.agency}>
+            <input required name="agency" type="text" placeholder={t.agencyPh} className="form-input-dark" value={form.agency} onChange={set("agency")} />
           </Field>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Your Role *">
+          <Field label={t.role}>
             <select required name="role" className="form-input-dark w-full" value={form.role} onChange={set("role")}>
-              <option value="">Select…</option>
-              <option>Listing Agent</option>
-              <option>Team Lead / Sales Director</option>
-              <option>Agency Director / Owner</option>
-              <option>Developer / Project Sales</option>
-              <option>Property Manager</option>
-              <option>Other</option>
+              <option value="">{t.select}</option>
+              {t.roles.map(([val, label]) => (
+                <option key={val} value={val}>{label}</option>
+              ))}
             </select>
           </Field>
-          <Field label={markets ? "Market *" : "Country / Market *"}>
+          <Field label={markets ? t.market : t.country}>
             {markets ? (
               <select required name="country" className="form-input-dark w-full" value={form.country} onChange={set("country")}>
-                <option value="">Select…</option>
+                <option value="">{t.select}</option>
                 {markets.map((m) => (
                   <option key={m}>{m}</option>
                 ))}
               </select>
             ) : (
-              <input required name="country" type="text" placeholder="Spain, Colombia, Mexico…" className="form-input-dark" value={form.country} onChange={set("country")} />
+              <input required name="country" type="text" placeholder={t.countryPh} className="form-input-dark" value={form.country} onChange={set("country")} />
             )}
           </Field>
         </div>
 
         {/* Contact */}
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Email *">
-            <input required name="email" type="email" placeholder="your@agency.com" className="form-input-dark" value={form.email} onChange={set("email")} />
+          <Field label={t.email}>
+            <input required name="email" type="email" placeholder={t.emailPh} className="form-input-dark" value={form.email} onChange={set("email")} />
           </Field>
-          <Field label="WhatsApp / Phone">
+          <Field label={t.whatsapp}>
             <input name="whatsapp" type="tel" placeholder="+34 600 000 000" className="form-input-dark" value={form.whatsapp} onChange={set("whatsapp")} />
           </Field>
         </div>
 
-        <Field label="Agency Website">
+        <Field label={t.website}>
           <input name="website" type="url" placeholder="https://youragency.com" className="form-input-dark" value={form.website} onChange={set("website")} />
         </Field>
 
         {/* Inventory */}
         <div className="border-t border-white/10 pt-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 mb-5">Inventory Details</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 mb-5">{t.inventoryHeading}</p>
           <div className="grid gap-5 sm:grid-cols-2">
-            <Field label="Type of Inventory *">
+            <Field label={t.inventoryType}>
               <select required name="inventoryType" className="form-input-dark w-full" value={form.inventoryType} onChange={set("inventoryType")}>
-                <option value="">Select…</option>
-                <option>Luxury Apartments / Penthouses</option>
-                <option>Villas / Single-Family Estates</option>
-                <option>New Development / Pre-Construction</option>
-                <option>Branded Residences</option>
-                <option>Mixed Portfolio</option>
-                <option>Commercial / Investment</option>
-                <option>Other</option>
+                <option value="">{t.select}</option>
+                {t.inventoryTypes.map(([val, label]) => (
+                  <option key={val} value={val}>{label}</option>
+                ))}
               </select>
             </Field>
-            <Field label="Price Range *">
+            <Field label={t.priceRange}>
               <select required name="priceRange" className="form-input-dark w-full" value={form.priceRange} onChange={set("priceRange")}>
-                <option value="">Select…</option>
-                <option>€500K – €1M</option>
-                <option>€1M – €2.5M</option>
-                <option>€2.5M – €5M</option>
-                <option>€5M – €10M</option>
-                <option>€10M+</option>
-                <option>Varies across portfolio</option>
+                <option value="">{t.select}</option>
+                {t.priceRanges.map(([val, label]) => (
+                  <option key={val} value={val}>{label}</option>
+                ))}
               </select>
             </Field>
           </div>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Number of Listings">
+          <Field label={t.listings}>
             <input name="numberOfListings" type="text" placeholder="1, 3–5, 10+…" className="form-input-dark" value={form.numberOfListings} onChange={set("numberOfListings")} />
           </Field>
-          <Field label="Listing URL (optional)">
-            <input name="listingUrl" type="url" placeholder="Link to property or portfolio page" className="form-input-dark" value={form.listingUrl} onChange={set("listingUrl")} />
+          <Field label={t.listingUrl}>
+            <input name="listingUrl" type="url" placeholder={t.listingUrlPh} className="form-input-dark" value={form.listingUrl} onChange={set("listingUrl")} />
           </Field>
         </div>
 
-        <Field label="Message / Partnership Interest *">
+        <Field label={t.message}>
           <textarea
             required
             name="message"
             rows={5}
-            placeholder="Briefly describe the property or portfolio, what kind of exposure or partnership you are looking for, and any specific context that will help Carlos respond accurately."
+            placeholder={t.messagePh}
             className="form-input-dark"
             value={form.message}
             onChange={set("message")}
@@ -258,15 +372,12 @@ export function AgencyPartnerForm({
             onChange={(e) => setForm((f) => ({ ...f, consent: e.target.checked ? "yes" : "" }))}
           />
           <label htmlFor="consent" className="font-sans text-xs leading-relaxed text-white/45">
-            I confirm that I am a real estate professional or developer and I authorize Carlos Uzcategui
-            (HomesProfessional.com) to contact me regarding the submitted inquiry. I understand that this
-            submission does not create a binding agreement and that all collaborations are subject to
-            professional review and written agreement.
+            {t.consent}
           </label>
         </div>
 
         {status === "error" && (
-          <p className="font-sans text-sm text-red-400">{err}</p>
+          <p className="font-sans text-sm text-red-400" role="alert">{err}</p>
         )}
 
         <button
@@ -279,11 +390,11 @@ export function AgencyPartnerForm({
           ) : (
             <Send size={16} />
           )}
-          {status === "submitting" ? "Sending…" : "Submit Listing for Review"}
+          {status === "submitting" ? t.sending : t.submit}
         </button>
 
         <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-          Confidential · No obligation · {CONTACT.shortLicense} · Equal Housing Opportunity
+          {t.footer} · {CONTACT.shortLicense} · Equal Housing Opportunity
         </p>
       </form>
     </div>

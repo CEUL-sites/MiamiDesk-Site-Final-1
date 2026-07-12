@@ -163,7 +163,6 @@ export function Footer() {
               <a href="/sell-hallandale-beach" className="transition-colors hover:text-gold">Sell in Hallandale Beach</a>
               <a href="/home-value" className="transition-colors hover:text-gold">Free Home Valuation</a>
               <a href="/global-desk" className="transition-colors hover:text-gold">Global Desk</a>
-              <a href="/spain-mls-listing" className="transition-colors hover:text-gold">Spain → Miami MLS Listing</a>
               <a href="/buy" className="transition-colors hover:text-gold">Buy in South Florida</a>
               <a href="/agents" className="transition-colors hover:text-gold">Agents &amp; Referrals</a>
               <a href="/journal" className="transition-colors hover:text-gold">Journal</a>

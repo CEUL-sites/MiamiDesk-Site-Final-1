@@ -560,11 +560,11 @@ export default function EsComprarPage() {
               referido, con transparencia en cada paso.
             </p>
             <a
-              href="/es/spain-desk"
+              href="/es/global-desk"
               className="mt-6 inline-flex items-center gap-2 border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-colors hover:text-gold"
             >
               {/* TODO: native Madrid editor review */}
-              Conocer el Spain Desk →
+              Conocer el Global Desk →
             </a>
           </div>
         </section>

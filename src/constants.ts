@@ -47,7 +47,7 @@ export const isSpainMarketRoute = (path: string): boolean => {
   return (
     p === "/es" ||
     p.startsWith("/es/") ||
-    ["/madrid", "/spain-desk", "/global-desk", "/spain-mls-listing", "/la-comision-secreta"].includes(p)
+    ["/madrid", "/spain-desk", "/global-desk", "/es/global-desk", "/spain-mls-listing", "/la-comision-secreta"].includes(p)
   );
 };
 

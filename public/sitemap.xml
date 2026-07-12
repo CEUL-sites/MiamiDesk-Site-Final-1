@@ -200,18 +200,12 @@
 
   <url>
     <loc>https://homesprofessional.com/global-desk</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/spain-mls-listing</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/global-desk"/>
   </url>
 
   <!-- ── Professionals ──────────────────────────────────────────── -->
@@ -601,12 +595,13 @@
   </url>
 
   <url>
-    <loc>https://homesprofessional.com/es/spain-desk</loc>
-    <lastmod>2026-06-05</lastmod>
+    <loc>https://homesprofessional.com/es/global-desk</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/global-desk"/>
   </url>
 
   <!-- ── Market Data ──────────────────────────────────────────────── -->

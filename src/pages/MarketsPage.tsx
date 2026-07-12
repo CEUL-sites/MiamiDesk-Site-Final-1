@@ -530,11 +530,11 @@ export default function MarketsPage() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-4">What the Global Desk provides</p>
                 <ul className="space-y-3">
                   {[
-                    "Miami MLS listing as U.S. licensed principal of record",
-                    "Distribution to 93,000 MIAMI REALTORS® member agents",
-                    "Syndication to 200+ global portals in 19 languages",
-                    "Formal referral introductions from Spanish agencies",
-                    "Bilingual English/Spanish representation and reporting",
+                    "Coordination through United Realty Group, the licensed Florida brokerage",
+                    "Eligible placement within the Miami and South Florida REALTORS® network",
+                    "Syndication to 200+ global portals in 19 languages, where eligible",
+                    "Formal, written cooperation agreements with Spanish agencies",
+                    "Bilingual English/Spanish communication and reporting",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />

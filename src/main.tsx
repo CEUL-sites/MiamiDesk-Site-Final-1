@@ -33,7 +33,6 @@ const SellPompanoBeachPage           = lazy(() => import('./pages/SellPompanoBea
 const SellHallandaleBeachPage        = lazy(() => import('./pages/SellHallandaleBeachPage'));
 const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
 const GlobalDeskPage                 = lazy(() => import('./pages/GlobalDeskPage'));
-const SpainMlsListingPage            = lazy(() => import('./pages/SpainMlsListingPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
 const NewConstructionPage = lazy(() => import('./pages/NewConstructionPage'));
@@ -53,7 +52,6 @@ const EsVenderPage       = lazy(() => import('./pages/es/EsVenderPage'));
 const EsComprarPage      = lazy(() => import('./pages/es/EsComprarPage'));
 const EsAgentesPage      = lazy(() => import('./pages/es/EsAgentesPage'));
 const EsGraciasAgentePage = lazy(() => import('./pages/es/EsGraciasAgentePage'));
-const EsSpainDeskPage    = lazy(() => import('./pages/es/EsSpainDeskPage'));
 const ReviewsPage              = lazy(() => import('./pages/ReviewsPage'));
 const LeaveReviewPage          = lazy(() => import('./pages/LeaveReviewPage'));
 const LaComisionSecretaPage    = lazy(() => import('./pages/LaComisionSecretaPage'));
@@ -95,9 +93,10 @@ if (rootElement) {
                 <Route path="/sell-north-miami"              element={<SellNorthMiamiPage />} />
                 <Route path="/sell-pompano-beach"            element={<SellPompanoBeachPage />} />
                 <Route path="/sell-hallandale-beach"         element={<SellHallandaleBeachPage />} />
-                <Route path="/global-desk"                   element={<GlobalDeskPage />} />
+                <Route path="/global-desk"                   element={<GlobalDeskPage lang="en" />} />
+                <Route path="/es/global-desk"                element={<GlobalDeskPage lang="es" />} />
                 <Route path="/madrid-miami"                  element={<Navigate to="/global-desk" replace />} />
-                <Route path="/spain-mls-listing"             element={<SpainMlsListingPage />} />
+                <Route path="/spain-mls-listing"             element={<Navigate to="/global-desk" replace />} />
                 <Route path="/miami-mls-international-desk"  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/developers-agencies"           element={<Navigate to="/global-desk" replace />} />
                 {/* Legacy routes — redirect to new canonical URLs */}
@@ -132,7 +131,7 @@ if (rootElement) {
                 <Route path="/es/comprar"         element={<EsComprarPage />} />
                 <Route path="/es/agentes"         element={<EsAgentesPage />} />
                 <Route path="/es/gracias/agente"  element={<EsGraciasAgentePage />} />
-                <Route path="/es/spain-desk"      element={<EsSpainDeskPage />} />
+                <Route path="/es/spain-desk"      element={<Navigate to="/es/global-desk" replace />} />
                 <Route path="/es/madrid"          element={<Navigate to="/markets" replace />} />
 <Route path="*"                   element={<NotFoundPage />} />
               </Routes>
