@@ -98,7 +98,7 @@
     })(window,document,'script','dataLayer','GTM-K3CKFM94');</script>
     <!-- End Google Tag Manager -->
 
-    <!-- Meta Pixel + LinkedIn Insight + Instantly.ai — stubs install
+    <!-- Meta Pixel + LinkedIn Insight + visitor identification — stubs install
          immediately (fbq/lintrk queue events fired before load); the
          third-party libraries themselves load on idle or first interaction,
          keeping them off the critical rendering path (Core Web Vitals). -->
@@ -126,6 +126,10 @@
         // Timezone is a dependency-free region proxy (Spain = Europe/Madrid).
         function pixelsAllowed(){
           try{
+            // react-snap runs with navigator.webdriver=true. Third-party
+            // scripts must not be serialized into prerendered HTML and then
+            // loaded a second time in the visitor's browser.
+            if(navigator.webdriver)return false;
             var c=localStorage.getItem('hp_cookie_consent');
             if(c==='declined')return false;
             if(c==='accepted')return true;
@@ -133,13 +137,23 @@
             return tz.indexOf('Europe/')!==0;
           }catch(e){return true;}
         }
+        function loadVisitorIdentification(){
+          if(window.reb2b&&window.reb2b.loaded)return;
+          window.rb2bConfig={options:{customer_id:'avGlx7YMReNKhjgi'}};
+          window.reb2b={loaded:true};
+          add('https://ddwl4m2hdecbv.cloudfront.net/b/LNKLDHE49QOJ/LNKLDHE49QOJ.js.gz',
+            {id:'hp-visitor-identification'});
+        }
         function loadPixels(){
           if(loaded)return;
           if(!pixelsAllowed())return;
           loaded=true;
           add('https://connect.facebook.net/en_US/fbevents.js');
           add('https://snap.licdn.com/li.lms-analytics/insight.min.js');
-          add('https://r2.leadsy.ai/tag.js',{id:'vtag-ai-js','data-pid':'avGlx7YMReNKhjgi','data-version':'062024'});
+          // Load the underlying visitor-identification library directly. The
+          // former wrapper sent a hard-coded Instantly test request on every
+          // page view and logged a console error whenever it was blocked.
+          loadVisitorIdentification();
           window.removeEventListener('pointerdown',loadPixels);
           window.removeEventListener('keydown',loadPixels);
         }

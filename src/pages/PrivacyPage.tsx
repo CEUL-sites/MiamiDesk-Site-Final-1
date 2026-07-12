@@ -62,7 +62,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-navy">5. Analytics</h2>
-              <p className="mt-4">This site may use analytics services (Google Analytics 4, Meta Pixel, LinkedIn Insight Tag) to understand traffic patterns and improve service delivery. These services set their own cookies and may collect device and behavioral data. You may opt out of analytics cookies via the cookie preference control on this site.</p>
+              <p className="mt-4">This site may use analytics services (Google Analytics 4, Meta Pixel, LinkedIn Insight Tag, and a consent-gated website visitor-identification service) to understand traffic patterns and improve service delivery. These services may set their own cookies or similar identifiers and may collect device and behavioral data. You may opt out through the cookie preference control on this site.</p>
             </section>
 
             <section>
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-navy">8. Cookies</h2>
-              <p className="mt-4">We use a single first-party cookie (<code className="bg-bone px-1 font-mono text-sm">hp_cookie_consent</code>) to store your cookie preference. If you accept analytics cookies, third-party cookies from Google, Meta, and LinkedIn may also be set. You may change your preference at any time using the cookie settings control in the site footer.</p>
+              <p className="mt-4">We use a single first-party cookie (<code className="bg-bone px-1 font-mono text-sm">hp_cookie_consent</code>) to store your cookie preference. If you accept analytics cookies, third-party cookies or similar identifiers from Google, Meta, LinkedIn, and the visitor-identification service may also be set. You may change your preference at any time using the cookie settings control in the site footer.</p>
             </section>
 
             <section>
