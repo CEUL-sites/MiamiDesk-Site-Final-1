@@ -58,6 +58,8 @@ const C = {
     granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
     segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
     segoviaCaption: "Segovia, España: el acueducto romano junto al casco histórico.",
+    miamiAlt: "Carlos Uzcategui en una terraza frente a la bahía de Miami",
+    miamiCaption: "Miami, Florida: Carlos Uzcategui frente a la bahía y el puerto de Miami.",
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
       "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en España puede ser gestionada por agencias profesionales afiliadas: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
@@ -116,7 +118,7 @@ const C = {
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
-      "Carlos Uzcategui — REALTOR® con licencia en Florida desde 2001. CLHMS. United Realty Group: 3,500+ agentes, 20 oficinas en Florida.",
+      "Carlos Uzcategui — REALTOR® con licencia en Florida desde 2001. CLHMS. United Realty Group: 3,500+ agentes, 21 oficinas en Florida.",
     footerContacts: "Contacto",
     footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
   },
@@ -152,6 +154,8 @@ const C = {
     granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
     segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
     segoviaCaption: "Segovia, Spain: the Roman aqueduct along the historic city edge.",
+    miamiAlt: "Carlos Uzcategui on a terrace overlooking Biscayne Bay in Miami",
+    miamiCaption: "Miami, Florida: Carlos Uzcategui above the bay and the Port of Miami.",
     structureEyebrow: "The structure, stated plainly",
     structureBody:
       "Miami Global Listing Desk helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.",
@@ -210,7 +214,7 @@ const C = {
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
-      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 20 Florida offices.",
+      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 21 Florida offices.",
     footerContacts: "Contact",
     footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
   },
@@ -496,17 +500,17 @@ export default function GlobalDeskPage() {
               <figure className="lg:h-full">
                 <div className="aspect-[4/5] overflow-hidden lg:h-full lg:min-h-[42rem] lg:aspect-auto">
                   <img
-                    src="/images/carlos-property-media-team.webp"
-                    alt={t.proofAlt}
+                    src="/images/carlos-miami-river.webp"
+                    alt={t.miamiAlt}
                     width={1920}
                     height={1081}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover object-center"
+                    className="h-full w-full object-cover object-[55%_center]"
                   />
                 </div>
                 <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                  {t.proofCaption}
+                  {t.miamiCaption}
                 </figcaption>
               </figure>
             </div>
