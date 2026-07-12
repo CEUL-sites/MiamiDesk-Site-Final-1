@@ -9,8 +9,8 @@ const requiredFrontmatter = ['title', 'date', 'slug', 'excerpt', 'category'];
 const complianceFooter = 'Florida Licensed Realtor(R) SL705771 | United Realty Group | Equal Housing Opportunity.';
 const verifiedFigureViolations = [
   {
-    pattern: /\b21\s+Florida\s+offices\b/i,
-    message: 'Use the approved United Realty Group figure: 20 Florida offices.',
+    pattern: /\b20\s+Florida\s+offices\b/i,
+    message: 'Use the approved United Realty Group figure: 21 Florida offices (corrected July 2026, see docs/sources/SOURCES.md §3).',
   },
 ];
 

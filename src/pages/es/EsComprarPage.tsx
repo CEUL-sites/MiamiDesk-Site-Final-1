@@ -147,7 +147,7 @@ export default function EsComprarPage() {
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
-          content="Representación bilingüe para compradores internacionales en Sur de Florida — 25 años de experiencia respaldados por United Realty Group: 3,500+ agentes y 20 oficinas en Florida. Carlos Uzcategui, FL SL705771."
+          content="Representación bilingüe para compradores internacionales en Sur de Florida — 25 años de experiencia respaldados por United Realty Group: 3,500+ agentes y 21 oficinas en Florida. Carlos Uzcategui, FL SL705771."
         />
         <link
           rel="canonical"

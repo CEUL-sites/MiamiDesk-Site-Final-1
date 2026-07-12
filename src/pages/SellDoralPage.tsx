@@ -217,7 +217,7 @@ export default function SellDoralPage() {
                   {[
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
-                    "United Realty Group — 3,500+ agents across 20 Florida offices",
+                    "United Realty Group — 3,500+ agents across 21 Florida offices",
                     "Direct LATAM and European buyer pipeline",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
