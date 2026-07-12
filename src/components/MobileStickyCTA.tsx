@@ -13,6 +13,7 @@ export function MobileStickyCTA() {
 
   const [hidden, setHidden] = useState(false);
   const [consentPending, setConsentPending] = useState(true);
+  const [guardVisible, setGuardVisible] = useState(false);
   // Default to the main seller funnel; if the current page has its own
   // in-page form (#list-here, #contact, or #listing-request), target that instead so we
   // never navigate the user away mid-page.
@@ -36,6 +37,28 @@ export function MobileStickyCTA() {
     return () => observer.disconnect();
   }, []);
 
+  // Elements marked data-sticky-cta-guard (e.g. the review spotlight card)
+  // must never sit under the pill. The observer root is shrunk to the bottom
+  // band of the viewport where the pill lives, so the pill yields only while
+  // a guarded element actually crosses that band.
+  useEffect(() => {
+    const guards = document.querySelectorAll("[data-sticky-cta-guard]");
+    if (guards.length === 0) return;
+    const intersecting = new Set<Element>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) intersecting.add(entry.target);
+          else intersecting.delete(entry.target);
+        }
+        setGuardVisible(intersecting.size > 0);
+      },
+      { rootMargin: "-85% 0px 0px 0px", threshold: 0 }
+    );
+    guards.forEach((guard) => observer.observe(guard));
+    return () => observer.disconnect();
+  }, [pathname]);
+
   // The cookie dialog temporarily owns the mobile bottom action area. Hiding
   // this bar until a choice is made prevents two competing fixed controls.
   useEffect(() => {
@@ -45,7 +68,7 @@ export function MobileStickyCTA() {
     return () => window.removeEventListener("hp-consent-change", syncConsent);
   }, []);
 
-  if (!shouldRenderMobileSticky({ formVisible: hidden, consentPending })) return null;
+  if (!shouldRenderMobileSticky({ formVisible: hidden, consentPending, guardVisible })) return null;
 
   const whatsappHref = spainLine ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
   const sellLabel = spanishLabels
