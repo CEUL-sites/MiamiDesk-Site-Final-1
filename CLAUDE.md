@@ -125,13 +125,16 @@ mirrors it for legacy imports). Each entry there carries a `source` field —
 check `docs/sources/SOURCES.md` for the primary documents backing those
 sources before changing or adding a figure.
 
-**United Realty Group office count**: 21 Florida offices (not 20 — that was
-an undercount from urgfl.com, corrected July 2026 against URG's own internal
+**United Realty Group office count**: 20 Florida offices. URG's internal
 office directory, photographed by Carlos and saved at
-`docs/sources/urg-office-directory-2026-07.jpg`; full per-office addresses are
-in that photo and in `docs/sources/SOURCES.md` §3). URG also has a
-Greensboro, NC branch — it is explicitly **not** counted as a Florida office
-and must never be implied as part of Carlos's Florida coverage.
+`docs/sources/urg-office-directory-2026-07.jpg`, lists more individual
+addresses than that, but Carlos confirmed 20 is the correct figure to use —
+do not "correct" it to a raw count of every address in that photo (some
+entries there are not counted as distinct Florida offices). Full per-office
+addresses are in that photo and in `docs/sources/SOURCES.md` §3, for
+reference only. URG also has a Greensboro, NC branch — it is explicitly
+**not** counted as a Florida office and must never be implied as part of
+Carlos's Florida coverage.
 
 ## Routes
 
