@@ -58,6 +58,9 @@ const C = {
     granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
     segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
     segoviaCaption: "Segovia, España: el acueducto romano junto al casco histórico.",
+    miamiAlt: "Carlos Uzcategui en una terraza de Miami sobre la bahía de Biscayne",
+    miamiCaption: "Miami, Florida: presencia local de Carlos Uzcategui, principal de registro en Florida.",
+    cardAlt: "Propiedad de Madrid, exposición en Miami: acceso a compradores españoles locales y alcance institucional en EE. UU.",
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
       "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en España puede ser gestionada por agencias profesionales afiliadas: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
@@ -152,6 +155,9 @@ const C = {
     granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
     segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
     segoviaCaption: "Segovia, Spain: the Roman aqueduct along the historic city edge.",
+    miamiAlt: "Carlos Uzcategui on a Miami terrace above Biscayne Bay",
+    miamiCaption: "Miami, Florida: Carlos Uzcategui's local presence as Florida principal of record.",
+    cardAlt: "Madrid property, Miami exposure: local Spanish buyer access and institutional U.S. reach.",
     structureEyebrow: "The structure, stated plainly",
     structureBody:
       "Miami Global Listing Desk helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.",
@@ -391,13 +397,15 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── Section C — Market argument (lead; sourced) ── */}
-        <section className="border-y border-gold/20 bg-navy-deep px-6 py-16 md:py-24">
+        <section className="relative overflow-hidden border-y border-gold/20 bg-navy-deep px-6 py-16 md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(22,68,158,0.18),transparent_70%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_45%_50%_at_88%_90%,rgba(176,141,87,0.08),transparent_70%)]" />
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={fade}
-            className="mx-auto max-w-3xl"
+            className="relative mx-auto max-w-3xl"
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.marketEyebrow}</p>
 
@@ -417,10 +425,25 @@ export default function GlobalDeskPage() {
         {/* ── Section D — Distribution advantage (figure grid + activation) ── */}
         <section className="bg-ivory px-6 py-16 text-navy md:py-24">
           <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.distEyebrow}</p>
-            <p className="mt-5 max-w-3xl font-serif text-2xl leading-snug text-navy md:text-3xl">{t.distIntro}</p>
+            <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.distEyebrow}</p>
+                <p className="mt-5 max-w-2xl font-serif text-2xl leading-snug text-navy md:text-3xl">{t.distIntro}</p>
+              </div>
+              <figure className="mx-auto w-full max-w-sm overflow-hidden border border-gold/40 shadow-xl shadow-navy/10 lg:mx-0">
+                <img
+                  src="/images/global-desk-spain-miami-card.png"
+                  alt={t.cardAlt}
+                  width={1080}
+                  height={1080}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
+              </figure>
+            </div>
 
-            <div className="mt-12 grid grid-cols-2 gap-px border border-navy/10 bg-navy/10 md:grid-cols-3">
+            <div className="mt-14 grid grid-cols-2 gap-px border border-navy/10 bg-navy/10 md:grid-cols-3">
               {FIGURES.map((f) => (
                 <div key={f.v} className="bg-ivory p-7">
                   <div className="font-serif text-4xl text-gold-ink">{f.v}</div>
@@ -496,8 +519,8 @@ export default function GlobalDeskPage() {
               <figure className="lg:h-full">
                 <div className="aspect-[4/5] overflow-hidden lg:h-full lg:min-h-[42rem] lg:aspect-auto">
                   <img
-                    src="/images/carlos-property-media-team.webp"
-                    alt={t.proofAlt}
+                    src="/images/carlos-miami-river.webp"
+                    alt={t.miamiAlt}
                     width={1920}
                     height={1081}
                     loading="lazy"
@@ -506,7 +529,7 @@ export default function GlobalDeskPage() {
                   />
                 </div>
                 <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                  {t.proofCaption}
+                  {t.miamiCaption}
                 </figcaption>
               </figure>
             </div>
@@ -566,8 +589,9 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── Section F — How it works (the constant + two ways to list) ── */}
-        <section className="bg-navy-deep px-6 py-16 md:py-24">
-          <div className="mx-auto max-w-5xl">
+        <section className="relative overflow-hidden bg-navy-deep px-6 py-16 md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_15%_0%,rgba(22,68,158,0.16),transparent_70%)]" />
+          <div className="relative mx-auto max-w-5xl">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.howEyebrow}</p>
 
             {/* Four-step overview — the simple version first; the mechanics
