@@ -15,5 +15,6 @@ Place these files in this folder exactly as named:
 
 - `madrid-gran-via-editorial.webp` — source: Google Drive, `Madrid Granvia aerial.jpg`, file ID `1h1Nn0VQfxj9XpwnIIuczXW9pdNu0RqLy`; approved use: Miami Global Listing Desk international-market editorial band.
 - `segovia-aqueduct-editorial.webp` — source: Google Drive, `Spain Historicsites.jpg`, file ID `1opvbiP72aptYs4W-e29rf8Mc41DI0U4r`; approved use: Miami Global Listing Desk international-market editorial band.
+- `global-desk-spain-miami-card.png` — source: Google Drive marketing folder `CarlosRE Social Posts`, `image-of-day-2026-07-01.png`, file ID `1w0J3AH5veIGWweTtxj0xY23HN0SVvj45`; branded "Madrid property. Miami exposure." social card, 1080×1080. Approved use: Global Desk "Distribution advantage" section accent.
 
 Upload via GitHub: go to this folder → Add file → Upload files.
