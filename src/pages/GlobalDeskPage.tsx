@@ -58,8 +58,6 @@ const C = {
     granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
     segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
     segoviaCaption: "Segovia, España: el acueducto romano junto al casco histórico.",
-    miamiAlt: "Carlos Uzcategui en una terraza de Miami sobre la bahía de Biscayne",
-    miamiCaption: "Miami, Florida: presencia local de Carlos Uzcategui, principal de registro en Florida.",
     cardAlt: "Propiedad de Madrid, exposición en Miami: acceso a compradores españoles locales y alcance institucional en EE. UU.",
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
@@ -155,8 +153,6 @@ const C = {
     granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
     segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
     segoviaCaption: "Segovia, Spain: the Roman aqueduct along the historic city edge.",
-    miamiAlt: "Carlos Uzcategui on a Miami terrace above Biscayne Bay",
-    miamiCaption: "Miami, Florida: Carlos Uzcategui's local presence as Florida principal of record.",
     cardAlt: "Madrid property, Miami exposure: local Spanish buyer access and institutional U.S. reach.",
     structureEyebrow: "The structure, stated plainly",
     structureBody:
@@ -479,57 +475,38 @@ export default function GlobalDeskPage() {
               <p className="mt-5 font-sans text-base leading-[1.85] text-navy/70 md:text-lg">{t.bridgeBody}</p>
             </div>
 
-            <div className="mt-10 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
-                <figure>
-                  <div className="aspect-[9/16] overflow-hidden md:aspect-[4/5] lg:aspect-[9/16]">
-                    <img
-                      src="/images/madrid-gran-via-editorial.webp"
-                      alt={t.granViaAlt}
-                      width={1081}
-                      height={1920}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                    {t.granViaCaption}
-                  </figcaption>
-                </figure>
-
-                <figure>
-                  <div className="aspect-[9/16] overflow-hidden md:aspect-[4/5] lg:aspect-[9/16]">
-                    <img
-                      src="/images/segovia-aqueduct-editorial.webp"
-                      alt={t.segoviaAlt}
-                      width={1081}
-                      height={1920}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                    {t.segoviaCaption}
-                  </figcaption>
-                </figure>
-              </div>
-
-              <figure className="lg:h-full">
-                <div className="aspect-[4/5] overflow-hidden lg:h-full lg:min-h-[42rem] lg:aspect-auto">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 sm:gap-8">
+              <figure className="group">
+                <div className="aspect-[4/5] overflow-hidden shadow-lg shadow-navy/10 ring-1 ring-navy/5">
                   <img
-                    src="/images/carlos-miami-river.webp"
-                    alt={t.miamiAlt}
-                    width={1920}
-                    height={1081}
+                    src="/images/madrid-gran-via-editorial.webp"
+                    alt={t.granViaAlt}
+                    width={1081}
+                    height={1920}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover object-center"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                 </div>
                 <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                  {t.miamiCaption}
+                  {t.granViaCaption}
+                </figcaption>
+              </figure>
+
+              <figure className="group">
+                <div className="aspect-[4/5] overflow-hidden shadow-lg shadow-navy/10 ring-1 ring-navy/5">
+                  <img
+                    src="/images/segovia-aqueduct-editorial.webp"
+                    alt={t.segoviaAlt}
+                    width={1081}
+                    height={1920}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                </div>
+                <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
+                  {t.segoviaCaption}
                 </figcaption>
               </figure>
             </div>
