@@ -18,14 +18,23 @@ assert.equal(
   "the seller CTA should hide while the cookie choice occupies the bottom action area",
 );
 
-const [hero, proof, about, mobileSticky] = await Promise.all([
+const [hero, form, proof, about, cookie, mobileSticky] = await Promise.all([
   readFile("src/components/Hero.tsx", "utf8"),
+  readFile("src/components/HeroSellerForm.tsx", "utf8"),
   readFile("src/components/Proof.tsx", "utf8"),
   readFile("src/components/AboutContact.tsx", "utf8"),
+  readFile("src/components/CookieBanner.tsx", "utf8"),
   readFile("src/components/MobileStickyCTA.tsx", "utf8"),
 ]);
 
 assert.match(hero, /href="#client-reviews"/);
+assert.match(hero, /United Realty Group · 3,500\+ agents · 20 Florida offices/);
+assert.match(form, /Confidential Seller Strategy Review/);
+assert.match(form, /Request My Seller Strategy Review/);
+assert.match(form, /Revisión Confidencial de Estrategia de Venta/);
+assert.match(form, /Solicitar Mi Revisión de Estrategia de Venta/);
+assert.match(cookie, /bottom-4 left-4 right-4/);
+assert.match(cookie, /md:left-auto md:right-6/);
 assert.match(proof, /id="client-reviews"/);
 assert.doesNotMatch(about, /founded in 2002|in-house title|Est\. 2002/i);
 assert.match(about, /3,500\+ agents and 20 Florida offices/);

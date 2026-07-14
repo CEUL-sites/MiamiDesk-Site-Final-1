@@ -351,6 +351,13 @@ export function Hero() {
             ))}
           </motion.div>
 
+          <motion.p
+            variants={item}
+            className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/90 sm:text-[11px]"
+          >
+            United Realty Group · 3,500+ agents · 20 Florida offices
+          </motion.p>
+
           <motion.a
             variants={item}
             href="#client-reviews"

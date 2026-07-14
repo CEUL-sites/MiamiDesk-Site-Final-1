@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
+    "verify:homepage-conversion": "tsx scripts/verify-homepage-conversion.ts",
     "verify:journal": "node scripts/verify-journal-content.mjs"
   },
   "reactSnap": {

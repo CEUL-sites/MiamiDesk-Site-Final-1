@@ -19,14 +19,14 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label="Cookie preference"
-      className="fixed bottom-[72px] left-0 right-0 z-[9999] border-t border-gold/20 bg-navy-deep px-4 py-3 shadow-2xl md:bottom-6 md:left-6 md:right-auto md:max-w-xs md:border md:border-gold/25 md:px-5 md:py-4 lg:bottom-6"
+      className="fixed bottom-4 left-4 right-4 z-[9999] rounded-lg border border-gold/25 bg-navy-deep/95 px-4 py-3 shadow-2xl backdrop-blur md:bottom-6 md:left-auto md:right-6 md:max-w-xs md:px-5 md:py-4"
     >
       <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">Cookie Notice</p>
-      <p className="mt-1.5 font-sans text-xs leading-relaxed text-white/65">
+      <p className="mt-1 font-sans text-xs leading-relaxed text-white/65">
         We use analytics cookies to understand site usage. Declining does not affect core functionality.{" "}
         <a href="/privacy" className="underline hover:text-gold">Privacy Policy</a>
       </p>
-      <div className="mt-3 flex gap-2">
+      <div className="mt-2.5 flex gap-2">
         <button
           onClick={accept}
           className="flex-1 bg-gold py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90 md:py-2.5"
