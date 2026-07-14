@@ -19,7 +19,7 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label="Cookie preference"
-      className="fixed bottom-4 left-4 right-4 z-[9999] rounded-lg border border-gold/25 bg-navy-deep/95 px-4 py-3 shadow-2xl backdrop-blur md:bottom-6 md:left-auto md:right-6 md:max-w-xs md:px-5 md:py-4"
+      className="fixed bottom-4 left-4 right-4 z-[9999] rounded-lg border border-gold/25 bg-navy-deep/95 px-4 py-3 shadow-2xl backdrop-blur md:bottom-6 md:left-6 md:right-auto md:max-w-xs md:px-5 md:py-4"
     >
       <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">Cookie Notice</p>
       <p className="mt-1 font-sans text-xs leading-relaxed text-white/65">
