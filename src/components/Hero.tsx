@@ -31,12 +31,16 @@ const FADE_MS = 600;
 // are intentionally kept OUT of this rotation — at this bubble size their extra
 // weight is invisible but they pull ~27MB of mobile data. Both remain live where
 // they show full-size (SellerSection, VideoBubbles, Agents & Markets pages).
+// Each clip carries a `poster` still (public/videos/posters/*.jpg) so the bubble
+// always shows a frame — never a black circle — when a clip is still loading,
+// when autoplay is blocked (iOS Low Power Mode), or on data-saver links where
+// the videos are intentionally skipped.
 const HERO_FEATURE_VIDEOS = [
-  { src: "/videos/dollhouse_rotating_in_hands.mp4", label: "Signature Marketing" },
-  { src: "/videos/luxury_waterfront_estate.mp4",    label: "Waterfront Estate"   },
-  { src: "/videos/matterport_miami_beach.mp4",      label: "3D Matterport Tour"  },
-  { src: "/videos/digital_twin_exposure.mp4",       label: "Global Exposure"     },
-  { src: "/videos/gemini_property_vision.mp4",      label: "AI Marketing"        },
+  { src: "/videos/dollhouse_rotating_in_hands.mp4", poster: "/videos/posters/dollhouse_rotating_in_hands.jpg", label: "Signature Marketing" },
+  { src: "/videos/luxury_waterfront_estate.mp4",    poster: "/videos/posters/luxury_waterfront_estate.jpg",    label: "Waterfront Estate"   },
+  { src: "/videos/matterport_miami_beach.mp4",      poster: "/videos/posters/matterport_miami_beach.jpg",      label: "3D Matterport Tour"  },
+  { src: "/videos/digital_twin_exposure.mp4",       poster: "/videos/posters/digital_twin_exposure.jpg",       label: "Global Exposure"     },
+  { src: "/videos/gemini_property_vision.mp4",      poster: "/videos/posters/gemini_property_vision.jpg",      label: "AI Marketing"        },
 ];
 
 // Decorative hero clips are skipped entirely on data-saver / slow (2g) links —
@@ -92,6 +96,7 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
   const [front, setFront] = useState(0);     // which layer is in front (0|1)
   const [activeIdx, setActiveIdx] = useState(0);
   const [progress, setProgress] = useState(0); // 0–1 progress for the front clip
+  const [frontPaused, setFrontPaused] = useState(true); // drives the tap-to-play affordance
 
   // Refs mirror state so the (once-attached) media handlers always read current
   // values without re-binding.
@@ -107,6 +112,9 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
     const v = vids[layer].current;
     const s = srcs[layer].current;
     if (!v || !s || loadedIdx.current[layer] === idx) return;
+    // Keep the poster in sync with the loaded clip so the bubble shows this
+    // clip's still until it actually plays (and if it never does).
+    v.poster = HERO_FEATURE_VIDEOS[idx].poster;
     s.src = HERO_FEATURE_VIDEOS[idx].src;
     v.muted = true;
     v.load();
@@ -165,6 +173,21 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
     if (layer !== frontRef.current) return;
     goTo((activeRef.current + 1) % n);
   };
+  const onPlayState = (layer: number, playing: boolean) => () => {
+    if (layer === frontRef.current) setFrontPaused(!playing);
+  };
+
+  // Tap-to-play recovery: if autoplay was blocked (iOS Low Power Mode, some
+  // in-app browsers) or the visitor is on a data-saver link where the clips
+  // are skipped, a tap on the bubble loads and plays the current clip — an
+  // explicit user gesture always satisfies the autoplay policy.
+  const handleTap = () => {
+    loadInto(frontRef.current, activeRef.current);
+    const v = vids[frontRef.current].current;
+    if (!v) return;
+    const p = v.play();
+    if (p) p.catch(() => {});
+  };
 
   return (
     <div className="flex flex-col items-center gap-3">
@@ -172,7 +195,12 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.1 }}
-        className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
+        onClick={handleTap}
+        role="button"
+        tabIndex={0}
+        aria-label={`Play featured clip: ${HERO_FEATURE_VIDEOS[activeIdx].label}`}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleTap(); } }}
+        className="relative cursor-pointer overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
         style={{
           width: FEATURE_SIZE,
           height: FEATURE_SIZE,
@@ -189,8 +217,11 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
             playsInline
             preload="none"
             aria-hidden="true"
+            poster={layer === 0 ? HERO_FEATURE_VIDEOS[0].poster : undefined}
             onTimeUpdate={onTime(layer)}
             onEnded={onEnded(layer)}
+            onPlaying={onPlayState(layer, true)}
+            onPause={onPlayState(layer, false)}
             className="absolute inset-0 h-full w-full object-cover"
             style={{
               opacity: layer === front ? 1 : 0,
@@ -200,6 +231,21 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
             <source ref={srcs[layer]} type="video/mp4" />
           </video>
         ))}
+        {/* Tap-to-play affordance — only while the front clip is paused
+            (autoplay blocked, data-saver, or before load). Purely additive:
+            the poster still shows behind it. */}
+        {frontPaused && (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 flex items-center justify-center"
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm ring-1 ring-white/30">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" style={{ marginLeft: 2 }}>
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </span>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
       </motion.div>
 
