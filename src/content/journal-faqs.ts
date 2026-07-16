@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'international-investor-south-florida-income-property-2026': [
+    {
+      q: 'How does an international investor find good South Florida investment property?',
+      a: 'The strongest opportunities are often evaluated first by professionals working the market, not surfaced by public portal alerts. A cross-border investor closes that access gap with local buyer representation inside the professional network — a buyer’s agent who can source, screen, and present opportunities in the investor’s language, then run a disciplined process. Carlos Uzcategui searches through the Miami and South Florida REALTORS® network of roughly 93,000 member agents.',
+    },
+    {
+      q: 'What should a disciplined acquisition process include?',
+      a: 'Before any offer: a defined mandate (asset type, target basis, hold horizon, return profile), independent valuation against comparable sales and active inventory, conservative income and cost modeling, financing clarity for a foreign buyer, full due diligence (title, association, condition, restrictions), and an exit view. This does not guarantee a return; it reduces avoidable mistakes.',
+    },
+    {
+      q: 'What extra considerations apply to a cross-border purchase?',
+      a: 'A non-U.S. buyer may face entity-structure choices, foreign-national financing terms, currency and transfer logistics, coastal insurance, and specific tax and withholding rules. The professional standard is that an experienced agent coordinates the transaction while a qualified U.S. attorney and CPA handle the legal, tax, and structuring decisions — engaged before the contract is signed.',
+    },
+    {
+      q: 'Does the Global Desk help investors buy as well as sell?',
+      a: 'Yes. The Global Desk is two-sided. An investor abroad can acquire South Florida income property through professional representation, and an investor already holding South Florida assets can reach international buyers and opportunities through the same cooperation network — one bilingual point of contact for cross-border acquisition and disposition.',
+    },
+  ],
   'global-luxury-investment-buyer-agent-network-2026': [
     {
       q: 'How does a luxury or investment seller reach high-net-worth buyers who already have agents?',
