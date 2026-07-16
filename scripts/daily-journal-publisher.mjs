@@ -109,7 +109,7 @@ const angles = [
 ];
 
 function distributionParagraph() {
-  return 'When a seller lists with Carlos Uzcategui, the property enters the world\'s largest local Realtor association\'s distribution infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges, and $69B in combined 2025 network transaction volume. This does not guarantee a result. It creates a structural exposure advantage when combined with disciplined positioning, preparation, and negotiation.';
+  return 'When a seller lists with Carlos Uzcategui, the property enters the world\'s largest local Realtor association\'s distribution infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges, and United Realty Group\'s 3,500+ agents across 20 Florida offices. This does not guarantee a result. It creates a structural exposure advantage when combined with disciplined positioning, preparation, and negotiation.';
 }
 
 function slugify(value) {
@@ -176,7 +176,7 @@ function assertQuality(content) {
     '260+ U.S. MLSs',
     '437+ international agreements',
     '11 MLS data exchanges',
-    '$69B in combined 2025 network transaction volume',
+    '3,500+ agents across 20 Florida offices',
     'Request a',
     'Source basis:'
   ];

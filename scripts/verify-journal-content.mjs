@@ -12,6 +12,10 @@ const verifiedFigureViolations = [
     pattern: /\b21\s+Florida\s+offices\b/i,
     message: 'Use the approved United Realty Group figure: 20 Florida offices.',
   },
+  {
+    pattern: /\$\s*69\s*B\b|69\s*billion/i,
+    message: 'The $69B / $69 billion network-volume figure is banned from all public copy. Use approved United Realty Group facts (3,500+ agents, 20 Florida offices) instead.',
+  },
 ];
 
 function fail(errors) {
