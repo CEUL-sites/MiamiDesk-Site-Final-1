@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'global-luxury-investment-buyer-agent-network-2026': [
+    {
+      q: 'How does a luxury or investment seller reach high-net-worth buyers who already have agents?',
+      a: 'High-net-worth and investment buyers typically act through a trusted agent rather than public portals. A seller reaches them by listing inside a professional network that routes the property agent-to-agent — including international cooperation channels — so the representatives who hold qualified buyers can find, evaluate, and present it. Carlos Uzcategui positions listings through the Miami and South Florida REALTORS® network of roughly 93,000 member agents.',
+    },
+    {
+      q: 'Does the Global Desk work for a property in Spain as well as Miami?',
+      a: 'Yes. The Global Desk is bidirectional. The same cooperation network that carries a South Florida listing to international buyer agents can carry a Spanish prime listing to the Miami, U.S., and Latin American agents whose clients are buying it — and connects international buyer representatives to Miami inventory. It is one point of contact for prime or investment property wherever it sits.',
+    },
+    {
+      q: 'What network does Carlos Uzcategui use to market luxury and investment property?',
+      a: 'Listings are positioned through the Miami and South Florida REALTORS® — the world’s largest local REALTOR® association — with roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international cooperation agreements across 75+ countries, and members who transacted about $69 billion in 2025, plus United Realty Group’s 3,500+ agents across 20 Florida offices. Network reach does not guarantee a price or timeline.',
+    },
+    {
+      q: 'Why do luxury and investment properties benefit most from a large buyer-agent network?',
+      a: 'Their buyer pools are small and specialized. Luxury residences trade to a limited set of capable buyers concentrated inside professional and referral relationships, and investment property sells to representatives evaluating yield and financing. A wider agent-to-agent network raises the odds the right buyers are reached during the launch window while preserving discretion.',
+    },
+  ],
   'doral-home-prices-may-2026-market-report': [
     {
       q: 'What was the median single-family home price in Doral in May 2026?',
