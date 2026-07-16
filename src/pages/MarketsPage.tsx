@@ -173,7 +173,7 @@ export default function MarketsPage() {
             {
               "@type": "Question",
               "name": "How does the Miami MLS reach international buyers?",
-              "acceptedAnswer": { "@type": "Answer", "text": `${ASSOCIATION_STATS.associationName} is the world's largest local REALTOR® association with ${MEMBER_COUNT} member agents. Eligible listings may be distributed to ${GLOBAL_PORTALS} global portals in ${ASSOCIATION_STATS.languages} languages, syndicated through ${US_MLS} U.S. MLSs via RPR, supported by ${INTERNATIONAL_AGREEMENTS} signed international agreements and ${MLS_DATA_EXCHANGES} MLS data exchanges. ${ASSOCIATION_STATS.networkVolume} is attributed to the association network's ${ASSOCIATION_STATS.networkVolumeLabel}. Any activation is subject to brokerage, platform, MLS, legal, and compliance requirements.` }
+              "acceptedAnswer": { "@type": "Answer", "text": `${ASSOCIATION_STATS.associationName} is the world's largest local REALTOR® association with ${MEMBER_COUNT} member agents. Eligible listings may be distributed to ${GLOBAL_PORTALS} global portals in ${ASSOCIATION_STATS.languages} languages, syndicated through ${US_MLS} U.S. MLSs via RPR, supported by ${INTERNATIONAL_AGREEMENTS} signed international agreements and ${MLS_DATA_EXCHANGES} MLS data exchanges. Carlos represents South Florida sellers through United Realty Group, with ${ASSOCIATION_STATS.urgAgents} agents and ${ASSOCIATION_STATS.urgOffices} Florida offices. Any activation is subject to brokerage, platform, MLS, legal, and compliance requirements.` }
             },
           ]
         }} />
@@ -252,7 +252,7 @@ export default function MarketsPage() {
               {[
                 { value: String(ASSOCIATION_STATS.languages), label: "Languages", sub: "property presentation" },
                 { value: MLS_DATA_EXCHANGES, label: "MLS data exchanges", sub: "approved data cooperation" },
-                { value: ASSOCIATION_STATS.networkVolume, label: "2025 network volume", sub: "combined association-network volume" },
+                { value: ASSOCIATION_STATS.urgOffices, label: "Florida offices", sub: "United Realty Group" },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col items-center bg-navy-deep/60 px-6 py-5 text-center">
                   <span className="font-serif text-2xl text-gold/80">{s.value}</span>
