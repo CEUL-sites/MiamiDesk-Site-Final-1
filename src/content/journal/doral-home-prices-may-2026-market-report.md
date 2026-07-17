@@ -48,7 +48,7 @@ This is where positioning matters more than a headline number. Features describe
 
 ## The Distribution Advantage
 
-When a Doral home is listed with Carlos Uzcategui, it is positioned through the Miami and South Florida REALTORS(R) infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges, and $69B in combined 2025 network transaction volume.
+When a Doral home is listed with Carlos Uzcategui, it is positioned through the Miami and South Florida REALTORS(R) infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges.
 
 United Realty Group adds 3,500+ agents across 20 Florida offices. For Doral's Latin American buyer profile in particular, Carlos coordinates a bilingual cross-border referral model. None of this guarantees a price or timeline. It widens the pool of qualified buyers and agents who see the property at launch.
 

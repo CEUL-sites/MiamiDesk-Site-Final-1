@@ -14,15 +14,13 @@ const WA_ES = "https://wa.me/34646853078";
 const WA_US = "https://wa.me/19548656622";
 
 // Verified figures only (§3.5). Do not substitute or inflate.
-// $69B is the association network's combined 2025 transaction volume —
-// never the principal's or United Realty Group's. Caption is mandatory.
 const FIGURES = [
   { v: "93,000", es: "miembros", en: "members" },
   { v: "200+", es: "portales globales · 19 idiomas", en: "global portals · 19 languages" },
   { v: "260+", es: "MLS de EE. UU. vía RPR", en: "U.S. MLSs via RPR" },
   { v: "437+", es: "acuerdos internacionales", en: "signed international agreements" },
   { v: "11", es: "intercambios de datos MLS", en: "MLS data exchanges" },
-  { v: "$69B", es: "volumen 2025 de la red asociativa", en: "association-network 2025 volume", caption: true },
+  { v: "3,500+", es: "agentes de United Realty Group", en: "United Realty Group agents" },
 ];
 
 const C = {
@@ -47,7 +45,6 @@ const C = {
     distEyebrow: "La ventaja de distribución",
     distIntro:
       "La activación se apoya en la infraestructura profesional de distribución inmobiliaria del sur de Florida:",
-    caption: "Cifra de la red asociativa, no del principal ni de United Realty Group.",
     activation:
       "La exposición es infraestructura. La activación de agentes compradores depende de información clara, cooperación profesional, compensación cuando corresponda y requisitos de corretaje, plataforma y cumplimiento.",
     bridgeEyebrow: "España, en su contexto local",
@@ -142,7 +139,6 @@ const C = {
     distEyebrow: "Distribution advantage",
     distIntro:
       "The service is built around South Florida's professional real estate distribution infrastructure:",
-    caption: "Association-network figure — not the principal's or United Realty Group's volume.",
     activation:
       "Exposure is infrastructure. Buyer-agent activation depends on clear information, professional cooperation, appropriate compensation where applicable, and brokerage, platform, and compliance requirements.",
     bridgeEyebrow: "Spain, in local context",
@@ -444,11 +440,6 @@ export default function GlobalDeskPage() {
                 <div key={f.v} className="bg-ivory p-7">
                   <div className="font-serif text-4xl text-gold-ink">{f.v}</div>
                   <div className="mt-2 font-sans text-sm leading-snug text-navy/70">{f[lang]}</div>
-                  {f.caption && (
-                    <p className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-navy/70">
-                      {t.caption}
-                    </p>
-                  )}
                 </div>
               ))}
             </div>

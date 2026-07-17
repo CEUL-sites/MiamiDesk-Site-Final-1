@@ -30,7 +30,7 @@ The reach behind a properly entered listing:
 - **93,000 member agents** across Miami-Dade, Broward, and Palm Beach
 - **200+ global portals** in 19 languages, where eligible and subject to platform participation
 - **437+ international agreements** connecting South Florida with partner associations in more than 75 countries
-- **United Realty Group** — one of Florida's largest brokerages, with 3,500+ agents across 20 offices — as the office a listing enters when represented through this desk
+- **United Realty Group** — a full-service Florida brokerage with 3,500+ agents across 20 Florida offices — as the office a listing enters when represented through this desk
 
 For an owner abroad, the value is not a single portal placement. It is entering the infrastructure where qualified demand for prime South Florida property actually forms.
 

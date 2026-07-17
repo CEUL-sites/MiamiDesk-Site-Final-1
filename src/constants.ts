@@ -100,9 +100,7 @@ export const NAVIGATION = [
 
 // Verified figures only. Single source of truth is src/data/figures.json
 // (with per-figure sources/citations); these mirror it for legacy imports.
-// Attribute $69B only to the association network's combined 2025 transaction volume,
-// never to Carlos or United Realty Group. Do NOT add any
-// time-based promise (Day 1, 24 hours, same-day, instant).
+// Do NOT add any time-based promise (Day 1, 24 hours, same-day, instant).
 // Do NOT add unverifiable brokerage superlatives ("#1 Florida", "Most Closed Homes",
 // "leading transactional brokerage"): no independent authority supports them and they
 // create Fla. Admin. Code R. 61J2-10.025(1) deceptive-advertising exposure.
@@ -116,8 +114,6 @@ export const ASSOCIATION_STATS = {
   countries: 75,
   usMls: 260,
   mlsDataExchanges: 11,
-  networkVolume: "$69B",
-  networkVolumeLabel: "combined 2025 association-network transaction volume",
   // Defensible, attributed URG description — no unverifiable ranking.
   urgScale: "3,500+ agents · 20 Florida offices",
   urgAgents: "3,500+",
