@@ -45,4 +45,4 @@ If you are within a year of a possible sale, the smartest first move is informat
 
 Net sheet figures are illustrative models, not a guarantee of proceeds, price, or timeline; actual costs vary by property, lender payoff, and negotiated terms. Market data referenced is sourced from the Miami and South Florida REALTORS® MLS and is deemed reliable but not guaranteed. This article is general information, not legal, tax, or financial advice.
 
-Florida Licensed Realtor® SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

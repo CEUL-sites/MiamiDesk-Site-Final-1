@@ -79,4 +79,4 @@ Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years
 
 Data source: Florida REALTORS® and MIAMI REALTORS® Monthly Market Summary and City/ZIP reports, May 2026, released June 16, 2026. County and city statistics reflect closed single-family transactions reported through Florida's multiple listing services. Median prices reflect the mix of homes sold in the period and are not a measure of individual-home appreciation. Data is deemed reliable but not guaranteed and is subject to change. This article is general market information, not legal, tax, financial, or investment advice.
 
-Florida Licensed Realtor® SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

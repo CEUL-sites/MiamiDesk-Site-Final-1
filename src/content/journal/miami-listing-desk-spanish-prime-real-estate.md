@@ -174,7 +174,7 @@ That is a materially stronger institutional proposition.
 
 ## Carlos Uzcategui: Local Direction With 25 Years Of Market Experience
 
-The Desk is directed by Carlos Uzcategui, a Florida Licensed Realtor(R) SL705771, licensed since 2001 and a member of the South Florida brokerage community for 25 years.
+The Desk is directed by Carlos Uzcategui, a Florida Licensed Realtor® SL705771, licensed since 2001 and a member of the South Florida brokerage community for 25 years.
 
 That experience is central to the model.
 
@@ -333,7 +333,7 @@ Because in international luxury real estate, features describe the property. Dis
 
 ## About The Miami Listing Desk
 
-The Miami Listing Desk is the South Florida activation arm of the Global Desk, directed by Carlos Uzcategui, Florida Licensed Realtor(R) SL705771, through United Realty Group.
+The Miami Listing Desk is the South Florida activation arm of the Global Desk, directed by Carlos Uzcategui, Florida Licensed Realtor® SL705771, through United Realty Group.
 
 The Desk connects selected Spanish prime real estate with the South Florida professional buyer-agent ecosystem through inventory preparation, international-property activation, targeted agent distribution, buyer qualification, broker cooperation, and transaction coordination.
 
@@ -344,7 +344,7 @@ Spanish agencies, developers, and prime-property advisors can request a Miami Li
 [Request a Miami Listing Desk strategy conversation](https://homesprofessional.com/contact?utm_source=journal&utm_medium=seo&utm_campaign=miami-listing-desk-spanish-prime-real-estate)
 
 Carlos Uzcategui  
-Florida Licensed Realtor(R) SL705771  
+Florida Licensed Realtor® SL705771  
 United Realty Group  
 Email: contact@carlosre.com  
 WhatsApp USA: +1 954-865-6622  
@@ -355,4 +355,4 @@ South Florida Office: 15951 SW 41 Street, Suite 700, Weston, Florida 33331
 
 All property activation, listing display, syndication, referrals, commissions, cooperation arrangements, and transaction services are subject to applicable laws, tax requirements, licensing rules, brokerage approval, platform policies, documentation, and written agreements. Nothing in this article constitutes legal, tax, financial, or investment advice. Individual outcomes vary by property, market conditions, documentation, and buyer qualification.
 
-Florida Licensed Realtor(R) SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
