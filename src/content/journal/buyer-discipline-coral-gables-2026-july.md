@@ -51,7 +51,7 @@ For Coral Gables, that exposure matters because buyer demand can come from local
 
 ## Why Carlos Uzcategui
 
-Carlos Uzcategui is a Florida Licensed Realtor(R) SL705771, licensed since 2001, with 25 years of South Florida market experience. He is a Certified Luxury Home Marketing Specialist, a Certified Seller Representative, bilingual in English and Spanish, and affiliated with United Realty Group, which has 3,500+ agents and 20 Florida offices.
+Carlos Uzcategui is a Florida Licensed Realtor® SL705771, licensed since 2001, with 25 years of South Florida market experience. He is a Certified Luxury Home Marketing Specialist, a Certified Seller Representative, bilingual in English and Spanish, and affiliated with United Realty Group, which has 3,500+ agents and 20 Florida offices.
 
 The advantage for a buyer is disciplined acquisition support. The advantage for a seller is structured positioning: position, prepare, launch, activate, and negotiate with institutional MLS distribution and a bilingual South Florida, Spain, and LATAM referral model.
 
@@ -87,6 +87,6 @@ Yes. Legal, tax, financing, insurance, association, homestead, and post-occupanc
 
 Source basis: Carlos Uzcategui verified professional profile; United Realty Group affiliation; MIAMI REALTORS distribution and merger source references maintained in the HomesProfessional source library. This article does not use live MLS statistics, mortgage rates, tax calculations, legal conclusions, or property-specific valuation data.
 
-Florida Licensed Realtor(R) SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
 
 Information is for general informational purposes only and does not constitute legal, tax, financial, insurance, or investment advice. Market data and association information are deemed reliable but not guaranteed and are subject to change without notice.

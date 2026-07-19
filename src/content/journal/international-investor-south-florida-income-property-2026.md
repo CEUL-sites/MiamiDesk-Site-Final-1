@@ -64,4 +64,4 @@ If you are an international investor evaluating South Florida income or investme
 
 Network figures reflect the Miami and South Florida REALTORS® organization following the MIAMI REALTORS® / RWorld merger (announced April 20, 2026; effective May 11, 2026): approximately 93,000 member agents, 437+ international cooperation agreements across 75+ countries, 260+ U.S. MLSs via the RPR National Exchange, and 11 MLS data exchanges. United Realty Group figures (3,500+ agents, 20 Florida offices) per urgfl.com. These figures describe network reach and are deemed reliable but not guaranteed. This article is general information for educational purposes and is not legal, tax, financial, insurance, or investment advice; cross-border investors should engage qualified U.S. legal and tax counsel. No investment return, rental income, property value, or transaction outcome is guaranteed.
 
-Florida Licensed Realtor® SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

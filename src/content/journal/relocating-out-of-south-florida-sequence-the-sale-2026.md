@@ -72,4 +72,4 @@ Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years
 
 This article is general educational information and is **not** legal, tax, financial, or investment advice. The federal home-sale exclusion is governed by IRC Section 121; eligibility depends on your ownership, use, basis, and filing status — consult a licensed CPA or tax attorney, particularly when changing state residency. Florida Homestead and the Save Our Homes assessment cap, including portability, are governed by Florida law and apply to Florida homesteads only. Carlos Uzcategui is licensed in Florida; representation for an out-of-state purchase would be handled through a licensed professional in that state. No sale price, tax result, or timeline is guaranteed.
 
-Florida Licensed Realtor® SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

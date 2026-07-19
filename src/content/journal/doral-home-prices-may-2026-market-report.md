@@ -58,12 +58,12 @@ If you own a Doral single-family home and are considering a sale, start with a p
 
 You can also model your estimated sale proceeds with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=doral-2026&market=doral&funnel_stage=consideration) or [request a review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=doral-2026&market=doral&funnel_stage=consideration). For an evergreen overview, see [Selling a Doral Home](/journal/selling-doral-home-2026).
 
-Carlos Uzcategui has been a Florida Licensed Realtor(R) since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, Certified Seller Representative training, bilingual English-Spanish capability, and affiliation with United Realty Group.
+Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, Certified Seller Representative training, bilingual English-Spanish capability, and affiliation with United Realty Group.
 
 ## Source and Compliance Notes
 
 Source basis: Carlos Uzcategui verified professional profile; United Realty Group affiliation; MIAMI REALTORS distribution and merger source references maintained in the HomesProfessional source library. This corrected article does not rely on unverified Doral May 2026 city-level statistics, mortgage rates, tax calculations, legal conclusions, or property-specific valuation data.
 
-Florida Licensed Realtor(R) SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
 
 Information is for general informational purposes only and does not constitute legal, tax, financial, insurance, or investment advice. Market data and association information are deemed reliable but not guaranteed and are subject to change without notice. No sale price or timeline is guaranteed.

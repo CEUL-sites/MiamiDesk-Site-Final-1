@@ -6,7 +6,12 @@ const journalDir = path.join(root, 'src', 'content', 'journal');
 const packagePath = path.join(root, 'package.json');
 
 const requiredFrontmatter = ['title', 'date', 'slug', 'excerpt', 'category'];
-const complianceFooter = 'Florida Licensed Realtor(R) SL705771 | United Realty Group | Equal Housing Opportunity.';
+// Canonical rule-7 compliance line. The site Footer component injects the full
+// compliance footer on every journal page, so posts are NOT required to embed
+// it in the body — but any body line that looks like a compliance footer must
+// match this exact form (no "(R)", no pipe separators).
+const complianceFooter = 'Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.';
+const footerLikePattern = /Licensed\s+Realtor.*Equal\s+Housing/i;
 const verifiedFigureViolations = [
   {
     pattern: /\b21\s+Florida\s+offices\b/i,
@@ -15,6 +20,10 @@ const verifiedFigureViolations = [
   {
     pattern: /\$\s*69\s*B\b|69\s*billion/i,
     message: 'The $69B / $69 billion network-volume figure is banned from all public copy. Use approved United Realty Group facts (3,500+ agents, 20 Florida offices) instead.',
+  },
+  {
+    pattern: /Realtor\s*\(\s*[Rr]\s*\)/,
+    message: 'Use the "®" symbol, not "(R)": write "Realtor®".',
   },
 ];
 
@@ -82,8 +91,10 @@ for (const file of files) {
     slugs.set(meta.slug, label);
   }
 
-  if (!body.includes(complianceFooter)) {
-    errors.push(`${label}: missing required compliance footer.`);
+  for (const line of body.split(/\r?\n/)) {
+    if (footerLikePattern.test(line) && line.trim() !== complianceFooter) {
+      errors.push(`${label}: malformed compliance footer "${line.trim()}" — must be exactly "${complianceFooter}".`);
+    }
   }
 
   for (const rule of verifiedFigureViolations) {

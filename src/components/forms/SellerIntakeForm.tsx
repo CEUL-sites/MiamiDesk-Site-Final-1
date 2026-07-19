@@ -5,7 +5,7 @@ import { trackLead, trackFunnelEvent, pushEvent } from "../../lib/analytics";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../../lib/googlePlaces";
-import { getCityMarketStats, MARKET_STATS_PERIOD } from "../../data/cityMarketStats";
+import { getCityMarketStats, segmentPeriod } from "../../data/cityMarketStats";
 
 const CITIES = [
   "Aventura", "Bal Harbour", "Boca Raton", "Brickell", "Coconut Grove",
@@ -70,10 +70,17 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   const snapshot = form.city && form.city !== "Other" ? getCityMarketStats(form.city) : null;
   const snapshotSeg = snapshot
     ? (() => {
-        const { singleFamily: sf, condoTownhome: condo } = snapshot.stats;
+        const { county, singleFamily: sf, condoTownhome: condo } = snapshot.stats;
+        const mk = (seg: NonNullable<typeof sf>, name: "single-family" | "condo/townhome") => ({
+          seg,
+          name,
+          // Label figures with the report period they actually come from —
+          // condo and Palm Beach city data is retained from the prior report.
+          period: segmentPeriod(county, name === "single-family" ? "singleFamily" : "condoTownhome"),
+        });
         if (sf && condo) return sf.ytdClosedSales >= condo.ytdClosedSales
-          ? { seg: sf, name: "single-family" } : { seg: condo, name: "condo/townhome" };
-        return sf ? { seg: sf, name: "single-family" } : { seg: condo!, name: "condo/townhome" };
+          ? mk(sf, "single-family") : mk(condo, "condo/townhome");
+        return sf ? mk(sf, "single-family") : mk(condo!, "condo/townhome");
       })()
     : null;
 
@@ -313,17 +320,13 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
               <div className="flex items-center gap-2">
                 <TrendingUp size={14} className="text-gold-ink" />
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink">
-                  {form.city} market · {MARKET_STATS_PERIOD}
+                  {form.city} market · {snapshotSeg.period}
                 </p>
               </div>
-              <div className="mt-4 grid grid-cols-3 gap-4">
+              <div className="mt-4 grid grid-cols-2 gap-4">
                 <div>
                   <p className="font-serif text-xl text-navy">{usd.format(snapshotSeg.seg.medianSalePrice)}</p>
                   <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">Median sale price</p>
-                </div>
-                <div>
-                  <p className="font-serif text-xl text-navy">{snapshotSeg.seg.medianDaysToContract} days</p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">Median to contract</p>
                 </div>
                 <div>
                   <p className="font-serif text-xl text-navy">{snapshotSeg.seg.monthsSupply} months</p>
@@ -331,7 +334,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
                 </div>
               </div>
               <p className="mt-4 font-sans text-xs leading-relaxed text-navy/70">
-                {MARKET_STATS_PERIOD} {snapshotSeg.name} closed sales reported for {snapshot.dataCity}, per
+                {snapshotSeg.period} {snapshotSeg.name} closed sales reported for {snapshot.dataCity}, per
                 MIAMI REALTORS® + RWorld, based on MLS data compiled by Florida Realtors®.
                 Your full analysis — comparables, absorption, and positioning — is prepared personally by Carlos. Complete the details below to receive it.
               </p>
