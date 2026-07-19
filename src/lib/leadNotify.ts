@@ -24,6 +24,7 @@ export interface DirectLead {
   message?: string;
   sourcePage?: string;
   leadSource?: string;
+  desk?: string;
 }
 
 /** Fire-and-forget backup alert. Never throws; failures are non-fatal. */

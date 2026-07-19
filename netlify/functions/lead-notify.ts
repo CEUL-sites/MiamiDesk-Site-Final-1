@@ -33,6 +33,7 @@ interface LeadPayload {
   message?: string;
   sourcePage?: string;
   leadSource?: string;
+  desk?: string;
 }
 
 interface NormalizedLead {
@@ -45,6 +46,7 @@ interface NormalizedLead {
   message: string;
   sourcePage: string;
   leadSource: string;
+  desk: string;
 }
 
 function normalize(p: LeadPayload): NormalizedLead {
@@ -58,6 +60,7 @@ function normalize(p: LeadPayload): NormalizedLead {
     message: p.message || "",
     sourcePage: p.sourcePage || "homesprofessional.com",
     leadSource: p.leadSource || "",
+    desk: p.desk || "",
   };
 }
 
@@ -73,6 +76,7 @@ function buildWhatsAppMessage(l: NormalizedLead): string {
     l.message ? `💬 ${l.message.slice(0, 200)}` : "",
     "",
     `_Via: ${l.sourcePage}_`,
+    l.desk ? `🌐 Desk: ${l.desk}` : "",
     l.leadSource ? `📊 Source: ${l.leadSource}` : "",
   ]
     .filter(Boolean)
@@ -130,6 +134,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
           message: lead.message,
           sourcePage: lead.sourcePage,
           leadSource: lead.leadSource,
+          desk: lead.desk,
           via: "lead-notify-backup",
         }),
       });
@@ -157,6 +162,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       `Property / Location: ${lead.propertyAddress}${lead.city ? ", " + lead.city : ""}`,
       `Timeline / Type: ${lead.timeline}`,
       `Message: ${lead.message}`,
+      lead.desk ? `Desk: ${lead.desk}` : "",
       lead.leadSource ? `\n📊 Lead Source: ${lead.leadSource}` : "",
       "",
       "---",
