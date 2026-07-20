@@ -55,6 +55,9 @@ export default function SellBrickellPage() {
         <meta name="twitter:title" content="Sell Your Brickell Condo | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Brickell, Miami condo sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-brickell" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-brickell" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender-brickell" />
       </Helmet>
       <JsonLd id="sell-brickell-breadcrumb" data={{
           "@context": "https://schema.org",
@@ -212,7 +215,7 @@ export default function SellBrickellPage() {
                   <em className="italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 20 South Florida offices — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 20 Florida offices — not a portal, a professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[

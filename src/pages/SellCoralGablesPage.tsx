@@ -55,6 +55,9 @@ export default function SellCoralGablesPage() {
         <meta name="twitter:title" content="Sell Your Coral Gables Home | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and international buyer activation for Coral Gables, FL sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-coral-gables" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-coral-gables" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender-coral-gables" />
       </Helmet>
       <JsonLd id="sell-coral-gables-breadcrumb" data={{
           "@context": "https://schema.org",
