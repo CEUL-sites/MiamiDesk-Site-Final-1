@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
+import { DesktopStickyCTA } from "../../components/DesktopStickyCTA";
+import { ExitIntentModal } from "../../components/ExitIntentModal";
 import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { EsProof } from "../../components/es/EsProof";
@@ -273,6 +275,8 @@ export default function EsHomePage() {
 
         <Footer />
         <MobileStickyCTA />
+        <DesktopStickyCTA lang="es" />
+        <ExitIntentModal lang="es" />
       </main>
     </>
   );

@@ -28,7 +28,122 @@ const TITLE_CLOSING_RATE = 0.0075;
 
 const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
-export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
+type Lang = "en" | "es";
+
+const COPY = {
+  en: {
+    eyebrow: "Seller Net Proceeds · Estimator",
+    headline: "What would you actually walk away with?",
+    intro:
+      "Move the sliders to model your sale. Selling costs in Florida are knowable in advance — sellers who see the full math early make better listing decisions.",
+    priceLabel: "Estimated sale price",
+    priceMin: "$200K",
+    priceMax: "$5M",
+    payoffLabel: "Remaining mortgage payoff",
+    payoffMin: "$0",
+    payoffMax: "$3M",
+    commissionLabel: "Total commission — fully negotiable, set at listing",
+    breakdownHeading: "Estimated breakdown",
+    rowSalePrice: "Sale price",
+    rowCommission: (commission: number) => `Commission (${commission}%)`,
+    rowDocStamps: "Documentary stamps (est.)",
+    rowTitleClosing: "Title & closing costs (est.)",
+    rowPayoff: "Mortgage payoff",
+    netLabel: "Estimated net proceeds",
+    successOnItsWay: "On its way",
+    successBody: "Carlos will follow up with your written breakdown. Meanwhile, the full 2026 net sheet is ready now:",
+    downloadLabel: "Download the Net Sheet",
+    formIntro:
+      "Get this breakdown in writing — plus the line items this quick model can't show (prorations, HOA estoppel, your county's exact rates):",
+    namePlaceholder: "Your name",
+    nameAriaLabel: "Your name",
+    emailPlaceholder: "Email address",
+    emailAriaLabel: "Email address",
+    phonePlaceholder: "WhatsApp / phone (optional)",
+    phoneAriaLabel: "WhatsApp or phone (optional)",
+    errorMessage: "Could not send — please try again.",
+    submitLabel: "Email Me My Net Sheet",
+    submittingLabel: "Sending…",
+    confidentialLine: "Confidential · No listing commitment · No spam",
+    disclaimer:
+      "Estimates for planning purposes only — not a guarantee of sale price, costs, or proceeds. " +
+      "Commissions are fully negotiable and not set by law. Documentary stamp, title, and closing " +
+      "figures use typical Florida rates; actual amounts vary by county, contract terms, and " +
+      "property. Your written net sheet is prepared against your specific situation.",
+  },
+  es: {
+    // TODO: native Madrid editor review
+    eyebrow: "Estimador de Ganancias Netas del Vendedor",
+    // TODO: native Madrid editor review
+    headline: "¿Cuánto se quedaría realmente?",
+    // TODO: native Madrid editor review
+    intro:
+      "Mueva los controles para simular su venta. Los costos de venta en Florida se pueden conocer de antemano — los vendedores que ven los números completos desde el principio toman mejores decisiones de listado.",
+    // TODO: native Madrid editor review
+    priceLabel: "Precio de venta estimado",
+    priceMin: "$200K",
+    priceMax: "$5M",
+    // TODO: native Madrid editor review
+    payoffLabel: "Saldo restante de la hipoteca",
+    payoffMin: "$0",
+    payoffMax: "$3M",
+    // TODO: native Madrid editor review
+    commissionLabel: "Comisión total — totalmente negociable, se define al momento de listar",
+    // TODO: native Madrid editor review
+    breakdownHeading: "Desglose estimado",
+    // TODO: native Madrid editor review
+    rowSalePrice: "Precio de venta",
+    // TODO: native Madrid editor review
+    rowCommission: (commission: number) => `Comisión (${commission}%)`,
+    // TODO: native Madrid editor review
+    rowDocStamps: "Timbres documentales (est.)",
+    // TODO: native Madrid editor review
+    rowTitleClosing: "Título y costos de cierre (est.)",
+    // TODO: native Madrid editor review
+    rowPayoff: "Saldo de la hipoteca",
+    // TODO: native Madrid editor review
+    netLabel: "Ganancia neta estimada",
+    // TODO: native Madrid editor review
+    successOnItsWay: "En camino",
+    // TODO: native Madrid editor review
+    successBody: "Carlos se pondrá en contacto con su desglose por escrito. Mientras tanto, la hoja de ganancias completa de 2026 ya está disponible:",
+    // TODO: native Madrid editor review
+    downloadLabel: "Descargar la Hoja de Ganancias",
+    // TODO: native Madrid editor review
+    formIntro:
+      "Reciba este desglose por escrito — además de las partidas que este modelo rápido no puede mostrar (prorrateos, estoppel de HOA, las tarifas exactas de su condado):",
+    // TODO: native Madrid editor review
+    namePlaceholder: "Su nombre",
+    // TODO: native Madrid editor review
+    nameAriaLabel: "Su nombre",
+    // TODO: native Madrid editor review
+    emailPlaceholder: "Correo electrónico",
+    // TODO: native Madrid editor review
+    emailAriaLabel: "Correo electrónico",
+    // TODO: native Madrid editor review
+    phonePlaceholder: "WhatsApp / teléfono (opcional)",
+    // TODO: native Madrid editor review
+    phoneAriaLabel: "WhatsApp o teléfono (opcional)",
+    // TODO: native Madrid editor review
+    errorMessage: "No se pudo enviar — inténtelo de nuevo.",
+    // TODO: native Madrid editor review
+    submitLabel: "Enviarme Mi Hoja de Ganancias",
+    // TODO: native Madrid editor review
+    submittingLabel: "Enviando…",
+    // TODO: native Madrid editor review
+    confidentialLine: "Confidencial · Sin compromiso de listado · Sin spam",
+    // TODO: native Madrid editor review
+    disclaimer:
+      "Estimaciones solo para fines de planificación — no constituyen una garantía del precio de " +
+      "venta, los costos o las ganancias. Las comisiones son totalmente negociables y no están " +
+      "fijadas por ley. Las cifras de timbres documentales, título y cierre utilizan tasas típicas " +
+      "de Florida; los montos reales varían según el condado, los términos del contrato y la " +
+      "propiedad. Su hoja de ganancias por escrito se prepara según su situación específica.",
+  },
+} as const;
+
+export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: string; lang?: Lang }) {
+  const t = COPY[lang];
   const [price, setPrice] = useState(750_000);
   const [payoff, setPayoff] = useState(0);
   const [commission, setCommission] = useState(5);
@@ -69,7 +184,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
       });
       if (!res.ok) throw new Error(String(res.status));
       notifyLeadDirect({ name, email, phone, message: summary, sourcePage, leadSource: getLeadSource() });
-      trackLead("seller", { form: "net-proceeds-calculator", page: sourcePage });
+      trackLead("seller", { form: "net-proceeds-calculator", page: sourcePage, lang });
       setStatus("success");
     } catch {
       setStatus("error");
@@ -84,14 +199,13 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex items-center gap-2">
           <Calculator size={14} className="text-gold" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Seller Net Proceeds · Estimator</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.eyebrow}</p>
         </div>
         <h2 className="mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:mt-5 md:text-4xl">
-          What would you actually walk away with?
+          {t.headline}
         </h2>
         <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60 md:mt-4">
-          Move the sliders to model your sale. Selling costs in Florida are knowable in
-          advance — sellers who see the full math early make better listing decisions.
+          {t.intro}
         </p>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:gap-10 md:mt-10">
@@ -100,7 +214,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
             <div>
               <div className="flex items-baseline justify-between">
                 <label htmlFor="calc-price" className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
-                  Estimated sale price
+                  {t.priceLabel}
                 </label>
                 <span className="font-serif text-2xl text-navy-deep">{usd.format(price)}</span>
               </div>
@@ -110,14 +224,14 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                 className="mt-3 w-full accent-[#B08D57]"
               />
               <div className="mt-1 flex justify-between font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
-                <span>$200K</span><span>$5M</span>
+                <span>{t.priceMin}</span><span>{t.priceMax}</span>
               </div>
             </div>
 
             <div>
               <div className="flex items-baseline justify-between">
                 <label htmlFor="calc-payoff" className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
-                  Remaining mortgage payoff
+                  {t.payoffLabel}
                 </label>
                 <span className="font-serif text-2xl text-navy-deep">{usd.format(payoff)}</span>
               </div>
@@ -127,13 +241,13 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
                 className="mt-3 w-full accent-[#B08D57]"
               />
               <div className="mt-1 flex justify-between font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
-                <span>$0</span><span>$3M</span>
+                <span>{t.payoffMin}</span><span>{t.payoffMax}</span>
               </div>
             </div>
 
             <div>
               <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
-                Total commission — fully negotiable, set at listing
+                {t.commissionLabel}
               </label>
               <div className="mt-3 flex gap-2">
                 {COMMISSION_OPTIONS.map((c) => (
@@ -155,14 +269,14 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
 
           {/* Live breakdown */}
           <div className="border border-hairline bg-ivory p-5 md:p-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink">Estimated breakdown</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink">{t.breakdownHeading}</p>
             <dl className="mt-4 space-y-2 font-sans text-sm md:mt-5 md:space-y-3">
               {[
-                ["Sale price", usd.format(price), false],
-                [`Commission (${commission}%)`, `− ${usd.format(rows.commissionAmt)}`, false],
-                ["Documentary stamps (est.)", `− ${usd.format(rows.docStamps)}`, false],
-                ["Title & closing costs (est.)", `− ${usd.format(rows.titleClosing)}`, false],
-                ["Mortgage payoff", `− ${usd.format(payoff)}`, false],
+                [t.rowSalePrice, usd.format(price), false],
+                [t.rowCommission(commission), `− ${usd.format(rows.commissionAmt)}`, false],
+                [t.rowDocStamps, `− ${usd.format(rows.docStamps)}`, false],
+                [t.rowTitleClosing, `− ${usd.format(rows.titleClosing)}`, false],
+                [t.rowPayoff, `− ${usd.format(payoff)}`, false],
               ].map(([label, value]) => (
                 <div key={label as string} className="flex items-baseline justify-between gap-4">
                   <dt className="text-navy/70">{label}</dt>
@@ -171,7 +285,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
               ))}
             </dl>
             <div className="mt-4 border-t border-gold/30 pt-3 flex items-baseline justify-between gap-4 md:mt-5 md:pt-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">Estimated net proceeds</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">{t.netLabel}</p>
               <p className="font-serif text-3xl text-navy-deep">{usd.format(Math.max(0, rows.net))}</p>
             </div>
 
@@ -179,56 +293,54 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
             {status === "success" ? (
               <div className="mt-4 border border-gold/30 bg-white p-4 md:mt-6 md:p-5">
                 <p className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">
-                  <CheckCircle2 size={13} /> On its way
+                  <CheckCircle2 size={13} /> {t.successOnItsWay}
                 </p>
                 <p className="mt-2 font-sans text-sm leading-relaxed text-navy/65">
-                  Carlos will follow up with your written breakdown. Meanwhile, the full 2026 net
-                  sheet is ready now:
+                  {t.successBody}
                 </p>
                 <a
                   href={LEAD_MAGNETS.sellerNetSheet.url}
                   download
                   className="mt-3 inline-flex items-center gap-2 bg-navy-deep px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-90"
                 >
-                  Download the Net Sheet <ArrowRight size={13} />
+                  {t.downloadLabel} <ArrowRight size={13} />
                 </a>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="mt-4 md:mt-6">
                 <p className="font-sans text-[13px] leading-relaxed text-navy/65">
-                  Get this breakdown in writing — plus the line items this quick model can't show
-                  (prorations, HOA estoppel, your county's exact rates):
+                  {t.formIntro}
                 </p>
                 <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
                   <input
                     required type="text" value={name} onChange={(e) => setName(e.target.value)}
-                    placeholder="Your name" autoComplete="name" aria-label="Your name"
+                    placeholder={t.namePlaceholder} autoComplete="name" aria-label={t.nameAriaLabel}
                     className={inputCls}
                   />
                   <input
                     required type="email" value={email} onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email address" autoComplete="email" inputMode="email" aria-label="Email address"
+                    placeholder={t.emailPlaceholder} autoComplete="email" inputMode="email" aria-label={t.emailAriaLabel}
                     className={inputCls}
                   />
                 </div>
                 <input
                   type="tel" value={phone} onChange={(e) => setPhone(e.target.value)}
-                  placeholder="WhatsApp / phone (optional)" autoComplete="tel" inputMode="tel" aria-label="WhatsApp or phone (optional)"
+                  placeholder={t.phonePlaceholder} autoComplete="tel" inputMode="tel" aria-label={t.phoneAriaLabel}
                   className={`${inputCls} mt-2.5`}
                 />
                 {status === "error" && (
-                  <p className="mt-2 font-sans text-xs text-red-600/80">Could not send — please try again.</p>
+                  <p className="mt-2 font-sans text-xs text-red-600/80">{t.errorMessage}</p>
                 )}
                 <button
                   type="submit" disabled={status === "submitting"}
                   className="mt-3 flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 disabled:opacity-60"
                 >
                   {status === "submitting"
-                    ? <><Loader2 size={14} className="animate-spin" /> Sending…</>
-                    : <>Email Me My Net Sheet <ArrowRight size={14} /></>}
+                    ? <><Loader2 size={14} className="animate-spin" /> {t.submittingLabel}</>
+                    : <>{t.submitLabel} <ArrowRight size={14} /></>}
                 </button>
                 <p className="mt-2.5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
-                  <Lock size={9} className="text-gold-ink" /> Confidential · No listing commitment · No spam
+                  <Lock size={9} className="text-gold-ink" /> {t.confidentialLine}
                 </p>
               </form>
             )}
@@ -236,10 +348,7 @@ export function SellerNetCalculator({ sourcePage }: { sourcePage: string }) {
         </div>
 
         <p className="mt-4 max-w-3xl font-sans text-[11px] leading-relaxed text-ink-primary/70 md:mt-6">
-          Estimates for planning purposes only — not a guarantee of sale price, costs, or proceeds.
-          Commissions are fully negotiable and not set by law. Documentary stamp, title, and closing
-          figures use typical Florida rates; actual amounts vary by county, contract terms, and
-          property. Your written net sheet is prepared against your specific situation.
+          {t.disclaimer}
         </p>
       </div>
     </section>

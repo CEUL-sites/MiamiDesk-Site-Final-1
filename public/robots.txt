@@ -4,4 +4,3 @@ Disallow: /api/
 Disallow: /*.json$
 
 Sitemap: https://homesprofessional.com/sitemap.xml
-Sitemap: https://homesprofessional.com/sitemap-journal-additions.xml
