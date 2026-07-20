@@ -36,10 +36,11 @@
 
   <url>
     <loc>https://homesprofessional.com/sell-coral-gables</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-gables"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-coral-gables"/>
   </url>
 
   <url>
@@ -52,18 +53,20 @@
 
   <url>
     <loc>https://homesprofessional.com/sell-doral</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-doral"/>
   </url>
 
   <url>
     <loc>https://homesprofessional.com/sell-brickell</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-brickell"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-brickell"/>
   </url>
 
   <url>
@@ -628,6 +631,33 @@
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/vender-doral</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-doral"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/vender-brickell</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-brickell"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-brickell"/>
+  </url>
+
+  <url>
+    <loc>https://homesprofessional.com/es/vender-coral-gables</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-gables"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-coral-gables"/>
   </url>
 
   <!-- ── Market Data ──────────────────────────────────────────────── -->
