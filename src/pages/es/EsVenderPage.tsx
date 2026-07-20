@@ -5,6 +5,9 @@ import { ChevronRight, MessageSquare, BadgeCheck } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
+import { DesktopStickyCTA } from "../../components/DesktopStickyCTA";
+import { ExitIntentModal } from "../../components/ExitIntentModal";
+import { SellerNetCalculator } from "../../components/SellerNetCalculator";
 import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT } from "../../constants";
@@ -68,7 +71,7 @@ const STEPS = [
     label: "Lanzar",
     // TODO: native Madrid editor review
     description:
-      "Activación en el MLS de Miami y Sur de Florida a través de United Realty Group, con distribución simultánea a 200+ portales globales en 19 idiomas el mismo día del lanzamiento.",
+      "Activación en el MLS de Miami y Sur de Florida a través de United Realty Group, con distribución elegible a 200+ portales globales en 19 idiomas.",
   },
   {
     number: "04",
@@ -184,10 +187,10 @@ export default function EsVenderPage() {
               >
                 {/* TODO: native Madrid editor review */}
                 25 años de transacciones en Sur de Florida. Cada exclusiva
-                activa la red de la mayor asociación local de REALTORS® del
-                mundo — 93.000 agentes miembros, 200+ portales globales
-                en 19 idiomas, 260+ MLSs en EE. UU. a través de RPR — el mismo
-                día del lanzamiento.
+                entra en el ecosistema del MLS de Miami y Sur de Florida — la
+                mayor asociación local de REALTORS® del mundo, con 93.000
+                agentes miembros, 200+ portales globales en 19 idiomas y 260+
+                MLSs en EE. UU. a través de RPR.
               </motion.p>
 
               <motion.div
@@ -302,9 +305,11 @@ export default function EsVenderPage() {
                 <p className="mt-4 font-sans text-sm leading-relaxed text-navy-deep/60">
                   {/* TODO: native Madrid editor review */}
                   A través de United Realty Group y la red de la Asociación de
-                  REALTORS® de Miami y Sur de Florida, cada exclusiva llega a
-                  93.000 agentes miembros el día del lanzamiento. Los 437 acuerdos internacionales y los 11 intercambios de MLS amplifican ese
-                  alcance a compradores de Europa, Latinoamérica y Asia.
+                  REALTORS® de Miami y Sur de Florida, cada exclusiva entra en
+                  el ecosistema del MLS del que forman parte 93.000 agentes
+                  miembros. Los 437+ acuerdos internacionales y los 11
+                  intercambios de MLS amplifican ese alcance a compradores de
+                  Europa, Latinoamérica y Asia.
                 </p>
               </div>
               <div>
@@ -327,6 +332,8 @@ export default function EsVenderPage() {
             </div>
           </div>
         </section>
+
+        <SellerNetCalculator sourcePage="es-vender" lang="es" />
 
         {/* ─── CTA Band ─────────────────────────────────────────── */}
         {/* id="contact": landing anchor for MobileStickyCTA's Spanish "Vender
@@ -393,6 +400,8 @@ export default function EsVenderPage() {
 
         <Footer />
         <MobileStickyCTA />
+        <DesktopStickyCTA lang="es" />
+        <ExitIntentModal lang="es" />
       </main>
     </>
   );
