@@ -3,7 +3,10 @@
 // released Friday, July 17, 2026; next release Friday, October 16, 2026).
 // Median sale price and months supply of inventory below are transcribed
 // verbatim, per city/CDP, from the Single-Family Homes tables in the
-// Miami-Dade and Broward county PDFs. Median prices reflect CLOSED sales
+// Miami-Dade, Broward, and Palm Beach county PDFs, and from the
+// Townhouses-and-Condos tables in the Palm Beach county PDF (Miami-Dade
+// and Broward condo city tables not yet provided — see PRIOR_STATS_PERIOD
+// below). Median prices reflect CLOSED sales
 // (not asking prices). County-level quarterly PDFs from
 // miamirealtors.com/market-statistics/.
 //
@@ -20,11 +23,11 @@
 
 export const MARKET_STATS_PERIOD = "Q2 2026";
 
-// The Q2 2026 city-level reports cover SINGLE-FAMILY for Miami-Dade and
-// Broward only. Condo/townhome city figures and all Palm Beach figures are
-// retained from the May 2026 monthly city reports (the latest city-level
-// source available for those segments) and must be labeled with that period
-// wherever they are displayed — never as Q2 2026.
+// Q2 2026 city-level sources on file: SINGLE-FAMILY for all three counties,
+// and CONDO/TOWNHOME for Palm Beach. Condo/townhome city figures for
+// Miami-Dade and Broward are retained from the May 2026 monthly city reports
+// (the latest city-level source provided for that segment) and must be
+// labeled with that period wherever they are displayed — never as Q2 2026.
 export const PRIOR_STATS_PERIOD = "May 2026";
 
 /** The report period a given county+segment's figures are actually sourced from. */
@@ -32,7 +35,7 @@ export function segmentPeriod(
   county: CityMarketStats["county"],
   segment: "singleFamily" | "condoTownhome",
 ): string {
-  return segment === "singleFamily" && county !== "Palm Beach"
+  return segment === "singleFamily" || county === "Palm Beach"
     ? MARKET_STATS_PERIOD
     : PRIOR_STATS_PERIOD;
 }
@@ -95,9 +98,9 @@ export const CITY_MARKET_STATS: Record<string, CityMarketStats> = {
   "Hallandale Beach":   { county: "Broward", singleFamily: s(580_000, 9.8, 110, 18), condoTownhome: s(236_000, 21, 110, 196) },
 
   // ── Palm Beach County ────────────────────────────────────────────────
-  "West Palm Beach":    { county: "Palm Beach", singleFamily: s(675_000, 5, 46, 345), condoTownhome: s(347_000, 9, 76, 293) },
-  "Boca Raton":         { county: "Palm Beach", singleFamily: s(1_208_000, 4, 33, 302), condoTownhome: s(640_000, 8, 69, 266) },
-  "Palm Beach":         { county: "Palm Beach", singleFamily: s(15_800_000, 13, 82, 51), condoTownhome: s(1_450_000, 9, 62, 156) },
+  "West Palm Beach":    { county: "Palm Beach", singleFamily: s(651_000, 4.8, 46, 345), condoTownhome: s(364_500, 8.4, 76, 293) },
+  "Boca Raton":         { county: "Palm Beach", singleFamily: s(1_300_000, 3.9, 33, 302), condoTownhome: s(578_000, 7.0, 69, 266) },
+  "Palm Beach":         { county: "Palm Beach", singleFamily: s(13_640_000, 9.6, 82, 51), condoTownhome: s(1_725_000, 7.6, 62, 156) },
 };
 
 // Neighborhoods the MLS reports under their parent municipality.
