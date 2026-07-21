@@ -162,7 +162,7 @@ export default function BuyersPage() {
         {/* ── Hero — 25 years + the network behind it ─────────────── */}
         <section className="relative overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
           <LazyVideo
-            src="/videos/south_florida_showcase.mp4"
+            src="/videos/cinematic_house_reach_2.mp4"
             idle
             className="absolute inset-0 h-full w-full object-cover opacity-[0.32]"
           />

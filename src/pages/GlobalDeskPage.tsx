@@ -335,7 +335,7 @@ export default function GlobalDeskPage() {
           {/* Luxury backdrop — prime listing showcase under the aurora */}
           <LazyVideo
             idle
-            src="/videos/luxury_listing_showcase.mp4"
+            src="/videos/madrid_piso_entrance.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.26] pointer-events-none"
           />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.28),transparent_70%)]" />
