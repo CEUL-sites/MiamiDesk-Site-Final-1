@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { ChevronRight, MessageCircle, FileCheck, KeyRound, ClipboardList } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { AuroraBackground } from "../components/AuroraBackground";
+import { LazyVideo } from "../components/LazyVideo";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
@@ -331,9 +332,17 @@ export default function GlobalDeskPage() {
 
         {/* ── Section B — Hero ── */}
         <section className="relative overflow-hidden px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+          {/* Luxury backdrop — prime listing showcase under the aurora */}
+          <LazyVideo
+            idle
+            src="/videos/luxury_listing_showcase.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.26] pointer-events-none"
+          />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.28),transparent_70%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_82%_75%,rgba(176,141,87,0.10),transparent_70%)]" />
           <AuroraBackground variant="subtle" interactive />
+          {/* Readability scrim stays the topmost background layer */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/80 via-[#060D18]/35 to-[#060D18]/85" />
           <motion.div
             initial="hidden"
             animate="show"

@@ -164,7 +164,7 @@ export default function BuyersPage() {
           <LazyVideo
             src="/videos/south_florida_showcase.mp4"
             idle
-            className="absolute inset-0 h-full w-full object-cover opacity-20"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.32]"
           />
           <AuroraBackground interactive />
           {/* Readability scrim stays the topmost background layer — the aurora
