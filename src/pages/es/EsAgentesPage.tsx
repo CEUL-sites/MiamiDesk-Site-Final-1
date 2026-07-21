@@ -573,17 +573,17 @@ export default function EsAgentesPage() {
               </p>
               <h2 className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
                 {/* TODO: native Madrid editor review */}
-                Cuando su cliente lista con Carlos, entra en la red más grande
-                de agentes inmobiliarios locales{" "}
+                Cuando su cliente lista con Carlos, entra en la asociación
+                local de REALTORS® más grande{" "}
                 <em>del mundo.</em>
               </h2>
             </div>
 
             <p className="mx-auto max-w-3xl text-center font-sans text-base leading-relaxed text-navy-deep/70">
               {/* TODO: native Madrid editor review */}
-              Carlos es miembro de Miami and South Florida REALTORS® — la mayor
-              asociación local de Realtor® del mundo tras la fusión de MIAMI
-              REALTORS® y RWorld, efectiva el 11 de mayo de 2026 — con 93.000
+              Carlos es miembro de Miami and South Florida REALTORS® — la asociación
+              local de REALTORS® más grande del mundo tras la fusión de MIAMI
+              REALTORS® y RWorld — con 93.000
               agentes miembro.
             </p>
 

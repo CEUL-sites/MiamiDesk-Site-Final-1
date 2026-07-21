@@ -138,7 +138,7 @@ export default function EsVenderBrickellPage() {
             <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
               {/* TODO: native Madrid editor review */}
               Venda su condominio en Brickell con el alcance<br />
-              <em className="italic text-gold">de la red local de REALTORS® más grande del mundo.</em>
+              <em className="italic text-gold">de la asociación local de REALTORS® más grande del mundo.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               {/* TODO: native Madrid editor review */}

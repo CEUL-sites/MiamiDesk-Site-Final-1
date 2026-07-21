@@ -128,7 +128,7 @@ export function CityListingsSample({
         {status === "ready" && (
           <p className="mt-8 max-w-3xl font-sans text-sm leading-relaxed text-white/55">
             These are buyers' agents' search results today. Online exposure gets your {city} listing seen;
-            the world's largest agent network gets it sold —{" "}
+            the world's largest local Realtor® association reaches the buyer's agent —{" "}
             <a href="/home-value" className="text-gold underline underline-offset-4 hover:text-white">
               find out where your home fits →
             </a>

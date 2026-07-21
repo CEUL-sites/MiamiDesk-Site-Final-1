@@ -26,13 +26,13 @@ const CORAL_GABLES_FAQS_ES = [
     // TODO: native Madrid editor review
     q: "¿En qué rango de precios se venden normalmente las casas en Coral Gables?",
     // TODO: native Madrid editor review
-    a: "Coral Gables es uno de los mercados de lujo más consolidados del condado de Miami-Dade. Las casas unifamiliares van desde aproximadamente $1.5M para viviendas tradicionales bien mantenidas hasta más de $10M para propiedades frente al agua y renovaciones completas de estilo mediterráneo. Los condominios y townhomes ocupan una amplia franja por debajo de ese rango. Carlos ofrece un CMA preciso — análisis comparativo de mercado — para su calle y condición específicas, sin costo y sin obligación de listar.",
+    a: "Coral Gables es uno de los mercados de lujo más consolidados del condado de Miami-Dade, con un rango que va desde viviendas tradicionales bien mantenidas hasta propiedades frente al agua y renovaciones completas de estilo mediterráneo, mientras que los condominios y townhomes se negocian en una franja aparte, por debajo del precio unifamiliar. El posicionamiento exacto depende en gran medida de la calle, el lote y la condición. Carlos ofrece un CMA preciso — análisis comparativo de mercado — para su propiedad específica, sin costo y sin obligación de listar.",
   },
   {
     // TODO: native Madrid editor review
     q: "¿Cuánto tiempo toma vender en Coral Gables?",
     // TODO: native Madrid editor review
-    a: "Las casas bien posicionadas en Coral Gables, en el rango de $1.5M–$4M, se han vendido a velocidades variables según el ciclo de mercado, la condición y la estrategia de listado. Las propiedades con un precio excesivo en este mercado acumulan días en el mercado rápidamente y suelen venderse por debajo de lo que deberían. Según datos del MLS de Miami y el Sur de Florida REALTORS®, la disciplina de precios y la activación de agentes compradores son los principales predictores del resultado — no el volumen de listados ni la exposición en portales.",
+    a: "Las casas bien posicionadas en Coral Gables se han vendido a velocidades variables según el ciclo de mercado, el nivel de precio, la condición y la estrategia de listado. Las propiedades con un precio excesivo en este mercado acumulan días en el mercado rápidamente y suelen venderse por debajo de lo que deberían. Según datos del MLS de Miami y el Sur de Florida REALTORS®, la disciplina de precios y la activación de agentes compradores son los principales predictores del resultado — no el volumen de listados ni la exposición en portales.",
   },
   {
     // TODO: native Madrid editor review
@@ -159,7 +159,7 @@ export default function EsVenderCoralGablesPage() {
             >
               {/* TODO: native Madrid editor review */}
               Venda su propiedad en Coral Gables con el alcance<br />
-              <em className="italic text-gold">de la red local de REALTORS® más grande del mundo.</em>
+              <em className="italic text-gold">de la asociación local de REALTORS® más grande del mundo.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               {/* TODO: native Madrid editor review */}
