@@ -9,7 +9,9 @@ export interface VideoBubble {
 
 export const VIDEO_BUBBLES: VideoBubble[] = [
   { src: "/videos/signature_marketing_reel.mp4",      caption: "Signature marketing reel" },
+  { src: "/videos/aerial_drone_vertical.mp4",         caption: "Waterfront at dusk" },
   { src: "/videos/luxury_home_walkthrough.mp4",       caption: "Cinematic home walkthrough" },
+  { src: "/videos/hand_house_reach_2.mp4",            caption: "Your villa, in hand" },
   { src: "/videos/luxury_waterfront_estate.mp4",      caption: "Waterfront estate tour" },
   { src: "/videos/matterport_miami_beach.mp4",        caption: "Matterport — Miami Beach" },
   { src: "/videos/matterport_style.mp4",              caption: "Immersive 3D walkthrough" },

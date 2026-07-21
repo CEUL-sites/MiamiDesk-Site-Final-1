@@ -815,7 +815,7 @@ export default function AgentsPage() {
               {/* Right: cinematic video accent */}
               <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "85%" }}>
                 <LazyVideo
-                  src="/videos/cinematic_house_reach.mp4"
+                  src="/videos/dollhouse_hand_team_2.mp4"
                   className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
