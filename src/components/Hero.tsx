@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronRight, Globe, ShieldCheck, Star, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
+import { LazyVideo } from "./LazyVideo";
 import { Tilt3D } from "./Tilt3D";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -182,6 +183,16 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
             "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)",
         }}
       >
+        {/* Poster underlay — the signature still shows whenever the clips
+            can't (data-saver, Low Power Mode, blocked autoplay, buffering),
+            so the circle is never an empty navy disc. */}
+        <img
+          src="/images/posters/dollhouse_rotating_in_hands.jpg"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         {[0, 1].map((layer) => (
           <video
             key={layer}
@@ -284,6 +295,14 @@ export function Hero() {
       `}</style>
 
       <HeroBackground />
+      {/* Luxury estate backdrop — waterfront architecture behind the aurora
+          field. Low opacity so the headline and form keep full contrast. */}
+      <LazyVideo
+        idle
+        src="/videos/luxury_waterfront_estate.mp4"
+        className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#060D18]/85 via-[#060D18]/30 to-[#060D18]/80 pointer-events-none" aria-hidden="true" />
       <div className="hero-grain"    aria-hidden="true" />
       <div className="hero-grid"     aria-hidden="true" />
       <div className="hero-vignette" aria-hidden="true" />

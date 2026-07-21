@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { useSearchParams } from "react-router-dom";
 import { AuroraBackground } from "../components/AuroraBackground";
+import { LazyVideo } from "../components/LazyVideo";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -79,7 +80,15 @@ export default function ContactPage() {
             navy sections each clipped their own blurred blobs, leaving a
             visible seam between them. */}
         <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20">
+          {/* Luxury backdrop — infinity pool + ocean views under the aurora */}
+          <LazyVideo
+            idle
+            src="/videos/infinity_pool_ocean_views.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.28] pointer-events-none"
+          />
           <AuroraBackground variant="warm" interactive />
+          {/* Readability scrim stays the topmost background layer */}
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/75 via-navy-deep/40 to-navy-deep/85 pointer-events-none" />
           <div className="relative z-10 px-6 text-center">
             <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">{deskCtx?.eyebrow ?? "Confidential · Private Review"}</p>
             <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">

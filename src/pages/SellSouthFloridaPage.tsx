@@ -122,7 +122,7 @@ export default function SellSouthFloridaPage() {
           <LazyVideo
             eager
             src="/videos/luxury_waterfront_drone.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.13] pointer-events-none"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.32] pointer-events-none"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
