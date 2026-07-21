@@ -1,7 +1,9 @@
-import type { CSSProperties } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 
-/* CSS-only aurora blob background for dark sections.
- * No mouse parallax — that's a hero-only interaction.
+/* Aurora blob background for dark sections.
+ * CSS-only by default. Pass `interactive` on page heroes to add the same
+ * cursor-following spotlight + gentle blob parallax the home hero uses —
+ * guarded to fine-pointer devices without reduced-motion, inert elsewhere.
  * Usage: first child inside any `relative overflow-hidden` dark section. */
 
 const KEYFRAMES = `
@@ -125,10 +127,76 @@ const CONFIGS: Record<Variant, {
   },
 };
 
-export function AuroraBackground({ variant = "default" }: { variant?: Variant }) {
+// Parallax depth per blob slot when `interactive` — matches the home hero's
+// range so sub-page heroes feel like the same physical space.
+const DEPTHS = [18, -12, 24];
+
+export function AuroraBackground({
+  variant = "default",
+  interactive = false,
+}: {
+  variant?: Variant;
+  interactive?: boolean;
+}) {
   const { blobs } = CONFIGS[variant];
+  const rootRef = useRef<HTMLDivElement>(null);
+  const spotRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!interactive) return;
+    const root = rootRef.current;
+    const spot = spotRef.current;
+    if (!root || typeof window.matchMedia !== "function") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+    const els: HTMLDivElement[] = Array.from(root.querySelectorAll(".aurora-blob"));
+    let tx = 0.5, ty = 0.4;          // raw cursor, normalized to the section
+    let sx = 0.5, sy = 0.4;          // smoothed spotlight position
+    const cx = new Array(els.length).fill(0);
+    const cy = new Array(els.length).fill(0);
+    let active = false;
+    let raf = 0;
+
+    function onMove(e: MouseEvent) {
+      const r = root!.getBoundingClientRect();
+      tx = (e.clientX - r.left) / Math.max(r.width, 1);
+      ty = (e.clientY - r.top) / Math.max(r.height, 1);
+      active = ty >= -0.1 && ty <= 1.1;   // fade the spotlight once the cursor leaves the section
+    }
+    function onLeave() { active = false; }
+
+    function tick() {
+      sx += (tx - sx) * 0.12;
+      sy += (ty - sy) * 0.12;
+      if (spot) {
+        spot.style.setProperty("--mx", `${(sx * 100).toFixed(2)}%`);
+        spot.style.setProperty("--my", `${(sy * 100).toFixed(2)}%`);
+        spot.style.opacity = active ? "1" : "0";
+      }
+      const ox = (tx - 0.5) * 2, oy = (ty - 0.5) * 2;
+      els.forEach((b, i) => {
+        const depth = DEPTHS[i % DEPTHS.length];
+        cx[i] += (ox * depth - cx[i]) * 0.03;
+        cy[i] += (oy * depth - cy[i]) * 0.03;
+        b.style.setProperty("translate", `${cx[i].toFixed(2)}px ${cy[i].toFixed(2)}px`);
+      });
+      raf = requestAnimationFrame(tick);
+    }
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("mouseout", onLeave, { passive: true });
+    raf = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseout", onLeave);
+      cancelAnimationFrame(raf);
+    };
+  }, [interactive]);
+
   return (
     <div
+      ref={rootRef}
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden="true"
     >
@@ -140,6 +208,20 @@ export function AuroraBackground({ variant = "default" }: { variant?: Variant })
           style={{ ...b.style, willChange: "transform" }}
         />
       ))}
+      {interactive && (
+        <div
+          ref={spotRef}
+          className="absolute inset-0"
+          style={{
+            opacity: 0,
+            transition: "opacity 0.6s ease",
+            mixBlendMode: "screen",
+            background:
+              "radial-gradient(420px circle at var(--mx,50%) var(--my,40%), rgba(60,120,235,0.16) 0%, rgba(176,141,87,0.09) 35%, transparent 65%)",
+            willChange: "background",
+          } as CSSProperties}
+        />
+      )}
     </div>
   );
 }

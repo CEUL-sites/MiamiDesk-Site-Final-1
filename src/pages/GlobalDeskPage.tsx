@@ -4,6 +4,7 @@ import { JsonLd } from "../components/SEO/JsonLd";
 import { motion } from "motion/react";
 import { ChevronRight, MessageCircle, FileCheck, KeyRound, ClipboardList } from "lucide-react";
 import { Navbar } from "../components/Navbar";
+import { AuroraBackground } from "../components/AuroraBackground";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
@@ -332,6 +333,7 @@ export default function GlobalDeskPage() {
         <section className="relative overflow-hidden px-6 pt-20 pb-16 md:pt-28 md:pb-24">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.28),transparent_70%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_82%_75%,rgba(176,141,87,0.10),transparent_70%)]" />
+          <AuroraBackground variant="subtle" interactive />
           <motion.div
             initial="hidden"
             animate="show"
@@ -364,7 +366,7 @@ export default function GlobalDeskPage() {
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href="#listing-request"
-                className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
+                className="hero-cta-main inline-flex items-center gap-2 px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25"
               >
                 {t.heroCta}
                 <ChevronRight size={14} />
@@ -644,7 +646,7 @@ export default function GlobalDeskPage() {
             <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-white/10 pt-10">
               <a
                 href="#listing-request"
-                className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
+                className="hero-cta-main inline-flex items-center gap-2 px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25"
               >
                 {t.midCta}
                 <ChevronRight size={14} />
