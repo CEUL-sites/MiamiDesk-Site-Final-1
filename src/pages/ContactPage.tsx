@@ -75,21 +75,21 @@ export default function ContactPage() {
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20 text-center">
-          <AuroraBackground variant="warm" />
-          <div className="relative z-10">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">{deskCtx?.eyebrow ?? "Confidential · Private Review"}</p>
-          <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
-            {deskCtx?.heading ?? "Request a Private Listing Review"}
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            {deskCtx?.intro ?? "For South Florida sellers, international property owners, agencies, developers, and cooperating brokers. Share the essentials — Carlos reviews every submission personally. No listing commitment required."}
-          </p>
+        {/* Header + form share one section and one aurora field — two stacked
+            navy sections each clipped their own blurred blobs, leaving a
+            visible seam between them. */}
+        <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20">
+          <AuroraBackground variant="warm" interactive />
+          <div className="relative z-10 px-6 text-center">
+            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">{deskCtx?.eyebrow ?? "Confidential · Private Review"}</p>
+            <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
+              {deskCtx?.heading ?? "Request a Private Listing Review"}
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
+              {deskCtx?.intro ?? "For South Florida sellers, international property owners, agencies, developers, and cooperating brokers. Share the essentials — Carlos reviews every submission personally. No listing commitment required."}
+            </p>
           </div>
-        </section>
-        <section className="relative overflow-hidden bg-navy-deep py-14 md:py-20">
-          <AuroraBackground variant="subtle" />
-          <div className="relative z-10 mx-auto max-w-5xl px-6">
+          <div className="relative z-10 mx-auto mt-14 max-w-5xl px-6 md:mt-16">
             <div className="mb-8 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential · Private Review Desk</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Submit your listing for private review</h2>

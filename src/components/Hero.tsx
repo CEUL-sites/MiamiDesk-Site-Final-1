@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronRight, Globe, ShieldCheck, Star, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
+import { Tilt3D } from "./Tilt3D";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -332,23 +333,24 @@ export function Hero() {
           {/* Static distribution stat row — replaces the auto-scrolling
               marquee. Static and readable is the point: no counting-up
               animation, no motion. */}
-          <motion.div
-            variants={item}
-            className="mt-7 grid w-full max-w-2xl grid-cols-2 gap-x-4 gap-y-6 border-y border-gold/15 py-6 sm:grid-cols-4 sm:gap-x-6"
-          >
-            {DISTRIBUTION_STATS.map((s) => (
-              <div key={s.label}>
-                <div
-                  className="font-serif text-white"
-                  style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)", fontWeight: 400 }}
-                >
-                  {s.value}
-                </div>
-                <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
-                  {s.label}
-                </div>
+          <motion.div variants={item} className="w-full flex justify-center">
+            <Tilt3D maxTilt={3} className="mt-7 w-full max-w-2xl">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-6 border-y border-gold/15 py-6 sm:grid-cols-4 sm:gap-x-6">
+                {DISTRIBUTION_STATS.map((s) => (
+                  <div key={s.label}>
+                    <div
+                      className="font-serif text-white"
+                      style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)", fontWeight: 400 }}
+                    >
+                      {s.value}
+                    </div>
+                    <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </Tilt3D>
           </motion.div>
 
           <motion.p

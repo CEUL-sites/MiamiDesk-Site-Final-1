@@ -4,6 +4,8 @@
 // (see src/constants.ts ASSOCIATION_STATS) — do not edit numbers here in
 // isolation.
 
+import { Tilt3D } from "./Tilt3D";
+
 const REACH_FIGURES: { value: string; label: string }[] = [
   { value: "93,000", label: "Member agents" },
   { value: "200+",   label: "Global portals" },
@@ -14,19 +16,21 @@ const REACH_FIGURES: { value: string; label: string }[] = [
 
 export function HeroReachBar({ className = "" }: { className?: string }) {
   return (
-    <div
-      className={`mx-auto mt-8 flex max-w-md flex-wrap items-start justify-center gap-x-6 gap-y-3 border-y border-white/10 py-4 sm:max-w-3xl sm:gap-x-10 ${className}`}
-      role="list"
-      aria-label="Distribution network reach"
-    >
-      {REACH_FIGURES.map((f) => (
-        <div key={f.label} role="listitem" className="min-w-[5rem] text-center">
-          <div className="font-serif text-xl leading-none text-gold md:text-2xl">{f.value}</div>
-          <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 md:text-[10px]">
-            {f.label}
+    <Tilt3D maxTilt={3} className={`mx-auto mt-8 max-w-md sm:max-w-3xl ${className}`}>
+      <div
+        className="flex flex-wrap items-start justify-center gap-x-6 gap-y-3 border-y border-white/10 py-4 sm:gap-x-10"
+        role="list"
+        aria-label="Distribution network reach"
+      >
+        {REACH_FIGURES.map((f) => (
+          <div key={f.label} role="listitem" className="min-w-[5rem] text-center">
+            <div className="font-serif text-xl leading-none text-gold md:text-2xl">{f.value}</div>
+            <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 md:text-[10px]">
+              {f.label}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </Tilt3D>
   );
 }

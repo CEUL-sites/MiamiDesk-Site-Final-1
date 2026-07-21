@@ -22,6 +22,7 @@ import {
 import { CONTACT, LEAD_MAGNETS, URG_CITIES } from "../constants";
 import { LazyVideo } from "../components/LazyVideo";
 import { NeoEmbed } from "../components/NeoEmbed";
+import { Tilt3D } from "../components/Tilt3D";
 
 // Florida buyer service — the primary track. Spain is a separate, second desk below.
 const FL_SERVICES = [
@@ -165,8 +166,10 @@ export default function BuyersPage() {
             idle
             className="absolute inset-0 h-full w-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/40 to-navy-deep/80" />
-          <AuroraBackground />
+          <AuroraBackground interactive />
+          {/* Readability scrim stays the topmost background layer — the aurora
+              must never wash out the headline. */}
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/40 to-navy-deep/80 pointer-events-none" />
           <div className="relative z-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Representation</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
@@ -179,23 +182,25 @@ export default function BuyersPage() {
             and {CONTACT.stats.urgOffices} Florida offices.
           </p>
           {/* Scale strip — the strength story in four figures */}
-          <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-px border border-white/10 bg-white/10 sm:grid-cols-4">
-            {[
-              { value: `${CONTACT.stats.experience} yrs`, label: "Licensed since 2001" },
-              { value: CONTACT.stats.urgAgents, label: "URG agents statewide" },
-              { value: CONTACT.stats.urgOffices, label: "Florida offices" },
-              { value: "EN / ES", label: "Bilingual coordination" },
-            ].map((s) => (
-              <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
-                <p className="font-serif text-2xl text-gold">{s.value}</p>
-                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{s.label}</p>
-              </div>
-            ))}
-          </div>
+          <Tilt3D className="mx-auto mt-8 max-w-3xl">
+            <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 sm:grid-cols-4">
+              {[
+                { value: `${CONTACT.stats.experience} yrs`, label: "Licensed since 2001" },
+                { value: CONTACT.stats.urgAgents, label: "URG agents statewide" },
+                { value: CONTACT.stats.urgOffices, label: "Florida offices" },
+                { value: "EN / ES", label: "Bilingual coordination" },
+              ].map((s) => (
+                <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
+                  <p className="font-serif text-2xl text-gold">{s.value}</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </Tilt3D>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+              className="hero-cta-main inline-flex items-center gap-2 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep"
             >
               Request a Buyer Consultation
             </a>
@@ -203,7 +208,7 @@ export default function BuyersPage() {
               href={CONTACT.whatsappUS}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+              className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-gold/50 hover:text-white"
             >
               WhatsApp Carlos
             </a>
