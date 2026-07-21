@@ -110,7 +110,7 @@ export default function SellFortLauderdalePage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Fort Lauderdale, FL · Seller Advisory</p>
             <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
               Sell your Fort Lauderdale property with the reach<br />
-              <em className="italic text-gold">of the world's largest local Realtor® network.</em>
+              <em className="italic text-gold">of the world's largest local Realtor® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Fort Lauderdale's waterfront market, diverse neighborhoods, and international buyer profile demand

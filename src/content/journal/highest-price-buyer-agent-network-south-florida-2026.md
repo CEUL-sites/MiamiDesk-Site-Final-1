@@ -33,7 +33,7 @@ The **second table is the negotiation**: how the offers that arrive are handled,
 
 A great market with a weak negotiator leaves money on the table. A great negotiator with a thin market never gets the leverage to use their skill. You need both tables set well. The point of listing with a serious professional inside a serious network is that it prepares you for both.
 
-## The Distribution: The World's Largest Local REALTOR® Network
+## The Distribution: The World's Largest Local REALTOR® Association
 
 Reaching the agent who has your highest-price buyer is a function of reach — and not all reach is equal.
 
@@ -78,7 +78,7 @@ This is what "professional negotiation" actually means: not a single dramatic co
 
 For an equity-rich South Florida owner — someone who has held property for years and is now weighing a downsizing, a relocation, or a move up — the gap between a passively listed price and an actively negotiated one is often the difference between funding the next chapter comfortably and settling for less. The equity is real, but it is not realized until the sale closes.
 
-Selling through a professional connected to the world's largest local REALTOR® network and a 3,500-agent brokerage is a decision to set **both tables** deliberately:
+Selling through a professional connected to the world's largest local REALTOR® association and a 3,500-agent brokerage is a decision to set **both tables** deliberately:
 
 - The **market** is activated across the association's full distribution reach, so your highest-price buyer's agent is far more likely to see the property.
 - The **negotiation** is handled as a discipline, so the leverage that exposure creates is actually captured in price and terms.

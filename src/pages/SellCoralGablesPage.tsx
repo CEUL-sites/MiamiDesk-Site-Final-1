@@ -18,11 +18,11 @@ import { CONTACT, LEAD_MAGNETS } from "../constants";
 const CORAL_GABLES_FAQS = [
   {
     q: "What price range do Coral Gables homes typically sell for?",
-    a: "Coral Gables is one of Miami-Dade's most enduring luxury markets. Single-family homes range from approximately $1.5M for well-maintained traditional homes to $10M+ for waterfront estates and fully renovated Mediterranean-revival properties. Condominiums and townhomes occupy a wide band below that. Carlos provides a precise CMA — comparable market analysis — for your specific street and condition at no cost, with no obligation to list.",
+    a: "Coral Gables is one of Miami-Dade's most enduring luxury markets, spanning well-maintained traditional homes through waterfront estates and fully renovated Mediterranean-revival properties, with condominiums and townhomes trading in a separate band below single-family pricing. Exact positioning depends heavily on street, lot, and condition. Carlos provides a precise CMA — comparable market analysis — for your specific property at no cost, with no obligation to list.",
   },
   {
     q: "How long does it take to sell in Coral Gables?",
-    a: "Well-positioned Coral Gables homes in the $1.5M–$4M band have transacted at varying velocities depending on the market cycle, condition, and listing strategy. Overpriced properties in this market accumulate days on market quickly and typically sell below where they should. Per Miami and South Florida REALTORS® MLS data, pricing discipline and buyer-agent activation are the primary predictors of outcome — not listing volume or portal exposure.",
+    a: "Well-positioned Coral Gables homes have transacted at varying velocities depending on the market cycle, price tier, condition, and listing strategy. Overpriced properties in this market accumulate days on market quickly and typically sell below where they should. Per Miami and South Florida REALTORS® MLS data, pricing discipline and buyer-agent activation are the primary predictors of outcome — not listing volume or portal exposure.",
   },
   {
     q: "Who buys in Coral Gables?",
@@ -133,7 +133,7 @@ export default function SellCoralGablesPage() {
               style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
             >
               Sell your Coral Gables property with the reach<br />
-              <em className="italic text-gold">of the world's largest local Realtor® network.</em>
+              <em className="italic text-gold">of the world's largest local Realtor® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               The Coral Gables luxury buyer pool is international by nature. Mediterranean architecture, Miracle Mile,

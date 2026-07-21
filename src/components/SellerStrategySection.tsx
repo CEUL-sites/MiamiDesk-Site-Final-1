@@ -40,7 +40,7 @@ const STEPS = [
 ];
 
 const HW = ["Online", "exposure", "gets", "your", "listing", "seen."];
-const ITALIC = "The world's largest agent network gets it sold.";
+const ITALIC = "The world's largest local Realtor® association reaches the buyer's agent.";
 
 /* ─── Scoped CSS injected once ──────────────────────────────────────────── */
 const CSS = `

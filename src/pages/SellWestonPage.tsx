@@ -130,7 +130,7 @@ export default function SellWestonPage() {
               style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
             >
               Sell your Weston home with the reach<br />
-              <em className="italic text-gold">of the world's largest local Realtor® network.</em>
+              <em className="italic text-gold">of the world's largest local Realtor® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Weston's gated communities, A-rated schools, and Latin American buyer base demand a listing agent

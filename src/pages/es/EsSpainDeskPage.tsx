@@ -260,7 +260,7 @@ export default function EsSpainDeskPage() {
               <em className="italic text-gold">93.000 Agentes Compradores de Miami.</em>
             </motion.h1>
             {/* Titulares alternativos para que Carlos elija — en la voz "...el Alcance de...":
-                 A) "Propiedad Premium, con el Alcance de la Red Local de Realtor® Más Grande del Mundo."
+                 A) "Propiedad Premium, con el Alcance de la Asociación Local de REALTORS® Más Grande del Mundo."
                  B) "Propiedad Premium, ante Cada Agente Comprador de la Red de Miami." */}
 
             {/* Italic serif subtitle */}
