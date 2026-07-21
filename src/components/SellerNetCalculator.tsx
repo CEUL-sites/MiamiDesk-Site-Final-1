@@ -1,4 +1,4 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, Calculator, CheckCircle2, Loader2, Lock } from "lucide-react";
 import { LEAD_MAGNETS } from "../constants";
 import { trackLead } from "../lib/analytics";
@@ -151,6 +151,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const renderedAt = useRef(Date.now());
 
   const rows = useMemo(() => {
     const commissionAmt = price * (commission / 100);
@@ -174,6 +175,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
         body: encodeForm({
           "form-name": "seller-consultation",
           "bot-field": "",
+          formRenderedAt: String(renderedAt.current),
           name, email, phone, propertyAddress: "", city: "",
           timeline: "Exploring options",
           message: summary,
@@ -183,7 +185,10 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
-      notifyLeadDirect({ name, email, phone, message: summary, sourcePage, leadSource: getLeadSource() });
+      notifyLeadDirect({
+        name, email, phone, message: summary, sourcePage, leadSource: getLeadSource(),
+        botField: "", formRenderedAt: String(renderedAt.current),
+      });
       trackLead("seller", { form: "net-proceeds-calculator", page: sourcePage, lang });
       setStatus("success");
     } catch {

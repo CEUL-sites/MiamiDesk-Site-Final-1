@@ -74,6 +74,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
         name: formData.name, email: formData.email, phone: formData.phone,
         propertyAddress: formData.propertyAddress, city: formData.city, timeline: formData.timeline,
         message: formData.message, sourcePage: "seller-consultation", leadSource: getLeadSource(),
+        botField: "", formRenderedAt: String(renderedAt.current),
         ...(desk ? { desk } : {}),
       });
       trackLead("seller", { form: "seller-consultation", form_location: window.location.pathname, ...(desk ? { desk } : {}) });

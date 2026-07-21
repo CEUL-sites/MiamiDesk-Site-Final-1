@@ -93,6 +93,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const addressRef            = useRef<HTMLInputElement>(null);
   const formStartFired        = useRef(false);
   const placesReady           = useRef(false);
+  const renderedAt            = useRef(Date.now());
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -159,6 +160,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         body: encodeForm({
           "form-name": "seller-hero",
           "bot-field": "",
+          formRenderedAt: String(renderedAt.current),
           ...form,
           sourcePage: `hero-${lang}`,
           mapUrl: form.lat && form.lng
@@ -172,6 +174,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
         sourcePage: `hero-${lang}`, leadSource: getLeadSource(),
+        botField: "", formRenderedAt: String(renderedAt.current),
       });
       trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });
       // Auto-acknowledgment (email/WhatsApp confirmation) — best-effort
