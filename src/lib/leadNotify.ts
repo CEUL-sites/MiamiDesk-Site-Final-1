@@ -25,6 +25,9 @@ export interface DirectLead {
   sourcePage?: string;
   leadSource?: string;
   desk?: string;
+  /** Honeypot value + form-render timestamp — see requestGuard spam check in lead-notify.ts. */
+  botField?: string;
+  formRenderedAt?: string;
 }
 
 /** Fire-and-forget backup alert. Never throws; failures are non-fatal. */

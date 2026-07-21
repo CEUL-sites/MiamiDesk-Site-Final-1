@@ -54,6 +54,7 @@ export function AgencyPartnerForm({
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [err, setErr] = useState("");
   const formStartFired = useRef(false);
+  const renderedAt = useRef(Date.now());
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -87,6 +88,7 @@ export function AgencyPartnerForm({
         body: encodeForm({
           "form-name": "agency-partner-intake",
           "bot-field": "",
+          formRenderedAt: String(renderedAt.current),
           ...form,
           source,
           sourcePage: window.location.pathname,
@@ -98,6 +100,7 @@ export function AgencyPartnerForm({
         city: form.country, propertyAddress: form.agency,
         message: `${form.role ? form.role + " · " : ""}${form.inventoryType ? form.inventoryType + " · " : ""}${form.message}`,
         sourcePage: "agency-partner-intake",
+        botField: "", formRenderedAt: String(renderedAt.current),
       });
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
