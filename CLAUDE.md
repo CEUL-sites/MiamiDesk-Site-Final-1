@@ -93,8 +93,35 @@ card and setting `image:` — so automated posts need no manual follow-up. If
 Chrome fails on the runner it publishes the post without a card and logs a
 warning; `node scripts/render-journal-og.mjs` backfills it.
 
-These posts are intentionally formulaic and several share near-identical body
-copy across markets. Hand-written posts are what differentiate the section.
+#### How a generated post stays distinct
+
+Each post is built from a market record (`markets` in the publisher) that carries
+that market's `setting`, `diligence`, `pricing`, `competition`, `hook`, and
+`risk`. The prose is assembled from those fields, so two posts on the same angle
+differ because the market facts differ — not because wording was shuffled.
+
+The supporting blocks every post must carry (distribution, bio, FAQ, source note)
+come from pools whose sizes are deliberately **coprime — 4, 5, 3, and 7**. Equal
+pool sizes collide in lockstep no matter what stride you select with; coprime
+sizes do not repeat a combination until 420 posts, well beyond the 12 markets an
+angle covers.
+
+Three gates run before anything is written:
+
+| Gate | Fails when |
+|------|-----------|
+| `assertQuality` | Missing compliance footer, source basis, CTA, or non-guarantee disclaimer; excerpt over 160 characters |
+| `assertVerifiedFigures` | Any number appears that is not in `VERIFIED_FIGURE_PHRASES` (mirrored from `figures.json`) |
+| `assertDistinct` | The new post exceeds `MAX_SIMILARITY` (50%) shingle overlap with any existing post |
+
+`assertDistinct` is the guard against the failure that produced a dozen
+93%-identical posts: a template varying only by city name still generates and
+still passes every other check. If it trips, add market-specific substance —
+do not raise the threshold.
+
+**When adding a market**, fill in every field; a market missing `diligence` or
+`pricing` produces generic prose that will trip the distinctness gate. **When
+adding an angle**, keep pool sizes coprime if you add supporting-block variants.
 
 ---
 
