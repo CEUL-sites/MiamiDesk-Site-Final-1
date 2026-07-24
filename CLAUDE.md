@@ -60,13 +60,17 @@ Copy `src/content/journal/_template.md` as a starting point.
 **4. Generate the share card + register the route**
 
 ```bash
-node scripts/render-journal-og.mjs   # renders public/images/journal/og/<slug>.jpg for new posts
+node scripts/render-journal-og.mjs              # renders cards for posts missing one
+node scripts/render-journal-og.mjs --slug=<slug>  # just one post
+node scripts/render-journal-og.mjs --force        # re-render all
 ```
 
 Then set the post's frontmatter to `image: "/images/journal/og/<slug>.jpg"`, add
 `/journal/<slug>` to the `reactSnap.include` list in `package.json`, and add the
 URL to `public/sitemap.xml`. Posts missing from the include list are NOT
 prerendered — crawlers and social scrapers would see an empty JS shell.
+`npm run verify:journal` fails if a post's `image` points at a file that isn't
+there, so render the card before setting the field.
 
 **5. Commit and push**
 
@@ -79,6 +83,18 @@ git push origin main
 Netlify auto-deploys in ~60 seconds. The post appears at `https://homesprofessional.com/journal/<slug>`.
 
 The consultation CTA block, author byline, and breadcrumb are injected automatically — no need to write them in the post body.
+
+### The daily automated post
+
+`.github/workflows/daily-journal.yml` runs `scripts/daily-journal-publisher.mjs`
+once a day, which generates one templated post from a rotating market × angle
+matrix. It does steps 1 through 5 on its own — including rendering the share
+card and setting `image:` — so automated posts need no manual follow-up. If
+Chrome fails on the runner it publishes the post without a card and logs a
+warning; `node scripts/render-journal-og.mjs` backfills it.
+
+These posts are intentionally formulaic and several share near-identical body
+copy across markets. Hand-written posts are what differentiate the section.
 
 ---
 
