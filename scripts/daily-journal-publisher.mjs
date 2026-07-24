@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 const ROOT = process.cwd();
 const JOURNAL_DIR = path.join(ROOT, 'src', 'content', 'journal');
@@ -185,6 +186,31 @@ function assertQuality(content) {
   if (content.includes('guarantee a higher sale price?\n\nYes')) throw new Error('Quality gate failed: guarantee language detected.');
 }
 
+// Renders the post's share card and points its frontmatter at it. The renderer
+// reads the post's own frontmatter, so this must run after the file is written.
+// The image field is only set once the card exists on disk — a post that claims
+// an image it does not have would publish a broken og:image tag.
+function renderShareCard(slug, postPath) {
+  const cardPath = path.join(ROOT, 'public', 'images', 'journal', 'og', `${slug}.jpg`);
+  const result = spawnSync(
+    process.execPath,
+    [path.join(ROOT, 'scripts', 'render-journal-og.mjs'), `--slug=${slug}`],
+    { cwd: ROOT, stdio: 'inherit' }
+  );
+
+  if (result.status !== 0 || !fs.existsSync(cardPath)) {
+    console.warn(
+      `Warning: could not render the share card for ${slug}. The post is still published, ` +
+        'but without an og:image. Run "node scripts/render-journal-og.mjs" to backfill it.'
+    );
+    return;
+  }
+
+  const raw = fs.readFileSync(postPath, 'utf8');
+  if (/^image:/m.test(raw)) return;
+  fs.writeFileSync(postPath, raw.replace(/^(category:.*)$/m, `$1\nimage: "/images/journal/og/${slug}.jpg"`));
+}
+
 function updatePackage(slug) {
   const pkg = JSON.parse(fs.readFileSync(PACKAGE_JSON, 'utf8'));
   const route = `/journal/${slug}`;
@@ -223,6 +249,7 @@ if (fs.existsSync(postPath)) {
   process.exit(0);
 }
 fs.writeFileSync(postPath, content);
+renderShareCard(topic.slug, postPath);
 updatePackage(topic.slug);
 updateSitemap(topic.slug);
 console.log(`Published scheduled journal draft: ${topic.slug}`);

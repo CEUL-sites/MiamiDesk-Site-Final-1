@@ -91,6 +91,12 @@ for (const file of files) {
     slugs.set(meta.slug, label);
   }
 
+  // A post pointing at a card that isn't there ships a broken og:image to every
+  // scraper that reads the page.
+  if (meta.image?.startsWith('/') && !fs.existsSync(path.join(root, 'public', meta.image))) {
+    errors.push(`${label}: image "${meta.image}" has no file at public${meta.image}.`);
+  }
+
   for (const line of body.split(/\r?\n/)) {
     if (footerLikePattern.test(line) && line.trim() !== complianceFooter) {
       errors.push(`${label}: malformed compliance footer "${line.trim()}" — must be exactly "${complianceFooter}".`);
