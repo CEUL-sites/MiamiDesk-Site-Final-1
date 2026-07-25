@@ -5,7 +5,9 @@ const ticker = "SOUTH FLORIDA · MIAMI MLS EXPOSURE · UNITED REALTY GROUP · IN
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-navy-deep text-white border-t-2 border-gold/30">
+    // pb clears the fixed bottom CTAs: the mobile sticky pill (bottom-5 + pill
+    // height ≈ 68px) below lg, and the desktop sticky bar (≈ 60px) at lg and up.
+    <footer className="relative overflow-hidden bg-navy-deep text-white border-t-2 border-gold/30 pb-24 lg:pb-16">
       <AuroraBackground variant="subtle" />
       <div className="relative z-10 marquee-container border-b border-white/5 py-4">
         <div className="marquee-track-slow">

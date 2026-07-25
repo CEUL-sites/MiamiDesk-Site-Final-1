@@ -3,19 +3,24 @@ import { readFile } from "node:fs/promises";
 import { shouldRenderMobileSticky } from "../src/components/mobileStickyModel";
 
 assert.equal(
-  shouldRenderMobileSticky({ formVisible: false, consentPending: false }),
+  shouldRenderMobileSticky({ formVisible: false, consentPending: false, guardVisible: false }),
   true,
   "the seller CTA should remain available when no other bottom action is active",
 );
 assert.equal(
-  shouldRenderMobileSticky({ formVisible: true, consentPending: false }),
+  shouldRenderMobileSticky({ formVisible: true, consentPending: false, guardVisible: false }),
   false,
   "the seller CTA should hide while the in-page form is visible",
 );
 assert.equal(
-  shouldRenderMobileSticky({ formVisible: false, consentPending: true }),
+  shouldRenderMobileSticky({ formVisible: false, consentPending: true, guardVisible: false }),
   false,
   "the seller CTA should hide while the cookie choice occupies the bottom action area",
+);
+assert.equal(
+  shouldRenderMobileSticky({ formVisible: false, consentPending: false, guardVisible: true }),
+  false,
+  "the seller CTA should hide while a guarded element (e.g. the review card) crosses the bottom action area",
 );
 
 const [hero, form, proof, about, cookie, mobileSticky] = await Promise.all([
@@ -43,6 +48,21 @@ assert.match(
   mobileSticky,
   /getElementById\("list-here"\)\s*\?\?\s*document\.getElementById\("contact"\)/,
   "the homepage hero form must take priority over the lower contact section",
+);
+assert.match(
+  mobileSticky,
+  /querySelectorAll\("\[data-sticky-cta-guard\]"\)/,
+  "the seller CTA must observe guarded elements so it never covers them",
+);
+assert.match(
+  mobileSticky,
+  /rootMargin: `-\$\{topInset\}px/,
+  "the guard band must be sized in pixels from the pill's footprint — a viewport-percentage band is shallower than the pill on short landscape screens",
+);
+assert.doesNotMatch(
+  mobileSticky,
+  /rootMargin: "-\d+%/,
+  "the guard band must not be expressed as a viewport percentage",
 );
 
 console.log("homepage conversion contract verified");

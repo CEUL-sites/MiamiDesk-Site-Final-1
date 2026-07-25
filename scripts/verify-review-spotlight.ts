@@ -27,5 +27,10 @@ const spotlightMarkup = renderToStaticMarkup(
 assert.match(spotlightMarkup, /<article[^>]*aria-live="polite"/);
 assert.match(spotlightMarkup, /aria-label="Show previous review"/);
 assert.match(spotlightMarkup, /aria-label="Show next review"/);
+assert.match(
+  spotlightMarkup,
+  /data-sticky-cta-guard/,
+  "the review spotlight must be flagged as a sticky-CTA guard so the mobile pill never overlaps it",
+);
 
 console.log("review spotlight model verified");
