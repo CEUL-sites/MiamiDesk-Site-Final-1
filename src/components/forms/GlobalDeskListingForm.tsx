@@ -211,6 +211,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
   const startFired = useRef(false);
+  const renderedAt = useRef(Date.now());
 
   const isAgencyOrAgent = submitterType === "agency" || submitterType === "agent";
   const isDeveloper = submitterType === "developer";
@@ -248,6 +249,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
     const fd = new FormData();
     fd.append("form-name", FORM_NAME);
     fd.append("bot-field", "");
+    fd.append("formRenderedAt", String(renderedAt.current));
     fd.append("submitterType", submitterType);
     fd.append("listPath", listPath);
     Object.entries(form).forEach(([k, v]) => fd.append(k, String(v ?? "")));
@@ -275,6 +277,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
           `Properties: ${form.propertyCount || "—"} · ${form.type || ""} · ${form.askingPrice || ""} · ` +
           `${images.length} image(s), ${documents.length} doc(s)`,
         sourcePage: FORM_NAME,
+        botField: "", formRenderedAt: String(renderedAt.current),
       });
 
       // Auto-acknowledgment email in the submitter's chosen language.

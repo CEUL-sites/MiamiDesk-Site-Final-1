@@ -29,7 +29,7 @@ const COPY = {
     winBody:
       "\"Your property can be prepared for South Florida buyer-agent activation through Miami Global Listing Desk\" is a concrete distribution argument. Use it to explain a professional cooperation path before you ever need to find the buyer.",
     whyEyebrow: "Why Miami",
-    whyH2: "The largest local agent network in the world — built on Latin American demand.",
+    whyH2: "The world's largest local Realtor® association — built on Latin American demand.",
     stats: [
       { v: "93,000", l: "Member agents — Miami & South Florida REALTORS®" },
       { v: "437+", l: "International agreements — most of any local association" },
@@ -80,7 +80,7 @@ const COPY = {
     winBody:
       "\"Su propiedad puede prepararse para activación con agentes compradores del sur de Florida a través de Miami Global Listing Desk\" es un argumento concreto de distribución. Úselo para explicar una vía profesional de cooperación antes de necesitar al comprador.",
     whyEyebrow: "Por Qué Miami",
-    whyH2: "La mayor red local de agentes del mundo — construida sobre demanda latinoamericana.",
+    whyH2: "La asociación local de REALTORS® más grande del mundo — construida sobre demanda latinoamericana.",
     stats: [
       { v: "93.000", l: "Agentes miembros — Miami & South Florida REALTORS®" },
       { v: "437+", l: "Acuerdos internacionales — más que cualquier asociación local" },

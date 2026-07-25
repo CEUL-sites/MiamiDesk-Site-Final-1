@@ -37,6 +37,7 @@ export function BuyerMandateForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
   const formStartFired = useRef(false);
+  const renderedAt = useRef(Date.now());
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -70,7 +71,7 @@ export function BuyerMandateForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "buyer-mandate", "bot-field": "", ...submission, sourcePage: "buyer-mandate", ...getAttribution() }),
+        body: encodeForm({ "form-name": "buyer-mandate", "bot-field": "", formRenderedAt: String(renderedAt.current), ...submission, sourcePage: "buyer-mandate", ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
@@ -78,6 +79,7 @@ export function BuyerMandateForm() {
         propertyAddress: submission.targetNeighborhoods, city: form.country, timeline: form.timeline,
         message: `Budget ${form.priceRange || "—"} · Financing ${form.financing || "—"}${form.visaStatus ? ` · Visa ${form.visaStatus}` : ""}`,
         sourcePage: "buyer-mandate", leadSource: getLeadSource(),
+        botField: "", formRenderedAt: String(renderedAt.current),
       });
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",

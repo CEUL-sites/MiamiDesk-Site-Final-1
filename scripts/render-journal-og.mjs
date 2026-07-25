@@ -3,6 +3,8 @@
 // Uses the puppeteer already installed for react-snap. Run from repo root:
 //   node scripts/render-journal-og.mjs            # only posts missing a card
 //   node scripts/render-journal-og.mjs --force    # re-render all
+//   node scripts/render-journal-og.mjs --slug=x   # just that post
+// Set PUPPETEER_EXECUTABLE_PATH to use a system Chrome instead of the bundled one.
 import puppeteer from 'puppeteer';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,6 +14,8 @@ const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const contentDir = path.join(root, 'src/content/journal');
 const outDir = path.join(root, 'public/images/journal/og');
 const force = process.argv.includes('--force');
+const slugArg = process.argv.find((arg) => arg.startsWith('--slug='));
+const onlySlug = slugArg ? slugArg.slice('--slug='.length) : null;
 fs.mkdirSync(outDir, { recursive: true });
 
 function frontmatter(raw) {
@@ -35,19 +39,36 @@ function formatDate(iso) {
 }
 
 const template = fs.readFileSync(path.join(root, 'scripts/og-journal-card.html'), 'utf8');
-const posts = fs.readdirSync(contentDir).filter((f) => f.endsWith('.md') && !f.startsWith('_'));
+const allPosts = fs.readdirSync(contentDir).filter((f) => f.endsWith('.md') && !f.startsWith('_'));
+const posts = onlySlug ? allPosts.filter((f) => f.replace(/\.md$/, '') === onlySlug) : allPosts;
+
+if (onlySlug && posts.length === 0) {
+  console.error(`No public journal post found for --slug=${onlySlug}`);
+  process.exit(1);
+}
+
+// Launching Chrome costs seconds, so skip it entirely when every card is present.
+// This keeps the publisher's per-post call cheap.
+const pending = posts.filter((file) => {
+  const slug = frontmatter(fs.readFileSync(path.join(contentDir, file), 'utf8')).slug || file.replace(/\.md$/, '');
+  return force || !fs.existsSync(path.join(outDir, `${slug}.jpg`));
+});
+
+if (pending.length === 0) {
+  console.log(`done — 0 card(s) rendered, ${posts.length} skipped`);
+  process.exit(0);
+}
 
 const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 const page = await browser.newPage();
 await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 1 });
 
 let rendered = 0;
-for (const file of posts) {
+for (const file of pending) {
   const raw = fs.readFileSync(path.join(contentDir, file), 'utf8');
   const fm = frontmatter(raw);
   const slug = fm.slug || file.replace(/\.md$/, '');
   const out = path.join(outDir, `${slug}.jpg`);
-  if (!force && fs.existsSync(out)) continue;
 
   // Same formula as src/lib/markdown.ts so the card matches the byline.
   const body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');

@@ -3,6 +3,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronRight, Globe, ShieldCheck, Star, Tag } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
+import { LazyVideo } from "./LazyVideo";
+import { Tilt3D } from "./Tilt3D";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -32,11 +34,13 @@ const FADE_MS = 600;
 // weight is invisible but they pull ~27MB of mobile data. Both remain live where
 // they show full-size (SellerSection, VideoBubbles, Agents & Markets pages).
 const HERO_FEATURE_VIDEOS = [
-  { src: "/videos/dollhouse_rotating_in_hands.mp4", label: "Signature Marketing" },
-  { src: "/videos/luxury_waterfront_estate.mp4",    label: "Waterfront Estate"   },
-  { src: "/videos/matterport_miami_beach.mp4",      label: "3D Matterport Tour"  },
-  { src: "/videos/digital_twin_exposure.mp4",       label: "Global Exposure"     },
-  { src: "/videos/gemini_property_vision.mp4",      label: "AI Marketing"        },
+  { src: "/videos/dollhouse_rotating_in_hands.mp4",   label: "Signature Marketing" },
+  { src: "/videos/entrance_house_miami.mp4",          label: "Miami Estate"        },
+  { src: "/videos/luxury_waterfront_estate.mp4",      label: "Waterfront Estate"   },
+  { src: "/videos/waterfront_house_global_reach.mp4", label: "Global Reach"        },
+  { src: "/videos/matterport_miami_beach.mp4",        label: "3D Matterport Tour"  },
+  { src: "/videos/house_tour_reach_2.mp4",            label: "Interior Tour"       },
+  { src: "/videos/gemini_property_vision.mp4",        label: "AI Marketing"        },
 ];
 
 // Decorative hero clips are skipped entirely on data-saver / slow (2g) links —
@@ -181,6 +185,16 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
             "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)",
         }}
       >
+        {/* Poster underlay — the signature still shows whenever the clips
+            can't (data-saver, Low Power Mode, blocked autoplay, buffering),
+            so the circle is never an empty navy disc. */}
+        <img
+          src="/images/posters/dollhouse_rotating_in_hands.jpg"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         {[0, 1].map((layer) => (
           <video
             key={layer}
@@ -283,6 +297,14 @@ export function Hero() {
       `}</style>
 
       <HeroBackground />
+      {/* Luxury estate backdrop — waterfront architecture behind the aurora
+          field. Low opacity so the headline and form keep full contrast. */}
+      <LazyVideo
+        idle
+        src="/videos/luxury_waterfront_estate.mp4"
+        className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#060D18]/85 via-[#060D18]/30 to-[#060D18]/80 pointer-events-none" aria-hidden="true" />
       <div className="hero-grain"    aria-hidden="true" />
       <div className="hero-grid"     aria-hidden="true" />
       <div className="hero-vignette" aria-hidden="true" />
@@ -332,24 +354,32 @@ export function Hero() {
           {/* Static distribution stat row — replaces the auto-scrolling
               marquee. Static and readable is the point: no counting-up
               animation, no motion. */}
-          <motion.div
-            variants={item}
-            className="mt-7 grid w-full max-w-2xl grid-cols-2 gap-x-4 gap-y-6 border-y border-gold/15 py-6 sm:grid-cols-4 sm:gap-x-6"
-          >
-            {DISTRIBUTION_STATS.map((s) => (
-              <div key={s.label}>
-                <div
-                  className="font-serif text-white"
-                  style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)", fontWeight: 400 }}
-                >
-                  {s.value}
-                </div>
-                <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
-                  {s.label}
-                </div>
+          <motion.div variants={item} className="w-full flex justify-center">
+            <Tilt3D maxTilt={3} className="mt-7 w-full max-w-2xl">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-6 border-y border-gold/15 py-6 sm:grid-cols-4 sm:gap-x-6">
+                {DISTRIBUTION_STATS.map((s) => (
+                  <div key={s.label}>
+                    <div
+                      className="font-serif text-white"
+                      style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)", fontWeight: 400 }}
+                    >
+                      {s.value}
+                    </div>
+                    <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </Tilt3D>
           </motion.div>
+
+          <motion.p
+            variants={item}
+            className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/90 sm:text-[11px]"
+          >
+            United Realty Group · 3,500+ agents · 21 Florida offices
+          </motion.p>
 
           <motion.a
             variants={item}

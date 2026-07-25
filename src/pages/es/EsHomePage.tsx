@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
+import { DesktopStickyCTA } from "../../components/DesktopStickyCTA";
+import { ExitIntentModal } from "../../components/ExitIntentModal";
 import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { EsProof } from "../../components/es/EsProof";
@@ -138,9 +140,10 @@ export default function EsHomePage() {
               >
                 {/* TODO: native Madrid editor review */}
                 Representación de vendedores en el Sur de Florida y España. Cada
-                propiedad en exclusiva activa la red de la asociación local de
-                REALTORS® más grande del mundo — 93,000 agentes miembros, 200+
-                portales globales en 19 idiomas y 437+ acuerdos internacionales.
+                propiedad en exclusiva se activa con el alcance de la
+                asociación local de REALTORS® más grande del mundo — 93.000
+                agentes miembros, 200+ portales globales en 19 idiomas y 437+
+                acuerdos internacionales.
               </motion.p>
 
               {/* Primary seller lead capture */}
@@ -273,6 +276,8 @@ export default function EsHomePage() {
 
         <Footer />
         <MobileStickyCTA />
+        <DesktopStickyCTA lang="es" />
+        <ExitIntentModal lang="es" />
       </main>
     </>
   );

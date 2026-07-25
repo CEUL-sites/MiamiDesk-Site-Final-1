@@ -117,12 +117,12 @@ export default function SellSouthFloridaPage() {
 
         {/* Hero */}
         <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
-          <AuroraBackground variant="warm" />
+          <AuroraBackground variant="warm" interactive />
           {/* Cinematic drone background */}
           <LazyVideo
             eager
             src="/videos/luxury_waterfront_drone.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.13] pointer-events-none"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.32] pointer-events-none"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
@@ -157,7 +157,7 @@ export default function SellSouthFloridaPage() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+              className="hero-cta-main group inline-flex items-center gap-2 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep"
             >
               Get My Home Value &amp; Strategy
               <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />

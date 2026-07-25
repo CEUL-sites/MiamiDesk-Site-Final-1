@@ -9,6 +9,42 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'international-investor-south-florida-income-property-2026': [
+    {
+      q: 'How does an international investor find good South Florida investment property?',
+      a: 'The strongest opportunities are often evaluated first by professionals working the market, not surfaced by public portal alerts. A cross-border investor closes that access gap with local buyer representation inside the professional network — a buyer’s agent who can source, screen, and present opportunities in the investor’s language, then run a disciplined process. Carlos Uzcategui searches through the Miami and South Florida REALTORS® network of roughly 93,000 member agents.',
+    },
+    {
+      q: 'What should a disciplined acquisition process include?',
+      a: 'Before any offer: a defined mandate (asset type, target basis, hold horizon, return profile), independent valuation against comparable sales and active inventory, conservative income and cost modeling, financing clarity for a foreign buyer, full due diligence (title, association, condition, restrictions), and an exit view. This does not guarantee a return; it reduces avoidable mistakes.',
+    },
+    {
+      q: 'What extra considerations apply to a cross-border purchase?',
+      a: 'A non-U.S. buyer may face entity-structure choices, foreign-national financing terms, currency and transfer logistics, coastal insurance, and specific tax and withholding rules. The professional standard is that an experienced agent coordinates the transaction while a qualified U.S. attorney and CPA handle the legal, tax, and structuring decisions — engaged before the contract is signed.',
+    },
+    {
+      q: 'Does the Global Desk help investors buy as well as sell?',
+      a: 'Yes. The Global Desk is two-sided. An investor abroad can acquire South Florida income property through professional representation, and an investor already holding South Florida assets can reach international buyers and opportunities through the same cooperation network — one bilingual point of contact for cross-border acquisition and disposition.',
+    },
+  ],
+  'global-luxury-investment-buyer-agent-network-2026': [
+    {
+      q: 'How does a luxury or investment seller reach high-net-worth buyers who already have agents?',
+      a: 'High-net-worth and investment buyers typically act through a trusted agent rather than public portals. A seller reaches them by listing inside a professional network that routes the property agent-to-agent — including international cooperation channels — so the representatives who hold qualified buyers can find, evaluate, and present it. Carlos Uzcategui positions listings through the Miami and South Florida REALTORS® network of roughly 93,000 member agents.',
+    },
+    {
+      q: 'Does the Global Desk work for a property in Spain as well as Miami?',
+      a: 'Yes. The Global Desk is bidirectional. The same cooperation network that carries a South Florida listing to international buyer agents can carry a Spanish prime listing to the Miami, U.S., and Latin American agents whose clients are buying it — and connects international buyer representatives to Miami inventory. It is one point of contact for prime or investment property wherever it sits.',
+    },
+    {
+      q: 'What network does Carlos Uzcategui use to market luxury and investment property?',
+      a: 'Listings are positioned through the Miami and South Florida REALTORS® — the world’s largest local REALTOR® association — with roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international cooperation agreements across 75+ countries, plus United Realty Group’s 3,500+ agents across 21 Florida offices. Network reach does not guarantee a price or timeline.',
+    },
+    {
+      q: 'Why do luxury and investment properties benefit most from a large buyer-agent network?',
+      a: 'Their buyer pools are small and specialized. Luxury residences trade to a limited set of capable buyers concentrated inside professional and referral relationships, and investment property sells to representatives evaluating yield and financing. A wider agent-to-agent network raises the odds the right buyers are reached during the launch window while preserving discretion.',
+    },
+  ],
   'doral-home-prices-may-2026-market-report': [
     {
       q: 'What was the median single-family home price in Doral in May 2026?',

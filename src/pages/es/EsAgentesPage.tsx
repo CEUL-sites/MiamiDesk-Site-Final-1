@@ -2,7 +2,7 @@ import { trackLead } from "../../lib/analytics";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck, Send, Loader2, Download, ExternalLink } from "lucide-react";
@@ -68,6 +68,7 @@ function EsReferralForm() {
   const [form, setForm] = useState(INITIAL_FORM);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
+  const renderedAt = useRef(Date.now());
 
   const set =
     (k: string) =>
@@ -92,6 +93,7 @@ function EsReferralForm() {
         body: encodeForm({
           "form-name": "referral-intake-es",
           "bot-field": "",
+          formRenderedAt: String(renderedAt.current),
           ...form,
           sourcePage: "referral-intake-es",
           ...getAttribution(),
@@ -107,6 +109,7 @@ function EsReferralForm() {
         message: `${form.brokerageName ? form.brokerageName + " · " : ""}${form.clientSummary}`,
         sourcePage: "referral-intake-es",
         leadSource: getLeadSource(),
+        botField: "", formRenderedAt: String(renderedAt.current),
       });
       trackLead("agent", { form: "referral-intake-es" }); window.location.href = "/es/gracias/agente";
     } catch (e: unknown) {
@@ -573,17 +576,17 @@ export default function EsAgentesPage() {
               </p>
               <h2 className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
                 {/* TODO: native Madrid editor review */}
-                Cuando su cliente lista con Carlos, entra en la red más grande
-                de agentes inmobiliarios locales{" "}
+                Cuando su cliente lista con Carlos, entra en la asociación
+                local de REALTORS® más grande{" "}
                 <em>del mundo.</em>
               </h2>
             </div>
 
             <p className="mx-auto max-w-3xl text-center font-sans text-base leading-relaxed text-navy-deep/70">
               {/* TODO: native Madrid editor review */}
-              Carlos es miembro de Miami and South Florida REALTORS® — la mayor
-              asociación local de Realtor® del mundo tras la fusión de MIAMI
-              REALTORS® y RWorld, efectiva el 11 de mayo de 2026 — con 93.000
+              Carlos es miembro de Miami and South Florida REALTORS® — la asociación
+              local de REALTORS® más grande del mundo tras la fusión de MIAMI
+              REALTORS® y RWorld — con 93.000
               agentes miembro.
             </p>
 

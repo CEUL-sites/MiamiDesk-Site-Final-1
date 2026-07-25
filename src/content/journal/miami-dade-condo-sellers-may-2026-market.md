@@ -57,4 +57,4 @@ For the broader thesis on why exposure decides price, read [Listing a Home Onlin
 
 Data source: Florida REALTORS® and MIAMI REALTORS® Monthly Market Summary, Miami-Dade County Townhouses and Condos, May 2026, released June 16, 2026. Statistics reflect closed condo and townhouse transactions reported through Florida's multiple listing services. Median and average prices reflect the mix of units sold in the period and are not a measure of individual-unit appreciation. "Buyer's market" refers to the conventional months-of-supply threshold and is not a prediction of any specific outcome. Data is deemed reliable but not guaranteed and is subject to change. This article is general market information, not legal, tax, financial, or investment advice.
 
-Florida Licensed Realtor® SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

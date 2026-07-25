@@ -52,6 +52,6 @@ jobs:
           fi
           git config user.name "homesprofessional-journal-bot"
           git config user.email "actions@github.com"
-          git add src/content/journal package.json public/sitemap.xml
+          git add src/content/journal package.json public/sitemap.xml public/images/journal/og
           git commit -m "Publish daily SEO journal post"
           git push

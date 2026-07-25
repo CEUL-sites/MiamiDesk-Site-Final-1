@@ -75,4 +75,4 @@ Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years
 
 Distribution figures reflect Miami and South Florida REALTORS® association infrastructure and United Realty Group scale (urgfl.com). Market data referenced site-wide is sourced from the Miami and South Florida REALTORS® MLS and is deemed reliable but not guaranteed. This article is general market information, not legal, tax, financial, or investment advice; consult a qualified professional regarding tax matters such as 1031 exchanges or homestead portability.
 
-Florida Licensed Realtor® SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

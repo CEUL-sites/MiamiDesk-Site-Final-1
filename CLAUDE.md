@@ -60,13 +60,17 @@ Copy `src/content/journal/_template.md` as a starting point.
 **4. Generate the share card + register the route**
 
 ```bash
-node scripts/render-journal-og.mjs   # renders public/images/journal/og/<slug>.jpg for new posts
+node scripts/render-journal-og.mjs              # renders cards for posts missing one
+node scripts/render-journal-og.mjs --slug=<slug>  # just one post
+node scripts/render-journal-og.mjs --force        # re-render all
 ```
 
 Then set the post's frontmatter to `image: "/images/journal/og/<slug>.jpg"`, add
 `/journal/<slug>` to the `reactSnap.include` list in `package.json`, and add the
 URL to `public/sitemap.xml`. Posts missing from the include list are NOT
 prerendered — crawlers and social scrapers would see an empty JS shell.
+`npm run verify:journal` fails if a post's `image` points at a file that isn't
+there, so render the card before setting the field.
 
 **5. Commit and push**
 
@@ -79,6 +83,45 @@ git push origin main
 Netlify auto-deploys in ~60 seconds. The post appears at `https://homesprofessional.com/journal/<slug>`.
 
 The consultation CTA block, author byline, and breadcrumb are injected automatically — no need to write them in the post body.
+
+### The daily automated post
+
+`.github/workflows/daily-journal.yml` runs `scripts/daily-journal-publisher.mjs`
+once a day, which generates one templated post from a rotating market × angle
+matrix. It does steps 1 through 5 on its own — including rendering the share
+card and setting `image:` — so automated posts need no manual follow-up. If
+Chrome fails on the runner it publishes the post without a card and logs a
+warning; `node scripts/render-journal-og.mjs` backfills it.
+
+#### How a generated post stays distinct
+
+Each post is built from a market record (`markets` in the publisher) that carries
+that market's `setting`, `diligence`, `pricing`, `competition`, `hook`, and
+`risk`. The prose is assembled from those fields, so two posts on the same angle
+differ because the market facts differ — not because wording was shuffled.
+
+The supporting blocks every post must carry (distribution, bio, FAQ, source note)
+come from pools whose sizes are deliberately **coprime — 4, 5, 3, and 7**. Equal
+pool sizes collide in lockstep no matter what stride you select with; coprime
+sizes do not repeat a combination until 420 posts, well beyond the 12 markets an
+angle covers.
+
+Three gates run before anything is written:
+
+| Gate | Fails when |
+|------|-----------|
+| `assertQuality` | Missing compliance footer, source basis, CTA, or non-guarantee disclaimer; excerpt over 160 characters |
+| `assertVerifiedFigures` | Any number appears that is not in `VERIFIED_FIGURE_PHRASES` (mirrored from `figures.json`) |
+| `assertDistinct` | The new post exceeds `MAX_SIMILARITY` (50%) shingle overlap with any existing post |
+
+`assertDistinct` is the guard against the failure that produced a dozen
+93%-identical posts: a template varying only by city name still generates and
+still passes every other check. If it trips, add market-specific substance —
+do not raise the threshold.
+
+**When adding a market**, fill in every field; a market missing `diligence` or
+`pricing` produces generic prose that will trip the distinctness gate. **When
+adding an angle**, keep pool sizes coprime if you add supporting-block variants.
 
 ---
 
@@ -125,13 +168,16 @@ mirrors it for legacy imports). Each entry there carries a `source` field —
 check `docs/sources/SOURCES.md` for the primary documents backing those
 sources before changing or adding a figure.
 
-**United Realty Group office count**: 21 Florida offices (not 20 — that was
-an undercount from urgfl.com, corrected July 2026 against URG's own internal
+**United Realty Group office count**: 20 Florida offices. URG's internal
 office directory, photographed by Carlos and saved at
-`docs/sources/urg-office-directory-2026-07.jpg`; full per-office addresses are
-in that photo and in `docs/sources/SOURCES.md` §3). URG also has a
-Greensboro, NC branch — it is explicitly **not** counted as a Florida office
-and must never be implied as part of Carlos's Florida coverage.
+`docs/sources/urg-office-directory-2026-07.jpg`, lists more individual
+addresses than that, but Carlos confirmed 20 is the correct figure to use —
+do not "correct" it to a raw count of every address in that photo (some
+entries there are not counted as distinct Florida offices). Full per-office
+addresses are in that photo and in `docs/sources/SOURCES.md` §3, for
+reference only. URG also has a Greensboro, NC branch — it is explicitly
+**not** counted as a Florida office and must never be implied as part of
+Carlos's Florida coverage.
 
 ## Routes
 

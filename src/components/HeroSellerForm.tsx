@@ -13,8 +13,8 @@ const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).t
 
 const COPY = {
   en: {
-    eyebrow: "Free Home Valuation",
-    badge: "Confidential · No Obligation",
+    eyebrow: "Confidential Seller Strategy Review",
+    badge: "Private · No listing commitment",
     address: "Property address — South Florida or Spain",
     name: "Full name",
     phone: "Phone / WhatsApp",
@@ -27,16 +27,16 @@ const COPY = {
       "Other",
     ],
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
-    submit: "Get My Free Home Valuation",
+    submit: "Request My Seller Strategy Review",
     sending: "Sending…",
     consent: "I agree to receive updates by WhatsApp/SMS at this number. Msg & data rates may apply. Reply STOP to opt out.",
     prefer: "Prefer WhatsApp?",
     preferLink: "Message Carlos directly",
     proofQuote: "Sharp pricing, professional marketing, and constant communication — Carlos made selling feel handled.",
     proofName: "Andres P. · Weston · Verified Review",
-    successTag: "Valuation Request Received",
+    successTag: "Strategy Review Requested",
     successTitle: "Carlos will personally review your property.",
-    successBody: "Expect your MLS-based valuation and a confidential, personal response. For urgent timing, reach us on WhatsApp.",
+    successBody: "Carlos will review your property, market position, and distribution path. Where appropriate, you will receive an MLS-based valuation and a clear next decision.",
     netSheetIntro: "While Carlos prepares your valuation, here's your free Seller's Net Sheet — what you actually keep at closing:",
     netSheetCta: "Download the Seller's Net Sheet",
     successCta: "Continue on WhatsApp →",
@@ -44,8 +44,8 @@ const COPY = {
     failed: "Couldn't send — please use WhatsApp or try again.",
   },
   es: {
-    eyebrow: "Valoración Gratuita",
-    badge: "Confidencial · Sin Compromiso",
+    eyebrow: "Revisión Confidencial de Estrategia de Venta",
+    badge: "Privada · Sin compromiso de listado",
     address: "Dirección de la propiedad — Miami o España",
     name: "Nombre completo",
     phone: "Teléfono / WhatsApp",
@@ -58,16 +58,16 @@ const COPY = {
       "Otra",
     ],
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
-    submit: "Obtener Mi Valoración Gratuita",
+    submit: "Solicitar Mi Revisión de Estrategia de Venta",
     sending: "Enviando…",
     consent: "Acepto recibir actualizaciones por WhatsApp/SMS a este número. Pueden aplicar tarifas. Responda STOP para darse de baja.",
     prefer: "¿Prefiere WhatsApp?",
     preferLink: "Escriba a Carlos directamente",
     proofQuote: "Precios acertados, marketing profesional y comunicación constante — Carlos hizo que vender se sintiera bajo control.",
     proofName: "Andres P. · Weston · Reseña Verificada",
-    successTag: "Solicitud Recibida",
+    successTag: "Revisión de Estrategia Solicitada",
     successTitle: "Carlos revisará su propiedad personalmente.",
-    successBody: "Recibirá su valoración y una respuesta confidencial y personal. Para asuntos urgentes, contáctenos por WhatsApp.",
+    successBody: "Carlos revisará su propiedad, posición de mercado y ruta de distribución. Cuando corresponda, recibirá una valoración basada en MLS y una próxima decisión clara.",
     netSheetIntro: "Mientras Carlos prepara su valoración, aquí tiene su Hoja de Ganancias del Vendedor — lo que realmente recibe al cierre:",
     netSheetCta: "Descargar la Hoja de Ganancias",
     successCta: "Continuar por WhatsApp →",
@@ -93,6 +93,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const addressRef            = useRef<HTMLInputElement>(null);
   const formStartFired        = useRef(false);
   const placesReady           = useRef(false);
+  const renderedAt            = useRef(Date.now());
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -159,6 +160,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         body: encodeForm({
           "form-name": "seller-hero",
           "bot-field": "",
+          formRenderedAt: String(renderedAt.current),
           ...form,
           sourcePage: `hero-${lang}`,
           mapUrl: form.lat && form.lng
@@ -172,6 +174,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
         sourcePage: `hero-${lang}`, leadSource: getLeadSource(),
+        botField: "", formRenderedAt: String(renderedAt.current),
       });
       trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });
       // Auto-acknowledgment (email/WhatsApp confirmation) — best-effort

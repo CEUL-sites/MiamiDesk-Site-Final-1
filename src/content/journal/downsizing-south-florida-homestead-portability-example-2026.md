@@ -121,4 +121,4 @@ Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years
 
 This article is general educational information and is **not** legal, tax, financial, or investment advice. All figures are illustrative and rounded for clarity. The federal home-sale exclusion is governed by IRC Section 121; Florida Homestead Exemption, the Save Our Homes assessment cap, and portability are governed by Florida law and administered by each county property appraiser, including the downsizing proportional calculation described above. Capital-gains outcomes depend on your cost basis, documented improvements, and filing status — consult a licensed CPA or tax attorney. Property-tax millage and insurance premiums vary by county, municipality, and property and should be confirmed with your property appraiser and an insurance professional. No sale price, tax result, timeline, or savings figure is guaranteed.
 
-Florida Licensed Realtor® SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

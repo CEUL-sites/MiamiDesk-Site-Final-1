@@ -66,4 +66,4 @@ Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years
 
 This article is general educational information and is **not** legal, tax, financial, or investment advice. Florida Homestead, the Save Our Homes assessment cap, and portability are governed by Florida law and administered by each county property appraiser; the federal home-sale exclusion is governed by IRC Section 121. Property-tax, insurance, HOA, and utility costs vary widely by property, community, and provider and should be verified for your specific situation. Consult a licensed CPA, tax attorney, and insurance professional. No sale price, savings figure, tax result, or timeline is guaranteed.
 
-Florida Licensed Realtor® SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

@@ -4,6 +4,8 @@ import { JsonLd } from "../components/SEO/JsonLd";
 import { motion } from "motion/react";
 import { ChevronRight, MessageCircle, FileCheck, KeyRound, ClipboardList } from "lucide-react";
 import { Navbar } from "../components/Navbar";
+import { AuroraBackground } from "../components/AuroraBackground";
+import { LazyVideo } from "../components/LazyVideo";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
@@ -14,15 +16,13 @@ const WA_ES = "https://wa.me/34646853078";
 const WA_US = "https://wa.me/19548656622";
 
 // Verified figures only (§3.5). Do not substitute or inflate.
-// $69B is the association network's combined 2025 transaction volume —
-// never the principal's or United Realty Group's. Caption is mandatory.
 const FIGURES = [
   { v: "93,000", es: "miembros", en: "members" },
   { v: "200+", es: "portales globales · 19 idiomas", en: "global portals · 19 languages" },
   { v: "260+", es: "MLS de EE. UU. vía RPR", en: "U.S. MLSs via RPR" },
   { v: "437+", es: "acuerdos internacionales", en: "signed international agreements" },
   { v: "11", es: "intercambios de datos MLS", en: "MLS data exchanges" },
-  { v: "$69B", es: "volumen 2025 de la red asociativa", en: "association-network 2025 volume", caption: true },
+  { v: "3,500+", es: "agentes de United Realty Group", en: "United Realty Group agents" },
 ];
 
 const C = {
@@ -47,7 +47,6 @@ const C = {
     distEyebrow: "La ventaja de distribución",
     distIntro:
       "La activación se apoya en la infraestructura profesional de distribución inmobiliaria del sur de Florida:",
-    caption: "Cifra de la red asociativa, no del principal ni de United Realty Group.",
     activation:
       "La exposición es infraestructura. La activación de agentes compradores depende de información clara, cooperación profesional, compensación cuando corresponda y requisitos de corretaje, plataforma y cumplimiento.",
     bridgeEyebrow: "España, en su contexto local",
@@ -58,8 +57,7 @@ const C = {
     granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
     segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
     segoviaCaption: "Segovia, España: el acueducto romano junto al casco histórico.",
-    miamiAlt: "Carlos Uzcategui en una terraza frente a la bahía de Miami",
-    miamiCaption: "Miami, Florida: Carlos Uzcategui frente a la bahía y el puerto de Miami.",
+    cardAlt: "Propiedad de Madrid, exposición en Miami: acceso a compradores españoles locales y alcance institucional en EE. UU.",
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
       "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en España puede ser gestionada por agencias profesionales afiliadas: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
@@ -143,7 +141,6 @@ const C = {
     distEyebrow: "Distribution advantage",
     distIntro:
       "The service is built around South Florida's professional real estate distribution infrastructure:",
-    caption: "Association-network figure — not the principal's or United Realty Group's volume.",
     activation:
       "Exposure is infrastructure. Buyer-agent activation depends on clear information, professional cooperation, appropriate compensation where applicable, and brokerage, platform, and compliance requirements.",
     bridgeEyebrow: "Spain, in local context",
@@ -154,8 +151,7 @@ const C = {
     granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
     segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
     segoviaCaption: "Segovia, Spain: the Roman aqueduct along the historic city edge.",
-    miamiAlt: "Carlos Uzcategui on a terrace overlooking Biscayne Bay in Miami",
-    miamiCaption: "Miami, Florida: Carlos Uzcategui above the bay and the Port of Miami.",
+    cardAlt: "Madrid property, Miami exposure: local Spanish buyer access and institutional U.S. reach.",
     structureEyebrow: "The structure, stated plainly",
     structureBody:
       "Miami Global Listing Desk helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.",
@@ -336,8 +332,17 @@ export default function GlobalDeskPage() {
 
         {/* ── Section B — Hero ── */}
         <section className="relative overflow-hidden px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+          {/* Luxury backdrop — prime listing showcase under the aurora */}
+          <LazyVideo
+            idle
+            src="/videos/madrid_piso_entrance.mp4"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.26] pointer-events-none"
+          />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.28),transparent_70%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_82%_75%,rgba(176,141,87,0.10),transparent_70%)]" />
+          <AuroraBackground variant="subtle" interactive />
+          {/* Readability scrim stays the topmost background layer */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/80 via-[#060D18]/35 to-[#060D18]/85" />
           <motion.div
             initial="hidden"
             animate="show"
@@ -370,7 +375,7 @@ export default function GlobalDeskPage() {
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href="#listing-request"
-                className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
+                className="hero-cta-main inline-flex items-center gap-2 px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25"
               >
                 {t.heroCta}
                 <ChevronRight size={14} />
@@ -395,13 +400,15 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── Section C — Market argument (lead; sourced) ── */}
-        <section className="border-y border-gold/20 bg-navy-deep px-6 py-16 md:py-24">
+        <section className="relative overflow-hidden border-y border-gold/20 bg-navy-deep px-6 py-16 md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(22,68,158,0.18),transparent_70%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_45%_50%_at_88%_90%,rgba(176,141,87,0.08),transparent_70%)]" />
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={fade}
-            className="mx-auto max-w-3xl"
+            className="relative mx-auto max-w-3xl"
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.marketEyebrow}</p>
 
@@ -421,19 +428,29 @@ export default function GlobalDeskPage() {
         {/* ── Section D — Distribution advantage (figure grid + activation) ── */}
         <section className="bg-ivory px-6 py-16 text-navy md:py-24">
           <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.distEyebrow}</p>
-            <p className="mt-5 max-w-3xl font-serif text-2xl leading-snug text-navy md:text-3xl">{t.distIntro}</p>
+            <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.distEyebrow}</p>
+                <p className="mt-5 max-w-2xl font-serif text-2xl leading-snug text-navy md:text-3xl">{t.distIntro}</p>
+              </div>
+              <figure className="mx-auto w-full max-w-sm overflow-hidden border border-gold/40 shadow-xl shadow-navy/10 lg:mx-0">
+                <img
+                  src="/images/global-desk-spain-miami-card.png"
+                  alt={t.cardAlt}
+                  width={1080}
+                  height={1080}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
+              </figure>
+            </div>
 
-            <div className="mt-12 grid grid-cols-2 gap-px border border-navy/10 bg-navy/10 md:grid-cols-3">
+            <div className="mt-14 grid grid-cols-2 gap-px border border-navy/10 bg-navy/10 md:grid-cols-3">
               {FIGURES.map((f) => (
                 <div key={f.v} className="bg-ivory p-7">
                   <div className="font-serif text-4xl text-gold-ink">{f.v}</div>
                   <div className="mt-2 font-sans text-sm leading-snug text-navy/70">{f[lang]}</div>
-                  {f.caption && (
-                    <p className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-navy/70">
-                      {t.caption}
-                    </p>
-                  )}
                 </div>
               ))}
             </div>
@@ -460,57 +477,38 @@ export default function GlobalDeskPage() {
               <p className="mt-5 font-sans text-base leading-[1.85] text-navy/70 md:text-lg">{t.bridgeBody}</p>
             </div>
 
-            <div className="mt-10 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
-                <figure>
-                  <div className="aspect-[9/16] overflow-hidden md:aspect-[4/5] lg:aspect-[9/16]">
-                    <img
-                      src="/images/madrid-gran-via-editorial.webp"
-                      alt={t.granViaAlt}
-                      width={1081}
-                      height={1920}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                    {t.granViaCaption}
-                  </figcaption>
-                </figure>
-
-                <figure>
-                  <div className="aspect-[9/16] overflow-hidden md:aspect-[4/5] lg:aspect-[9/16]">
-                    <img
-                      src="/images/segovia-aqueduct-editorial.webp"
-                      alt={t.segoviaAlt}
-                      width={1081}
-                      height={1920}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                    {t.segoviaCaption}
-                  </figcaption>
-                </figure>
-              </div>
-
-              <figure className="lg:h-full">
-                <div className="aspect-[4/5] overflow-hidden lg:h-full lg:min-h-[42rem] lg:aspect-auto">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 sm:gap-8">
+              <figure className="group">
+                <div className="aspect-[4/5] overflow-hidden shadow-lg shadow-navy/10 ring-1 ring-navy/5">
                   <img
-                    src="/images/carlos-miami-river.webp"
-                    alt={t.miamiAlt}
-                    width={1920}
-                    height={1081}
+                    src="/images/madrid-gran-via-editorial.webp"
+                    alt={t.granViaAlt}
+                    width={1081}
+                    height={1920}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover object-[55%_center]"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                 </div>
                 <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                  {t.miamiCaption}
+                  {t.granViaCaption}
+                </figcaption>
+              </figure>
+
+              <figure className="group">
+                <div className="aspect-[4/5] overflow-hidden shadow-lg shadow-navy/10 ring-1 ring-navy/5">
+                  <img
+                    src="/images/segovia-aqueduct-editorial.webp"
+                    alt={t.segoviaAlt}
+                    width={1081}
+                    height={1920}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                </div>
+                <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
+                  {t.segoviaCaption}
                 </figcaption>
               </figure>
             </div>
@@ -570,8 +568,9 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── Section F — How it works (the constant + two ways to list) ── */}
-        <section className="bg-navy-deep px-6 py-16 md:py-24">
-          <div className="mx-auto max-w-5xl">
+        <section className="relative overflow-hidden bg-navy-deep px-6 py-16 md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_15%_0%,rgba(22,68,158,0.16),transparent_70%)]" />
+          <div className="relative mx-auto max-w-5xl">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.howEyebrow}</p>
 
             {/* Four-step overview — the simple version first; the mechanics
@@ -656,7 +655,7 @@ export default function GlobalDeskPage() {
             <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-white/10 pt-10">
               <a
                 href="#listing-request"
-                className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
+                className="hero-cta-main inline-flex items-center gap-2 px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25"
               >
                 {t.midCta}
                 <ChevronRight size={14} />

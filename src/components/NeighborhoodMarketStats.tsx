@@ -1,8 +1,8 @@
 import { ArrowRight, TrendingUp } from "lucide-react";
-import { getCityMarketStats, MARKET_STATS_PERIOD } from "../data/cityMarketStats";
+import { getCityMarketStats, segmentPeriod } from "../data/cityMarketStats";
 
 // City-level market snapshot for the Sell[City] pages — official closed-sales
-// figures from the MIAMI REALTORS® May 2026 city reports (see
+// figures from the MIAMI REALTORS® Q2 2026 city reports (see
 // src/data/cityMarketStats.ts). Rendered statically so the verified numbers
 // are baked into the prerendered HTML and can never be replaced by a bad
 // live-feed response. Renders nothing if the city has no published data.
@@ -20,30 +20,35 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
   const sf = stats.singleFamily;
   const condo = stats.condoTownhome;
 
-  const lead = sf ? { seg: sf, name: "Single-family" } : { seg: condo!, name: "Condo/townhome" };
+  const sfPeriod = segmentPeriod(stats.county, "singleFamily");
+  const condoPeriod = segmentPeriod(stats.county, "condoTownhome");
+  const lead = sf
+    ? { seg: sf, name: "Single-family", period: sfPeriod }
+    : { seg: condo!, name: "Condo/townhome", period: condoPeriod };
 
   const tiles = [
     sf && {
       label: "Median Sale Price · Single-Family",
       value: usd.format(sf.medianSalePrice),
-      sub: `${MARKET_STATS_PERIOD} closed sales`,
+      sub: `${sfPeriod} closed sales`,
     },
     condo && {
       label: "Median Sale Price · Condo/Townhome",
       value: usd.format(condo.medianSalePrice),
-      sub: `${MARKET_STATS_PERIOD} closed sales`,
-    },
-    {
-      label: "Median Days to Contract",
-      value: `${lead.seg.medianDaysToContract} days`,
-      sub: `${lead.name} · ${MARKET_STATS_PERIOD}`,
+      sub: `${condoPeriod} closed sales`,
     },
     {
       label: "Months of Supply",
       value: `${lead.seg.monthsSupply} months`,
-      sub: `${lead.name} · ${MARKET_STATS_PERIOD}`,
+      sub: `${lead.name} · ${lead.period}`,
     },
   ].filter((t): t is { label: string; value: string; sub: string } => Boolean(t));
+
+  // Cite each period actually shown — never a single period over mixed data.
+  const sourceCitation =
+    sf && condo && sfPeriod !== condoPeriod
+      ? `MIAMI REALTORS® ${sfPeriod} city report (single-family) and ${condoPeriod} city report (condo/townhome)`
+      : `MIAMI REALTORS® ${lead.period} city report`;
 
   return (
     <section className="border-t border-hairline bg-white py-14 md:py-20">
@@ -66,7 +71,7 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
           ))}
         </div>
         <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/70">
-          Source: MIAMI REALTORS® {MARKET_STATS_PERIOD} city report, based on MLS sales
+          Source: {sourceCitation}, based on MLS sales
           data compiled by Florida Realtors®. Figures reflect closed residential sales reported for{" "}
           {isParentCityData ? `the City of ${dataCity}, which includes ${label}` : dataCity}.
           Information is deemed reliable but not guaranteed and is subject to change without notice.

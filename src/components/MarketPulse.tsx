@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp } from "lucide-react";
-import { CITY_MARKET_STATS, MARKET_STATS_PERIOD } from "../data/cityMarketStats";
+import { CITY_MARKET_STATS, MARKET_STATS_PERIOD, PRIOR_STATS_PERIOD, segmentPeriod } from "../data/cityMarketStats";
 
 // Homepage market-data section — turns the verified MIAMI REALTORS® city
 // dataset into a by-city grid that funnels homeowners into the matching
@@ -36,7 +36,7 @@ export function MarketPulse() {
             Selling starts with knowing your market's real numbers.
           </h2>
           <p className="max-w-md font-sans text-sm leading-relaxed text-ink-primary/70">
-            Closed-sale medians, speed to contract, and supply — by city, from the official
+            Closed-sale medians and months of supply — by city, from the official
             MIAMI REALTORS® reports. Your street tells a more precise story; that's what a
             valuation is for.
           </p>
@@ -48,7 +48,9 @@ export function MarketPulse() {
             if (!stats) return null;
             const sf = stats.singleFamily;
             const condo = stats.condoTownhome;
-            const lead = sf ? { seg: sf, name: "Single-family" } : { seg: condo!, name: "Condo/townhome" };
+            const lead = sf
+              ? { seg: sf, name: "Single-family", period: segmentPeriod(stats.county, "singleFamily") }
+              : { seg: condo!, name: "Condo/townhome", period: segmentPeriod(stats.county, "condoTownhome") };
             return (
               <Link
                 key={city}
@@ -60,10 +62,10 @@ export function MarketPulse() {
                   <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">{lead.name}</span>
                 </div>
                 <p className="mt-2 font-serif text-2xl text-navy-deep md:mt-3">{usd.format(lead.seg.medianSalePrice)}</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">Median sale price</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">Median sale price · {lead.period}</p>
                 <div className="mt-3 flex flex-col items-start gap-1.5 border-t border-hairline pt-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3 md:mt-4">
                   <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-navy/70">
-                    {lead.seg.medianDaysToContract} days to contract · {lead.seg.monthsSupply} mo supply
+                    {lead.seg.monthsSupply} mo supply
                   </span>
                   <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.14em] text-gold-ink transition-colors group-hover:text-gold">
                     Sell here <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
@@ -85,9 +87,11 @@ export function MarketPulse() {
         </div>
 
         <p className="mt-3 font-sans text-[11px] leading-relaxed text-ink-primary/70 md:mt-4">
-          Source: MIAMI REALTORS® {MARKET_STATS_PERIOD} city reports, based on MLS sales data
-          compiled by Florida Realtors®. Closed residential sales; estimates and medians are
-          not a guarantee of any individual sale outcome.
+          Source: MIAMI REALTORS® {MARKET_STATS_PERIOD} single-family city reports; condo/townhome
+          figures reflect the {PRIOR_STATS_PERIOD} city reports (latest available city-level condo
+          data) and are labeled accordingly. Based on MLS sales data compiled by Florida Realtors®.
+          Closed residential sales; estimates and medians are not a guarantee of any individual
+          sale outcome.
         </p>
 
         <div className="mt-5 flex flex-wrap items-center gap-4 md:mt-8 md:gap-5">

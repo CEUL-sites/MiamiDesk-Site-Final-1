@@ -65,4 +65,4 @@ Data source: Bridge API / Miami MLS authorized feed, queried June 2, 2026. Prope
 
 Street examples are used for market context only and do not include full property addresses. MLS data is deemed reliable but not guaranteed and is subject to change without notice. This article is for general market information and is not legal, tax, financial, or investment advice.
 
-Florida Licensed Realtor(R) SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

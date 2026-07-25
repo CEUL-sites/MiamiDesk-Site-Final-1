@@ -815,7 +815,7 @@ export default function AgentsPage() {
               {/* Right: cinematic video accent */}
               <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "85%" }}>
                 <LazyVideo
-                  src="/videos/cinematic_house_reach.mp4"
+                  src="/videos/dollhouse_hand_team_2.mp4"
                   className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
@@ -967,7 +967,7 @@ export default function AgentsPage() {
                     {
                       icon: Building2,
                       title: "A platform that closes, not just lists",
-                      body: "United Realty Group has operated since 2002 across 21 South Florida offices, with an in-house title company. Fewer deals stall at closing, and the ancillary side of every transaction stays under one roof.",
+                      body: "United Realty Group has operated since 2002 across 21 Florida offices, with an in-house title company. Fewer deals stall at closing, and the ancillary side of every transaction stays under one roof.",
                     },
                     {
                       icon: Globe2,

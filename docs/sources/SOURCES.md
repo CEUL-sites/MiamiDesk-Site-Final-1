@@ -51,18 +51,21 @@ directory, supplied by Carlos Uzcategui, July 2026)
 
 Verified facts:
 
-- **21 Florida offices** (supersedes the earlier "20 Florida offices" figure,
-  which was sourced from urgfl.com and undercounted by one). Breakdown:
-  - Broward County (11): Corporate Office (Plantation, 1200 S. Pine Island Rd
+- The photo lists more individual addresses than the site's "20 Florida
+  offices" figure — Carlos confirmed **20 is the correct figure to use**
+  despite the longer address list (some entries in the directory are not
+  counted as distinct Florida offices). Do not recompute this figure from a
+  raw count of the photo's addresses; use 20. Locations shown, for reference:
+  - Broward County: Corporate Office (Plantation, 1200 S. Pine Island Rd
     Suite 600), Cooper City, Coral Springs, Fort Lauderdale, Hollywood,
     Lighthouse Point, Parkland, Pembroke Pines, Plantation/Vizcaya Square (975
     N. Nob Hill Rd — a second, separate Plantation location), Tamarac, Weston
     (15951 SW 41st Street, Suite 700 — Carlos's office).
-  - Orange County (1): Orlando.
-  - Palm Beach County (5): Boca Raton, Boynton Beach, Palm Beach Gardens,
-    Royal Palm Beach, Wellington.
-  - Miami-Dade County (3): Aventura, Hialeah Gardens, Kendall.
-  - Other Florida branches (1): Gainesville.
+  - Orange County: Orlando.
+  - Palm Beach County: Boca Raton, Boynton Beach, Palm Beach Gardens, Royal
+    Palm Beach, Wellington.
+  - Miami-Dade County: Aventura, Hialeah Gardens, Kendall.
+  - Other Florida branches: Gainesville.
 - United Realty Group also operates a **Greensboro, NC** branch — this is
   **not** a Florida office and must never be counted toward the "Florida
   offices" figure or implied as part of Carlos's Florida license coverage.

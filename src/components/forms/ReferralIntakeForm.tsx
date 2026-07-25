@@ -19,6 +19,7 @@ export function ReferralIntakeForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
   const formStartFired = useRef(false);
+  const renderedAt = useRef(Date.now());
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -44,7 +45,7 @@ export function ReferralIntakeForm() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "referral-intake", "bot-field": "", ...form, sourcePage: "referral-intake", ...getAttribution() }),
+        body: encodeForm({ "form-name": "referral-intake", "bot-field": "", formRenderedAt: String(renderedAt.current), ...form, sourcePage: "referral-intake", ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
@@ -52,6 +53,7 @@ export function ReferralIntakeForm() {
         city: form.country, timeline: form.referralType,
         message: `${form.brokerageName ? form.brokerageName + " · " : ""}${form.clientSummary}`,
         sourcePage: "referral-intake", leadSource: getLeadSource(),
+        botField: "", formRenderedAt: String(renderedAt.current),
       });
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",

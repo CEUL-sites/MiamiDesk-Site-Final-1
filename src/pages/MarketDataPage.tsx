@@ -238,9 +238,6 @@ function CityTable() {
               <th className={`${thCls} text-right`} onClick={() => handleSort("monthsSupply")}>
                 Mo. Supply <SortIcon k="monthsSupply" />
               </th>
-              <th className={`${thCls} text-right`} onClick={() => handleSort("medianDaysOnMarket")}>
-                Days to Contract <SortIcon k="medianDaysOnMarket" />
-              </th>
               <th className={`${thCls} text-right`} onClick={() => handleSort("yoyMedianPriceChange")}>
                 YoY Price <SortIcon k="yoyMedianPriceChange" />
               </th>
@@ -267,9 +264,6 @@ function CityTable() {
                   <td className="py-3 pr-4 text-right font-mono tabular-nums text-ink-primary">
                     {r.monthsSupply ?? "—"}
                   </td>
-                  <td className="py-3 pr-4 text-right font-mono tabular-nums text-ink-primary">
-                    {r.medianDaysOnMarket !== null ? `${r.medianDaysOnMarket}d` : "—"}
-                  </td>
                   <td className="py-3 pr-4 text-right">
                     {badge ? (
                       <span className={`text-xs font-mono px-2 py-0.5 rounded-full ${badge.cls}`}>{badge.text}</span>
@@ -291,7 +285,7 @@ function CityTable() {
             })}
             {rows.length === 0 && (
               <tr>
-                <td colSpan={8} className="py-10 text-center text-gray-400 text-sm">
+                <td colSpan={7} className="py-10 text-center text-gray-400 text-sm">
                   No records match the current filters.
                 </td>
               </tr>
@@ -415,8 +409,8 @@ export default function MarketDataPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">City-Level Data</p>
             <h2 className="font-serif text-2xl md:text-3xl text-ink-primary">Market Conditions by City</h2>
             <p className="text-sm text-gray-500 max-w-2xl">
-              YTD figures (January – May 2026) from Miami Realtors Association city-level breakdowns. Days on market
-              reflects median days to contract. Thin-volume markets are hidden by default.
+              YTD figures (January – May 2026) from Miami Realtors Association city-level breakdowns. Thin-volume
+              markets are hidden by default.
             </p>
           </div>
           <CityTable />
@@ -453,9 +447,8 @@ export default function MarketDataPage() {
           <p className="text-xs text-gray-500 leading-relaxed">
             <span className="font-semibold">Data source:</span> Miami and South Florida REALTORS® Monthly Market
             Statistics Reports, May 2026. County-level figures are monthly; city-level figures are year-to-date
-            (January – May 2026). Days on market at the county level reflects median time to sale; at the city
-            level it reflects median days to contract — these are distinct metrics. Months supply and median price
-            data are provided directly as published; no estimates or interpolations have been made.{" "}
+            (January – May 2026). Days on market at the county level reflects median time to sale. Months supply
+            and median price data are provided directly as published; no estimates or interpolations have been made.{" "}
             <a
               href="https://www.miamirealtors.com/market-statistics/"
               target="_blank"

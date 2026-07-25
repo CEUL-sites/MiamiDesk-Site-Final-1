@@ -66,6 +66,18 @@ function shouldSkipVideo(): boolean {
   return prefersLightMedia() || prefersReducedMotion();
 }
 
+/**
+ * Every clip in public/videos has a matching still in public/images/posters
+ * (same basename, .jpg — regenerate with a frame grab if clips change). The
+ * poster guarantees the slot is never an empty box: it shows on data-saver and
+ * reduce-motion visitors, before the clip buffers, and when autoplay is blocked
+ * (e.g. iOS Low Power Mode).
+ */
+function posterFor(src: string): string | undefined {
+  const m = src.match(/^\/videos\/(.+)\.mp4$/);
+  return m ? `/images/posters/${m[1]}.jpg` : undefined;
+}
+
 export function LazyVideo({
   src,
   className,
@@ -77,6 +89,7 @@ export function LazyVideo({
 }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [active, setActive] = useState(eager && !shouldSkipVideo());
+  const resolvedPoster = poster ?? posterFor(src);
 
   // idle mode — wait for window load, then an idle slot, then activate.
   useEffect(() => {
@@ -143,7 +156,7 @@ export function LazyVideo({
       playsInline
       aria-hidden="true"
       preload={active ? "auto" : "none"}
-      poster={poster}
+      poster={resolvedPoster}
       className={className}
       style={style}
       {...(active ? { autoPlay: true } : {})}

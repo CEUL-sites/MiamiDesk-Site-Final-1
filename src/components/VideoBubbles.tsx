@@ -9,7 +9,9 @@ export interface VideoBubble {
 
 export const VIDEO_BUBBLES: VideoBubble[] = [
   { src: "/videos/signature_marketing_reel.mp4",      caption: "Signature marketing reel" },
+  { src: "/videos/aerial_drone_vertical.mp4",         caption: "Waterfront at dusk" },
   { src: "/videos/luxury_home_walkthrough.mp4",       caption: "Cinematic home walkthrough" },
+  { src: "/videos/hand_house_reach_2.mp4",            caption: "Your villa, in hand" },
   { src: "/videos/luxury_waterfront_estate.mp4",      caption: "Waterfront estate tour" },
   { src: "/videos/matterport_miami_beach.mp4",        caption: "Matterport — Miami Beach" },
   { src: "/videos/matterport_style.mp4",              caption: "Immersive 3D walkthrough" },
@@ -231,6 +233,16 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
 
         {/* Circle */}
         <span className="absolute inset-0 rounded-full overflow-hidden border border-gold/30 bg-[#0F2038] shadow-2xl shadow-navy/50 transition-all duration-500 group-hover:border-gold/55">
+          {/* Poster underlay — the first clip's still keeps the circle filled
+              when video can't play (data-saver, Low Power Mode, buffering). */}
+          <img
+            src={bubbles[0].poster ?? bubbles[0].src.replace(/^\/videos\//, "/images/posters/").replace(/\.mp4$/, ".jpg")}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
           {near && [0, 1].map((layer) => (
             <video
               key={layer}

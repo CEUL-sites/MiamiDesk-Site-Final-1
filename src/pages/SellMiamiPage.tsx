@@ -109,7 +109,7 @@ export default function SellMiamiPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Miami, FL · Seller Advisory</p>
             <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
               Sell your Miami home with the reach<br />
-              <em className="italic text-gold">of the world's largest local Realtor® network.</em>
+              <em className="italic text-gold">of the world's largest local Realtor® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Miami's diverse submarkets — from Coconut Grove and Edgewater to Wynwood and Little Havana — demand
@@ -210,7 +210,7 @@ export default function SellMiamiPage() {
                   <em className="italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 21 South Florida offices — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 21 Florida offices — not a portal, a professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[

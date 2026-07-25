@@ -110,7 +110,7 @@ export default function SellAventuraPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Aventura, FL · Seller Advisory</p>
             <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
               Sell your Aventura property with the reach<br />
-              <em className="italic text-gold">of the world's largest local Realtor® network.</em>
+              <em className="italic text-gold">of the world's largest local Realtor® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Aventura's luxury condominium market and high concentration of international buyers demand a listing agent
@@ -212,7 +212,7 @@ export default function SellAventuraPage() {
                   <em className="italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 21 South Florida offices — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 21 Florida offices — not a portal, a professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[

@@ -39,7 +39,7 @@ That is the difference between simply being listed and being strategically intro
 
 ## The Distribution Advantage
 
-When a seller lists with Carlos Uzcategui, the property enters the world's largest local Realtor association's distribution infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges, and $69B in combined 2025 network transaction volume.
+When a seller lists with Carlos Uzcategui, the property enters the world's largest local Realtor association's distribution infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges, and United Realty Group's 3,500+ agents across 21 Florida offices.
 
 That exposure does not guarantee a result. It does create a structural advantage. In a market where inventory tightened and buyers were still closing, distribution can affect how many qualified agents and buyers become aware of the property, how the listing is positioned, and how much competitive pressure can be created during the launch period.
 
@@ -47,7 +47,7 @@ For high-value owners, this matters. Price is not created by a headline. Price i
 
 ## Why Carlos Specifically
 
-Carlos Uzcategui has been licensed in Florida since 2001 and brings 25 years of South Florida market experience to the seller side of the transaction. He is a Florida Licensed Realtor(R) SL705771, a Certified Luxury Home Marketing Specialist, a Certified Seller Representative, and an associate with United Realty Group.
+Carlos Uzcategui has been licensed in Florida since 2001 and brings 25 years of South Florida market experience to the seller side of the transaction. He is a Florida Licensed Realtor® SL705771, a Certified Luxury Home Marketing Specialist, a Certified Seller Representative, and an associate with United Realty Group.
 
 For sellers with Spain or LATAM buyer profiles, Carlos also works across a bilingual English-Spanish referral model. South Florida owners can benefit from coordination with affiliated Madrid agencies reaching buyers relocating or investing from Spain and LATAM. Spanish and LATAM property owners can evaluate Miami MLS exposure through a licensed U.S. principal-of-record structure, with local professional agencies supporting buyer-side representation, showings, negotiation, and buyer qualification.
 
@@ -83,6 +83,6 @@ Distribution can increase buyer and agent awareness across MLS, brokerage, refer
 
 Source: MIAMI REALTORS, South Florida Market Stats - April 2026, reviewed June 5, 2026. This article uses county-level April 2026 MIAMI statistics and does not include neighborhood-level, luxury-tier, property-condition, mortgage-rate, buyer-origin, or property-specific valuation data.
 
-Florida Licensed Realtor(R) SL705771 | United Realty Group | Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
 
 Information is for general informational purposes only and does not constitute legal, tax, financial, or investment advice. Market data is deemed reliable but not guaranteed and is subject to change without notice. Association statistics referenced reflect MIAMI REALTORS source material reviewed on June 5, 2026.

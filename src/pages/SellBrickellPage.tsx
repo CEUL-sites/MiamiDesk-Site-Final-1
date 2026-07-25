@@ -55,6 +55,9 @@ export default function SellBrickellPage() {
         <meta name="twitter:title" content="Sell Your Brickell Condo | Carlos Uzcategui, FL SL705771" />
         <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Brickell, Miami condo sellers. Free strategy review — no listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-brickell" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-brickell" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender-brickell" />
       </Helmet>
       <JsonLd id="sell-brickell-breadcrumb" data={{
           "@context": "https://schema.org",
@@ -110,7 +113,7 @@ export default function SellBrickellPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Brickell, Miami · Seller Advisory</p>
             <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
               Sell your Brickell condo with the reach<br />
-              <em className="italic text-gold">of the world's largest local Realtor® network.</em>
+              <em className="italic text-gold">of the world's largest local Realtor® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Brickell's urban luxury market and high international investor demand require a listing agent
@@ -212,7 +215,7 @@ export default function SellBrickellPage() {
                   <em className="italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 21 South Florida offices — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents across 21 Florida offices — not a portal, a professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[
