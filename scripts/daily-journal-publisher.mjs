@@ -429,7 +429,7 @@ const angles = [
     faq: (m) => [
       [
         `Should I buy the next property before selling in ${m.name}?`,
-        'That depends on your financing position and your tolerance for carrying two properties. It is a sequencing decision with real cost either way, and it should be modelled with your lender and financial adviser before you commit to an order.'
+        'That depends on your financing position and your tolerance for carrying two properties. It is a sequencing decision with real cost either way, and it should be modeled with your lender and financial adviser before you commit to an order.'
       ]
     ]
   },
@@ -656,7 +656,11 @@ function chooseTopic(existingSlugs) {
   return null;
 }
 
-function buildPost(topic) {
+// `overrides.date` and `overrides.image` exist for regeneratePost: a rewrite of
+// an already-published post must keep its original publish date and share-card
+// path, since both are load-bearing (indexed date, an og:image that already
+// exists on disk) and neither should move just because the prose did.
+function buildPost(topic, overrides = {}) {
   const { angle, market, slug } = topic;
   const title = angle.title(market);
   const excerpt = angle.excerpt(market);
@@ -686,19 +690,23 @@ function buildPost(topic) {
     .map(([question, answer]) => `### ${question}\n\n${answer}`)
     .join('\n\n');
 
-  const frontmatter = [
+  const frontmatterLines = [
     '---',
     `title: "${title.replace(/"/g, '\\"')}"`,
-    `date: "${today}"`,
+    `date: "${overrides.date ?? today}"`,
     `slug: "${slug}"`,
     `excerpt: "${excerpt.replace(/"/g, '\\"')}"`,
-    `category: "${angle.category}"`,
+    `category: "${angle.category}"`
+  ];
+  if (overrides.image) frontmatterLines.push(`image: "${overrides.image}"`);
+  frontmatterLines.push(
     'created_by: "github-actions"',
     `market: "${market.name}"`,
     'funnel_stage: "consideration"',
     'content_goal: "lead_generation"',
     '---'
-  ].join('\n');
+  );
+  const frontmatter = frontmatterLines.join('\n');
 
   return `${frontmatter}
 
@@ -798,11 +806,13 @@ function shingles(text) {
 // The failure this guards against is the one that produced a dozen 93%-identical
 // posts: a template that varies only by city name still generates, still passes
 // every other check, and quietly publishes duplicate content.
-function assertDistinct(content) {
+function assertDistinct(content, { excludeFile } = {}) {
   const candidate = shingles(content);
   let worst = { slug: null, similarity: 0 };
 
-  for (const file of fs.readdirSync(JOURNAL_DIR).filter((f) => f.endsWith('.md') && !f.startsWith('_'))) {
+  for (const file of fs
+    .readdirSync(JOURNAL_DIR)
+    .filter((f) => f.endsWith('.md') && !f.startsWith('_') && f !== excludeFile)) {
     const existing = shingles(fs.readFileSync(path.join(JOURNAL_DIR, file), 'utf8'));
     let intersection = 0;
     for (const item of candidate) if (existing.has(item)) intersection += 1;
@@ -867,26 +877,84 @@ function updateSitemap(slug) {
   fs.writeFileSync(SITEMAP, xml);
 }
 
-const existingSlugs = readExistingSlugs();
-const topic = chooseTopic(existingSlugs);
-if (!topic) {
-  console.log('No publishable journal topic available today. Skipping.');
-  process.exit(0);
+// Slug format is "<angle-key>-<market-slug>-<year>-<month>". Angle keys never
+// prefix one another, so the first match is unambiguous; the market is then
+// whatever's left after stripping it.
+function resolveRegenerationTarget(slug) {
+  const angle = angles.find((a) => slug.startsWith(`${a.key}-`));
+  if (!angle) throw new Error(`Cannot regenerate "${slug}": no angle key is a prefix of this slug.`);
+
+  const rest = slug.slice(angle.key.length + 1);
+  const market = markets.find((m) => rest.startsWith(`${slugify(m.name)}-`));
+  if (!market) throw new Error(`Cannot regenerate "${slug}": no market slug is a prefix of "${rest}".`);
+
+  return { angle, market };
 }
 
-const content = buildPost(topic);
-assertQuality(content, { excerpt: topic.angle.excerpt(topic.market) });
-const closest = assertDistinct(content);
-const postPath = path.join(JOURNAL_DIR, `${topic.slug}.md`);
-if (fs.existsSync(postPath)) {
-  console.log(`Post already exists: ${topic.slug}. Skipping.`);
-  process.exit(0);
+// Rewrites an already-published post from the current templates without moving
+// its live URL or its indexed publish date. Used to fix posts that predate
+// assertDistinct and were generated back when the templates varied only by
+// city name.
+function regeneratePost(slug) {
+  const postPath = path.join(JOURNAL_DIR, `${slug}.md`);
+  if (!fs.existsSync(postPath)) throw new Error(`Cannot regenerate "${slug}": ${postPath} does not exist.`);
+
+  const existingRaw = fs.readFileSync(postPath, 'utf8');
+  const fmMatch = existingRaw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+  if (!fmMatch) throw new Error(`Cannot regenerate "${slug}": existing file has no frontmatter block.`);
+
+  const existingMeta = {};
+  for (const line of fmMatch[1].split(/\r?\n/)) {
+    const kv = line.match(/^(\w+):\s*"?([^"]*)"?\s*$/);
+    if (kv) existingMeta[kv[1].trim()] = kv[2].trim();
+  }
+  if (!existingMeta.date) throw new Error(`Cannot regenerate "${slug}": existing frontmatter has no date.`);
+  if (existingMeta.slug !== slug) {
+    throw new Error(`Cannot regenerate "${slug}": frontmatter slug "${existingMeta.slug}" does not match the filename.`);
+  }
+
+  const { angle, market } = resolveRegenerationTarget(slug);
+  const topic = { angle, market, slug };
+  const content = buildPost(topic, { date: existingMeta.date, image: existingMeta.image });
+
+  assertQuality(content, { excerpt: angle.excerpt(market) });
+  // The post being rewritten still exists on disk mid-comparison, so exclude it —
+  // otherwise every regeneration would "collide" with the copy it's replacing.
+  const closest = assertDistinct(content, { excludeFile: `${slug}.md` });
+
+  fs.writeFileSync(postPath, content);
+  console.log(
+    `Regenerated journal post: ${slug} ` +
+      `(closest other post: ${closest.slug ?? 'none'} at ${(100 * closest.similarity).toFixed(1)}%)`
+  );
 }
-fs.writeFileSync(postPath, content);
-renderShareCard(topic.slug, postPath);
-updatePackage(topic.slug);
-updateSitemap(topic.slug);
-console.log(
-  `Published scheduled journal draft: ${topic.slug} ` +
-    `(closest existing post: ${closest.slug ?? 'none'} at ${(100 * closest.similarity).toFixed(1)}%)`
-);
+
+const regenerateArg = process.argv.find((arg) => arg.startsWith('--regenerate='));
+
+if (regenerateArg) {
+  regeneratePost(regenerateArg.slice('--regenerate='.length));
+} else {
+  const existingSlugs = readExistingSlugs();
+  const topic = chooseTopic(existingSlugs);
+  if (!topic) {
+    console.log('No publishable journal topic available today. Skipping.');
+    process.exit(0);
+  }
+
+  const content = buildPost(topic);
+  assertQuality(content, { excerpt: topic.angle.excerpt(topic.market) });
+  const closest = assertDistinct(content);
+  const postPath = path.join(JOURNAL_DIR, `${topic.slug}.md`);
+  if (fs.existsSync(postPath)) {
+    console.log(`Post already exists: ${topic.slug}. Skipping.`);
+    process.exit(0);
+  }
+  fs.writeFileSync(postPath, content);
+  renderShareCard(topic.slug, postPath);
+  updatePackage(topic.slug);
+  updateSitemap(topic.slug);
+  console.log(
+    `Published scheduled journal draft: ${topic.slug} ` +
+      `(closest existing post: ${closest.slug ?? 'none'} at ${(100 * closest.similarity).toFixed(1)}%)`
+  );
+}
