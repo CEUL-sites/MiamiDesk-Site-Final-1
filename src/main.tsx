@@ -34,6 +34,7 @@ const SellHallandaleBeachPage        = lazy(() => import('./pages/SellHallandale
 const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
 const GlobalDeskPage                 = lazy(() => import('./pages/GlobalDeskPage'));
 const SpainMlsListingPage            = lazy(() => import('./pages/SpainMlsListingPage'));
+const SellSpainMarketPage            = lazy(() => import('./pages/SellSpainMarketPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
 const AgentsPage         = lazy(() => import('./pages/AgentsPage'));
 const NewConstructionPage = lazy(() => import('./pages/NewConstructionPage'));
@@ -101,6 +102,13 @@ if (rootElement) {
                 <Route path="/global-desk"                   element={<GlobalDeskPage />} />
                 <Route path="/madrid-miami"                  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/spain-mls-listing"             element={<SpainMlsListingPage />} />
+                {/* Spain-side counterpart to the /sell-<city> pages */}
+                <Route path="/vender-marbella"               element={<SellSpainMarketPage slug="vender-marbella" />} />
+                <Route path="/vender-madrid"                 element={<SellSpainMarketPage slug="vender-madrid" />} />
+                <Route path="/vender-costa-blanca"           element={<SellSpainMarketPage slug="vender-costa-blanca" />} />
+                <Route path="/vender-ibiza"                  element={<SellSpainMarketPage slug="vender-ibiza" />} />
+                <Route path="/vender-barcelona"              element={<SellSpainMarketPage slug="vender-barcelona" />} />
+                <Route path="/vender-valencia"               element={<SellSpainMarketPage slug="vender-valencia" />} />
                 <Route path="/miami-mls-international-desk"  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/developers-agencies"           element={<Navigate to="/global-desk" replace />} />
                 {/* Legacy routes — redirect to new canonical URLs */}

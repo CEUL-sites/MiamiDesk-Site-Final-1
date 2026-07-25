@@ -8,6 +8,7 @@ import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { LazyVideo } from "../../components/LazyVideo";
 import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { AgencyPartnerForm } from "../../components/forms/AgencyPartnerForm";
+import { SpainSellerForm } from "../../components/forms/SpainSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 
@@ -854,18 +855,26 @@ export default function EsSpainDeskPage() {
           </div>
         </section>
 
-        {/* ── Formulario ────────────────────────────────────────────── */}
+        {/* ── Formulario ──────────────────────────────────────────────
+            Dos vías, según quién llega. AgencyPartnerForm está escrito para
+            agencias y promotores; un propietario particular que aterrizaba
+            aquí no tenía ningún formulario adecuado y se marchaba. La consulta
+            breve va primero por ser la audiencia más amplia. */}
         <section className="bg-navy-deep py-16 md:py-24" id="enviar-listing">
           <div className="mx-auto max-w-3xl px-6">
-            <div className="mb-10 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Mesa España · Consulta de Agencia</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Envíe un listing o consulta de agencia.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Para agencias españolas, promotores y profesionales del listing. Todas las solicitudes son confidenciales.
-                Carlos revisa cada consulta personalmente antes de responder.
-              </p>
+            <SpainSellerForm lang="es" sourcePage="es-spain-desk" />
+
+            <div className="mt-14 border-t border-white/10 pt-14">
+              <div className="mb-10 text-center">
+                <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Mesa España · Consulta de Agencia</p>
+                <h2 className="mt-3 font-serif text-3xl text-white">¿Es agencia o promotora?</h2>
+                <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+                  Para agencias españolas, promotores y profesionales del listing. Todas las solicitudes son confidenciales.
+                  Carlos revisa cada consulta personalmente antes de responder.
+                </p>
+              </div>
+              <AgencyPartnerForm />
             </div>
-            <AgencyPartnerForm />
           </div>
         </section>
 

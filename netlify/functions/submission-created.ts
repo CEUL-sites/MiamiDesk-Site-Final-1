@@ -48,14 +48,23 @@ export const handler: Handler = async (event: HandlerEvent) => {
     const name    = fields.name || fields.licenseeName || "";
     const email   = fields.email || "";
     const phone   = fields.phone || "";
-    // propertyAddress covers seller/LeadForm; targetNeighborhoods covers buyer form
-    const propertyAddress = fields.propertyAddress || fields.targetNeighborhoods || "";
-    const city    = fields.city || fields.country || "";
+    // propertyAddress covers seller/LeadForm; targetNeighborhoods covers buyer
+    // form; location covers spain-seller and global-desk-listing (an
+    // international enquiry gives a city/area, not a street address)
+    const propertyAddress = fields.propertyAddress || fields.targetNeighborhoods || fields.location || "";
+    const city    = fields.city || fields.country || fields.jurisdiction || fields.location || "";
     // timeline covers seller/buyer; referralType covers referral form
     const timeline = fields.timeline || fields.referralType || "";
     // message covers LeadForm; priorListing covers seller; clientSummary covers referral;
     // valueBand covers seller (secondary fallback)
-    const message = fields.message || fields.priorListing || fields.clientSummary || fields.valueBand || "";
+    // spain-seller carries its context across role/propertyType/valueBand
+    // rather than one free-text field — compose them so the alert Carlos gets
+    // is actionable instead of blank.
+    const spainContext = [fields.role, fields.propertyType, fields.valueBand]
+      .filter((v) => v && v.trim() !== "")
+      .join(" · ");
+    const message =
+      fields.message || fields.priorListing || fields.clientSummary || spainContext || fields.valueBand || "";
 
     // ── Lead source attribution (first-touch UTM / referrer) ─────────────
     // Captured client-side on landing and attached to every submission, so
