@@ -275,7 +275,7 @@ export default function EsVenderDoralPage() {
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
                   {/* TODO: native Madrid editor review */}
                   La activación profesional en el MLS a través de United Realty Group significa que su propiedad entra
-                  en la red de una correduría de servicio completo fundada en 2002 — más de 3.500 agentes en 21 oficinas
+                  en la red de una correduría de servicio completo fundada en 2002 — más de 3.500 agentes en 20 oficinas
                   en Florida — no un portal, sino una infraestructura profesional.
                 </p>
                 <ul className="mt-8 space-y-3">
@@ -283,7 +283,7 @@ export default function EsVenderDoralPage() {
                     // TODO: native Madrid editor review
                     "MLS de Miami y el Sur de Florida REALTORS® — 93.000 agentes miembros",
                     "Distribución elegible a 200+ portales globales en 19 idiomas",
-                    "United Realty Group — 3.500+ agentes en 21 oficinas de Florida",
+                    "United Realty Group — 3.500+ agentes en 20 oficinas de Florida",
                     "Canal directo de compradores LATAM y europeos",
                     "437+ acuerdos internacionales en 75+ países",
                   ].map((item) => (

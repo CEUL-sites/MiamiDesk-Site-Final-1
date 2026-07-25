@@ -26,9 +26,9 @@ export const CONTACT = {
   stats: {
     experience: "25",
     agents: "93,000",
-    offices: "21",
+    offices: "20",
     urgAgents: "3,500+",
-    urgOffices: "21",
+    urgOffices: "20",
     urgFounded: "2002",
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
@@ -115,9 +115,9 @@ export const ASSOCIATION_STATS = {
   usMls: 260,
   mlsDataExchanges: 11,
   // Defensible, attributed URG description — no unverifiable ranking.
-  urgScale: "3,500+ agents · 21 Florida offices",
+  urgScale: "3,500+ agents · 20 Florida offices",
   urgAgents: "3,500+",
-  urgOffices: 21,
+  urgOffices: 20,
   associationName: "Miami and South Florida REALTORS®"
 };
 

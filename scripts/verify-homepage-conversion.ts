@@ -33,7 +33,7 @@ const [hero, form, proof, about, cookie, mobileSticky] = await Promise.all([
 ]);
 
 assert.match(hero, /href="#client-reviews"/);
-assert.match(hero, /United Realty Group · 3,500\+ agents · 21 Florida offices/);
+assert.match(hero, /United Realty Group · 3,500\+ agents · 20 Florida offices/);
 assert.match(form, /Confidential Seller Strategy Review/);
 assert.match(form, /Request My Seller Strategy Review/);
 assert.match(form, /Revisión Confidencial de Estrategia de Venta/);
@@ -43,7 +43,7 @@ assert.match(cookie, /md:left-6 md:right-auto/);
 assert.doesNotMatch(cookie, /md:left-auto md:right-6/);
 assert.match(proof, /id="client-reviews"/);
 assert.doesNotMatch(about, /founded in 2002|in-house title|Est\. 2002/i);
-assert.match(about, /3,500\+ agents and 21 Florida offices/);
+assert.match(about, /3,500\+ agents and 20 Florida offices/);
 assert.match(
   mobileSticky,
   /getElementById\("list-here"\)\s*\?\?\s*document\.getElementById\("contact"\)/,
@@ -53,6 +53,16 @@ assert.match(
   mobileSticky,
   /querySelectorAll\("\[data-sticky-cta-guard\]"\)/,
   "the seller CTA must observe guarded elements so it never covers them",
+);
+assert.match(
+  mobileSticky,
+  /rootMargin: `-\$\{topInset\}px/,
+  "the guard band must be sized in pixels from the pill's footprint — a viewport-percentage band is shallower than the pill on short landscape screens",
+);
+assert.doesNotMatch(
+  mobileSticky,
+  /rootMargin: "-\d+%/,
+  "the guard band must not be expressed as a viewport percentage",
 );
 
 console.log("homepage conversion contract verified");

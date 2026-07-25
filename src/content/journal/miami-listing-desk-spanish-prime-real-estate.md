@@ -41,7 +41,7 @@ The value is not merely that a property can be seen. The value is that it can be
 
 ## Why The Professional Ecosystem Matters
 
-When a property enters the Miami and South Florida professional ecosystem through the proper brokerage channel, it is positioned inside the world's largest local Realtor association's distribution infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ signed international association agreements, 11 MLS data exchanges, and United Realty Group's 3,500+ agents across 21 Florida offices.
+When a property enters the Miami and South Florida professional ecosystem through the proper brokerage channel, it is positioned inside the world's largest local Realtor association's distribution infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ signed international association agreements, 11 MLS data exchanges, and United Realty Group's 3,500+ agents across 20 Florida offices.
 
 This is not simply a large email database. It is a working professional market.
 
@@ -153,7 +153,7 @@ The strategic advantage is that the developer is not attempting to manage dozens
 
 The Miami Listing Desk is not operating as an isolated consultant or independent marketing intermediary.
 
-It is supported through United Realty Group, a substantial Florida brokerage platform with 3,500+ agents and 21 Florida offices.
+It is supported through United Realty Group, a substantial Florida brokerage platform with 3,500+ agents and 20 Florida offices.
 
 That brokerage infrastructure matters for several reasons. It provides:
 
