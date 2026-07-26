@@ -417,7 +417,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
             <button
               type="button"
               onClick={handleContinue}
-              className="hero-cta-main mt-5 flex min-h-12 w-full items-center justify-center gap-2.5 rounded-lg px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep"
+              className="mt-5 flex min-h-12 w-full items-center justify-center gap-2.5 rounded-lg border border-gold/70 px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gold transition-colors hover:bg-gold/10"
             >
               {t.continue}<ArrowRight size={15} />
             </button>
