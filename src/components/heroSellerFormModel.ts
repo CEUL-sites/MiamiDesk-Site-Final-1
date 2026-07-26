@@ -11,6 +11,22 @@ export type HeroSellerStepOneValidation =
   | { valid: true }
   | { valid: false; firstInvalid: HeroSellerStepOneField };
 
+type ManualAddressInput = {
+  disabled: boolean;
+  placeholder: string;
+  style: { backgroundImage: string };
+};
+
+export function restoreManualAddressEntry(
+  input: ManualAddressInput | null,
+  placeholder: string,
+) {
+  if (!input) return;
+  input.disabled = false;
+  input.placeholder = placeholder;
+  input.style.backgroundImage = "";
+}
+
 export function validateHeroSellerStepOne(
   values: HeroSellerStepOne,
 ): HeroSellerStepOneValidation {
