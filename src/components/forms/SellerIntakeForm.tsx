@@ -6,6 +6,7 @@ import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../../lib/googlePlaces";
 import { getCityMarketStats, segmentPeriod } from "../../data/cityMarketStats";
+import { restoreManualAddressEntry } from "../heroSellerFormModel";
 
 const CITIES = [
   "Aventura", "Bal Harbour", "Boca Raton", "Brickell", "Coconut Grove",
@@ -98,30 +99,37 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
     // input gets autocomplete and a corrected address still refreshes lat/lng.
     if (!input || placesInput.current === input) return;
     placesInput.current = input;
-    loadGooglePlaces(() => {
-      if (!window.google?.maps?.places || addressRef.current !== input) return;
-      const ac = new window.google.maps.places.Autocomplete(input, {
-        types: ["address"],
-        componentRestrictions: { country: ["us"] },
-        fields: ["formatted_address", "geometry", "place_id", "address_components"],
-      });
-      ac.addListener("place_changed", () => {
-        const place = ac.getPlace();
-        const addr = place.formatted_address ?? input.value;
-        const lat = place.geometry?.location?.lat() ?? null;
-        const lng = place.geometry?.location?.lng() ?? null;
-        const locality = place.address_components?.find((c) => c.types.includes("locality"))?.long_name ?? "";
-        const matchedCity = CITIES.find((c) => c.toLowerCase() === locality.toLowerCase()) ?? "";
-        setForm((f) => ({
-          ...f,
-          propertyAddress: addr,
-          lat: lat != null ? String(lat) : "",
-          lng: lng != null ? String(lng) : "",
-          placeId: place.place_id ?? "",
-          city: matchedCity || f.city,
-        }));
-      });
-    });
+    loadGooglePlaces(
+      () => {
+        if (!window.google?.maps?.places || addressRef.current !== input) return;
+        const ac = new window.google.maps.places.Autocomplete(input, {
+          types: ["address"],
+          componentRestrictions: { country: ["us"] },
+          fields: ["formatted_address", "geometry", "place_id", "address_components"],
+        });
+        ac.addListener("place_changed", () => {
+          const place = ac.getPlace();
+          const addr = place.formatted_address ?? input.value;
+          const lat = place.geometry?.location?.lat() ?? null;
+          const lng = place.geometry?.location?.lng() ?? null;
+          const locality = place.address_components?.find((c) => c.types.includes("locality"))?.long_name ?? "";
+          const matchedCity = CITIES.find((c) => c.toLowerCase() === locality.toLowerCase()) ?? "";
+          setForm((f) => ({
+            ...f,
+            propertyAddress: addr,
+            lat: lat != null ? String(lat) : "",
+            lng: lng != null ? String(lng) : "",
+            placeId: place.place_id ?? "",
+            city: matchedCity || f.city,
+          }));
+        });
+      },
+      () => {
+        window.requestAnimationFrame(() => {
+          restoreManualAddressEntry(addressRef.current, "Street address or building name");
+        });
+      },
+    );
   };
 
   const handleStep1 = (e: React.FormEvent) => {
