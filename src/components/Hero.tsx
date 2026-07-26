@@ -19,7 +19,7 @@ const item: Variants = {
 };
 
 const DISTRIBUTION_PROOF = [
-  { value: "93,000", label: "Member agents" },
+  { value: "93,000", label: "Association members" },
   { value: "200+", label: "Websites and apps" },
   { value: "260+", label: "U.S. MLSs via RPR" },
   { value: "19", label: "Languages" },
