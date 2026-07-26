@@ -6,6 +6,7 @@ import {
   previousHeroSellerStep,
   validateHeroSellerStepOne,
 } from "../src/components/heroSellerFormModel";
+import * as heroSellerFormModel from "../src/components/heroSellerFormModel";
 
 const validStepOne = {
   propertyAddress: "15951 SW 41 St, Weston, FL",
@@ -36,6 +37,35 @@ assert.equal(
   "invalid Step 1 remains visible",
 );
 assert.equal(previousHeroSellerStep(2), 1, "Back returns to Step 1 without clearing data");
+
+const restoreManualAddressEntry = (
+  heroSellerFormModel as unknown as {
+    restoreManualAddressEntry?: (
+      input: { disabled: boolean; placeholder: string; style: { backgroundImage: string } },
+      placeholder: string,
+    ) => void;
+  }
+).restoreManualAddressEntry;
+assert.equal(
+  typeof restoreManualAddressEntry,
+  "function",
+  "the hero form must expose a manual-address fallback when Google Places authentication fails",
+);
+const placesFailedInput = {
+  disabled: true,
+  placeholder: "Oops! Something went wrong.",
+  style: { backgroundImage: "url(error-icon.svg)" },
+};
+restoreManualAddressEntry!(placesFailedInput, "Property address — South Florida or Spain");
+assert.deepEqual(
+  placesFailedInput,
+  {
+    disabled: false,
+    placeholder: "Property address — South Florida or Spain",
+    style: { backgroundImage: "" },
+  },
+  "the fallback must restore an editable, correctly labelled address field",
+);
 
 assert.equal(
   shouldRenderMobileSticky({ formVisible: false, consentPending: false, guardVisible: false }),
