@@ -75,4 +75,3 @@ Only the homepage title and description change to the approved seller-strategy c
 - `verify:journal`: passed for 59 public posts.
 - Vite production bundle: passed; `react-snap` postbuild could not launch because the committed dependency setup did not download Chromium in this environment.
 - `yarn install`: attempted through Corepack but the legacy Yarn registry endpoint was blocked; local dependencies were installed without lockfile changes through npm for verification.
-

@@ -151,4 +151,3 @@ Include business objective, message/form/contact summaries, files, tests, screen
 - [ ] **Step 3: Inspect preview/check status**
 
 Wait for Netlify/GitHub status, attach the preview URL and screenshots, and leave the PR unmerged.
-
