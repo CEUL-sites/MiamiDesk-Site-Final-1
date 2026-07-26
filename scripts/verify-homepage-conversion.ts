@@ -88,7 +88,7 @@ assert.equal(
   "the seller CTA should hide while a guarded element (e.g. the review card) crosses the bottom action area",
 );
 
-const [home, hero, form, authority, execution, distribution, proof, about, contactPage, cookie, mobileSticky] = await Promise.all([
+const [home, hero, form, authority, execution, distribution, proof, about, contactPage, cookie, mobileSticky, footer] = await Promise.all([
   readFile("src/pages/HomePage.tsx", "utf8"),
   readFile("src/components/Hero.tsx", "utf8"),
   readFile("src/components/HeroSellerForm.tsx", "utf8"),
@@ -100,6 +100,7 @@ const [home, hero, form, authority, execution, distribution, proof, about, conta
   readFile("src/pages/ContactPage.tsx", "utf8"),
   readFile("src/components/CookieBanner.tsx", "utf8"),
   readFile("src/components/MobileStickyCTA.tsx", "utf8"),
+  readFile("src/components/Footer.tsx", "utf8"),
 ]);
 
 assert.match(hero, /Know How Your Property Should Be Positioned Before You List\./);
@@ -131,6 +132,8 @@ for (const [label, copy] of [
 assert.doesNotMatch(distribution, /The Listing System|PILLARS\.map/);
 assert.match(distribution, /label: "Association members"/);
 assert.doesNotMatch(distribution, /label: "Member agents"/);
+assert.match(footer, /93,000 ASSOCIATION MEMBERS/);
+assert.doesNotMatch(footer, /93,000 MEMBER AGENTS/);
 const sectionOrder = [
   "<Hero />",
   "<SellerAuthorityStrip />",
