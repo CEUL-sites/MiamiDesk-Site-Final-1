@@ -5,7 +5,7 @@ import { LazyVideo } from "./LazyVideo";
 const DISTRIBUTION_STATS = [
   {
     value: "93,000",
-    label: "Member agents",
+    label: "Association members",
     source: "Miami and South Florida REALTORS®",
     description: "Professional visibility inside the shared MLS ecosystem used by member agents.",
   },
