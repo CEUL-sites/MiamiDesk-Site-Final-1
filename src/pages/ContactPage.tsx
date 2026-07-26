@@ -98,7 +98,7 @@ export default function ContactPage() {
               {deskCtx?.intro ?? "For South Florida sellers, international property owners, agencies, developers, and cooperating brokers. Share the essentials — Carlos reviews every submission personally. No listing commitment required."}
             </p>
           </div>
-          <div className="relative z-10 mx-auto mt-14 max-w-5xl px-6 md:mt-16">
+          <div id="listing-request" className="relative z-10 mx-auto mt-14 max-w-5xl px-6 md:mt-16">
             <div className="mb-8 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential · Private Review Desk</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Submit your listing for private review</h2>
@@ -110,7 +110,7 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-        <AboutContact />
+        <AboutContact showForm={false} compact />
         <Footer />
         <MobileStickyCTA />
       </main>

@@ -20,7 +20,7 @@ export function MobileStickyCTA() {
   const [consentPending, setConsentPending] = useState(true);
   const [guardVisible, setGuardVisible] = useState(false);
   // Default to the main seller funnel; if the current page has its own
-  // in-page form (#list-here, #contact, or #listing-request), target that instead so we
+  // in-page form (#list-here or #listing-request), target that instead so we
   // never navigate the user away mid-page.
   const [sellHref, setSellHref] = useState(
     spanishLabels ? "/es/vender#contact" : "/sell-south-florida#contact"
@@ -30,8 +30,8 @@ export function MobileStickyCTA() {
   useEffect(() => {
     const el =
       document.getElementById("list-here") ??
-      document.getElementById("contact") ??
-      document.getElementById("listing-request");
+      document.getElementById("listing-request") ??
+      document.getElementById("contact");
     if (!el) return;
     setSellHref(`#${el.id}`);
     const observer = new IntersectionObserver(

@@ -76,12 +76,19 @@ export function MarketPulse() {
           })}
         </div>
 
-        <div className="mt-4 md:mt-5">
+        <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3 md:mt-5">
           <Link
             to="/market-data"
             className="group inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-gold"
           >
             See full county and city market data
+            <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
+          </Link>
+          <Link
+            to="/journal"
+            className="group inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-gold"
+          >
+            Read the seller strategy journal
             <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>

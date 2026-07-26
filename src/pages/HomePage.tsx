@@ -12,6 +12,8 @@ import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { MarketPulse } from "../components/MarketPulse";
 import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
+import { SellerAuthorityStrip } from "../components/SellerAuthorityStrip";
+import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
 
 // Below-the-fold sections — split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
@@ -22,16 +24,15 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>South Florida Listing Agent · Sell Your Home | Carlos Uzcategui | HomesProfessional.com</title>
-        <meta name="description" content="Carlos Uzcategui, FL SL705771 · South Florida listing agent · MLS exposure and buyer-agent activation across Miami-Dade, Broward & Palm Beach." />
+        <title>South Florida Listing Strategist | Carlos Uzcategui</title>
+        <meta name="description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001. Pricing, positioning, buyer-agent activation and global distribution for South Florida sellers." />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="South Florida Listing Agent · Sell Your Home | HomesProfessional.com" />
-        <meta name="twitter:description" content="Local representation. Professional distribution. Global buyer reach — 93,000 Miami REALTORS® member agents." />
+        <meta name="twitter:title" content="South Florida Listing Strategist | Carlos Uzcategui" />
+        <meta name="twitter:description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001. Pricing, positioning, buyer-agent activation and global distribution for South Florida sellers." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
-        <meta name="keywords" content="south florida listing agent, miami listing agent, sell home miami, sell home coral gables, sell home weston florida, miami beach listing agent, brickell condo listing agent, south florida realtor, miami mls listing, united realty group miami" />
         <link rel="canonical" href="https://homesprofessional.com/" />
-        <meta property="og:title" content="South Florida Listing Agent · Sell Your Home | HomesProfessional.com" />
-        <meta property="og:description" content="Local representation. Professional distribution. Global buyer reach. MLS exposure plus buyer-agent activation across 93,000 member agents — South Florida and international markets." />
+        <meta property="og:title" content="South Florida Listing Strategist | Carlos Uzcategui" />
+        <meta property="og:description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001. Pricing, positioning, buyer-agent activation and global distribution for South Florida sellers." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
@@ -63,8 +64,10 @@ export default function HomePage() {
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />
-        <Proof />
+        <SellerAuthorityStrip />
+        <SellerExecutionSystem />
         <Distribution />
+        <Proof />
         <GlobalDeskTeaser />
         <MarketPulse />
         <Suspense fallback={null}>

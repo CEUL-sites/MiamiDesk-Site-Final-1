@@ -1,11 +1,18 @@
 import { motion } from "motion/react";
 import { ArrowRight, MapPin, Loader2, CheckCircle2, Download } from "lucide-react";
-import { useState, useRef, type ChangeEvent, type FormEvent } from "react";
+import { useState, useRef, type ChangeEvent, type FormEvent, type RefObject } from "react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 import { trackLead, trackFunnelEvent, pushEvent } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
 import { notifyLeadDirect } from "../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../lib/googlePlaces";
+import {
+  nextHeroSellerStep,
+  previousHeroSellerStep,
+  validateHeroSellerStepOne,
+  type HeroSellerStep,
+  type HeroSellerStepOneField,
+} from "./heroSellerFormModel";
 
 type Lang = "en" | "es";
 
@@ -27,8 +34,14 @@ const COPY = {
       "Other",
     ],
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
-    submit: "Request My Seller Strategy Review",
+    continue: "Continue My Property Review",
+    back: "Back",
+    submit: "Request My Property Strategy",
     sending: "Sending…",
+    step: "Step",
+    stepOneTitle: "Property and contact",
+    stepTwoTitle: "Review preferences",
+    required: "Please complete the required fields to continue.",
     consent: "I agree to receive updates by WhatsApp/SMS at this number. Msg & data rates may apply. Reply STOP to opt out.",
     prefer: "Prefer WhatsApp?",
     preferLink: "Message Carlos directly",
@@ -58,8 +71,14 @@ const COPY = {
       "Otra",
     ],
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
-    submit: "Solicitar Mi Revisión de Estrategia de Venta",
+    continue: "Continuar Mi Revisión de Propiedad",
+    back: "Atrás",
+    submit: "Solicitar Mi Estrategia de Propiedad",
     sending: "Enviando…",
+    step: "Paso",
+    stepOneTitle: "Propiedad y contacto",
+    stepTwoTitle: "Preferencias de revisión",
+    required: "Complete los campos obligatorios para continuar.",
     consent: "Acepto recibir actualizaciones por WhatsApp/SMS a este número. Pueden aplicar tarifas. Responda STOP para darse de baja.",
     prefer: "¿Prefiere WhatsApp?",
     preferLink: "Escriba a Carlos directamente",
@@ -89,8 +108,11 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const [form, setForm]       = useState(initial);
   const [status, setStatus]   = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError]     = useState("");
+  const [step, setStep]       = useState<HeroSellerStep>(1);
   const [mapPin, setMapPin]   = useState<{ lat: number; lng: number; address: string } | null>(null);
   const addressRef            = useRef<HTMLInputElement>(null);
+  const nameRef               = useRef<HTMLInputElement>(null);
+  const phoneRef              = useRef<HTMLInputElement>(null);
   const formStartFired        = useRef(false);
   const placesReady           = useRef(false);
   const renderedAt            = useRef(Date.now());
@@ -145,8 +167,51 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const update = (k: keyof typeof initial) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
+  const stepOneRefs: Record<HeroSellerStepOneField, RefObject<HTMLInputElement | null>> = {
+    propertyAddress: addressRef,
+    name: nameRef,
+    phone: phoneRef,
+  };
+
+  const handleContinue = () => {
+    const validation = validateHeroSellerStepOne(form);
+    if ("firstInvalid" in validation) {
+      setError(t.required);
+      stepOneRefs[validation.firstInvalid].current?.focus();
+      return;
+    }
+    const nextStep = nextHeroSellerStep(step, form);
+    setError("");
+    setStep(nextStep);
+    pushEvent("step_progress", {
+      form_name: "seller-hero",
+      step_number: nextStep,
+      step_name: "review_preferences",
+      direction: "forward",
+      language: lang,
+    });
+  };
+
+  const handleBack = () => {
+    const previousStep = previousHeroSellerStep(step);
+    setError("");
+    setStep(previousStep);
+    pushEvent("step_progress", {
+      form_name: "seller-hero",
+      step_number: previousStep,
+      step_name: "property_and_contact",
+      direction: "back",
+      language: lang,
+    });
+    window.requestAnimationFrame(() => addressRef.current?.focus());
+  };
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (step === 1) {
+      handleContinue();
+      return;
+    }
     if (status === "submitting") return;
     setStatus("submitting");
     setError("");
@@ -185,6 +250,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       }).catch(() => {});
       setStatus("success");
       setForm(initial);
+      setStep(1);
     } catch (err) {
       setError(err instanceof DOMException && err.name === "AbortError" ? t.timeout : t.failed);
       setStatus("error");
@@ -258,127 +324,176 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         <label>Don't fill this out: <input name="bot-field" /></label>
       </p>
 
-      {/* Header row */}
-      <div className="mb-5 flex items-center justify-between gap-3">
-        <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">{t.eyebrow}</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">{t.badge}</span>
-      </div>
-
-      {/* Address — Google Places Autocomplete */}
-      <div className="relative">
-        <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold/70 z-10" />
-        <input
-          required
-          ref={addressRef}
-          name="propertyAddress"
-          type="text"
-          value={form.propertyAddress}
-          onChange={update("propertyAddress")}
-          onFocus={initPlaces}
-          placeholder={t.address}
-          autoComplete="street-address"
-          style={{ paddingLeft: "2.75rem" }}
-          className="w-full rounded-lg bg-white/[0.08] border border-gold/25 px-4 py-4 font-sans text-base text-white placeholder:text-white/30 outline-none transition-all focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
-          aria-label={t.address}
-        />
-      </div>
-
-      {/* Map pin preview — appears after Google Places selection */}
-      {mapPin && MAPS_KEY && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          transition={{ duration: 0.35 }}
-          className="mt-3 overflow-hidden rounded-lg border border-gold/30 relative"
-        >
-          <img
-            src={`https://maps.googleapis.com/maps/api/staticmap?center=${mapPin.lat},${mapPin.lng}&zoom=15&size=600x160&scale=2&markers=color:0xB08D57%7Clabel:%7C${mapPin.lat},${mapPin.lng}&map_id=&style=feature:poi|visibility:off&style=feature:transit|visibility:off&key=${MAPS_KEY}`}
-            alt={`Map pin: ${mapPin.address}`}
-            className="w-full object-cover"
-            width="600"
-            height="160"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 flex items-center gap-2 px-3 py-2.5">
-            <MapPin size={11} className="text-gold flex-shrink-0" />
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold/90 truncate">{mapPin.address}</p>
+      {/* Header and accessible progress */}
+      <div className="mb-5">
+        <div className="flex items-center justify-between gap-3">
+          <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">{t.eyebrow}</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">{t.badge}</span>
+        </div>
+        <div className="mt-4 flex items-center gap-3" role="status" aria-live="polite">
+          <div className="flex flex-1 gap-1.5" aria-hidden="true">
+            {[1, 2].map((progressStep) => (
+              <span
+                key={progressStep}
+                className={`h-0.5 flex-1 rounded-full ${progressStep <= step ? "bg-gold" : "bg-white/15"}`}
+              />
+            ))}
           </div>
-        </motion.div>
-      )}
-
-      {/* Name + Phone */}
-      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <input
-          required name="name" type="text"
-          value={form.name} onChange={update("name")}
-          placeholder={t.name} autoComplete="name"
-          className={inputCls} aria-label={t.name}
-        />
-        <input
-          required name="phone" type="tel"
-          value={form.phone} onChange={update("phone")}
-          placeholder={t.phone} autoComplete="tel" inputMode="tel"
-          className={inputCls} aria-label={t.phone}
-        />
-      </div>
-
-      {/* Email — optional; enables the written valuation + auto-acknowledgment */}
-      <input
-        name="email" type="email"
-        value={form.email} onChange={update("email")}
-        placeholder={t.email} autoComplete="email" inputMode="email"
-        className={inputCls + " mt-3"} aria-label={t.email}
-      />
-
-      {/* Market + Timeline — each full-width row so labels never truncate */}
-      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <div className="relative">
-          <select
-            name="city" value={form.city} onChange={update("city")}
-            className={selectCls} aria-label="Market"
-          >
-            {t.markets.map((m) => <option key={m}>{m}</option>)}
-          </select>
-          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
-        </div>
-        <div className="relative">
-          <select
-            name="timeline" value={form.timeline} onChange={update("timeline")}
-            className={selectCls} aria-label="Timeline"
-          >
-            {t.timelines.map((tl) => <option key={tl}>{tl}</option>)}
-          </select>
-          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
+            {t.step} {step}/2 · {step === 1 ? t.stepOneTitle : t.stepTwoTitle}
+          </span>
         </div>
       </div>
 
-      {/* WhatsApp/SMS consent — optional opt-in */}
-      <label className="mt-3 flex cursor-pointer items-start gap-2.5">
-        <input
-          type="checkbox"
-          name="messagingConsent"
-          checked={form.messagingConsent === "yes"}
-          onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
-          className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
-        />
-        <span className="font-sans text-[11px] leading-relaxed text-white/70">{t.consent}</span>
-      </label>
+      <div aria-live="polite">
+        {step === 1 ? (
+          <>
+            {/* Address — Google Places Autocomplete */}
+            <div className="relative">
+              <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold/70 z-10" />
+              <label htmlFor="seller-hero-property-address" className="sr-only">{t.address}</label>
+              <input
+                required
+                id="seller-hero-property-address"
+                ref={addressRef}
+                name="propertyAddress"
+                type="text"
+                value={form.propertyAddress}
+                onChange={update("propertyAddress")}
+                onFocus={initPlaces}
+                placeholder={t.address}
+                autoComplete="street-address"
+                style={{ paddingLeft: "2.75rem" }}
+                className="w-full rounded-lg bg-white/[0.08] border border-gold/25 px-4 py-4 font-sans text-base text-white placeholder:text-white/30 outline-none transition-all focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
+              />
+            </div>
 
-      {status === "error" && (
-        <p className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>
-      )}
+            {/* Map pin preview — appears after Google Places selection */}
+            {mapPin && MAPS_KEY && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                transition={{ duration: 0.35 }}
+                className="mt-3 overflow-hidden rounded-lg border border-gold/30 relative"
+              >
+                <img
+                  src={`https://maps.googleapis.com/maps/api/staticmap?center=${mapPin.lat},${mapPin.lng}&zoom=15&size=600x160&scale=2&markers=color:0xB08D57%7Clabel:%7C${mapPin.lat},${mapPin.lng}&map_id=&style=feature:poi|visibility:off&style=feature:transit|visibility:off&key=${MAPS_KEY}`}
+                  alt={`Map pin: ${mapPin.address}`}
+                  className="w-full object-cover"
+                  width="600"
+                  height="160"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 flex items-center gap-2 px-3 py-2.5">
+                  <MapPin size={11} className="text-gold flex-shrink-0" />
+                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold/90 truncate">{mapPin.address}</p>
+                </div>
+              </motion.div>
+            )}
 
-      {/* CTA button */}
-      <button
-        type="submit"
-        disabled={status === "submitting"}
-        className="hero-cta-main mt-5 flex w-full items-center justify-center gap-2.5 rounded-lg px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep disabled:opacity-60"
-      >
-        {status === "submitting"
-          ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
-          : <>{t.submit}<ArrowRight size={15} /></>}
-      </button>
+            {/* Name + Phone */}
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div>
+                <label htmlFor="seller-hero-name" className="sr-only">{t.name}</label>
+                <input
+                  required id="seller-hero-name" ref={nameRef} name="name" type="text"
+                  value={form.name} onChange={update("name")}
+                  placeholder={t.name} autoComplete="name"
+                  className={inputCls}
+                />
+              </div>
+              <div>
+                <label htmlFor="seller-hero-phone" className="sr-only">{t.phone}</label>
+                <input
+                  required id="seller-hero-phone" ref={phoneRef} name="phone" type="tel"
+                  value={form.phone} onChange={update("phone")}
+                  placeholder={t.phone} autoComplete="tel" inputMode="tel"
+                  className={inputCls}
+                />
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleContinue}
+              className="hero-cta-main mt-5 flex min-h-12 w-full items-center justify-center gap-2.5 rounded-lg px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep"
+            >
+              {t.continue}<ArrowRight size={15} />
+            </button>
+          </>
+        ) : (
+          <>
+            {/* Email — optional; enables the written valuation + auto-acknowledgment */}
+            <label htmlFor="seller-hero-email" className="sr-only">{t.email}</label>
+            <input
+              id="seller-hero-email" name="email" type="email"
+              value={form.email} onChange={update("email")}
+              placeholder={t.email} autoComplete="email" inputMode="email"
+              className={inputCls}
+            />
+
+            {/* Market + Timeline — each full-width row so labels never truncate */}
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="relative">
+                <label htmlFor="seller-hero-market" className="sr-only">Market</label>
+                <select
+                  id="seller-hero-market" name="city" value={form.city} onChange={update("city")}
+                  className={selectCls}
+                >
+                  {t.markets.map((m) => <option key={m}>{m}</option>)}
+                </select>
+                <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
+              </div>
+              <div className="relative">
+                <label htmlFor="seller-hero-timeline" className="sr-only">Timeline</label>
+                <select
+                  id="seller-hero-timeline" name="timeline" value={form.timeline} onChange={update("timeline")}
+                  className={selectCls}
+                >
+                  {t.timelines.map((tl) => <option key={tl}>{tl}</option>)}
+                </select>
+                <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
+              </div>
+            </div>
+
+            {/* WhatsApp/SMS consent — optional opt-in */}
+            <label className="mt-3 flex cursor-pointer items-start gap-2.5">
+              <input
+                type="checkbox"
+                name="messagingConsent"
+                checked={form.messagingConsent === "yes"}
+                onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
+                className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
+              />
+              <span className="font-sans text-[11px] leading-relaxed text-white/70">{t.consent}</span>
+            </label>
+
+            <div className="mt-5 grid grid-cols-[auto_1fr] gap-2.5">
+              <button
+                type="button"
+                onClick={handleBack}
+                className="min-h-12 rounded-lg border border-white/20 px-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-white/80 transition-colors hover:border-gold/50 hover:text-gold"
+              >
+                {t.back}
+              </button>
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="hero-cta-main flex min-h-12 w-full items-center justify-center gap-2.5 rounded-lg px-4 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy-deep disabled:opacity-60 sm:text-[11px] sm:tracking-[0.2em]"
+              >
+                {status === "submitting"
+                  ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
+                  : <>{t.submit}<ArrowRight size={15} /></>}
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+
+      <p role="alert" aria-live="assertive" className="mt-3 min-h-5 font-sans text-[13px] text-red-300">
+        {error}
+      </p>
 
       {/* Concrete outcome at the point of conversion */}
       <p className="mt-4 text-center font-serif text-[13px] italic leading-snug text-white/60">
