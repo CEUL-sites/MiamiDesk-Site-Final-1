@@ -82,6 +82,8 @@ assert.match(hero, /Speak With Carlos on WhatsApp/);
 assert.match(hero, /Private review · No listing commitment · Personal response from Carlos/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
 assert.doesNotMatch(hero, /Eyebrow|South Florida · Global Reach/);
+assert.match(hero, /93,000", label: "Association members"/);
+assert.doesNotMatch(hero, /93,000", label: "Member agents"/);
 assert.match(hero, /United Realty Group · 3,500\+ agents · 20 Florida offices/);
 assert.match(authority, /Florida Realtor® since 2001/);
 assert.match(authority, /CLHMS Luxury Specialist/);
@@ -97,6 +99,8 @@ for (const [label, copy] of [
   assert.match(execution, new RegExp(copy.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 }
 assert.doesNotMatch(distribution, /The Listing System|PILLARS\.map/);
+assert.match(distribution, /label: "Association members"/);
+assert.doesNotMatch(distribution, /label: "Member agents"/);
 const sectionOrder = [
   "<Hero />",
   "<SellerAuthorityStrip />",
