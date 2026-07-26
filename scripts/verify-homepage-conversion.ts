@@ -103,7 +103,11 @@ const [home, hero, form, authority, execution, distribution, proof, about, conta
   readFile("src/components/Footer.tsx", "utf8"),
 ]);
 
-assert.match(hero, /Know How Your Property Should Be Positioned Before You List\./);
+assert.match(
+  hero,
+  /Sell With Strategy—and the Reach of the World’s Largest Local Realtor® Association\./,
+  "the homepage hero must lead with the approved seller strategy and distribution proposition",
+);
 assert.match(
   hero,
   /Receive a private MLS-based review of your property’s likely value range, competitive position, buyer profile and recommended launch strategy—prepared personally by Carlos Uzcategui, Florida Realtor® since 2001\./,
