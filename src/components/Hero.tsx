@@ -60,7 +60,7 @@ export function Hero() {
             className="font-serif font-normal leading-[1.02] text-white"
             style={{ fontSize: "clamp(2.55rem, 5.7vw, 5.15rem)" }}
           >
-            Know How Your Property Should Be Positioned Before You List.
+            Sell With Strategy—and the Reach of the World’s Largest Local Realtor® Association.
           </motion.h1>
 
           <motion.p
