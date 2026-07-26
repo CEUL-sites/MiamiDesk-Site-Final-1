@@ -1,451 +1,146 @@
 import { motion, type Variants } from "motion/react";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronRight, Globe, ShieldCheck, Star, Tag } from "lucide-react";
+import { ArrowRight, BadgeCheck, Globe2, MessageSquare, ShieldCheck } from "lucide-react";
+import { CONTACT } from "../constants";
+import { trackContact } from "../lib/analytics";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
 import { LazyVideo } from "./LazyVideo";
-import { Tilt3D } from "./Tilt3D";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-// Demoted to a secondary column beside the form — the seller form is the
-// centerpiece now, not the decorative clip.
-const FEATURE_SIZE = "clamp(120px,26vw,170px)";
-
-// Verified network-distribution figures — static, no counting-up animation.
-// Keep in sync with the network ticker figures used elsewhere on the site.
-const DISTRIBUTION_STATS = [
-  { value: "93,000", label: "Member Agents" },
-  { value: "200+",   label: "Global Portals · 19 Languages" },
-  { value: "260+",   label: "U.S. MLSs via RPR" },
-  { value: "437+",   label: "International Agreements" },
-];
-
-// Crossfade duration between clips (ms). Kept in sync with the CSS opacity
-// transition on each video layer so swaps dissolve with no black frame.
-const FADE_MS = 600;
-
-// One circle, auto-cycling through these in order, then looping back to start.
-// Opens on the "home in hands" signature clip the client loves, then folds in
-// the Global Reach + AI Marketing clips that used to live in the (removed) side
-// bubbles so none of that content is lost.
-// NOTE: virtual_tour_showcase.mp4 (14MB) and luxury_home_walkthrough.mp4 (13MB)
-// are intentionally kept OUT of this rotation — at this bubble size their extra
-// weight is invisible but they pull ~27MB of mobile data. Both remain live where
-// they show full-size (SellerSection, VideoBubbles, Agents & Markets pages).
-const HERO_FEATURE_VIDEOS = [
-  { src: "/videos/dollhouse_rotating_in_hands.mp4",   label: "Signature Marketing" },
-  { src: "/videos/entrance_house_miami.mp4",          label: "Miami Estate"        },
-  { src: "/videos/luxury_waterfront_estate.mp4",      label: "Waterfront Estate"   },
-  { src: "/videos/waterfront_house_global_reach.mp4", label: "Global Reach"        },
-  { src: "/videos/matterport_miami_beach.mp4",        label: "3D Matterport Tour"  },
-  { src: "/videos/house_tour_reach_2.mp4",            label: "Interior Tour"       },
-  { src: "/videos/gemini_property_vision.mp4",        label: "AI Marketing"        },
-];
-
-// Decorative hero clips are skipped entirely on data-saver / slow (2g) links —
-// the navy bubble background stays in place rather than spending the visitor's
-// data and delaying the lead form below. Safe during prerender (no navigator
-// → returns false, so the prerendered markup is unchanged).
-function prefersLightMedia(): boolean {
-  if (typeof navigator === "undefined") return false;
-  const c = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
-  if (!c) return false;
-  return Boolean(c.saveData) || /(^|-)2g$/.test(c.effectiveType ?? "");
-}
-
-// Pauses/defers the hero videos until the hero is actually on-screen, so they
-// never compete with the above-the-fold lead form for bandwidth and stop
-// fetching once the visitor scrolls past.
-function useInView<T extends HTMLElement>(rootMargin = "200px") {
-  const ref = useRef<T>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") { setInView(true); return; }
-    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [rootMargin]);
-  return [ref, inView] as const;
-}
-
-// Single hero bubble that auto-advances through HERO_FEATURE_VIDEOS on each
-// clip's end, with Instagram-style progress segments below. Clicking a segment
-// jumps to that clip.
-//
-// Two stacked video layers crossfade between clips so there is NEVER a black
-// frame on a swap: the front layer plays the current clip while the back layer
-// silently preloads the NEXT one; on advance we dissolve (CSS opacity) between
-// them and the roles swap. This is the same seamless technique used by the
-// VideoBubbles component.
-//
-// Loading stays off the critical path: preload="none" + sources attached
-// imperatively (source.src + load() — the pattern Chromium's demuxer handles
-// reliably, vs. setting video.src directly which can surface a spurious
-// DEMUXER_ERROR_NO_SUPPORTED_STREAMS) only once the hero is on-screen and the
-// visitor isn't on a data-saver link.
-function HeroCyclingBubble({ active }: { active: boolean }) {
-  const v0 = useRef<HTMLVideoElement>(null);
-  const v1 = useRef<HTMLVideoElement>(null);
-  const s0 = useRef<HTMLSourceElement>(null);
-  const s1 = useRef<HTMLSourceElement>(null);
-  const vids = [v0, v1] as const;
-  const srcs = [s0, s1] as const;
-
-  const [front, setFront] = useState(0);     // which layer is in front (0|1)
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [progress, setProgress] = useState(0); // 0–1 progress for the front clip
-
-  // Refs mirror state so the (once-attached) media handlers always read current
-  // values without re-binding.
-  const frontRef = useRef(0);
-  const activeRef = useRef(0);
-  const busy = useRef(false);                 // guards overlapping transitions
-  const loadedIdx = useRef<[number, number]>([-1, -1]); // clip loaded per layer
-  const n = HERO_FEATURE_VIDEOS.length;
-  useEffect(() => { frontRef.current = front; }, [front]);
-  useEffect(() => { activeRef.current = activeIdx; }, [activeIdx]);
-
-  const loadInto = useCallback((layer: number, idx: number) => {
-    const v = vids[layer].current;
-    const s = srcs[layer].current;
-    if (!v || !s || loadedIdx.current[layer] === idx) return;
-    s.src = HERO_FEATURE_VIDEOS[idx].src;
-    v.muted = true;
-    v.load();
-    loadedIdx.current[layer] = idx;
-  }, [vids, srcs]);
-
-  // Start/stop with `active`: play the front clip and preload the next in back
-  // when on-screen; pause both when the visitor scrolls past.
-  useEffect(() => {
-    if (!active) { v0.current?.pause(); v1.current?.pause(); return; }
-    loadInto(frontRef.current, activeRef.current);
-    const v = vids[frontRef.current].current;
-    const play = () => { const p = v?.play(); if (p) p.catch(() => {}); };
-    if (v && v.readyState >= 2) play();
-    else v?.addEventListener("canplay", play, { once: true });
-    loadInto(frontRef.current === 0 ? 1 : 0, (activeRef.current + 1) % n);
-    return () => v?.removeEventListener("canplay", play);
-  }, [active, loadInto, n, vids]);
-
-  // Crossfade to a target clip. The back layer already holds the next clip for
-  // auto-advance (instant); a tapped segment loads on demand, then fades.
-  const goTo = useCallback((target: number) => {
-    if (busy.current || !active || target === activeRef.current) return;
-    const back = frontRef.current === 0 ? 1 : 0;
-    const bv = vids[back].current;
-    if (!bv) return;
-    busy.current = true;
-    loadInto(back, target);
-
-    const start = () => {
-      try { bv.currentTime = 0; } catch { /* not seekable yet — fine */ }
-      bv.muted = true;
-      const p = bv.play(); if (p) p.catch(() => {});
-      setProgress(0);
-      setFront(back);          // CSS opacity transition does the dissolve
-      setActiveIdx(target);
-      window.setTimeout(() => {
-        const oldFront = back === 0 ? 1 : 0;
-        vids[oldFront].current?.pause();      // free the now-hidden decoder
-        loadInto(oldFront, (target + 1) % n); // preload the next clip
-        busy.current = false;
-      }, FADE_MS);
-    };
-
-    if (loadedIdx.current[back] === target && bv.readyState >= 2) start();
-    else bv.addEventListener("canplay", start, { once: true });
-  }, [active, loadInto, n, vids]);
-
-  const onTime = (layer: number) => () => {
-    if (layer !== frontRef.current) return;
-    const v = vids[layer].current;
-    if (!v || !v.duration) return;
-    setProgress(v.currentTime / v.duration);
-  };
-  const onEnded = (layer: number) => () => {
-    if (layer !== frontRef.current) return;
-    goTo((activeRef.current + 1) % n);
-  };
-
-  return (
-    <div className="flex flex-col items-center gap-3">
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.1 }}
-        className="relative overflow-hidden rounded-full flex-shrink-0 bg-[#0B1E3F]"
-        style={{
-          width: FEATURE_SIZE,
-          height: FEATURE_SIZE,
-          border: "2px solid rgba(176,141,87,0.65)",
-          boxShadow:
-            "0 0 36px rgba(176,141,87,0.38), inset 0 0 0 1px rgba(255,255,255,0.05)",
-        }}
-      >
-        {/* Poster underlay — the signature still shows whenever the clips
-            can't (data-saver, Low Power Mode, blocked autoplay, buffering),
-            so the circle is never an empty navy disc. */}
-        <img
-          src="/images/posters/dollhouse_rotating_in_hands.jpg"
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        {[0, 1].map((layer) => (
-          <video
-            key={layer}
-            ref={vids[layer]}
-            muted
-            playsInline
-            preload="none"
-            aria-hidden="true"
-            onTimeUpdate={onTime(layer)}
-            onEnded={onEnded(layer)}
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{
-              opacity: layer === front ? 1 : 0,
-              transition: `opacity ${FADE_MS}ms ease-in-out`,
-            }}
-          >
-            <source ref={srcs[layer]} type="video/mp4" />
-          </video>
-        ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-      </motion.div>
-
-      {/* Story-style progress segments — buttons carry a 24px+ touch area
-          (WCAG target size); the visible 2px bar is centered inside. */}
-      <div className="flex items-center" role="group" aria-label="Featured clip sequence">
-        {HERO_FEATURE_VIDEOS.map((v, i) => (
-          <button
-            key={v.src}
-            type="button"
-            onClick={() => goTo(i)}
-            aria-label={`Clip ${i + 1}: ${v.label}`}
-            className="relative flex h-6 items-center justify-center transition-all duration-300"
-            style={{ width: i === activeIdx ? "calc(1.9rem + 16px)" : "calc(0.5rem + 16px)" }}
-          >
-            <span
-              className="relative block h-[2px] overflow-hidden rounded-full transition-all duration-300"
-              style={{ width: i === activeIdx ? "1.9rem" : "0.5rem" }}
-            >
-              <span className="absolute inset-0 rounded-full bg-white/15" />
-              {i < activeIdx && (
-                <span className="absolute inset-0 rounded-full bg-gold/70" />
-              )}
-              {i === activeIdx && (
-                <span
-                  className="absolute inset-y-0 left-0 rounded-full bg-gold"
-                  style={{ width: `${progress * 100}%`, transition: "width 0.15s linear" }}
-                />
-              )}
-            </span>
-          </button>
-        ))}
-      </div>
-
-      {/* Current video label */}
-      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 whitespace-nowrap leading-none">
-        {HERO_FEATURE_VIDEOS[activeIdx].label}
-      </span>
-    </div>
-  );
-}
-
 const container: Variants = {
-  hidden:  {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.08 } },
 };
+
 const item: Variants = {
-  hidden:  { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE } },
 };
+
+const DISTRIBUTION_PROOF = [
+  { value: "93,000", label: "Association members" },
+  { value: "200+", label: "Websites and apps" },
+  { value: "260+", label: "U.S. MLSs via RPR" },
+  { value: "19", label: "Languages" },
+] as const;
 
 export function Hero() {
-  // Decorative hero videos only load/play while the hero is on-screen and the
-  // visitor isn't on a data-saver/slow link — keeps them off the critical path
-  // so the headline and lead form paint first.
-  const [trioRef, inView] = useInView<HTMLDivElement>();
-  const [lightMedia] = useState(prefersLightMedia);
-  const videosActive = inView && !lightMedia;
-
   return (
-    <section className="hero-root relative overflow-hidden bg-[#060D18] text-white flex flex-col">
-
-      <style>{`
-        .hero-grain {
-          position:absolute; inset:0; pointer-events:none; opacity:0.025;
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-          background-size: 180px;
-        }
-        .hero-grid {
-          position:absolute; inset:0; pointer-events:none;
-          background-image:
-            linear-gradient(rgba(176,141,87,0.03) 1px, transparent 1px),
-            linear-gradient(90deg,rgba(176,141,87,0.03) 1px, transparent 1px);
-          background-size:64px 64px;
-          mask-image:radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
-        }
-        .hero-vignette {
-          position:absolute; bottom:0; left:0; right:0; height:220px; pointer-events:none;
-          background:linear-gradient(to top, rgba(6,13,24,0.95) 0%, transparent 100%);
-        }
-      `}</style>
-
+    <section className="hero-root relative overflow-hidden bg-[#060D18] text-white">
       <HeroBackground />
-      {/* Luxury estate backdrop — waterfront architecture behind the aurora
-          field. Low opacity so the headline and form keep full contrast. */}
       <LazyVideo
         idle
         src="/videos/luxury_waterfront_estate.mp4"
-        className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.2]"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#060D18]/85 via-[#060D18]/30 to-[#060D18]/80 pointer-events-none" aria-hidden="true" />
-      <div className="hero-grain"    aria-hidden="true" />
-      <div className="hero-grid"     aria-hidden="true" />
-      <div className="hero-vignette" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/90 via-[#060D18]/68 to-[#060D18]/95"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.025]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(176,141,87,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(176,141,87,0.12) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
 
-      {/* ── Main content — single centered column ──────────────── */}
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-1 flex-col items-center px-4 pt-[72px] sm:pt-24 md:pt-28 pb-10 sm:px-8"
+        className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 px-5 pb-10 pt-24 sm:px-8 sm:pt-28 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-14 lg:pb-14 lg:pt-32"
       >
-        <div className="w-full max-w-5xl flex flex-col items-center text-center">
-
-          {/* Eyebrow */}
-          <motion.div variants={item}>
-            <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
-              <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
-                <span className="sm:hidden">South Florida · Global Reach</span>
-                <span className="hidden sm:inline">South Florida · Miami Realtors Network · Global Reach</span>
-              </span>
-            </span>
-          </motion.div>
-
-          {/* Headline */}
+        <div className="max-w-3xl text-left">
           <motion.h1
             variants={item}
-            className="mt-6 font-serif leading-[1.05] text-white"
-            style={{ fontSize: "clamp(1.9rem, 5.5vw, 4.8rem)", fontWeight: 400 }}
+            className="font-serif font-normal leading-[1.02] text-white"
+            style={{ fontSize: "clamp(2.55rem, 5.7vw, 5.15rem)" }}
           >
-            Sell With the Reach of the
-            <br className="hidden md:block" aria-hidden="true" />{" "}
-            <em className="italic text-gold">World's Largest Local Realtor® Association.</em>
+            Sell With Strategy—and the Reach of the World’s Largest Local Realtor® Association.
           </motion.h1>
 
-          {/* Subtitle — kept directly under the headline as a short line; at
-              this size it reads as connective tissue rather than crowding the
-              stat row beneath it. */}
           <motion.p
             variants={item}
-            className="mt-4 font-serif text-white/70 italic"
-            style={{ fontSize: "clamp(0.95rem, 2vw, 1.2rem)" }}
+            className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 sm:text-lg"
           >
-            Real Estate is local — Peak Value is Global.
+            Receive a private MLS-based review of your property’s likely value range, competitive position, buyer profile and recommended launch strategy—prepared personally by Carlos Uzcategui, Florida Realtor® since 2001.
           </motion.p>
 
-          {/* Static distribution stat row — replaces the auto-scrolling
-              marquee. Static and readable is the point: no counting-up
-              animation, no motion. */}
-          <motion.div variants={item} className="w-full flex justify-center">
-            <Tilt3D maxTilt={3} className="mt-7 w-full max-w-2xl">
-              <div className="grid grid-cols-2 gap-x-4 gap-y-6 border-y border-gold/15 py-6 sm:grid-cols-4 sm:gap-x-6">
-                {DISTRIBUTION_STATS.map((s) => (
-                  <div key={s.label}>
-                    <div
-                      className="font-serif text-white"
-                      style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)", fontWeight: 400 }}
-                    >
-                      {s.value}
-                    </div>
-                    <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
-                      {s.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Tilt3D>
+          <motion.div variants={item} className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="#list-here"
+              className="hero-cta-main inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-navy-deep"
+            >
+              Request My Property Strategy
+              <ArrowRight size={15} aria-hidden="true" />
+            </a>
+            <a
+              href={CONTACT.whatsappUS}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackContact("whatsapp", "homepage_hero_secondary")}
+              className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg border border-white/20 px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-white transition-colors hover:border-gold/60 hover:text-gold"
+            >
+              <MessageSquare size={15} aria-hidden="true" />
+              Speak With Carlos on WhatsApp
+            </a>
           </motion.div>
 
           <motion.p
             variants={item}
-            className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/90 sm:text-[11px]"
+            className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70"
           >
-            United Realty Group · 3,500+ agents · 20 Florida offices
+            Private review · No listing commitment · Personal response from Carlos
           </motion.p>
 
-          <motion.a
+          <motion.div
             variants={item}
-            href="#client-reviews"
-            className="mt-5 inline-flex items-center gap-2 border border-white/15 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/75 transition-colors hover:border-gold/45 hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep"
+            className="mt-7 grid max-w-2xl grid-cols-1 gap-3 border-y border-gold/20 py-5 sm:grid-cols-3 sm:gap-5"
           >
-            <Star size={14} aria-hidden="true" className="text-gold" />
-            Verified client experiences
-            <ChevronRight size={14} aria-hidden="true" />
-          </motion.a>
-
+            {[
+              { icon: ShieldCheck, text: "Florida Realtor® since 2001" },
+              { icon: BadgeCheck, text: "CLHMS · Seller Representative" },
+              { icon: Globe2, text: "United Realty Group" },
+            ].map(({ icon: Icon, text }) => (
+              <span
+                key={text}
+                className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-white/72"
+              >
+                <Icon size={14} className="shrink-0 text-gold" aria-hidden="true" />
+                {text}
+              </span>
+            ))}
+          </motion.div>
         </div>
 
-        {/* ── Form + video bubble ──────────────────────────────────
-            Desktop: form left, bubble demoted to a secondary column on the
-            right. Mobile: form first, bubble below it, reduced in size. */}
         <motion.div
+          id="list-here"
           variants={item}
-          className="mt-9 flex w-full max-w-5xl flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-center"
+          className="w-full scroll-mt-24 lg:justify-self-end"
         >
-          <motion.div
-            id="list-here"
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.35 }}
-            className="w-full max-w-lg scroll-mt-24 lg:order-1"
-          >
-            <HeroSellerForm />
-          </motion.div>
-
-          <div ref={trioRef} className="flex items-center justify-center lg:order-2 lg:pt-6">
-            <HeroCyclingBubble active={videosActive} />
-          </div>
+          <HeroSellerForm />
         </motion.div>
-
-        {/* ── Trust row ──────────────────────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.6 }}
-          className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
-        >
-          {[
-            { icon: ShieldCheck, text: "Licensed Since 2001" },
-            { icon: Tag,         text: "CLHMS · Certified Seller Rep" },
-            { icon: Globe,       text: "United Realty Group" },
-          ].map(({ icon: Icon, text }) => (
-            <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
-              <Icon size={11} className="text-gold/60 flex-shrink-0" />
-              {text}
-            </span>
-          ))}
-        </motion.div>
-
-        {/* Compliance */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.5 }}
-          className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-white/70 max-w-sm text-center"
-        >
-          Eligible exposure varies by property type, MLS rules, platform participation, and syndication partner availability.
-        </motion.p>
-
       </motion.div>
 
+      <div className="relative z-10 border-t border-white/10 bg-[#060D18]/82 px-5 py-5 backdrop-blur-sm sm:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4">
+          {DISTRIBUTION_PROOF.map((proof) => (
+            <div key={proof.label} className="border-l border-gold/25 pl-3 sm:pl-5">
+              <p className="font-serif text-2xl text-gold sm:text-3xl">{proof.value}</p>
+              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/70">
+                {proof.label}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mx-auto mt-4 max-w-7xl font-mono text-[9px] uppercase tracking-[0.12em] text-white/55">
+          United Realty Group · 3,500+ agents · 20 Florida offices · Distribution varies by property eligibility, MLS rules, platform participation and syndication availability.
+        </p>
+      </div>
     </section>
   );
 }

@@ -2,10 +2,16 @@ import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT } from "../constants";
 import { LeadForm } from "./LeadForm";
 
-export function AboutContact() {
+export function AboutContact({
+  showForm = true,
+  compact = false,
+}: {
+  showForm?: boolean;
+  compact?: boolean;
+} = {}) {
   return (
-    <section id="contact" className="bg-ivory py-10 md:py-24">
-      <div className="mx-auto grid max-w-7xl gap-7 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+    <section id="contact" className={`bg-ivory ${compact ? "py-10 md:py-16" : "py-10 md:py-24"}`}>
+      <div className={`mx-auto grid gap-7 px-6 ${showForm ? "max-w-7xl lg:grid-cols-[1.1fr_0.9fr] lg:gap-16" : "max-w-5xl"}`}>
         <div>
           <div className="grid gap-4 md:grid-cols-[280px_1fr] md:items-start md:gap-10">
             <div className="carlos-headshot-card">
@@ -72,13 +78,15 @@ export function AboutContact() {
           </div>
         </div>
 
-        <div className="lg:sticky lg:top-24 lg:self-start">
-          <LeadForm />
-          <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
-            <BadgeCheck size={14} className="text-gold" />
-            Confidential · Licensed Professionals · Equal Housing Opportunity
+        {showForm && (
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <LeadForm />
+            <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
+              <BadgeCheck size={14} className="text-gold" />
+              Confidential · Licensed Professionals · Equal Housing Opportunity
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
