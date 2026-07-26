@@ -9,6 +9,7 @@ import { loadGooglePlaces, MAPS_KEY } from "../lib/googlePlaces";
 import {
   nextHeroSellerStep,
   previousHeroSellerStep,
+  restoreManualAddressEntry,
   validateHeroSellerStepOne,
   type HeroSellerStep,
   type HeroSellerStepOneField,
@@ -134,34 +135,41 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
   const initPlaces = () => {
     if (placesReady.current) return;
     placesReady.current = true;
-    loadGooglePlaces(() => {
-      const input = addressRef.current;
-      if (!input || !window.google?.maps?.places) return;
+    loadGooglePlaces(
+      () => {
+        const input = addressRef.current;
+        if (!input || !window.google?.maps?.places) return;
 
-      const ac = new window.google.maps.places.Autocomplete(input, {
-        types: ["address"],
-        componentRestrictions: { country: ["us", "es"] },
-        fields: ["formatted_address", "geometry", "place_id"],
-      });
+        const ac = new window.google.maps.places.Autocomplete(input, {
+          types: ["address"],
+          componentRestrictions: { country: ["us", "es"] },
+          fields: ["formatted_address", "geometry", "place_id"],
+        });
 
-      ac.addListener("place_changed", () => {
-        const place = ac.getPlace();
-        const addr   = place.formatted_address ?? input.value;
-        const lat    = place.geometry?.location?.lat() ?? null;
-        const lng    = place.geometry?.location?.lng() ?? null;
-        const placeId = place.place_id ?? "";
-        setForm((f) => ({
-          ...f,
-          propertyAddress: addr,
-          lat: lat != null ? String(lat) : "",
-          lng: lng != null ? String(lng) : "",
-          placeId,
-        }));
-        if (lat != null && lng != null) {
-          setMapPin({ lat, lng, address: addr });
-        }
-      });
-    });
+        ac.addListener("place_changed", () => {
+          const place = ac.getPlace();
+          const addr   = place.formatted_address ?? input.value;
+          const lat    = place.geometry?.location?.lat() ?? null;
+          const lng    = place.geometry?.location?.lng() ?? null;
+          const placeId = place.place_id ?? "";
+          setForm((f) => ({
+            ...f,
+            propertyAddress: addr,
+            lat: lat != null ? String(lat) : "",
+            lng: lng != null ? String(lng) : "",
+            placeId,
+          }));
+          if (lat != null && lng != null) {
+            setMapPin({ lat, lng, address: addr });
+          }
+        });
+      },
+      () => {
+        window.requestAnimationFrame(() => {
+          restoreManualAddressEntry(addressRef.current, t.address);
+        });
+      },
+    );
   };
 
   const update = (k: keyof typeof initial) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
