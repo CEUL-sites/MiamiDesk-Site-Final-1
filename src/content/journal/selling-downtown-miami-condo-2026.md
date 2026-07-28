@@ -2,7 +2,7 @@
 title: "Selling Your Downtown Miami Condo in 2026"
 date: "2026-06-11"
 slug: "selling-downtown-miami-condo-2026"
-excerpt: "Downtown Miami's high-rise inventory, investor-heavy ownership profile, and Brightline connectivity create a distinct seller calculus. Here is what determines which listings close and which accumulate days."
+excerpt: "Downtown Miami's high-rise inventory, investor-heavy ownership profile, and Brightline connectivity create a distinct seller calculus."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-downtown-miami-condo-2026.jpg"
 created_by: "claude"

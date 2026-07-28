@@ -51,10 +51,7 @@ export default function JournalListPage() {
     <>
       <Helmet>
         <title>Market Journal | South Florida Real Estate | Carlos Uzcategui</title>
-        <meta
-          name="description"
-          content="Market analysis and seller guides for South Florida real estate — HOA financials, closing costs, timing strategy, international capital flows. Carlos Uzcategui, FL SL705771."
-        />
+        <meta name="description" content="Market analysis and seller guides for South Florida real estate — HOA financials, closing costs, timing strategy, international capital flows." />
         <link rel="canonical" href="https://homesprofessional.com/journal" />
         <meta property="og:title" content="Market Journal | South Florida Real Estate | Carlos Uzcategui" />
         <meta property="og:description" content="Quarterly market analysis and seller insights for South Florida real estate. Absorption rates, international capital flows, and positioning strategy." />

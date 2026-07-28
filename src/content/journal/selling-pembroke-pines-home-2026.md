@@ -1,8 +1,9 @@
 ---
 title: "Selling a Home in Pembroke Pines — Community Choice and Buyer Pool Depth"
+seoTitle: "Selling a Home in Pembroke Pines"
 date: "2026-06-02"
 slug: "selling-pembroke-pines-home-2026"
-excerpt: "Pembroke Pines offers one of Broward's broadest housing inventories — from Silver Lakes to Pembroke Falls to Chapel Trail. The community your home is in determines who's buying and at what price."
+excerpt: "Pembroke Pines offers one of Broward's broadest housing inventories — from Silver Lakes to Pembroke Falls to Chapel Trail."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-pembroke-pines-home-2026.jpg"
 created_by: "claude"

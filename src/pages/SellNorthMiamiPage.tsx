@@ -41,7 +41,7 @@ export default function SellNorthMiamiPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in North Miami, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
+        <title>Sell Your Home in North Miami, FL</title>
         <meta name="description" content="North Miami, FL listing agent — MLS positioning, diverse buyer activation, buyer-agent network. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home North Miami FL, North Miami Florida listing agent, North Miami real estate agent, sell house North Miami Florida, North Miami FL realtor, Miami-Dade listing agent, North Miami homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-north-miami" />

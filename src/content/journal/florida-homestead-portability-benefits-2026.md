@@ -1,5 +1,6 @@
 ---
 title: "Florida Homestead and Save Our Homes Portability — What Owners Should Understand Before They Sell"
+seoTitle: "Florida Homestead and Save Our Homes Portability"
 date: "2026-06-14"
 slug: "florida-homestead-portability-benefits-2026"
 excerpt: "Florida's Homestead Exemption and Save Our Homes cap protect homeowners — and portability lets you carry the benefit to your next home. Here is how it works."

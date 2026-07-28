@@ -1,5 +1,6 @@
 ---
 title: "South Florida May 2026 Market Report: Single-Family Inventory Is Tightening for Sellers"
+seoTitle: "South Florida May 2026 Market Report"
 date: "2026-06-20"
 slug: "south-florida-may-2026-market-report-home-sellers"
 excerpt: "May 2026 data shows single-family inventory down roughly 20% across Miami-Dade and Broward, faster contracts, and firm prices. What it means for sellers."

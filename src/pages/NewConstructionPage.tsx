@@ -11,7 +11,7 @@ export default function NewConstructionPage() {
   return (
     <>
       <Helmet>
-        <title>New Construction | Florida Pre-Construction Inventory | Carlos Uzcategui</title>
+        <title>New Construction | Florida Pre-Construction Inventory</title>
         <meta
           name="description"
           content="Florida pre-construction inventory, professionally accessed. Advisory for international buyers and developers. Carlos Uzcategui, United Realty Group."

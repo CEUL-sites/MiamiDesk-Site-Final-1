@@ -1,5 +1,6 @@
 ---
 title: "The 1031 Exchange — Deferring Capital Gains When You Sell South Florida Investment Property"
+seoTitle: "The 1031 Exchange: Deferring Gains on Investment Property"
 date: "2026-06-12"
 slug: "1031-exchange-south-florida-investment-property-2026"
 excerpt: "A 1031 exchange lets investors defer capital gains tax by reinvesting in like-kind real property. Here are the rules, deadlines, and what they mean for sellers."

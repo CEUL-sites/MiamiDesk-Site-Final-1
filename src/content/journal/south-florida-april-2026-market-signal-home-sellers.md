@@ -2,7 +2,7 @@
 title: "South Florida's April 2026 Market Signal for Home Sellers"
 date: "2026-06-08"
 slug: "south-florida-april-2026-market-signal-home-sellers"
-excerpt: "MIAMI REALTORS April 2026 data shows stronger single-family sales and tighter inventory across Miami-Dade, Broward, and Palm Beach. For serious sellers, the signal is to review positioning before launch."
+excerpt: "MIAMI REALTORS April 2026 data shows stronger single-family sales and tighter inventory across Miami-Dade, Broward, and Palm Beach."
 category: "South Florida Market Intelligence"
 image: "/images/journal/og/south-florida-april-2026-market-signal-home-sellers.jpg"
 created_by: "claude"

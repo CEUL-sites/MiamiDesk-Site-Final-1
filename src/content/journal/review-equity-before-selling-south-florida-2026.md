@@ -1,5 +1,6 @@
 ---
 title: "Why South Florida Homeowners Should Review Their Equity Before Listing"
+seoTitle: "Review Your Equity Before Listing in South Florida"
 date: "2026-06-19"
 slug: "review-equity-before-selling-south-florida-2026"
 excerpt: "Before you ask what your home is worth, ask what you would actually keep — and who will see the property. A short equity check for South Florida sellers."

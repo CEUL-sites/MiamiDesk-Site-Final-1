@@ -310,6 +310,7 @@ const angles = [
     audience: 'seller',
     category: 'Seller Strategy',
     title: (m) => `Selling ${article(m.name)} ${m.name} ${titleCase(m.type)} in ${YEAR}: Positioning Before Price`,
+    seoTitle: (m) => `Selling in ${m.name}: Positioning Before Price`,
     excerpt: (m) => `Positioning ${article(m.name)} ${m.name} ${m.type} before pricing it: ${m.focus}, and what buyers verify first.`,
     sections: (m) => [
       [
@@ -341,6 +342,7 @@ const angles = [
     audience: 'buyer',
     category: 'Buyer Strategy',
     title: (m) => `Buying in ${m.name} in ${YEAR}: Compete Without Losing Discipline`,
+    seoTitle: (m) => `Buying in ${m.name}: Compete Without Overpaying`,
     excerpt: (m) => `Buying in ${m.name}: define the mandate, then verify ${m.focus} before you compete for anything.`,
     sections: (m) => [
       [
@@ -372,6 +374,7 @@ const angles = [
     audience: 'seller',
     category: 'International Seller Strategy',
     title: (m) => `${m.name} Owners With Spain or LATAM Buyer Profiles: The Exposure Question`,
+    seoTitle: (m) => `${m.name} Owners: The Spain and LATAM Buyer Question`,
     excerpt: (m) => `Selling ${article(m.name)} ${m.name} ${m.type} to buyers abroad: ${m.focus}, settled before the listing goes live.`,
     sections: (m) => [
       [
@@ -407,6 +410,7 @@ const angles = [
     audience: 'seller',
     category: 'Downsizing Strategy',
     title: (m) => `Downsizing From ${article(m.name)} ${m.name} Home in ${YEAR}: Sequence the Sale Before the Move`,
+    seoTitle: (m) => `Downsizing in ${m.name}: Sequence the Sale`,
     excerpt: (m) => `Downsizing in ${m.name}: sequence the sale around ${m.focus}, then time the move.`,
     sections: (m) => [
       [
@@ -438,6 +442,7 @@ const angles = [
     audience: 'seller',
     category: 'Negotiation Strategy',
     title: (m) => `Post-Occupancy When Selling in ${m.name}: Negotiate It Before You Need It`,
+    seoTitle: (m) => `Post-Occupancy in ${m.name}: Negotiate It Early`,
     excerpt: (m) => `Staying in ${article(m.name)} ${m.name} property after closing: negotiate it alongside ${m.focus}, before the offer.`,
     sections: (m) => [
       [
@@ -469,6 +474,7 @@ const angles = [
     audience: 'seller',
     category: 'Seller Net Proceeds',
     title: (m) => `${m.name} Seller Net Proceeds in ${YEAR}: Price Is Only One Line`,
+    seoTitle: (m) => `${m.name} Net Proceeds in ${YEAR}: Price Is One Line`,
     excerpt: (m) => `What a ${m.name} seller keeps depends on ${m.focus} — not on the list price alone.`,
     sections: (m) => [
       [
@@ -663,6 +669,8 @@ function chooseTopic(existingSlugs) {
 function buildPost(topic, overrides = {}) {
   const { angle, market, slug } = topic;
   const title = angle.title(market);
+  const seoTitle = angle.seoTitle(market);
+  assertSeoTitle(seoTitle);
   const excerpt = angle.excerpt(market);
   const ctaPath = angle.audience === 'buyer' ? '/buy' : market.sellerPage;
   const ctaUrl = `${ctaPath}?utm_source=journal&utm_medium=seo&utm_campaign=${slug}`;
@@ -693,6 +701,7 @@ function buildPost(topic, overrides = {}) {
   const frontmatterLines = [
     '---',
     `title: "${title.replace(/"/g, '\\"')}"`,
+    `seoTitle: "${seoTitle.replace(/"/g, '\\"')}"`,
     `date: "${overrides.date ?? today}"`,
     `slug: "${slug}"`,
     `excerpt: "${excerpt.replace(/"/g, '\\"')}"`,
@@ -761,6 +770,23 @@ function assertVerifiedFigures(content) {
     throw new Error(
       `Quality gate failed: unverified figure(s) ${[...new Set(leftovers)].join(', ')}. ` +
         'Every number must trace to src/data/figures.json and be listed in VERIFIED_FIGURE_PHRASES.'
+    );
+  }
+}
+
+// Google shows roughly 60 characters of a <title>. A generated title that
+// overflows is invisible feedback — the post publishes fine and simply gets
+// truncated in every search result. Fail loudly instead.
+const SEO_TITLE_LIMIT = 60;
+
+function assertSeoTitle(seoTitle) {
+  if (!seoTitle || !seoTitle.trim()) {
+    throw new Error('assertSeoTitle: seoTitle is empty');
+  }
+  if (seoTitle.length > SEO_TITLE_LIMIT) {
+    throw new Error(
+      `assertSeoTitle: seoTitle is ${seoTitle.length} chars, over the ${SEO_TITLE_LIMIT} Google displays:\n  "${seoTitle}"\n` +
+      'Shorten the angle\'s seoTitle template rather than raising the limit.'
     );
   }
 }

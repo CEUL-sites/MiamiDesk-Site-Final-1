@@ -1,5 +1,6 @@
 ---
 title: "The Miami Listing Desk: Connecting Spanish Prime Real Estate With South Florida's Buyer-Agent Network"
+seoTitle: "The Miami Listing Desk"
 date: "2026-07-08"
 slug: "miami-listing-desk-spanish-prime-real-estate"
 excerpt: "How Spanish luxury agencies and developers can turn prime inventory into agent-ready opportunities inside the South Florida professional buyer-agent ecosystem."

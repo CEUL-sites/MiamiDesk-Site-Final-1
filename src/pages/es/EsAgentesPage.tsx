@@ -334,10 +334,7 @@ export default function EsAgentesPage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>
-          Red de Colaboradores · Carlos Uzcategui · Florida Licensed Realtor®
-          SL705771
-        </title>
+        <title>Red de Colaboradores · Carlos Uzcategui</title>
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"

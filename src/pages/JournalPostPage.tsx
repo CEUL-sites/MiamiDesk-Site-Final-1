@@ -172,7 +172,7 @@ export default function JournalPostPage() {
       <Helmet>
         {/* react-helmet-async needs a single string child in <title>;
             mixed JSX children render an empty tag. */}
-        <title>{`${post.title} | Carlos Uzcategui · South Florida Real Estate`}</title>
+        <title>{post.seoTitle || post.title}</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://homesprofessional.com/journal/${post.slug}`} />
         <meta property="og:type" content="article" />

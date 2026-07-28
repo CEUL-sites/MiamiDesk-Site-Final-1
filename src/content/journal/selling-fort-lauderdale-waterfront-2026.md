@@ -1,8 +1,9 @@
 ---
 title: "Selling Waterfront in Fort Lauderdale — What 2026 Buyers Are Actually Evaluating"
+seoTitle: "Selling Waterfront in Fort Lauderdale"
 date: "2026-06-05"
 slug: "selling-fort-lauderdale-waterfront-2026"
-excerpt: "Fort Lauderdale waterfront value turns on dockage, bridge clearance, and ocean access — variables a generic CMA flattens. Here is what a serious listing strategy addresses."
+excerpt: "Fort Lauderdale waterfront value turns on dockage, bridge clearance, and ocean access — variables a generic CMA flattens."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-fort-lauderdale-waterfront-2026.jpg"
 created_by: "claude"

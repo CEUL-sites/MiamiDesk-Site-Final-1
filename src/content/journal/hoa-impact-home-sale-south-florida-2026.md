@@ -1,5 +1,6 @@
 ---
 title: "HOA Financials and Your Home's Sale Price — What South Florida Sellers Need to Know"
+seoTitle: "HOA Financials and Your Home's Sale Price"
 date: "2026-06-07"
 slug: "hoa-impact-home-sale-south-florida-2026"
 excerpt: "In South Florida's master-planned and gated communities, HOA health is a direct pricing variable. Here is what buyers evaluate and how sellers should prepare."

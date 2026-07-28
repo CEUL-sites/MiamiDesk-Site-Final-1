@@ -1,5 +1,6 @@
 ---
 title: "Downsizing From a Kendall Home in 2026: Sequence the Sale Before the Move"
+seoTitle: "Downsizing From a Kendall Home in 2026"
 date: "2026-07-02"
 slug: "downsizing-sequence-kendall-2026-july"
 excerpt: "Downsizing in Kendall: sequence the sale around the neighborhood, not the wider area, then time the move."

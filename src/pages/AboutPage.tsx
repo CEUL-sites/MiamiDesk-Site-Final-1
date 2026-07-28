@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Carlos Uzcategui | United Realty Group | South Florida REALTOR®</title>
+        <title>About Carlos Uzcategui | United Realty Group</title>
         <meta name="description" content="Carlos Uzcategui, FL SL705771 — South Florida REALTOR® with United Realty Group. 25 years across Miami-Dade, Broward, and Palm Beach. CLHMS certified." />
         <link rel="canonical" href="https://homesprofessional.com/about" />
         <meta property="og:title" content="About Carlos Uzcategui | United Realty Group | South Florida REALTOR®" />

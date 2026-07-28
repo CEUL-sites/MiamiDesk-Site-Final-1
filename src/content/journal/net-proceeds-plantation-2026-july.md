@@ -1,5 +1,6 @@
 ---
 title: "Plantation Seller Net Proceeds in 2026: Price Is Only One Line"
+seoTitle: "Plantation Seller Net Proceeds in 2026"
 date: "2026-07-24"
 slug: "net-proceeds-plantation-2026-july"
 excerpt: "What a Plantation seller keeps depends on uneven updates and system age — not on the list price alone."

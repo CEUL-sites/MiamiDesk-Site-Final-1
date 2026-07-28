@@ -41,8 +41,8 @@ export default function SellMiamiPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Miami, FL | MLS Positioning & International Buyer Activation | Carlos Uzcategui</title>
-        <meta name="description" content="Miami, FL listing agent — MLS positioning, Latin American and European buyer activation, international distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <title>Sell Your Home in Miami, FL</title>
+        <meta name="description" content="Miami, FL listing agent — MLS positioning, Latin American and European buyer activation, international distribution. Free strategy review." />
         <meta name="keywords" content="sell home Miami FL, Miami Florida listing agent, Miami real estate agent, sell house Miami Florida, Miami FL realtor, Miami-Dade listing agent, Coconut Grove Edgewater Wynwood homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-miami" />
         <meta property="og:type" content="website" />

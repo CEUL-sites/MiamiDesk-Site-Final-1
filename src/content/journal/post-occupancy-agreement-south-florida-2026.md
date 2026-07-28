@@ -1,5 +1,6 @@
 ---
 title: "Post-Occupancy Agreements — How South Florida Sellers Can Stay After Closing"
+seoTitle: "Post-Occupancy Agreements"
 date: "2026-06-11"
 slug: "post-occupancy-agreement-south-florida-2026"
 excerpt: "A post-closing occupancy agreement lets a seller remain in the home for a short period after closing. Here is how it works in Florida and how to structure it."

@@ -1,5 +1,6 @@
 ---
 title: "Listing a Home Online vs. Activating the Market: A South Florida Seller's Guide"
+seoTitle: "Listing a Home Online vs. Activating the Market"
 date: "2026-06-19"
 slug: "listing-online-vs-activating-the-market-south-florida-2026"
 excerpt: "Anyone can publish a listing. Activating a market is a different discipline. The five questions South Florida sellers should ask before they launch."

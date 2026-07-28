@@ -41,8 +41,8 @@ export default function SellDowntownMiamiPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Condo in Downtown Miami, FL | MLS Positioning & Investor Buyer Activation | Carlos Uzcategui</title>
-        <meta name="description" content="Downtown Miami, FL listing agent — condo MLS positioning, investor and international buyer activation, global portal distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <title>Sell Your Condo in Downtown Miami, FL</title>
+        <meta name="description" content="Downtown Miami, FL listing agent — condo MLS positioning, investor and international buyer activation, global portal distribution. Free strategy review." />
         <meta name="keywords" content="sell condo Downtown Miami FL, Downtown Miami listing agent, Downtown Miami real estate agent, sell Downtown Miami condo, Miami urban core listing agent, Brickell adjacent condos for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-downtown-miami" />
         <meta property="og:type" content="website" />

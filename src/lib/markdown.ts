@@ -9,6 +9,13 @@ const modules = import.meta.glob('../content/journal/*.md', {
 
 export interface PostMeta {
   title: string;
+  /**
+   * Optional short form of `title` used only for the <title> tag and the
+   * search result it produces. `title` stays the on-page H1, which is free to
+   * be longer and more descriptive than the ~60 characters Google displays.
+   * Falls back to `title` when absent.
+   */
+  seoTitle: string;
   date: string;
   /** Optional `updated:` frontmatter (YYYY-MM-DD). Drives schema dateModified. */
   updated: string;
@@ -189,6 +196,7 @@ function parseAll(): PostMeta[] {
 
     posts.push({
       title:        meta.title,
+      seoTitle:     meta.seoTitle     ?? '',
       date:         meta.date         ?? '',
       updated:      meta.updated      ?? '',
       slug:         meta.slug,

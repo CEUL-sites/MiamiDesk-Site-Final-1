@@ -1,5 +1,6 @@
 ---
 title: "Selling Your Sunrise, FL Home — Pricing Strategy in a Weston-Adjacent Market"
+seoTitle: "Selling Your Sunrise, FL Home"
 date: "2026-05-31"
 slug: "selling-sunrise-home-2026"
 excerpt: "Sunrise sits next to one of South Florida's strongest markets. How that proximity affects your buyer pool, your pricing strategy, and the ceiling on your sale."

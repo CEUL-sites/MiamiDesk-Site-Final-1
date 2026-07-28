@@ -1,5 +1,6 @@
 ---
 title: "What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds"
+seoTitle: "What Does It Cost to Sell a Home in South Florida"
 date: "2026-06-08"
 slug: "seller-closing-costs-south-florida-2026"
 excerpt: "Florida seller closing costs are not complicated, but they are often misunderstood. Here is what you actually pay — and how to calculate what you keep."

@@ -1,5 +1,6 @@
 ---
 title: "Buying in Coral Gables in 2026: Compete Without Losing Discipline"
+seoTitle: "Buying in Coral Gables in 2026"
 date: "2026-07-01"
 slug: "buyer-discipline-coral-gables-2026-july"
 excerpt: "Buying in Coral Gables: define the mandate, then verify the lot, the block, and permit history before you compete for anything."

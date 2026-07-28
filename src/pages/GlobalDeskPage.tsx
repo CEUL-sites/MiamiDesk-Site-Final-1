@@ -246,8 +246,8 @@ export default function GlobalDeskPage() {
   const t = C[lang];
   const pageTitle =
     lang === "es"
-      ? "Miami Global Listing Desk — Activación internacional de propiedades"
-      : "Miami Global Listing Desk — International Property Distribution";
+      ? "Miami Global Listing Desk — Activación internacional"
+      : "Miami Global Listing Desk — International Distribution";
   const pageDescription =
     lang === "es"
       ? "Servicio de distribución internacional y activación de agentes compradores operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group."

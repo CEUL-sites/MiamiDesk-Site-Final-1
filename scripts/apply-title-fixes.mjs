@@ -99,13 +99,19 @@ function applyJournal(entry) {
   if (currentPost !== expectedPost) {
     return results.stale.push({ ...entry, why: `file says "${currentPost}"` });
   }
-  if (currentPost === entry.to) return results.noop.push(entry);
 
-  const next = raw.replace(
-    /^(---\r?\n[\s\S]*?)^title:.*$/m,
-    (_all, head) => `${head}title: ${JSON.stringify(entry.to)}`
-  );
-  if (next === raw) return results.missing.push({ ...entry, why: 'title line not replaced' });
+  // `title` is the on-page H1 and is deliberately left alone — only the
+  // <title> tag is shortened, via the seoTitle field.
+  const existingSeo = fmMatch[1].match(/^seoTitle:\s*"?(.*?)"?\s*$/m);
+  if (existingSeo && existingSeo[1] === entry.to) return results.noop.push(entry);
+  if (currentPost === entry.to && !existingSeo) return results.noop.push(entry);
+
+  const line = `seoTitle: ${JSON.stringify(entry.to)}`;
+  const next = existingSeo
+    ? raw.replace(/^seoTitle:.*$/m, line)
+    : raw.replace(/^(title:.*)$/m, `$1\n${line}`);
+
+  if (next === raw) return results.missing.push({ ...entry, why: 'seoTitle not written' });
   if (APPLY) fs.writeFileSync(file, next);
   results.changed.push({ ...entry, file: path.relative(root, file) });
 }

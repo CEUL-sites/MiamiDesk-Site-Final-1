@@ -1,8 +1,9 @@
 ---
 title: "Selling Your Plantation, FL Home — How Established Neighborhoods Are Priced and Positioned"
+seoTitle: "Selling Your Plantation, FL Home"
 date: "2026-06-01"
 slug: "selling-plantation-home-2026"
-excerpt: "Plantation's mature tree canopy and established neighborhood character create a specific buyer profile. Here is what actually determines value and outcome in this market."
+excerpt: "Plantation's mature tree canopy and established neighborhood character create a specific buyer profile."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-plantation-home-2026.jpg"
 created_by: "claude"

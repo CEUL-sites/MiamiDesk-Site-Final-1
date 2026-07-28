@@ -33,7 +33,7 @@ export default function LeaveReviewPage() {
   return (
     <>
       <Helmet>
-        <title>Leave a Review — Carlos Uzcategui, South Florida REALTOR® | HomesProfessional.com</title>
+        <title>Leave a Review — Carlos Uzcategui, South Florida REALTOR®</title>
         <meta
           name="description"
           content="Worked with Carlos Uzcategui, FL SL705771? Share your experience on Realtor.com® or Google in under a minute. Your review helps other South Florida families."

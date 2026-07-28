@@ -1,8 +1,9 @@
 ---
 title: "How to Choose a Listing Agent in South Florida — 7 Questions to Ask Before You Sign"
+seoTitle: "How to Choose a Listing Agent in South Florida"
 date: "2026-06-02"
 slug: "how-to-choose-a-listing-agent-south-florida-2026"
-excerpt: "The listing agreement you sign determines how your property is priced, marketed, and negotiated. Here are the seven questions that separate a real listing strategy from a sign in the yard."
+excerpt: "The listing agreement you sign determines how your property is priced, marketed, and negotiated."
 category: "Seller Strategy"
 image: "/images/journal/og/how-to-choose-a-listing-agent-south-florida-2026.jpg"
 created_by: "claude"

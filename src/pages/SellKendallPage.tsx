@@ -41,7 +41,7 @@ export default function SellKendallPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Kendall, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
+        <title>Sell Your Home in Kendall, FL</title>
         <meta name="description" content="Kendall, FL listing agent — MLS positioning, family buyer activation, Latin American buyer network. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Kendall FL, Kendall Florida listing agent, Kendall real estate agent, sell house Kendall Florida, Kendall FL realtor, SW Miami-Dade listing agent, Kendall single family homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-kendall" />

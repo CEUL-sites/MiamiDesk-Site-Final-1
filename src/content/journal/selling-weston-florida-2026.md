@@ -2,7 +2,7 @@
 title: "Selling in Weston, Florida — What the 2026 Market Requires"
 date: "2026-05-15"
 slug: "selling-weston-florida-2026"
-excerpt: "Weston's estate segment is defined by HOA governance, golf and lake premiums, and a buyer pool that has become more selective. Here is what separates listings that close from listings that accumulate days."
+excerpt: "Weston's estate segment is defined by HOA governance, golf and lake premiums, and a buyer pool that has become more selective."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-weston-florida-2026.jpg"
 created_by: "claude"

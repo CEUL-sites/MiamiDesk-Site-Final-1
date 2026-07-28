@@ -42,7 +42,7 @@ export default function SellDoralPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Doral, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
+        <title>Sell Your Home in Doral, FL</title>
         <meta name="description" content="Doral, FL listing agent — MLS positioning, Latin American buyer activation, buyer-agent network. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Doral FL, Doral Florida listing agent, Doral real estate agent, sell house Doral Florida, Doral FL realtor, Miami-Dade listing agent, Doral gated community homes" />
         <link rel="canonical" href="https://homesprofessional.com/sell-doral" />

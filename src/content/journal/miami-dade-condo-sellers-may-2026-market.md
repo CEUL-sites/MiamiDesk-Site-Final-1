@@ -1,5 +1,6 @@
 ---
 title: "Miami-Dade Condo Owners in 2026: Why Distribution Matters Most in a Buyer's Market"
+seoTitle: "Miami-Dade Condo Owners in 2026"
 date: "2026-06-20"
 slug: "miami-dade-condo-sellers-may-2026-market"
 excerpt: "May 2026 data shows Miami-Dade condos at 12.9 months of supply — a buyer's market. For condo sellers, pricing discipline and distribution decide the outcome."

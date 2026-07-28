@@ -136,11 +136,8 @@ export default function AgentsPage() {
   return (
     <>
       <Helmet>
-        <title>For Real Estate Agents | Referrals, Miami Exposure & Careers | HomesProfessional.com</title>
-        <meta
-          name="description"
-          content="Three ways agents work with Carlos: refer a buyer or seller for a fee at closing, add Miami-facing exposure to a listing, or join URG with 25-year mentorship. Florida-licensed Realtor®, 93,000 Miami REALTORS®."
-        />
+        <title>For Real Estate Agents | Referrals, Miami Exposure & Careers</title>
+        <meta name="description" content="Three ways agents work with Carlos: refer a buyer or seller for a fee at closing, add Miami-facing exposure to a listing, or join URG with 25-year mentorship." />
         <meta
           name="keywords"
           content="international real estate exposure, Miami real estate network, Miami REALTORS, South Florida buyer network, Spain luxury real estate, Madrid luxury properties, Marbella luxury real estate, international listing exposure, real estate referral network, U.S. buyer exposure Spanish properties, Miami Desk, Florida Realtor partner, cross-border real estate referrals"

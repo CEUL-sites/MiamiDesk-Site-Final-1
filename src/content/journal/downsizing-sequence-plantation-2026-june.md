@@ -1,5 +1,6 @@
 ---
 title: "Downsizing From a Plantation Home in 2026: Sequence the Sale Before the Move"
+seoTitle: "Downsizing From a Plantation Home in 2026"
 date: "2026-06-30"
 slug: "downsizing-sequence-plantation-2026-june"
 excerpt: "Downsizing in Plantation: sequence the sale around uneven updates and system age, then time the move."

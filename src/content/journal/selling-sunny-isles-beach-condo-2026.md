@@ -1,5 +1,6 @@
 ---
 title: "Selling a Condo in Sunny Isles Beach — What the 2026 Market Requires"
+seoTitle: "Selling a Condo in Sunny Isles Beach"
 date: "2026-06-18"
 slug: "selling-sunny-isles-beach-condo-2026"
 excerpt: "Sunny Isles Beach operates as its own condo market — ultra-luxury towers, a heavily international buyer pool, and pricing logic that differs materially from Miami Beach. Here is what a positioned sale requires."

@@ -1,5 +1,6 @@
 ---
 title: "What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026"
+seoTitle: "What Is My South Florida Home Worth"
 date: "2026-06-01"
 slug: "what-is-my-home-worth-south-florida-2026"
 excerpt: "Online estimates miss the nuances that determine your real sale price. Here is how a licensed South Florida REALTOR® evaluates your property against current MLS data — and why the gap matters."

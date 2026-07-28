@@ -1,5 +1,6 @@
 ---
 title: "Selling a Brickell Condo in 2026 — Positioning, Pricing, and the International Buyer"
+seoTitle: "Selling a Brickell Condo in 2026"
 date: "2026-06-06"
 slug: "selling-brickell-condo-2026"
 excerpt: "Brickell's condo market is defined by new supply, building-specific pricing, and an internationally weighted buyer pool. Here is what determines a seller's outcome."
