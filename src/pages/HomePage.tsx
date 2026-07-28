@@ -52,7 +52,7 @@ export default function HomePage() {
           "url": "https://homesprofessional.com/",
           "telephone": "+19548656622",
           "email": "contact@carlosre.com",
-          "image": "https://homesprofessional.com/images/carlos-headshot.png",
+          "image": "https://homesprofessional.com/images/carlos-headshot.jpg",
           "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
           "areaServed": ["Miami-Dade County", "Broward County", "Palm Beach County"],
           "memberOf": { "@type": "Organization", "name": "Miami and South Florida REALTORS®" },

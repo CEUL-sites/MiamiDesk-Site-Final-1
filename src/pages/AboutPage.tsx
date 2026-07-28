@@ -31,7 +31,7 @@ export default function AboutPage() {
           "name": "Carlos Uzcategui",
           "jobTitle": "REALTOR®, CLHMS",
           "description": "South Florida REALTOR® and Certified Luxury Home Marketing Specialist (CLHMS) with 25 years of market experience. Florida License SL705771. United Realty Group.",
-          "image": "https://homesprofessional.com/images/carlos-headshot.png",
+          "image": "https://homesprofessional.com/images/carlos-headshot.jpg",
           "url": "https://homesprofessional.com/about",
           "telephone": CONTACT.phoneUS,
           "email": CONTACT.email,
