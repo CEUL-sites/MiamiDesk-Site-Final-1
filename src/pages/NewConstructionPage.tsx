@@ -18,6 +18,15 @@ export default function NewConstructionPage() {
         />
         <link rel="canonical" href="https://homesprofessional.com/new-construction" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://homesprofessional.com/new-construction" />
+        <meta property="og:title" content="New Construction | Florida Pre-Construction Inventory" />
+        <meta
+          property="og:description"
+          content="Florida pre-construction inventory, professionally accessed. Advisory for international buyers and developers. Carlos Uzcategui, United Realty Group."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
 
       <main id="main-content" className="min-h-screen bg-white-soft pb-20 lg:pb-0">

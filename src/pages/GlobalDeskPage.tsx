@@ -269,6 +269,8 @@ export default function GlobalDeskPage() {
         <meta property="og:description" content={pageDescription} />
         <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="global-desk-breadcrumb" data={{
           "@context": "https://schema.org",
