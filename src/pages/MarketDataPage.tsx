@@ -351,6 +351,13 @@ export default function MarketDataPage() {
         <title>South Florida Real Estate Market Data | May 2026 | Carlos Uzcategui</title>
         <meta name="description" content={metaDesc} />
         <link rel="canonical" href="https://homesprofessional.com/market-data" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://homesprofessional.com/market-data" />
+        <meta property="og:title" content="South Florida Real Estate Market Data | May 2026" />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="market-data-dataset" data={schemaData} />
 

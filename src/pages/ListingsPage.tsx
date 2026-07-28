@@ -22,6 +22,13 @@ export default function ListingsPage() {
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta property="og:title" content="South Florida Listings — New Developments + Active MLS" />
         <meta property="og:url" content="https://homesprofessional.com/listings" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Browse pre-construction developments and active MLS listings across Miami-Dade, Broward & Palm Beach. Carlos Uzcategui, FL SL705771, United Realty Group."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
 
       <main id="main-content" className="min-h-screen bg-navy-deep grain-overlay pb-20 lg:pb-0">

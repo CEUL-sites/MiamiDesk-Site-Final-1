@@ -46,6 +46,9 @@ export default function LeaveReviewPage() {
         />
         <meta property="og:url" content="https://homesprofessional.com/leave-a-review" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
 
       <main id="main-content" className="min-h-screen bg-white-soft pb-20 lg:pb-0">

@@ -52,6 +52,9 @@ export default function ReviewsPage() {
         <meta property="og:title" content="Client Reviews — Carlos Uzcategui, South Florida REALTOR®" />
         <meta property="og:description" content="Verified five-star client reviews for Carlos Uzcategui, FL SL705771 — sellers and buyers across South Florida." />
         <meta property="og:url" content="https://homesprofessional.com/reviews" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="reviews-review" data={reviewSchema} />
 
