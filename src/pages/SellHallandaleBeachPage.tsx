@@ -42,7 +42,7 @@ export default function SellHallandaleBeachPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Hallandale Beach, FL</title>
-        <meta name="description" content="Hallandale Beach, FL listing agent — MLS positioning, international and seasonal buyer activation, condo-specific market strategy. Free strategy review." />
+        <meta name="description" content="Hallandale Beach, FL listing agent — MLS positioning, international buyer activation, condo strategy. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell condo Hallandale Beach FL, Hallandale Beach Florida listing agent, Hallandale Beach real estate agent, sell house Hallandale Beach Florida, Hallandale Beach FL realtor, South Broward listing agent, Hallandale Beach international buyers" />
         <link rel="canonical" href="https://homesprofessional.com/sell-hallandale-beach" />
         <meta property="og:type" content="website" />
