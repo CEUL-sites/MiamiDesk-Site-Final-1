@@ -1,5 +1,6 @@
 ---
 title: "Selling a Weston Single-family Home in 2026: Positioning Before Price"
+seoTitle: "Selling in Weston: Positioning Before Price"
 date: "2026-07-30"
 slug: "seller-positioning-weston-2026-july"
 excerpt: "Positioning a Weston single-family home before pricing it: the community, not the city, and what buyers verify first."

@@ -1,5 +1,6 @@
 ---
 title: "South Florida Seller Net Proceeds in 2026: Price Is Only One Line"
+seoTitle: "South Florida Net Proceeds in 2026: Price Is One Line"
 date: "2026-07-29"
 slug: "net-proceeds-south-florida-2026-july"
 excerpt: "What a South Florida seller keeps depends on the submarket, not the county average — not on the list price alone."
