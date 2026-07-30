@@ -1,8 +1,9 @@
 ---
 title: "Selling a Home in Boca Raton, Florida — A 2026 Market Perspective"
+seoTitle: "Selling a Home in Boca Raton, Florida"
 date: "2026-06-18"
 slug: "selling-boca-raton-home-2026"
-excerpt: "Boca Raton operates in Palm Beach County with its own buyer profile, price logic, and inventory dynamics. What separates a clean sale from a prolonged listing in this market comes down to preparation and positioning specific to the local conditions."
+excerpt: "Boca Raton operates in Palm Beach County with its own buyer profile, price logic, and inventory dynamics."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-boca-raton-home-2026.jpg"
 created_by: "claude"

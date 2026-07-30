@@ -1,8 +1,9 @@
 ---
 title: "The International Investor's Path to South Florida Income Property: Sourcing and Buying Through the Professional Network"
+seoTitle: "International Investors: South Florida Income Property"
 date: "2026-07-16"
 slug: "international-investor-south-florida-income-property-2026"
-excerpt: "For a cross-border investor, the challenge isn't finding listings — it's disciplined access and representation. How to source and acquire South Florida income property through the professional network."
+excerpt: "For a cross-border investor, the challenge isn't finding listings — it's disciplined access and representation."
 category: "International"
 image: "/images/journal/og/international-investor-south-florida-income-property-2026.jpg"
 created_by: "claude"

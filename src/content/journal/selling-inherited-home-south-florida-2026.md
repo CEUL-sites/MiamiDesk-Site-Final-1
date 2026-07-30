@@ -1,5 +1,6 @@
 ---
 title: "Selling an Inherited Home in South Florida: A Practical Guide for Heirs"
+seoTitle: "Selling an Inherited Home in South Florida"
 date: "2026-06-11"
 slug: "selling-inherited-home-south-florida-2026"
 excerpt: "Inheriting a South Florida property comes with deadlines, carrying costs, and decisions. A practical walkthrough of the process from probate to closing."

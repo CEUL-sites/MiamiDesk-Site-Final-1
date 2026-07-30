@@ -69,7 +69,7 @@ export default function EsVenderBrickellPage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>Vender su Condominio en Brickell | Posicionamiento MLS Miami | Carlos Uzcategui</title>
+        <title>Vender su Condominio en Brickell | Posicionamiento MLS Miami</title>
         {/* TODO: native Madrid editor review */}
         <meta name="description" content="Agente listador de condominios en Brickell, Miami — MLS, inversionistas internacionales. Revisión gratuita. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/es/vender-brickell" />

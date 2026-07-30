@@ -1,5 +1,6 @@
 ---
 title: "Downsizing From a Pompano Beach Home in 2026: Sequence the Sale Before the Move"
+seoTitle: "Downsizing From a Pompano Beach Home in 2026"
 date: "2026-07-01"
 slug: "downsizing-sequence-pompano-beach-2026-july"
 excerpt: "Downsizing in Pompano Beach: sequence the sale around which audience the listing is written for, then time the move."

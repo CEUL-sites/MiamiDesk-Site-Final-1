@@ -122,7 +122,7 @@ export default function MarketsPage() {
   return (
     <>
       <Helmet>
-        <title>Markets Served: Miami Global Listing Desk Distribution | HomesProfessional.com</title>
+        <title>Markets Served: Miami Global Listing Desk Distribution</title>
         <meta
           name="description"
           content={`Miami Global Listing Desk positions South Florida and selected international sellers through ${ASSOCIATION_STATS.associationName} distribution: ${MEMBER_COUNT} members, ${GLOBAL_PORTALS} portals, ${ASSOCIATION_STATS.languages} languages, ${US_MLS} U.S. MLSs, ${INTERNATIONAL_AGREEMENTS} agreements, and ${MLS_DATA_EXCHANGES} MLS data exchanges.`}

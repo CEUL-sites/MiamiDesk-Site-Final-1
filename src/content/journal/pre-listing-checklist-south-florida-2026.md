@@ -1,5 +1,6 @@
 ---
 title: "The Pre-Listing Checklist: 12 Things to Resolve Before Your South Florida Home Goes Public"
+seoTitle: "The Pre-Listing Checklist"
 date: "2026-06-11"
 slug: "pre-listing-checklist-south-florida-2026"
 excerpt: "The first two weeks on market set the tone for the entire sale. This 12-point checklist covers what disciplined South Florida sellers resolve before launch."

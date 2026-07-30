@@ -119,9 +119,7 @@ export default function EsVenderPage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>
-          Vender en Sur de Florida | Estrategia de Venta | Carlos Uzcategui
-        </title>
+        <title>Vender en Sur de Florida | Estrategia de Venta</title>
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"

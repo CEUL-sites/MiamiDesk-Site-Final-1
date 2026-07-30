@@ -334,10 +334,7 @@ export default function EsAgentesPage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>
-          Red de Colaboradores · Carlos Uzcategui · Florida Licensed Realtor®
-          SL705771
-        </title>
+        <title>Red de Colaboradores · Carlos Uzcategui</title>
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
@@ -710,7 +707,7 @@ export default function EsAgentesPage() {
                   title: "ACTIVACIÓN EN LA RED AMERICANA",
                   // TODO: native Madrid editor review
                   description:
-                    "El listado aparece en 200+ portales globales en 19 idiomas en 24 a 48 horas. Contacto directo con agentes de South Florida con mandatos activos.",
+                    "El listado aparece en 200+ portales globales en 19 idiomas, según elegibilidad de la propiedad, reglas del MLS y participación de cada plataforma. Contacto directo con agentes de South Florida con mandatos activos.",
                 },
                 {
                   number: "04",

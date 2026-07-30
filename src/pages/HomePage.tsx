@@ -25,7 +25,7 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>South Florida Listing Strategist | Carlos Uzcategui</title>
-        <meta name="description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001. Pricing, positioning, buyer-agent activation and global distribution for South Florida sellers." />
+        <meta name="description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001 — pricing, positioning and buyer-agent activation." />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="South Florida Listing Strategist | Carlos Uzcategui" />
         <meta name="twitter:description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001. Pricing, positioning, buyer-agent activation and global distribution for South Florida sellers." />

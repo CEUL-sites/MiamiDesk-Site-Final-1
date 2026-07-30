@@ -2,7 +2,7 @@
 title: "Selling Your Hallandale Beach Condo in 2026"
 date: "2026-06-11"
 slug: "selling-hallandale-beach-condo-2026"
-excerpt: "Hallandale Beach's condo market sits at the intersection of snowbird demand, international ownership, and Florida's evolving structural requirements. Here is what sellers need to understand before listing."
+excerpt: "Hallandale Beach's condo market sits at the intersection of snowbird demand, international ownership, and Florida's evolving structural requirements."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-hallandale-beach-condo-2026.jpg"
 created_by: "claude"

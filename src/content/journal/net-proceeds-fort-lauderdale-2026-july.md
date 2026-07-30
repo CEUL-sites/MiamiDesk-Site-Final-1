@@ -1,5 +1,6 @@
 ---
 title: "Fort Lauderdale Seller Net Proceeds in 2026: Price Is Only One Line"
+seoTitle: "Fort Lauderdale Seller Net Proceeds in 2026"
 date: "2026-07-23"
 slug: "net-proceeds-fort-lauderdale-2026-july"
 excerpt: "What a Fort Lauderdale seller keeps depends on clearance, dockage, and seawall condition — not on the list price alone."

@@ -1,8 +1,9 @@
 ---
 title: "How International Owners List South Florida Property in the MLS — A 2026 Guide"
+seoTitle: "How International Owners List South Florida Property"
 date: "2026-06-04"
 slug: "international-owners-south-florida-mls-2026"
-excerpt: "Foreign owners of South Florida real estate often hold prime assets but lack access to the professional network that reaches buyers. Here is how that access actually works."
+excerpt: "Foreign owners of South Florida real estate often hold prime assets but lack access to the professional network that reaches buyers."
 category: "International"
 image: "/images/journal/og/international-owners-south-florida-mls-2026.jpg"
 created_by: "claude"

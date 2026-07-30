@@ -42,7 +42,7 @@ export default function SellFortLauderdalePage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Fort Lauderdale, FL | Waterfront MLS Positioning | Carlos Uzcategui</title>
+        <title>Sell Your Home in Fort Lauderdale, FL</title>
         <meta name="description" content="Fort Lauderdale listing agent — MLS positioning, waterfront buyer activation, international distribution. Free strategy review. FL SL705771." />
         <meta name="keywords" content="sell home Fort Lauderdale FL, Fort Lauderdale listing agent, Fort Lauderdale real estate agent, sell house Fort Lauderdale Florida, Fort Lauderdale FL realtor, waterfront homes Fort Lauderdale, Las Olas real estate" />
         <link rel="canonical" href="https://homesprofessional.com/sell-fort-lauderdale" />

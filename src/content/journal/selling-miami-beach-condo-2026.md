@@ -1,5 +1,6 @@
 ---
 title: "Selling Your Miami Beach Condo — What the 2026 Market Requires"
+seoTitle: "Selling Your Miami Beach Condo"
 date: "2026-05-01"
 slug: "selling-miami-beach-condo-2026"
 excerpt: "Miami Beach condo prices are driven by building, floor, line, and view — not ZIP code. Here is how to position your unit correctly in a market where precision beats optimism."

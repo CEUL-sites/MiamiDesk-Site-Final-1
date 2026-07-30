@@ -1,5 +1,6 @@
 ---
 title: "Downsizing From a Sunny Isles Beach Home in 2026: Sequence the Sale Before the Move"
+seoTitle: "Downsizing From a Sunny Isles Beach Home in 2026"
 date: "2026-07-03"
 slug: "downsizing-sequence-sunny-isles-beach-2026-july"
 excerpt: "Downsizing in Sunny Isles Beach: sequence the sale around exposure, line, and the document package, then time the move."

@@ -1,5 +1,6 @@
 ---
 title: "Selling Your Coral Springs Home — How School-Zone Positioning Drives Buyer Demand"
+seoTitle: "Selling Your Coral Springs Home"
 date: "2026-06-03"
 slug: "selling-coral-springs-home-2026"
 excerpt: "In Coral Springs, school zone assignment is often the primary buyer filter — and it directly shapes which properties compete with each other and at what price."

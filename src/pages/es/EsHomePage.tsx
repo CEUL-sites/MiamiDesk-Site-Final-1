@@ -51,7 +51,7 @@ export default function EsHomePage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>Bienes Raíces en Sur de Florida | United Realty Group | HomesProfessional.com</title>
+        <title>Bienes Raíces en Sur de Florida | United Realty Group</title>
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"

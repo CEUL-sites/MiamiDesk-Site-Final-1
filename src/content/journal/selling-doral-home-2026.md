@@ -1,5 +1,6 @@
 ---
 title: "Selling Your Doral, FL Home — What the Latin American Buyer Pool Actually Means for Price and Timeline"
+seoTitle: "Selling Your Doral, FL Home"
 date: "2026-06-07"
 slug: "selling-doral-home-2026"
 excerpt: "Doral has one of the highest Venezuelan and Colombian buyer concentrations in Miami-Dade. Here is how that demand actually flows into a listing and what it means for pricing strategy."

@@ -141,9 +141,7 @@ export default function EsComprarPage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>
-          Comprar en Sur de Florida | Representación de Compradores | Carlos Uzcategui
-        </title>
+        <title>Comprar en Sur de Florida | Representación de Compradores</title>
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"

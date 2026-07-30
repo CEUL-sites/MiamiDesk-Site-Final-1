@@ -43,7 +43,7 @@ export default function SellSouthFloridaPage() {
   return (
     <>
       <Helmet>
-        <title>Sell With South Florida MLS Exposure | Carlos Uzcategui, United Realty Group</title>
+        <title>Sell With South Florida MLS Exposure</title>
         <meta name="description" content="South Florida seller advisory — professional MLS positioning, buyer-agent activation, and distribution. Carlos Uzcategui, FL SL705771, United Realty Group." />
         <meta name="keywords" content="sell home South Florida, sell house Miami, Miami MLS listing, Coral Gables realtor, Brickell condo for sale, Miami Beach seller agent, Weston home for sale, South Florida listing agent, United Realty Group" />
         <link rel="canonical" href="https://homesprofessional.com/sell-south-florida" />

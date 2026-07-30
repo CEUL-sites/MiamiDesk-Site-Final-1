@@ -1,5 +1,6 @@
 ---
 title: "Downsizing From a Boca Raton Home in 2026: Sequence the Sale Before the Move"
+seoTitle: "Downsizing From a Boca Raton Home in 2026"
 date: "2026-07-04"
 slug: "downsizing-sequence-boca-raton-2026-july"
 excerpt: "Downsizing in Boca Raton: sequence the sale around community, club obligation, and condition, then time the move."

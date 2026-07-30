@@ -134,7 +134,7 @@ export default function EsSpainDeskPage() {
   return (
     <>
       <Helmet>
-        <title>Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | HomesProfessional.com</title>
+        <title>Mesa Global — Exposición hacia el Sur de Florida</title>
         <meta name="description" content="Servicio B2B de exposición y referral para agencias y promotores en Sur de Florida. Usted mantiene el mandato local. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="ganar mandatos de venta España Sur de Florida, exposición Sur de Florida agencias españolas, listing España Sur de Florida, partnership agencia España Sur de Florida, cooperating broker España Florida, United Realty Group España, exposición internacional de listings" />
         <link rel="canonical" href="https://homesprofessional.com/es/spain-desk" />

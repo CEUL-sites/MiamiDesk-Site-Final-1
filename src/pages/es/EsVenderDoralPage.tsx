@@ -69,7 +69,7 @@ export default function EsVenderDoralPage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>Vender su Casa en Doral, FL | Posicionamiento MLS y Activación de Compradores | Carlos Uzcategui</title>
+        <title>Vender su Casa en Doral, FL</title>
         {/* TODO: native Madrid editor review */}
         <meta name="description" content="Agente listador en Doral, FL — MLS, compradores LATAM y red de agentes. Revisión de estrategia gratuita. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/es/vender-doral" />

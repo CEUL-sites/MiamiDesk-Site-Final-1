@@ -317,7 +317,9 @@ export default function MarketDataPage() {
     (r) => r.county === "Palm Beach" && r.reportType === "Single Family Homes"
   )?.medianPrice ?? null;
 
-  const metaDesc = `South Florida real estate market data for May 2026. Miami-Dade single-family median ${formatPrice(sfhMedianMD)}, Broward ${formatPrice(sfhMedianBroward)}, Palm Beach ${formatPrice(sfhMedianPB)}. Current figures from Miami Realtors Association.`;
+  // Kept under ~160 characters so it is not truncated in search results, while
+  // still carrying the source attribution the compliance checklist requires.
+  const metaDesc = `South Florida market data, May 2026. Miami-Dade single-family median ${formatPrice(sfhMedianMD)}, Broward ${formatPrice(sfhMedianBroward)}, Palm Beach ${formatPrice(sfhMedianPB)}. Source: Miami Realtors Association.`;
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -348,7 +350,7 @@ export default function MarketDataPage() {
   return (
     <>
       <Helmet>
-        <title>South Florida Real Estate Market Data | May 2026 | Carlos Uzcategui</title>
+        <title>South Florida Real Estate Market Data | May 2026</title>
         <meta name="description" content={metaDesc} />
         <link rel="canonical" href="https://homesprofessional.com/market-data" />
         <meta property="og:type" content="website" />

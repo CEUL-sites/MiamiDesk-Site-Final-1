@@ -42,7 +42,7 @@ export default function SellWestonPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Weston, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
+        <title>Sell Your Home in Weston, FL</title>
         <meta name="description" content="Weston, FL listing agent — MLS positioning, international distribution, buyer-agent activation. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Weston FL, Weston Florida listing agent, Weston real estate agent, sell house Weston Florida, Weston FL realtor, Broward County listing agent, Weston gated community homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-weston" />

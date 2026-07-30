@@ -1,5 +1,6 @@
 ---
 title: "Sunny Isles Beach Seller Net Proceeds in 2026: Price Is Only One Line"
+seoTitle: "Sunny Isles Beach Seller Net Proceeds in 2026"
 date: "2026-07-27"
 slug: "net-proceeds-sunny-isles-beach-2026-july"
 excerpt: "What a Sunny Isles Beach seller keeps depends on exposure, line, and the document package — not on the list price alone."

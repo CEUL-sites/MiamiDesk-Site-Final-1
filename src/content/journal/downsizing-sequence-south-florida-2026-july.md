@@ -1,5 +1,6 @@
 ---
 title: "Downsizing From a South Florida Home in 2026: Sequence the Sale Before the Move"
+seoTitle: "Downsizing From a South Florida Home in 2026"
 date: "2026-07-05"
 slug: "downsizing-sequence-south-florida-2026-july"
 excerpt: "Downsizing in South Florida: sequence the sale around the submarket, not the county average, then time the move."

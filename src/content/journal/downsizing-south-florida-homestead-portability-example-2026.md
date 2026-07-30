@@ -1,5 +1,6 @@
 ---
 title: "Downsizing in South Florida: A Homestead Seller's Numbers — Portability, the $500K Exclusion, and Eliminating the Mortgage"
+seoTitle: "Downsizing in South Florida: A Homestead Seller's Numbers"
 date: "2026-06-25"
 slug: "downsizing-south-florida-homestead-portability-example-2026"
 excerpt: "A worked example: a Homestead couple sells a $1.1M home, transfers their portability benefit, keeps the gain tax-free, and erases the mortgage payment."

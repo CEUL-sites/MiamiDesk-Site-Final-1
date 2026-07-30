@@ -1,5 +1,6 @@
 ---
 title: "The $250,000 / $500,000 Home Sale Capital Gains Exclusion — How It Works for Primary Residences"
+seoTitle: "The $250,000 / $500,000 Home Sale Capital Gains Exclusion"
 date: "2026-06-13"
 slug: "home-sale-capital-gains-exclusion-500k-2026"
 excerpt: "Federal law lets many homeowners exclude up to $250,000 — or $500,000 for married couples — of gain from selling a primary residence. Here are the rules."

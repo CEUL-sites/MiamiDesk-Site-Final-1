@@ -70,7 +70,7 @@ export default function EsVenderCoralGablesPage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>Vender su Casa en Coral Gables, FL | Posicionamiento MLS de Lujo | Carlos Uzcategui</title>
+        <title>Vender su Casa en Coral Gables, FL</title>
         {/* TODO: native Madrid editor review */}
         <meta name="description" content="Agente listador en Coral Gables, FL — MLS de lujo, compradores internacionales. Revisión de estrategia gratuita. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/es/vender-coral-gables" />

@@ -1,5 +1,6 @@
 ---
 title: "Pompano Beach Seller Net Proceeds in 2026: Price Is Only One Line"
+seoTitle: "Pompano Beach Seller Net Proceeds in 2026"
 date: "2026-07-25"
 slug: "net-proceeds-pompano-beach-2026-july"
 excerpt: "What a Pompano Beach seller keeps depends on which audience the listing is written for — not on the list price alone."

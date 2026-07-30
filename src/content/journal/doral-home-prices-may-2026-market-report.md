@@ -1,5 +1,6 @@
 ---
 title: "Selling a Doral Home in 2026: Price, Buyer Profile, and Distribution Before Launch"
+seoTitle: "Selling a Doral Home in 2026"
 date: "2026-06-30"
 slug: "doral-home-prices-may-2026-market-report"
 excerpt: "A source-safe seller strategy brief for Doral homeowners: how to read citywide market signals, avoid overreliance on headline medians, and prepare a stronger launch."

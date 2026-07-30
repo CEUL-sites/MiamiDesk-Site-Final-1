@@ -2,7 +2,7 @@
 title: "Selling Your Kendall Home in 2026"
 date: "2026-06-11"
 slug: "selling-kendall-home-2026"
-excerpt: "Kendall's suburban single-family market rewards sellers who understand how school zones, community corridors, and pricing precision interact. Here is what determines the outcome."
+excerpt: "Kendall's suburban single-family market rewards sellers who understand how school zones, community corridors, and pricing precision interact."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-kendall-home-2026.jpg"
 created_by: "claude"

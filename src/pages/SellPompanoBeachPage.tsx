@@ -41,8 +41,8 @@ export default function SellPompanoBeachPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Pompano Beach, FL | MLS Positioning & Buyer-Agent Activation | Carlos Uzcategui</title>
-        <meta name="description" content="Pompano Beach, FL listing agent — MLS positioning, seasonal and investor buyer activation, coastal and intracoastal market strategy. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <title>Sell Your Home in Pompano Beach, FL</title>
+        <meta name="description" content="Pompano Beach, FL listing agent — MLS positioning, seasonal and investor buyer activation. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="sell home Pompano Beach FL, Pompano Beach Florida listing agent, Pompano Beach real estate agent, sell house Pompano Beach Florida, Pompano Beach FL realtor, Broward County listing agent, Pompano Beach waterfront homes" />
         <link rel="canonical" href="https://homesprofessional.com/sell-pompano-beach" />
         <meta property="og:type" content="website" />

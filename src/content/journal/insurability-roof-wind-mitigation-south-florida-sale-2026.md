@@ -1,5 +1,6 @@
 ---
 title: "Insurability Before Price: How Roof Age, Wind Mitigation, and Coverage Shape a South Florida Sale"
+seoTitle: "Insurability Before Price"
 date: "2026-07-24"
 slug: "insurability-roof-wind-mitigation-south-florida-sale-2026"
 excerpt: "In South Florida, whether a buyer can insure the property often decides the sale. What sellers should verify about roof, wind mitigation, and coverage first."
