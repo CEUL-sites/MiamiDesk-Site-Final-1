@@ -143,10 +143,7 @@ export default function EsComprarPage() {
         {/* TODO: native Madrid editor review */}
         <title>Comprar en Sur de Florida | Representación de Compradores</title>
         {/* TODO: native Madrid editor review */}
-        <meta
-          name="description"
-          content="Representación bilingüe para compradores internacionales en Sur de Florida — 25 años de experiencia respaldados por United Realty Group: 3,500+ agentes y 20 oficinas en Florida. Carlos Uzcategui, FL SL705771."
-        />
+        <meta name="description" content="Representación bilingüe para compradores internacionales en Sur de Florida — 25 años y United Realty Group. Carlos Uzcategui, FL SL705771." />
         <link
           rel="canonical"
           href="https://homesprofessional.com/es/comprar"

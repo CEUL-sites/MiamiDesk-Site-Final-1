@@ -3,7 +3,7 @@ title: "Selling in Aventura, FL in 2026 — What High-Rise and Waterfront Seller
 seoTitle: "Selling in Aventura, FL in 2026"
 date: "2026-06-03"
 slug: "selling-aventura-florida-2026"
-excerpt: "Aventura's condo and waterfront market is driven by Latin American and international buyers — which means listing strategy, pricing discipline, and international distribution matter more than portal volume."
+excerpt: "Aventura's condo and waterfront market is driven by Latin American and international buyers — so listing strategy and pricing discipline matter most."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-aventura-florida-2026.jpg"
 created_by: "claude"

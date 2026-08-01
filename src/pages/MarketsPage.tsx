@@ -125,7 +125,7 @@ export default function MarketsPage() {
         <title>Markets Served: Miami Global Listing Desk Distribution</title>
         <meta
           name="description"
-          content={`Miami Global Listing Desk positions South Florida and selected international sellers through ${ASSOCIATION_STATS.associationName} distribution: ${MEMBER_COUNT} members, ${GLOBAL_PORTALS} portals, ${ASSOCIATION_STATS.languages} languages, ${US_MLS} U.S. MLSs, ${INTERNATIONAL_AGREEMENTS} agreements, and ${MLS_DATA_EXCHANGES} MLS data exchanges.`}
+          content={`Miami Global Listing Desk positions South Florida and international sellers through ${ASSOCIATION_STATS.associationName}: ${MEMBER_COUNT} members, ${GLOBAL_PORTALS} portals.`}
         />
         <link rel="canonical" href="https://homesprofessional.com/markets" />
         <meta property="og:title" content="Markets Served: Miami Global Listing Desk Distribution | HomesProfessional.com" />

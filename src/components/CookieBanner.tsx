@@ -3,12 +3,63 @@ import { getConsent, setConsent as storeConsent, type Consent } from "../lib/con
 
 export function CookieBanner() {
   const [consent, setConsentState] = useState<Consent>("accepted"); // start hidden to avoid SSR flash
+  const [ctaCovered, setCtaCovered] = useState(false);
+  // Backstop so yielding to the CTA can never swallow the prompt entirely: a
+  // visitor who reads the hero without ever scrolling still gets the choice.
+  const [waitedOut, setWaitedOut] = useState(false);
 
   useEffect(() => {
     setConsentState(getConsent());
   }, []);
 
-  if (consent !== null) return null;
+  // On desktop the banner sits bottom-left, which is the same band the hero's
+  // primary CTA occupies on shorter laptop viewports (~1440x780) — it lands on
+  // top of the one button the page exists to get clicked. Yield until the CTA
+  // has scrolled away, mirroring how MobileStickyCTA yields to its guards.
+  //
+  // Mobile is deliberately untouched: there the banner spans the full width
+  // well below the CTA and never covers it, and MobileStickyCTA waits on the
+  // consent choice, so delaying the banner there would delay the pill too.
+  //
+  // This does not weaken consent. Non-essential storage is gated independently
+  // of this banner — Google Consent Mode defaults to denied for EU/EEA/UK/ES,
+  // and pixelsAllowed() in index.html holds Meta/LinkedIn until an explicit
+  // opt-in — so nothing fires early just because the banner renders later.
+  useEffect(() => {
+    const cta = document.querySelector(".hero-cta-main");
+    if (!cta) return; // pages with no hero CTA: nothing to avoid
+
+    const desktop = window.matchMedia("(min-width: 768px)");
+    let observer: IntersectionObserver | null = null;
+
+    const sync = () => {
+      observer?.disconnect();
+      observer = null;
+      if (!desktop.matches) {
+        setCtaCovered(false);
+        return;
+      }
+      observer = new IntersectionObserver(
+        ([entry]) => setCtaCovered(entry.isIntersecting),
+        { threshold: 0.1 }
+      );
+      observer.observe(cta);
+    };
+
+    sync();
+    desktop.addEventListener("change", sync);
+    return () => {
+      observer?.disconnect();
+      desktop.removeEventListener("change", sync);
+    };
+  }, []);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setWaitedOut(true), 12000);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  if (consent !== null || (ctaCovered && !waitedOut)) return null;
 
   // storeConsent persists the choice and emits "hp-consent-change" so the
   // tracking layer (src/lib/analytics.ts) honors it immediately this session.

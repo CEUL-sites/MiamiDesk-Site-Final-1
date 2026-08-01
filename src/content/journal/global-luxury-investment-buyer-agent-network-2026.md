@@ -3,7 +3,7 @@ title: "The World's High-Net-Worth Buyers Have Agents. Here's How a Luxury or In
 seoTitle: "The World's High-Net-Worth Buyers Have Agents"
 date: "2026-07-16"
 slug: "global-luxury-investment-buyer-agent-network-2026"
-excerpt: "The buyers for prime and investment property act through trusted agents worldwide. How a seller in Miami or Spain reaches that representation — through the world's largest local REALTOR® association."
+excerpt: "Buyers for prime and investment property act through trusted agents worldwide. How a seller in Miami or Spain reaches that representation."
 category: "International"
 image: "/images/journal/og/global-luxury-investment-buyer-agent-network-2026.jpg"
 created_by: "claude"

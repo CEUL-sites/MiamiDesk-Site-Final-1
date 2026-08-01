@@ -251,7 +251,7 @@ export default function GlobalDeskPage() {
   const pageDescription =
     lang === "es"
       ? "Servicio de distribución internacional y activación de agentes compradores operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group."
-      : "South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group.";
+      : "International property distribution and buyer-agent activation, operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group.";
 
   return (
     <>
