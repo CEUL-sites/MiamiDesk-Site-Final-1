@@ -163,7 +163,7 @@ export default function MarketsPage() {
             {
               "@type": "Question",
               "name": "Which cities in South Florida does United Realty Group cover?",
-              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group covers ${URG_CITIES.length} cities across three counties: Miami-Dade (including Miami, Coral Gables, Brickell, Aventura, Miami Beach, Doral, and Hialeah), Broward (including Weston, Plantation, Fort Lauderdale, Coral Springs, and Pembroke Pines), and Palm Beach (including Boca Raton, Delray Beach, and West Palm Beach).` }
+              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group covers ${URG_CITIES.length} cities across three counties: Miami-Dade (including Miami, Coral Gables, North Miami, Aventura, Miami Beach, Doral, and Hialeah), Broward (including Weston, Plantation, Fort Lauderdale, Coral Springs, and Pembroke Pines), and Palm Beach (including Boca Raton, Delray Beach, and West Palm Beach).` }
             },
             {
               "@type": "Question",
