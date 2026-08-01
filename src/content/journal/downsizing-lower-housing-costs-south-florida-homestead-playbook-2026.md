@@ -3,7 +3,7 @@ title: "The Housing Costs Downsizing Can Cut: A South Florida Homestead Owner's 
 seoTitle: "The Housing Costs Downsizing Can Cut"
 date: "2026-06-29"
 slug: "downsizing-lower-housing-costs-south-florida-homestead-playbook-2026"
-excerpt: "Downsizing is a cost-structure reset, not just a smaller home. The recurring South Florida housing costs a right-sized move can cut — and how to keep your Homestead working."
+excerpt: "Downsizing is a cost-structure reset. The recurring South Florida housing costs a right-sized move can cut, and how to keep your Homestead working."
 category: "Seller Strategy"
 image: "/images/journal/og/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026.jpg"
 created_by: "claude"

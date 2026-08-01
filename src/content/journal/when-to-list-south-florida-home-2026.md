@@ -3,7 +3,7 @@ title: "When to List Your South Florida Home — Timing, Pricing, and the Cost o
 seoTitle: "When to List Your South Florida Home"
 date: "2026-06-06"
 slug: "when-to-list-south-florida-home-2026"
-excerpt: "South Florida does not have a traditional selling season. Here is how timing actually works in this market and what the data says about when sellers get the best outcome."
+excerpt: "South Florida does not have a traditional selling season. Here is how timing actually works in this market and what the data says."
 category: "Market Analysis"
 image: "/images/journal/og/when-to-list-south-florida-home-2026.jpg"
 created_by: "claude"

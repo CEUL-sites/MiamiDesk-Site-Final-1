@@ -3,7 +3,7 @@ title: "Latin American Buyers and South Florida Real Estate — A 2026 Market Pe
 seoTitle: "Latin American Buyers and South Florida Real Estate"
 date: "2026-04-15"
 slug: "latin-american-buyers-south-florida-2026"
-excerpt: "LATAM capital has shaped the South Florida residential market for decades. Here is who is buying, where, at what price points, and what sellers need to understand about reaching this audience."
+excerpt: "LATAM capital has shaped the South Florida market for decades. Who is buying, where, at what price points, and what sellers should understand."
 category: "International"
 image: "/images/journal/og/latin-american-buyers-south-florida-2026.jpg"
 created_by: "claude"

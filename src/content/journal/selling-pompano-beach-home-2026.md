@@ -2,7 +2,7 @@
 title: "Selling Your Pompano Beach Home in 2026"
 date: "2026-06-11"
 slug: "selling-pompano-beach-home-2026"
-excerpt: "Pompano Beach's waterfront and canal-front inventory, active beachfront redevelopment, and boating community create a seller market defined by location premiums and buyer specificity."
+excerpt: "Pompano Beach's waterfront and canal-front inventory and active beachfront redevelopment create a market defined by location premiums."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-pompano-beach-home-2026.jpg"
 created_by: "claude"

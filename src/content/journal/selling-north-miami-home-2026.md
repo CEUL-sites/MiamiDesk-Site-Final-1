@@ -2,7 +2,7 @@
 title: "Selling Your North Miami Home in 2026"
 date: "2026-06-11"
 slug: "selling-north-miami-home-2026"
-excerpt: "North Miami's mixed housing stock, value-entry price points, and proximity to the Biscayne corridor create a market where preparation and positioning discipline determine seller outcomes."
+excerpt: "North Miami's mixed housing stock and value-entry price points create a market where preparation and positioning discipline shape seller outcomes."
 category: "Seller Strategy"
 image: "/images/journal/og/selling-north-miami-home-2026.jpg"
 created_by: "claude"
