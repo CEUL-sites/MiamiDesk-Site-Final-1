@@ -11,7 +11,11 @@
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "verify:homepage-conversion": "node --import tsx scripts/verify-homepage-conversion.ts",
-    "verify:journal": "node scripts/verify-journal-content.mjs"
+    "verify:journal": "node scripts/verify-journal-content.mjs",
+    "verify:review-spotlight": "node --import tsx scripts/verify-review-spotlight.ts",
+    "verify:global-desk": "node scripts/verify-global-desk-language.mjs",
+    "verify:visitor-tracking": "node scripts/verify-visitor-tracking.mjs",
+    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking"
   },
   "reactSnap": {
     "source": "dist",

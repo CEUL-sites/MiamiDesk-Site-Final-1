@@ -20,17 +20,17 @@ npm run build               # vite build + postbuild (react-snap prerender + mot
 npm run preview             # serve dist/
 npm run clean               # rm -rf dist
 
+npm run verify                      # all five checks below, in order — run before every commit
 npm run verify:journal              # frontmatter, compliance, banned figures, OG images, sitemap
 npm run verify:homepage-conversion  # hero/sticky-CTA form model assertions
-
-# Not wired into package.json — run directly when touching the relevant area:
-node --import tsx scripts/verify-review-spotlight.ts
-node scripts/verify-global-desk-language.mjs
-node scripts/verify-visitor-tracking.mjs
+npm run verify:review-spotlight     # review spotlight model + static render
+npm run verify:global-desk          # GlobalDeskPage language-toggle contract
+npm run verify:visitor-tracking     # index.html pixel guards + privacy page disclosure
 ```
 
 There is no test runner. The `verify:*` scripts are the test suite — plain
-`node:assert` scripts asserting on source text and pure model functions.
+`node:assert` scripts asserting on source text and pure model functions. They
+are cheap (a few seconds total), so prefer `npm run verify` over picking one.
 
 **npm vs yarn**: both lockfiles are committed. Netlify builds with `yarn build`,
 the CI build workflow uses `yarn install --frozen-lockfile`, and the daily
@@ -321,7 +321,8 @@ sufficient — rules 2–5 still need a human or the compliance-reviewer agent.
 ## Publishing a Journal Post
 
 The `/journal` section is a flat-file blog. No CMS, no database. Publishing =
-drop a `.md` file, commit, push. 67 posts live today.
+drop a `.md` file, commit, push. The daily publisher adds one most mornings, so
+the post count moves — `ls src/content/journal/*.md` is the live answer.
 
 ### 5 steps
 
