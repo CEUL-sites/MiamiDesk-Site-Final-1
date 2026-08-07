@@ -9,6 +9,8 @@ import { LazyVideo } from "../components/LazyVideo";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
+import { SpainSellerForm } from "../components/forms/SpainSellerForm";
+import { SPAIN_MARKETS } from "../data/spainMarkets";
 
 type Lang = "es" | "en";
 
@@ -708,10 +710,68 @@ export default function GlobalDeskPage() {
           }}
         />
 
-        {/* ── Section G — Listing intake form ── */}
+        {/* ── Section F2 — Spain market entry points ──
+            Search intent in Spain is market-specific ("vender villa Marbella"),
+            not desk-specific. These pages are where that traffic lands; this
+            block passes link equity to them and gives an owner already here a
+            route to the page written for their own market. */}
+        <section className="bg-ivory px-6 py-14 text-navy md:py-20">
+          <div className="mx-auto max-w-5xl">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+              {lang === "es" ? "Mercados en España" : "Spanish markets"}
+            </p>
+            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+              {lang === "es"
+                ? "Su mercado, explicado en su propio contexto."
+                : "Your market, explained in its own context."}
+            </h2>
+            <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-navy/70">
+              {lang === "es"
+                ? "Cada mercado llega al comprador de Miami por una vía distinta. Estas páginas explican cuál es la suya."
+                : "Each market reaches the Miami buyer differently. These pages set out which route applies to yours."}
+            </p>
+            <div className="mt-10 grid gap-px border border-navy/10 bg-navy/10 sm:grid-cols-2 lg:grid-cols-3">
+              {SPAIN_MARKETS.map((m) => (
+                <a
+                  key={m.slug}
+                  href={`/${m.slug}`}
+                  className="group bg-ivory p-7 transition-colors hover:bg-white"
+                >
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">{m.region}</p>
+                  <p className="mt-3 font-serif text-2xl text-navy-deep">{m.name}</p>
+                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60 transition-colors group-hover:text-gold-ink">
+                    {lang === "es" ? "Ver la página del mercado" : "View the market page"}
+                    <ChevronRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section G — Listing intake ──
+            Two rungs, deliberately ordered. GlobalDeskListingForm asks ~14
+            questions and hard-requires a property image upload — the right ask
+            from an agency ready to submit a mandate, the wrong one from an
+            owner who just arrived from search. That form was the ONLY way in,
+            which is why this page produced so little. The short form now leads;
+            the full submission stays one click away for anyone ready for it. */}
         <section id="listing-request" className="scroll-mt-20 bg-[#060D18] px-6 py-16 md:py-24">
           <div className="mx-auto max-w-3xl">
-            <GlobalDeskListingForm lang={lang} />
+            <SpainSellerForm lang={lang} sourcePage="global-desk" />
+
+            <details className="group mt-10 border border-white/10 bg-white/[0.02]">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:text-gold">
+                {lang === "es"
+                  ? "¿Listo para enviar la propiedad completa, con fotos y documentación?"
+                  : "Ready to submit the full property, with photos and documents?"}
+                <ChevronRight size={15} className="shrink-0 text-gold transition-transform group-open:rotate-90" />
+              </summary>
+              <div className="border-t border-white/10">
+                <GlobalDeskListingForm lang={lang} />
+              </div>
+            </details>
+
             <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               {lang === "es" ? (
                 <>¿Agencia o promotora? Vea el proceso completo de alta:{" "}

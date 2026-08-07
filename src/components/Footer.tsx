@@ -17,7 +17,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-2 gap-5 px-6 py-6 md:gap-12 md:py-16 lg:grid-cols-4">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-2 gap-5 px-6 py-6 md:gap-12 md:py-16 lg:grid-cols-5">
         <div className="col-span-2 lg:col-span-1">
           <img
             src="/images/urg-logo-original.webp"
@@ -107,6 +107,18 @@ export function Footer() {
             <li>Certified Seller Representative</li>
             <li>Miami and South Florida REALTORS®</li>
           </ul>
+        </div>
+
+        <div>
+          <h4 className="font-mono mb-3 text-[10px] uppercase tracking-[0.28em] text-gold md:mb-6">Vender en España</h4>
+          <div className="space-y-2 md:space-y-3">
+            <a href="/vender-marbella" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Marbella</a>
+            <a href="/vender-madrid" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Madrid</a>
+            <a href="/vender-costa-blanca" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Costa Blanca</a>
+            <a href="/vender-ibiza" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Ibiza</a>
+            <a href="/vender-barcelona" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Barcelona</a>
+            <a href="/vender-valencia" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Valencia</a>
+          </div>
         </div>
       </div>
 

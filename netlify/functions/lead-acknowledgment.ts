@@ -9,6 +9,9 @@ const FROM_ADDRESS = process.env.RESEND_FROM ?? "Carlos Uzcategui <no-reply@home
 const CARLOS_EMAIL = "contact@carlosre.com";
 const WHATSAPP_US = "+1 954-865-6622";
 const WHATSAPP_LINK = "https://wa.me/19548656622";
+// Spain-desk leads convert on the +34 line — routing them to the US number
+// adds an international call barrier at the exact moment they are warmest.
+const WHATSAPP_ES = "+34 646 853 078";
 const SITE = "https://homesprofessional.com";
 
 // Lead-magnet downloads (exit-intent modal + free-resources strip) submit the
@@ -139,6 +142,8 @@ function buildEmailEN(formName: string, name: string): { subject: string; html: 
     ? "Your seller strategy review request has been received. Carlos will review your property details personally and follow up with you directly."
     : formName === "buyer-mandate"
     ? "Your Miami buyer brief request has been received. Carlos will prepare a brief tailored to your search parameters and follow up with you directly."
+    : formName === "spain-seller"
+    ? "Your Miami Global Listing Desk enquiry has been received. Carlos will review your property personally and reply with a fit assessment — whether it has real traction with Miami-area buyer agents, and which cooperation path would apply. Your local representation in Spain is unaffected."
     : formName === "referral-intake-es"
     ? "Your cross-border referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up with you directly."
     : "Your referral inquiry has been received. Carlos handles all licensed professional inquiries confidentially and will follow up with you directly.";
@@ -150,6 +155,8 @@ function buildEmailEN(formName: string, name: string): { subject: string; html: 
       ? "Seller Strategy Review Request Confirmed — HomesProfessional.com"
       : formName === "buyer-mandate"
       ? "Miami Buyer Brief Request Confirmed — HomesProfessional.com"
+      : formName === "spain-seller"
+      ? "Enquiry Received — Miami Global Listing Desk"
       : formName === "referral-intake-es"
       ? "Consulta de Colaboración Confirmada — Agent Partner Desk"
       : "Referral Inquiry Confirmed — Agent Partner Desk",
@@ -180,12 +187,18 @@ function buildEmailEN(formName: string, name: string): { subject: string; html: 
 }
 
 function buildEmailES(formName: string, name: string): { subject: string; html: string } {
+  // Spain-desk forms reach Carlos on the +34 line. A Spanish-speaking seller in
+  // Miami (seller-hero / seller-intake in Spanish) still belongs on the US line.
+  const isSpainDesk = formName === "spain-seller" || formName === "global-desk-listing";
+  const contactNumber = isSpainDesk ? WHATSAPP_ES : WHATSAPP_US;
   const intro = formName === "seller-hero"
     ? "Su solicitud de valoración de propiedad ha sido recibida. Carlos preparará su valoración basada en el MLS personalmente y le responderá directamente."
     : formName === "seller-intake"
     ? "Su solicitud de revisión de estrategia de venta ha sido recibida. Carlos revisará los detalles de su propiedad personalmente y le responderá directamente."
     : formName === "buyer-mandate"
     ? "Su solicitud de informe de comprador en Miami ha sido recibida. Carlos preparará un informe adaptado a sus parámetros de búsqueda y le responderá directamente."
+    : formName === "spain-seller"
+    ? "Su consulta al Miami Global Listing Desk ha sido recibida. Carlos revisará su propiedad personalmente y le responderá con una valoración de encaje — si tiene recorrido con agentes compradores del área de Miami y qué vía de cooperación correspondería. Su representación local en España no se ve afectada."
     : formName === "referral-intake-es"
     ? "Su consulta de colaboración ha sido recibida. Carlos gestiona todas las consultas de profesionales licenciados de forma confidencial y le responderá directamente. Se firmará un acuerdo de colaboración por escrito antes de cualquier presentación de cliente."
     : "Su consulta de referido ha sido recibida. Carlos gestiona todas las consultas de profesionales licenciados de forma confidencial y le responderá directamente.";
@@ -197,6 +210,8 @@ function buildEmailES(formName: string, name: string): { subject: string; html: 
       ? "Solicitud de Revisión de Estrategia Confirmada — HomesProfessional.com"
       : formName === "buyer-mandate"
       ? "Solicitud de Informe de Comprador Confirmada — HomesProfessional.com"
+      : formName === "spain-seller"
+      ? "Consulta Recibida — Miami Global Listing Desk"
       : formName === "referral-intake-es"
       ? "Consulta de Colaboración Confirmada — HomesProfessional.com"
       : "Consulta de Referido Confirmada — Agent Partner Desk",
@@ -211,7 +226,7 @@ function buildEmailES(formName: string, name: string): { subject: string; html: 
           ${intro}
         </p>
         <p style="font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.7; color: rgba(11,30,63,0.7);">
-          Para preguntas inmediatas, comuníquese con Carlos por WhatsApp al <strong>${WHATSAPP_US}</strong> o responda a este correo en <a href="mailto:${CARLOS_EMAIL}" style="color: #B08D57;">${CARLOS_EMAIL}</a>.
+          Para preguntas inmediatas, comuníquese con Carlos por WhatsApp al <strong>${contactNumber}</strong> o responda a este correo en <a href="mailto:${CARLOS_EMAIL}" style="color: #B08D57;">${CARLOS_EMAIL}</a>.
         </p>
         <div style="border-top: 1px solid #e8e3da; margin-top: 32px; padding-top: 16px;">
           <p style="font-family: monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(11,30,63,0.35); margin: 0;">
@@ -254,7 +269,11 @@ export const handler: Handler = async (event: HandlerEvent) => {
   // Global Desk uses an explicit on-page language choice; everything else
   // infers Spanish from country/name context.
   const useSpanish =
-    formName === "global-desk-listing" ? language === "es" : isSpanishContext(country, name);
+    // Both Global Desk forms carry an explicit on-page language choice —
+    // trust it rather than guessing from name/country heuristics.
+    formName === "global-desk-listing" || formName === "spain-seller"
+      ? language === "es"
+      : isSpanishContext(country, name);
   const { subject, html } = formName === "global-desk-listing"
     ? buildGlobalDeskEmail(useSpanish)
     : formName === "lead-magnet-download"
