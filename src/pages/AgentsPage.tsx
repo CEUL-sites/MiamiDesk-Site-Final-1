@@ -5,6 +5,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
+import { RevealText } from "../components/RevealText";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { CONTACT } from "../constants";
@@ -309,7 +310,7 @@ export default function AgentsPage() {
                   <p.icon size={22} className="text-gold" strokeWidth={1.5} />
                   <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80 md:mt-5">{p.tag}</p>
                   <h3 className="mt-2 font-serif text-xl text-navy-deep leading-snug">{p.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{p.body}</p>
+                  <RevealText lines={2} className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{p.body}</RevealText>
                   <ul className="mt-4 space-y-2 md:mt-5">
                     {p.points.map((pt) => (
                       <li key={pt} className="flex items-start gap-2.5">
@@ -457,7 +458,7 @@ export default function AgentsPage() {
                   <div key={a.number} className="bg-white p-3 md:p-6">
                     <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-2 md:mb-4">{a.number}</div>
                     <h3 className="font-serif text-base leading-snug text-navy-deep md:text-lg">{a.title}</h3>
-                    <p className="mt-2 font-sans text-xs leading-snug text-ink-primary/65 md:mt-3 md:text-sm md:leading-relaxed">{a.body}</p>
+                    <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-ink-primary/65 md:mt-3 md:text-sm md:leading-relaxed">{a.body}</RevealText>
                   </div>
                 ))}
               </div>
@@ -500,7 +501,7 @@ export default function AgentsPage() {
                 <div key={s.title} className="flex gap-3 border-l-2 border-gold/40 pl-3 py-1 md:gap-5 md:pl-5">
                   <div>
                     <h3 className="font-sans text-sm font-semibold text-navy-deep">{s.title}</h3>
-                    <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/60">{s.body}</p>
+                    <RevealText lines={2} className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/60">{s.body}</RevealText>
                   </div>
                 </div>
               ))}
@@ -677,7 +678,7 @@ export default function AgentsPage() {
                 <div key={s.value} className="bg-navy-deep p-4 md:p-8">
                   <div className="font-serif text-3xl text-gold md:text-5xl">{s.value}</div>
                   <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/60">{s.label}</div>
-                  <p className="mt-2 font-sans text-xs leading-snug text-white/60 md:mt-4 md:text-sm md:leading-relaxed">{s.desc}</p>
+                  <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-white/60 md:mt-4 md:text-sm md:leading-relaxed">{s.desc}</RevealText>
                 </div>
               ))}
             </div>
@@ -710,7 +711,7 @@ export default function AgentsPage() {
                     </div>
                     <div className="pt-1">
                       <h3 className="font-serif text-lg text-navy-deep">{step.title}</h3>
-                      <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{step.body}</p>
+                      <RevealText lines={2} className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{step.body}</RevealText>
                     </div>
                   </div>
                 ))}
@@ -801,7 +802,7 @@ export default function AgentsPage() {
                     <div key={p.number} className="flex flex-col bg-white p-5 md:p-6">
                       <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3">{p.number}</div>
                       <h3 className="font-serif text-lg text-navy-deep leading-snug">{p.title}</h3>
-                      <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65 flex-1">{p.body}</p>
+                      <RevealText lines={2} className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65 flex-1">{p.body}</RevealText>
                       <a href="#south-florida-referral" className="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold hover:underline underline-offset-2">
                         Submit a referral →
                       </a>
@@ -951,7 +952,7 @@ export default function AgentsPage() {
                   <a.icon size={20} className="text-gold" strokeWidth={1.5} />
                   <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80 md:mt-4">{a.tag}</p>
                   <h3 className="mt-2 font-serif text-lg leading-snug text-navy-deep md:text-xl">{a.title}</h3>
-                  <p className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:leading-relaxed">{a.body}</p>
+                  <RevealText lines={2} className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:leading-relaxed">{a.body}</RevealText>
                 </div>
               ))}
             </div>
@@ -986,7 +987,7 @@ export default function AgentsPage() {
                     <div key={item.title} className="bg-white p-3 md:p-6">
                       <item.icon size={18} className="text-gold" strokeWidth={1.5} />
                       <h3 className="mt-2 font-serif text-sm leading-snug text-navy-deep md:mt-4 md:text-base">{item.title}</h3>
-                      <p className="mt-2 font-sans text-xs leading-snug text-ink-primary/60 md:text-sm md:leading-relaxed">{item.body}</p>
+                      <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-ink-primary/60 md:text-sm md:leading-relaxed">{item.body}</RevealText>
                     </div>
                   ))}
                 </div>
