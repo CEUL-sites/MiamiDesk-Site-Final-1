@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { RevealText } from "../components/RevealText";
+import { SectionTabs } from "../components/SectionTabs";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { CONTACT } from "../constants";
@@ -485,163 +486,224 @@ export default function AgentsPage() {
           </div>
         </section>
 
-        {/* ── What the Miami Desk Provides ──────────────────────────── */}
-        <section className="bg-ivory py-8 md:py-14">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Service Coverage</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              What the Miami Desk provides.
-            </h2>
-            <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60">
-              Scope varies by property type, market, and collaboration model. Every engagement is reviewed individually
-              and documented in a professional written agreement before activation.
-            </p>
-            <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-4 md:mt-12 md:gap-5">
-              {SERVICES.map((s) => (
-                <div key={s.title} className="flex gap-3 border-l-2 border-gold/40 pl-3 py-1 md:gap-5 md:pl-5">
-                  <div>
-                    <h3 className="font-sans text-sm font-semibold text-navy-deep">{s.title}</h3>
-                    <RevealText lines={2} className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/60">{s.body}</RevealText>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Collaboration Model ───────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
-          <LazyVideo
-            src="/videos/luxury_listing_showcase.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.10] pointer-events-none"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy-deep via-navy-deep/90 to-navy-deep/70 pointer-events-none" />
-          <div className="relative mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Collaboration Works</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
-              You keep the mandate. We support the international layer.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.5] text-white/60 md:leading-[1.8]">
-              The Miami Desk is designed to complement local market representation — not replace it. The local agent
-              maintains full authority over the seller relationship, the mandate, and local market operations.
-            </p>
-            {/* Visual flow diagram */}
-            <div className="mt-6 mb-6 md:mt-10 md:mb-10">
-              <svg viewBox="0 0 800 80" className="w-full max-w-3xl mx-auto" aria-hidden="true">
-                {/* Flow line */}
-                <line x1="160" y1="40" x2="380" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
-                <line x1="420" y1="40" x2="640" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
-                {/* Arrowheads */}
-                <polygon points="376,35 386,40 376,45" fill="#B08D57" opacity="0.5" />
-                <polygon points="636,35 646,40 636,45" fill="#B08D57" opacity="0.5" />
-                {/* Node 1: Local Agent */}
-                <rect x="0" y="20" width="158" height="40" rx="2" fill="#B08D5712" stroke="#B08D57" strokeWidth="0.75" opacity="0.7" />
-                <text x="79" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">LOCAL AGENT</text>
-                <text x="79" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">Mandate · Client · Fee</text>
-                {/* Node 2: Miami Desk */}
-                <rect x="390" y="16" width="120" height="48" rx="2" fill="#B08D5720" stroke="#B08D57" strokeWidth="1.25" />
-                <text x="450" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">MIAMI DESK</text>
-                <text x="450" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">FL SL705771</text>
-                {/* Node 3: Buyers */}
-                <rect x="642" y="20" width="158" height="40" rx="2" fill="#B08D5712" stroke="#B08D57" strokeWidth="0.75" opacity="0.7" />
-                <text x="721" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">U.S. · LATAM</text>
-                <text x="721" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">93,000 Agents</text>
-              </svg>
-            </div>
-
-            <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
-              {[
-                {
-                  role: "Local Agent",
-                  keeps: ["The seller relationship", "The local mandate", "All local market authority", "Local fee and commission"],
-                  highlight: true,
-                },
-                {
-                  role: "Miami Desk",
-                  keeps: ["Miami-facing exposure layer", "U.S. and LATAM channel access", "Bilingual positioning support", "Referral inquiry coordination"],
-                  highlight: false,
-                },
-                {
-                  role: "Professional Terms",
-                  keeps: ["Written cooperation agreement", "Documented referral structure", "Transparent scope and fees", "Compliance with applicable law"],
-                  highlight: false,
-                },
-              ].map((col) => (
-                <div key={col.role} className={`p-4 md:p-8 ${col.highlight ? "bg-gold/[0.07] border border-gold/20" : "bg-navy-deep"}`}>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-3 md:mb-5">{col.role}</p>
-                  <ul className="space-y-2 md:space-y-3">
-                    {col.keeps.map((k) => (
-                      <li key={k} className="flex items-start gap-2.5">
-                        <BadgeCheck size={13} className="mt-0.5 flex-shrink-0 text-gold/70" />
-                        <span className="font-sans text-xs leading-snug text-white/70 md:text-sm md:leading-normal">{k}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Ideal For ─────────────────────────────────────────────── */}
-        <section className="bg-white py-8 md:py-14">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-14">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Ideal For</p>
-                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                  Selected listings and agencies.
+        {/* ── The offer, consolidated into one tabbed module ─────────
+            These four arguments ran as four consecutive full-height
+            sections. Same markup, same copy — one screen instead of four. */}
+        <SectionTabs
+          eyebrow="The Miami Desk"
+          heading="What it provides, how it works, and who it is for."
+          tabs={[
+            {
+              id: "provides",
+              label: "What we provide",
+              panel: (
+            <section className="bg-ivory py-8 md:py-14">
+              <div className="mx-auto max-w-5xl px-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Service Coverage</p>
+                <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  What the Miami Desk provides.
                 </h2>
-                <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
-                  The Miami Desk reviews every submission individually. Not every property qualifies — positioning
-                  for U.S. and LATAM buyers requires the right product type, price point, and market context.
+                <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60">
+                  Scope varies by property type, market, and collaboration model. Every engagement is reviewed individually
+                  and documented in a professional written agreement before activation.
                 </p>
-                <div className="mt-6 space-y-4 md:mt-8 md:space-y-5">
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/80 mb-3">Property types</p>
-                    <div className="flex flex-wrap gap-2">
-                      {IDEAL_FOR.slice(0, 4).map((item) => (
-                        <span key={item} className="inline-flex items-center gap-2 border border-gold/20 bg-gold/5 px-4 py-2 font-sans text-sm text-navy-deep">
-                          <span className="h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
-                          {item}
-                        </span>
-                      ))}
+                <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-4 md:mt-12 md:gap-5">
+                  {SERVICES.map((s) => (
+                    <div key={s.title} className="flex gap-3 border-l-2 border-gold/40 pl-3 py-1 md:gap-5 md:pl-5">
+                      <div>
+                        <h3 className="font-sans text-sm font-semibold text-navy-deep">{s.title}</h3>
+                        <RevealText lines={2} className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/60">{s.body}</RevealText>
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 mb-3">Agencies &amp; teams</p>
-                    <div className="flex flex-wrap gap-2">
-                      {IDEAL_FOR.slice(4).map((item) => (
-                        <span key={item} className="inline-flex items-center gap-2 border border-navy/10 bg-ivory px-4 py-2 font-sans text-sm text-navy-deep">
-                          <span className="h-1 w-1 flex-shrink-0 rounded-full bg-navy/30" />
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  ))}
                 </div>
-                <p className="mt-6 font-sans text-xs italic text-ink-primary/70 md:mt-8">
-                  Every submission is reviewed personally.
-                </p>
               </div>
+            </section>
+              ),
+            },
+            {
+              id: "collaboration",
+              label: "How we work together",
+              panel: (
+            <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
+              <LazyVideo
+                src="/videos/luxury_listing_showcase.mp4"
+                className="absolute inset-0 h-full w-full object-cover opacity-[0.10] pointer-events-none"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-navy-deep via-navy-deep/90 to-navy-deep/70 pointer-events-none" />
+              <div className="relative mx-auto max-w-5xl px-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Collaboration Works</p>
+                <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
+                  You keep the mandate. We support the international layer.
+                </h2>
+                <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.5] text-white/60 md:leading-[1.8]">
+                  The Miami Desk is designed to complement local market representation — not replace it. The local agent
+                  maintains full authority over the seller relationship, the mandate, and local market operations.
+                </p>
+                {/* Visual flow diagram */}
+                <div className="mt-6 mb-6 md:mt-10 md:mb-10">
+                  <svg viewBox="0 0 800 80" className="w-full max-w-3xl mx-auto" aria-hidden="true">
+                    {/* Flow line */}
+                    <line x1="160" y1="40" x2="380" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
+                    <line x1="420" y1="40" x2="640" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
+                    {/* Arrowheads */}
+                    <polygon points="376,35 386,40 376,45" fill="#B08D57" opacity="0.5" />
+                    <polygon points="636,35 646,40 636,45" fill="#B08D57" opacity="0.5" />
+                    {/* Node 1: Local Agent */}
+                    <rect x="0" y="20" width="158" height="40" rx="2" fill="#B08D5712" stroke="#B08D57" strokeWidth="0.75" opacity="0.7" />
+                    <text x="79" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">LOCAL AGENT</text>
+                    <text x="79" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">Mandate · Client · Fee</text>
+                    {/* Node 2: Miami Desk */}
+                    <rect x="390" y="16" width="120" height="48" rx="2" fill="#B08D5720" stroke="#B08D57" strokeWidth="1.25" />
+                    <text x="450" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">MIAMI DESK</text>
+                    <text x="450" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">FL SL705771</text>
+                    {/* Node 3: Buyers */}
+                    <rect x="642" y="20" width="158" height="40" rx="2" fill="#B08D5712" stroke="#B08D57" strokeWidth="0.75" opacity="0.7" />
+                    <text x="721" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">U.S. · LATAM</text>
+                    <text x="721" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">93,000 Agents</text>
+                  </svg>
+                </div>
 
-              {/* Right: cinematic property visual */}
-              <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "70%" }}>
-                <LazyVideo
-                  src="/videos/gemini_property_vision.mp4"
-                  className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
-                <div className="absolute inset-x-0 bottom-0 p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80 mb-1">Miami Desk</p>
-                  <p className="font-serif text-lg text-white leading-snug">
-                    Premium properties.<br />International buyers.
-                  </p>
+                <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+                  {[
+                    {
+                      role: "Local Agent",
+                      keeps: ["The seller relationship", "The local mandate", "All local market authority", "Local fee and commission"],
+                      highlight: true,
+                    },
+                    {
+                      role: "Miami Desk",
+                      keeps: ["Miami-facing exposure layer", "U.S. and LATAM channel access", "Bilingual positioning support", "Referral inquiry coordination"],
+                      highlight: false,
+                    },
+                    {
+                      role: "Professional Terms",
+                      keeps: ["Written cooperation agreement", "Documented referral structure", "Transparent scope and fees", "Compliance with applicable law"],
+                      highlight: false,
+                    },
+                  ].map((col) => (
+                    <div key={col.role} className={`p-4 md:p-8 ${col.highlight ? "bg-gold/[0.07] border border-gold/20" : "bg-navy-deep"}`}>
+                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-3 md:mb-5">{col.role}</p>
+                      <ul className="space-y-2 md:space-y-3">
+                        {col.keeps.map((k) => (
+                          <li key={k} className="flex items-start gap-2.5">
+                            <BadgeCheck size={13} className="mt-0.5 flex-shrink-0 text-gold/70" />
+                            <span className="font-sans text-xs leading-snug text-white/70 md:text-sm md:leading-normal">{k}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+              ),
+            },
+            {
+              id: "ideal",
+              label: "Who it is for",
+              panel: (
+            <section className="bg-white py-8 md:py-14">
+              <div className="mx-auto max-w-5xl px-6">
+                <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-14">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Ideal For</p>
+                    <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                      Selected listings and agencies.
+                    </h2>
+                    <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
+                      The Miami Desk reviews every submission individually. Not every property qualifies — positioning
+                      for U.S. and LATAM buyers requires the right product type, price point, and market context.
+                    </p>
+                    <div className="mt-6 space-y-4 md:mt-8 md:space-y-5">
+                      <div>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/80 mb-3">Property types</p>
+                        <div className="flex flex-wrap gap-2">
+                          {IDEAL_FOR.slice(0, 4).map((item) => (
+                            <span key={item} className="inline-flex items-center gap-2 border border-gold/20 bg-gold/5 px-4 py-2 font-sans text-sm text-navy-deep">
+                              <span className="h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 mb-3">Agencies &amp; teams</p>
+                        <div className="flex flex-wrap gap-2">
+                          {IDEAL_FOR.slice(4).map((item) => (
+                            <span key={item} className="inline-flex items-center gap-2 border border-navy/10 bg-ivory px-4 py-2 font-sans text-sm text-navy-deep">
+                              <span className="h-1 w-1 flex-shrink-0 rounded-full bg-navy/30" />
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <p className="mt-6 font-sans text-xs italic text-ink-primary/70 md:mt-8">
+                      Every submission is reviewed personally.
+                    </p>
+                  </div>
+
+                  {/* Right: cinematic property visual */}
+                  <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "70%" }}>
+                    <LazyVideo
+                      src="/videos/gemini_property_vision.mp4"
+                      className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
+                    <div className="absolute inset-x-0 bottom-0 p-7">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80 mb-1">Miami Desk</p>
+                      <p className="font-serif text-lg text-white leading-snug">
+                        Premium properties.<br />International buyers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+              ),
+            },
+            {
+              id: "process",
+              label: "The four steps",
+              panel: (
+            <section className="bg-ivory py-8 md:py-14">
+              <div className="mx-auto max-w-5xl px-6">
+                <div className="grid gap-8 lg:grid-cols-[0.4fr_0.6fr] lg:items-start lg:gap-16">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Collaboration Process</p>
+                    <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                      Four steps.<br />No ambiguity.
+                    </h2>
+                    <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
+                      Every engagement is reviewed, scoped, documented, and activated in a defined sequence.
+                      No surprises on structure or professional terms.
+                    </p>
+                  </div>
+                  {/* Vertical timeline */}
+                  <div className="space-y-0">
+                    {PROCESS_STEPS.map((step, i) => (
+                      <div key={step.number} className="relative flex gap-5 items-start pb-6 last:pb-0 md:gap-7 md:pb-10">
+                        {i < PROCESS_STEPS.length - 1 && (
+                          <div className="absolute left-[20px] top-11 bottom-0 w-px bg-navy/10" />
+                        )}
+                        <div className="relative z-10 flex-shrink-0 h-10 w-10 border border-gold/50 bg-white flex items-center justify-center">
+                          <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-gold">{step.number}</span>
+                        </div>
+                        <div className="pt-1">
+                          <h3 className="font-serif text-lg text-navy-deep">{step.title}</h3>
+                          <RevealText lines={2} className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{step.body}</RevealText>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+              ),
+            },
+          ]}
+        />
 
         {/* ── Network Stats ─────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
@@ -681,41 +743,6 @@ export default function AgentsPage() {
                   <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-white/60 md:mt-4 md:text-sm md:leading-relaxed">{s.desc}</RevealText>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Process ───────────────────────────────────────────────── */}
-        <section className="bg-ivory py-8 md:py-14">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-8 lg:grid-cols-[0.4fr_0.6fr] lg:items-start lg:gap-16">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Collaboration Process</p>
-                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                  Four steps.<br />No ambiguity.
-                </h2>
-                <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
-                  Every engagement is reviewed, scoped, documented, and activated in a defined sequence.
-                  No surprises on structure or professional terms.
-                </p>
-              </div>
-              {/* Vertical timeline */}
-              <div className="space-y-0">
-                {PROCESS_STEPS.map((step, i) => (
-                  <div key={step.number} className="relative flex gap-5 items-start pb-6 last:pb-0 md:gap-7 md:pb-10">
-                    {i < PROCESS_STEPS.length - 1 && (
-                      <div className="absolute left-[20px] top-11 bottom-0 w-px bg-navy/10" />
-                    )}
-                    <div className="relative z-10 flex-shrink-0 h-10 w-10 border border-gold/50 bg-white flex items-center justify-center">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-gold">{step.number}</span>
-                    </div>
-                    <div className="pt-1">
-                      <h3 className="font-serif text-lg text-navy-deep">{step.title}</h3>
-                      <RevealText lines={2} className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{step.body}</RevealText>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
