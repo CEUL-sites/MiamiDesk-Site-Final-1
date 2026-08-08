@@ -4,11 +4,96 @@
 //   node scripts/render-journal-og.mjs            # only posts missing a card
 //   node scripts/render-journal-og.mjs --force    # re-render all
 //   node scripts/render-journal-og.mjs --slug=x   # just that post
-// Set PUPPETEER_EXECUTABLE_PATH to use a system Chrome instead of the bundled one.
+// Set PUPPETEER_EXECUTABLE_PATH to use a system Chrome instead of the bundled one;
+// otherwise a system Chrome is discovered automatically if the bundled one fails.
 import puppeteer from 'puppeteer';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+const LAUNCH_ARGS = ['--no-sandbox', '--disable-setuid-sandbox'];
+
+// react-snap pins puppeteer 1.x, whose bundled Chromium is old enough to need
+// libXss and friends. On a slim container that library is absent and the launch
+// throws, which used to abort the whole render with a raw stack trace. Any
+// modern Chrome drives this script's CDP usage fine, so fall back to whatever
+// browser the machine already has rather than giving up on the card.
+function discoverChrome() {
+  const candidates = [process.env.CHROME_PATH];
+
+  // Playwright's browser cache — present on CI images that preinstall it.
+  const pwRoot = process.env.PLAYWRIGHT_BROWSERS_PATH || '/opt/pw-browsers';
+  if (fs.existsSync(pwRoot)) {
+    for (const entry of fs.readdirSync(pwRoot)) {
+      candidates.push(path.join(pwRoot, entry, 'chrome-linux', 'chrome'));
+      candidates.push(path.join(pwRoot, entry, 'chrome-linux', 'headless_shell'));
+    }
+  }
+
+  candidates.push(
+    '/usr/bin/google-chrome-stable',
+    '/usr/bin/google-chrome',
+    '/usr/bin/chromium-browser',
+    '/usr/bin/chromium',
+    '/snap/bin/chromium',
+    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  );
+
+  return candidates.filter((exe) => exe && fs.existsSync(exe));
+}
+
+function firstLine(err) {
+  return String(err && err.message ? err.message : err).split('\n')[0];
+}
+
+async function launchBrowser() {
+  // An explicit override is a deliberate choice — honour it and let a bad value
+  // fail loudly rather than quietly rendering with some other browser.
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+    return puppeteer.launch({
+      args: LAUNCH_ARGS,
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+    });
+  }
+
+  const failures = [];
+  try {
+    return await puppeteer.launch({ args: LAUNCH_ARGS });
+  } catch (err) {
+    failures.push(`bundled Chromium — ${firstLine(err)}`);
+  }
+
+  for (const executablePath of discoverChrome()) {
+    try {
+      const browser = await puppeteer.launch({ args: LAUNCH_ARGS, executablePath });
+      console.log(`note: bundled Chromium unusable, rendering with ${executablePath}`);
+      return browser;
+    } catch (err) {
+      failures.push(`${executablePath} — ${firstLine(err)}`);
+    }
+  }
+
+  throw new Error(
+    'Could not launch a browser to render share cards. Tried:\n' +
+      failures.map((line) => `  - ${line}`).join('\n') +
+      '\nInstall Chrome, or point PUPPETEER_EXECUTABLE_PATH at a working binary.',
+  );
+}
+
+// Rendering the JPEG is only half the job — a post still carries no og:image
+// until its frontmatter points at the file. The publisher does this for the post
+// it just wrote; doing it here too is what makes a plain backfill run actually
+// repair a post that published without a card.
+function linkFrontmatter(postPath, slug) {
+  const raw = fs.readFileSync(postPath, 'utf8');
+  if (/^image:/m.test(raw)) return false;
+  if (!/^category:/m.test(raw)) return false;
+  fs.writeFileSync(
+    postPath,
+    raw.replace(/^(category:.*)$/m, `$1\nimage: "/images/journal/og/${slug}.jpg"`),
+  );
+  return true;
+}
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const contentDir = path.join(root, 'src/content/journal');
@@ -59,7 +144,7 @@ if (pending.length === 0) {
   process.exit(0);
 }
 
-const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+const browser = await launchBrowser();
 const page = await browser.newPage();
 await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 1 });
 
@@ -87,7 +172,8 @@ for (const file of pending) {
   await page.screenshot({ path: out, type: 'jpeg', quality: 85 });
   fs.unlinkSync(tmp);
   rendered++;
-  console.log('rendered', `${slug}.jpg`);
+  const linked = linkFrontmatter(path.join(contentDir, file), slug);
+  console.log('rendered', `${slug}.jpg${linked ? ' (+ linked image: in frontmatter)' : ''}`);
 }
 
 await browser.close();

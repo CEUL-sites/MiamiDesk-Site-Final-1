@@ -420,9 +420,22 @@ at 12:35 UTC daily (8:35 AM ET during DST), generating one templated post from a
 rotating market × angle matrix. It does steps 1 through 5 on its own — including
 rendering the share card, setting `image:`, updating `reactSnap.include` and
 `sitemap.xml`, and running `verify:journal`, `lint`, and `build` before it
-commits — so automated posts need no manual follow-up. If Chrome fails on the
-runner it publishes the post without a card and logs a warning; `node
-scripts/render-journal-og.mjs` backfills it.
+commits — so automated posts need no manual follow-up.
+
+If no browser can be launched, the post still publishes without a card rather
+than losing the day's run — but it is no longer silent about it: the publisher
+emits a GitHub Actions `::warning` annotation and a job-summary entry, so the
+run page shows the miss. The workflow then re-runs `render-journal-og.mjs` on
+every run, which renders any missing card **and** writes the `image:` field, so
+a one-day browser outage self-heals on the next run.
+
+The renderer resolves a browser in this order: `PUPPETEER_EXECUTABLE_PATH` if
+set (a bad value fails loudly rather than silently falling back), then
+puppeteer's bundled Chromium, then any system Chrome it can find — Playwright's
+cache under `PLAYWRIGHT_BROWSERS_PATH`, then the usual `/usr/bin` locations.
+react-snap pins puppeteer 1.x, whose bundled Chromium needs `libXss` and will
+not start on a slim container; that fallback is what keeps cards rendering
+there.
 
 #### How a generated post stays distinct
 
