@@ -855,6 +855,29 @@ function assertDistinct(content, { excludeFile } = {}) {
   return worst;
 }
 
+// Publishing without a card is the deliberate degradation — a missing share
+// image should not cost the day's post. What it must not be is silent: a
+// console.warn inside an otherwise green workflow run is invisible, so the post
+// ships with no og:image and nobody finds out until an audit. Escalate to a
+// real annotation and a job-summary line so the run page shows it.
+function reportShareCardFailure(slug) {
+  const message =
+    `Share card was not rendered for ${slug}; the post published without an og:image. ` +
+    'Backfill with "node scripts/render-journal-og.mjs", which also links the image: field.';
+
+  console.warn(`Warning: ${message}`);
+
+  if (!process.env.GITHUB_ACTIONS) return;
+  console.log(`::warning title=Journal share card not rendered::${message}`);
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    try {
+      fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ⚠️ Share card missing\n\n${message}\n`);
+    } catch {
+      // A summary write failing must never take down the publish itself.
+    }
+  }
+}
+
 // Renders the post's share card and points its frontmatter at it. The renderer
 // reads the post's own frontmatter, so this must run after the file is written.
 // The image field is only set once the card exists on disk — a post that claims
@@ -868,10 +891,7 @@ function renderShareCard(slug, postPath) {
   );
 
   if (result.status !== 0 || !fs.existsSync(cardPath)) {
-    console.warn(
-      `Warning: could not render the share card for ${slug}. The post is still published, ` +
-        'but without an og:image. Run "node scripts/render-journal-og.mjs" to backfill it.'
-    );
+    reportShareCardFailure(slug);
     return;
   }
 

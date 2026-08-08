@@ -35,6 +35,13 @@ jobs:
       - name: Generate daily journal post
         run: node scripts/daily-journal-publisher.mjs
 
+      # If a previous run lost its browser, that post is still sitting there
+      # without a card. This re-renders anything missing and links the image:
+      # field, so a one-day outage self-heals on the next run instead of
+      # leaving a post permanently without an og:image.
+      - name: Backfill any missing share cards
+        run: node scripts/render-journal-og.mjs
+
       - name: Verify journal content
         run: npm run verify:journal
 
