@@ -61,4 +61,29 @@ jobs:
           git config user.email "actions@github.com"
           git add src/content/journal package.json public/sitemap.xml public/images/journal/og
           git commit -m "Publish daily SEO journal post"
-          git push
+
+          # main can move while this job runs. The checkout happens at the start
+          # and the push several minutes later, after generate + verify + lint +
+          # build, so any merge landing in that window makes this a
+          # non-fast-forward. It used to abort the step and lose the day's post
+          # outright: on 2026-08-05 a PR merged four seconds after this workflow
+          # started, and the generated post was never published.
+          #
+          # Rebase onto whatever landed and retry. A conflict is left to a human
+          # rather than resolved blindly — the post is regenerable, a bad
+          # auto-resolution of sitemap.xml or reactSnap.include is not.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed the daily post on attempt ${attempt}."
+              exit 0
+            fi
+            echo "Push rejected on attempt ${attempt} — rebasing onto origin/main."
+            if ! git pull --rebase --autostash origin main; then
+              git rebase --abort || true
+              echo "::error title=Daily journal post not pushed::Rebase onto origin/main hit a conflict. The post was generated and committed locally but never pushed — re-run this workflow to regenerate it."
+              exit 1
+            fi
+          done
+
+          echo "::error title=Daily journal post not pushed::Still non-fast-forward after 3 rebase attempts; main is moving faster than this job can land. Re-run the workflow."
+          exit 1
