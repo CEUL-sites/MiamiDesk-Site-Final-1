@@ -23,6 +23,7 @@ import { CONTACT, LEAD_MAGNETS, URG_CITIES } from "../constants";
 import { LazyVideo } from "../components/LazyVideo";
 import { NeoEmbed } from "../components/NeoEmbed";
 import { Tilt3D } from "../components/Tilt3D";
+import { RevealText } from "../components/RevealText";
 
 // Florida buyer service — the primary track. Spain is a separate, second desk below.
 const FL_SERVICES = [
@@ -351,7 +352,9 @@ export default function BuyersPage() {
                     {s.number}
                   </div>
                   <h3 className="max-w-[85%] font-serif text-xl text-navy-deep">{s.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{s.desc}</p>
+                  <RevealText lines={2} className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">
+                    {s.desc}
+                  </RevealText>
                 </div>
               ))}
             </div>
@@ -377,7 +380,9 @@ export default function BuyersPage() {
                 <div key={r.title} className="bg-navy-deep/90 p-6">
                   <r.icon size={20} className="text-gold" />
                   <h3 className="mt-4 font-serif text-lg leading-snug text-white">{r.title}</h3>
-                  <p className="mt-2 font-sans text-[13px] leading-relaxed text-white/55">{r.desc}</p>
+                  <RevealText lines={2} className="mt-2 font-sans text-[13px] leading-relaxed text-white/55">
+                    {r.desc}
+                  </RevealText>
                 </div>
               ))}
             </div>

@@ -1,6 +1,7 @@
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { LazyVideo } from "./LazyVideo";
+import { ReachFlow3D } from "./ReachFlow3D";
 const TOP_STATS = [
   {
     value: 93000,
@@ -155,6 +156,15 @@ export const ReachAdvantage = () => {
         {TOP_STATS.map((stat, i) => (
           <StatCard key={stat.label} stat={stat} index={i} />
         ))}
+      </div>
+
+      {/* The propagation story as one figure rather than another paragraph:
+          listing → agents → portals → countries, shown as depth. */}
+      <div className="relative px-6 py-10 md:py-14">
+        <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+          How reach compounds
+        </p>
+        <ReachFlow3D className="mt-8" />
       </div>
 
     </section>
