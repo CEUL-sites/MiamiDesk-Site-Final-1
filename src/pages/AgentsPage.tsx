@@ -333,139 +333,209 @@ export default function AgentsPage() {
           </div>
         </section>
 
-        {/* ── Problem ──────────────────────────────────────────────── */}
-        <section className="bg-ivory py-8 md:py-14">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-8 md:grid-cols-2 md:items-start md:gap-14">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Competitive Gap</p>
-                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                  Your listing presentation should not end at local portals.
-                </h2>
-                <div className="mt-6 space-y-4 font-sans text-[15px] leading-[1.5] text-ink-primary/70 md:leading-[1.8]">
-                  <p>
-                    Most agencies competing for the same mandates offer the same visibility: Idealista, Fotocasa, Kyero,
-                    Habitaclia, their agency website, and perhaps one or two international portals. Sellers at the premium
-                    level see through undifferentiated exposure promises.
-                  </p>
-                  <p>
-                    Luxury sellers increasingly want to know whether their property is being positioned in front of the
-                    right international buyer channels — not simply listed on the same platforms as every other agency.
-                    The agent who can explain a stronger, documented exposure strategy has a meaningful advantage in
-                    winning the mandate.
-                  </p>
-                </div>
 
-                {/* Cinematic video accent — landscape property walkthrough fills the
-                    wide frame cleanly (replaces the portrait clip that cropped mid-frame). */}
-                <div className="mt-6 relative overflow-hidden bg-navy-deep md:mt-8" style={{ paddingBottom: "52%" }}>
-                  <LazyVideo
-                    src="/videos/luxury_home_walkthrough.mp4"
-                    className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/30 pointer-events-none" />
-                  <div className="absolute bottom-4 left-5">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">
-                      International listing exposure · South Florida network
-                    </p>
+        {/* ── The case, consolidated into one tabbed module ──────────
+            Four consecutive full-height sections all arguing why the
+            international layer matters. Same markup, same copy. */}
+        <SectionTabs
+          eyebrow="The case"
+          heading="Why an international layer matters."
+          tabs={[
+            {
+              id: "gap",
+              label: "The gap",
+              panel: (
+            <section className="bg-ivory py-8 md:py-14">
+              <div className="mx-auto max-w-5xl px-6">
+                <div className="grid gap-8 md:grid-cols-2 md:items-start md:gap-14">
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Competitive Gap</p>
+                    <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                      Your listing presentation should not end at local portals.
+                    </h2>
+                    <div className="mt-6 space-y-4 font-sans text-[15px] leading-[1.5] text-ink-primary/70 md:leading-[1.8]">
+                      <p>
+                        Most agencies competing for the same mandates offer the same visibility: Idealista, Fotocasa, Kyero,
+                        Habitaclia, their agency website, and perhaps one or two international portals. Sellers at the premium
+                        level see through undifferentiated exposure promises.
+                      </p>
+                      <p>
+                        Luxury sellers increasingly want to know whether their property is being positioned in front of the
+                        right international buyer channels — not simply listed on the same platforms as every other agency.
+                        The agent who can explain a stronger, documented exposure strategy has a meaningful advantage in
+                        winning the mandate.
+                      </p>
+                    </div>
+
+                    {/* Cinematic video accent — landscape property walkthrough fills the
+                        wide frame cleanly (replaces the portrait clip that cropped mid-frame). */}
+                    <div className="mt-6 relative overflow-hidden bg-navy-deep md:mt-8" style={{ paddingBottom: "52%" }}>
+                      <LazyVideo
+                        src="/videos/luxury_home_walkthrough.mp4"
+                        className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/30 pointer-events-none" />
+                      <div className="absolute bottom-4 left-5">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">
+                          International listing exposure · South Florida network
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border border-hairline bg-white p-6 md:p-8">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 mb-4 md:mb-6">What sellers increasingly ask</p>
+                    <div className="space-y-3 md:space-y-5">
+                      {[
+                        "Where exactly will my property be presented?",
+                        "Who will actually see it — and can they buy it?",
+                        "Do you have access to U.S. or international buyer networks?",
+                        "How is your exposure different from other agencies?",
+                        "What proof can you give me of international demand access?",
+                      ].map((q) => (
+                        <div key={q} className="flex items-start gap-3">
+                          <ChevronRight size={12} className="mt-1 flex-shrink-0 text-gold" />
+                          <p className="font-sans text-sm leading-relaxed text-ink-primary/75">{q}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-4 border-t border-hairline pt-4 md:mt-8 md:pt-6">
+                      <p className="font-sans text-xs italic leading-relaxed text-ink-primary/50">
+                        "The better question is not only 'Where will my property be advertised?' It is 'Who will actually
+                        see it, present it, and connect it to potential buyers?'"
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="border border-hairline bg-white p-6 md:p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 mb-4 md:mb-6">What sellers increasingly ask</p>
-                <div className="space-y-3 md:space-y-5">
+            </section>
+              ),
+            },
+            {
+              id: "sellers",
+              label: "What sellers ask",
+              panel: (
+            <section className="bg-navy-deep py-8 md:py-14 text-white">
+              <div className="mx-auto max-w-5xl px-6 text-center">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller Psychology</p>
+                <h2 className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
+                  What sellers really want to know.
+                </h2>
+                <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.5] text-white/60 md:leading-[1.8]">
+                  Premium sellers are not simply looking for the most portals. They are looking for evidence that
+                  their property will reach serious, qualified buyers — including buyers they may not find through local
+                  channels alone. The agent who delivers a credible international story earns the mandate.
+                </p>
+                <div className="mt-8 divide-y divide-white/10 border border-white/10 md:mt-14">
                   {[
-                    "Where exactly will my property be presented?",
-                    "Who will actually see it — and can they buy it?",
-                    "Do you have access to U.S. or international buyer networks?",
-                    "How is your exposure different from other agencies?",
-                    "What proof can you give me of international demand access?",
-                  ].map((q) => (
-                    <div key={q} className="flex items-start gap-3">
-                      <ChevronRight size={12} className="mt-1 flex-shrink-0 text-gold" />
-                      <p className="font-sans text-sm leading-relaxed text-ink-primary/75">{q}</p>
+                    {
+                      q: "Where?",
+                      a: "Not just local portals — a documented Miami-facing exposure layer with a Florida-licensed Realtor® partner connected to the South Florida real estate network.",
+                    },
+                    {
+                      q: "Who sees it?",
+                      a: "South Florida buyer agents. U.S. and Latin American buyers with capital for European real estate. International buyer networks reached through 437+ MIAMI Association referral agreements in 75+ countries.",
+                    },
+                    {
+                      q: "How is it different?",
+                      a: "Not a generic portal subscription. A professional listing relationship with a licensed Florida Realtor® — documented exposure, bilingual packaging, professional referral coordination.",
+                    },
+                  ].map((item) => (
+                    <div key={item.q} className="grid md:grid-cols-[200px_1fr] md:items-start gap-4 p-5 md:gap-6 md:p-8">
+                      <div className="font-serif text-5xl text-gold leading-none">{item.q}</div>
+                      <p className="font-sans text-[15px] leading-relaxed text-white/65 md:pt-1">{item.a}</p>
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 border-t border-hairline pt-4 md:mt-8 md:pt-6">
-                  <p className="font-sans text-xs italic leading-relaxed text-ink-primary/50">
-                    "The better question is not only 'Where will my property be advertised?' It is 'Who will actually
-                    see it, present it, and connect it to potential buyers?'"
-                  </p>
-                </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Seller Psychology ─────────────────────────────────────── */}
-        <section className="bg-navy-deep py-8 md:py-14 text-white">
-          <div className="mx-auto max-w-5xl px-6 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller Psychology</p>
-            <h2 className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
-              What sellers really want to know.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.5] text-white/60 md:leading-[1.8]">
-              Premium sellers are not simply looking for the most portals. They are looking for evidence that
-              their property will reach serious, qualified buyers — including buyers they may not find through local
-              channels alone. The agent who delivers a credible international story earns the mandate.
-            </p>
-            <div className="mt-8 divide-y divide-white/10 border border-white/10 md:mt-14">
-              {[
-                {
-                  q: "Where?",
-                  a: "Not just local portals — a documented Miami-facing exposure layer with a Florida-licensed Realtor® partner connected to the South Florida real estate network.",
-                },
-                {
-                  q: "Who sees it?",
-                  a: "South Florida buyer agents. U.S. and Latin American buyers with capital for European real estate. International buyer networks reached through 437+ MIAMI Association referral agreements in 75+ countries.",
-                },
-                {
-                  q: "How is it different?",
-                  a: "Not a generic portal subscription. A professional listing relationship with a licensed Florida Realtor® — documented exposure, bilingual packaging, professional referral coordination.",
-                },
-              ].map((item) => (
-                <div key={item.q} className="grid md:grid-cols-[200px_1fr] md:items-start gap-4 p-5 md:gap-6 md:p-8">
-                  <div className="font-serif text-5xl text-gold leading-none">{item.q}</div>
-                  <p className="font-sans text-[15px] leading-relaxed text-white/65 md:pt-1">{item.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Agent Advantage ───────────────────────────────────────── */}
-        <section className="bg-white py-8 md:py-14">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Agent Advantage</p>
-            <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              Six reasons international agents work with the Miami Desk.
-            </h2>
-            <div className="mt-7 md:mt-8">
-              {/* Featured first advantage */}
-              <div className="border border-hairline bg-ivory p-5 md:p-8 mb-px">
-                <div className="grid md:grid-cols-[auto_1fr] md:gap-10 md:items-start">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3 md:mb-0 md:mt-1">{ADVANTAGES[0].number}</div>
-                  <div>
-                    <h3 className="font-serif text-xl text-navy-deep md:text-2xl">{ADVANTAGES[0].title}</h3>
-                    <p className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:text-base md:leading-relaxed">{ADVANTAGES[0].body}</p>
+            </section>
+              ),
+            },
+            {
+              id: "advantage",
+              label: "Why agents partner",
+              panel: (
+            <section className="bg-white py-8 md:py-14">
+              <div className="mx-auto max-w-5xl px-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Agent Advantage</p>
+                <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  Six reasons international agents work with the Miami Desk.
+                </h2>
+                <div className="mt-7 md:mt-8">
+                  {/* Featured first advantage */}
+                  <div className="border border-hairline bg-ivory p-5 md:p-8 mb-px">
+                    <div className="grid md:grid-cols-[auto_1fr] md:gap-10 md:items-start">
+                      <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3 md:mb-0 md:mt-1">{ADVANTAGES[0].number}</div>
+                      <div>
+                        <h3 className="font-serif text-xl text-navy-deep md:text-2xl">{ADVANTAGES[0].title}</h3>
+                        <p className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:text-base md:leading-relaxed">{ADVANTAGES[0].body}</p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Remaining advantages */}
+                  <div className="grid grid-cols-2 gap-px border border-hairline border-t-0 bg-hairline lg:grid-cols-3">
+                    {ADVANTAGES.slice(1).map((a) => (
+                      <div key={a.number} className="bg-white p-3 md:p-6">
+                        <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-2 md:mb-4">{a.number}</div>
+                        <h3 className="font-serif text-base leading-snug text-navy-deep md:text-lg">{a.title}</h3>
+                        <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-ink-primary/65 md:mt-3 md:text-sm md:leading-relaxed">{a.body}</RevealText>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-              {/* Remaining advantages */}
-              <div className="grid grid-cols-2 gap-px border border-hairline border-t-0 bg-hairline lg:grid-cols-3">
-                {ADVANTAGES.slice(1).map((a) => (
-                  <div key={a.number} className="bg-white p-3 md:p-6">
-                    <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-2 md:mb-4">{a.number}</div>
-                    <h3 className="font-serif text-base leading-snug text-navy-deep md:text-lg">{a.title}</h3>
-                    <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-ink-primary/65 md:mt-3 md:text-sm md:leading-relaxed">{a.body}</RevealText>
-                  </div>
-                ))}
+            </section>
+              ),
+            },
+            {
+              id: "infrastructure",
+              label: "The infrastructure",
+              panel: (
+            <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
+              <LazyVideo
+                src="/videos/dollhouse_global_reach.mp4"
+                className="absolute inset-0 h-full w-full object-cover opacity-[0.18] pointer-events-none"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/85 to-navy-deep pointer-events-none" />
+              <div className="relative mx-auto max-w-5xl px-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center mb-3">
+                  The network behind the Miami Desk
+                </p>
+                <h2 className="mx-auto mb-7 max-w-2xl text-center font-serif text-3xl leading-tight text-white md:mb-8 md:text-4xl">
+                  Infrastructure, not adjectives.
+                </h2>
+                <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+                  {[
+                    {
+                      value: "93,000",
+                      label: "Member Agents",
+                      desc: "Miami and South Florida REALTORS® — the world's largest local REALTOR® association and the primary buyer-agent network behind South Florida real estate.",
+                    },
+                    {
+                      value: "437+",
+                      label: "International Agreements",
+                      desc: "Signed referral agreements with real estate organizations across 75+ countries, creating a professional infrastructure for cross-border introductions.",
+                    },
+                    {
+                      value: "25 yrs",
+                      label: "South Florida Experience",
+                      desc: "Carlos Uzcategui has been licensed in Florida since 2001. Bilingual English/Spanish. Physically connected to South Florida and Madrid markets.",
+                    },
+                  ].map((s) => (
+                    <div key={s.value} className="bg-navy-deep p-4 md:p-8">
+                      <div className="font-serif text-3xl text-gold md:text-5xl">{s.value}</div>
+                      <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/60">{s.label}</div>
+                      <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-white/60 md:mt-4 md:text-sm md:leading-relaxed">{s.desc}</RevealText>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+              ),
+            },
+          ]}
+        />
+
 
         {/* ── Cinematic pull-quote band ─────────────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-14">
@@ -705,47 +775,6 @@ export default function AgentsPage() {
           ]}
         />
 
-        {/* ── Network Stats ─────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
-          <LazyVideo
-            src="/videos/dollhouse_global_reach.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.18] pointer-events-none"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/85 to-navy-deep pointer-events-none" />
-          <div className="relative mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center mb-3">
-              The network behind the Miami Desk
-            </p>
-            <h2 className="mx-auto mb-7 max-w-2xl text-center font-serif text-3xl leading-tight text-white md:mb-8 md:text-4xl">
-              Infrastructure, not adjectives.
-            </h2>
-            <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
-              {[
-                {
-                  value: "93,000",
-                  label: "Member Agents",
-                  desc: "Miami and South Florida REALTORS® — the world's largest local REALTOR® association and the primary buyer-agent network behind South Florida real estate.",
-                },
-                {
-                  value: "437+",
-                  label: "International Agreements",
-                  desc: "Signed referral agreements with real estate organizations across 75+ countries, creating a professional infrastructure for cross-border introductions.",
-                },
-                {
-                  value: "25 yrs",
-                  label: "South Florida Experience",
-                  desc: "Carlos Uzcategui has been licensed in Florida since 2001. Bilingual English/Spanish. Physically connected to South Florida and Madrid markets.",
-                },
-              ].map((s) => (
-                <div key={s.value} className="bg-navy-deep p-4 md:p-8">
-                  <div className="font-serif text-3xl text-gold md:text-5xl">{s.value}</div>
-                  <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/60">{s.label}</div>
-                  <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-white/60 md:mt-4 md:text-sm md:leading-relaxed">{s.desc}</RevealText>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── Agency / Listing Submission Form ──────────────────────── */}
         <section className="bg-navy-deep py-8 md:py-14" id="submit-listing">
