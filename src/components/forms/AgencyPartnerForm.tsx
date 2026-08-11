@@ -100,6 +100,7 @@ export function AgencyPartnerForm({
         city: form.country, propertyAddress: form.agency,
         message: `${form.role ? form.role + " · " : ""}${form.inventoryType ? form.inventoryType + " · " : ""}${form.message}`,
         sourcePage: "agency-partner-intake",
+        formName: "agency-partner-intake",
         botField: "", formRenderedAt: String(renderedAt.current),
       });
       fetch("/.netlify/functions/lead-acknowledgment", {

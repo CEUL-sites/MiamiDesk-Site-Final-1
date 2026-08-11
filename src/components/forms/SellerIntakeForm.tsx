@@ -189,7 +189,9 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
       notifyLeadDirect({
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
-        message: form.priorListing, sourcePage, leadSource: getLeadSource(),
+        message: form.priorListing, sourcePage, formName: "seller-intake", leadSource: getLeadSource(),
+        valueBand: form.valueBand, occupancy: form.occupancy,
+        placeId: form.placeId, messagingConsent: form.messagingConsent,
         botField: "", formRenderedAt: String(renderedAt.current),
       });
       // Trigger auto-reply

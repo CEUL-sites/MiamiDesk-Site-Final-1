@@ -52,7 +52,7 @@ export function ReferralIntakeForm() {
         name: form.licenseeName, email: form.email, phone: form.phone,
         city: form.country, timeline: form.referralType,
         message: `${form.brokerageName ? form.brokerageName + " · " : ""}${form.clientSummary}`,
-        sourcePage: "referral-intake", leadSource: getLeadSource(),
+        sourcePage: "referral-intake", formName: "referral-intake", leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current),
       });
       fetch("/.netlify/functions/lead-acknowledgment", {

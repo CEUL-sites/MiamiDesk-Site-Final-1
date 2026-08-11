@@ -277,6 +277,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
           `Properties: ${form.propertyCount || "—"} · ${form.type || ""} · ${form.askingPrice || ""} · ` +
           `${images.length} image(s), ${documents.length} doc(s)`,
         sourcePage: FORM_NAME,
+        formName: FORM_NAME,
         botField: "", formRenderedAt: String(renderedAt.current),
       });
 

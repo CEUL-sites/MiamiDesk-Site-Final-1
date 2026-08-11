@@ -182,6 +182,8 @@ export function SpainSellerForm({
         timeline: form.timeline,
         message: `Spain Desk · ${form.role} · ${form.propertyType || "—"} · ${form.valueBand || "—"}`,
         sourcePage,
+        formName: FORM_NAME,
+        valueBand: form.valueBand,
         leadSource: getLeadSource(),
         desk: "spain",
         botField: "",
