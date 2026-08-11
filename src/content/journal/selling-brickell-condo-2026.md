@@ -49,7 +49,7 @@ The result is familiar: a later price reduction reads as a signal rather than a 
 
 ## Distribution for a Brickell seller
 
-An eligible Brickell listing enters the Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association, with more than 93,000 member agents. Through approved syndication channels, eligible listings may be featured across 200+ global portals in 19 languages, and the association's 437+ international agreements connect South Florida with partner markets across more than 75 countries.
+An eligible Brickell listing enters the MLS operated by the Miami and South Florida REALTORS® — the world's largest local REALTOR® association, with more than 93,000 member agents. Through approved syndication channels, eligible listings may be featured across 200+ global portals in 19 languages, and the association's 437+ international agreements connect South Florida with partner markets across more than 75 countries.
 
 For a Brickell unit aimed at an international buyer, that professional infrastructure matters more than any single portal placement.
 

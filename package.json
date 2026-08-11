@@ -16,7 +16,8 @@
     "verify:global-desk": "node scripts/verify-global-desk-language.mjs",
     "verify:visitor-tracking": "node scripts/verify-visitor-tracking.mjs",
     "verify:lead-score": "node --import tsx scripts/verify-lead-score.ts",
-    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score"
+    "verify:claims": "node scripts/verify-claims.mjs",
+    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:claims"
   },
   "reactSnap": {
     "source": "dist",

@@ -20,7 +20,7 @@ Most sellers interview on the wrong criteria: who they already know, who quotes 
 
 A surprising number of "marketing plans" amount to entering the listing in the MLS and waiting. That is the floor, not the strategy.
 
-Ask specifically: Will the listing be entered into the Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association? Where is it eligible to syndicate beyond that? How will buyer agents — the people who actually represent the buyers — be made aware of it and given a reason to show it?
+Ask specifically: Will the listing be entered into the MLS operated by the Miami and South Florida REALTORS® — the world's largest local REALTOR® association? Where is it eligible to syndicate beyond that? How will buyer agents — the people who actually represent the buyers — be made aware of it and given a reason to show it?
 
 The internet creates visibility. The agent network creates movement. You want an agent who can speak to both, not just the portal screenshots.
 

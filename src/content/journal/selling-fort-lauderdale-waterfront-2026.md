@@ -49,7 +49,7 @@ A later reduction then reads as a signal rather than a correction, and the clear
 
 ## Distribution for a Fort Lauderdale seller
 
-An eligible listing enters the Miami and South Florida REALTORS® MLS, the world's largest local REALTOR® association with more than 93,000 member agents. Through approved syndication channels, eligible listings may be featured across 200+ global portals in 19 languages, and the association's 437+ international agreements reach partner markets in more than 75 countries — relevant for the international yachting buyer in particular.
+An eligible listing enters the MLS operated by the Miami and South Florida REALTORS®, the world's largest local REALTOR® association with more than 93,000 member agents. Through approved syndication channels, eligible listings may be featured across 200+ global portals in 19 languages, and the association's 437+ international agreements reach partner markets in more than 75 countries — relevant for the international yachting buyer in particular.
 
 ## What a serious waterfront listing strategy includes
 

@@ -24,7 +24,7 @@ The mechanism that connects a listing to that network is the Multiple Listing Se
 
 ## What the MLS actually does for an overseas owner
 
-Listing a property through a member brokerage places it inside the Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association, with more than 93,000 member agents. From there, the listing is visible to the agents who represent active buyers, and eligible listings may be distributed through approved syndication channels.
+Listing a property through a member brokerage places it inside the MLS operated by the Miami and South Florida REALTORS® — the world's largest local REALTOR® association, with more than 93,000 member agents. From there, the listing is visible to the agents who represent active buyers, and eligible listings may be distributed through approved syndication channels.
 
 The reach behind a properly entered listing:
 
