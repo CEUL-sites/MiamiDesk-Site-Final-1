@@ -52,7 +52,7 @@ Most seller dissatisfaction traces back to silence. Ask what reporting you will 
 
 ## The bottom line
 
-The best listing agent is rarely the one who promises the highest price or the lowest fee. It is the one who can show you a clear pricing rationale, a real distribution plan that reaches buyer agents, relevant recent experience in your segment, and a straight answer to every question above.
+The right listing agent is rarely the one who promises the highest price or the lowest fee. It is the one who can show you a clear pricing rationale, a real distribution plan that reaches buyer agents, relevant recent experience in your segment, and a straight answer to every question above.
 
 ## A conversation, not a commitment
 

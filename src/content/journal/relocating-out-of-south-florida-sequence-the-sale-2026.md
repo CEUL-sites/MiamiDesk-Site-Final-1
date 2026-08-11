@@ -38,8 +38,8 @@ Two points matter for relocating sellers specifically. First, **documented capit
 
 ## Sequencing the Sale: Three Common Paths
 
-1. **Sell first, then buy.** You lock in your South Florida proceeds and shop the destination market with cash and certainty. The trade-off is a possible interim — often bridged with a short-term rental or a post-closing occupancy agreement (below). Best when the new purchase depends on the Florida equity.
-2. **Buy first, then sell.** You secure the new home and move once, but you may carry both properties briefly. Best when your equity and reserves comfortably cover the overlap and the destination market is competitive.
+1. **Sell first, then buy.** You lock in your South Florida proceeds and shop the destination market with cash and certainty. The trade-off is a possible interim — often bridged with a short-term rental or a post-closing occupancy agreement (below). Suited to cases where the new purchase depends on the Florida equity.
+2. **Buy first, then sell.** You secure the new home and move once, but you may carry both properties briefly. Suited to cases where your equity and reserves comfortably cover the overlap and the destination market is competitive.
 3. **Coordinate concurrent closings.** The ideal on paper — sale and purchase close in step — but it requires disciplined timing on both ends and contingency planning, because two transactions in two markets rarely move at the same pace.
 
 The right path is a function of *your* numbers. Model what the Florida sale nets first with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration) — that figure anchors every sequencing decision.

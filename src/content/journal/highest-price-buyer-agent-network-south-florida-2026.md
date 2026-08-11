@@ -71,7 +71,7 @@ When more than one qualified buyer is aware of a correctly positioned property, 
 1. **Positioning the property** so a buyer agent can present it *first* — with a clear, repeatable reason it is worth more than the alternative on the same street.
 2. **Managing multiple offers** as a structured process, not a scramble — using competitive interest to improve price *and* terms.
 3. **Defending the whole contract**, not just the headline number — financing strength, contingency posture, deposit, timeline, and post-occupancy terms each protect the seller's true net.
-4. **Cooperating cleanly with buyer agents**, because the agent who trusts the listing process brings their best buyer and their best offer to it.
+4. **Cooperating cleanly with buyer agents**, because the agent who trusts the listing process brings their strongest buyer and their strongest offer to it.
 
 This is what "professional negotiation" actually means: not a single dramatic conversation, but a disciplined sequence that starts before the listing goes live and protects the seller's position all the way to the closing table.
 
