@@ -17,6 +17,16 @@
 // Scoring is a transparent 0–100 sum of five signals. It is a triage aid, not
 // a prediction, and it never suppresses a lead: every lead is still delivered
 // through every configured channel. The tier only changes how the alert reads.
+//
+// formatLeadWhatsApp/formatLeadEmail below accept an OPTIONAL, already-fetched
+// market-context argument (see _shared/leadMarketContext.ts) and render a
+// short block when it's present. The fetch itself — Bridge API, timeouts,
+// caching — stays entirely out of this file on purpose: only a type import is
+// taken from leadMarketContext.ts (erased at compile time, zero runtime
+// footprint) so this module keeps doing no I/O of its own and
+// scripts/verify-lead-score.ts keeps testing it without a network call.
+
+import type { LeadMarketContext } from "./leadMarketContext";
 
 export type LeadTier = "P1" | "P2" | "P3";
 
@@ -375,6 +385,63 @@ const joinBlocks = (blocks: string[][]): string =>
     .filter(Boolean)
     .join("\n\n");
 
+/** "Aug 11" — short enough for a WhatsApp line, unambiguous enough for an
+ *  email one. Empty string (dropped by joinBlocks) on an unparseable date
+ *  rather than printing "Invalid Date" into an alert. */
+const formatMarketAsOf = (iso: string): string => {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/New_York" });
+};
+
+/** "Miami" or "Miami (Brickell)" — states the submarket the numbers describe
+ *  so Carlos never reads a city-wide figure as if it were the exact address. */
+const formatMarketCityLabel = (ctx: LeadMarketContext): string =>
+  ctx.requestedAs ? `${ctx.city} (${ctx.requestedAs})` : ctx.city;
+
+/**
+ * Short WhatsApp block: city + as-of date, the three headline numbers (median
+ * list price always present; $/sqft and days-on-market only when their own
+ * sample cleared MIN_SAMPLE), active count, and a compact not-guaranteed note
+ * so Carlos knows this is IDX data before he quotes it. Empty array — and
+ * therefore no block at all, via joinBlocks — when there's no context.
+ */
+const marketContextWhatsAppLines = (ctx?: LeadMarketContext | null): string[] => {
+  if (!ctx) return [];
+  const asOf = formatMarketAsOf(ctx.asOf);
+  const stats = [
+    `Median list $${ctx.medianListPrice.toLocaleString()}`,
+    ctx.medianPricePerSqft != null ? `$${ctx.medianPricePerSqft.toLocaleString()}/sqft` : "",
+    ctx.avgDaysOnMarket != null ? `${ctx.avgDaysOnMarket} days on mkt` : "",
+  ].filter(Boolean).join(" · ");
+
+  return [
+    `📈 ${formatMarketCityLabel(ctx)} market${asOf ? ` · MLS snapshot ${asOf}` : ""}`,
+    stats,
+    `${ctx.activeCount} active · IDX data, not guaranteed — verify before quoting`,
+  ];
+};
+
+/**
+ * Fuller email block: same numbers labeled out explicitly, the source name,
+ * and the complete IDX_DISCLAIMER text — email has "room for full detail" the
+ * WhatsApp alert doesn't. Empty array when there's no context.
+ */
+const marketContextEmailLines = (ctx?: LeadMarketContext | null): string[] => {
+  if (!ctx) return [];
+  const asOf = formatMarketAsOf(ctx.asOf);
+
+  return [
+    `Market snapshot — ${formatMarketCityLabel(ctx)}`,
+    `Median list price: $${ctx.medianListPrice.toLocaleString()}`,
+    ctx.medianPricePerSqft != null ? `Price per sq ft: $${ctx.medianPricePerSqft.toLocaleString()}` : "",
+    ctx.avgDaysOnMarket != null ? `Avg days on market: ${ctx.avgDaysOnMarket}` : "",
+    `Active listings: ${ctx.activeCount}`,
+    `Source: ${ctx.source}${asOf ? ` · as of ${asOf}` : ""}`,
+    ctx.disclaimer,
+  ];
+};
+
 /**
  * WhatsApp alert body.
  *
@@ -382,8 +449,16 @@ const joinBlocks = (blocks: string[][]): string =>
  * international "+…" form, and a bare https URL. That is why the number is
  * printed as E.164 and the wa.me link is printed raw — together they give
  * Carlos tap-to-dial and tap-to-chat without any markup.
+ *
+ * `marketContext` is optional and already-fetched by the caller (see
+ * _shared/leadMarketContext.ts) — this function only renders it. Omitting it,
+ * or passing null/undefined, reproduces today's alert byte-for-byte.
  */
-export function formatLeadWhatsApp(lead: AlertLead, scored: LeadScore): string {
+export function formatLeadWhatsApp(
+  lead: AlertLead,
+  scored: LeadScore,
+  marketContext?: LeadMarketContext | null,
+): string {
   const marketHint = `${lead.city ?? ""} ${lead.desk ?? ""} ${lead.propertyAddress ?? ""}`;
   const phone = normalizePhone(lead.phone, marketHint);
   const location = formatLocation(lead.propertyAddress, lead.city);
@@ -401,6 +476,7 @@ export function formatLeadWhatsApp(lead: AlertLead, scored: LeadScore): string {
       `⏱ ${lead.timeline || "—"}${lead.valueBand ? ` · ${lead.valueBand}` : ""}`,
       lead.message ? `📝 ${lead.message.slice(0, 200)}` : "",
     ],
+    marketContextWhatsAppLines(marketContext),
     [
       scored.reasons.length ? `Why ${scored.tier}: ${scored.reasons.join(" · ")}` : "",
       `▶ ${scored.nextAction}`,
@@ -418,11 +494,18 @@ export function formatLeadEmailSubject(lead: AlertLead, scored: LeadScore): stri
   return `[${scored.tier}] ${who} — ${lead.sourcePage || lead.formName || "HomesProfessional.com"}`;
 }
 
-/** Plain-text email body. Mirrors the WhatsApp alert, with room for full detail. */
+/**
+ * Plain-text email body. Mirrors the WhatsApp alert, with room for full detail.
+ *
+ * `marketContext` is optional and already-fetched by the caller (see
+ * _shared/leadMarketContext.ts) — appended as a new trailing parameter so
+ * every existing 3-arg call site keeps compiling and rendering unchanged.
+ */
 export function formatLeadEmail(
   lead: AlertLead,
   scored: LeadScore,
   extras: { timestamp: string; landingPage?: string; fullDetails?: string; via?: string } = { timestamp: "" },
+  marketContext?: LeadMarketContext | null,
 ): string {
   const marketHint = `${lead.city ?? ""} ${lead.desk ?? ""} ${lead.propertyAddress ?? ""}`;
   const phone = normalizePhone(lead.phone, marketHint);
@@ -445,6 +528,7 @@ export function formatLeadEmail(
       lead.occupancy ? `Occupancy: ${lead.occupancy}` : "",
       lead.message ? `Message: ${lead.message}` : "",
     ],
+    marketContextEmailLines(marketContext),
     [
       `Form: ${lead.sourcePage || lead.formName || "—"}`,
       extras.timestamp ? `Received: ${extras.timestamp} ET` : "",

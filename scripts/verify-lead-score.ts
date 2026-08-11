@@ -10,6 +10,7 @@ import {
   MAX_LEAD_SCORE,
   type AlertLead,
 } from "../netlify/functions/_shared/leadScore";
+import type { LeadMarketContext } from "../netlify/functions/_shared/leadMarketContext";
 
 // ── Timeline urgency across every string the forms actually ship ─────────
 // The three separators are real: LeadForm uses "-", HeroSellerForm uses "–",
@@ -219,6 +220,100 @@ const emailOnly = formatLeadWhatsApp(
 );
 assert.ok(!emailOnly.includes("wa.me"), "no chat link when there is no usable number");
 
+// ── Market context rendering (optional trailing argument) ────────────────
+// leadMarketContext.ts owns the fetch (see scripts/verify-lead-market.ts for
+// that side); leadScore.ts only renders an already-fetched context, so all of
+// this is synchronous and network-free.
+const marketLead = sharedSignals; // reuse the fixture already defined above
+const marketScore = scoreLead(marketLead);
+
+const noContextWa = formatLeadWhatsApp(marketLead, marketScore);
+assert.equal(
+  formatLeadWhatsApp(marketLead, marketScore, null),
+  noContextWa,
+  "an explicit null context must render byte-identical to omitting the argument entirely",
+);
+assert.equal(
+  formatLeadWhatsApp(marketLead, marketScore, undefined),
+  noContextWa,
+  "an explicit undefined context must render byte-identical to omitting the argument entirely",
+);
+
+const emailExtras = { timestamp: "8/11/2026, 9:15:00 AM" };
+const noContextEmail = formatLeadEmail(marketLead, marketScore, emailExtras);
+assert.equal(
+  formatLeadEmail(marketLead, marketScore, emailExtras, null),
+  noContextEmail,
+  "email: an explicit null context renders byte-identical to omitting it — old 3-arg call sites are untouched",
+);
+
+const IDX_DISCLAIMER_TEXT =
+  "Listing information is provided in part by the Miami and South Florida REALTORS® " +
+  "and/or BeachesMLS via IDX. Information is deemed reliable but not guaranteed and is " +
+  "subject to change without notice. Verify all information before making real estate decisions.";
+
+const sampleContext: LeadMarketContext = {
+  city: "Miami",
+  requestedAs: "Brickell",
+  medianListPrice: 612_500,
+  avgDaysOnMarket: 42,
+  medianPricePerSqft: 412,
+  activeCount: 184,
+  asOf: "2026-08-11T12:00:00.000Z",
+  source: "Miami and South Florida REALTORS® MLS",
+  disclaimer: IDX_DISCLAIMER_TEXT,
+};
+
+const waWithContext = formatLeadWhatsApp(marketLead, marketScore, sampleContext);
+assert.notEqual(waWithContext, noContextWa, "a populated context must change the rendered WhatsApp alert");
+assert.match(waWithContext, /📈 Miami \(Brickell\) market · MLS snapshot Aug 11/, "states the submarket the numbers describe, and the period");
+assert.match(waWithContext, /Median list \$612,500/);
+assert.match(waWithContext, /\$412\/sqft/);
+assert.match(waWithContext, /42 days on mkt/);
+assert.match(waWithContext, /184 active/);
+assert.match(waWithContext, /not guaranteed/i, "labels the source so Carlos knows what he's quoting before he repeats a number");
+assert.ok(
+  waWithContext.includes("\n\n"),
+  "the market block is still read on a phone — blank lines around it must survive",
+);
+
+const emailWithContext = formatLeadEmail(marketLead, marketScore, emailExtras, sampleContext);
+assert.notEqual(emailWithContext, noContextEmail, "a populated context must change the rendered email");
+assert.match(emailWithContext, /Market snapshot — Miami \(Brickell\)/);
+assert.match(emailWithContext, /Median list price: \$612,500/);
+assert.match(emailWithContext, /Price per sq ft: \$412/);
+assert.match(emailWithContext, /Avg days on market: 42/);
+assert.match(emailWithContext, /Active listings: 184/);
+assert.match(emailWithContext, /Source: Miami and South Florida REALTORS® MLS · as of Aug 11/);
+assert.ok(
+  emailWithContext.includes(IDX_DISCLAIMER_TEXT),
+  "email has room for the full IDX disclaimer text verbatim, unlike the short WhatsApp line",
+);
+
+// A context whose own `city` IS the resolved MLS city (no alias/submarket
+// involved, e.g. the lead already said "Weston") must not print a redundant
+// self-referential "(Weston)" after itself.
+const directCityContext: LeadMarketContext = { ...sampleContext, city: "Weston", requestedAs: null };
+const waDirectCity = formatLeadWhatsApp(marketLead, marketScore, directCityContext);
+assert.match(waDirectCity, /📈 Weston market/);
+assert.ok(!waDirectCity.includes("Weston (Weston)"), "no redundant self-referential submarket label");
+
+// A field-level null (e.g. a thin days-on-market sample sitting alongside a
+// healthy price sample — see leadMarketContext.ts's per-field MIN_SAMPLE
+// gating) must be omitted from the line, never printed as "null"/"undefined".
+const partialContext: LeadMarketContext = { ...sampleContext, avgDaysOnMarket: null, medianPricePerSqft: null };
+const waPartial = formatLeadWhatsApp(marketLead, marketScore, partialContext);
+assert.ok(!waPartial.includes("null"), "a null market field must never leak into the alert");
+assert.ok(!waPartial.includes("undefined"), "a null market field must never leak into the alert");
+assert.match(waPartial, /Median list \$612,500/, "the field that DID clear MIN_SAMPLE still renders");
+assert.ok(!waPartial.includes("days on mkt"), "a suppressed field must not render its unit label either");
+assert.ok(!waPartial.includes("/sqft"), "a suppressed field must not render its unit label either");
+
+const emailPartial = formatLeadEmail(marketLead, marketScore, emailExtras, partialContext);
+assert.ok(!emailPartial.includes("Avg days on market"), "email omits the whole labeled line, not just the value");
+assert.ok(!emailPartial.includes("Price per sq ft"), "email omits the whole labeled line, not just the value");
+assert.ok(!emailPartial.includes("null") && !emailPartial.includes("undefined"));
+
 // ── Both handlers are actually wired to the shared formatter ────────────
 // Guards against one path being updated and the other quietly drifting back
 // to its own hand-rolled message.
@@ -229,6 +324,25 @@ for (const handler of ["lead-notify.ts", "submission-created.ts"]) {
   assert.match(source, /formatLeadWhatsApp\(/, `${handler} uses the shared WhatsApp format`);
   assert.match(source, /formatLeadEmailSubject\(/, `${handler} uses the shared subject line`);
   assert.match(source, /tier: scored\.tier/, `${handler} writes the tier to Sheets`);
+
+  // Market context: both paths must decide via the shared tier gate (never a
+  // hand-rolled "P1 or P2" check that could drift from leadScore.ts's
+  // thresholds) and pass the result into BOTH formatters, or one channel
+  // would show numbers the other doesn't. See scripts/verify-lead-market.ts
+  // for the fetch/timeout/cache behavior of the module itself.
+  assert.match(source, /from "\.\/_shared\/leadMarketContext"/, `${handler} imports the market-context module`);
+  assert.match(source, /shouldFetchMarketContext\(scored\.tier\)/, `${handler} gates the lookup on the shared tier check`);
+  assert.match(source, /getLeadMarketContext\(/, `${handler} calls the market-context lookup`);
+  assert.match(
+    source,
+    /formatLeadWhatsApp\([^)]*marketContext\)/,
+    `${handler} passes marketContext into the WhatsApp formatter`,
+  );
+  assert.match(
+    source,
+    /formatLeadEmail\([\s\S]*?marketContext\)/,
+    `${handler} passes marketContext into the email formatter`,
+  );
 }
 
 // The client contract must carry formName, or the server falls back to

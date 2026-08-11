@@ -5,6 +5,7 @@ import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
 import { sendWhatsAppAlert } from "./_shared/whatsapp";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
+import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
@@ -166,13 +167,20 @@ export const handler: Handler = async (event: HandlerEvent) => {
       console.log("submission-created: Carlos already alerted by backup notifier — skipping email/WhatsApp", alertKey);
       alerted = true;
     } else {
+      // P1/P2 only — P3 is nurture-track, so it skips the Bridge lookup
+      // entirely. Fetched once and reused for both channels below so Carlos
+      // sees identical numbers in the email and the WhatsApp alert. Never
+      // blocks: getLeadMarketContext has its own hard timeout + try/catch and
+      // resolves to null on anything short of a clean result.
+      const marketContext = shouldFetchMarketContext(scored.tier) ? await getLeadMarketContext(scorable) : null;
+
       // ── 2. Email notification via Resend ──────────────────────────────
       if (RESEND_API_KEY) {
         const emailBody = formatLeadEmail(scorable, scored, {
           timestamp,
           landingPage,
           fullDetails,
-        });
+        }, marketContext);
 
         try {
           const resendRes = await fetch("https://api.resend.com/emails", {
@@ -204,7 +212,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       // CallMeBot returns HTTP 200 even on rejection, so sendWhatsAppAlert
       // inspects the body and reports the true outcome (logged for diagnosis).
       {
-        const wa = await sendWhatsAppAlert(formatLeadWhatsApp(scorable, scored), CALLMEBOT_APIKEY);
+        const wa = await sendWhatsAppAlert(formatLeadWhatsApp(scorable, scored, marketContext), CALLMEBOT_APIKEY);
         if (wa.ok) alerted = true;
         else if (CALLMEBOT_APIKEY) console.error("submission-created CallMeBot:", wa.detail);
       }

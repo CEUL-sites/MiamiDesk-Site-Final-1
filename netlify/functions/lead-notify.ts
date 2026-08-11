@@ -4,6 +4,7 @@ import { sendWhatsAppAlert } from "./_shared/whatsapp";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { corsHeaders as buildCorsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
 import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
+import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 
 // Synchronous backup notifier. The forms call this directly (keepalive) at the
 // same time they POST to Netlify Forms, so a lead is delivered even if Netlify
@@ -139,6 +140,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   const scored = scoreLead(lead);
+  // P1/P2 only — P3 is nurture-track, so it skips the Bridge lookup entirely.
+  // Never blocks: getLeadMarketContext has its own hard timeout + try/catch
+  // and resolves to null on anything short of a clean result.
+  const marketContext = shouldFetchMarketContext(scored.tier) ? await getLeadMarketContext(lead) : null;
   const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
   const results: Record<string, string> = {};
   const alertKey = dedupKey(lead.email, lead.phone);
@@ -184,7 +189,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     const text = formatLeadEmail(lead, scored, {
       timestamp,
       via: "backup notifier (lead-notify)",
-    });
+    }, marketContext);
     try {
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -209,7 +214,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   // ── 3. WhatsApp notification via CallMeBot ──────────────────────────────
   // CallMeBot returns HTTP 200 even on rejection, so sendWhatsAppAlert inspects
   // the body and reports the true outcome (logged for diagnosis).
-  const wa = await sendWhatsAppAlert(formatLeadWhatsApp(lead, scored), CALLMEBOT_KEY);
+  const wa = await sendWhatsAppAlert(formatLeadWhatsApp(lead, scored, marketContext), CALLMEBOT_KEY);
   results.whatsapp = wa.detail;
   if (wa.ok) alerted = true;
   else if (CALLMEBOT_KEY) console.error("lead-notify CallMeBot:", wa.detail);
