@@ -45,7 +45,7 @@ Aventura's luxury condo market is highly sensitive to initial pricing. A propert
 
 The result: a price reduction is read not as a correction but as a signal, and the eventual sale price is typically lower than where a correctly priced listing would have cleared.
 
-A precise CMA based on current MLS data — not portal estimates, not tax assessments — is the foundation of every listing strategy in this market.
+A precise CMA based on current MLS data — not portal estimates, not tax assessments — is the foundation of every [Aventura listing strategy](/sell-aventura) in this market.
 
 ## International distribution for Aventura sellers
 

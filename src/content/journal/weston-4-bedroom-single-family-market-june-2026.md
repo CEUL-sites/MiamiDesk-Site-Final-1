@@ -39,7 +39,7 @@ That is the practical market signal. Weston buyers are still writing contracts, 
 
 The current pending group matters because it shows active buyer movement in the segment. The feed showed 10 currently pending 4-bedroom single-family homes in Weston. The median pending list price was approximately $985,000, with a median days on market of about 25 days.
 
-Pending examples included homes on Paddock Road, Opal Creek Drive, Chenille Circle, Waters Edge Drive, and Oak Ridge Lane. The range was broad, from the low-$700,000s to above $2.6M, which reinforces an important point: Weston is not one uniform price band. A seller's strategy has to be built around the specific competing set, not around a citywide average.
+Pending examples included homes on Paddock Road, Opal Creek Drive, Chenille Circle, Waters Edge Drive, and Oak Ridge Lane. The range was broad, from the low-$700,000s to above $2.6M, which reinforces an important point: Weston is not one uniform price band. A [Weston seller's strategy](/sell-weston) has to be built around the specific competing set, not around a citywide average.
 
 ## The Seller Interpretation
 

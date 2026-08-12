@@ -32,7 +32,7 @@ Be cautious with the agent who quotes the highest number in the room. An inflate
 
 ## 3. Have you sold property like mine, in my area, recently?
 
-South Florida is not one market. A Brickell high-rise, a Coral Gables estate, a Weston golf-community home, and a Miami Beach condo each trade on different variables — floor and line, HOA health, waterway access, view, school zones. Recent, relevant transaction experience in your specific segment matters far more than a large but generic sales count.
+[South Florida real estate](/sell-south-florida) is not one market. A Brickell high-rise, a Coral Gables estate, a Weston golf-community home, and a Miami Beach condo each trade on different variables — floor and line, HOA health, waterway access, view, school zones. Recent, relevant transaction experience in your specific segment matters far more than a large but generic sales count.
 
 ## 4. How do you handle international and out-of-state buyers?
 

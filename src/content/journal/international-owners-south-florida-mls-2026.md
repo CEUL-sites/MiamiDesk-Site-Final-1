@@ -33,7 +33,7 @@ The reach behind a properly entered listing:
 - **437+ international agreements** connecting South Florida with partner associations in more than 75 countries
 - **United Realty Group** — a full-service Florida brokerage with 3,500+ agents across 20 Florida offices — as the office a listing enters when represented through this desk
 
-For an owner abroad, the value is not a single portal placement. It is entering the infrastructure where qualified demand for prime South Florida property actually forms.
+For an owner abroad, the value is not a single portal placement. It is entering the infrastructure — accessed through the [Global Desk](/global-desk) — where qualified demand for prime South Florida property actually forms.
 
 ## Distance is a logistics question, not a barrier
 

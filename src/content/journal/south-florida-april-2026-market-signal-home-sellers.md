@@ -25,7 +25,7 @@ Broward single-family closed sales rose 7.6%. Dollar volume rose 10.2%, while ac
 
 Palm Beach single-family closed sales rose 3.61%. Dollar volume rose 12.0%, while active inventory declined 18.45% and months supply declined 25.4%.
 
-The common thread is clear: in April 2026, the single-family market showed active transaction volume and lower available supply in these major South Florida counties.
+The common thread is clear across the broader [South Florida market data](/market-data): in April 2026, the single-family market showed active transaction volume and lower available supply in these major South Florida counties.
 
 ## Why This Matters To A Seller
 

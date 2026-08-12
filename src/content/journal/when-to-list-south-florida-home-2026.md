@@ -39,7 +39,7 @@ The implication: listing in the fourth quarter of the calendar year (October–D
 
 ## Why "waiting for a better market" is usually the wrong calculation
 
-Sellers who defer listing based on anticipated price appreciation are making a bet that requires two things to be true simultaneously: that prices rise, and that they sell at the peak. Both elements are beyond a seller's control.
+Sellers who defer listing based on anticipated price appreciation — rather than requesting a [current home value analysis](/home-value) — are making a bet that requires two things to be true simultaneously: that prices rise, and that they sell at the peak. Both elements are beyond a seller's control.
 
 What is within a seller's control is the quality of the listing strategy:
 

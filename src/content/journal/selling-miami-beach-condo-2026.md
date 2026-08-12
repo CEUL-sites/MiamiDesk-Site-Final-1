@@ -26,7 +26,7 @@ Five variables account for most of the value differentiation between Miami Beach
 
 HOA financials matter more in Miami Beach than in almost any other submarket. Post-Surfside legislation has made reserve fund health, deferred maintenance status, and special assessment history primary buyer due diligence items — not afterthoughts. A building with a recently completed structural review, healthy reserves, and no pending assessments commands a meaningful premium over an equivalent building with unanswered questions.
 
-Sellers who can present their building's current financial statements, inspection reports, and reserve fund certification proactively remove the most common source of late-deal negotiation leverage.
+Sellers who can present their building's current financial statements, inspection reports, and reserve fund certification proactively remove the most common source of late-deal negotiation leverage — the same preparation that matters in any [South Florida home sale](/sell-south-florida).
 
 ### 2. Floor and View
 

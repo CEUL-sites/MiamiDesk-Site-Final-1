@@ -20,7 +20,7 @@ Understanding this geography and its buyer pool is the starting point for any se
 
 ## The Buyer Profile and What It Means for Marketing
 
-Sunny Isles Beach draws a disproportionate share of international buyers — Latin American families, Eastern European purchasers, and domestic buyers from cold-weather markets seeking a primary or second residence. This concentration creates particular requirements for a seller:
+Sunny Isles Beach draws a disproportionate share of international buyers — Latin American families, Eastern European purchasers, and domestic buyers from cold-weather markets seeking a primary or second residence. This concentration creates particular requirements for a [South Florida seller](/sell-south-florida):
 
 - **MLS exposure is necessary but not sufficient.** International buyers often operate through local buyer's agents or referral networks that don't originate on Zillow or Realtor.com. Professional outreach through licensed agent networks, international referral channels, and multi-currency buyer representation reaches segments that search-based marketing misses.
 - **Language matters in marketing.** Depending on the building and price point, a Portuguese or Spanish-language marketing supplement can widen the addressable buyer pool.

@@ -29,7 +29,7 @@ The correct pricing inputs for a Plantation home are:
 - **School zone assignment** — Broward County school quality varies within Plantation's boundaries, and buyers filter by this
 - **Neighborhood-level proximity** — access to Plantation Town Center, the Sawgrass Expressway, and major employer corridors affects days on market and offer depth
 
-A CMA built on "Plantation" as a single category will mislabel these distinctions. The correct analysis runs at the neighborhood level with attention to lot and build profile.
+A CMA built on "Plantation" as a single category will mislabel these distinctions. The correct approach to [selling a home in Plantation](/sell-plantation) runs the analysis at the neighborhood level, with attention to lot and build profile.
 
 ## The buyer pool: family, professional, and relocation
 

@@ -20,7 +20,7 @@ The decisive commercial question is therefore not only where the property is adv
 
 It is whether the buyer's trusted agent can find it, understand it, share it, explain it, and participate professionally in the transaction.
 
-That is the purpose of the Miami Listing Desk, the South Florida activation arm of the broader [Global Desk](https://homesprofessional.com/global-desk).
+That is the purpose of the Miami Listing Desk, the South Florida activation arm of the broader [Global Desk](/global-desk).
 
 The Desk is designed for established Spanish real estate agencies, luxury brands, developers, family-office advisors, and project sales teams that want their prime inventory positioned inside the professional digital environment used by South Florida real estate agents.
 

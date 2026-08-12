@@ -45,7 +45,7 @@ Brickell continues to absorb new construction, and a resale listing competes not
 
 Brickell's market is highly sensitive to initial pricing because comparable units in the same and neighboring towers are visible to every buyer agent in real time. A listing that enters above what the market supports accumulates days on market, and in a dense building that accumulation is immediately apparent.
 
-The result is familiar: a later price reduction reads as a signal rather than a correction, and the eventual clearing price is typically below where a correctly priced listing would have settled. A precise CMA built on current MLS data — not portal estimates or tax assessments — is the foundation of the listing.
+The result is familiar: a later price reduction reads as a signal rather than a correction, and the eventual clearing price is typically below where a correctly priced listing would have settled. A precise CMA built on current MLS data — not portal estimates or tax assessments — is the foundation of every [Brickell listing strategy](/sell-brickell).
 
 ## Distribution for a Brickell seller
 

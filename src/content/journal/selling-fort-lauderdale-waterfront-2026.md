@@ -25,7 +25,7 @@ Two homes can have identical water frontage and trade tens of percent apart. Wha
 - **Canal width and turning basin** — maneuverability for larger vessels is a real constraint and a real premium.
 - **Seawall condition and age** — buyers and their inspectors are evaluating seawall integrity and remaining life as a capital item.
 
-A generic comparable analysis that treats waterfront as a single category will misprice these homes in both directions. Precision here is the listing strategy.
+A generic comparable analysis that treats waterfront as a single category will misprice these homes in both directions. Precision here is the foundation of every [Fort Lauderdale waterfront listing strategy](/sell-fort-lauderdale).
 
 ## The Fort Lauderdale buyer pool is national and international
 

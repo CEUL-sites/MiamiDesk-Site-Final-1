@@ -43,7 +43,7 @@ Weston's estate communities frequently include golf course, lake, and preserve-v
 
 Golf course frontage in an active club community commands a different premium than the same frontage in a community where club membership has declined. A lake-front lot in a community with a direct lake connection trades differently from one backing to a retention pond. Understanding the current demand for each lot type requires current MLS data, not intuition.
 
-For sellers evaluating a Weston estate sale, the absorption data for their specific lot type and community is the most important piece of information available. Not the Broward County average. The specific community and lot type.
+For sellers evaluating a [Weston estate sale](/sell-weston), the absorption data for their specific lot type and community is the most important piece of information available. Not the Broward County average. The specific community and lot type.
 
 ## Who Is Buying in Weston in 2026
 
