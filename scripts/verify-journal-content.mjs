@@ -154,6 +154,41 @@ for (const file of files) {
 // verbatim client testimonials. Rewriting a named person's quoted words to
 // satisfy a style rule would falsify the testimonial — a worse problem than the
 // superlative — so neither surface is swept here.
+// The journal CTA is the only conversion path out of 76 posts, so its routing
+// is asserted rather than trusted. Two of its three variants used to hardcode
+// /contact while only the first used the market map — a reader finishing a
+// Brickell article and clicking "Request a Seller Strategy Review" landed on a
+// generic form instead of /sell-brickell. Nothing failed loudly when that was
+// true, which is exactly why it survived.
+const ctaPath = path.join(root, 'src', 'components', 'JournalSellerCTA.tsx');
+if (fs.existsSync(ctaPath)) {
+  const cta = fs.readFileSync(ctaPath, 'utf8');
+
+  const hardcoded = cta.match(/to="\/[a-z-]*"/g) ?? [];
+  if (hardcoded.length) {
+    errors.push(
+      `JournalSellerCTA: ${hardcoded.length} hardcoded Link target(s) ${hardcoded.join(', ')} — ` +
+        `every variant must route via sellHref so the CTA lands on the post's own market page.`,
+    );
+  }
+
+  const variants = (cta.match(/to=\{sellHref\}/g) ?? []).length;
+  if (variants < 3) {
+    errors.push(
+      `JournalSellerCTA: only ${variants} of 3 variants route via sellHref (top, mid, bottom must all use it).`,
+    );
+  }
+
+  // A market mapped to a route that no longer exists would send readers to the
+  // SPA 404 instead of a seller page.
+  const mainTsx = fs.readFileSync(path.join(root, 'src', 'main.tsx'), 'utf8');
+  for (const [, route] of cta.matchAll(/'[^']+':\s*'(\/[a-z-]+)'/g)) {
+    if (!mainTsx.includes(`path="${route}"`)) {
+      errors.push(`JournalSellerCTA: maps a market to "${route}", which is not a route in main.tsx.`);
+    }
+  }
+}
+
 const journalFaqsPath = path.join(root, 'src', 'content', 'journal-faqs.ts');
 if (fs.existsSync(journalFaqsPath)) {
   // Only strip whole-line comments: a "//" mid-line could be inside a URL, and
