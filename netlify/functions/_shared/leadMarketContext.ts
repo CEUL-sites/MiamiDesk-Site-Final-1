@@ -100,13 +100,20 @@ export function shouldFetchMarketContext(tier: LeadTier): boolean {
 // Bridge-backed functions' in-memory caches (bridge-listings.ts,
 // ticker-listings.ts). A lead alert doesn't need Blobs-grade persistence
 // across cold starts, just to not re-spend quota on every lead that lands in
-// the same city inside one warm instance. Caches the *outcome* (including a
-// thin-sample `null`) so a chronically thin city isn't re-queried on every
-// lead either — but never caches a timeout/error/no-token/unknown-city
-// result, since those are either deterministic-for-the-process (no point
-// caching) or transient (worth retrying next lead, not memoizing as "no data
-// for 24h").
-type CacheEntry = { value: LeadMarketContext | null; expires: number };
+// the same city inside one warm instance. Caches the raw *sample* (including a
+// thin one) so a chronically thin city isn't re-queried on every lead either —
+// but never caches a timeout/error/no-token/unknown-city result, since those
+// are either deterministic-for-the-process (no point caching) or transient
+// (worth retrying next lead, not memoizing as "no data for 24h").
+//
+// The sample is cached rather than the finished LeadMarketContext because the
+// context carries `requestedAs`, which is specific to the alias the lead typed
+// ("Brickell") while the key is the resolved MLS city ("Miami"). Caching the
+// context would label the next genuine Miami lead's alert "Miami (Brickell)",
+// and — queried the other way round — strip a Brickell lead's submarket label.
+// The sample is genuinely per-MLS-city, so it is the part that is safe to
+// share; the context is rebuilt per request.
+type CacheEntry = { sample: RawSample; asOf: string; expires: number };
 const cache = new Map<string, CacheEntry>();
 
 function delay<T>(ms: number, value: T): Promise<T> {
@@ -232,7 +239,7 @@ async function computeLeadMarketContext(
   const now = deps.now ?? Date.now;
   const cacheKey = resolved.mlsCity.toLowerCase();
   const cached = cache.get(cacheKey);
-  if (cached && cached.expires > now()) return cached.value;
+  if (cached && cached.expires > now()) return buildContext(resolved, cached.sample, cached.asOf);
 
   const base = deps.bridgeBase ?? getBridgeBase();
   const fetchImpl = deps.fetchImpl ?? fetch;
@@ -240,10 +247,8 @@ async function computeLeadMarketContext(
 
   const sample = await fetchRawSample(resolved.mlsCity, { token, base, timeoutMs, fetchImpl });
   const asOf = new Date(now()).toISOString();
-  const context = buildContext(resolved, sample, asOf);
-
-  cache.set(cacheKey, { value: context, expires: now() + CACHE_TTL_MS });
-  return context;
+  cache.set(cacheKey, { sample, asOf, expires: now() + CACHE_TTL_MS });
+  return buildContext(resolved, sample, asOf);
 }
 
 /**

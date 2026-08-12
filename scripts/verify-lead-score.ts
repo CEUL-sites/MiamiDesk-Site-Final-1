@@ -52,6 +52,16 @@ assert.equal(parseValueFloor("Under €500,000"), 0, "an upper bound floors at z
 assert.equal(parseValueFloor("€500,000 – €1M"), 500_000, "comma thousands separator");
 assert.equal(parseValueFloor("€3M – €10M"), 3_000_000);
 assert.equal(parseValueFloor("Over €10M"), 10_000_000);
+// Regression: the Spanish form ships "." as the thousands separator. Stripping
+// only commas made Number("500.000") === 500, scoring those leads four value
+// points instead of eight and dropping them a tier below the equivalent
+// English band.
+assert.equal(parseValueFloor("500.000 € – 1M €"), 500_000, "Spanish period thousands separator");
+assert.equal(parseValueFloor("Menos de 500.000 €"), 0, "Spanish upper bound floors at zero");
+assert.equal(parseValueFloor("1M € – 3M €"), 1_000_000, "Spanish millions band");
+assert.equal(parseValueFloor("Más de 10M €"), 10_000_000, "Spanish over-band");
+// …but a period that is not a thousands separator is still a decimal point.
+assert.equal(parseValueFloor("$1.5M"), 1_500_000, "decimal point is not a separator");
 assert.equal(parseValueFloor("Prefer not to say"), null);
 assert.equal(parseValueFloor(""), null);
 assert.equal(parseValueFloor(undefined), null);
@@ -74,6 +84,27 @@ assert.equal(
   normalizePhone("612 345 678").e164,
   null,
   "the same 9 digits with no market hint must NOT be guessed",
+);
+// Regression: a bare 10-digit number was assumed to be a US number missing its
+// country code, regardless of market. Mexico, Colombia, Venezuela and
+// Argentina all use 10-digit *national* numbers, so an international lead's
+// number was rewritten as +1 and the alert linked Carlos to a stranger.
+assert.equal(
+  normalizePhone("3055550142").e164,
+  "+13055550142",
+  "a domestic 10-digit number still resolves to +1 — the primary market must keep working",
+);
+for (const market of ["Bogotá, Colombia", "Ciudad de México", "Caracas, Venezuela", "Madrid, Spain"]) {
+  const parsed = normalizePhone("3055550142", market);
+  assert.equal(parsed.e164, null, `10 digits on a ${market} lead must NOT be guessed as US`);
+  assert.equal(parsed.waLink, null, `no wa.me link is generated for ${market}`);
+  assert.equal(parsed.display, "3055550142", `the raw ${market} number is preserved verbatim`);
+}
+// An international lead who does supply the country code is still linked.
+assert.equal(
+  normalizePhone("+57 305 555 0142", "Bogotá, Colombia").e164,
+  "+573055550142",
+  "an explicit country code is honoured on a non-domestic lead",
 );
 assert.equal(normalizePhone("12345").e164, null, "too short for E.164");
 assert.equal(normalizePhone("").display, "—", "an absent phone still renders");
@@ -349,5 +380,20 @@ for (const handler of ["lead-notify.ts", "submission-created.ts"]) {
 // sourcePage and the highest-intent forms lose their intent score.
 const leadNotifyClient = readFileSync(new URL("../src/lib/leadNotify.ts", import.meta.url), "utf8");
 assert.match(leadNotifyClient, /formName\?: string/, "DirectLead exposes formName");
+
+// Both paths must score a lead identically. The Netlify Forms path receives
+// every field through the `...form` spread, so a scoring signal the direct
+// payload omits silently re-tiers the lead depending on which side wins the
+// dedup race — SpainSellerForm dropped messagingConsent, a 5-point
+// reachability signal, which is a P2/P3 swing on a mid-band lead.
+const spainSellerForm = readFileSync(
+  new URL("../src/components/forms/SpainSellerForm.tsx", import.meta.url),
+  "utf8",
+);
+assert.match(
+  spainSellerForm,
+  /messagingConsent: form\.messagingConsent/,
+  "SpainSellerForm forwards messagingConsent to the direct backup path",
+);
 
 console.log("lead score model verified");

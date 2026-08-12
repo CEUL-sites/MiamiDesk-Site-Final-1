@@ -212,6 +212,31 @@ assert.equal(shouldFetchMarketContext("P3"), false, "P3 is nurture-track — nev
   assert.equal(ctx!.requestedAs, "Brickell", "the submarket is still surfaced separately from the MLS city");
 }
 
+// ── Regression: alias labels must not survive in the city cache ──────────
+// The block above just cached a *Brickell* lookup, and the cache key is the
+// resolved MLS city — "miami". Caching the finished context meant the next
+// genuine Miami lead read "Miami (Brickell)" in Carlos's alert, and, warmed
+// in the other order, a Brickell lead lost its submarket entirely. Both of
+// these run against that already-warm entry on purpose.
+{
+  const { fetchImpl } = makeStub(() => ({ ok: true, json: { value: fullRows(8), "@odata.count": 55 } }));
+  const ctx = await getLeadMarketContext({ city: "Miami" }, { fetchImpl, bridgeToken: TOKEN });
+  assert.ok(ctx);
+  assert.equal(ctx!.city, "Miami");
+  assert.equal(ctx!.requestedAs, null, "a genuine Miami lead must not inherit the cached Brickell label");
+}
+{
+  const { fetchImpl } = makeStub(() => ({ ok: true, json: { value: fullRows(8), "@odata.count": 55 } }));
+  const ctx = await getLeadMarketContext({ city: "Brickell" }, { fetchImpl, bridgeToken: TOKEN });
+  assert.ok(ctx);
+  assert.equal(ctx!.city, "Miami");
+  assert.equal(
+    ctx!.requestedAs,
+    "Brickell",
+    "a Brickell lead must not lose its submarket label to a warm Miami cache entry",
+  );
+}
+
 // ── Cache: a second lookup for the same city within 24h must not re-fetch,
 //    and must expire past the 24h TTL (clock injected — no real waiting) ───
 {

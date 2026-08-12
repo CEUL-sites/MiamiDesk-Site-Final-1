@@ -162,7 +162,14 @@ export const parseValueFloor = (band?: string): number | null => {
   const match = s.match(/([\d][\d.,]*)\s*(k|m|thousand|million|millón|millon|millones)?/);
   if (!match) return null;
 
-  const value = Number(match[1].replace(/,/g, ""));
+  // The Spanish bands use "." as the thousands separator ("500.000 €"), the
+  // English ones use ",". Only treat "." as a separator when the digit
+  // grouping proves it — otherwise "1.5M" would parse as 15,000,000.
+  const rawNumber = match[1];
+  const cleaned = /^\d{1,3}(\.\d{3})+$/.test(rawNumber)
+    ? rawNumber.replace(/\./g, "")
+    : rawNumber.replace(/,/g, "");
+  const value = Number(cleaned);
   if (!Number.isFinite(value)) return null;
   if (isUnder) return 0;
 
@@ -300,6 +307,13 @@ export interface NormalizedPhone {
 
 const SPAIN_MARKET = /(spain|españa|espana|madrid|marbella|costa del sol|málaga|malaga)/;
 
+// Markets where a bare 10-digit number is NOT a US number missing its country
+// code. Spain is included via SPAIN_MARKET's terms; the rest are the LATAM
+// markets the Global Desk actually draws from, all of which use 10-digit
+// national numbers.
+const NON_DOMESTIC_MARKET =
+  /(spain|españa|espana|madrid|marbella|costa del sol|málaga|malaga|m[ée]xico|mexico|colombia|venezuela|argentina|panam[áa]|per[úu]|chile|ecuador|brasil|brazil|portugal|international|internacional)/;
+
 /**
  * Best-effort E.164 normalisation.
  *
@@ -318,12 +332,17 @@ export function normalizePhone(raw?: string, marketHint?: string): NormalizedPho
   if (!hadPlus && digits.startsWith("00")) digits = digits.slice(2);
 
   const isSpain = SPAIN_MARKET.test(normalize(marketHint));
+  const isNonDomestic = NON_DOMESTIC_MARKET.test(normalize(marketHint));
 
   let e164Digits: string | null = null;
   if (hadPlus || trimmed.startsWith("00")) {
     e164Digits = digits;
-  } else if (digits.length === 10) {
-    e164Digits = `1${digits}`; // NANP without the country code
+  } else if (digits.length === 10 && !isNonDomestic) {
+    // NANP without the country code. Only safe to assume for a domestic lead:
+    // Mexico, Colombia, Venezuela and Argentina all have 10-digit *national*
+    // numbers, so guessing +1 on an international lead would render a wa.me
+    // link to an unrelated US phone. Better to leave it unlinked.
+    e164Digits = `1${digits}`;
   } else if (digits.length === 11 && digits.startsWith("1")) {
     e164Digits = digits;
   } else if (digits.length === 9 && isSpain) {
