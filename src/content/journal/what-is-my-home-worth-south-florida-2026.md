@@ -31,7 +31,7 @@ A Comparative Market Analysis (CMA) is a professional evaluation prepared by a l
 - **Pending sales** — Properties under contract but not yet closed. These represent the current demand signal — what buyers are agreeing to pay today.
 - **Expired listings** — Properties that failed to sell at their listed price. These are as instructive as the closings because they show where the market said no.
 
-A skilled REALTOR® does not just pull these numbers — they adjust for condition, floor, view, upgrades, HOA health, and submarket dynamics. The result is a realistic price range with a positioning strategy, not just a single number.
+A skilled REALTOR® does not just pull these numbers — they adjust for condition, floor, view, upgrades, HOA health, and submarket dynamics. The result is a realistic [home value analysis](/home-value) with a positioning strategy, not just a single number.
 
 ## South Florida's Hyper-Local Market
 

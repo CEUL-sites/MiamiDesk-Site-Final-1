@@ -73,7 +73,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
       notifyLeadDirect({
         name: formData.name, email: formData.email, phone: formData.phone,
         propertyAddress: formData.propertyAddress, city: formData.city, timeline: formData.timeline,
-        message: formData.message, sourcePage: "seller-consultation", leadSource: getLeadSource(),
+        message: formData.message, sourcePage: "seller-consultation", formName: "seller-consultation", leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current),
         ...(desk ? { desk } : {}),
       });

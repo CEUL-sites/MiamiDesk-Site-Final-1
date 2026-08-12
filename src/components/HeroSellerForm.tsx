@@ -246,7 +246,8 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       notifyLeadDirect({
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
-        sourcePage: `hero-${lang}`, leadSource: getLeadSource(),
+        sourcePage: `hero-${lang}`, formName: "seller-hero", leadSource: getLeadSource(),
+        placeId: form.placeId, messagingConsent: form.messagingConsent,
         botField: "", formRenderedAt: String(renderedAt.current),
       });
       trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });

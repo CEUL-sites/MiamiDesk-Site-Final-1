@@ -116,9 +116,24 @@ const sitewideSchema: JsonLdSchema[] = [
       },
     ],
     knowsLanguage: ["en", "es"],
+    // sameAs is how this site claims the profiles scattered across directories as
+    // one identity. It matters more here than on a typical site: a Keller Williams
+    // agent page still carries Carlos's name from his 2012–2024 affiliation there,
+    // and directory profiles currently outrank homesprofessional.com for his own
+    // name. Declaring them as the same entity is what points that authority back at
+    // this domain instead of leaving it spread across pages he does not control.
+    //
+    // Every entry must be a profile that is verifiably Carlos's — a wrong URL here
+    // tells Google the wrong thing about who he is, which is worse than a short
+    // list. The four added below were each matched on brokerage, market and, for
+    // Birdeye, a review count identical to REVIEW_COUNT in src/data/reviews.ts.
     sameAs: [
       CONTACT.linkedin,
       "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51",
+      "https://www.homes.com/real-estate-agents/carlos-uzcategui/tgh3j9b/",
+      "https://www.loopnet.com/commercial-real-estate-brokers/profile/carlos-uzcategui/35mjrefb",
+      "https://reviews.birdeye.com/carlos-uzcategui-pa-171703249888930",
+      "https://www.facebook.com/sfloridahome/",
     ],
     aggregateRating: AGGREGATE_RATING,
   },

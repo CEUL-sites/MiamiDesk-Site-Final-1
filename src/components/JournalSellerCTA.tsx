@@ -50,8 +50,17 @@ function track(ctaType: string, location: string, post: PostMeta) {
 }
 
 export function JournalSellerCTA({ post, variant }: Props) {
+  // Every variant routes to the same market-matched page. Previously only the
+  // 'top' variant did, and the two more prominent variants below sent every
+  // reader to /contact — so a reader who finished an article about selling in
+  // Brickell and clicked "Request a Seller Strategy Review" landed on a generic
+  // contact form instead of /sell-brickell. That broke the promise the button
+  // makes, dropped them onto LeadForm instead of the two-step address-first
+  // SellerIntakeForm the city pages use, and withheld from the money pages the
+  // topical relevance this map was written to pass them.
+  const sellHref = sellPageFor(post);
+
   if (variant === 'top') {
-    const sellHref = sellPageFor(post);
     return (
       <div className="mx-auto max-w-3xl px-5 pt-8 pb-2 lg:px-8">
         <div className="flex flex-wrap items-center justify-between gap-3 border border-bone bg-ivory px-6 py-3.5">
@@ -85,7 +94,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
           </h3>
           <div className="mt-5 flex flex-wrap items-center gap-4">
             <Link
-              to="/contact"
+              to={sellHref}
               onClick={() => track('seller_strategy_review', 'post_mid', post)}
               className="inline-block border border-navy bg-navy px-6 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-gold hover:border-gold"
             >
@@ -122,7 +131,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
         </p>
         <div className="mt-7 flex flex-wrap items-center gap-4">
           <Link
-            to="/contact"
+            to={sellHref}
             onClick={() => track('seller_strategy_review', 'post_bottom', post)}
             className="inline-block border border-navy bg-navy px-7 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:border-gold"
           >

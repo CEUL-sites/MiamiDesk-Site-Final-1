@@ -26,7 +26,7 @@ The practical consequence for a seller is that the buyer-agent remarks — and t
 
 Coral Springs offers a range of community configurations: established single-family neighborhoods, gated master-planned sections like Heron Bay and Eagle Trace, and non-gated communities that attract a different segment of the buyer pool.
 
-Within the gated community tier, HOA financial health and common area quality are meaningful pricing variables. Buyers and their agents evaluate reserve fund adequacy, deferred maintenance exposure, and pending assessments as part of the transaction — not as an afterthought during inspection. A listing strategy that assembles and presents this documentation up front supports the price through diligence rather than risking a renegotiation at the end.
+Within the gated community tier, HOA financial health and common area quality are meaningful pricing variables. Buyers and their agents evaluate reserve fund adequacy, deferred maintenance exposure, and pending assessments as part of the transaction — not as an afterthought during inspection. A [Coral Springs listing strategy](/sell-coral-springs) that assembles and presents this documentation up front supports the price through diligence rather than risking a renegotiation at the end.
 
 ## The family buyer profile: domestic and Latin American
 

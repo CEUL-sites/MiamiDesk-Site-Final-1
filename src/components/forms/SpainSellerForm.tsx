@@ -182,6 +182,12 @@ export function SpainSellerForm({
         timeline: form.timeline,
         message: `Spain Desk · ${form.role} · ${form.propertyType || "—"} · ${form.valueBand || "—"}`,
         sourcePage,
+        formName: FORM_NAME,
+        valueBand: form.valueBand,
+        // Scoring signal — the Netlify Forms path receives this through the
+        // `...form` spread, so the direct path has to send it too or the two
+        // paths tier the same lead differently depending on which wins dedup.
+        messagingConsent: form.messagingConsent,
         leadSource: getLeadSource(),
         desk: "spain",
         botField: "",

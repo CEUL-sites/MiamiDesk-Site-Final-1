@@ -20,7 +20,7 @@ Understanding this distinction shapes how a property should be positioned.
 
 ## The Country Club and Gated Community Layer
 
-A significant share of Boca Raton residential inventory sits within gated or country club communities — Boca West, Woodfield Country Club, St. Andrews Country Club, The Polo Club, and others. These communities add structural variables that affect every aspect of a sale:
+A significant share of Boca Raton residential inventory sits within gated or country club communities — Boca West, Woodfield Country Club, St. Andrews Country Club, The Polo Club, and others. These communities add structural variables that affect every aspect of a [South Florida home sale](/sell-south-florida):
 
 **Equity membership requirements.** Several of Boca Raton's premier country clubs require buyers to purchase a club membership as part of or immediately following the property purchase. The equity stake can range from $50,000 to $200,000 or more depending on the club tier, and this cost sits outside the real estate transaction itself. Buyers who are not prepared for this requirement do not close — and sellers who are not disclosing it clearly do not attract qualified buyers.
 

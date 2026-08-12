@@ -185,10 +185,11 @@ export default function EsVenderPage() {
               >
                 {/* TODO: native Madrid editor review */}
                 25 años de transacciones en Sur de Florida. Cada exclusiva
-                entra en el ecosistema del MLS de Miami y Sur de Florida — la
-                mayor asociación local de REALTORS® del mundo, con 93.000
-                agentes miembros, 200+ portales globales en 19 idiomas y 260+
-                MLSs en EE. UU. a través de RPR.
+                entra en el ecosistema del MLS operado por la Asociación de
+                REALTORS® de Miami y Sur de Florida — la mayor asociación
+                local de REALTORS® del mundo, con 93.000 agentes miembros,
+                200+ portales globales en 19 idiomas y 260+ MLSs en EE. UU.
+                a través de RPR.
               </motion.p>
 
               <motion.div

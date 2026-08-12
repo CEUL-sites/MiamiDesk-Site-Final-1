@@ -3,6 +3,8 @@ import { dedupKey, markAlerted } from "./_shared/leadDedup";
 import { sendWhatsAppAlert } from "./_shared/whatsapp";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { corsHeaders as buildCorsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
+import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
+import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 
 // Synchronous backup notifier. The forms call this directly (keepalive) at the
 // same time they POST to Netlify Forms, so a lead is delivered even if Netlify
@@ -37,6 +39,13 @@ interface LeadPayload {
   desk?: string;
   botField?: string;
   formRenderedAt?: string;
+  // Lead-triage signals — see _shared/leadScore.ts. formName is the Netlify
+  // form-name and is distinct from sourcePage (the page the form sat on).
+  formName?: string;
+  valueBand?: string;
+  occupancy?: string;
+  placeId?: string;
+  messagingConsent?: string;
 }
 
 interface NormalizedLead {
@@ -50,6 +59,11 @@ interface NormalizedLead {
   sourcePage: string;
   leadSource: string;
   desk: string;
+  formName: string;
+  valueBand: string;
+  occupancy: string;
+  placeId: string;
+  messagingConsent: string;
 }
 
 function normalize(p: LeadPayload): NormalizedLead {
@@ -64,26 +78,15 @@ function normalize(p: LeadPayload): NormalizedLead {
     sourcePage: p.sourcePage || "homesprofessional.com",
     leadSource: p.leadSource || "",
     desk: p.desk || "",
+    // Fall back to sourcePage so older cached bundles — which POST without
+    // formName — still score on their best available signal instead of
+    // dropping to the unknown-form bucket.
+    formName: p.formName || p.sourcePage || "",
+    valueBand: p.valueBand || "",
+    occupancy: p.occupancy || "",
+    placeId: p.placeId || "",
+    messagingConsent: p.messagingConsent || "",
   };
-}
-
-function buildWhatsAppMessage(l: NormalizedLead): string {
-  return [
-    "🏠 *New Lead — HomesProfessional.com*",
-    "",
-    `👤 *${l.name || "—"}*`,
-    `📞 ${l.phone || "—"}`,
-    `📧 ${l.email || "—"}`,
-    `📍 ${l.propertyAddress}${l.city ? ", " + l.city : ""}`,
-    `⏱ ${l.timeline || "—"}`,
-    l.message ? `💬 ${l.message.slice(0, 200)}` : "",
-    "",
-    `_Via: ${l.sourcePage}_`,
-    l.desk ? `🌐 Desk: ${l.desk}` : "",
-    l.leadSource ? `📊 Source: ${l.leadSource}` : "",
-  ]
-    .filter(Boolean)
-    .join("\n");
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
@@ -136,6 +139,11 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: "Missing email and phone" }) };
   }
 
+  const scored = scoreLead(lead);
+  // P1/P2 only — P3 is nurture-track, so it skips the Bridge lookup entirely.
+  // Never blocks: getLeadMarketContext has its own hard timeout + try/catch
+  // and resolves to null on anything short of a clean result.
+  const marketContext = shouldFetchMarketContext(scored.tier) ? await getLeadMarketContext(lead) : null;
   const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
   const results: Record<string, string> = {};
   const alertKey = dedupKey(lead.email, lead.phone);
@@ -160,6 +168,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
           sourcePage: lead.sourcePage,
           leadSource: lead.leadSource,
           desk: lead.desk,
+          // Priority columns so the sheet can be sorted by what to work first.
+          tier: scored.tier,
+          score: scored.score,
           via: "lead-notify-backup",
         }),
       });
@@ -175,24 +186,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
   // ── 2. Email notification via Resend ────────────────────────────────────
   if (RESEND_API_KEY) {
-    const text = [
-      "New lead from HomesProfessional.com (backup notifier)",
-      "",
-      `Source: ${lead.sourcePage}`,
-      `Received: ${timestamp} ET`,
-      "",
-      `Name: ${lead.name}`,
-      `Email: ${lead.email}`,
-      `Phone: ${lead.phone}`,
-      `Property / Location: ${lead.propertyAddress}${lead.city ? ", " + lead.city : ""}`,
-      `Timeline / Type: ${lead.timeline}`,
-      `Message: ${lead.message}`,
-      lead.desk ? `Desk: ${lead.desk}` : "",
-      lead.leadSource ? `\n📊 Lead Source: ${lead.leadSource}` : "",
-      "",
-      "---",
-      "Carlos Uzcategui · FL SL705771 · United Realty Group",
-    ].join("\n");
+    const text = formatLeadEmail(lead, scored, {
+      timestamp,
+      via: "backup notifier (lead-notify)",
+    }, marketContext);
     try {
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -200,7 +197,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
         body: JSON.stringify({
           from: FROM_EMAIL,
           to: TO_EMAIL,
-          subject: `New Lead: ${lead.sourcePage} — HomesProfessional.com`,
+          subject: formatLeadEmailSubject(lead, scored),
           text,
         }),
       });
@@ -217,7 +214,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   // ── 3. WhatsApp notification via CallMeBot ──────────────────────────────
   // CallMeBot returns HTTP 200 even on rejection, so sendWhatsAppAlert inspects
   // the body and reports the true outcome (logged for diagnosis).
-  const wa = await sendWhatsAppAlert(buildWhatsAppMessage(lead), CALLMEBOT_KEY);
+  const wa = await sendWhatsAppAlert(formatLeadWhatsApp(lead, scored, marketContext), CALLMEBOT_KEY);
   results.whatsapp = wa.detail;
   if (wa.ok) alerted = true;
   else if (CALLMEBOT_KEY) console.error("lead-notify CallMeBot:", wa.detail);
@@ -237,6 +234,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
   return {
     statusCode: 200,
     headers: corsHeaders,
-    body: JSON.stringify({ success: true, alerted, results }),
+    body: JSON.stringify({ success: true, alerted, tier: scored.tier, score: scored.score, results }),
   };
 };

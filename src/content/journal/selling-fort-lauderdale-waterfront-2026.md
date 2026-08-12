@@ -25,7 +25,7 @@ Two homes can have identical water frontage and trade tens of percent apart. Wha
 - **Canal width and turning basin** — maneuverability for larger vessels is a real constraint and a real premium.
 - **Seawall condition and age** — buyers and their inspectors are evaluating seawall integrity and remaining life as a capital item.
 
-A generic comparable analysis that treats waterfront as a single category will misprice these homes in both directions. Precision here is the listing strategy.
+A generic comparable analysis that treats waterfront as a single category will misprice these homes in both directions. Precision here is the foundation of every [Fort Lauderdale waterfront listing strategy](/sell-fort-lauderdale).
 
 ## The Fort Lauderdale buyer pool is national and international
 
@@ -49,7 +49,7 @@ A later reduction then reads as a signal rather than a correction, and the clear
 
 ## Distribution for a Fort Lauderdale seller
 
-An eligible listing enters the Miami and South Florida REALTORS® MLS, the world's largest local REALTOR® association with more than 93,000 member agents. Through approved syndication channels, eligible listings may be featured across 200+ global portals in 19 languages, and the association's 437+ international agreements reach partner markets in more than 75 countries — relevant for the international yachting buyer in particular.
+An eligible listing enters the MLS operated by the Miami and South Florida REALTORS®, the world's largest local REALTOR® association with more than 93,000 member agents. Through approved syndication channels, eligible listings may be featured across 200+ global portals in 19 languages, and the association's 437+ international agreements reach partner markets in more than 75 countries — relevant for the international yachting buyer in particular.
 
 ## What a serious waterfront listing strategy includes
 

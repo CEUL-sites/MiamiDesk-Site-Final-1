@@ -47,6 +47,6 @@ Because the occupancy terms are negotiated as part of the contract, the time to 
 
 ---
 
-If your move depends on timing the sale of your current home against the purchase of the next one, a post-closing occupancy arrangement may be the bridge — and it is best planned before you list. A seller strategy review can help you build that flexibility into your approach from the start. You can begin that conversation through the [seller strategy review](/sell-south-florida).
+If your move depends on timing the sale of your current home against the purchase of the next one, a post-closing occupancy arrangement may be the bridge — and it is better planned before you list. A seller strategy review can help you build that flexibility into your approach from the start. You can begin that conversation through the [seller strategy review](/sell-south-florida).
 
 *This article is for general informational purposes only and is not legal advice. Post-closing occupancy arrangements are governed by the terms of your purchase contract and applicable addenda, and may be affected by the buyer's lender requirements and Florida landlord-tenant considerations; specific terms depend on your transaction. Carlos Uzcategui is a Florida-licensed Realtor®. Consult a real estate attorney to review occupancy terms before signing.*

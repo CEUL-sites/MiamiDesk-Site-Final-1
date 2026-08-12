@@ -48,7 +48,7 @@ Several situations change the analysis and deserve a professional's review:
 
 ## Why it belongs in the listing conversation
 
-This federal exclusion sits alongside the *Florida* property-tax benefits a homeowner may carry — the [Homestead Exemption and Save Our Homes portability](/journal/florida-homestead-portability-benefits-2026) — which work on an entirely separate track. The capital gains picture does not change *whether* a home is worth selling, but it can meaningfully change the *net* result and sometimes the *timing*. An owner who is a few months short of the two-year use test, or who sold another residence recently, may benefit from understanding the calendar before listing. These are questions for a CPA or tax advisor — but they are best raised early, while the sale is still being planned rather than after a contract is signed.
+This federal exclusion sits alongside the *Florida* property-tax benefits a homeowner may carry — the [Homestead Exemption and Save Our Homes portability](/journal/florida-homestead-portability-benefits-2026) — which work on an entirely separate track. The capital gains picture does not change *whether* a home is worth selling, but it can meaningfully change the *net* result and sometimes the *timing*. An owner who is a few months short of the two-year use test, or who sold another residence recently, may benefit from understanding the calendar before listing. These are questions for a CPA or tax advisor — but they are better raised early, while the sale is still being planned rather than after a contract is signed.
 
 ---
 

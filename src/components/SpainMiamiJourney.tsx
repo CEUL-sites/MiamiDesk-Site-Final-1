@@ -32,7 +32,7 @@ const STEPS = [
   },
   {
     id: 3,
-    city: "Miami MLS · World's Largest Local REALTOR® Association",
+    city: "Miami MLS · Operated by the World's Largest Local REALTOR® Association",
     flag: "🏛️",
     label: "THE SEARCH BEGINS",
     headline: "Their agent searches the MLS.",

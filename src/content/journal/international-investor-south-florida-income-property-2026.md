@@ -12,7 +12,7 @@ funnel_stage: "consideration"
 content_goal: "buyer_lead"
 ---
 
-For an international investor evaluating South Florida, the hardest part of the transaction is not finding a property to look at. Public portals are full of listings. The hard part is different: acquiring the *right* asset, at a defensible basis, through representation that protects the investor across a border — before the best opportunities are quietly claimed by someone with better access.
+For an international investor evaluating South Florida, the hardest part of the transaction is not finding a property to look at. Public portals are full of listings. The hard part is different: acquiring the *right* asset, at a defensible basis, through representation that protects the investor across a border — before the strongest opportunities are quietly claimed by someone with better access.
 
 That is a representation problem before it is a real estate problem. The investors who do well in a market like South Florida treat it that way.
 

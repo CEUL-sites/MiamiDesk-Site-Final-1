@@ -18,7 +18,7 @@ Pembroke Pines is a market defined by its diversity — not just of buyers, but 
 
 A Pembroke Pines CMA that averages across the city will be unreliable in both directions. The correct frame is community-specific: what have comparable homes in the same master-planned section, with similar HOA amenity tiers, sold for in the last 90 days?
 
-Master-planned communities with on-site amenities — pools, fitness facilities, lakes — and strong HOA financial health consistently generate deeper buyer pools and more competitive offer activity than non-amenity communities at the same price point. That distinction needs to be reflected in the pricing analysis and documented in the listing.
+Master-planned communities with on-site amenities — pools, fitness facilities, lakes — and strong HOA financial health consistently generate deeper buyer pools and more competitive offer activity than non-amenity communities at the same price point. That distinction needs to be reflected in the pricing analysis behind any [Pembroke Pines listing strategy](/sell-pembroke-pines).
 
 ## HOA health as a pricing variable
 

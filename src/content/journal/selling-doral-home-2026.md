@@ -18,7 +18,7 @@ Doral is one of the most distinctive residential markets in Miami-Dade County â€
 
 Doral consistently attracts one of the highest concentrations of Venezuelan and Colombian buyer demand in Miami-Dade County. These are buyers who in many cases have relocated from South America specifically to the Doral area â€” drawn by the community's bilingual environment, established Latin American institutional infrastructure, proximity to Miami International Airport, and the safety profile of its gated communities.
 
-That concentration is a pricing asset, not just a demographic note. A listing that enters the professional network with documentation and buyer-agent remarks calibrated to this profile reaches a buyer pool that is already motivated and community-specific. A generic listing treats Doral like any Miami-Dade suburb and misses the activation.
+That concentration is a pricing asset, not just a demographic note. A listing that enters the professional network with documentation and buyer-agent remarks calibrated to this profile reaches a buyer pool that is already motivated and community-specific. A generic approach to [selling a home in Doral](/sell-doral) treats the city like any Miami-Dade suburb and misses that activation.
 
 ## What drives value within Doral's communities
 

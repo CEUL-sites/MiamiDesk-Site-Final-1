@@ -1,4 +1,4 @@
-import { trackLead } from "../../lib/analytics";
+import { trackLead, navigateAfterTracking } from "../../lib/analytics";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
@@ -108,10 +108,12 @@ function EsReferralForm() {
         timeline: form.referralType,
         message: `${form.brokerageName ? form.brokerageName + " · " : ""}${form.clientSummary}`,
         sourcePage: "referral-intake-es",
+        formName: "referral-intake",
         leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current),
       });
-      trackLead("agent", { form: "referral-intake-es" }); window.location.href = "/es/gracias/agente";
+      trackLead("agent", { form: "referral-intake-es" });
+      navigateAfterTracking("/es/gracias/agente");
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

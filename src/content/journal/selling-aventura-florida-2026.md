@@ -45,11 +45,11 @@ Aventura's luxury condo market is highly sensitive to initial pricing. A propert
 
 The result: a price reduction is read not as a correction but as a signal, and the eventual sale price is typically lower than where a correctly priced listing would have cleared.
 
-A precise CMA based on current MLS data — not portal estimates, not tax assessments — is the foundation of every listing strategy in this market.
+A precise CMA based on current MLS data — not portal estimates, not tax assessments — is the foundation of every [Aventura listing strategy](/sell-aventura) in this market.
 
 ## International distribution for Aventura sellers
 
-Eligible Aventura listings enter the Miami and South Florida REALTORS® MLS — the world's largest local REALTOR® association, with over 93,000 member agents. Eligible listings may be distributed across 200+ portals in 19 languages through approved syndication channels. The international referral network reaches partner associations in 75+ countries.
+Eligible Aventura listings enter the MLS operated by the Miami and South Florida REALTORS® — the world's largest local REALTOR® association, with over 93,000 member agents. Eligible listings may be distributed across 200+ portals in 19 languages through approved syndication channels. The international referral network reaches partner associations in 75+ countries.
 
 For an Aventura seller, that infrastructure matters more than any single portal placement.
 

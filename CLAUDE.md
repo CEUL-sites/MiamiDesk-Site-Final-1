@@ -26,6 +26,7 @@ npm run verify:homepage-conversion  # hero/sticky-CTA form model assertions
 npm run verify:review-spotlight     # review spotlight model + static render
 npm run verify:global-desk          # GlobalDeskPage language-toggle contract
 npm run verify:visitor-tracking     # index.html pixel guards + privacy page disclosure
+npm run verify:lead-score           # lead triage model + both notifier paths
 ```
 
 There is no test runner. The `verify:*` scripts are the test suite — plain
@@ -113,7 +114,7 @@ src/
   i18n/                     i18next init + locales/{en,es}.json
   lib/                      markdown, analytics, attribution, consent, listings, googlePlaces, leadNotify
 netlify/functions/          Serverless handlers
-netlify/functions/_shared/  Cross-function helpers (whatsapp, leadDedup, nurture, requestGuard, AI desk)
+netlify/functions/_shared/  Cross-function helpers (whatsapp, leadDedup, leadScore, nurture, requestGuard, AI desk)
 scripts/                    Build helpers, OG renderers, verify:* scripts, daily journal publisher
 docs/sources/               Primary documents backing every verified figure
 .claude/agents/             Project subagents (see Subagents)
@@ -179,6 +180,33 @@ drop a lead:
 The two paths de-duplicate server-side in `_shared/leadDedup.ts`, so Carlos is
 alerted once when both succeed. **Do not remove either path** as "duplicate
 work" — the redundancy is the design. Failures land in `_shared/leadDeadLetter.ts`.
+
+### Lead triage
+
+Both notifier paths score every lead through `_shared/leadScore.ts` and render
+the alert from that module's formatters. The score is a transparent 0–100 sum
+of five signals (timeline urgency, address specificity, value band,
+reachability, form intent) that tiers a lead **P1 / P2 / P3** and states the
+recommended first action. Scoring only reorders attention — it never suppresses
+a lead, and every tier still routes through every configured channel.
+
+Two invariants hold this together:
+
+- **Both paths must score a lead identically.** They race through `leadDedup`,
+  so whichever wins decides what Carlos sees. `DirectLead` in
+  `src/lib/leadNotify.ts` therefore carries the same scoring signals the
+  Netlify Forms path reads from its fields.
+- **`formName` is not `sourcePage`.** `sourcePage` is the page (`hero-en`,
+  `sell-brickell`, `referral-intake-es`); `formName` is the Netlify
+  `form-name`. Intent is scored off `formName`, so every `notifyLeadDirect`
+  call site passes it explicitly — inferring it from `sourcePage` would drop
+  the highest-intent forms into the unknown bucket.
+
+Alerts render the phone in E.164 plus a `wa.me` link, because WhatsApp
+auto-links both — that is what makes the alert one tap to call. When the
+country can't be determined the links are omitted rather than guessed.
+`npm run verify:lead-score` covers the model and asserts both handlers still
+use the shared formatters.
 
 Anti-spam on both paths: a hidden `bot-field` honeypot plus a `formRenderedAt`
 timestamp; submissions arriving under 1.5s are dropped. Submissions without

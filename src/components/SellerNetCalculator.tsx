@@ -186,7 +186,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
       });
       if (!res.ok) throw new Error(String(res.status));
       notifyLeadDirect({
-        name, email, phone, message: summary, sourcePage, leadSource: getLeadSource(),
+        name, email, phone, message: summary, sourcePage, formName: "seller-consultation", leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current),
       });
       trackLead("seller", { form: "net-proceeds-calculator", page: sourcePage, lang });

@@ -27,6 +27,28 @@ const verifiedFigureViolations = [
   },
 ];
 
+// Rule 5 — banned vocabulary in public-facing copy. Previously this rule was
+// enforced only by human/agent review, which is fine for hand-written posts
+// but not for the daily automated publisher: it ships a post most mornings
+// with no human in the loop, so an unreviewed superlative could go live and
+// sit there indefinitely. Checked against the body AND the title/excerpt,
+// since those become the <title> and meta description.
+const bannedVocabulary = [
+  { pattern: /\bdreams?\b/i, word: 'dream' },
+  { pattern: /\bpassionate(ly)?\b/i, word: 'passionate' },
+  { pattern: /\bbest\b/i, word: 'best' },
+  { pattern: /\bstunning(ly)?\b/i, word: 'stunning' },
+  { pattern: /\bamazing(ly)?\b/i, word: 'amazing' },
+  { pattern: /\brare gem\b/i, word: 'rare gem' },
+  { pattern: /\bworld[- ]class\b/i, word: 'world-class' },
+  { pattern: /\bexcit(ed|ing|ement)\b/i, word: 'excited' },
+];
+
+// Exclamation marks are banned too, but markdown image syntax "![alt](url)"
+// is documented as supported — strip those before checking so a post with a
+// legitimate inline image isn't failed for punctuation it never wrote.
+const withoutImageSyntax = (text) => text.replace(/!\[/g, '[');
+
 function fail(errors) {
   console.error('Journal content verification failed:');
   for (const error of errors) console.error(`- ${error}`);
@@ -105,6 +127,85 @@ for (const file of files) {
 
   for (const rule of verifiedFigureViolations) {
     if (rule.pattern.test(raw)) errors.push(`${label}: ${rule.message}`);
+  }
+
+  // Rule 5 — banned vocabulary across body copy and the two frontmatter
+  // fields that render publicly.
+  const publicCopy = [body, meta.title ?? '', meta.excerpt ?? ''].join('\n');
+  for (const { pattern, word } of bannedVocabulary) {
+    const hit = publicCopy.match(pattern);
+    if (hit) {
+      errors.push(
+        `${label}: banned word "${hit[0]}" (rule 5 bans "${word}"). Rewrite without it — ` +
+          `e.g. "best" → "right"/"strongest", "best planned" → "better planned".`,
+      );
+    }
+  }
+  if (withoutImageSyntax(publicCopy).includes('!')) {
+    errors.push(`${label}: exclamation marks are banned in public copy (rule 5).`);
+  }
+}
+
+// journal-faqs.ts renders ON journal pages (and feeds their FAQPage JSON-LD),
+// so it is the same public surface as the post bodies above and belongs under
+// the same rule-5 gate. Checking it separately rather than folding it into the
+// src-wide sweep is deliberate: components mix copy with code comments
+// ("best-effort city detection"), and src/data/reviews.ts + ProofStrip.tsx hold
+// verbatim client testimonials. Rewriting a named person's quoted words to
+// satisfy a style rule would falsify the testimonial — a worse problem than the
+// superlative — so neither surface is swept here.
+// The journal CTA is the only conversion path out of 76 posts, so its routing
+// is asserted rather than trusted. Two of its three variants used to hardcode
+// /contact while only the first used the market map — a reader finishing a
+// Brickell article and clicking "Request a Seller Strategy Review" landed on a
+// generic form instead of /sell-brickell. Nothing failed loudly when that was
+// true, which is exactly why it survived.
+const ctaPath = path.join(root, 'src', 'components', 'JournalSellerCTA.tsx');
+if (fs.existsSync(ctaPath)) {
+  const cta = fs.readFileSync(ctaPath, 'utf8');
+
+  const hardcoded = cta.match(/to="\/[a-z-]*"/g) ?? [];
+  if (hardcoded.length) {
+    errors.push(
+      `JournalSellerCTA: ${hardcoded.length} hardcoded Link target(s) ${hardcoded.join(', ')} — ` +
+        `every variant must route via sellHref so the CTA lands on the post's own market page.`,
+    );
+  }
+
+  const variants = (cta.match(/to=\{sellHref\}/g) ?? []).length;
+  if (variants < 3) {
+    errors.push(
+      `JournalSellerCTA: only ${variants} of 3 variants route via sellHref (top, mid, bottom must all use it).`,
+    );
+  }
+
+  // A market mapped to a route that no longer exists would send readers to the
+  // SPA 404 instead of a seller page.
+  const mainTsx = fs.readFileSync(path.join(root, 'src', 'main.tsx'), 'utf8');
+  for (const [, route] of cta.matchAll(/'[^']+':\s*'(\/[a-z-]+)'/g)) {
+    if (!mainTsx.includes(`path="${route}"`)) {
+      errors.push(`JournalSellerCTA: maps a market to "${route}", which is not a route in main.tsx.`);
+    }
+  }
+}
+
+const journalFaqsPath = path.join(root, 'src', 'content', 'journal-faqs.ts');
+if (fs.existsSync(journalFaqsPath)) {
+  // Only strip whole-line comments: a "//" mid-line could be inside a URL, and
+  // truncating there would silently stop checking the rest of that line.
+  const faqCopy = fs
+    .readFileSync(journalFaqsPath, 'utf8')
+    .split(/\r?\n/)
+    .filter((line) => !line.trim().startsWith('//'))
+    .join('\n');
+
+  for (const { pattern, word } of bannedVocabulary) {
+    const hit = faqCopy.match(pattern);
+    if (hit) {
+      errors.push(
+        `journal-faqs.ts: banned word "${hit[0]}" (rule 5 bans "${word}") in FAQ copy that renders on journal pages.`,
+      );
+    }
   }
 }
 

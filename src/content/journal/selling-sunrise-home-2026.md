@@ -29,7 +29,7 @@ Sunrise is not a single market. The relevant variables:
 - **Build year** — newer construction in well-maintained communities tracks closer to Weston pricing; older inventory requires accurate renovation-adjusted pricing
 - **School zone** — Broward school quality is a primary filter for the family buyer segment active in Sunrise
 
-A pricing analysis that treats Sunrise as a uniform market will mislabel these distinctions. The correct CMA is community-specific, with a cross-market comparison to Weston comparables where the buyer pool overlaps.
+A pricing analysis that treats Sunrise as a uniform market will mislabel these distinctions. The correct approach to [selling a home in Sunrise](/sell-sunrise) is a community-specific CMA, with a cross-market comparison to Weston comparables where the buyer pool overlaps.
 
 ## Latin American demand in Sunrise
 

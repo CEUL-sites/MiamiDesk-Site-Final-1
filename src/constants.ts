@@ -118,7 +118,7 @@ export const NAVIGATION = [
 // create Fla. Admin. Code R. 61J2-10.025(1) deceptive-advertising exposure.
 export const ASSOCIATION_STATS = {
   memberCount: 93000,
-  mlsRank: "world's largest local REALTOR® association",
+  mlsRank: "third-largest MLS in the United States",
   globalWebsites: 200,
   globalWebsitesAlt: 200,
   languages: 19,
