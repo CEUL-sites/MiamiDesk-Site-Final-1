@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { pushEvent } from "../../lib/analytics";
+import { pushEvent, trackLead, navigateAfterTracking } from "../../lib/analytics";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 
 const INITIAL: Record<string, string> = {
@@ -114,7 +114,12 @@ export function AgencyPartnerForm({
         }),
       }).catch(() => {});
       pushEvent("form_submit_agency_partner", { source });
-      window.location.href = "/thanks/agent";
+      // An agency partner intake is an agent lead, exactly like referral-intake,
+      // which has always fired trackLead. This form only pushed the custom
+      // form_submit event above, so its leads never registered as conversions
+      // in GA4 or Meta and were invisible in every lead count.
+      trackLead("agent", { form: "agency-partner-intake", page: source });
+      navigateAfterTracking("/thanks/agent");
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

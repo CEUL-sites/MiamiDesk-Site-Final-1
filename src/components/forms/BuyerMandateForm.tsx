@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { trackLead, pushEvent } from "../../lib/analytics";
+import { trackLead, pushEvent, navigateAfterTracking } from "../../lib/analytics";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 
@@ -86,7 +86,8 @@ export function BuyerMandateForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "buyer-mandate", name: form.name, email: form.email, country: form.country }),
       }).catch(() => {});
-      trackLead("buyer", { form: "buyer-mandate" }); window.location.href = "/thanks/buyer";
+      trackLead("buyer", { form: "buyer-mandate" });
+      navigateAfterTracking("/thanks/buyer");
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

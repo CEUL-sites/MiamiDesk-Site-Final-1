@@ -17,8 +17,9 @@
     "verify:visitor-tracking": "node scripts/verify-visitor-tracking.mjs",
     "verify:lead-score": "node --import tsx scripts/verify-lead-score.ts",
     "verify:lead-market": "node --import tsx scripts/verify-lead-market.ts",
+    "verify:lead-tracking": "node scripts/verify-lead-tracking.mjs",
     "verify:claims": "node scripts/verify-claims.mjs",
-    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-market && npm run verify:claims"
+    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims"
   },
   "reactSnap": {
     "source": "dist",

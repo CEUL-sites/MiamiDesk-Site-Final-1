@@ -11,6 +11,46 @@ declare global {
   }
 }
 
+/**
+ * Navigate to `url` after giving the queued analytics tags a chance to send.
+ *
+ * Every lead form used to do `trackLead(...); window.location.href = "/thanks/x"`
+ * on one line. `trackLead` pushes to `dataLayer` synchronously, but GTM
+ * dispatching the GA4 and Meta requests is asynchronous — so the browser could
+ * begin unloading the page before those beacons left, and the conversion was
+ * simply never recorded. The lead itself was never at risk (the Netlify Forms
+ * POST and the keepalive backup both complete independently); what was lost was
+ * the record of it, which is the number used to judge whether the site is
+ * working at all.
+ *
+ * GTM's `eventCallback` fires once the tags for the queued pushes have run, so
+ * the common case navigates as soon as the beacons are away — typically well
+ * under the timeout, not after it.
+ *
+ * Navigation is guaranteed regardless: `go` is idempotent and a hard timer
+ * fires it even when GTM is absent, blocked by an ad blocker, or broken. A
+ * visitor must always reach the thank-you page, so analytics never gets a vote
+ * on whether the redirect happens — only on how long it may wait.
+ */
+export function navigateAfterTracking(url: string, timeoutMs = 600): void {
+  let navigated = false;
+  const go = () => {
+    if (navigated) return;
+    navigated = true;
+    window.location.href = url;
+  };
+
+  // Consent declined means nothing was queued, so there is nothing to wait for.
+  if (!isTrackingAllowed()) {
+    go();
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: "nav_flush", eventCallback: go, eventTimeout: timeoutMs });
+  window.setTimeout(go, timeoutMs);
+}
+
 export function pushEvent(eventName: string, payload?: EventPayload): void {
   if (!isTrackingAllowed()) return; // visitor declined analytics cookies
   window.dataLayer = window.dataLayer || [];

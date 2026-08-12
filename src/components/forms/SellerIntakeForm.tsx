@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, MapPin, Send, TrendingUp } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { trackLead, trackFunnelEvent, pushEvent } from "../../lib/analytics";
+import { trackLead, trackFunnelEvent, pushEvent, navigateAfterTracking } from "../../lib/analytics";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 import { loadGooglePlaces, MAPS_KEY } from "../../lib/googlePlaces";
@@ -200,7 +200,8 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "seller-intake", name: form.name, email: form.email, phone: form.phone }),
       }).catch(() => {});
-      trackLead("seller", { form: "seller-intake", form_location: sourcePage, page: sourcePage }); window.location.href = "/thanks/seller";
+      trackLead("seller", { form: "seller-intake", form_location: sourcePage, page: sourcePage });
+      navigateAfterTracking("/thanks/seller");
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"

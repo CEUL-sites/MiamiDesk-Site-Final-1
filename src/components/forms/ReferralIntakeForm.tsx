@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT } from "../../constants";
-import { trackLead, pushEvent } from "../../lib/analytics";
+import { trackLead, pushEvent, navigateAfterTracking } from "../../lib/analytics";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 
@@ -60,7 +60,8 @@ export function ReferralIntakeForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "referral-intake", name: form.licenseeName, email: form.email, phone: form.phone, brokerage: form.brokerageName }),
       }).catch(() => {});
-      trackLead("agent", { form: "referral-intake" }); window.location.href = "/thanks/agent";
+      trackLead("agent", { form: "referral-intake" });
+      navigateAfterTracking("/thanks/agent");
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"
