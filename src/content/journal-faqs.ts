@@ -192,7 +192,7 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
     },
     {
       q: 'How should a condo seller approach a high-supply market?',
-      a: 'With pricing discipline, strong presentation, and active distribution. With over a year of supply, homes priced to the current comparable set and exposed to the widest pool of qualified buyers and buyer agents tend to compete best. No approach guarantees a price or timeline.',
+      a: 'With pricing discipline, strong presentation, and active distribution. With over a year of supply, homes priced to the current comparable set and exposed to the widest pool of qualified buyers and buyer agents tend to compete most effectively. No approach guarantees a price or timeline.',
     },
     {
       q: 'Why does distribution matter more when condo inventory is high?',
@@ -305,7 +305,7 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
   ],
   'when-to-list-south-florida-home-2026': [
     {
-      q: 'Is there a best season to sell a home in South Florida?',
+      q: 'Is there a peak season to sell a home in South Florida?',
       a: 'South Florida does not follow a single traditional selling season the way colder markets do. Demand is influenced by seasonal residents, international buyers, and interest-rate conditions, so the right timing depends on your property type and submarket rather than a fixed calendar month.',
     },
     {

@@ -146,6 +146,34 @@ for (const file of files) {
   }
 }
 
+// journal-faqs.ts renders ON journal pages (and feeds their FAQPage JSON-LD),
+// so it is the same public surface as the post bodies above and belongs under
+// the same rule-5 gate. Checking it separately rather than folding it into the
+// src-wide sweep is deliberate: components mix copy with code comments
+// ("best-effort city detection"), and src/data/reviews.ts + ProofStrip.tsx hold
+// verbatim client testimonials. Rewriting a named person's quoted words to
+// satisfy a style rule would falsify the testimonial — a worse problem than the
+// superlative — so neither surface is swept here.
+const journalFaqsPath = path.join(root, 'src', 'content', 'journal-faqs.ts');
+if (fs.existsSync(journalFaqsPath)) {
+  // Only strip whole-line comments: a "//" mid-line could be inside a URL, and
+  // truncating there would silently stop checking the rest of that line.
+  const faqCopy = fs
+    .readFileSync(journalFaqsPath, 'utf8')
+    .split(/\r?\n/)
+    .filter((line) => !line.trim().startsWith('//'))
+    .join('\n');
+
+  for (const { pattern, word } of bannedVocabulary) {
+    const hit = faqCopy.match(pattern);
+    if (hit) {
+      errors.push(
+        `journal-faqs.ts: banned word "${hit[0]}" (rule 5 bans "${word}") in FAQ copy that renders on journal pages.`,
+      );
+    }
+  }
+}
+
 if (fs.existsSync(packagePath)) {
   const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
   const include = new Set(pkg.reactSnap?.include ?? []);
