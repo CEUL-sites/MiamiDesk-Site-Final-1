@@ -19,6 +19,8 @@ import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
 // hydrates these progressively once their chunks arrive.
 const AboutContact = lazy(() => import("../components/AboutContact").then((m) => ({ default: m.AboutContact })));
+const MarketingReel3D = lazy(() => import("../components/MarketingReel3D").then((m) => ({ default: m.MarketingReel3D })));
+const SellerPathfinder = lazy(() => import("../components/SellerPathfinder").then((m) => ({ default: m.SellerPathfinder })));
 
 export default function HomePage() {
   return (
@@ -68,8 +70,14 @@ export default function HomePage() {
         <SellerExecutionSystem />
         <Distribution />
         <Proof />
+        <Suspense fallback={null}>
+          <MarketingReel3D />
+        </Suspense>
         <GlobalDeskTeaser />
         <MarketPulse />
+        <Suspense fallback={null}>
+          <SellerPathfinder />
+        </Suspense>
         <Suspense fallback={null}>
           <AboutContact />
         </Suspense>

@@ -12,6 +12,7 @@ import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
+import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 
 const MIAMI_FAQS = [
@@ -251,14 +252,7 @@ export default function SellMiamiPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Miami Sellers Ask</p>
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Common questions.</h2>
             </div>
-            <div className="divide-y divide-white/8">
-              {MIAMI_FAQS.map((faq) => (
-                <div key={faq.q} className="py-6">
-                  <p className="font-serif text-lg text-white leading-snug mb-3">{faq.q}</p>
-                  <p className="font-sans text-[0.9rem] leading-relaxed text-white/65">{faq.a}</p>
-                </div>
-              ))}
-            </div>
+            <FaqAccordion faqs={MIAMI_FAQS} />
           </div>
         </section>
 

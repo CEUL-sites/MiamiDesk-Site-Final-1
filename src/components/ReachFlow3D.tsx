@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import { Home, Users, Globe2, Languages } from "lucide-react";
 import { ASSOCIATION_STATS } from "../constants";
 
@@ -7,8 +6,8 @@ import { ASSOCIATION_STATS } from "../constants";
  *
  * "Your listing reaches 93,000 agents, who carry it to 200+ portals in 19
  * languages, reaching buyers across 75+ countries" was body copy nobody
- * finished reading. Here each hop is a card, a pulse travels the connecting
- * rail on a loop, and the visitor sees the propagation in about a second.
+ * finished reading. Here each hop is a card in a connected chain, so the shape
+ * of the path is legible before any of it is read.
  *
  * Layout is ordinary flex/grid — no absolute 3D positioning to drift out of
  * alignment. Depth comes from a lift-and-tilt on hover, which is decoration:
@@ -16,8 +15,16 @@ import { ASSOCIATION_STATS } from "../constants";
  * reduced-motion visitors lose nothing.
  *
  * Figures come from ASSOCIATION_STATS (the verified set) so this can never
- * drift from the numbers cited elsewhere on the site.
+ * drift from the numbers cited elsewhere on the site, and the component prints
+ * their sources itself. It must stay self-sufficient that way: it renders
+ * figures — 75+ countries among them — that no surrounding section necessarily
+ * cites, and rule 9 requires a source next to a statistic as displayed. Do not
+ * move this line out to the host section.
  */
+
+/** Sources for every figure this component displays, per figures.json. */
+const FIGURE_SOURCES =
+  "Sources: Miami and South Florida REALTORS®; MIAMI International Referral Network — Partner Associations sheet; MIAMI Association of REALTORS® Global Council.";
 
 const STAGES = [
   {
@@ -29,7 +36,9 @@ const STAGES = [
   {
     icon: Users,
     value: ASSOCIATION_STATS.memberCount.toLocaleString("en-US"),
-    label: "Member agents",
+    // "Association members", not "member agents" — the same distinction the
+    // homepage conversion contract enforces on Hero, Distribution and Footer.
+    label: "Association members",
   },
   {
     icon: Globe2,
@@ -44,33 +53,9 @@ const STAGES = [
 ];
 
 export function ReachFlow3D({ className = "" }: { className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [live, setLive] = useState(false);
-
-  // Only run the travelling pulse while the figure is on screen.
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") { setLive(true); return; }
-    const io = new IntersectionObserver(([e]) => setLive(e.isIntersecting), { rootMargin: "80px" });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   return (
-    <div ref={ref} className={`mx-auto w-full max-w-4xl ${className}`}>
+    <div className={`mx-auto w-full max-w-4xl ${className}`}>
       <style>{`
-        @keyframes rf-travel-x {
-          0%   { left: 0; opacity: 0; }
-          12%  { opacity: 1; }
-          88%  { opacity: 1; }
-          100% { left: 100%; opacity: 0; }
-        }
-        @keyframes rf-travel-y {
-          0%   { top: 0; opacity: 0; }
-          12%  { opacity: 1; }
-          88%  { opacity: 1; }
-          100% { top: 100%; opacity: 0; }
-        }
         @keyframes rf-rise {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: none; }
@@ -86,11 +71,8 @@ export function ReachFlow3D({ className = "" }: { className?: string }) {
             box-shadow: 0 16px 40px rgba(0,0,0,0.32);
           }
         }
-        .rf-dot-x { animation: rf-travel-x 3.6s linear infinite; }
-        .rf-dot-y { animation: rf-travel-y 3.6s linear infinite; }
         @media (prefers-reduced-motion: reduce) {
           .rf-card { animation: none; }
-          .rf-dot-x, .rf-dot-y { animation: none; opacity: 0.5; }
           .rf-card-inner { transition: none; }
         }
       `}</style>
@@ -125,28 +107,28 @@ export function ReachFlow3D({ className = "" }: { className?: string }) {
               </div>
             </div>
 
-            {/* Connector rail with a travelling pulse — horizontal on desktop,
-                vertical once the row stacks. */}
+            {/* A static connector — horizontal on desktop, vertical once the row
+                stacks. This rail deliberately carries no travelling pulse.
+                A dot repeatedly moving from "Your listing" into a card labelled
+                "93,000" is the visual grammar of a notification being delivered,
+                which is exactly the framing rule 3 prohibits — and a signal
+                arriving at every stage on a loop also implies the universal
+                reach the eligibility terms below explicitly disclaim. A static
+                chain still says "these are stages of one path", which is the
+                only thing this figure needs to say. Do not re-add motion that
+                travels between cards. */}
             {i < STAGES.length - 1 && (
               <div aria-hidden="true" className="relative mx-auto my-1 h-7 w-px sm:my-0 sm:h-px sm:w-10">
                 <div className="absolute inset-0 bg-gradient-to-b from-gold/10 via-gold/40 to-gold/10 sm:bg-gradient-to-r" />
-                {live && (
-                  <>
-                    <span
-                      className="rf-dot-y absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-gold shadow-[0_0_8px_rgba(176,141,87,0.9)] sm:hidden"
-                      style={{ animationDelay: `${i * 0.45}s` }}
-                    />
-                    <span
-                      className="rf-dot-x absolute top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-gold shadow-[0_0_8px_rgba(176,141,87,0.9)] sm:block"
-                      style={{ animationDelay: `${i * 0.45}s` }}
-                    />
-                  </>
-                )}
               </div>
             )}
           </div>
         ))}
       </div>
+
+      <p className="mt-5 text-center font-mono text-[9px] uppercase leading-relaxed tracking-[0.12em] text-gold/60">
+        {FIGURE_SOURCES}
+      </p>
     </div>
   );
 }
