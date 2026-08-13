@@ -50,7 +50,13 @@ export const isSpainMarketRoute = (path: string): boolean => {
     [
       "/madrid",
       "/spain-desk",
-      "/global-desk",
+      // NOTE: /global-desk is deliberately absent. The desk sells Miami
+      // exposure through a Florida brokerage to owners in any market, so its
+      // page chrome answers on the US line. The Spain line is not gone from
+      // that page — the Spain section still offers +34 in-page, which is the
+      // right number for a Spanish-speaking owner and the wrong one for a
+      // developer in São Paulo or Dubai. Path-based routing cannot read the
+      // page's EN/ES toggle, so the section-level link is what carries it.
       "/spain-mls-listing",
       "/la-comision-secreta",
       "/vender-marbella",
