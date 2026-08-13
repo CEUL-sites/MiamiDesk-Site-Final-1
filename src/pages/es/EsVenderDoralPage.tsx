@@ -9,6 +9,7 @@ import { ExitIntentModal } from "../../components/ExitIntentModal";
 import { LazyVideo } from "../../components/LazyVideo";
 import { SellerNetCalculator } from "../../components/SellerNetCalculator";
 import { NeighborhoodMarketStats } from "../../components/NeighborhoodMarketStats";
+import { FaqAccordion } from "../../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 import { AGGREGATE_RATING } from "../../data/reviews";
 
@@ -321,14 +322,7 @@ export default function EsVenderDoralPage() {
               {/* TODO: native Madrid editor review */}
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Preguntas frecuentes.</h2>
             </div>
-            <div className="divide-y divide-white/8">
-              {DORAL_FAQS_ES.map((faq) => (
-                <div key={faq.q} className="py-6">
-                  <p className="font-serif text-lg text-white leading-snug mb-3">{faq.q}</p>
-                  <p className="font-sans text-[0.9rem] leading-relaxed text-white/65">{faq.a}</p>
-                </div>
-              ))}
-            </div>
+            <FaqAccordion faqs={DORAL_FAQS_ES} />
           </div>
         </section>
 

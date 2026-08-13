@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { SpainSellerForm } from "../components/forms/SpainSellerForm";
+import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT } from "../constants";
 import { getSpainMarket, SPAIN_MARKETS, SPAIN_STRUCTURE } from "../data/spainMarkets";
 
@@ -278,14 +279,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
               </p>
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Preguntas frecuentes.</h2>
             </div>
-            <div className="divide-y divide-white/8">
-              {market.faqs.map((faq) => (
-                <div key={faq.q} className="py-6">
-                  <p className="font-serif text-lg text-white leading-snug mb-3">{faq.q}</p>
-                  <p className="font-sans text-[0.9rem] leading-relaxed text-white/65">{faq.a}</p>
-                </div>
-              ))}
-            </div>
+            <FaqAccordion faqs={market.faqs} />
           </div>
         </section>
 

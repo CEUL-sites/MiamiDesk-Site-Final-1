@@ -29,7 +29,9 @@ const STAGES = [
   {
     icon: Users,
     value: ASSOCIATION_STATS.memberCount.toLocaleString("en-US"),
-    label: "Member agents",
+    // "Association members", not "member agents" — the same distinction the
+    // homepage conversion contract enforces on Hero, Distribution and Footer.
+    label: "Association members",
   },
   {
     icon: Globe2,

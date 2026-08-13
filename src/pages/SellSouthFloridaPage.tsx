@@ -15,6 +15,8 @@ import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
 import { AdvisorBrand } from "../components/AdvisorBrand";
 import { FAQ } from "../components/FAQ";
+import { MarketingReel3D } from "../components/MarketingReel3D";
+import { SellerPathfinder } from "../components/SellerPathfinder";
 import { Testimonials } from "../components/Testimonials";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { SellerNetCalculator } from "../components/SellerNetCalculator";
@@ -365,9 +367,11 @@ export default function SellSouthFloridaPage() {
         </section>
 
         <ExposureSyndication />
+        <MarketingReel3D />
         <Testimonials />
         <AdvisorBrand />
         <SellerNetCalculator sourcePage="sell-south-florida" />
+        <SellerPathfinder sellerHref="#contact" />
         <FAQ />
 
         {/* Journal crosslinks */}
