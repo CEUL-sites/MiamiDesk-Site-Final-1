@@ -271,6 +271,38 @@ assert.match(
 
 // The reach figure and the fine print.
 assert.match(distribution, /<ReachFlow3D/, "Distribution must render the reach figure");
+
+// Compliance rule 3, enforced against the motion design rather than the copy.
+// A dot travelling from "Your listing" into a card labelled 93,000 reads as a
+// notification being delivered — the framing the rule prohibits — and a signal
+// arriving at every stage on a loop also implies the universal reach the
+// eligibility terms disclaim. The figure may connect its stages; nothing may
+// travel between them.
+const reachFlow = await readFile("src/components/ReachFlow3D.tsx", "utf8");
+assert.doesNotMatch(
+  reachFlow,
+  /rf-travel|rf-dot/,
+  "the reach figure must not animate anything travelling between its stages (compliance rule 3)",
+);
+assert.doesNotMatch(
+  reachFlow,
+  /@keyframes[^}]*\b(left|top):\s*100%/,
+  "no keyframe may move an element across the reach figure's connectors",
+);
+// Rule 9: the figure prints statistics ("75+ countries" among them) that the
+// surrounding section does not necessarily cite, so it must carry its own
+// sources and must not delegate them to whatever renders it.
+assert.match(
+  reachFlow,
+  /Sources:/,
+  "the reach figure must display sources for the statistics it renders (compliance rule 9)",
+);
+for (const source of ["Miami and South Florida REALTORS", "Global Council"]) {
+  assert.ok(
+    reachFlow.includes(source),
+    `the reach figure's source line must credit ${source}`,
+  );
+}
 assert.match(
   distribution,
   /<details/,
