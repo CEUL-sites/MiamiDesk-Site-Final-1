@@ -268,6 +268,13 @@ assert.match(
   /useState\(value\)/,
   "the counter must render its final, exact figure on first paint",
 );
+// `display` is seeded from `value` only at mount, so a figure that changes
+// afterwards would keep rendering the old one unless the effect resyncs it.
+assert.match(
+  countUp,
+  /done\.current = false;\s*\n\s*setDisplay\(value\);/,
+  "the counter must reset and resync when its figure changes, or it will render a stale number",
+);
 
 // The reach figure and the fine print.
 assert.match(distribution, /<ReachFlow3D/, "Distribution must render the reach figure");

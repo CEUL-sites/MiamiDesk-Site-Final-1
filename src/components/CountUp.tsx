@@ -28,7 +28,17 @@ export function CountUp({
   const done = useRef(false);
 
   useEffect(() => {
-    if (done.current || !parsed.animatable) return;
+    // A changed figure starts over. `display` is seeded from `value` once, at
+    // mount, and the observer below only ever writes to it while counting — so
+    // without this reset a figure that changes after mount would keep rendering
+    // the figure it was first given. Every call site passes a literal today, so
+    // nothing shows a stale number yet; the moment one is driven from market
+    // data or a feed it would, silently, and a wrong figure is the one failure
+    // this component exists to prevent.
+    done.current = false;
+    setDisplay(value);
+
+    if (!parsed.animatable) return;
     if (typeof navigator !== "undefined" && navigator.webdriver) return; // prerender
     if (typeof window === "undefined") return;
     if (typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
