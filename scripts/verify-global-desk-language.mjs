@@ -39,6 +39,38 @@ assert.match(
   "the origins note must state that Carlos is licensed in Florida and local representation is unaffected",
 );
 
+// Rule 10, the failure mode this page invites: siting Carlos in a foreign
+// city. "Works the Spanish market from Madrid" — and the Spanish "trabaja
+// desde Madrid", where "desde [ciudad]" is the idiom for where someone is
+// based — read as running a practice there. He holds a Florida licence only.
+assert.doesNotMatch(
+  source,
+  /\b(?:from|desde)\s+(?:Madrid|Barcelona|Marbella|Valencia|Ibiza|Lisbon|Lisboa|Dubai|S[ãa]o Paulo|Bogot[áa]|Mexico City|Ciudad de M[ée]xico)\b/i,
+  "copy must not place Carlos in a city outside Florida — that reads as a base of operations, and his licence is Florida-only",
+);
+
+// Rule 4: the Spain section is an origin story, not a track record. A
+// comparative about how the desk has performed needs a source, and there
+// isn't one.
+assert.doesNotMatch(
+  source,
+  /(?:most directly|m[áa]s directa)/i,
+  "unattributed comparative track-record claims are not allowed in the Spain section",
+);
+
+// Rule 4 again, on the control rather than the prose: a picker labelled with
+// "markets" reads as markets Carlos operates in. It asks where the property
+// is — a fact about the property, not a claim about his reach.
+for (const key of ["originsLabel", "originsPickerLabel"]) {
+  for (const value of [...source.matchAll(new RegExp(`${key}: "([^"]+)"`, "g"))].map((m) => m[1])) {
+    assert.doesNotMatch(
+      value,
+      /market|mercado/i,
+      `${key} must ask where the property is, not present a menu of served markets — found: "${value}"`,
+    );
+  }
+}
+
 // Spain photography belongs to the Spain example only. A Madrid streetscape
 // illustrating a section addressed to owners in São Paulo is the exact
 // mis-framing this rework removed.

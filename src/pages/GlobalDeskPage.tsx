@@ -52,8 +52,8 @@ const C = {
     originsTitle: "El mismo recorrido, sea cual sea el país de la propiedad.",
     originsLead:
       "El servicio no depende del país de origen. Lo que decide si una propiedad puede presentarse es la claridad de sus datos y sus materiales, no el lugar donde se encuentra.",
-    originsLabel: "Seleccione un mercado de origen",
-    originsPickerLabel: "Mercado de origen",
+    originsLabel: "¿Dónde está la propiedad?",
+    originsPickerLabel: "Ubicación de la propiedad",
     origins: ["España", "América Latina", "Europa", "Oriente Medio", "Canadá", "Otro mercado"],
     originsStages: [
       ["Propiedad", "La propiedad permanece donde está, con su titularidad, su representación local y sus normas locales sin cambios."],
@@ -69,9 +69,9 @@ const C = {
     activation:
       "La exposición es infraestructura. La activación de agentes compradores depende de información clara, cooperación profesional, compensación cuando corresponda y requisitos de corretaje, plataforma y cumplimiento.",
     bridgeEyebrow: "Ejemplo · España",
-    bridgeTitle: "España es el mercado donde esta mesa ha operado de forma más directa.",
+    bridgeTitle: "España es el mercado para el que se construyó originalmente esta mesa.",
     bridgeBody:
-      "Un mercado mostrado por completo, porque un ejemplo dice más que una promesa. Carlos trabaja el mercado español desde Madrid y en español, y el recorrido anterior es el que siguen los propietarios españoles. Las mismas cuatro etapas se aplican desde cualquier otro mercado — solo cambia la primera tarjeta.",
+      "Un mercado mostrado por completo, porque un ejemplo dice más que una promesa. Carlos trabaja con el mercado español en español, y el recorrido anterior es el que siguen los propietarios españoles. Las mismas cuatro etapas se aplican desde cualquier otro mercado — solo cambia la primera tarjeta.",
     granViaAlt: "Vista sobre Gran Vía y los edificios del centro de Madrid",
     granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
     segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
@@ -161,8 +161,8 @@ const C = {
     originsTitle: "The same route, whatever country the property sits in.",
     originsLead:
       "The desk is origin-agnostic. What decides whether a property can be presented is the clarity of its facts and materials, not the postcode it sits in.",
-    originsLabel: "Select a market of origin",
-    originsPickerLabel: "Market of origin",
+    originsLabel: "Where is the property?",
+    originsPickerLabel: "Property location",
     origins: ["Spain", "Latin America", "Europe", "Middle East", "Canada", "Another market"],
     originsStages: [
       ["Property", "The property stays where it is, with its local ownership, local representation and local rules unchanged."],
@@ -178,9 +178,9 @@ const C = {
     activation:
       "Exposure is infrastructure. Buyer-agent activation depends on clear information, professional cooperation, appropriate compensation where applicable, and brokerage, platform, and compliance requirements.",
     bridgeEyebrow: "Worked example · Spain",
-    bridgeTitle: "Spain is where this desk has run most directly.",
+    bridgeTitle: "Spain is the market this desk was originally built around.",
     bridgeBody:
-      "One market shown in full, because an example is more useful than a promise. Carlos works the Spanish market from Madrid in Spanish, and the route above is the one Spanish owners take. The same four stages apply from any other market — only the first card changes.",
+      "One market shown in full, because an example is more useful than a promise. Carlos works with the Spanish market in Spanish, and the route above is the one Spanish owners follow. The same four stages apply from any other market — only the first card changes.",
     granViaAlt: "View over Gran Via and central Madrid buildings",
     granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
     segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
@@ -188,7 +188,7 @@ const C = {
     cardAlt: "International prime property, prepared for Miami-area buyer-agent discovery.",
     structureEyebrow: "The structure, stated plainly",
     structureBody:
-      "Miami Global Listing Desk helps selected international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.",
+      "Miami Global Listing Desk helps selected international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework. Local representation in the property's own market stays with the licensed agency that already handles it: showings, local negotiation and buyer qualification.",
     proofEyebrow: "Professional preparation",
     proofTitle: "Inventory prepared for clear professional cooperation.",
     proofBody:
