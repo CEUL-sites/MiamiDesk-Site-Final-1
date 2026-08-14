@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck } from "lucide-react";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
@@ -12,6 +12,11 @@ import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { EsProof } from "../../components/es/EsProof";
 import { EsDistribution } from "../../components/es/EsDistribution";
+import { CONTACT } from "../../constants";
+
+// Split out of the initial bundle, same as the English homepage.
+const MarketingReel3D = lazy(() => import("../../components/MarketingReel3D").then((m) => ({ default: m.MarketingReel3D })));
+const SellerPathfinder = lazy(() => import("../../components/SellerPathfinder").then((m) => ({ default: m.SellerPathfinder })));
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -148,8 +153,9 @@ export default function EsHomePage() {
 
               {/* Primary seller lead capture */}
               <motion.div
+                id="list-here"
                 variants={itemVariants}
-                className="mx-auto mt-9 w-full max-w-md"
+                className="mx-auto mt-9 w-full max-w-md scroll-mt-24"
               >
                 <HeroSellerForm lang="es" />
               </motion.div>
@@ -272,7 +278,13 @@ export default function EsHomePage() {
         </section>
 
         <EsProof />
+        <Suspense fallback={null}>
+          <MarketingReel3D lang="es" />
+        </Suspense>
         <EsDistribution />
+        <Suspense fallback={null}>
+          <SellerPathfinder lang="es" whatsappHref={CONTACT.whatsappSpain} />
+        </Suspense>
 
         <Footer />
         <MobileStickyCTA />

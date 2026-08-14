@@ -25,39 +25,79 @@ const REEL = [
   {
     id: "film",
     icon: Film,
-    label: "Property film",
     clip: "/videos/luxury_home_walkthrough.mp4",
-    copy: "A walkthrough cut to the way a buyer actually moves through the property, coordinated with the property media team.",
+    en: {
+      label: "Property film",
+      copy: "A walkthrough cut to the way a buyer actually moves through the property, coordinated with the property media team.",
+    },
+    es: {
+      label: "Película de la propiedad",
+      copy: "Un recorrido montado según cómo se mueve realmente un comprador por la propiedad, coordinado con el equipo de medios.",
+    },
   },
   {
     id: "aerial",
     icon: Plane,
-    label: "Aerial and setting",
     clip: "/videos/luxury_waterfront_drone.mp4",
-    copy: "Aerial coverage that places the property in its setting — frontage, approach, and the streets and water around it.",
+    en: {
+      label: "Aerial and setting",
+      copy: "Aerial coverage that places the property in its setting — frontage, approach, and the streets and water around it.",
+    },
+    es: {
+      label: "Vista aérea y entorno",
+      copy: "Cobertura aérea que sitúa la propiedad en su entorno: su frente, el acceso y las calles y el agua a su alrededor.",
+    },
   },
   {
     id: "tour",
     icon: Layers,
-    label: "3D tour",
     clip: "/videos/matterport_tour_2.mp4",
-    copy: "A navigable 3D tour and floor plan, so an out-of-state or overseas buyer can walk the property before booking a showing.",
+    en: {
+      label: "3D tour",
+      copy: "A navigable 3D tour and floor plan, so an out-of-state or overseas buyer can walk the property before booking a showing.",
+    },
+    es: {
+      label: "Recorrido 3D",
+      copy: "Un recorrido 3D navegable y un plano, para que un comprador de otro estado o de fuera del país pueda recorrer la propiedad antes de concertar una visita.",
+    },
   },
   {
     id: "global",
     icon: Map,
-    label: "Global presentation",
     clip: "/videos/waterfront_house_global_reach.mp4",
-    copy: "The same media set travels with the listing into eligible syndication, where the property is presented to buyers searching in other languages.",
+    en: {
+      label: "Global presentation",
+      copy: "The same media set travels with the listing into eligible syndication, where the property is presented to buyers searching in other languages.",
+    },
+    es: {
+      label: "Presentación global",
+      copy: "El mismo material acompaña a la propiedad en la sindicación elegible, donde se presenta a compradores que buscan en otros idiomas.",
+    },
   },
 ] as const;
+
+const SHELL = {
+  en: {
+    eyebrow: "Property presentation",
+    title: "How the property is presented to the market.",
+    railLabel: "Property presentation formats",
+    note: "Media scope varies by property and is agreed before launch · Syndication subject to eligibility, MLS rules and platform participation",
+  },
+  es: {
+    eyebrow: "Presentación de la propiedad",
+    title: "Cómo se presenta la propiedad al mercado.",
+    railLabel: "Formatos de presentación de la propiedad",
+    note: "El alcance del material varía según la propiedad y se acuerda antes del lanzamiento · La sindicación está sujeta a elegibilidad, normas del MLS y participación de las plataformas",
+  },
+} as const;
 
 function posterFor(clip: string) {
   return clip.replace("/videos/", "/images/posters/").replace(".mp4", ".jpg");
 }
 
-export function MarketingReel3D() {
+export function MarketingReel3D({ lang = "en" }: { lang?: "en" | "es" }) {
   const [active, setActive] = useState(0);
+  const t = SHELL[lang];
 
   const onKeyDown = (e: KeyboardEvent) => {
     const last = REEL.length - 1;
@@ -78,17 +118,17 @@ export function MarketingReel3D() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-            Property presentation
+            {t.eyebrow}
           </p>
           <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-5xl">
-            How the property is presented to the market.
+            {t.title}
           </h2>
         </div>
 
         <div className="mt-9 grid gap-6 lg:grid-cols-[300px_1fr] lg:gap-10">
           <div
             role="tablist"
-            aria-label="Property presentation formats"
+            aria-label={t.railLabel}
             aria-orientation="vertical"
             onKeyDown={onKeyDown}
             className="scrollbar-hide -mx-6 flex gap-3 overflow-x-auto px-6 lg:mx-0 lg:flex-col lg:gap-2.5 lg:overflow-visible lg:px-0"
@@ -129,7 +169,7 @@ export function MarketingReel3D() {
                       <span
                         className={`font-mono text-[10px] uppercase tracking-[0.16em] ${on ? "text-gold" : "text-white/60"}`}
                       >
-                        {item.label}
+                        {item[lang].label}
                       </span>
                     </span>
                   </span>
@@ -157,7 +197,7 @@ export function MarketingReel3D() {
                   className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#081733]/85 via-transparent to-transparent"
                 />
                 <p className="absolute inset-x-0 bottom-0 max-w-2xl p-5 font-sans text-sm leading-relaxed text-white/85 md:p-7 md:text-base">
-                  {current.copy}
+                  {current[lang].copy}
                 </p>
               </div>
             </div>
@@ -165,7 +205,7 @@ export function MarketingReel3D() {
         </div>
 
         <p className="mt-6 font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-white/45">
-          Media scope varies by property and is agreed before launch · Syndication subject to eligibility, MLS rules and platform participation
+          {t.note}
         </p>
       </div>
 
