@@ -69,10 +69,10 @@ const INTENTS: Intent[] = [
       ctaLabel: "Request my property strategy",
     },
     es: {
-      choice: "Vender una propiedad en el sur de Florida",
+      choice: "Vender una propiedad en el Sur de Florida",
       headline: "Una lectura privada de su propiedad, antes de cualquier decisión de venta.",
       body: "Carlos revisa los comparables, la posición competitiva y el perfil probable de comprador de su propiedad, y le devuelve esa lectura.",
-      ctaLabel: "Solicitar mi estrategia de propiedad",
+      ctaLabel: "Solicitar mi estrategia de venta",
     },
   },
   {
@@ -104,8 +104,8 @@ const INTENTS: Intent[] = [
     },
     es: {
       choice: "Tengo una propiedad fuera de EE. UU.",
-      headline: "Propiedad en el extranjero, presentada a agentes compradores del sur de Florida.",
-      body: "El Global Desk prepara inventario prime internacional seleccionado para su descubrimiento por agentes compradores del sur de Florida, dentro de un marco de corretaje con licencia y sujeto a elegibilidad, normas del MLS y participación de las plataformas.",
+      headline: "Propiedad en el extranjero, presentada a agentes compradores del Sur de Florida.",
+      body: "El Global Desk prepara inventario prime internacional seleccionado para su descubrimiento por agentes compradores del Sur de Florida, dentro de un marco de corretaje con licencia y sujeto a elegibilidad, normas del MLS y participación de las plataformas.",
       ctaLabel: "Entrar al Global Desk",
     },
   },
@@ -121,9 +121,9 @@ const INTENTS: Intent[] = [
     },
     es: {
       choice: "Tengo un cliente para referir",
-      headline: "Un referido gestionado por un profesional con licencia en Florida.",
-      body: "Carlos recibe referidos del sur de Florida de agentes dentro y fuera de Estados Unidos, con los términos de cooperación acordados por escrito antes de cualquier presentación de cliente.",
-      ctaLabel: "Ver los términos de referido",
+      headline: "Un referral gestionado por un profesional con licencia en Florida.",
+      body: "Carlos recibe, de agentes dentro y fuera de Estados Unidos, referrals para el Sur de Florida, con los términos de cooperación acordados por escrito antes de cualquier presentación de cliente.",
+      ctaLabel: "Ver los términos del referral",
     },
   },
 ];
@@ -176,7 +176,7 @@ const SHELL = {
     q2: "¿En qué punto está?",
     result: "Su vía",
     whatsapp: "Preguntar a Carlos directamente",
-    footnote: "Sin compromiso de venta · Carlos responde personalmente",
+    footnote: "Sin compromiso de listado · Carlos responde personalmente",
   },
 } as const;
 
