@@ -120,7 +120,11 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
           "@type": "Service",
           name: `Preparación y activación internacional de propiedad — ${market.name}`,
           serviceType: "International property distribution and buyer-agent activation",
-          areaServed: { "@type": "City", name: market.name, addressCountry: "ES" },
+          // The service is delivered from South Florida. The Spanish market
+          // is named in `name` and throughout the visible copy, which is where
+          // it belongs — a structured City/addressCountry:"ES" claimed a
+          // Spanish service area for a Florida-only licensee.
+          areaServed: "South Florida",
           provider: {
             "@type": "RealEstateAgent",
             name: "Carlos Uzcategui",
@@ -206,7 +210,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cobertura local</p>
             <h3 className="mt-3 font-serif text-xl text-navy-deep md:text-2xl">
-              Zonas que trabajamos en {market.name}
+              Zonas de {market.name} que preparamos
             </h3>
             <div className="mt-6 flex flex-wrap gap-2">
               {market.submarkets.map((sub) => (

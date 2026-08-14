@@ -131,4 +131,50 @@ for (const anchor of source.match(/<a[\s\S]{0,700}?<\/a>/g) ?? []) {
   }
 }
 
+// The digit check above only fires on anchors that print a phone number, so it
+// would NOT have caught the bug that actually happened: a button labelled
+// "WhatsApp USA", carrying no digits, pointed at the Spain constant. These two
+// are semantic invariants instead of text matches, so they survive copy edits.
+const heroLabels = [...source.matchAll(/heroWhatsApp: "([^"]+)"/g)].map((m) => m[1]);
+const usLabels = [...source.matchAll(/waUS: "([^"]+)"/g)].map((m) => m[1]);
+assert.equal(heroLabels.length, 2, "heroWhatsApp must be defined in both dictionaries");
+assert.deepEqual(
+  heroLabels,
+  usLabels,
+  "the hero WhatsApp button is the US-line CTA, so its label must match that language's waUS label — a divergence means the hero is advertising a line it does not dial",
+);
+const heroAnchor = source.match(/<a\b[^>]*[\s\S]{0,600}?\{t\.heroWhatsApp\}[\s\S]{0,80}?<\/a>/);
+assert.ok(heroAnchor, "could not locate the hero WhatsApp anchor");
+assert.match(
+  heroAnchor[0],
+  /href=\{WA_US\}/,
+  "the hero WhatsApp anchor must dial the US line — the page speaks to owners in any market",
+);
+
+/* ── Rule 10 in structured data ─────────────────────────────────────────── */
+
+// areaServed is lifted verbatim by search and answer engines as a statement of
+// where this agent serves, and unlike prose it carries no room for a qualifier.
+// It must never exceed the Florida licence the same node advertises. The
+// international origins signal lives in free-text `description` instead.
+const schema = await readFile("src/components/SEO/SchemaOrg.tsx", "utf8");
+// Strip line comments before testing: this asserts on the DATA, and a
+// comment explaining why a territory was removed will naturally quote the
+// territory it removed.
+for (const block of [...schema.matchAll(/areaServed:\s*(\[[^\]]*\]|"[^"]*")/g)]
+  .map((m) => m[1].replace(/\/\/[^\n]*/g, ""))) {
+  assert.doesNotMatch(
+    block,
+    /"(?:Madrid|Spain|España|Latin America|Europe|Middle East|Canada|Barcelona|Marbella|Ibiza)"/i,
+    `areaServed must not claim territory outside Florida — found: ${block.replace(/\s+/g, " ").slice(0, 90)}`,
+  );
+}
+
+const spainMarketPage = await readFile("src/pages/SellSpainMarketPage.tsx", "utf8");
+assert.doesNotMatch(
+  spainMarketPage,
+  /areaServed:\s*\{[^}]*addressCountry:\s*"ES"/,
+  'the per-market service node must not declare a Spanish City as its area served — the service is delivered from South Florida',
+);
+
 console.log("global desk language contract verified");
