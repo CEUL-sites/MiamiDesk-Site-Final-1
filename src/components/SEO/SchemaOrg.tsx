@@ -81,6 +81,13 @@ const sitewideSchema: JsonLdSchema[] = [
       postalCode: "33331",
       addressCountry: "US",
     },
+    // areaServed states where this agent serves, and search engines and AI
+    // answer engines lift it verbatim. It must not exceed the licence this same
+    // node advertises (Florida, SL705771) — naming Spanish or Latin American
+    // territory here made that claim in machine-readable form, with no room for
+    // the qualifying language the visible copy carries everywhere else.
+    // International origins belong in a free-text description, which can carry
+    // the qualifier; see the Global Desk service node below.
     areaServed: [
       "Miami-Dade County",
       "Broward County",
@@ -94,9 +101,6 @@ const sitewideSchema: JsonLdSchema[] = [
       "Doral",
       "Fort Lauderdale",
       "Boca Raton",
-      "Madrid",
-      "Spain",
-      "Latin America",
     ],
     openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
     contactPoint: [
@@ -173,11 +177,11 @@ const sitewideSchema: JsonLdSchema[] = [
     name: "Miami Global Listing Desk — International Property Activation",
     provider: { "@id": `${SITE_URL}/#agent` },
     serviceType: "International Real Estate Buyer-Agent Activation",
-    areaServed: ["South Florida", "Spain", "Latin America"],
+    areaServed: "South Florida",
     url: `${SITE_URL}/global-desk`,
     availableLanguage: ["English", "Spanish"],
     description:
-      "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group. Activity is subject to brokerage, platform, MLS, association, legal, and compliance requirements.",
+      "Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group. Inventory is considered from any market, including Spain, Latin America, Europe, the Middle East, and Canada, subject to property eligibility, brokerage approval, platform participation, and compliance requirements. Local representation in the property's own market is unaffected. Activity is subject to brokerage, platform, MLS, association, legal, and compliance requirements.",
   },
   {
     "@context": "https://schema.org",

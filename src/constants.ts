@@ -18,7 +18,6 @@ export const CONTACT = {
   whatsappBroker: "https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20am%20a%20licensed%20real%20estate%20professional%20and%20would%20like%20to%20schedule%20a%20broker-to-broker%20conversation%20about%20a%20referral%20or%20international%20cooperation%20opportunity.",
   whatsappBrokerSpain: "https://wa.me/34646853078?text=Hola%20Carlos%2C%20soy%20un%20profesional%20inmobiliario%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20un%20referido%20o%20una%20cooperaci%C3%B3n%20internacional.",
   address: "15951 SW 41 St #700, Weston, FL 33331",
-  spainOffice: "Madrid, Spain",
   linkedin: "https://linkedin.com/in/carlosuz",
   calendly: "https://calendly.com/carlosre",
   web: "HomesProfessional.com",
@@ -50,7 +49,13 @@ export const isSpainMarketRoute = (path: string): boolean => {
     [
       "/madrid",
       "/spain-desk",
-      "/global-desk",
+      // NOTE: /global-desk is deliberately absent. The desk sells Miami
+      // exposure through a Florida brokerage to owners in any market, so its
+      // page chrome answers on the US line. The Spain line is not gone from
+      // that page — the Spain section still offers +34 in-page, which is the
+      // right number for a Spanish-speaking owner and the wrong one for a
+      // developer in São Paulo or Dubai. Path-based routing cannot read the
+      // page's EN/ES toggle, so the section-level link is what carries it.
       "/spain-mls-listing",
       "/la-comision-secreta",
       "/vender-marbella",

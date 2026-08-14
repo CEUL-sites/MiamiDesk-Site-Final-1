@@ -11,6 +11,8 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
 import { SpainSellerForm } from "../components/forms/SpainSellerForm";
 import { SPAIN_MARKETS } from "../data/spainMarkets";
+import { GlobalOriginsFlow } from "../components/GlobalOriginsFlow";
+import { FaqAccordion } from "../components/FaqAccordion";
 
 type Lang = "es" | "en";
 
@@ -34,35 +36,50 @@ const C = {
     waES: "WhatsApp España",
     waUS: "WhatsApp EE. UU.",
     heroEyebrow: "Miami Global Listing Desk · Activación internacional de propiedades",
-    heroTitle: "Conectando propiedad prime española con agentes compradores del área de Miami.",
+    heroTitle: "Propiedad prime de cualquier mercado, preparada para agentes compradores del área de Miami.",
     heroSub:
-      "Miami Global Listing Desk ayuda a propiedades prime seleccionadas de España y otros mercados internacionales a entrar en el ecosistema inmobiliario profesional del sur de Florida. Operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group.",
+      "Miami Global Listing Desk ayuda a propiedades prime internacionales seleccionadas a entrar en el ecosistema inmobiliario profesional del sur de Florida. Operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group.",
     heroCta: "Solicitar una presentación privada",
-    heroWhatsApp: "WhatsApp España",
+    heroWhatsApp: "WhatsApp EE. UU.",
     heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · sujeto a requisitos de corretaje, plataforma y cumplimiento",
     marketEyebrow: "Mercados y compradores",
     marketTitle: "Inventario internacional preparado para conversaciones profesionales con agentes compradores.",
     marketLead:
       "Los propietarios internacionales necesitan algo mas preciso que publicidad generica: materiales claros, contexto bilingue y una via de cooperacion que agentes compradores del area de Miami puedan entender y compartir con clientes de Estados Unidos y America Latina.",
     marketBody:
-      "El ecosistema profesional del sur de Florida permite que inventario internacional seleccionado sea presentado con claridad a agentes compradores del área de Miami. Para un propietario, promotor o agencia española, la ventaja está en combinar presentación local, materiales bilingües y una estructura profesional de cooperación sujeta a requisitos de corretaje, plataforma y cumplimiento.",
+      "El ecosistema profesional del sur de Florida permite que inventario internacional seleccionado sea presentado con claridad a agentes compradores del área de Miami. Para un propietario, promotor o agencia internacional, la ventaja está en combinar presentación local, materiales bilingües y una estructura profesional de cooperación sujeta a requisitos de corretaje, plataforma y cumplimiento.",
+    originsEyebrow: "Origen y destino",
+    originsTitle: "El mismo recorrido, sea cual sea el país de la propiedad.",
+    originsLead:
+      "El servicio no depende del país de origen. Lo que decide si una propiedad puede presentarse es la claridad de sus datos y sus materiales, no el lugar donde se encuentra.",
+    originsLabel: "¿Dónde está la propiedad?",
+    originsPickerLabel: "Ubicación de la propiedad",
+    origins: ["España", "América Latina", "Europa", "Oriente Medio", "Canadá", "Otro mercado"],
+    originsStages: [
+      ["Propiedad", "La propiedad permanece donde está, con su titularidad, su representación local y sus normas locales sin cambios."],
+      ["Preparación", "Datos, documentación y materiales bilingües preparados para que un agente del área de Miami pueda leer la propiedad con rapidez y precisión."],
+      ["Presentación", "El inventario seleccionado se presenta para su descubrimiento por agentes compradores del ecosistema profesional del sur de Florida."],
+      ["Cooperación", "Estructurada operación por operación y documentada a través de United Realty Group y los requisitos de cumplimiento aplicables."],
+    ],
+    originsNote:
+      "Se considera inventario de cualquier mercado, sujeto a la elegibilidad de la propiedad, la aprobación del corretaje, la participación de las plataformas y los requisitos de cumplimiento. Carlos Uzcategui tiene licencia en Florida; la representación local en el mercado de la propiedad se mantiene y no se ve afectada.",
     distEyebrow: "La ventaja de distribución",
     distIntro:
       "La activación se apoya en la infraestructura profesional de distribución inmobiliaria del sur de Florida:",
     activation:
       "La exposición es infraestructura. La activación de agentes compradores depende de información clara, cooperación profesional, compensación cuando corresponda y requisitos de corretaje, plataforma y cumplimiento.",
-    bridgeEyebrow: "España, en su contexto local",
-    bridgeTitle: "Un mercado contemporáneo y una identidad de lugar histórica.",
+    bridgeEyebrow: "Ejemplo · España",
+    bridgeTitle: "España es el mercado para el que se construyó originalmente esta mesa.",
     bridgeBody:
-      "La conversación empieza por cómo se entiende un lugar localmente y lleva inventario seleccionado a una conversación clara y profesional con agentes compradores del área de Miami.",
+      "Un mercado mostrado por completo, porque un ejemplo dice más que una promesa. Carlos trabaja con el mercado español en español, y el recorrido anterior es el que siguen los propietarios españoles. Las mismas cuatro etapas se aplican desde cualquier otro mercado — solo cambia la primera tarjeta.",
     granViaAlt: "Vista sobre Gran Vía y los edificios del centro de Madrid",
     granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
     segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
     segoviaCaption: "Segovia, España: el acueducto romano junto al casco histórico.",
-    cardAlt: "Propiedad de Madrid, exposición en Miami: acceso a compradores españoles locales y alcance institucional en EE. UU.",
+    cardAlt: "Propiedad prime internacional, preparada para agentes compradores del área de Miami.",
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
-      "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en España puede ser gestionada por agencias profesionales afiliadas: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
+      "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en el mercado de la propiedad se mantiene con la agencia con licencia que ya la gestiona: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
     proofEyebrow: "Preparación profesional",
     proofTitle: "Inventario preparado para una cooperación clara.",
     proofBody:
@@ -92,7 +109,7 @@ const C = {
       ["Envíe la propiedad", "Una sola propiedad o una cartera. Sin compromiso — Carlos revisa cada solicitud personalmente."],
       ["Propuesta por escrito", "Vía de representación — exclusiva o plan de activación — con alcance y términos en propuesta privada."],
       ["Activación en el sur de Florida", "Presentación profesional, materiales bilingües y rutas de cooperación para agentes compradores del área de Miami."],
-      ["Cooperación profesional", "La cooperación se estructura operación por operación. Su representación local en España puede preservarse."],
+      ["Cooperación profesional", "La cooperación se estructura operación por operación. Su representación local puede preservarse."],
     ],
     midCta: "Solicitar una propuesta privada",
     midCtaAlt: "¿Prefiere hablar primero?",
@@ -100,8 +117,8 @@ const C = {
     faqTitle: "Lo que todo propietario pregunta",
     faqs: [
       [
-        "¿Pierdo a mi agente o mi representación en España?",
-        "No. La representación local española se preserva. Las visitas, la negociación local y la cualificación del comprador en España las gestionan agencias con licencia de la red afiliada — su relación local no cambia.",
+        "¿Pierdo a mi agente o mi representación en mi propio mercado?",
+        "No. La representación local se preserva. Las visitas, la negociación local y la cualificación del comprador en el mercado de la propiedad siguen con la agencia con licencia con la que ya trabaja — esa relación no cambia.",
       ],
       [
         "¿Cuánto cuesta?",
@@ -128,35 +145,50 @@ const C = {
     waES: "WhatsApp Spain",
     waUS: "WhatsApp USA",
     heroEyebrow: "Miami Global Listing Desk · International property distribution",
-    heroTitle: "Prepare Selected International Inventory for Miami-Area Buyer-Agent Discovery",
+    heroTitle: "Prime Property Anywhere, Prepared for Miami-Area Buyer-Agent Discovery",
     heroSub:
       "For international property owners, developers, and listing agents: prepare selected inventory for discovery and professional cooperation by Miami-area buyer agents. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group.",
     heroCta: "Request a Private Introduction",
-    heroWhatsApp: "WhatsApp Spain",
+    heroWhatsApp: "WhatsApp USA",
     heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · subject to brokerage, platform, property-eligibility, and compliance requirements",
     marketEyebrow: "Markets and buyers",
     marketTitle: "International inventory prepared for professional buyer-agent conversations.",
     marketLead:
       "International property owners need something more precise than generic exposure: clear materials, bilingual context, and a cooperation path that Miami-area buyer agents can understand and share with U.S. and Latin American clients.",
     marketBody:
-      "The South Florida professional real estate ecosystem gives selected international inventory a clearer path to buyer-agent discovery. For a Spanish luxury owner, developer, or agency, the advantage is bilingual presentation, brokerage structure, and buyer-agent activation through a compliant professional framework.",
+      "The South Florida professional real estate ecosystem gives selected international inventory a clearer path to buyer-agent discovery. For an international owner, developer, or agency, the advantage is bilingual presentation, brokerage structure, and buyer-agent activation through a compliant professional framework.",
+    originsEyebrow: "Origin and destination",
+    originsTitle: "The same route, whatever country the property sits in.",
+    originsLead:
+      "The desk is origin-agnostic. What decides whether a property can be presented is the clarity of its facts and materials, not the postcode it sits in.",
+    originsLabel: "Where is the property?",
+    originsPickerLabel: "Property location",
+    origins: ["Spain", "Latin America", "Europe", "Middle East", "Canada", "Another market"],
+    originsStages: [
+      ["Property", "The property stays where it is, with its local ownership, local representation and local rules unchanged."],
+      ["Preparation", "Facts, documentation and bilingual materials assembled so a Miami-area agent can read the property quickly and accurately."],
+      ["Presentation", "Selected inventory is presented for discovery by buyer agents working in the South Florida professional ecosystem."],
+      ["Cooperation", "Structured transaction by transaction, documented through United Realty Group and the applicable compliance requirements."],
+    ],
+    originsNote:
+      "Inventory is considered from any market and is subject to property eligibility, brokerage approval, platform participation and compliance requirements. Carlos Uzcategui is licensed in Florida; local representation in the property's own market is preserved and unaffected.",
     distEyebrow: "Distribution advantage",
     distIntro:
       "The service is built around South Florida's professional real estate distribution infrastructure:",
     activation:
       "Exposure is infrastructure. Buyer-agent activation depends on clear information, professional cooperation, appropriate compensation where applicable, and brokerage, platform, and compliance requirements.",
-    bridgeEyebrow: "Spain, in local context",
-    bridgeTitle: "A contemporary market and a historic place identity.",
+    bridgeEyebrow: "Worked example · Spain",
+    bridgeTitle: "Spain is the market this desk was originally built around.",
     bridgeBody:
-      "The conversation starts with how a place is understood locally, then carries selected inventory into a clear, professional discussion with Miami-area buyer agents.",
+      "One market shown in full, because an example is more useful than a promise. Carlos works with the Spanish market in Spanish, and the route above is the one Spanish owners follow. The same four stages apply from any other market — only the first card changes.",
     granViaAlt: "View over Gran Via and central Madrid buildings",
     granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
     segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
     segoviaCaption: "Segovia, Spain: the Roman aqueduct along the historic city edge.",
-    cardAlt: "Madrid property, Miami exposure: local Spanish buyer access and institutional U.S. reach.",
+    cardAlt: "International prime property, prepared for Miami-area buyer-agent discovery.",
     structureEyebrow: "The structure, stated plainly",
     structureBody:
-      "Miami Global Listing Desk helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.",
+      "Miami Global Listing Desk helps selected international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework. Local representation in the property's own market stays with the licensed agency that already handles it: showings, local negotiation and buyer qualification.",
     proofEyebrow: "Professional preparation",
     proofTitle: "Inventory prepared for clear professional cooperation.",
     proofBody:
@@ -186,7 +218,7 @@ const C = {
       ["Submit the property", "A single property or a portfolio. No commitment — Carlos reviews every submission personally."],
       ["Written proposal", "Representation path — exclusive or activation plan — with scope and terms in a private proposal."],
       ["South Florida activation", "Professional presentation, bilingual materials, and cooperation pathways for Miami-area buyer agents."],
-      ["Professional cooperation", "Cooperation is structured transaction by transaction. Your local Spanish representation can be preserved."],
+      ["Professional cooperation", "Cooperation is structured transaction by transaction. Your local representation can be preserved."],
     ],
     midCta: "Request a private proposal",
     midCtaAlt: "Prefer to talk first?",
@@ -194,8 +226,8 @@ const C = {
     faqTitle: "What every owner asks",
     faqs: [
       [
-        "Do I lose my agent or my representation in Spain?",
-        "No. Local Spanish representation is preserved. Showings, local negotiation, and buyer qualification in Spain are handled by licensed agencies within the affiliated network — your local relationship doesn't change.",
+        "Do I lose my agent or my representation in my own market?",
+        "No. Local representation is preserved. Showings, local negotiation, and buyer qualification in the property's own market stay with the licensed local agency you already work with — that relationship does not change.",
       ],
       [
         "What does it cost?",
@@ -339,7 +371,7 @@ export default function GlobalDeskPage() {
           {/* Luxury backdrop — prime listing showcase under the aurora */}
           <LazyVideo
             idle
-            src="/videos/madrid_piso_entrance.mp4"
+            src="/videos/waterfront_house_global_reach.mp4"
             className="absolute inset-0 h-full w-full object-cover opacity-[0.26] pointer-events-none"
           />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.28),transparent_70%)]" />
@@ -384,10 +416,15 @@ export default function GlobalDeskPage() {
                 {t.heroCta}
                 <ChevronRight size={14} />
               </a>
-              {/* WhatsApp is the default B2B channel for the Spanish market —
-                  a direct ES-number line lowers the first-contact barrier. */}
+              {/* WhatsApp is the default B2B channel here, and the hero speaks
+                  to owners in any market — so it answers on the US line, which
+                  is where a Florida brokerage should take an enquiry about
+                  Miami exposure. The Spain line is not hidden: the identity bar
+                  above and the Spain example below both offer +34, which is the
+                  right number for a Spanish-speaking owner and the wrong one
+                  for a developer in São Paulo. */}
               <a
-                href={WA_ES}
+                href={WA_US}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-white/25 px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80 transition-colors hover:border-gold/60 hover:text-gold"
@@ -429,6 +466,19 @@ export default function GlobalDeskPage() {
           </motion.div>
         </section>
 
+        <GlobalOriginsFlow
+          copy={{
+            eyebrow: t.originsEyebrow,
+            title: t.originsTitle,
+            lead: t.originsLead,
+            originsLabel: t.originsLabel,
+            pickerLabel: t.originsPickerLabel,
+            origins: t.origins,
+            stages: t.originsStages,
+            note: t.originsNote,
+          }}
+        />
+
         {/* ── Section D — Distribution advantage (figure grid + activation) ── */}
         <section className="bg-ivory px-6 py-16 text-navy md:py-24">
           <div className="mx-auto max-w-5xl">
@@ -437,16 +487,16 @@ export default function GlobalDeskPage() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.distEyebrow}</p>
                 <p className="mt-5 max-w-2xl font-serif text-2xl leading-snug text-navy md:text-3xl">{t.distIntro}</p>
               </div>
-              <figure className="mx-auto w-full max-w-sm overflow-hidden border border-gold/40 shadow-xl shadow-navy/10 lg:mx-0">
-                <img
-                  src="/images/global-desk-spain-miami-card.png"
-                  alt={t.cardAlt}
-                  width={1080}
-                  height={1080}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover"
-                />
+              <figure className="mx-auto w-full max-w-sm lg:mx-0">
+                <div className="relative aspect-square overflow-hidden rounded-xl border border-gold/40 shadow-xl shadow-navy/10">
+                  <LazyVideo
+                    src="/videos/dollhouse_global_reach.mp4"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-navy/55">
+                  {t.cardAlt}
+                </figcaption>
               </figure>
             </div>
 
@@ -684,17 +734,11 @@ export default function GlobalDeskPage() {
           <div className="mx-auto max-w-3xl">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.faqEyebrow}</p>
             <h2 className="mt-5 font-serif text-2xl text-navy md:text-3xl">{t.faqTitle}</h2>
-            <div className="mt-9 divide-y divide-navy/10 border-y border-navy/10">
-              {t.faqs.map(([q, a]) => (
-                <details key={q} className="group py-5">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-navy">
-                    {q}
-                    <ChevronRight size={16} className="shrink-0 text-gold-ink transition-transform group-open:rotate-90" />
-                  </summary>
-                  <p className="mt-3 max-w-2xl font-sans text-base leading-[1.8] text-navy/70">{a}</p>
-                </details>
-              ))}
-            </div>
+            <FaqAccordion
+              tone="light"
+              className="mt-9 border-y border-navy/10"
+              faqs={t.faqs.map(([q, a]) => ({ q, a }))}
+            />
           </div>
         </section>
         <JsonLd
