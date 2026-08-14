@@ -341,4 +341,48 @@ assert.ok(
   "the pathfinder catches visitors who reached the end of the page",
 );
 
+/* ── EN/ES parity ────────────────────────────────────────────────────────── */
+
+// Adding these two modules to the English homepage and not the Spanish one
+// leaves /es materially worse than /, which is the gap this asserts shut.
+const esHome = await readFile("src/pages/es/EsHomePage.tsx", "utf8");
+for (const mod of ["MarketingReel3D", "SellerPathfinder"]) {
+  assert.match(
+    esHome,
+    new RegExp(`<${mod} lang="es"`),
+    `the Spanish homepage must render ${mod} in Spanish — the English homepage has it`,
+  );
+  assert.match(
+    esHome,
+    new RegExp(`const ${mod} = lazy\\(`),
+    `${mod} must be lazily imported on the Spanish homepage too`,
+  );
+}
+
+// /es is a Spain-market route. A Spanish prospect must never be handed the US
+// number, and the component defaults to it, so the call site has to say so.
+assert.match(
+  esHome,
+  /<SellerPathfinder lang="es" whatsappHref=\{CONTACT\.whatsappSpain\}/,
+  "the Spanish homepage pathfinder must answer on the Spain line, not the US default",
+);
+assert.match(
+  esHome,
+  /id="list-here"/,
+  'the Spanish homepage needs the #list-here anchor: the sticky CTA resolves it first, and the pathfinder\'s seller route targets it',
+);
+
+// Every bilingual string must exist in both languages, or one language renders
+// `undefined` where copy should be.
+for (const [file, label] of [
+  ["src/components/MarketingReel3D.tsx", "reel"],
+  ["src/components/SellerPathfinder.tsx", "pathfinder"],
+] as const) {
+  const src = await readFile(file, "utf8");
+  const en = (src.match(/^\s*en: \{/gm) ?? []).length;
+  const es = (src.match(/^\s*es: \{/gm) ?? []).length;
+  assert.ok(en > 0, `${label} must define English copy blocks`);
+  assert.equal(en, es, `${label} has ${en} en blocks and ${es} es blocks — every entry needs both`);
+}
+
 console.log("interactive modules verified");
