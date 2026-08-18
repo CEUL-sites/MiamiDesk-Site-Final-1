@@ -8,6 +8,31 @@ assert.match(source, /localStorage\.getItem\("gd-lang"\)/);
 assert.match(source, /hrefLang="es"/);
 assert.match(source, /Miami Global Listing Desk/);
 
+/* ── Listing-content readiness ────────────────────────────────────────── */
+
+// The media photograph demonstrates field experience, not a promise that
+// Carlos will personally produce every asset. A listing can be considered only
+// once its own owner, developer, or representative has made professional
+// presentation materials available (or qualified providers are coordinated).
+for (const [title, body] of [
+  [
+    "Professional content required for market activation.",
+    "To be introduced effectively to South Florida buyer agents and their clients, each property must be supported by clear, professional presentation materials.",
+  ],
+  [
+    "Contenido profesional requerido para la activación de mercado.",
+    "Para presentarse eficazmente a agentes compradores del sur de Florida y sus clientes, cada propiedad debe contar con materiales de presentación claros y profesionales.",
+  ],
+]) {
+  assert.match(source, new RegExp(title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.match(source, new RegExp(body.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+}
+assert.doesNotMatch(
+  source,
+  /Carlos (?:coordinates photography|coordina fotografía)/,
+  "the Global Desk must not imply that Carlos supplies or guarantees the listing media",
+);
+
 /* ── Positioning: a global desk, not a Spain desk ───────────────────────── */
 
 // The page sells Miami exposure to owners in any market. Spain is the worked

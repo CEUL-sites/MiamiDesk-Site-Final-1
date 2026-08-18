@@ -186,12 +186,19 @@ for (const field of [
   "city",
   "timeline",
   "messagingConsent",
-  "lat",
-  "lng",
-  "placeId",
 ]) {
   assert.match(form, new RegExp(`name="${field}"`), `seller-hero must retain the ${field} field`);
 }
+assert.doesNotMatch(
+  form,
+  /loadGooglePlaces|MAPS_KEY|maps\.googleapis\.com|mapUrl|placeId/,
+  "the homepage seller form must collect an address directly without loading Google Places or a map preview",
+);
+assert.doesNotMatch(
+  form,
+  /onFocus=\{initPlaces\}/,
+  "focusing the homepage address field must not trigger a third-party map request",
+);
 assert.match(form, /notifyLeadDirect\(/);
 assert.match(form, /\/\.netlify\/functions\/lead-acknowledgment/);
 assert.match(form, /status === "success"/);
