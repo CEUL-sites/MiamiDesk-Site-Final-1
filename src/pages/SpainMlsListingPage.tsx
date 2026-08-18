@@ -69,7 +69,7 @@ const COPY = {
     heroSub:
       "El prime español es mayoritariamente un mercado de compradores internacionales — los americanos son la cohorte de mayor crecimiento y gasto, y el capital latinoamericano lidera en Madrid. Miami Global Listing Desk ayuda a que inventario seleccionado sea más fácil de entender, compartir y evaluar para agentes compradores del sur de Florida dentro de un marco profesional de corretaje.",
     ctaPrimary: "Solicitar una Conversación de Alianza",
-    ctaWhatsApp: "WhatsApp — Mesa de España",
+    ctaWhatsApp: "WhatsApp — Global Desk",
     ctaBrief: "Descargar el informe metodológico de activación",
     twoSidedEyebrow: "El Argumento de Doble Vía",
     twoSidedH2: "Venda más. Gane más mandatos.",

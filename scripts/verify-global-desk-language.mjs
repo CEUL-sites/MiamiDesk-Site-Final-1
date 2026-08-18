@@ -176,6 +176,38 @@ assert.match(
   "the hero WhatsApp anchor must dial the US line — the page speaks to owners in any market",
 );
 
+/* ── One name for the desk, in both languages ───────────────────────────── */
+
+// The desk is a product name, so it is not translated — the Spanish side of
+// GlobalDeskPage already says "Miami Global Listing Desk" untranslated, and the
+// nav, footer and Spain-MLS breadcrumb all say "Global Desk". EsSpainDeskPage
+// was the outlier and called the same product two different things within one
+// page: "Mesa Global" in its <title>, "Mesa España" in its breadcrumb and its
+// schema `name`.
+//
+// "Mesa España" is the worse of the two: it names the product after Spain,
+// which is exactly the framing the origin-agnostic repositioning removed.
+//
+// "Mesa de Promotor" (the Developer Desk plan tier) and "Mesa de Alianzas" (a
+// section label) are deliberately not covered — they are descriptive, have
+// consistent English counterparts, and are not the product's name.
+const brandFiles = [
+  "src/pages/es/EsSpainDeskPage.tsx",
+  "src/pages/SpainMlsListingPage.tsx",
+  "src/pages/GlobalDeskPage.tsx",
+  "src/components/Footer.tsx",
+  "src/constants.ts",
+];
+for (const file of brandFiles) {
+  const src = await readFile(file, "utf8");
+  for (const variant of ["Mesa Global", "Mesa España", "Mesa de España", "Escritorio Global"]) {
+    assert.ok(
+      !src.includes(variant),
+      `${file} calls the desk "${variant}" — the product name is not translated. Use "Global Desk", or "Miami Global Listing Desk" for the formal name.`,
+    );
+  }
+}
+
 /* ── Rule 10 in structured data ─────────────────────────────────────────── */
 
 // areaServed is lifted verbatim by search and answer engines as a statement of
