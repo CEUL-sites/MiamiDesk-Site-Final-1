@@ -80,10 +80,10 @@ const C = {
     structureEyebrow: "La estructura, dicha con claridad",
     structureBody:
       "Miami Global Listing Desk es un servicio de distribución internacional y activación de agentes compradores con base en el sur de Florida, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group. La representación local en el mercado de la propiedad se mantiene con la agencia con licencia que ya la gestiona: visitas, negociación local y cualificación del comprador. Cualquier actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento.",
-    proofEyebrow: "Preparación profesional",
-    proofTitle: "Inventario preparado para una cooperación clara.",
+    proofEyebrow: "Requisitos de presentación",
+    proofTitle: "Contenido profesional requerido para la activación de mercado.",
     proofBody:
-      "Carlos coordina fotografía y materiales de presentación para que inventario seleccionado pueda ser entendido y evaluado por agentes compradores del sur de Florida dentro del marco profesional aplicable.",
+      "Para presentarse eficazmente a agentes compradores del sur de Florida y sus clientes, cada propiedad debe contar con materiales de presentación claros y profesionales. Estos pueden ser aportados por el propietario, promotor o representante de la propiedad, o coordinarse con proveedores cualificados cuando corresponda. La activación comienza cuando la propiedad puede presentarse con claridad y coherencia dentro del marco profesional aplicable.",
     proofAlt: "Carlos Uzcategui con un equipo de medios de propiedad en Miami",
     proofCaption: "Carlos Uzcategui con un equipo profesional de medios en una propiedad de Miami.",
     howEyebrow: "Cómo funciona",
@@ -189,10 +189,10 @@ const C = {
     structureEyebrow: "The structure, stated plainly",
     structureBody:
       "Miami Global Listing Desk helps selected international prime properties enter the South Florida professional real estate ecosystem. Operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group, the service is designed to make qualified inventory easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework. Local representation in the property's own market stays with the licensed agency that already handles it: showings, local negotiation and buyer qualification.",
-    proofEyebrow: "Professional preparation",
-    proofTitle: "Inventory prepared for clear professional cooperation.",
+    proofEyebrow: "Presentation requirements",
+    proofTitle: "Professional content required for market activation.",
     proofBody:
-      "Carlos coordinates photography and property-presentation materials so selected inventory can be understood and evaluated by South Florida buyer agents within the applicable professional framework.",
+      "To be introduced effectively to South Florida buyer agents and their clients, each property must be supported by clear, professional presentation materials. These may be supplied by the owner, developer, or listing representative, or coordinated with qualified providers when appropriate. Market activation begins when the property can be presented clearly and consistently within the applicable professional framework.",
     proofAlt: "Carlos Uzcategui with a property media team in Miami",
     proofCaption: "Carlos Uzcategui with a professional property media team at a Miami property.",
     howEyebrow: "How it works",
