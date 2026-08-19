@@ -1,6 +1,6 @@
 import { motion, type Variants } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronRight, Globe, ShieldCheck, Star, Tag } from "lucide-react";
+import { ChevronRight, Globe, ShieldCheck, Star, Tag, Sparkles } from "lucide-react";
 import { HeroBackground } from "./HeroBackground";
 import { HeroSellerForm } from "./HeroSellerForm";
 
@@ -8,7 +8,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 // Demoted to a secondary column beside the form — the seller form is the
 // centerpiece now, not the decorative clip.
-const FEATURE_SIZE = "clamp(120px,26vw,170px)";
+const FEATURE_SIZE = "clamp(200px,24vw,235px)";
 
 // Verified network-distribution figures — static, no counting-up animation.
 // Keep in sync with the network ticker figures used elsewhere on the site.
@@ -370,19 +370,19 @@ export function Hero() {
             right. Mobile: form first, bubble below it, reduced in size. */}
         <motion.div
           variants={item}
-          className="mt-10 flex w-full max-w-5xl flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-center"
+          className="mt-10 flex w-full max-w-5xl flex-col items-center gap-6 lg:flex-row lg:items-stretch lg:justify-center"
         >
           <motion.div
             id="list-here"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: 0.35 }}
-            className="w-full max-w-lg scroll-mt-24 lg:order-1"
+            className="w-full max-w-lg scroll-mt-24 lg:order-1 flex"
           >
             <HeroSellerForm />
           </motion.div>
 
-          <div ref={trioRef} className="flex items-center justify-center lg:order-2 lg:pt-6">
+          <div ref={trioRef} className="w-full max-w-sm flex items-stretch justify-center lg:order-2">
             <HeroCyclingBubble active={videosActive} />
           </div>
         </motion.div>
