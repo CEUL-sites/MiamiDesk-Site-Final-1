@@ -19,18 +19,22 @@ function StarRow({ size = 12 }: { size?: number }) {
 
 export function Proof() {
   return (
-    <section id="client-reviews" className="scroll-mt-24 border-t border-gold/10 bg-navy-deep py-10 md:py-16">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col gap-4 border-b border-white/10 pb-7 sm:flex-row sm:items-end sm:justify-between md:pb-10">
+    <section id="client-reviews" className="scroll-mt-24 border-t border-gold/20 bg-[#06101D] py-12 md:py-20 relative overflow-hidden">
+      {/* Soft ambient background glow */}
+      <div className="pointer-events-none absolute right-0 top-0 h-[450px] w-[450px] rounded-full bg-gold/[0.03] blur-[100px]" aria-hidden="true" />
+      <div className="pointer-events-none absolute left-0 bottom-0 h-[350px] w-[350px] rounded-full bg-[#16449E]/[0.08] blur-[90px]" aria-hidden="true" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="flex flex-col gap-4 border-b border-gold/15 pb-8 sm:flex-row sm:items-end sm:justify-between md:pb-10">
           <div>
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
-              Client Reviews
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
+              Client Reviews &amp; Track Record
             </p>
-            <h2 className="font-serif text-3xl text-white">What My Clients Say</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl text-white tracking-tight">What My Clients Say</h2>
             <div className="mt-3 flex items-center gap-2.5">
-              <StarRow size={14} />
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-                {RATING_VALUE} average &middot; Verified Realtor.com{"\u00AE"} reviews
+              <StarRow size={15} />
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/80">
+                {RATING_VALUE} / 5.0 Average &middot; Verified Realtor.com{"\u00AE"} Reviews
               </span>
             </div>
           </div>
@@ -38,15 +42,15 @@ export function Proof() {
             href={REALTOR_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 self-start border border-gold/40 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10 sm:self-auto"
+            className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-gold/45 bg-white/[0.03] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold backdrop-blur-sm transition-all hover:bg-gold hover:text-navy-deep sm:self-auto"
           >
-            Reviews verified on Realtor.com{"\u00AE"} &rarr;
+            Read all reviews on Realtor.com{"\u00AE"} &rarr;
           </a>
         </div>
 
         <ReviewSpotlight reviews={REVIEWS} />
 
-        <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 md:mt-10">
+        <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60 md:mt-12 text-center sm:text-left">
           Individual results vary and are not a prediction of any sale outcome.
         </p>
       </div>
