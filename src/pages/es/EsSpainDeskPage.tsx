@@ -8,7 +8,6 @@ import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { LazyVideo } from "../../components/LazyVideo";
 import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { AgencyPartnerForm } from "../../components/forms/AgencyPartnerForm";
-import { SpainSellerForm } from "../../components/forms/SpainSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 
@@ -135,7 +134,7 @@ export default function EsSpainDeskPage() {
   return (
     <>
       <Helmet>
-        <title>Mesa Global — Exposición hacia el Sur de Florida</title>
+        <title>Global Desk — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | Carlos Uzcategui</title>
         <meta name="description" content="Servicio B2B de exposición y referral para agencias y promotores en Sur de Florida. Usted mantiene el mandato local. Carlos Uzcategui, FL SL705771." />
         <meta name="keywords" content="ganar mandatos de venta España Sur de Florida, exposición Sur de Florida agencias españolas, listing España Sur de Florida, partnership agencia España Sur de Florida, cooperating broker España Florida, United Realty Group España, exposición internacional de listings" />
         <link rel="canonical" href="https://homesprofessional.com/es/spain-desk" />
@@ -144,7 +143,7 @@ export default function EsSpainDeskPage() {
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/es/spain-desk" />
-        <meta property="og:title" content="Mesa Global — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | Carlos Uzcategui" />
+        <meta property="og:title" content="Global Desk — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | Carlos Uzcategui" />
         <meta property="og:description" content="Dé a su agencia una ventaja en la presentación de captación: exposición documentada hacia Sur de Florida para sus vendedores, cuando es elegible. Representación local en España; exposición hacia Sur de Florida a través de un Realtor® licenciado en Florida." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -155,13 +154,13 @@ export default function EsSpainDeskPage() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://homesprofessional.com/es" },
-            { "@type": "ListItem", "position": 2, "name": "Mesa España", "item": "https://homesprofessional.com/es/spain-desk" },
+            { "@type": "ListItem", "position": 2, "name": "Global Desk", "item": "https://homesprofessional.com/es/spain-desk" },
           ],
         }} />
       <JsonLd id="es-spain-desk-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Mesa España — Servicio de Partnership para Agencias Españolas",
+          "name": "Global Desk — Servicio de Partnership para Agencias y Promotores",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "Marketing Inmobiliario Internacional y Referral",
           "description": "Servicio B2B para agencias y promotores españoles. Tarifa mensual de marketing por listing más comisión de referral al cierre, gestionado a través de United Realty Group como broker licenciado en Florida.",
@@ -261,7 +260,7 @@ export default function EsSpainDeskPage() {
               <em className="italic text-gold">93.000 Agentes Compradores de Miami.</em>
             </motion.h1>
             {/* Titulares alternativos para que Carlos elija — en la voz "...el Alcance de...":
-                 A) "Propiedad Premium, con el Alcance de la Asociación Local de REALTORS® Más Grande del Mundo."
+                 A) "Propiedad Premium, con el Alcance de la Red Local de Realtor® Más Grande del Mundo."
                  B) "Propiedad Premium, ante Cada Agente Comprador de la Red de Miami." */}
 
             {/* Italic serif subtitle */}
@@ -855,26 +854,18 @@ export default function EsSpainDeskPage() {
           </div>
         </section>
 
-        {/* ── Formulario ──────────────────────────────────────────────
-            Dos vías, según quién llega. AgencyPartnerForm está escrito para
-            agencias y promotores; un propietario particular que aterrizaba
-            aquí no tenía ningún formulario adecuado y se marchaba. La consulta
-            breve va primero por ser la audiencia más amplia. */}
+        {/* ── Formulario ────────────────────────────────────────────── */}
         <section className="bg-navy-deep py-16 md:py-24" id="enviar-listing">
           <div className="mx-auto max-w-3xl px-6">
-            <SpainSellerForm lang="es" sourcePage="es-spain-desk" />
-
-            <div className="mt-14 border-t border-white/10 pt-14">
-              <div className="mb-10 text-center">
-                <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Mesa España · Consulta de Agencia</p>
-                <h2 className="mt-3 font-serif text-3xl text-white">¿Es agencia o promotora?</h2>
-                <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                  Para agencias españolas, promotores y profesionales del listing. Todas las solicitudes son confidenciales.
-                  Carlos revisa cada consulta personalmente antes de responder.
-                </p>
-              </div>
-              <AgencyPartnerForm />
+            <div className="mb-10 text-center">
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Mesa España · Consulta de Agencia</p>
+              <h2 className="mt-3 font-serif text-3xl text-white">Envíe un listing o consulta de agencia.</h2>
+              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+                Para agencias españolas, promotores y profesionales del listing. Todas las solicitudes son confidenciales.
+                Carlos revisa cada consulta personalmente antes de responder.
+              </p>
             </div>
+            <AgencyPartnerForm />
           </div>
         </section>
 
