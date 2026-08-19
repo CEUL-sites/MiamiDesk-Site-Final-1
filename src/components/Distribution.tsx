@@ -1,135 +1,224 @@
-import { motion } from "motion/react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion, useInView } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, Camera, Globe2, MessagesSquare, Radar } from "lucide-react";
 import { LazyVideo } from "./LazyVideo";
-import { ReachFlow3D } from "./ReachFlow3D";
-import { CountUp } from "./CountUp";
 
-const DISTRIBUTION_STATS = [
+// Homepage-only merge of ReachAdvantage + ListingSystem — the structural
+// argument made once, at full strength: what happens to the listing in the
+// MLS ecosystem, then how the listing system executes on that placement.
+// ReachAdvantage and ListingSystem remain unchanged for SellSouthFloridaPage,
+// which still uses them as separate sections.
+
+const TOP_STATS = [
   {
-    value: "93,000",
-    label: "Association members",
-    source: "Miami and South Florida REALTORS®",
-    description: "Professional visibility inside the shared MLS ecosystem used by member agents.",
+    value: 93000,
+    display: "93,000",
+    suffix: "",
+    label: "Member Agents",
+    sublabel: "Miami & South Florida REALTORS®",
+    desc: "Every member agent works from the same MLS inventory your home is placed into.",
   },
   {
-    value: "200+",
-    label: "Websites and apps",
-    source: "Association listing-reach program",
-    description: "Eligible listings can be syndicated across consumer discovery channels in 19 languages.",
+    value: 437,
+    display: "437",
+    suffix: "+",
+    label: "International Agreements",
+    sublabel: "MIAMI Global Council",
+    desc: "Direct buyer markets across 75+ countries — more than any other local association.",
   },
   {
-    value: "260+",
-    label: "U.S. MLSs via RPR",
-    source: "Realtors Property Resource®",
-    description: "Qualified property data can travel through approved professional distribution infrastructure.",
+    value: 3500,
+    display: "3,500",
+    suffix: "+",
+    label: "United Realty Group Agents",
+    sublabel: "Founded 2002 · 20 Florida offices",
+    desc: "A full-service brokerage with an in-house title company behind every listing.",
+  },
+];
+
+const PILLARS = [
+  {
+    icon: Camera,
+    step: "01",
+    title: "Media that earns the click",
+    body:
+      "Pro photography, cinematic video, and staging direction — approved before launch. Buyers screen online first; your home wins on the first frame.",
   },
   {
-    value: "437+",
-    label: "International agreements",
-    source: "MIAMI Global Council",
-    description: "Association relationships support international professional cooperation and market access.",
+    icon: Globe2,
+    step: "02",
+    title: "Distribution beyond the MLS",
+    body:
+      "Into the Miami MLS ecosystem 93,000 agents work from daily — then syndicated to major U.S. portals and 200+ international channels in 19 languages.",
   },
-] as const;
+  {
+    icon: Radar,
+    step: "03",
+    title: "Buyer-agent activation",
+    body:
+      "Direct outreach to the agents working buyers in your price band — local, relocation, and international — so your home is shown, not just listed.",
+  },
+  {
+    icon: MessagesSquare,
+    step: "04",
+    title: "Weekly reporting, real strategy",
+    body:
+      "Showings, feedback, and analytics every week by WhatsApp or email — with pricing moves recommended from the data, not guesswork.",
+  },
+];
+
+function AnimatedNumber({ display, suffix }: { display: string; suffix: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) setVisible(true);
+  }, [inView]);
+
+  return (
+    <div ref={ref} className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+      <span className="font-serif" style={{ lineHeight: 1 }}>
+        {display}
+        {suffix && <span className="text-gold/80">{suffix}</span>}
+      </span>
+    </div>
+  );
+}
+
+function StatCard({ stat, index }: { stat: typeof TOP_STATS[0]; index: number; key?: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.75, delay: index * 0.09 }}
+      className="group relative flex flex-col justify-between border-b border-gold/15 p-6 transition-all duration-500 hover:bg-white/[0.04] md:p-10 lg:border-b-0 lg:border-r last:border-r-0"
+    >
+      <div>
+        <div className="mb-4 h-0.5 w-12 bg-gold/50 transition-all duration-500 group-hover:w-full group-hover:bg-gold" />
+        <div className="font-serif text-gold tracking-tight" style={{ fontSize: "clamp(3.2rem, 5.5vw, 5.2rem)", lineHeight: 1 }}>
+          <AnimatedNumber display={stat.display} suffix={stat.suffix} />
+        </div>
+        <div className="mt-4 md:mt-5">
+          <p className="font-sans text-base font-semibold uppercase tracking-[0.14em] text-white">{stat.label}</p>
+          <p className="font-mono mt-1 text-[11px] uppercase tracking-[0.2em] text-gold/75">{stat.sublabel}</p>
+        </div>
+      </div>
+      <p className="mt-4 font-sans text-sm leading-relaxed text-white/75 md:mt-6">{stat.desc}</p>
+    </motion.div>
+  );
+}
 
 export function Distribution() {
   return (
     <section id="reach" className="relative overflow-hidden bg-navy-deep text-white">
+
+      {/* Cinematic reach backdrop */}
       <LazyVideo
         src="/videos/cinematic_house_reach.mp4"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.1]"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.10]"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/90 via-navy-deep/78 to-navy-deep/94" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/85 via-navy-deep/70 to-navy-deep/90" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.04] blur-[120px]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-14 md:py-24">
-        <div className="max-w-3xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-            Verified distribution infrastructure
-          </p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-5xl">
-            A strong listing strategy is supported by professional reach.
-          </h2>
-          <p className="mt-5 max-w-xl font-sans text-base leading-relaxed text-white/70">
-            Carlos combines South Florida MLS positioning, buyer-agent activation and eligible online syndication through United Realty Group and his Miami and South Florida REALTORS® membership.
-          </p>
-          <a
-            href="#list-here"
-            className="mt-7 inline-flex min-h-12 items-center gap-2.5 bg-gold px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
-          >
-            Request My Property Strategy
-            <ArrowRight size={14} aria-hidden="true" />
-          </a>
-        </div>
+      {/* ── Header — the ecosystem-placement argument ──────────── */}
+      <div className="relative border-b border-gold/15 px-6 py-8 text-center md:py-16">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold"
+        >
+          Distribution · United Realty Group
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mx-auto mt-4 max-w-5xl font-serif leading-[1.08] text-white md:mt-6"
+          style={{ fontSize: "clamp(2.2rem, 4.6vw, 4rem)" }}
+        >
+          Your listing enters the ecosystem<br />
+          <em className="italic text-gold">93,000 South Florida agents work from every day.</em>
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mx-auto mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:mt-6"
+        >
+          Buyers don't find homes — their agents do. Your listing goes into the same
+          MLS inventory those agents search daily, in South Florida and in 75+ countries.
+        </motion.p>
 
-        {/* The route first, as a picture. The figure carries what a list of four
-            figures cannot — that these are stages of one path, not four separate
-            boasts — and it reads in about a second, which is roughly the
-            attention four stat rows got before the eye moved on. The sourced
-            detail then sits underneath for anyone who wants to check it. */}
-        <div className="mt-11 md:mt-14">
-          <p className="text-center font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
-            How a listing travels
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-6 flex flex-col items-center gap-3 md:mt-10"
+        >
+          <img
+            src="/images/miami-realtors-logo.png"
+            alt="MIAMI Association of REALTORS®"
+            width="170"
+            height="58"
+            loading="lazy"
+            className="h-9 w-auto opacity-85"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+            Powered by membership in the Miami and South Florida REALTORS®
           </p>
-          <ReachFlow3D className="mt-7" />
-          {/* States the approved framing next to the figure: a listing enters an
-              ecosystem member agents work from. The stages are places a listing
-              reaches, never a notification sent to 93,000 people. */}
-          <p className="mx-auto mt-6 max-w-2xl text-center font-sans text-[11px] leading-relaxed text-white/55">
-            A listing enters the MLS ecosystem that member agents work from daily. Each stage is a channel the property can reach, subject to the eligibility terms below.
-          </p>
-        </div>
+        </motion.div>
+      </div>
 
-        {/* Each card carries its own top rule rather than the grid carrying
-            dividers: `divide-x` on a wrapping grid rules the wrong edges once
-            the four columns fold to two. */}
-        <div className="mt-12 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
-          {DISTRIBUTION_STATS.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="dist-row border-t border-white/15 pt-6"
-            >
-              <p className="font-serif text-3xl text-gold md:text-4xl">
-                <CountUp value={stat.value} />
-              </p>
-              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/65">
-                {stat.label}
-              </p>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-white/76">{stat.description}</p>
-              <p className="mt-2.5 font-mono text-[9px] uppercase tracking-[0.13em] text-gold/70">
-                Source: {stat.source}
-              </p>
-            </motion.div>
+      {/* ── Stats row ────────────────────────────────────────────── */}
+      <div className="relative grid border-b border-gold/15 lg:grid-cols-3">
+        {TOP_STATS.map((stat, i) => (
+          <StatCard key={stat.label} stat={stat} index={i} />
+        ))}
+      </div>
+
+      {/* ── How the listing system executes ─────────────────────── */}
+      <div className="relative mx-auto max-w-6xl px-6 py-12 md:py-20">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">The Listing System</p>
+        <h3 className="mt-3 max-w-2xl font-serif text-2xl leading-tight text-white md:mt-4 md:text-4xl">
+          What actually happens when your home lists with Carlos.
+        </h3>
+
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 md:mt-12">
+          {PILLARS.map(({ icon: Icon, step, title, body }) => (
+            <div key={step} className="group relative rounded-xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-white/[0.06] hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] md:p-7">
+              <div className="flex items-center justify-between">
+                <span className="font-serif text-[2.2rem] leading-none text-gold md:text-[2.8rem]">{step}</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold/10 text-gold transition-colors duration-300 group-hover:bg-gold group-hover:text-navy-deep">
+                  <Icon size={20} />
+                </div>
+              </div>
+              <div className="mt-4 h-px w-10 bg-gold/40 transition-all duration-300 group-hover:w-16 md:mt-5" />
+              <h4 className="mt-4 font-serif text-lg leading-snug text-white md:mt-5">{title}</h4>
+              <p className="mt-2.5 font-sans text-[13px] leading-relaxed text-white/70 md:mt-3">{body}</p>
+            </div>
           ))}
         </div>
 
-        {/* Eligibility terms belong on the page, but not as a paragraph competing
-            with the argument above it. Kept in the DOM inside a disclosure so it
-            is one tap away and still crawlable. */}
-        <details className="dist-terms group mt-10 max-w-5xl">
-          <summary className="inline-flex cursor-pointer list-none items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/60 transition-colors hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60">
-            <ChevronDown
-              size={13}
-              aria-hidden="true"
-              className="transition-transform duration-300 group-open:rotate-180"
-            />
-            Distribution eligibility and limits
-          </summary>
-          <p className="mt-3 font-sans text-[11px] leading-relaxed text-white/55">
-            Distribution is subject to property type and eligibility, MLS rules, brokerage approval, platform participation and syndication partner availability. Not all properties appear on all websites or apps, and participating sites may change.
-          </p>
-        </details>
+        {/* Single CTA naming a specific outcome */}
+        <div className="mt-10 flex justify-center md:mt-14">
+          <a
+            href="/sell-south-florida#contact"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-gold px-9 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)] md:py-4.5"
+          >
+            Request Your Distribution Analysis
+            <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
       </div>
 
-      <style>{`
-        .dist-terms summary::-webkit-details-marker { display: none; }
-        .dist-row { transition: background-color 0.4s ease; }
-        @media (hover: hover) and (pointer: fine) {
-          .dist-row:hover { background-color: rgba(255,255,255,0.025); }
-        }
-      `}</style>
     </section>
   );
 }
