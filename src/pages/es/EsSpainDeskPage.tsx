@@ -223,10 +223,10 @@ export default function EsSpainDeskPage() {
             eager
             src="/videos/dollhouse_global_reach.mp4"
             poster="/images/og-default.png"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.22] pointer-events-none"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.45] pointer-events-none"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/75 via-[#060D18]/60 to-[#060D18]" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.30),transparent_70%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/80 via-[#060D18]/50 to-[#060D18]/95" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.25),transparent_75%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_70%,rgba(176,141,87,0.10),transparent_70%)]" />
           <div className="gd-hero-grain"    aria-hidden="true" />
           <div className="gd-hero-grid"     aria-hidden="true" />
@@ -240,24 +240,24 @@ export default function EsSpainDeskPage() {
           >
             {/* Eyebrow pill */}
             <motion.div variants={heroItem}>
-              <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 bg-gold/[0.07] px-3 py-1.5 sm:px-3.5">
+              <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/40 bg-[#06111F]/80 px-3 py-1.5 sm:px-4 backdrop-blur-md shadow-md">
                 <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                <span className="font-mono text-[11px] sm:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.2em] text-gold/85">
-                  <span className="sm:hidden">Mesa Global · United Realty Group</span>
-                  <span className="hidden sm:inline">Mesa Global · Partnership de Agencias · United Realty Group</span>
+                <span className="font-mono text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-gold font-semibold">
+                  <span className="sm:hidden">Global Desk · United Realty Group</span>
+                  <span className="hidden sm:inline">Global Desk · Partnership de Agencias · United Realty Group</span>
                 </span>
               </span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline with drop shadow */}
             <motion.h1
               variants={heroItem}
-              className="mt-6 font-serif leading-[1.05] text-white"
+              className="mt-6 font-serif leading-[1.05] text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
               style={{ fontSize: "clamp(2.1rem, 5.5vw, 4.5rem)", fontWeight: 400 }}
             >
               Dé a la Propiedad Premium el Alcance de
               <br className="hidden md:block" aria-hidden="true" />{" "}
-              <em className="italic text-gold">93.000 Agentes Compradores de Miami.</em>
+              <em className="italic text-gold font-normal">93.000 Agentes Compradores de Miami.</em>
             </motion.h1>
             {/* Titulares alternativos para que Carlos elija — en la voz "...el Alcance de...":
                  A) "Propiedad Premium, con el Alcance de la Red Local de Realtor® Más Grande del Mundo."
