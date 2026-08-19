@@ -382,43 +382,62 @@ export default function GlobalDeskPage() {
           </motion.div>
         </section>
 
-        {/* ── Section C — Market argument (lead; sourced) ── */}
-        <section className="border-y border-gold/20 bg-navy-deep px-6 py-16 md:py-24">
+        {/* ── Section C — Market Argument ── */}
+        <section className="relative overflow-hidden border-y border-gold/20 bg-[#06111F] px-6 py-16 md:py-24">
+          <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-gold/[0.03] blur-[100px]" />
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={fade}
-            className="mx-auto max-w-3xl"
+            className="mx-auto max-w-5xl"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.marketEyebrow}</p>
-
-            <h2 className="mt-8 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
+              {t.marketEyebrow}
+            </p>
+            <h2 className="mt-4 font-serif text-3xl sm:text-4xl text-white leading-tight tracking-tight">
               {t.marketTitle}
             </h2>
-            <p className="mt-6 max-w-3xl font-serif text-xl leading-[1.55] text-white/90 md:text-2xl">
-              {t.marketLead}
-            </p>
-
-            <p className="mt-8 max-w-3xl font-sans text-lg leading-[1.85] text-white/70">
-              {t.marketBody}
-            </p>
+            
+            <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
+              <div className="rounded-2xl border border-gold/30 bg-white/[0.03] p-7 sm:p-9 backdrop-blur-md shadow-lg">
+                <div className="h-0.5 w-10 bg-gold mb-5" />
+                <p className="font-serif text-xl sm:text-2xl leading-relaxed text-white/95 italic">
+                  "{t.marketLead}"
+                </p>
+              </div>
+              <div className="space-y-5 text-white/75 font-sans text-base leading-relaxed">
+                <p>{t.marketBody}</p>
+                <div className="pt-4 border-t border-white/10 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-gold">
+                  <ShieldCheck size={14} />
+                  <span>Bilingual Presentation · Compliant Brokerage Framework</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </section>
 
-        {/* ── Section D — Distribution advantage (figure grid + activation) ── */}
-        <section className="bg-ivory px-6 py-16 text-navy md:py-24">
+        {/* ── Section D — Distribution Advantage ── */}
+        <section className="bg-ivory px-6 py-16 text-navy md:py-24 border-b border-bone">
           <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.distEyebrow}</p>
-            <p className="mt-5 max-w-3xl font-serif text-2xl leading-snug text-navy md:text-3xl">{t.distIntro}</p>
+            <div className="max-w-3xl">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">{t.distEyebrow}</p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.distIntro}</h2>
+            </div>
 
-            <div className="mt-12 grid grid-cols-2 gap-px border border-navy/10 bg-navy/10 md:grid-cols-3">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {FIGURES.map((f) => (
-                <div key={f.v} className="bg-ivory p-7">
-                  <div className="font-serif text-4xl text-gold-ink">{f.v}</div>
-                  <div className="mt-2 font-sans text-sm leading-snug text-navy/70">{f[lang]}</div>
+                <div
+                  key={f.v}
+                  className="group rounded-xl border border-bone/80 bg-white p-6 shadow-xs transition-all duration-300 hover:border-gold hover:shadow-md flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="h-0.5 w-6 bg-gold/50 transition-all duration-300 group-hover:w-full group-hover:bg-gold" />
+                    <div className="mt-3 font-serif text-3xl sm:text-4xl text-navy-deep tracking-tight">{f.v}</div>
+                    <div className="mt-2 font-sans text-sm font-medium leading-snug text-navy/75">{f[lang]}</div>
+                  </div>
                   {f.caption && (
-                    <p className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-navy/70">
+                    <p className="mt-4 border-t border-hairline pt-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-navy/55">
                       {t.caption}
                     </p>
                   )}
@@ -426,78 +445,81 @@ export default function GlobalDeskPage() {
               ))}
             </div>
 
-            {/* Activation line — directly beneath the grid */}
-            <motion.p
+            {/* Activation line */}
+            <motion.div
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               variants={fade}
-              className="mt-8 max-w-3xl border-l-2 border-gold pl-5 font-serif text-xl leading-relaxed text-navy md:text-2xl"
+              className="mt-10 rounded-xl border-l-4 border-gold bg-white p-6 sm:p-7 shadow-xs"
             >
-              {t.activation}
-            </motion.p>
+              <p className="font-serif text-lg sm:text-xl leading-relaxed text-navy-deep">
+                {t.activation}
+              </p>
+            </motion.div>
           </div>
         </section>
 
-        {/* Spain-to-Miami editorial bridge — authentic place context before the service mechanics. */}
+        {/* Spain-to-Miami editorial bridge — authentic place context */}
         <section className="bg-white px-6 py-16 text-navy md:py-24">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.bridgeEyebrow}</p>
-              <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.bridgeTitle}</h2>
-              <p className="mt-5 font-sans text-base leading-[1.85] text-navy/70 md:text-lg">{t.bridgeBody}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">{t.bridgeEyebrow}</p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.bridgeTitle}</h2>
+              <p className="mt-4 font-sans text-base leading-[1.85] text-navy/75 md:text-lg">{t.bridgeBody}</p>
             </div>
 
-            <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-              <div className="contents">
-                <figure>
-                  <div className="aspect-[4/5] overflow-hidden">
-                    <img
-                      src="/images/madrid-gran-via-editorial.webp"
-                      alt={t.granViaAlt}
-                      width={1081}
-                      height={1920}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                    {t.granViaCaption}
-                  </figcaption>
-                </figure>
-
-                <figure>
-                  <div className="aspect-[4/5] overflow-hidden">
-                    <img
-                      src="/images/segovia-aqueduct-editorial.webp"
-                      alt={t.segoviaAlt}
-                      width={1081}
-                      height={1920}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
-                    {t.segoviaCaption}
-                  </figcaption>
-                </figure>
-              </div>
-
-              <figure>
-                <div className="aspect-[4/5] overflow-hidden">
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Madrid */}
+              <figure className="group rounded-xl overflow-hidden border border-bone/80 bg-ivory/40 shadow-xs transition-all duration-300 hover:border-gold hover:shadow-md flex flex-col">
+                <div className="aspect-[4/5] overflow-hidden bg-navy-deep">
                   <img
-                    src="/images/united-realty-group-offices.jpg"
-                    alt={t.brokerageAlt}
-                    width={3000}
-                    height={4000}
+                    src="/images/madrid-gran-via-editorial.webp"
+                    alt={t.granViaAlt}
+                    width={1081}
+                    height={1920}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover object-center"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">
+                <figcaption className="p-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">
+                  {t.granViaCaption}
+                </figcaption>
+              </figure>
+
+              {/* Segovia */}
+              <figure className="group rounded-xl overflow-hidden border border-bone/80 bg-ivory/40 shadow-xs transition-all duration-300 hover:border-gold hover:shadow-md flex flex-col">
+                <div className="aspect-[4/5] overflow-hidden bg-navy-deep">
+                  <img
+                    src="/images/segovia-aqueduct-editorial.webp"
+                    alt={t.segoviaAlt}
+                    width={1081}
+                    height={1920}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="p-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">
+                  {t.segoviaCaption}
+                </figcaption>
+              </figure>
+
+              {/* United Realty Group HQ - fixed verified path */}
+              <figure className="group rounded-xl overflow-hidden border border-bone/80 bg-ivory/40 shadow-xs transition-all duration-300 hover:border-gold hover:shadow-md flex flex-col sm:col-span-2 lg:col-span-1">
+                <div className="aspect-[4/5] overflow-hidden bg-navy-deep">
+                  <img
+                    src="/images/urg-weston-office.webp"
+                    alt={t.brokerageAlt}
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="p-4 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">
                   {t.brokerageCaption}
                 </figcaption>
               </figure>
@@ -506,41 +528,41 @@ export default function GlobalDeskPage() {
         </section>
 
         {/* ── Section E — The structure, stated plainly ── */}
-        <section className="bg-white px-6 py-16 text-navy md:py-24">
+        <section className="bg-ivory px-6 py-16 text-navy md:py-24 border-y border-bone">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={fade}
-            className="mx-auto max-w-3xl"
+            className="mx-auto max-w-4xl rounded-2xl border border-bone/80 bg-white p-8 sm:p-12 shadow-xs"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.structureEyebrow}</p>
-            <p className="mt-6 font-sans text-lg leading-[1.9] text-navy/75">{t.structureBody}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">{t.structureEyebrow}</p>
+            <p className="mt-6 font-sans text-base sm:text-lg leading-[1.9] text-navy/80">{t.structureBody}</p>
           </motion.div>
         </section>
 
-        {/* Property-presentation proof — authentic media, secondary to the service explanation */}
-        <section className="bg-bone-warm px-6 py-16 text-navy md:py-24">
+        {/* Property-presentation proof — authentic media */}
+        <section className="bg-white px-6 py-16 text-navy md:py-24">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <motion.figure
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               variants={fade}
-              className="overflow-hidden bg-navy-deep"
+              className="overflow-hidden rounded-2xl border border-bone/80 bg-navy-deep shadow-md"
             >
               <div className="aspect-[16/10] overflow-hidden sm:aspect-video">
                 <img
-                  src="/images/property-media-production.jpg"
+                  src="/images/carlos-property-media-team.webp"
                   alt={t.proofAlt}
-                  width={4000}
-                  height={2252}
+                  width={1920}
+                  height={1080}
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover object-center"
                 />
               </div>
-              <figcaption className="px-5 py-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+              <figcaption className="px-6 py-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/75 bg-navy-deep border-t border-white/10">
                 {t.proofCaption}
               </figcaption>
             </motion.figure>
@@ -550,9 +572,9 @@ export default function GlobalDeskPage() {
               viewport={{ once: true }}
               variants={fade}
             >
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.proofEyebrow}</p>
-              <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.proofTitle}</h2>
-              <p className="mt-5 font-sans text-base leading-[1.85] text-navy/70">{t.proofBody}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">{t.proofEyebrow}</p>
+              <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.proofTitle}</h2>
+              <p className="mt-5 font-sans text-base leading-[1.85] text-navy/75">{t.proofBody}</p>
             </motion.div>
           </div>
         </section>
