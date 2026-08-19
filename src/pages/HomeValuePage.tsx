@@ -47,7 +47,7 @@ export default function HomeValuePage() {
   return (
     <>
       <Helmet>
-        <title>What Is My South Florida Home Worth</title>
+        <title>What Is My South Florida Home Worth? Free Professional Valuation | HomesProfessional.com</title>
         <meta
           name="description"
           content="Free professional home valuation from a licensed South Florida REALTOR® — a real MLS analysis, not an algorithm. Carlos Uzcategui, FL SL705771."
@@ -127,31 +127,43 @@ export default function HomeValuePage() {
         <Navbar />
 
         {/* Hero */}
-        <section className="bg-navy-deep px-6 py-20 md:py-28 text-center sm:px-10">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-            Free · Confidential · Professional
-          </p>
-          <h1
-            className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
-            style={{ fontSize: "clamp(2rem, 5.5vw, 3.4rem)" }}
-          >
-            What Is Your South Florida<br />
-            <em className="italic text-gold">Property Worth Today?</em>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-            Not an algorithm. A real MLS-based analysis from a licensed REALTOR® with
-            25 years in South Florida. Carlos reviews and answers
-            every request himself.
-          </p>
-          <a
-            href="#valuation-form"
-            className="mt-8 inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
-          >
-            Request My Free Valuation
-          </a>
-          <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
-            {CONTACT.licenseDisplay} · United Realty Group · 25 Years Licensed
-          </p>
+        <section className="relative overflow-hidden bg-[#060D18] px-6 py-20 md:py-28 text-center sm:px-10 text-white">
+          <div className="pointer-events-none absolute right-0 top-0 h-[450px] w-[450px] rounded-full bg-gold/[0.04] blur-[100px]" aria-hidden="true" />
+          <div className="pointer-events-none absolute left-0 bottom-0 h-[350px] w-[350px] rounded-full bg-[#16449E]/[0.08] blur-[90px]" aria-hidden="true" />
+
+          <div className="relative mx-auto max-w-4xl">
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
+              Free · Confidential · Professional Real Estate Advisory
+            </p>
+            <h1
+              className="mt-6 font-serif leading-tight text-white tracking-tight"
+              style={{ fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)" }}
+            >
+              What Is Your South Florida<br />
+              <em className="italic text-gold font-normal">Property Worth Today?</em>
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
+              Not an algorithm. A real MLS-based valuation and market absorption analysis from a licensed REALTOR® with
+              25 years in South Florida. Carlos reviews and answers every request personally.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="#valuation-form"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)]"
+              >
+                Request My Free Valuation
+              </a>
+              <a
+                href="#net-calculator"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:border-gold/60 hover:text-gold"
+              >
+                Calculate Net Proceeds ↓
+              </a>
+            </div>
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
+              {CONTACT.licenseDisplay} · United Realty Group · 25 Years South Florida Experience
+            </p>
+          </div>
         </section>
 
         {/* How it works */}

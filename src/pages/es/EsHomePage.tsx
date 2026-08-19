@@ -2,21 +2,14 @@ import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck } from "lucide-react";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
-import { DesktopStickyCTA } from "../../components/DesktopStickyCTA";
-import { ExitIntentModal } from "../../components/ExitIntentModal";
 import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { EsProof } from "../../components/es/EsProof";
 import { EsDistribution } from "../../components/es/EsDistribution";
-import { CONTACT } from "../../constants";
-
-// Split out of the initial bundle, same as the English homepage.
-const MarketingReel3D = lazy(() => import("../../components/MarketingReel3D").then((m) => ({ default: m.MarketingReel3D })));
-const SellerPathfinder = lazy(() => import("../../components/SellerPathfinder").then((m) => ({ default: m.SellerPathfinder })));
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -56,7 +49,7 @@ export default function EsHomePage() {
     <>
       <Helmet>
         {/* TODO: native Madrid editor review */}
-        <title>Bienes Raíces en Sur de Florida | United Realty Group</title>
+        <title>Bienes Raíces en Sur de Florida | United Realty Group | HomesProfessional.com</title>
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
@@ -145,73 +138,63 @@ export default function EsHomePage() {
               >
                 {/* TODO: native Madrid editor review */}
                 Representación de vendedores en el Sur de Florida y España. Cada
-                propiedad en exclusiva se activa con el alcance de la
-                asociación local de REALTORS® más grande del mundo — 93.000
-                agentes miembros, 200+ portales globales en 19 idiomas y 437+
-                acuerdos internacionales.
+                propiedad en exclusiva activa la red de la asociación local de
+                REALTORS® más grande del mundo — 93,000 agentes miembros, 200+
+                portales globales en 19 idiomas y 437+ acuerdos internacionales.
               </motion.p>
 
               {/* Primary seller lead capture */}
               <motion.div
-                id="list-here"
                 variants={itemVariants}
-                className="mx-auto mt-9 w-full max-w-md scroll-mt-24"
+                className="mx-auto mt-9 w-full max-w-md"
               >
                 <HeroSellerForm lang="es" />
               </motion.div>
 
-              {/* Trust bar */}
+              {/* Trust bar — luxury glass cards */}
               <motion.div
                 variants={itemVariants}
-                className="mx-auto mt-12 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-white/10 pt-9 sm:max-w-xl sm:grid-cols-4 sm:gap-6"
+                className="mx-auto mt-12 grid w-full max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"
               >
                 {[
-                  {
-                    value: "93K",
-                    // TODO: native Madrid editor review
-                    label: "Agentes Miembros",
-                  },
-                  {
-                    value: "200+",
-                    // TODO: native Madrid editor review
-                    label: "Portales Globales",
-                  },
-                  {
-                    value: "437+",
-                    // TODO: native Madrid editor review
-                    label: "Acuerdos Internacionales",
-                  },
-                  {
-                    value: "260+",
-                    // TODO: native Madrid editor review
-                    label: "MLSs en EE. UU.",
-                  },
+                  { value: "93,000", label: "Agentes Miembros" },
+                  { value: "200+",   label: "Portales Globales" },
+                  { value: "437+",   label: "Acuerdos Internacionales" },
+                  { value: "260+",   label: "MLSs en EE. UU." },
                 ].map((s) => (
-                  <div key={s.label}>
-                    <div className="font-serif text-2xl text-white lg:text-3xl">
+                  <div
+                    key={s.label}
+                    className="group relative flex flex-col justify-between rounded-xl border border-gold/25 bg-white/[0.04] p-4 backdrop-blur-md transition-all duration-300 hover:border-gold/55 hover:bg-white/[0.07]"
+                  >
+                    <div className="h-0.5 w-6 bg-gold/50 transition-all duration-300 group-hover:w-full group-hover:bg-gold" />
+                    <div className="mt-3 font-serif text-2xl text-white tracking-tight sm:text-3xl">
                       {s.value}
                     </div>
-                    <div className="font-mono mt-1 text-[10px] uppercase tracking-[0.18em] text-gold/65">
+                    <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/75 leading-tight">
                       {s.label}
                     </div>
                   </div>
                 ))}
               </motion.div>
 
-              {/* MIAMI REALTORS® membership */}
-              <motion.div variants={itemVariants} className="mt-9">
-                <MiamiRealtorsBadge lang="es" variant="dark" />
-              </motion.div>
-
-              {/* Credentials pill */}
+              {/* Credibility badges */}
               <motion.div
                 variants={itemVariants}
-                className="mt-7 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm"
+                className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
               >
-                <BadgeCheck size={14} className="text-gold flex-shrink-0" />
-                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
-                  United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
-                </span>
+                {[
+                  { text: "FL Licenciado REALTOR® Desde 2001 (25 Años)" },
+                  { text: "CLHMS™ · Especialista Certificado en Lujo" },
+                  { text: "United Realty Group · 3,500+ Agentes · 20 Oficinas FL" },
+                ].map(({ text }) => (
+                  <span
+                    key={text}
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm transition-colors hover:border-gold/40"
+                  >
+                    <BadgeCheck size={13} className="text-gold flex-shrink-0" />
+                    {text}
+                  </span>
+                ))}
               </motion.div>
 
               {/* Audience navigator */}
@@ -278,18 +261,10 @@ export default function EsHomePage() {
         </section>
 
         <EsProof />
-        <Suspense fallback={null}>
-          <MarketingReel3D lang="es" />
-        </Suspense>
         <EsDistribution />
-        <Suspense fallback={null}>
-          <SellerPathfinder lang="es" whatsappHref={CONTACT.whatsappSpain} />
-        </Suspense>
 
         <Footer />
         <MobileStickyCTA />
-        <DesktopStickyCTA lang="es" />
-        <ExitIntentModal lang="es" />
       </main>
     </>
   );
