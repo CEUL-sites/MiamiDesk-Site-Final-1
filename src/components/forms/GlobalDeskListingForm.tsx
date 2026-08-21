@@ -26,8 +26,8 @@ const L = {
     // Q2
     q2: "¿Qué necesita hoy?",
     q2opts: [
-      ["activation", "Presentar un inmueble cualificado para posicionamiento hacia Miami y el sur de Florida"],
-      ["materials", "Solicitar materiales de Miami para presentar al propietario"],
+      ["activation", "Presentar un inmueble cualificado para posicionamiento hacia el sur de Florida"],
+      ["materials", "Solicitar materiales del sur de Florida para presentar al propietario"],
       ["partner", "Analizar una relación profesional, de agencia o de promoción"],
     ],
     ownerPath: "Solicitar una introducción a un profesional local cualificado",
@@ -130,8 +130,8 @@ const L = {
     ],
     q2: "What do you need today?",
     q2opts: [
-      ["activation", "Present a qualified listing for Miami and South Florida positioning"],
-      ["materials", "Request owner-facing Miami mandate materials"],
+      ["activation", "Present a qualified listing for South Florida positioning"],
+      ["materials", "Request owner-facing South Florida mandate materials"],
       ["partner", "Discuss a professional, agency, or developer relationship"],
     ],
     ownerPath: "Request an introduction to a qualified local professional",
