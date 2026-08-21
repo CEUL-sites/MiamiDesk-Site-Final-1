@@ -11,23 +11,24 @@ const FORM_NAME = "global-desk-listing";
 const L = {
   es: {
     kicker: "Solicitud · Miami Global Listing Desk",
-    title: "Active un mandato cualificado",
+    title: "Presente una oportunidad inmobiliaria internacional cualificada",
     intro:
-      "Para agentes individuales, agencias y promotoras con un mandato inmobiliario cualificado. Una sola propiedad es suficiente; Carlos revisa cada solicitud personalmente.",
+      "Para agentes, agencias, promotores y otros profesionales inmobiliarios que representan propiedades en su mercado local. Presente un inmueble, solicite materiales para el propietario o proponga una relación profesional con Miami Global Desk.",
     // Q1
-    q1: "Tipo de solicitante",
+    q1: "¿Cómo representa esta oportunidad?",
     q1opts: [
-      ["agent", "Agente inmobiliario individual con mandato"],
-      ["agency", "Agencia inmobiliaria con licencia"],
+      ["agent", "Agente inmobiliario individual"],
+      ["professional", "Otro profesional inmobiliario local cualificado"],
+      ["agency", "Agencia / brokerage inmobiliario"],
       ["developer", "Promotor / organización de ventas autorizada"],
       ["owner", "Propietario que solicita una introducción profesional local"],
     ],
     // Q2
     q2: "¿Qué necesita hoy?",
     q2opts: [
-      ["activation", "Activar una propiedad con mandato cualificado"],
-      ["materials", "Solicitar materiales para la presentación de mandato"],
-      ["partner", "Explorar una colaboración de agencia o promotora"],
+      ["activation", "Presentar un inmueble cualificado para posicionamiento hacia Miami"],
+      ["materials", "Solicitar materiales de Miami para presentar al propietario"],
+      ["partner", "Analizar una relación profesional, de agencia o de promoción"],
     ],
     ownerPath: "Solicitar una introducción a un profesional local cualificado",
     ownerTitle: "Solicite una introducción a un profesional local",
@@ -40,13 +41,13 @@ const L = {
     // Submitter block
     submitterBlock: "Datos del solicitante",
     name: "Nombre",
-    company: "Empresa / agencia",
+    company: "Empresa / agencia / organización",
     email: "Correo electrónico",
     phone: "WhatsApp / teléfono (con código de país)",
     jurisdiction: "Jurisdicción (país + región)",
     // Agency / agent
-    license: "Número de licencia / colegiación",
-    licenseHint: "Mantiene la cooperación de referidos broker a broker.",
+    license: "Licencia / registro / credencial profesional",
+    licenseHint: "Permite verificar la capacidad profesional y estructurar la cooperación adecuada.",
     existingMandate: "¿Mandato existente?",
     exclusiveAvailable: "¿Exclusiva disponible?",
     yes: "Sí",
@@ -55,7 +56,7 @@ const L = {
     projectName: "Nombre del proyecto / promoción",
     units: "Número de unidades",
     // Count
-    propertyCount: "Número de propiedades a listar",
+    propertyCount: "Número de inmuebles que desea presentar",
     propertyCountHint: "Un número o un rango (1, 3–5, 10+).",
     // Plan interest
     planInterest: "Plan de interés (opcional)",
@@ -106,7 +107,7 @@ const L = {
     submit: "Enviar solicitud",
     submitting: "Enviando…",
     success:
-      "Recibido. Recibirá una propuesta privada de cooperación y activación tras la revisión.",
+      "Recibido. Carlos revisará la oportunidad y responderá con el encaje y la ruta profesional recomendada.",
     errAuth: "Debe confirmar la autorización y el consentimiento para continuar.",
     errImages: "Añada al menos una imagen de la propiedad.",
     errGeneric: "No se pudo enviar. Escriba por WhatsApp o correo.",
@@ -116,21 +117,22 @@ const L = {
   },
   en: {
     kicker: "Request · Miami Global Listing Desk",
-    title: "Activate a qualified listing",
+    title: "Present a Qualified International Real Estate Opportunity",
     intro:
-      "For individual listing agents, brokerages, and developers with a qualified property mandate. One property is enough; Carlos reviews each request personally.",
-    q1: "Submitter type",
+      "For agents, agencies, developers, and other real estate professionals representing property in their local markets. Present a listing, request owner-facing materials, or propose a professional relationship with Miami Global Desk.",
+    q1: "How do you represent this opportunity?",
     q1opts: [
-      ["agent", "Individual listing agent with a mandate"],
-      ["agency", "Licensed real estate agency"],
+      ["agent", "Individual real estate agent"],
+      ["professional", "Other qualified local real estate professional"],
+      ["agency", "Real estate agency / brokerage"],
       ["developer", "Developer / authorized sales organization"],
       ["owner", "Property owner seeking a local-professional introduction"],
     ],
     q2: "What do you need today?",
     q2opts: [
-      ["activation", "Activate a qualified mandate"],
-      ["materials", "Request mandate-presentation materials"],
-      ["partner", "Explore an agency or developer partnership"],
+      ["activation", "Present a qualified listing for Miami positioning"],
+      ["materials", "Request owner-facing Miami mandate materials"],
+      ["partner", "Discuss a professional, agency, or developer relationship"],
     ],
     ownerPath: "Request an introduction to a qualified local professional",
     ownerTitle: "Request a local-professional introduction",
@@ -142,19 +144,19 @@ const L = {
       "Received. We will review your request and, where appropriate, facilitate a private introduction to a qualified local professional.",
     submitterBlock: "Submitter details",
     name: "Name",
-    company: "Company / agency",
+    company: "Company / agency / organization",
     email: "Email",
     phone: "WhatsApp / phone (country code)",
     jurisdiction: "Jurisdiction (country + region)",
-    license: "License / registration number",
-    licenseHint: "Keeps referral cooperation broker-to-broker.",
+    license: "License / registration / professional credential",
+    licenseHint: "Used to verify professional capacity and structure the appropriate cooperation path.",
     existingMandate: "Existing mandate?",
     exclusiveAvailable: "Exclusive available?",
     yes: "Yes",
     no: "No",
     projectName: "Project / development name",
     units: "Number of units",
-    propertyCount: "Number of properties you intend to list",
+    propertyCount: "Number of properties you intend to present",
     propertyCountHint: "A single number or a range (1, 3–5, 10+).",
     planInterest: "Plan interest (optional)",
     planOpts: [
@@ -202,7 +204,7 @@ const L = {
     submit: "Submit request",
     submitting: "Submitting…",
     success:
-      "Received. You will receive a private cooperation and activation proposal after review.",
+      "Received. Carlos will review the opportunity and respond with the recommended fit and professional route.",
     errAuth: "Please confirm the authorization and consent to proceed.",
     errImages: "Please add at least one property image.",
     errGeneric: "Could not submit. Please try WhatsApp or email.",
@@ -212,7 +214,7 @@ const L = {
   },
 } as const;
 
-type SubmitterType = "" | "agency" | "developer" | "owner" | "agent";
+type SubmitterType = "" | "agency" | "developer" | "owner" | "agent" | "professional";
 type ListPath = "" | "activation" | "materials" | "partner" | "owner_intro";
 
 export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
@@ -229,7 +231,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
   const startFired = useRef(false);
   const renderedAt = useRef(Date.now());
 
-  const isAgencyOrAgent = submitterType === "agency" || submitterType === "agent";
+  const isRepresentingProfessional = submitterType === "agency" || submitterType === "agent" || submitterType === "professional";
   const isDeveloper = submitterType === "developer";
   const isOwner = submitterType === "owner";
   const pathOptions = isOwner ? [["owner_intro", t.ownerPath] as const] : t.q2opts;
@@ -444,8 +446,8 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        {/* Conditional: licensed agency or individual agent */}
-        {isAgencyOrAgent && (
+        {/* Conditional: agent, agency, or other qualified real estate professional */}
+        {isRepresentingProfessional && (
           <div className="border-t border-white/10 pt-7">
             <div className="grid gap-5 sm:grid-cols-2">
               {/* License number keeps referral cooperation broker-to-broker. */}
