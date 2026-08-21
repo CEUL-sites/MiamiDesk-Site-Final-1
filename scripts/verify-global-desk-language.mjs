@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 
 const read = async (path) => readFile(path, "utf8").catch(() => "");
 
-const [page, content, form, router, packageJson, sitemap, netlify, constants, schema, indexHtml] = await Promise.all([
+const [page, content, form, router, packageJson, sitemap, netlify, constants, schema, indexHtml, languageSwitcher, pathfinder, footer, esBuyers] = await Promise.all([
   read("src/pages/GlobalDeskPage.tsx"),
   read("src/pages/globalDeskContent.ts"),
   read("src/components/forms/GlobalDeskListingForm.tsx"),
@@ -14,6 +14,10 @@ const [page, content, form, router, packageJson, sitemap, netlify, constants, sc
   read("src/constants.ts"),
   read("src/components/SEO/SchemaOrg.tsx"),
   read("index.html"),
+  read("src/components/LanguageSwitcher.tsx"),
+  read("src/components/SellerPathfinder.tsx"),
+  read("src/components/Footer.tsx"),
+  read("src/pages/es/EsComprarPage.tsx"),
 ]);
 
 const expectText = (source, value, message) => {
@@ -136,6 +140,16 @@ assert.doesNotMatch(
   /\[\s\S]*?"\/global-desk"[\s\S]*?\]\.includes\(p\)/,
   "The English Global Desk must retain the Florida contact route",
 );
+for (const [source, label] of [
+  [languageSwitcher, "language switcher"],
+  [pathfinder, "seller pathfinder"],
+  [footer, "footer"],
+  [esBuyers, "Spanish buyer page"],
+]) {
+  expectText(source, '"/es/global-desk"', `${label} must link to the Spanish canonical route`);
+  assert.doesNotMatch(source, /["']\/es\/spain-desk["']/, `${label} must not link to the retired Spanish route`);
+  assert.doesNotMatch(source, /["']\/spain-mls-listing["']/, `${label} must not link to the retired English route`);
+}
 
 expectText(schema, "International Property Activation and Professional Cooperation");
 assert.match(schema, /areaServed:\s*"South Florida"/);

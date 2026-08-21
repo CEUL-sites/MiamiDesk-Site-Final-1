@@ -165,11 +165,11 @@ export default function GlobalDeskPage() {
             transition={{ duration: 0.8 }}
             className="mx-auto max-w-7xl"
           >
-            <div className="max-w-3xl">
+            <div className="max-w-4xl">
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
                 {t.eyebrow}
               </p>
-              <h1 className="mt-6 font-serif text-[clamp(2.75rem,6.4vw,6.3rem)] leading-[0.98] tracking-[-0.025em] text-white">
+              <h1 className="mt-6 font-serif text-[clamp(2.4rem,5.15vw,5.25rem)] leading-[1.01] tracking-[-0.025em] text-white">
                 {t.heroTitle}
               </h1>
               <p className="mt-7 max-w-2xl font-sans text-base leading-[1.75] text-white/82 sm:text-lg">

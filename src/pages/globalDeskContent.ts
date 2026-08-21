@@ -31,7 +31,7 @@ export const GLOBAL_DESK_CONTENT = {
     eyebrow: "International Property Activation · South Florida",
     heroTitle: "International Property. Connected to South Florida’s Professional Agent Market.",
     heroBody:
-      "Global Desk prepares and activates selected luxury residences, distinctive second homes and new developments for professional discovery, client presentation and cooperation by South Florida real-estate professionals—including agents serving high-net-worth and international buyers.",
+      "Global Desk prepares selected luxury residences, distinctive second homes and new developments for professional discovery, client presentation and cooperation by South Florida agents serving high-net-worth and international buyers.",
     heroLicensed:
       "Led by Carlos Uzcategui, Florida Realtor® since 2001, through United Realty Group, the Desk provides a licensed Florida-side counterpart and professional cooperation framework for eligible distribution and buyer opportunities.",
     heroPrimary: "Submit Qualified Inventory",
@@ -196,7 +196,7 @@ export const GLOBAL_DESK_CONTENT = {
     eyebrow: "Activación inmobiliaria internacional · Sur de Florida",
     heroTitle: "Inmuebles internacionales. Conectados con el mercado profesional de agentes del sur de Florida.",
     heroBody:
-      "Global Desk prepara y activa residencias de lujo, segundas viviendas singulares y promociones de obra nueva seleccionadas para su descubrimiento, presentación a clientes y cooperación por parte de profesionales inmobiliarios del sur de Florida, incluidos agentes que trabajan con compradores internacionales y de alto patrimonio.",
+      "Global Desk prepara residencias de lujo, segundas viviendas singulares y promociones de obra nueva seleccionadas para su descubrimiento, presentación a clientes y cooperación por agentes del sur de Florida que trabajan con compradores internacionales y de alto patrimonio.",
     heroLicensed:
       "Dirigido por Carlos Uzcategui, Realtor® de Florida desde 2001, a través de United Realty Group, el Desk aporta una contraparte autorizada en Florida y un marco profesional para coordinar distribución elegible y oportunidades de compradores.",
     heroPrimary: "Presentar inventario cualificado",
