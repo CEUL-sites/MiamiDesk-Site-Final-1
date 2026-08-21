@@ -27,6 +27,24 @@
 
 # ── Global Desk consolidation — 301 redirects for legacy URLs ──────────────
 [[redirects]]
+  from = "/es/spain-desk"
+  to = "/es/global-desk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/spain-desk/*"
+  to = "/es/global-desk"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/spain-mls-listing"
+  to = "/global-desk"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/spain-desk"
   to = "/global-desk"
   status = 301

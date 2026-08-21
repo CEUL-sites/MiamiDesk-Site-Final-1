@@ -91,6 +91,11 @@
   .form-input-dark option {
     @apply bg-navy-deep text-white;
   }
+
+  .gd-input {
+    @apply w-full border border-navy/20 bg-white px-4 py-3.5 font-sans text-base text-navy outline-none placeholder:text-navy/30 focus:border-gold focus:ring-2 focus:ring-gold/20;
+    /* text-base (16px) prevents iOS Safari from auto-zooming on input focus */
+  }
 }
 
 /* Prevent black flash before video content loads or when autoplay is blocked */

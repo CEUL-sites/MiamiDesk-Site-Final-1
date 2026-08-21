@@ -1,246 +1,209 @@
-import React, { useRef, useState } from "react";
-import { CheckCircle2, Loader2, Send, Upload } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Building2,
+  CheckCircle2,
+  Loader2,
+  Send,
+  Upload,
+  UserRoundSearch,
+  Warehouse,
+} from "lucide-react";
 import { pushEvent, trackLead } from "../../lib/analytics";
+import { getAttribution } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
-
-type Lang = "es" | "en";
+import type { GlobalDeskLang } from "../../pages/globalDeskContent";
 
 const FORM_NAME = "global-desk-listing";
 
-// Bilingual labels. Spanish is primary; English mirrors via toggle.
 const L = {
-  es: {
-    kicker: "Solicitud · Miami Global Listing Desk",
-    title: "Presente una oportunidad inmobiliaria internacional cualificada",
-    intro:
-      "Para agentes, agencias, promotores y otros profesionales inmobiliarios que representan propiedades en su mercado local. Presente un inmueble, solicite materiales para el propietario o proponga una relación profesional con Miami Global Desk.",
-    // Q1
-    q1: "¿Cómo representa esta oportunidad?",
-    q1opts: [
-      ["agent", "Agente inmobiliario individual"],
-      ["professional", "Otro profesional inmobiliario local cualificado"],
-      ["agency", "Agencia / brokerage inmobiliario"],
-      ["developer", "Promotor / organización de ventas autorizada"],
-      ["owner", "Propietario que solicita una introducción profesional local"],
-    ],
-    // Q2
-    q2: "¿Qué necesita hoy?",
-    q2opts: [
-      ["activation", "Presentar un inmueble cualificado para posicionamiento hacia el sur de Florida"],
-      ["materials", "Solicitar materiales del sur de Florida para presentar al propietario"],
-      ["partner", "Analizar una relación profesional, de agencia o de promoción"],
-    ],
-    ownerPath: "Solicitar una introducción a un profesional local cualificado",
-    ownerTitle: "Solicite una introducción a un profesional local",
-    ownerIntro:
-      "Revisaremos su mercado y sus necesidades y, cuando corresponda, facilitaremos una introducción a un profesional local cualificado. Usted decide libremente si desea contratarlo.",
-    ownerAuthorization:
-      "Confirmo que soy propietario o que tengo autorización válida para solicitar esta introducción profesional local.",
-    ownerSuccess:
-      "Recibido. Revisaremos su solicitud y, cuando corresponda, facilitaremos una introducción privada a un profesional local cualificado.",
-    // Submitter block
-    submitterBlock: "Datos del solicitante",
-    name: "Nombre",
-    company: "Empresa / agencia / organización",
-    email: "Correo electrónico",
-    phone: "WhatsApp / teléfono (con código de país)",
-    jurisdiction: "Jurisdicción (país + región)",
-    // Agency / agent
-    license: "Licencia / registro / credencial profesional",
-    licenseHint: "Permite verificar la capacidad profesional y estructurar la cooperación adecuada.",
-    existingMandate: "¿Mandato existente?",
-    exclusiveAvailable: "¿Exclusiva disponible?",
-    yes: "Sí",
-    no: "No",
-    // Developer
-    projectName: "Nombre del proyecto / promoción",
-    units: "Número de unidades",
-    // Count
-    propertyCount: "Número de inmuebles que desea presentar",
-    propertyCountHint: "Un número o un rango (1, 3–5, 10+).",
-    // Plan interest
-    planInterest: "Plan de interés (opcional)",
-    planOpts: [
-      ["", "Seleccione…"],
-      ["single_property", "Activación de una propiedad"],
-      ["agency", "Relación de agencia / cartera"],
-      ["developer_desk", "Desk de promotor"],
-    ],
-    // Property block
-    propertyBlock: "Datos de la propiedad",
-    location: "Ubicación (ciudad, zona, país)",
-    type: "Tipo",
-    typeOpts: [
-      ["", "Seleccione…"],
-      ["apartment", "Apartamento"],
-      ["villa", "Villa"],
-      ["penthouse", "Ático"],
-      ["new_build", "Obra nueva"],
-      ["plot", "Parcela / solar"],
-      ["other", "Otro"],
-    ],
-    condition: "Obra nueva o segunda mano",
-    conditionOpts: [
-      ["", "Seleccione…"],
-      ["new_build", "Obra nueva"],
-      ["resale", "Segunda mano"],
-    ],
-    askingPrice: "Precio / valor de salida (con divisa)",
-    askingPriceHint: "Precio de la propiedad — permitido.",
-    bedrooms: "Dormitorios",
-    bathrooms: "Baños",
-    builtArea: "Superficie construida (m²)",
-    plotArea: "Superficie de parcela (m²) (si aplica)",
-    features: "Características destacadas (texto libre)",
-    description: "Descripción / observaciones",
-    images: "Imágenes",
-    imagesHint: "Selección múltiple.",
-    documents: "Planos / documentos (opcional)",
-    documentsHint: "Selección múltiple.",
-    timeline: "Plazo de listado deseado",
-    chooseFiles: "Seleccionar archivos",
-    filesSelected: (n: number) => `${n} archivo(s) seleccionado(s)`,
-    // Checkboxes
-    authorization:
-      "Confirmo que soy propietario o que tengo autorización o mandato válido para presentar esta propiedad y autorizar su revisión para una posible activación internacional, sujeta a requisitos de corretaje, plataforma y cumplimiento.",
-    consent: "Entiendo que todos los términos comerciales se tratan de forma privada.",
-    submit: "Enviar solicitud",
-    submitting: "Enviando…",
-    success:
-      "Recibido. Carlos revisará la oportunidad y responderá con el encaje y la ruta profesional recomendada.",
-    errAuth: "Debe confirmar la autorización y el consentimiento para continuar.",
-    errImages: "Añada al menos una imagen de la propiedad.",
-    errGeneric: "No se pudo enviar. Escriba por WhatsApp o correo.",
-    errTimeout: "La solicitud expiró. Escriba a Carlos por WhatsApp.",
-    optional: "(opcional)",
-    select: "Seleccione…",
-  },
   en: {
-    kicker: "Request · Miami Global Listing Desk",
-    title: "Present a Qualified International Real Estate Opportunity",
-    intro:
-      "For agents, agencies, developers, and other real estate professionals representing property in their local markets. Present a listing, request owner-facing materials, or propose a professional relationship with Miami Global Desk.",
-    q1: "How do you represent this opportunity?",
-    q1opts: [
-      ["agent", "Individual real estate agent"],
-      ["professional", "Other qualified local real estate professional"],
-      ["agency", "Real estate agency / brokerage"],
-      ["developer", "Developer / authorized sales organization"],
-      ["owner", "Property owner seeking a local-professional introduction"],
+    step: "Step",
+    of: "of",
+    choose: "Choose the opportunity",
+    basics: "Tell us a few basics",
+    detail: "Add the information needed for review",
+    intro: "Choose one path. The first step requests only your contact details; no upload is required.",
+    paths: [
+      ["inventory", "Submit Qualified Inventory", "One selected residence, second home or other qualified property."],
+      ["mandate", "Developer / Agency Mandate", "A development, portfolio or recurring inventory relationship."],
+      ["buyer_opportunity", "South Florida Agent / Buyer Opportunity", "A represented buyer with interest in international property."],
     ],
-    q2: "What do you need today?",
-    q2opts: [
-      ["activation", "Present a qualified listing for South Florida positioning"],
-      ["materials", "Request owner-facing South Florida mandate materials"],
-      ["partner", "Discuss a professional, agency, or developer relationship"],
-    ],
-    ownerPath: "Request an introduction to a qualified local professional",
-    ownerTitle: "Request a local-professional introduction",
-    ownerIntro:
-      "We will review your market and needs and, where appropriate, facilitate an introduction to a qualified local professional. You remain free to decide whether to retain that professional.",
-    ownerAuthorization:
-      "I confirm that I am the property owner or have valid authority to request this local-professional introduction.",
-    ownerSuccess:
-      "Received. We will review your request and, where appropriate, facilitate a private introduction to a qualified local professional.",
-    submitterBlock: "Submitter details",
     name: "Name",
-    company: "Company / agency / organization",
+    company: "Company / brokerage",
     email: "Email",
-    phone: "WhatsApp / phone (country code)",
-    jurisdiction: "Jurisdiction (country + region)",
-    license: "License / registration / professional credential",
-    licenseHint: "Used to verify professional capacity and structure the appropriate cooperation path.",
-    existingMandate: "Existing mandate?",
-    exclusiveAvailable: "Exclusive available?",
-    yes: "Yes",
-    no: "No",
-    projectName: "Project / development name",
-    units: "Number of units",
-    propertyCount: "Number of properties you intend to present",
-    propertyCountHint: "A single number or a range (1, 3–5, 10+).",
-    planInterest: "Plan interest (optional)",
-    planOpts: [
-      ["", "Select…"],
-      ["single_property", "Single-property activation"],
-      ["agency", "Agency / portfolio relationship"],
-      ["developer_desk", "Developer Desk"],
+    phone: "WhatsApp / phone",
+    continue: "Continue",
+    back: "Back",
+    requiredStart: "Choose a path and provide your name, email and phone to continue.",
+    jurisdiction: "Country / jurisdiction",
+    credential: "License, registration or professional credential",
+    website: "Company or project website",
+    inventoryCount: "Approximate inventory count",
+    inventoryMarkets: "Property locations / markets",
+    inventorySummary: "Inventory or mandate summary",
+    authority: "Authority / mandate status",
+    authorityOptions: [
+      ["", "Select"],
+      ["exclusive", "Exclusive mandate in place"],
+      ["authorized", "Documented authority to present"],
+      ["developer_inventory", "Developer-owned / authorized inventory"],
+      ["review", "Authority available for review"],
     ],
-    propertyBlock: "Property details",
-    location: "Location (city, area, country)",
-    type: "Type",
-    typeOpts: [
-      ["", "Select…"],
-      ["apartment", "Apartment"],
-      ["villa", "Villa"],
-      ["penthouse", "Penthouse"],
-      ["new_build", "New-build"],
-      ["plot", "Plot"],
-      ["other", "Other"],
+    propertyLocation: "Property location",
+    propertyType: "Property type",
+    price: "Asking price / value with currency",
+    description: "Property summary",
+    buyerProperty: "Property or project of interest",
+    budget: "Buyer budget with currency",
+    timing: "Purchase timing",
+    representation: "Buyer representation status",
+    representationOptions: [
+      ["", "Select"],
+      ["represented_by_me", "Represented by me / my brokerage"],
+      ["referral_ready", "Formal referral handoff requested"],
+      ["introducer", "Professional introducer; structure to be reviewed"],
     ],
-    condition: "New-build or resale",
-    conditionOpts: [
-      ["", "Select…"],
-      ["new_build", "New-build"],
-      ["resale", "Resale"],
+    cooperation: "Preferred cooperation path",
+    cooperationOptions: [
+      ["", "Select"],
+      ["remain_involved", "Remain Involved With My Client"],
+      ["refer_transfer", "Refer and Transfer the Client"],
     ],
-    askingPrice: "Asking price / value (with currency)",
-    askingPriceHint: "Property price — allowed.",
-    bedrooms: "Bedrooms",
-    bathrooms: "Bathrooms",
-    builtArea: "Built area (m²)",
-    plotArea: "Plot area (m²) (if applicable)",
-    features: "Key features (free text)",
-    description: "Description / remarks",
-    images: "Images",
-    imagesHint: "Multiple files.",
-    documents: "Floor plans / documents (optional)",
-    documentsHint: "Multiple files.",
-    timeline: "Desired listing timeline",
-    chooseFiles: "Choose files",
-    filesSelected: (n: number) => `${n} file(s) selected`,
+    financial: "Financial readiness",
+    financialOptions: [
+      ["", "Select"],
+      ["inquiry", "Inquiry — qualification still required"],
+      ["qualified", "Buyer context and budget established"],
+      ["proof_of_funds", "Proof of funds available"],
+      ["lender_preapproval", "Actual lender preapproval available"],
+    ],
+    notes: "Additional context",
+    images: "Property images",
+    documents: "Supporting documents",
+    optional: "Optional; uploads are never required on the first step.",
     authorization:
-      "I confirm that I own this property or have valid authority or mandate to present it and authorize its review for possible international activation, subject to brokerage, platform, and compliance requirements.",
-    consent: "I understand all commercial terms are handled privately.",
-    submit: "Submit request",
-    submitting: "Submitting…",
+      "I confirm that I own, represent or have valid authority to present this opportunity for review.",
+    buyerAuthorization:
+      "I confirm that I have authority to discuss this buyer opportunity and provide the information submitted.",
+    consent:
+      "I understand that activation, registration protection, referrals and compensation require applicable written agreements and brokerage approval.",
+    submit: "Submit for review",
+    submitting: "Submitting",
     success:
-      "Received. Carlos will review the opportunity and respond with the recommended fit and professional route.",
-    errAuth: "Please confirm the authorization and consent to proceed.",
-    errImages: "Please add at least one property image.",
-    errGeneric: "Could not submit. Please try WhatsApp or email.",
-    errTimeout: "Request timed out. Please WhatsApp Carlos directly.",
-    optional: "(optional)",
-    select: "Select…",
+      "Received. Carlos will review the opportunity and respond with the appropriate qualification and cooperation path.",
+    error: "The request could not be submitted. Please try again or contact Carlos by WhatsApp.",
+    timeout: "The request timed out. Please contact Carlos by WhatsApp.",
+    confirm: "Confirm the authorization and cooperation terms to continue.",
+  },
+  es: {
+    step: "Paso",
+    of: "de",
+    choose: "Elija la oportunidad",
+    basics: "Indique unos datos básicos",
+    detail: "Añada la información necesaria para la revisión",
+    intro: "Elija una ruta. El primer paso solicita solo sus datos de contacto; no requiere archivos.",
+    paths: [
+      ["inventory", "Presentar inventario cualificado", "Una residencia, segunda vivienda u otro inmueble cualificado."],
+      ["mandate", "Mandato de promotora / agencia", "Una promoción, cartera o relación con inventario recurrente."],
+      ["buyer_opportunity", "Agente del sur de Florida / oportunidad de comprador", "Un comprador representado con interés en un inmueble internacional."],
+    ],
+    name: "Nombre",
+    company: "Empresa / brokerage",
+    email: "Correo electrónico",
+    phone: "WhatsApp / teléfono",
+    continue: "Continuar",
+    back: "Volver",
+    requiredStart: "Elija una ruta e indique nombre, correo y teléfono para continuar.",
+    jurisdiction: "País / jurisdicción",
+    credential: "Licencia, registro o credencial profesional",
+    website: "Web de la empresa o promoción",
+    inventoryCount: "Volumen aproximado de inventario",
+    inventoryMarkets: "Ubicaciones / mercados del inventario",
+    inventorySummary: "Resumen del inventario o mandato",
+    authority: "Situación de autorización / mandato",
+    authorityOptions: [
+      ["", "Seleccione"],
+      ["exclusive", "Mandato exclusivo vigente"],
+      ["authorized", "Autorización documentada para presentar"],
+      ["developer_inventory", "Inventario propio o autorizado por la promotora"],
+      ["review", "Autorización disponible para revisión"],
+    ],
+    propertyLocation: "Ubicación del inmueble",
+    propertyType: "Tipo de inmueble",
+    price: "Precio / valor con divisa",
+    description: "Resumen del inmueble",
+    buyerProperty: "Inmueble o promoción de interés",
+    budget: "Presupuesto del comprador con divisa",
+    timing: "Plazo de compra",
+    representation: "Situación de representación del comprador",
+    representationOptions: [
+      ["", "Seleccione"],
+      ["represented_by_me", "Representado por mí / mi brokerage"],
+      ["referral_ready", "Se solicita un referral formal"],
+      ["introducer", "Introductor profesional; estructura por revisar"],
+    ],
+    cooperation: "Ruta de cooperación preferida",
+    cooperationOptions: [
+      ["", "Seleccione"],
+      ["remain_involved", "Continuar involucrado con mi cliente"],
+      ["refer_transfer", "Referir y transferir al cliente"],
+    ],
+    financial: "Preparación financiera",
+    financialOptions: [
+      ["", "Seleccione"],
+      ["inquiry", "Consulta — aún requiere cualificación"],
+      ["qualified", "Contexto y presupuesto establecidos"],
+      ["proof_of_funds", "Prueba de fondos disponible"],
+      ["lender_preapproval", "Preaprobación real de prestamista disponible"],
+    ],
+    notes: "Contexto adicional",
+    images: "Imágenes del inmueble",
+    documents: "Documentación de apoyo",
+    optional: "Opcional; nunca se solicitan archivos en el primer paso.",
+    authorization:
+      "Confirmo que soy propietario, representante o que tengo autorización válida para presentar esta oportunidad.",
+    buyerAuthorization:
+      "Confirmo que tengo autorización para tratar esta oportunidad de comprador y aportar la información indicada.",
+    consent:
+      "Entiendo que la activación, protección del registro, referrals y compensación requieren los acuerdos escritos aplicables y aprobación del brokerage.",
+    submit: "Enviar para revisión",
+    submitting: "Enviando",
+    success:
+      "Recibido. Carlos revisará la oportunidad y responderá con la ruta de cualificación y cooperación adecuada.",
+    error: "No se pudo enviar la solicitud. Inténtelo de nuevo o contacte con Carlos por WhatsApp.",
+    timeout: "La solicitud ha caducado. Contacte con Carlos por WhatsApp.",
+    confirm: "Confirme la autorización y las condiciones de cooperación para continuar.",
   },
 } as const;
 
-type SubmitterType = "" | "agency" | "developer" | "owner" | "agent" | "professional";
-type ListPath = "" | "activation" | "materials" | "partner" | "owner_intro";
+type EntryPath = "" | "inventory" | "mandate" | "buyer_opportunity";
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
-export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
+export function GlobalDeskListingForm({ lang }: { lang: GlobalDeskLang }) {
   const t = L[lang];
-  const [submitterType, setSubmitterType] = useState<SubmitterType>("");
-  const [listPath, setListPath] = useState<ListPath>("");
+  const [stage, setStage] = useState<1 | 2>(1);
+  const [entryPath, setEntryPath] = useState<EntryPath>("");
   const [form, setForm] = useState<Record<string, string>>({});
   const [images, setImages] = useState<File[]>([]);
   const [documents, setDocuments] = useState<File[]>([]);
   const [authorized, setAuthorized] = useState(false);
   const [consented, setConsented] = useState(false);
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [err, setErr] = useState("");
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [error, setError] = useState("");
   const startFired = useRef(false);
   const renderedAt = useRef(Date.now());
+  const detailHeadingRef = useRef<HTMLHeadingElement>(null);
+  const attribution = getAttribution();
 
-  const isRepresentingProfessional = submitterType === "agency" || submitterType === "agent" || submitterType === "professional";
-  const isDeveloper = submitterType === "developer";
-  const isOwner = submitterType === "owner";
-  const pathOptions = isOwner ? [["owner_intro", t.ownerPath] as const] : t.q2opts;
-  const needsPropertyDetails = listPath === "activation";
-  const showPlanInterest = listPath === "partner";
+  useEffect(() => {
+    if (stage === 2) detailHeadingRef.current?.focus();
+  }, [stage]);
 
-  const set = (k: string) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const set = (key: string) => (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+  ) => setForm((current) => ({ ...current, [key]: event.target.value }));
 
   const handleFocus = () => {
     if (startFired.current || navigator.webdriver) return;
@@ -252,58 +215,80 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (needsPropertyDetails && images.length === 0) {
-      setErr(t.errImages);
+  const advance = () => {
+    if (!entryPath || !form.name?.trim() || !form.email?.trim() || !form.phone?.trim()) {
+      setError(t.requiredStart);
       setStatus("error");
       return;
     }
+    setError("");
+    setStatus("idle");
+    setStage(2);
+    pushEvent("global_desk_intake_step1", { entry_path: entryPath, language: lang });
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (!authorized || !consented) {
-      setErr(t.errAuth);
+      setError(t.confirm);
       setStatus("error");
       return;
     }
+
     setStatus("submitting");
-    setErr("");
+    setError("");
+    const payload = new FormData();
+    payload.append("form-name", FORM_NAME);
+    payload.append("bot-field", "");
+    payload.append("formRenderedAt", String(renderedAt.current));
+    payload.append("entryPath", entryPath);
+    payload.append("listPath", entryPath);
+    payload.append("submitterType", entryPath === "buyer_opportunity" ? "agent" : entryPath);
+    payload.append("language", lang);
+    payload.append("sourcePage", window.location.pathname);
+    payload.append("authorization", authorized ? "yes" : "");
+    payload.append("consent", consented ? "yes" : "");
+    Object.entries(form).forEach(([key, value]) => payload.append(key, String(value)));
+    Object.entries(attribution).forEach(([key, value]) => payload.append(key, String(value)));
+    images.forEach((file) => payload.append("images", file, file.name));
+    documents.forEach((file) => payload.append("documents", file, file.name));
 
-    const fd = new FormData();
-    fd.append("form-name", FORM_NAME);
-    fd.append("bot-field", "");
-    fd.append("formRenderedAt", String(renderedAt.current));
-    fd.append("submitterType", submitterType);
-    fd.append("listPath", listPath);
-    Object.entries(form).forEach(([k, v]) => fd.append(k, String(v ?? "")));
-    fd.append("authorization", authorized ? "yes" : "");
-    fd.append("consent", consented ? "yes" : "");
-    fd.append("language", lang);
-    fd.append("sourcePage", window.location.pathname);
-    images.forEach((file) => fd.append("images", file, file.name));
-    documents.forEach((file) => fd.append("documents", file, file.name));
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), 20000);
 
-    const ctrl = new AbortController();
-    const timer = window.setTimeout(() => ctrl.abort(), 20000);
     try {
-      const res = await fetch("/", { method: "POST", body: fd, signal: ctrl.signal });
-      if (!res.ok) throw new Error("submission_failed");
+      const response = await fetch("/", {
+        method: "POST",
+        body: payload,
+        signal: controller.signal,
+      });
+      if (!response.ok) throw new Error("submission_failed");
 
       notifyLeadDirect({
         name: form.name || "",
         email: form.email || "",
         phone: form.phone || "",
-        city: form.jurisdiction || form.location || "",
-        propertyAddress: form.location || "",
-        message:
-          `Global Desk request · ${submitterType || "—"} · ${listPath || "—"} · ` +
-          `Properties: ${form.propertyCount || "—"} · ${form.type || ""} · ${form.askingPrice || ""} · ` +
-          `${images.length} image(s), ${documents.length} doc(s)`,
-        sourcePage: FORM_NAME,
+        city: form.jurisdiction || form.propertyLocation || "",
+        propertyAddress: form.propertyLocation || form.buyerProperty || "",
+        timeline: form.timing || "",
+        message: [
+          `Global Desk · ${entryPath}`,
+          form.inventorySummary,
+          form.description,
+          form.notes,
+          form.budget ? `Budget: ${form.budget}` : "",
+          form.cooperation ? `Cooperation: ${form.cooperation}` : "",
+        ].filter(Boolean).join(" · "),
+        sourcePage: window.location.pathname,
+        leadSource: [attribution.utm_source, attribution.utm_medium, attribution.utm_campaign]
+          .filter(Boolean)
+          .join(" / "),
         formName: FORM_NAME,
-        botField: "", formRenderedAt: String(renderedAt.current),
+        botField: "",
+        formRenderedAt: String(renderedAt.current),
       });
 
-      // Auto-acknowledgment email in the submitter's chosen language.
-      fetch("/.netlify/functions/lead-acknowledgment", {
+      void fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -314,11 +299,18 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
         }),
       }).catch(() => {});
 
-      trackLead("seller", { form: "global-desk-listing", language: lang });
-      pushEvent("form_submit_global_desk_listing", { language: lang, submitter_type: submitterType });
+      trackLead(entryPath === "buyer_opportunity" ? "buyer" : "agent", {
+        form: FORM_NAME,
+        language: lang,
+        entry_path: entryPath,
+      });
+      pushEvent("form_submit_global_desk_listing", {
+        language: lang,
+        entry_path: entryPath,
+      });
       setStatus("success");
-    } catch (e: unknown) {
-      setErr((e as { name?: string }).name === "AbortError" ? t.errTimeout : t.errGeneric);
+    } catch (caught: unknown) {
+      setError((caught as { name?: string }).name === "AbortError" ? t.timeout : t.error);
       setStatus("error");
     } finally {
       window.clearTimeout(timer);
@@ -327,354 +319,349 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
   if (status === "success") {
     return (
-      <div className="border border-gold/30 bg-white/[0.04] p-10 text-center">
-        <CheckCircle2 size={40} className="mx-auto text-gold" />
-        <p className="mx-auto mt-5 max-w-xl font-serif text-xl leading-relaxed text-white">
-          {isOwner ? t.ownerSuccess : t.success}
-        </p>
+      <div className="border border-gold/35 bg-white px-6 py-14 text-center shadow-sm">
+        <CheckCircle2 size={42} strokeWidth={1.5} className="mx-auto text-gold-ink" aria-hidden="true" />
+        <p className="mx-auto mt-6 max-w-2xl font-serif text-2xl leading-relaxed text-navy">{t.success}</p>
       </div>
     );
   }
 
   return (
-    <div className="border border-white/10 bg-white/[0.02]">
-      <div className="border-b border-white/10 bg-white/[0.03] px-6 py-6 md:px-8">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{t.kicker}</p>
-        <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{isOwner ? t.ownerTitle : t.title}</h3>
-        <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{isOwner ? t.ownerIntro : t.intro}</p>
+    <form
+      name={FORM_NAME}
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      encType="multipart/form-data"
+      onFocus={handleFocus}
+      onSubmit={handleSubmit}
+      className="bg-white shadow-[0_20px_65px_rgba(11,30,63,0.08)]"
+    >
+      <input type="hidden" name="form-name" value={FORM_NAME} />
+      <input type="hidden" name="formRenderedAt" value={String(renderedAt.current)} />
+      <input type="hidden" name="sourcePage" value={typeof window === "undefined" ? "" : window.location.pathname} />
+      {Object.entries(attribution).map(([key, value]) => (
+        <input key={key} type="hidden" name={key} value={value} />
+      ))}
+      <div className="absolute left-[-9999px]" aria-hidden="true">
+        <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <form
-        name={FORM_NAME}
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        encType="multipart/form-data"
-        onSubmit={handleSubmit}
-        onFocus={handleFocus}
-        className="space-y-8 p-6 md:p-8"
-      >
-        <input type="hidden" name="form-name" value={FORM_NAME} />
-        <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
-          <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
-        </div>
-
-        {/* Q1 — Submitter type (routes the rest) */}
-        <fieldset>
-          <legend className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-            {t.q1} *
-          </legend>
-          <div className="mt-4 grid gap-2 sm:grid-cols-2">
-            {t.q1opts.map(([val, label]) => (
-              <label
-                key={val}
-                className={`flex cursor-pointer items-center gap-3 border px-4 py-3 font-sans text-sm transition-colors ${
-                  submitterType === val
-                    ? "border-gold bg-gold/10 text-white"
-                    : "border-white/12 text-white/65 hover:border-gold/40"
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="submitterType"
-                  value={val}
-                  required
-                  checked={submitterType === val}
-                  onChange={() => {
-                    setSubmitterType(val as SubmitterType);
-                    setListPath("");
-                  }}
-                  className="h-4 w-4 flex-shrink-0 accent-gold"
-                />
-                {label}
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
-        {/* Q2 — Engagement path */}
-        <fieldset>
-          <legend className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-            {t.q2} *
-          </legend>
-          <div className="mt-4 space-y-2">
-            {pathOptions.map(([val, label]) => (
-              <label
-                key={val}
-                className={`flex cursor-pointer items-center gap-3 border px-4 py-3 font-sans text-sm transition-colors ${
-                  listPath === val
-                    ? "border-gold bg-gold/10 text-white"
-                    : "border-white/12 text-white/65 hover:border-gold/40"
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="listPath"
-                  value={val}
-                  required
-                  checked={listPath === val}
-                  onChange={() => setListPath(val as ListPath)}
-                  className="h-4 w-4 flex-shrink-0 accent-gold"
-                />
-                {label}
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
-        {/* Submitter block */}
-        <div className="border-t border-white/10 pt-7">
-          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
-            {t.submitterBlock}
+      <div className="border-b border-navy/12 px-6 py-7 md:px-10">
+        <div className="flex items-center justify-between gap-5">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-ink">
+            {t.step} {stage} {t.of} 2
           </p>
-          <div className="grid gap-5 sm:grid-cols-2">
-            <Field label={`${t.name} *`}>
-              <input required name="name" type="text" className="form-input-dark" value={form.name || ""} onChange={set("name")} />
-            </Field>
-            <Field label={t.company}>
-              <input name="company" type="text" className="form-input-dark" value={form.company || ""} onChange={set("company")} />
-            </Field>
-            <Field label={`${t.email} *`}>
-              <input required name="email" type="email" className="form-input-dark" value={form.email || ""} onChange={set("email")} />
-            </Field>
-            <Field label={`${t.phone} *`}>
-              <input required name="phone" type="tel" placeholder="+34 600 000 000" className="form-input-dark" value={form.phone || ""} onChange={set("phone")} />
-            </Field>
-            <Field label={`${t.jurisdiction} *`} full>
-              <input required name="jurisdiction" type="text" placeholder="España · Madrid" className="form-input-dark" value={form.jurisdiction || ""} onChange={set("jurisdiction")} />
-            </Field>
+          <div className="flex gap-2" aria-hidden="true">
+            <span className="h-1 w-12 bg-gold" />
+            <span className={`h-1 w-12 ${stage === 2 ? "bg-gold" : "bg-navy/12"}`} />
           </div>
         </div>
-
-        {/* Conditional: agent, agency, or other qualified real estate professional */}
-        {isRepresentingProfessional && (
-          <div className="border-t border-white/10 pt-7">
-            <div className="grid gap-5 sm:grid-cols-2">
-              {/* License number keeps referral cooperation broker-to-broker. */}
-              <Field label={`${t.license} *`} hint={t.licenseHint} full>
-                <input required name="license" type="text" className="form-input-dark" value={form.license || ""} onChange={set("license")} />
-              </Field>
-              <YesNo label={t.existingMandate} name="existingMandate" t={t} value={form.existingMandate || ""} onChange={set("existingMandate")} />
-              <YesNo label={t.exclusiveAvailable} name="exclusiveAvailable" t={t} value={form.exclusiveAvailable || ""} onChange={set("exclusiveAvailable")} />
-            </div>
-          </div>
-        )}
-
-        {/* Conditional: developer */}
-        {isDeveloper && (
-          <div className="border-t border-white/10 pt-7">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <Field label={t.projectName}>
-                <input name="projectName" type="text" className="form-input-dark" value={form.projectName || ""} onChange={set("projectName")} />
-              </Field>
-              <Field label={`${t.units} *`}>
-                <input required name="units" type="text" className="form-input-dark" value={form.units || ""} onChange={set("units")} />
-              </Field>
-            </div>
-          </div>
-        )}
-
-        {/* Property count is needed only for activation or a portfolio partnership. */}
-        {(needsPropertyDetails || listPath === "partner") && (
-          <div className="border-t border-white/10 pt-7">
-          <div className="grid gap-5 sm:grid-cols-2">
-            <Field label={t.propertyCount} hint={t.propertyCountHint}>
-              <input name="propertyCount" type="text" placeholder="1, 3–5, 10+" className="form-input-dark" value={form.propertyCount || ""} onChange={set("propertyCount")} />
-            </Field>
-            {showPlanInterest && (
-              <Field label={t.planInterest}>
-                <select name="planInterest" className="form-input-dark w-full" value={form.planInterest || ""} onChange={set("planInterest")}>
-                  {t.planOpts.map(([val, label]) => (
-                    <option key={label} value={val}>{label}</option>
-                  ))}
-                </select>
-              </Field>
-            )}
-          </div>
-          </div>
-        )}
-
-        {/* Property details are requested only for an actual mandate activation. */}
-        {needsPropertyDetails && (
-          <div className="border-t border-white/10 pt-7">
-          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
-            {t.propertyBlock}
-          </p>
-          <div className="grid gap-5 sm:grid-cols-2">
-            <Field label={`${t.location} *`} full>
-              <input required name="location" type="text" className="form-input-dark" value={form.location || ""} onChange={set("location")} />
-            </Field>
-            <Field label={`${t.type} *`}>
-              <select required name="type" className="form-input-dark w-full" value={form.type || ""} onChange={set("type")}>
-                {t.typeOpts.map(([val, label]) => (
-                  <option key={label} value={val}>{label}</option>
-                ))}
-              </select>
-            </Field>
-            <Field label={t.condition}>
-              <select name="condition" className="form-input-dark w-full" value={form.condition || ""} onChange={set("condition")}>
-                {t.conditionOpts.map(([val, label]) => (
-                  <option key={label} value={val}>{label}</option>
-                ))}
-              </select>
-            </Field>
-            <Field label={`${t.askingPrice} *`} hint={t.askingPriceHint} full>
-              <input required name="askingPrice" type="text" placeholder="€ / $ / £" className="form-input-dark" value={form.askingPrice || ""} onChange={set("askingPrice")} />
-            </Field>
-            <Field label={t.bedrooms}>
-              <input name="bedrooms" type="text" inputMode="numeric" className="form-input-dark" value={form.bedrooms || ""} onChange={set("bedrooms")} />
-            </Field>
-            <Field label={t.bathrooms}>
-              <input name="bathrooms" type="text" inputMode="numeric" className="form-input-dark" value={form.bathrooms || ""} onChange={set("bathrooms")} />
-            </Field>
-            <Field label={`${t.builtArea} *`}>
-              <input required name="builtArea" type="text" inputMode="numeric" className="form-input-dark" value={form.builtArea || ""} onChange={set("builtArea")} />
-            </Field>
-            <Field label={t.plotArea}>
-              <input name="plotArea" type="text" inputMode="numeric" className="form-input-dark" value={form.plotArea || ""} onChange={set("plotArea")} />
-            </Field>
-            <Field label={t.features} full>
-              <input name="features" type="text" className="form-input-dark" value={form.features || ""} onChange={set("features")} />
-            </Field>
-            <Field label={`${t.description} *`} full>
-              <textarea required name="description" rows={5} className="form-input-dark" value={form.description || ""} onChange={set("description")} />
-            </Field>
-            <FileField
-              label={`${t.images} *`}
-              hint={t.imagesHint}
-              chooseLabel={t.chooseFiles}
-              countLabel={t.filesSelected}
-              accept="image/*"
-              fieldName="images"
-              files={images}
-              onFiles={setImages}
-              full
-            />
-            <FileField
-              label={`${t.documents}`}
-              hint={t.documentsHint}
-              chooseLabel={t.chooseFiles}
-              countLabel={t.filesSelected}
-              accept="image/*,application/pdf,.pdf,.doc,.docx"
-              fieldName="documents"
-              files={documents}
-              onFiles={setDocuments}
-              full
-            />
-            <Field label={t.timeline} full>
-              <input name="timeline" type="text" className="form-input-dark" value={form.timeline || ""} onChange={set("timeline")} />
-            </Field>
-          </div>
-          </div>
-        )}
-
-        {/* Authorization + consent */}
-        <div className="space-y-4 border-t border-white/10 pt-7">
-          <label className="flex items-start gap-3">
-            <input
-              type="checkbox"
-              name="authorization"
-              className="mt-0.5 h-4 w-4 flex-shrink-0 accent-gold"
-              checked={authorized}
-              onChange={(e) => setAuthorized(e.target.checked)}
-            />
-            <span className="font-sans text-xs leading-relaxed text-white/55">{isOwner ? t.ownerAuthorization : t.authorization} *</span>
-          </label>
-          <label className="flex items-start gap-3">
-            <input
-              type="checkbox"
-              name="consent"
-              className="mt-0.5 h-4 w-4 flex-shrink-0 accent-gold"
-              checked={consented}
-              onChange={(e) => setConsented(e.target.checked)}
-            />
-            <span className="font-sans text-xs leading-relaxed text-white/55">{t.consent} *</span>
-          </label>
-        </div>
-
-        {status === "error" && err && <p className="font-sans text-sm text-red-400">{err}</p>}
-
-        <button
-          type="submit"
-          disabled={status === "submitting"}
-          className="group flex w-full items-center justify-center gap-3 bg-gold py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-navy-deep transition-all hover:opacity-90 disabled:opacity-60"
+        <h3
+          ref={detailHeadingRef}
+          tabIndex={stage === 2 ? -1 : undefined}
+          className="mt-4 font-serif text-2xl text-navy md:text-3xl"
         >
-          {status === "submitting" ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
-          {status === "submitting" ? t.submitting : t.submit}
-        </button>
-      </form>
-    </div>
+          {stage === 1 ? t.choose : t.detail}
+        </h3>
+        <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-navy/62">{t.intro}</p>
+      </div>
+
+      <div className="space-y-9 px-6 py-8 md:px-10 md:py-10">
+        {stage === 1 ? (
+          <>
+            <fieldset>
+              <legend className="sr-only">{t.choose}</legend>
+              <div className="grid gap-3 md:grid-cols-3">
+                {t.paths.map(([value, label, description], index) => {
+                  const Icon = [Warehouse, Building2, UserRoundSearch][index];
+                  return (
+                    <label
+                      key={value}
+                      className={`cursor-pointer border p-5 transition-colors ${
+                        entryPath === value
+                          ? "border-gold bg-gold/[0.08]"
+                          : "border-navy/14 hover:border-gold/55"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="entryPath"
+                        value={value}
+                        checked={entryPath === value}
+                        onChange={() => setEntryPath(value as EntryPath)}
+                        className="sr-only"
+                      />
+                      <Icon size={23} strokeWidth={1.4} className="text-gold-ink" aria-hidden="true" />
+                      <span className="mt-5 block font-serif text-xl leading-tight text-navy">{label}</span>
+                      <span className="mt-3 block font-sans text-sm leading-relaxed text-navy/62">{description}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </fieldset>
+
+            <div>
+              <p className="mb-5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy/55">
+                {t.basics}
+              </p>
+              <div className="grid gap-5 md:grid-cols-2">
+                <Field label={t.name} required>
+                  <input required name="name" type="text" value={form.name || ""} onChange={set("name")} className="gd-input" autoComplete="name" />
+                </Field>
+                <Field label={t.company}>
+                  <input name="company" type="text" value={form.company || ""} onChange={set("company")} className="gd-input" autoComplete="organization" />
+                </Field>
+                <Field label={t.email} required>
+                  <input required name="email" type="email" value={form.email || ""} onChange={set("email")} className="gd-input" autoComplete="email" />
+                </Field>
+                <Field label={t.phone} required>
+                  <input required name="phone" type="tel" value={form.phone || ""} onChange={set("phone")} className="gd-input" autoComplete="tel" />
+                </Field>
+              </div>
+            </div>
+
+            {status === "error" && error ? <ErrorMessage>{error}</ErrorMessage> : null}
+            <button
+              type="button"
+              onClick={advance}
+              className="flex min-h-12 w-full items-center justify-center gap-2 bg-navy-deep px-6 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+            >
+              {t.continue}
+              <ArrowRight size={15} aria-hidden="true" />
+            </button>
+          </>
+        ) : null}
+
+        {stage === 2 ? (
+          <>
+            <div className="grid gap-5 md:grid-cols-2">
+              <Field label={t.jurisdiction} required>
+                <input required name="jurisdiction" type="text" value={form.jurisdiction || ""} onChange={set("jurisdiction")} className="gd-input" />
+              </Field>
+              <Field label={t.credential}>
+                <input name="credential" type="text" value={form.credential || ""} onChange={set("credential")} className="gd-input" />
+              </Field>
+            </div>
+
+            {entryPath === "inventory" ? (
+              <div className="grid gap-5 border-t border-navy/12 pt-8 md:grid-cols-2">
+                <Field label={t.authority} required>
+                  <Select required name="authority" value={form.authority || ""} onChange={set("authority")} options={t.authorityOptions} />
+                </Field>
+                <Field label={t.propertyLocation} required>
+                  <input required name="propertyLocation" type="text" value={form.propertyLocation || ""} onChange={set("propertyLocation")} className="gd-input" />
+                </Field>
+                <Field label={t.propertyType} required>
+                  <input required name="propertyType" type="text" value={form.propertyType || ""} onChange={set("propertyType")} className="gd-input" />
+                </Field>
+                <Field label={t.price} required>
+                  <input required name="price" type="text" value={form.price || ""} onChange={set("price")} className="gd-input" />
+                </Field>
+                <Field label={t.description} required full>
+                  <textarea required name="description" rows={4} value={form.description || ""} onChange={set("description")} className="gd-input" />
+                </Field>
+                <FileField label={t.images} hint={t.optional} fieldName="images" files={images} onFiles={setImages} />
+                <FileField label={t.documents} hint={t.optional} fieldName="documents" files={documents} onFiles={setDocuments} />
+              </div>
+            ) : null}
+
+            {entryPath === "mandate" ? (
+              <div className="grid gap-5 border-t border-navy/12 pt-8 md:grid-cols-2">
+                <Field label={t.website}>
+                  <input name="website" type="url" value={form.website || ""} onChange={set("website")} className="gd-input" />
+                </Field>
+                <Field label={t.inventoryCount} required>
+                  <input required name="inventoryCount" type="text" value={form.inventoryCount || ""} onChange={set("inventoryCount")} className="gd-input" />
+                </Field>
+                <Field label={t.inventoryMarkets} required full>
+                  <input required name="inventoryMarkets" type="text" value={form.inventoryMarkets || ""} onChange={set("inventoryMarkets")} className="gd-input" />
+                </Field>
+                <Field label={t.inventorySummary} required full>
+                  <textarea required name="inventorySummary" rows={5} value={form.inventorySummary || ""} onChange={set("inventorySummary")} className="gd-input" />
+                </Field>
+              </div>
+            ) : null}
+
+            {entryPath === "buyer_opportunity" ? (
+              <div className="grid gap-5 border-t border-navy/12 pt-8 md:grid-cols-2">
+                <Field label={t.buyerProperty} required full>
+                  <input required name="buyerProperty" type="text" value={form.buyerProperty || ""} onChange={set("buyerProperty")} className="gd-input" />
+                </Field>
+                <Field label={t.budget} required>
+                  <input required name="budget" type="text" value={form.budget || ""} onChange={set("budget")} className="gd-input" />
+                </Field>
+                <Field label={t.timing} required>
+                  <input required name="timing" type="text" value={form.timing || ""} onChange={set("timing")} className="gd-input" />
+                </Field>
+                <Field label={t.representation} required>
+                  <Select required name="representation" value={form.representation || ""} onChange={set("representation")} options={t.representationOptions} />
+                </Field>
+                <Field label={t.cooperation} required>
+                  <Select required name="cooperation" value={form.cooperation || ""} onChange={set("cooperation")} options={t.cooperationOptions} />
+                </Field>
+                <Field label={t.financial} required full>
+                  <Select required name="financialReadiness" value={form.financialReadiness || ""} onChange={set("financialReadiness")} options={t.financialOptions} />
+                </Field>
+                <Field label={t.notes} full>
+                  <textarea name="notes" rows={4} value={form.notes || ""} onChange={set("notes")} className="gd-input" />
+                </Field>
+              </div>
+            ) : null}
+
+            <div className="space-y-4 border-t border-navy/12 pt-8">
+              <CheckField
+                name="authorization"
+                checked={authorized}
+                onChange={setAuthorized}
+                label={entryPath === "buyer_opportunity" ? t.buyerAuthorization : t.authorization}
+              />
+              <CheckField name="consent" checked={consented} onChange={setConsented} label={t.consent} />
+            </div>
+
+            {status === "error" && error ? <ErrorMessage>{error}</ErrorMessage> : null}
+            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
+              <button
+                type="button"
+                onClick={() => {
+                  setStage(1);
+                  setError("");
+                  setStatus("idle");
+                }}
+                className="inline-flex min-h-12 items-center justify-center gap-2 border border-navy/20 px-6 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy transition-colors hover:border-gold"
+              >
+                <ArrowLeft size={15} aria-hidden="true" />
+                {t.back}
+              </button>
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="inline-flex min-h-12 items-center justify-center gap-2 bg-navy-deep px-8 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-gold hover:text-navy-deep disabled:opacity-60"
+              >
+                {status === "submitting" ? <Loader2 size={15} className="animate-spin" aria-hidden="true" /> : <Send size={15} aria-hidden="true" />}
+                {status === "submitting" ? t.submitting : t.submit}
+              </button>
+            </div>
+          </>
+        ) : null}
+      </div>
+    </form>
   );
 }
 
 function Field({
-  label, hint, full, children,
-}: { label: string; hint?: string; full?: boolean; children: React.ReactNode }) {
-  // The control is nested inside the <label>, giving every input/select a
-  // programmatic label (implicit association) without needing per-field ids.
+  label,
+  required = false,
+  full = false,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  full?: boolean;
+  children: React.ReactNode;
+}) {
   return (
-    <label className={`flex flex-col gap-1.5 ${full ? "sm:col-span-2" : ""}`}>
-      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{label}</span>
+    <label className={`flex flex-col gap-2 ${full ? "md:col-span-2" : ""}`}>
+      <span className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-navy/58">
+        {label}
+        {required ? " *" : ""}
+      </span>
       {children}
-      {hint && <p className="font-sans text-[11px] leading-snug text-white/70">{hint}</p>}
     </label>
   );
 }
 
-function YesNo({
-  label, name, value, onChange, t,
+function Select({
+  name,
+  value,
+  onChange,
+  options,
+  required = false,
 }: {
-  label: string; name: string; value: string;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  t: (typeof L)[Lang];
+  name: string;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: readonly (readonly [string, string])[];
+  required?: boolean;
 }) {
   return (
-    <Field label={label}>
-      <select name={name} className="form-input-dark w-full" value={value} onChange={onChange}>
-        <option value="">{t.select}</option>
-        <option value="yes">{t.yes}</option>
-        <option value="no">{t.no}</option>
-      </select>
-    </Field>
+    <select required={required} name={name} value={value} onChange={onChange} className="gd-input">
+      {options.map(([optionValue, label]) => (
+        <option key={`${name}-${optionValue}`} value={optionValue}>{label}</option>
+      ))}
+    </select>
+  );
+}
+
+function CheckField({
+  name,
+  checked,
+  onChange,
+  label,
+}: {
+  name: string;
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  label: string;
+}) {
+  return (
+    <label className="flex items-start gap-3">
+      <input
+        required
+        type="checkbox"
+        name={name}
+        checked={checked}
+        onChange={(event) => onChange(event.target.checked)}
+        className="mt-1 h-4 w-4 shrink-0 accent-[#B08D57]"
+      />
+      <span className="font-sans text-xs leading-[1.7] text-navy/62">{label}</span>
+    </label>
   );
 }
 
 function FileField({
-  label, hint, chooseLabel, countLabel, accept, fieldName, files, onFiles, full,
+  label,
+  hint,
+  fieldName,
+  files,
+  onFiles,
 }: {
-  label: string; hint?: string; chooseLabel: string;
-  countLabel: (n: number) => string; accept: string; fieldName: string;
-  files: File[]; onFiles: (f: File[]) => void; full?: boolean;
+  label: string;
+  hint: string;
+  fieldName: string;
+  files: File[];
+  onFiles: (files: File[]) => void;
 }) {
-  const ref = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
-    <Field label={label} hint={hint} full={full}>
-      <div className="flex flex-wrap items-center gap-3">
-        <button
-          type="button"
-          onClick={() => ref.current?.click()}
-          className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 transition-colors hover:border-gold/60 hover:text-white"
-        >
-          <Upload size={13} />
-          {chooseLabel}
-        </button>
-        {files.length > 0 && (
-          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">
-            {countLabel(files.length)}
-          </span>
-        )}
-      </div>
+    <div className="md:col-span-1">
+      <p className="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-navy/58">{label}</p>
+      <button
+        type="button"
+        onClick={() => inputRef.current?.click()}
+        className="mt-2 inline-flex min-h-11 items-center gap-2 border border-navy/20 px-5 py-3 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-navy transition-colors hover:border-gold"
+      >
+        <Upload size={14} aria-hidden="true" />
+        {files.length ? `${files.length} file(s)` : label}
+      </button>
+      <p className="mt-2 font-sans text-[11px] leading-relaxed text-navy/48">{hint}</p>
       <input
-        ref={ref}
+        ref={inputRef}
         type="file"
-        // Explicit field name — must match the AJAX FormData keys and the
-        // Netlify detection form (a label-derived name breaks under i18n).
         name={fieldName}
-        accept={accept}
         multiple
-        onChange={(e) => onFiles(Array.from(e.target.files ?? []))}
+        accept={fieldName === "images" ? "image/*" : "image/*,application/pdf,.pdf,.doc,.docx"}
+        onChange={(event) => onFiles(Array.from(event.target.files ?? []))}
         className="hidden"
       />
-    </Field>
+    </div>
+  );
+}
+
+function ErrorMessage({ children }: { children: React.ReactNode }) {
+  return (
+    <p role="alert" className="border-l-2 border-red-600 bg-red-50 px-4 py-3 font-sans text-sm text-red-800">
+      {children}
+    </p>
   );
 }
