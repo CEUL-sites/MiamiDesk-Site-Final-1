@@ -93,7 +93,8 @@ if (!fs.existsSync(analyticsPath)) {
   if (!fn) {
     errors.push('analytics.ts: navigateAfterTracking is missing.');
   } else {
-    const body = fn.slice(0, fn.indexOf('\n}\n') + 3);
+    const bodyMatch = fn.match(/^export function navigateAfterTracking[\s\S]*?\r?\n\}\r?\n/m);
+    const body = bodyMatch ? bodyMatch[0] : fn;
     if (!/setTimeout\(/.test(body)) {
       errors.push(
         'analytics.ts: navigateAfterTracking has no hard timeout fallback. Without it a blocked ' +
