@@ -34,99 +34,141 @@ const C = {
     brokerageCaption: "United Realty Group, Weston: infraestructura de corretaje en el sur de Florida.",
     waES: "WhatsApp España",
     waUS: "WhatsApp EE. UU.",
-    heroEyebrow: "Miami Global Listing Desk · Activación internacional de inmuebles",
-    heroTitle: "Gane el mandato localmente. Active inmuebles seleccionados en EE. UU.",
+    heroEyebrow:
+      "Inmuebles internacionales · sur de Florida · alcance global",
+    heroTitle:
+      "Posicione inmuebles internacionales ante la red inmobiliaria del sur de Florida, con 93,000 miembros.",
+    heroLead: "El mercado es local. El sur de Florida conecta capital privado de Estados Unidos, Latinoamérica y otros mercados internacionales.",
     heroSub:
-      "Para agentes inmobiliarios individuales con mandatos prime cualificados. Usted conserva la relación con el propietario y la representación local; Miami Global Desk evalúa y activa inventario seleccionado para el mercado profesional de Miami y el sur de Florida, sujeto a los requisitos aplicables.",
-    heroCta: "Activar una propiedad",
+      "El ecosistema profesional del sur de Florida, con 93,000 miembros y Miami como referente internacional, atiende a compradores e inversores de Estados Unidos, Latinoamérica y otros centros globales, incluidos segmentos de alto patrimonio. Miami Global Desk ayuda a diferenciar inmuebles seleccionados mediante posicionamiento de mercado, presentación bilingüe y cooperación profesional estructurada, mientras el profesional local conserva la relación con el cliente y el mandato.",
+    heroCta:
+      "Presentar un inmueble cualificado",
     heroWhatsApp: "WhatsApp España",
     heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · sujeto a requisitos de corretaje, plataforma y cumplimiento",
-    heroPartnerCta: "Convertirse en socio",
-    mandateEyebrow: "Su mandato. Nuestra activación en EE. UU.",
-    mandateTitle: "Una ventaja que el propietario puede entender en una sola conversación.",
-    mandateBody: "La activación no es una campaña genérica ni una sustitución de su agencia: es una capa profesional de mercado estadounidense diseñada para reforzar su propuesta de mandato.",
+    heroPartnerCta:
+      "Hablar de una colaboración",
+    mandateEyebrow:
+      "Una propuesta más sólida para su propietario",
+    mandateTitle:
+      "Dé al propietario una razón concreta para elegir — y mantener — su representación.",
+    mandateBody:
+      "Un mandato se vuelve más defendible cuando la experiencia local se combina con una estrategia creíble de posicionamiento hacia el sur de Florida. Usted no entrega la relación: añade una capacidad internacional que el propietario puede entender y valorar.",
     mandateCards: [
-      ["Gane o proteja el mandato", "Presente una estrategia de activación internacional que complementa — no sustituye — su autoridad local."],
-      ["Usted mantiene la relación", "El profesional local conserva la estrategia con el propietario, las visitas, la negociación y el conocimiento de mercado."],
-      ["Active solo lo que encaja", "Cada inmueble se revisa antes de entrar en una ruta profesional de Miami y el sur de Florida."],
+      ["Lidere con un mercado reconocido", "Explique cómo un inmueble seleccionado puede prepararse para el sur de Florida, no simplemente publicarse en otra página web."],
+      ["Conserve el control del cliente", "La estrategia con el propietario, las visitas, la negociación y las decisiones locales permanecen con el profesional que representa el inmueble."],
+      ["Añada profundidad profesional", "La revisión del inmueble, la presentación bilingüe y un marco de cooperación documentado elevan la conversación de captación."],
     ],
-    ownerRouteTitle: "Si un propietario llega directamente",
-    ownerRoute: "Cuando sea necesario, podemos facilitar una introducción a un profesional local cualificado que pueda trabajar con el propietario y con nosotros.",
-    ownerRouteNote: "El propietario decide libremente si desea contratarlo; no asignamos automáticamente agentes a consumidores.",
-    marketEyebrow: "La ventaja para ganar mandatos",
-    marketTitle: "Una propuesta que el agente puede presentar al propietario.",
+    ownerRouteTitle:
+      "Si un propietario llega directamente",
+    ownerRoute:
+      "Cuando se necesite representación en su mercado, podemos facilitar una introducción a un profesional local cualificado que pueda trabajar con el propietario y con nosotros.",
+    ownerRouteNote:
+      "El propietario decide libremente si desea contratarlo; no asignamos automáticamente agentes ni interferimos con relaciones de representación existentes.",
+    marketEyebrow:
+      "Por qué el sur de Florida cambia la conversación con el propietario",
+    marketTitle:
+      "El sur de Florida conecta la demanda inmobiliaria de Estados Unidos, Latinoamérica y otros mercados internacionales dentro de un mismo mercado profesional.",
     marketLead:
-      "Su propietario no necesita una promesa vaga de “exposición global”. Necesita saber qué cambia: usted mantiene el mandato local y el inmueble, si es apto, puede activar una ruta profesional hacia el mercado de Miami y el sur de Florida.",
+      "Para el propietario, el sur de Florida —con Miami como principal referencia internacional— es un centro reconocido de inversión inmobiliaria y capital privado. Para el profesional local, eso crea una ventaja de posicionamiento creíble, no otra promesa genérica de exposición mundial.",
     marketBody:
-      "Para un agente individual, la ventaja es concreta: una conversación de captación más sólida, una presentación bilingüe más clara y un marco de cooperación documentado. El agente local sigue siendo la referencia del propietario para estrategia, visitas, negociación y decisiones del mercado local.",
-    distEyebrow: "La ventaja de distribución",
+      "El ecosistema profesional del sur de Florida, con 93,000 miembros, se encuentra en la intersección de la demanda de compradores e inversores de Estados Unidos, Latinoamérica y otros mercados internacionales, incluidos segmentos de alto patrimonio. Miami Global Desk ayuda a que los inmuebles seleccionados se diferencien mediante posicionamiento específico para la audiencia, preparación bilingüe y una ruta de cooperación documentada. El profesional local conserva el cliente, el mandato y la representación; toda actividad está sujeta a elegibilidad y requisitos aplicables.",
+    reachEyebrow: "Una historia de mercado que cruza fronteras",
+    reachTitle: "Muestre al propietario cómo su representación local puede conectarse con un mercado profesional más amplio.",
+    reachBody:
+      "Cada inmueble conserva su identidad local. La diferencia está en cómo se prepara y presenta para una conversación profesional relevante en el sur de Florida.",
+    reachCaptions: [
+      ["Miami ↔ mercados internacionales", "Una narrativa visual que conecta lugar, capital y oportunidad."],
+      ["Sur de Florida", "Un mercado reconocido por compradores e inversores de Estados Unidos, Latinoamérica y otros centros internacionales."],
+      ["El inmueble, primero", "Presentación específica para la audiencia, sin diluir el mandato ni la experiencia local."],
+    ],
+    distEyebrow:
+      "La ventaja de distribución",
     distIntro:
-      "La activación se apoya en la infraestructura profesional de distribución inmobiliaria del sur de Florida:",
+      "La infraestructura profesional del sur de Florida pasa a formar parte de la historia de su inmueble.",
     caption: "Cifra de la red asociativa, no del principal ni de United Realty Group.",
     activation:
-      "La exposición es infraestructura. La activación de agentes compradores depende de información clara, cooperación profesional, compensación cuando corresponda y requisitos de corretaje, plataforma y cumplimiento.",
+      "La diferencia no es otra promesa de publicidad global. Es una ruta profesional: cualificar el inmueble, preparar la información, definir la cooperación y posicionarlo para un mercado reconocido por el capital internacional y la movilidad de patrimonios de alto valor. La activación permanece sujeta a requisitos de corretaje, plataforma, elegibilidad y cumplimiento.",
     bridgeEyebrow: "España, en su contexto local",
     bridgeTitle: "Un mercado contemporáneo y una identidad de lugar histórica.",
     bridgeBody:
-      "La conversación empieza por cómo se entiende un lugar localmente y lleva inventario seleccionado a una conversación clara y profesional con agentes compradores del área de Miami.",
+      "La conversación empieza por cómo se entiende un lugar localmente y lleva inventario seleccionado a una conversación clara y profesional con agentes compradores del sur de Florida.",
     granViaAlt: "Vista sobre Gran Vía y los edificios del centro de Madrid",
     granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
     segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
     segoviaCaption: "Segovia, España: el acueducto romano junto al casco histórico.",
-    structureEyebrow: "Protección del profesional local",
+    structureEyebrow:
+      "Su papel sigue siendo central",
     structureBody:
-      "Miami Global Desk trabaja con el profesional local que controla un mandato cualificado; no sustituye esa representación ni solicita propietarios ya representados. Si un propietario llega directamente y necesita representación local, podemos facilitar una introducción a un profesional cualificado. El propietario decide libremente si desea contratarlo. Las visitas, la negociación local y la cualificación del comprador permanecen con el profesional local que corresponda.",
-    proofEyebrow: "Preparación profesional",
-    proofTitle: "Inventario preparado para una cooperación clara.",
+      "Miami Global Desk trabaja con el agente, la agencia, el promotor o el profesional inmobiliario local que controla un mandato o autorización cualificada. No sustituye esa representación ni solicita propietarios ya representados. Las visitas, la negociación local, la documentación de origen y el conocimiento del mercado permanecen con el profesional correspondiente; la coordinación con el sur de Florida se define de forma privada y operación por operación.",
+    proofEyebrow:
+      "Preparación para el sur de Florida",
+    proofTitle:
+      "Presente el inmueble al nivel que exige una conversación internacional seria.",
     proofBody:
-      "Carlos coordina fotografía y materiales de presentación para que inventario seleccionado pueda ser entendido y evaluado por agentes compradores del sur de Florida dentro del marco profesional aplicable.",
+      "Carlos coordina la revisión, el contexto bilingüe y los materiales necesarios para que un inmueble seleccionado pueda ser entendido y evaluado con rapidez por profesionales inmobiliarios del sur de Florida dentro del marco aplicable.",
     proofAlt: "Producción profesional de medios en una residencia frente al agua en Miami",
-    proofCaption: "Producción de fotografía y video para la presentación profesional de una propiedad en Miami.",
-    howEyebrow: "Cómo funciona",
-    coopTitle: "Cooperación profesional — operación por operación",
+    proofCaption:
+      "Fotografía y video profesional para posicionar una propiedad ante el mercado del sur de Florida.",
+    howEyebrow:
+      "De un mandato local a una ruta profesional en el sur de Florida",
+    coopTitle:
+      "Cooperación profesional — propiedad por propiedad",
     coopBody:
-      "Cada oportunidad se estructura operación por operación. Cuando corresponde, la compensación, los referidos, la cooperación entre agencias, la presentación en plataformas y cualquier actividad MLS se documentan y canalizan a través del marco profesional aplicable, incluyendo United Realty Group y los requisitos legales y de cumplimiento correspondientes. No se garantiza colocación, leads, compradores, comisiones ni ventas.",
-    twoWaysTitle: "Dos formas de trabajar con el Desk",
-    wayExclusiveTitle: "Una propiedad, un mandato cualificado",
+      "Cada oportunidad se evalúa y estructura de forma individual. Cuando corresponde, los referidos, la compensación, la cooperación entre agencias, la presentación en plataformas y cualquier actividad MLS se documentan a través del marco profesional aplicable, incluyendo United Realty Group. No se garantiza colocación, lead, comprador, comisión ni venta.",
+    twoWaysTitle:
+      "Un inmueble cualificado — o una relación profesional más amplia.",
+    wayExclusiveTitle:
+      "Agentes y profesionales inmobiliarios locales",
     wayExclusiveBody:
-      "Un agente individual puede presentar una propiedad prime con autoridad documentada. Revisamos encaje, información, materiales y la ruta profesional de activación antes de proponer el alcance.",
-    wayPortfolioTitle: "Agencia, cartera o promoción",
+      "Un agente individual u otro profesional inmobiliario cualificado puede presentar una propiedad prime con autoridad documentada. No se exige pertenecer a una gran agencia ni aportar una cartera.",
+    wayPortfolioTitle:
+      "Agencias, brokerages y promotores",
     wayPortfolioBody:
-      "Las agencias, promotoras y organizaciones de ventas autorizadas pueden estructurar una relación de activación para inventario seleccionado. El alcance se define por escrito y operación por operación.",
-    twoWaysClosing: "Términos y condiciones, en propuesta privada.",
-    scopesEyebrow: "Alcances de activación",
+      "Las organizaciones con inventario seleccionado pueden estructurar una relación para una cartera, promoción o flujo recurrente de propiedades. El alcance se define por escrito y propiedad por propiedad.",
+    twoWaysClosing:
+      "Toda propiedad y toda relación están sujetas a revisión, aprobación de corretaje y requisitos aplicables.",
+    scopesEyebrow:
+      "Formas de trabajar con Miami Global Desk",
     scopes: [
-      ["Material para el mandato", "Explicación clara que el agente puede llevar a su presentación de captación, con la ruta de activación y el papel protegido del profesional local."],
-      ["Activación de propiedad", "Revisión de encaje, presentación bilingüe y rutas de cooperación para inventario seleccionado, sujetas a requisitos de corretaje, plataforma y cumplimiento."],
-      ["Desk de agencias", "Relación estructurada para una agencia, cartera o promoción, con condiciones privadas y documentación de cooperación."],
+      ["Apoyo para ganar el mandato", "Argumentación y materiales que explican al propietario el valor del sur de Florida y el papel protegido del profesional local."],
+      ["Posicionamiento de un inmueble", "Revisión de encaje, presentación bilingüe y una ruta de cooperación para una propiedad seleccionada."],
+      ["Desk profesional", "Relación estructurada para agencias, profesionales, carteras o promociones, con condiciones privadas y cooperación documentada."],
     ],
-    stepsTitle: "La activación, en cuatro pasos",
+    stepsTitle:
+      "Un proceso selectivo, claro y documentado",
     steps: [
-      ["Presente el mandato", "Una propiedad prime basta. El profesional local confirma su autoridad para someterla a revisión."],
-      ["Revisión de encaje", "Carlos evalúa el inmueble, el mercado, la documentación y la viabilidad profesional antes de proponer un alcance."],
-      ["Plan de activación en EE. UU.", "La propiedad apta recibe materiales claros, contexto bilingüe y una ruta de cooperación hacia el ecosistema profesional del sur de Florida."],
-      ["Cooperación y seguimiento", "El profesional local sigue siendo el punto de referencia; las introducciones, la actividad y la cooperación se registran y se coordinan según corresponda."],
+      ["Confirmar autoridad y encaje", "Una sola propiedad puede ser suficiente. Verificamos quién la representa, el mandato o autorización y su posible encaje con el mercado."],
+      ["Preparar la propuesta para el sur de Florida", "Organizamos la información esencial, el contexto bilingüe y los materiales que permiten una evaluación profesional."],
+      ["Definir la cooperación", "El alcance, las funciones, la compensación cuando corresponda y los requisitos aplicables se establecen por escrito."],
+      ["Activar y coordinar", "El inmueble apto entra en la ruta acordada; la actividad y las introducciones se coordinan con el profesional local."],
     ],
-    midCta: "Activar un mandato cualificado",
-    midCtaAlt: "¿Prefiere hablar primero?",
+    midCta:
+      "Presentar un inmueble cualificado",
+    midCtaAlt:
+      "¿Prefiere analizar primero la oportunidad?",
     faqEyebrow: "Preguntas frecuentes",
-    faqTitle: "Preguntas de un profesional local y su propietario",
+    faqTitle:
+      "Lo que preguntarán el profesional local y su propietario",
     faqs: [
       [
-        "¿Puede un agente inmobiliario individual utilizar Miami Global Desk?",
-        "Sí. Un agente individual con un mandato prime cualificado puede presentar una propiedad. No necesita ser una agencia grande ni aportar una cartera.",
+        "¿Quién puede trabajar con Miami Global Desk?",
+        "Agentes individuales, agencias, brokerages, promotores, organizaciones de ventas autorizadas y otros profesionales inmobiliarios cualificados que representan propiedades en su mercado local.",
       ],
       [
-        "¿El propietario pierde la relación con su agente local?",
-        "No. Miami Global Desk no sustituye al profesional local ni solicita propietarios ya representados. El agente local mantiene la relación, la estrategia, las visitas, la negociación y el conocimiento del mercado local.",
+        "¿Qué ventaja puedo presentar al propietario?",
+        "Una estrategia concreta de posicionamiento hacia el sur de Florida: preparación bilingüe, revisión profesional, coordinación con corretaje de Florida y acceso a su infraestructura inmobiliaria, siempre sujeta a elegibilidad y requisitos aplicables.",
+      ],
+      [
+        "¿El propietario pierde su relación con el profesional local?",
+        "No. Miami Global Desk no sustituye al profesional local ni solicita propietarios ya representados. La relación, la estrategia, las visitas, la negociación y el conocimiento del mercado local permanecen con quien representa el inmueble.",
       ],
       [
         "¿Qué ocurre si un propietario llega directamente?",
-        "Cuando resulta conveniente, podemos facilitar una introducción a un profesional local cualificado. El propietario decide libremente si desea contratarlo; no asignamos automáticamente agentes a consumidores.",
+        "Cuando resulta apropiado, podemos facilitar una introducción a un profesional local cualificado. El propietario decide libremente si desea contratarlo; no asignamos automáticamente agentes.",
       ],
       [
         "¿Cómo se estructura la cooperación?",
-        "Carlos Uzcategui, Florida Realtor® SL705771, opera el servicio a través de United Realty Group. El alcance, la compensación cuando corresponda y cualquier actividad de MLS, portal o corretaje se documentan de forma privada y están sujetos a aprobación y requisitos aplicables.",
+        "Carlos Uzcategui, Florida Realtor® SL705771, opera el servicio a través de United Realty Group. El alcance, cualquier compensación aplicable y toda actividad MLS, de portal o de corretaje se documentan de forma privada y están sujetos a aprobación y requisitos aplicables.",
       ],
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
@@ -142,99 +184,141 @@ const C = {
     brokerageCaption: "United Realty Group, Weston: South Florida brokerage infrastructure.",
     waES: "WhatsApp Spain",
     waUS: "WhatsApp USA",
-    heroEyebrow: "Miami Global Desk · International Listing Activation",
-    heroTitle: "Win the Mandate Locally. Activate Selected Inventory in the U.S.",
+    heroEyebrow:
+      "International property · South Florida · global reach",
+    heroTitle:
+      "Position International Property for South Florida’s 93,000-Member Real Estate Network.",
+    heroLead: "Real estate is local. South Florida connects U.S., Latin American, and global private wealth.",
     heroSub:
-      "For individual listing professionals with qualified prime mandates. You retain the owner relationship and local representation; Miami Global Desk evaluates and activates selected inventory for the Miami and South Florida professional market, subject to applicable requirements.",
-    heroCta: "Activate a Property",
+      "South Florida’s 93,000-member professional ecosystem, anchored by Miami’s international recognition, serves U.S., Latin American, and global buyers and investors, including high-net-worth segments. Miami Global Desk helps selected listings stand out through audience-specific positioning, bilingual presentation, and structured professional cooperation—while the local professional retains the client relationship and mandate.",
+    heroCta:
+      "Present a Qualified Listing",
     heroWhatsApp: "WhatsApp Spain",
     heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · subject to brokerage, platform, property-eligibility, and compliance requirements",
-    heroPartnerCta: "Become a Partner",
-    mandateEyebrow: "Your Mandate. Our U.S. Activation.",
-    mandateTitle: "An advantage the owner can understand in one conversation.",
-    mandateBody: "Activation is not generic marketing or a replacement for your agency. It is a U.S.-market professional layer designed to strengthen your mandate proposition.",
+    heroPartnerCta:
+      "Discuss a Partnership",
+    mandateEyebrow:
+      "A stronger proposition for your owner",
+    mandateTitle:
+      "Give the owner a concrete reason to choose—and keep—your representation.",
+    mandateBody:
+      "A mandate becomes more defensible when local expertise is paired with a credible South Florida positioning strategy. You do not hand over the relationship; you add an international capability the owner can understand and value.",
     mandateCards: [
-      ["Win or protect the mandate", "Present an international activation strategy that extends — rather than replaces — your local authority."],
-      ["You retain the relationship", "The local professional remains responsible for owner strategy, showings, negotiation, and local-market judgment."],
-      ["Activate only what fits", "Each property is reviewed before it enters a Miami and South Florida professional-market route."],
+      ["Lead with a recognized market", "Show how a selected property can be prepared for South Florida—not simply posted on another website."],
+      ["Keep control of the client", "Owner strategy, showings, negotiation, and local decisions remain with the professional representing the property."],
+      ["Add professional depth", "Property review, bilingual presentation, and a documented cooperation framework elevate the mandate conversation."],
     ],
-    ownerRouteTitle: "When an owner comes to us directly",
-    ownerRoute: "Where needed, we can facilitate an introduction to an appropriate qualified local professional who can work with the owner and with us.",
-    ownerRouteNote: "The owner independently decides whether to retain that professional; we do not automatically assign agents to consumers.",
-    marketEyebrow: "The mandate-winning advantage",
-    marketTitle: "A proposition your listing agent can put in front of the owner.",
+    ownerRouteTitle:
+      "When an owner approaches us directly",
+    ownerRoute:
+      "When representation is needed in the property’s market, we can facilitate an introduction to a qualified local professional who can work with the owner and with us.",
+    ownerRouteNote:
+      "The owner independently decides whether to retain that professional; we do not automatically assign agents or interfere with existing representation.",
+    marketEyebrow:
+      "Why South Florida changes the owner conversation",
+    marketTitle:
+      "South Florida connects U.S., Latin American, and global property demand through one professional market.",
     marketLead:
-      "An owner does not need a vague promise of “global exposure.” They need to understand what changes: their local agent retains the mandate while an eligible property gains a credible route into the Miami and South Florida professional market.",
+      "For the owner, South Florida—with Miami as its internationally recognized anchor—is a center of global real estate and private wealth. For the local professional, that creates a credible positioning advantage—not another generic promise of worldwide exposure.",
     marketBody:
-      "For an individual listing agent, the advantage is tangible: a stronger mandate conversation, clearer bilingual presentation, and a documented cooperation framework. The local professional remains the owner’s point of reference for strategy, showings, negotiation, and local-market decisions.",
-    distEyebrow: "Distribution advantage",
+      "South Florida’s 93,000-member professional ecosystem sits at the intersection of U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. Miami Global Desk helps selected properties stand out through audience-specific positioning, bilingual preparation, and a documented cooperation route. The local professional retains the client, mandate, and local representation; all activity remains subject to eligibility and applicable requirements.",
+    reachEyebrow: "One market story, presented across borders",
+    reachTitle: "Show the owner how local representation can connect with a wider professional market.",
+    reachBody:
+      "Every property keeps its local identity. The difference is how it is prepared and presented for a relevant professional conversation in South Florida.",
+    reachCaptions: [
+      ["Miami ↔ international markets", "A visual narrative connecting place, capital, and opportunity."],
+      ["South Florida", "A market recognized by buyers and investors from the U.S., Latin America, and other international centers."],
+      ["The property comes first", "Audience-specific presentation without diluting the mandate or local expertise."],
+    ],
+    distEyebrow:
+      "Distribution advantage",
     distIntro:
-      "The service is built around South Florida's professional real estate distribution infrastructure:",
+      "South Florida’s professional infrastructure becomes part of your property’s market story.",
     caption: "Association-network figure — not the principal's or United Realty Group's volume.",
     activation:
-      "Exposure is infrastructure. Buyer-agent activation depends on clear information, professional cooperation, appropriate compensation where applicable, and brokerage, platform, and compliance requirements.",
+      "The difference is not another promise of global advertising. It is a professional route: qualify the property, prepare the information, define cooperation, and position it for a market recognized for international capital and the movement of high-value private wealth. Activation remains subject to brokerage, platform, property-eligibility, and compliance requirements.",
     bridgeEyebrow: "Spain, in local context",
     bridgeTitle: "A contemporary market and a historic place identity.",
     bridgeBody:
-      "The conversation starts with how a place is understood locally, then carries selected inventory into a clear, professional discussion with Miami-area buyer agents.",
+      "The conversation starts with how a place is understood locally, then carries selected inventory into a clear, professional discussion with South Florida buyer agents.",
     granViaAlt: "View over Gran Via and central Madrid buildings",
     granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
     segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
     segoviaCaption: "Segovia, Spain: the Roman aqueduct along the historic city edge.",
-    structureEyebrow: "Local-professional protection",
+    structureEyebrow:
+      "Your role remains central",
     structureBody:
-      "Miami Global Desk works with the local professional who controls a qualified mandate; it does not replace that representation or solicit already-represented owners. If an owner arrives directly and local representation is needed, we can facilitate an introduction to an appropriate qualified local professional. The owner independently decides whether to retain that professional. Showings, local negotiation, and buyer qualification remain with the appropriate local professional.",
-    proofEyebrow: "Professional preparation",
-    proofTitle: "Inventory prepared for clear professional cooperation.",
+      "Miami Global Desk works with the local agent, agency, developer, or real estate professional who controls a qualified mandate or authorization. It does not replace that representation or solicit already-represented owners. Showings, local negotiation, originating documentation, and market expertise stay with the appropriate local professional; South Florida coordination is defined privately and property by property.",
+    proofEyebrow:
+      "Prepared for South Florida",
+    proofTitle:
+      "Present the property at the level a serious international conversation requires.",
     proofBody:
-      "Carlos coordinates photography and property-presentation materials so selected inventory can be understood and evaluated by South Florida buyer agents within the applicable professional framework.",
+      "Carlos coordinates the review, bilingual context, and materials needed so a selected listing can be understood and evaluated efficiently by South Florida real estate professionals within the applicable framework.",
     proofAlt: "Professional property-media production at a waterfront Miami residence",
-    proofCaption: "Photography and video production for the professional presentation of a Miami property.",
-    howEyebrow: "How it works",
-    coopTitle: "Professional cooperation — transaction by transaction",
+    proofCaption:
+      "Professional photography and video used to position a property for the South Florida market.",
+    howEyebrow:
+      "From a local mandate to a professional South Florida route",
+    coopTitle:
+      "Professional cooperation — property by property",
     coopBody:
-      "Each opportunity is structured transaction by transaction. Where applicable, compensation, referrals, inter-agency cooperation, platform presentation, and any MLS activity are documented through the appropriate professional framework, including United Realty Group and applicable legal and compliance requirements. No placement, lead, buyer, commission, or sale is guaranteed.",
-    twoWaysTitle: "Two ways to work with the Desk",
-    wayExclusiveTitle: "One property, one qualified mandate",
+      "Every opportunity is reviewed and structured individually. Where applicable, referrals, compensation, inter-agency cooperation, platform presentation, and any MLS activity are documented through the relevant professional framework, including United Realty Group. No placement, lead, buyer, commission, or sale is guaranteed.",
+    twoWaysTitle:
+      "One qualified listing—or a broader professional relationship.",
+    wayExclusiveTitle:
+      "Agents and local real estate professionals",
     wayExclusiveBody:
-      "An individual agent can present one prime property with documented authority. We review fit, information, materials, and the professional activation route before proposing scope.",
-    wayPortfolioTitle: "Agency, portfolio, or development",
+      "An individual agent or other qualified real estate professional may present one prime property with documented authority. You do not need to belong to a large agency or submit a portfolio.",
+    wayPortfolioTitle:
+      "Agencies, brokerages, and developers",
     wayPortfolioBody:
-      "Brokerages, developers, and authorized sales organizations can structure an activation relationship for selected inventory. Scope is defined in writing and transaction by transaction.",
-    twoWaysClosing: "Terms and conditions in a private proposal.",
-    scopesEyebrow: "Activation scopes",
+      "Organizations with selected inventory can structure a relationship for a portfolio, development, or recurring property flow. Scope is defined in writing and property by property.",
+    twoWaysClosing:
+      "Every property and relationship remains subject to review, brokerage approval, and applicable requirements.",
+    scopesEyebrow:
+      "Ways to work with Miami Global Desk",
     scopes: [
-      ["Mandate materials", "A clear explanation an agent can take into a listing presentation, including the activation route and the protected role of the local professional."],
-      ["Property activation", "Fit review, bilingual presentation, and cooperation paths for selected inventory, subject to brokerage, platform, and compliance requirements."],
-      ["Agency Desk", "A structured relationship for an agency, portfolio, or development, with private terms and documented cooperation."],
+      ["Mandate-winning support", "Owner-facing reasoning and materials that explain the value of South Florida and the protected role of the local professional."],
+      ["Selected-listing positioning", "Fit review, bilingual presentation, and a cooperation route for one qualified property."],
+      ["Professional Desk", "A structured relationship for agencies, professionals, portfolios, or developments, with private terms and documented cooperation."],
     ],
-    stepsTitle: "Activation in four steps",
+    stepsTitle:
+      "A selective, clear, and documented process",
     steps: [
-      ["Present the mandate", "One prime property is enough. The local professional confirms authority to submit it for review."],
-      ["Review the fit", "Carlos reviews the property, market, documentation, and professional feasibility before proposing scope."],
-      ["Build the U.S. activation route", "Eligible inventory receives clear materials, bilingual context, and cooperation paths into the South Florida professional ecosystem."],
-      ["Coordinate and report", "The local professional remains the point of reference; introductions, activity, and cooperation are recorded and coordinated as appropriate."],
+      ["Confirm authority and fit", "One property can be enough. We verify who represents it, the mandate or authority, and its potential market fit."],
+      ["Prepare the South Florida proposition", "We organize essential facts, bilingual context, and materials so the property can be evaluated professionally."],
+      ["Define cooperation", "Scope, responsibilities, applicable compensation, and relevant requirements are established in writing."],
+      ["Activate and coordinate", "An eligible property enters the agreed route; activity and introductions are coordinated with the local professional."],
     ],
-    midCta: "Activate a qualified mandate",
-    midCtaAlt: "Prefer to talk first?",
+    midCta:
+      "Present a Qualified Listing",
+    midCtaAlt:
+      "Prefer to discuss the opportunity first?",
     faqEyebrow: "Common questions",
-    faqTitle: "Questions a local professional—and their owner—will ask",
+    faqTitle:
+      "What the local professional—and the owner—will ask",
     faqs: [
       [
-        "Can an individual listing agent use Miami Global Desk?",
-        "Yes. An individual agent with a qualified prime mandate may present a property. You do not need to be a large agency or submit a portfolio.",
+        "Who can work with Miami Global Desk?",
+        "Individual agents, agencies, brokerages, developers, authorized sales organizations, and other qualified real estate professionals representing properties in their local markets.",
       ],
       [
-        "Does the owner lose their local agent relationship?",
-        "No. Miami Global Desk does not replace the local professional or solicit already-represented owners. The local agent retains the relationship, strategy, showings, negotiation, and local-market expertise.",
+        "What advantage can I present to the owner?",
+        "A concrete South Florida positioning strategy: bilingual preparation, professional review, Florida brokerage coordination, and access to its professional real estate infrastructure, always subject to eligibility and applicable requirements.",
       ],
       [
-        "What happens if an owner comes directly to Miami Global Desk?",
-        "Where appropriate, we can facilitate an introduction to a qualified local professional. The owner independently decides whether to retain that professional; we do not automatically assign agents to consumers.",
+        "Does the owner lose the local professional relationship?",
+        "No. Miami Global Desk does not replace the local professional or solicit already-represented owners. The relationship, strategy, showings, negotiation, and local-market expertise remain with the professional representing the property.",
+      ],
+      [
+        "What happens when an owner approaches Miami Global Desk directly?",
+        "Where appropriate, we can facilitate an introduction to a qualified local professional. The owner independently decides whether to retain that professional; we do not automatically assign agents.",
       ],
       [
         "How is cooperation structured?",
-        "Carlos Uzcategui, Florida Realtor® SL705771, provides the service through United Realty Group. Scope, any applicable compensation, and any MLS, portal, or brokerage activity are documented privately and remain subject to applicable approval and requirements.",
+        "Carlos Uzcategui, Florida Realtor® SL705771, operates the service through United Realty Group. Scope, any applicable compensation, and all MLS, portal, or brokerage activity are documented privately and remain subject to approval and applicable requirements.",
       ],
     ],
     footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
@@ -275,12 +359,12 @@ export default function GlobalDeskPage() {
   const t = C[lang];
   const pageTitle =
     lang === "es"
-      ? "Miami Global Desk — Activación Internacional de Inmuebles"
-      : "Miami Global Desk — International Listing Activation";
+      ? "Miami Global Desk — Inmuebles Internacionales para el Sur de Florida"
+      : "Miami Global Desk — International Listings for South Florida";
   const pageDescription =
     lang === "es"
-      ? "Servicio B2B de activación internacional para profesionales locales con mandatos inmobiliarios cualificados, operado por Carlos Uzcategui, Florida Realtor®, a través de United Realty Group."
-      : "South Florida-based B2B international listing-activation service for local professionals with qualified property mandates, operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group.";
+      ? "Posicionamiento de inmuebles internacionales para agentes, agencias, promotores y profesionales locales ante el mercado del sur de Florida, conectado con demanda de Estados Unidos, Latinoamérica y otros mercados internacionales."
+      : "South Florida positioning for qualified international listings represented by local agents, agencies, developers, and real estate professionals, with relevance to U.S., Latin American, and international demand.";
 
   return (
     <>
@@ -314,9 +398,10 @@ export default function GlobalDeskPage() {
         <section className="relative overflow-hidden px-6 pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24">
           {/* Background Video with enhanced visibility */}
           <LazyVideo
-            src="/videos/dollhouse_global_reach.mp4"
-            poster="/images/og-default.png"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.45]"
+            src="/videos/miami_realtor_association.mp4"
+            poster="/images/posters/miami_realtor_association.jpg"
+            idle
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.48]"
           />
           {/* Balanced contrast overlays — ensures video is clearly visible while text pops */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/85 via-[#060D18]/55 to-[#060D18]/95" />
@@ -345,8 +430,12 @@ export default function GlobalDeskPage() {
               {t.heroTitle}
             </h1>
 
-            {/* Subtitle with high readability */}
-            <p className="mt-6 max-w-2xl font-sans text-base sm:text-lg leading-relaxed text-white/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+            <p className="mt-5 max-w-3xl font-serif text-xl leading-relaxed text-gold sm:text-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+              {t.heroLead}
+            </p>
+
+            {/* Supporting proposition */}
+            <p className="mt-4 max-w-3xl font-sans text-base sm:text-lg leading-relaxed text-white/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
               {t.heroSub}
             </p>
 
@@ -414,19 +503,80 @@ export default function GlobalDeskPage() {
             <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
               <div className="rounded-2xl border border-gold/30 bg-white/[0.03] p-7 sm:p-9 backdrop-blur-md shadow-lg">
                 <div className="h-0.5 w-10 bg-gold mb-5" />
-                <p className="font-serif text-xl sm:text-2xl leading-relaxed text-white/95 italic">
-                  "{t.marketLead}"
+                <p className="font-serif text-xl sm:text-2xl leading-relaxed text-white/95">
+                  {t.marketLead}
                 </p>
               </div>
               <div className="space-y-5 text-white/75 font-sans text-base leading-relaxed">
                 <p>{t.marketBody}</p>
                 <div className="pt-4 border-t border-white/10 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-gold">
                   <ShieldCheck size={14} />
-                  <span>Bilingual Presentation · Compliant Brokerage Framework</span>
+                  <span>{lang === "es" ? "Mercado internacional de patrimonio · preparación bilingüe · marco de corretaje en Florida" : "International wealth market · bilingual preparation · Florida brokerage framework"}</span>
                 </div>
               </div>
             </div>
           </motion.div>
+        </section>
+
+        {/* Cinematic market bridge — selected Drive media, optimized and lazy-loaded. */}
+        <section className="relative overflow-hidden bg-[#050B14] px-6 py-16 md:py-24">
+          <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[70%] -translate-x-1/2 rounded-full bg-gold/[0.05] blur-[120px]" />
+          <div className="relative mx-auto max-w-6xl">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fade}
+              className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end"
+            >
+              <div>
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">{t.reachEyebrow}</p>
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">{t.reachTitle}</h2>
+              </div>
+              <p className="max-w-2xl font-sans text-base leading-[1.85] text-white/70 md:text-lg">{t.reachBody}</p>
+            </motion.div>
+
+            <div className="mt-10 grid gap-4 lg:grid-cols-[1.45fr_0.78fr_0.78fr]">
+              {[
+                {
+                  src: "/videos/miami_madrid_transition.mp4",
+                  poster: "/images/posters/miami_madrid_transition.jpg",
+                  aspect: "aspect-[16/11] lg:aspect-auto lg:min-h-[520px]",
+                },
+                {
+                  src: "/videos/waterfront_house_global_reach.mp4",
+                  poster: "/images/posters/waterfront_house_global_reach.jpg",
+                  aspect: "aspect-[4/5] lg:aspect-auto lg:min-h-[520px]",
+                },
+                {
+                  src: "/videos/split_foto_miami_spain_mls.mp4",
+                  poster: "/images/posters/split_foto_miami_spain_mls.jpg",
+                  aspect: "aspect-[4/5] lg:aspect-auto lg:min-h-[520px]",
+                },
+              ].map((clip, index) => (
+                <motion.figure
+                  key={clip.src}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={fade}
+                  className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-navy-deep shadow-[0_24px_80px_rgba(0,0,0,0.35)] ${clip.aspect}`}
+                >
+                  <LazyVideo
+                    src={clip.src}
+                    poster={clip.poster}
+                    rootMargin="180px"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/10 to-transparent" />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-6">
+                    <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.22em] text-gold">{t.reachCaptions[index][0]}</p>
+                    <p className="mt-2 max-w-md font-sans text-sm leading-relaxed text-white/80">{t.reachCaptions[index][1]}</p>
+                  </figcaption>
+                </motion.figure>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* ── Section D — Distribution Advantage ── */}
@@ -713,9 +863,9 @@ export default function GlobalDeskPage() {
             <GlobalDeskListingForm lang={lang} />
             <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               {lang === "es" ? (
-                <>¿Agente individual, agencia o promotora? Presente un mandato cualificado o solicite una conversación de colaboración.</>
+                <>¿Agente, agencia, promotor u otro profesional inmobiliario local? Presente un inmueble cualificado o solicite una conversación de colaboración.</>
               ) : (
-                <>Individual listing agent, agency, or developer? Submit one qualified mandate or request a partner conversation.</>
+                <>Agent, agency, developer, or other local real estate professional? Present one qualified listing or request a partnership conversation.</>
               )}
             </p>
           </div>
