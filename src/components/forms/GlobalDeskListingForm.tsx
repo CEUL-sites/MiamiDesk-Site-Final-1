@@ -194,6 +194,7 @@ export function GlobalDeskListingForm({ lang }: { lang: GlobalDeskLang }) {
   const [error, setError] = useState("");
   const startFired = useRef(false);
   const renderedAt = useRef(Date.now());
+  const formElementRef = useRef<HTMLFormElement>(null);
   const detailHeadingRef = useRef<HTMLHeadingElement>(null);
   const attribution = getAttribution();
 
@@ -216,7 +217,7 @@ export function GlobalDeskListingForm({ lang }: { lang: GlobalDeskLang }) {
   };
 
   const advance = () => {
-    if (!entryPath || !form.name?.trim() || !form.email?.trim() || !form.phone?.trim()) {
+    if (!formElementRef.current?.reportValidity() || !entryPath) {
       setError(t.requiredStart);
       setStatus("error");
       return;
@@ -328,6 +329,7 @@ export function GlobalDeskListingForm({ lang }: { lang: GlobalDeskLang }) {
 
   return (
     <form
+      ref={formElementRef}
       name={FORM_NAME}
       method="POST"
       data-netlify="true"
@@ -378,7 +380,7 @@ export function GlobalDeskListingForm({ lang }: { lang: GlobalDeskLang }) {
                   return (
                     <label
                       key={value}
-                      className={`cursor-pointer border p-5 transition-colors ${
+                      className={`cursor-pointer border p-5 transition-colors focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 ${
                         entryPath === value
                           ? "border-gold bg-gold/[0.08]"
                           : "border-navy/14 hover:border-gold/55"
@@ -387,6 +389,7 @@ export function GlobalDeskListingForm({ lang }: { lang: GlobalDeskLang }) {
                       <input
                         type="radio"
                         name="entryPath"
+                        required
                         value={value}
                         checked={entryPath === value}
                         onChange={() => setEntryPath(value as EntryPath)}

@@ -104,6 +104,8 @@ for (const value of [
   "Developer / Agency Mandate",
   "South Florida Agent / Buyer Opportunity",
   "stage === 2",
+  "reportValidity",
+  "focus-within:ring-2",
   'name="form-name"',
   'name="bot-field"',
   'name="formRenderedAt"',
