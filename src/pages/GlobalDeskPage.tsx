@@ -37,10 +37,10 @@ const C = {
     heroEyebrow:
       "Inmuebles internacionales · Miami · sur de Florida · alcance global",
     heroTitle:
-      "Posicione inmuebles internacionales ante la red inmobiliaria de Miami, con 93,000 miembros.",
-    heroLead: "El mercado inmobiliario es local. El capital global y los grandes patrimonios convergen en Miami.",
+      "Posicione inmuebles internacionales para la red inmobiliaria de Miami y el sur de Florida, con 93,000 miembros.",
+    heroLead: "El mercado es local. El capital privado de Estados Unidos, Latinoamérica y otros mercados internacionales converge en Miami y el sur de Florida.",
     heroSub:
-      "Miami and South Florida REALTORS® forman la asociación local de Realtors® más grande del mundo. Miami Global Desk trabaja con agentes, agencias, promotores y profesionales inmobiliarios locales cualificados para preparar inmuebles seleccionados para su descubrimiento y cooperación profesional, mientras ellos conservan la relación con el cliente y el mandato local.",
+      "El ecosistema profesional de Miami y el sur de Florida, con 93,000 miembros, atiende un mercado de compradores e inversores de Estados Unidos, Latinoamérica y otros centros internacionales, incluidos segmentos de alto patrimonio. Miami Global Desk ayuda a diferenciar inmuebles seleccionados mediante posicionamiento de mercado, presentación bilingüe y cooperación profesional estructurada, mientras el profesional local conserva la relación con el cliente y el mandato.",
     heroCta:
       "Presentar un inmueble cualificado",
     heroWhatsApp: "WhatsApp España",
@@ -52,7 +52,7 @@ const C = {
     mandateTitle:
       "Dé al propietario una razón concreta para elegir — y mantener — su representación.",
     mandateBody:
-      "Un mandato se vuelve más defendible cuando la experiencia local se combina con una estrategia creíble de posicionamiento hacia Miami. Usted no entrega la relación: añade una capacidad internacional que el propietario puede entender y valorar.",
+      "Un mandato se vuelve más defendible cuando la experiencia local se combina con una estrategia creíble de posicionamiento hacia Miami y el sur de Florida. Usted no entrega la relación: añade una capacidad internacional que el propietario puede entender y valorar.",
     mandateCards: [
       ["Lidere con un mercado reconocido", "Explique cómo un inmueble seleccionado puede prepararse para Miami y el sur de Florida, no simplemente publicarse en otra página web."],
       ["Conserve el control del cliente", "La estrategia con el propietario, las visitas, la negociación y las decisiones locales permanecen con el profesional que representa el inmueble."],
@@ -67,11 +67,11 @@ const C = {
     marketEyebrow:
       "Por qué Miami cambia la conversación con el propietario",
     marketTitle:
-      "Miami reúne capital global, demanda internacional y una infraestructura inmobiliaria profesional de escala mundial.",
+      "Miami y el sur de Florida conectan la demanda inmobiliaria de Estados Unidos, Latinoamérica y otros mercados internacionales dentro de un mismo mercado profesional.",
     marketLead:
-      "Para el propietario, Miami es un mercado global reconocido. Para el profesional que representa el inmueble, es una forma creíble de explicar cómo una propiedad cualificada puede posicionarse más allá de su mercado local.",
+      "Para el propietario, Miami y el sur de Florida son centros reconocidos de inversión inmobiliaria internacional y capital privado. Para el profesional local, eso crea una ventaja de posicionamiento creíble, no otra promesa genérica de exposición mundial.",
     marketBody:
-      "Miami Global Desk convierte esa relevancia en una ruta profesional estructurada. Los inmuebles seleccionados se preparan para su descubrimiento y cooperación dentro del ecosistema del sur de Florida, respaldado por una asociación inmobiliaria de 93,000 miembros. Usted mantiene al cliente, el mandato y la representación local; el Desk añade presentación bilingüe, coordinación con corretaje de Florida y una ruta profesional hacia el mercado de Miami, sujeta a los requisitos aplicables.",
+      "El ecosistema profesional de Miami y el sur de Florida, con 93,000 miembros, se encuentra en la intersección de la demanda de compradores e inversores de Estados Unidos, Latinoamérica y otros mercados internacionales, incluidos segmentos de alto patrimonio. Miami Global Desk ayuda a que los inmuebles seleccionados se diferencien mediante posicionamiento específico para la audiencia, preparación bilingüe y una ruta de cooperación documentada. El profesional local conserva el cliente, el mandato y la representación; toda actividad está sujeta a elegibilidad y requisitos aplicables.",
     distEyebrow:
       "La ventaja de distribución",
     distIntro:
@@ -92,16 +92,16 @@ const C = {
     structureBody:
       "Miami Global Desk trabaja con el agente, la agencia, el promotor o el profesional inmobiliario local que controla un mandato o autorización cualificada. No sustituye esa representación ni solicita propietarios ya representados. Las visitas, la negociación local, la documentación de origen y el conocimiento del mercado permanecen con el profesional correspondiente; la coordinación con Miami se define de forma privada y operación por operación.",
     proofEyebrow:
-      "Preparación para el mercado de Miami",
+      "Preparación para Miami y el sur de Florida",
     proofTitle:
       "Presente el inmueble al nivel que exige una conversación internacional seria.",
     proofBody:
       "Carlos coordina la revisión, el contexto bilingüe y los materiales necesarios para que un inmueble seleccionado pueda ser entendido y evaluado con rapidez por profesionales inmobiliarios del sur de Florida dentro del marco aplicable.",
     proofAlt: "Producción profesional de medios en una residencia frente al agua en Miami",
     proofCaption:
-      "Fotografía y video profesional para presentar una propiedad ante el mercado de Miami.",
+      "Fotografía y video profesional para posicionar una propiedad ante el mercado de Miami y el sur de Florida.",
     howEyebrow:
-      "De un mandato local a una ruta profesional en Miami",
+      "De un mandato local a una ruta profesional en Miami y el sur de Florida",
     coopTitle:
       "Cooperación profesional — propiedad por propiedad",
     coopBody:
@@ -147,7 +147,7 @@ const C = {
       ],
       [
         "¿Qué ventaja puedo presentar al propietario?",
-        "Una estrategia concreta de posicionamiento hacia Miami: preparación bilingüe, revisión profesional, coordinación con corretaje de Florida y acceso a la infraestructura inmobiliaria del sur de Florida, siempre sujeta a elegibilidad y requisitos aplicables.",
+        "Una estrategia concreta de posicionamiento hacia Miami y el sur de Florida: preparación bilingüe, revisión profesional, coordinación con corretaje de Florida y acceso a su infraestructura inmobiliaria, siempre sujeta a elegibilidad y requisitos aplicables.",
       ],
       [
         "¿El propietario pierde su relación con el profesional local?",
@@ -178,10 +178,10 @@ const C = {
     heroEyebrow:
       "International property · Miami · South Florida · global reach",
     heroTitle:
-      "Position International Property for Miami’s 93,000-Member Real Estate Network.",
-    heroLead: "Real estate is local. Global capital and private wealth converge in Miami.",
+      "Position International Property for Miami and South Florida’s 93,000-Member Real Estate Network.",
+    heroLead: "Real estate is local. U.S., Latin American, and global private wealth converge in Miami and South Florida.",
     heroSub:
-      "Miami and South Florida REALTORS® form the world’s largest local Realtor® association. Miami Global Desk works with agents, agencies, developers, and qualified local real estate professionals to prepare selected listings for professional discovery and cooperation, while they retain the client relationship and local mandate.",
+      "Miami and South Florida’s 93,000-member professional ecosystem serves a market spanning U.S., Latin American, and international buyers and investors, including high-net-worth segments. Miami Global Desk helps selected listings stand out through audience-specific positioning, bilingual presentation, and structured professional cooperation—while the local professional retains the client relationship and mandate.",
     heroCta:
       "Present a Qualified Listing",
     heroWhatsApp: "WhatsApp Spain",
@@ -193,7 +193,7 @@ const C = {
     mandateTitle:
       "Give the owner a concrete reason to choose—and keep—your representation.",
     mandateBody:
-      "A mandate becomes more defensible when local expertise is paired with a credible Miami positioning strategy. You do not hand over the relationship; you add an international capability the owner can understand and value.",
+      "A mandate becomes more defensible when local expertise is paired with a credible Miami and South Florida positioning strategy. You do not hand over the relationship; you add an international capability the owner can understand and value.",
     mandateCards: [
       ["Lead with a recognized market", "Show how a selected property can be prepared for Miami and South Florida—not simply posted on another website."],
       ["Keep control of the client", "Owner strategy, showings, negotiation, and local decisions remain with the professional representing the property."],
@@ -208,11 +208,11 @@ const C = {
     marketEyebrow:
       "Why Miami changes the owner conversation",
     marketTitle:
-      "Miami brings global capital, international demand, and world-scale professional real estate infrastructure into one market.",
+      "Miami and South Florida connect U.S., Latin American, and global property demand through one professional market.",
     marketLead:
-      "For the owner, Miami is a recognized global market. For the professional representing the property, it is a credible way to explain how a qualified listing can be positioned beyond its local market.",
+      "For the owner, Miami and South Florida are recognized centers of international real estate and private wealth. For the local professional, that creates a credible positioning advantage—not another generic promise of worldwide exposure.",
     marketBody:
-      "Miami Global Desk turns that market relevance into a structured professional route. Selected listings are prepared for discovery and cooperation across South Florida’s real estate ecosystem, supported by a 93,000-member association infrastructure. You retain the client, mandate, and local representation; the Desk adds bilingual presentation, Florida brokerage coordination, and a professional path toward the Miami market, subject to applicable requirements.",
+      "The 93,000-member Miami and South Florida professional ecosystem sits at the intersection of U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. Miami Global Desk helps selected properties stand out through audience-specific positioning, bilingual preparation, and a documented cooperation route. The local professional retains the client, mandate, and local representation; all activity remains subject to eligibility and applicable requirements.",
     distEyebrow:
       "Distribution advantage",
     distIntro:
@@ -233,16 +233,16 @@ const C = {
     structureBody:
       "Miami Global Desk works with the local agent, agency, developer, or real estate professional who controls a qualified mandate or authorization. It does not replace that representation or solicit already-represented owners. Showings, local negotiation, originating documentation, and market expertise stay with the appropriate local professional; Miami coordination is defined privately and property by property.",
     proofEyebrow:
-      "Prepared for the Miami market",
+      "Prepared for Miami and South Florida",
     proofTitle:
       "Present the property at the level a serious international conversation requires.",
     proofBody:
       "Carlos coordinates the review, bilingual context, and materials needed so a selected listing can be understood and evaluated efficiently by South Florida real estate professionals within the applicable framework.",
     proofAlt: "Professional property-media production at a waterfront Miami residence",
     proofCaption:
-      "Professional photography and video used to position a property for the Miami market.",
+      "Professional photography and video used to position a property for the Miami and South Florida market.",
     howEyebrow:
-      "From a local mandate to a professional Miami route",
+      "From a local mandate to a professional Miami and South Florida route",
     coopTitle:
       "Professional cooperation — property by property",
     coopBody:
@@ -288,7 +288,7 @@ const C = {
       ],
       [
         "What advantage can I present to the owner?",
-        "A concrete Miami positioning strategy: bilingual preparation, professional review, Florida brokerage coordination, and access to South Florida’s professional real estate infrastructure, always subject to eligibility and applicable requirements.",
+        "A concrete Miami and South Florida positioning strategy: bilingual preparation, professional review, Florida brokerage coordination, and access to its professional real estate infrastructure, always subject to eligibility and applicable requirements.",
       ],
       [
         "Does the owner lose the local professional relationship?",
@@ -341,12 +341,12 @@ export default function GlobalDeskPage() {
   const t = C[lang];
   const pageTitle =
     lang === "es"
-      ? "Miami Global Desk — Inmuebles Internacionales para el Mercado de Miami"
-      : "Miami Global Desk — International Listings for the Miami Market";
+      ? "Miami Global Desk — Inmuebles Internacionales para Miami y el Sur de Florida"
+      : "Miami Global Desk — International Listings for Miami and South Florida";
   const pageDescription =
     lang === "es"
-      ? "Posicionamiento de inmuebles internacionales para agentes, agencias, promotores y profesionales inmobiliarios locales que desean conectar propiedades cualificadas con el mercado profesional de Miami."
-      : "Miami positioning for qualified international listings represented by local agents, agencies, developers, and real estate professionals.";
+      ? "Posicionamiento de inmuebles internacionales para agentes, agencias, promotores y profesionales locales ante el mercado de Miami y el sur de Florida, conectado con demanda de Estados Unidos, Latinoamérica y otros mercados internacionales."
+      : "Miami and South Florida positioning for qualified international listings represented by local agents, agencies, developers, and real estate professionals, with relevance to U.S., Latin American, and international demand.";
 
   return (
     <>
