@@ -6,33 +6,34 @@
 
 ORIGIN="https://homesprofessional.com"
 DEST="public/videos"
+SRC="src"
 mkdir -p "$DEST"
 
-VIDEOS=(
-  advisor-brand.mp4
-  best_exposure_listings.mp4
-  cinematic_house_reach.mp4
-  digital_twin_exposure.mp4
-  dollhouse_global_reach.mp4
-  dollhouse_hand_reach.mp4
-  dollhouse_rotating_hands.mp4
-  gemini_property_vision.mp4
-  globe-bg.mp4
-  luxury_advisor_digital.mp4
-  luxury_listing_showcase.mp4
-  luxury_waterfront_drone.mp4
-  miami_madrid_transition.mp4
-  miami_realtor_association.mp4
-  south_florida_showcase.mp4
-  split_foto_miami_spain_mls.mp4
-  split_miami_spain_mls.mp4
+# Derived from what the site actually references, not hand-maintained. The
+# hard-coded list had drifted 21 files behind the components
+# (matterport_tour_global.mp4, madrid_piso_entrance.mp4, hand_house_reach.mp4
+# and others), so any build relying on this fetch served 404s for them while
+# still downloading videos no page uses.
+mapfile -t VIDEOS < <(
+  grep -rhoE '/videos/[A-Za-z0-9_.-]+\.mp4' "$SRC" \
+    | sed 's|^/videos/||' \
+    | sort -u
 )
+
+if [ "${#VIDEOS[@]}" -eq 0 ]; then
+  echo "WARNING: no video references found under $SRC/ — nothing to fetch."
+  exit 0
+fi
+
+echo "Found ${#VIDEOS[@]} referenced video(s)."
 
 FAILED=0
 for v in "${VIDEOS[@]}"; do
   if [ ! -f "$DEST/$v" ]; then
     echo "Fetching $v ..."
-    if curl -L --retry 3 --retry-delay 2 --max-time 60 \
+    # --fail matters: without it curl exits 0 on a 404 and writes the error
+    # page to $DEST/$v, leaving a corrupt file that reports as a success.
+    if curl -fL --retry 3 --retry-delay 2 --max-time 60 \
         "$ORIGIN/videos/$v" -o "$DEST/$v" 2>&1; then
       echo "OK: $v"
     else
