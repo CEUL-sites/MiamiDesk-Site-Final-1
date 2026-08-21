@@ -72,6 +72,15 @@ const C = {
       "Para el propietario, Miami y el sur de Florida son centros reconocidos de inversión inmobiliaria internacional y capital privado. Para el profesional local, eso crea una ventaja de posicionamiento creíble, no otra promesa genérica de exposición mundial.",
     marketBody:
       "El ecosistema profesional de Miami y el sur de Florida, con 93,000 miembros, se encuentra en la intersección de la demanda de compradores e inversores de Estados Unidos, Latinoamérica y otros mercados internacionales, incluidos segmentos de alto patrimonio. Miami Global Desk ayuda a que los inmuebles seleccionados se diferencien mediante posicionamiento específico para la audiencia, preparación bilingüe y una ruta de cooperación documentada. El profesional local conserva el cliente, el mandato y la representación; toda actividad está sujeta a elegibilidad y requisitos aplicables.",
+    reachEyebrow: "Una historia de mercado que cruza fronteras",
+    reachTitle: "Muestre al propietario cómo su representación local puede conectarse con un mercado profesional más amplio.",
+    reachBody:
+      "Cada inmueble conserva su identidad local. La diferencia está en cómo se prepara y presenta para una conversación profesional relevante en Miami y el sur de Florida.",
+    reachCaptions: [
+      ["Miami ↔ mercados internacionales", "Una narrativa visual que conecta lugar, capital y oportunidad."],
+      ["Miami y sur de Florida", "Un mercado reconocido por compradores e inversores de Estados Unidos, Latinoamérica y otros centros internacionales."],
+      ["El inmueble, primero", "Presentación específica para la audiencia, sin diluir el mandato ni la experiencia local."],
+    ],
     distEyebrow:
       "La ventaja de distribución",
     distIntro:
@@ -213,6 +222,15 @@ const C = {
       "For the owner, Miami and South Florida are recognized centers of international real estate and private wealth. For the local professional, that creates a credible positioning advantage—not another generic promise of worldwide exposure.",
     marketBody:
       "The 93,000-member Miami and South Florida professional ecosystem sits at the intersection of U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. Miami Global Desk helps selected properties stand out through audience-specific positioning, bilingual preparation, and a documented cooperation route. The local professional retains the client, mandate, and local representation; all activity remains subject to eligibility and applicable requirements.",
+    reachEyebrow: "One market story, presented across borders",
+    reachTitle: "Show the owner how local representation can connect with a wider professional market.",
+    reachBody:
+      "Every property keeps its local identity. The difference is how it is prepared and presented for a relevant professional conversation in Miami and South Florida.",
+    reachCaptions: [
+      ["Miami ↔ international markets", "A visual narrative connecting place, capital, and opportunity."],
+      ["Miami and South Florida", "A market recognized by buyers and investors from the U.S., Latin America, and other international centers."],
+      ["The property comes first", "Audience-specific presentation without diluting the mandate or local expertise."],
+    ],
     distEyebrow:
       "Distribution advantage",
     distIntro:
@@ -380,9 +398,10 @@ export default function GlobalDeskPage() {
         <section className="relative overflow-hidden px-6 pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24">
           {/* Background Video with enhanced visibility */}
           <LazyVideo
-            src="/videos/dollhouse_global_reach.mp4"
-            poster="/images/og-default.png"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.45]"
+            src="/videos/miami_realtor_association.mp4"
+            poster="/images/posters/miami_realtor_association.jpg"
+            idle
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.48]"
           />
           {/* Balanced contrast overlays — ensures video is clearly visible while text pops */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/85 via-[#060D18]/55 to-[#060D18]/95" />
@@ -497,6 +516,67 @@ export default function GlobalDeskPage() {
               </div>
             </div>
           </motion.div>
+        </section>
+
+        {/* Cinematic market bridge — selected Drive media, optimized and lazy-loaded. */}
+        <section className="relative overflow-hidden bg-[#050B14] px-6 py-16 md:py-24">
+          <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[70%] -translate-x-1/2 rounded-full bg-gold/[0.05] blur-[120px]" />
+          <div className="relative mx-auto max-w-6xl">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fade}
+              className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end"
+            >
+              <div>
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">{t.reachEyebrow}</p>
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">{t.reachTitle}</h2>
+              </div>
+              <p className="max-w-2xl font-sans text-base leading-[1.85] text-white/70 md:text-lg">{t.reachBody}</p>
+            </motion.div>
+
+            <div className="mt-10 grid gap-4 lg:grid-cols-[1.45fr_0.78fr_0.78fr]">
+              {[
+                {
+                  src: "/videos/miami_madrid_transition.mp4",
+                  poster: "/images/posters/miami_madrid_transition.jpg",
+                  aspect: "aspect-[16/11] lg:aspect-auto lg:min-h-[520px]",
+                },
+                {
+                  src: "/videos/waterfront_house_global_reach.mp4",
+                  poster: "/images/posters/waterfront_house_global_reach.jpg",
+                  aspect: "aspect-[4/5] lg:aspect-auto lg:min-h-[520px]",
+                },
+                {
+                  src: "/videos/split_foto_miami_spain_mls.mp4",
+                  poster: "/images/posters/split_foto_miami_spain_mls.jpg",
+                  aspect: "aspect-[4/5] lg:aspect-auto lg:min-h-[520px]",
+                },
+              ].map((clip, index) => (
+                <motion.figure
+                  key={clip.src}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={fade}
+                  className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-navy-deep shadow-[0_24px_80px_rgba(0,0,0,0.35)] ${clip.aspect}`}
+                >
+                  <LazyVideo
+                    src={clip.src}
+                    poster={clip.poster}
+                    rootMargin="180px"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/10 to-transparent" />
+                  <figcaption className="absolute inset-x-0 bottom-0 p-6">
+                    <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.22em] text-gold">{t.reachCaptions[index][0]}</p>
+                    <p className="mt-2 max-w-md font-sans text-sm leading-relaxed text-white/80">{t.reachCaptions[index][1]}</p>
+                  </figcaption>
+                </motion.figure>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* ── Section D — Distribution Advantage ── */}
