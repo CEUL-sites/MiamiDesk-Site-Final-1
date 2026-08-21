@@ -29,6 +29,14 @@ const L = {
       ["materials", "Solicitar materiales para la presentación de mandato"],
       ["partner", "Explorar una colaboración de agencia o promotora"],
     ],
+    ownerPath: "Solicitar una introducción a un profesional local cualificado",
+    ownerTitle: "Solicite una introducción a un profesional local",
+    ownerIntro:
+      "Revisaremos su mercado y sus necesidades y, cuando corresponda, facilitaremos una introducción a un profesional local cualificado. Usted decide libremente si desea contratarlo.",
+    ownerAuthorization:
+      "Confirmo que soy propietario o que tengo autorización válida para solicitar esta introducción profesional local.",
+    ownerSuccess:
+      "Recibido. Revisaremos su solicitud y, cuando corresponda, facilitaremos una introducción privada a un profesional local cualificado.",
     // Submitter block
     submitterBlock: "Datos del solicitante",
     name: "Nombre",
@@ -124,6 +132,14 @@ const L = {
       ["materials", "Request mandate-presentation materials"],
       ["partner", "Explore an agency or developer partnership"],
     ],
+    ownerPath: "Request an introduction to a qualified local professional",
+    ownerTitle: "Request a local-professional introduction",
+    ownerIntro:
+      "We will review your market and needs and, where appropriate, facilitate an introduction to a qualified local professional. You remain free to decide whether to retain that professional.",
+    ownerAuthorization:
+      "I confirm that I am the property owner or have valid authority to request this local-professional introduction.",
+    ownerSuccess:
+      "Received. We will review your request and, where appropriate, facilitate a private introduction to a qualified local professional.",
     submitterBlock: "Submitter details",
     name: "Name",
     company: "Company / agency",
@@ -197,7 +213,7 @@ const L = {
 } as const;
 
 type SubmitterType = "" | "agency" | "developer" | "owner" | "agent";
-type ListPath = "" | "activation" | "materials" | "partner";
+type ListPath = "" | "activation" | "materials" | "partner" | "owner_intro";
 
 export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
   const t = L[lang];
@@ -216,6 +232,8 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
   const isAgencyOrAgent = submitterType === "agency" || submitterType === "agent";
   const isDeveloper = submitterType === "developer";
   const isOwner = submitterType === "owner";
+  const pathOptions = isOwner ? [["owner_intro", t.ownerPath] as const] : t.q2opts;
+  const needsPropertyDetails = listPath === "activation";
   const showPlanInterest = listPath === "partner";
 
   const set = (k: string) => (
@@ -234,7 +252,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isOwner && images.length === 0) {
+    if (needsPropertyDetails && images.length === 0) {
       setErr(t.errImages);
       setStatus("error");
       return;
@@ -274,7 +292,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
         city: form.jurisdiction || form.location || "",
         propertyAddress: form.location || "",
         message:
-          `Global Desk listing · ${submitterType || "—"} · ${listPath || "—"} · ` +
+          `Global Desk request · ${submitterType || "—"} · ${listPath || "—"} · ` +
           `Properties: ${form.propertyCount || "—"} · ${form.type || ""} · ${form.askingPrice || ""} · ` +
           `${images.length} image(s), ${documents.length} doc(s)`,
         sourcePage: FORM_NAME,
@@ -310,7 +328,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
       <div className="border border-gold/30 bg-white/[0.04] p-10 text-center">
         <CheckCircle2 size={40} className="mx-auto text-gold" />
         <p className="mx-auto mt-5 max-w-xl font-serif text-xl leading-relaxed text-white">
-          {t.success}
+          {isOwner ? t.ownerSuccess : t.success}
         </p>
       </div>
     );
@@ -320,8 +338,8 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
     <div className="border border-white/10 bg-white/[0.02]">
       <div className="border-b border-white/10 bg-white/[0.03] px-6 py-6 md:px-8">
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{t.kicker}</p>
-        <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{t.title}</h3>
-        <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{t.intro}</p>
+        <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{isOwner ? t.ownerTitle : t.title}</h3>
+        <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{isOwner ? t.ownerIntro : t.intro}</p>
       </div>
 
       <form
@@ -360,7 +378,10 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
                   value={val}
                   required
                   checked={submitterType === val}
-                  onChange={() => setSubmitterType(val as SubmitterType)}
+                  onChange={() => {
+                    setSubmitterType(val as SubmitterType);
+                    setListPath("");
+                  }}
                   className="h-4 w-4 flex-shrink-0 accent-gold"
                 />
                 {label}
@@ -375,7 +396,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
             {t.q2} *
           </legend>
           <div className="mt-4 space-y-2">
-            {t.q2opts.map(([val, label]) => (
+            {pathOptions.map(([val, label]) => (
               <label
                 key={val}
                 className={`flex cursor-pointer items-center gap-3 border px-4 py-3 font-sans text-sm transition-colors ${
@@ -451,8 +472,9 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
           </div>
         )}
 
-        {/* Property count (all) + plan interest (conditional) */}
-        <div className="border-t border-white/10 pt-7">
+        {/* Property count is needed only for activation or a portfolio partnership. */}
+        {(needsPropertyDetails || listPath === "partner") && (
+          <div className="border-t border-white/10 pt-7">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label={t.propertyCount} hint={t.propertyCountHint}>
               <input name="propertyCount" type="text" placeholder="1, 3–5, 10+" className="form-input-dark" value={form.propertyCount || ""} onChange={set("propertyCount")} />
@@ -467,10 +489,12 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               </Field>
             )}
           </div>
-        </div>
+          </div>
+        )}
 
-        {/* Property block */}
-        <div className="border-t border-white/10 pt-7">
+        {/* Property details are requested only for an actual mandate activation. */}
+        {needsPropertyDetails && (
+          <div className="border-t border-white/10 pt-7">
           <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
             {t.propertyBlock}
           </p>
@@ -514,7 +538,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               <textarea required name="description" rows={5} className="form-input-dark" value={form.description || ""} onChange={set("description")} />
             </Field>
             <FileField
-              label={`${t.images}${isOwner ? "" : " *"}`}
+              label={`${t.images} *`}
               hint={t.imagesHint}
               chooseLabel={t.chooseFiles}
               countLabel={t.filesSelected}
@@ -539,7 +563,8 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               <input name="timeline" type="text" className="form-input-dark" value={form.timeline || ""} onChange={set("timeline")} />
             </Field>
           </div>
-        </div>
+          </div>
+        )}
 
         {/* Authorization + consent */}
         <div className="space-y-4 border-t border-white/10 pt-7">
@@ -551,7 +576,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               checked={authorized}
               onChange={(e) => setAuthorized(e.target.checked)}
             />
-            <span className="font-sans text-xs leading-relaxed text-white/55">{t.authorization} *</span>
+            <span className="font-sans text-xs leading-relaxed text-white/55">{isOwner ? t.ownerAuthorization : t.authorization} *</span>
           </label>
           <label className="flex items-start gap-3">
             <input
