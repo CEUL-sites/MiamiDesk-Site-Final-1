@@ -541,25 +541,25 @@ export default function EsComprarPage() {
           <div className="mx-auto max-w-4xl px-6 text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
               {/* TODO: native Madrid editor review */}
-              Servicio Aparte · Comprar en España
+              Servicio profesional aparte · Global Desk
             </p>
             <h2 className="mt-4 font-serif text-2xl text-navy-deep md:text-3xl">
               {/* TODO: native Madrid editor review */}
-              ¿Busca propiedad en España? Es un servicio distinto.
+              ¿Representa inventario internacional para compradores del sur de Florida?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-sans text-sm leading-relaxed text-navy-deep/60">
               {/* TODO: native Madrid editor review */}
-              Carlos tiene licencia en Florida — no en España. Para compras en
-              España actúa como punto de introducción: le conecta con
-              profesionales locales de confianza mediante relaciones formales de
-              referido, con transparencia en cada paso.
+              Carlos tiene licencia en Florida, no en España. Global Desk no
+              presta representación de compra en España: prepara inventario
+              internacional seleccionado para su activación y cooperación con
+              profesionales inmobiliarios del sur de Florida.
             </p>
             <a
-              href="/es/spain-desk"
+              href="/es/global-desk"
               className="mt-6 inline-flex items-center gap-2 border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-colors hover:text-gold"
             >
               {/* TODO: native Madrid editor review */}
-              Conocer el Spain Desk →
+              Conocer Global Desk →
             </a>
           </div>
         </section>

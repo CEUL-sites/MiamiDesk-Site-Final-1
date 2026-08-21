@@ -49,13 +49,9 @@ export const isSpainMarketRoute = (path: string): boolean => {
     [
       "/madrid",
       "/spain-desk",
-      // NOTE: /global-desk is deliberately absent. The desk sells Miami
-      // exposure through a Florida brokerage to owners in any market, so its
-      // page chrome answers on the US line. The Spain line is not gone from
-      // that page — the Spain section still offers +34 in-page, which is the
-      // right number for a Spanish-speaking owner and the wrong one for a
-      // developer in São Paulo or Dubai. Path-based routing cannot read the
-      // page's EN/ES toggle, so the section-level link is what carries it.
+      // NOTE: /global-desk is deliberately absent. English Global Desk
+      // visitors reach the Florida-side licensed counterpart. The canonical
+      // /es/global-desk route is already covered by p.startsWith("/es/").
       "/spain-mls-listing",
       "/la-comision-secreta",
       "/vender-marbella",
@@ -226,4 +222,3 @@ export const URG_CITIES = [
   { city: "Cutler Bay", region: "Miami-Dade County" },
   { city: "Homestead", region: "Miami-Dade County" },
 ];
-

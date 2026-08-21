@@ -151,8 +151,9 @@ Two separate predicates in `constants.ts` — do not conflate them:
 - `isSpanishLangRoute(path)` — the page is *rendered* in Spanish, so sticky-CTA
   labels must be Spanish.
 - `isSpainMarketRoute(path)` — the audience converts on the Spain WhatsApp line
-  (+34) rather than the US line (+1). Covers `/es/*` plus `/global-desk`,
-  `/spain-mls-listing`, `/la-comision-secreta`, and legacy Spain URLs.
+  (+34) rather than the US line (+1). Covers `/es/*`, `/spain-mls-listing`,
+  `/la-comision-secreta`, and legacy Spain URLs. The canonical English
+  `/global-desk` keeps the Florida line.
 
 A Spanish prospect must never be routed to the US number, and vice versa.
 
@@ -560,8 +561,7 @@ Project agents in `.claude/agents/`, use them for what they own:
 | `/markets` | MarketsPage |
 | `/market-data` | MarketDataPage |
 | `/journal`, `/journal/:slug` | JournalListPage, JournalPostPage |
-| `/global-desk` | GlobalDeskPage (nav label: "Global Desk"; `/spain-desk` 301s here) |
-| `/spain-mls-listing` | SpainMlsListingPage |
+| `/global-desk`, `/es/global-desk` | GlobalDeskPage — canonical English and Spanish routes |
 | `/la-comision-secreta` | LaComisionSecretaPage (Spanish) |
 | `/agents` | AgentsPage |
 | `/about`, `/contact` | AboutPage, ContactPage |
@@ -569,10 +569,11 @@ Project agents in `.claude/agents/`, use them for what they own:
 | `/privacy`, `/terms` | PrivacyPage, TermsPage |
 | `/thanks/{seller,buyer,agent}` | Conversion pages — GA4 lead events fire here |
 | `/es` | EsHomePage |
-| `/es/{vender,comprar,agentes,spain-desk,gracias/agente}` | Spanish core pages |
+| `/es/{vender,comprar,agentes,gracias/agente}` | Spanish core pages |
 | `/es/vender-{doral,brickell,coral-gables}` | Spanish per-city seller pages |
 | `*` | NotFoundPage (served as a real 404 by netlify.toml) |
 
 Legacy `/sell`, `/madrid`, `/madrid-miami`, `/miami-mls-international-desk`,
-`/developers-agencies`, `/market`, `/market/:city`, `/es/madrid` all redirect —
-both in `main.tsx` and `netlify.toml`.
+`/developers-agencies`, `/spain-mls-listing`, `/es/spain-desk`, `/market`,
+`/market/:city`, `/es/madrid` all redirect — both in `main.tsx` and
+`netlify.toml`.

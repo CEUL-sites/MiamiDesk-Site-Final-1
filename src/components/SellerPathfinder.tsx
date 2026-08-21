@@ -95,7 +95,7 @@ const INTENTS: Intent[] = [
   {
     id: "global",
     icon: Globe2,
-    href: { en: "/global-desk", es: "/es/spain-desk" },
+    href: { en: "/global-desk", es: "/es/global-desk" },
     en: {
       choice: "I own property outside the U.S.",
       headline: "Property abroad, presented to South Florida buyer agents.",
