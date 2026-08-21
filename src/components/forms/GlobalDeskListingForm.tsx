@@ -26,7 +26,7 @@ const L = {
     // Q2
     q2: "¿Qué necesita hoy?",
     q2opts: [
-      ["activation", "Presentar un inmueble cualificado para posicionamiento hacia Miami"],
+      ["activation", "Presentar un inmueble cualificado para posicionamiento hacia Miami y el sur de Florida"],
       ["materials", "Solicitar materiales de Miami para presentar al propietario"],
       ["partner", "Analizar una relación profesional, de agencia o de promoción"],
     ],
@@ -130,7 +130,7 @@ const L = {
     ],
     q2: "What do you need today?",
     q2opts: [
-      ["activation", "Present a qualified listing for Miami positioning"],
+      ["activation", "Present a qualified listing for Miami and South Florida positioning"],
       ["materials", "Request owner-facing Miami mandate materials"],
       ["partner", "Discuss a professional, agency, or developer relationship"],
     ],
