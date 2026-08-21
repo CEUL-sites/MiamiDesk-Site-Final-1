@@ -39,7 +39,7 @@ const C = {
     heroTitle:
       "Posicione sus inmuebles internacionales para el mercado inmobiliario global de Miami.",
     heroSub:
-      "Para agentes, agencias, promotores y profesionales inmobiliarios cualificados que representan propiedades en su mercado local. Miami Global Desk prepara inmuebles seleccionados para su presentación, descubrimiento y cooperación profesional dentro de la infraestructura de la asociación inmobiliaria de 93.000 miembros del sur de Florida, mientras usted conserva la relación con el cliente, la representación local y el mandato.",
+      "Para agentes, agencias, promotores y profesionales inmobiliarios locales cualificados. Miami Global Desk prepara inmuebles internacionales seleccionados para su descubrimiento y cooperación profesional dentro de la infraestructura asociativa de 93,000 miembros del sur de Florida—un mercado definido por la demanda internacional y el patrimonio privado de alto valor—mientras usted conserva la relación con el cliente y el mandato local.",
     heroCta:
       "Presentar un inmueble cualificado",
     heroWhatsApp: "WhatsApp España",
@@ -70,7 +70,7 @@ const C = {
     marketLead:
       "Para el propietario, Miami es un mercado global reconocido. Para el profesional que representa el inmueble, es una forma creíble de explicar cómo una propiedad cualificada puede posicionarse más allá de su mercado local.",
     marketBody:
-      "Miami Global Desk convierte esa relevancia en una ruta profesional estructurada. Los inmuebles seleccionados se preparan para su descubrimiento y cooperación dentro del ecosistema del sur de Florida, respaldado por una asociación inmobiliaria de 93.000 miembros. Usted mantiene al cliente, el mandato y la representación local; el Desk añade presentación bilingüe, coordinación con corretaje de Florida y una ruta profesional hacia el mercado de Miami, sujeta a los requisitos aplicables.",
+      "Miami Global Desk convierte esa relevancia en una ruta profesional estructurada. Los inmuebles seleccionados se preparan para su descubrimiento y cooperación dentro del ecosistema del sur de Florida, respaldado por una asociación inmobiliaria de 93,000 miembros. Usted mantiene al cliente, el mandato y la representación local; el Desk añade presentación bilingüe, coordinación con corretaje de Florida y una ruta profesional hacia el mercado de Miami, sujeta a los requisitos aplicables.",
     distEyebrow:
       "La ventaja de distribución",
     distIntro:
@@ -179,7 +179,7 @@ const C = {
     heroTitle:
       "Position Your International Listings for Miami’s Global Real Estate Market.",
     heroSub:
-      "For agents, agencies, developers, and qualified real estate professionals who represent properties in their local markets. Miami Global Desk prepares selected listings for professional presentation, discovery, and cooperation across South Florida’s 93,000-member real estate association infrastructure—while you retain the client relationship, local representation, and mandate.",
+      "For agents, agencies, developers, and qualified local real estate professionals. Miami Global Desk prepares selected international listings for professional discovery and cooperation across South Florida’s 93,000-member association infrastructure—a market shaped by international demand and high-value private wealth—while you retain the client relationship and local mandate.",
     heroCta:
       "Present a Qualified Listing",
     heroWhatsApp: "WhatsApp Spain",
