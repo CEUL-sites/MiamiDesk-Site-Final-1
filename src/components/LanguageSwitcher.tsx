@@ -32,8 +32,9 @@ const EN_TO_ES: Record<string, string> = {
 };
 
 export function LanguageSwitcher({ onLight = false }: { onLight?: boolean }) {
-  const path =
+  const rawPath =
     typeof window !== "undefined" ? window.location.pathname : "/";
+  const path = rawPath.replace(/\/+$/, "") || "/";
 
   const isEs = path.startsWith("/es");
 

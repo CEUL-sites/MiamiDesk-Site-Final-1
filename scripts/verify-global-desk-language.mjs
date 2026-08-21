@@ -150,6 +150,7 @@ for (const [source, label] of [
   assert.doesNotMatch(source, /["']\/es\/spain-desk["']/, `${label} must not link to the retired Spanish route`);
   assert.doesNotMatch(source, /["']\/spain-mls-listing["']/, `${label} must not link to the retired English route`);
 }
+expectText(languageSwitcher, 'replace(/\\/+$/, "")');
 
 expectText(schema, "International Property Activation and Professional Cooperation");
 assert.match(schema, /areaServed:\s*"South Florida"/);
