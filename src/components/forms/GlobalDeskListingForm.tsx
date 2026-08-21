@@ -11,24 +11,32 @@ const FORM_NAME = "global-desk-listing";
 const L = {
   es: {
     kicker: "Solicitud · Miami Global Listing Desk",
-    title: "Solicite una activación internacional",
+    title: "Active un mandato cualificado",
     intro:
-      "Una sola propiedad es válida. No se requiere una cartera. Carlos revisa cada solicitud antes de responder con una propuesta a medida.",
+      "Para agentes individuales, agencias y promotoras con un mandato inmobiliario cualificado. Una sola propiedad es suficiente; Carlos revisa cada solicitud personalmente.",
     // Q1
     q1: "Tipo de solicitante",
     q1opts: [
+      ["agent", "Agente inmobiliario individual con mandato"],
       ["agency", "Agencia inmobiliaria con licencia"],
-      ["developer", "Promotor"],
-      ["owner", "Propietario"],
-      ["agent", "Agente individual"],
+      ["developer", "Promotor / organización de ventas autorizada"],
+      ["owner", "Propietario que solicita una introducción profesional local"],
     ],
     // Q2
-    q2: "¿Cómo desea listar?",
+    q2: "¿Qué necesita hoy?",
     q2opts: [
-      ["exclusive", "En exclusiva — una o varias propiedades concretas (sin cuota mensual)"],
-      ["placement_plan", "Plan de colocación — cartera de propiedades"],
-      ["advise_me", "No estoy seguro, asesórenme"],
+      ["activation", "Activar una propiedad con mandato cualificado"],
+      ["materials", "Solicitar materiales para la presentación de mandato"],
+      ["partner", "Explorar una colaboración de agencia o promotora"],
     ],
+    ownerPath: "Solicitar una introducción a un profesional local cualificado",
+    ownerTitle: "Solicite una introducción a un profesional local",
+    ownerIntro:
+      "Revisaremos su mercado y sus necesidades y, cuando corresponda, facilitaremos una introducción a un profesional local cualificado. Usted decide libremente si desea contratarlo.",
+    ownerAuthorization:
+      "Confirmo que soy propietario o que tengo autorización válida para solicitar esta introducción profesional local.",
+    ownerSuccess:
+      "Recibido. Revisaremos su solicitud y, cuando corresponda, facilitaremos una introducción privada a un profesional local cualificado.",
     // Submitter block
     submitterBlock: "Datos del solicitante",
     name: "Nombre",
@@ -53,9 +61,9 @@ const L = {
     planInterest: "Plan de interés (opcional)",
     planOpts: [
       ["", "Seleccione…"],
-      ["placement", "Colocación"],
-      ["placement_outreach", "Colocación + Difusión"],
-      ["developer_desk", "Mesa de Promotor"],
+      ["single_property", "Activación de una propiedad"],
+      ["agency", "Relación de agencia / cartera"],
+      ["developer_desk", "Desk de promotor"],
     ],
     // Property block
     propertyBlock: "Datos de la propiedad",
@@ -93,7 +101,7 @@ const L = {
     filesSelected: (n: number) => `${n} archivo(s) seleccionado(s)`,
     // Checkboxes
     authorization:
-      "Confirmo que tengo autoridad o mandato para presentar esta propiedad y autorizo su revisión para una posible activación internacional sujeta a requisitos de corretaje, plataforma y cumplimiento.",
+      "Confirmo que soy propietario o que tengo autorización o mandato válido para presentar esta propiedad y autorizar su revisión para una posible activación internacional, sujeta a requisitos de corretaje, plataforma y cumplimiento.",
     consent: "Entiendo que todos los términos comerciales se tratan de forma privada.",
     submit: "Enviar solicitud",
     submitting: "Enviando…",
@@ -108,22 +116,30 @@ const L = {
   },
   en: {
     kicker: "Request · Miami Global Listing Desk",
-    title: "Request international property activation",
+    title: "Activate a qualified listing",
     intro:
-      "A single property is valid. A portfolio is not required. Carlos reviews every request before responding with a tailored proposal.",
+      "For individual listing agents, brokerages, and developers with a qualified property mandate. One property is enough; Carlos reviews each request personally.",
     q1: "Submitter type",
     q1opts: [
+      ["agent", "Individual listing agent with a mandate"],
       ["agency", "Licensed real estate agency"],
-      ["developer", "Property developer"],
-      ["owner", "Property owner"],
-      ["agent", "Individual agent"],
+      ["developer", "Developer / authorized sales organization"],
+      ["owner", "Property owner seeking a local-professional introduction"],
     ],
-    q2: "How would you like to list?",
+    q2: "What do you need today?",
     q2opts: [
-      ["exclusive", "Exclusive — one or specific properties (no monthly fee)"],
-      ["placement_plan", "Placement plan — portfolio"],
-      ["advise_me", "Not sure — advise me"],
+      ["activation", "Activate a qualified mandate"],
+      ["materials", "Request mandate-presentation materials"],
+      ["partner", "Explore an agency or developer partnership"],
     ],
+    ownerPath: "Request an introduction to a qualified local professional",
+    ownerTitle: "Request a local-professional introduction",
+    ownerIntro:
+      "We will review your market and needs and, where appropriate, facilitate an introduction to a qualified local professional. You remain free to decide whether to retain that professional.",
+    ownerAuthorization:
+      "I confirm that I am the property owner or have valid authority to request this local-professional introduction.",
+    ownerSuccess:
+      "Received. We will review your request and, where appropriate, facilitate a private introduction to a qualified local professional.",
     submitterBlock: "Submitter details",
     name: "Name",
     company: "Company / agency",
@@ -143,8 +159,8 @@ const L = {
     planInterest: "Plan interest (optional)",
     planOpts: [
       ["", "Select…"],
-      ["placement", "Placement"],
-      ["placement_outreach", "Placement + Outreach"],
+      ["single_property", "Single-property activation"],
+      ["agency", "Agency / portfolio relationship"],
       ["developer_desk", "Developer Desk"],
     ],
     propertyBlock: "Property details",
@@ -181,7 +197,7 @@ const L = {
     chooseFiles: "Choose files",
     filesSelected: (n: number) => `${n} file(s) selected`,
     authorization:
-      "I confirm I have authority or mandate to present this property and authorize its review for possible international activation, subject to brokerage, platform, and compliance requirements.",
+      "I confirm that I own this property or have valid authority or mandate to present it and authorize its review for possible international activation, subject to brokerage, platform, and compliance requirements.",
     consent: "I understand all commercial terms are handled privately.",
     submit: "Submit request",
     submitting: "Submitting…",
@@ -197,7 +213,7 @@ const L = {
 } as const;
 
 type SubmitterType = "" | "agency" | "developer" | "owner" | "agent";
-type ListPath = "" | "exclusive" | "placement_plan" | "advise_me";
+type ListPath = "" | "activation" | "materials" | "partner" | "owner_intro";
 
 export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
   const t = L[lang];
@@ -215,7 +231,10 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
   const isAgencyOrAgent = submitterType === "agency" || submitterType === "agent";
   const isDeveloper = submitterType === "developer";
-  const showPlanInterest = listPath === "placement_plan" || listPath === "advise_me";
+  const isOwner = submitterType === "owner";
+  const pathOptions = isOwner ? [["owner_intro", t.ownerPath] as const] : t.q2opts;
+  const needsPropertyDetails = listPath === "activation";
+  const showPlanInterest = listPath === "partner";
 
   const set = (k: string) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -233,7 +252,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (images.length === 0) {
+    if (needsPropertyDetails && images.length === 0) {
       setErr(t.errImages);
       setStatus("error");
       return;
@@ -273,7 +292,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
         city: form.jurisdiction || form.location || "",
         propertyAddress: form.location || "",
         message:
-          `Global Desk listing · ${submitterType || "—"} · ${listPath || "—"} · ` +
+          `Global Desk request · ${submitterType || "—"} · ${listPath || "—"} · ` +
           `Properties: ${form.propertyCount || "—"} · ${form.type || ""} · ${form.askingPrice || ""} · ` +
           `${images.length} image(s), ${documents.length} doc(s)`,
         sourcePage: FORM_NAME,
@@ -309,7 +328,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
       <div className="border border-gold/30 bg-white/[0.04] p-10 text-center">
         <CheckCircle2 size={40} className="mx-auto text-gold" />
         <p className="mx-auto mt-5 max-w-xl font-serif text-xl leading-relaxed text-white">
-          {t.success}
+          {isOwner ? t.ownerSuccess : t.success}
         </p>
       </div>
     );
@@ -319,8 +338,8 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
     <div className="border border-white/10 bg-white/[0.02]">
       <div className="border-b border-white/10 bg-white/[0.03] px-6 py-6 md:px-8">
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{t.kicker}</p>
-        <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{t.title}</h3>
-        <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{t.intro}</p>
+        <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{isOwner ? t.ownerTitle : t.title}</h3>
+        <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{isOwner ? t.ownerIntro : t.intro}</p>
       </div>
 
       <form
@@ -359,7 +378,10 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
                   value={val}
                   required
                   checked={submitterType === val}
-                  onChange={() => setSubmitterType(val as SubmitterType)}
+                  onChange={() => {
+                    setSubmitterType(val as SubmitterType);
+                    setListPath("");
+                  }}
                   className="h-4 w-4 flex-shrink-0 accent-gold"
                 />
                 {label}
@@ -374,7 +396,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
             {t.q2} *
           </legend>
           <div className="mt-4 space-y-2">
-            {t.q2opts.map(([val, label]) => (
+            {pathOptions.map(([val, label]) => (
               <label
                 key={val}
                 className={`flex cursor-pointer items-center gap-3 border px-4 py-3 font-sans text-sm transition-colors ${
@@ -450,8 +472,9 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
           </div>
         )}
 
-        {/* Property count (all) + plan interest (conditional) */}
-        <div className="border-t border-white/10 pt-7">
+        {/* Property count is needed only for activation or a portfolio partnership. */}
+        {(needsPropertyDetails || listPath === "partner") && (
+          <div className="border-t border-white/10 pt-7">
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label={t.propertyCount} hint={t.propertyCountHint}>
               <input name="propertyCount" type="text" placeholder="1, 3–5, 10+" className="form-input-dark" value={form.propertyCount || ""} onChange={set("propertyCount")} />
@@ -466,10 +489,12 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               </Field>
             )}
           </div>
-        </div>
+          </div>
+        )}
 
-        {/* Property block */}
-        <div className="border-t border-white/10 pt-7">
+        {/* Property details are requested only for an actual mandate activation. */}
+        {needsPropertyDetails && (
+          <div className="border-t border-white/10 pt-7">
           <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
             {t.propertyBlock}
           </p>
@@ -538,7 +563,8 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               <input name="timeline" type="text" className="form-input-dark" value={form.timeline || ""} onChange={set("timeline")} />
             </Field>
           </div>
-        </div>
+          </div>
+        )}
 
         {/* Authorization + consent */}
         <div className="space-y-4 border-t border-white/10 pt-7">
@@ -550,7 +576,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
               checked={authorized}
               onChange={(e) => setAuthorized(e.target.checked)}
             />
-            <span className="font-sans text-xs leading-relaxed text-white/55">{t.authorization} *</span>
+            <span className="font-sans text-xs leading-relaxed text-white/55">{isOwner ? t.ownerAuthorization : t.authorization} *</span>
           </label>
           <label className="flex items-start gap-3">
             <input
