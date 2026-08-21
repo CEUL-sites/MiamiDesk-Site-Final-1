@@ -35,11 +35,12 @@ const C = {
     waES: "WhatsApp España",
     waUS: "WhatsApp EE. UU.",
     heroEyebrow:
-      "Inmuebles internacionales · alcance profesional en Miami y el sur de Florida",
+      "Inmuebles internacionales · Miami · sur de Florida · alcance global",
     heroTitle:
-      "Posicione sus inmuebles internacionales para el mercado inmobiliario global de Miami.",
+      "Posicione inmuebles internacionales ante la red inmobiliaria de Miami, con 93,000 miembros.",
+    heroLead: "El mercado inmobiliario es local. El capital global y los grandes patrimonios convergen en Miami.",
     heroSub:
-      "Para agentes, agencias, promotores y profesionales inmobiliarios locales cualificados. Miami Global Desk prepara inmuebles internacionales seleccionados para su descubrimiento y cooperación profesional dentro de la infraestructura asociativa de 93,000 miembros del sur de Florida—un mercado definido por la demanda internacional y el patrimonio privado de alto valor—mientras usted conserva la relación con el cliente y el mandato local.",
+      "Miami and South Florida REALTORS® forman la asociación local de Realtors® más grande del mundo. Miami Global Desk trabaja con agentes, agencias, promotores y profesionales inmobiliarios locales cualificados para preparar inmuebles seleccionados para su descubrimiento y cooperación profesional, mientras ellos conservan la relación con el cliente y el mandato local.",
     heroCta:
       "Presentar un inmueble cualificado",
     heroWhatsApp: "WhatsApp España",
@@ -175,11 +176,12 @@ const C = {
     waES: "WhatsApp Spain",
     waUS: "WhatsApp USA",
     heroEyebrow:
-      "International listings · Miami and South Florida professional reach",
+      "International property · Miami · South Florida · global reach",
     heroTitle:
-      "Position Your International Listings for Miami’s Global Real Estate Market.",
+      "Position International Property for Miami’s 93,000-Member Real Estate Network.",
+    heroLead: "Real estate is local. Global capital and private wealth converge in Miami.",
     heroSub:
-      "For agents, agencies, developers, and qualified local real estate professionals. Miami Global Desk prepares selected international listings for professional discovery and cooperation across South Florida’s 93,000-member association infrastructure—a market shaped by international demand and high-value private wealth—while you retain the client relationship and local mandate.",
+      "Miami and South Florida REALTORS® form the world’s largest local Realtor® association. Miami Global Desk works with agents, agencies, developers, and qualified local real estate professionals to prepare selected listings for professional discovery and cooperation, while they retain the client relationship and local mandate.",
     heroCta:
       "Present a Qualified Listing",
     heroWhatsApp: "WhatsApp Spain",
@@ -409,8 +411,12 @@ export default function GlobalDeskPage() {
               {t.heroTitle}
             </h1>
 
-            {/* Subtitle with high readability */}
-            <p className="mt-6 max-w-2xl font-sans text-base sm:text-lg leading-relaxed text-white/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+            <p className="mt-5 max-w-3xl font-serif text-xl leading-relaxed text-gold sm:text-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+              {t.heroLead}
+            </p>
+
+            {/* Supporting proposition */}
+            <p className="mt-4 max-w-3xl font-sans text-base sm:text-lg leading-relaxed text-white/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
               {t.heroSub}
             </p>
 
