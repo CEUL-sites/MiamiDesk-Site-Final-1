@@ -44,6 +44,7 @@ const C = {
     heroPartnerCta: "Convertirse en socio",
     mandateEyebrow: "Su mandato. Nuestra activación en EE. UU.",
     mandateTitle: "Una ventaja que el propietario puede entender en una sola conversación.",
+    mandateBody: "La activación no es una campaña genérica ni una sustitución de su agencia: es una capa profesional de mercado estadounidense diseñada para reforzar su propuesta de mandato.",
     mandateCards: [
       ["Gane o proteja el mandato", "Presente una estrategia de activación internacional que complementa — no sustituye — su autoridad local."],
       ["Usted mantiene la relación", "El profesional local conserva la estrategia con el propietario, las visitas, la negociación y el conocimiento de mercado."],
@@ -151,6 +152,7 @@ const C = {
     heroPartnerCta: "Become a Partner",
     mandateEyebrow: "Your Mandate. Our U.S. Activation.",
     mandateTitle: "An advantage the owner can understand in one conversation.",
+    mandateBody: "Activation is not generic marketing or a replacement for your agency. It is a U.S.-market professional layer designed to strengthen your mandate proposition.",
     mandateCards: [
       ["Win or protect the mandate", "Present an international activation strategy that extends — rather than replaces — your local authority."],
       ["You retain the relationship", "The local professional remains responsible for owner strategy, showings, negotiation, and local-market judgment."],
@@ -478,7 +480,7 @@ export default function GlobalDeskPage() {
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-ink">{t.mandateEyebrow}</p>
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.mandateTitle}</h2>
               </div>
-              <p className="max-w-2xl font-sans text-base leading-[1.85] text-navy/75 md:text-lg">{t.marketBody}</p>
+              <p className="max-w-2xl font-sans text-base leading-[1.85] text-navy/75 md:text-lg">{t.mandateBody}</p>
             </div>
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
