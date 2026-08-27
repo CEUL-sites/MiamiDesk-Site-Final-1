@@ -27,14 +27,14 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>South Florida Listing Strategist | Carlos Uzcategui</title>
-        <meta name="description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001 — pricing, positioning and buyer-agent activation." />
+        <meta name="description" content="Request a private South Florida property strategy from Carlos Uzcategui: MLS-based pricing, positioning, buyer-agent activation, and 93,000-member reach." />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="South Florida Listing Strategist | Carlos Uzcategui" />
-        <meta name="twitter:description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001. Pricing, positioning, buyer-agent activation and global distribution for South Florida sellers." />
+        <meta name="twitter:description" content="Request a private South Florida property strategy: MLS-based pricing, positioning, buyer-agent activation, and 93,000-member distribution reach." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <link rel="canonical" href="https://homesprofessional.com/" />
         <meta property="og:title" content="South Florida Listing Strategist | Carlos Uzcategui" />
-        <meta property="og:description" content="Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001. Pricing, positioning, buyer-agent activation and global distribution for South Florida sellers." />
+        <meta property="og:description" content="Request a private South Florida property strategy: MLS-based pricing, positioning, buyer-agent activation, and 93,000-member distribution reach." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />

@@ -8,6 +8,7 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
+import { pushEvent } from "../lib/analytics";
 
 type Lang = "es" | "en";
 
@@ -40,13 +41,13 @@ const C = {
       "Posicione inmuebles internacionales ante la red inmobiliaria del sur de Florida, con 93,000 miembros.",
     heroLead: "El mercado es local. El sur de Florida conecta capital privado de Estados Unidos, Latinoamérica y otros mercados internacionales.",
     heroSub:
-      "El ecosistema profesional del sur de Florida, con 93,000 miembros y Miami como referente internacional, atiende a compradores e inversores de Estados Unidos, Latinoamérica y otros centros globales, incluidos segmentos de alto patrimonio. Miami Global Desk ayuda a diferenciar inmuebles seleccionados mediante posicionamiento de mercado, presentación bilingüe y cooperación profesional estructurada, mientras el profesional local conserva la relación con el cliente y el mandato.",
+      "El ecosistema profesional del sur de Florida, con 93,000 miembros y Miami como referente internacional, atiende a compradores e inversores de Estados Unidos, Latinoamérica y otros centros globales, incluidos segmentos de alto patrimonio. Miami Global Listing Desk ayuda a diferenciar inmuebles seleccionados mediante posicionamiento de mercado, presentación bilingüe y cooperación profesional estructurada, mientras el profesional local conserva la relación con el cliente y el mandato.",
     heroCta:
-      "Presentar un inmueble cualificado",
+      "Solicitar activación internacional",
     heroWhatsApp: "WhatsApp España",
     heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · sujeto a requisitos de corretaje, plataforma y cumplimiento",
     heroPartnerCta:
-      "Hablar de una colaboración",
+      "Solicitar una introducción privada",
     mandateEyebrow:
       "Una propuesta más sólida para su propietario",
     mandateTitle:
@@ -71,7 +72,7 @@ const C = {
     marketLead:
       "Para el propietario, el sur de Florida —con Miami como principal referencia internacional— es un centro reconocido de inversión inmobiliaria y capital privado. Para el profesional local, eso crea una ventaja de posicionamiento creíble, no otra promesa genérica de exposición mundial.",
     marketBody:
-      "El ecosistema profesional del sur de Florida, con 93,000 miembros, se encuentra en la intersección de la demanda de compradores e inversores de Estados Unidos, Latinoamérica y otros mercados internacionales, incluidos segmentos de alto patrimonio. Miami Global Desk ayuda a que los inmuebles seleccionados se diferencien mediante posicionamiento específico para la audiencia, preparación bilingüe y una ruta de cooperación documentada. El profesional local conserva el cliente, el mandato y la representación; toda actividad está sujeta a elegibilidad y requisitos aplicables.",
+      "El ecosistema profesional del sur de Florida, con 93,000 miembros, se encuentra en la intersección de la demanda de compradores e inversores de Estados Unidos, Latinoamérica y otros mercados internacionales, incluidos segmentos de alto patrimonio. Miami Global Listing Desk ayuda a que los inmuebles seleccionados se diferencien mediante posicionamiento específico para la audiencia, preparación bilingüe y una ruta de cooperación documentada. El profesional local conserva el cliente, el mandato y la representación; toda actividad está sujeta a elegibilidad y requisitos aplicables.",
     reachEyebrow: "Una historia de mercado que cruza fronteras",
     reachTitle: "Muestre al propietario cómo su representación local puede conectarse con un mercado profesional más amplio.",
     reachBody:
@@ -99,7 +100,7 @@ const C = {
     structureEyebrow:
       "Su papel sigue siendo central",
     structureBody:
-      "Miami Global Desk trabaja con el agente, la agencia, el promotor o el profesional inmobiliario local que controla un mandato o autorización cualificada. No sustituye esa representación ni solicita propietarios ya representados. Las visitas, la negociación local, la documentación de origen y el conocimiento del mercado permanecen con el profesional correspondiente; la coordinación con el sur de Florida se define de forma privada y operación por operación.",
+      "Miami Global Listing Desk trabaja con el agente, la agencia, el promotor o el profesional inmobiliario local que controla un mandato o autorización cualificada. No sustituye esa representación ni solicita propietarios ya representados. Las visitas, la negociación local, la documentación de origen y el conocimiento del mercado permanecen con el profesional correspondiente; la coordinación con el sur de Florida se define de forma privada y operación por operación.",
     proofEyebrow:
       "Preparación para el sur de Florida",
     proofTitle:
@@ -128,7 +129,7 @@ const C = {
     twoWaysClosing:
       "Toda propiedad y toda relación están sujetas a revisión, aprobación de corretaje y requisitos aplicables.",
     scopesEyebrow:
-      "Formas de trabajar con Miami Global Desk",
+      "Formas de trabajar con Miami Global Listing Desk",
     scopes: [
       ["Apoyo para ganar el mandato", "Argumentación y materiales que explican al propietario el valor del sur de Florida y el papel protegido del profesional local."],
       ["Posicionamiento de un inmueble", "Revisión de encaje, presentación bilingüe y una ruta de cooperación para una propiedad seleccionada."],
@@ -143,7 +144,7 @@ const C = {
       ["Activar y coordinar", "El inmueble apto entra en la ruta acordada; la actividad y las introducciones se coordinan con el profesional local."],
     ],
     midCta:
-      "Presentar un inmueble cualificado",
+      "Solicitar activación internacional",
     midCtaAlt:
       "¿Prefiere analizar primero la oportunidad?",
     faqEyebrow: "Preguntas frecuentes",
@@ -151,7 +152,7 @@ const C = {
       "Lo que preguntarán el profesional local y su propietario",
     faqs: [
       [
-        "¿Quién puede trabajar con Miami Global Desk?",
+        "¿Quién puede trabajar con Miami Global Listing Desk?",
         "Agentes individuales, agencias, brokerages, promotores, organizaciones de ventas autorizadas y otros profesionales inmobiliarios cualificados que representan propiedades en su mercado local.",
       ],
       [
@@ -160,7 +161,7 @@ const C = {
       ],
       [
         "¿El propietario pierde su relación con el profesional local?",
-        "No. Miami Global Desk no sustituye al profesional local ni solicita propietarios ya representados. La relación, la estrategia, las visitas, la negociación y el conocimiento del mercado local permanecen con quien representa el inmueble.",
+        "No. Miami Global Listing Desk no sustituye al profesional local ni solicita propietarios ya representados. La relación, la estrategia, las visitas, la negociación y el conocimiento del mercado local permanecen con quien representa el inmueble.",
       ],
       [
         "¿Qué ocurre si un propietario llega directamente?",
@@ -190,13 +191,13 @@ const C = {
       "Position International Property for South Florida’s 93,000-Member Real Estate Network.",
     heroLead: "Real estate is local. South Florida connects U.S., Latin American, and global private wealth.",
     heroSub:
-      "South Florida’s 93,000-member professional ecosystem, anchored by Miami’s international recognition, serves U.S., Latin American, and global buyers and investors, including high-net-worth segments. Miami Global Desk helps selected listings stand out through audience-specific positioning, bilingual presentation, and structured professional cooperation—while the local professional retains the client relationship and mandate.",
+      "South Florida’s 93,000-member professional ecosystem, anchored by Miami’s international recognition, serves U.S., Latin American, and global buyers and investors, including high-net-worth segments. Miami Global Listing Desk helps selected listings stand out through audience-specific positioning, bilingual presentation, and structured professional cooperation—while the local professional retains the client relationship and mandate.",
     heroCta:
-      "Present a Qualified Listing",
+      "Request International Property Activation",
     heroWhatsApp: "WhatsApp Spain",
     heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · subject to brokerage, platform, property-eligibility, and compliance requirements",
     heroPartnerCta:
-      "Discuss a Partnership",
+      "Request a Private Introduction",
     mandateEyebrow:
       "A stronger proposition for your owner",
     mandateTitle:
@@ -221,7 +222,7 @@ const C = {
     marketLead:
       "For the owner, South Florida—with Miami as its internationally recognized anchor—is a center of global real estate and private wealth. For the local professional, that creates a credible positioning advantage—not another generic promise of worldwide exposure.",
     marketBody:
-      "South Florida’s 93,000-member professional ecosystem sits at the intersection of U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. Miami Global Desk helps selected properties stand out through audience-specific positioning, bilingual preparation, and a documented cooperation route. The local professional retains the client, mandate, and local representation; all activity remains subject to eligibility and applicable requirements.",
+      "South Florida’s 93,000-member professional ecosystem sits at the intersection of U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. Miami Global Listing Desk helps selected properties stand out through audience-specific positioning, bilingual preparation, and a documented cooperation route. The local professional retains the client, mandate, and local representation; all activity remains subject to eligibility and applicable requirements.",
     reachEyebrow: "One market story, presented across borders",
     reachTitle: "Show the owner how local representation can connect with a wider professional market.",
     reachBody:
@@ -249,7 +250,7 @@ const C = {
     structureEyebrow:
       "Your role remains central",
     structureBody:
-      "Miami Global Desk works with the local agent, agency, developer, or real estate professional who controls a qualified mandate or authorization. It does not replace that representation or solicit already-represented owners. Showings, local negotiation, originating documentation, and market expertise stay with the appropriate local professional; South Florida coordination is defined privately and property by property.",
+      "Miami Global Listing Desk works with the local agent, agency, developer, or real estate professional who controls a qualified mandate or authorization. It does not replace that representation or solicit already-represented owners. Showings, local negotiation, originating documentation, and market expertise stay with the appropriate local professional; South Florida coordination is defined privately and property by property.",
     proofEyebrow:
       "Prepared for South Florida",
     proofTitle:
@@ -278,7 +279,7 @@ const C = {
     twoWaysClosing:
       "Every property and relationship remains subject to review, brokerage approval, and applicable requirements.",
     scopesEyebrow:
-      "Ways to work with Miami Global Desk",
+      "Ways to work with Miami Global Listing Desk",
     scopes: [
       ["Mandate-winning support", "Owner-facing reasoning and materials that explain the value of South Florida and the protected role of the local professional."],
       ["Selected-listing positioning", "Fit review, bilingual presentation, and a cooperation route for one qualified property."],
@@ -293,7 +294,7 @@ const C = {
       ["Activate and coordinate", "An eligible property enters the agreed route; activity and introductions are coordinated with the local professional."],
     ],
     midCta:
-      "Present a Qualified Listing",
+      "Request International Property Activation",
     midCtaAlt:
       "Prefer to discuss the opportunity first?",
     faqEyebrow: "Common questions",
@@ -301,7 +302,7 @@ const C = {
       "What the local professional—and the owner—will ask",
     faqs: [
       [
-        "Who can work with Miami Global Desk?",
+        "Who can work with Miami Global Listing Desk?",
         "Individual agents, agencies, brokerages, developers, authorized sales organizations, and other qualified real estate professionals representing properties in their local markets.",
       ],
       [
@@ -310,10 +311,10 @@ const C = {
       ],
       [
         "Does the owner lose the local professional relationship?",
-        "No. Miami Global Desk does not replace the local professional or solicit already-represented owners. The relationship, strategy, showings, negotiation, and local-market expertise remain with the professional representing the property.",
+        "No. Miami Global Listing Desk does not replace the local professional or solicit already-represented owners. The relationship, strategy, showings, negotiation, and local-market expertise remain with the professional representing the property.",
       ],
       [
-        "What happens when an owner approaches Miami Global Desk directly?",
+        "What happens when an owner approaches Miami Global Listing Desk directly?",
         "Where appropriate, we can facilitate an introduction to a qualified local professional. The owner independently decides whether to retain that professional; we do not automatically assign agents.",
       ],
       [
@@ -359,12 +360,12 @@ export default function GlobalDeskPage() {
   const t = C[lang];
   const pageTitle =
     lang === "es"
-      ? "Miami Global Desk — Inmuebles Internacionales para el Sur de Florida"
-      : "Miami Global Desk — International Listings for South Florida";
+      ? "Miami Global Listing Desk — Activación Internacional"
+      : "Miami Global Listing Desk | International Property Activation";
   const pageDescription =
     lang === "es"
-      ? "Posicionamiento de inmuebles internacionales para agentes, agencias, promotores y profesionales locales ante el mercado del sur de Florida, conectado con demanda de Estados Unidos, Latinoamérica y otros mercados internacionales."
-      : "South Florida positioning for qualified international listings represented by local agents, agencies, developers, and real estate professionals, with relevance to U.S., Latin American, and international demand.";
+      ? "Solicite activación inmobiliaria internacional o una introducción privada para un inmueble cualificado, con posicionamiento hacia el sur de Florida."
+      : "Request international property activation or a private introduction for a qualified mandate, positioned for South Florida through brokerage-mediated cooperation.";
 
   return (
     <>
@@ -461,13 +462,19 @@ export default function GlobalDeskPage() {
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href="#listing-request"
+                onClick={() => pushEvent("global_desk_cta_click", { cta_type: "international_property_activation", cta_location: "hero_primary", language: lang })}
                 className="inline-flex min-h-12 items-center gap-2 rounded-full bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)]"
               >
                 {t.heroCta}
                 <ChevronRight size={15} />
               </a>
               <a
-                href="mailto:contact@carlosre.com?subject=Miami%20Global%20Desk%20Partner%20Request"
+                href={lang === "es"
+                  ? `${WA_ES}?text=${encodeURIComponent("Hola Carlos, deseo solicitar una introducción privada para analizar una oportunidad inmobiliaria internacional cualificada.")}`
+                  : `${WA_US}?text=${encodeURIComponent("Hello Carlos, I would like a private introduction to discuss a qualified international property opportunity.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => pushEvent("global_desk_cta_click", { cta_type: "private_introduction", cta_location: "hero_secondary", language: lang })}
                 className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/25 bg-white/[0.04] px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm transition-colors hover:border-gold hover:text-gold"
               >
                 <FileCheck size={15} className="text-gold" />
@@ -806,6 +813,7 @@ export default function GlobalDeskPage() {
             <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-white/10 pt-10">
               <a
                 href="#listing-request"
+                onClick={() => pushEvent("global_desk_cta_click", { cta_type: "international_property_activation", cta_location: "mid_page", language: lang })}
                 className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
               >
                 {t.midCta}

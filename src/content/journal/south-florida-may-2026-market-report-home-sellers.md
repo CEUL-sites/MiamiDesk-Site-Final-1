@@ -3,7 +3,8 @@ title: "South Florida May 2026 Market Report: Single-Family Inventory Is Tighten
 seoTitle: "South Florida May 2026 Market Report"
 date: "2026-06-20"
 slug: "south-florida-may-2026-market-report-home-sellers"
-excerpt: "May 2026 data shows single-family inventory down roughly 20% across Miami-Dade and Broward, faster contracts, and firm prices. What it means for sellers."
+excerpt: "May 2026 South Florida single-family data for Miami-Dade and Broward, translated into property-level pricing, competition, and launch decisions."
+updated: "2026-08-27"
 category: "South Florida Market Intelligence"
 image: "/images/journal/og/south-florida-may-2026-market-report-home-sellers.jpg"
 created_by: "claude"
@@ -12,7 +13,7 @@ funnel_stage: "awareness"
 content_goal: "market_report"
 ---
 
-South Florida's May 2026 single-family data sends a clear signal to homeowners: buyers kept transacting, and available supply tightened further across both Miami-Dade and Broward. For an owner weighing a sale, that combination is not a reason to list casually — it is a reason to position deliberately, because the conditions reward a disciplined launch and expose a careless one.
+South Florida's May 2026 single-family data shows active buyer demand and tighter available supply across Miami-Dade and Broward. Carlos does not apply that regional signal directly to an individual home. He translates it through the property’s immediate competition, condition, price band, likely buyer, and first-week launch strategy.
 
 The figures below are drawn from Florida REALTORS® and MIAMI REALTORS® May 2026 statistics, released June 16, 2026.
 
@@ -72,7 +73,7 @@ When a home is listed with Carlos Uzcategui, it is positioned through the **Miam
 
 ## Recommended Next Step
 
-If you are considering a sale in Miami-Dade or Broward, the right starting point is a [Private Seller Strategy Review](/sell-south-florida?utm_source=journal&utm_medium=post&utm_campaign=may-2026-market&market=south-florida&funnel_stage=consideration) — before deciding your price, timing, and launch plan. Want to know what you would actually keep first? Model it with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=may-2026-market&market=south-florida&funnel_stage=consideration), then [request your review](/contact?utm_source=journal&utm_medium=post&utm_campaign=may-2026-market&market=south-florida&funnel_stage=consideration).
+If you are considering a sale in Miami-Dade or Broward, [request a Current-Market Property Position Review](/sell-south-florida?utm_source=journal&utm_medium=internal&utm_campaign=south-florida-may-2026-market-report-home-sellers&utm_content=article-link&journal_origin=south-florida-may-2026-market-report-home-sellers&journal_offer=current-market-position&journal_cta=article-link#contact) before deciding price, timing, and launch plan. The outcome is a property-level reading of the relevant competition and buyer profile—not a regional headline applied to your address.
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, and a seat at United Realty Group. He reviews every seller request personally.
 

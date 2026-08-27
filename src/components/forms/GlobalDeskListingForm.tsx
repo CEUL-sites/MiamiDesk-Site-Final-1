@@ -13,7 +13,7 @@ const L = {
     kicker: "Solicitud · Miami Global Listing Desk",
     title: "Presente una oportunidad inmobiliaria internacional cualificada",
     intro:
-      "Para agentes, agencias, promotores y otros profesionales inmobiliarios que representan propiedades en su mercado local. Presente un inmueble, solicite materiales para el propietario o proponga una relación profesional con Miami Global Desk.",
+      "Para agentes, agencias, promotores y otros profesionales inmobiliarios que representan propiedades en su mercado local. Presente un inmueble, solicite materiales para el propietario o proponga una relación profesional con Miami Global Listing Desk.",
     // Q1
     q1: "¿Cómo representa esta oportunidad?",
     q1opts: [
@@ -119,7 +119,7 @@ const L = {
     kicker: "Request · Miami Global Listing Desk",
     title: "Present a Qualified International Real Estate Opportunity",
     intro:
-      "For agents, agencies, developers, and other real estate professionals representing property in their local markets. Present a listing, request owner-facing materials, or propose a professional relationship with Miami Global Desk.",
+      "For agents, agencies, developers, and other real estate professionals representing property in their local markets. Present a listing, request owner-facing materials, or propose a professional relationship with Miami Global Listing Desk.",
     q1: "How do you represent this opportunity?",
     q1opts: [
       ["agent", "Individual real estate agent"],
