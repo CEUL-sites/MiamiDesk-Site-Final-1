@@ -45,8 +45,20 @@ function matchCityFromAddress(address: string): string {
   return CITIES.find((c) => c !== "Other" && lower.includes(c.toLowerCase())) ?? "";
 }
 
+function journalConversionSource(defaultSource: string): string {
+  if (typeof window === "undefined") return defaultSource;
+  const params = new URLSearchParams(window.location.search);
+  const clean = (key: string) => (params.get(key) ?? "").replace(/[^a-z0-9_-]/gi, "").slice(0, 80);
+  const origin = clean("journal_origin");
+  const offer = clean("journal_offer");
+  const cta = clean("journal_cta");
+  if (!origin || !offer || !cta) return defaultSource;
+  return `${defaultSource}|journal:${origin}|offer:${offer}|cta:${cta}`.slice(0, 200);
+}
+
 export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?: string } = {}) {
-  const [form, setForm] = useState({ ...INITIAL, source: sourcePage });
+  const [effectiveSourcePage] = useState(() => journalConversionSource(sourcePage));
+  const [form, setForm] = useState({ ...INITIAL, source: effectiveSourcePage });
   const [step, setStep] = useState<1 | 2>(1);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
@@ -163,11 +175,11 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         lat: form.lat,
         lng: form.lng,
         placeId: form.placeId,
-        sourcePage: `${sourcePage}-step1`,
+        sourcePage: `${effectiveSourcePage}-step1`.slice(0, 200),
         ...getAttribution(),
       }),
     }).catch(() => {});
-    trackFunnelEvent("seller_intake_step1", { city, page: sourcePage });
+    trackFunnelEvent("seller_intake_step1", { city, page: effectiveSourcePage });
 
     setStep(2);
   };
@@ -183,13 +195,13 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         signal: ctrl.signal,
-        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", formRenderedAt: String(renderedAt.current), ...form, sourcePage, ...getAttribution() }),
+        body: encodeForm({ "form-name": "seller-intake", "bot-field": "", formRenderedAt: String(renderedAt.current), ...form, sourcePage: effectiveSourcePage, ...getAttribution() }),
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
-        message: form.priorListing, sourcePage, formName: "seller-intake", leadSource: getLeadSource(),
+        message: form.priorListing, sourcePage: effectiveSourcePage, formName: "seller-intake", leadSource: getLeadSource(),
         valueBand: form.valueBand, occupancy: form.occupancy,
         placeId: form.placeId, messagingConsent: form.messagingConsent,
         botField: "", formRenderedAt: String(renderedAt.current),
@@ -200,7 +212,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formName: "seller-intake", name: form.name, email: form.email, phone: form.phone }),
       }).catch(() => {});
-      trackLead("seller", { form: "seller-intake", form_location: sourcePage, page: sourcePage });
+      trackLead("seller", { form: "seller-intake", form_location: effectiveSourcePage, page: effectiveSourcePage });
       navigateAfterTracking("/thanks/seller");
     } catch (e: unknown) {
       setErr(
@@ -315,8 +327,8 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
           className="space-y-6 p-8"
         >
           <input type="hidden" name="form-name" value="seller-intake" />
-          <input type="hidden" name="source" value={sourcePage} />
-          <input type="hidden" name="sourcePage" value={sourcePage} />
+          <input type="hidden" name="source" value={effectiveSourcePage} />
+          <input type="hidden" name="sourcePage" value={effectiveSourcePage} />
           <input type="hidden" name="propertyAddress" value={form.propertyAddress} />
           <input type="hidden" name="city" value={form.city} />
           <input type="hidden" name="lat" value={form.lat} />

@@ -13,7 +13,7 @@ const encodeForm = (data: Record<string, string>) => new URLSearchParams(data).t
 
 const COPY = {
   en: {
-    eyebrow: "Free Home Valuation",
+    eyebrow: "Private Property Strategy",
     badge: "Confidential · No Obligation",
     address: "Property address — South Florida or Spain",
     name: "Full name",
@@ -27,7 +27,7 @@ const COPY = {
       "Other",
     ],
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
-    submit: "Get My Free Home Valuation",
+    submit: "Request My Property Review",
     sending: "Sending…",
     consent: "I agree to receive updates by WhatsApp/SMS at this number. Msg & data rates may apply. Reply STOP to opt out.",
     prefer: "Prefer WhatsApp?",
@@ -36,7 +36,7 @@ const COPY = {
     proofName: "Andres P. · Weston · Verified Review",
     successTag: "Valuation Request Received",
     successTitle: "Carlos will personally review your property.",
-    successBody: "Expect your MLS-based valuation and a confidential, personal response. For urgent timing, reach us on WhatsApp.",
+    successBody: "Expect an MLS-based valuation, a property-position review, and a confidential personal response. For urgent timing, reach us on WhatsApp.",
     netSheetIntro: "While Carlos prepares your valuation, here's your free Seller's Net Sheet — what you actually keep at closing:",
     netSheetCta: "Download the Seller's Net Sheet",
     successCta: "Continue on WhatsApp →",
@@ -44,7 +44,7 @@ const COPY = {
     failed: "Couldn't send — please use WhatsApp or try again.",
   },
   es: {
-    eyebrow: "Valoración Gratuita",
+    eyebrow: "Estrategia Privada de la Propiedad",
     badge: "Confidencial · Sin Compromiso",
     address: "Dirección de la propiedad — Miami o España",
     name: "Nombre completo",
@@ -58,7 +58,7 @@ const COPY = {
       "Otra",
     ],
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
-    submit: "Obtener Mi Valoración Gratuita",
+    submit: "Solicitar Revisión de Mi Propiedad",
     sending: "Enviando…",
     consent: "Acepto recibir actualizaciones por WhatsApp/SMS a este número. Pueden aplicar tarifas. Responda STOP para darse de baja.",
     prefer: "¿Prefiere WhatsApp?",
@@ -67,7 +67,7 @@ const COPY = {
     proofName: "Andres P. · Weston · Reseña Verificada",
     successTag: "Solicitud Recibida",
     successTitle: "Carlos revisará su propiedad personalmente.",
-    successBody: "Recibirá su valoración y una respuesta confidencial y personal. Para asuntos urgentes, contáctenos por WhatsApp.",
+    successBody: "Recibirá una valoración basada en MLS, una revisión de posicionamiento y una respuesta personal y confidencial. Para asuntos urgentes, contáctenos por WhatsApp.",
     netSheetIntro: "Mientras Carlos prepara su valoración, aquí tiene su Hoja de Ganancias del Vendedor — lo que realmente recibe al cierre:",
     netSheetCta: "Descargar la Hoja de Ganancias",
     successCta: "Continuar por WhatsApp →",
