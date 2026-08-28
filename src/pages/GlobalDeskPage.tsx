@@ -39,7 +39,7 @@ const C = {
       "Inmuebles internacionales · sur de Florida · alcance global",
     heroTitle:
       "Posicione inmuebles internacionales ante la red inmobiliaria del sur de Florida, con 93,000 miembros.",
-    heroLead: "El mercado es local. El sur de Florida conecta capital privado de Estados Unidos, Latinoamérica y otros mercados internacionales.",
+    heroLead: "Los inmuebles son locales. Alcanzar el precio más alto posible exige alcance global. El sur de Florida conecta capital privado de Estados Unidos, Latinoamérica y otros mercados internacionales.",
     heroSub:
       "El ecosistema profesional del sur de Florida, con 93,000 miembros y Miami como referente internacional, atiende a compradores e inversores de Estados Unidos, Latinoamérica y otros centros globales, incluidos segmentos de alto patrimonio. Miami Global Listing Desk ayuda a diferenciar inmuebles seleccionados mediante posicionamiento de mercado, presentación bilingüe y cooperación profesional estructurada, mientras el profesional local conserva la relación con el cliente y el mandato.",
     heroCta:
@@ -189,7 +189,7 @@ const C = {
       "International property · South Florida · global reach",
     heroTitle:
       "Position International Property for South Florida’s 93,000-Member Real Estate Network.",
-    heroLead: "Real estate is local. South Florida connects U.S., Latin American, and global private wealth.",
+    heroLead: "Real estate is local. Achieving the highest possible price requires global reach. South Florida connects private capital from the United States, Latin America, and other international markets.",
     heroSub:
       "South Florida’s 93,000-member professional ecosystem, anchored by Miami’s international recognition, serves U.S., Latin American, and global buyers and investors, including high-net-worth segments. Miami Global Listing Desk helps selected listings stand out through audience-specific positioning, bilingual presentation, and structured professional cooperation—while the local professional retains the client relationship and mandate.",
     heroCta:
