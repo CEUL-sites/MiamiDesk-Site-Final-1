@@ -5,7 +5,6 @@ import { CONTACT, LEAD_MAGNETS } from "../constants";
 import { trackLead, trackFunnelEvent, pushEvent } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
 import { notifyLeadDirect } from "../lib/leadNotify";
-import { loadGooglePlaces, MAPS_KEY } from "../lib/googlePlaces";
 
 type Lang = "en" | "es";
 
@@ -83,16 +82,13 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
     propertyAddress: "",
     city: t.markets[0],
     timeline: t.timelines[0],
-    lat: "", lng: "", placeId: "",
     messagingConsent: "no",
   };
   const [form, setForm]       = useState(initial);
   const [status, setStatus]   = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError]     = useState("");
-  const [mapPin, setMapPin]   = useState<{ lat: number; lng: number; address: string } | null>(null);
   const addressRef            = useRef<HTMLInputElement>(null);
   const formStartFired        = useRef(false);
-  const placesReady           = useRef(false);
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -101,43 +97,6 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       form_name: "seller-hero",
       page_path: window.location.pathname,
       funnel_stage: "bottom_funnel",
-    });
-  };
-
-  // Google Places loads only when the visitor focuses the address field — this
-  // keeps the Maps JS API (a heavy third-party script) off the initial page
-  // load on every landing page where this form appears. Autocomplete attaches
-  // on focus, before the visitor finishes typing the address.
-  const initPlaces = () => {
-    if (placesReady.current) return;
-    placesReady.current = true;
-    loadGooglePlaces(() => {
-      const input = addressRef.current;
-      if (!input || !window.google?.maps?.places) return;
-
-      const ac = new window.google.maps.places.Autocomplete(input, {
-        types: ["address"],
-        componentRestrictions: { country: ["us", "es"] },
-        fields: ["formatted_address", "geometry", "place_id"],
-      });
-
-      ac.addListener("place_changed", () => {
-        const place = ac.getPlace();
-        const addr   = place.formatted_address ?? input.value;
-        const lat    = place.geometry?.location?.lat() ?? null;
-        const lng    = place.geometry?.location?.lng() ?? null;
-        const placeId = place.place_id ?? "";
-        setForm((f) => ({
-          ...f,
-          propertyAddress: addr,
-          lat: lat != null ? String(lat) : "",
-          lng: lng != null ? String(lng) : "",
-          placeId,
-        }));
-        if (lat != null && lng != null) {
-          setMapPin({ lat, lng, address: addr });
-        }
-      });
     });
   };
 
@@ -161,9 +120,6 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           "bot-field": "",
           ...form,
           sourcePage: `hero-${lang}`,
-          mapUrl: form.lat && form.lng
-            ? `https://www.google.com/maps?q=${form.lat},${form.lng}`
-            : "",
           ...getAttribution(),
         }),
       });
@@ -248,9 +204,6 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       className="rounded-2xl bg-[#071120]/95 border border-gold/30 backdrop-blur-2xl p-6 sm:p-8 text-left shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(176,141,87,0.12)]"
     >
       <input type="hidden" name="form-name" value="seller-hero" />
-      <input type="hidden" name="lat"     value={form.lat} />
-      <input type="hidden" name="lng"     value={form.lng} />
-      <input type="hidden" name="placeId" value={form.placeId} />
       <p aria-hidden="true" className="hidden">
         <label>Don't fill this out: <input name="bot-field" /></label>
       </p>
@@ -268,7 +221,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         </div>
       </div>
 
-      {/* Address — Google Places Autocomplete */}
+      {/* Address — direct entry keeps the highest-intent homepage form dependable. */}
       <div className="relative">
         <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold z-10" />
         <input
@@ -278,7 +231,6 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           type="text"
           value={form.propertyAddress}
           onChange={update("propertyAddress")}
-          onFocus={initPlaces}
           placeholder={t.address}
           autoComplete="street-address"
           style={{ paddingLeft: "2.75rem" }}
@@ -286,30 +238,6 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           aria-label={t.address}
         />
       </div>
-
-      {/* Map pin preview — appears after Google Places selection */}
-      {mapPin && MAPS_KEY && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          transition={{ duration: 0.35 }}
-          className="mt-3 overflow-hidden rounded-lg border border-gold/30 relative"
-        >
-          <img
-            src={`https://maps.googleapis.com/maps/api/staticmap?center=${mapPin.lat},${mapPin.lng}&zoom=15&size=600x160&scale=2&markers=color:0xB08D57%7Clabel:%7C${mapPin.lat},${mapPin.lng}&map_id=&style=feature:poi|visibility:off&style=feature:transit|visibility:off&key=${MAPS_KEY}`}
-            alt={`Map pin: ${mapPin.address}`}
-            className="w-full object-cover"
-            width="600"
-            height="160"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 flex items-center gap-2 px-3 py-2.5">
-            <MapPin size={11} className="text-gold flex-shrink-0" />
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold/90 truncate">{mapPin.address}</p>
-          </div>
-        </motion.div>
-      )}
 
       {/* Name + Phone */}
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
