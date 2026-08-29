@@ -32,11 +32,11 @@ const FADE_MS = 600;
 // weight is invisible but they pull ~27MB of mobile data. Both remain live where
 // they show full-size (SellerSection, VideoBubbles, Agents & Markets pages).
 const HERO_FEATURE_VIDEOS = [
-  { src: "/videos/dollhouse_rotating_in_hands.mp4", label: "Signature Marketing" },
-  { src: "/videos/luxury_waterfront_estate.mp4",    label: "Waterfront Estate"   },
-  { src: "/videos/matterport_miami_beach.mp4",      label: "3D Matterport Tour"  },
-  { src: "/videos/digital_twin_exposure.mp4",       label: "Global Exposure"     },
-  { src: "/videos/gemini_property_vision.mp4",      label: "AI Marketing"        },
+  { src: "/videos/dollhouse_rotating_in_hands.mp4", poster: "/images/posters/dollhouse_rotating_in_hands.jpg", label: "Signature Marketing" },
+  { src: "/videos/luxury_waterfront_estate.mp4",    poster: "/images/posters/luxury_waterfront_estate.jpg",    label: "Waterfront Estate"   },
+  { src: "/videos/matterport_miami_beach.mp4",      poster: "/images/posters/matterport_miami_beach.jpg",      label: "3D Matterport Tour"  },
+  { src: "/videos/digital_twin_exposure.mp4",       poster: "/images/posters/digital_twin_exposure.jpg",       label: "Global Exposure"     },
+  { src: "/videos/gemini_property_vision.mp4",      poster: "/images/posters/gemini_property_vision.jpg",      label: "AI Marketing"        },
 ];
 
 // Decorative hero clips are skipped entirely on data-saver / slow (2g) links —
@@ -108,6 +108,7 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
     const s = srcs[layer].current;
     if (!v || !s || loadedIdx.current[layer] === idx) return;
     s.src = HERO_FEATURE_VIDEOS[idx].src;
+    v.poster = HERO_FEATURE_VIDEOS[idx].poster;
     v.muted = true;
     v.load();
     loadedIdx.current[layer] = idx;
@@ -188,6 +189,7 @@ function HeroCyclingBubble({ active }: { active: boolean }) {
             muted
             playsInline
             preload="none"
+            poster={HERO_FEATURE_VIDEOS[layer].poster}
             aria-hidden="true"
             onTimeUpdate={onTime(layer)}
             onEnded={onEnded(layer)}
