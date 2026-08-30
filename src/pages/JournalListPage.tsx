@@ -109,7 +109,7 @@ export default function JournalListPage() {
             </p>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/[0.04] px-4 py-1.5 backdrop-blur-sm">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">
-                Carlos Uzcategui · FL REALTOR® Since 2001 · {posts.length} Published Analyses
+                Carlos Uzcategui, REALTOR® · FL SL705771 · Since 2001 · {posts.length} Published Analyses
               </span>
             </div>
           </div>

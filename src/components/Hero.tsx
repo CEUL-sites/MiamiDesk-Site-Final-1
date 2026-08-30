@@ -397,7 +397,7 @@ export function Hero() {
           className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
         >
           {[
-            { icon: ShieldCheck, text: "FL Licensed REALTOR® Since 2001" },
+            { icon: ShieldCheck, text: "REALTOR® · FL SL705771 · Since 2001" },
             { icon: Tag,         text: "CLHMS™ · Certified Luxury Specialist" },
             { icon: Globe,       text: "United Realty Group · 3,500+ Agents · 20 FL Offices" },
           ].map(({ icon: Icon, text }) => (

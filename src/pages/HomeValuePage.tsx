@@ -50,7 +50,7 @@ export default function HomeValuePage() {
         <title>What Is My South Florida Home Worth? Free Professional Valuation | HomesProfessional.com</title>
         <meta
           name="description"
-          content="Free professional home valuation from a licensed South Florida REALTOR® — a real MLS analysis, not an algorithm. Carlos Uzcategui, FL SL705771."
+          content="Free professional home valuation from Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771 — a real MLS analysis, not an algorithm."
         />
         <meta
           name="keywords"
@@ -58,13 +58,13 @@ export default function HomeValuePage() {
         />
         <link rel="canonical" href="https://homesprofessional.com/home-value" />
         <meta property="og:title" content="What Is My South Florida Home Worth? | Free Professional Valuation" />
-        <meta property="og:description" content="Free MLS-based home valuation from a licensed South Florida REALTOR® with 25 years of market experience. Not an algorithm — a real analysis for your property." />
+        <meta property="og:description" content="Free MLS-based home valuation from Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771. Not an algorithm — a real analysis for your property." />
         <meta property="og:url" content="https://homesprofessional.com/home-value" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="What Is My South Florida Home Worth? Free Professional Valuation" />
-        <meta name="twitter:description" content="Free MLS-based home valuation from a licensed South Florida REALTOR® — not an algorithm. 25 years of market experience. No obligation." />
+        <meta name="twitter:description" content="Free MLS-based home valuation from Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771. 25 years of market experience. No obligation." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="home-value-faq" data={{

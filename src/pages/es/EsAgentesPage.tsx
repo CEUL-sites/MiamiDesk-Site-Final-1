@@ -878,7 +878,7 @@ export default function EsAgentesPage() {
             <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-2">
               {[
                 "CLHMS · CERTIFIED LUXURY HOME MARKETING SPECIALIST",
-                "25 AÑOS · FLORIDA LICENSED REALTOR® DESDE 2001",
+                "REALTOR® · LICENCIA DE FLORIDA SL705771 · DESDE 2001",
                 "UNITED REALTY GROUP · Nº1 TRANSACCIONAL EN FLORIDA",
                 "MIAMI AND SOUTH FLORIDA REALTORS® · 93.000 MIEMBROS",
               ].map((badge) => (

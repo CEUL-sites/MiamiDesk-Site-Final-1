@@ -110,7 +110,7 @@ export default function LaComisionSecretaPage() {
           "author": {
             "@type": "Person",
             "name": "Carlos Uzcategui",
-            "jobTitle": "Licensed REALTOR®",
+            "jobTitle": "REALTOR® · Florida License SL705771",
             "url": "https://homesprofessional.com/"
           },
           "inLanguage": "es",

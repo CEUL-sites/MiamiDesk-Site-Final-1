@@ -17,7 +17,7 @@ export function AuthorBio() {
         <div className="shrink-0">
           <img
             src={CONTACT.headshot}
-            alt="Carlos Uzcategui, Florida Licensed Realtor SL705771"
+            alt="Carlos Uzcategui, REALTOR®, Florida license SL705771"
             width={96}
             height={96}
             className="h-24 w-24 rounded-full object-cover border border-bone"
