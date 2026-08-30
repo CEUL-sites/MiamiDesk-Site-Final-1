@@ -15,13 +15,13 @@ export default function AboutPage() {
         <meta name="description" content="Carlos Uzcategui, FL SL705771 — South Florida REALTOR® with United Realty Group. 25 years across Miami-Dade, Broward, and Palm Beach. CLHMS certified." />
         <link rel="canonical" href="https://homesprofessional.com/about" />
         <meta property="og:title" content="About Carlos Uzcategui | United Realty Group | South Florida REALTOR®" />
-        <meta property="og:description" content="Florida Licensed Realtor® SL705771. 25 years in South Florida real estate. CLHMS certified. United Realty Group — Miami-Dade, Broward, and Palm Beach." />
+        <meta property="og:description" content="Carlos Uzcategui, REALTOR® · Florida License SL705771. 25 years in South Florida real estate. CLHMS certified. United Realty Group — Miami-Dade, Broward, and Palm Beach." />
         <meta property="og:url" content="https://homesprofessional.com/about" />
         <meta property="og:type" content="profile" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Carlos Uzcategui | South Florida REALTOR® | United Realty Group" />
-        <meta name="twitter:description" content="Florida Licensed Realtor® SL705771. 25 years in South Florida real estate. CLHMS certified. Bilingual English/Spanish." />
+        <meta name="twitter:description" content="Carlos Uzcategui, REALTOR® · Florida License SL705771. 25 years in South Florida real estate. CLHMS certified. Bilingual English/Spanish." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="about-person" data={{
@@ -75,7 +75,7 @@ export default function AboutPage() {
               Carlos Uzcategui
             </h1>
             <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white/70">
-              Florida Licensed Realtor® SL705771 · United Realty Group · Licensed Since 2001
+              Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Licensed Since 2001
             </p>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/55">
               25 years of South Florida transactions. Direct seller representation through the Miami

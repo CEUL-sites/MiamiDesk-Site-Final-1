@@ -1,7 +1,7 @@
 import { BadgeCheck, Building2, Languages, Star } from "lucide-react";
 
 const AUTHORITY = [
-  { icon: BadgeCheck, title: "Florida Realtor® since 2001", detail: "25 years of South Florida transaction experience" },
+  { icon: BadgeCheck, title: "REALTOR® · FL SL705771", detail: "Licensed since 2001 · 25 years of South Florida transaction experience" },
   { icon: Star, title: "CLHMS Luxury Specialist", detail: "Certified Seller Representative" },
   { icon: Building2, title: "United Realty Group", detail: "3,500+ agents · 20 Florida offices" },
   { icon: Languages, title: "Bilingual advisory", detail: "English · Spanish · Cross-border coordination" },

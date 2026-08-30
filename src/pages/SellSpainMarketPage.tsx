@@ -159,7 +159,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">{market.heroSub}</p>
             <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-              Carlos Uzcategui · Florida Realtor® SL705771 · United Realty Group
+              Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">

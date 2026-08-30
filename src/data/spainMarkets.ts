@@ -54,7 +54,7 @@ export interface SpainMarket {
 
 /** Shared across every Spain page — the licensing boundary, stated plainly. */
 export const SPAIN_STRUCTURE =
-  "Miami Global Listing Desk es un servicio de distribución internacional operado por Carlos Uzcategui, Florida Realtor® SL705771, a través de United Realty Group. Carlos está colegiado en Florida — no en España. La representación local en España (visitas, negociación y cualificación del comprador) la mantiene su agencia española con licencia. Toda actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento. No se garantiza colocación, comprador, precio ni venta.";
+  "Miami Global Listing Desk es un servicio de distribución internacional operado por Carlos Uzcategui, REALTOR® y titular de la licencia de Florida SL705771, a través de United Realty Group. Carlos está colegiado en Florida — no en España. La representación local en España (visitas, negociación y cualificación del comprador) la mantiene su agencia española con licencia. Toda actividad de MLS, portal, corretaje o cooperación está sujeta a requisitos de corretaje, plataforma y cumplimiento. No se garantiza colocación, comprador, precio ni venta.";
 
 export const SPAIN_MARKETS: SpainMarket[] = [
   {
@@ -63,12 +63,12 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     region: "Costa del Sol, Málaga",
     title: "Vender una Propiedad en Marbella a Compradores de Miami | Miami Global Listing Desk",
     description:
-      "Prepare su villa o ático de Marbella para agentes compradores del área de Miami. Su agencia española sigue siendo la suya. Carlos Uzcategui, Florida Realtor® SL705771.",
+      "Prepare su villa o ático de Marbella para agentes compradores del área de Miami. Su agencia española sigue siendo la suya. Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771.",
     keywords:
       "vender villa Marbella, vender propiedad Marbella comprador americano, Marbella Puerto Banús vender, vender ático Marbella, Milla de Oro Marbella venta, comprador estadounidense Marbella, Costa del Sol vender propiedad internacional",
     heroTitle: "ante los agentes compradores del área de Miami.",
     heroSub:
-      "Marbella ya vende a un comprador internacional. Lo que rara vez ocurre es que ese inventario llegue preparado —con datos claros y materiales bilingües— al escritorio del Realtor® que representa al comprador estadounidense. Ese es el hueco que cubre esta mesa.",
+      "Marbella ya vende a un comprador internacional. Lo que rara vez ocurre es que ese inventario llegue preparado —con datos claros y materiales bilingües— al escritorio del agente que representa al comprador estadounidense. Ese es el hueco que cubre esta mesa.",
     whyHeading: "El comprador americano de Marbella casi nunca llega solo. Llega con su agente.",
     whyBody:
       "En Estados Unidos el comprador trabaja con su propio agente, y ese agente espera una ficha profesional: superficie construida y parcela declaradas por separado, régimen de propiedad, cargas comunitarias, IBI, estado de licencias y una descripción que no dependa de adjetivos. Un anuncio de portal español, traducido literalmente, no responde a ninguna de esas preguntas — y el agente pasa a la siguiente propiedad. Preparar la propiedad para esa conversación es un trabajo distinto de publicarla.",
@@ -106,7 +106,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     faqs: [
       {
         q: "¿Pierdo a mi agencia de Marbella si entro en esta mesa?",
-        a: "No. Su agencia española mantiene la relación con usted, las visitas, la negociación local y la cualificación del comprador. Carlos es Realtor® colegiado en Florida, no en España: su función es preparar la propiedad para agentes compradores del área de Miami y canalizar la cooperación profesional cuando corresponda. La estructura está pensada para sumarse a su representación local, no para sustituirla.",
+        a: "No. Su agencia española mantiene la relación con usted, las visitas, la negociación local y la cualificación del comprador. Carlos es REALTOR® y titular de la licencia de Florida SL705771, no está licenciado en España: su función es preparar la propiedad para agentes compradores del área de Miami y canalizar la cooperación profesional cuando corresponda. La estructura está pensada para sumarse a su representación local, no para sustituirla.",
       },
       {
         q: "¿Qué tipo de propiedad de Marbella encaja?",
@@ -128,7 +128,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     region: "Comunidad de Madrid",
     title: "Vender un Piso o Villa en Madrid a Compradores Latinoamericanos de Miami | Global Listing Desk",
     description:
-      "Salamanca, Chamberí, La Moraleja: prepare su propiedad de Madrid para agentes compradores del área de Miami. Carlos Uzcategui, Florida Realtor® SL705771.",
+      "Salamanca, Chamberí, La Moraleja: prepare su propiedad de Madrid para agentes compradores del área de Miami. Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771.",
     keywords:
       "vender piso Madrid comprador internacional, vender propiedad barrio Salamanca, vender chalet La Moraleja, Madrid vender comprador latinoamericano, vender ático Madrid, Puerta de Hierro venta, Chamberí vender piso",
     heroTitle: "ante el mismo comprador que ya opera en Miami.",
@@ -175,7 +175,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
       },
       {
         q: "¿Mi agencia de Madrid sigue llevando la operación?",
-        a: "Sí. Carlos es Realtor® colegiado en Florida, no en España. Las visitas, la negociación local y la cualificación del comprador en España las gestiona su agencia con licencia. La mesa aporta la preparación profesional del material y la vía de cooperación con agentes compradores del área de Miami, sin alterar su relación local.",
+        a: "Sí. Carlos es REALTOR® y titular de la licencia de Florida SL705771, no está licenciado en España. Las visitas, la negociación local y la cualificación del comprador en España las gestiona su agencia con licencia. La mesa aporta la preparación profesional del material y la vía de cooperación con agentes compradores del área de Miami, sin alterar su relación local.",
       },
       {
         q: "¿Sirve para un piso, o hace falta una cartera?",
@@ -193,7 +193,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     region: "Alicante, Comunidad Valenciana",
     title: "Vender una Villa en la Costa Blanca a Compradores Internacionales de Miami | Global Listing Desk",
     description:
-      "Jávea, Moraira, Altea, Dénia: prepare su propiedad de la Costa Blanca para agentes compradores del área de Miami. Carlos Uzcategui, Florida Realtor® SL705771.",
+      "Jávea, Moraira, Altea, Dénia: prepare su propiedad de la Costa Blanca para agentes compradores del área de Miami. Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771.",
     keywords:
       "vender villa Jávea, vender casa Moraira, vender propiedad Altea, Costa Blanca vender comprador extranjero, vender villa Dénia, Alicante vender propiedad internacional, Benissa vender casa",
     heroTitle: "ante un canal profesional que aún no ha explorado.",
@@ -258,7 +258,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     region: "Islas Baleares",
     title: "Vender una Propiedad en Ibiza a Compradores Internacionales de Miami | Global Listing Desk",
     description:
-      "Prepare su villa o finca de Ibiza para agentes compradores del área de Miami. Su agencia balear sigue siendo la suya. Carlos Uzcategui, Florida Realtor® SL705771.",
+      "Prepare su villa o finca de Ibiza para agentes compradores del área de Miami. Su agencia balear sigue siendo la suya. Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771.",
     keywords:
       "vender villa Ibiza, vender finca Ibiza, vender propiedad Ibiza comprador americano, Ibiza venta propiedad lujo, Santa Eulalia vender casa, San José Ibiza vender villa, Baleares vender propiedad internacional",
     heroTitle: "ante el comprador estadounidense que ya conoce la isla.",
@@ -309,7 +309,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
       },
       {
         q: "¿Carlos está colegiado en España?",
-        a: "No. Carlos Uzcategui es Realtor® colegiado en Florida (SL705771) y opera a través de United Realty Group. No presta servicios de intermediación en España: la representación local —visitas, negociación y cualificación del comprador— la mantiene su agencia balear con licencia. La mesa se ocupa exclusivamente de la preparación y la activación del lado de Miami.",
+        a: "No. Carlos Uzcategui es REALTOR® y titular de la licencia de Florida SL705771; opera a través de United Realty Group. No presta servicios de intermediación en España: la representación local —visitas, negociación y cualificación del comprador— la mantiene su agencia balear con licencia. La mesa se ocupa exclusivamente de la preparación y la activación del lado de Miami.",
       },
       {
         q: "¿Qué pasa si no encaja?",
@@ -323,7 +323,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     region: "Cataluña",
     title: "Vender un Piso o Casa en Barcelona a Compradores de Miami | Miami Global Listing Desk",
     description:
-      "Eixample, Sarrià-Sant Gervasi, Pedralbes: prepare su propiedad de Barcelona para agentes compradores del área de Miami. Carlos Uzcategui, Florida Realtor® SL705771.",
+      "Eixample, Sarrià-Sant Gervasi, Pedralbes: prepare su propiedad de Barcelona para agentes compradores del área de Miami. Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771.",
     keywords:
       "vender piso Barcelona comprador internacional, vender casa Pedralbes, vender ático Eixample, Sarrià Sant Gervasi vender piso, Barcelona vender propiedad extranjero, Diagonal Mar vender, vender torre Barcelona",
     heroTitle: "ante agentes compradores del área de Miami.",
@@ -388,7 +388,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     region: "Comunidad Valenciana",
     title: "Vender una Propiedad en Valencia a Compradores Internacionales de Miami | Global Listing Desk",
     description:
-      "Ruzafa, El Cabanyal, La Eliana: prepare su propiedad de Valencia para agentes compradores del área de Miami. Carlos Uzcategui, Florida Realtor® SL705771.",
+      "Ruzafa, El Cabanyal, La Eliana: prepare su propiedad de Valencia para agentes compradores del área de Miami. Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771.",
     keywords:
       "vender piso Valencia comprador extranjero, vender casa La Eliana, vender piso Ruzafa, El Cabanyal vender propiedad, Valencia vender comprador internacional, vender chalet Rocafort, Valencia venta propiedad americano",
     heroTitle: "ante un comprador estadounidense que aún no la ha descubierto.",
@@ -439,7 +439,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
       },
       {
         q: "¿Su agencia local sigue interviniendo?",
-        a: "Sí. Carlos Uzcategui es Realtor® colegiado en Florida, no en España, y no presta servicios de intermediación en territorio español. Las visitas, la negociación y la cualificación del comprador las mantiene su agencia valenciana con licencia.",
+        a: "Sí. Carlos Uzcategui es REALTOR® y titular de la licencia de Florida SL705771, no está licenciado en España y no presta servicios de intermediación en territorio español. Las visitas, la negociación y la cualificación del comprador las mantiene su agencia valenciana con licencia.",
       },
       {
         q: "¿Cómo empiezo?",

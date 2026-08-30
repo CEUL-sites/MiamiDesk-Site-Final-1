@@ -488,7 +488,7 @@ export default function BuyersPage() {
         </section>
 
         {/* ── Buyer mandate form ──────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-14 md:py-20">
+        <section id="buyer-mandate" className="relative scroll-mt-24 overflow-hidden bg-navy-deep py-14 md:py-20">
           <AuroraBackground variant="subtle" />
           <div className="relative z-10 mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center">

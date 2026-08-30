@@ -34,7 +34,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-navy">2. Nature of the site</h2>
-              <p className="mt-4">This website provides general information about real estate advisory services offered by Carlos Uzcategui, Florida Licensed Realtor® SL705771, an associate at United Realty Group. Nothing on this site constitutes legal, tax, financial, or investment advice. Real estate transactions involve material risk; you should consult qualified professionals before making any property decision.</p>
+              <p className="mt-4">This website provides general information about real estate advisory services offered by Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, an associate at United Realty Group. Nothing on this site constitutes legal, tax, financial, or investment advice. Real estate transactions involve material risk; you should consult qualified professionals before making any property decision.</p>
               <p className="mt-4">Carlos Uzcategui is licensed to practice real estate in the State of Florida. He is not licensed to practice law in any jurisdiction. References to Spanish agencies, Madrid networks, or cross-border advisory reflect business relationships and referral arrangements — not legal practice or licensed advisory in Spain.</p>
             </section>
 
@@ -80,7 +80,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-navy">11. Contact</h2>
-              <p className="mt-4">Carlos Uzcategui · Florida Licensed Realtor® SL705771<br />
+              <p className="mt-4">Carlos Uzcategui, REALTOR® · Florida License SL705771<br />
               United Realty Group · 15951 SW 41 St #700, Weston, FL 33331<br />
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-gold underline">{CONTACT_EMAIL}</a></p>
             </section>

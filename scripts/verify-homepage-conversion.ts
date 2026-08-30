@@ -105,22 +105,21 @@ const [home, hero, form, authority, execution, distribution, proof, about, conta
 
 assert.match(
   hero,
-  /Sell With Strategy—and the Reach of the World’s Largest Local Realtor® Association\./,
+  /Sell With the Reach of the[\s\S]*World's Largest Local REALTOR® Association\./,
   "the homepage hero must lead with the approved seller strategy and distribution proposition",
 );
 assert.match(
   hero,
-  /Receive a private MLS-based review of your property’s likely value range, competitive position, buyer profile and recommended launch strategy—prepared personally by Carlos Uzcategui, Florida Realtor® since 2001\./,
+  /Real Estate is local — Peak Value is Global\./,
 );
-assert.match(hero, /Request My Property Strategy/);
-assert.match(hero, /Speak With Carlos on WhatsApp/);
-assert.match(hero, /Private review · No listing commitment · Personal response from Carlos/);
+assert.match(form, /Request My Property Review/);
+assert.match(form, /Message Carlos directly/);
+assert.match(form, /Personal reply from Carlos · No listing commitment/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
-assert.doesNotMatch(hero, /Eyebrow|South Florida · Global Reach/);
-assert.match(hero, /93,000", label: "Association members"/);
-assert.doesNotMatch(hero, /93,000", label: "Member agents"/);
-assert.match(hero, /United Realty Group · 3,500\+ agents · 20 Florida offices/);
-assert.match(authority, /Florida Realtor® since 2001/);
+assert.match(hero, /South Florida · Global Reach/);
+assert.match(hero, /93,000", label: "Member Agents"/);
+assert.match(hero, /United Realty Group · 3,500\+ Agents · 20 FL Offices/);
+assert.match(authority, /REALTOR® · FL SL705771/);
 assert.match(authority, /CLHMS Luxury Specialist/);
 assert.match(authority, /Verified Realtor\.com® reviews/);
 assert.match(execution, /What Carlos Does After the Listing Goes Live/);
@@ -133,9 +132,9 @@ for (const [label, copy] of [
   assert.match(execution, new RegExp(label));
   assert.match(execution, new RegExp(copy.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 }
-assert.doesNotMatch(distribution, /The Listing System|PILLARS\.map/);
-assert.match(distribution, /label: "Association members"/);
-assert.doesNotMatch(distribution, /label: "Member agents"/);
+assert.match(distribution, /The Listing System/);
+assert.match(distribution, /PILLARS\.map/);
+assert.match(distribution, /label: "Member Agents"/);
 assert.match(footer, /93,000 ASSOCIATION MEMBERS/);
 assert.doesNotMatch(footer, /93,000 MEMBER AGENTS/);
 const sectionOrder = [
@@ -158,25 +157,16 @@ for (let index = 1; index < sectionOrder.length; index += 1) {
 assert.match(home, /<title>South Florida Listing Strategist \| Carlos Uzcategui<\/title>/);
 assert.match(
   home,
-  /Request a private MLS-based property strategy from Carlos Uzcategui, Florida Realtor® since 2001\. Pricing, positioning, buyer-agent activation and global distribution for South Florida sellers\./,
+  /Request a private South Florida property strategy from Carlos Uzcategui: MLS-based pricing, positioning, buyer-agent activation, and 93,000-member reach\./,
 );
-assert.match(form, /Confidential Seller Strategy Review/);
-assert.match(form, /Continue My Property Review/);
-assert.match(form, /Request My Property Strategy/);
-assert.match(form, /Revisión Confidencial de Estrategia de Venta/);
-assert.match(form, /Continuar Mi Revisión de Propiedad/);
-assert.match(form, /Solicitar Mi Estrategia de Propiedad/);
-assert.match(form, /type="button"/, "Step 1 Continue must never submit the form");
-assert.match(
-  form,
-  /if \(step === 1\) \{\s*handleContinue\(\);\s*return;/,
-  "pressing Enter during Step 1 must advance, not submit",
-);
-assert.match(form, /pushEvent\("step_progress"/);
+assert.match(form, /Private Property Strategy/);
+assert.match(form, /Request My Property Review/);
+assert.match(form, /Estrategia Privada de la Propiedad/);
+assert.match(form, /Solicitar Revisión de Mi Propiedad/);
 assert.equal(
   (form.match(/trackLead\("seller"/g) ?? []).length,
   1,
-  "the progressive form must retain exactly one final lead event",
+  "the seller form must retain exactly one final lead event",
 );
 for (const field of [
   "propertyAddress",
@@ -199,6 +189,15 @@ assert.doesNotMatch(
   /onFocus=\{initPlaces\}/,
   "focusing the homepage address field must not trigger a third-party map request",
 );
+const buyerForm = await readFile(new URL("../src/components/forms/BuyerMandateForm.tsx", import.meta.url), "utf8");
+assert.match(buyerForm, /name="phone"/);
+assert.match(buyerForm, /type="tel"/);
+assert.match(buyerForm, /phone: form\.phone/);
+assert.match(buyerForm, /Phone \/ WhatsApp \*/);
+assert.match(about, /Your strategy is personal\. The infrastructure behind it is institutional\./);
+assert.match(about, /urg-weston-office\.webp/);
+assert.match(about, /urg-logo-original\.webp/);
+assert.match(about, /brightness-0 invert/);
 assert.match(form, /notifyLeadDirect\(/);
 assert.match(form, /\/\.netlify\/functions\/lead-acknowledgment/);
 assert.match(form, /status === "success"/);

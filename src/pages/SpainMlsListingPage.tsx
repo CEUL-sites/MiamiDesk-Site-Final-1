@@ -24,12 +24,12 @@ const COPY = {
     twoSidedH2: "Sell more. Win more mandates.",
     sellTitle: "Sell more — through agents, not portals",
     sellBody:
-      "Your inventory is prepared for the buyer's own Realtor®: clear facts, bilingual materials, and buyer-agent cooperation pathways through United Realty Group where appropriate. A professional activation channel — not another listing site.",
+      "Your inventory is prepared for the buyer's own agent: clear facts, bilingual materials, and buyer-agent cooperation pathways through United Realty Group where appropriate. A professional activation channel — not another listing site.",
     winTitle: "Win more mandates — in your own listing presentations",
     winBody:
       "\"Your property can be prepared for South Florida buyer-agent activation through Miami Global Listing Desk\" is a concrete distribution argument. Use it to explain a professional cooperation path before you ever need to find the buyer.",
     whyEyebrow: "Why Miami",
-    whyH2: "The world's largest local Realtor® association — built on Latin American demand.",
+    whyH2: "The world's largest local REALTOR® association — built on Latin American demand.",
     stats: [
       { v: "93,000", l: "Member agents — Miami & South Florida REALTORS®" },
       { v: "437+", l: "International agreements — most of any local association" },
@@ -75,7 +75,7 @@ const COPY = {
     twoSidedH2: "Venda más. Gane más mandatos.",
     sellTitle: "Venda más — a través de agentes, no de portales",
     sellBody:
-      "Su inventario se prepara para el Realtor® del comprador: datos claros, materiales bilingües y rutas de cooperación para agentes compradores a través de United Realty Group cuando corresponda. Un canal profesional de activación — no otro portal.",
+      "Su inventario se prepara para el agente del comprador: datos claros, materiales bilingües y rutas de cooperación para agentes compradores a través de United Realty Group cuando corresponda. Un canal profesional de activación — no otro portal.",
     winTitle: "Gane más mandatos — en sus propias presentaciones de captación",
     winBody:
       "\"Su propiedad puede prepararse para activación con agentes compradores del sur de Florida a través de Miami Global Listing Desk\" es un argumento concreto de distribución. Úselo para explicar una vía profesional de cooperación antes de necesitar al comprador.",
@@ -135,7 +135,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
     },
     {
       q: "Who is legally responsible for the U.S.-side listing?",
-      a: "Carlos Uzcategui, Florida licensed REALTOR® SL705771, through United Realty Group, the licensed Florida broker. Your agency remains the licensed party in Spain — that division is the point of the structure.",
+      a: "Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, through United Realty Group, the licensed Florida broker. Your agency remains the licensed party in Spain — that division is the point of the structure.",
     },
   ],
   es: [

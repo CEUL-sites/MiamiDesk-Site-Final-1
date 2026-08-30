@@ -20,7 +20,7 @@ const ADVANTAGES = [
   {
     number: "02",
     title: "Strengthen seller confidence",
-    body: "Sellers increasingly ask: 'What else will you do?' A documented international channel through a Florida-licensed Realtor® partner answers that question with credibility — not a vague promise.",
+    body: "Sellers increasingly ask: 'What else will you do?' A documented international channel through a Florida-licensed real estate professional answers that question with credibility — not a vague promise.",
   },
   {
     number: "03",
@@ -219,7 +219,7 @@ export default function AgentsPage() {
             </h1>
             <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-[1.5] text-white/65 md:mt-7 md:leading-[1.85]">
               Refer a buyer or seller and get paid at closing. Give a listing serious U.S. and
-              international reach. Or build your own career alongside a Florida-licensed Realtor® with
+              international reach. Or build your own career alongside a Florida-licensed real estate professional with
               25 years inside South Florida's network. Pick your path below.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap md:mt-9">
@@ -430,7 +430,7 @@ export default function AgentsPage() {
                   {[
                     {
                       q: "Where?",
-                      a: "Not just local portals — a documented Miami-facing exposure layer with a Florida-licensed Realtor® partner connected to the South Florida real estate network.",
+                      a: "Not just local portals — a documented Miami-facing exposure layer with a Florida-licensed real estate professional connected to the South Florida real estate network.",
                     },
                     {
                       q: "Who sees it?",
@@ -438,7 +438,7 @@ export default function AgentsPage() {
                     },
                     {
                       q: "How is it different?",
-                      a: "Not a generic portal subscription. A professional listing relationship with a licensed Florida Realtor® — documented exposure, bilingual packaging, professional referral coordination.",
+                      a: "Not a generic portal subscription. A professional listing relationship with a Florida-licensed real estate professional — documented exposure, bilingual packaging, professional referral coordination.",
                     },
                   ].map((item) => (
                     <div key={item.q} className="grid md:grid-cols-[200px_1fr] md:items-start gap-4 p-5 md:gap-6 md:p-8">
@@ -551,7 +551,7 @@ export default function AgentsPage() {
               A listing is not fully marketed until buyer agents know how to present it."
             </blockquote>
             <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 md:mt-7">
-              Carlos Uzcategui · Florida Licensed Realtor® · United Realty Group
+              Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group
             </p>
           </div>
         </section>
@@ -1146,7 +1146,7 @@ export default function AgentsPage() {
               Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>
             <p className="font-sans text-[11px] leading-relaxed text-white/70">
-              Carlos Uzcategui is a Florida Licensed Realtor® (SL705771) affiliated with United Realty Group. He is not licensed as a real estate broker in Spain.
+              Carlos Uzcategui is a REALTOR® and Florida real estate licensee (SL705771) affiliated with United Realty Group. He is not licensed as a real estate broker in Spain.
               Miami MLS exposure, syndication, referral compensation, cooperation, and listing distribution are subject to MLS rules, broker approval, written agreements,
               property eligibility, local law, and platform availability. Network figures are provided for context. We do not guarantee buyers, offers, closings, syndication
               results, or specific platform placement. All partnerships and referrals are documented through written agreements executed before engagement.

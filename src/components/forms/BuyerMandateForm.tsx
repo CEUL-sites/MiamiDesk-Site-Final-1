@@ -23,7 +23,7 @@ const PRICE_RANGES = [
 ];
 
 const INITIAL: Record<string, string> = {
-  name: "", email: "", country: "", targetNeighborhoods: "", priceRange: "",
+  name: "", email: "", phone: "", country: "", targetNeighborhoods: "", priceRange: "",
   financing: "", timeline: "", visaStatus: "", preferredContact: "WhatsApp", source: "buyer-mandate",
 };
 
@@ -75,7 +75,7 @@ export function BuyerMandateForm() {
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
-        name: form.name, email: form.email,
+        name: form.name, email: form.email, phone: form.phone,
         propertyAddress: submission.targetNeighborhoods, city: form.country, timeline: form.timeline,
         message: `Budget ${form.priceRange || "—"} · Financing ${form.financing || "—"}${form.visaStatus ? ` · Visa ${form.visaStatus}` : ""}`,
         sourcePage: "buyer-mandate", formName: "buyer-mandate", leadSource: getLeadSource(),
@@ -84,7 +84,7 @@ export function BuyerMandateForm() {
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formName: "buyer-mandate", name: form.name, email: form.email, country: form.country }),
+        body: JSON.stringify({ formName: "buyer-mandate", name: form.name, email: form.email, phone: form.phone, country: form.country }),
       }).catch(() => {});
       trackLead("buyer", { form: "buyer-mandate" });
       navigateAfterTracking("/thanks/buyer");
@@ -151,12 +151,15 @@ export function BuyerMandateForm() {
           </Field>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-3">
           <Field label="Country of Origin *">
             <select required name="country" className="form-input w-full" value={form.country} onChange={set("country")}>
               <option value="">Select country…</option>
               {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
             </select>
+          </Field>
+          <Field label="Phone / WhatsApp *">
+            <input required name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+1 or international number" className="form-input" value={form.phone} onChange={set("phone")} />
           </Field>
           <Field label="Preferred Contact *">
             <select required name="preferredContact" className="form-input w-full" value={form.preferredContact} onChange={set("preferredContact")}>

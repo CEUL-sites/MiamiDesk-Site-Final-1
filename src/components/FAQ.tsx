@@ -11,11 +11,11 @@ const FAQS = [
   },
   {
     q: "What is the Miami MLS and why does it matter?",
-    a: "The Miami and South Florida REALTORS® — the world's largest local Realtor® association, with over 93,000 member agents — operates the MLS. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 200+ global portals in 19 languages. The MLS is where qualified buyers are found.",
+    a: "The Miami and South Florida REALTORS® — the world's largest local REALTOR® association, with over 93,000 member agents — operates the MLS. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 200+ global portals in 19 languages. The MLS is where qualified buyers are found.",
   },
   {
     q: "Do you work with Latin American and Spanish buyers?",
-    a: "Yes. South Florida's luxury market runs on Latin American capital. Carlos built those relationships deal by deal over 25 years — not through advertising. Miami Global Listing Desk connects selected Spanish developers, agencies, and HNW owners to South Florida buyer-agent activation through Carlos Uzcategui, Florida Realtor®, and United Realty Group.",
+    a: "Yes. South Florida's luxury market runs on Latin American capital. Carlos built those relationships deal by deal over 25 years — not through advertising. Miami Global Listing Desk connects selected Spanish developers, agencies, and HNW owners to South Florida buyer-agent activation through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, and United Realty Group.",
   },
   {
     q: "How long does it take to sell in South Florida?",
@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "Can a Spanish property be listed in the Miami MLS?",
-    a: "Miami Global Listing Desk can help selected Spanish and international prime properties enter the South Florida professional real estate ecosystem through Carlos Uzcategui, Florida Realtor®, operating through United Realty Group. Any MLS, portal, brokerage, or cooperation activity is subject to brokerage, platform, and compliance requirements and does not guarantee placement, leads, buyers, commissions, or sales.",
+    a: "Miami Global Listing Desk can help selected Spanish and international prime properties enter the South Florida professional real estate ecosystem through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, operating through United Realty Group. Any MLS, portal, brokerage, or cooperation activity is subject to brokerage, platform, and compliance requirements and does not guarantee placement, leads, buyers, commissions, or sales.",
   },
   {
     q: "Is the seller strategy review really free?",

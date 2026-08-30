@@ -1,8 +1,8 @@
 export const CONTACT = {
   name: "Carlos Uzcategui",
-  title: "Florida Licensed Realtor® since 2001",
-  licenseDisplay: "Carlos Uzcategui · Florida Licensed Realtor® SL705771",
-  shortLicense: "Florida Licensed Realtor® SL705771",
+  title: "REALTOR® · Florida License SL705771 · Licensed since 2001",
+  licenseDisplay: "Carlos Uzcategui, REALTOR® · Florida License SL705771",
+  shortLicense: "REALTOR® · Florida License SL705771",
   brokerage: "United Realty Group",
   brokerageDisplay: "United Realty Group associate",
   email: "contact@carlosre.com",
@@ -88,7 +88,7 @@ export const LEAD_MAGNETS = {
   spainActivation: {
     url: "/spain-mls-activation-methodology-brief.pdf",
     title: "Activating Spanish Inventory Through South Florida",
-    description: "The professional framework for selected Spanish-owned property to pursue South Florida buyer-agent activation through Carlos Uzcategui, Florida Realtor®, and United Realty Group.",
+    description: "The professional framework for selected Spanish-owned property to pursue South Florida buyer-agent activation through Carlos Uzcategui, REALTOR® (Florida License SL705771), and United Realty Group.",
   },
 };
 

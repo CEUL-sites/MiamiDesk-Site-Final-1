@@ -73,7 +73,7 @@ export default function JournalPostPage() {
       '@id': 'https://homesprofessional.com/#agent',
       name: 'Carlos Uzcategui',
       url: 'https://homesprofessional.com/about',
-      jobTitle: 'Florida Licensed Realtor®',
+      jobTitle: 'REALTOR® · Florida License SL705771',
       knowsLanguage: ['en', 'es'],
       knowsAbout: [
         'South Florida real estate',

@@ -15,7 +15,7 @@ const CAPABILITIES = [
   },
   {
     title: "Brokerage Framework",
-    body: "Carlos operates the desk as a Florida Realtor® through United Realty Group, coordinating introductions and cooperation pathways without implying MLS ownership, endorsement, or guaranteed outcomes."
+    body: "Carlos operates the desk as a REALTOR® and Florida real estate licensee SL705771 through United Realty Group, coordinating introductions and cooperation pathways without implying MLS ownership, endorsement, or guaranteed outcomes."
   }
 ];
 
@@ -68,7 +68,7 @@ export function InternationalBridge() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mx-auto mt-7 max-w-3xl font-sans text-lg leading-[1.9] text-white/65"
           >
-            Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group. The service helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem so qualified inventory is easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.
+            Miami Global Listing Desk is a South Florida-based international property distribution and buyer-agent activation service operated by Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, through United Realty Group. The service helps selected Spanish and international prime properties enter the South Florida professional real estate ecosystem so qualified inventory is easier for Miami-area buyer agents to discover, understand, share with U.S. and Latin American clients, and cooperate through a professional brokerage framework.
           </motion.p>
 
           {/* Location tags */}

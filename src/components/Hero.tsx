@@ -317,7 +317,7 @@ export function Hero() {
           >
             Sell With the Reach of the
             <br className="hidden md:block" aria-hidden="true" />{" "}
-            <em className="italic text-gold">World's Largest Local Realtor® Association.</em>
+            <em className="italic text-gold">World's Largest Local REALTOR® Association.</em>
           </motion.h1>
 
           {/* Subtitle — kept directly under the headline as a short line; at

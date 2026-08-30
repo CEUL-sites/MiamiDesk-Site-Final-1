@@ -144,7 +144,7 @@ export default function EsSpainDeskPage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:title" content="Global Desk — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | Carlos Uzcategui" />
-        <meta property="og:description" content="Dé a su agencia una ventaja en la presentación de captación: exposición documentada hacia Sur de Florida para sus vendedores, cuando es elegible. Representación local en España; exposición hacia Sur de Florida a través de un Realtor® licenciado en Florida." />
+        <meta property="og:description" content="Dé a su agencia una ventaja en la presentación de captación: exposición documentada hacia Sur de Florida para sus vendedores, cuando es elegible. Representación local en España; exposición hacia Sur de Florida a través de Carlos Uzcategui, REALTOR® y titular de la licencia de Florida SL705771." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
@@ -260,7 +260,7 @@ export default function EsSpainDeskPage() {
               <em className="italic text-gold font-normal">93.000 Agentes Compradores de Miami.</em>
             </motion.h1>
             {/* Titulares alternativos para que Carlos elija — en la voz "...el Alcance de...":
-                 A) "Propiedad Premium, con el Alcance de la Red Local de Realtor® Más Grande del Mundo."
+                 A) "Propiedad Premium, con el Alcance de la Red Local de REALTOR® Más Grande del Mundo."
                  B) "Propiedad Premium, ante Cada Agente Comprador de la Red de Miami." */}
 
             {/* Italic serif subtitle */}
@@ -278,9 +278,9 @@ export default function EsSpainDeskPage() {
               className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/65"
             >
               Ayude a su agencia a ganar más mandatos de venta. Ofrezca a los propietarios exposición
-              documentada hacia el mercado de Sur de Florida a través de Carlos Uzcategui — Realtor® licenciado en Florida
+              documentada hacia el mercado de Sur de Florida a través de Carlos Uzcategui — REALTOR® · Licencia de Florida SL705771
               desde 2001, afiliado a United Realty Group — junto a su marketing local. Representación local en España.
-              Exposición hacia Sur de Florida a través de un Realtor® licenciado en Florida. Usted mantiene la relación con el cliente.
+              Exposición hacia Sur de Florida a través de Carlos Uzcategui, REALTOR® y titular de la licencia de Florida SL705771. Usted mantiene la relación con el cliente.
             </motion.p>
 
             {/* CTAs */}
@@ -907,7 +907,7 @@ export default function EsSpainDeskPage() {
               </div>
               <p className="font-sans text-[11px] leading-relaxed text-white/70">
                 Los servicios de corretaje inmobiliario en Florida son proporcionados a través de United Realty Group (URG).
-                Carlos Uzcategui (FL SL705771) es Realtor® licenciado en Florida y afiliado a URG. No está licenciado como broker inmobiliario en España.
+                Carlos Uzcategui es REALTOR® y titular de la licencia de Florida SL705771, afiliado a United Realty Group. No está licenciado como broker inmobiliario en España.
                 Las oportunidades en España e internacionales se gestionan mediante acuerdos de referral, marketing, cooperating broker o asesoría, según jurisdicción, tipo de inmueble y normativa aplicable.
                 La exposición en el MLS de Miami, la sindicación, la compensación por referral, la cooperación y la distribución de listings están sujetas a las normas del MLS, la aprobación del broker, acuerdos escritos, la elegibilidad del inmueble, la ley local y la disponibilidad de cada plataforma.
                 No garantizamos compradores, ofertas, cierres, resultados de sindicación ni la colocación en plataformas concretas.

@@ -86,7 +86,7 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </a>
           <p className="font-sans text-sm text-ink-primary/50">
-            Free MLS-based analysis from a licensed Realtor® — not an algorithm.
+            Free MLS-based analysis from a licensed real estate professional — not an algorithm.
           </p>
         </div>
       </div>

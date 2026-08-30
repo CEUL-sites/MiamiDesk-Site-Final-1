@@ -389,7 +389,7 @@ export default function LaComisionSecretaPage() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">El Autor</p>
                 <h2 className="mt-2 font-serif text-2xl text-navy-deep">Carlos Uzcategui</h2>
                 <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-navy/70 mt-1">
-                  Florida Licensed Realtor® SL705771 · United Realty Group · 25 Years
+                  Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · 25 Years
                 </p>
                 <p className="mt-5 font-sans text-sm leading-relaxed text-navy/65">
                   Carlos Uzcategui has been licensed in Florida since 2001 — before Miami Brickell's

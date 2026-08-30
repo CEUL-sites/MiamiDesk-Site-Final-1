@@ -65,7 +65,7 @@ const COPY = {
     successCta: "Continuar por WhatsApp →",
     timeout: "La solicitud expiró — use WhatsApp o inténtelo de nuevo.",
     failed: "No se pudo enviar — use WhatsApp o inténtelo de nuevo.",
-    trust: "Florida Realtor® SL705771 · United Realty Group · Su representación local en España se preserva",
+    trust: "Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771 · United Realty Group · Su representación local en España se preserva",
   },
   en: {
     eyebrow: "Confidential enquiry · Miami Global Listing Desk",
@@ -104,7 +104,7 @@ const COPY = {
     successCta: "Continue on WhatsApp →",
     timeout: "Request timed out — please use WhatsApp or try again.",
     failed: "Couldn't send — please use WhatsApp or try again.",
-    trust: "Florida Realtor® SL705771 · United Realty Group · Your local Spanish representation is preserved",
+    trust: "Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Your local Spanish representation is preserved",
   },
 } as const;
 

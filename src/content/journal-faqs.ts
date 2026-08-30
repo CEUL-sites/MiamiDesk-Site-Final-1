@@ -278,7 +278,7 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
     },
     {
       q: 'What is a Comparative Market Analysis (CMA)?',
-      a: 'A CMA is a professional evaluation prepared by a licensed REALTOR® using current MLS data — active, pending, sold, and expired comparables — adjusted for your property’s specific characteristics to produce a realistic price range and positioning strategy. It is not a public-records pull or a website estimate.',
+      a: 'A CMA is a professional evaluation prepared by a licensed real estate professional using current MLS data — active, pending, sold, and expired comparables — adjusted for your property’s specific characteristics to produce a realistic price range and positioning strategy. It is not a public-records pull or a website estimate.',
     },
     {
       q: 'What data is a South Florida home valuation based on?',
@@ -324,7 +324,7 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
     },
     {
       q: 'Should I make repairs or renovations before selling?',
-      a: 'Small, high-visibility fixes often matter more than large renovations. The right scope depends on your price point and submarket — a pre-listing walkthrough with a licensed REALTOR® helps prioritize work that supports the sale rather than over-improving.',
+      a: 'Small, high-visibility fixes often matter more than large renovations. The right scope depends on your price point and submarket — a pre-listing walkthrough with a licensed real estate professional helps prioritize work that supports the sale rather than over-improving.',
     },
     {
       q: 'What documents do South Florida sellers need to prepare?',

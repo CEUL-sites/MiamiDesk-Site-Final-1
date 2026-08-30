@@ -50,7 +50,7 @@ const sitewideSchema: JsonLdSchema[] = [
     name: CONTACT.name,
     alternateName: "HomesProfessional.com",
     description:
-      "Carlos Uzcategui is a Florida Licensed Realtor® SL705771 with United Realty Group, serving South Florida sellers, buyers, agent referrals, and Spain/LATAM advisory clients.",
+      "Carlos Uzcategui is a REALTOR® and Florida real estate licensee SL705771 with United Realty Group, serving South Florida sellers, buyers, agent referrals, and Spain/LATAM advisory clients.",
     url: SITE_URL,
     telephone: CONTACT.phoneUS,
     email: CONTACT.email,
@@ -145,7 +145,7 @@ const sitewideSchema: JsonLdSchema[] = [
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#weston-office`,
-    name: "Carlos Uzcategui, Realtor® — Weston Office",
+    name: "Carlos Uzcategui, REALTOR® — United Realty Group Weston Office",
     telephone: CONTACT.phoneUS,
     email: CONTACT.email,
     address: {
@@ -181,7 +181,7 @@ const sitewideSchema: JsonLdSchema[] = [
     url: `${SITE_URL}/global-desk`,
     availableLanguage: ["English", "Spanish"],
     description:
-      "Miami Global Listing Desk works with agents, agencies, developers, and qualified local real estate professionals to prepare selected international properties for differentiated positioning and cooperation in the South Florida market, with relevance to U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. The service is operated by Carlos Uzcategui, Florida Realtor®, through United Realty Group. The originating professional retains the client relationship and local representation. Every property and activity remains subject to eligibility, brokerage approval, platform participation, MLS, association, legal, and compliance requirements.",
+      "Miami Global Listing Desk works with agents, agencies, developers, and qualified local real estate professionals to prepare selected international properties for differentiated positioning and cooperation in the South Florida market, with relevance to U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. The service is operated by Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, through United Realty Group. The originating professional retains the client relationship and local representation. Every property and activity remains subject to eligibility, brokerage approval, platform participation, MLS, association, legal, and compliance requirements.",
   },
   {
     "@context": "https://schema.org",

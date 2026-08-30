@@ -129,7 +129,7 @@ export default function MarketsPage() {
         />
         <link rel="canonical" href="https://homesprofessional.com/markets" />
         <meta property="og:title" content="Markets Served: Miami Global Listing Desk Distribution | HomesProfessional.com" />
-        <meta property="og:description" content="South Florida listing distribution and selected international activation through Carlos Uzcategui, Florida Licensed Realtor® SL705771, United Realty Group, and Miami Global Listing Desk." />
+        <meta property="og:description" content="South Florida listing distribution and selected international activation through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, United Realty Group, and Miami Global Listing Desk." />
         <meta property="og:url" content="https://homesprofessional.com/markets" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
@@ -168,7 +168,7 @@ export default function MarketsPage() {
             {
               "@type": "Question",
               "name": "What is United Realty Group's South Florida footprint?",
-              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group has ${ASSOCIATION_STATS.urgAgents} licensed agents and ${ASSOCIATION_STATS.urgOffices} Florida offices. Carlos works from the Weston office as a Florida Licensed Realtor® SL705771.` }
+              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group has ${ASSOCIATION_STATS.urgAgents} licensed agents and ${ASSOCIATION_STATS.urgOffices} Florida offices. Carlos works from the Weston office as a REALTOR® and Florida real estate licensee SL705771.` }
             },
             {
               "@type": "Question",
@@ -684,7 +684,7 @@ export default function MarketsPage() {
               </a>
             </div>
             <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-primary/70">
-              Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+              Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity
             </p>
           </div>
         </section>

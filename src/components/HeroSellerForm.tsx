@@ -336,7 +336,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
 
       {/* WhatsApp fallback */}
       <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
-        {t.prefer}{" "}
+        United Realty Group · {t.prefer}{" "}
         <a
           href={CONTACT.whatsappUS}
           target="_blank"

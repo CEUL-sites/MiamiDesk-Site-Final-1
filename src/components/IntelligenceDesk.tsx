@@ -69,7 +69,7 @@ function HandoffPanel({ history }: { history: Message[] }) {
         </a>
       </div>
       <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-        Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+        Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity
       </p>
     </motion.div>
   );

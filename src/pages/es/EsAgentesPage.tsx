@@ -346,7 +346,7 @@ export default function EsAgentesPage() {
           rel="canonical"
           href="https://homesprofessional.com/es/agentes"
         />
-        <meta property="og:title" content="Red de Colaboradores · Carlos Uzcategui · Florida Licensed Realtor® SL705771" />
+        <meta property="og:title" content="Red de Colaboradores · Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771" />
         <meta property="og:description" content="Colaboraciones bilaterales para agentes y agencias en España, Florida y Latinoamérica. Acceso a la red de 93.000 agentes de Miami and South Florida REALTORS®." />
         <meta property="og:url" content="https://homesprofessional.com/es/agentes" />
         <meta property="og:type" content="website" />
@@ -462,7 +462,7 @@ export default function EsAgentesPage() {
             <div className="mx-auto max-w-3xl space-y-5 text-center">
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
                 {/* TODO: native Madrid editor review */}
-                Carlos opera simultáneamente en Greater Miami — Realtor®
+                Carlos opera simultáneamente en Greater Miami — REALTOR®
                 licenciado desde 2001 — y en Madrid, con presencia profesional
                 activa junto a agencias, promotores y propietarios.
               </p>
@@ -857,7 +857,7 @@ export default function EsAgentesPage() {
             <div className="mx-auto max-w-3xl space-y-5 text-center">
               <p className="font-sans text-base leading-relaxed text-navy-deep/70">
                 {/* TODO: native Madrid editor review */}
-                Carlos Uzcategui, Realtor® licenciado en Florida desde 2001 —
+                Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771 desde 2001 —
                 25 años de transacciones. CLHMS y Certified Seller
                 Representative.
               </p>
@@ -1038,7 +1038,7 @@ export default function EsAgentesPage() {
           <div className="mx-auto max-w-4xl px-6 text-center">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               {/* TODO: native Madrid editor review */}
-              Carlos Uzcategui · Florida Licensed Realtor® SL705771 · Afiliado a
+              Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771 · Afiliado a
               United Realty Group · Miembro de Miami and South Florida
               REALTORS® · Equal Housing Opportunity
             </p>

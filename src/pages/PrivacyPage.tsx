@@ -29,7 +29,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-navy">1. Who we are</h2>
-              <p className="mt-4">This website, HomesProfessional.com, is operated by Carlos Uzcategui, Florida Licensed Realtor® SL705771, an associate at United Realty Group (1200 S Pine Island Rd, Suite 600, Plantation, FL 33324). Questions about this policy may be directed to <a href={`mailto:${CONTACT_EMAIL}`} className="text-gold underline">{CONTACT_EMAIL}</a>.</p>
+              <p className="mt-4">This website, HomesProfessional.com, is operated by Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, an associate at United Realty Group (1200 S Pine Island Rd, Suite 600, Plantation, FL 33324). Questions about this policy may be directed to <a href={`mailto:${CONTACT_EMAIL}`} className="text-gold underline">{CONTACT_EMAIL}</a>.</p>
             </section>
 
             <section>
@@ -93,7 +93,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-navy">11. Contact</h2>
-              <p className="mt-4">Carlos Uzcategui · Florida Licensed Realtor® SL705771<br />
+              <p className="mt-4">Carlos Uzcategui, REALTOR® · Florida License SL705771<br />
               United Realty Group · 15951 SW 41 St #700, Weston, FL 33331<br />
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-gold underline">{CONTACT_EMAIL}</a><br />
               +1 954-865-6622</p>

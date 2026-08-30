@@ -206,7 +206,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             {status === "submitting" ? "Sending…" : "Request Seller Strategy Review"}
           </button>
           <p className="font-mono text-center text-[11px] uppercase tracking-[0.2em] text-navy/70">
-            Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+            Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity
           </p>
         </form>
       </div>

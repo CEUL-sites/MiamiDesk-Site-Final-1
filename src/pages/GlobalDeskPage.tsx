@@ -45,7 +45,7 @@ const C = {
     heroCta:
       "Solicitar activación internacional",
     heroWhatsApp: "WhatsApp España",
-    heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · sujeto a requisitos de corretaje, plataforma y cumplimiento",
+    heroTrust: "Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771 · United Realty Group · sujeto a requisitos de corretaje, plataforma y cumplimiento",
     heroPartnerCta:
       "Solicitar una introducción privada",
     mandateEyebrow:
@@ -169,10 +169,10 @@ const C = {
       ],
       [
         "¿Cómo se estructura la cooperación?",
-        "Carlos Uzcategui, Florida Realtor® SL705771, opera el servicio a través de United Realty Group. El alcance, cualquier compensación aplicable y toda actividad MLS, de portal o de corretaje se documentan de forma privada y están sujetos a aprobación y requisitos aplicables.",
+        "Carlos Uzcategui, REALTOR® y titular de la licencia de Florida SL705771, opera el servicio a través de United Realty Group. El alcance, cualquier compensación aplicable y toda actividad MLS, de portal o de corretaje se documentan de forma privada y están sujetos a aprobación y requisitos aplicables.",
       ],
     ],
-    footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
+    footerCompliance: "Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
       "Carlos Uzcategui — REALTOR® con licencia en Florida desde 2001. CLHMS. United Realty Group: 3,500+ agentes, 20 oficinas en Florida.",
     footerContacts: "Contacto",
@@ -195,7 +195,7 @@ const C = {
     heroCta:
       "Request International Property Activation",
     heroWhatsApp: "WhatsApp Spain",
-    heroTrust: "Florida Licensed Realtor® SL705771 · United Realty Group · subject to brokerage, platform, property-eligibility, and compliance requirements",
+    heroTrust: "Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · subject to brokerage, platform, property-eligibility, and compliance requirements",
     heroPartnerCta:
       "Request a Private Introduction",
     mandateEyebrow:
@@ -319,12 +319,12 @@ const C = {
       ],
       [
         "How is cooperation structured?",
-        "Carlos Uzcategui, Florida Realtor® SL705771, operates the service through United Realty Group. Scope, any applicable compensation, and all MLS, portal, or brokerage activity are documented privately and remain subject to approval and applicable requirements.",
+        "Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, operates the service through United Realty Group. Scope, any applicable compensation, and all MLS, portal, or brokerage activity are documented privately and remain subject to approval and applicable requirements.",
       ],
     ],
-    footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity",
+    footerCompliance: "Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity",
     footerCredibility:
-      "Carlos Uzcategui — Florida-licensed REALTOR® since 2001. CLHMS. United Realty Group: 3,500+ agents, 20 Florida offices.",
+      "Carlos Uzcategui, REALTOR® — Florida License SL705771, licensed since 2001. CLHMS. United Realty Group: 3,500+ agents, 20 Florida offices.",
     footerContacts: "Contact",
     footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
   },

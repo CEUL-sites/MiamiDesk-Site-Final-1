@@ -29,7 +29,7 @@ export function Footer() {
             style={{ filter: "brightness(0) invert(1)" }}
           />
           <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
-          <p className="font-mono mt-2 text-[11px] uppercase tracking-[0.22em] text-gold">Florida Licensed Realtor® SL705771</p>
+          <p className="font-mono mt-2 text-[11px] uppercase tracking-[0.22em] text-gold">REALTOR® · Florida License SL705771</p>
           <p className="mt-3 max-w-xs font-sans text-sm font-light leading-relaxed text-white/55 md:mt-5">
             Florida listings. Miami MLS exposure. International property distribution. Led by Carlos Uzcategui — 25 years licensed in Florida.
           </p>
@@ -71,7 +71,8 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-mono mb-3 text-[10px] uppercase tracking-[0.28em] text-gold md:mb-6">Contact</h4>
+          <h4 className="font-mono mb-1 text-[10px] uppercase tracking-[0.28em] text-gold">Contact</h4>
+          <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/70 md:mb-6">United Realty Group</p>
           <div className="space-y-2.5 font-sans text-sm text-white/55 md:space-y-4">
             <p>Direct / WhatsApp:{" "}
               <a href={CONTACT.phoneUSLink} className="text-white/75 underline underline-offset-2 hover:text-gold">{CONTACT.phoneUS}</a>
@@ -140,10 +141,10 @@ export function Footer() {
         <div className="mx-auto max-w-7xl space-y-4 md:space-y-8">
           <div className="max-w-5xl space-y-3 font-sans text-[10px] font-light leading-relaxed text-white/70 md:space-y-4 md:leading-loose" data-nosnippet>
             <p>
-              Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
+              Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
             </p>
             <p>
-              Carlos Uzcategui is a Florida Licensed Realtor® affiliated with United Realty Group. International and Spain-related services are provided through referral relationships, local professional partners, and applicable written agreements where available. Listing exposure, syndication, referral compensation, and platform distribution are subject to MLS rules, brokerage approval, property eligibility, and partner availability.
+              Carlos Uzcategui is a REALTOR® and a Florida real estate licensee (SL705771) affiliated with United Realty Group. International and Spain-related services are provided through referral relationships, local professional partners, and applicable written agreements where available. Listing exposure, syndication, referral compensation, and platform distribution are subject to MLS rules, brokerage approval, property eligibility, and partner availability.
             </p>
             <p>
               REALTOR® is a registered collective membership mark identifying a real estate professional who is a member of the National Association of REALTORS® and subscribes to its Code of Ethics. Live MLS data is deemed reliable but not guaranteed and is subject to change without notice.

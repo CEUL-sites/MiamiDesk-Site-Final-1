@@ -39,7 +39,7 @@ export function AuthorBio() {
 
           {/* Credential line */}
           <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-navy/70 leading-relaxed">
-            Florida Licensed Realtor® since 2001 · SL705771 · CLHMS · Certified Seller Representative · United Realty Group
+            REALTOR® · Florida License SL705771 · Licensed since 2001 · CLHMS · Certified Seller Representative · United Realty Group
           </p>
 
           {/* E-E-A-T bio */}

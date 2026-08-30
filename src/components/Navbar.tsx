@@ -78,7 +78,7 @@ export function Navbar() {
           <span className="hidden flex-col leading-none border-l border-current/20 pl-3 xl:flex">
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
             <span className="font-mono uppercase leading-none opacity-70 mt-1" style={{ fontSize: "0.6875rem", letterSpacing: "0.2em" }}>
-              Florida REALTOR® since 2001
+              REALTOR® · FL SL705771 · Since 2001
             </span>
           </span>
         </a>
@@ -156,7 +156,7 @@ export function Navbar() {
                 <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
                   <UrgLogo className="h-9 w-auto" />
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
-                    Carlos Uzcategui · Florida REALTOR® since 2001
+                    Carlos Uzcategui, REALTOR® · FL SL705771 · Since 2001
                   </span>
                 </a>
                 <button

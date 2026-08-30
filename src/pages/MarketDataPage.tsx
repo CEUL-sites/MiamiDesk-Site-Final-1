@@ -435,7 +435,7 @@ export default function MarketDataPage() {
           </h2>
           <p className="text-white/70 text-base leading-relaxed">
             Market data shows the range — a pricing analysis calibrated to your specific address, condition, and
-            competition is what moves homes. Carlos Uzcategui, Florida Licensed Realtor® SL705771, has been
+            competition is what moves homes. Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, has been
             serving South Florida sellers since 2001.
           </p>
           <a
@@ -469,7 +469,7 @@ export default function MarketDataPage() {
             </a>
           </p>
           <p className="text-xs text-gray-400">
-            Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+            Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity
           </p>
         </div>
       </section>

@@ -134,7 +134,7 @@ export default function SellCoralGablesPage() {
               style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
             >
               Sell your Coral Gables property with the reach<br />
-              <em className="italic text-gold">of the world's largest local Realtor® association.</em>
+              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               The Coral Gables luxury buyer pool is international by nature. Mediterranean architecture, Miracle Mile,

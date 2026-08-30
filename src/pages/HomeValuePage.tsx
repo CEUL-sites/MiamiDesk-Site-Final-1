@@ -76,7 +76,7 @@ export default function HomeValuePage() {
               name: "How much is my South Florida home worth?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "South Florida home values vary significantly by neighborhood, property type, condition, and current absorption rates. A licensed REALTOR® provides a Comparative Market Analysis (CMA) using live MLS data to give you an accurate, property-specific valuation — not an algorithm estimate.",
+                text: "South Florida home values vary significantly by neighborhood, property type, condition, and current absorption rates. A licensed real estate professional provides a Comparative Market Analysis (CMA) using live MLS data to give you an accurate, property-specific valuation — not an algorithm estimate.",
               },
             },
             {
@@ -92,7 +92,7 @@ export default function HomeValuePage() {
               name: "What is a Comparative Market Analysis (CMA) in real estate?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "A CMA is a professional evaluation by a licensed REALTOR® comparing your property to recently sold, active, and pending listings of similar properties nearby. It accounts for location, size, condition, upgrades, and current demand to determine a realistic market value range — far more accurate than public records-based AVMs.",
+                text: "A CMA is a professional evaluation by a licensed real estate professional comparing your property to recently sold, active, and pending listings of similar properties nearby. It accounts for location, size, condition, upgrades, and current demand to determine a realistic market value range — far more accurate than public records-based AVMs.",
               },
             },
             {
@@ -143,7 +143,7 @@ export default function HomeValuePage() {
               <em className="italic text-gold font-normal">Property Worth Today?</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
-              Not an algorithm. A real MLS-based valuation and market absorption analysis from a licensed REALTOR® with
+              Not an algorithm. A real MLS-based valuation and market absorption analysis from a licensed real estate professional with
               25 years in South Florida. Carlos reviews and answers every request personally.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -239,7 +239,7 @@ export default function HomeValuePage() {
                     accumulation — and the stigma that follows.
                   </p>
                   <p>
-                    A licensed REALTOR® who knows the sub-market pulls actual MLS comparables,
+                    A licensed real estate professional who knows the sub-market pulls actual MLS comparables,
                     adjusts for condition and upgrades, and gives you a realistic range with a
                     positioning strategy — not just a number.
                   </p>

@@ -152,7 +152,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
               One email. No subscription. No listing commitment.
             </p>
             <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-primary/70">
-              Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+              Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity
             </p>
           </form>
         )}
