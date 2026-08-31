@@ -290,16 +290,15 @@ mirrors it for legacy imports). Each entry there carries a `source` field —
 check `docs/sources/SOURCES.md` for the primary documents backing those
 sources before changing or adding a figure.
 
-**United Realty Group office count**: 20 Florida offices. URG's internal
-office directory, photographed by Carlos and saved at
-`docs/sources/urg-office-directory-2026-07.jpg`, lists more individual
-addresses than that, but Carlos confirmed 20 is the correct figure to use —
-do not "correct" it to a raw count of every address in that photo (some
-entries there are not counted as distinct Florida offices). Full per-office
-addresses are in that photo and in `docs/sources/SOURCES.md` §3, for
-reference only. URG also has a Greensboro, NC branch — it is explicitly
-**not** counted as a Florida office and must never be implied as part of
-Carlos's Florida coverage.
+**United Realty Group office positioning**: do not publish a definitive office
+count. The official URG office page, verified 2026-08-31, labels 21 total branch
+locations and lists 19 Florida locations, including Pembroke Pines as "Opening
+Soon," plus Texas and North Carolina. That live directory conflicts with the
+earlier internal confirmation used by this repository. Public copy therefore
+uses the neutral phrase **Florida office network** until the brokerage confirms
+the institutional count it wants advertised. Exact official branch names,
+addresses, states, and status live in `src/data/urgOffices.json`; service areas
+and referral markets are separate fields and must never be presented as offices.
 
 **MLS ranking**: the merged association is the **third-largest MLS in the
 United States** and the largest MLS owned by a single U.S. Realtor association.
@@ -316,7 +315,7 @@ is the enforcing agent; these are its hard rules.
 
 1. **No `$69B` / `$69 billion` anywhere.** That figure belongs to the
    association, not to Carlos or URG. Approved network facts: 3,500+ URG agents,
-   20 Florida offices, 25+ years South Florida presence, full-service brokerage
+   Florida office network, 25+ years South Florida presence, full-service brokerage
    with in-house title company.
 2. **No time-based promises** — no "Day 1 MLS activation," "within 24 hours,"
    "same day," or any listing-timeline guarantee.

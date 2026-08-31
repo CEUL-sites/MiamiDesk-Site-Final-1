@@ -426,7 +426,7 @@ In `AboutContact.tsx`, replace unsupported founding-year and in-house-title clai
 
 ```tsx
 <p>
-  From his Weston, Florida office, Carlos serves South Florida sellers and buyers through United Realty Group, with 3,500+ agents and 20 Florida offices. He also coordinates selected international property opportunities through documented professional and brokerage relationships.
+  From his Weston, Florida office, Carlos serves South Florida sellers and buyers through United Realty Group, with 3,500+ agents and a Florida office network. He also coordinates selected international property opportunities through documented professional and brokerage relationships.
 </p>
 ```
 

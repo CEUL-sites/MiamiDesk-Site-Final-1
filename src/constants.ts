@@ -1,3 +1,8 @@
+import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "./data/urgOffices";
+
+export const PUBLIC_COMPLIANCE =
+  "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.";
+
 export const CONTACT = {
   name: "Carlos Uzcategui",
   title: "REALTOR® · Florida License SL705771 · Licensed since 2001",
@@ -25,9 +30,8 @@ export const CONTACT = {
   stats: {
     experience: "25",
     agents: "93,000",
-    offices: "20",
     urgAgents: "3,500+",
-    urgOffices: "20",
+    urgOfficeNetwork: URG_PUBLIC_OFFICE_NETWORK_LABEL,
     urgFounded: "2002",
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
@@ -132,9 +136,9 @@ export const ASSOCIATION_STATS = {
   usMls: 260,
   mlsDataExchanges: 11,
   // Defensible, attributed URG description — no unverifiable ranking.
-  urgScale: "3,500+ agents · 20 Florida offices",
+  urgScale: `3,500+ agents · ${URG_PUBLIC_OFFICE_NETWORK_LABEL}`,
   urgAgents: "3,500+",
-  urgOffices: 20,
+  urgOfficeNetwork: URG_PUBLIC_OFFICE_NETWORK_LABEL,
   associationName: "Miami and South Florida REALTORS®"
 };
 

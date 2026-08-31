@@ -42,7 +42,7 @@ The Markets page becomes the strongest seller-facing expression of the distribut
 The Buyers page remains a buyer journey rather than becoming a second seller page.
 
 1. Add a concise proof line connecting buyers to the same professional South Florida ecosystem.
-2. Remove unsupported brokerage superlatives and replace them with verified United Realty Group scale: 3,500+ agents and 20 Florida offices.
+2. Remove unsupported brokerage superlatives and replace them with verified United Realty Group scale: 3,500+ agents and a Florida office network.
 3. Use the Carlos Miami River image to reinforce local market presence without interrupting the property-search flow.
 4. Explain that Spain service is referral-based and distinct from Florida buyer representation.
 5. Keep the primary calls to action buyer-specific.

@@ -1,4 +1,4 @@
-import { CONTACT, NAVIGATION } from "../constants";
+import { CONTACT, NAVIGATION, PUBLIC_COMPLIANCE } from "../constants";
 import { AuroraBackground } from "./AuroraBackground";
 
 const ticker = "SOUTH FLORIDA · MIAMI MLS EXPOSURE · UNITED REALTY GROUP · INTERNATIONAL PROPERTY DISTRIBUTION · 25 YEARS LICENSED IN FLORIDA · GLOBAL DESK · SPAIN · LATIN AMERICA · 93,000 ASSOCIATION MEMBERS · ";
@@ -140,9 +140,7 @@ export function Footer() {
       <div className="relative z-10 border-t border-white/5 px-6 py-4 md:py-8">
         <div className="mx-auto max-w-7xl space-y-4 md:space-y-8">
           <div className="max-w-5xl space-y-3 font-sans text-[10px] font-light leading-relaxed text-white/70 md:space-y-4 md:leading-loose" data-nosnippet>
-            <p>
-              Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Member, Miami and South Florida REALTORS® · Equal Housing Opportunity.
-            </p>
+            <p>{PUBLIC_COMPLIANCE}</p>
             <p>
               Carlos Uzcategui is a REALTOR® and a Florida real estate licensee (SL705771) affiliated with United Realty Group. International and Spain-related services are provided through referral relationships, local professional partners, and applicable written agreements where available. Listing exposure, syndication, referral compensation, and platform distribution are subject to MLS rules, brokerage approval, property eligibility, and partner availability.
             </p>

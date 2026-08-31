@@ -168,12 +168,12 @@ export default function MarketsPage() {
             {
               "@type": "Question",
               "name": "What is United Realty Group's South Florida footprint?",
-              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group has ${ASSOCIATION_STATS.urgAgents} licensed agents and ${ASSOCIATION_STATS.urgOffices} Florida offices. Carlos works from the Weston office as a REALTOR® and Florida real estate licensee SL705771.` }
+              "acceptedAnswer": { "@type": "Answer", "text": `United Realty Group has ${ASSOCIATION_STATS.urgAgents} licensed agents and a ${ASSOCIATION_STATS.urgOfficeNetwork}. Carlos works from the official Weston branch as a REALTOR® and Florida real estate licensee SL705771.` }
             },
             {
               "@type": "Question",
               "name": "How does the Miami MLS reach international buyers?",
-              "acceptedAnswer": { "@type": "Answer", "text": `${ASSOCIATION_STATS.associationName} is the world's largest local REALTOR® association with ${MEMBER_COUNT} member agents. Eligible listings may be distributed to ${GLOBAL_PORTALS} global portals in ${ASSOCIATION_STATS.languages} languages, syndicated through ${US_MLS} U.S. MLSs via RPR, supported by ${INTERNATIONAL_AGREEMENTS} signed international agreements and ${MLS_DATA_EXCHANGES} MLS data exchanges. Carlos represents South Florida sellers through United Realty Group, with ${ASSOCIATION_STATS.urgAgents} agents and ${ASSOCIATION_STATS.urgOffices} Florida offices. Any activation is subject to brokerage, platform, MLS, legal, and compliance requirements.` }
+              "acceptedAnswer": { "@type": "Answer", "text": `${ASSOCIATION_STATS.associationName} is the world's largest local REALTOR® association with ${MEMBER_COUNT} member agents. Eligible listings may be distributed to ${GLOBAL_PORTALS} global portals in ${ASSOCIATION_STATS.languages} languages, syndicated through ${US_MLS} U.S. MLSs via RPR, supported by ${INTERNATIONAL_AGREEMENTS} signed international agreements and ${MLS_DATA_EXCHANGES} MLS data exchanges. Carlos represents South Florida sellers through United Realty Group, with ${ASSOCIATION_STATS.urgAgents} agents and a ${ASSOCIATION_STATS.urgOfficeNetwork}. Any activation is subject to brokerage, platform, MLS, legal, and compliance requirements.` }
             },
           ]
         }} />
@@ -252,7 +252,7 @@ export default function MarketsPage() {
               {[
                 { value: String(ASSOCIATION_STATS.languages), label: "Languages", sub: "property presentation" },
                 { value: MLS_DATA_EXCHANGES, label: "MLS data exchanges", sub: "approved data cooperation" },
-                { value: ASSOCIATION_STATS.urgOffices, label: "Florida offices", sub: "United Realty Group" },
+                { value: "Florida", label: "office network", sub: "United Realty Group" },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col items-center bg-navy-deep/60 px-6 py-5 text-center">
                   <span className="font-serif text-2xl text-gold/80">{s.value}</span>
@@ -278,7 +278,7 @@ export default function MarketsPage() {
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
                 Carlos represents South Florida sellers through United Realty Group, with {CONTACT.stats.urgAgents} agents and
-                {CONTACT.stats.urgOffices} Florida offices. Eligible listings may enter the professional association distribution
+                a {CONTACT.stats.urgOfficeNetwork}. Eligible listings may enter the professional association distribution
                 infrastructure and approved syndication channels according to property, brokerage, platform, and compliance requirements.
               </p>
             </div>
@@ -357,12 +357,12 @@ export default function MarketsPage() {
                 </h2>
                 <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
                   United Realty Group provides the brokerage framework behind Carlos's South Florida representation:
-                  {" "}{CONTACT.stats.urgAgents} agents and {CONTACT.stats.urgOffices} Florida offices. The objective is to prepare
+                  {" "}{CONTACT.stats.urgAgents} agents and a {CONTACT.stats.urgOfficeNetwork}. The objective is to prepare
                   each eligible property for clear professional presentation to buyer agents and cooperating referral partners.
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
-                    `${CONTACT.stats.urgAgents} agents across ${CONTACT.stats.urgOffices} Florida offices`,
+                    `${CONTACT.stats.urgAgents} agents and a ${CONTACT.stats.urgOfficeNetwork}`,
                     "Eligible MLS and approved distribution-channel positioning",
                     "Bilingual English / Spanish representation",
                     "Professional brokerage and compliance framework",
@@ -407,7 +407,7 @@ export default function MarketsPage() {
                 <div className="bg-navy-deep px-5 py-4">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · The Team</p>
                   <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
-                    {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} offices · South Florida
+                    {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOfficeNetwork} · South Florida
                   </p>
                 </div>
                 </div>

@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-08-31",
+  "sourceUrl": "https://www.urgfl.com/office-locations/",
+  "sourceHeading": "OUR 21 BRANCH LOCATIONS",
+  "publicNetworkLabel": "Florida office network",
+  "officialBranches": [
+    { "id": "corporate-plantation", "name": "Corporate Office (Plantation)", "city": "Plantation", "state": "FL", "address": "1200 S. Pine Island Road, Suite 600, Plantation, FL 33324", "status": "active" },
+    { "id": "aventura", "name": "Aventura", "city": "Aventura", "state": "FL", "address": "20803 Biscayne Blvd, Suite 410, Aventura, FL 33180", "status": "active" },
+    { "id": "boca-raton", "name": "Boca Raton", "city": "Boca Raton", "state": "FL", "address": "5550 Glades Road, Suite 101, Boca Raton, FL 33431", "status": "active" },
+    { "id": "boynton-beach", "name": "Boynton Beach", "city": "Boynton Beach", "state": "FL", "address": "8188 S. Jog Road, Suite 100, Boynton Beach, FL 33472", "status": "active" },
+    { "id": "cooper-city", "name": "Cooper City", "city": "Cooper City", "state": "FL", "address": "12399 SW 53rd Street, Suite 101, Cooper City, FL 33330", "status": "active" },
+    { "id": "coral-springs", "name": "Coral Springs", "city": "Coral Springs", "state": "FL", "address": "3351 N. University Drive, Coral Springs, FL 33065", "status": "active" },
+    { "id": "delray-beach", "name": "Delray Beach", "city": "Delray Beach", "state": "FL", "address": "3100 S. Federal Hwy, Suite 100, Delray Beach, FL 33483", "status": "active" },
+    { "id": "fort-lauderdale", "name": "Fort Lauderdale", "city": "Fort Lauderdale", "state": "FL", "address": "2691 E. Oakland Park Blvd, Suite 102, Fort Lauderdale, FL 33306", "status": "active" },
+    { "id": "hialeah", "name": "Hialeah", "city": "Hialeah", "state": "FL", "address": "18600 NW 87th Ave, Suite 108, Hialeah, FL 33015", "status": "active" },
+    { "id": "kendall", "name": "Kendall", "city": "Kendall", "state": "FL", "address": "12060 SW 129th Court, Suite 203, Kendall, FL 33186", "status": "active" },
+    { "id": "lighthouse-point", "name": "Lighthouse Point", "city": "Lighthouse Point", "state": "FL", "address": "2020 E. Sample Road, Lighthouse Point, FL 33064", "status": "active" },
+    { "id": "orlando", "name": "Orlando", "city": "Orlando", "state": "FL", "address": "12231 E. Colonial Drive, Suite 140, Orlando, FL 32826", "status": "active" },
+    { "id": "palm-beach-gardens", "name": "Palm Beach Gardens", "city": "Palm Beach Gardens", "state": "FL", "address": "4880 Donald Ross Road, Suite 125, Palm Beach Gardens, FL 33418", "status": "active" },
+    { "id": "pembroke-pines", "name": "Pembroke Pines", "city": "Pembroke Pines", "state": "FL", "address": "16618 Sheridan Street, Pembroke Pines, FL 33028", "status": "opening-soon" },
+    { "id": "plantation-nob-hill", "name": "Plantation (Nob Hill)", "city": "Plantation", "state": "FL", "address": "975 N. Nob Hill Road, Plantation, FL 33324", "status": "active" },
+    { "id": "royal-palm-beach", "name": "Royal Palm Beach", "city": "Royal Palm Beach", "state": "FL", "address": "9200 Belvedere Road, Suite 207, Royal Palm Beach, FL 33411", "status": "active" },
+    { "id": "tamarac", "name": "Tamarac", "city": "Tamarac", "state": "FL", "address": "7300 W. McNab Road, Suite 119, Tamarac, FL 33321", "status": "active" },
+    { "id": "wellington", "name": "Wellington", "city": "Wellington", "state": "FL", "address": "1035 S. State Road 7, Suite 121, Wellington, FL 33414", "status": "active" },
+    { "id": "weston", "name": "Weston", "city": "Weston", "state": "FL", "address": "15951 SW 41st Street, Suite 700, Weston, FL 33331", "status": "active" },
+    { "id": "san-antonio", "name": "San Antonio, Texas", "city": "San Antonio", "state": "TX", "address": "1150 North Loop 1604 West, Suite 122, San Antonio, TX 78248", "status": "active" },
+    { "id": "greensboro", "name": "Greensboro, North Carolina", "city": "Greensboro", "state": "NC", "address": "620 Green Valley Road, Suite 304, Greensboro, NC 27408", "status": "active" }
+  ],
+  "carlosSouthFloridaServiceAreas": [
+    "Miami-Dade County",
+    "Broward County",
+    "Palm Beach County"
+  ],
+  "crossBorderReferralMarkets": [
+    "Spain",
+    "Latin America"
+  ]
+}

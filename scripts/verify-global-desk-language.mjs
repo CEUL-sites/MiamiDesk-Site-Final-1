@@ -16,7 +16,7 @@ assert.doesNotMatch(source, /Miami Global Desk(?! —)/, "use the approved Miami
 assert.match(source, /Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity/);
 
 // Only the verified distribution figures may appear in the Global Desk proof grid.
-for (const figure of ["93,000", "200+", "19 languages", "260+", "437+", "11", "$69B", "3,500+", "20 Florida offices"]) {
+for (const figure of ["93,000", "200+", "19 languages", "260+", "437+", "11", "$69B", "3,500+", "Florida office network"]) {
   assert.ok(source.includes(figure) || form.includes(figure), `missing verified figure or label: ${figure}`);
 }
 

@@ -90,7 +90,7 @@ Render exactly three links for owner, agency, and developer with `data-global-de
 
 - [ ] **Step 3: Add verified operating proof**
 
-Render four proof items: Florida license since 2001, CLHMS, 3,500+ URG agents/20 Florida offices, and personal review by Carlos. Do not add performance outcomes.
+Render four proof items: Florida license since 2001, CLHMS, 3,500+ URG agents/Florida office network, and personal review by Carlos. Do not add performance outcomes.
 
 - [ ] **Step 4: Align page and sitewide Service schema**
 

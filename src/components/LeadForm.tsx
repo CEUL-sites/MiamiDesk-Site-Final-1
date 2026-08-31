@@ -1,6 +1,6 @@
 import React, { useId, useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { CONTACT } from "../constants";
+import { CONTACT, PUBLIC_COMPLIANCE } from "../constants";
 import { trackLead, pushEvent } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
 import { notifyLeadDirect } from "../lib/leadNotify";
@@ -206,7 +206,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             {status === "submitting" ? "Sending…" : "Request Seller Strategy Review"}
           </button>
           <p className="font-mono text-center text-[11px] uppercase tracking-[0.2em] text-navy/70">
-            Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity
+            {PUBLIC_COMPLIANCE}
           </p>
         </form>
       </div>

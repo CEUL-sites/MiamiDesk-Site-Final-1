@@ -55,7 +55,7 @@ Capital and property move both ways across the network. An investor in Madrid, B
 
 ## Twenty-Five Years of South Florida Transactions
 
-Experience is what turns access into a sound acquisition. Carlos Uzcategui has been a Florida Licensed Realtor® since 2001 — **25 years** in the South Florida market — holds the **Certified Luxury Home Marketing Specialist** designation, works in English and Spanish, and is affiliated with **United Realty Group** and its **3,500+ agents across 20 Florida offices**. That is local transaction judgment applied on the investor's behalf, from first screen to closing.
+Experience is what turns access into a sound acquisition. Carlos Uzcategui has been a Florida Licensed Realtor® since 2001 — **25 years** in the South Florida market — holds the **Certified Luxury Home Marketing Specialist** designation, works in English and Spanish, and is affiliated with **United Realty Group** and its **3,500+ agents supported by a Florida office network**. That is local transaction judgment applied on the investor's behalf, from first screen to closing.
 
 ## Start With a Conversation, Not a Portal
 
@@ -63,6 +63,6 @@ If you are an international investor evaluating South Florida income or investme
 
 ## Source and Compliance Notes
 
-Network figures reflect the Miami and South Florida REALTORS® organization following the MIAMI REALTORS® / RWorld merger (announced April 20, 2026; the merger took effect May 11, 2026): approximately 93,000 member agents, 437+ international cooperation agreements across 75+ countries, 260+ U.S. MLSs via the RPR National Exchange, and 11 MLS data exchanges. United Realty Group figures (3,500+ agents, 20 Florida offices) per urgfl.com. These figures describe network reach and are deemed reliable but not guaranteed. This article is general information for educational purposes and is not legal, tax, financial, insurance, or investment advice; cross-border investors should engage qualified U.S. legal and tax counsel. No investment return, rental income, property value, or transaction outcome is guaranteed.
+Network figures reflect the Miami and South Florida REALTORS® organization following the MIAMI REALTORS® / RWorld merger (announced April 20, 2026; the merger took effect May 11, 2026): approximately 93,000 member agents, 437+ international cooperation agreements across 75+ countries, 260+ U.S. MLSs via the RPR National Exchange, and 11 MLS data exchanges. United Realty Group figures (3,500+ agents; Florida office network) per urgfl.com. These figures describe network reach and are deemed reliable but not guaranteed. This article is general information for educational purposes and is not legal, tax, financial, insurance, or investment advice; cross-border investors should engage qualified U.S. legal and tax counsel. No investment return, rental income, property value, or transaction outcome is guaranteed.
 
 Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

@@ -21,7 +21,8 @@
     "verify:claims": "node scripts/verify-claims.mjs",
     "verify:interactive": "node --import tsx scripts/verify-interactive-modules.ts",
     "verify:mobile-hero": "node scripts/verify-mobile-hero.mjs",
-    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims && npm run verify:interactive && npm run verify:mobile-hero"
+    "verify:urg-offices": "node scripts/verify-urg-office-positioning.mjs",
+    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims && npm run verify:interactive && npm run verify:mobile-hero && npm run verify:urg-offices"
   },
   "reactSnap": {
     "source": "dist",

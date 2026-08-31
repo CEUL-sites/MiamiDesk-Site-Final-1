@@ -118,7 +118,7 @@ assert.match(form, /Personal reply from Carlos · No listing commitment/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
 assert.match(hero, /South Florida · Global Reach/);
 assert.match(hero, /93,000", label: "Member Agents"/);
-assert.match(hero, /United Realty Group · 3,500\+ Agents · 20 FL Offices/);
+assert.match(hero, /United Realty Group · 3,500\+ Agents · Florida Office Network/);
 assert.match(authority, /REALTOR® · FL SL705771/);
 assert.match(authority, /CLHMS Luxury Specialist/);
 assert.match(authority, /Verified Realtor\.com® reviews/);
@@ -206,7 +206,7 @@ assert.match(cookie, /md:left-6 md:right-auto/);
 assert.doesNotMatch(cookie, /md:left-auto md:right-6/);
 assert.match(proof, /id="client-reviews"/);
 assert.doesNotMatch(about, /founded in 2002|in-house title|Est\. 2002/i);
-assert.match(about, /3,500\+ agents and 20 Florida offices/);
+assert.match(about, /3,500\+ agents supported by a Florida office network/);
 assert.match(about, /showForm = true/);
 assert.match(about, /\{showForm && \(/, "AboutContact must support a reusable no-form profile mode");
 assert.equal(

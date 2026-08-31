@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { CONTACT } from "../../constants";
+import { CONTACT, PUBLIC_COMPLIANCE } from "../../constants";
 import { trackLead, pushEvent, navigateAfterTracking } from "../../lib/analytics";
 import { getAttribution, getLeadSource } from "../../lib/attribution";
 import { notifyLeadDirect } from "../../lib/leadNotify";
@@ -232,7 +232,7 @@ export function BuyerMandateForm() {
         </button>
 
         <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-navy/70">
-          {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
+          {PUBLIC_COMPLIANCE}
         </p>
       </form>
     </div>
