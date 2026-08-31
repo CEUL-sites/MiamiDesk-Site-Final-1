@@ -19,6 +19,7 @@ export interface BridgeListing {
   BathroomsTotalDecimal?: number;
   LivingArea?: number;
   PropertyType?: string;
+  PropertySubType?: string;
   StandardStatus?: string;
   DaysOnMarket?: number;
   ListOfficeName?: string;
