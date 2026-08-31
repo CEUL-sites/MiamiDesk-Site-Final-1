@@ -74,7 +74,7 @@ export function Navbar() {
           href="/"
           className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}
         >
-          <UrgLogo className="h-8 w-auto sm:h-9" />
+          <UrgLogo className="h-8 w-auto sm:h-9" inverted={!scrolled} />
           <span className="hidden flex-col leading-none border-l border-current/20 pl-3 xl:flex">
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
             <span className="font-mono uppercase leading-none opacity-70 mt-1" style={{ fontSize: "0.6875rem", letterSpacing: "0.2em" }}>
@@ -154,7 +154,7 @@ export function Navbar() {
               {/* Drawer header */}
               <div className="flex items-start justify-between">
                 <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
-                  <UrgLogo className="h-9 w-auto" />
+                  <UrgLogo className="h-9 w-auto" inverted />
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
                     Carlos Uzcategui, REALTOR® · FL SL705771 · Since 2001
                   </span>

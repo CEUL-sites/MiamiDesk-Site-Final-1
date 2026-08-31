@@ -38,7 +38,7 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
     },
     {
       q: 'What network does Carlos Uzcategui use to market luxury and investment property?',
-      a: 'Listings are positioned through the Miami and South Florida REALTORS® — the world’s largest local REALTOR® association — with roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international cooperation agreements across 75+ countries, plus United Realty Group’s 3,500+ agents across 20 Florida offices. Network reach does not guarantee a price or timeline.',
+      a: 'Listings are positioned through the Miami and South Florida REALTORS® — the world’s largest local REALTOR® association — with roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international cooperation agreements across 75+ countries, plus United Realty Group’s 3,500+ agents supported by a Florida office network. Network reach does not guarantee a price or timeline.',
     },
     {
       q: 'Why do luxury and investment properties benefit most from a large buyer-agent network?',
@@ -146,7 +146,7 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
     },
     {
       q: 'How does MLS distribution help a South Florida seller reach more buyers?',
-      a: 'A property listed through the Miami and South Florida REALTORS® enters the infrastructure of the world’s largest local REALTOR® association — roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international agreements, and syndication across 260+ U.S. MLSs — plus United Realty Group’s 3,500+ agents across 20 offices. This widens the pool of qualified buyer agents who can present the property.',
+      a: 'A property listed through the Miami and South Florida REALTORS® enters the infrastructure of the world’s largest local REALTOR® association — roughly 93,000 member agents, 200+ global portals in 19 languages, 437+ international agreements, and syndication across 260+ U.S. MLSs — plus United Realty Group’s 3,500+ agents supported by its Florida office network. This widens the pool of qualified buyer agents who can present the property.',
     },
   ],
   'review-equity-before-selling-south-florida-2026': [

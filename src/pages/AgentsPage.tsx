@@ -933,7 +933,7 @@ export default function AgentsPage() {
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-snug text-ink-primary/65 md:leading-relaxed">
                 United Realty Group is a full-service brokerage founded in 2002 — {CONTACT.stats.urgAgents} agents
-                across {CONTACT.stats.urgOffices} Florida offices, with an in-house title company. Whatever stage you
+                supported by its {CONTACT.stats.urgOfficeNetwork}, with an in-house title company. Whatever stage you
                 are at, you work directly with Carlos — an active 25-year agent on the same MLS, not a branch manager
                 reviewing paperwork.
               </p>
@@ -959,7 +959,7 @@ export default function AgentsPage() {
                     See what working inside the brokerage looks like.
                   </p>
                   <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-                    Founded 2002 · {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOffices} Florida offices · In-house title
+                    Founded 2002 · {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOfficeNetwork} · In-house title
                   </p>
                 </div>
               </div>
@@ -1022,7 +1022,7 @@ export default function AgentsPage() {
                     {
                       icon: Building2,
                       title: "A platform that closes, not just lists",
-                      body: "United Realty Group has operated since 2002 across 20 Florida offices, with an in-house title company. Fewer deals stall at closing, and the ancillary side of every transaction stays under one roof.",
+                      body: "United Realty Group has operated since 2002 through its Florida office network, with an in-house title company. Fewer deals stall at closing, and the ancillary side of every transaction stays under one roof.",
                     },
                     {
                       icon: Globe2,

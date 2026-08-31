@@ -322,9 +322,9 @@ const C = {
         "Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, operates the service through United Realty Group. Scope, any applicable compensation, and all MLS, portal, or brokerage activity are documented privately and remain subject to approval and applicable requirements.",
       ],
     ],
-    footerCompliance: "Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity",
+    footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.",
     footerCredibility:
-      "Carlos Uzcategui, REALTOR® — Florida License SL705771, licensed since 2001. CLHMS. United Realty Group: 3,500+ agents, 20 Florida offices.",
+      "Carlos Uzcategui, REALTOR® — Florida License SL705771, licensed since 2001. CLHMS. United Realty Group: 3,500+ agents; Florida office network.",
     footerContacts: "Contact",
     footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
   },

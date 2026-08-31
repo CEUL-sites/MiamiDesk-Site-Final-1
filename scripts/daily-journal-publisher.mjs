@@ -514,7 +514,7 @@ const VERIFIED_FIGURE_PHRASES = [
   '437+ international agreements',
   '11 MLS data exchanges',
   '3,500+ agents',
-  '20 Florida offices',
+  'Florida office network',
   'SL705771',
   'since 2001',
   '25 years',
@@ -530,7 +530,7 @@ function distributionVariants(m) {
   return [
     `A ${m.name} listing placed through Carlos enters the distribution infrastructure of the world's largest local Realtor association: 93,000 member agents, and 200+ global portals publishing in 19 languages. Where the likely buyer may not live in Florida, that reach is part of the pricing case rather than decoration. It does not guarantee price or timing.`,
     `Exposure for a ${m.name} ${m.type} runs well past the local portal. 260+ U.S. MLSs syndicated via RPR and 437+ international agreements put the property in front of agents whose clients are relocating or buying across borders. None of that guarantees price or timing. It determines how many qualified agents ever see the listing at all.`,
-    `Behind a ${m.name} listing sit 11 MLS data exchanges, the association's 93,000 member agents, and United Realty Group's 3,500+ agents across 20 Florida offices. Reach is not a result and does not guarantee price or timing. It is the precondition for a competitive offer, and it only counts once pricing, preparation, and the document package hold up.`,
+    `Behind a ${m.name} listing sit 11 MLS data exchanges, the association's 93,000 member agents, and United Realty Group's 3,500+ agents supported by a Florida office network. Reach is not a result and does not guarantee price or timing. It is the precondition for a competitive offer, and it only counts once pricing, preparation, and the document package hold up.`,
     `Most ${m.name} sellers overestimate what a portal listing does and underestimate what agent-to-agent reach does. The property is published into 200+ global portals in 19 languages and syndicated to 260+ U.S. MLSs via RPR, but none of that guarantees price or timing. It decides how many of the right agents ever open the file.`
   ];
 }

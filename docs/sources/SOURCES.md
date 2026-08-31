@@ -44,31 +44,21 @@ Verified facts:
 - Shared with **260+ MLSs across the country via RPR**.
 - Marketed in **19 languages**.
 
-## 3. United Realty Group office directory — July 2026
+## 3. United Realty Group office locations — verified August 31, 2026
 
-File: `urg-office-directory-2026-07.jpg` (photo of URG's internal office
-directory, supplied by Carlos Uzcategui, July 2026)
+Primary source: `https://www.urgfl.com/office-locations/`.
 
 Verified facts:
 
-- The photo lists more individual addresses than the site's "20 Florida
-  offices" figure — Carlos confirmed **20 is the correct figure to use**
-  despite the longer address list (some entries in the directory are not
-  counted as distinct Florida offices). Do not recompute this figure from a
-  raw count of the photo's addresses; use 20. Locations shown, for reference:
-  - Broward County: Corporate Office (Plantation, 1200 S. Pine Island Rd
-    Suite 600), Cooper City, Coral Springs, Fort Lauderdale, Hollywood,
-    Lighthouse Point, Parkland, Pembroke Pines, Plantation/Vizcaya Square (975
-    N. Nob Hill Rd — a second, separate Plantation location), Tamarac, Weston
-    (15951 SW 41st Street, Suite 700 — Carlos's office).
-  - Orange County: Orlando.
-  - Palm Beach County: Boca Raton, Boynton Beach, Palm Beach Gardens, Royal
-    Palm Beach, Wellington.
-  - Miami-Dade County: Aventura, Hialeah Gardens, Kendall.
-  - Other Florida branches: Gainesville.
-- United Realty Group also operates a **Greensboro, NC** branch — this is
-  **not** a Florida office and must never be counted toward the "Florida
-  offices" figure or implied as part of Carlos's Florida license coverage.
-- Full addresses for every location are legible in the source photo, should a
-  future task need the exact street address of a specific office (e.g. a
-  location-specific schema block or an "Our Offices" page).
+- The official page heading states **21 branch locations** and lists 19 Florida
+  locations plus San Antonio, Texas, and Greensboro, North Carolina.
+- Pembroke Pines is listed as **Opening Soon** and must not be silently treated
+  as an active office.
+- The official names are **Hialeah** and **Fort Lauderdale**, not "Hialeah
+  Gardens" or "East Fort Lauderdale."
+- The live directory conflicts with the earlier internal count confirmation
+  and July photo. Until the brokerage confirms its intended public count, site
+  copy uses **Florida office network** without a number.
+- `src/data/urgOffices.json` is the canonical current dataset. Carlos's South
+  Florida service areas and Spain/LATAM referral markets are stored separately
+  and are not physical office claims.

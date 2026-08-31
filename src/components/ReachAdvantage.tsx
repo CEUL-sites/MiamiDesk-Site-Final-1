@@ -24,7 +24,7 @@ const TOP_STATS = [
     display: "3,500",
     suffix: "+",
     label: "United Realty Group Agents",
-    sublabel: "Founded 2002 · 20 Florida offices",
+    sublabel: "Founded 2002 · Florida office network",
     desc: "A full-service brokerage with an in-house title company behind every listing.",
   },
 ];

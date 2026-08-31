@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { CONTACT } from "../../constants";
+import { CONTACT, PUBLIC_COMPLIANCE } from "../../constants";
 import { pushEvent, trackLead, navigateAfterTracking } from "../../lib/analytics";
 import { notifyLeadDirect } from "../../lib/leadNotify";
 
@@ -292,7 +292,7 @@ export function AgencyPartnerForm({
         </button>
 
         <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-          Confidential · No obligation · {CONTACT.shortLicense} · Equal Housing Opportunity
+          Confidential · No obligation · {PUBLIC_COMPLIANCE}
         </p>
       </form>
     </div>

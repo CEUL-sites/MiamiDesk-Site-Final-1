@@ -399,7 +399,7 @@ export function Hero() {
           {[
             { icon: ShieldCheck, text: "REALTOR® · FL SL705771 · Since 2001" },
             { icon: Tag,         text: "CLHMS™ · Certified Luxury Specialist" },
-            { icon: Globe,       text: "United Realty Group · 3,500+ Agents · 20 FL Offices" },
+            { icon: Globe,       text: "United Realty Group · 3,500+ Agents · Florida Office Network" },
           ].map(({ icon: Icon, text }) => (
             <span
               key={text}

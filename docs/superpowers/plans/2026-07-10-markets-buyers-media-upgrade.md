@@ -231,7 +231,7 @@ Expected: unsupported or out-of-scope claims are present.
 
 - [ ] **Step 2: Replace unsupported proof with verified infrastructure**
 
-Keep the hero buyer-focused. Replace the unsupported market and brokerage claims with a concise explanation that Carlos works through United Realty Group's 3,500+ agents and 20 Florida offices and participates in the professional South Florida real estate ecosystem.
+Keep the hero buyer-focused. Replace the unsupported market and brokerage claims with a concise explanation that Carlos works through United Realty Group's 3,500+ agents and a Florida office network and participates in the professional South Florida real estate ecosystem.
 
 - [ ] **Step 3: Add Carlos market-presence photography**
 
@@ -260,7 +260,7 @@ Keep `Request a Buyer Consultation` as the primary action. State plainly that Ca
 Run:
 
 ```powershell
-rg -n '3,500\+|20 Florida offices|carlos-miami-river|Request a Buyer Consultation|referral-based' src/pages/BuyersPage.tsx
+rg -n '3,500\+|Florida office network|carlos-miami-river|Request a Buyer Consultation|referral-based' src/pages/BuyersPage.tsx
 rg -n '#1 transactional|one of Florida.s largest|One of every five|52%|60\+ international banks|1,400\+' src/pages/BuyersPage.tsx
 ```
 
