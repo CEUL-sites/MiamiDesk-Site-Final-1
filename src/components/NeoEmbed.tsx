@@ -1,11 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import { NEO } from "../constants";
+import { removeExistingNeoLoader, shouldLoadNeoEmbed } from "../lib/neoEmbed";
 
 export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    // Keep the third-party loader out of react-snap output. It must execute only
+    // after the live iframe exists, otherwise its #NEOiframe lookup can be null
+    // during hydration and the inventory never initializes.
+    if (!shouldLoadNeoEmbed(window.navigator.userAgent)) return;
+    if (!document.getElementById("NEOiframe")) {
+      setStatus("error");
+      return;
+    }
+
+    removeExistingNeoLoader(NEO.key);
+
     const script = document.createElement("script");
     script.async = true;
     script.src = NEO.loader;
