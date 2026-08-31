@@ -1,899 +1,251 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { JsonLd } from "../components/SEO/JsonLd";
+import { ArrowRight, Check, Mail, MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
-import { ChevronRight, MessageCircle, FileCheck, KeyRound, ClipboardList, Globe, ShieldCheck } from "lucide-react";
-import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { GlobalActivationFlow, type ActivationStage } from "../components/GlobalActivationFlow";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { LazyVideo } from "../components/LazyVideo";
+import { Navbar } from "../components/Navbar";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
 import { pushEvent } from "../lib/analytics";
 
-type Lang = "es" | "en";
+type Lang = "en" | "es";
 
-const WA_ES = "https://wa.me/34646853078";
 const WA_US = "https://wa.me/19548656622";
+const WA_ES = "https://wa.me/34646853078";
 
-// Verified figures only (§3.5). Do not substitute or inflate.
-// $69B is the association network's combined 2025 transaction volume —
-// never the principal's or United Realty Group's. Caption is mandatory.
-const FIGURES = [
-  { v: "93,000", es: "miembros", en: "members" },
-  { v: "200+", es: "portales globales · 19 idiomas", en: "global portals · 19 languages" },
-  { v: "260+", es: "MLS de EE. UU. vía RPR", en: "U.S. MLSs via RPR" },
-  { v: "437+", es: "acuerdos internacionales", en: "signed international agreements" },
-  { v: "11", es: "intercambios de datos MLS", en: "MLS data exchanges" },
-  { v: "$69B", es: "volumen 2025 de la red asociativa", en: "association-network 2025 volume", caption: true },
-];
-
-const C = {
-  es: {
-    unit: "Miami Global Listing Desk · un servicio de homesprofessional.com",
-    toggleLabel: "Idioma",
-    brokerageAlt: "Recepción de United Realty Group en la oficina de Weston, Florida",
-    brokerageCaption: "United Realty Group, Weston: infraestructura de corretaje en el sur de Florida.",
-    waES: "WhatsApp España",
-    waUS: "WhatsApp EE. UU.",
-    heroEyebrow:
-      "Inmuebles internacionales · sur de Florida · alcance global",
-    heroTitle:
-      "Posicione inmuebles internacionales ante la red inmobiliaria del sur de Florida, con 93,000 miembros.",
-    heroLead: "Los inmuebles son locales. Alcanzar el precio más alto posible exige alcance global. El sur de Florida conecta capital privado de Estados Unidos, Latinoamérica y otros mercados internacionales.",
-    heroSub:
-      "El ecosistema profesional del sur de Florida, con 93,000 miembros y Miami como referente internacional, atiende a compradores e inversores de Estados Unidos, Latinoamérica y otros centros globales, incluidos segmentos de alto patrimonio. Miami Global Listing Desk ayuda a diferenciar inmuebles seleccionados mediante posicionamiento de mercado, presentación bilingüe y cooperación profesional estructurada, mientras el profesional local conserva la relación con el cliente y el mandato.",
-    heroCta:
-      "Solicitar activación internacional",
-    heroWhatsApp: "WhatsApp España",
-    heroTrust: "Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771 · United Realty Group · sujeto a requisitos de corretaje, plataforma y cumplimiento",
-    heroPartnerCta:
-      "Solicitar una introducción privada",
-    mandateEyebrow:
-      "Una propuesta más sólida para su propietario",
-    mandateTitle:
-      "Dé al propietario una razón concreta para elegir — y mantener — su representación.",
-    mandateBody:
-      "Un mandato se vuelve más defendible cuando la experiencia local se combina con una estrategia creíble de posicionamiento hacia el sur de Florida. Usted no entrega la relación: añade una capacidad internacional que el propietario puede entender y valorar.",
-    mandateCards: [
-      ["Lidere con un mercado reconocido", "Explique cómo un inmueble seleccionado puede prepararse para el sur de Florida, no simplemente publicarse en otra página web."],
-      ["Conserve el control del cliente", "La estrategia con el propietario, las visitas, la negociación y las decisiones locales permanecen con el profesional que representa el inmueble."],
-      ["Añada profundidad profesional", "La revisión del inmueble, la presentación bilingüe y un marco de cooperación documentado elevan la conversación de captación."],
-    ],
-    ownerRouteTitle:
-      "Si un propietario llega directamente",
-    ownerRoute:
-      "Cuando se necesite representación en su mercado, podemos facilitar una introducción a un profesional local cualificado que pueda trabajar con el propietario y con nosotros.",
-    ownerRouteNote:
-      "El propietario decide libremente si desea contratarlo; no asignamos automáticamente agentes ni interferimos con relaciones de representación existentes.",
-    marketEyebrow:
-      "Por qué el sur de Florida cambia la conversación con el propietario",
-    marketTitle:
-      "El sur de Florida conecta la demanda inmobiliaria de Estados Unidos, Latinoamérica y otros mercados internacionales dentro de un mismo mercado profesional.",
-    marketLead:
-      "Para el propietario, el sur de Florida —con Miami como principal referencia internacional— es un centro reconocido de inversión inmobiliaria y capital privado. Para el profesional local, eso crea una ventaja de posicionamiento creíble, no otra promesa genérica de exposición mundial.",
-    marketBody:
-      "El ecosistema profesional del sur de Florida, con 93,000 miembros, se encuentra en la intersección de la demanda de compradores e inversores de Estados Unidos, Latinoamérica y otros mercados internacionales, incluidos segmentos de alto patrimonio. Miami Global Listing Desk ayuda a que los inmuebles seleccionados se diferencien mediante posicionamiento específico para la audiencia, preparación bilingüe y una ruta de cooperación documentada. El profesional local conserva el cliente, el mandato y la representación; toda actividad está sujeta a elegibilidad y requisitos aplicables.",
-    reachEyebrow: "Una historia de mercado que cruza fronteras",
-    reachTitle: "Muestre al propietario cómo su representación local puede conectarse con un mercado profesional más amplio.",
-    reachBody:
-      "Cada inmueble conserva su identidad local. La diferencia está en cómo se prepara y presenta para una conversación profesional relevante en el sur de Florida.",
-    reachCaptions: [
-      ["Miami ↔ mercados internacionales", "Una narrativa visual que conecta lugar, capital y oportunidad."],
-      ["Sur de Florida", "Un mercado reconocido por compradores e inversores de Estados Unidos, Latinoamérica y otros centros internacionales."],
-      ["El inmueble, primero", "Presentación específica para la audiencia, sin diluir el mandato ni la experiencia local."],
-    ],
-    distEyebrow:
-      "La ventaja de distribución",
-    distIntro:
-      "La infraestructura profesional del sur de Florida pasa a formar parte de la historia de su inmueble.",
-    caption: "Cifra de la red asociativa, no del principal ni de United Realty Group.",
-    activation:
-      "La diferencia no es otra promesa de publicidad global. Es una ruta profesional: cualificar el inmueble, preparar la información, definir la cooperación y posicionarlo para un mercado reconocido por el capital internacional y la movilidad de patrimonios de alto valor. La activación permanece sujeta a requisitos de corretaje, plataforma, elegibilidad y cumplimiento.",
-    bridgeEyebrow: "España, en su contexto local",
-    bridgeTitle: "Un mercado contemporáneo y una identidad de lugar histórica.",
-    bridgeBody:
-      "La conversación empieza por cómo se entiende un lugar localmente y lleva inventario seleccionado a una conversación clara y profesional con agentes compradores del sur de Florida.",
-    granViaAlt: "Vista sobre Gran Vía y los edificios del centro de Madrid",
-    granViaCaption: "Madrid, España: Gran Vía y su entorno urbano central.",
-    segoviaAlt: "Acueducto romano de Segovia junto al centro histórico",
-    segoviaCaption: "Segovia, España: el acueducto romano junto al casco histórico.",
-    structureEyebrow:
-      "Su papel sigue siendo central",
-    structureBody:
-      "Miami Global Listing Desk trabaja con el agente, la agencia, el promotor o el profesional inmobiliario local que controla un mandato o autorización cualificada. No sustituye esa representación ni solicita propietarios ya representados. Las visitas, la negociación local, la documentación de origen y el conocimiento del mercado permanecen con el profesional correspondiente; la coordinación con el sur de Florida se define de forma privada y operación por operación.",
-    proofEyebrow:
-      "Preparación para el sur de Florida",
-    proofTitle:
-      "Presente el inmueble al nivel que exige una conversación internacional seria.",
-    proofBody:
-      "Carlos coordina la revisión, el contexto bilingüe y los materiales necesarios para que un inmueble seleccionado pueda ser entendido y evaluado con rapidez por profesionales inmobiliarios del sur de Florida dentro del marco aplicable.",
-    proofAlt: "Producción profesional de medios en una residencia frente al agua en Miami",
-    proofCaption:
-      "Fotografía y video profesional para posicionar una propiedad ante el mercado del sur de Florida.",
-    howEyebrow:
-      "De un mandato local a una ruta profesional en el sur de Florida",
-    coopTitle:
-      "Cooperación profesional — propiedad por propiedad",
-    coopBody:
-      "Cada oportunidad se evalúa y estructura de forma individual. Cuando corresponde, los referidos, la compensación, la cooperación entre agencias, la presentación en plataformas y cualquier actividad MLS se documentan a través del marco profesional aplicable, incluyendo United Realty Group. No se garantiza colocación, lead, comprador, comisión ni venta.",
-    twoWaysTitle:
-      "Un inmueble cualificado — o una relación profesional más amplia.",
-    wayExclusiveTitle:
-      "Agentes y profesionales inmobiliarios locales",
-    wayExclusiveBody:
-      "Un agente individual u otro profesional inmobiliario cualificado puede presentar una propiedad prime con autoridad documentada. No se exige pertenecer a una gran agencia ni aportar una cartera.",
-    wayPortfolioTitle:
-      "Agencias, brokerages y promotores",
-    wayPortfolioBody:
-      "Las organizaciones con inventario seleccionado pueden estructurar una relación para una cartera, promoción o flujo recurrente de propiedades. El alcance se define por escrito y propiedad por propiedad.",
-    twoWaysClosing:
-      "Toda propiedad y toda relación están sujetas a revisión, aprobación de corretaje y requisitos aplicables.",
-    scopesEyebrow:
-      "Formas de trabajar con Miami Global Listing Desk",
-    scopes: [
-      ["Apoyo para ganar el mandato", "Argumentación y materiales que explican al propietario el valor del sur de Florida y el papel protegido del profesional local."],
-      ["Posicionamiento de un inmueble", "Revisión de encaje, presentación bilingüe y una ruta de cooperación para una propiedad seleccionada."],
-      ["Desk profesional", "Relación estructurada para agencias, profesionales, carteras o promociones, con condiciones privadas y cooperación documentada."],
-    ],
-    stepsTitle:
-      "Un proceso selectivo, claro y documentado",
-    steps: [
-      ["Confirmar autoridad y encaje", "Una sola propiedad puede ser suficiente. Verificamos quién la representa, el mandato o autorización y su posible encaje con el mercado."],
-      ["Preparar la propuesta para el sur de Florida", "Organizamos la información esencial, el contexto bilingüe y los materiales que permiten una evaluación profesional."],
-      ["Definir la cooperación", "El alcance, las funciones, la compensación cuando corresponda y los requisitos aplicables se establecen por escrito."],
-      ["Activar y coordinar", "El inmueble apto entra en la ruta acordada; la actividad y las introducciones se coordinan con el profesional local."],
-    ],
-    midCta:
-      "Solicitar activación internacional",
-    midCtaAlt:
-      "¿Prefiere analizar primero la oportunidad?",
-    faqEyebrow: "Preguntas frecuentes",
-    faqTitle:
-      "Lo que preguntarán el profesional local y su propietario",
-    faqs: [
-      [
-        "¿Quién puede trabajar con Miami Global Listing Desk?",
-        "Agentes individuales, agencias, brokerages, promotores, organizaciones de ventas autorizadas y otros profesionales inmobiliarios cualificados que representan propiedades en su mercado local.",
-      ],
-      [
-        "¿Qué ventaja puedo presentar al propietario?",
-        "Una estrategia concreta de posicionamiento hacia el sur de Florida: preparación bilingüe, revisión profesional, coordinación con corretaje de Florida y acceso a su infraestructura inmobiliaria, siempre sujeta a elegibilidad y requisitos aplicables.",
-      ],
-      [
-        "¿El propietario pierde su relación con el profesional local?",
-        "No. Miami Global Listing Desk no sustituye al profesional local ni solicita propietarios ya representados. La relación, la estrategia, las visitas, la negociación y el conocimiento del mercado local permanecen con quien representa el inmueble.",
-      ],
-      [
-        "¿Qué ocurre si un propietario llega directamente?",
-        "Cuando resulta apropiado, podemos facilitar una introducción a un profesional local cualificado. El propietario decide libremente si desea contratarlo; no asignamos automáticamente agentes.",
-      ],
-      [
-        "¿Cómo se estructura la cooperación?",
-        "Carlos Uzcategui, REALTOR® y titular de la licencia de Florida SL705771, opera el servicio a través de United Realty Group. El alcance, cualquier compensación aplicable y toda actividad MLS, de portal o de corretaje se documentan de forma privada y están sujetos a aprobación y requisitos aplicables.",
-      ],
-    ],
-    footerCompliance: "Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771 · United Realty Group · Equal Housing Opportunity",
-    footerCredibility:
-      "Carlos Uzcategui — REALTOR® con licencia en Florida desde 2001. CLHMS. United Realty Group: 3,500+ agentes, 20 oficinas en Florida.",
-    footerContacts: "Contacto",
-    footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
-  },
+const COPY = {
   en: {
-    unit: "Miami Global Listing Desk · a homesprofessional.com service",
-    toggleLabel: "Language",
-    brokerageAlt: "United Realty Group reception area at the Weston, Florida office",
-    brokerageCaption: "United Realty Group, Weston: South Florida brokerage infrastructure.",
-    waES: "WhatsApp Spain",
-    waUS: "WhatsApp USA",
-    heroEyebrow:
-      "International property · South Florida · global reach",
-    heroTitle:
-      "Position International Property for South Florida’s 93,000-Member Real Estate Network.",
-    heroLead: "Real estate is local. Achieving the highest possible price requires global reach. South Florida connects private capital from the United States, Latin America, and other international markets.",
-    heroSub:
-      "South Florida’s 93,000-member professional ecosystem, anchored by Miami’s international recognition, serves U.S., Latin American, and global buyers and investors, including high-net-worth segments. Miami Global Listing Desk helps selected listings stand out through audience-specific positioning, bilingual presentation, and structured professional cooperation—while the local professional retains the client relationship and mandate.",
-    heroCta:
-      "Request International Property Activation",
-    heroWhatsApp: "WhatsApp Spain",
-    heroTrust: "Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · subject to brokerage, platform, property-eligibility, and compliance requirements",
-    heroPartnerCta:
-      "Request a Private Introduction",
-    mandateEyebrow:
-      "A stronger proposition for your owner",
-    mandateTitle:
-      "Give the owner a concrete reason to choose—and keep—your representation.",
-    mandateBody:
-      "A mandate becomes more defensible when local expertise is paired with a credible South Florida positioning strategy. You do not hand over the relationship; you add an international capability the owner can understand and value.",
-    mandateCards: [
-      ["Lead with a recognized market", "Show how a selected property can be prepared for South Florida—not simply posted on another website."],
-      ["Keep control of the client", "Owner strategy, showings, negotiation, and local decisions remain with the professional representing the property."],
-      ["Add professional depth", "Property review, bilingual presentation, and a documented cooperation framework elevate the mandate conversation."],
-    ],
-    ownerRouteTitle:
-      "When an owner approaches us directly",
-    ownerRoute:
-      "When representation is needed in the property’s market, we can facilitate an introduction to a qualified local professional who can work with the owner and with us.",
-    ownerRouteNote:
-      "The owner independently decides whether to retain that professional; we do not automatically assign agents or interfere with existing representation.",
-    marketEyebrow:
-      "Why South Florida changes the owner conversation",
-    marketTitle:
-      "South Florida connects U.S., Latin American, and global property demand through one professional market.",
-    marketLead:
-      "For the owner, South Florida—with Miami as its internationally recognized anchor—is a center of global real estate and private wealth. For the local professional, that creates a credible positioning advantage—not another generic promise of worldwide exposure.",
-    marketBody:
-      "South Florida’s 93,000-member professional ecosystem sits at the intersection of U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. Miami Global Listing Desk helps selected properties stand out through audience-specific positioning, bilingual preparation, and a documented cooperation route. The local professional retains the client, mandate, and local representation; all activity remains subject to eligibility and applicable requirements.",
-    reachEyebrow: "One market story, presented across borders",
-    reachTitle: "Show the owner how local representation can connect with a wider professional market.",
-    reachBody:
-      "Every property keeps its local identity. The difference is how it is prepared and presented for a relevant professional conversation in South Florida.",
-    reachCaptions: [
-      ["Miami ↔ international markets", "A visual narrative connecting place, capital, and opportunity."],
-      ["South Florida", "A market recognized by buyers and investors from the U.S., Latin America, and other international centers."],
-      ["The property comes first", "Audience-specific presentation without diluting the mandate or local expertise."],
-    ],
-    distEyebrow:
-      "Distribution advantage",
-    distIntro:
-      "South Florida’s professional infrastructure becomes part of your property’s market story.",
-    caption: "Association-network figure — not the principal's or United Realty Group's volume.",
-    activation:
-      "The difference is not another promise of global advertising. It is a professional route: qualify the property, prepare the information, define cooperation, and position it for a market recognized for international capital and the movement of high-value private wealth. Activation remains subject to brokerage, platform, property-eligibility, and compliance requirements.",
-    bridgeEyebrow: "Spain, in local context",
-    bridgeTitle: "A contemporary market and a historic place identity.",
-    bridgeBody:
-      "The conversation starts with how a place is understood locally, then carries selected inventory into a clear, professional discussion with South Florida buyer agents.",
-    granViaAlt: "View over Gran Via and central Madrid buildings",
-    granViaCaption: "Madrid, Spain: Gran Via and its surrounding central urban fabric.",
-    segoviaAlt: "Roman aqueduct in Segovia beside the historic city center",
-    segoviaCaption: "Segovia, Spain: the Roman aqueduct along the historic city edge.",
-    structureEyebrow:
-      "Your role remains central",
-    structureBody:
-      "Miami Global Listing Desk works with the local agent, agency, developer, or real estate professional who controls a qualified mandate or authorization. It does not replace that representation or solicit already-represented owners. Showings, local negotiation, originating documentation, and market expertise stay with the appropriate local professional; South Florida coordination is defined privately and property by property.",
-    proofEyebrow:
-      "Prepared for South Florida",
-    proofTitle:
-      "Present the property at the level a serious international conversation requires.",
-    proofBody:
-      "Carlos coordinates the review, bilingual context, and materials needed so a selected listing can be understood and evaluated efficiently by South Florida real estate professionals within the applicable framework.",
-    proofAlt: "Professional property-media production at a waterfront Miami residence",
-    proofCaption:
-      "Professional photography and video used to position a property for the South Florida market.",
-    howEyebrow:
-      "From a local mandate to a professional South Florida route",
-    coopTitle:
-      "Professional cooperation — property by property",
-    coopBody:
-      "Every opportunity is reviewed and structured individually. Where applicable, referrals, compensation, inter-agency cooperation, platform presentation, and any MLS activity are documented through the relevant professional framework, including United Realty Group. No placement, lead, buyer, commission, or sale is guaranteed.",
-    twoWaysTitle:
-      "One qualified listing—or a broader professional relationship.",
-    wayExclusiveTitle:
-      "Agents and local real estate professionals",
-    wayExclusiveBody:
-      "An individual agent or other qualified real estate professional may present one prime property with documented authority. You do not need to belong to a large agency or submit a portfolio.",
-    wayPortfolioTitle:
-      "Agencies, brokerages, and developers",
-    wayPortfolioBody:
-      "Organizations with selected inventory can structure a relationship for a portfolio, development, or recurring property flow. Scope is defined in writing and property by property.",
-    twoWaysClosing:
-      "Every property and relationship remains subject to review, brokerage approval, and applicable requirements.",
-    scopesEyebrow:
-      "Ways to work with Miami Global Listing Desk",
-    scopes: [
-      ["Mandate-winning support", "Owner-facing reasoning and materials that explain the value of South Florida and the protected role of the local professional."],
-      ["Selected-listing positioning", "Fit review, bilingual presentation, and a cooperation route for one qualified property."],
-      ["Professional Desk", "A structured relationship for agencies, professionals, portfolios, or developments, with private terms and documented cooperation."],
-    ],
-    stepsTitle:
-      "A selective, clear, and documented process",
-    steps: [
-      ["Confirm authority and fit", "One property can be enough. We verify who represents it, the mandate or authority, and its potential market fit."],
-      ["Prepare the South Florida proposition", "We organize essential facts, bilingual context, and materials so the property can be evaluated professionally."],
-      ["Define cooperation", "Scope, responsibilities, applicable compensation, and relevant requirements are established in writing."],
-      ["Activate and coordinate", "An eligible property enters the agreed route; activity and introductions are coordinated with the local professional."],
-    ],
-    midCta:
-      "Request International Property Activation",
-    midCtaAlt:
-      "Prefer to discuss the opportunity first?",
-    faqEyebrow: "Common questions",
-    faqTitle:
-      "What the local professional—and the owner—will ask",
+    product: "Miami Global Desk · International Listing Activation",
+    title: "Put Your International Property in Front of South Florida’s Professional Real Estate Market.",
+    lead: "Miami Global Desk connects selected international property to the local Greater Miami real estate agent network.",
+    body: "Create visibility and cooperation opportunities with local agents representing qualified buyers—while your mandate, client relationship, and transaction remain with your team.",
+    explore: "Explore U.S. Activation",
+    discuss: "Request a Private Discussion",
+    proof: [["93,000", "Association members"], ["World’s largest", "Local Realtor® association"], ["437+", "Signed international agreements"]],
+    proofNote: "Source: Miami and South Florida REALTORS® merger announcement. Effective May 11, 2026.",
+    workflowKicker: "A direct professional route",
+    workflowTitle: "How Miami Global Desk works",
+    workflowBody: "One activation path into the Greater Miami professional agent network. The originating agency or developer keeps the mandate and closes the local transaction.",
+    selectedStage: "Selected stage",
+    stages: [
+      { title: "International property and local mandate", shortTitle: ["International property", "Local mandate"], detail: "Your agency, developer, or authorized listing professional keeps the property mandate and the local relationship." },
+      { title: "South Florida activation", shortTitle: ["South Florida", "activation"], detail: "Carlos and United Realty Group prepare the opportunity for an eligible professional activation route in South Florida." },
+      { title: "Greater Miami agent network", shortTitle: ["Greater Miami", "agent network"], detail: "Local real estate agents can evaluate eligible, selected inventory for buyers they represent." },
+      { title: "Qualified introduction", shortTitle: ["Qualified buyer", "introduction"], detail: "Relevant interest can be prepared, qualified, and introduced directly back to the originating team." },
+      { title: "Local negotiation and closing", shortTitle: ["Local negotiation", "and closing"], detail: "Your local team manages visits, negotiation, documentation, and closing in the property’s jurisdiction." },
+    ] satisfies ActivationStage[],
+    networkKicker: "Local market connection",
+    networkTitle: "Real agents. Local buyer relationships. Brokerage support.",
+    networkBody: "The activation is designed for professional review by the Greater Miami real estate community—not anonymous consumer traffic. United Realty Group provides the Florida brokerage framework behind Carlos’s work.",
+    teamVideoTitle: "United Realty Group — the team behind the Greater Miami activation layer",
+    teamVideoLabel: "United Realty Group · The Team",
+    mediaCaption: "Carlos with a South Florida property media team · Preparation for professional presentation",
+    mandateTitleA: "Your mandate stays with you.",
+    mandateTitleB: "We add the U.S. activation layer.",
+    mandateBody: "Miami Global Desk is an additional professional distribution and agent-cooperation layer—not another consumer portal and not a replacement for the originating listing team.",
+    mandatePoints: ["You retain the listing mandate and control of the local transaction.", "We prepare selected property for professional visibility within the Greater Miami agent network.", "Qualified buyer interest can be introduced directly back to your team."],
+    trustKicker: "South Florida principal",
+    trustTitle: "Carlos Uzcategui",
+    trustSub: "South Florida real estate since 2001",
+    trustBody: "A Florida-licensed principal coordinating bilingual property review, U.S. activation, and structured introductions through United Realty Group.",
+    credentials: ["Licensed since 2001 · 25 years in South Florida", "Certified Luxury Home Marketing Specialist · Certified Seller Representative", "United Realty Group · 3,500+ agents · Florida office network", "Bilingual coordination · South Florida ↔ Spain and LATAM"],
+    closeTitle: "Ready to expand your property’s professional reach in the U.S.?",
+    closeBody: "Present one qualified property or request a private discussion about an agency, developer, or portfolio activation route.",
+    closeCta: "Request a Private Global Desk Discussion",
+    formIntro: "Present a qualified opportunity",
+    formBody: "The existing secure request process remains available below. Commercial terms and eligibility are reviewed privately, property by property.",
+    faqTitle: "Common questions",
     faqs: [
-      [
-        "Who can work with Miami Global Listing Desk?",
-        "Individual agents, agencies, brokerages, developers, authorized sales organizations, and other qualified real estate professionals representing properties in their local markets.",
-      ],
-      [
-        "What advantage can I present to the owner?",
-        "A concrete South Florida positioning strategy: bilingual preparation, professional review, Florida brokerage coordination, and access to its professional real estate infrastructure, always subject to eligibility and applicable requirements.",
-      ],
-      [
-        "Does the owner lose the local professional relationship?",
-        "No. Miami Global Listing Desk does not replace the local professional or solicit already-represented owners. The relationship, strategy, showings, negotiation, and local-market expertise remain with the professional representing the property.",
-      ],
-      [
-        "What happens when an owner approaches Miami Global Listing Desk directly?",
-        "Where appropriate, we can facilitate an introduction to a qualified local professional. The owner independently decides whether to retain that professional; we do not automatically assign agents.",
-      ],
-      [
-        "How is cooperation structured?",
-        "Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, operates the service through United Realty Group. Scope, any applicable compensation, and all MLS, portal, or brokerage activity are documented privately and remain subject to approval and applicable requirements.",
-      ],
+      ["Is Miami Global Desk another property portal?", "No. It is a professional activation and cooperation layer for selected international property entering a South Florida real estate conversation."],
+      ["Does my local mandate change?", "No. The originating agency, developer, or listing professional keeps the mandate, client relationship, local negotiation, and closing."],
+      ["What happens when buyer interest is identified?", "Relevant interest can be prepared and introduced to the originating team, which controls the local transaction and next steps."],
+      ["Is exposure or a buyer guaranteed?", "No. Activation is subject to brokerage approval, platform rules, property eligibility, cooperation terms, and applicable compliance requirements."],
     ],
-    footerCompliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.",
-    footerCredibility:
-      "Carlos Uzcategui, REALTOR® — Florida License SL705771, licensed since 2001. CLHMS. United Realty Group: 3,500+ agents; Florida office network.",
-    footerContacts: "Contact",
-    footerAddress: "15951 SW 41 St. #700, Weston, FL 33331",
+    compliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.",
+    pageTitle: "Miami Global Desk | International Listing Activation",
+    pageDescription: "Miami Global Desk activates selected international property for professional South Florida visibility and buyer-agent cooperation while the local listing mandate remains with the originating team.",
+  },
+  es: {
+    product: "Miami Global Desk · Activación Internacional de Propiedades",
+    title: "Posicione su propiedad internacional ante el mercado inmobiliario profesional del sur de Florida.",
+    lead: "Miami Global Desk conecta propiedades internacionales seleccionadas con la red local de agentes inmobiliarios de Greater Miami.",
+    body: "Cree visibilidad y oportunidades de cooperación con agentes locales que representan compradores cualificados, mientras el mandato, la relación con el cliente y la operación permanecen con su equipo.",
+    explore: "Explorar la activación en EE. UU.",
+    discuss: "Solicitar conversación privada",
+    proof: [["93,000", "Miembros de la asociación"], ["La más grande del mundo", "Asociación local de Realtors®"], ["437+", "Acuerdos internacionales firmados"]],
+    proofNote: "Fuente: anuncio de fusión de Miami and South Florida REALTORS®. Vigente desde el 11 de mayo de 2026.",
+    workflowKicker: "Una ruta profesional directa",
+    workflowTitle: "Cómo funciona Miami Global Desk",
+    workflowBody: "Una sola ruta de activación hacia la red profesional de agentes de Greater Miami. La agencia o promotora de origen conserva el mandato y cierra la operación local.",
+    selectedStage: "Etapa seleccionada",
+    stages: [
+      { title: "Propiedad internacional y mandato local", shortTitle: ["Propiedad internacional", "Mandato local"], detail: "Su agencia, promotora o profesional autorizado conserva el mandato y la relación local." },
+      { title: "Activación en el sur de Florida", shortTitle: ["Activación en", "sur de Florida"], detail: "Carlos y United Realty Group preparan la oportunidad para una ruta profesional elegible en el sur de Florida." },
+      { title: "Red de agentes de Greater Miami", shortTitle: ["Red de agentes", "de Greater Miami"], detail: "Agentes inmobiliarios locales pueden evaluar inventario elegible y seleccionado para compradores que representan." },
+      { title: "Introducción cualificada", shortTitle: ["Introducción de", "interés cualificado"], detail: "El interés relevante puede prepararse, cualificarse y presentarse directamente al equipo de origen." },
+      { title: "Negociación y cierre local", shortTitle: ["Negociación y", "cierre local"], detail: "Su equipo local gestiona visitas, negociación, documentación y cierre en la jurisdicción del inmueble." },
+    ] satisfies ActivationStage[],
+    networkKicker: "Conexión con el mercado local",
+    networkTitle: "Agentes reales. Relaciones locales con compradores. Respaldo de brokerage.",
+    networkBody: "La activación se diseña para la revisión profesional de la comunidad inmobiliaria de Greater Miami, no para tráfico anónimo de consumidores. United Realty Group aporta el marco de corretaje de Florida que respalda el trabajo de Carlos.",
+    teamVideoTitle: "United Realty Group — el equipo detrás de la capa de activación en Greater Miami",
+    teamVideoLabel: "United Realty Group · El equipo",
+    mediaCaption: "Carlos con un equipo de medios inmobiliarios del sur de Florida · Preparación para presentación profesional",
+    mandateTitleA: "Su mandato permanece con usted.",
+    mandateTitleB: "Nosotros añadimos la activación en EE. UU.",
+    mandateBody: "Miami Global Desk es una capa adicional de distribución profesional y cooperación entre agentes; no es otro portal de consumo ni reemplaza al equipo captador de origen.",
+    mandatePoints: ["Usted conserva el mandato y el control de la operación local.", "Preparamos propiedades seleccionadas para visibilidad profesional dentro de la red de agentes de Greater Miami.", "El interés comprador cualificado puede regresar directamente a su equipo."],
+    trustKicker: "Principal en el sur de Florida",
+    trustTitle: "Carlos Uzcategui",
+    trustSub: "Sector inmobiliario del sur de Florida desde 2001",
+    trustBody: "Un principal con licencia de Florida que coordina revisión bilingüe, activación en EE. UU. e introducciones estructuradas a través de United Realty Group.",
+    credentials: ["Licenciado desde 2001 · 25 años en el sur de Florida", "Certified Luxury Home Marketing Specialist · Certified Seller Representative", "United Realty Group · 3,500+ agentes · red de oficinas en Florida", "Coordinación bilingüe · sur de Florida ↔ España y LATAM"],
+    closeTitle: "¿Listo para ampliar el alcance profesional de su propiedad en EE. UU.?",
+    closeBody: "Presente una propiedad cualificada o solicite una conversación privada sobre una ruta de activación para agencia, promotora o portafolio.",
+    closeCta: "Solicitar conversación privada Global Desk",
+    formIntro: "Presente una oportunidad cualificada",
+    formBody: "El proceso seguro de solicitud existente permanece disponible. Los términos comerciales y la elegibilidad se revisan en privado, propiedad por propiedad.",
+    faqTitle: "Preguntas frecuentes",
+    faqs: [
+      ["¿Miami Global Desk es otro portal inmobiliario?", "No. Es una capa profesional de activación y cooperación para propiedades internacionales seleccionadas que entran en una conversación inmobiliaria en el sur de Florida."],
+      ["¿Cambia mi mandato local?", "No. La agencia, promotora o profesional de origen conserva el mandato, la relación con el cliente, la negociación local y el cierre."],
+      ["¿Qué ocurre cuando se identifica interés comprador?", "El interés relevante puede prepararse y presentarse al equipo de origen, que controla la operación local y los siguientes pasos."],
+      ["¿Se garantiza exposición o comprador?", "No. La activación está sujeta a aprobación de corretaje, reglas de plataforma, elegibilidad del inmueble, términos de cooperación y requisitos de cumplimiento."],
+    ],
+    compliance: "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.",
+    pageTitle: "Miami Global Desk | Activación Internacional de Propiedades",
+    pageDescription: "Miami Global Desk activa propiedades internacionales seleccionadas para visibilidad profesional y cooperación con agentes compradores del sur de Florida, preservando el mandato local.",
   },
 } as const;
 
-const fade = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+const reveal = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.55 } } };
 
 export default function GlobalDeskPage() {
-  // English is the default render; an explicit visitor choice persists across visits.
   const [lang, setLang] = useState<Lang>("en");
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem("gd-lang");
-      if (saved === "es" || saved === "en") setLang(saved);
-    } catch {
-      /* localStorage unavailable */
-    }
+      if (saved === "en" || saved === "es") setLang(saved);
+    } catch { /* Keep the English default when storage is unavailable. */ }
   }, []);
 
-  const pick = (l: Lang) => {
-    setLang(l);
-    try {
-      localStorage.setItem("gd-lang", l);
-    } catch {
-      /* ignore */
-    }
+  const chooseLanguage = (next: Lang) => {
+    setLang(next);
+    try { localStorage.setItem("gd-lang", next); } catch { /* Visible selection still works. */ }
   };
 
-  const t = C[lang];
-  const pageTitle =
-    lang === "es"
-      ? "Miami Global Listing Desk — Activación Internacional"
-      : "Miami Global Listing Desk | International Property Activation";
-  const pageDescription =
-    lang === "es"
-      ? "Solicite activación inmobiliaria internacional o una introducción privada para un inmueble cualificado, con posicionamiento hacia el sur de Florida."
-      : "Request international property activation or a private introduction for a qualified mandate, positioned for South Florida through brokerage-mediated cooperation.";
+  const t = COPY[lang];
+  const whatsapp = lang === "es" ? WA_ES : WA_US;
+  const whatsappMessage = lang === "es"
+    ? "Hola Carlos, deseo solicitar una conversación privada sobre una oportunidad cualificada para Miami Global Desk."
+    : "Hello Carlos, I would like a private discussion about a qualified Miami Global Desk opportunity.";
 
   return (
     <>
       <Helmet>
         <html lang={lang} />
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
+        <title>{t.pageTitle}</title>
+        <meta name="description" content={t.pageDescription} />
         <link rel="canonical" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/spain-desk" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/global-desk" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
+        <meta property="og:title" content={t.pageTitle} />
+        <meta property="og:description" content={t.pageDescription} />
         <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
-        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/global-desk-hero-madrid-v2.webp" />
       </Helmet>
-      <JsonLd id="global-desk-breadcrumb" data={{
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://homesprofessional.com/" },
-            { "@type": "ListItem", position: 2, name: "Global Desk", item: "https://homesprofessional.com/global-desk" },
-          ],
-        }} />
-      <main id="main-content" className="min-h-screen bg-[#060D18] text-white pb-20 lg:pb-0">
+      <JsonLd id="global-desk-breadcrumb" data={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://homesprofessional.com/" }, { "@type": "ListItem", position: 2, name: "Miami Global Desk", item: "https://homesprofessional.com/global-desk" }] }} />
+
+      <main id="main-content" className="min-h-screen overflow-x-hidden bg-white text-navy pb-20 lg:pb-0">
         <Navbar />
 
-        {/* ── Elevated Luxury Hero with High Video Visibility & Sharp Text Contrast ── */}
-        <section className="relative overflow-hidden px-6 pt-28 pb-16 sm:pt-32 md:pt-36 md:pb-24">
-          {/* Background Video with enhanced visibility */}
-          <LazyVideo
-            src="/videos/miami_realtor_association.mp4"
-            poster="/images/posters/miami_realtor_association.jpg"
-            idle
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.48]"
-          />
-          {/* Balanced contrast overlays — ensures video is clearly visible while text pops */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/85 via-[#060D18]/55 to-[#060D18]/95" />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(22,68,158,0.25),transparent_75%)]" />
-          <div className="pointer-events-none absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-gold/[0.04] blur-[120px]" />
-
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={fade}
-            className="relative mx-auto max-w-4xl text-left"
-          >
-            {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-[#06111F]/80 px-4 py-1.5 backdrop-blur-md shadow-md">
-              <Globe size={13} className="text-gold" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold font-semibold">
-                {t.heroEyebrow}
-              </span>
-            </div>
-
-            {/* Main Title with sharp drop shadow & gold accents */}
-            <h1
-              className="mt-6 max-w-4xl font-serif leading-[1.08] text-white tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
-              style={{ fontSize: "clamp(2.2rem, 5.2vw, 3.9rem)", fontWeight: 400 }}
-            >
-              {t.heroTitle}
-            </h1>
-
-            <p className="mt-5 max-w-3xl font-serif text-xl leading-relaxed text-gold sm:text-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-              {t.heroLead}
-            </p>
-
-            {/* Supporting proposition */}
-            <p className="mt-4 max-w-3xl font-sans text-base sm:text-lg leading-relaxed text-white/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-              {t.heroSub}
-            </p>
-
-            {/* Network Proof — Luxury Glass Cards */}
-            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 max-w-3xl">
-              {[
-                { v: "93,000", label: lang === "es" ? "Miembros de la asociación" : "Association Members" },
-                { v: "200+", label: lang === "es" ? "Portales Globales · 19 Idiomas" : "Global Portals · 19 Languages" },
-                { v: "437+", label: lang === "es" ? "Acuerdos Internacionales" : "International Agreements" },
-              ].map((f) => (
-                <div
-                  key={f.v}
-                  className="group rounded-xl border border-gold/30 bg-[#06111F]/85 p-4 backdrop-blur-md transition-all duration-300 hover:border-gold/60 hover:bg-[#06111F]/95 shadow-[0_4px_20px_rgba(0,0,0,0.6)]"
-                >
-                  <div className="h-0.5 w-7 bg-gold/60 transition-all duration-300 group-hover:w-full group-hover:bg-gold" />
-                  <div className="mt-2.5 font-serif text-2xl sm:text-3xl text-gold tracking-tight drop-shadow-sm">{f.v}</div>
-                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/80">{f.label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA buttons */}
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a
-                href="#listing-request"
-                onClick={() => pushEvent("global_desk_cta_click", { cta_type: "international_property_activation", cta_location: "hero_primary", language: lang })}
-                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)]"
-              >
-                {t.heroCta}
-                <ChevronRight size={15} />
-              </a>
-              <a
-                href={lang === "es"
-                  ? `${WA_ES}?text=${encodeURIComponent("Hola Carlos, deseo solicitar una introducción privada para analizar una oportunidad inmobiliaria internacional cualificada.")}`
-                  : `${WA_US}?text=${encodeURIComponent("Hello Carlos, I would like a private introduction to discuss a qualified international property opportunity.")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => pushEvent("global_desk_cta_click", { cta_type: "private_introduction", cta_location: "hero_secondary", language: lang })}
-                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/25 bg-white/[0.04] px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-sm transition-colors hover:border-gold hover:text-gold"
-              >
-                <FileCheck size={15} className="text-gold" />
-                {t.heroPartnerCta}
-              </a>
-            </div>
-
-            {/* Credibility & Compliance Footnote */}
-            <div className="mt-8 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] leading-relaxed text-white/70">
-              <ShieldCheck size={14} className="text-gold shrink-0" />
-              <span>{t.heroTrust}</span>
-            </div>
-          </motion.div>
-        </section>
-
-        {/* ── Section C — Market Argument ── */}
-        <section className="relative overflow-hidden border-y border-gold/20 bg-[#06111F] px-6 py-16 md:py-24">
-          <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-gold/[0.03] blur-[100px]" />
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fade}
-            className="mx-auto max-w-5xl"
-          >
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
-              {t.marketEyebrow}
-            </p>
-            <h2 className="mt-4 font-serif text-3xl sm:text-4xl text-white leading-tight tracking-tight">
-              {t.marketTitle}
-            </h2>
-            
-            <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
-              <div className="rounded-2xl border border-gold/30 bg-white/[0.03] p-7 sm:p-9 backdrop-blur-md shadow-lg">
-                <div className="h-0.5 w-10 bg-gold mb-5" />
-                <p className="font-serif text-xl sm:text-2xl leading-relaxed text-white/95">
-                  {t.marketLead}
-                </p>
-              </div>
-              <div className="space-y-5 text-white/75 font-sans text-base leading-relaxed">
-                <p>{t.marketBody}</p>
-                <div className="pt-4 border-t border-white/10 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-gold">
-                  <ShieldCheck size={14} />
-                  <span>{lang === "es" ? "Mercado internacional de patrimonio · preparación bilingüe · marco de corretaje en Florida" : "International wealth market · bilingual preparation · Florida brokerage framework"}</span>
-                </div>
+        <section className="relative isolate min-h-[760px] overflow-hidden border-b border-bone bg-white px-6 pb-16 pt-28 sm:pt-32 lg:min-h-[810px] lg:pb-20 lg:pt-36">
+          <img src="/images/global-desk-hero-madrid-v2.webp" alt="Madrid skyline from a contemporary international-property terrace at golden hour" width={1672} height={941} fetchPriority="high" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover object-[68%_center]" />
+          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.88)_72%,rgba(255,255,255,0.7)_100%)] lg:bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_36%,rgba(255,255,255,0.94)_50%,rgba(255,255,255,0.18)_76%,rgba(255,255,255,0)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 -z-10 h-36 bg-gradient-to-t from-white to-transparent" />
+          <div className="relative mx-auto max-w-7xl">
+            <div className="flex justify-end lg:absolute lg:right-0 lg:top-0" aria-label="Global Desk language">
+              <div className="inline-flex border border-navy/15 bg-white/90 p-1 shadow-sm backdrop-blur-sm">
+                {(["en", "es"] as Lang[]).map((option) => <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-pressed={lang === option} className={`min-h-10 min-w-11 px-3 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors ${lang === option ? "bg-navy text-white" : "text-navy/65 hover:text-navy"}`}>{option}</button>)}
               </div>
             </div>
-          </motion.div>
-        </section>
-
-        {/* Cinematic market bridge — selected Drive media, optimized and lazy-loaded. */}
-        <section className="relative overflow-hidden bg-[#050B14] px-6 py-16 md:py-24">
-          <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[70%] -translate-x-1/2 rounded-full bg-gold/[0.05] blur-[120px]" />
-          <div className="relative mx-auto max-w-6xl">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fade}
-              className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end"
-            >
-              <div>
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">{t.reachEyebrow}</p>
-                <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">{t.reachTitle}</h2>
+            <motion.div initial="hidden" animate="show" variants={reveal} className="mt-10 max-w-[760px] lg:mt-0">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.product}</p>
+              <h1 className="mt-6 max-w-[760px] text-balance font-serif text-[clamp(2.75rem,4.45vw,4.5rem)] leading-[0.98] text-navy-deep">{t.title}</h1>
+              <p className="mt-7 max-w-[620px] font-sans text-lg font-semibold leading-relaxed text-navy md:text-xl">{t.lead}</p>
+              <p className="mt-3 max-w-[600px] font-sans text-base leading-relaxed text-navy/75 md:text-lg">{t.body}</p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a href="#how-it-works" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "explore_activation", cta_location: "hero", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 bg-navy px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-gold hover:text-navy">{t.explore}<ArrowRight size={15} /></a>
+                <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "private_discussion", cta_location: "hero", language: lang })} className="inline-flex min-h-12 items-center justify-center border border-navy/25 bg-white/80 px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy transition-colors hover:border-gold hover:text-gold-ink">{t.discuss}</a>
               </div>
-              <p className="max-w-2xl font-sans text-base leading-[1.85] text-white/70 md:text-lg">{t.reachBody}</p>
-            </motion.div>
-
-            <div className="mt-10 grid gap-4 lg:grid-cols-[1.45fr_0.78fr_0.78fr]">
-              {[
-                {
-                  src: "/videos/miami_madrid_transition.mp4",
-                  poster: "/images/posters/miami_madrid_transition.jpg",
-                  aspect: "aspect-[16/11] lg:aspect-auto lg:min-h-[520px]",
-                },
-                {
-                  src: "/videos/waterfront_house_global_reach.mp4",
-                  poster: "/images/posters/waterfront_house_global_reach.jpg",
-                  aspect: "aspect-[4/5] lg:aspect-auto lg:min-h-[520px]",
-                },
-                {
-                  src: "/videos/split_foto_miami_spain_mls.mp4",
-                  poster: "/images/posters/split_foto_miami_spain_mls.jpg",
-                  aspect: "aspect-[4/5] lg:aspect-auto lg:min-h-[520px]",
-                },
-              ].map((clip, index) => (
-                <motion.figure
-                  key={clip.src}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  variants={fade}
-                  className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-navy-deep shadow-[0_24px_80px_rgba(0,0,0,0.35)] ${clip.aspect}`}
-                >
-                  <LazyVideo
-                    src={clip.src}
-                    poster={clip.poster}
-                    rootMargin="180px"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/10 to-transparent" />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-6">
-                    <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.22em] text-gold">{t.reachCaptions[index][0]}</p>
-                    <p className="mt-2 max-w-md font-sans text-sm leading-relaxed text-white/80">{t.reachCaptions[index][1]}</p>
-                  </figcaption>
-                </motion.figure>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Section D — Distribution Advantage ── */}
-        <section className="bg-ivory px-6 py-16 text-navy md:py-24 border-b border-bone">
-          <div className="mx-auto max-w-5xl">
-            <div className="max-w-3xl">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">{t.distEyebrow}</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.distIntro}</h2>
-            </div>
-
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {FIGURES.map((f) => (
-                <div
-                  key={f.v}
-                  className="group rounded-xl border border-bone/80 bg-white p-6 shadow-xs transition-all duration-300 hover:border-gold hover:shadow-md flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="h-0.5 w-6 bg-gold/50 transition-all duration-300 group-hover:w-full group-hover:bg-gold" />
-                    <div className="mt-3 font-serif text-3xl sm:text-4xl text-navy-deep tracking-tight">{f.v}</div>
-                    <div className="mt-2 font-sans text-sm font-medium leading-snug text-navy/75">{f[lang]}</div>
-                  </div>
-                  {f.caption && (
-                    <p className="mt-4 border-t border-hairline pt-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.14em] text-navy/55">
-                      {t.caption}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Activation line */}
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fade}
-              className="mt-10 rounded-xl border-l-4 border-gold bg-white p-6 sm:p-7 shadow-xs"
-            >
-              <p className="font-serif text-lg sm:text-xl leading-relaxed text-navy-deep">
-                {t.activation}
-              </p>
+              <p className="mt-7 max-w-[620px] font-mono text-[9px] uppercase leading-relaxed tracking-[0.13em] text-navy/60">{t.compliance}</p>
             </motion.div>
           </div>
         </section>
 
-        {/* ── Mandate advantage — agent-facing and owner-presentable ── */}
-        <section id="partner-route" className="bg-white px-6 py-16 text-navy md:py-24">
+        <section aria-label="Network proof" className="border-b border-bone bg-white px-6 py-10 md:py-12">
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-              <div>
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-ink">{t.mandateEyebrow}</p>
-                <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.mandateTitle}</h2>
-              </div>
-              <p className="max-w-2xl font-sans text-base leading-[1.85] text-navy/75 md:text-lg">{t.mandateBody}</p>
+            <div className="grid gap-8 md:grid-cols-3 md:gap-0">
+              {t.proof.map(([value, label], index) => <div key={value} className={`text-center md:px-8 ${index > 0 ? "md:border-l md:border-bone" : ""}`}><p className="font-serif text-4xl leading-none text-navy-deep md:text-5xl">{value}</p><p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">{label}</p></div>)}
             </div>
-
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {t.mandateCards.map(([title, body], index) => (
-                <motion.article
-                  key={title}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  variants={fade}
-                  className="relative overflow-hidden rounded-2xl border border-bone/80 bg-ivory p-7 shadow-xs"
-                >
-                  <span className="font-mono text-[10px] font-semibold tracking-[0.24em] text-gold-ink">0{index + 1}</span>
-                  <h3 className="mt-5 font-serif text-2xl leading-tight text-navy-deep">{title}</h3>
-                  <p className="mt-4 font-sans text-sm leading-[1.8] text-navy/75">{body}</p>
-                </motion.article>
-              ))}
-            </div>
-
-            <motion.aside
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fade}
-              className="mt-8 grid gap-5 border-l-4 border-gold bg-navy-deep p-7 text-white md:grid-cols-[auto_1fr]"
-            >
-              <ShieldCheck size={28} className="text-gold" />
-              <div>
-                <h3 className="font-serif text-2xl text-white">{t.ownerRouteTitle}</h3>
-                <p className="mt-3 max-w-3xl font-sans text-base leading-[1.8] text-white/75">{t.ownerRoute}</p>
-                <p className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.16em] text-gold">{t.ownerRouteNote}</p>
-              </div>
-            </motion.aside>
+            <p className="mt-8 text-center font-mono text-[9px] uppercase tracking-[0.13em] text-navy/50">{t.proofNote}</p>
           </div>
         </section>
 
-        {/* ── Section E — The structure, stated plainly ── */}
-        <section className="bg-ivory px-6 py-16 text-navy md:py-24 border-y border-bone">
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fade}
-            className="mx-auto max-w-4xl rounded-2xl border border-bone/80 bg-white p-8 sm:p-12 shadow-xs"
-          >
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">{t.structureEyebrow}</p>
-            <p className="mt-6 font-sans text-base sm:text-lg leading-[1.9] text-navy/80">{t.structureBody}</p>
+        <section id="how-it-works" className="scroll-mt-20 bg-ivory px-6 py-16 md:py-24">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }} variants={reveal} className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-3xl text-center"><p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-ink">{t.workflowKicker}</p><h2 className="mt-4 text-balance font-serif text-4xl leading-tight text-navy-deep md:text-5xl">{t.workflowTitle}</h2><p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-navy/70 md:text-lg">{t.workflowBody}</p></div>
+            <div className="mt-10 border-y border-bone bg-white px-3 py-7 md:mt-14 md:px-8 md:py-10"><GlobalActivationFlow stages={[...t.stages]} ariaLabel={t.workflowTitle} selectedLabel={t.selectedStage} /></div>
+            <div className="mt-10 grid overflow-hidden border border-bone bg-white lg:mt-14 lg:grid-cols-2">
+              <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-12">
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.networkKicker}</p>
+                <h3 className="mt-4 text-balance font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.networkTitle}</h3>
+                <p className="mt-5 font-sans text-base leading-[1.75] text-navy/72">{t.networkBody}</p>
+                <figure className="mt-7 overflow-hidden border border-bone bg-ivory p-2">
+                  <img src="/images/carlos-property-media-team.webp" alt="Carlos Uzcategui with a South Florida property media team inside a waterfront residence" width={1920} height={1080} loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
+                  <figcaption className="px-3 py-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.13em] text-navy/58">{t.mediaCaption}</figcaption>
+                </figure>
+              </div>
+              <figure className="flex min-h-[360px] flex-col justify-center bg-navy-deep p-5 sm:p-8 lg:min-h-full">
+                <div className="relative aspect-video overflow-hidden border border-white/15 bg-black shadow-2xl">
+                  <iframe src="https://www.youtube.com/embed/M8Hx5D5ghag?si=XAE-_zpkAJCVf_Yp&rel=0&modestbranding=1" title={t.teamVideoTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 h-full w-full" />
+                </div>
+                <figcaption className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{t.teamVideoLabel}</figcaption>
+              </figure>
+            </div>
           </motion.div>
         </section>
 
-        {/* Property-presentation proof — authentic media */}
-        <section className="bg-white px-6 py-16 text-navy md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <motion.figure
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fade}
-              className="overflow-hidden rounded-2xl border border-bone/80 bg-navy-deep shadow-md"
-            >
-              <div className="aspect-[16/10] overflow-hidden sm:aspect-video">
-                <img
-                  src="/images/carlos-property-media-team.webp"
-                  alt={t.proofAlt}
-                  width={1920}
-                  height={1080}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-              <figcaption className="px-6 py-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/75 bg-navy-deep border-t border-white/10">
-                {t.proofCaption}
-              </figcaption>
-            </motion.figure>
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fade}
-            >
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">{t.proofEyebrow}</p>
-              <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.proofTitle}</h2>
-              <p className="mt-5 font-sans text-base leading-[1.85] text-navy/75">{t.proofBody}</p>
+        <section id="mandate" className="bg-white text-navy">
+          <div className="grid min-h-[680px] lg:grid-cols-2">
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal} className="flex items-center px-6 py-16 sm:px-10 lg:px-[max(4rem,calc((100vw-80rem)/2))] lg:py-24">
+              <div className="max-w-xl"><h2 className="font-serif text-4xl leading-[1.08] text-navy-deep md:text-5xl">{t.mandateTitleA}<br /><span className="text-gold-ink">{t.mandateTitleB}</span></h2><p className="mt-6 font-sans text-base leading-[1.8] text-navy/75 md:text-lg">{t.mandateBody}</p><ul className="mt-8 space-y-5">{t.mandatePoints.map((point) => <li key={point} className="flex gap-4 border-t border-bone pt-5 font-sans text-sm leading-relaxed text-navy md:text-base"><span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-gold text-gold-ink"><Check size={13} /></span>{point}</li>)}</ul></div>
             </motion.div>
+            <figure className="relative min-h-[420px] overflow-hidden lg:min-h-full"><img src="/images/carlos-miami-river.webp" alt="Carlos Uzcategui at a Miami waterfront property, representing the South Florida activation layer" width={1920} height={1080} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-center" /><figcaption className="absolute bottom-5 left-5 border border-white/25 bg-navy-deep/88 px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white backdrop-blur-sm">International property → South Florida activation</figcaption></figure>
           </div>
         </section>
 
-        {/* ── Section F — How it works (the constant + two ways to list) ── */}
-        <section className="bg-navy-deep px-6 py-16 md:py-24">
-          <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.howEyebrow}</p>
-
-            {/* Four-step overview — the simple version first; the mechanics
-                blocks below carry the detail for readers who want it. */}
-            <h2 className="mt-6 font-serif text-2xl text-white md:text-3xl">{t.stepsTitle}</h2>
-            <ol className="mt-8 grid gap-5 md:grid-cols-4">
-              {t.steps.map(([title, body], i) => (
-                <motion.li
-                  key={title}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  variants={fade}
-                  className="border-t-2 border-gold/60 pt-5"
-                >
-                  <span className="font-serif text-3xl text-gold">{i + 1}</span>
-                  <h3 className="mt-3 font-serif text-lg text-white">{title}</h3>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">{body}</p>
-                </motion.li>
-              ))}
-            </ol>
-
-            {/* Block 1 — cooperating commission */}
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fade}
-              className="mt-8 border border-gold/30 bg-white/[0.04] p-8 md:p-10"
-            >
-              <div className="flex h-11 w-11 items-center justify-center border border-gold/30 bg-gold/10">
-                <FileCheck size={18} className="text-gold" />
-              </div>
-              <h2 className="mt-5 font-serif text-2xl text-white md:text-3xl">{t.coopTitle}</h2>
-              <p className="mt-4 max-w-3xl font-sans text-base leading-[1.85] text-white/70">{t.coopBody}</p>
-            </motion.div>
-
-            {/* Block 2 — two ways to list */}
-            <h3 className="mt-14 font-serif text-2xl text-white md:text-3xl">{t.twoWaysTitle}</h3>
-            <div className="mt-7 grid gap-5 md:grid-cols-2">
-              <motion.div
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fade}
-                className="flex flex-col border border-white/12 bg-white/[0.03] p-8"
-              >
-                <KeyRound size={20} className="text-gold" />
-                <h4 className="mt-4 font-serif text-xl text-white">{t.wayExclusiveTitle}</h4>
-                <p className="mt-3 font-sans text-base leading-[1.8] text-white/65">{t.wayExclusiveBody}</p>
-              </motion.div>
-              <motion.div
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fade}
-                className="flex flex-col border border-white/12 bg-white/[0.03] p-8"
-              >
-                <ClipboardList size={20} className="text-gold" />
-                <h4 className="mt-4 font-serif text-xl text-white">{t.wayPortfolioTitle}</h4>
-                <p className="mt-3 font-sans text-base leading-[1.8] text-white/65">{t.wayPortfolioBody}</p>
-              </motion.div>
-            </div>
-
-            {/* Placement plan scopes (named, no prices) */}
-            <div className="mt-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.scopesEyebrow}</p>
-              <div className="mt-4 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-3">
-                {t.scopes.map(([name, desc]) => (
-                  <div key={name} className="bg-navy-deep p-6">
-                    <p className="font-serif text-lg text-gold">{name}</p>
-                    <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <p className="mt-7 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{t.twoWaysClosing}</p>
-
-            {/* Mid-page conversion point — momentum dies without one between
-                the mechanics and the (long) intake form. */}
-            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-white/10 pt-10">
-              <a
-                href="#listing-request"
-                onClick={() => pushEvent("global_desk_cta_click", { cta_type: "international_property_activation", cta_location: "mid_page", language: lang })}
-                className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
-              >
-                {t.midCta}
-                <ChevronRight size={14} />
-              </a>
-              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-                {t.midCtaAlt}{" "}
-                <a href={WA_ES} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline underline-offset-2 hover:opacity-80">
-                  {t.waES}
-                </a>{" "}
-                ·{" "}
-                <a href={WA_US} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold underline underline-offset-2 hover:opacity-80">
-                  {t.waUS}
-                </a>
-              </p>
-            </div>
+        <section id="carlos" className="border-y border-bone bg-ivory px-6 py-16 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+            <motion.figure initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal} className="mx-auto w-full max-w-sm overflow-hidden border border-bone bg-white p-3 shadow-sm lg:mx-0"><img src="/images/carlos-headshot.jpg" alt="Carlos Uzcategui, Florida Licensed Realtor with United Realty Group" width={800} height={817} loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover object-top" /></motion.figure>
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal}><p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-ink">{t.trustKicker}</p><h2 className="mt-4 font-serif text-5xl leading-none text-navy-deep md:text-6xl">{t.trustTitle}</h2><p className="mt-3 font-serif text-2xl text-gold-ink">{t.trustSub}</p><p className="mt-6 max-w-2xl font-sans text-base leading-[1.8] text-navy/75 md:text-lg">{t.trustBody}</p><div className="mt-8 grid gap-px border border-bone bg-bone sm:grid-cols-2">{t.credentials.map((credential) => <p key={credential} className="bg-white p-5 font-sans text-sm font-semibold leading-relaxed text-navy">{credential}</p>)}</div></motion.div>
           </div>
         </section>
 
-        {/* ── Section F2 — FAQ (objection handling; content mirrors the
-             mechanics sections above, reformatted for scanning) ── */}
-        <section className="bg-white px-6 py-16 text-navy md:py-24">
-          <div className="mx-auto max-w-3xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.faqEyebrow}</p>
-            <h2 className="mt-5 font-serif text-2xl text-navy md:text-3xl">{t.faqTitle}</h2>
-            <div className="mt-9 divide-y divide-navy/10 border-y border-navy/10">
-              {t.faqs.map(([q, a]) => (
-                <details key={q} className="group py-5">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-navy">
-                    {q}
-                    <ChevronRight size={16} className="shrink-0 text-gold-ink transition-transform group-open:rotate-90" />
-                  </summary>
-                  <p className="mt-3 max-w-2xl font-sans text-base leading-[1.8] text-navy/70">{a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-        <JsonLd
-          id="global-desk-faq"
-          data={{
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": t.faqs.map(([q, a]) => ({
-              "@type": "Question",
-              "name": q,
-              "acceptedAnswer": { "@type": "Answer", "text": a },
-            })),
-          }}
-        />
+        <section className="bg-white px-6 py-14 md:py-20"><div className="mx-auto max-w-4xl"><h2 className="text-center font-serif text-3xl text-navy-deep md:text-4xl">{t.faqTitle}</h2><div className="mt-8 divide-y divide-bone border-y border-bone">{t.faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 font-serif text-lg text-navy-deep marker:hidden">{question}<span aria-hidden="true" className="font-sans text-xl text-gold-ink transition-transform group-open:rotate-45">+</span></summary><p className="max-w-3xl pb-2 pt-3 font-sans text-base leading-[1.8] text-navy/70">{answer}</p></details>)}</div></div></section>
+        <JsonLd id="global-desk-faq" data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: t.faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) }} />
 
-        {/* ── Section G — Listing intake form ── */}
-        <section id="listing-request" className="scroll-mt-20 bg-[#060D18] px-6 py-16 md:py-24">
-          <div className="mx-auto max-w-3xl">
-            <GlobalDeskListingForm lang={lang} />
-            <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
-              {lang === "es" ? (
-                <>¿Agente, agencia, promotor u otro profesional inmobiliario local? Presente un inmueble cualificado o solicite una conversación de colaboración.</>
-              ) : (
-                <>Agent, agency, developer, or other local real estate professional? Present one qualified listing or request a partnership conversation.</>
-              )}
-            </p>
-          </div>
-        </section>
-
-        {/* ── Section H — Compliance footer block ── */}
-        <section className="border-t border-gold/20 bg-navy-deep px-6 py-14">
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">{t.footerCompliance}</p>
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
-              <a href="mailto:contact@carlosre.com" className="inline-flex items-center py-2 hover:text-gold">contact@carlosre.com</a>
-              <span className="text-gold/40">·</span>
-              <a href={WA_US} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 hover:text-gold">{t.waUS} +1 954-865-6622</a>
-              <span className="text-gold/40">·</span>
-              <a href={WA_ES} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 hover:text-gold">{t.waES} +34 646 85 30 78</a>
-              <span className="text-gold/40">·</span>
-              <a href="tel:+19544502000" className="inline-flex items-center py-2 underline underline-offset-2 hover:text-gold">1-954-450-2000</a>
-            </div>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">{t.footerAddress}</p>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-xs leading-relaxed text-white/55">{t.footerCredibility}</p>
+        <section id="listing-request" className="scroll-mt-20 bg-navy-deep px-6 py-16 text-white md:py-24">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-10 border-b border-white/12 pb-14 lg:grid-cols-[1fr_auto] lg:items-end"><div className="max-w-3xl"><h2 className="text-balance font-serif text-4xl leading-tight text-white md:text-5xl">{t.closeTitle}</h2><p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">{t.closeBody}</p></div><div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><a href={`${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "whatsapp_private_discussion", cta_location: "close", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 bg-gold px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy-deep transition-colors hover:bg-white"><MessageCircle size={15} />{t.closeCta}</a><a href="mailto:contact@carlosre.com" className="inline-flex min-h-11 items-center justify-center gap-2 border border-white/20 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.15em] text-white/80 transition-colors hover:border-gold hover:text-gold"><Mail size={14} />contact@carlosre.com</a></div></div>
+            <div className="mx-auto mt-14 max-w-3xl"><div className="mb-8 text-center"><p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.formIntro}</p><p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-white/60">{t.formBody}</p></div><GlobalDeskListingForm lang={lang} /></div>
+            <div className="mt-12 border-t border-white/10 pt-8 text-center"><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/80">{t.compliance}</p><div className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-3 font-mono text-[10px] uppercase tracking-[0.12em] text-white/55"><a href={WA_US} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp USA +1 954-865-6622</a><a href={WA_ES} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp Spain +34 646 85 30 78</a><a href="tel:+19544502000" className="hover:text-gold">Office 1-954-450-2000</a></div></div>
           </div>
         </section>
 

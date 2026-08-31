@@ -11,21 +11,23 @@ assert.match(source, /localStorage\.getItem\("gd-lang"\)/);
 assert.match(source, /hrefLang="en"/);
 assert.match(source, /hrefLang="es"/);
 assert.match(source, /rel="canonical" href="https:\/\/homesprofessional\.com\/global-desk"/);
-assert.match(source, /Miami Global Listing Desk/);
-assert.doesNotMatch(source, /Miami Global Desk(?! —)/, "use the approved Miami Global Listing Desk service name");
+assert.match(source, /Miami Global Desk · International Listing Activation/);
+assert.doesNotMatch(source, /Miami Global Listing Desk|Global Desk Miami|Miami Desk|International Desk/, "use the approved Miami Global Desk service name");
 assert.match(source, /Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity/);
 
-// Only the verified distribution figures may appear in the Global Desk proof grid.
-for (const figure of ["93,000", "200+", "19 languages", "260+", "437+", "11", "$69B", "3,500+", "Florida office network"]) {
-  assert.ok(source.includes(figure) || form.includes(figure), `missing verified figure or label: ${figure}`);
+// The redesigned proof strip intentionally keeps only the three verified signals
+// that can be understood at a glance.
+for (const figure of ["93,000", "World’s largest", "437+", "May 11, 2026"]) {
+  assert.ok(source.includes(figure), `missing verified proof signal: ${figure}`);
 }
 
 // One commercial hierarchy: activation first, private WhatsApp introduction second.
-assert.match(source, /cta_type: "international_property_activation"/);
-assert.match(source, /cta_type: "private_introduction"/);
+assert.match(source, /cta_type: "explore_activation"/);
+assert.match(source, /cta_type: "private_discussion"/);
+assert.match(source, /cta_type: "whatsapp_private_discussion"/);
 assert.match(source, /href="#listing-request"/);
 assert.match(source, /global_desk_cta_click/);
-const heroCtas = source.slice(source.indexOf("{/* CTA buttons */}"), source.indexOf("{/* Credibility & Compliance Footnote */}"));
+const heroCtas = source.slice(source.indexOf('href="#how-it-works"'), source.indexOf('aria-label="Network proof"'));
 assert.doesNotMatch(
   heroCtas,
   /mailto:/,
@@ -35,9 +37,9 @@ assert.doesNotMatch(
 // Brokerage-mediated, property-by-property language and outcome qualifications.
 for (const phrase of [
   "property by property",
-  "subject to brokerage, platform, property-eligibility, and compliance requirements",
-  "No placement, lead, buyer, commission, or sale is guaranteed.",
-  "local professional retains the client relationship and mandate",
+  "subject to brokerage approval, platform rules, property eligibility, cooperation terms, and applicable compliance requirements",
+  "Is exposure or a buyer guaranteed?",
+  "keeps the mandate, client relationship, local negotiation, and closing",
 ]) {
   assert.match(source, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
 }
