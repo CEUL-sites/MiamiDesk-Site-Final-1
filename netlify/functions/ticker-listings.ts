@@ -1,105 +1,96 @@
 import type { Handler } from "@netlify/functions";
+import {
+  APPROVED_CITIES,
+  MAX_PRICE,
+  MIN_PRICE,
+  mostRecentListingModification,
+  selectTickerListings,
+  TtlResponseCache,
+  type RawTickerListing,
+} from "./_shared/tickerInventory";
 
 const BRIDGE_TOKEN = process.env.BRIDGE_API_TOKEN ?? "";
-// Dataset slug is configurable so this matches every other Bridge function.
 const BRIDGE_DATASET_ID = (process.env.BRIDGE_DATASET_ID ?? "miamire").trim();
-const BRIDGE_BASE  = `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET_ID}/Property`;
+const BRIDGE_BASE = `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET_ID}/Property`;
+const CACHE_TTL_MS = 30 * 60 * 1000;
+const MAX_DATA_AGE_MS = 24 * 60 * 60 * 1000;
+const cache = new TtlResponseCache();
 
-let cache: { body: string; expires: number } | null = null;
-const CACHE_TTL_MS = 3600 * 1000;
+const SELECT = [
+  "ListingId", "ListingKey", "UnparsedAddress", "City", "PostalCode", "ListPrice",
+  "BedroomsTotal", "BathroomsTotalDecimal", "LivingArea", "PropertyType", "PropertySubType",
+  "StandardStatus", "ModificationTimestamp", "ListOfficeName",
+].join(",");
 
-const SELECT = "ListingId,UnparsedAddress,City,PostalCode,ListPrice,BedroomsTotal,BathroomsTotalDecimal,LivingArea,PropertyType,StandardStatus";
-const STATUS  = "(StandardStatus eq 'Active' or StandardStatus eq 'Pending')";
+const RESIDENTIAL_FILTER = [
+  "StandardStatus eq 'Active'",
+  "PropertyType eq 'Residential'",
+  "(PropertySubType eq 'Single Family Residence' or PropertySubType eq 'Condominium' or PropertySubType eq 'Townhouse')",
+  `ListPrice ge ${MIN_PRICE} and ListPrice le ${MAX_PRICE}`,
+  `(${APPROVED_CITIES.map((city) => `City eq '${city.replace(/'/g, "''")}'`).join(" or ")})`,
+].join(" and ");
 
-async function fetchBucket(
-  priceMin: number,
-  priceMax: number | null,
-  top: number,
-): Promise<Record<string, unknown>[]> {
-  const priceClause = priceMax
-    ? `ListPrice ge ${priceMin} and ListPrice lt ${priceMax}`
-    : `ListPrice ge ${priceMin}`;
+export interface TickerPayload {
+  value: ReturnType<typeof selectTickerListings>;
+  live: boolean;
+  source: string;
+  dataFreshness: string | null;
+  fetchedAt: string;
+  error?: string;
+}
+
+export async function loadTickerPayload(fetchImpl: typeof fetch, fetchedAt = new Date().toISOString()): Promise<TickerPayload> {
   const params = new URLSearchParams({
-    $filter:  `${STATUS} and ${priceClause}`,
-    $orderby: "ListPrice desc",
-    $top:     String(top),
-    $select:  SELECT,
+    $filter: RESIDENTIAL_FILTER,
+    $orderby: "ModificationTimestamp desc",
+    $top: "100",
+    $select: SELECT,
   });
-  const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`, {
+  const response = await fetchImpl(`${BRIDGE_BASE}?${params.toString()}`, {
     headers: { Authorization: `Bearer ${BRIDGE_TOKEN}` },
   });
-  if (!res.ok) return [];
-  const data = await res.json();
-  return (data?.value ?? []) as Record<string, unknown>[];
+  if (!response.ok) throw new Error(`Bridge IDX responded ${response.status}`);
+  const data = await response.json();
+  const value = selectTickerListings((data?.value ?? []) as RawTickerListing[]);
+  const dataFreshness = mostRecentListingModification(value);
+  const freshnessAge = dataFreshness ? Date.parse(fetchedAt) - Date.parse(dataFreshness) : Number.POSITIVE_INFINITY;
+  const isFresh = freshnessAge >= 0 && freshnessAge <= MAX_DATA_AGE_MS;
+  return {
+    value: isFresh ? value : [],
+    live: value.length > 0 && isFresh,
+    source: "Bridge IDX / Miami and South Florida REALTORS dataset",
+    dataFreshness,
+    fetchedAt,
+    ...(value.length === 0 ? { error: "no_valid_inventory" } : !isFresh ? { error: "stale_inventory" } : {}),
+  };
 }
 
-/** Interleave three buckets at a 2-2-1 ratio (cheap · mid · luxury) */
-function blend(
-  cheap: Record<string, unknown>[],
-  mid:   Record<string, unknown>[],
-  lux:   Record<string, unknown>[],
-): Record<string, unknown>[] {
-  const out: Record<string, unknown>[] = [];
-  let ci = 0, mi = 0, li = 0;
-  while (ci < cheap.length || mi < mid.length || li < lux.length) {
-    for (let k = 0; k < 2 && ci < cheap.length; k++) out.push(cheap[ci++]);
-    for (let k = 0; k < 2 && mi < mid.length;   k++) out.push(mid[mi++]);
-    if (li < lux.length) out.push(lux[li++]);
-  }
-  return out;
+function json(statusCode: number, body: string, cacheControl: string, cacheStatus?: string) {
+  return {
+    statusCode,
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": cacheControl,
+      "Access-Control-Allow-Origin": "https://homesprofessional.com",
+      ...(cacheStatus ? { "X-Cache": cacheStatus } : {}),
+    },
+    body,
+  };
 }
 
-export const handler: Handler = async () => {
+export const handler: Handler = async (event) => {
+  if (event.httpMethod && event.httpMethod !== "GET") return json(405, JSON.stringify({ error: "method_not_allowed" }), "no-store");
   if (!BRIDGE_TOKEN) {
-    return {
-      statusCode: 200,
-      headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
-      body: JSON.stringify({ value: [], live: false, error: "Bridge IDX token not configured" }),
-    };
+    return json(503, JSON.stringify({ value: [], live: false, dataFreshness: null, error: "not_configured" }), "no-store");
   }
-
-  if (cache && cache.expires > Date.now()) {
-    return {
-      statusCode: 200,
-      headers: { "Content-Type": "application/json", "Cache-Control": "public, max-age=3600" },
-      body: cache.body,
-    };
-  }
-
+  const cached = cache.get();
+  if (cached) return json(200, cached, "public, max-age=300, stale-while-revalidate=900", "HIT");
   try {
-    // Three price buckets — parallel fetches
-    // cheap  (~50%): $600K–$1.5M  → around $1M, above and below
-    // mid    (~40%): $1.5M–$5M   → aspirational range
-    // luxury (~10%): $5M+         → small luxury slice
-    const [cheap, mid, lux] = await Promise.all([
-      fetchBucket(600_000,   1_500_000, 15),
-      fetchBucket(1_500_000, 5_000_000, 12),
-      fetchBucket(5_000_000, null,       3),
-    ]);
-
-    const value = blend(cheap, mid, lux);
-
-    const body = JSON.stringify({
-      value,
-      live: true,
-      source: "Bridge IDX / Miami REALTORS dataset",
-      updatedAt: new Date().toISOString(),
-    });
-    cache = { body, expires: Date.now() + CACHE_TTL_MS };
-    return {
-      statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-        "Cache-Control": "public, max-age=3600",
-        "Access-Control-Allow-Origin": "https://homesprofessional.com",
-      },
-      body,
-    };
+    const payload = await loadTickerPayload(fetch);
+    const body = JSON.stringify(payload);
+    cache.set(body, CACHE_TTL_MS);
+    return json(200, body, "public, max-age=300, stale-while-revalidate=900", "MISS");
   } catch {
-    return {
-      statusCode: 500,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ value: [], live: false, error: "fetch_failed" }),
-    };
+    return json(502, JSON.stringify({ value: [], live: false, dataFreshness: null, error: "fetch_failed" }), "no-store");
   }
 };
