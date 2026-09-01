@@ -189,7 +189,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
 
   // text-base (16px) prevents iOS Safari from auto-zooming on input focus
   const inputCls =
-    "w-full rounded-xl bg-white/[0.06] border border-white/15 px-4 py-3.5 font-sans text-base text-white placeholder:text-white/35 outline-none transition-all duration-200 focus:border-gold/80 focus:bg-white/[0.1] focus:ring-2 focus:ring-gold/25";
+    "w-full rounded-md bg-white/[0.045] border border-white/20 px-3.5 py-2.5 font-sans text-base text-white placeholder:text-white/40 outline-none transition-all duration-200 focus:border-gold focus:bg-white/[0.08] focus:ring-2 focus:ring-gold/25";
   const selectCls =
     inputCls + " cursor-pointer appearance-none pr-9";
 
@@ -201,23 +201,18 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       onFocus={handleFormFocus}
-      className="rounded-2xl bg-[#071120]/95 border border-gold/30 backdrop-blur-2xl p-6 sm:p-8 text-left shadow-[0_25px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(176,141,87,0.12)]"
+      className="rounded-lg border border-gold/45 bg-[#071321]/95 p-4 text-left shadow-[0_24px_60px_rgba(0,0,0,0.42)] sm:p-5"
     >
       <input type="hidden" name="form-name" value="seller-hero" />
       <p aria-hidden="true" className="hidden">
         <label>Don't fill this out: <input name="bot-field" /></label>
       </p>
 
-      {/* Header row with step indicator */}
-      <div className="mb-5">
+      {/* Clear promise and privacy cue; no decorative step chrome. */}
+      <div className="mb-3.5">
         <div className="flex items-center justify-between gap-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold font-semibold">{t.eyebrow}</span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">{t.badge}</span>
-        </div>
-        <div className="mt-3 flex items-center gap-2">
-          <div className="h-1 flex-1 rounded-full bg-gold shadow-[0_0_8px_rgba(176,141,87,0.6)]" />
-          <div className="h-1 flex-1 rounded-full bg-white/15" />
-          <span className="ml-1 font-mono text-[9px] uppercase tracking-[0.15em] text-white/60">Step 1 of 2</span>
+          <span className="font-serif text-xl text-gold sm:text-[1.35rem]">{t.eyebrow}</span>
+          <span className="font-sans text-[11px] text-white/65">{t.badge}</span>
         </div>
       </div>
 
@@ -234,13 +229,13 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           placeholder={t.address}
           autoComplete="street-address"
           style={{ paddingLeft: "2.75rem" }}
-          className="w-full rounded-xl bg-white/[0.08] border border-gold/35 px-4 py-4 font-sans text-base text-white placeholder:text-white/35 outline-none transition-all duration-200 focus:border-gold focus:bg-white/[0.12] focus:ring-2 focus:ring-gold/25"
+          className="w-full rounded-md border border-gold/45 bg-white/[0.055] px-4 py-3 font-sans text-base text-white placeholder:text-white/40 outline-none transition-all duration-200 focus:border-gold focus:bg-white/[0.09] focus:ring-2 focus:ring-gold/25"
           aria-label={t.address}
         />
       </div>
 
       {/* Name + Phone */}
-      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="mt-2 grid grid-cols-1 gap-2.5 min-[380px]:grid-cols-2">
         <input
           required name="name" type="text"
           value={form.name} onChange={update("name")}
@@ -255,16 +250,14 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         />
       </div>
 
-      {/* Email — optional; enables the written valuation + auto-acknowledgment */}
-      <input
-        name="email" type="email"
-        value={form.email} onChange={update("email")}
-        placeholder={t.email} autoComplete="email" inputMode="email"
-        className={inputCls + " mt-3"} aria-label={t.email}
-      />
-
-      {/* Market + Timeline — each full-width row so labels never truncate */}
-      <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {/* Optional email and market stay compact; timeline remains full width. */}
+      <div className="mt-2 grid grid-cols-1 gap-2.5 min-[380px]:grid-cols-2">
+        <input
+          name="email" type="email"
+          value={form.email} onChange={update("email")}
+          placeholder={t.email} autoComplete="email" inputMode="email"
+          className={inputCls} aria-label={t.email}
+        />
         <div className="relative">
           <select
             name="city" value={form.city} onChange={update("city")}
@@ -274,19 +267,19 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           </select>
           <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
         </div>
-        <div className="relative">
-          <select
-            name="timeline" value={form.timeline} onChange={update("timeline")}
-            className={selectCls} aria-label="Timeline"
-          >
-            {t.timelines.map((tl) => <option key={tl}>{tl}</option>)}
-          </select>
-          <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
-        </div>
+      </div>
+      <div className="relative mt-2">
+        <select
+          name="timeline" value={form.timeline} onChange={update("timeline")}
+          className={selectCls} aria-label="Timeline"
+        >
+          {t.timelines.map((tl) => <option key={tl}>{tl}</option>)}
+        </select>
+        <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
       </div>
 
       {/* WhatsApp/SMS consent — optional opt-in */}
-      <label className="mt-3 flex cursor-pointer items-start gap-2.5">
+      <label className="mt-2 flex cursor-pointer items-start gap-2.5">
         <input
           type="checkbox"
           name="messagingConsent"
@@ -294,7 +287,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
           className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
         />
-        <span className="font-sans text-[11px] leading-relaxed text-white/70">{t.consent}</span>
+        <span className="font-sans text-[10px] leading-[1.45] text-white/68">{t.consent}</span>
       </label>
 
       {status === "error" && (
@@ -305,47 +298,24 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="hero-cta-main mt-5 flex w-full items-center justify-center gap-2.5 rounded-lg px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep disabled:opacity-60"
+        className="hero-cta-main mt-2.5 flex w-full items-center justify-center gap-2.5 rounded-md px-5 py-3 font-sans text-sm font-semibold text-navy-deep disabled:opacity-60"
       >
         {status === "submitting"
           ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
           : <>{t.submit}<ArrowRight size={15} /></>}
       </button>
 
-      {/* Concrete outcome at the point of conversion */}
-      <p className="mt-4 text-center font-serif text-[13px] italic leading-snug text-white/60">
-        "{t.proofQuote}"{" "}
-        <span className="not-italic font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 whitespace-nowrap">
-          — {t.proofName}
-        </span>
+      <p className="mt-2 text-center font-sans text-[11px] leading-5 text-white/65">
+        Personal reply from Carlos · No listing commitment
       </p>
-
-      {/* Single trust row — stars + proof */}
-      <div className="mt-2.5 flex items-center justify-center gap-2">
-        <span className="flex gap-0.5 shrink-0" aria-hidden="true">
-          {[0,1,2,3,4].map(i => (
-            <svg key={i} width="11" height="11" viewBox="0 0 12 12" fill="#B08D57">
-              <path d="M6 0l1.35 4.15H12L8.32 6.72 9.67 10.87 6 8.3 2.33 10.87 3.68 6.72 0 4.15h4.65z"/>
-            </svg>
-          ))}
-        </span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 leading-snug">
-          5.0 · Personal reply from Carlos · No listing commitment
-        </span>
-      </div>
-
-      {/* WhatsApp fallback */}
-      <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
-        United Realty Group · {t.prefer}{" "}
-        <a
-          href={CONTACT.whatsappUS}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gold/60 hover:text-gold underline underline-offset-2 transition-colors"
-        >
-          {t.preferLink}
-        </a>
-      </p>
+      <a
+        href={CONTACT.whatsappUS}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="sr-only"
+      >
+        {t.prefer} {t.preferLink}
+      </a>
     </form>
   );
 }

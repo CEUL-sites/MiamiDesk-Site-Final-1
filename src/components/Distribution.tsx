@@ -31,8 +31,8 @@ const TOP_STATS = [
     display: "3,500",
     suffix: "+",
     label: "United Realty Group Agents",
-    sublabel: "Founded 2002 · Florida office network",
-    desc: "A full-service brokerage with an in-house title company behind every listing.",
+    sublabel: "Florida office network",
+    desc: "A full-service brokerage infrastructure supporting listing execution and local market coordination.",
   },
 ];
 
@@ -183,6 +183,15 @@ export function Distribution() {
           <StatCard key={stat.label} stat={stat} index={i} />
         ))}
       </div>
+
+      <details className="relative mx-auto max-w-6xl border-b border-gold/15 px-6 py-5 text-white/70">
+        <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">
+          Distribution eligibility
+        </summary>
+        <p className="mt-3 max-w-4xl font-sans text-xs leading-relaxed">
+          Distribution is subject to property type and eligibility, MLS rules, brokerage approval, platform participation and syndication partner availability.
+        </p>
+      </details>
 
       {/* ── How the listing system executes ─────────────────────── */}
       <div className="relative mx-auto max-w-6xl px-6 py-12 md:py-20">
