@@ -45,6 +45,21 @@ for (const phrase of [
 }
 assert.doesNotMatch(source, /guaranteed (?:placement|buyer|commission|sale)/i);
 
+// The local-network section must foreground authentic agent collaboration. Keep
+// the team video proportional and privacy-enhanced; do not restore the unrelated
+// property-media photo or the oversized dark video wrapper it previously used.
+assert.match(source, /youtube-nocookie\.com\/embed\/M8Hx5D5ghag/);
+assert.match(source, /className="relative aspect-video w-full overflow-hidden bg-navy-deep"/);
+assert.doesNotMatch(source, /carlos-property-media-team/);
+for (const collaborationStep of [
+  "Greater Miami agent review",
+  "Buyer representation",
+  "Broker-to-broker coordination",
+]) {
+  assert.ok(source.includes(collaborationStep), `missing local-network step: ${collaborationStep}`);
+}
+assert.match(source, /cta_type: "network_activation"/);
+
 // Intake remains the existing Netlify form with its attribution and safeguards.
 assert.match(form, /const FORM_NAME = "global-desk-listing"/);
 assert.match(form, /data-netlify="true"/);
