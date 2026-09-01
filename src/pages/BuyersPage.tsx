@@ -116,14 +116,14 @@ export default function BuyersPage() {
     <>
       <Helmet>
         <title>Buy in South Florida · 25 Years + a 3,500-Agent Network</title>
-        <meta name="description" content="Buyer representation across South Florida — 25 years, backed by United Realty Group's 3,500+ agents supported by a Florida office network. FL SL705771." />
+        <meta name="description" content="Buyer representation across South Florida — 25 years, backed by United Realty Group's 3,500+ agents across 19 Florida office locations. FL SL705771." />
         <meta name="keywords" content="buy home South Florida, Miami real estate buyer, United Realty Group buyer agent, Broward County homes, Miami-Dade real estate, relocation Florida, South Florida buyer agent, moving to Florida" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/comprar" />
         <meta property="og:title" content="Buy in South Florida | 25 Years + 3,500+ Agents Behind Every Purchase | Carlos Uzcategui" />
-        <meta property="og:description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by United Realty Group: 3,500+ agents; Florida office network. Bilingual English/Spanish. FL SL705771." />
+        <meta property="og:description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by United Realty Group: 3,500+ agents; 19 Florida office locations. Bilingual English/Spanish. FL SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/buy" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
@@ -138,7 +138,7 @@ export default function BuyersPage() {
           "name": "South Florida Buyer Representation",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "Real Estate Buyer Representation",
-          "description": "Buyer representation including professional MLS search, neighborhood analysis, offer strategy, and closing coordination across Miami-Dade, Broward, and Palm Beach counties — backed by United Realty Group's 3,500+ agents supported by a Florida office network.",
+          "description": "Buyer representation including professional MLS search, neighborhood analysis, offer strategy, and closing coordination across Miami-Dade, Broward, and Palm Beach counties — backed by United Realty Group's 3,500+ agents across 19 Florida office locations.",
           "areaServed": "South Florida",
           "url": "https://homesprofessional.com/buy",
           "offers": {
@@ -152,7 +152,7 @@ export default function BuyersPage() {
           "@type": "FAQPage",
           "mainEntity": [
             { "@type": "Question", "name": "Do I need a buyer's agent in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "A buyer's agent provides professional property search, negotiation support, market analysis, and closing coordination. Carlos works through United Realty Group's brokerage framework and applicable MLS, platform, legal, and compliance requirements." } },
-            { "@type": "Question", "name": "What does United Realty Group's size mean for me as a buyer?", "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group has 3,500+ agents supported by a Florida office network. For a buyer, that supports local coordination and buyer-agent cooperation across South Florida, subject to brokerage, platform, and compliance requirements." } },
+            { "@type": "Question", "name": "What does United Realty Group's size mean for me as a buyer?", "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group has 3,500+ agents across 19 Florida office locations. For a buyer, that supports local coordination and buyer-agent cooperation across South Florida, subject to brokerage, platform, and compliance requirements." } },
             { "@type": "Question", "name": "Can I buy a home in South Florida from abroad?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in serving international buyers, particularly from Spain and Latin America. Bilingual English/Spanish representation, foreign-national financing introductions, and remote transaction management are available." } },
             { "@type": "Question", "name": "What is the buying process in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "The process includes buyer consultation, professional property search, offer submission, inspection, financing coordination, title review, and closing. Timing depends on the contract, financing, property, and parties involved." } }
           ]
@@ -180,7 +180,7 @@ export default function BuyersPage() {
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
             Direct buyer representation across Miami-Dade, Broward, and Palm Beach — in English or Spanish —
             through United Realty Group's professional Florida brokerage framework, with {CONTACT.stats.urgAgents} agents
-            and a {CONTACT.stats.urgOfficeNetwork}.
+            across {CONTACT.stats.urgOfficeNetwork}.
           </p>
           {/* Scale strip — the strength story in four figures */}
           <Tilt3D className="mx-auto mt-8 max-w-3xl">
@@ -188,7 +188,7 @@ export default function BuyersPage() {
               {[
                 { value: `${CONTACT.stats.experience} yrs`, label: "Licensed since 2001" },
                 { value: CONTACT.stats.urgAgents, label: "URG agents statewide" },
-                { value: "Florida", label: "office network" },
+                { value: CONTACT.stats.urgFloridaOfficeCount, label: "Florida office locations" },
                 { value: "EN / ES", label: "Bilingual coordination" },
               ].map((s) => (
                 <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
@@ -245,7 +245,7 @@ export default function BuyersPage() {
                 </h2>
                 <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
                   Carlos represents buyers through United Realty Group's professional Florida brokerage framework:
-                  {" "}{CONTACT.stats.urgAgents} agents and a {CONTACT.stats.urgOfficeNetwork}. That scale supports
+                  {" "}{CONTACT.stats.urgAgents} agents across {CONTACT.stats.urgOfficeNetwork}. That scale supports
                   local coordination across Miami-Dade, Broward, and Palm Beach while Carlos remains the accountable buyer representative.
                 </p>
                 <p className="mt-4 font-sans text-[15px] leading-relaxed text-ink-primary/65">
@@ -255,7 +255,7 @@ export default function BuyersPage() {
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
-                    `${CONTACT.stats.urgAgents} licensed agents and a ${CONTACT.stats.urgOfficeNetwork}`,
+                    `${CONTACT.stats.urgAgents} licensed agents across ${CONTACT.stats.urgOfficeNetwork}`,
                     "Deep office coverage of Broward & Miami-Dade — Plantation HQ, Weston, Pembroke Pines, Kendall, Hialeah, Aventura, Fort Lauderdale & more",
                     "Eligible MLS search and buyer-agent coordination",
                     "Bilingual English / Spanish representation",

@@ -70,7 +70,7 @@ const STEPS = [
     label: "THE RESULT",
     headline: "The buyer no one else could reach.",
     sub: "A Spanish property owner can combine local-market representation with South Florida buyer-agent activation through a compliant professional framework. No buyer, lead, placement, or sale is guaranteed.",
-    stat: "United Realty Group — full-service brokerage · in-house title company",
+    stat: "United Realty Group — 3,500+ agents · 19 Florida office locations",
     side: "right" as const,
     color: GOLD_SOFT,
   },

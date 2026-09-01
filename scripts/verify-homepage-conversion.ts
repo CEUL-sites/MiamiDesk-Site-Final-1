@@ -206,7 +206,9 @@ assert.match(cookie, /md:left-6 md:right-auto/);
 assert.doesNotMatch(cookie, /md:left-auto md:right-6/);
 assert.match(proof, /id="client-reviews"/);
 assert.doesNotMatch(about, /founded in 2002|in-house title|Est\. 2002/i);
-assert.match(about, /3,500\+ agents supported by a Florida office network/);
+assert.match(about, /3,500\+ agents across \{URG_PUBLIC_OFFICE_NETWORK_LABEL\}/);
+assert.match(about, /URG_FLORIDA_OFFICE_NAMES\.map/);
+assert.match(about, /View the 19 Florida office locations/);
 assert.match(about, /showForm = true/);
 assert.match(about, /\{showForm && \(/, "AboutContact must support a reusable no-form profile mode");
 assert.equal(

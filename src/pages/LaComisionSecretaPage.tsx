@@ -399,8 +399,8 @@ export default function LaComisionSecretaPage() {
                 </p>
                 <p className="mt-4 font-sans text-sm leading-relaxed text-navy/65">
                   He works seller representation across Miami-Dade, Broward, and Palm Beach through
-                  United Realty Group — a full-service brokerage founded in 2002, with
-                  {" "}{CONTACT.stats.urgAgents} agents supported by its {CONTACT.stats.urgOfficeNetwork}.
+                  United Realty Group — a coordinated Florida brokerage platform with
+                  {" "}{CONTACT.stats.urgAgents} agents across {CONTACT.stats.urgOfficeNetwork}.
                   La Comisión Secreta is what he wishes existed when he started.
                 </p>
               </div>

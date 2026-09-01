@@ -57,7 +57,7 @@ This is why association documents have become a pricing factor in their own righ
 
 Buyers do not pay a premium for uncertainty. When insurability is undocumented, a buyer prices the worst plausible version of the answer into their offer — or into their post-inspection request. When the documentation is complete and available at launch, the conversation moves from speculation to evidence, and the seller is answering questions instead of absorbing assumptions.
 
-That preparation also determines who sees the property in a serious posture. A listing enters the world's largest local Realtor association's distribution infrastructure — 93,000 member agents, 200+ global portals publishing in 19 languages, and United Realty Group's 3,500+ agents supported by a Florida office network — but distribution does not guarantee price or timing. It creates exposure. What the buyer's agent finds when they look closely is what converts that exposure into a competitive offer.
+That preparation also determines who sees the property in a serious posture. A listing enters the world's largest local Realtor association's distribution infrastructure — 93,000 member agents, 200+ global portals publishing in 19 languages, and United Realty Group's 3,500+ agents across 19 Florida office locations — but distribution does not guarantee price or timing. It creates exposure. What the buyer's agent finds when they look closely is what converts that exposure into a competitive offer.
 
 The [pre-listing checklist](/journal/pre-listing-checklist-south-florida-2026) covers the broader preparation sequence this fits into, and [what it costs to sell in South Florida](/journal/seller-closing-costs-south-florida-2026) covers where these items land in net proceeds.
 

@@ -2,6 +2,7 @@ import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { LazyVideo } from "./LazyVideo";
 import { ReachFlow3D } from "./ReachFlow3D";
+import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "../data/urgOffices";
 const TOP_STATS = [
   {
     value: 93000,
@@ -24,8 +25,8 @@ const TOP_STATS = [
     display: "3,500",
     suffix: "+",
     label: "United Realty Group Agents",
-    sublabel: "Founded 2002 · Florida office network",
-    desc: "A full-service brokerage with an in-house title company behind every listing.",
+    sublabel: URG_PUBLIC_OFFICE_NETWORK_LABEL,
+    desc: "A coordinated brokerage footprint supporting listing execution and local market coordination across Florida.",
   },
 ];
 

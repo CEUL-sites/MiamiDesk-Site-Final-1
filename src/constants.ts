@@ -1,4 +1,4 @@
-import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "./data/urgOffices";
+import { URG_FLORIDA_OFFICE_COUNT, URG_PUBLIC_OFFICE_NETWORK_LABEL } from "./data/urgOffices";
 
 export const PUBLIC_COMPLIANCE =
   "Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.";
@@ -32,7 +32,7 @@ export const CONTACT = {
     agents: "93,000",
     urgAgents: "3,500+",
     urgOfficeNetwork: URG_PUBLIC_OFFICE_NETWORK_LABEL,
-    urgFounded: "2002",
+    urgFloridaOfficeCount: String(URG_FLORIDA_OFFICE_COUNT),
     brokerage: "United Realty Group",
     network: "Miami and South Florida REALTORS®"
   }

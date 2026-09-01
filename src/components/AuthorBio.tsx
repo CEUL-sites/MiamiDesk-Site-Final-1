@@ -50,7 +50,7 @@ export function AuthorBio() {
             bilingual English and Spanish practice serves both domestic clients and
             internationally based owners — including those evaluating their position in
             the current market before deciding to list. As an associate of United Realty
-            Group (full-service brokerage, founded 2002), Carlos coordinates directly
+            Group and its 19 Florida office locations, Carlos coordinates directly
             with the buyer-agent community throughout South Florida.
           </p>
 

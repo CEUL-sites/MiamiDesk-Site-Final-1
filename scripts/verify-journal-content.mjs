@@ -14,12 +14,16 @@ const complianceFooter = 'Florida Licensed Realtor® SL705771 · United Realty G
 const footerLikePattern = /Licensed\s+Realtor.*Equal\s+Housing/i;
 const verifiedFigureViolations = [
   {
-    pattern: /\b(?:19|20|21)\s+(?:Florida\s+)?(?:branch(?:es)?|office(?:s)?)\b/i,
-    message: 'Use neutral United Realty Group wording: Florida office network.',
+    pattern: /\b(?:20|21)\s+(?:Florida\s+)?(?:branch(?:es)?|office(?:s)?|office\s+locations)\b/i,
+    message: 'Use the currently verified United Realty Group wording: 19 Florida office locations.',
+  },
+  {
+    pattern: /\b19\s+(?:Florida\s+)?(?:branch(?:es)?|office(?:s)?)(?!\s+locations\b)/i,
+    message: 'Use the precise wording "19 Florida office locations," not "19 offices" or "19 branches."',
   },
   {
     pattern: /\$\s*69\s*B\b|69\s*billion/i,
-    message: 'The $69B / $69 billion network-volume figure is banned from all public copy. Use approved United Realty Group facts (3,500+ agents supported by a Florida office network) instead.',
+    message: 'The $69B / $69 billion network-volume figure is banned from all public copy. Use approved United Realty Group facts (3,500+ agents across 19 Florida office locations) instead.',
   },
   {
     pattern: /Realtor\s*\(\s*[Rr]\s*\)/,

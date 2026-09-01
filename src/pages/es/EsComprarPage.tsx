@@ -220,8 +220,8 @@ export default function EsComprarPage() {
                   // TODO: native Madrid editor review
                   { value: `${CONTACT.stats.experience} años`, label: "Con licencia desde 2001" },
                   { value: CONTACT.stats.urgAgents, label: "Agentes de URG" },
-                  { value: "Florida", label: "Red de oficinas" },
-                  { value: CONTACT.stats.urgFounded, label: "Fundación de URG" },
+                  { value: CONTACT.stats.urgFloridaOfficeCount, label: "Ubicaciones en Florida" },
+                  { value: "EN / ES", label: "Coordinación bilingüe" },
                 ].map((s) => (
                   <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
                     <p className="font-serif text-2xl text-gold">{s.value}</p>
@@ -324,20 +324,18 @@ export default function EsComprarPage() {
                 </h2>
                 <p className="mt-5 font-sans text-[15px] leading-relaxed text-navy-deep/65">
                   {/* TODO: native Madrid editor review */}
-                  Carlos es asociado de United Realty Group — una de las mayores
-                  agencias inmobiliarias independientes de Florida. Fundada
-                  en {CONTACT.stats.urgFounded}, URG cuenta
-                  con {CONTACT.stats.urgAgents} agentes con licencia y una red de
-                  oficinas en Florida. Carlos opera desde la sucursal oficial de Weston.
+                  Carlos es asociado de United Realty Group, una plataforma inmobiliaria
+                  de Florida con {CONTACT.stats.urgAgents} agentes y 19 ubicaciones de
+                  oficinas en el estado. Carlos opera desde la oficina de Weston.
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
                     // TODO: native Madrid editor review
-                    `${CONTACT.stats.urgAgents} agentes con licencia y una red de oficinas en Florida`,
+                    `${CONTACT.stats.urgAgents} agentes con licencia y 19 ubicaciones de oficinas en Florida`,
                     "Cobertura local de Broward y Miami-Dade — Weston, Pembroke Pines, Kendall, Hialeah, Aventura, Fort Lauderdale y más",
                     "Acceso completo al MLS de Miami and South Florida REALTORS®",
                     "Representación bilingüe en inglés y español",
-                    "Agencia independiente de servicio completo — establecida en 2002",
+                    "Plataforma inmobiliaria coordinada y sujeta a los requisitos de Florida",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
                       <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
@@ -362,7 +360,7 @@ export default function EsComprarPage() {
                 <div className="bg-navy-deep px-5 py-4">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · El Equipo</p>
                   <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
-                    {CONTACT.stats.urgAgents} agentes · Red de oficinas en Florida · Sede corporativa en Plantation · Est. {CONTACT.stats.urgFounded}
+                    {CONTACT.stats.urgAgents} agentes · 19 ubicaciones de oficinas en Florida · Sede corporativa en Plantation
                   </p>
                 </div>
               </div>
