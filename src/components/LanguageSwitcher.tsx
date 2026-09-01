@@ -46,7 +46,7 @@ export function LanguageSwitcher({ onLight = false }: { onLight?: boolean }) {
     : (EN_TO_ES[path] ?? "/es");
 
   const baseClass =
-    "font-mono text-[10px] uppercase tracking-[0.22em] px-2 py-1 transition-colors duration-200";
+    "inline-flex min-h-11 min-w-11 items-center justify-center font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-200 xl:min-h-0 xl:min-w-0 xl:px-2 xl:py-1";
   const activeClass = "text-gold font-semibold";
   const inactiveClass = onLight
     ? "text-navy/45 hover:text-gold"

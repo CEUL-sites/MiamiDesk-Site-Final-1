@@ -35,6 +35,7 @@ function useMeasuredWidth() {
 export function GlobalActivationFlow({ stages, ariaLabel, selectedLabel }: Props) {
   const { ref, width } = useMeasuredWidth();
   const [selected, setSelected] = useState(1);
+  const [focused, setFocused] = useState<number | null>(null);
   const mobile = width < 720;
   const height = mobile ? 570 : 250;
 
@@ -94,7 +95,11 @@ export function GlobalActivationFlow({ stages, ariaLabel, selectedLabel }: Props
               aria-label={`${index + 1}. ${stages[index].title}. ${stages[index].detail}`}
               aria-pressed={active}
               onClick={() => activate(index)}
-              onFocus={() => activate(index)}
+              onFocus={() => {
+                setFocused(index);
+                activate(index);
+              }}
+              onBlur={() => setFocused(null)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
@@ -110,6 +115,17 @@ export function GlobalActivationFlow({ stages, ariaLabel, selectedLabel }: Props
                 height="56"
                 fill="transparent"
               />
+              {focused === index ? (
+                <circle
+                  cx={point.x}
+                  cy={point.y}
+                  r="28"
+                  fill="none"
+                  stroke="#B08D57"
+                  strokeWidth="2"
+                  vectorEffect="non-scaling-stroke"
+                />
+              ) : null}
               <circle
                 cx={point.x}
                 cy={point.y}
