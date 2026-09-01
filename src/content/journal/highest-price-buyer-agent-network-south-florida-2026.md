@@ -44,7 +44,7 @@ When a property is listed with Carlos Uzcategui, it is positioned through the di
 - **437+ signed international cooperation agreements** with partner associations reaching **75+ countries**
 - Syndication across **260+ U.S. MLSs** through **11 MLS data exchanges**
 
-It is also carried by **United Realty Group**, a Florida brokerage with **3,500+ agents supported by a Florida office network** — a working network of professionals who represent buyers across South Florida every day.
+It is also carried by **United Realty Group**, a Florida brokerage with **3,500+ agents across 19 Florida office locations** — a working network of professionals who represent buyers across South Florida every day.
 
 > A published listing waits to be found. An activated network is built to find the buyer — through the agent who already represents them.
 
@@ -94,6 +94,6 @@ Carlos Uzcategui has been a Florida Licensed Realtor® since 2001 — 25 years o
 
 ## Source and Compliance Notes
 
-Distribution figures reflect Miami and South Florida REALTORS® association infrastructure and United Realty Group scale (urgfl.com), including United Realty Group's 3,500+ agents supported by a Florida office network. Market data referenced site-wide is sourced from the Miami and South Florida REALTORS® MLS and is deemed reliable but not guaranteed. This article is general market information, not legal, tax, financial, or investment advice; consult a qualified professional regarding tax matters such as capital gains, 1031 exchanges, or homestead portability. No specific sale price, buyer, or timeline is promised; individual outcomes vary by property, condition, pricing, market conditions, and buyer qualification.
+Distribution figures reflect Miami and South Florida REALTORS® association infrastructure and United Realty Group scale (urgfl.com), including United Realty Group's 3,500+ agents across 19 Florida office locations. Market data referenced site-wide is sourced from the Miami and South Florida REALTORS® MLS and is deemed reliable but not guaranteed. This article is general market information, not legal, tax, financial, or investment advice; consult a qualified professional regarding tax matters such as capital gains, 1031 exchanges, or homestead portability. No specific sale price, buyer, or timeline is promised; individual outcomes vary by property, condition, pricing, market conditions, and buyer qualification.
 
 Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

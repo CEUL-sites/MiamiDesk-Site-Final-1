@@ -42,7 +42,7 @@ Request a confidential listing-positioning review for the Kendall property. The 
 
 ## Why Distribution Matters
 
-Behind a Kendall listing sit 11 MLS data exchanges, the association's 93,000 member agents, and United Realty Group's 3,500+ agents supported by a Florida office network. Reach is not a result and does not guarantee price or timing. It is the precondition for a competitive offer, and it only counts once pricing, preparation, and the document package hold up.
+Behind a Kendall listing sit 11 MLS data exchanges, the association's 93,000 member agents, and United Realty Group's 3,500+ agents across 19 Florida office locations. Reach is not a result and does not guarantee price or timing. It is the precondition for a competitive offer, and it only counts once pricing, preparation, and the document package hold up.
 
 ## Why Carlos Uzcategui
 

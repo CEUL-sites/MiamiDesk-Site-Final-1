@@ -213,13 +213,13 @@ export default function SellAventuraPage() {
                   <em className="italic text-gold">everywhere they're looking.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of a full-service brokerage founded in 2002 — 3,500+ agents supported by a Florida office network — not a portal, a professional infrastructure.
+                  Professional MLS activation through United Realty Group means your property enters the network of a Florida brokerage with 3,500+ agents across 19 Florida office locations — not a portal, but a coordinated professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
-                    "United Realty Group — 3,500+ agents supported by a Florida office network",
+                    "United Realty Group — 3,500+ agents across 19 Florida office locations",
                     "Direct LATAM and European buyer pipeline",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (

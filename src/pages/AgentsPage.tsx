@@ -932,8 +932,8 @@ export default function AgentsPage() {
                 <span className="text-gold">Join a desk that already moves business.</span>
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-snug text-ink-primary/65 md:leading-relaxed">
-                United Realty Group is a full-service brokerage founded in 2002 — {CONTACT.stats.urgAgents} agents
-                supported by its {CONTACT.stats.urgOfficeNetwork}, with an in-house title company. Whatever stage you
+                United Realty Group provides a coordinated Florida brokerage platform — {CONTACT.stats.urgAgents} agents
+                across {CONTACT.stats.urgOfficeNetwork}. Whatever stage you
                 are at, you work directly with Carlos — an active 25-year agent on the same MLS, not a branch manager
                 reviewing paperwork.
               </p>
@@ -959,7 +959,7 @@ export default function AgentsPage() {
                     See what working inside the brokerage looks like.
                   </p>
                   <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-                    Founded 2002 · {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOfficeNetwork} · In-house title
+                    {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOfficeNetwork}
                   </p>
                 </div>
               </div>
@@ -977,7 +977,7 @@ export default function AgentsPage() {
                     "Mentorship from an active producer — not a back-office manager",
                     "A bilingual, international niche most local agents cannot serve",
                     "Where appropriate, qualified overflow inquiries are routed to affiliated agents",
-                    "Full-service infrastructure: listing marketing, MLS reach, and in-house title",
+                    "Coordinated infrastructure: listing marketing, MLS reach, brokerage support, and compliance",
                   ].map((point) => (
                     <li key={point} className="flex items-start gap-2.5">
                       <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold/70" />
@@ -1021,8 +1021,8 @@ export default function AgentsPage() {
                   {[
                     {
                       icon: Building2,
-                      title: "A platform that closes, not just lists",
-                      body: "United Realty Group has operated since 2002 through its Florida office network, with an in-house title company. Fewer deals stall at closing, and the ancillary side of every transaction stays under one roof.",
+                      title: "A platform for coordinated execution",
+                      body: `United Realty Group supports its agents through ${CONTACT.stats.urgOfficeNetwork}, providing a statewide brokerage framework for listing execution, local coordination, and compliant transactions.`,
                     },
                     {
                       icon: Globe2,

@@ -2,6 +2,7 @@ import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Camera, Globe2, MessagesSquare, Radar } from "lucide-react";
 import { LazyVideo } from "./LazyVideo";
+import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "../data/urgOffices";
 
 // Homepage-only merge of ReachAdvantage + ListingSystem — the structural
 // argument made once, at full strength: what happens to the listing in the
@@ -31,8 +32,8 @@ const TOP_STATS = [
     display: "3,500",
     suffix: "+",
     label: "United Realty Group Agents",
-    sublabel: "Florida office network",
-    desc: "A full-service brokerage infrastructure supporting listing execution and local market coordination.",
+    sublabel: URG_PUBLIC_OFFICE_NETWORK_LABEL,
+    desc: "A coordinated Florida brokerage footprint from Aventura and Weston through Boca Raton, Palm Beach Gardens, and Orlando.",
   },
 ];
 
@@ -131,7 +132,7 @@ export function Distribution() {
           transition={{ duration: 0.6 }}
           className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold"
         >
-          Distribution · United Realty Group
+          Distribution · United Realty Group · 19 Florida office locations
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

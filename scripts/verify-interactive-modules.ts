@@ -278,7 +278,7 @@ assert.match(
 
 // Distribution now uses static, code-native proof instead of the retired
 // ReachFlow3D diagram. Keep the figures exact and retain the eligibility note.
-for (const proof of ["93,000", "437", "3,500", "Florida office network"]) {
+for (const proof of ["93,000", "437", "3,500", "19 Florida office locations"]) {
   assert.ok(distribution.includes(proof), `Distribution must render verified proof: ${proof}`);
 }
 assert.match(

@@ -42,7 +42,7 @@ That network carries a listing far beyond any single portal:
 - **437+ international cooperation agreements** with REALTOR® and real-estate associations across **75+ countries** — a formal channel to the professionals who represent buyers in those markets
 - **260+ U.S. MLSs** reachable via the RPR National Exchange, plus **11 MLS data exchanges**
 
-Those international agreements are the practical answer to "how do you reach the world's high-net-worth buyer agents?" They are not a slogan — they are standing relationships between the Miami association and the local associations whose members advise buyers in Europe, Latin America, and beyond. Locally, **United Realty Group** adds **3,500+ agents supported by a Florida office network** to that reach.
+Those international agreements are the practical answer to "how do you reach the world's high-net-worth buyer agents?" They are not a slogan — they are standing relationships between the Miami association and the local associations whose members advise buyers in Europe, Latin America, and beyond. Locally, **United Realty Group** adds **3,500+ agents across 19 Florida office locations** to that reach.
 
 None of this guarantees a price or a timeline. What it does is widen the pool of qualified buyers — and the agents who represent them — who actually see a property during its launch window.
 
@@ -74,6 +74,6 @@ If you own a luxury residence or an investment property — in South Florida, in
 
 ## Source and Compliance Notes
 
-Network figures reflect the Miami and South Florida REALTORS® organization following the MIAMI REALTORS® / RWorld merger (announced April 20, 2026; the merger took effect May 11, 2026): approximately 93,000 member agents, 200+ global portals in 19 languages, 437+ international cooperation agreements across 75+ countries, 260+ U.S. MLSs via the RPR National Exchange, and 11 MLS data exchanges. United Realty Group figures (3,500+ agents; Florida office network) per urgfl.com. These figures describe network reach and are deemed reliable but not guaranteed. Access to a network does not guarantee any sale price, buyer, or timeline. This article is general information, not legal, tax, financial, or investment advice.
+Network figures reflect the Miami and South Florida REALTORS® organization following the MIAMI REALTORS® / RWorld merger (announced April 20, 2026; the merger took effect May 11, 2026): approximately 93,000 member agents, 200+ global portals in 19 languages, 437+ international cooperation agreements across 75+ countries, 260+ U.S. MLSs via the RPR National Exchange, and 11 MLS data exchanges. United Realty Group figures (3,500+ agents; 19 Florida office locations) per urgfl.com. These figures describe network reach and are deemed reliable but not guaranteed. Access to a network does not guarantee any sale price, buyer, or timeline. This article is general information, not legal, tax, financial, or investment advice.
 
 Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

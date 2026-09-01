@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "../data/urgOffices";
 
 /* ─── Step data ─────────────────────────────────────────────────────────── */
 const STEPS = [
@@ -25,9 +26,9 @@ const STEPS = [
   },
   {
     num: "04", title: "Activate", sub: "Agents on the Ground",
-    badge: "3,500+ Agents · Florida Office Network",
-    text: "United Realty Group's 3,500+ agents supported by a Florida office network begin showing, qualifying buyers, following up — and activating the South Florida and LATAM referral pipeline.",
-    stats: [{ v: "3.5K+", l: "Active Agents" }, { v: "Florida", l: "Office Network" }, { v: "2", l: "Continents" }],
+    badge: `3,500+ Agents · ${URG_PUBLIC_OFFICE_NETWORK_LABEL}`,
+    text: `United Realty Group's 3,500+ agents across ${URG_PUBLIC_OFFICE_NETWORK_LABEL} support showing coordination, buyer qualification, follow-up, and activation of the South Florida and LATAM referral pipeline.`,
+    stats: [{ v: "3.5K+", l: "Active Agents" }, { v: "19", l: "Florida Locations" }, { v: "2", l: "Continents" }],
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
   },
   {

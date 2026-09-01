@@ -6,9 +6,9 @@ const root = process.cwd();
 const dataPath = path.join(root, "src", "data", "urgOffices.json");
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
-assert.equal(data.verifiedAt, "2026-08-31");
+assert.equal(data.verifiedAt, "2026-09-01");
 assert.equal(data.sourceUrl, "https://www.urgfl.com/office-locations/");
-assert.equal(data.publicNetworkLabel, "Florida office network");
+assert.equal(data.publicNetworkLabel, "19 Florida office locations");
 assert.equal(data.officialBranches.length, 21, "official source should retain all listed branches");
 
 const floridaBranches = data.officialBranches.filter((branch) => branch.state === "FL");
@@ -36,12 +36,20 @@ function walk(dir, out = []) {
 
 const publicRoots = ["src", "public", "netlify"].map((folder) => path.join(root, folder));
 const publicFiles = publicRoots.flatMap((folder) => walk(folder));
-const numericOfficeClaim = /\b(?:19|20|21)\s+(?:Florida\s+|FL\s+)?(?:branch(?:es)?|office(?:s)?)\b/i;
+const staleOfficeCount = /\b(?:20|21)\s+(?:Florida\s+|FL\s+)?(?:branch(?:es)?|office(?:s)?|office\s+locations)\b/i;
+const impreciseNineteenClaim = /\b19\s+(?:Florida\s+|FL\s+)?(?:branch(?:es)?|office(?:s)?)(?!\s+locations\b)/i;
 for (const file of publicFiles) {
   if (file === dataPath) continue;
   const source = fs.readFileSync(file, "utf8");
-  assert.doesNotMatch(source, numericOfficeClaim, `numeric URG office claim remains in ${path.relative(root, file)}`);
+  assert.doesNotMatch(source, staleOfficeCount, `stale URG office count remains in ${path.relative(root, file)}`);
+  assert.doesNotMatch(source, impreciseNineteenClaim, `use "19 Florida office locations" in ${path.relative(root, file)}`);
 }
+
+const about = fs.readFileSync(path.join(root, "src", "components", "AboutContact.tsx"), "utf8");
+const distribution = fs.readFileSync(path.join(root, "src", "components", "Distribution.tsx"), "utf8");
+assert.match(about, /URG_FLORIDA_OFFICE_NAMES\.map/);
+assert.match(about, /View the 19 Florida office locations/);
+assert.match(distribution, /Distribution · United Realty Group · 19 Florida office locations/);
 
 const logo = fs.readFileSync(path.join(root, "src", "components", "UrgLogo.tsx"), "utf8");
 assert.match(logo, /urg-logo-original\.webp/);
@@ -59,4 +67,4 @@ for (const rel of [
   assert.match(fs.readFileSync(path.join(root, rel), "utf8"), /PUBLIC_COMPLIANCE/, `${rel} must use canonical professional identification`);
 }
 
-console.log("URG office positioning verification passed: canonical source, neutral public wording, official logo, and professional identification are intact.");
+console.log("URG office positioning verification passed: 19 Florida locations, canonical directory, official logo, and professional identification are intact.");

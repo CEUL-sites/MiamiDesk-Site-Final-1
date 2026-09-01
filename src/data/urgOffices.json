@@ -1,8 +1,8 @@
 {
-  "verifiedAt": "2026-08-31",
+  "verifiedAt": "2026-09-01",
   "sourceUrl": "https://www.urgfl.com/office-locations/",
-  "sourceHeading": "OUR 21 BRANCH LOCATIONS",
-  "publicNetworkLabel": "Florida office network",
+  "sourceHeading": "Our Florida Office Locations",
+  "publicNetworkLabel": "19 Florida office locations",
   "officialBranches": [
     { "id": "corporate-plantation", "name": "Corporate Office (Plantation)", "city": "Plantation", "state": "FL", "address": "1200 S. Pine Island Road, Suite 600, Plantation, FL 33324", "status": "active" },
     { "id": "aventura", "name": "Aventura", "city": "Aventura", "state": "FL", "address": "20803 Biscayne Blvd, Suite 410, Aventura, FL 33180", "status": "active" },

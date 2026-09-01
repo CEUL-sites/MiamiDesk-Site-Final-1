@@ -277,8 +277,8 @@ export default function MarketsPage() {
                 <span className="text-gold">One professional distribution structure.</span>
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
-                Carlos represents South Florida sellers through United Realty Group, with {CONTACT.stats.urgAgents} agents and
-                a {CONTACT.stats.urgOfficeNetwork}. Eligible listings may enter the professional association distribution
+                Carlos represents South Florida sellers through United Realty Group, with {CONTACT.stats.urgAgents} agents across
+                {" "}{CONTACT.stats.urgOfficeNetwork}. Eligible listings may enter the professional association distribution
                 infrastructure and approved syndication channels according to property, brokerage, platform, and compliance requirements.
               </p>
             </div>
@@ -357,12 +357,12 @@ export default function MarketsPage() {
                 </h2>
                 <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
                   United Realty Group provides the brokerage framework behind Carlos's South Florida representation:
-                  {" "}{CONTACT.stats.urgAgents} agents and a {CONTACT.stats.urgOfficeNetwork}. The objective is to prepare
+                  {" "}{CONTACT.stats.urgAgents} agents across {CONTACT.stats.urgOfficeNetwork}. The objective is to prepare
                   each eligible property for clear professional presentation to buyer agents and cooperating referral partners.
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
-                    `${CONTACT.stats.urgAgents} agents and a ${CONTACT.stats.urgOfficeNetwork}`,
+                    `${CONTACT.stats.urgAgents} agents across ${CONTACT.stats.urgOfficeNetwork}`,
                     "Eligible MLS and approved distribution-channel positioning",
                     "Bilingual English / Spanish representation",
                     "Professional brokerage and compliance framework",
