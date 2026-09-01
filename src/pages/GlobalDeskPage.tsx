@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Check, Mail, MessageCircle } from "lucide-react";
+import { ArrowRight, Check, Handshake, Mail, MessageCircle, UserRoundCheck, UsersRound } from "lucide-react";
 import { motion } from "motion/react";
 import { Footer } from "../components/Footer";
 import { GlobalActivationFlow, type ActivationStage } from "../components/GlobalActivationFlow";
@@ -37,11 +37,16 @@ const COPY = {
       { title: "Local negotiation and closing", shortTitle: ["Local negotiation", "and closing"], detail: "Your local team manages visits, negotiation, documentation, and closing in the property’s jurisdiction." },
     ] satisfies ActivationStage[],
     networkKicker: "Local market connection",
-    networkTitle: "Real agents. Local buyer relationships. Brokerage support.",
-    networkBody: "The activation is designed for professional review by the Greater Miami real estate community—not anonymous consumer traffic. United Realty Group provides the Florida brokerage framework behind Carlos’s work.",
+    networkTitle: "Local agents. Qualified buyer relationships. Brokerage structure.",
+    networkBody: "Selected international inventory is prepared for professional review by Greater Miami real estate agents—not anonymous consumer traffic.",
+    networkSteps: [
+      ["Greater Miami agent review", "Local agents assess relevance for buyers they represent."],
+      ["Buyer representation", "Interest stays connected to the buyer’s real estate professional."],
+      ["Broker-to-broker coordination", "Carlos and United Realty Group structure the professional introduction."],
+    ],
+    networkCta: "Discuss an activation",
     teamVideoTitle: "United Realty Group — the team behind the Greater Miami activation layer",
-    teamVideoLabel: "United Realty Group · The Team",
-    mediaCaption: "Carlos with a South Florida property media team · Preparation for professional presentation",
+    teamVideoLabel: "United Realty Group · Professional network",
     mandateTitleA: "Your mandate stays with you.",
     mandateTitleB: "We add the U.S. activation layer.",
     mandateBody: "Miami Global Desk is an additional professional distribution and agent-cooperation layer—not another consumer portal and not a replacement for the originating listing team.",
@@ -88,11 +93,16 @@ const COPY = {
       { title: "Negociación y cierre local", shortTitle: ["Negociación y", "cierre local"], detail: "Su equipo local gestiona visitas, negociación, documentación y cierre en la jurisdicción del inmueble." },
     ] satisfies ActivationStage[],
     networkKicker: "Conexión con el mercado local",
-    networkTitle: "Agentes reales. Relaciones locales con compradores. Respaldo de brokerage.",
-    networkBody: "La activación se diseña para la revisión profesional de la comunidad inmobiliaria de Greater Miami, no para tráfico anónimo de consumidores. United Realty Group aporta el marco de corretaje de Florida que respalda el trabajo de Carlos.",
+    networkTitle: "Agentes locales. Relaciones con compradores cualificados. Estructura de brokerage.",
+    networkBody: "El inventario internacional seleccionado se prepara para la revisión profesional de agentes inmobiliarios de Greater Miami, no para tráfico anónimo de consumidores.",
+    networkSteps: [
+      ["Revisión por agentes de Greater Miami", "Agentes locales evalúan la relevancia para los compradores que representan."],
+      ["Representación del comprador", "El interés permanece conectado con el profesional inmobiliario del comprador."],
+      ["Coordinación broker a broker", "Carlos y United Realty Group estructuran la presentación profesional."],
+    ],
+    networkCta: "Conversar sobre una activación",
     teamVideoTitle: "United Realty Group — el equipo detrás de la capa de activación en Greater Miami",
-    teamVideoLabel: "United Realty Group · El equipo",
-    mediaCaption: "Carlos con un equipo de medios inmobiliarios del sur de Florida · Preparación para presentación profesional",
+    teamVideoLabel: "United Realty Group · Red profesional",
     mandateTitleA: "Su mandato permanece con usted.",
     mandateTitleB: "Nosotros añadimos la activación en EE. UU.",
     mandateBody: "Miami Global Desk es una capa adicional de distribución profesional y cooperación entre agentes; no es otro portal de consumo ni reemplaza al equipo captador de origen.",
@@ -205,22 +215,44 @@ export default function GlobalDeskPage() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }} variants={reveal} className="mx-auto max-w-6xl">
             <div className="mx-auto max-w-3xl text-center"><p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-ink">{t.workflowKicker}</p><h2 className="mt-4 text-balance font-serif text-4xl leading-tight text-navy-deep md:text-5xl">{t.workflowTitle}</h2><p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-navy/70 md:text-lg">{t.workflowBody}</p></div>
             <div className="mt-10 border-y border-bone bg-white px-3 py-7 md:mt-14 md:px-8 md:py-10"><GlobalActivationFlow stages={[...t.stages]} ariaLabel={t.workflowTitle} selectedLabel={t.selectedStage} /></div>
-            <div className="mt-10 grid overflow-hidden border border-bone bg-white lg:mt-14 lg:grid-cols-2">
-              <div className="flex flex-col justify-center p-6 sm:p-9 lg:p-12">
+            <div id="local-network" className="scroll-mt-24 mt-12 lg:mt-16">
+              <div className="max-w-4xl">
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.networkKicker}</p>
-                <h3 className="mt-4 text-balance font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.networkTitle}</h3>
-                <p className="mt-5 font-sans text-base leading-[1.75] text-navy/72">{t.networkBody}</p>
-                <figure className="mt-7 overflow-hidden border border-bone bg-ivory p-2">
-                  <img src="/images/carlos-property-media-team.webp" alt="Carlos Uzcategui with a South Florida property media team inside a waterfront residence" width={1920} height={1080} loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover" />
-                  <figcaption className="px-3 py-3 font-mono text-[9px] uppercase leading-relaxed tracking-[0.13em] text-navy/58">{t.mediaCaption}</figcaption>
-                </figure>
+                <h3 className="mt-4 text-balance font-serif text-4xl leading-[1.08] text-navy-deep md:text-5xl">{t.networkTitle}</h3>
+                <p className="mt-5 max-w-3xl font-sans text-base leading-[1.8] text-navy/72 md:text-lg">{t.networkBody}</p>
               </div>
-              <figure className="flex min-h-[360px] flex-col justify-center bg-navy-deep p-5 sm:p-8 lg:min-h-full">
-                <div className="relative aspect-video overflow-hidden border border-white/15 bg-black shadow-2xl">
-                  <iframe src="https://www.youtube.com/embed/M8Hx5D5ghag?si=XAE-_zpkAJCVf_Yp&rel=0&modestbranding=1" title={t.teamVideoTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 h-full w-full" />
-                </div>
-                <figcaption className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{t.teamVideoLabel}</figcaption>
-              </figure>
+
+              <div className="mt-9 grid items-start gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:gap-8">
+                <motion.figure initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal} className="flex min-w-0 flex-col overflow-hidden border border-bone bg-white shadow-sm">
+                  <div className="relative aspect-video w-full overflow-hidden bg-navy-deep">
+                    <iframe src="https://www.youtube-nocookie.com/embed/M8Hx5D5ghag?rel=0&modestbranding=1" title={t.teamVideoTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 h-full w-full border-0" />
+                  </div>
+                  <figcaption className="flex min-h-14 items-center bg-navy-deep px-5 py-4 font-mono text-[9px] font-semibold uppercase tracking-[0.19em] text-gold sm:px-6 sm:text-[10px]">{t.teamVideoLabel}</figcaption>
+                </motion.figure>
+
+                <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal} className="relative overflow-hidden bg-navy-deep px-6 py-7 text-white sm:px-7 sm:py-8" aria-label={t.networkTitle}>
+                  <div aria-hidden="true" className="absolute bottom-8 left-[3.2rem] top-8 w-px bg-gold/45 sm:left-[3.95rem]" />
+                  <ol className="relative space-y-7">
+                    {t.networkSteps.map(([title, body], index) => {
+                      const StepIcon = [UsersRound, UserRoundCheck, Handshake][index];
+                      return (
+                        <li key={title} className="relative grid grid-cols-[3.25rem_1fr] gap-4 sm:grid-cols-[3.75rem_1fr] sm:gap-4">
+                          <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-navy-deep text-gold"><StepIcon size={21} strokeWidth={1.45} aria-hidden="true" /></div>
+                          <div className="pt-0.5">
+                            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-gold">0{index + 1}</p>
+                            <h4 className="mt-1 font-serif text-xl leading-tight text-white sm:text-[1.35rem]">{title}</h4>
+                            <p className="mt-2 font-sans text-[13px] leading-[1.55] text-white/70">{body}</p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </motion.div>
+              </div>
+
+              <div className="mt-8 flex justify-start lg:justify-center">
+                <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "network_activation", cta_location: "local_network", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 border border-gold bg-white px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-gold hover:text-navy-deep">{t.networkCta}<ArrowRight size={15} /></a>
+              </div>
             </div>
           </motion.div>
         </section>
