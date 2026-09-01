@@ -13,34 +13,41 @@ const STICKY_CTA_RESERVED_PX = 96;
 
 export function MobileStickyCTA() {
   const { pathname } = useLocation();
+  const normalizedPathname = pathname.replace(/\/+$/, "") || "/";
   const spainLine = isSpainMarketRoute(pathname);
   const spanishLabels = isSpanishLangRoute(pathname);
+  const buyerRoute = normalizedPathname === "/buy" || normalizedPathname === "/es/comprar";
+  const defaultActionHref = buyerRoute
+    ? normalizedPathname === "/buy"
+      ? "#buyer-mandate"
+      : "/contact"
+    : spanishLabels
+      ? "/es/vender#contact"
+      : "/sell-south-florida#contact";
 
   const [hidden, setHidden] = useState(false);
   const [consentPending, setConsentPending] = useState(true);
   const [guardVisible, setGuardVisible] = useState(false);
-  // Default to the main seller funnel; if the current page has its own
-  // in-page form (#list-here or #listing-request), target that instead so we
-  // never navigate the user away mid-page.
-  const [sellHref, setSellHref] = useState(
-    spanishLabels ? "/es/vender#contact" : "/sell-south-florida#contact"
-  );
+  // Default to the route's primary funnel. If the page has an in-page form,
+  // target that instead so we never navigate the user away mid-decision.
+  const [actionHref, setActionHref] = useState(defaultActionHref);
 
-  // Hide when the seller form is visible — user is already in the funnel
+  // Hide when the relevant form is visible — the user is already in the funnel.
   useEffect(() => {
-    const el =
-      document.getElementById("list-here") ??
-      document.getElementById("listing-request") ??
-      document.getElementById("contact");
+    const el = buyerRoute
+      ? document.getElementById("buyer-mandate") ?? document.getElementById("contact")
+      : document.getElementById("list-here") ??
+        document.getElementById("listing-request") ??
+        document.getElementById("contact");
+    setActionHref(el ? `#${el.id}` : defaultActionHref);
     if (!el) return;
-    setSellHref(`#${el.id}`);
     const observer = new IntersectionObserver(
       ([entry]) => setHidden(entry.isIntersecting),
       { threshold: 0.15 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [buyerRoute, defaultActionHref]);
 
   // Elements marked data-sticky-cta-guard (e.g. the review spotlight card)
   // must never sit under the pill. The observer root is shrunk to the bottom
@@ -98,11 +105,15 @@ export function MobileStickyCTA() {
   if (!shouldRenderMobileSticky({ formVisible: hidden, consentPending, guardVisible })) return null;
 
   const whatsappHref = spainLine ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
-  const sellLabel = spanishLabels
-    ? "Vender mi casa"
-    : spainLine
-      ? "List My Property"
-      : "Sell My Home";
+  const actionLabel = buyerRoute
+    ? spanishLabels
+      ? "Iniciar búsqueda"
+      : "Start My Search"
+    : spanishLabels
+      ? "Vender mi casa"
+      : spainLine
+        ? "List My Property"
+        : "Sell My Home";
 
   return (
     <div className="pointer-events-none fixed bottom-5 left-0 right-0 z-50 flex justify-center lg:hidden">
@@ -118,10 +129,10 @@ export function MobileStickyCTA() {
           WhatsApp
         </a>
         <a
-          href={sellHref}
+          href={actionHref}
           className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.12em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
-          {sellLabel}
+          {actionLabel}
         </a>
       </div>
     </div>

@@ -24,40 +24,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { NeoEmbed } from "../components/NeoEmbed";
 import { Tilt3D } from "../components/Tilt3D";
 import { RevealText } from "../components/RevealText";
-
-// Florida buyer service — the primary track. Spain is a separate, second desk below.
-const FL_SERVICES = [
-  {
-    number: "01",
-    title: "Buyer consultation & search brief",
-    desc: "A structured conversation about budget, neighborhoods, timeline, and financing — so every showing that follows is deliberate, not exploratory.",
-  },
-  {
-    number: "02",
-    title: "Professional MLS search — plus the network",
-    desc: `Eligible inventory across Miami-Dade, Broward, and Palm Beach is reviewed through the applicable professional MLS and brokerage framework, supported by ${CONTACT.stats.urgAgents} United Realty Group agents.`,
-  },
-  {
-    number: "03",
-    title: "Neighborhood & market intelligence",
-    desc: "Absorption, pricing history, HOA and condo health, insurance realities, school zones, and commute patterns — the context portals don't show.",
-  },
-  {
-    number: "04",
-    title: "Offer strategy & negotiation",
-    desc: "Offer structure, escalation discipline, contingency strategy, and hands-on negotiation — informed by 25 years of closed South Florida transactions.",
-  },
-  {
-    number: "05",
-    title: "Financing coordination",
-    desc: "Introductions to lenders for conventional, jumbo, and foreign-national programs — including buyers purchasing from abroad with international income or assets.",
-  },
-  {
-    number: "06",
-    title: "Inspection, escrow & closing",
-    desc: "Inspection period management, repair negotiation, and coordination with the selected title, escrow, lending, and closing professionals.",
-  },
-];
+import { FloridaBuyerJourney } from "../components/FloridaBuyerJourney";
 
 // Condensed from "Top 20 Reasons to Buy & Live in Miami" — Miami and South
 // Florida REALTORS® (MiamiRealtors.com). Keep claims attributed; no guarantees.
@@ -157,7 +124,7 @@ export default function BuyersPage() {
             { "@type": "Question", "name": "What is the buying process in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "The process includes buyer consultation, professional property search, offer submission, inspection, financing coordination, title review, and closing. Timing depends on the contract, financing, property, and parties involved." } }
           ]
         }} />
-      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
 
         {/* ── Hero — 25 years + the network behind it ─────────────── */}
@@ -330,36 +297,7 @@ export default function BuyersPage() {
         </section>
 
         {/* ── Buying in Florida — the complete service ────────────── */}
-        <section className="bg-bone-warm py-16 md:py-24">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="mb-10 max-w-2xl">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Service One · Buying in Florida</p>
-              <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                The complete Florida buyer service.
-              </h2>
-              <p className="mt-4 font-sans text-base leading-relaxed text-ink-primary/60">
-                Direct, licensed representation from first conversation to closing day — one accountable
-                professional, with the resources of a statewide brokerage behind every step.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
-              {FL_SERVICES.map((s) => (
-                <div
-                  key={s.number}
-                  className="relative overflow-hidden border border-bone bg-white p-6 transition-colors duration-500 hover:border-gold/40"
-                >
-                  <div className="absolute top-4 right-4 select-none font-serif text-6xl font-bold leading-none text-navy/5">
-                    {s.number}
-                  </div>
-                  <h3 className="max-w-[85%] font-serif text-xl text-navy-deep">{s.title}</h3>
-                  <RevealText lines={2} className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">
-                    {s.desc}
-                  </RevealText>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FloridaBuyerJourney />
 
         {/* ── Why Florida — relocation case ───────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-16 md:py-24">
