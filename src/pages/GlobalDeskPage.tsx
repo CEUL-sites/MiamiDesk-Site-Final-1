@@ -172,7 +172,10 @@ export default function GlobalDeskPage() {
           <div className="relative mx-auto max-w-7xl">
             <div className="flex justify-end lg:absolute lg:right-0 lg:top-0" aria-label="Global Desk language">
               <div className="inline-flex border border-navy/15 bg-white/90 p-1 shadow-sm backdrop-blur-sm">
-                {(["en", "es"] as Lang[]).map((option) => <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-pressed={lang === option} className={`min-h-10 min-w-11 px-3 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors ${lang === option ? "bg-navy text-white" : "text-navy/65 hover:text-navy"}`}>{option}</button>)}
+                {(["en", "es"] as Lang[]).map((option) => {
+                  const languageLabel = option === "en" ? "View Global Desk in English" : "Ver Global Desk en español";
+                  return <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-label={languageLabel} title={languageLabel} aria-pressed={lang === option} className={`min-h-11 min-w-11 px-3 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors ${lang === option ? "bg-navy text-white" : "text-navy/65 hover:text-navy"}`}>{option}</button>;
+                })}
               </div>
             </div>
             <motion.div initial="hidden" animate="show" variants={reveal} className="mt-10 max-w-[760px] lg:mt-0">

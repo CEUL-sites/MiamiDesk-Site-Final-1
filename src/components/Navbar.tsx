@@ -24,6 +24,8 @@ export function Navbar() {
   const [isOpen, setIsOpen]     = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const currentPath = location.pathname.replace(/\/+$/, "") || "/";
+  const hasInlineLanguageSelector = currentPath === "/global-desk";
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 80);
@@ -75,7 +77,7 @@ export function Navbar() {
           className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}
         >
           <UrgLogo className="h-8 w-auto sm:h-9" inverted={!scrolled} />
-          <span className="hidden flex-col leading-none border-l border-current/20 pl-3 xl:flex">
+          <span className="hidden flex-col leading-none border-l border-current/20 pl-3 2xl:flex">
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
             <span className="font-mono uppercase leading-none opacity-70 mt-1" style={{ fontSize: "0.6875rem", letterSpacing: "0.2em" }}>
               REALTOR® · FL SL705771 · Since 2001
@@ -86,7 +88,7 @@ export function Navbar() {
         {/* ── Desktop nav ───────────────────────────────────── */}
         <div className="hidden flex-1 items-center justify-center gap-1 xl:flex">
           {NAV_ITEMS.map((item) => {
-            const active = location.pathname === item.href;
+            const active = currentPath === item.href;
             return (
               <a
                 key={item.name}
@@ -103,7 +105,7 @@ export function Navbar() {
 
         {/* ── Desktop right actions ─────────────────────────── */}
         <div className="hidden shrink-0 items-center gap-3 lg:flex">
-          <LanguageSwitcher onLight={scrolled} />
+          {hasInlineLanguageSelector ? null : <LanguageSwitcher onLight={scrolled} />}
 
           <a
             href={CONTACT.phoneUSLink}
@@ -133,9 +135,9 @@ export function Navbar() {
           type="button"
           aria-label="Open navigation menu"
           onClick={() => setIsOpen(true)}
-          className={`xl:hidden transition-colors ${scrolled ? "text-navy" : "text-white"}`}
+          className={`-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center transition-colors xl:hidden ${scrolled ? "text-navy" : "text-white"}`}
         >
-          <Menu size={26} />
+          <Menu size={24} />
         </button>
       </div>
 
@@ -163,16 +165,16 @@ export function Navbar() {
                   type="button"
                   onClick={() => setIsOpen(false)}
                   aria-label="Close navigation menu"
-                  className="text-white/60 hover:text-gold transition-colors mt-1"
+                  className="-mr-2 -mt-2 inline-flex h-11 w-11 shrink-0 items-center justify-center text-white/60 transition-colors hover:text-gold"
                 >
-                  <X size={26} />
+                  <X size={24} />
                 </button>
               </div>
 
               {/* Nav links */}
               <div className="mt-10 flex flex-col gap-0.5">
                 {NAV_ITEMS.map((item, index) => {
-                  const active = location.pathname === item.href;
+                  const active = currentPath === item.href;
                   return (
                     <motion.a
                       key={item.name}
