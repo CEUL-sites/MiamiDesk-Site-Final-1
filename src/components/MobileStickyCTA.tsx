@@ -13,11 +13,12 @@ const STICKY_CTA_RESERVED_PX = 96;
 
 export function MobileStickyCTA() {
   const { pathname } = useLocation();
+  const normalizedPathname = pathname.replace(/\/+$/, "") || "/";
   const spainLine = isSpainMarketRoute(pathname);
   const spanishLabels = isSpanishLangRoute(pathname);
-  const buyerRoute = pathname === "/buy" || pathname === "/es/comprar";
+  const buyerRoute = normalizedPathname === "/buy" || normalizedPathname === "/es/comprar";
   const defaultActionHref = buyerRoute
-    ? pathname === "/buy"
+    ? normalizedPathname === "/buy"
       ? "#buyer-mandate"
       : "/contact"
     : spanishLabels
