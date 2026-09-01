@@ -110,15 +110,15 @@ assert.match(
 );
 assert.match(
   hero,
-  /Real Estate is local — Peak Value is Global\./,
+  /Carlos pairs private pricing and positioning strategy with institutional distribution across South Florida and global buyer markets\./,
 );
 assert.match(form, /Request My Property Review/);
 assert.match(form, /Message Carlos directly/);
 assert.match(form, /Personal reply from Carlos · No listing commitment/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
-assert.match(hero, /South Florida · Global Reach/);
 assert.match(hero, /93,000", label: "Member Agents"/);
-assert.match(hero, /United Realty Group · 3,500\+ Agents · Florida Office Network/);
+assert.match(hero, /Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity\./);
+assert.match(hero, /homepage-hero-waterfront-v2\.jpg/);
 assert.match(authority, /REALTOR® · FL SL705771/);
 assert.match(authority, /CLHMS Luxury Specialist/);
 assert.match(authority, /Verified Realtor\.com® reviews/);

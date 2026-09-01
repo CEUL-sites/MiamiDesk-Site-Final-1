@@ -14,18 +14,18 @@ assert.doesNotMatch(
 
 assert.match(
   hero,
-  /poster:\s*"\/images\/posters\/dollhouse_rotating_in_hands\.jpg"/,
-  "the first mobile hero clip must define a visible poster fallback",
+  /src="\/images\/homepage-hero-waterfront-v2\.jpg"/,
+  "the responsive homepage hero must render the approved property image",
 );
 assert.match(
   hero,
-  /v\.poster = HERO_FEATURE_VIDEOS\[idx\]\.poster/,
-  "clip changes must keep the fallback poster synchronized with the source",
+  /fetchPriority="high"/,
+  "the above-the-fold property image must be prioritized",
 );
 assert.match(
   hero,
-  /poster=\{HERO_FEATURE_VIDEOS\[layer\]\.poster\}/,
-  "each hero video layer must render the poster for its loaded clip",
+  /aspect-\[16\/10\]/,
+  "the mobile property image must retain a stable aspect ratio",
 );
 
 console.log("Mobile hero regression checks passed.");
