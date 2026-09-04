@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
-import { BadgeCheck, ChevronRight, Download } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -9,7 +9,7 @@ import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { ProofStrip } from "../components/ProofStrip";
 import { LazyVideo } from "../components/LazyVideo";
-import { HeroReachBar } from "../components/HeroReachBar";
+import { SellersReachHero } from "../components/SellersReachHero";
 import { SellerSection } from "../components/SellerSection";
 import { ReachAdvantage } from "../components/ReachAdvantage";
 import { ExposureSyndication } from "../components/ExposureSyndication";
@@ -20,7 +20,7 @@ import { SellerPathfinder } from "../components/SellerPathfinder";
 import { Testimonials } from "../components/Testimonials";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { SellerNetCalculator } from "../components/SellerNetCalculator";
-import { CONTACT, LEAD_MAGNETS, SOURCES, MESSAGING } from "../constants";
+import { CONTACT, SOURCES, MESSAGING } from "../constants";
 
 const WHO_THIS_IS_FOR = [
   {
@@ -114,96 +114,10 @@ export default function SellSouthFloridaPage() {
           },
           "url": "https://homesprofessional.com/sell-south-florida"
         }} />
-      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" className="seller-page min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
-        {/* Hero */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 pt-20 pb-10 md:pt-28 md:pb-12 text-center sm:px-10">
-          <AuroraBackground variant="warm" interactive />
-          {/* Cinematic drone background */}
-          <LazyVideo
-            eager
-            src="/videos/luxury_waterfront_drone.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.32] pointer-events-none"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
-          <div className="relative">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Listing Advisory</p>
-          <h1
-            className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
-            style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
-          >
-            The more agents who can sell your home,{" "}
-            <em className="italic text-gold">the more buyers compete for it.</em>
-          </h1>
-          <p className="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-white/60">
-            Most serious buyers — local and international — arrive through their own
-            agent. I put your home in front of all of them, so the right buyer finds
-            it — wherever in the world they're searching from.
-          </p>
-
-          {/* What you get — the concrete deliverables of the review */}
-          <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
-            {[
-              "MLS-based pricing & positioning",
-              "Your most likely buyer — local & global",
-              "A clear net-proceeds estimate",
-            ].map((item) => (
-              <li key={item} className="inline-flex items-center gap-2 font-sans text-[13px] text-white/75">
-                <BadgeCheck size={15} className="flex-shrink-0 text-gold" />
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#contact"
-              className="hero-cta-main group inline-flex items-center gap-2 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep"
-            >
-              Get My Home Value &amp; Strategy
-              <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href={CONTACT.whatsappUS}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
-            >
-              WhatsApp Carlos
-            </a>
-          </div>
-
-          {/* Risk-reversal + social proof — lowers friction right at the CTA */}
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
-            <span className="flex gap-0.5" aria-hidden="true">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <svg key={i} width="12" height="12" viewBox="0 0 12 12" fill="#B08D57">
-                  <path d="M6 0l1.35 4.15H12L8.32 6.72 9.67 10.87 6 8.3 2.33 10.87 3.68 6.72 0 4.15h4.65z" />
-                </svg>
-              ))}
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-              5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
-            </span>
-          </div>
-
-          <div className="mt-5 flex items-center justify-center gap-2">
-            <a
-              href={LEAD_MAGNETS.sellerNetSheet.url}
-              download
-              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
-            >
-              <Download size={11} />
-              Or download the Seller's Net Sheet 2026
-            </a>
-          </div>
-          <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-            United Realty Group · CLHMS · Certified Seller Rep · FL SL705771 · 25 Years Licensed in Florida
-          </p>
-          <HeroReachBar />
-          </div>{/* end relative */}
-        </section>
+        <SellersReachHero />
 
         <ProofStrip />
         <ReachAdvantage />
@@ -433,7 +347,7 @@ export default function SellSouthFloridaPage() {
 
         <Footer />
         <MobileStickyCTA />
-        <DesktopStickyCTA />
+        <DesktopStickyCTA ctaHref="#contact" />
         <ExitIntentModal />
       </main>
     </>
