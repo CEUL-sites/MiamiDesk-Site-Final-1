@@ -8,6 +8,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { Navbar } from "../components/Navbar";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
+import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { pushEvent } from "../lib/analytics";
 
 type Lang = "en" | "es";
@@ -65,6 +66,7 @@ const COPY = {
     faqs: [
       ["Is Miami Global Desk another property portal?", "No. It is a professional activation and cooperation layer for selected international property entering a South Florida real estate conversation."],
       ["Does my local mandate change?", "No. The originating agency, developer, or listing professional keeps the mandate, client relationship, local negotiation, and closing."],
+      ["Who provides property photography, renderings, and documentation?", "Originating listing principals, developers, and cooperating agencies provide verified professional photography, architectural renderings, floor plans, and property documentation. The Miami Global Desk provides licensed Florida MLS activation, professional distribution across the 93,000-member network, bilingual property positioning, and broker-to-broker cooperation management. Carlos operates as the licensed Florida-side principal of record (Realtor® SL705771 · United Realty Group) and does not hold a real estate broker or agency license in Spain."],
       ["What happens when buyer interest is identified?", "Relevant interest can be prepared and introduced to the originating team, which controls the local transaction and next steps."],
       ["Is exposure or a buyer guaranteed?", "No. Activation is subject to brokerage approval, platform rules, property eligibility, cooperation terms, and applicable compliance requirements."],
     ],
@@ -121,6 +123,7 @@ const COPY = {
     faqs: [
       ["¿Miami Global Desk es otro portal inmobiliario?", "No. Es una capa profesional de activación y cooperación para propiedades internacionales seleccionadas que entran en una conversación inmobiliaria en el sur de Florida."],
       ["¿Cambia mi mandato local?", "No. La agencia, promotora o profesional de origen conserva el mandato, la relación con el cliente, la negociación local y el cierre."],
+      ["¿Quién proporciona la fotografía, infografías y documentación de la propiedad?", "Los promotores, agencias colaboradoras y profesionales con mandato de origen proporcionan fotografía profesional verificada, infografías arquitectónicas, planos y documentación del inmueble. Miami Global Desk aporta la activación en el MLS de Florida, distribución profesional ante la red de 93.000 miembros, posicionamiento bilingüe y gestión de cooperación broker a broker. Carlos opera como principal de registro con licencia en Florida (Realtor® SL705771 · United Realty Group) y no posee licencia de agencia ni corretaje en España."],
       ["¿Qué ocurre cuando se identifica interés comprador?", "El interés relevante puede prepararse y presentarse al equipo de origen, que controla la operación local y los siguientes pasos."],
       ["¿Se garantiza exposición o comprador?", "No. La activación está sujeta a aprobación de corretaje, reglas de plataforma, elegibilidad del inmueble, términos de cooperación y requisitos de cumplimiento."],
     ],
@@ -134,6 +137,7 @@ const reveal = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transi
 
 export default function GlobalDeskPage() {
   const [lang, setLang] = useState<Lang>("en");
+  const [intakeTab, setIntakeTab] = useState<"developer" | "cooperation">("developer");
 
   useEffect(() => {
     try {
@@ -279,7 +283,60 @@ export default function GlobalDeskPage() {
         <section id="listing-request" className="scroll-mt-20 bg-navy-deep px-6 py-16 text-white md:py-24">
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-10 border-b border-white/12 pb-14 lg:grid-cols-[1fr_auto] lg:items-end"><div className="max-w-3xl"><h2 className="text-balance font-serif text-4xl leading-tight text-white md:text-5xl">{t.closeTitle}</h2><p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">{t.closeBody}</p></div><div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><a href={`${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "whatsapp_private_discussion", cta_location: "close", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 bg-gold px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy-deep transition-colors hover:bg-white"><MessageCircle size={15} />{t.closeCta}</a><a href="mailto:contact@carlosre.com" className="inline-flex min-h-11 items-center justify-center gap-2 border border-white/20 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.15em] text-white/80 transition-colors hover:border-gold hover:text-gold"><Mail size={14} />contact@carlosre.com</a></div></div>
-            <div className="mx-auto mt-14 max-w-3xl"><div className="mb-8 text-center"><p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.formIntro}</p><p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-white/60">{t.formBody}</p></div><GlobalDeskListingForm lang={lang} /></div>
+            <div className="mx-auto mt-14 max-w-3xl">
+              {/* Move 7: Bifurcated Global Desk Inbound Tabs */}
+              <div className="mb-8 flex justify-center">
+                <div className="inline-flex rounded-lg border border-white/15 bg-white/[0.05] p-1 shadow-inner">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIntakeTab("developer");
+                      pushEvent("global_desk_tab_switch", { tab: "developer", language: lang });
+                    }}
+                    className={`rounded-md px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] transition-all sm:px-6 ${
+                      intakeTab === "developer"
+                        ? "bg-gold text-navy-deep shadow-md font-bold"
+                        : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {lang === "es" ? "Promotores y Mandatos Prime" : "Developer & Prime Mandates"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIntakeTab("cooperation");
+                      pushEvent("global_desk_tab_switch", { tab: "cooperation", language: lang });
+                    }}
+                    className={`rounded-md px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] transition-all sm:px-6 ${
+                      intakeTab === "cooperation"
+                        ? "bg-gold text-navy-deep shadow-md font-bold"
+                        : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {lang === "es" ? "Agencias y Brokers Colaboradores" : "Broker & Agent Cooperation"}
+                  </button>
+                </div>
+              </div>
+
+              {intakeTab === "developer" ? (
+                <div>
+                  <div className="mb-8 text-center">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.formIntro}</p>
+                    <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-white/70">{t.formBody}</p>
+                  </div>
+                  <GlobalDeskListingForm lang={lang} />
+                </div>
+              ) : (
+                <div>
+                  <AgencyPartnerForm
+                    source="global-desk-cooperation"
+                    eyebrow={lang === "es" ? "Miami Global Desk · Cooperación Profesional" : "Miami Global Desk · Professional Cooperation"}
+                    heading={lang === "es" ? "Registro de Agencias y Brokers Colaboradores" : "Licensed Broker & Agent Cooperation Intake"}
+                    intro={lang === "es" ? "Para agencias, brokers y agentes inmobiliarios licenciados fuera del sur de Florida. Comparta el perfil de su cliente o cartera para estructurar un acuerdo de cooperación profesional y referido." : "For licensed agents, brokers, and cooperating agencies outside South Florida. Submit client profiles or portfolio inquiries to structure formal broker-to-broker cooperation and referral agreements."}
+                  />
+                </div>
+              )}
+            </div>
             <div className="mt-12 border-t border-white/10 pt-8 text-center"><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/80">{t.compliance}</p><div className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-3 font-mono text-[10px] uppercase tracking-[0.12em] text-white/55"><a href={WA_US} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp USA +1 954-865-6622</a><a href={WA_ES} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp Spain +34 646 85 30 78</a><a href="tel:+19544502000" className="hover:text-gold">Office 1-954-450-2000</a></div></div>
           </div>
         </section>

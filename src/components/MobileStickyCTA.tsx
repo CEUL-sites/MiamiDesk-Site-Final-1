@@ -2,7 +2,7 @@ import { MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT, isSpainMarketRoute, isSpanishLangRoute } from "../constants";
-import { trackContact } from "../lib/analytics";
+import { trackContact, trackMicroConversion } from "../lib/analytics";
 import { getConsent } from "../lib/consent";
 import { shouldRenderMobileSticky } from "./mobileStickyModel";
 
@@ -23,7 +23,7 @@ export function MobileStickyCTA() {
       : "/contact"
     : spanishLabels
       ? "/es/vender#contact"
-      : "/sell-south-florida#contact";
+      : "/sell#contact";
 
   const [hidden, setHidden] = useState(false);
   const [consentPending, setConsentPending] = useState(true);
@@ -122,7 +122,13 @@ export function MobileStickyCTA() {
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => trackContact("whatsapp", "mobile_sticky")}
+          onClick={() => {
+            trackContact("whatsapp", "mobile_sticky");
+            trackMicroConversion("hp_cta_click", {
+              type: spainLine ? "whatsapp_es" : "whatsapp_us",
+              location: "mobile_sticky",
+            });
+          }}
           className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-white/85 transition-all duration-100 active:scale-95"
         >
           <MessageSquare size={13} className="text-gold" />
@@ -130,6 +136,12 @@ export function MobileStickyCTA() {
         </a>
         <a
           href={actionHref}
+          onClick={() => {
+            trackMicroConversion("hp_cta_click", {
+              type: "mobile_sticky_action",
+              location: "mobile_sticky",
+            });
+          }}
           className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.12em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
           {actionLabel}

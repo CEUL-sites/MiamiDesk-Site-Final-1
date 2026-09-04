@@ -2,7 +2,7 @@ import { MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT, isSpainMarketRoute } from "../constants";
-import { trackContact } from "../lib/analytics";
+import { trackContact, trackMicroConversion } from "../lib/analytics";
 
 // Section 15 — floating WhatsApp CTA, language/route-aware.
 // Desktop right-rail. Mobile WhatsApp is already provided by MobileStickyCTA,
@@ -36,7 +36,13 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      onClick={() => trackContact("whatsapp", "float")}
+      onClick={() => {
+        trackContact("whatsapp", "float");
+        trackMicroConversion("hp_cta_click", {
+          type: spanish ? "whatsapp_es" : "whatsapp_us",
+          location: "desktop_float",
+        });
+      }}
       className={`whatsapp-float group fixed bottom-8 right-6 z-40 hidden items-center gap-2.5 rounded-full border border-gold/30 bg-navy-deep/95 px-5 py-3.5 shadow-2xl shadow-black/50 backdrop-blur-md transition-all duration-200 hover:border-gold hover:bg-navy-deep lg:inline-flex ${
         heroVisible ? "pointer-events-none translate-y-3 opacity-0" : "translate-y-0 opacity-100"
       }`}

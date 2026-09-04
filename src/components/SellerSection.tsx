@@ -222,9 +222,8 @@ export function SellerSection() {
               The MLS Reaches 93,000 Agents.<br />
               <em className="italic text-gold">Strategy Gets Your Home Shown.</em>
             </h2>
-            <p className="mt-4 max-w-xl font-sans text-lg leading-relaxed text-white/60 md:mt-7">
-              Every seller enters the same MLS. Not every seller enters it correctly. Positioning, professional media,
-              buyer-agent activation, and negotiation strategy are what separate a listing from a sale.
+            <p className="mt-4 max-w-xl font-sans text-lg leading-relaxed text-white/70 md:mt-7">
+              Every seller enters the same MLS. Carlos pairs institutional distribution across 93,000 agents with sophisticated contract structuring—including post-occupancy leaseback outcomes and homestead equity protection.
             </p>
             <div className="mt-5 flex gap-3 flex-wrap md:mt-8 md:gap-4">
               <a href="/contact" className="inline-flex items-center bg-gold px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">

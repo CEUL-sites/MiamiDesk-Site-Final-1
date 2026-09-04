@@ -82,7 +82,8 @@ if (rootElement) {
               <Routes>
                 <Route path="/"                              element={<HomePage />} />
                 {/* Primary navigation routes */}
-                <Route path="/sell-south-florida"            element={<SellSouthFloridaPage />} />
+                <Route path="/sell"                          element={<SellSouthFloridaPage />} />
+                <Route path="/sell-south-florida"            element={<Navigate to="/sell" replace />} />
                 <Route path="/sell-weston"                   element={<SellWestonPage />} />
                 <Route path="/sell-coral-gables"             element={<SellCoralGablesPage />} />
                 <Route path="/sell-aventura"                 element={<SellAventuraPage />} />
@@ -112,7 +113,6 @@ if (rootElement) {
                 <Route path="/miami-mls-international-desk"  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/developers-agencies"           element={<Navigate to="/global-desk" replace />} />
                 {/* Legacy routes — redirect to new canonical URLs */}
-                <Route path="/sell"               element={<Navigate to="/sell-south-florida" replace />} />
                 <Route path="/madrid"             element={<Navigate to="/markets" replace />} />
                 {/* Active routes */}
                 <Route path="/spain-desk"         element={<Navigate to="/global-desk" replace />} />

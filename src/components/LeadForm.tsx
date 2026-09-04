@@ -159,7 +159,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
                   <option>6+ months</option>
                   <option>Exploring options</option>
                 </select>
-                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold-ink">▾</span>
+                <span aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold-ink">▾</span>
               </div>
             </div>
           </div>

@@ -64,10 +64,15 @@
 
 # ── Sell page canonical consolidation (301) ────────────────────────────────
 [[redirects]]
-  from = "/sell"
-  to = "/sell-south-florida"
+  from = "/sell-south-florida"
+  to = "/sell"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/sell"
+  to = "/index.html"
+  status = 200
 
 [[redirects]]
   from = "/madrid"

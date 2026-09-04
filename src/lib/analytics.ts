@@ -57,6 +57,12 @@ export function pushEvent(eventName: string, payload?: EventPayload): void {
   window.dataLayer.push({ event: eventName, ...payload });
 }
 
+export function trackMicroConversion(eventName: string, params: Record<string, string>): void {
+  if (typeof window !== "undefined" && window.dataLayer) {
+    window.dataLayer.push({ event: eventName, ...params });
+  }
+}
+
 /** Convert snake_case to PascalCase for Meta custom event names. */
 function toPascalCase(name: string): string {
   return name

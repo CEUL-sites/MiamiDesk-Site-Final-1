@@ -1,7 +1,7 @@
 import { ArrowRight, MessageSquare, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CONTACT } from "../constants";
-import { trackContact, trackFunnelEvent } from "../lib/analytics";
+import { trackContact, trackFunnelEvent, trackMicroConversion } from "../lib/analytics";
 
 // Desktop counterpart to MobileStickyCTA — a slim bottom bar that appears
 // after the visitor scrolls past the hero and keeps one valuation CTA in
@@ -109,7 +109,13 @@ export function DesktopStickyCTA({
               href={resolvedWhatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackContact("whatsapp", lang === "es" ? "desktop_sticky_es" : "desktop_sticky")}
+              onClick={() => {
+                trackContact("whatsapp", lang === "es" ? "desktop_sticky_es" : "desktop_sticky");
+                trackMicroConversion("hp_cta_click", {
+                  type: lang === "es" ? "whatsapp_es" : "whatsapp_us",
+                  location: "desktop_sticky",
+                });
+              }}
               className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
               <MessageSquare size={12} className="text-gold" />
@@ -117,7 +123,13 @@ export function DesktopStickyCTA({
             </a>
             <a
               href={ctaHref}
-              onClick={() => trackFunnelEvent("sticky_cta_home_value", { lang })}
+              onClick={() => {
+                trackFunnelEvent("sticky_cta_home_value", { lang });
+                trackMicroConversion("hp_cta_click", {
+                  type: "desktop_sticky_action",
+                  location: "desktop_sticky",
+                });
+              }}
               className="group inline-flex items-center gap-2 bg-gold px-6 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy-deep transition-opacity hover:opacity-90"
             >
               {t.ctaLabel}

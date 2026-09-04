@@ -54,7 +54,7 @@ const sitewideSchema: JsonLdSchema[] = [
     url: SITE_URL,
     telephone: CONTACT.phoneUS,
     email: CONTACT.email,
-    image: CONTACT.headshot,
+    image: `${SITE_URL}${CONTACT.headshot}`,
     priceRange: "Consultation available by request",
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
     hasCredential: [
@@ -148,6 +148,7 @@ const sitewideSchema: JsonLdSchema[] = [
     name: "Carlos Uzcategui, REALTOR® — United Realty Group Weston Office",
     telephone: CONTACT.phoneUS,
     email: CONTACT.email,
+    image: `${SITE_URL}${CONTACT.headshot}`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "15951 SW 41 St #700",
@@ -155,6 +156,11 @@ const sitewideSchema: JsonLdSchema[] = [
       addressRegion: "FL",
       postalCode: "33331",
       addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 26.1003,
+      longitude: -80.3998,
     },
     openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
     parentOrganization: { "@id": `${SITE_URL}/#organization` },

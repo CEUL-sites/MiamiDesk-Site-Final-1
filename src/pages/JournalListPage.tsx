@@ -120,19 +120,19 @@ export default function JournalListPage() {
           <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-5">
             {/* Search bar */}
             <div className="relative max-w-xl mx-auto">
-              <Search size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-navy/40" />
+              <Search size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-navy/70" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search topics (e.g. Brickell, Net Sheet, Coral Gables, Downsizing)..."
-                className="w-full rounded-full border border-bone bg-ivory/60 pl-11 pr-10 py-3 font-sans text-sm text-navy placeholder:text-navy/40 outline-none transition-all focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
+                className="w-full rounded-full border border-bone bg-ivory/60 pl-11 pr-10 py-3 font-sans text-sm text-navy placeholder:text-navy/70 outline-none transition-all focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-navy/40 hover:text-navy"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-navy/70 hover:text-navy"
                   aria-label="Clear search"
                 >
                   <X size={15} />

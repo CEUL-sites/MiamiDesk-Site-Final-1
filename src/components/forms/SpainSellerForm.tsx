@@ -461,7 +461,7 @@ function Select({
         {placeholder && <option value="">{placeholder}</option>}
         {children}
       </select>
-      <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-gold/60">▾</span>
+      <span aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-gold/60">▾</span>
     </div>
   );
 }

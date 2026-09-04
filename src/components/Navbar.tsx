@@ -3,14 +3,14 @@ import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { CONTACT } from "../constants";
-import { trackContact } from "../lib/analytics";
+import { trackContact, trackMicroConversion } from "../lib/analytics";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { UrgLogo } from "./UrgLogo";
 
 type NavItem = { name: string; href: string };
 
 const NAV_ITEMS: NavItem[] = [
-  { name: "Sellers",     href: "/sell-south-florida" },
+  { name: "Sellers",     href: "/sell" },
   { name: "Home Value",  href: "/home-value" },
   { name: "Buyers",      href: "/buy" },
   { name: "Markets",     href: "/markets" },
@@ -109,7 +109,10 @@ export function Navbar() {
 
           <a
             href={CONTACT.phoneUSLink}
-            onClick={() => trackContact("phone", "navbar")}
+            onClick={() => {
+              trackContact("phone", "navbar");
+              trackMicroConversion("hp_cta_click", { type: "phone_call", location: "navbar" });
+            }}
             className={`hidden items-center gap-1.5 font-mono text-[10px] tracking-[0.12em] transition-colors duration-200 2xl:flex ${
               scrolled ? "text-navy/70 hover:text-gold" : "text-white/65 hover:text-white"
             }`}
@@ -201,7 +204,10 @@ export function Navbar() {
                 </p>
                 <a
                   href={CONTACT.phoneUSLink}
-                  onClick={() => trackContact("phone", "navbar_mobile")}
+                  onClick={() => {
+                    trackContact("phone", "navbar_mobile");
+                    trackMicroConversion("hp_cta_click", { type: "phone_call", location: "navbar_mobile" });
+                  }}
                   className="flex w-full items-center justify-center gap-2.5 border border-white/20 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white transition-colors hover:border-gold hover:text-gold"
                 >
                   <Phone size={14} className="text-gold" />

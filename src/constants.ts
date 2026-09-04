@@ -109,7 +109,7 @@ export const REVIEW_PROFILES = {
 };
 
 export const NAVIGATION = [
-  { name: "Sellers",      href: "/sell-south-florida" },
+  { name: "Sellers",      href: "/sell" },
   { name: "Home Value",   href: "/home-value" },
   { name: "Buyers",       href: "/buy" },
   { name: "Markets",      href: "/markets" },

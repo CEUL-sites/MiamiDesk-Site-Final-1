@@ -7,7 +7,7 @@ import { AuroraBackground } from "./AuroraBackground";
 const CAPABILITIES = [
   {
     title: "Distribution Readiness",
-    body: "Selected international inventory is prepared for South Florida buyer-agent review with clear facts, brokerage context, and bilingual materials, subject to brokerage, platform, MLS, and compliance requirements."
+    body: "Originating listing principals, developers, and cooperating agencies provide verified professional photography, architectural renderings, floor plans, and property documentation. The Miami Global Desk provides licensed Florida MLS activation, professional distribution across the 93,000-member network, bilingual property positioning, and broker-to-broker cooperation management."
   },
   {
     title: "Buyer-Agent Activation",
@@ -134,7 +134,7 @@ export function InternationalBridge() {
           </div>
           <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/70">{CONTACT.email} · USA WhatsApp {CONTACT.phoneUS} · Spain WhatsApp {CONTACT.phoneSpain}</p>
           <p className="mx-auto mt-5 max-w-3xl font-sans text-xs leading-relaxed text-white/55">
-            MLS, portal, brokerage, and cooperation activity is subject to applicable brokerage, platform, MLS, association, legal, and compliance requirements. No endorsement by MIAMI REALTORS® and no buyer, lead, commission, placement, or sale is guaranteed.
+            Carlos Uzcategui operates as the licensed Florida-side principal of record (Realtor® SL705771 · United Realty Group). He does not hold a real estate broker or agency license in Spain. MLS, portal, brokerage, and cooperation activity is subject to applicable brokerage, platform, MLS, association, legal, and compliance requirements. No endorsement by MIAMI REALTORS® and no buyer, lead, commission, placement, or sale is guaranteed.
           </p>
         </div>
 

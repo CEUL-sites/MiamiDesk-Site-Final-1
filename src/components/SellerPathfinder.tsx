@@ -267,7 +267,7 @@ export function SellerPathfinder({
               </button>
             ) : null,
           )}
-          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/40">
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
             {t.step(step)}
           </span>
         </div>
