@@ -19,9 +19,9 @@ const WA_ES = "https://wa.me/34646853078";
 const COPY = {
   en: {
     product: "Miami Global Desk · International Listing Activation",
-    title: "Put Your International Property in Front of South Florida’s Professional Real Estate Market.",
-    lead: "Miami Global Desk connects selected international property to the local Greater Miami real estate agent network.",
-    body: "Create visibility and cooperation opportunities with local agents representing qualified buyers—while your mandate, client relationship, and transaction remain with your team.",
+    title: "International Prime Property—Activated for South Florida’s Professional Buyer-Agent Market.",
+    lead: "For agencies and developers: Carlos and United Realty Group prepare selected inventory for Greater Miami agent discovery and qualified buyer introductions.",
+    body: "Your team retains the mandate, client relationship, local negotiation, and closing.",
     explore: "Explore U.S. Activation",
     discuss: "Request a Private Discussion",
     proof: [["93,000", "Association members"], ["World’s largest", "Local Realtor® association"], ["437+", "Signed international agreements"]],

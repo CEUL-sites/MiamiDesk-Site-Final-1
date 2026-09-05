@@ -55,7 +55,7 @@ export function Hero() {
               variants={item}
               className="mt-5 max-w-[580px] font-sans text-base leading-7 text-white/78 lg:leading-[1.65]"
             >
-              Carlos pairs private pricing and positioning strategy with institutional distribution across South Florida and global buyer markets.
+              Carlos combines 25 years of South Florida transaction experience with strategic pricing, professional presentation, buyer-agent activation, and broad distribution—to pursue the strongest price, terms, and net outcome the market will support.
             </motion.p>
           </div>
 

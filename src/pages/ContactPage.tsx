@@ -92,10 +92,10 @@ export default function ContactPage() {
           <div className="relative z-10 px-6 text-center">
             <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">{deskCtx?.eyebrow ?? "Confidential · Private Review"}</p>
             <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
-              {deskCtx?.heading ?? "Request a Private Listing Review"}
+              {deskCtx?.heading ?? "Tell Carlos What You Are Deciding. Get the Right Next Step."}
             </h1>
             <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-              {deskCtx?.intro ?? "For South Florida sellers, international property owners, agencies, developers, and cooperating brokers. Share the essentials — Carlos reviews every submission personally. No listing commitment required."}
+              {deskCtx?.intro ?? "Share your South Florida sale, purchase, referral, or international listing objective. Carlos reviews every inquiry personally and responds privately—without a listing commitment."}
             </p>
           </div>
           <div id="listing-request" className="relative z-10 mx-auto mt-14 max-w-5xl px-6 md:mt-16">

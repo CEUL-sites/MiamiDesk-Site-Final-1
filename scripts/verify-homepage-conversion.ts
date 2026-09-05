@@ -110,7 +110,8 @@ assert.match(
 );
 assert.match(
   hero,
-  /Carlos pairs private pricing and positioning strategy with institutional distribution across South Florida and global buyer markets\./,
+  /Carlos combines 25 years of South Florida transaction experience with strategic pricing, professional presentation, buyer-agent activation, and broad distribution—to pursue the strongest price, terms, and net outcome the market will support\./,
+  "the homepage subtitle must connect Carlos's experience and distribution strategy to the seller's complete market outcome",
 );
 assert.match(form, /Request My Property Review/);
 assert.match(form, /Message Carlos directly/);
