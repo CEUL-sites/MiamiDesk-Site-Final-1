@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
-const [form, hero] = await Promise.all([
+const [form, hero, animation] = await Promise.all([
   readFile("src/components/HeroSellerForm.tsx", "utf8"),
   readFile("src/components/Hero.tsx", "utf8"),
+  readFile("src/components/HeroPropertyAnimation.tsx", "utf8"),
 ]);
 
 assert.doesNotMatch(
@@ -13,12 +14,12 @@ assert.doesNotMatch(
 );
 
 assert.match(
-  hero,
-  /src="\/images\/homepage-hero-waterfront-v2\.jpg"/,
-  "the responsive homepage hero must render the approved property image",
+  animation,
+  /src=\{POSTER_SRC\}/,
+  "the responsive homepage hero must render the approved animation poster",
 );
 assert.match(
-  hero,
+  animation,
   /fetchPriority="high"/,
   "the above-the-fold property image must be prioritized",
 );
@@ -27,5 +28,13 @@ assert.match(
   /aspect-\[16\/10\]/,
   "the mobile property image must retain a stable aspect ratio",
 );
+assert.match(animation, /src=\{shouldLoadVideo \? VIDEO_SRC : undefined\}/);
+assert.match(animation, /muted/);
+assert.match(animation, /playsInline/);
+assert.match(animation, /loop/);
+assert.match(animation, /size-11/);
+assert.match(animation, /role="note"/);
+assert.match(animation, /Illustrative service connections/);
+assert.match(animation, /aria-describedby=\{captionId\}/);
 
 console.log("Mobile hero regression checks passed.");

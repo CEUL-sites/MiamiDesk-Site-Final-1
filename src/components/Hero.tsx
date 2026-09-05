@@ -1,5 +1,6 @@
 import { motion, type Variants } from "motion/react";
 import { HeroSellerForm } from "./HeroSellerForm";
+import { HeroPropertyAnimation } from "./HeroPropertyAnimation";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -59,18 +60,8 @@ export function Hero() {
             </motion.p>
           </div>
 
-          <motion.div
-            variants={item}
-            className="relative mt-7 overflow-hidden border-y border-gold/35 lg:hidden"
-          >
-            <img
-              src="/images/homepage-hero-waterfront-v2.jpg"
-              alt="Modern South Florida waterfront residence at sunset"
-              width="1536"
-              height="1024"
-              fetchPriority="high"
-              className="aspect-[16/10] w-full object-cover"
-            />
+          <motion.div variants={item} className="relative mt-7 aspect-[16/10] overflow-hidden border-y border-gold/35 lg:hidden">
+            <HeroPropertyAnimation />
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#060D18] to-transparent"
@@ -90,14 +81,11 @@ export function Hero() {
           variants={item}
           className="relative hidden h-[790px] overflow-hidden lg:block"
         >
-          <img
-            src="/images/homepage-hero-waterfront-v2.jpg"
-            alt="Modern South Florida waterfront residence at sunset"
-            width="1536"
-            height="1024"
-            fetchPriority="high"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
+          <div className="absolute inset-0 flex items-center justify-center px-8 py-10 xl:px-12">
+            <div className="aspect-square w-full max-w-[710px] overflow-hidden">
+              <HeroPropertyAnimation />
+            </div>
+          </div>
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#060D18] via-[#060D18]/75 to-transparent"
