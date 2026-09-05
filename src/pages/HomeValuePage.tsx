@@ -143,8 +143,7 @@ export default function HomeValuePage() {
               <em className="italic text-gold font-normal">Property Worth Today?</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
-              Not an algorithm. A real MLS-based valuation and market absorption analysis from a licensed real estate professional with
-              25 years in South Florida. Carlos reviews and answers every request personally.
+              Receive a private MLS-based valuation, local absorption analysis, and preliminary net-proceeds review prepared personally by Carlos—not an automated estimate.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a

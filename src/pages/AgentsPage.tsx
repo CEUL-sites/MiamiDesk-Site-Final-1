@@ -218,9 +218,7 @@ export default function AgentsPage() {
               <em className="italic text-gold">Work With Carlos.</em>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-[1.5] text-white/65 md:mt-7 md:leading-[1.85]">
-              Refer a buyer or seller and get paid at closing. Give a listing serious U.S. and
-              international reach. Or build your own career alongside a Florida-licensed real estate professional with
-              25 years inside South Florida's network. Pick your path below.
+              Refer a buyer or seller, activate selected international inventory for South Florida buyer-agent discovery, or discuss building your business with United Realty Group—each through a documented professional path.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap md:mt-9">
               <a

@@ -141,13 +141,11 @@ export default function BuyersPage() {
           <div className="relative z-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Representation</p>
           <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
-            25 years of South Florida transactions —<br />
-            <em className="italic text-gold">and {CONTACT.stats.urgAgents} agents behind every purchase.</em>
+            Know What You’re Buying—<br />
+            <em className="italic text-gold">Before You Decide What to Pay.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Direct buyer representation across Miami-Dade, Broward, and Palm Beach — in English or Spanish —
-            through United Realty Group's professional Florida brokerage framework, with {CONTACT.stats.urgAgents} agents
-            across {CONTACT.stats.urgOfficeNetwork}.
+            Carlos applies 25 years of South Florida transaction experience to property analysis, offer strategy, negotiation, and closing coordination across Miami-Dade, Broward, and Palm Beach.
           </p>
           {/* Scale strip — the strength story in four figures */}
           <Tilt3D className="mx-auto mt-8 max-w-3xl">
