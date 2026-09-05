@@ -88,9 +88,10 @@ assert.equal(
   "the seller CTA should hide while a guarded element (e.g. the review card) crosses the bottom action area",
 );
 
-const [home, hero, form, authority, execution, distribution, proof, about, contactPage, cookie, mobileSticky, footer] = await Promise.all([
+const [home, hero, heroAnimation, form, authority, execution, distribution, proof, about, contactPage, cookie, mobileSticky, footer] = await Promise.all([
   readFile("src/pages/HomePage.tsx", "utf8"),
   readFile("src/components/Hero.tsx", "utf8"),
+  readFile("src/components/HeroPropertyAnimation.tsx", "utf8"),
   readFile("src/components/HeroSellerForm.tsx", "utf8"),
   readFile("src/components/SellerAuthorityStrip.tsx", "utf8"),
   readFile("src/components/SellerExecutionSystem.tsx", "utf8"),
@@ -119,7 +120,14 @@ assert.match(form, /Personal reply from Carlos · No listing commitment/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
 assert.match(hero, /93,000", label: "Member Agents"/);
 assert.match(hero, /Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity\./);
-assert.match(hero, /homepage-hero-waterfront-v2\.jpg/);
+assert.equal((hero.match(/<HeroPropertyAnimation \/>/g) ?? []).length, 2);
+assert.match(heroAnimation, /\/media\/hero-property-network\.mp4/);
+assert.match(heroAnimation, /\/images\/hero-property-network\.webp/);
+assert.match(heroAnimation, /prefers-reduced-motion: reduce/);
+assert.match(heroAnimation, /connection\?\.saveData/);
+assert.match(heroAnimation, /IntersectionObserver/);
+assert.match(heroAnimation, /visibilitychange/);
+assert.match(heroAnimation, /fetchPriority="high"/);
 assert.match(authority, /REALTOR® · FL SL705771/);
 assert.match(authority, /CLHMS Luxury Specialist/);
 assert.match(authority, /Verified Realtor\.com® reviews/);
