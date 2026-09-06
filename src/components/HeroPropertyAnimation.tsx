@@ -90,8 +90,8 @@ export function HeroPropertyAnimation() {
         src={POSTER_SRC}
         alt=""
         aria-hidden="true"
-        width="900"
-        height="900"
+        width="1280"
+        height="720"
         fetchPriority="high"
         className={`hero-property-media absolute inset-0 h-full w-full transition-opacity duration-300 ${
           isPlaying ? "opacity-0" : "opacity-100"
@@ -118,7 +118,7 @@ export function HeroPropertyAnimation() {
         role="note"
         className="absolute top-3 left-3 z-10 lg:top-auto lg:bottom-4 lg:left-4 max-w-[calc(100%-5rem)] rounded-sm bg-[#060D18]/75 px-2 py-1 font-sans text-[10px] leading-4 text-white/85 backdrop-blur-sm"
       >
-        Illustrative service connections
+        Property → Miami agent network → coordinated buyer & investor introductions.
       </p>
 
       {shouldLoadVideo && (

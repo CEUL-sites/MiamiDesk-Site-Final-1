@@ -5,7 +5,7 @@ import { HeroPropertyAnimation } from "./HeroPropertyAnimation";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const DISTRIBUTION_STATS = [
-  { value: "93,000", label: "Member Agents" },
+  { value: "93,000", label: "Association Members" },
   { value: "200+", label: "Global Portals · 19 Languages" },
   { value: "260+", label: "U.S. MLSs via RPR" },
   { value: "437+", label: "International Agreements" },
@@ -38,29 +38,39 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto grid w-full max-w-[1440px] lg:h-[790px] lg:grid-cols-[minmax(640px,0.95fr)_minmax(0,1.05fr)]"
+        className="relative z-10 mx-auto grid w-full max-w-[1440px] lg:min-h-[790px] lg:grid-cols-[minmax(640px,0.95fr)_minmax(0,1.05fr)]"
       >
-        <div className="flex flex-col px-5 pb-8 pt-28 sm:px-8 sm:pt-32 lg:overflow-hidden lg:px-12 lg:pb-7 lg:pt-28 xl:pl-20 xl:pr-8">
+        <div className="flex flex-col px-5 pb-8 pt-28 sm:px-8 sm:pt-32 lg:px-12 lg:pb-7 lg:pt-28 xl:pl-20 xl:pr-8">
           <div className="max-w-[650px]">
+            <motion.p
+              variants={item}
+              className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-gold"
+            >
+              SOUTH FLORIDA LUXURY & INVESTMENT PROPERTY
+            </motion.p>
             <motion.h1
               variants={item}
               className="font-serif text-[clamp(2.65rem,11.2vw,4.5rem)] font-normal leading-[0.98] tracking-[-0.035em] text-white lg:text-[3.15rem] xl:text-[3.45rem]"
             >
-              Sell With the Reach of the{" "}
-              <em className="block pt-2 italic text-gold lg:inline lg:pt-0">
-                World's Largest Local REALTOR® Association.
-              </em>
+              Put Your Property Inside Miami’s Professional Agent Network.
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-5 max-w-[580px] font-sans text-base leading-7 text-white/78 lg:leading-[1.65]"
             >
-              Carlos combines 25 years of South Florida transaction experience with strategic pricing, professional presentation, buyer-agent activation, and broad distribution—to pursue the strongest price, terms, and net outcome the market will support.
+              Carlos positions your property for the agents representing serious buyers and investors—then coordinates the inquiries and introductions that come back.
             </motion.p>
+            <motion.a
+              variants={item}
+              href="/global-desk"
+              className="mt-3 inline-flex font-sans text-sm leading-6 text-gold transition-colors hover:text-gold-soft hover:underline"
+            >
+              Own prime property in Spain or Latin America? Explore the Miami Global Desk →
+            </motion.a>
           </div>
 
-          <motion.div variants={item} className="relative mt-7 aspect-[16/10] overflow-hidden border-y border-gold/35 lg:hidden">
+          <motion.div variants={item} className="relative mt-7 aspect-video overflow-hidden border-y border-gold/35 lg:hidden">
             <HeroPropertyAnimation />
             <div
               aria-hidden="true"
@@ -79,10 +89,10 @@ export function Hero() {
 
         <motion.div
           variants={item}
-          className="relative hidden h-[790px] overflow-hidden lg:block"
+          className="relative hidden min-w-0 lg:block lg:min-h-[790px]"
         >
           <div className="absolute inset-0 flex items-center justify-center px-8 py-10 xl:px-12">
-            <div className="aspect-square w-full max-w-[710px] overflow-hidden">
+            <div className="aspect-video w-full max-w-[740px] overflow-hidden">
               <HeroPropertyAnimation />
             </div>
           </div>
