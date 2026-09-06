@@ -103,6 +103,14 @@ video {
   object-position: center;
 }
 
+/* Keep the delayed desktop consent prompt clear of the seller form and CTA. */
+@media (min-width: 48rem) {
+  .cookie-consent-dialog {
+    left: auto;
+    right: 1.5rem;
+  }
+}
+
 /* Shared gold CTA — used by the hero seller forms (EN + ES) */
 .hero-cta-main {
   background: linear-gradient(90deg, #B08D57 0%, #C9A96E 50%, #B08D57 100%);

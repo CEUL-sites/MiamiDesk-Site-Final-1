@@ -12,10 +12,9 @@ export function CookieBanner() {
     setConsentState(getConsent());
   }, []);
 
-  // On desktop the banner sits bottom-left, which is the same band the hero's
-  // primary CTA occupies on shorter laptop viewports (~1440x780) — it lands on
-  // top of the one button the page exists to get clicked. Yield until the CTA
-  // has scrolled away, mirroring how MobileStickyCTA yields to its guards.
+  // On desktop the seller form sits on the left, so the banner yields while the
+  // primary CTA is visible and, after the backstop timeout, appears in the
+  // lower-right visual column instead of covering the conversion action.
   //
   // Mobile is deliberately untouched: there the banner spans the full width
   // well below the CTA and never covers it, and MobileStickyCTA waits on the
@@ -70,7 +69,7 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label="Cookie preference"
-      className="fixed bottom-4 left-4 right-4 z-[9999] rounded-lg border border-gold/25 bg-navy-deep/95 px-4 py-3 shadow-2xl backdrop-blur md:bottom-6 md:left-6 md:right-auto md:max-w-xs md:px-5 md:py-4"
+      className="cookie-consent-dialog fixed bottom-4 left-4 right-4 z-[9999] rounded-lg border border-gold/25 bg-navy-deep/95 px-4 py-3 shadow-2xl backdrop-blur md:bottom-6 md:left-6 md:right-auto md:max-w-xs md:px-5 md:py-4"
     >
       <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">Cookie Notice</p>
       <p className="mt-1 font-sans text-xs leading-relaxed text-white/65">
