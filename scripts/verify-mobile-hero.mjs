@@ -25,16 +25,18 @@ assert.match(
 );
 assert.match(
   hero,
-  /aspect-\[16\/10\]/,
-  "the mobile property image must retain a stable aspect ratio",
+  /aspect-video/,
+  "the mobile property animation must retain the approved 16:9 aspect ratio",
 );
+assert.match(animation, /width="1280"/);
+assert.match(animation, /height="720"/);
+assert.match(animation, /Property → Miami agent network → coordinated buyer & investor introductions\./);
 assert.match(animation, /src=\{shouldLoadVideo \? VIDEO_SRC : undefined\}/);
 assert.match(animation, /muted/);
 assert.match(animation, /playsInline/);
 assert.match(animation, /loop/);
 assert.match(animation, /size-11/);
 assert.match(animation, /role="note"/);
-assert.match(animation, /Illustrative service connections/);
 assert.match(animation, /aria-describedby=\{captionId\}/);
 
 console.log("Mobile hero regression checks passed.");

@@ -103,9 +103,11 @@ video {
   object-position: center;
 }
 
-@media (min-width: 64rem) {
-  .hero-property-media {
-    object-fit: contain;
+/* Keep the delayed desktop consent prompt clear of the seller form and CTA. */
+@media (min-width: 48rem) {
+  .cookie-consent-dialog {
+    left: auto;
+    right: 1.5rem;
   }
 }
 
