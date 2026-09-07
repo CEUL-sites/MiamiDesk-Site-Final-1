@@ -105,26 +105,14 @@ const [home, hero, heroAnimation, form, authority, execution, distribution, proo
   readFile("src/components/Footer.tsx", "utf8"),
 ]);
 
-assert.match(
-  hero,
-  /SOUTH FLORIDA LUXURY & INVESTMENT PROPERTY/,
-  "the homepage hero must identify the South Florida luxury and investment-property mandate",
-);
-assert.match(
-  hero,
-  /Put Your Property Inside Miami’s Professional Agent Network\./,
-  "the homepage hero must lead with the approved professional-network proposition",
-);
-assert.match(
-  hero,
-  /Carlos positions your property for the agents representing serious buyers and investors—then coordinates the inquiries and introductions that come back\./,
-  "the homepage subtitle must describe the approved agent-facing positioning and coordinated introductions",
-);
-assert.match(
-  hero,
-  /href="\/global-desk"[\s\S]*Own prime property in Spain or Latin America\? Explore the Miami Global Desk →/,
-  "the homepage hero must retain the approved Global Desk path",
-);
+assert.match(hero, /South Florida property/);
+assert.match(hero, /Your property\./);
+assert.match(hero, /Miami’s network\./);
+assert.match(hero, /Your next move\./);
+assert.match(hero, /distribution network of 93,000 association members/);
+assert.match(hero, /25 years in South Florida/);
+assert.match(form, /bridgeHref: "\/global-desk"/);
+assert.ok(hero.indexOf('id="list-here"') < hero.indexOf('<HeroPropertyAnimation'), "Mobile form must precede media");
 assert.match(form, /Request My Property Review/);
 assert.match(form, /Message Carlos directly/);
 assert.match(form, /Personal reply from Carlos · No listing commitment/);
@@ -133,7 +121,7 @@ assert.match(hero, /93,000", label: "Association Members"/);
 assert.match(hero, /Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity\./);
 assert.equal((hero.match(/<HeroPropertyAnimation \/>/g) ?? []).length, 2);
 assert.match(hero, /aspect-video/);
-assert.match(hero, /lg:min-h-\[790px\]/);
+assert.match(hero, /lg:min-h-\[730px\]/);
 assert.doesNotMatch(hero, /lg:h-\[790px\]/);
 assert.doesNotMatch(hero, /lg:overflow-hidden/);
 assert.match(heroAnimation, /\/media\/hero-property-network\.mp4/);

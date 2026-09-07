@@ -38,38 +38,38 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto grid w-full max-w-[1440px] lg:min-h-[790px] lg:grid-cols-[minmax(640px,0.95fr)_minmax(0,1.05fr)]"
+        className="relative z-10 mx-auto grid w-full max-w-[1440px] lg:min-h-[730px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]"
       >
-        <div className="flex flex-col px-5 pb-8 pt-28 sm:px-8 sm:pt-32 lg:px-12 lg:pb-7 lg:pt-28 xl:pl-20 xl:pr-8">
+        <div className="flex flex-col px-5 pb-8 pt-24 sm:px-8 sm:pt-28 lg:px-12 lg:pb-7 lg:pt-28 xl:pl-20 xl:pr-8">
           <div className="max-w-[650px]">
-            <motion.p
-              variants={item}
-              className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-gold"
-            >
-              SOUTH FLORIDA LUXURY & INVESTMENT PROPERTY
-            </motion.p>
             <motion.h1
               variants={item}
-              className="font-serif text-[clamp(2.65rem,11.2vw,4.5rem)] font-normal leading-[0.98] tracking-[-0.035em] text-white lg:text-[3.15rem] xl:text-[3.45rem]"
+              className="font-serif text-[clamp(2.25rem,9vw,4.5rem)] font-normal leading-[1.04] tracking-[-0.035em] text-white lg:text-[3.3rem] xl:text-[3.9rem]"
             >
-              Put Your Property Inside Miami’s Professional Agent Network.
+              <span className="block">Your property.</span>
+              <span className="block">Miami’s network.</span>
+              <span className="block">Your next move.</span>
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-5 max-w-[580px] font-sans text-base leading-7 text-white/78 lg:leading-[1.65]"
             >
-              Carlos positions your property for the agents representing serious buyers and investors—then coordinates the inquiries and introductions that come back.
+              Put your South Florida property into the distribution network of 93,000 association members. Carlos connects pricing, presentation and buyer-agent outreach in one listing strategy.
             </motion.p>
-            <motion.a
-              variants={item}
-              href="/global-desk"
-              className="mt-3 inline-flex font-sans text-sm leading-6 text-gold transition-colors hover:text-gold-soft hover:underline"
-            >
-              Own prime property in Spain or Latin America? Explore the Miami Global Desk →
-            </motion.a>
+            <motion.div variants={item} className="mt-4">
+              <p className="font-sans text-sm font-medium text-gold-soft">Carlos Uzcategui · 25 years in South Florida</p>
+              <p className="mt-1 font-sans text-xs leading-5 text-white/70">CLHMS · Certified Seller Representative · English &amp; Spanish</p>
+            </motion.div>
           </div>
 
+          <motion.div
+            id="list-here"
+            variants={item}
+            className="mt-6 w-full max-w-[520px] scroll-mt-24 lg:mt-5"
+          >
+            <HeroSellerForm progressiveDesktop />
+          </motion.div>
           <motion.div variants={item} className="relative mt-7 aspect-video overflow-hidden border-y border-gold/35 lg:hidden">
             <HeroPropertyAnimation />
             <div
@@ -78,32 +78,17 @@ export function Hero() {
             />
           </motion.div>
 
-          <motion.div
-            id="list-here"
-            variants={item}
-            className="mt-6 w-full max-w-[520px] scroll-mt-24 lg:mt-5"
-          >
-            <HeroSellerForm />
-          </motion.div>
         </div>
 
         <motion.div
           variants={item}
-          className="relative hidden min-w-0 lg:block lg:min-h-[790px]"
+          className="relative hidden min-w-0 lg:block lg:min-h-[730px]"
         >
           <div className="absolute inset-0 flex items-center justify-center px-8 py-10 xl:px-12">
             <div className="aspect-video w-full max-w-[740px] overflow-hidden">
               <HeroPropertyAnimation />
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#060D18] via-[#060D18]/75 to-transparent"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#060D18]/75 to-transparent"
-          />
         </motion.div>
       </motion.div>
 
