@@ -291,7 +291,7 @@ export default function AgentsPage() {
                   tag: "Path 02 · Exposure",
                   title: "Give a listing international reach",
                   body: "International or premium listing agents can add a Miami-facing exposure layer — bilingual packaging into the South Florida network and U.S./LATAM buyer channels. You keep the mandate.",
-                  points: ["You keep the mandate & client", "93,000-agent network access", "Bilingual U.S./LATAM channels"],
+                  points: ["You keep the mandate & client", "Visibility within a 93,000-member association ecosystem", "Bilingual U.S./LATAM channels"],
                   cta: "Submit a listing",
                   href: "#submit-listing",
                 },

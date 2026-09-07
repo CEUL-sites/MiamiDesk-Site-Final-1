@@ -1,7 +1,18 @@
-# Agency Outreach — Spain MLS Listing Program
+# Agency Outreach — Spain MLS Listing Program (Legacy)
 ### HomesProfessional.com · Carlos Uzcategui · Florida REALTOR® SL705771 · United Realty Group
 
 > Internal use only. Do not distribute to clients. See compliance footer before sending any template.
+
+> **Status:** The message templates below are legacy material and are not
+> send-ready. Reconcile them with the Global Desk commercial policy before any
+> future use. The policy and current opportunity facts control.
+
+> **Commercial-policy precedence — September 2026:** This guide must be used with
+> `GLOBAL-DESK-COMMERCIAL-POLICY.md`. Where older language below describes formal
+> MLS placement, direct network access, or suppresses written fee figures, the
+> Global Desk policy controls. Treat the service as professional distribution
+> and cooperation infrastructure; eligibility and acceptance remain subject to
+> brokerage, platform, legal, and compliance review.
 
 ---
 
@@ -9,13 +20,13 @@
 
 **English**
 
-> "I put your Spanish prime inventory formally on the Miami MLS — in front of the buyer agents who already represent the LATAM and U.S. buyers your clients want."
+> "I add a professional South Florida distribution and buyer-agent cooperation layer to selected Spanish prime inventory while your agency keeps the mandate and local transaction."
 
 ---
 
 **Español**
 
-> "Activo su inventario prime español de forma oficial en el MLS de Miami — ante los agentes de compradores que ya representan a los inversores latinoamericanos y estadounidenses que sus clientes buscan."
+> "Añado una estructura profesional de distribución y cooperación con agentes de compradores en el sur de Florida para inventario prime español seleccionado, mientras su agencia conserva el mandato y la operación local."
 
 ---
 
@@ -242,7 +253,7 @@ Carlos Uzcategui · REALTOR® Licenciado en Florida SL705771 · United Realty Gr
 | Objection | Answer (English) | Respuesta (Español) |
 |---|---|---|
 | **"Do we lose the client?"** | No. The written cooperation agreement designates your agency as the agent of record in Spain. All client-facing work in Spain remains yours. The U.S.-side activation and buyer-agent distribution is what we add — nothing is taken away. | No. El acuerdo de cooperación por escrito designa a su agencia como agente del cliente en España. Todo el trabajo de cara al cliente en España sigue siendo suyo. Lo que añadimos es la activación en EE. UU. y la distribución entre agentes de compradores — no se le resta nada. |
-| **"What does it cost?"** | The commercial structure is discussed broker-to-broker and documented in writing before any activation. No terms are published publicly. Portfolio programs are typically structured as a listing program with referral cooperation through United Realty Group — the specifics are agreed in writing at the cooperation agreement stage. | La estructura comercial se conversa broker a broker y se documenta por escrito antes de cualquier activación. No se publican términos. Los programas de cartera se estructuran típicamente como un programa de listado con cooperación de referidos a través de United Realty Group — los términos específicos se acuerdan por escrito en la etapa del acuerdo de cooperación. |
+| **"What does it cost?"** | For a new non-exclusive or short-term opportunity, the standard structure is EUR 200 activation per property plus EUR 100 per month per property. Transaction compensation is separate and must be agreed in writing. Meaningful exclusive mandates expected to run approximately six months or longer receive a bespoke Strategic Mandate Review. Prior bespoke arrangements remain unchanged. | Para una oportunidad nueva, no exclusiva o de corto plazo, la estructura estándar es EUR 200 de activación por propiedad más EUR 100 mensuales por propiedad. La compensación transaccional es independiente y debe acordarse por escrito. Los mandatos exclusivos relevantes con una duración prevista de aproximadamente seis meses o más reciben una Revisión de Mandato Estratégico a medida. Los acuerdos especiales anteriores permanecen sin cambios. |
 | **"Is this exclusive?"** | No. You retain full freedom to market your inventory on any other portal, platform, or network. The MLS activation is an additional distribution channel — it does not create exclusivity or conflict with your existing arrangements. | No. Usted conserva plena libertad para comercializar su inventario en cualquier otro portal, plataforma o red. La activación en el MLS es un canal de distribución adicional — no crea exclusividad ni entra en conflicto con sus acuerdos existentes. |
 | **"How is this different from listing on a portal?"** | A portal creates visibility to consumers browsing online. The MLS creates a direct line to 93,000 member agents — professionals with buyer relationships and financial motivation to show your property. Most U.S. transactions are executed through an agent, not through a portal search. This is distribution through the transaction channel, not the discovery channel. | Un portal genera visibilidad para consumidores que navegan en línea. El MLS crea una línea directa con 93.000 agentes miembros — profesionales con relaciones de compradores e incentivo económico para presentar su propiedad. La gran mayoría de las transacciones en EE. UU. se ejecutan a través de un agente, no mediante búsqueda en portales. Esto es distribución a través del canal de transacción, no del canal de descubrimiento. |
 | **"Who is legally responsible in the U.S.?"** | Carlos Uzcategui, Florida Licensed REALTOR® SL705771, through United Realty Group as the licensed Florida broker of record. Your agency remains the licensed party in Spain. That division of responsibility is the structural point — each side is covered by the licensed professional in their own jurisdiction. | Carlos Uzcategui, REALTOR® Licenciado de Florida SL705771, a través de United Realty Group como broker licenciado de Florida. Su agencia sigue siendo la parte licenciada en España. Esa división de responsabilidad es el sentido de la estructura — cada parte está cubierta por el profesional licenciado en su propia jurisdicción. |
@@ -254,7 +265,7 @@ Carlos Uzcategui · REALTOR® Licenciado en Florida SL705771 · United Realty Gr
 **All outreach using these templates must observe the following:**
 
 - **No outcome guarantees.** Do not state or imply that a listing will sell, that a buyer will be found, or that any price or timeline is achievable. Remove any such language before sending.
-- **No fee figures in writing.** Commercial terms — program fees, referral percentages, or any monetary amounts — are never put in writing until the broker-to-broker cooperation agreement is being drafted and both parties have agreed to proceed. Refer to "terms discussed broker-to-broker and documented in writing" only.
+- **Use the governing commercial structure accurately.** New non-exclusive or short-term opportunities default to EUR 200 activation per property plus EUR 100 per month per property. Transaction compensation remains separate and written. Meaningful approximately six-month-or-longer exclusive mandates require a bespoke Strategic Mandate Review. Preserve prior bespoke arrangements. Public publication of prices or agreement language requires a separate explicit instruction.
 - **Florida license only.** Carlos Uzcategui holds a Florida real estate license (SL705771). He is not licensed in Spain or any other jurisdiction. All representation of Spanish sellers, Spanish buyers, or Spanish property in Spain is the sole responsibility of the licensed Spanish agency party.
 - **Spanish agency remains licensed party in Spain.** The structure requires a licensed Spanish agency as co-party. Do not imply Carlos can act as an agent in Spain.
 - **Equal Housing Opportunity.** All U.S.-side activity is conducted in compliance with the Equal Housing Opportunity Act. Include "Equal Housing Opportunity" in any printed or HTML correspondence using these templates.
