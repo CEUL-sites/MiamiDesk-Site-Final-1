@@ -84,6 +84,7 @@
       "/es/vender-brickell",
       "/es/vender-coral-gables",
       "/journal",
+      "/journal/international-luxury-properties-miami-buyer-agents-global-desk",
       "/journal/downsizing-sequence-doral-2026-september",
       "/journal/downsizing-sequence-aventura-2026-september",
       "/journal/downsizing-sequence-coral-gables-2026-september",
@@ -224,7 +225,6 @@
     "tailwindcss": "^4.3.0",
     "tsx": "^4.22.0",
     "typescript": "~5.8.3",
-    "vite": "^6.4.2",
     "vite-plugin-sitemap": "^0.8.2"
   }
 }
