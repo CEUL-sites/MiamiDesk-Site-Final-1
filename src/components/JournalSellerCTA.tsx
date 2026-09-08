@@ -17,6 +17,10 @@ interface JournalOffer {
   ctaType: string;
   topic: string;
   whatsappMessage: string;
+  destination?: string;
+  anchor?: string;
+  bottomNote?: string;
+  appendBrokerageToEyebrow?: boolean;
 }
 
 const DEFAULT_OFFER: JournalOffer = {
@@ -30,6 +34,19 @@ const DEFAULT_OFFER: JournalOffer = {
 };
 
 const OFFERS_BY_SLUG: Record<string, JournalOffer> = {
+  'international-luxury-properties-miami-buyer-agents-global-desk': {
+    eyebrow: 'Miami Global Desk · International Property',
+    heading: 'Request a private Global Desk property review',
+    body: 'Carlos will review the property, mandate structure, South Florida buyer-agent fit, and professional cooperation terms before recommending activation.',
+    ctaLabel: 'Request a Global Desk Review',
+    ctaType: 'global_desk_review',
+    topic: 'global-desk',
+    whatsappMessage: 'Hello Carlos, I read your Global Desk article and would like to request a private property review.',
+    destination: '/global-desk',
+    anchor: 'listing-request',
+    bottomNote: '',
+    appendBrokerageToEyebrow: false,
+  },
   'seller-positioning-south-florida-2026-august': {
     eyebrow: 'Private Position Analysis · South Florida',
     heading: 'Request a private property position analysis',
@@ -124,7 +141,9 @@ function offerHref(post: PostMeta, variant: Props['variant'], offer: JournalOffe
     journal_offer: offer.topic,
     journal_cta: variant,
   });
-  return `${sellPageFor(post)}?${params.toString()}#contact`;
+  const destination = offer.destination ?? sellPageFor(post);
+  const anchor = offer.anchor ?? 'contact';
+  return `${destination}?${params.toString()}#${anchor}`;
 }
 
 function whatsappHref(offer: JournalOffer): string {
@@ -143,6 +162,10 @@ export function JournalSellerCTA({ post, variant }: Props) {
   const offer = offerFor(post);
   const sellHref = offerHref(post, variant, offer);
   const whatsapp = whatsappHref(offer);
+  const bottomNote = offer.bottomNote ?? 'No listing commitment is required.';
+  const bottomEyebrow = offer.appendBrokerageToEyebrow === false
+    ? offer.eyebrow
+    : `${offer.eyebrow} · United Realty Group`;
 
   if (variant === 'top') {
     return (
@@ -204,13 +227,13 @@ export function JournalSellerCTA({ post, variant }: Props) {
     <section className="mx-auto max-w-3xl px-5 py-14 lg:px-8">
       <div className="border border-bone bg-ivory p-8 md:p-10">
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-          {offer.eyebrow} · United Realty Group
+          {bottomEyebrow}
         </p>
         <h2 className="mt-4 font-serif text-2xl leading-snug text-navy">
           {offer.heading}
         </h2>
         <p className="mt-3 font-sans text-sm leading-relaxed text-navy/65">
-          {offer.body} No listing commitment is required.
+          {offer.body}{bottomNote ? ` ${bottomNote}` : ''}
         </p>
         <div className="mt-7 flex flex-wrap items-center gap-4">
           <Link
