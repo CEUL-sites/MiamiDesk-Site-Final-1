@@ -30,7 +30,7 @@ export function Footer() {
           />
           <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
           <p className="font-mono mt-2 text-[11px] uppercase tracking-[0.22em] text-gold">REALTOR® · Florida License SL705771</p>
-          <p className="mt-3 max-w-xs font-sans text-sm font-light leading-relaxed text-white/55 md:mt-5">
+          <p className="mt-3 max-w-xs font-sans text-sm font-light leading-relaxed text-white/70 md:mt-5">
             Florida listings. Miami MLS exposure. International property distribution. Led by Carlos Uzcategui — 25 years licensed in Florida.
           </p>
           <div className="mt-5 flex items-center gap-3 md:mt-8">
@@ -40,7 +40,7 @@ export function Footer() {
               <rect x="25" y="48" width="50" height="8" fill="currentColor" opacity="0.8" />
               <text x="50" y="108" textAnchor="middle" fontFamily="sans-serif" fontSize="9" fill="currentColor" opacity="0.7" letterSpacing="1">EQUAL HOUSING</text>
             </svg>
-            <span className="font-sans text-xs text-white/50">Equal Housing Opportunity</span>
+            <span className="font-sans text-xs text-white/70">Equal Housing Opportunity</span>
           </div>
 
           {/* MIAMI REALTORS® membership affiliation */}
@@ -65,7 +65,7 @@ export function Footer() {
           <h4 className="font-mono mb-3 text-[10px] uppercase tracking-[0.28em] text-gold md:mb-6">Navigation</h4>
           <div className="space-y-2 md:space-y-3">
             {NAVIGATION.map((item) => (
-              <a key={item.name} href={item.href} className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">{item.name}</a>
+              <a key={item.name} href={item.href} className="block font-sans text-sm font-medium text-white/70 transition-colors hover:text-gold">{item.name}</a>
             ))}
           </div>
         </div>
@@ -73,7 +73,7 @@ export function Footer() {
         <div>
           <h4 className="font-mono mb-1 text-[10px] uppercase tracking-[0.28em] text-gold">Contact</h4>
           <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/70 md:mb-6">United Realty Group</p>
-          <div className="space-y-2.5 font-sans text-sm text-white/55 md:space-y-4">
+          <div className="space-y-2.5 font-sans text-sm text-white/70 md:space-y-4">
             <p>Direct / WhatsApp:{" "}
               <a href={CONTACT.phoneUSLink} className="text-white/75 underline underline-offset-2 hover:text-gold">{CONTACT.phoneUS}</a>
             </p>
@@ -100,7 +100,7 @@ export function Footer() {
 
         <div>
           <h4 className="font-mono mb-3 text-[10px] uppercase tracking-[0.28em] text-gold md:mb-6">Credentials</h4>
-          <ul className="space-y-2.5 font-sans text-xs uppercase tracking-widest text-white/55 md:space-y-4">
+          <ul className="space-y-2.5 font-sans text-xs uppercase tracking-widest text-white/70 md:space-y-4">
             <li>{CONTACT.licenseDisplay}</li>
             <li>{CONTACT.brokerage}</li>
             <li>Licensed since 2001</li>
@@ -113,12 +113,12 @@ export function Footer() {
         <div>
           <h4 className="font-mono mb-3 text-[10px] uppercase tracking-[0.28em] text-gold md:mb-6">Vender en España</h4>
           <div className="space-y-2 md:space-y-3">
-            <a href="/vender-marbella" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Marbella</a>
-            <a href="/vender-madrid" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Madrid</a>
-            <a href="/vender-costa-blanca" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Costa Blanca</a>
-            <a href="/vender-ibiza" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Ibiza</a>
-            <a href="/vender-barcelona" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Barcelona</a>
-            <a href="/vender-valencia" className="block font-sans text-sm font-medium text-white/50 transition-colors hover:text-gold">Vender en Valencia</a>
+            <a href="/vender-marbella" className="block font-sans text-sm font-medium text-white/70 transition-colors hover:text-gold">Vender en Marbella</a>
+            <a href="/vender-madrid" className="block font-sans text-sm font-medium text-white/70 transition-colors hover:text-gold">Vender en Madrid</a>
+            <a href="/vender-costa-blanca" className="block font-sans text-sm font-medium text-white/70 transition-colors hover:text-gold">Vender en Costa Blanca</a>
+            <a href="/vender-ibiza" className="block font-sans text-sm font-medium text-white/70 transition-colors hover:text-gold">Vender en Ibiza</a>
+            <a href="/vender-barcelona" className="block font-sans text-sm font-medium text-white/70 transition-colors hover:text-gold">Vender en Barcelona</a>
+            <a href="/vender-valencia" className="block font-sans text-sm font-medium text-white/70 transition-colors hover:text-gold">Vender en Valencia</a>
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@ export function Footer() {
           <h4 className="font-mono mb-3 text-[10px] uppercase tracking-[0.28em] text-gold md:mb-4">
             South Florida Market Reach
           </h4>
-          <p className="max-w-3xl font-sans text-xs leading-relaxed text-white/45">
+          <p className="max-w-3xl font-sans text-xs leading-relaxed text-white/70">
             Seller representation across the Miami and South Florida REALTORS® footprint — Miami-Dade, Broward, Palm
             Beach, St. Lucie and parts of Martin counties.{" "}
             <a href="/markets" className="text-gold underline underline-offset-2 transition-colors hover:text-gold-soft">View market intelligence →</a>

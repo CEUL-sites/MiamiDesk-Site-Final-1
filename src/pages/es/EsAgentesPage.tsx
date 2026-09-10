@@ -620,8 +620,7 @@ export default function EsAgentesPage() {
                   3.500+
                 </div>
                 <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
-                  {/* TODO: native Madrid editor review */}
-                  Agentes URG · 20 oficinas
+                  Agentes URG · 19 sedes en Florida
                 </div>
               </div>
               <div className="bg-white p-6 text-center">

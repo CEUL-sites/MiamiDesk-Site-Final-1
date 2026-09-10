@@ -72,7 +72,7 @@ export function GlobalOriginsFlow({ copy }: { copy: OriginsFlowCopy }) {
         </div>
 
         <div className="mt-10 md:mt-12">
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/50">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
             {copy.originsLabel}
           </p>
           <div
@@ -95,7 +95,7 @@ export function GlobalOriginsFlow({ copy }: { copy: OriginsFlowCopy }) {
                   className={`origin-chip rounded-full border px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${
                     on
                       ? "border-gold/60 bg-gold/15 text-gold"
-                      : "border-white/15 text-white/55 hover:border-white/35 hover:text-white/80"
+                      : "border-white/15 text-white/70 hover:border-white/35 hover:text-white/80"
                   }`}
                 >
                   {name}
@@ -140,7 +140,7 @@ export function GlobalOriginsFlow({ copy }: { copy: OriginsFlowCopy }) {
                   <p className="mt-4 font-serif text-lg leading-snug text-white">
                     {first ? `${label} — ${copy.origins[origin]}` : label}
                   </p>
-                  <p className="mt-2.5 font-sans text-sm leading-relaxed text-white/65">{body}</p>
+                  <p className="mt-2.5 font-sans text-sm leading-relaxed text-white/70">{body}</p>
 
                   {i < copy.stages.length - 1 && (
                     <span
@@ -154,7 +154,7 @@ export function GlobalOriginsFlow({ copy }: { copy: OriginsFlowCopy }) {
           </div>
         </Tilt3D>
 
-        <p className="mt-7 max-w-3xl font-sans text-[12px] leading-relaxed text-white/50">{copy.note}</p>
+        <p className="mt-7 max-w-3xl font-sans text-[12px] leading-relaxed text-white/70">{copy.note}</p>
       </div>
 
       <style>{`

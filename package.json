@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-journal-index.mjs",
     "dev": "vite --port=3000 --host=0.0.0.0",
+    "prebuild": "node scripts/generate-journal-index.mjs",
     "build": "vite build",
     "postbuild": "react-snap && node scripts/fix-prerender-motion.mjs",
     "preview": "vite preview",

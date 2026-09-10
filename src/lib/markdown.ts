@@ -1,11 +1,11 @@
-// Loads all journal posts from /src/content/journal/*.md at build time via Vite's import.meta.glob.
-// Files prefixed with _ (e.g. _template.md) are excluded — use them as drafts or starters.
+import journalIndex from '../data/journalIndex.json';
 
-const modules = import.meta.glob('../content/journal/*.md', {
-  eager: true,
+// Lazy loaders for on-demand article body rendering — splits each markdown
+// post into its own lightweight chunk instead of bundling all 98 articles into one.
+const postLoaders = import.meta.glob('../content/journal/*.md', {
   query: '?raw',
   import: 'default',
-}) as Record<string, string>;
+}) as Record<string, () => Promise<string>>;
 
 export interface PostMeta {
   title: string;
@@ -24,7 +24,8 @@ export interface PostMeta {
   category: string;
   image: string;
   readTime: number;
-  body: string;
+  body?: string;
+  filename?: string;
   /** Who produced this post — used for attribution reporting. */
   created_by?: "claude" | "codex" | "manual" | "unknown";
   /** Primary conversion goal — used for GA4 event context. */
@@ -178,51 +179,39 @@ function markdownToHtml(md: string): string {
 }
 
 // ---------------------------------------------------------------------------
-// Parse all loaded modules into PostMeta[]
+// Post metadata access & on-demand body loading
 // ---------------------------------------------------------------------------
-function parseAll(): PostMeta[] {
-  const posts: PostMeta[] = [];
+const htmlCache = new Map<string, string>();
 
-  for (const [filePath, raw] of Object.entries(modules)) {
-    if (typeof raw !== 'string') continue;
-
-    const fileName = filePath.split('/').pop() ?? '';
-    if (fileName.startsWith('_')) continue;
-
-    const { meta, body } = parseFrontmatter(raw);
-    if (!meta.slug || !meta.title) continue;
-
-    const wordCount = body.trim().split(/\s+/).length;
-
-    posts.push({
-      title:        meta.title,
-      seoTitle:     meta.seoTitle     ?? '',
-      date:         meta.date         ?? '',
-      updated:      meta.updated      ?? '',
-      slug:         meta.slug,
-      excerpt:      meta.excerpt      ?? '',
-      category:     meta.category     ?? 'General',
-      image:        meta.image        ?? '',
-      readTime:     Math.max(1, Math.ceil(wordCount / 200)),
-      body:         markdownToHtml(body),
-      created_by:   (meta.created_by  as PostMeta['created_by'])   ?? 'unknown',
-      content_goal: (meta.content_goal as PostMeta['content_goal']) ?? 'seller_lead',
-      market:       meta.market       ?? 'South Florida',
-      funnel_stage: (meta.funnel_stage as PostMeta['funnel_stage']) ?? 'awareness',
-    });
-  }
-
-  posts.sort((a, b) => b.date.localeCompare(a.date));
-  return posts;
-}
-
-let _cache: PostMeta[] | null = null;
+export const allPosts: PostMeta[] = journalIndex as PostMeta[];
 
 export function getAllPosts(): PostMeta[] {
-  if (!_cache) _cache = parseAll();
-  return _cache;
+  return allPosts;
 }
 
 export function getPostBySlug(slug: string): PostMeta | undefined {
-  return getAllPosts().find((p) => p.slug === slug);
+  return allPosts.find((p) => p.slug === slug);
+}
+
+export function getCachedPostHtml(slug: string): string | undefined {
+  return htmlCache.get(slug);
+}
+
+export async function loadPostHtml(slug: string): Promise<string> {
+  const cached = htmlCache.get(slug);
+  if (cached) return cached;
+
+  const meta = getPostBySlug(slug);
+  if (!meta) return '';
+
+  const filename = meta.filename || `${slug}.md`;
+  const loaderKey = `../content/journal/${filename}`;
+  const loader = postLoaders[loaderKey];
+  if (!loader) return '';
+
+  const raw = await loader();
+  const { body } = parseFrontmatter(raw);
+  const html = markdownToHtml(body);
+  htmlCache.set(slug, html);
+  return html;
 }

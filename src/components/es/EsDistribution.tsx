@@ -32,10 +32,8 @@ const TOP_STATS = [
     value: 3500,
     display: "3,500",
     suffix: "+",
-    // TODO: native Madrid editor review
     label: "Agentes de United Realty Group",
-    sublabel: "Fundada en 2002 · 20 oficinas en Florida",
-    // TODO: native Madrid editor review
+    sublabel: "Fundada en 2002 · 19 ubicaciones de oficinas en Florida",
     desc: "Una correduría de servicio completo con una compañía de título interna detrás de cada propiedad.",
   },
 ];

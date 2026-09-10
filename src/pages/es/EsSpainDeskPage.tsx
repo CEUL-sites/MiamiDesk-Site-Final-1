@@ -107,6 +107,10 @@ const FAQ_ITEMS = [
     a: "Un inmueble situado fuera de EE.UU. no entra en el sistema de búsqueda diaria del Southeast Florida MLS (SEFMLS), cuyas reglas presuponen contratos de listing firmados por el propietario dentro del área de servicio de Sur de Florida. El inventario internacional se coloca en el MIAMI International MLS (RWorld) — la plataforma de sindicación internacional de la asociación, que distribuye a miles de webs de agentes y brokers partner en todo el mundo — con Carlos como principal de registro licenciado en Florida a través de United Realty Group. La colocación está sujeta a las normas del MLS y a la elegibilidad de cada inmueble.",
   },
   {
+    q: "¿Quién proporciona la fotografía, infografías y documentación de la propiedad?",
+    a: "Los promotores, agencias colaboradoras y profesionales con mandato de origen proporcionan fotografía profesional verificada, infografías arquitectónicas, planos y documentación del inmueble. Carlos y United Realty Group aportan la activación en el MLS de Florida, distribución profesional ante la red de 93.000 miembros, posicionamiento bilingüe y gestión de cooperación broker a broker. Carlos opera como principal de registro con licencia en Florida (Realtor® SL705771 · United Realty Group) y no posee licencia de agencia ni corretaje en España.",
+  },
+  {
     q: "¿Cuál es la diferencia entre la tarifa mensual y la comisión de referral?",
     a: "La tarifa mensual de servicios de marketing la paga la agencia española o el propietario por los servicios de distribución en curso — alta en el MLS, sindicación, outreach y reporting. Es una tarifa profesional, no condicionada a la venta. La comisión de referral es un pago separado y contingente, que solo se abona en caso de cierre exitoso, a través de URG y según el acuerdo escrito.",
   },
@@ -136,7 +140,6 @@ export default function EsSpainDeskPage() {
       <Helmet>
         <title>Global Desk — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | Carlos Uzcategui</title>
         <meta name="description" content="Servicio B2B de exposición y referral para agencias y promotores en Sur de Florida. Usted mantiene el mandato local. Carlos Uzcategui, FL SL705771." />
-        <meta name="keywords" content="ganar mandatos de venta España Sur de Florida, exposición Sur de Florida agencias españolas, listing España Sur de Florida, partnership agencia España Sur de Florida, cooperating broker España Florida, United Realty Group España, exposición internacional de listings" />
         <link rel="canonical" href="https://homesprofessional.com/es/spain-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/global-desk" />
@@ -539,7 +542,7 @@ export default function EsSpainDeskPage() {
                   {[
                     { value: "93.000", label: "Agentes miembro MLS" },
                     { value: "200+", label: "Portales · 19 idiomas" },
-                    { value: "3.500+", label: "Agentes URG · 20 oficinas" },
+                    { value: "3.500+", label: "Agentes URG · 19 sedes en Florida" },
                     { value: "75+", label: "Países · red de partners" },
                   ].map(({ value, label }) => (
                     <div key={label}>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
@@ -6,7 +6,7 @@ import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
 import { JournalSellerCTA } from '../components/JournalSellerCTA';
 import { AuthorBio } from '../components/AuthorBio';
-import { getPostBySlug, getAllPosts } from '../lib/markdown';
+import { getPostBySlug, getAllPosts, loadPostHtml, getCachedPostHtml } from '../lib/markdown';
 import { JOURNAL_FAQS } from '../content/journal-faqs';
 import { pushEvent } from '../lib/analytics';
 import { getAttribution } from '../lib/attribution';
@@ -22,6 +22,18 @@ function formatDate(iso: string): string {
 export default function JournalPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
+  const [bodyHtml, setBodyHtml] = useState<string>(() => (slug ? getCachedPostHtml(slug) : '') || '');
+
+  useEffect(() => {
+    if (!slug) return;
+    let active = true;
+    loadPostHtml(slug).then((html) => {
+      if (active) setBodyHtml(html);
+    });
+    return () => {
+      active = false;
+    };
+  }, [slug]);
 
   // journal_view — fires once per slug, suppressed during react-snap prerender
   useEffect(() => {
@@ -256,7 +268,7 @@ export default function JournalPostPage() {
         <article className="mx-auto max-w-3xl px-5 py-16 lg:px-8 lg:py-20">
           <div
             className="prose-journal"
-            dangerouslySetInnerHTML={{ __html: post.body }}
+            dangerouslySetInnerHTML={{ __html: bodyHtml }}
           />
         </article>
 

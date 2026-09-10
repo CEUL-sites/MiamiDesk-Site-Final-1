@@ -43,28 +43,28 @@ const PILLARS = [
     step: "01",
     title: "Media that earns the click",
     body:
-      "Pro photography, cinematic video, and staging direction — approved before launch. Buyers screen online first; your home wins on the first frame.",
+      "Pro photography, cinematic video, and staging direction approved before launch. Media engineered to win buyer attention on the first frame.",
   },
   {
     icon: Globe2,
     step: "02",
     title: "Distribution beyond the MLS",
     body:
-      "Into the Miami MLS ecosystem 93,000 agents work from daily — then syndicated to major U.S. portals and 200+ international channels in 19 languages.",
+      "Direct placement into the 93,000-agent Miami MLS ecosystem, syndicated across top U.S. portals and 200+ global channels in 19 languages.",
   },
   {
     icon: Radar,
     step: "03",
     title: "Buyer-agent activation",
     body:
-      "Direct outreach to the agents working buyers in your price band — local, relocation, and international — so your home is shown, not just listed.",
+      "Targeted outreach to agents representing active buyers in your submarket and price band—local, relocation, and international.",
   },
   {
     icon: MessagesSquare,
     step: "04",
     title: "Weekly reporting, real strategy",
     body:
-      "Showings, feedback, and analytics every week by WhatsApp or email — with pricing moves recommended from the data, not guesswork.",
+      "Weekly showing feedback and MLS analytics delivered by WhatsApp or email, with price adjustments guided by live market evidence.",
   },
 ];
 

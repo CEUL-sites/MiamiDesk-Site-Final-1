@@ -35,9 +35,10 @@ export function AboutContact({
             </div>
           </div>
 
-          <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-12 md:space-y-6 md:text-lg">
-            <p>Twenty-five years of active South Florida real estate transactions, residential, luxury, and commercial. The relationships Carlos has inside the Miami professional community were built through closed deals, not directory listings.</p>
-            <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage with 3,500+ agents across {URG_PUBLIC_OFFICE_NETWORK_LABEL}. He also coordinates selected international property opportunities through documented professional and brokerage relationships, subject to brokerage, platform, property-eligibility, and compliance requirements.</p>
+          <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-12 md:space-y-4 md:text-lg">
+            <p>Twenty-five years of active South Florida real estate transactions across residential, luxury, and commercial sectors. Relationships inside the Miami professional community built through closed transactions, not directory listings.</p>
+            <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents across {URG_PUBLIC_OFFICE_NETWORK_LABEL}, delivering institutional market reach across South Florida corridors.</p>
+            <p>Every assignment is managed directly by Carlos as principal of record—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.</p>
           </div>
 
           {/* Carlos-led advice with visible brokerage infrastructure behind it. */}
