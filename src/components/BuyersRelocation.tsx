@@ -9,7 +9,7 @@ const REPRESENTATION = [
     side: "Sellers",
     title: "Positioning, pricing, distribution, negotiation.",
     desc: "Absorption-based pricing, presentation strategy, MLS distribution, and hands-on negotiation to closing — positioned correctly before it goes public.",
-    href: "/sell-south-florida",
+    href: "/sell",
     cta: "Request a seller strategy review",
     tag: "LISTING REPRESENTATION",
   },

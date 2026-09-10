@@ -322,7 +322,7 @@ export default function JournalPostPage() {
               </li>
               <li className="py-3">
                 <Link
-                  to="/sell-south-florida"
+                  to="/sell"
                   className="group flex items-start justify-between gap-4"
                 >
                   <span className="font-serif text-[15px] leading-snug text-navy group-hover:text-gold transition-colors">

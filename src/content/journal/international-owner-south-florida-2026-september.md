@@ -52,7 +52,7 @@ Carlos Uzcategui has been a Florida Licensed Realtor®, SL705771, since 2001 —
 
 Request a Private Seller Strategy Review before making a public decision.
 
-[Start the strategy review](/sell-south-florida?utm_source=journal&utm_medium=seo&utm_campaign=international-owner-south-florida-2026-september)
+[Start the strategy review](/sell?utm_source=journal&utm_medium=seo&utm_campaign=international-owner-south-florida-2026-september)
 
 USA WhatsApp: +1 954-865-6622
 

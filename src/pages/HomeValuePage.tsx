@@ -275,7 +275,7 @@ export default function HomeValuePage() {
               search the Miami MLS for their buyers every day, in South Florida and abroad.
             </p>
             <a
-              href="/sell-south-florida"
+              href="/sell"
               className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 transition-colors hover:text-navy"
             >
               See how the listing system works →

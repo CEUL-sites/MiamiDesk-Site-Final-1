@@ -40,7 +40,7 @@ An online estimate tells you a number. It does not tell you who will see your ho
 
 ## Your Next Step
 
-If you are within a year of a possible sale, the smartest first move is information, not a listing. Request a [Private Seller Strategy Review](/sell-south-florida?utm_source=journal&utm_medium=post&utm_campaign=review-equity&funnel_stage=bottom_funnel) with Carlos Uzcategui — Florida Licensed Realtor® since 2001, 25 years in South Florida, Certified Luxury Home Marketing Specialist, United Realty Group. It is confidential, carries no obligation, and Carlos reviews every request personally.
+If you are within a year of a possible sale, the smartest first move is information, not a listing. Request a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=review-equity&funnel_stage=bottom_funnel) with Carlos Uzcategui — Florida Licensed Realtor® since 2001, 25 years in South Florida, Certified Luxury Home Marketing Specialist, United Realty Group. It is confidential, carries no obligation, and Carlos reviews every request personally.
 
 ## Source and Compliance Notes
 

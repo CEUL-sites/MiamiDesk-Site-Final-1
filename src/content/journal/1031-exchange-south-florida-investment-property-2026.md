@@ -57,6 +57,6 @@ Because the clock starts at closing and the intermediary must be in place before
 
 ---
 
-If you own South Florida investment property and a 1031 exchange may be part of your plan, the time to build the timeline is before you list. A seller strategy review can help coordinate the sale side of the exchange with your tax advisor's structure. You can begin that conversation through the [seller strategy review](/sell-south-florida).
+If you own South Florida investment property and a 1031 exchange may be part of your plan, the time to build the timeline is before you list. A seller strategy review can help coordinate the sale side of the exchange with your tax advisor's structure. You can begin that conversation through the [seller strategy review](/sell).
 
 *This article is for general informational purposes only and is not legal or tax advice. Section 1031 exchanges are governed by the Internal Revenue Code and Treasury regulations; eligibility, like-kind requirements, deadlines, intermediary rules, and the treatment of boot depend on your specific circumstances and can change. Carlos Uzcategui is a Florida-licensed Realtor® and is not a tax advisor, CPA, or attorney. Consult a qualified tax professional and a qualified intermediary before structuring an exchange.*

@@ -68,7 +68,7 @@ Before deciding what your home is worth, it is worth understanding what its dist
 
 ## Your Next Step
 
-If you are weighing a sale in Miami-Dade, Broward, or Palm Beach, the right starting point is a [Private Seller Strategy Review](/sell-south-florida?utm_source=journal&utm_medium=post&utm_campaign=listing-vs-activating&funnel_stage=consideration). It is a confidential conversation about positioning, pricing, timing, and distribution — before your listing becomes public and the first impression is set. You can also [request a strategy review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=listing-vs-activating&funnel_stage=consideration).
+If you are weighing a sale in Miami-Dade, Broward, or Palm Beach, the right starting point is a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=listing-vs-activating&funnel_stage=consideration). It is a confidential conversation about positioning, pricing, timing, and distribution — before your listing becomes public and the first impression is set. You can also [request a strategy review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=listing-vs-activating&funnel_stage=consideration).
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, a Certified Luxury Home Marketing Specialist designation, and a seat at United Realty Group. He reviews every seller request personally.
 

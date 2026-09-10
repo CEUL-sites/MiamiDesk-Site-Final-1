@@ -73,7 +73,7 @@ When a home is listed with Carlos Uzcategui, it is positioned through the **Miam
 
 ## Recommended Next Step
 
-If you are considering a sale in Miami-Dade or Broward, [request a Current-Market Property Position Review](/sell-south-florida?utm_source=journal&utm_medium=internal&utm_campaign=south-florida-may-2026-market-report-home-sellers&utm_content=article-link&journal_origin=south-florida-may-2026-market-report-home-sellers&journal_offer=current-market-position&journal_cta=article-link#contact) before deciding price, timing, and launch plan. The outcome is a property-level reading of the relevant competition and buyer profile—not a regional headline applied to your address.
+If you are considering a sale in Miami-Dade or Broward, [request a Current-Market Property Position Review](/sell?utm_source=journal&utm_medium=internal&utm_campaign=south-florida-may-2026-market-report-home-sellers&utm_content=article-link&journal_origin=south-florida-may-2026-market-report-home-sellers&journal_offer=current-market-position&journal_cta=article-link#contact) before deciding price, timing, and launch plan. The outcome is a property-level reading of the relevant competition and buyer profile—not a regional headline applied to your address.
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, and a seat at United Realty Group. He reviews every seller request personally.
 

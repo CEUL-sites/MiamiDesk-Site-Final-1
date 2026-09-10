@@ -53,7 +53,7 @@ Carlos Uzcategui is a Florida Licensed Realtor®, SL705771, licensed since 2001 
 
 Request a Private Property Position Analysis before making a public decision.
 
-[Request the private property position analysis](/sell-south-florida?utm_source=journal&utm_medium=internal&utm_campaign=seller-positioning-south-florida-2026-august&utm_content=article-link&journal_origin=seller-positioning-south-florida-2026-august&journal_offer=property-positioning&journal_cta=article-link#contact)
+[Request the private property position analysis](/sell?utm_source=journal&utm_medium=internal&utm_campaign=seller-positioning-south-florida-2026-august&utm_content=article-link&journal_origin=seller-positioning-south-florida-2026-august&journal_offer=property-positioning&journal_cta=article-link#contact)
 
 USA WhatsApp: +1 954-865-6622
 

@@ -14,6 +14,7 @@ import { MarketPulse } from "../components/MarketPulse";
 import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
 import { SellerAuthorityStrip } from "../components/SellerAuthorityStrip";
 import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
+import { SellerPillars } from "../components/SellerPillars";
 
 // Below-the-fold sections — split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
@@ -67,6 +68,7 @@ export default function HomePage() {
         <Navbar />
         <Hero />
         <SellerAuthorityStrip />
+        <SellerPillars />
         <SellerExecutionSystem />
         <Distribution />
         <Proof />

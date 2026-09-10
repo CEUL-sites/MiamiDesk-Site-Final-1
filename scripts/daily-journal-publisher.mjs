@@ -286,7 +286,7 @@ const markets = [
       'There is no single South Florida market, and pricing off the regional headline is how sellers end up correcting later.',
     risk: 'a strategy built on county-level averages rather than the specific competing inventory',
     type: 'property',
-    sellerPage: '/sell-south-florida',
+    sellerPage: '/sell',
     buyers: 'local, national, Spain, and LATAM buyer channels',
     setting: 'markets that change block by block across Miami-Dade, Broward, and Palm Beach',
     diligence: [

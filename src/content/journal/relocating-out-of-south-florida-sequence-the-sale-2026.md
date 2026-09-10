@@ -64,7 +64,7 @@ When the sale closes before the new home is ready, a **post-closing occupancy ag
 
 ## Your Next Step
 
-If a move out of South Florida is on the horizon, the time to plan the sale is *before* the moving date is fixed. Request a [Private Seller Strategy Review](/sell-south-florida?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration) and Carlos will help you map the sale, the net proceeds, and the sequence as one coordinated plan. You can also [request a review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration).
+If a move out of South Florida is on the horizon, the time to plan the sale is *before* the moving date is fixed. Request a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration) and Carlos will help you map the sale, the net proceeds, and the sequence as one coordinated plan. You can also [request a review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration).
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, and a seat at United Realty Group. He reviews every seller request personally.
 

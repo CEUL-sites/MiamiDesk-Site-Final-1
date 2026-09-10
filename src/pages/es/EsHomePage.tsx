@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
@@ -10,6 +10,10 @@ import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { EsProof } from "../../components/es/EsProof";
 import { EsDistribution } from "../../components/es/EsDistribution";
+import { CONTACT } from "../../constants";
+
+const MarketingReel3D = lazy(() => import("../../components/MarketingReel3D").then((m) => ({ default: m.MarketingReel3D })));
+const SellerPathfinder = lazy(() => import("../../components/SellerPathfinder").then((m) => ({ default: m.SellerPathfinder })));
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -48,9 +52,7 @@ export default function EsHomePage() {
   return (
     <>
       <Helmet>
-        {/* TODO: native Madrid editor review */}
         <title>Bienes Raíces en Sur de Florida | United Realty Group | HomesProfessional.com</title>
-        {/* TODO: native Madrid editor review */}
         <meta
           name="description"
           content="Carlos Uzcategui, REALTOR® FL SL705771 — 25 años en Sur de Florida. Representación de vendedores y compradores en Miami, Coral Gables y Weston."
@@ -121,10 +123,8 @@ export default function EsHomePage() {
                 className="font-serif text-white leading-[1.05]"
                 style={{ fontSize: "clamp(2.1rem, 6vw, 6.5rem)", fontWeight: 400 }}
               >
-                {/* TODO: native Madrid editor review */}
                 Los bienes raíces son locales.
                 <br />
-                {/* TODO: native Madrid editor review */}
                 <em className="text-gold font-serif italic">
                   El precio máximo es global.
                 </em>
@@ -136,7 +136,6 @@ export default function EsHomePage() {
                 className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
                 style={{ fontSize: "1.05rem" }}
               >
-                {/* TODO: native Madrid editor review */}
                 Representación de vendedores en el Sur de Florida y España. Cada
                 propiedad en exclusiva activa la red de la asociación local de
                 REALTORS® más grande del mundo — 93,000 agentes miembros, 200+
@@ -145,8 +144,9 @@ export default function EsHomePage() {
 
               {/* Primary seller lead capture */}
               <motion.div
+                id="list-here"
                 variants={itemVariants}
-                className="mx-auto mt-9 w-full max-w-md"
+                className="mx-auto mt-9 w-full max-w-md scroll-mt-24"
               >
                 <HeroSellerForm lang="es" />
               </motion.div>
@@ -185,7 +185,7 @@ export default function EsHomePage() {
                 {[
                   { text: "FL Licenciado REALTOR® Desde 2001 (25 Años)" },
                   { text: "CLHMS™ · Especialista Certificado en Lujo" },
-                  { text: "United Realty Group · 3,500+ Agentes · 20 Oficinas FL" },
+                  { text: "United Realty Group · 3,500+ Agentes · 19 Ubicaciones de Oficinas en Florida" },
                 ].map(({ text }) => (
                   <span
                     key={text}
@@ -203,22 +203,18 @@ export default function EsHomePage() {
                 className="mt-7 flex flex-wrap items-center justify-center gap-2"
               >
                 <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/70">
-                  {/* TODO: native Madrid editor review */}
                   Soy:
                 </span>
                 {[
                   {
-                    // TODO: native Madrid editor review
                     label: "Vendedor",
                     href: "/es/vender",
                   },
                   {
-                    // TODO: native Madrid editor review
                     label: "Comprador",
                     href: "/es/comprar",
                   },
                   {
-                    // TODO: native Madrid editor review
                     label: "Agente",
                     href: "/es/agentes",
                   },
@@ -243,7 +239,6 @@ export default function EsHomePage() {
             className="pointer-events-none absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
           >
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/70">
-              {/* TODO: native Madrid editor review */}
               Desplazar
             </span>
             <span className="h-10 w-px overflow-hidden bg-white/10">
@@ -262,6 +257,12 @@ export default function EsHomePage() {
 
         <EsProof />
         <EsDistribution />
+        <Suspense fallback={null}>
+          <MarketingReel3D lang="es" />
+        </Suspense>
+        <Suspense fallback={null}>
+          <SellerPathfinder lang="es" whatsappHref={CONTACT.whatsappSpain} />
+        </Suspense>
 
         <Footer />
         <MobileStickyCTA />

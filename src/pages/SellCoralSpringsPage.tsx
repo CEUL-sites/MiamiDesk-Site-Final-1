@@ -62,7 +62,7 @@ export default function SellCoralSpringsPage() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell-south-florida" },
+            { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell" },
             { "@type": "ListItem", "position": 3, "name": "Sell in Coral Springs", "item": "https://homesprofessional.com/sell-coral-springs" }
           ]
         }} />
@@ -304,7 +304,7 @@ export default function SellCoralSpringsPage() {
             <p className="font-sans text-xs text-ink-primary/70">
               <a href="/" className="hover:text-gold">Home</a>
               {" · "}
-              <a href="/sell-south-florida" className="hover:text-gold">Sell in South Florida</a>
+              <a href="/sell" className="hover:text-gold">Sell in South Florida</a>
               {" · "}
               Coral Springs, FL
             </p>

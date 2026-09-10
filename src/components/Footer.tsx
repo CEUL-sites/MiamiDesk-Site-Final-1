@@ -157,7 +157,7 @@ export function Footer() {
           <div className="flex flex-col items-center justify-between gap-3 md:flex-row md:gap-5">
             <div className="font-mono text-[10px] uppercase tracking-[0.35em] text-white/70">© {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved</div>
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-widest text-white/70 md:gap-6">
-              <a href="/sell-south-florida" className="transition-colors hover:text-gold">Sell in South Florida</a>
+              <a href="/sell" className="transition-colors hover:text-gold">Sell in South Florida</a>
               <a href="/sell-weston" className="transition-colors hover:text-gold">Sell in Weston</a>
               <a href="/sell-coral-gables" className="transition-colors hover:text-gold">Sell in Coral Gables</a>
               <a href="/sell-aventura" className="transition-colors hover:text-gold">Sell in Aventura</a>

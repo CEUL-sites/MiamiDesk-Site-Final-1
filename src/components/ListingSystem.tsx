@@ -67,7 +67,7 @@ export function ListingSystem() {
 
         <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-10 md:gap-5">
           <a
-            href="/sell-south-florida#contact"
+            href="/sell#contact"
             className="group inline-flex items-center gap-2.5 bg-gold px-8 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 md:py-4"
           >
             Request a Listing Consultation

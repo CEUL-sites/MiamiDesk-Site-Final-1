@@ -65,7 +65,7 @@ The question "when should I list?" is secondary to "what is my property worth an
 
 Without that analysis, timing intuitions are guesses.
 
-The [South Florida seller strategy review](https://homesprofessional.com/sell-south-florida) covers pricing, timing, positioning, and buyer profile — at no cost and with no listing commitment required.
+The [South Florida seller strategy review](https://homesprofessional.com/sell) covers pricing, timing, positioning, and buyer profile — at no cost and with no listing commitment required.
 
 ---
 

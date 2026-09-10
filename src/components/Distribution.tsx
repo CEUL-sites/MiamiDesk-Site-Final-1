@@ -220,7 +220,7 @@ export function Distribution() {
         {/* Single CTA naming a specific outcome */}
         <div className="mt-10 flex justify-center md:mt-14">
           <a
-            href="/sell-south-florida#contact"
+            href="/sell#contact"
             className="group inline-flex items-center gap-2.5 rounded-full bg-gold px-9 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)] md:py-4.5"
           >
             Request Your Distribution Analysis

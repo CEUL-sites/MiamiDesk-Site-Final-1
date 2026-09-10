@@ -83,7 +83,7 @@ No. Insurance questions should go to a licensed Florida insurance professional, 
 
 Insurability is not a marketing issue, but it is a pricing issue, and in South Florida it is increasingly the issue that decides whether a contract closes at the agreed number. If you are preparing a property for sale, a private strategy review is the right place to work through the roof, the documentation, and the position before the market — and an underwriter — asks.
 
-[Request a Private Seller Strategy Review](/sell-south-florida?utm_source=journal&utm_medium=seo&utm_campaign=insurability-roof-wind-mitigation-south-florida-sale-2026)
+[Request a Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=seo&utm_campaign=insurability-roof-wind-mitigation-south-florida-sale-2026)
 
 ## Source and Compliance Notes
 

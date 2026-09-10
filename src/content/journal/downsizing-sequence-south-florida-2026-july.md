@@ -50,7 +50,7 @@ Florida Licensed Realtor® SL705771, licensed since 2001, affiliated with United
 
 Request a Private Seller Strategy Review before making a public decision.
 
-[Start the strategy review](/sell-south-florida?utm_source=journal&utm_medium=seo&utm_campaign=downsizing-sequence-south-florida-2026-july)
+[Start the strategy review](/sell?utm_source=journal&utm_medium=seo&utm_campaign=downsizing-sequence-south-florida-2026-july)
 
 USA WhatsApp: +1 954-865-6622
 

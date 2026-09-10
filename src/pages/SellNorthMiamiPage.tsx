@@ -61,7 +61,7 @@ export default function SellNorthMiamiPage() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homesprofessional.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell-south-florida" },
+            { "@type": "ListItem", "position": 2, "name": "Sell in South Florida", "item": "https://homesprofessional.com/sell" },
             { "@type": "ListItem", "position": 3, "name": "Sell in North Miami", "item": "https://homesprofessional.com/sell-north-miami" }
           ]
         }} />
@@ -267,7 +267,7 @@ export default function SellNorthMiamiPage() {
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers in South Florida 2026 — Where They're Looking and What They're Buying</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
-              <a href="/sell-south-florida" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+              <a href="/sell" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Advisory</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">South Florida Seller Strategy — How MLS Distribution Works</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the full seller guide →</p>
@@ -305,7 +305,7 @@ export default function SellNorthMiamiPage() {
             <p className="font-sans text-xs text-ink-primary/70">
               <a href="/" className="hover:text-gold">Home</a>
               {" · "}
-              <a href="/sell-south-florida" className="hover:text-gold">Sell in South Florida</a>
+              <a href="/sell" className="hover:text-gold">Sell in South Florida</a>
               {" · "}
               North Miami, FL
             </p>

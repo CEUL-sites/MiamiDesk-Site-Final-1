@@ -9,7 +9,7 @@
 // the real page in one hop and matches the reciprocal hreflang clusters.
 const ES_TO_EN: Record<string, string> = {
   "/es": "/",
-  "/es/vender": "/sell-south-florida",
+  "/es/vender": "/sell",
   "/es/comprar": "/buy",
   "/es/agentes": "/agents",
   "/es/spain-desk": "/global-desk",
@@ -21,6 +21,7 @@ const ES_TO_EN: Record<string, string> = {
 
 const EN_TO_ES: Record<string, string> = {
   "/": "/es",
+  "/sell": "/es/vender",
   "/sell-south-florida": "/es/vender",
   "/buy": "/es/comprar",
   "/agents": "/es/agentes",

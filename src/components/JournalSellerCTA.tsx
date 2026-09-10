@@ -95,7 +95,7 @@ const SELL_PAGE_BY_MARKET: Record<string, string> = {
 };
 
 function sellPageFor(post: PostMeta): string {
-  return (post.market && SELL_PAGE_BY_MARKET[post.market]) || '/sell-south-florida';
+  return (post.market && SELL_PAGE_BY_MARKET[post.market]) || '/sell';
 }
 
 function track(ctaType: string, location: string, post: PostMeta, offer: JournalOffer) {

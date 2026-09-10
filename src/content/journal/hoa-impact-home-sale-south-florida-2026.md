@@ -72,7 +72,7 @@ In these markets, the HOA package is a sales document. Sellers who present it pr
 
 ## Recommended Seller Action
 
-Before setting the launch date, [request a Pre-Listing HOA Risk Review](/sell-south-florida?utm_source=journal&utm_medium=internal&utm_campaign=hoa-impact-home-sale-south-florida-2026&utm_content=article-link&journal_origin=hoa-impact-home-sale-south-florida-2026&journal_offer=hoa-risk&journal_cta=article-link#contact). The outcome is a property-specific document checklist and a clear separation between listing strategy issues and matters that require an attorney, association manager, lender, insurer, or other licensed professional.
+Before setting the launch date, [request a Pre-Listing HOA Risk Review](/sell?utm_source=journal&utm_medium=internal&utm_campaign=hoa-impact-home-sale-south-florida-2026&utm_content=article-link&journal_origin=hoa-impact-home-sale-south-florida-2026&journal_offer=hoa-risk&journal_cta=article-link#contact). The outcome is a property-specific document checklist and a clear separation between listing strategy issues and matters that require an attorney, association manager, lender, insurer, or other licensed professional.
 
 ---
 

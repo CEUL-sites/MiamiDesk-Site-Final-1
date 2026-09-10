@@ -52,6 +52,6 @@ This federal exclusion sits alongside the *Florida* property-tax benefits a home
 
 ---
 
-A seller strategy review can help you sequence and time a sale so that the tax questions are identified early and routed to the right professional. It is not a substitute for tax advice — it is the planning step that makes sure the advice is sought at the right moment. You can start that conversation through the [seller strategy review](/sell-south-florida).
+A seller strategy review can help you sequence and time a sale so that the tax questions are identified early and routed to the right professional. It is not a substitute for tax advice — it is the planning step that makes sure the advice is sought at the right moment. You can start that conversation through the [seller strategy review](/sell).
 
 *This article is for general informational purposes only and is not legal or tax advice. The capital gains exclusion is governed by Internal Revenue Code Section 121 and explained in IRS Publication 523; eligibility, dollar limits, holding-period tests, depreciation recapture, and special rules for rental, inherited, and foreign-owned property depend on your specific circumstances and can change. Carlos Uzcategui is a Florida-licensed Realtor® and is not a tax advisor, CPA, or attorney. Consult a qualified tax professional before making decisions about a sale.*

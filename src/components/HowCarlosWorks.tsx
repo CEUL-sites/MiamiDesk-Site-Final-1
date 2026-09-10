@@ -104,7 +104,7 @@ export function HowCarlosWorks() {
         {/* CTA + compliance */}
         <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between md:mt-10 md:gap-5 md:pt-8">
           <a
-            href="/sell-south-florida#contact"
+            href="/sell#contact"
             className="inline-flex items-center justify-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
           >
             Request a seller strategy review →
