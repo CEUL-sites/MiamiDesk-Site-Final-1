@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "test": "tsx --test tests/ticker-inventory.test.ts tests/mls-ticker.test.tsx tests/neo-embed.test.ts",
+    "test": "node --import tsx --test tests/ticker-inventory.test.ts tests/mls-ticker.test.tsx tests/neo-embed.test.ts tests/journal-global-desk-cta.test.tsx",
     "verify:homepage-conversion": "node --import tsx scripts/verify-homepage-conversion.ts",
     "verify:journal": "node scripts/verify-journal-content.mjs",
     "verify:review-spotlight": "node --import tsx scripts/verify-review-spotlight.ts",
@@ -86,6 +86,13 @@
       "/es/vender-brickell",
       "/es/vender-coral-gables",
       "/journal",
+      "/journal/downsizing-sequence-fort-lauderdale-2026-september",
+      "/journal/downsizing-sequence-brickell-2026-september",
+      "/journal/international-luxury-properties-miami-buyer-agents-global-desk",
+      "/journal/downsizing-sequence-doral-2026-september",
+      "/journal/downsizing-sequence-aventura-2026-september",
+      "/journal/downsizing-sequence-coral-gables-2026-september",
+      "/journal/downsizing-sequence-weston-2026-september",
       "/journal/international-owner-south-florida-2026-september",
       "/journal/international-owner-boca-raton-2026-september",
       "/journal/international-owner-sunny-isles-beach-2026-september",
@@ -222,7 +229,6 @@
     "tailwindcss": "^4.3.0",
     "tsx": "^4.22.0",
     "typescript": "~5.8.3",
-    "vite": "^6.4.2",
     "vite-plugin-sitemap": "^0.8.2"
   }
 }

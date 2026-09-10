@@ -83,7 +83,7 @@ const COPY = {
   },
 } as const;
 
-export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
+export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { lang?: Lang; progressiveDesktop?: boolean }) {
   const t = COPY[lang];
   const initial = {
     name: "", phone: "", email: "",
@@ -129,7 +129,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (step === 1 && typeof window !== "undefined" && window.innerWidth < 1024) {
+    if (step === 1 && typeof window !== "undefined" && (progressiveDesktop || window.innerWidth < 1024)) {
       handleStep1Continue(e);
       return;
     }
@@ -246,7 +246,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
 
         {/* Clear promise and privacy cue; no decorative step chrome. */}
         <div className="mb-3.5">
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
             <span className="font-serif text-xl text-gold sm:text-[1.35rem]">{t.eyebrow}</span>
             <span className="font-sans text-[11px] text-white/70">{t.badge}</span>
           </div>
@@ -262,10 +262,10 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
             type="text"
             value={form.propertyAddress}
             onChange={update("propertyAddress")}
-            placeholder={t.address}
+            placeholder={progressiveDesktop ? "Property address" : t.address}
             autoComplete="street-address"
             style={{ paddingLeft: "2.75rem" }}
-            className="w-full rounded-md border border-gold/45 bg-white/[0.055] px-4 py-3 font-sans text-base text-white placeholder:text-white/70 outline-none transition-all duration-200 focus:border-gold focus:bg-white/[0.09] focus:ring-2 focus:ring-gold/25"
+            className={`w-full rounded-md border border-gold/45 px-4 py-3 font-sans text-base outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/25 ${progressiveDesktop ? "bg-white text-navy-deep placeholder:text-slate-600" : "bg-white/[0.055] text-white placeholder:text-white/70 focus:bg-white/[0.09]"}`}
             aria-label={t.address}
           />
         </div>
@@ -275,7 +275,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           <button
             type="button"
             onClick={handleStep1Continue}
-            className="hero-cta-main mt-3 flex w-full items-center justify-center gap-2.5 rounded-md px-5 py-3 font-sans text-sm font-semibold text-navy-deep lg:hidden"
+            className={`hero-cta-main mt-3 flex w-full items-center justify-center gap-2.5 rounded-md px-5 py-3 font-sans text-sm font-semibold text-navy-deep ${progressiveDesktop ? "" : "lg:hidden"}`}
           >
             {t.step1Submit}
           </button>
@@ -296,7 +296,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
         )}
 
         {/* Step 2 fields — hidden on mobile if step 1; always visible on desktop (lg:block) */}
-        <div className={step === 1 ? "hidden lg:block" : "block mt-2 lg:mt-0"}>
+        <div className={step === 1 ? (progressiveDesktop ? "hidden" : "hidden lg:block") : "block mt-2 lg:mt-0"}>
           {/* Name + Phone */}
           <div className="mt-2 grid grid-cols-1 gap-2.5 min-[380px]:grid-cols-2">
             <input
@@ -388,8 +388,8 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           </button>
         </div>
 
-        {status === "error" && (
-          <p className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>
+        {error && (
+          <p role="alert" className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>
         )}
 
         <p className="mt-2 text-center font-sans text-[11px] leading-5 text-white/70">
@@ -399,7 +399,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
           href={CONTACT.whatsappUS}
           target="_blank"
           rel="noopener noreferrer"
-          className="sr-only"
+          className={progressiveDesktop ? "mt-1 block text-center text-xs leading-5 text-gold-soft underline underline-offset-4" : "sr-only"}
         >
           {t.prefer} {t.preferLink}
         </a>
@@ -408,7 +408,7 @@ export function HeroSellerForm({ lang = "en" }: { lang?: Lang }) {
       {/* Move 1 & 3: Dedicated international bridge caption beneath hero form */}
       <div className="mt-3 text-center px-2">
         <p className="font-sans text-[12px] leading-relaxed text-white/70">
-          {t.bridgeText}{" "}
+          {progressiveDesktop ? "Spain or LATAM property?" : t.bridgeText}{" "}
           <a
             href={t.bridgeHref}
             className="inline-flex items-center gap-1 font-medium text-gold hover:underline"

@@ -88,9 +88,10 @@ assert.equal(
   "the seller CTA should hide while a guarded element (e.g. the review card) crosses the bottom action area",
 );
 
-const [home, hero, form, authority, execution, distribution, proof, about, contactPage, cookie, mobileSticky, footer] = await Promise.all([
+const [home, hero, heroAnimation, form, authority, execution, distribution, proof, about, contactPage, cookie, indexCss, mobileSticky, footer] = await Promise.all([
   readFile("src/pages/HomePage.tsx", "utf8"),
   readFile("src/components/Hero.tsx", "utf8"),
+  readFile("src/components/HeroPropertyAnimation.tsx", "utf8"),
   readFile("src/components/HeroSellerForm.tsx", "utf8"),
   readFile("src/components/SellerAuthorityStrip.tsx", "utf8"),
   readFile("src/components/SellerExecutionSystem.tsx", "utf8"),
@@ -99,26 +100,40 @@ const [home, hero, form, authority, execution, distribution, proof, about, conta
   readFile("src/components/AboutContact.tsx", "utf8"),
   readFile("src/pages/ContactPage.tsx", "utf8"),
   readFile("src/components/CookieBanner.tsx", "utf8"),
+  readFile("src/index.css", "utf8"),
   readFile("src/components/MobileStickyCTA.tsx", "utf8"),
   readFile("src/components/Footer.tsx", "utf8"),
 ]);
 
-assert.match(
-  hero,
-  /Sell With the Reach of the[\s\S]*World's Largest Local REALTOR® Association\./,
-  "the homepage hero must lead with the approved seller strategy and distribution proposition",
-);
-assert.match(
-  hero,
-  /Carlos pairs private pricing and positioning strategy with institutional distribution across South Florida and global buyer markets\./,
-);
+assert.match(hero, /South Florida property/);
+assert.match(hero, /Your property\./);
+assert.match(hero, /Miami’s network\./);
+assert.match(hero, /Your next move\./);
+assert.match(hero, /distribution network of 93,000 association members/);
+assert.match(hero, /25 years in South Florida/);
+assert.match(form, /bridgeHref: "\/global-desk"/);
+assert.ok(hero.indexOf('id="list-here"') < hero.indexOf('<HeroPropertyAnimation'), "Mobile form must precede media");
 assert.match(form, /Request My Property Review/);
 assert.match(form, /Message Carlos directly/);
 assert.match(form, /Personal reply from Carlos · No listing commitment/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
-assert.match(hero, /93,000", label: "Member Agents"/);
+assert.match(hero, /93,000", label: "Association Members"/);
 assert.match(hero, /Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity\./);
-assert.match(hero, /homepage-hero-waterfront-v2\.jpg/);
+assert.equal((hero.match(/<HeroPropertyAnimation \/>/g) ?? []).length, 2);
+assert.match(hero, /aspect-video/);
+assert.match(hero, /lg:min-h-\[730px\]/);
+assert.doesNotMatch(hero, /lg:h-\[790px\]/);
+assert.doesNotMatch(hero, /lg:overflow-hidden/);
+assert.match(heroAnimation, /\/media\/hero-property-network\.mp4/);
+assert.match(heroAnimation, /\/images\/hero-property-network\.webp/);
+assert.match(heroAnimation, /width="1280"/);
+assert.match(heroAnimation, /height="720"/);
+assert.match(heroAnimation, /Property → Miami agent network → coordinated buyer & investor introductions\./);
+assert.match(heroAnimation, /prefers-reduced-motion: reduce/);
+assert.match(heroAnimation, /connection\?\.saveData/);
+assert.match(heroAnimation, /IntersectionObserver/);
+assert.match(heroAnimation, /visibilitychange/);
+assert.match(heroAnimation, /fetchPriority="high"/);
 assert.match(authority, /REALTOR® · FL SL705771/);
 assert.match(authority, /CLHMS Luxury Specialist/);
 assert.match(authority, /Verified Realtor\.com® reviews/);
@@ -201,9 +216,8 @@ assert.match(about, /brightness-0 invert/);
 assert.match(form, /notifyLeadDirect\(/);
 assert.match(form, /\/\.netlify\/functions\/lead-acknowledgment/);
 assert.match(form, /status === "success"/);
-assert.match(cookie, /bottom-4 left-4 right-4/);
-assert.match(cookie, /md:left-6 md:right-auto/);
-assert.doesNotMatch(cookie, /md:left-auto md:right-6/);
+assert.match(cookie, /cookie-consent-dialog/);
+assert.match(indexCss, /@media \(min-width: 48rem\)[\s\S]*\.cookie-consent-dialog[\s\S]*left: auto;[\s\S]*right: 1\.5rem;/);
 assert.match(proof, /id="client-reviews"/);
 assert.doesNotMatch(about, /founded in 2002|in-house title|Est\. 2002/i);
 assert.match(about, /3,500\+ agents across \{URG_PUBLIC_OFFICE_NETWORK_LABEL\}/);

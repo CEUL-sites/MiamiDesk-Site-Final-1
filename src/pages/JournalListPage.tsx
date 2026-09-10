@@ -105,7 +105,7 @@ export default function JournalListPage() {
               South Florida Market Journal
             </h1>
             <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/70">
-              Data-backed market analysis, seller strategy playbooks, HOA financial assessments, and international buyer flows — curated by Carlos Uzcategui.
+              Property-level intelligence on pricing, net proceeds, timing, market risk, and cross-border demand—written from 25 years of transaction experience, not recycled headlines.
             </p>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/[0.04] px-4 py-1.5 backdrop-blur-sm">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">

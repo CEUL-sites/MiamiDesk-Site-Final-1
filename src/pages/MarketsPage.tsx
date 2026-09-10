@@ -194,13 +194,11 @@ export default function MarketsPage() {
           <div className="relative mx-auto max-w-4xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Miami Global Listing Desk · South Florida · Spain</p>
             <h1 className="mx-auto mt-6 max-w-3xl font-serif leading-[1.1] text-white" style={{ fontSize: "clamp(2.1rem, 5vw, 3.6rem)" }}>
-              International property distribution through<br />
-              <em className="italic text-gold">South Florida's buyer-agent ecosystem.</em>
+              South Florida Is Not One Market.<br />
+              <em className="italic text-gold">Your Strategy Should Not Treat It Like One.</em>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
-              Carlos Uzcategui operates Miami Global Listing Desk through United Realty Group, connecting South Florida seller representation
-              and selected international inventory with professional buyer-agent and referral channels. Activity is subject to brokerage,
-              platform, MLS, legal, and compliance requirements.
+              Compare pricing, inventory, and time-to-contract across Miami-Dade, Broward, and Palm Beach—then request the property-level analysis that citywide averages cannot provide.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a href="/contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">

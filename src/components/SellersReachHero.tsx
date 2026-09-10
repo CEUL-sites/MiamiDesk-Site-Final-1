@@ -11,11 +11,11 @@ export function SellersReachHero() {
         <div className="seller-reach-layout">
           <div className="seller-reach-copy">
             <h1 id="seller-reach-title">
-              Sell With the Reach of the World’s{" "}
-              <span>Largest Local REALTOR® Association.</span>
+              Maximize the Sale Price.{" "}
+              <span>Strengthen the Terms. Protect What You Keep.</span>
             </h1>
             <p className="seller-reach-subtitle">
-              Put your home where trusted buyer agents search for their clients. I combine professional MLS exposure with targeted agent outreach and 25 years of South Florida experience to position your property for local and international buyers.
+              Carlos structures the listing around the complete seller outcome: price, net proceeds, market exposure, timing, contract terms, risk, and the move that comes next.
             </p>
             <div className="seller-reach-actions" data-sticky-cta-guard>
               <a

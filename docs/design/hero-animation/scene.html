@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Illustrative connections</title>
+<style>
+  html,body{margin:0;background:#060d18;overflow:hidden;width:100%;height:100%}canvas{display:block;width:900px;height:900px;max-width:100vw;max-height:100vh;margin:auto}
+</style>
+<canvas id="scene" width="900" height="900" aria-label="Illustrative property connections"></canvas>
+<script>
+(() => {
+ const c=document.getElementById('scene'),x=c.getContext('2d'),W=900,H=900;
+ const navy='#060D18', gold='#B08D57', ivory='#F9F7F2', muted='#B7B2A8'; let cameraYaw=-.62;
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ const lerp=(a,b,t)=>a+(b-a)*t;
+ function P(X,Z,Y){ // world coordinates: x, ground-depth, elevation
+   const cy=Math.cos(cameraYaw), sy=Math.sin(cameraYaw);
+   const a=X*cy-Z*sy, d=X*sy+Z*cy;
+   const pitch=.53, cp=Math.cos(pitch), sp=Math.sin(pitch);
+   return [450+a*1.32,510+(d*sp-Y*cp)*1.32];
+ }
+ function path(points,fill,stroke,sw=1){x.beginPath();points.forEach((q,i)=>{let p=P(...q); i?x.lineTo(...p):x.moveTo(...p)});if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.lineWidth=sw;x.stroke()}}
+ function poly(points,fill,stroke,sw){path(points,fill,stroke,sw);}
+ function quad(A,B,C,D,fill,stroke,sw){poly([A,B,C,D],fill,stroke,sw)}
+ function prism(X,Z,w,d,y,h,faces){
+  const A=[X,Z,y],B=[X+w,Z,y],C=[X+w,Z+d,y],D=[X,Z+d,y],A2=[X,Z,y+h],B2=[X+w,Z,y+h],C2=[X+w,Z+d,y+h],D2=[X,Z+d,y+h];
+  quad(A,B,B2,A2,faces.front||ivory, faces.line||null,.6);quad(B,C,C2,B2,faces.right||'#D7D4CD',faces.line||null,.6);quad(D,C,C2,D2,faces.back||'#E4E1DA',faces.line||null,.6);quad(D,A,A2,D2,faces.left||'#EEECE6',faces.line||null,.6);quad(A2,B2,C2,D2,faces.top||'#F9F7F2',faces.line||null,.6);
+ }
+ function line(A,B,color,w=1,alpha=1){x.save();x.globalAlpha=alpha;x.beginPath();x.moveTo(...P(...A));x.lineTo(...P(...B));x.strokeStyle=color;x.lineWidth=w;x.stroke();x.restore()}
+ function ellipse(cx,cy,rx,ry,fill,alpha=1){x.save();x.globalAlpha=alpha;x.beginPath();x.ellipse(cx,cy,rx,ry,0,0,Math.PI*2);x.fillStyle=fill;x.fill();x.restore()}
+ function text(t,X,Y,size=13,col=ivory,align='center',alpha=1){x.save();x.globalAlpha=alpha;x.font=`500 ${size}px Arial,sans-serif`;x.fillStyle=col;x.textAlign=align;x.fillText(t,X,Y);x.restore()}
+ function tree(X,Z,s=1){
+   line([X,Z,.2],[X,Z,1.7*s],'#695b46',2); const p=P(X,Z,1.7*s);ellipse(p[0],p[1],19*s,13*s,'#273C35');ellipse(p[0]-9*s,p[1]+1,13*s,11*s,'#365044');ellipse(p[0]+10*s,p[1],14*s,12*s,'#2D473C');
+ }
+ function roundRect(x0,y0,w,h,r,fill,stroke){x.beginPath();x.roundRect(x0,y0,w,h,r);if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.stroke()}}
+ function arc3(A,B,lift,progress,alpha=1){
+   if(progress<=.001) return;
+   const p0=P(...A),p2=P(...B), mx=(p0[0]+p2[0])/2,my=(p0[1]+p2[1])/2-lift;
+   x.save();x.globalAlpha=alpha;x.lineWidth=1.8;x.strokeStyle=gold;x.shadowColor=gold;x.shadowBlur=10;
+   // Trace only the travelled part of the quadratic, so each signal visibly originates at the home.
+   x.beginPath(); const n=Math.max(2,Math.ceil(64*progress));
+   for(let i=0;i<=n;i++){const u=(i/n)*progress,px=(1-u)*(1-u)*p0[0]+2*(1-u)*u*mx+u*u*p2[0],py=(1-u)*(1-u)*p0[1]+2*(1-u)*u*my+u*u*p2[1];i?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();
+   x.fillStyle='#E4C898';const u=progress,px=(1-u)*(1-u)*p0[0]+2*(1-u)*u*mx+u*u*p2[0],py=(1-u)*(1-u)*p0[1]+2*(1-u)*u*my+u*u*p2[1];x.beginPath();x.arc(px,py,3,0,7);x.fill();x.restore();
+ }
+ function dot(P3,amount=1){const p=P(...P3);ellipse(p[0],p[1],4.2*amount,4.2*amount,gold,.9);ellipse(p[0],p[1],1.6*amount,1.6*amount,'#FFF4D6')}
+ function draw(t){
+  cameraYaw=-.62 + .052*Math.sin(Math.PI*2*(t%10)/10);
+  x.clearRect(0,0,W,H);x.fillStyle=navy;x.fillRect(0,0,W,H);
+  // quiet vignette + drafting lines
+  const g=x.createRadialGradient(470,370,100,450,460,600);g.addColorStop(0,'#102039');g.addColorStop(1,navy);x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.save();x.globalAlpha=.12;x.strokeStyle='#6D7A88';x.lineWidth=.5;for(let i=-500;i<1200;i+=44){x.beginPath();x.moveTo(i,0);x.lineTo(i-300,900);x.stroke()}x.restore();
+  // floating Florida-inspired carved platform
+  const platform=[[-255,-148,.0],[42,-190,.0],[242,-90,.0],[265,76,.0],[115,150,.0],[-155,137,.0],[-265,40,.0]];
+  const upper=platform.map(a=>[a[0],a[1],.18]), lower=platform.map(a=>[a[0],a[1],-.35]);
+  poly(upper,'#10233C','#28415C',1); for(let i=0;i<platform.length;i++){const j=(i+1)%platform.length;quad(lower[i],lower[j],upper[j],upper[i], i%2?'#0D1B2F':'#10243C','#203951',.7)}poly(lower,'#071323');
+  // etched coastline / roads
+  x.save();x.globalAlpha=.34;x.strokeStyle='#5D7690';x.lineWidth=.7;[[[-180,-30,.2],[-100,-10,.2],[-25,-38,.2],[68,-16,.2],[174,-37,.2]], [[-202,33,.2],[-78,64,.2],[24,42,.2],[145,70,.2]]].forEach(a=>{x.beginPath();a.forEach((q,i)=>{const p=P(...q);i?x.lineTo(...p):x.moveTo(...p)});x.stroke()});x.restore();
+  // pool slab and water
+  quad([-148,-42,.23],[55,-42,.23],[55,48,.23],[-148,48,.23],'#C9C6BD');quad([-132,-31,.26],[8,-31,.26],[8,30,.26],[-132,30,.26],'#376C7C');
+  for(let i=0;i<5;i++)line([-124+i*27,-25,.27],[-124+i*27,24,.27],'#8BB1B7',.7,.65);
+  // diffuse shadows ground the villa and soften the roof volumes
+  const sh=P(-20,-24,.29);ellipse(sh[0]+8,sh[1]+14,185,43,'#02060B',.42);ellipse(sh[0]-38,sh[1]+5,116,28,'#06101C',.55);
+  // terraces / home volumes, back before front
+  prism([-6,12][0],-4,132,74,.28,42,{front:'#E7E4DD',right:'#C8C7C1',left:'#F6F4EF',top:'#FAF8F2',line:'#C3C0B8'});
+  prism(-130,-92,103,96,.28,68,{front:'#F2F0EB',right:'#D0CEC7',left:'#FBF9F3',top:'#F9F7F2',line:'#C3C0B8'});
+  prism(-26,-66,116,95,.28,104,{front:'#F4F2ED',right:'#D0CEC8',left:'#FBF9F4',top:'#FAF8F2',line:'#C3C0B8'});
+  // projecting ivory roof plates
+  prism(-143,-101,130,111,68.5,6,{front:'#F8F6F0',right:'#E3E0D9',left:'#FFFDF8',top:'#FFFDF8',line:'#D8D4CB'});
+  prism(-38,-77,142,115,104.5,6,{front:'#FAF8F2',right:'#E0DDD6',left:'#FFFDF8',top:'#FFFDF8',line:'#D8D4CB'});
+  // glass facade facing us, mullions
+  quad([-19,29,.31], [90,29,.31],[90,29,91],[-19,29,91],'#1B4B61','#A9B4B2',.8);
+  for(let q=-8;q<90;q+=18)line([q,29,3],[q,29,88],'#B8C4C2',1,.92);
+  line([-19,29,45],[90,29,45],'#B8C4C2',.8,.8);
+  // side glass pavilion
+  quad([-124,4,.31],[-27,4,.31],[-27,4,59],[-124,4,59],'#204F60','#B6BFBB',.7);
+  for(let q=-111;q<-28;q+=17)line([q,4,3],[q,4,56],'#C5CECB',.8,.85);
+  // recessed entry and door
+  quad([-4,13,.31],[30,13,.31],[30,13,39],[-4,13,39],'#283943','#E4D8C1',.7);
+  line([13,13,3],[13,13,37],gold,1.1,.8);
+  // balcony rails
+  line([-118,-24,68],[-23,-24,68],gold,1.2,.75);for(let q=-112;q<-23;q+=12)line([q,-24,53],[q,-24,68],gold,.7,.65);
+  // pool loungers
+  for(const q of [[-96,9],[-64,9]]){line([q[0],q[1],.45],[q[0]+18,q[1],.45],'#F6F2E8',3);line([q[0]+17,q[1],.45],[q[0]+20,q[1],7],'#F6F2E8',2)}
+  tree(-198,-64,1.12);tree(-185,70,.82);tree(144,82,.94);tree(175,-51,.68);tree(102,110,.66);
+  // connection animation
+  let phase=(t%10)/10; const pulse=(a,b)=>phase<=a||phase>=b?0:Math.sin(Math.PI*(phase-a)/(b-a)); const local=pulse(.00,.72), regional=pulse(.08,.83), global=pulse(.20,.94), transatlantic=pulse(.28,1.00);
+  const home=[-12,29,93], sf=[-250,80,.5], madrid=[260,-200,.5], latin=[-250,180,.5];
+  arc3(home,sf,86,local);arc3(home,latin,115,regional,.8);arc3(sf,madrid,184,global);arc3(madrid,latin,155,transatlantic,.7);
+  if(local>.05){dot(home,1.1);dot(sf,.86)}if(regional>.05)dot(latin,.72);if(global>.05)dot(madrid,.88);
+  // labels anchored near projected dots
+  const label=(pt,s,dx,dy,a=1)=>{const p=P(...pt);x.save();x.font='500 18px Arial,sans-serif';const w=x.measureText(s).width+28;x.globalAlpha=a;roundRect(p[0]+dx-10,p[1]+dy-23,w,34,17,'#0B1727CC','#52667B');text(s,p[0]+dx+4,p[1]+dy,18,'#F9F7F2','left');x.restore()};
+  label(home,'Your property',22,-58);label(sf,'South Florida',-18,-18);label(madrid,'Madrid',22,-30);label(latin,'Latin America',-30,8);
+ }
+ let seeking=false; window.seek=(seconds)=>{seeking=true;draw(((seconds%10)+10)%10);};
+ let start=performance.now();function loop(now){if(!seeking)draw((now-start)/1000);requestAnimationFrame(loop)}requestAnimationFrame(loop);
+ draw(0);
+})();
+</script>
+</html>

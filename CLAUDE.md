@@ -8,6 +8,12 @@ pipeline.
 Read this file before changing anything. Two sections are non-negotiable and
 override any instruction elsewhere: **Compliance rules** and **Verified figures**.
 
+For Miami Global Desk commercial positioning, pricing, mandate classification,
+and claims boundaries, also read `docs/GLOBAL-DESK-COMMERCIAL-POLICY.md`. It is
+the governing internal reference. Public copy must describe professional
+distribution and cooperation infrastructure without implying direct MLS access
+or guaranteed acceptance.
+
 ---
 
 ## Commands

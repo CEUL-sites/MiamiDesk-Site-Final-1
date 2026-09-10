@@ -141,7 +141,7 @@ const FAQS: Record<Lang, { q: string; a: string }[]> = {
   es: [
     {
       q: "¿Es un listado formal en el MLS o solo un referido?",
-      a: "Un listado formal. Las propiedades españolas elegibles se colocan en el MIAMI International MLS (RWorld), la plataforma de sindicación internacional, a través de United Realty Group como principal licenciado de Florida — distribuidas a la red internacional de agentes y brokers, sujeto a las reglas del MLS. Un inmueble situado en España no entra en el sistema de búsqueda diaria del Southeast Florida MLS.",
+      a: "Es una revisión profesional de activación, no una colocación garantizada. Las propiedades españolas elegibles pueden prepararse para visibilidad ante agentes compradores y rutas profesionales de distribución a través de United Realty Group, sujetas a requisitos de plataforma, corretaje, legales y de cumplimiento.",
     },
     {
       q: "¿Perdemos la relación con el cliente?",
@@ -170,16 +170,16 @@ export default function SpainMlsListingPage() {
   return (
     <>
       <Helmet>
-        <title>List Spanish Luxury Property on the Miami MLS</title>
-        <meta name="description" content="Formal Miami MLS activation for Spanish prime inventory — agencies, developers, and family offices. LATAM and U.S. buyer-agent reach through United Realty Group." />
+        <title>South Florida Distribution for Spanish Luxury Property</title>
+        <meta name="description" content="Professional South Florida distribution and buyer-agent cooperation for selected Spanish prime inventory through United Realty Group, subject to eligibility review." />
         <link rel="canonical" href="https://homesprofessional.com/spain-mls-listing" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/spain-mls-listing" />
         <meta property="og:title" content="Your Spanish Listings, in Front of 93,000 Miami Agents" />
-        <meta property="og:description" content="Formal Miami MLS activation for Spanish prime inventory. Sell more through buyer agents — and win more mandates with exposure competing agencies cannot offer." />
+        <meta property="og:description" content="Professional South Florida distribution and buyer-agent cooperation for selected Spanish prime inventory through United Realty Group." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="List Spanish Luxury Property on the Miami MLS" />
+        <meta name="twitter:title" content="South Florida Distribution for Spanish Luxury Property" />
         <meta name="twitter:description" content="Agency & developer partnerships — LATAM and U.S. buyer-agent reach through United Realty Group, the licensed Florida broker." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
@@ -195,10 +195,10 @@ export default function SpainMlsListingPage() {
       <JsonLd id="spain-mls-listing-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Spanish Inventory Activation on the Miami MLS",
+          "name": "Spanish Property South Florida Distribution",
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "serviceType": "International Real Estate Listing Cooperation",
-          "description": "Formal Miami MLS activation of eligible Spanish prime residential and investment-grade property for agencies, developers, and family offices, with buyer-agent referral cooperation through United Realty Group.",
+          "description": "Professional South Florida distribution and buyer-agent cooperation pathways for eligible Spanish prime residential and investment-grade property through United Realty Group, subject to applicable requirements.",
           "areaServed": ["Spain", "South Florida"],
           "availableLanguage": ["English", "Spanish"],
           "url": "https://homesprofessional.com/spain-mls-listing"
