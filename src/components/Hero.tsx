@@ -63,14 +63,17 @@ export function Hero() {
             variants={item}
             className="relative mt-7 overflow-hidden border-y border-gold/35 lg:hidden"
           >
-            <img
-              src="/images/homepage-hero-waterfront-v2.jpg"
-              alt="Modern South Florida waterfront residence at sunset"
-              width="1536"
-              height="1024"
-              fetchPriority="high"
-              className="aspect-[16/10] w-full object-cover"
-            />
+            <picture>
+              <source srcSet="/images/homepage-hero-waterfront-v2.webp" type="image/webp" />
+              <img
+                src="/images/homepage-hero-waterfront-v2.jpg"
+                alt="Modern South Florida waterfront residence at sunset"
+                width="1536"
+                height="1024"
+                fetchPriority="high"
+                className="aspect-[16/10] w-full object-cover"
+              />
+            </picture>
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#060D18] to-transparent"
@@ -90,14 +93,17 @@ export function Hero() {
           variants={item}
           className="relative hidden h-[790px] overflow-hidden lg:block"
         >
-          <img
-            src="/images/homepage-hero-waterfront-v2.jpg"
-            alt="Modern South Florida waterfront residence at sunset"
-            width="1536"
-            height="1024"
-            fetchPriority="high"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
+          <picture>
+            <source srcSet="/images/homepage-hero-waterfront-v2.webp" type="image/webp" />
+            <img
+              src="/images/homepage-hero-waterfront-v2.jpg"
+              alt="Modern South Florida waterfront residence at sunset"
+              width="1536"
+              height="1024"
+              fetchPriority="high"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+          </picture>
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#060D18] via-[#060D18]/75 to-transparent"
