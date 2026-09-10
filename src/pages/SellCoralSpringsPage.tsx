@@ -45,7 +45,6 @@ export default function SellCoralSpringsPage() {
       <Helmet>
         <title>Sell Your Home in Coral Springs, FL</title>
         <meta name="description" content="Coral Springs, FL listing agent — MLS positioning, buyer-agent activation, school-zone expertise. Free strategy review. Carlos Uzcategui, FL SL705771." />
-        <meta name="keywords" content="sell home Coral Springs FL, Coral Springs listing agent, Coral Springs real estate agent, sell house Coral Springs Florida, Coral Springs FL realtor, Broward County listing agent, Coral Springs gated homes" />
         <link rel="canonical" href="https://homesprofessional.com/sell-coral-springs" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-coral-springs" />

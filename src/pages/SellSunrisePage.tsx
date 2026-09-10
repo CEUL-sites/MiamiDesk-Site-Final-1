@@ -45,7 +45,6 @@ export default function SellSunrisePage() {
       <Helmet>
         <title>Sell Your Home in Sunrise, FL</title>
         <meta name="description" content="Sunrise, FL listing agent — MLS positioning, buyer-agent activation, Latin American buyer access. Free strategy review. Carlos Uzcategui, FL SL705771." />
-        <meta name="keywords" content="sell home Sunrise FL, Sunrise Florida listing agent, Sunrise real estate agent, sell house Sunrise Florida, Sunrise FL realtor, Broward County listing agent, Sawgrass homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-sunrise" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-sunrise" />

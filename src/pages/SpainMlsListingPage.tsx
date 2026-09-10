@@ -172,7 +172,6 @@ export default function SpainMlsListingPage() {
       <Helmet>
         <title>List Spanish Luxury Property on the Miami MLS</title>
         <meta name="description" content="Formal Miami MLS activation for Spanish prime inventory — agencies, developers, and family offices. LATAM and U.S. buyer-agent reach through United Realty Group." />
-        <meta name="keywords" content="Spanish property South Florida activation, Spain real estate Miami exposure, luxury agency partnership Miami, Spanish developer US buyers, international property distribution, buyer agent activation Miami" />
         <link rel="canonical" href="https://homesprofessional.com/spain-mls-listing" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/spain-mls-listing" />

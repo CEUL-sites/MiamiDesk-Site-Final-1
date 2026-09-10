@@ -86,10 +86,6 @@ export default function LaComisionSecretaPage() {
           name="description"
           content="La Comisión Secreta — 248-page Spanish guide to a real estate career in South Florida. Licensing, MLS, the Latin American buyer market. By Carlos Uzcategui."
         />
-        <meta
-          name="keywords"
-          content="la comision secreta, como ser agente de bienes raices florida, licencia bienes raices florida, carrera bienes raices south florida, agente bienes raices miami, Carlos Uzcategui guia agente"
-        />
         <link rel="canonical" href="https://homesprofessional.com/la-comision-secreta" />
         <meta property="og:title" content="La Comisión Secreta — South Florida Real Estate Career Guide" />
         <meta property="og:description" content="248-page Spanish-language guide to building a real estate career in South Florida. Licensing, pipeline, the Latin American buyer market — by Carlos Uzcategui, FL SL705771." />

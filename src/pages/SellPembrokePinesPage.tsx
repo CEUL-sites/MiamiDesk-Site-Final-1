@@ -45,7 +45,6 @@ export default function SellPembrokePinesPage() {
       <Helmet>
         <title>Sell Your Home in Pembroke Pines, FL | MLS Positioning</title>
         <meta name="description" content="Pembroke Pines listing agent — MLS positioning, buyer-agent activation, Latin American buyer access. Free strategy review. Carlos Uzcategui, FL SL705771." />
-        <meta name="keywords" content="sell home Pembroke Pines FL, Pembroke Pines listing agent, Pembroke Pines real estate agent, sell house Pembroke Pines Florida, Pembroke Pines FL realtor, Broward County listing agent, Silver Lakes homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-pembroke-pines" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-pembroke-pines" />

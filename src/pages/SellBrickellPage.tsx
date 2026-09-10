@@ -45,7 +45,6 @@ export default function SellBrickellPage() {
       <Helmet>
         <title>Sell Your Brickell Condo</title>
         <meta name="description" content="Brickell condo listing agent, Miami — MLS positioning, international investor activation, buyer-agent network. Free strategy review. FL SL705771." />
-        <meta name="keywords" content="sell condo Brickell Miami, Brickell listing agent, Brickell real estate agent, sell Brickell condo Miami, Brickell FL realtor, Miami-Dade listing agent, Brickell luxury condo for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-brickell" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-brickell" />

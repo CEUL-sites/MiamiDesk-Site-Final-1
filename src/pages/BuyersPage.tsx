@@ -84,7 +84,6 @@ export default function BuyersPage() {
       <Helmet>
         <title>Buy in South Florida · 25 Years + a 3,500-Agent Network</title>
         <meta name="description" content="Buyer representation across South Florida — 25 years, backed by United Realty Group's 3,500+ agents across 19 Florida office locations. FL SL705771." />
-        <meta name="keywords" content="buy home South Florida, Miami real estate buyer, United Realty Group buyer agent, Broward County homes, Miami-Dade real estate, relocation Florida, South Florida buyer agent, moving to Florida" />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/buy" />

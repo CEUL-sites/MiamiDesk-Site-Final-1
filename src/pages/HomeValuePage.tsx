@@ -52,10 +52,6 @@ export default function HomeValuePage() {
           name="description"
           content="Free professional home valuation from Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771 — a real MLS analysis, not an algorithm."
         />
-        <meta
-          name="keywords"
-          content="what is my home worth miami, free home valuation south florida, coral gables home value, weston home value, miami beach property value, brickell condo value, miami home estimate, south florida property valuation, sell home miami"
-        />
         <link rel="canonical" href="https://homesprofessional.com/home-value" />
         <meta property="og:title" content="What Is My South Florida Home Worth? | Free Professional Valuation" />
         <meta property="og:description" content="Free MLS-based home valuation from Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771. Not an algorithm — a real analysis for your property." />

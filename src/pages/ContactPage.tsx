@@ -42,7 +42,6 @@ export default function ContactPage() {
       <Helmet>
         <title>Request a Private Listing Review | HomesProfessional.com</title>
         <meta name="description" content="Request a confidential property positioning review. South Florida sellers, international owners, agencies, and brokers. Carlos Uzcategui, FL SL705771." />
-        <meta name="keywords" content="listing review South Florida, Miami MLS listing request, international property exposure, contact Carlos Uzcategui, United Realty Group contact" />
         <link rel="canonical" href="https://homesprofessional.com/contact" />
         <meta property="og:title" content="Request a Private Listing Review | HomesProfessional.com" />
         <meta property="og:description" content="Submit a confidential property positioning review. South Florida sellers, international property owners, agencies, and developers. Carlos Uzcategui, FL SL705771." />

@@ -69,7 +69,6 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
       <Helmet>
         <title>{market.title}</title>
         <meta name="description" content={market.description} />
-        <meta name="keywords" content={market.keywords} />
         <link rel="canonical" href={pageUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={pageUrl} />

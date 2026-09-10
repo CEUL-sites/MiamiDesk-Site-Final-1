@@ -45,7 +45,6 @@ export default function SellPlantationPage() {
       <Helmet>
         <title>Sell Your Home in Plantation, FL</title>
         <meta name="description" content="Plantation, FL listing agent — MLS positioning, buyer-agent activation, neighborhood expertise. Free strategy review. Carlos Uzcategui, FL SL705771." />
-        <meta name="keywords" content="sell home Plantation FL, Plantation Florida listing agent, Plantation real estate agent, sell house Plantation Florida, Plantation FL realtor, Broward County listing agent, Plantation FL homes for sale" />
         <link rel="canonical" href="https://homesprofessional.com/sell-plantation" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-plantation" />

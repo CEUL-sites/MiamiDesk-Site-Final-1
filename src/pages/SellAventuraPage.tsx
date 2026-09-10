@@ -45,7 +45,6 @@ export default function SellAventuraPage() {
       <Helmet>
         <title>Sell Your Property in Aventura, FL | MLS Positioning</title>
         <meta name="description" content="Aventura, FL listing agent — MLS positioning, international buyer activation, buyer-agent network. Free strategy review. Carlos Uzcategui, FL SL705771." />
-        <meta name="keywords" content="sell condo Aventura FL, Aventura Florida listing agent, Aventura real estate agent, sell home Aventura Florida, Aventura FL realtor, Miami-Dade listing agent, Aventura luxury condo" />
         <link rel="canonical" href="https://homesprofessional.com/sell-aventura" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-aventura" />
