@@ -79,7 +79,32 @@ test("sitemap contains the approved Global Desk article URL and lastmod", () => 
   assert.match(
     sitemap,
     new RegExp(
-      `<url>\\s*<loc>https://homesprofessional\\.com/journal/${escapedUrl}</loc>\\s*<lastmod>2026-09-07</lastmod>`,
+      `<url>\\s*<loc>https://homesprofessional\\.com/journal/${escapedUrl}</loc>\\s*<lastmod>2026-09-15</lastmod>`,
     ),
   );
+});
+
+test("Global Desk article states the verified professional infrastructure and safeguards", () => {
+  const article = fs.readFileSync(
+    "src/content/journal/international-luxury-properties-miami-buyer-agents-global-desk.md",
+    "utf8",
+  );
+
+  assert.match(article, /updated: "2026-09-15"/);
+  assert.match(article, /93,000 members/);
+  assert.doesNotMatch(article, /\$69 (?:billion|B)/);
+  assert.match(article, /more than 437 international agreements/);
+  assert.match(article, /11 data exchanges/);
+  assert.match(
+    article,
+    /https:\/\/www\.miamirealtors\.com\/2026\/04\/20\/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association\//,
+  );
+  assert.match(article, /3,500\+ real estate professionals across 19 Florida office locations/);
+  assert.match(article, /Professional representation/);
+  assert.match(article, /Professional distribution/);
+  assert.match(article, /Buyer-agent activation/);
+  assert.match(article, /Transaction execution/);
+  assert.match(article, /does not mean that every international property is automatically accepted/);
+  assert.match(article, /not direct access to an MLS/);
+  assert.match(article, /compensation arrangements are established separately in writing/);
 });
