@@ -105,23 +105,25 @@ const [home, hero, heroAnimation, form, authority, execution, distribution, proo
   readFile("src/components/Footer.tsx", "utf8"),
 ]);
 
-assert.match(hero, /South Florida property/);
-assert.match(hero, /Your property\./);
-assert.match(hero, /Miami’s network\./);
-assert.match(hero, /Your next move\./);
-assert.match(hero, /distribution network of 93,000 association members/);
-assert.match(hero, /25 years in South Florida/);
+assert.match(hero, /Sell With the Power of the World’s Largest Local REALTOR® Association\./);
+assert.match(hero, /Your property deserves more than exposure\./);
+assert.match(hero, /25 years of Florida transaction experience/);
+assert.match(hero, /South Florida’s unmatched REALTOR® ecosystem/);
+assert.match(hero, /activating buyer agents/);
+assert.match(hero, /strongest possible sale outcome/);
+assert.match(hero, /Professional Representation\. Powerful Distribution\. Better Positioned to Sell\./);
+assert.match(hero, /Carlos Uzcategui · 25 years of Florida transactions · United Realty Group/);
 assert.match(form, /bridgeHref: "\/global-desk"/);
 assert.ok(hero.indexOf('id="list-here"') < hero.indexOf('<HeroPropertyAnimation'), "Mobile form must precede media");
-assert.match(form, /Request My Property Review/);
+assert.match(form, /Request Your Private Property Strategy/);
 assert.match(form, /Message Carlos directly/);
 assert.match(form, /Personal reply from Carlos · No listing commitment/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
-assert.match(hero, /93,000", label: "Association Members"/);
+assert.match(hero, /94,000\+", label: "MIAMI REALTORS® \+ RWorld Members"/);
 assert.match(hero, /Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity\./);
 assert.equal((hero.match(/<HeroPropertyAnimation \/>/g) ?? []).length, 2);
 assert.match(hero, /aspect-video/);
-assert.match(hero, /lg:min-h-\[730px\]/);
+assert.match(hero, /lg:min-h-\[760px\]/);
 assert.doesNotMatch(hero, /lg:h-\[790px\]/);
 assert.doesNotMatch(hero, /lg:overflow-hidden/);
 assert.match(heroAnimation, /\/media\/hero-property-network\.mp4/);
@@ -150,8 +152,8 @@ for (const [label, copy] of [
 assert.match(distribution, /The Listing System/);
 assert.match(distribution, /PILLARS\.map/);
 assert.match(distribution, /label: "Member Agents"/);
-assert.match(footer, /93,000 ASSOCIATION MEMBERS/);
-assert.doesNotMatch(footer, /93,000 MEMBER AGENTS/);
+assert.match(footer, /94,000\+ ASSOCIATION MEMBERS/);
+assert.doesNotMatch(footer, /93,000 ASSOCIATION MEMBERS/);
 const sectionOrder = [
   "<Hero />",
   "<SellerAuthorityStrip />",
@@ -172,10 +174,10 @@ for (let index = 1; index < sectionOrder.length; index += 1) {
 assert.match(home, /<title>South Florida Listing Strategist \| Carlos Uzcategui<\/title>/);
 assert.match(
   home,
-  /Request a private South Florida property strategy from Carlos Uzcategui: MLS-based pricing, positioning, buyer-agent activation, and 93,000-member reach\./,
+  /Request a private South Florida property strategy from Carlos Uzcategui: professional representation, strategic positioning, buyer-agent activation, and 94,000\+-member association reach\./,
 );
 assert.match(form, /Private Property Strategy/);
-assert.match(form, /Request My Property Review/);
+assert.match(form, /Request Your Private Property Strategy/);
 assert.match(form, /Estrategia Privada de la Propiedad/);
 assert.match(form, /Solicitar Revisión de Mi Propiedad/);
 assert.equal(

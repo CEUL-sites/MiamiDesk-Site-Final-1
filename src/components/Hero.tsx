@@ -5,7 +5,7 @@ import { HeroPropertyAnimation } from "./HeroPropertyAnimation";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const DISTRIBUTION_STATS = [
-  { value: "93,000", label: "Association Members" },
+  { value: "94,000+", label: "MIAMI REALTORS® + RWorld Members" },
   { value: "200+", label: "Global Portals · 19 Languages" },
   { value: "260+", label: "U.S. MLSs via RPR" },
   { value: "437+", label: "International Agreements" },
@@ -38,27 +38,28 @@ export function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto grid w-full max-w-[1440px] lg:min-h-[730px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]"
+        className="relative z-10 mx-auto grid w-full max-w-[1440px] lg:min-h-[760px] lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]"
       >
-        <div className="flex flex-col px-5 pb-8 pt-24 sm:px-8 sm:pt-28 lg:px-12 lg:pb-7 lg:pt-28 xl:pl-20 xl:pr-8">
-          <div className="max-w-[650px]">
+        <div className="flex flex-col px-5 pb-8 pt-24 sm:px-8 sm:pt-28 lg:px-12 lg:pb-7 lg:pt-24 xl:pl-20 xl:pr-8">
+          <div className="max-w-[690px]">
             <motion.h1
               variants={item}
-              className="font-serif text-[clamp(2.25rem,9vw,4.5rem)] font-normal leading-[1.04] tracking-[-0.035em] text-white lg:text-[3.3rem] xl:text-[3.9rem]"
+              className="text-balance font-serif text-[clamp(2.25rem,9vw,4.25rem)] font-normal leading-[1.02] tracking-[-0.035em] text-white lg:text-[3.15rem] xl:text-[3.65rem]"
             >
-              <span className="block">Your property.</span>
-              <span className="block">Miami’s network.</span>
-              <span className="block">Your next move.</span>
+              Sell With the Power of the World’s Largest Local REALTOR® Association.
             </motion.h1>
 
             <motion.p
               variants={item}
-              className="mt-5 max-w-[580px] font-sans text-base leading-7 text-white/78 lg:leading-[1.65]"
+              className="mt-5 max-w-[660px] font-sans text-[0.98rem] leading-7 text-white/78 lg:leading-[1.58]"
             >
-              Put your South Florida property into the distribution network of 93,000 association members. Carlos connects pricing, presentation and buyer-agent outreach in one listing strategy.
+              Your property deserves more than exposure. Carlos and United Realty Group combine 25 years of Florida transaction experience with South Florida’s unmatched REALTOR® ecosystem—positioning the property, activating buyer agents, negotiating strategically, and managing the transaction to pursue the strongest possible sale outcome.
             </motion.p>
-            <motion.div variants={item} className="mt-4">
-              <p className="font-sans text-sm font-medium text-gold-soft">Carlos Uzcategui · 25 years in South Florida</p>
+            <motion.div variants={item} className="mt-4 border-l border-gold/55 pl-3">
+              <p className="font-sans text-[0.78rem] font-semibold uppercase leading-5 tracking-[0.09em] text-gold-soft">
+                Professional Representation. Powerful Distribution. Better Positioned to Sell.
+              </p>
+              <p className="mt-2 font-sans text-sm font-medium text-white/85">Carlos Uzcategui · 25 years of Florida transactions · United Realty Group</p>
               <p className="mt-1 font-sans text-xs leading-5 text-white/70">CLHMS · Certified Seller Representative · English &amp; Spanish</p>
             </motion.div>
           </div>
@@ -82,7 +83,7 @@ export function Hero() {
 
         <motion.div
           variants={item}
-          className="relative hidden min-w-0 lg:block lg:min-h-[730px]"
+          className="relative hidden min-w-0 lg:block lg:min-h-[760px]"
         >
           <div className="absolute inset-0 flex items-center justify-center px-8 py-10 xl:px-12">
             <div className="aspect-video w-full max-w-[740px] overflow-hidden">
