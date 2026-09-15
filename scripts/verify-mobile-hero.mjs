@@ -28,6 +28,9 @@ assert.match(
   /aspect-video/,
   "the mobile property animation must retain the approved 16:9 aspect ratio",
 );
+assert.match(hero, /text-balance/, "the new long-form H1 must use balanced wrapping");
+assert.match(hero, /Sell With the Power of the World’s Largest Local REALTOR® Association\./);
+assert.match(hero, /Professional Representation\. Powerful Distribution\. Better Positioned to Sell\./);
 assert.match(animation, /width="1280"/);
 assert.match(animation, /height="720"/);
 assert.match(animation, /Property → Miami agent network → coordinated buyer & investor introductions\./);
