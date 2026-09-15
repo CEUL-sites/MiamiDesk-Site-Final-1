@@ -13,7 +13,7 @@ import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "../data/urgOffices";
 const TOP_STATS = [
   {
     value: 93000,
-    display: "93,000",
+    display: "94,000+",
     suffix: "",
     label: "Member Agents",
     sublabel: "Miami & South Florida REALTORS®",
@@ -50,7 +50,7 @@ const PILLARS = [
     step: "02",
     title: "Distribution beyond the MLS",
     body:
-      "Direct placement into the 93,000-agent Miami MLS ecosystem, syndicated across top U.S. portals and 200+ global channels in 19 languages.",
+      "Professional positioning within the 94,000+-member MIAMI REALTORS® + RWorld ecosystem, supported by targeted buyer-agent activation and eligible syndication across U.S. and global channels.",
   },
   {
     icon: Radar,
@@ -143,7 +143,7 @@ export function Distribution() {
           style={{ fontSize: "clamp(2.2rem, 4.6vw, 4rem)" }}
         >
           Your listing enters the ecosystem<br />
-          <em className="italic text-gold">93,000 South Florida agents work from every day.</em>
+          <em className="italic text-gold">more than 94,000 South Florida real estate professionals work within.</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
