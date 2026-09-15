@@ -25,11 +25,11 @@ export function SellerPillars() {
                 Institutional Distribution
               </h3>
               <p className="mt-4 font-sans text-sm leading-relaxed text-navy/75">
-                Simultaneous deployment across 93,000 member agents in the Miami and South Florida REALTORS® ecosystem, 260+ U.S. MLS markets through RPR bilateral feeds, and 200+ global consumer portals in 19 languages.
+                Strategic positioning within the 94,000+-member MIAMI REALTORS® + RWorld ecosystem, supported by targeted buyer-agent activation, RPR data exchange reach, and eligible global syndication.
               </p>
             </div>
             <div className="mt-6 border-t border-bone pt-4 font-mono text-[11px] text-navy/60">
-              Miami MLS · 93,000 Agents · 200+ Portals
+              MIAMI REALTORS® + RWorld · 94,000+ Members · Buyer-Agent Activation
             </div>
           </div>
 
