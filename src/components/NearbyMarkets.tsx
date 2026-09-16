@@ -74,7 +74,7 @@ export function NearbyMarkets({ current }: { current: string }) {
             </Link>
           ))}
           <Link
-            to="/sell-south-florida"
+            to="/sell"
             className="border border-gold/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:bg-gold/5 transition-colors"
           >
             All South Florida →

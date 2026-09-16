@@ -93,6 +93,8 @@ export default function SellSouthFloridaPage() {
           "@type": "FAQPage",
           "mainEntity": [
             { "@type": "Question", "name": "How do I sell my South Florida home?", "acceptedAnswer": { "@type": "Answer", "text": "It starts with positioning — the right price, the right timing, and professional MLS activation. Carlos provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS with professional buyer-agent visibility and eligible syndication across approved distribution channels. No obligation. Just a strategy." } },
+            { "@type": "Question", "name": "How can a South Florida seller remain in their home after closing while coordinating their next purchase?", "acceptedAnswer": { "@type": "Answer", "text": "Through a formally structured post-closing occupancy agreement (leaseback). Carlos Uzcategui negotiates leaseback terms directly in the purchase contract—such as a documented 7-month post-closing agreement executed in Weston—enabling sellers to receive full proceeds in escrow, eliminate bridge financing stress, and complete their subsequent home purchase with zero displacement deadlines." } },
+            { "@type": "Question", "name": "How does Florida Save Our Homes property tax portability work for sellers?", "acceptedAnswer": { "@type": "Answer", "text": "Florida homeowners can transfer up to $500,000 in accumulated Save Our Homes property tax assessment differential to their next primary residence through homestead portability. Carlos coordinates pricing, marketing, and closing timelines so sellers can preserve this substantial tax benefit within statutory Florida deadlines in consultation with their CPA." } },
             { "@type": "Question", "name": "What is the Miami MLS and why does it matter?", "acceptedAnswer": { "@type": "Answer", "text": "The Miami and South Florida REALTORS® — the world's largest local REALTOR® association, with over 93,000 member agents — operates the MLS. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 200+ global portals in 19 languages. The MLS is where qualified buyers are found." } },
             { "@type": "Question", "name": "Do you work with Latin American and Spanish buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. South Florida's luxury market runs on Latin American capital. Carlos built those relationships deal by deal over 25 years. Miami Global Listing Desk connects selected Spanish and international inventory to South Florida buyer-agent activation through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, and United Realty Group." } },
             { "@type": "Question", "name": "How long does it take to sell in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "It varies by price band, condition, and positioning. Per Miami and South Florida REALTORS® MLS data, well-positioned homes in the lower price bands have typically transacted faster than luxury product above $2M. Carlos provides a neighborhood-specific timeline assessment as part of every seller strategy review — this is not a guarantee of any specific outcome, and no listing commitment is required." } },
@@ -107,9 +109,7 @@ export default function SellSouthFloridaPage() {
           "serviceType": "Real estate listing and seller representation",
           "areaServed": { "@type": "AdministrativeArea", "name": "South Florida" },
           "provider": {
-            "@type": "RealEstateAgent",
-            "name": "Carlos Uzcategui",
-            "url": "https://homesprofessional.com/sell"
+            "@id": "https://homesprofessional.com/#agent"
           },
           "url": "https://homesprofessional.com/sell"
         }} />

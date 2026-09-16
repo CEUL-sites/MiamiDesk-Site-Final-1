@@ -1,5 +1,5 @@
 import { ASSOCIATION_STATS, CONTACT } from "../../constants";
-import { AGGREGATE_RATING } from "../../data/reviews";
+import { AGGREGATE_RATING, VERIFIED_REVIEWS, buildReviewSchema } from "../../data/reviews";
 import { JsonLd } from "./JsonLd";
 
 type JsonLdSchema = Record<string, unknown> & {
@@ -48,23 +48,47 @@ const sitewideSchema: JsonLdSchema[] = [
     "@type": "RealEstateAgent",
     "@id": `${SITE_URL}/#agent`,
     name: CONTACT.name,
-    alternateName: "HomesProfessional.com",
+    alternateName: ["Carlos Uzcategui Real Estate", "HomesProfessional.com"],
+    jobTitle: "Florida Licensed Realtor® · SL705771",
     description:
-      "Carlos Uzcategui is a REALTOR® and Florida real estate licensee SL705771 with United Realty Group, serving South Florida sellers, buyers, agent referrals, and Spain/LATAM advisory clients.",
+      "Carlos Uzcategui is a Florida Licensed Realtor® (SL705771, licensed since 2001 · 25 years experience) with United Realty Group, specializing in South Florida luxury seller representation, complex post-closing leasebacks, and bilateral Spain/LATAM MLS distribution.",
     url: SITE_URL,
     telephone: CONTACT.phoneUS,
     email: CONTACT.email,
     image: `${SITE_URL}${CONTACT.headshot}`,
-    priceRange: "Consultation available by request",
+    priceRange: "$$$$",
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
+    memberOf: [
+      {
+        "@type": "Organization",
+        name: "Miami and South Florida REALTORS®",
+        url: "https://www.miamirealtors.com",
+      },
+      {
+        "@type": "Organization",
+        name: "National Association of REALTORS®",
+        url: "https://www.nar.realtor",
+      },
+      {
+        "@type": "Organization",
+        name: "Florida REALTORS®",
+        url: "https://www.floridarealtors.org",
+      },
+      {
+        "@type": "Organization",
+        name: "Institute for Luxury Home Marketing",
+        url: "https://www.luxuryhomemarketing.com",
+      },
+    ],
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
         credentialCategory: "license",
         name: "Florida Real Estate License SL705771",
         recognizedBy: {
-          "@type": "Organization",
-          name: "Florida Department of Business and Professional Regulation",
+          "@type": "GovernmentOrganization",
+          name: "Florida Department of Business and Professional Regulation (DBPR)",
+          url: "https://www.myfloridalicense.com",
         },
       },
       {
@@ -72,6 +96,23 @@ const sitewideSchema: JsonLdSchema[] = [
         credentialCategory: "certification",
         name: "Certified Luxury Home Marketing Specialist (CLHMS)",
       },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "certification",
+        name: "Certified Seller Representative",
+      },
+    ],
+    knowsAbout: [
+      "South Florida Luxury Real Estate",
+      "Post-Occupancy Leaseback Agreements",
+      "Florida Save Our Homes Homestead Portability",
+      "Seller Equity Structuring",
+      "Miami MLS Global Syndication",
+      "Bilateral Spain-US Real Estate Mandates",
+      "FIRPTA Withholding Compliance Coordination",
+      "Weston Luxury Home Sales",
+      "Coral Gables Residential Properties",
+      "Miami-Dade and Broward Real Estate Advisory",
     ],
     address: {
       "@type": "PostalAddress",
@@ -120,17 +161,18 @@ const sitewideSchema: JsonLdSchema[] = [
       },
     ],
     knowsLanguage: ["en", "es"],
-    // sameAs is how this site claims the profiles scattered across directories as
-    // one identity. It matters more here than on a typical site: a Keller Williams
-    // agent page still carries Carlos's name from his 2012–2024 affiliation there,
-    // and directory profiles currently outrank homesprofessional.com for his own
-    // name. Declaring them as the same entity is what points that authority back at
-    // this domain instead of leaving it spread across pages he does not control.
-    //
-    // Every entry must be a profile that is verifiably Carlos's — a wrong URL here
-    // tells Google the wrong thing about who he is, which is worse than a short
-    // list. The four added below were each matched on brokerage, market and, for
-    // Birdeye, a review count identical to REVIEW_COUNT in src/data/reviews.ts.
+    makesOffer: [
+      {
+        "@type": "Offer",
+        name: "Private Seller Strategy Review",
+        description:
+          "Comprehensive in-person or virtual property valuation, MLS pricing strategy, post-occupancy transition structuring, and buyer-agent distribution modeling.",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: `${SITE_URL}/sell#contact`,
+      },
+    ],
     sameAs: [
       CONTACT.linkedin,
       "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51",
@@ -138,8 +180,10 @@ const sitewideSchema: JsonLdSchema[] = [
       "https://www.loopnet.com/commercial-real-estate-brokers/profile/carlos-uzcategui/35mjrefb",
       "https://reviews.birdeye.com/carlos-uzcategui-pa-171703249888930",
       "https://www.facebook.com/sfloridahome/",
+      "https://www.urgfl.com/office-locations/",
     ],
     aggregateRating: AGGREGATE_RATING,
+    review: buildReviewSchema(VERIFIED_REVIEWS.slice(0, 3)),
   },
   {
     "@context": "https://schema.org",

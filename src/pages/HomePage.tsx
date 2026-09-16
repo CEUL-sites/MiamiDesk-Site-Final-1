@@ -1,7 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
-import { AGGREGATE_RATING, VERIFIED_REVIEWS, buildReviewSchema } from "../data/reviews";
-import { JsonLd } from "../components/SEO/JsonLd";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
 import { Proof } from "../components/Proof";
@@ -43,27 +41,6 @@ export default function HomePage() {
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
       </Helmet>
-      <JsonLd
-        id="home-agent"
-        data={{
-          "@context": "https://schema.org",
-          "@type": "RealEstateAgent",
-          "@id": "https://homesprofessional.com/#agent",
-          "name": "Carlos Uzcategui",
-          "jobTitle": "REALTOR® · Florida License SL705771",
-          "description": "Carlos Uzcategui is a REALTOR® and Florida real estate licensee SL705771 with United Realty Group. Licensed in Florida since 2001, with seller representation across Miami-Dade, Broward, and Palm Beach.",
-          "url": "https://homesprofessional.com/",
-          "telephone": "+19548656622",
-          "email": "contact@carlosre.com",
-          "image": "https://homesprofessional.com/images/carlos-headshot.jpg",
-          "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
-          "areaServed": ["Miami-Dade County", "Broward County", "Palm Beach County"],
-          "memberOf": { "@type": "Organization", "name": "Miami and South Florida REALTORS®" },
-          "worksFor": { "@type": "Organization", "name": "United Realty Group" },
-          "aggregateRating": AGGREGATE_RATING,
-          "review": buildReviewSchema(VERIFIED_REVIEWS.slice(0, 3)),
-        }}
-      />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
         <Hero />

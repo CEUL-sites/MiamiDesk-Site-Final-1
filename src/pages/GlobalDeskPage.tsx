@@ -175,6 +175,63 @@ export default function GlobalDeskPage() {
         <meta property="og:image" content="https://homesprofessional.com/images/global-desk-hero-madrid-v2.webp" />
       </Helmet>
       <JsonLd id="global-desk-breadcrumb" data={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://homesprofessional.com/" }, { "@type": "ListItem", position: 2, name: "Miami Global Desk", item: "https://homesprofessional.com/global-desk" }] }} />
+      <JsonLd
+        id="global-desk-faq"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Can Spanish or European properties be listed directly on the Miami MLS?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Through a bilateral mandate structure, Carlos Uzcategui operates as the licensed Florida principal of record (Realtor® SL705771 · United Realty Group) placing eligible prime international inventory directly into the Miami MLS for discovery by 93,000 South Florida member agents and their buyer clients, while the local Spanish agency retains the mandate, on-the-ground client relationship, and local closing.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is Miami Global Desk another property portal?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No. It is a professional activation and cooperation layer for selected international property entering a South Florida real estate conversation.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does my local mandate change?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No. The originating agency, developer, or listing professional keeps the mandate, client relationship, local negotiation, and closing.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Who provides property photography, renderings, and documentation?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Originating listing principals, developers, and cooperating agencies provide verified professional photography, architectural renderings, floor plans, and property documentation. The Miami Global Desk provides licensed Florida MLS activation, professional distribution across the 93,000-member network, bilingual property positioning, and broker-to-broker cooperation management. Carlos operates as the licensed Florida-side principal of record (Realtor® SL705771 · United Realty Group) and does not hold a real estate broker or agency license in Spain.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What happens when buyer interest is identified?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Relevant interest can be prepared and introduced to the originating team, which controls the local transaction and next steps.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is exposure or a buyer guaranteed?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No. Activation is subject to brokerage approval, platform rules, property eligibility, cooperation terms, and applicable compliance requirements.",
+              },
+            },
+          ],
+        }}
+      />
 
       <main id="main-content" className="min-h-screen overflow-x-hidden bg-white text-navy pb-20 lg:pb-0">
         <Navbar />
