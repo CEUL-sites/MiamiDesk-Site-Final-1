@@ -19,7 +19,6 @@ import { SellerPathfinder } from "../components/SellerPathfinder";
 import { Testimonials } from "../components/Testimonials";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { SellerNetCalculator } from "../components/SellerNetCalculator";
-import { SellerPillars } from "../components/SellerPillars";
 import { CONTACT, SOURCES, MESSAGING } from "../constants";
 
 const WHO_THIS_IS_FOR = [
@@ -113,15 +112,13 @@ export default function SellSouthFloridaPage() {
           },
           "url": "https://homesprofessional.com/sell"
         }} />
-      <main id="main-content" className="seller-page min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" className="seller-page min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
 
         <SellersReachHero />
 
         <ProofStrip />
         <InstitutionalReach />
-
-        <SellerPillars />
 
         {/* Miami Realtors Association — Why You Need a Miami Realtor */}
         <section className="bg-white py-10 md:py-28">
