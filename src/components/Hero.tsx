@@ -1,126 +1,54 @@
-import { motion, type Variants } from "motion/react";
 import { HeroSellerForm } from "./HeroSellerForm";
-import { HeroPropertyAnimation } from "./HeroPropertyAnimation";
+import { fig } from "../data/figures";
+import "./hero-conversion.css";
 
-const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-const DISTRIBUTION_STATS = [
-  { value: "94,000+", label: "MIAMI REALTORS® + RWorld Members" },
-  { value: "200+", label: "Global Portals · 19 Languages" },
-  { value: "260+", label: "U.S. MLSs via RPR" },
-  { value: "437+", label: "International Agreements" },
+// Approved sources: MIAMI/RWorld merger announcement (April 2026) and
+// Carlos's supplied branding materials. Membership is not guaranteed reach.
+const PROOF = [
+  { value: fig("yearsLicensed"), label: "Years licensed in Florida" },
+  { value: fig("members"), label: "Association members" },
+  { value: fig("urgAgents"), label: "United Realty Group agents" },
 ];
-
-const container: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.72, ease: EASE } },
-};
 
 export function Hero() {
   return (
-    <section className="hero-root relative overflow-hidden bg-[#060D18] text-white">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
-          backgroundSize: "180px",
-        }}
-      />
-
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 mx-auto grid w-full max-w-[1440px] lg:min-h-[760px] lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)]"
-      >
-        <div className="flex flex-col px-5 pb-8 pt-24 sm:px-8 sm:pt-28 lg:px-12 lg:pb-7 lg:pt-24 xl:pl-20 xl:pr-8">
-          <div className="max-w-[690px]">
-            <motion.h1
-              variants={item}
-              className="text-balance font-serif text-[clamp(2.25rem,9vw,4.25rem)] font-normal leading-[1.02] tracking-[-0.035em] text-white lg:text-[3.15rem] xl:text-[3.65rem]"
-            >
-              Sell With the Power of the World’s Largest Local REALTOR® Association.
-            </motion.h1>
-
-            <motion.p
-              variants={item}
-              className="mt-5 max-w-[660px] font-sans text-[0.98rem] leading-7 text-white/78 lg:leading-[1.58]"
-            >
-              Your property deserves more than exposure. Carlos and United Realty Group combine 25 years of Florida transaction experience with South Florida’s unmatched REALTOR® ecosystem—positioning the property, activating buyer agents, negotiating strategically, and managing the transaction to pursue the strongest possible sale outcome.
-            </motion.p>
-            <motion.div variants={item} className="mt-4 border-l border-gold/55 pl-3">
-              <p className="font-sans text-[0.78rem] font-semibold uppercase leading-5 tracking-[0.09em] text-gold-soft">
-                Professional Representation. Powerful Distribution. Better Positioned to Sell.
-              </p>
-              <p className="mt-2 font-sans text-sm font-medium text-white/85">Carlos Uzcategui · 25 years of Florida transactions · United Realty Group</p>
-              <p className="mt-1 font-sans text-xs leading-5 text-white/70">CLHMS · Certified Seller Representative · English &amp; Spanish</p>
-            </motion.div>
-          </div>
-
-          <motion.div
-            id="list-here"
-            variants={item}
-            className="mt-6 w-full max-w-[520px] scroll-mt-24 lg:mt-5"
-          >
-            <HeroSellerForm progressiveDesktop />
-          </motion.div>
-          <motion.div variants={item} className="relative mt-7 aspect-video overflow-hidden border-y border-gold/35 lg:hidden">
-            <HeroPropertyAnimation />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#060D18] to-transparent"
-            />
-          </motion.div>
-
-        </div>
-
-        <motion.div
-          variants={item}
-          className="relative hidden min-w-0 lg:block lg:min-h-[760px]"
-        >
-          <div className="absolute inset-0 flex items-center justify-center px-8 py-10 xl:px-12">
-            <div className="aspect-video w-full max-w-[740px] overflow-hidden">
-              <HeroPropertyAnimation />
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.72, duration: 0.6 }}
-        className="relative z-20 border-y border-gold/35 bg-[#06101d]"
-      >
-        <div className="mx-auto grid max-w-[1440px] grid-cols-2 px-5 sm:px-8 lg:grid-cols-[repeat(4,minmax(0,1fr))_1.45fr] lg:px-12 xl:px-20">
-          {DISTRIBUTION_STATS.map((stat, index) => (
-            <div
-              key={stat.label}
-              className={`py-5 text-center lg:py-6 ${
-                index % 2 === 0 ? "border-r border-white/12" : ""
-              } ${index < 2 ? "border-b border-white/12 lg:border-b-0" : ""} ${
-                index > 0 ? "lg:border-l lg:border-white/12" : ""
-              }`}
-            >
-              <p className="font-serif text-[2rem] leading-none text-gold sm:text-[2.25rem]">{stat.value}</p>
-              <p className="mt-2 px-2 font-sans text-[12px] leading-4 text-white/78 sm:text-[13px]">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-
-          <p className="col-span-2 border-t border-white/12 py-5 text-center font-sans text-[11px] leading-5 text-white/65 lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-8 lg:text-left">
-            Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity. Eligible exposure varies by property type, MLS rules, platform participation, and syndication partner availability.
+    <section className="hero-root seller-hero" aria-labelledby="seller-hero-heading">
+      <div className="seller-hero-layout">
+        <div className="seller-hero-primary">
+          <p className="seller-hero-identity">Carlos Uzcategui <span>· United Realty Group</span></p>
+          <p className="seller-hero-eyebrow">South Florida Listing Strategy <span>Florida licensed since 2001</span></p>
+          <h1 id="seller-hero-heading" className="seller-hero-heading text-balance">
+            Sell With 25 Years of Strategy—
+            <span>Backed by the World’s Largest Local REALTOR® Association.</span>
+          </h1>
+          <p className="seller-hero-summary">
+            Carlos personally leads your pricing, positioning, buyer-agent activation, negotiation and transaction execution. Affiliated with United Realty Group and a member of Miami and South Florida REALTORS®.
           </p>
+          <div id="list-here" className="seller-hero-action">
+            <HeroSellerForm compact progressiveDesktop />
+          </div>
+          <p className="seller-hero-credentials">CLHMS Luxury Specialist <span>· English &amp; Spanish</span></p>
         </div>
-      </motion.div>
+        <aside className="seller-hero-support" aria-label="Experience and professional infrastructure">
+          <div className="seller-hero-image">
+            <img src="/images/homepage-hero-waterfront-v2.webp" alt="" width="1672" height="941" fetchPriority="high" decoding="async" />
+            <p>Personal representation.<br /><span>Professional infrastructure.</span></p>
+          </div>
+          <dl className="seller-hero-proof">
+            {PROOF.map((proof) => (
+              <div key={proof.label}>
+                <dt>{proof.label}</dt>
+                <dd>{proof.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="seller-hero-membership">Brokerage: United Realty Group.<br />Member: Miami and South Florida REALTORS®.</p>
+        </aside>
+      </div>
+      <div className="seller-hero-foot">
+        <p>International property owner or agency? <a href="/global-desk">Explore Miami Global Desk <span aria-hidden="true">→</span></a></p>
+        <p className="seller-hero-compliance">Florida Licensed REALTOR® SL705771 · United Realty Group · Equal Housing Opportunity. Distribution is subject to property eligibility, MLS rules and partner participation.</p>
+      </div>
     </section>
   );
 }
