@@ -59,3 +59,12 @@
   .seller-hero-proof dt { font-size: 12px; }
   .seller-hero-foot { padding: 20px; }
 }
+/* Leave the first CTA clear of the existing consent panel on small phones. */
+@media (max-width: 380px) {
+  .seller-hero-layout { padding-top: 84px; }
+  .seller-hero-identity { margin-bottom: 8px; }
+  .seller-hero-eyebrow { margin-bottom: 8px; }
+  .seller-hero-heading > span { margin-top: 8px; }
+  .seller-hero-summary { margin-top: 12px; line-height: 1.5; }
+  .seller-hero-action { margin-top: 16px; }
+}
