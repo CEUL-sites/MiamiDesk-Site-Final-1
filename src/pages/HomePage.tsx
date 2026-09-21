@@ -12,7 +12,6 @@ import { MarketPulse } from "../components/MarketPulse";
 import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
 import { SellerAuthorityStrip } from "../components/SellerAuthorityStrip";
 import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
-import { SellerPillars } from "../components/SellerPillars";
 
 // Below-the-fold sections — split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
@@ -41,11 +40,10 @@ export default function HomePage() {
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
       </Helmet>
-      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
         <Hero />
         <SellerAuthorityStrip />
-        <SellerPillars />
         <SellerExecutionSystem />
         <Distribution />
         <Proof />
