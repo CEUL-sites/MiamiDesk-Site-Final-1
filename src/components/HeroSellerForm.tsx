@@ -83,7 +83,7 @@ const COPY = {
   },
 } as const;
 
-export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { lang?: Lang; progressiveDesktop?: boolean }) {
+export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean }) {
   const t = COPY[lang];
   const initial = {
     name: "", phone: "", email: "",
@@ -237,7 +237,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { la
         netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
         onFocus={handleFormFocus}
-        className="rounded-lg border border-gold/45 bg-[#071321]/95 p-4 text-left shadow-[0_24px_60px_rgba(0,0,0,0.42)] sm:p-5"
+        className={compact ? "seller-hero-form text-left" : "rounded-lg border border-gold/45 bg-[#071321]/95 p-4 text-left shadow-[0_24px_60px_rgba(0,0,0,0.42)] sm:p-5"}
       >
         <input type="hidden" name="form-name" value="seller-hero" />
         <p aria-hidden="true" className="hidden">
@@ -245,12 +245,12 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { la
         </p>
 
         {/* Clear promise and privacy cue; no decorative step chrome. */}
-        <div className="mb-3.5">
+        {!compact && <div className="mb-3.5">
           <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
             <span className="font-serif text-xl text-gold sm:text-[1.35rem]">{t.eyebrow}</span>
             <span className="font-sans text-[11px] text-white/70">{t.badge}</span>
           </div>
-        </div>
+        </div>}
 
         {/* Address — Step 1 on mobile, always visible on desktop */}
         <div className="relative">
@@ -262,7 +262,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { la
             type="text"
             value={form.propertyAddress}
             onChange={update("propertyAddress")}
-            placeholder={progressiveDesktop ? "Property address" : t.address}
+            placeholder={compact ? "South Florida property address" : progressiveDesktop ? "Property address" : t.address}
             autoComplete="street-address"
             style={{ paddingLeft: "2.75rem" }}
             className={`w-full rounded-md border border-gold/45 px-4 py-3 font-sans text-base outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/25 ${progressiveDesktop ? "bg-white text-navy-deep placeholder:text-slate-600" : "bg-white/[0.055] text-white placeholder:text-white/70 focus:bg-white/[0.09]"}`}
@@ -277,7 +277,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { la
             onClick={handleStep1Continue}
             className={`hero-cta-main mt-3 flex w-full items-center justify-center gap-2.5 rounded-md px-5 py-3 font-sans text-sm font-semibold text-navy-deep ${progressiveDesktop ? "" : "lg:hidden"}`}
           >
-            {t.step1Submit}
+            {compact ? "Request a Private Property Strategy" : t.step1Submit}
           </button>
         )}
 
@@ -384,7 +384,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { la
           >
             {status === "submitting"
               ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
-              : <>{t.submit}<ArrowRight size={15} /></>}
+              : <>{compact ? "Request a Private Property Strategy" : t.submit}<ArrowRight size={15} /></>}
           </button>
         </div>
 
@@ -392,21 +392,22 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { la
           <p role="alert" className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>
         )}
 
-        <p className="mt-2 text-center font-sans text-[11px] leading-5 text-white/70">
-          Personal reply from Carlos · No listing commitment
+        <p className={`mt-2 text-center font-sans text-[11px] leading-5 text-white/70 ${compact ? "seller-form-microcopy" : ""}`}>
+          {compact ? "Confidential · No obligation · Personal response from Carlos" : "Personal reply from Carlos · No listing commitment"}
         </p>
         <a
           href={CONTACT.whatsappUS}
           target="_blank"
           rel="noopener noreferrer"
-          className={progressiveDesktop ? "mt-1 block text-center text-xs leading-5 text-gold-soft underline underline-offset-4" : "sr-only"}
+          onClick={() => trackMicroConversion("hp_cta_click", { type: "whatsapp_us", location: "hero_form" })}
+          className={progressiveDesktop ? `mt-1 block text-center text-xs leading-5 text-gold-soft underline underline-offset-4 ${compact ? "seller-form-whatsapp" : ""}` : "sr-only"}
         >
-          {t.prefer} {t.preferLink}
+          {compact ? "WhatsApp Carlos" : <>{t.prefer} {t.preferLink}</>}
         </a>
       </form>
 
       {/* Move 1 & 3: Dedicated international bridge caption beneath hero form */}
-      <div className="mt-3 text-center px-2">
+      {!compact && <div className="mt-3 text-center px-2">
         <p className="font-sans text-[12px] leading-relaxed text-white/70">
           {progressiveDesktop ? "Spain or LATAM property?" : t.bridgeText}{" "}
           <a
@@ -416,7 +417,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false }: { la
             {t.bridgeLink}
           </a>
         </p>
-      </div>
+      </div>}
     </div>
   );
 }
