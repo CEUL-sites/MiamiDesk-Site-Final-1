@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowRight, MapPin, Loader2, CheckCircle2, Download } from "lucide-react";
-import { useState, useRef, type ChangeEvent, type FormEvent, type MouseEvent } from "react";
+import { useState, useRef, useId, type ChangeEvent, type FormEvent, type MouseEvent } from "react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 import { trackLead, trackFunnelEvent, pushEvent, trackMicroConversion } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
@@ -85,6 +85,7 @@ const COPY = {
 
 export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean }) {
   const t = COPY[lang];
+  const addressId = useId();
   const initial = {
     name: "", phone: "", email: "",
     propertyAddress: "",
@@ -253,16 +254,18 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         </div>}
 
         {/* Address — Step 1 on mobile, always visible on desktop */}
+        {compact && <label htmlFor={addressId} className="seller-form-address-label">South Florida property address</label>}
         <div className="relative">
           <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold z-10" />
           <input
             required
+            id={addressId}
             ref={addressRef}
             name="propertyAddress"
             type="text"
             value={form.propertyAddress}
             onChange={update("propertyAddress")}
-            placeholder={compact ? "South Florida property address" : progressiveDesktop ? "Property address" : t.address}
+            placeholder={compact ? "Enter your property address" : progressiveDesktop ? "Property address" : t.address}
             autoComplete="street-address"
             style={{ paddingLeft: "2.75rem" }}
             className={`w-full rounded-md border border-gold/45 px-4 py-3 font-sans text-base outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/25 ${progressiveDesktop ? "bg-white text-navy-deep placeholder:text-slate-600" : "bg-white/[0.055] text-white placeholder:text-white/70 focus:bg-white/[0.09]"}`}
@@ -277,7 +280,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             onClick={handleStep1Continue}
             className={`hero-cta-main mt-3 flex w-full items-center justify-center gap-2.5 rounded-md px-5 py-3 font-sans text-sm font-semibold text-navy-deep ${progressiveDesktop ? "" : "lg:hidden"}`}
           >
-            {compact ? "Request a Private Property Strategy" : t.step1Submit}
+            {compact ? "Request My Property Strategy" : t.step1Submit}
           </button>
         )}
 
@@ -384,7 +387,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           >
             {status === "submitting"
               ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
-              : <>{compact ? "Request a Private Property Strategy" : t.submit}<ArrowRight size={15} /></>}
+              : <>{compact ? "Request My Property Strategy" : t.submit}<ArrowRight size={15} /></>}
           </button>
         </div>
 
@@ -393,7 +396,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         )}
 
         <p className={`mt-2 text-center font-sans text-[11px] leading-5 text-white/70 ${compact ? "seller-form-microcopy" : ""}`}>
-          {compact ? "Confidential · No obligation · Personal response from Carlos" : "Personal reply from Carlos · No listing commitment"}
+          {compact ? "Carlos will contact you to discuss your property, timing and next steps." : "Personal reply from Carlos · No listing commitment"}
         </p>
         <a
           href={CONTACT.whatsappUS}
@@ -402,8 +405,9 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           onClick={() => trackMicroConversion("hp_cta_click", { type: "whatsapp_us", location: "hero_form" })}
           className={progressiveDesktop ? `mt-1 block text-center text-xs leading-5 text-gold-soft underline underline-offset-4 ${compact ? "seller-form-whatsapp" : ""}` : "sr-only"}
         >
-          {compact ? "WhatsApp Carlos" : <>{t.prefer} {t.preferLink}</>}
+          {compact ? "WhatsApp Carlos ↗" : <>{t.prefer} {t.preferLink}</>}
         </a>
+        {compact && <p className="seller-form-privacy">Confidential · No obligation</p>}
       </form>
 
       {/* Move 1 & 3: Dedicated international bridge caption beneath hero form */}

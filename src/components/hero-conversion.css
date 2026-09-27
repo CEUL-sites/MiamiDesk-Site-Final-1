@@ -1,70 +1,71 @@
-/* English homepage hero only; shared form defaults remain unchanged. */
-.seller-hero { background: #06111f; color: #fff; }
-.seller-hero-layout { max-width: 1440px; margin: auto; padding: 100px 24px 32px; display: grid; gap: 32px; }
+/* Approved Figma hero: scoped to the English homepage. */
+.seller-hero { background: #071722; color: #fff; }
+.seller-hero-layout { max-width: 1440px; margin: auto; padding: 100px 24px 32px; display: grid; gap: 24px; }
 .seller-hero-primary { min-width: 0; }
-.seller-hero-identity { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 16px; }
-.seller-hero-identity span { color: #c0c8d1; font-weight: 400; }
-.seller-hero-eyebrow { color: #d4ae78; font-size: 12px; line-height: 1.6; letter-spacing: .11em; text-transform: uppercase; margin-bottom: 14px; }
-.seller-hero-eyebrow span { display: block; color: #b8c2ce; font-size: 11px; letter-spacing: .09em; }
-.seller-hero-heading { font-size: clamp(2.15rem, 6vw, 3.8rem); line-height: 1.08; font-weight: 400; letter-spacing: -.035em; max-width: 700px; }
-.seller-hero-heading > span { display: block; color: #dfbd88; font-size: .68em; line-height: 1.2; letter-spacing: -.018em; margin-top: 12px; }
-.seller-hero-summary { max-width: 620px; color: #d1d7df; font-size: 16px; line-height: 1.65; margin-top: 20px; }
-.seller-hero-action { max-width: 540px; margin-top: 24px; scroll-margin-top: 100px; }
-.seller-hero-credentials { font-size: 12px; line-height: 1.6; color: #bbc5d0; margin-top: 18px; }
-.seller-hero-support { min-width: 0; align-self: center; }
-.seller-hero-image { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border-top: 2px solid #b08d57; }
-.seller-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
-.seller-hero-image::after { content: ''; position: absolute; inset: 40% 0 0; background: linear-gradient(transparent, #06111fe6); }
-.seller-hero-image p { position: absolute; z-index: 1; left: 24px; bottom: 22px; font-family: var(--font-serif); font-size: 24px; line-height: 1.3; }
-.seller-hero-image p span { color: #dfbd88; }
-.seller-hero-proof { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid #ffffff24; margin-top: 24px; padding-bottom: 22px; }
-.seller-hero-proof > div { display: flex; flex-direction: column; gap: 8px; padding: 0 14px; border-left: 1px solid #ffffff24; }
-.seller-hero-proof > div:first-child { border-left: 0; padding-left: 0; }
-.seller-hero-proof > div:last-child { padding-right: 0; }
-.seller-hero-proof dd { order: -1; font-family: var(--font-serif); font-size: clamp(1.65rem, 2.6vw, 2.3rem); color: #dfbd88; line-height: 1.1; }
-.seller-hero-proof dt { font-size: 12px; line-height: 1.5; color: #c0cad6; }
-.seller-hero-membership { color: #b8c2ce; font-size: 12px; line-height: 1.65; margin-top: 14px; }
-.seller-hero-foot { max-width: 1440px; margin: auto; padding: 22px 24px; border-top: 1px solid #ffffff24; }
-.seller-hero-foot > p:first-child { font-size: 14px; line-height: 1.7; color: #c0cad6; }
-.seller-hero-foot a { color: #dfbd88; display: inline-block; text-underline-offset: 4px; }
+.seller-hero-eyebrow { color: #d7bc8b; font-size: 10px; line-height: 1.5; letter-spacing: .045em; text-transform: uppercase; margin-bottom: 22px; }
+.seller-hero-eyebrow span { margin: 0 5px; }
+.seller-hero-heading { font-size: clamp(2.4rem, 11vw, 3.25rem); line-height: 1.12; font-weight: 400; letter-spacing: -.025em; }
+.seller-hero-heading > span { display: block; color: #d7bc8b; }
+.seller-hero-value { font-size: 17px; line-height: 1.5; font-weight: 500; margin-top: 22px; }
+.seller-hero-summary { max-width: 592px; color: #c4cdd2; font-size: 15px; line-height: 1.55; margin-top: 20px; }
+.seller-hero-credentials { display: none; font-size: 13px; line-height: 1.6; color: #c4cdd2; margin-top: 24px; }
+.seller-hero-action { min-width: 0; scroll-margin-top: 100px; }
+.seller-hero-card-intro { display: none; }
+.seller-hero-support { background: #102631; }
+.seller-hero-proof { max-width: 1440px; margin: auto; padding: 24px; display: grid; gap: 20px; }
+.seller-hero-proof strong { display: block; font-size: 15px; font-weight: 500; text-transform: uppercase; }
+.seller-hero-proof span { display: block; margin-top: 4px; font-size: 14px; }
+.seller-hero-proof > p:nth-child(2) { color: #d7bc8b; }
+.seller-hero-distribution { font-size: 13px; line-height: 1.6; color: #c4cdd2; }
+.seller-hero-foot { max-width: 1440px; margin: auto; padding: 20px 24px; }
+.seller-hero-foot > p:first-child { font-size: 12px; line-height: 1.7; color: #c4cdd2; }
+.seller-hero-foot a { color: #d7bc8b; display: inline-block; text-underline-offset: 4px; }
 .seller-hero-foot a:hover { text-decoration: underline; }
-.seller-hero-compliance { font-size: 11px; line-height: 1.7; color: #aeb9c7; margin-top: 10px; max-width: 920px; }
-.seller-hero :is(a,button):focus-visible { outline: 2px solid #dfbd88; outline-offset: 4px; }
+.seller-hero-compliance { font-size: 10px; line-height: 1.7; color: #aebbc3; margin-top: 10px; max-width: 1000px; }
+.seller-hero :is(a,button):focus-visible { outline: 2px solid #c5a66d; outline-offset: 4px; }
 .seller-hero .seller-hero-form { background: transparent; border: 0; border-radius: 0; padding: 0; box-shadow: none; }
-.seller-hero-form .hero-cta-main { min-height: 48px; font-size: 15px; }
-.seller-hero-form select option { background: #06111f; color: #fff; }
-.seller-hero-form .seller-form-microcopy { font-size: 12px; color: #c0cad6; margin-top: 10px; }
-.seller-hero-form .seller-form-whatsapp { font-size: 14px; padding: 8px 0; width: fit-content; margin: 4px auto 0; }
+.seller-hero-form .seller-form-address-label { display: block; color: #fff; font-size: 13px; line-height: 1.5; margin-bottom: 8px; }
+.seller-hero-form .hero-cta-main { min-height: 56px; font-size: 14px; background: #c5a66d; color: #071722; border-radius: 4px; }
+.seller-hero-form .hero-cta-main:hover { background: #d7bc8b; }
+.seller-hero-form select option { background: #071722; color: #fff; }
+.seller-hero-form .seller-form-microcopy { font-size: 12px; line-height: 1.6; color: #c4cdd2; margin-top: 16px; text-align: left; }
+.seller-hero-form .seller-form-whatsapp { font-size: 14px; padding: 12px 0; min-height: 44px; width: fit-content; margin: 8px auto 0; color: #d7bc8b; }
+.seller-hero-form .seller-form-privacy { text-align: center; font-size: 11px; color: #c4cdd2; margin-top: 8px; }
 .seller-hero-form label > span { font-size: 12px; line-height: 1.5; }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .seller-hero-layout { max-width: 680px; padding-top: 120px; }
+  .seller-hero-heading { font-size: 60px; }
+  .seller-hero-proof { grid-template-columns: 1fr 1fr; }
+  .seller-hero-distribution { grid-column: 1 / -1; }
+}
 @media (min-width: 1024px) {
-  .seller-hero-layout { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; padding: 112px 48px 44px; }
+  .seller-hero-layout { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 48px; padding: 142px 48px 64px; align-items: start; }
+  .seller-hero-eyebrow { font-size: 12px; margin-bottom: 24px; }
+  .seller-hero-heading { font-size: clamp(3.75rem, 5.28vw, 4.75rem); }
+  .seller-hero-value { font-size: 23px; margin-top: 24px; }
+  .seller-hero-summary { font-size: 18px; line-height: 1.5; margin-top: 24px; }
+  .seller-hero-credentials { display: block; }
+  .seller-hero-action { background: #f5f2eb; padding: 32px; color: #112733; }
+  .seller-hero-card-intro { display: block; margin-bottom: 20px; }
+  .seller-hero-card-eyebrow { color: #786340; text-transform: uppercase; font-size: 11px; font-weight: 600; line-height: 1.5; margin-bottom: 16px; }
+  .seller-hero-card-intro h2 { font-size: 34px; line-height: 1.12; font-weight: 400; }
+  .seller-hero-card-intro > p:last-child { font-size: 15px; line-height: 1.5; color: #50616b; margin-top: 16px; }
+  .seller-hero-form .seller-form-address-label { color: #112733; }
+  .seller-hero-form input:not([type=checkbox]), .seller-hero-form select { color: #112733; background: #fff; border-color: #b5bfc3; }
+  .seller-hero-form input::placeholder { color: #50616b; }
+  .seller-hero-form select option { background: #fff; color: #112733; }
+  .seller-hero-form label > span, .seller-hero-form .seller-form-microcopy, .seller-hero-form .seller-form-privacy { color: #50616b; }
+  .seller-hero-form .seller-form-whatsapp { color: #554326; }
+  .seller-hero-form [role=alert] { color: #b42318; }
+  .seller-hero-proof { grid-template-columns: 230fr 360fr 520fr; align-items: center; gap: 30px; padding: 30px 48px; }
+  .seller-hero-proof strong { font-size: 16px; }
   .seller-hero-foot { padding-left: 48px; padding-right: 48px; }
 }
 @media (min-width: 1280px) {
-  .seller-hero-layout { padding: 116px 64px 48px; gap: 64px; }
-  .seller-hero-foot { padding-left: 64px; padding-right: 64px; }
+  .seller-hero-layout { padding-left: 80px; padding-right: 80px; grid-template-columns: minmax(0, 668fr) minmax(0, 460fr); gap: 72px; }
+  .seller-hero-proof, .seller-hero-foot { padding-left: 80px; padding-right: 80px; }
 }
-@media (max-width: 767px) {
-  .seller-hero-layout { padding: 88px 20px 28px; gap: 28px; }
-  .seller-hero-identity { font-size: 12px; margin-bottom: 12px; }
-  .seller-hero-eyebrow { margin-bottom: 12px; font-size: 11px; }
-  .seller-hero-heading { font-size: clamp(2rem, 8.8vw, 2.65rem); }
-  .seller-hero-heading > span { font-size: .74em; margin-top: 10px; }
-  .seller-hero-summary { margin-top: 16px; font-size: 16px; line-height: 1.55; }
-  .seller-hero-action { margin-top: 20px; }
-  .seller-hero-image { display: none; }
-  .seller-hero-proof { margin-top: 0; }
-  .seller-hero-proof > div { padding: 0 10px; }
-  .seller-hero-proof dd { font-size: 27px; }
-  .seller-hero-proof dt { font-size: 12px; }
-  .seller-hero-foot { padding: 20px; }
-}
-/* Leave the first CTA clear of the existing consent panel on small phones. */
 @media (max-width: 380px) {
-  .seller-hero-layout { padding-top: 84px; }
-  .seller-hero-identity { margin-bottom: 8px; }
-  .seller-hero-eyebrow { margin-bottom: 8px; }
-  .seller-hero-heading > span { margin-top: 8px; }
-  .seller-hero-summary { margin-top: 12px; line-height: 1.5; }
-  .seller-hero-action { margin-top: 16px; }
+  .seller-hero-layout { padding-left: 20px; padding-right: 20px; padding-top: 92px; }
+  .seller-hero-eyebrow { font-size: 9px; }
 }
