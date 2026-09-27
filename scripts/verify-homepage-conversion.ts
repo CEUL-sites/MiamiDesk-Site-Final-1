@@ -107,10 +107,10 @@ const [home, hero, heroAnimation, form, authority, execution, distribution, proo
 ]);
 
 assert.match(hero, /Your Home\./);
-assert.match(hero, /Strategically<br \/>Positioned\./);
-assert.match(hero, /Experienced representation\./);
-assert.match(hero, /buyer-agent networks/);
-assert.match(hero, /Let’s talk about/);
+assert.match(hero, /A Stronger<br \/>Selling Strategy\./);
+assert.match(hero, /Our Network\./);
+assert.match(hero, /buyer-agent outreach/);
+assert.match(hero, /What matters most to you/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
 assert.doesNotMatch(hero, /autoPlay/);
 const heroAsideIndex = hero.search(/<(?:motion\.)?aside\b/);
@@ -125,7 +125,7 @@ assert.equal(heroFigures.yearsLicensed.value, "25");
 assert.equal(heroFigures.members.value, "93,000");
 assert.equal(heroFigures.urgAgents.value, "3,500+");
 assert.match(form, /compact = false/, "compact hero presentation must be opt-in");
-assert.match(form, /Request My Property Strategy/);
+assert.match(form, /Request My Selling Strategy/);
 assert.match(form, /WhatsApp Carlos/);
 assert.match(heroAnimation, /\/media\/hero-property-network\.mp4/);
 assert.match(heroAnimation, /\/images\/hero-property-network\.webp/);

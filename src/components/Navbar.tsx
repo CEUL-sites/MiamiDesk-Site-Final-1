@@ -66,7 +66,7 @@ export function Navbar() {
           : "bg-gradient-to-b from-navy-deep/70 to-transparent py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
+      <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 lg:px-8">
 
         {/* ── Logo ──────────────────────────────────────────── */}
         {/* No aria-label: the accessible name composes from the visible
