@@ -280,13 +280,13 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             onClick={handleStep1Continue}
             className={`hero-cta-main mt-3 flex w-full items-center justify-center gap-2.5 rounded-md px-5 py-3 font-sans text-sm font-semibold text-navy-deep ${progressiveDesktop ? "" : "lg:hidden"}`}
           >
-            {compact ? "Request My Property Strategy" : t.step1Submit}
+            {compact ? <>Request My Selling Strategy <ArrowRight size={16} aria-hidden="true" /></> : t.step1Submit}
           </button>
         )}
 
         {/* Mobile Step 2 active address indicator */}
         {step === 2 && (
-          <div className="mt-2.5 flex items-center justify-between rounded bg-white/[0.04] px-3 py-1.5 text-xs text-white/70 border border-white/10 lg:hidden">
+          <div className={`${compact ? "seller-form-address-summary " : ""}mt-2.5 flex items-center justify-between rounded bg-white/[0.04] px-3 py-1.5 text-xs text-white/70 border border-white/10 lg:hidden`}>
             <span className="truncate max-w-[220px] text-white/90 font-medium">📍 {form.propertyAddress}</span>
             <button
               type="button"
@@ -387,7 +387,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           >
             {status === "submitting"
               ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
-              : <>{compact ? "Request My Property Strategy" : t.submit}<ArrowRight size={15} /></>}
+              : <>{compact ? "Request My Selling Strategy" : t.submit}<ArrowRight size={15} /></>}
           </button>
         </div>
 
@@ -396,7 +396,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         )}
 
         <p className={`mt-2 text-center font-sans text-[11px] leading-5 text-white/70 ${compact ? "seller-form-microcopy" : ""}`}>
-          {compact ? "Carlos will contact you to discuss your property, timing and next steps." : "Personal reply from Carlos · No listing commitment"}
+          {compact ? "Carlos will personally review your request and contact you about pricing, positioning, and next steps." : "Personal reply from Carlos · No listing commitment"}
         </p>
         <a
           href={CONTACT.whatsappUS}
