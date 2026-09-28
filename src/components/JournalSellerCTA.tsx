@@ -35,16 +35,16 @@ const DEFAULT_OFFER: JournalOffer = {
 
 const OFFERS_BY_SLUG: Record<string, JournalOffer> = {
   'weston-homebuyer-purchase-assistance-2026': {
-    eyebrow: 'Weston Buyer Consultation',
-    heading: 'Review your Weston purchase plan with Carlos',
-    body: 'We can compare Weston properties and offer terms while your lender and Broward County confirm financing and assistance eligibility.',
-    ctaLabel: 'Request a Buyer Consultation',
-    ctaType: 'buyer_consultation',
-    topic: 'weston-purchase-assistance',
-    whatsappMessage: 'Hello Carlos, I read your Weston purchase assistance guide and would like to discuss buying a home in Weston.',
-    destination: '/buy',
-    anchor: 'buyer-mandate',
-    bottomNote: 'Program eligibility and funding are determined by Broward County.',
+    eyebrow: 'Weston Property Consultation',
+    heading: 'Discuss your Weston purchase or property plan',
+    body: 'Carlos can help you evaluate a purchase, property condition, timing, and contract considerations. Broward County and the relevant providers determine program eligibility and funding.',
+    ctaLabel: 'Contact Carlos',
+    ctaType: 'weston_property_consultation',
+    topic: 'weston-housing-options',
+    whatsappMessage: 'Hello Carlos, I read your Weston housing assistance guide and would like to discuss a Weston property decision.',
+    destination: '/contact',
+    anchor: 'contact',
+    bottomNote: '',
   },
   'international-luxury-properties-miami-buyer-agents-global-desk': {
     eyebrow: 'Miami Global Desk · International Property',

@@ -279,7 +279,7 @@ export default function SellWestonPage() {
         {/* Journal crosslinks */}
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Weston Market Research</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Weston Guides &amp; Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
               <a href="/journal/selling-weston-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
@@ -297,9 +297,9 @@ export default function SellWestonPage() {
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
               </a>
               <a href="/journal/weston-homebuyer-purchase-assistance-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Weston Buyer Resource</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Purchase Assistance for Qualified Weston Buyers</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">City information, eligibility, and next steps →</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Weston Housing Resource</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Housing Assistance for Weston Buyers and Homeowners</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Purchase, repair, and accessibility options →</p>
               </a>
             </div>
           </div>
