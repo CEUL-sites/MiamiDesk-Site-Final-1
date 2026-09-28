@@ -307,7 +307,7 @@ export default function BuyersPage() {
               <p className="mt-2 font-sans text-sm text-ink-primary/60">Program information reviewed September 28, 2026. Confirm current terms with Broward County before making an offer.</p>
             </div>
             <a href="/journal/weston-homebuyer-purchase-assistance-2026" className="inline-flex min-h-12 items-center justify-center border border-gold px-6 py-3 font-sans text-sm font-semibold text-navy-deep transition-colors hover:bg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
-              Read the Weston buyer guide
+              Read the Weston housing guide
             </a>
           </div>
         </section>
