@@ -34,6 +34,18 @@ const DEFAULT_OFFER: JournalOffer = {
 };
 
 const OFFERS_BY_SLUG: Record<string, JournalOffer> = {
+  'weston-homebuyer-purchase-assistance-2026': {
+    eyebrow: 'Weston Buyer Consultation',
+    heading: 'Review your Weston purchase plan with Carlos',
+    body: 'We can compare Weston properties and offer terms while your lender and Broward County confirm financing and assistance eligibility.',
+    ctaLabel: 'Request a Buyer Consultation',
+    ctaType: 'buyer_consultation',
+    topic: 'weston-purchase-assistance',
+    whatsappMessage: 'Hello Carlos, I read your Weston purchase assistance guide and would like to discuss buying a home in Weston.',
+    destination: '/buy',
+    anchor: 'buyer-mandate',
+    bottomNote: 'Program eligibility and funding are determined by Broward County.',
+  },
   'international-luxury-properties-miami-buyer-agents-global-desk': {
     eyebrow: 'Miami Global Desk · International Property',
     heading: 'Request a private Global Desk property review',
@@ -173,7 +185,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
         <div className="flex flex-wrap items-center justify-between gap-3 border border-bone bg-ivory px-6 py-3.5">
           <p className="font-sans text-sm text-navy/70">
             <span className="font-semibold text-navy">
-              {post.market && SELL_PAGE_BY_MARKET[post.market]
+              {!offer.destination && post.market && SELL_PAGE_BY_MARKET[post.market]
                 ? `Thinking about selling in ${post.market}?`
                 : offer.heading}
             </span>{' '}
