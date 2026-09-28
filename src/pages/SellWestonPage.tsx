@@ -280,7 +280,7 @@ export default function SellWestonPage() {
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Weston Market Research</p>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2">
               <a href="/journal/selling-weston-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Weston Home in 2026: What Actually Moves the Needle</h3>
@@ -295,6 +295,11 @@ export default function SellWestonPage() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What Weston Sellers Need to Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
+              </a>
+              <a href="/journal/weston-homebuyer-purchase-assistance-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Weston Buyer Resource</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Purchase Assistance for Qualified Weston Buyers</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">City information, eligibility, and next steps →</p>
               </a>
             </div>
           </div>
