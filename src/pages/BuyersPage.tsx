@@ -296,6 +296,22 @@ export default function BuyersPage() {
         {/* ── Buying in Florida — the complete service ────────────── */}
         <FloridaBuyerJourney />
 
+        <section className="border-t border-hairline bg-ivory py-12 md:py-16" aria-labelledby="weston-assistance-title">
+          <div className="mx-auto grid max-w-6xl gap-7 px-6 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink">Weston buyer resource</p>
+              <h2 id="weston-assistance-title" className="mt-3 font-serif text-3xl text-navy-deep">Purchasing in Weston? Check the assistance program first.</h2>
+              <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/70">
+                The City of Weston describes purchase assistance of up to $120,000 for eligible buyers. The amount depends on financial need and available funds. Mortgage approval, a buyer contribution, prior ownership, and primary residence rules apply; Broward County determines eligibility.
+              </p>
+              <p className="mt-2 font-sans text-sm text-ink-primary/60">Program information reviewed September 28, 2026. Confirm current terms with Broward County before making an offer.</p>
+            </div>
+            <a href="/journal/weston-homebuyer-purchase-assistance-2026" className="inline-flex min-h-12 items-center justify-center border border-gold px-6 py-3 font-sans text-sm font-semibold text-navy-deep transition-colors hover:bg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+              Read the Weston buyer guide
+            </a>
+          </div>
+        </section>
+
         {/* ── Why Florida — relocation case ───────────────────────── */}
         <section className="relative overflow-hidden bg-navy-deep py-16 md:py-24">
           <AuroraBackground variant="subtle" />
