@@ -27,9 +27,13 @@ const MAX_CARDS = 6;
 export function CityListingsSample({
   city,
   zone,
+  propertyType,
+  sellerContext = false,
 }: {
   city: string;
   zone?: string;
+  propertyType?: "Residential";
+  sellerContext?: boolean;
 }) {
   const queryZone = zone ?? city;
   const [listings, setListings] = useState<BridgeListing[]>([]);
@@ -38,6 +42,7 @@ export function CityListingsSample({
   useEffect(() => {
     let cancelled = false;
     const params = new URLSearchParams({ zone: queryZone, status: "Active" });
+    if (propertyType) params.set("type", propertyType);
 
     fetch(`/.netlify/functions/listings-search?${params.toString()}`)
       .then((res) => {
@@ -55,7 +60,7 @@ export function CityListingsSample({
       });
 
     return () => { cancelled = true; };
-  }, [queryZone]);
+  }, [queryZone, propertyType]);
 
   // Fail quietly — never show a broken section on a marketing page.
   if (status === "error" || status === "empty") return null;
@@ -67,13 +72,13 @@ export function CityListingsSample({
       ? {
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: `Active listings in ${city}`,
+          name: sellerContext ? `Active properties for sale in ${city}` : `Active listings in ${city}`,
           numberOfItems: listings.length,
           itemListElement: listings.map((l, i) => ({
             "@type": "ListItem",
             position: i + 1,
             item: {
-              "@type": "SingleFamilyResidence",
+              "@type": "Residence",
               name: l.UnparsedAddress || `${city} property`,
               address: {
                 "@type": "PostalAddress",
@@ -99,7 +104,7 @@ export function CityListingsSample({
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Live MLS · {city}</p>
             <h2 className="mt-3 font-serif leading-tight text-white" style={{ fontSize: "clamp(1.7rem, 3.2vw, 2.5rem)" }}>
-              Active listings in {city} right now
+              {sellerContext ? `Active properties for sale in ${city}` : `Active listings in ${city} right now`}
             </h2>
           </div>
           <a
@@ -127,8 +132,9 @@ export function CityListingsSample({
         {/* Distribution argument, tied to this city's seller */}
         {status === "ready" && (
           <p className="mt-8 max-w-3xl font-sans text-sm leading-relaxed text-white/55">
-            These are buyers' agents' search results today. Online exposure gets your {city} listing seen;
-            the world's largest local REALTOR® association reaches the buyer's agent —{" "}
+            {sellerContext
+              ? `A sample of active residential properties for sale in ${city}; these are not necessarily comparable to your home. We review matching property type, location, condition and terms before recommending a price — `
+              : `These are buyers' agents' search results today. To see how your ${city} property compares — `}{" "}
             <a href="/home-value" className="text-gold underline underline-offset-4 hover:text-white">
               find out where your home fits →
             </a>

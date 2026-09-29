@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Camera, Globe2, MessagesSquare, Radar } from "lucide-react";
 import { LazyVideo } from "./LazyVideo";
 import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "../data/urgOffices";
+import { fig } from "../data/figures";
 
 // Homepage-only merge of ReachAdvantage + ListingSystem — the structural
 // argument made once, at full strength: what happens to the listing in the
@@ -13,11 +14,11 @@ import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "../data/urgOffices";
 const TOP_STATS = [
   {
     value: 93000,
-    display: "94,000+",
+    display: fig("members"),
     suffix: "",
     label: "Member Agents",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "Every member agent works from the same MLS inventory your home is placed into.",
+    desc: "The association's MLS ecosystem supports professional discovery; individual agents decide what fits their buyers.",
   },
   {
     value: 437,
@@ -25,7 +26,7 @@ const TOP_STATS = [
     suffix: "+",
     label: "International Agreements",
     sublabel: "MIAMI Global Council",
-    desc: "Direct buyer markets across 75+ countries — more than any other local association.",
+    desc: "Association cooperation agreements create possible referral paths, subject to participation and property fit.",
   },
   {
     value: 3500,
@@ -50,7 +51,7 @@ const PILLARS = [
     step: "02",
     title: "Distribution beyond the MLS",
     body:
-      "Professional positioning within the 94,000+-member MIAMI REALTORS® + RWorld ecosystem, supported by targeted buyer-agent activation and eligible syndication across U.S. and global channels.",
+      "MLS positioning within the MIAMI REALTORS® + RWorld ecosystem, supported by targeted buyer-agent outreach and eligible syndication channels.",
   },
   {
     icon: Radar,
@@ -132,7 +133,7 @@ export function Distribution() {
           transition={{ duration: 0.6 }}
           className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold"
         >
-          Distribution · United Realty Group · 19 Florida office locations
+          Distribution · United Realty Group · Florida office network
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -142,8 +143,8 @@ export function Distribution() {
           className="mx-auto mt-4 max-w-5xl font-serif leading-[1.08] text-white md:mt-6"
           style={{ fontSize: "clamp(2.2rem, 4.6vw, 4rem)" }}
         >
-          Your listing enters the ecosystem<br />
-          <em className="italic text-gold">more than 94,000 South Florida real estate professionals work within.</em>
+          Your listing enters the professional MLS ecosystem<br />
+          <em className="italic text-gold">used across South Florida.</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -152,8 +153,8 @@ export function Distribution() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mx-auto mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:mt-6"
         >
-          Buyers don't find homes — their agents do. Your listing goes into the same
-          MLS inventory those agents search daily, in South Florida and in 75+ countries.
+          We position eligible listings for agent discovery, then follow up with professionals
+          working with relevant buyers. Reach and referrals depend on the property and participating channels.
         </motion.p>
 
         <motion.div
@@ -184,6 +185,9 @@ export function Distribution() {
           <StatCard key={stat.label} stat={stat} index={i} />
         ))}
       </div>
+      <p className="relative px-6 py-3 text-center font-sans text-xs text-white/75">
+        Association figures: <a className="underline underline-offset-2 hover:text-gold" href="https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" target="_blank" rel="noopener noreferrer">MIAMI REALTORS® merger announcement, April 2026</a>. United Realty Group figures: brokerage information. Counts describe the network, not guaranteed listing placement or agent attention.
+      </p>
 
       <details className="relative mx-auto max-w-6xl border-b border-gold/15 px-6 py-5 text-white/70">
         <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">
@@ -216,6 +220,20 @@ export function Distribution() {
             </div>
           ))}
         </div>
+
+        <aside className="mt-8 rounded-xl border border-gold/30 bg-white/[0.05] p-6 md:mt-10 md:flex md:items-start md:gap-10 md:p-8" aria-label="Sample seller update">
+          <div className="md:max-w-xs">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">Your seller update</p>
+            <h4 className="mt-2 font-serif text-2xl text-white">Evidence to guide the next decision.</h4>
+            <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">A sample of the categories we review together; the actual report reflects your property and available data.</p>
+          </div>
+          <ul className="mt-5 grid flex-1 gap-3 font-sans text-sm text-white/85 sm:grid-cols-2 md:mt-0">
+            <li>Showing activity and buyer feedback</li>
+            <li>Relevant agent conversations</li>
+            <li>New competing listings and price changes</li>
+            <li>Recommended action and next review</li>
+          </ul>
+        </aside>
 
         {/* Single CTA naming a specific outcome */}
         <div className="mt-10 flex justify-center md:mt-14">

@@ -153,8 +153,8 @@ for (const [label, copy] of [
 assert.match(distribution, /The Listing System/);
 assert.match(distribution, /PILLARS\.map/);
 assert.match(distribution, /label: "Member Agents"/);
-assert.match(footer, /94,000\+ ASSOCIATION MEMBERS/);
-assert.doesNotMatch(footer, /93,000 ASSOCIATION MEMBERS/);
+assert.match(footer, /93,000 ASSOCIATION MEMBERS/);
+assert.doesNotMatch(footer, /94,000\+ ASSOCIATION MEMBERS/);
 const sectionOrder = [
   "<Hero />",
   "<SellerAuthorityStrip />",
@@ -175,7 +175,7 @@ for (let index = 1; index < sectionOrder.length; index += 1) {
 assert.match(home, /<title>South Florida Listing Strategist \| Carlos Uzcategui<\/title>/);
 assert.match(
   home,
-  /Request a private South Florida property strategy from Carlos Uzcategui: professional representation, strategic positioning, buyer-agent activation, and 94,000\+-member association reach\./,
+  /Request a private South Florida property strategy from Carlos Uzcategui: professional representation, strategic positioning, buyer-agent activation, and the 93,000-member association ecosystem\./,
 );
 assert.match(form, /Private Property Strategy/);
 assert.match(form, /Estrategia Privada de la Propiedad/);

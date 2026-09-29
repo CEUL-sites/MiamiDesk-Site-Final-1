@@ -26,6 +26,13 @@ const COPY = {
     ],
     timelines: ["Exploring options", "Immediately", "30–90 days", "3–6 months", "6+ months"],
     step1Submit: "Request Your Private Property Strategy",
+    step1Progress: "Step 1 of 2 · Your property",
+    step2Progress: "Step 2 of 2 · How to reach you",
+    compactAddress: "South Florida property address",
+    compactAddressPlaceholder: "Enter your property address",
+    compactContinue: "Continue to Contact Details",
+    compactSubmit: "Request My Selling Strategy",
+    compactPromise: "Carlos reviews comparable homes, your price position and next-move options, then contacts you personally. No listing commitment.",
     editAddress: "Change address",
     submit: "Request Your Private Property Strategy",
     sending: "Sending…",
@@ -61,6 +68,13 @@ const COPY = {
     ],
     timelines: ["Explorando opciones", "De inmediato", "30–90 días", "3–6 meses", "6+ meses"],
     step1Submit: "Solicitar Estrategia de la Propiedad →",
+    step1Progress: "Paso 1 de 2 · Su propiedad",
+    step2Progress: "Paso 2 de 2 · Cómo contactarle",
+    compactAddress: "Dirección de la propiedad en el sur de Florida",
+    compactAddressPlaceholder: "Ingrese la dirección de su propiedad",
+    compactContinue: "Continuar a datos de contacto",
+    compactSubmit: "Solicitar mi estrategia de venta",
+    compactPromise: "Carlos revisa viviendas comparables, el posicionamiento de precio y sus próximos pasos, y luego le contacta personalmente. Sin compromiso de venta.",
     editAddress: "Cambiar dirección",
     submit: "Solicitar Revisión de Mi Propiedad",
     sending: "Enviando…",
@@ -253,8 +267,9 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           </div>
         </div>}
 
+        {compact && <p className="seller-form-progress" aria-live="polite">{step === 1 ? t.step1Progress : t.step2Progress}</p>}
         {/* Address — Step 1 on mobile, always visible on desktop */}
-        {compact && <label htmlFor={addressId} className="seller-form-address-label">South Florida property address</label>}
+        {compact && <label htmlFor={addressId} className="seller-form-address-label">{t.compactAddress}</label>}
         <div className="relative">
           <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold z-10" />
           <input
@@ -265,7 +280,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             type="text"
             value={form.propertyAddress}
             onChange={update("propertyAddress")}
-            placeholder={compact ? "Enter your property address" : progressiveDesktop ? "Property address" : t.address}
+            placeholder={compact ? t.compactAddressPlaceholder : progressiveDesktop ? "Property address" : t.address}
             autoComplete="street-address"
             style={{ paddingLeft: "2.75rem" }}
             className={`w-full rounded-md border border-gold/45 px-4 py-3 font-sans text-base outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/25 ${progressiveDesktop ? "bg-white text-navy-deep placeholder:text-slate-600" : "bg-white/[0.055] text-white placeholder:text-white/70 focus:bg-white/[0.09]"}`}
@@ -280,7 +295,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             onClick={handleStep1Continue}
             className={`hero-cta-main mt-3 flex w-full items-center justify-center gap-2.5 rounded-md px-5 py-3 font-sans text-sm font-semibold text-navy-deep ${progressiveDesktop ? "" : "lg:hidden"}`}
           >
-            {compact ? <>Request My Selling Strategy <ArrowRight size={16} aria-hidden="true" /></> : t.step1Submit}
+            {compact ? <>{t.compactContinue} <ArrowRight size={16} aria-hidden="true" /></> : t.step1Submit}
           </button>
         )}
 
@@ -302,7 +317,9 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         <div className={step === 1 ? (progressiveDesktop ? "hidden" : "hidden lg:block") : "block mt-2 lg:mt-0"}>
           {/* Name + Phone */}
           <div className="mt-2 grid grid-cols-1 gap-2.5 min-[380px]:grid-cols-2">
-            <input
+            <label className="seller-form-field">
+              {compact && <span>{t.name}</span>}
+              <input
               required={step === 2}
               ref={nameRef}
               name="name"
@@ -313,8 +330,11 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
               autoComplete="name"
               className={inputCls}
               aria-label={t.name}
-            />
-            <input
+              />
+            </label>
+            <label className="seller-form-field">
+              {compact && <span>{t.phone}</span>}
+              <input
               required={step === 2}
               name="phone"
               type="tel"
@@ -325,12 +345,15 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
               inputMode="tel"
               className={inputCls}
               aria-label={t.phone}
-            />
+              />
+            </label>
           </div>
 
           {/* Optional email and market stay compact; timeline remains full width. */}
           <div className="mt-2 grid grid-cols-1 gap-2.5 min-[380px]:grid-cols-2">
-            <input
+            <label className="seller-form-field">
+              {compact && <span>{t.email}</span>}
+              <input
               name="email"
               type="email"
               value={form.email}
@@ -340,7 +363,8 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
               inputMode="email"
               className={inputCls}
               aria-label={t.email}
-            />
+              />
+            </label>
             <div className="relative">
               <select
                 name="city"
@@ -387,7 +411,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           >
             {status === "submitting"
               ? <><Loader2 size={15} className="animate-spin" />{t.sending}</>
-              : <>{compact ? "Request My Selling Strategy" : t.submit}<ArrowRight size={15} /></>}
+              : <>{compact ? t.compactSubmit : t.submit}<ArrowRight size={15} /></>}
           </button>
         </div>
 
@@ -396,7 +420,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         )}
 
         <p className={`mt-2 text-center font-sans text-[11px] leading-5 text-white/70 ${compact ? "seller-form-microcopy" : ""}`}>
-          {compact ? "Carlos will personally review your request and contact you about pricing, positioning, and next steps." : "Personal reply from Carlos · No listing commitment"}
+          {compact ? t.compactPromise : "Personal reply from Carlos · No listing commitment"}
         </p>
         <a
           href={CONTACT.whatsappUS}

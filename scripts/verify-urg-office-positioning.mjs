@@ -49,7 +49,7 @@ const about = fs.readFileSync(path.join(root, "src", "components", "AboutContact
 const distribution = fs.readFileSync(path.join(root, "src", "components", "Distribution.tsx"), "utf8");
 assert.match(about, /URG_FLORIDA_OFFICE_NAMES\.map/);
 assert.match(about, /View the 19 Florida office locations/);
-assert.match(distribution, /Distribution · United Realty Group · 19 Florida office locations/);
+assert.match(distribution, /Distribution · United Realty Group · Florida office network/);
 
 const logo = fs.readFileSync(path.join(root, "src", "components", "UrgLogo.tsx"), "utf8");
 assert.match(logo, /urg-logo-original\.webp/);

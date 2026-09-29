@@ -36,7 +36,7 @@ export function Navbar() {
 
   useEffect(() => { setIsOpen(false); }, [location.pathname]);
 
-  const onLight  = scrolled;
+  const onLight  = scrolled || currentPath === "/global-desk";
   const navText  = onLight ? "text-navy/75 hover:text-gold" : "text-white/70 hover:text-white";
 
   return (
@@ -61,7 +61,7 @@ export function Navbar() {
       </a>
       <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
+        onLight
           ? "bg-white/97 backdrop-blur-xl border-b border-bone/60 shadow-sm py-3"
           : "bg-gradient-to-b from-navy-deep/70 to-transparent py-5"
       }`}
@@ -74,9 +74,9 @@ export function Navbar() {
             matches what's on screen at every breakpoint. */}
         <a
           href="/"
-          className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}
+          className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${onLight ? "text-navy" : "text-white"}`}
         >
-          <UrgLogo className="h-8 w-auto sm:h-9" inverted={!scrolled} />
+          <UrgLogo className="h-8 w-auto sm:h-9" inverted={!onLight} />
           <span className="hidden flex-col leading-none border-l border-current/20 pl-3 2xl:flex">
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
             <span className="font-mono uppercase leading-none opacity-70 mt-1" style={{ fontSize: "0.6875rem", letterSpacing: "0.2em" }}>
@@ -105,7 +105,7 @@ export function Navbar() {
 
         {/* ── Desktop right actions ─────────────────────────── */}
         <div className="hidden shrink-0 items-center gap-3 lg:flex">
-          {hasInlineLanguageSelector ? null : <LanguageSwitcher onLight={scrolled} />}
+          {hasInlineLanguageSelector ? null : <LanguageSwitcher onLight={onLight} />}
 
           <a
             href={CONTACT.phoneUSLink}
@@ -114,7 +114,7 @@ export function Navbar() {
               trackMicroConversion("hp_cta_click", { type: "phone_call", location: "navbar" });
             }}
             className={`hidden items-center gap-1.5 font-mono text-[10px] tracking-[0.12em] transition-colors duration-200 2xl:flex ${
-              scrolled ? "text-navy/70 hover:text-gold" : "text-white/65 hover:text-white"
+              onLight ? "text-navy/70 hover:text-gold" : "text-white/65 hover:text-white"
             }`}
           >
             <Phone size={11} className="text-gold" />
@@ -124,7 +124,7 @@ export function Navbar() {
           <a
             href="/#list-here"
             className={`inline-flex items-center whitespace-nowrap px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] transition-all duration-300 ${
-              scrolled
+              onLight
                 ? "bg-navy text-white hover:bg-gold hover:text-navy"
                 : "border border-gold/60 text-white hover:bg-gold hover:text-navy"
             }`}
@@ -138,7 +138,7 @@ export function Navbar() {
           type="button"
           aria-label="Open navigation menu"
           onClick={() => setIsOpen(true)}
-          className={`-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center transition-colors xl:hidden ${scrolled ? "text-navy" : "text-white"}`}
+          className={`-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center transition-colors xl:hidden ${onLight ? "text-navy" : "text-white"}`}
         >
           <Menu size={24} />
         </button>
