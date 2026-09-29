@@ -61,7 +61,7 @@ const COPY = {
     closeBody: "Present one qualified property or request a private discussion about an agency, developer, or portfolio activation route.",
     closeCta: "Request a Private Global Desk Discussion",
     formIntro: "Present a qualified opportunity",
-    formBody: "The existing secure request process remains available below. Commercial terms and eligibility are reviewed privately, property by property.",
+    formBody: "Tell us whether you represent a property, agency or development, and what you want to discuss. We review eligibility and commercial terms privately, property by property, before proposing an activation route.",
     faqTitle: "Common questions",
     faqs: [
       ["Is Miami Global Desk another property portal?", "No. It is a professional activation and cooperation layer for selected international property entering a South Florida real estate conversation."],
@@ -118,7 +118,7 @@ const COPY = {
     closeBody: "Presente una propiedad cualificada o solicite una conversación privada sobre una ruta de activación para agencia, promotora o portafolio.",
     closeCta: "Solicitar conversación privada Global Desk",
     formIntro: "Presente una oportunidad cualificada",
-    formBody: "El proceso seguro de solicitud existente permanece disponible. Los términos comerciales y la elegibilidad se revisan en privado, propiedad por propiedad.",
+    formBody: "Indíquenos si representa una propiedad, agencia o promoción y qué desea explorar. Revisamos la elegibilidad y las condiciones comerciales en privado antes de proponer una vía de activación.",
     faqTitle: "Preguntas frecuentes",
     faqs: [
       ["¿Miami Global Desk es otro portal inmobiliario?", "No. Es una capa profesional de activación y cooperación para propiedades internacionales seleccionadas que entran en una conversación inmobiliaria en el sur de Florida."],

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
-import { AGGREGATE_RATING } from "../data/reviews";
+import { AGGREGATE_RATING, REALTOR_PROFILE_URL } from "../data/reviews";
 import { BadgeCheck, ChevronRight, Download } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -15,11 +15,17 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { getCityMarketStats, segmentPeriod } from "../data/cityMarketStats";
+
+const weston = getCityMarketStats("Weston")!;
+const westonSingleFamily = weston.stats.singleFamily!;
+const westonPeriod = segmentPeriod(weston.stats.county, "singleFamily");
+const westonMedian = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(westonSingleFamily.medianSalePrice);
 
 const WESTON_FAQS = [
   {
     q: "What is the current median home price in Weston, FL?",
-    a: "Weston single-family homes have traded in a broad range depending on community, lot size, and waterway access. Per Miami and South Florida REALTORS® MLS data, pricing varies significantly from entry-level gated communities through premium golf or lakefront estates. Carlos provides a no-cost pricing analysis specific to your street and community as part of every seller strategy review.",
+    a: `The median closed sale price for Weston single-family homes was ${westonMedian} in ${westonPeriod}, according to the MIAMI REALTORS® city report based on MLS data compiled by Florida Realtors®. This city median is not a valuation of your home. Carlos reviews competing properties, condition and terms specific to your community.`,
   },
   {
     q: "How long does it take to sell a home in Weston?",
@@ -129,13 +135,12 @@ export default function SellWestonPage() {
               className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
               style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
             >
-              Sell your Weston home with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
+              What would your Weston home compete against today?<br />
+              <em className="italic text-gold">Build the sale around price, proceeds and your next move.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Weston's gated communities, A-rated schools, and Latin American buyer base demand a listing agent
-              who understands both the local market and the international demand that drives it.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              We review your community's competing homes, position the listing for relevant buyers and their agents,
+              and plan the offer terms and timing around your next move. Carlos leads the strategy through United Realty Group.
             </p>
             <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
               {[
@@ -173,10 +178,11 @@ export default function SellWestonPage() {
               </span>
             </div>
 
-            <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
-              <p className="font-sans text-sm italic leading-relaxed text-white/55">"I interviewed three agents before calling Carlos. His knowledge of the Weston community market — and the Latin American buyer pipeline — was genuinely different."</p>
-              <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/50">— Maria R., Weston, FL</footer>
-            </blockquote>
+            <div className="mx-auto mt-5 max-w-xl border-l-2 border-gold/60 pl-4 text-left">
+              <p className="font-sans text-sm leading-relaxed text-white/85"><strong className="text-white">A Weston seller's move:</strong> A verified client review describes a negotiated seven-month post-occupancy arrangement that supported the family's relocation. The right terms can matter alongside the sale price.</p>
+              <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block font-sans text-xs text-gold underline underline-offset-4 hover:text-white">Read Diego Tolotto's verified review on Realtor.com®</a>
+              <p className="mt-1 font-sans text-xs text-white/70">Individual terms and results vary.</p>
+            </div>
 
             <div className="mt-5 flex items-center justify-center gap-2">
               <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
@@ -225,8 +231,8 @@ export default function SellWestonPage() {
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Network Advantage</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
-                  Your Weston listing reaches every buyer,<br />
-                  <em className="italic text-gold">everywhere they're looking.</em>
+                  Position your Weston listing for the right buyer agents,<br />
+                  <em className="italic text-gold">then respond to the market evidence.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
                   Professional MLS activation through United Realty Group means your property enters the network of a Florida brokerage with 3,500+ agents across 19 Florida office locations — not a portal, but a coordinated professional infrastructure.
@@ -307,7 +313,7 @@ export default function SellWestonPage() {
 
         {/* Market snapshot — MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Weston" />
-        <CityListingsSample city="Weston" />
+        <CityListingsSample city="Weston" propertyType="Residential" sellerContext />
         <NearbyMarkets current="sell-weston" />
 
         {/* Confidential intake */}
@@ -315,9 +321,9 @@ export default function SellWestonPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-10 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Weston Seller Review</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
+              <h2 className="mt-3 font-serif text-3xl text-white">Find out what your Weston home would compete against—and what you could keep.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every Weston submission personally before responding.
+                Carlos reviews relevant sales and competing listings, your timing and the terms that affect proceeds. No listing commitment required.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-weston" />
