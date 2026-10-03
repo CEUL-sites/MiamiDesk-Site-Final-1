@@ -355,12 +355,12 @@ export default function MarketsPage() {
                 </h2>
                 <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
                   United Realty Group provides the brokerage framework behind Carlos's South Florida representation:
-                  {" "}{CONTACT.stats.urgAgents} agents across {CONTACT.stats.urgOfficeNetwork}. The objective is to prepare
+                  {" "}{CONTACT.stats.urgAgents} agents across the {CONTACT.stats.urgOfficeNetwork}. The objective is to prepare
                   each eligible property for clear professional presentation to buyer agents and cooperating referral partners.
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
-                    `${CONTACT.stats.urgAgents} agents across ${CONTACT.stats.urgOfficeNetwork}`,
+                    `${CONTACT.stats.urgAgents} agents across the ${CONTACT.stats.urgOfficeNetwork}`,
                     "Eligible MLS and approved distribution-channel positioning",
                     "Bilingual English / Spanish representation",
                     "Professional brokerage and compliance framework",

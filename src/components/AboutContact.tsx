@@ -1,7 +1,6 @@
 import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT, PUBLIC_COMPLIANCE } from "../constants";
 import {
-  URG_FLORIDA_OFFICE_COUNT,
   URG_FLORIDA_OFFICE_NAMES,
   URG_PUBLIC_OFFICE_NETWORK_LABEL,
 } from "../data/urgOffices";
@@ -37,7 +36,7 @@ export function AboutContact({
 
           <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-12 md:space-y-4 md:text-lg">
             <p>Twenty-five years of active South Florida real estate transactions across residential, luxury, and commercial sectors. Relationships inside the Miami professional community built through closed transactions, not directory listings.</p>
-            <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents across {URG_PUBLIC_OFFICE_NETWORK_LABEL}, delivering institutional market reach across South Florida corridors.</p>
+            <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents across the {URG_PUBLIC_OFFICE_NETWORK_LABEL}, delivering institutional market reach across South Florida corridors.</p>
             <p>Every assignment is managed directly by Carlos as principal of record—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.</p>
           </div>
 
@@ -67,7 +66,7 @@ export function AboutContact({
               />
               <h3 className="mt-7 font-serif text-3xl leading-tight text-white md:text-4xl">Your strategy is personal. The infrastructure behind it is institutional.</h3>
               <p className="mt-5 font-sans text-sm leading-relaxed text-white/70 md:text-base">
-                Carlos leads the pricing, positioning, negotiation, and communication personally. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents across {URG_PUBLIC_OFFICE_NETWORK_LABEL}.
+                Carlos leads the pricing, positioning, negotiation, and communication personally. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents across the {URG_PUBLIC_OFFICE_NETWORK_LABEL}.
               </p>
               <div className="mt-7 grid grid-cols-2 border-y border-white/15 py-5">
                 <div>
@@ -75,13 +74,13 @@ export function AboutContact({
                   <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">URG agents</p>
                 </div>
                 <div className="border-l border-white/15 pl-6">
-                  <p className="font-serif text-3xl text-gold">{URG_FLORIDA_OFFICE_COUNT}</p>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">Florida office locations</p>
+                  <p className="font-serif text-3xl text-gold">Florida</p>
+                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">Office network</p>
                 </div>
               </div>
               <details className="group mt-5 border-t border-white/15 pt-4">
                 <summary className="cursor-pointer list-none font-mono text-[10px] uppercase tracking-[0.16em] text-gold transition-colors hover:text-white">
-                  View the 19 Florida office locations
+                  View the Florida office network
                 </summary>
                 <ul className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2 font-sans text-xs leading-relaxed text-white/70 sm:grid-cols-3">
                   {URG_FLORIDA_OFFICE_NAMES.map((name) => (
@@ -107,7 +106,7 @@ export function AboutContact({
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
               <iframe
                 src="https://www.youtube.com/embed/jlOLDjImd2g?si=bcS_Ogl9eNhOakQv&rel=0&modestbranding=1"
-                title="United Realty Group — 3,500+ agents and 19 Florida office locations"
+                title="United Realty Group — 3,500+ agents and a Florida office network"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -117,7 +116,7 @@ export function AboutContact({
             </div>
             <div className="bg-navy-deep px-5 py-3 md:py-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · 3,500+ agents</p>
-              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">19 Florida office locations · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
+              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">Florida office network · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
               <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noreferrer" className="font-mono mt-1 inline-block text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
                 View official branch locations
               </a>

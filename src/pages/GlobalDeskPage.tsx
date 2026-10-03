@@ -56,7 +56,7 @@ const COPY = {
     trustTitle: "Carlos Uzcategui",
     trustSub: "South Florida real estate since 2001",
     trustBody: "A Florida-licensed principal coordinating bilingual property review, U.S. activation, and structured introductions through United Realty Group.",
-    credentials: ["Licensed since 2001 · 25 years in South Florida", "Certified Luxury Home Marketing Specialist · Certified Seller Representative", "United Realty Group · 3,500+ agents · 19 Florida office locations", "Bilingual coordination · South Florida ↔ Spain and LATAM"],
+    credentials: ["Licensed since 2001 · 25 years in South Florida", "Certified Luxury Home Marketing Specialist · Certified Seller Representative", "United Realty Group · 3,500+ agents · Florida office network", "Bilingual coordination · South Florida ↔ Spain and LATAM"],
     closeTitle: "Ready to expand your property’s professional reach in the U.S.?",
     closeBody: "Present one qualified property or request a private discussion about an agency, developer, or portfolio activation route.",
     closeCta: "Request a Private Global Desk Discussion",

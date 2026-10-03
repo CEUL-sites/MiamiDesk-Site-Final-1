@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, MapPin, Send, TrendingUp } from "lucide-react";
 import { CONTACT, PUBLIC_COMPLIANCE } from "../../constants";
 import { trackLead, trackFunnelEvent, pushEvent, navigateAfterTracking } from "../../lib/analytics";
@@ -66,6 +66,20 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
   const addressRef = useRef<HTMLInputElement>(null);
   const formStartFired = useRef(false);
   const renderedAt = useRef(Date.now());
+
+  // Lazy routes mount after navigation; restore the contact target after the
+  // form exists, including when React replaces the prerendered page.
+  useEffect(() => {
+    if (window.location.hash !== "#contact") return;
+    const frame = window.requestAnimationFrame(() => {
+      const section = document.getElementById("contact");
+      if (section) window.scrollTo({
+        top: Math.max(0, section.getBoundingClientRect().top + window.scrollY - 96),
+        behavior: "instant",
+      });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
   const placesInput = useRef<HTMLInputElement | null>(null);
 
   const handleFormFocus = () => {

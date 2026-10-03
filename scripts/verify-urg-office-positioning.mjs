@@ -8,7 +8,7 @@ const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
 assert.equal(data.verifiedAt, "2026-09-01");
 assert.equal(data.sourceUrl, "https://www.urgfl.com/office-locations/");
-assert.equal(data.publicNetworkLabel, "19 Florida office locations");
+assert.equal(data.publicNetworkLabel, "Florida office network");
 assert.equal(data.officialBranches.length, 21, "official source should retain all listed branches");
 
 const floridaBranches = data.officialBranches.filter((branch) => branch.state === "FL");
@@ -48,7 +48,7 @@ for (const file of publicFiles) {
 const about = fs.readFileSync(path.join(root, "src", "components", "AboutContact.tsx"), "utf8");
 const distribution = fs.readFileSync(path.join(root, "src", "components", "Distribution.tsx"), "utf8");
 assert.match(about, /URG_FLORIDA_OFFICE_NAMES\.map/);
-assert.match(about, /View the 19 Florida office locations/);
+assert.match(about, /View the Florida office network/);
 assert.match(distribution, /Distribution · United Realty Group · Florida office network/);
 
 const logo = fs.readFileSync(path.join(root, "src", "components", "UrgLogo.tsx"), "utf8");
@@ -67,4 +67,4 @@ for (const rel of [
   assert.match(fs.readFileSync(path.join(root, rel), "utf8"), /PUBLIC_COMPLIANCE/, `${rel} must use canonical professional identification`);
 }
 
-console.log("URG office positioning verification passed: 19 Florida locations, canonical directory, official logo, and professional identification are intact.");
+console.log("URG office positioning verification passed: canonical directory with opening-soon status, neutral office label, official logo, and professional identification are intact.");

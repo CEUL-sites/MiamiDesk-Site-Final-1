@@ -927,7 +927,7 @@ export default function AgentsPage() {
               </h2>
               <p className="mt-5 max-w-2xl font-sans text-base leading-snug text-ink-primary/65 md:leading-relaxed">
                 United Realty Group provides a coordinated Florida brokerage platform — {CONTACT.stats.urgAgents} agents
-                across {CONTACT.stats.urgOfficeNetwork}. Whatever stage you
+                across the {CONTACT.stats.urgOfficeNetwork}. Whatever stage you
                 are at, you work directly with Carlos — an active 25-year agent on the same MLS, not a branch manager
                 reviewing paperwork.
               </p>
@@ -1016,7 +1016,7 @@ export default function AgentsPage() {
                     {
                       icon: Building2,
                       title: "A platform for coordinated execution",
-                      body: `United Realty Group supports its agents through ${CONTACT.stats.urgOfficeNetwork}, providing a statewide brokerage framework for listing execution, local coordination, and compliant transactions.`,
+                      body: `United Realty Group supports its agents through the ${CONTACT.stats.urgOfficeNetwork}, providing a statewide brokerage framework for listing execution, local coordination, and compliant transactions.`,
                     },
                     {
                       icon: Globe2,

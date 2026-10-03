@@ -219,7 +219,7 @@ export default function EsComprarPage() {
                   // TODO: native Madrid editor review
                   { value: `${CONTACT.stats.experience} años`, label: "Con licencia desde 2001" },
                   { value: CONTACT.stats.urgAgents, label: "Agentes de URG" },
-                  { value: CONTACT.stats.urgFloridaOfficeCount, label: "Ubicaciones en Florida" },
+                  { value: "Florida", label: "Red de oficinas" },
                   { value: "EN / ES", label: "Coordinación bilingüe" },
                 ].map((s) => (
                   <div key={s.label} className="bg-navy-deep/80 px-4 py-4">

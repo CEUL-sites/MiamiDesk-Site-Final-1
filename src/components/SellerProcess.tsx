@@ -21,7 +21,7 @@ const STEPS = [
   {
     number: "03",
     name: "Launch",
-    headline: "Day-one MLS entry and global reach — simultaneously.",
+    headline: "Professional MLS positioning and eligible distribution.",
     body: "We prepare your listing for MLS publication through United Realty Group. We confirm eligible syndication channels under MLS rules, brokerage permissions and platform participation, then coordinate international inquiries where relevant. Exposure timing and sequencing are calibrated to your submarket.",
     benefit: "Professional MLS positioning with eligible consumer distribution.",
   },
