@@ -4,14 +4,14 @@ import { useState } from "react";
 import { AuroraBackground } from "./AuroraBackground";
 import { JsonLd } from "./SEO/JsonLd";
 
-const FAQS = [
+export const SELLER_FAQS = [
   {
     q: "How do I sell my South Florida home?",
     a: "It starts with positioning — the right price, the right timing, and professional MLS activation. Carlos provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS with professional buyer-agent visibility and eligible syndication across approved distribution channels. No obligation. Just a strategy.",
   },
   {
     q: "What is the Miami MLS and why does it matter?",
-    a: "The Miami and South Florida REALTORS® — the world's largest local REALTOR® association, with over 93,000 member agents — operates the MLS. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 200+ global portals in 19 languages. The MLS is where qualified buyers are found.",
+    a: "MIAMI REALTORS® + RWorld reported approximately 93,000 association members in May 2026. MLS visibility makes an eligible listing available for professional discovery; our team separately contacts agents whose buyers fit the property. Distribution depends on MLS rules, brokerage permissions and platform participation. Association membership does not mean every member views a listing or presents it to a buyer.",
   },
   {
     q: "Do you work with Latin American and Spanish buyers?",
@@ -27,17 +27,17 @@ const FAQS = [
   },
   {
     q: "Is the seller strategy review really free?",
-    a: "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property. Submit the form below or WhatsApp Carlos directly.",
+    a: "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property. Submit the review request or WhatsApp Carlos directly. Carlos reviews the property details and contacts you to arrange the conversation.",
   },
 ];
 
 // FAQPage structured data — exposes every answer to search engines and AI
 // answer engines. Without this, only the open accordion item (index 0) is in
 // the prerendered HTML, so the other five answers are invisible to crawlers.
-const faqSchema = {
+export const sellerFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: FAQS.map((faq) => ({
+  mainEntity: SELLER_FAQS.map((faq) => ({
     "@type": "Question",
     name: faq.q,
     acceptedAnswer: { "@type": "Answer", text: faq.a },
@@ -49,7 +49,7 @@ export function FAQ() {
 
   return (
     <section id="faq" className="relative overflow-hidden border-t border-gold/20 bg-navy py-8 md:py-20 text-white">
-      <JsonLd id="site-faq" data={faqSchema} />
+      <JsonLd id="site-faq" data={sellerFaqSchema} />
       <AuroraBackground variant="subtle" />
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-6 text-center md:mb-12">
@@ -60,7 +60,7 @@ export function FAQ() {
         </div>
 
         <div className="divide-y divide-white/8">
-          {FAQS.map((faq, i) => (
+          {SELLER_FAQS.map((faq, i) => (
             <div key={faq.q}>
               <button
                 type="button"

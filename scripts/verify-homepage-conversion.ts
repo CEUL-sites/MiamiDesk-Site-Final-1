@@ -125,7 +125,7 @@ assert.equal(heroFigures.yearsLicensed.value, "25");
 assert.equal(heroFigures.members.value, "93,000");
 assert.equal(heroFigures.urgAgents.value, "3,500+");
 assert.match(form, /compact = false/, "compact hero presentation must be opt-in");
-assert.match(form, /Request My Selling Strategy/);
+assert.match(form, /Request Your Private Seller Strategy Review/);
 assert.match(form, /WhatsApp Carlos/);
 assert.match(heroAnimation, /\/media\/hero-property-network\.mp4/);
 assert.match(heroAnimation, /\/images\/hero-property-network\.webp/);
@@ -152,7 +152,7 @@ for (const [label, copy] of [
 }
 assert.match(distribution, /The Listing System/);
 assert.match(distribution, /PILLARS\.map/);
-assert.match(distribution, /label: "Member Agents"/);
+assert.match(distribution, /label: "Association Members"/);
 assert.match(footer, /93,000 ASSOCIATION MEMBERS/);
 assert.doesNotMatch(footer, /94,000\+ ASSOCIATION MEMBERS/);
 const sectionOrder = [
@@ -179,7 +179,7 @@ assert.match(
 );
 assert.match(form, /Private Property Strategy/);
 assert.match(form, /Estrategia Privada de la Propiedad/);
-assert.match(form, /Solicitar Revisión de Mi Propiedad/);
+assert.match(form, /Solicitar revisión privada de mi estrategia de venta/);
 assert.equal(
   (form.match(/trackLead\("seller"/g) ?? []).length,
   1,
@@ -219,7 +219,7 @@ assert.match(form, /notifyLeadDirect\(/);
 assert.match(form, /\/\.netlify\/functions\/lead-acknowledgment/);
 assert.match(form, /status === "success"/);
 assert.match(cookie, /cookie-consent-dialog/);
-assert.match(indexCss, /@media \(min-width: 48rem\)[\s\S]*\.cookie-consent-dialog[\s\S]*left: auto;[\s\S]*right: 1\.5rem;/);
+assert.match(indexCss, /@media \(min-width: 48rem\)[\s\S]*\.cookie-consent-dialog[\s\S]*left: 1\.5rem;[\s\S]*right: auto;/);
 assert.match(proof, /id="client-reviews"/);
 assert.doesNotMatch(about, /founded in 2002|in-house title|Est\. 2002/i);
 assert.match(about, /3,500\+ agents across \{URG_PUBLIC_OFFICE_NETWORK_LABEL\}/);

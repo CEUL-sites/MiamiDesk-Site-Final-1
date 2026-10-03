@@ -13,10 +13,10 @@ const TOP_STATS = [
     display: "93,000",
     suffix: "",
     // TODO: native Madrid editor review
-    label: "Agentes Miembros",
+    label: "Miembros de la Asociación",
     sublabel: "Miami & South Florida REALTORS®",
     // TODO: native Madrid editor review
-    desc: "Cada agente miembro trabaja desde el mismo inventario del MLS en el que se coloca su propiedad.",
+    desc: "La asociación comunicó aproximadamente 93.000 miembros en mayo de 2026. El contacto con agentes relevantes se planifica para cada propiedad.",
   },
   {
     value: 437,
@@ -26,14 +26,14 @@ const TOP_STATS = [
     label: "Acuerdos Internacionales",
     sublabel: "MIAMI Global Council",
     // TODO: native Madrid editor review
-    desc: "Mercados directos de compradores en más de 75 países — más que cualquier otra asociación local.",
+    desc: "Los acuerdos entre asociaciones ofrecen posibles vías de cooperación, sujetas a participación y adecuación de la propiedad.",
   },
   {
     value: 3500,
     display: "3,500",
     suffix: "+",
     label: "Agentes de United Realty Group",
-    sublabel: "Fundada en 2002 · 19 ubicaciones de oficinas en Florida",
+    sublabel: "Red de oficinas en Florida",
     desc: "Una correduría de servicio completo con una compañía de título interna detrás de cada propiedad.",
   },
 ];
@@ -55,7 +55,7 @@ const PILLARS = [
     title: "Distribución más allá del MLS",
     // TODO: native Madrid editor review
     body:
-      "Hacia el ecosistema del MLS de Miami que 93,000 agentes usan a diario — luego distribuido a los principales portales de EE. UU. y a más de 200 canales internacionales en 19 idiomas.",
+      "Posicionamiento profesional en el MLS y distribución elegible por los canales autorizados. La cobertura depende de la propiedad, los permisos de la correduría y la participación de cada plataforma.",
   },
   {
     icon: Radar,
@@ -153,7 +153,7 @@ export function EsDistribution() {
           {/* TODO: native Madrid editor review */}
           Su propiedad entra al ecosistema<br />
           {/* TODO: native Madrid editor review */}
-          <em className="italic text-gold">que 93,000 agentes del Sur de Florida usan cada día.</em>
+          <em className="italic text-gold">con visibilidad profesional y contacto dirigido.</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -163,9 +163,7 @@ export function EsDistribution() {
           className="mx-auto mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:mt-6"
         >
           {/* TODO: native Madrid editor review */}
-          Los compradores no encuentran propiedades — sus agentes lo hacen. Su propiedad
-          entra en el mismo inventario del MLS que esos agentes consultan a diario, en el
-          Sur de Florida y en más de 75 países.
+          Preparamos la propiedad para su búsqueda profesional en el MLS y contactamos por separado con agentes que trabajan con compradores relevantes. La publicación y la cooperación dependen de los permisos y requisitos aplicables.
         </motion.p>
 
         <motion.div
@@ -220,6 +218,8 @@ export function EsDistribution() {
             </div>
           ))}
         </div>
+
+        <p className="mt-6 font-sans text-xs leading-relaxed text-white/75">Fuentes: comunicados de MIAMI REALTORS® + RWorld de mayo y abril de 2026; United Realty Group. El tamaño de la asociación y los acuerdos no garantizan atención a una propiedad ni referencias.</p>
 
         {/* Single CTA naming a specific outcome */}
         <div className="mt-8 flex justify-center md:mt-12">

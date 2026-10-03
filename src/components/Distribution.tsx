@@ -16,9 +16,9 @@ const TOP_STATS = [
     value: 93000,
     display: fig("members"),
     suffix: "",
-    label: "Member Agents",
+    label: "Association Members",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "The association's MLS ecosystem supports professional discovery; individual agents decide what fits their buyers.",
+    desc: "Approximately 93,000 association members were reported in May 2026. Individual agents decide which properties fit their buyers.",
   },
   {
     value: 437,
@@ -235,13 +235,15 @@ export function Distribution() {
           </ul>
         </aside>
 
+        <p className="mt-6 font-sans text-xs leading-relaxed text-white/75">Sources: MIAMI REALTORS® + RWorld May 2026 membership and April 2026 merger announcements; United Realty Group. Association scale and cooperation agreements do not guarantee listing attention or referrals.</p>
+
         {/* Single CTA naming a specific outcome */}
         <div className="mt-10 flex justify-center md:mt-14">
           <a
             href="/sell#contact"
             className="group inline-flex items-center gap-2.5 rounded-full bg-gold px-9 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)] md:py-4.5"
           >
-            Request Your Distribution Analysis
+            Request Your Private Seller Strategy Review
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
           </a>
         </div>

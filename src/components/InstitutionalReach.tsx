@@ -4,31 +4,31 @@ import { LazyVideo } from "./LazyVideo";
 const VERIFIED_METRICS = [
   {
     value: "93,000",
-    label: "Member Agents",
+    label: "Association Members",
     sublabel: "Miami & South Florida REALTORS®",
     description:
-      "The world's largest local REALTOR® association. Every member agent works from the shared MLS inventory your listing enters.",
+      "Approximately 93,000 association members reported in May 2026. Membership scale supports professional cooperation; it does not guarantee attention to a listing.",
   },
   {
     value: "200+",
     label: "Global Consumer Portals",
     sublabel: "19 Languages",
     description:
-      "Automated syndication across approved international consumer channels connecting your property to qualified cross-border demand.",
+      "The association's 2021/2022 flyer described this network. Current placement depends on property type, brokerage permissions and platform participation.",
   },
   {
     value: "260+",
     label: "U.S. MLSs via RPR",
     sublabel: "Realtors Property Resource",
     description:
-      "Nationwide data exchanges providing direct visibility to relocating buyer agents across the United States.",
+      "Historical network coverage described in the association's 2021/2022 flyer. Professional data sharing is distinct from consumer advertising.",
   },
   {
     value: "437+",
     label: "International Agreements",
-    sublabel: "75+ Countries",
+    sublabel: "Association Cooperation",
     description:
-      "Signed bilateral partnership agreements establishing institutional cooperation pipelines with leading global brokerages.",
+      "The April 2026 merger announcement reported signed agreements with international associations. Cooperation depends on participating professionals and property fit.",
   },
 ];
 
@@ -61,8 +61,8 @@ export function InstitutionalReach() {
             transition={{ duration: 0.75, delay: 0.1 }}
             className="mx-auto mt-4 max-w-4xl font-serif text-3xl leading-tight text-white md:text-5xl"
           >
-            Your listing enters the ecosystem<br />
-            <em className="italic text-gold">93,000 South Florida agents work from daily.</em>
+            Professional visibility.<br />
+            <em className="italic text-gold">Targeted buyer-agent activation.</em>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -71,7 +71,7 @@ export function InstitutionalReach() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mx-auto mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:mt-5 md:text-lg"
           >
-            Buyers rarely find luxury listings alone; their agents discover them. Carlos positions your home directly within the institutional MLS network and syndicates across 200+ global channels.
+            We prepare the listing for professional discovery, confirm eligible distribution channels, and contact agents with relevant buyers. MLS availability, portal placement and agent outreach are separate parts of the strategy.
           </motion.p>
         </div>
 
@@ -109,6 +109,11 @@ export function InstitutionalReach() {
         <div className="mt-12 border-t border-white/10 pt-8 text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
             Powered by membership in the Miami and South Florida REALTORS® · United Realty Group
+          </p>
+          <p className="mx-auto mt-3 max-w-3xl font-sans text-xs leading-relaxed text-white/75">
+            Sources: <a className="underline" href="https://www.miamirealtors.com/2026/05/12/miami-realtors-and-rworld-complete-historic-merger-creating-the-worlds-largest-local-realtor-association/" target="_blank" rel="noopener noreferrer">May 2026 membership announcement</a>{" · "}
+            <a className="underline" href="https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" target="_blank" rel="noopener noreferrer">April 2026 cooperation agreements</a>{" · "}
+            MIAMI listing distribution flyer (2021/2022). Historical channel counts are not a placement commitment for your property.
           </p>
           <p className="mx-auto mt-2 max-w-3xl font-sans text-[11px] leading-relaxed text-white/55">
             Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity. Distribution channels, portal coverage, and partner exchanges are subject to platform availability and MLS rules.
