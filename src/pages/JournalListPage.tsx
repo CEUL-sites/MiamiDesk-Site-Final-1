@@ -131,7 +131,7 @@ export default function JournalListPage() {
                 </article>
               ))}
             </div>
-            <Link to="/sell#contact" className="mt-6 inline-flex min-h-11 items-center font-sans text-sm font-semibold text-navy underline">Request Your Private Seller Strategy Review →</Link>
+            <a href="/sell#contact" className="mt-6 inline-flex min-h-11 items-center font-sans text-sm font-semibold text-navy underline">Request Your Private Seller Strategy Review →</a>
           </div>
         </section>
 

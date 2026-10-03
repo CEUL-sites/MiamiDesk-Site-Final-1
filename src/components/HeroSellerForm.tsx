@@ -114,6 +114,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
   const addressRef            = useRef<HTMLInputElement>(null);
   const nameRef               = useRef<HTMLInputElement>(null);
   const formStartFired        = useRef(false);
+  const renderedAt            = useRef(Date.now());
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -161,6 +162,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         body: encodeForm({
           "form-name": "seller-hero",
           "bot-field": "",
+          formRenderedAt: String(renderedAt.current),
           ...form,
           sourcePage: `hero-${lang}`,
           ...getAttribution(),
@@ -170,7 +172,8 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
       notifyLeadDirect({
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
-        sourcePage: `hero-${lang}`, leadSource: getLeadSource(),
+        sourcePage: `hero-${lang}`, formName: "seller-hero", leadSource: getLeadSource(),
+        botField: "", formRenderedAt: String(renderedAt.current), messagingConsent: form.messagingConsent,
       });
       trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });
       // Auto-acknowledgment (email/WhatsApp confirmation) — best-effort
@@ -255,6 +258,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         className={compact ? "seller-hero-form text-left" : "rounded-lg border border-gold/45 bg-[#071321]/95 p-4 text-left shadow-[0_24px_60px_rgba(0,0,0,0.42)] sm:p-5"}
       >
         <input type="hidden" name="form-name" value="seller-hero" />
+        <input type="hidden" name="formRenderedAt" value={String(renderedAt.current)} />
         <p aria-hidden="true" className="hidden">
           <label>Don't fill this out: <input name="bot-field" /></label>
         </p>
