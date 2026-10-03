@@ -86,7 +86,7 @@ const COPY = {
     successTag: "Solicitud Recibida",
     successTitle: "Carlos revisará su propiedad personalmente.",
     successBody: "Carlos revisa su propiedad y sus prioridades de venta, y le contacta para coordinar la conversación. Para asuntos urgentes, contáctenos por WhatsApp.",
-    netSheetIntro: "Mientras Carlos prepara su valoración, aquí tiene su Hoja de Ganancias del Vendedor — lo que realmente recibe al cierre:",
+    netSheetIntro: "Prepare su conversación de estrategia con la Hoja de Ganancias del Vendedor — una guía para estimar lo que conserva al cierre:",
     netSheetCta: "Descargar la Hoja de Ganancias",
     successCta: "Continuar por WhatsApp →",
     bridgeText: "¿Desea activar inventario internacional desde España o LATAM?",
