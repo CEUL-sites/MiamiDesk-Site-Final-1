@@ -43,7 +43,7 @@ assert.equal(heroFigures.yearsLicensed.value, "25");
 assert.equal(heroFigures.members.value, "93,000");
 assert.equal(heroFigures.urgAgents.value, "3,500+");
 assert.match(form, /compact = false/);
-assert.match(form, /Request My Selling Strategy/);
+assert.match(form, /Request Your Private Seller Strategy Review/);
 assert.match(form, /WhatsApp Carlos/);
 assert.match(animation, /width="1280"/);
 assert.match(animation, /height="720"/);

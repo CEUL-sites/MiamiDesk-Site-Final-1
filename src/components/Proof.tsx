@@ -48,6 +48,17 @@ export function Proof() {
           </a>
         </div>
 
+        <aside className="mt-8 rounded-xl border border-gold/25 bg-white/[0.03] p-6 md:p-8" aria-label="Weston client-reported example">
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-gold">Weston · Client-reported example</p>
+          <h3 className="mt-3 font-serif text-2xl text-white">The sale and the next move, negotiated together.</h3>
+          <dl className="mt-5 grid gap-5 font-sans text-sm leading-relaxed md:grid-cols-3">
+            <div><dt className="font-semibold text-white">Seller priority</dt><dd className="mt-2 text-white/75">Coordinate the home sale with the family's relocation.</dd></div>
+            <div><dt className="font-semibold text-white">Carlos's action</dt><dd className="mt-2 text-white/75">Negotiate post-closing occupancy alongside the sale terms.</dd></div>
+            <div><dt className="font-semibold text-white">Reported result</dt><dd className="mt-2 text-white/75">The client describes a seven-month occupancy arrangement that eased the transition.</dd></div>
+          </dl>
+          <p className="mt-5 font-sans text-xs leading-relaxed text-white/70">Source: Diego Tolotto's verified client review, December 18, 2023. This is a review-based example; no sale price or contract documentation is presented.</p>
+          <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center font-sans text-sm text-gold underline">Read the client reviews →</a>
+        </aside>
         <ReviewSpotlight reviews={REVIEWS} />
 
         <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60 md:mt-12 text-center sm:text-left">

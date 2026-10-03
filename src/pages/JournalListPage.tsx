@@ -115,6 +115,26 @@ export default function JournalListPage() {
           </div>
         </section>
 
+        <section className="border-b border-hairline bg-ivory py-10" aria-labelledby="owner-guides-title">
+          <div className="mx-auto max-w-7xl px-6">
+            <h2 id="owner-guides-title" className="font-serif text-3xl text-navy">Three decisions to make before you list.</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {[
+                { title: "Position the property", slug: "listing-online-vs-activating-the-market-south-florida-2026", detail: "Understand professional visibility and buyer-agent activation." },
+                { title: "Estimate what you keep", slug: "seller-closing-costs-south-florida-2026", detail: "Review the costs that affect your net proceeds." },
+                { title: "Plan the next move", slug: "relocating-out-of-south-florida-sequence-the-sale-2026", detail: "Coordinate the sale, occupancy and relocation sequence." },
+              ].map(guide => (
+                <article key={guide.slug} className="rounded-lg border border-hairline bg-white p-6">
+                  <h3 className="font-serif text-xl text-navy">{guide.title}</h3>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-navy/75">{guide.detail}</p>
+                  <Link to={`/journal/${guide.slug}`} className="mt-4 inline-flex min-h-11 items-center gap-2 font-sans text-sm text-gold-ink underline">Read the guide <ArrowRight size={15} /></Link>
+                </article>
+              ))}
+            </div>
+            <Link to="/sell#contact" className="mt-6 inline-flex min-h-11 items-center font-sans text-sm font-semibold text-navy underline">Request Your Private Seller Strategy Review →</Link>
+          </div>
+        </section>
+
         {/* Search & Category Filter Section */}
         <section className="border-b border-hairline bg-white py-8 shadow-xs sticky top-16 z-30 backdrop-blur-md bg-white/95">
           <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-5">

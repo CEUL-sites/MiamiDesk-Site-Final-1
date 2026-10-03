@@ -12,9 +12,9 @@ export function CookieBanner() {
     setConsentState(getConsent());
   }, []);
 
-  // On desktop the seller form sits on the left, so the banner yields while the
+  // On desktop the homepage seller form sits on the right, so the banner yields while the
   // primary CTA is visible and, after the backstop timeout, appears in the
-  // lower-right visual column instead of covering the conversion action.
+  // lower-left copy column instead of covering the conversion action.
   //
   // Mobile is deliberately untouched: there the banner spans the full width
   // well below the CTA and never covers it, and MobileStickyCTA waits on the

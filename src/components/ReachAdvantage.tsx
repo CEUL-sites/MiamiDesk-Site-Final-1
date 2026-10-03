@@ -8,9 +8,9 @@ const TOP_STATS = [
     value: 93000,
     display: "93,000",
     suffix: "",
-    label: "Member Agents",
+    label: "Association Members",
     sublabel: "Miami & South Florida REALTORS®",
-    desc: "Every member agent can put your home in front of their active buyers.",
+    desc: "Approximately 93,000 association members reported in May 2026; relevant agent outreach is planned for your property.",
   },
   {
     value: 437,
@@ -18,7 +18,7 @@ const TOP_STATS = [
     suffix: "+",
     label: "International Agreements",
     sublabel: "MIAMI Global Council",
-    desc: "Direct buyer markets across 75+ countries — more than any other local association.",
+    desc: "Association cooperation agreements support possible international referrals, subject to participation and property fit.",
   },
   {
     value: 3500,
@@ -115,8 +115,8 @@ export const ReachAdvantage = () => {
           className="mx-auto mt-4 max-w-5xl font-serif leading-[1.08] text-white md:mt-6"
           style={{ fontSize: "clamp(2.4rem, 5vw, 4.5rem)" }}
         >
-          Your listing enters the system<br />
-          <em className="italic text-gold">93,000 South Florida agents open every day.</em>
+          Your property, positioned for discovery.<br />
+          <em className="italic text-gold">Relevant agents, contacted with purpose.</em>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -125,8 +125,7 @@ export const ReachAdvantage = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mx-auto mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:mt-6"
         >
-          Buyers don't find homes — their agents do. Your listing goes straight into
-          the inventory those agents search every day, in South Florida and in 75+ countries.
+          MLS visibility supports professional discovery. We separately identify and contact agents whose buyers fit your property's location, type and price range.
         </motion.p>
 
         {/* MIAMI REALTORS® attribution — source of the reach network */}
@@ -166,6 +165,7 @@ export const ReachAdvantage = () => {
           How reach compounds
         </p>
         <ReachFlow3D className="mt-8" />
+        <p className="mx-auto mt-5 max-w-3xl text-center font-sans text-xs leading-relaxed text-white/75">Sources: MIAMI REALTORS® + RWorld May 2026 membership and April 2026 merger announcements; United Realty Group. Network size describes infrastructure, not guaranteed listing attention.</p>
       </div>
 
     </section>

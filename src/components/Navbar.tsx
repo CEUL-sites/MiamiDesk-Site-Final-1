@@ -93,7 +93,7 @@ export function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className={`px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.1em] transition-colors duration-200 whitespace-nowrap ${
+                className={`px-2 py-2.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors duration-200 whitespace-nowrap ${
                   active ? "text-gold" : navText
                 }`}
               >

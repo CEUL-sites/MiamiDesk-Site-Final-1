@@ -235,7 +235,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Strategy Review Requested</p>
         <h3 className="mt-3 font-serif text-2xl text-navy">Carlos will review your property details personally.</h3>
         <p className="mt-4 font-sans text-sm leading-relaxed text-navy/70 max-w-md mx-auto">
-          You will receive a confirmation to {form.email || "your email"} shortly. Carlos responds personally from his Weston, Florida office.
+          Carlos reviews your property and selling priorities, then contacts you to arrange the strategy conversation. No listing commitment.
         </p>
         <p className="mt-6 font-sans text-sm text-navy/70">
           For immediate questions:{" "}
@@ -252,12 +252,12 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
       <div className="border-b border-bone bg-navy-deep px-8 py-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">Confidential Seller Desk</p>
         <h3 className="mt-2 font-serif text-2xl text-white">
-          {step === 1 ? "Where is the property?" : "Schedule a 30-minute listing strategy call"}
+          {step === 1 ? "Where is the property?" : "How should Carlos contact you?"}
         </h3>
-        <p className="mt-2 font-sans text-sm text-white/50">
+        <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
           {step === 1
-            ? "Start with the address — Carlos prepares an MLS-based positioning analysis for every submission."
-            : "Almost done — Carlos reviews every submission personally before responding."}
+            ? "Start with your property address, then share your contact details. Carlos reviews the property and contacts you to arrange your private seller strategy review."
+            : "Complete your request. Carlos reviews your property and selling priorities, then contacts you to arrange the conversation."}
         </p>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
@@ -303,7 +303,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
           </p>
 
           <button type="submit" className="group flex w-full items-center justify-center gap-3 bg-navy py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-all hover:bg-gold">
-            See My Market Snapshot
+            Continue to Contact Details
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </button>
 
@@ -452,7 +452,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
 
           <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-all hover:bg-gold disabled:opacity-60">
             {status === "submitting" ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
-            {status === "submitting" ? "Sending…" : "Request My Confidential Analysis"}
+            {status === "submitting" ? "Sending…" : "Request Your Private Seller Strategy Review"}
           </button>
 
           <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-navy/70">

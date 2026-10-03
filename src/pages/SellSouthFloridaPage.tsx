@@ -72,11 +72,10 @@ export default function SellSouthFloridaPage() {
           "@context": "https://schema.org",
           "@type": "HowTo",
           "name": "How to Sell Your South Florida Property",
-          "description": "A 5-step process to position, prepare, launch, activate, and close your South Florida property with MLS exposure and international distribution.",
-          "totalTime": "P30D",
+          "description": "A 5-step process to position, prepare, launch, activate, and negotiate your South Florida property with professional MLS visibility and eligible distribution. Timing varies by property and market.",
           "tool": [
             { "@type": "HowToTool", "name": "Miami and South Florida REALTORS® MLS" },
-            { "@type": "HowToTool", "name": "200+ Global Portals in 19 Languages" },
+            { "@type": "HowToTool", "name": "Eligible approved syndication channels" },
             { "@type": "HowToTool", "name": "United Realty Group Agent Network" }
           ],
           "step": [
@@ -85,20 +84,6 @@ export default function SellSouthFloridaPage() {
             { "@type": "HowToStep", "position": 3, "name": "Launch", "text": "Professional MLS activation through United Realty Group with eligible syndication across approved distribution channels and expanded buyer-agent visibility." },
             { "@type": "HowToStep", "position": 4, "name": "Activate", "text": "Targeted outreach to buyer agents, international referral channels, and LATAM and Spain pipeline activation." },
             { "@type": "HowToStep", "position": 5, "name": "Negotiate", "text": "Offer review, terms strategy, inspection response, and closing coordination." }
-          ]
-        }} />
-      <JsonLd id="sell-south-florida-faq" data={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            { "@type": "Question", "name": "How do I sell my South Florida home?", "acceptedAnswer": { "@type": "Answer", "text": "It starts with positioning — the right price, the right timing, and professional MLS activation. Carlos provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS with professional buyer-agent visibility and eligible syndication across approved distribution channels. No obligation. Just a strategy." } },
-            { "@type": "Question", "name": "How can a South Florida seller remain in their home after closing while coordinating their next purchase?", "acceptedAnswer": { "@type": "Answer", "text": "Through a formally structured post-closing occupancy agreement (leaseback). Carlos Uzcategui negotiates leaseback terms directly in the purchase contract—such as a documented 7-month post-closing agreement executed in Weston—enabling sellers to receive full proceeds in escrow, eliminate bridge financing stress, and complete their subsequent home purchase with zero displacement deadlines." } },
-            { "@type": "Question", "name": "How does Florida Save Our Homes property tax portability work for sellers?", "acceptedAnswer": { "@type": "Answer", "text": "Florida homeowners can transfer up to $500,000 in accumulated Save Our Homes property tax assessment differential to their next primary residence through homestead portability. Carlos coordinates pricing, marketing, and closing timelines so sellers can preserve this substantial tax benefit within statutory Florida deadlines in consultation with their CPA." } },
-            { "@type": "Question", "name": "What is the Miami MLS and why does it matter?", "acceptedAnswer": { "@type": "Answer", "text": "The Miami and South Florida REALTORS® — the world's largest local REALTOR® association, with over 93,000 member agents — operates the MLS. When your property is listed, it reaches every agent's buyer pipeline and eligible listings may be distributed across 200+ global portals in 19 languages. The MLS is where qualified buyers are found." } },
-            { "@type": "Question", "name": "Do you work with Latin American and Spanish buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. South Florida's luxury market runs on Latin American capital. Carlos built those relationships deal by deal over 25 years. Miami Global Listing Desk connects selected Spanish and international inventory to South Florida buyer-agent activation through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, and United Realty Group." } },
-            { "@type": "Question", "name": "How long does it take to sell in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "It varies by price band, condition, and positioning. Per Miami and South Florida REALTORS® MLS data, well-positioned homes in the lower price bands have typically transacted faster than luxury product above $2M. Carlos provides a neighborhood-specific timeline assessment as part of every seller strategy review — this is not a guarantee of any specific outcome, and no listing commitment is required." } },
-            { "@type": "Question", "name": "Can a Spanish property be promoted through the Global Desk?", "acceptedAnswer": { "@type": "Answer", "text": "Miami Global Listing Desk can help selected Spanish and international prime properties enter the South Florida professional real estate ecosystem through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, operating through United Realty Group. Any MLS, portal, brokerage, or cooperation activity is subject to brokerage, platform, and compliance requirements and does not guarantee placement, leads, buyers, commissions, or sales." } },
-            { "@type": "Question", "name": "Is the seller strategy review really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property." } }
           ]
         }} />
       <JsonLd id="sell-south-florida-service" data={{
@@ -126,10 +111,10 @@ export default function SellSouthFloridaPage() {
             <div className="text-center mb-6 md:mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Why Miami MLS Representation Matters</p>
               <h2 className="mt-3 font-serif text-2xl leading-tight text-navy-deep max-w-2xl mx-auto md:mt-5 md:text-4xl">
-                The case for professional representation — from the Association itself.
+                The case for professional representation.
               </h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/60 md:mt-5">
-                In the Association's own words: what a REALTOR® changes about your transaction.
+                How a REALTOR® helps you navigate the decisions in a property transaction.
               </p>
             </div>
             {/* Responsive 16:9 video embed */}
@@ -139,7 +124,7 @@ export default function SellSouthFloridaPage() {
                 width="560"
                 height="315"
                 src="https://www.youtube-nocookie.com/embed/U2BlBCFaiCo?si=jpLfmggFUuTw-qIG"
-                title="Why You Need a Miami REALTOR® — Miami and South Florida REALTORS®"
+                title="Why Work With a REALTOR® — Professional Representation"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -147,7 +132,7 @@ export default function SellSouthFloridaPage() {
               />
             </div>
             <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70 md:mt-4">
-              Video: Miami and South Florida REALTORS® · miamirealtors.com
+              Professional representation video · <a href="https://www.youtube.com/watch?v=U2BlBCFaiCo" target="_blank" rel="noopener noreferrer" className="underline">View the original on YouTube</a>
             </p>
           </div>
         </section>
@@ -329,9 +314,9 @@ export default function SellSouthFloridaPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-5 text-center md:mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Seller Desk</p>
-              <h2 className="mt-2 font-serif text-2xl text-white md:mt-3 md:text-3xl">Request a private property positioning review.</h2>
+              <h2 className="mt-2 font-serif text-2xl text-white md:mt-3 md:text-3xl">Request Your Private Seller Strategy Review.</h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-white/50 md:mt-4">
-                No listing commitment required. Carlos reviews every submission personally before responding.
+                Carlos reviews your property, price position and next-move priorities, then contacts you to arrange the strategy conversation. No listing commitment.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-south-florida" />

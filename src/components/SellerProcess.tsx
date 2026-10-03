@@ -22,14 +22,14 @@ const STEPS = [
     number: "03",
     name: "Launch",
     headline: "Day-one MLS entry and global reach — simultaneously.",
-    body: "Your listing enters the Miami and South Florida REALTORS® MLS on activation day. Where eligible under MLS rules and platform participation, it syndicates to 200+ global portals in 19 languages — reaching international buyer pools actively searching in your price range. Exposure timing and sequencing are calibrated to your submarket.",
-    benefit: "One MLS entry. Eligible exposure across 200+ global portals in 19 languages.",
+    body: "We prepare your listing for MLS publication through United Realty Group. We confirm eligible syndication channels under MLS rules, brokerage permissions and platform participation, then coordinate international inquiries where relevant. Exposure timing and sequencing are calibrated to your submarket.",
+    benefit: "Professional MLS positioning with eligible consumer distribution.",
   },
   {
     number: "04",
     name: "Activate",
-    headline: "93,000 buyer agents receive a direct signal.",
-    body: "Beyond the automated MLS feed, we activate targeted outreach across the 93,000 member agents of Miami and South Florida REALTORS® — the world's largest local REALTOR® association — working alongside the United Realty Group brokerage. LATAM and European buyer pipelines are engaged through international referral channels. For properties with cross-border appeal, the Spain and Madrid desk coordinates inquiries directly.",
+    headline: "Relevant buyer agents receive targeted outreach.",
+    body: "Beyond MLS visibility, we identify and contact agents whose buyers fit your property, working alongside the United Realty Group brokerage. LATAM and European buyer pipelines are engaged through international referral channels. For properties with cross-border appeal, the Spain and Madrid desk coordinates inquiries directly.",
     benefit: "Your listing reaches working buyer agents — not just search portals waiting for clicks.",
   },
   {

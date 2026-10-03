@@ -23,7 +23,7 @@ export function SellersReachHero() {
                 className="seller-reach-primary"
                 onClick={() => trackFunnelEvent("seller_strategy_cta", { source: "sellers_hero" })}
               >
-                Request My Seller Strategy Review
+                Request Your Private Seller Strategy Review
                 <ArrowRight size={21} aria-hidden="true" />
               </a>
               <a
@@ -34,7 +34,7 @@ export function SellersReachHero() {
                 onClick={() => trackContact("whatsapp", "sellers_hero")}
               >WhatsApp Carlos</a>
             </div>
-            <p className="seller-reach-reassurance">Personal response · Confidential · No listing commitment</p>
+            <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
           </div>
           <figure className="seller-reach-image" data-sticky-cta-guard>
             <img

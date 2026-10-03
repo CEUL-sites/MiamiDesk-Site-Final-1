@@ -8,9 +8,7 @@ export function InternationalReachStrip() {
           International Reach
         </p>
         <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-white/65">
-          A meaningful share of South Florida demand originates abroad. Eligible listings reach 93,000
-          member agents and 200+ global portals in 19 languages — and international owners can route
-          inventory into the same network through the Global Desk.
+          We coordinate relevant international inquiries alongside MLS visibility and eligible distribution. International owners and agencies can request a separate professional activation review through the Global Desk.
         </p>
         <a
           href="/global-desk"
