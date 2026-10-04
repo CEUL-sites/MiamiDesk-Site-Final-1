@@ -35,6 +35,11 @@ jobs:
       - name: Type check
         run: npm run lint
 
+      - name: Test lead safeguards and native notifications
+        run: |
+          npm test
+          node --test scripts/ensure-native-lead-email.test.mjs
+
       - name: Prefetch video assets
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
         run: bash scripts/fetch-videos.sh
@@ -80,3 +85,7 @@ jobs:
             --no-build \
             --prod \
             --message "Deploy from GitHub Actions — ${{ github.sha }}"
+
+          # Repair native submission emails with the existing masked credential.
+          NETLIFY_AUTH_TOKEN="$TOKEN" node scripts/ensure-native-lead-email.mjs
+
