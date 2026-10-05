@@ -1,12 +1,12 @@
-import type { Handler, HandlerEvent } from "@netlify/functions";
-import { getStore } from "@netlify/blobs";
+import type { Context } from "@netlify/functions";
+import { mlsStore } from "./_shared/mlsStore";
 
 const BRIDGE_TOKEN = process.env.BRIDGE_API_TOKEN ?? "";
 const BRIDGE_DATASET = (process.env.BRIDGE_DATASET_ID ?? process.env.BRIDGE_DATASET ?? "miamire").trim();
 const BRIDGE_BASE = process.env.BRIDGE_BASE_URL
   ?? `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET}/Property`;
 
-const REFRESH_SECRET = process.env.MARKET_FEED_REFRESH_SECRET ?? "";
+
 
 // ── Feed configuration ────────────────────────────────────────────────────────
 // To add more cities, add entries here. Each entry defines:
@@ -45,7 +45,7 @@ const $SELECT = [
   "Media",
 ].join(",");
 
-async function fetchFeed(config: FeedConfig): Promise<{
+async function fetchFeed(config: FeedConfig, fetchImpl: typeof fetch, startedAt: number): Promise<{
   value: unknown[];
   lastUpdated: string;
   listingCount: number;
@@ -59,8 +59,9 @@ async function fetchFeed(config: FeedConfig): Promise<{
     $select: $SELECT,
   });
 
-  const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`, {
+  const res = await fetchImpl(`${BRIDGE_BASE}?${params.toString()}`, {
     headers: { Authorization: `Bearer ${BRIDGE_TOKEN}` },
+    signal: AbortSignal.timeout(15000),
   });
 
   if (!res.ok) {
@@ -68,73 +69,47 @@ async function fetchFeed(config: FeedConfig): Promise<{
   }
 
   const data = await res.json();
-  const value: unknown[] = data?.value ?? [];
-  const lastUpdated = new Date().toISOString();
+  if (!Array.isArray(data?.value)) throw new Error("Invalid Bridge response");
+  const value: unknown[] = data.value;
+  const lastUpdated = new Date(startedAt).toISOString();
 
   return { value, lastUpdated, listingCount: value.length };
 }
 
-export const handler: Handler = async (event: HandlerEvent) => {
-  // ── 503 if Bridge token not configured ─────────────────────────────────────
-  if (!BRIDGE_TOKEN) {
-    return {
-      statusCode: 503,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ok: false, error: "BRIDGE_API_TOKEN not configured" }),
-    };
-  }
+interface Writer { setJSON(key: string, data: unknown): Promise<unknown> }
 
-  // ── Auth: HTTP POST requires x-refresh-secret header ──────────────────────
-  // Scheduled invocations have no httpMethod — allow them through unconditionally.
-  if (event.httpMethod) {
-    if (event.httpMethod !== "POST") {
-      return { statusCode: 405, body: "Method Not Allowed" };
-    }
-
-    const incomingSecret = event.headers?.["x-refresh-secret"] ?? "";
-    if (!REFRESH_SECRET || incomingSecret !== REFRESH_SECRET) {
-      return {
-        statusCode: 401,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ok: false, error: "Unauthorized" }),
-      };
-    }
-  }
-
-  // ── Fetch and store each feed config ────────────────────────────────────────
-  const store = getStore("market-feed");
+export async function refreshMarketFeeds(store: Writer, fetchImpl: typeof fetch = fetch, now = Date.now()) {
   const results: { blobKey: string; listingCount: number; lastUpdated: string }[] = [];
   const errors: { blobKey: string; error: string }[] = [];
-
   for (const config of FEED_CONFIGS) {
     try {
-      const feed = await fetchFeed(config);
+      const feed = await fetchFeed(config, fetchImpl, now);
       await store.setJSON(config.blobKey, {
-        value: feed.value,
-        lastUpdated: feed.lastUpdated,
-        listingCount: feed.listingCount,
+        ...feed, lastSuccessfulRefresh: feed.lastUpdated,
       });
-      results.push({
-        blobKey: config.blobKey,
-        listingCount: feed.listingCount,
-        lastUpdated: feed.lastUpdated,
-      });
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Unknown error";
-      errors.push({ blobKey: config.blobKey, error: message });
+      results.push({ blobKey: config.blobKey, listingCount: feed.listingCount, lastUpdated: feed.lastUpdated });
+      // Health-write failure must not invalidate an already committed valid feed.
+      try { await store.setJSON(`${config.blobKey}:health`, { ok: true, lastAttempt: feed.lastUpdated, listingCount: feed.listingCount }); }
+      catch { console.error('[refresh-market-feed] health write failed'); }
+      console.info('[refresh-market-feed] success', results[results.length - 1]);
+    } catch {
+      // Do not log upstream URLs, response bodies or credentials.
+      const error = 'bridge_or_storage_refresh_failed';
+      errors.push({ blobKey: config.blobKey, error });
+      console.error('[refresh-market-feed] failed', { blobKey: config.blobKey, lastAttempt: new Date(now).toISOString() });
+      try { await store.setJSON(`${config.blobKey}:health`, { ok: false, lastAttempt: new Date(now).toISOString(), error }); }
+      catch { console.error('[refresh-market-feed] health write failed'); }
     }
   }
+  return { ok: errors.length === 0, results, errors };
+}
 
-  const ok = errors.length === 0;
-  const statusCode = ok ? 200 : errors.length === FEED_CONFIGS.length ? 502 : 207;
-
-  return {
-    statusCode,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      ok,
-      results,
-      ...(errors.length > 0 ? { errors } : {}),
-    }),
-  };
+// Netlify V2 scheduled function: platform-only invocation; manual refresh uses
+// the authenticated dashboard Run now action, never a public URL.
+const scheduledRefresh = async (_request: Request, context: Context) => {
+  if (!BRIDGE_TOKEN) throw new Error('Bridge server token not configured');
+  const result = await refreshMarketFeeds(mlsStore('market-feed', context.deploy.context));
+  if (!result.ok) throw new Error('Market feed refresh failed; prior inventory retained');
+  return Response.json({ ok: true, results: result.results });
 };
+export default scheduledRefresh;

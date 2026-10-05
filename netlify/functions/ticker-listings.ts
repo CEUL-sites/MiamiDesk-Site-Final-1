@@ -13,7 +13,6 @@ const BRIDGE_TOKEN = process.env.BRIDGE_API_TOKEN ?? "";
 const BRIDGE_DATASET_ID = (process.env.BRIDGE_DATASET_ID ?? "miamire").trim();
 const BRIDGE_BASE = `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET_ID}/Property`;
 const CACHE_TTL_MS = 30 * 60 * 1000;
-const MAX_DATA_AGE_MS = 24 * 60 * 60 * 1000;
 const cache = new TtlResponseCache();
 
 const SELECT = [
@@ -53,15 +52,13 @@ export async function loadTickerPayload(fetchImpl: typeof fetch, fetchedAt = new
   const data = await response.json();
   const value = selectTickerListings((data?.value ?? []) as RawTickerListing[]);
   const dataFreshness = mostRecentListingModification(value);
-  const freshnessAge = dataFreshness ? Date.parse(fetchedAt) - Date.parse(dataFreshness) : Number.POSITIVE_INFINITY;
-  const isFresh = freshnessAge >= 0 && freshnessAge <= MAX_DATA_AGE_MS;
   return {
-    value: isFresh ? value : [],
-    live: value.length > 0 && isFresh,
+    value,
+    live: value.length > 0,
     source: "Bridge IDX / Miami and South Florida REALTORS dataset",
     dataFreshness,
     fetchedAt,
-    ...(value.length === 0 ? { error: "no_valid_inventory" } : !isFresh ? { error: "stale_inventory" } : {}),
+    ...(value.length === 0 ? { error: "no_valid_inventory" } : {}),
   };
 }
 

@@ -1,3 +1,5 @@
+import { isMlsFresh } from "../lib/mlsFreshness";
+import { fetchMls, isMlsPrerender, watchMlsRefresh } from "../lib/liveMlsRefresh";
 import { useEffect, useState, Fragment } from "react";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -182,22 +184,28 @@ export function PropertyMarketFeed() {
   const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
+    if (isMlsPrerender()) return;
     let cancelled = false;
 
-    (async () => {
+    const load = async () => {
       try {
-        const res = await fetch("/.netlify/functions/market-feed");
+        const res = await fetchMls("/.netlify/functions/market-feed");
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json: MarketFeedResponse = await res.json();
-        if (!cancelled) setData(json);
+        if (!cancelled) {
+          setFetchError(false);
+          setData(isMlsFresh(json.lastUpdated) ? json : { ...json, value: [], stale: true });
+        }
       } catch {
         if (!cancelled) setFetchError(true);
       } finally {
         if (!cancelled) setLoading(false);
       }
-    })();
-
-    return () => { cancelled = true; };
+    };
+    const clear = () => { setData(null); setLoading(true); };
+    void load();
+    const stop = watchMlsRefresh(() => { void load(); }, clear);
+    return () => { cancelled = true; stop(); };
   }, []);
 
   const isStale = data?.stale === true || fetchError;
@@ -210,7 +218,7 @@ export function PropertyMarketFeed() {
         {/* Header */}
         <div className="mb-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-            Weekly Feed · Weston, FL · Single-Family Residences
+            MLS Feed · Weston, FL · Single-Family Residences
           </p>
           <h2
             className="mt-4 font-serif text-white leading-tight"

@@ -1,58 +1,38 @@
-import type { Handler, HandlerEvent } from "@netlify/functions";
-import { getStore } from "@netlify/blobs";
+import type { Context } from '@netlify/functions';
+import { mlsStore } from './_shared/mlsStore';
+import { isMlsFresh, mlsAge, mlsCacheControl, MLS_MAX_DISPLAY_AGE_MS } from '../../src/lib/mlsFreshness';
+import { IDX_DISCLAIMER } from '../../src/lib/listings';
 
-const IDX_DISCLAIMER =
-  "Listing information is provided in part by the Miami and South Florida REALTORS® " +
-  "and/or BeachesMLS via IDX. Information is deemed reliable but not guaranteed and is " +
-  "subject to change without notice. Verify all information before making real estate decisions.";
+export const MARKET_FEED_KEY = 'weston-sfr-850k-1200k';
+interface Feed { value?: unknown[]; lastSuccessfulRefresh?: string; lastUpdated?: string }
+interface Reader { get(key: string, options: { type: 'json' }): Promise<unknown> }
 
-export const handler: Handler = async (event: HandlerEvent) => {
-  if (event.httpMethod !== "GET") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
+export async function readMarketFeed(store: Reader, now = Date.now()) {
+  const data = await store.get(MARKET_FEED_KEY, { type: 'json' }) as Feed | null;
+  const timestamp = data?.lastSuccessfulRefresh ?? data?.lastUpdated ?? null;
+  const fresh = isMlsFresh(timestamp, now) && Array.isArray(data?.value);
+  if (!fresh) console.warn('[market-feed] inventory suppressed', { ageMs: mlsAge(timestamp, now), lastSuccessfulRefresh: timestamp });
+  const value = fresh ? data!.value! : [];
+  return {
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/json', 'Cache-Control': fresh ? mlsCacheControl(timestamp, now) : 'no-store' },
+    body: JSON.stringify({
+      value, lastUpdated: timestamp, lastSuccessfulRefresh: timestamp,
+      listingCount: value.length, ageMs: mlsAge(timestamp, now), maxDisplayAgeMs: MLS_MAX_DISPLAY_AGE_MS,
+      stale: !fresh,
+      ...(!fresh ? { message: 'Market feed temporarily unavailable. Request a private property review.' } : {}),
+      disclaimer: IDX_DISCLAIMER,
+    }),
+  };
+}
 
+export default async (request: Request, context: Context) => {
+  if (request.method !== 'GET') return new Response('Method Not Allowed', { status: 405, headers: { 'Cache-Control': 'no-store' } });
   try {
-    const store = getStore("market-feed");
-    const data = await store.get("weston-sfr-850k-1200k", { type: "json" });
-
-    if (data === null) {
-      return {
-        statusCode: 200,
-        headers: {
-          "Content-Type": "application/json",
-          "Cache-Control": "public, max-age=3600",
-        },
-        body: JSON.stringify({
-          value: [],
-          lastUpdated: null,
-          stale: true,
-          message:
-            "Market feed temporarily unavailable. Request a private property review.",
-          disclaimer: IDX_DISCLAIMER,
-        }),
-      };
-    }
-
-    return {
-      statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-        "Cache-Control": "public, max-age=3600",
-      },
-      body: JSON.stringify({
-        value: (data as { value: unknown[] }).value ?? [],
-        lastUpdated: (data as { lastUpdated: string }).lastUpdated ?? null,
-        listingCount: (data as { listingCount: number }).listingCount ?? 0,
-        stale: false,
-        disclaimer: IDX_DISCLAIMER,
-      }),
-    };
-  } catch (err) {
-    const message = err instanceof Error ? err.message : "Unknown error";
-    return {
-      statusCode: 500,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ok: false, error: message }),
-    };
+    const result = await readMarketFeed(mlsStore('market-feed', context.deploy.context));
+    return new Response(result.body, { status: result.statusCode, headers: result.headers });
+  } catch {
+    console.error('[market-feed] storage unavailable');
+    return new Response(JSON.stringify({ value: [], stale: true, error: 'feed_unavailable' }), { status: 503, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
   }
 };

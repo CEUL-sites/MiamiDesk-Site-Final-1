@@ -1,3 +1,5 @@
+import { isMlsFresh } from "../lib/mlsFreshness";
+import { fetchMls, isMlsPrerender, watchMlsRefresh } from "../lib/liveMlsRefresh";
 import { Fragment, useEffect, useState } from "react";
 import { CONTACT } from "../constants";
 import { formatPrice } from "../lib/format";
@@ -24,6 +26,7 @@ export interface OpportunityListing {
 interface TickerResponse {
   value?: OpportunityListing[];
   live?: boolean;
+  fetchedAt?: string;
   dataFreshness?: string | null;
 }
 
@@ -123,8 +126,9 @@ export function MLSTicker() {
   const [listings, setListings] = useState<OpportunityListing[]>([]);
   const [dataFreshness, setDataFreshness] = useState<string | null>(null);
   useEffect(() => {
+    if (isMlsPrerender()) return;
     let cancelled = false;
-    fetch(TICKER_API)
+    const load = () => fetchMls(TICKER_API)
       .then((response) => {
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return response.json() as Promise<TickerResponse>;
@@ -132,7 +136,7 @@ export function MLSTicker() {
       .then((json) => {
         if (cancelled) return;
         const value = Array.isArray(json.value) ? json.value : [];
-        if (json.live !== true || value.length === 0 || !json.dataFreshness) {
+        if (json.live !== true || value.length === 0 || !json.dataFreshness || !isMlsFresh(json.fetchedAt)) {
           setStatus("unavailable");
           return;
         }
@@ -141,7 +145,9 @@ export function MLSTicker() {
         setStatus("ready");
       })
       .catch(() => { if (!cancelled) setStatus("unavailable"); });
-    return () => { cancelled = true; };
+    void load();
+    const stop = watchMlsRefresh(() => { void load(); }, () => { setListings([]); setStatus("loading"); });
+    return () => { cancelled = true; stop(); };
   }, []);
   return <CurrentOpportunitiesView status={status} listings={listings} dataFreshness={dataFreshness} />;
 }

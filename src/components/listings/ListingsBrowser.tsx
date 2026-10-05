@@ -1,3 +1,5 @@
+import { isMlsFresh } from "../../lib/mlsFreshness";
+import { fetchMls, isMlsPrerender, watchMlsRefresh } from "../../lib/liveMlsRefresh";
 import { Fragment, useCallback, useEffect, useRef, useState, type ChangeEvent } from "react";
 import { ChevronLeft, ChevronRight, Loader2, Search, X } from "lucide-react";
 import { CONTACT } from "../../constants";
@@ -271,10 +273,11 @@ export function ListingsBrowser() {
     const id = ++reqId.current;
     setStatus(append ? "loadingMore" : "loading");
     try {
-      const res = await fetch(`/.netlify/functions/listings-search?${buildQuery(f, nextPage)}`);
+      const res = await fetchMls(`/.netlify/functions/listings-search?${buildQuery(f, nextPage)}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = (await res.json()) as ListingsSearchResponse;
       if (id !== reqId.current) return; // a newer request superseded this one
+      if (!isMlsFresh(json.lastUpdated)) throw new Error("Expired MLS response");
       const value = json.value ?? [];
       setTotal(json.totalCount ?? value.length);
       setPage(nextPage);
@@ -282,16 +285,28 @@ export function ListingsBrowser() {
       setStatus(!append && value.length === 0 ? "empty" : "ready");
     } catch {
       if (id !== reqId.current) return;
-      if (!append) setStatus("error");
-      else setStatus("ready"); // keep what we have; a failed "load more" is non-fatal
+      setListings([]);
+      setSelected(null);
+      setStatus("error");
     }
   }, []);
 
   // Debounced fresh search whenever filters change; also keep the URL in sync.
   useEffect(() => {
+    if (isMlsPrerender()) return;
     syncUrl(filters);
     const t = window.setTimeout(() => run(filters, 1, false), 400);
     return () => window.clearTimeout(t);
+  }, [filters, run]);
+
+  useEffect(() => {
+    if (isMlsPrerender()) return;
+    return watchMlsRefresh(() => { void run(filters, 1, false); }, () => {
+      ++reqId.current; // invalidate any request started before tab wake/refresh
+      setListings([]);
+      setSelected(null);
+      setStatus("loading");
+    });
   }, [filters, run]);
 
   const hasMore = status === "ready" && listings.length < total;
