@@ -1,3 +1,5 @@
+import { isMlsFresh } from "../lib/mlsFreshness";
+import { fetchMls, isMlsPrerender, watchMlsRefresh } from "../lib/liveMlsRefresh";
 import { Fragment, useEffect, useState } from "react";
 import { CONTACT } from "../constants";
 import { JsonLd } from "./SEO/JsonLd";
@@ -40,26 +42,30 @@ export function CityListingsSample({
   const [status, setStatus] = useState<"loading" | "ready" | "empty" | "error">("loading");
 
   useEffect(() => {
+    if (isMlsPrerender()) return;
     let cancelled = false;
     const params = new URLSearchParams({ zone: queryZone, status: "Active" });
     if (propertyType) params.set("type", propertyType);
 
-    fetch(`/.netlify/functions/listings-search?${params.toString()}`)
+    const load = () => fetchMls(`/.netlify/functions/listings-search?${params.toString()}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json() as Promise<ListingsSearchResponse>;
       })
       .then((json) => {
         if (cancelled) return;
+        if (!isMlsFresh(json.lastUpdated)) throw new Error("Expired MLS response");
         const value = (json.value ?? []).slice(0, MAX_CARDS);
         setListings(value);
         setStatus(value.length === 0 ? "empty" : "ready");
       })
       .catch(() => {
-        if (!cancelled) setStatus("error");
+        if (!cancelled) { setListings([]); setStatus("error"); }
       });
 
-    return () => { cancelled = true; };
+    void load();
+    const stop = watchMlsRefresh(() => { void load(); }, () => { setListings([]); setStatus("loading"); });
+    return () => { cancelled = true; stop(); };
   }, [queryZone, propertyType]);
 
   // Fail quietly — never show a broken section on a marketing page.

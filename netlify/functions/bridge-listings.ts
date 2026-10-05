@@ -109,15 +109,12 @@ export const handler: Handler = async (event: HandlerEvent) => {
       headers: { Authorization: `Bearer ${BRIDGE_TOKEN}` },
     });
     if (!res.ok) {
-      let bridgeDetail = "";
-      try { bridgeDetail = await res.text(); } catch { /* ignore */ }
       return {
         statusCode: res.status,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           error: `Bridge API error: ${res.status}`,
           dataset: BRIDGE_DATASET_ID,
-          detail: bridgeDetail.slice(0, 500),
         }),
       };
     }

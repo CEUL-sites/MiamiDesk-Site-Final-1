@@ -1,11 +1,11 @@
-import type { Handler, HandlerEvent } from "@netlify/functions";
-import { getStore } from "@netlify/blobs";
+import type { Context } from "@netlify/functions";
+import { mlsStore } from "./_shared/mlsStore";
+import { isMlsFresh, mlsCacheControl } from "../../src/lib/mlsFreshness";
 import { resolveMlsCity, MIN_SAMPLE, IDX_DISCLAIMER, MLS_SOURCE_LABEL, median } from "./_shared/mlsCity";
 
 // City-level market snapshot from Bridge IDX — active residential listings only.
-// Serves NeighborhoodMarketStats (sell pages) and the SellerIntakeForm step-1
-// interstitial. Responses are cached in Netlify Blobs for 24h per city so the
-// Bridge API quota is touched at most once a day per market.
+// Legacy public API; current sell-page statistics are dated official reports. Responses are cached in Netlify Blobs for 6h per city so the
+// Bridge API quota is touched at most four times a day per market.
 //
 // The city vocabulary (ALLOWED_CITIES/CITY_ALIASES/resolveMlsCity), the
 // MIN_SAMPLE floor, the IDX disclaimer text, and median() live in
@@ -19,7 +19,7 @@ const BRIDGE_DATASET = (process.env.BRIDGE_DATASET_ID ?? process.env.BRIDGE_DATA
 const BRIDGE_BASE = process.env.BRIDGE_BASE_URL
   ?? `https://api.bridgedataoutput.com/api/v2/OData/${BRIDGE_DATASET}/Property`;
 
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const CACHE_TTL_MS = 6 * 60 * 60 * 1000;
 
 interface CityStats {
   available: boolean;
@@ -31,7 +31,7 @@ interface CityStats {
   lastUpdated: string;
 }
 
-async function fetchCityStats(city: string): Promise<CityStats> {
+async function fetchCityStats(city: string, fetchImpl: typeof fetch, now: number): Promise<CityStats> {
   const $filter =
     `City eq '${city.replace(/'/g, "''")}' and PropertyType eq 'Residential' and StandardStatus eq 'Active'`;
   const params = new URLSearchParams({
@@ -42,14 +42,16 @@ async function fetchCityStats(city: string): Promise<CityStats> {
     $select: "ListPrice,DaysOnMarket,LivingArea",
   });
 
-  const res = await fetch(`${BRIDGE_BASE}?${params.toString()}`, {
+  const res = await fetchImpl(`${BRIDGE_BASE}?${params.toString()}`, {
     headers: { Authorization: `Bearer ${BRIDGE_TOKEN}` },
+    signal: AbortSignal.timeout(15000),
   });
   if (!res.ok) {
     throw new Error(`Bridge API responded ${res.status} ${res.statusText}`);
   }
 
   const data = await res.json();
+  if (!Array.isArray(data?.value)) throw new Error("Invalid Bridge response");
   const rows: { ListPrice?: number; DaysOnMarket?: number; LivingArea?: number }[] = data?.value ?? [];
   const activeCount: number = data?.["@odata.count"] ?? rows.length;
 
@@ -66,67 +68,60 @@ async function fetchCityStats(city: string): Promise<CityStats> {
     medianListPrice: median(prices),
     avgDaysOnMarket: doms.length ? Math.round(doms.reduce((a, b) => a + b, 0) / doms.length) : null,
     medianPricePerSqft: median(ppsf),
-    lastUpdated: new Date().toISOString(),
+    lastUpdated: new Date(now).toISOString(),
   };
 }
 
-export const handler: Handler = async (event: HandlerEvent) => {
-  if (event.httpMethod !== "GET") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
+export default async (request: Request, context: Context) => {
+  if (request.method !== "GET") return new Response("Method Not Allowed", { status: 405, headers: { "Cache-Control": "no-store" } });
 
   const headers = {
     "Content-Type": "application/json",
     "Cache-Control": "public, max-age=3600",
   };
   const unavailable = (city: string) =>
-    ({ statusCode: 200, headers, body: JSON.stringify({ available: false, city, disclaimer: IDX_DISCLAIMER }) });
+    new Response(JSON.stringify({ available: false, city, disclaimer: IDX_DISCLAIMER }), { headers: { ...headers, "Cache-Control": "no-store" } });
 
-  const raw = (event.queryStringParameters?.city ?? "").trim().toLowerCase();
+  const raw = (new URL(request.url).searchParams.get("city") ?? "").trim().toLowerCase();
   const resolved = resolveMlsCity(raw);
   if (!resolved) return unavailable(raw);
   const mlsCity = resolved.mlsCity;
 
   if (!BRIDGE_TOKEN) return unavailable(mlsCity);
 
-  const blobKey = `city:${mlsCity.toLowerCase().replace(/\s+/g, "-")}`;
-  let store: ReturnType<typeof getStore> | null = null;
-  let cached: (CityStats & { stale?: boolean }) | null = null;
+  let store: SnapshotStore | null = null;
   try {
-    store = getStore("city-stats");
-    cached = (await store.get(blobKey, { type: "json" })) as CityStats | null;
-  } catch {
-    // Blobs unavailable — fall through to a direct fetch without caching
-  }
-
-  if (cached && Date.now() - new Date(cached.lastUpdated).getTime() < CACHE_TTL_MS) {
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ ...cached, source: MLS_SOURCE_LABEL, disclaimer: IDX_DISCLAIMER }),
-    };
-  }
-
-  try {
-    const stats = await fetchCityStats(mlsCity);
-    if (store) {
-      try { await store.setJSON(blobKey, stats); } catch { /* cache write is best-effort */ }
-    }
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ ...stats, source: MLS_SOURCE_LABEL, disclaimer: IDX_DISCLAIMER }),
-    };
-  } catch (err) {
-    console.error("city-stats fetch error:", err instanceof Error ? err.message : err);
-    // Serve the expired cache rather than nothing
-    if (cached) {
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify({ ...cached, stale: true, source: MLS_SOURCE_LABEL, disclaimer: IDX_DISCLAIMER }),
-      };
-    }
-    return unavailable(mlsCity);
-  }
+    store = mlsStore('city-stats', context.deploy.context);
+  } catch { /* direct Bridge fallback when storage is unavailable */ }
+  const result = await loadCitySnapshot(mlsCity, store);
+  return new Response(result.body, { status: result.statusCode, headers: result.headers });
 };
+
+interface SnapshotStore {
+  get(key: string, options: { type: 'json' }): Promise<unknown>;
+  setJSON(key: string, data: unknown): Promise<unknown>;
+}
+export async function loadCitySnapshot(city: string, store: SnapshotStore | null, fetchImpl: typeof fetch = fetch, now = Date.now()) {
+  const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' };
+  const unavailable = () => ({ statusCode: 200, headers, body: JSON.stringify({ available: false, city, stale: true, disclaimer: IDX_DISCLAIMER }) });
+  const key = `city:${city.toLowerCase().replace(/\s+/g, '-')}`;
+  let cached: CityStats | null = null;
+  try { cached = await store?.get(key, { type: 'json' }) as CityStats | null; }
+  catch { /* proceed to direct fetch */ }
+  const cachedFresh = cached && isMlsFresh(cached.lastUpdated, now);
+  const respond = (stats: CityStats, stale = false) => ({
+    statusCode: 200,
+    headers: { ...headers, 'Cache-Control': mlsCacheControl(stats.lastUpdated, now) },
+    body: JSON.stringify({ ...stats, lastSuccessfulRefresh: stats.lastUpdated, stale, source: MLS_SOURCE_LABEL, disclaimer: IDX_DISCLAIMER }),
+  });
+  if (cachedFresh && now - Date.parse(cached!.lastUpdated) < CACHE_TTL_MS) return respond(cached!);
+  try {
+    const stats = await fetchCityStats(city, fetchImpl, now);
+    try { await store?.setJSON(key, { ...stats, lastSuccessfulRefresh: stats.lastUpdated }); }
+    catch { console.warn('[city-stats] cache write failed'); }
+    return respond(stats);
+  } catch {
+    console.error('[city-stats] Bridge fetch failed');
+    return cachedFresh ? respond(cached!, true) : unavailable();
+  }
+}

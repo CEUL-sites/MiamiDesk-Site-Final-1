@@ -68,12 +68,12 @@ test("returns an honest empty payload and propagates failed IDX requests", async
   await assert.rejects(() => loadTickerPayload(async () => new Response("failure", { status: 502 })));
 });
 
-test("suppresses inventory when the newest MLS modification is stale", async () => {
+test("keeps unchanged valid inventory from a successful current Bridge retrieval", async () => {
   const stale = { ...valid, ModificationTimestamp: "2026-08-20T12:00:00.000Z" };
   const payload = await loadTickerPayload(async () => new Response(JSON.stringify({ value: [stale] })), "2026-09-01T00:00:00.000Z");
-  assert.equal(payload.live, false);
-  assert.deepEqual(payload.value, []);
-  assert.equal(payload.error, "stale_inventory");
+  assert.equal(payload.live, true);
+  assert.equal(payload.value.length, 1);
+  assert.equal(payload.fetchedAt, "2026-09-01T00:00:00.000Z");
 });
 
 test("cache expires at the configured boundary", () => {

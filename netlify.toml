@@ -3,9 +3,9 @@
   publish = "dist"
   functions = "netlify/functions"
 
-# ── Scheduled weekly market feed refresh ───────────────────────────────────
+# ── Scheduled six-hour market feed refresh (UTC) ───────────────────────────────────
 [functions."refresh-market-feed"]
-  schedule = "@weekly"
+  schedule = "0 */6 * * *"
 
 # ── Daily seller nurture sequence (Resend drip from Blobs queue) ───────────
 [functions."seller-nurture"]
