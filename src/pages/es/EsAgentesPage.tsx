@@ -101,6 +101,7 @@ function EsReferralForm() {
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
+        fields: { ...form, language: "es" },
         name: form.licenseeName,
         email: form.email,
         phone: form.phone,

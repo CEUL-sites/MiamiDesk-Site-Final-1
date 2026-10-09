@@ -213,6 +213,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
+        fields: form,
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
         message: form.priorListing, sourcePage: effectiveSourcePage, formName: "seller-intake", leadSource: getLeadSource(),

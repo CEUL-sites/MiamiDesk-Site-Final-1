@@ -75,6 +75,7 @@ export function BuyerMandateForm() {
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
+        fields: submission,
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: submission.targetNeighborhoods, city: form.country, timeline: form.timeline,
         message: `Budget ${form.priceRange || "—"} · Financing ${form.financing || "—"}${form.visaStatus ? ` · Visa ${form.visaStatus}` : ""}`,

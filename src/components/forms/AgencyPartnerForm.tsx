@@ -96,6 +96,7 @@ export function AgencyPartnerForm({
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
+        fields: { ...form, source },
         name: form.agentName, email: form.email, phone: form.whatsapp,
         city: form.country, propertyAddress: form.agency,
         message: `${form.role ? form.role + " · " : ""}${form.inventoryType ? form.inventoryType + " · " : ""}${form.message}`,

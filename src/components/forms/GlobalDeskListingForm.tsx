@@ -288,6 +288,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
       if (!res.ok) throw new Error("submission_failed");
 
       notifyLeadDirect({
+        fields: Object.fromEntries(Array.from(fd.entries()).filter((entry): entry is [string, string] => typeof entry[1] === "string")),
         name: form.name || "",
         email: form.email || "",
         phone: form.phone || "",

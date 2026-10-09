@@ -272,6 +272,9 @@ async function sendEmail(to: string, subject: string, html: string): Promise<boo
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
+  if (process.env.SELLER_NURTURE_ENABLED !== "true") {
+    return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "disabled" }) };
+  }
   // Scheduled invocations have no httpMethod; manual HTTP runs need the secret.
   if (event.httpMethod) {
     if (event.httpMethod !== "POST") {

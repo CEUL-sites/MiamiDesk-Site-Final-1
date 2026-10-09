@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 // TODO: Legal review by Florida real estate counsel and an RGPD-qualified Spanish counsel
 // required before this policy is considered final. Remove this notice once cleared.
 
-const EFFECTIVE_DATE = "May 2026";
+const EFFECTIVE_DATE = "October 9, 2026";
 const CONTACT_EMAIL = "contact@carlosre.com";
 
 export default function PrivacyPage() {
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
               <p className="mt-4">We collect information in the following ways:</p>
               <ul className="mt-4 list-disc space-y-2 pl-6">
                 <li><strong>Contact and inquiry forms.</strong> When you submit a seller strategy request, buyer brief, referral inquiry, or lead magnet request, we collect your name, email address, phone number, and any property or transaction details you provide. Submissions are processed by Netlify Forms.</li>
-                <li><strong>AI desk interactions.</strong> If you use the AI chat assistant on this site, your message text is transmitted to our Netlify Function, which calls the Google Gemini API. We do not store AI chat transcripts beyond the duration of your session.</li>
+                <li><strong>AI desk interactions.</strong> If you use the AI chat assistant on this site, your message text is transmitted to our Netlify Function, which calls the Google Gemini API. When an inquiry is handed off for follow-up, a summary and the last four conversation turns may be retained in our inquiry records.</li>
                 <li><strong>Cookies and usage data.</strong> We set a single functional cookie to record your cookie consent choice. If analytics services are enabled (see Section 5), additional identifiers may be set by those services.</li>
                 <li><strong>Server logs.</strong> Netlify automatically retains standard server logs including IP address, browser type, and page requests. These are retained per Netlify's data retention policy.</li>
               </ul>
@@ -55,6 +55,7 @@ export default function PrivacyPage() {
                 <li><strong>United Realty Group.</strong> As Carlos's brokerage, United Realty Group may have access to transaction-related data as required by Florida real estate law and brokerage supervision requirements.</li>
                 <li><strong>Miami and South Florida REALTORS® / MLS.</strong> If your property is listed, listing data enters the MLS database as required by association membership rules.</li>
                 <li><strong>Netlify.</strong> Form submissions and hosting infrastructure. See Netlify's privacy policy at netlify.com.</li>
+                <li><strong>HubSpot.</strong> Contact details and website inquiry records may be stored in our CRM to organize and respond to your request. These records may include submitted property information, language, contact preferences, consent choices, and referral-source information. Submitting an inquiry does not enroll you in marketing communications. See <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-gold underline">HubSpot's privacy policy</a>.</li>
                 <li><strong>Google (Gemini API).</strong> AI desk messages are processed by Google's Gemini API. See Google's privacy policy at policies.google.com.</li>
                 <li><strong>Legal requirements.</strong> We may disclose data if required by applicable law, court order, or regulatory authority.</li>
               </ul>

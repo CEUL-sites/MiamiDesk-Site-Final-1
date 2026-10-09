@@ -49,6 +49,7 @@ export function ReferralIntakeForm() {
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({
+        fields: form,
         name: form.licenseeName, email: form.email, phone: form.phone,
         city: form.country, timeline: form.referralType,
         message: `${form.brokerageName ? form.brokerageName + " · " : ""}${form.clientSummary}`,
