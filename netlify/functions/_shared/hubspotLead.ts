@@ -46,7 +46,10 @@ export async function syncHubspotLead(lead: Lead, fields: Fields = {}, deps: Dep
   let contactId = "";
   let phase = "claim";
   try {
-    const store = deps.store ?? getStore({ name: leadStoreName("hubspot-inquiries"), consistency: "strong" });
+    // This flow only writes. onlyIfNew is enforced atomically by storage;
+    // read-consistency settings are unnecessary and unsupported by the legacy
+    // Lambda context (which does not supply an uncached read endpoint).
+    const store = deps.store ?? getStore(leadStoreName("hubspot-inquiries"));
     // Atomic claim prevents the two notifier paths from creating two notes.
     // A claimed but incomplete inquiry needs reconciliation, never blind replay.
     const claimed = await store.setJSON(key, { status: "pending", at: new Date().toISOString(), lead, fields }, { onlyIfNew: true });
