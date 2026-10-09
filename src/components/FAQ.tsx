@@ -1,39 +1,35 @@
-import { ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
 import { AuroraBackground } from "./AuroraBackground";
 import { JsonLd } from "./SEO/JsonLd";
+import { FaqAccordion } from "./FaqAccordion";
 
 export const SELLER_FAQS = [
   {
-    q: "How do I sell my South Florida home?",
-    a: "It starts with positioning — the right price, the right timing, and professional MLS activation. Carlos provides a no-cost strategy review to assess your property, advise on pricing, and launch through the Miami MLS with professional buyer-agent visibility and eligible syndication across approved distribution channels. No obligation. Just a strategy.",
+    "q": "How do I choose a listing agent in South Florida?",
+    "a": "Compare how each agent will price your property, prepare it for market, reach relevant buyer agents, report feedback and negotiate the contract. Carlos Uzcategui provides seller representation through United Realty Group. Request a private seller strategy review to discuss your property, timing and priorities before making a listing commitment."
   },
   {
-    q: "What is the Miami MLS and why does it matter?",
-    a: "MIAMI REALTORS® + RWorld reported approximately 93,000 association members in May 2026. MLS visibility makes an eligible listing available for professional discovery; our team separately contacts agents whose buyers fit the property. Distribution depends on MLS rules, brokerage permissions and platform participation. Association membership does not mean every member views a listing or presents it to a buyer.",
+    "q": "How will you market my South Florida home?",
+    "a": "We review competing listings and recent sales, agree the preparation and media scope, and position eligible listings in the MLS. We then coordinate relevant buyer-agent outreach, inquiry follow-up and showing feedback. Syndication and referral reach depend on property eligibility, MLS rules, brokerage approval and participating channels; placement, inquiries and sales are not guaranteed."
   },
   {
-    q: "Do you work with Latin American and Spanish buyers?",
-    a: "Yes. South Florida's luxury market runs on Latin American capital. Carlos built those relationships deal by deal over 25 years — not through advertising. Miami Global Listing Desk connects selected Spanish developers, agencies, and HNW owners to South Florida buyer-agent activation through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, and United Realty Group.",
+    "q": "Can you help me sell a home in South Florida while I live abroad?",
+    "a": "Yes. Carlos coordinates the South Florida listing, communication and transaction steps in English or Spanish through United Realty Group. We discuss property access, local contacts, document requirements and your time zone before launch. Your attorney and tax advisor handle legal and tax questions, including any requirements applicable to non-resident owners."
   },
   {
-    q: "How long does it take to sell in South Florida?",
-    a: "It varies by price band, condition, and positioning. Per Miami and South Florida REALTORS® MLS data, well-positioned homes in the lower price bands have typically transacted faster than luxury product above $2M, which often runs longer. Carlos provides a neighborhood-specific timeline assessment as part of every seller strategy review — this is not a guarantee of any specific outcome, and no listing commitment is required.",
+    "q": "How long does it take to sell a home in South Florida?",
+    "a": "Timing depends on your neighborhood, property type, condition, asking price, competing inventory and the buyer's financing and contract terms. We review recent comparable sales and current competition to discuss a property-specific plan. A market estimate is not a guarantee of a sale or closing date."
   },
   {
-    q: "Can a Spanish property be listed in the Miami MLS?",
-    a: "Miami Global Listing Desk can help selected Spanish and international prime properties enter the South Florida professional real estate ecosystem through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, operating through United Realty Group. Any MLS, portal, brokerage, or cooperation activity is subject to brokerage, platform, and compliance requirements and does not guarantee placement, leads, buyers, commissions, or sales.",
+    "q": "Can you coordinate selling my home with my next purchase or relocation?",
+    "a": "We review your preferred closing date, next-home plans and estimated proceeds alongside the asking price. Where appropriate, we discuss occupancy terms or other transition arrangements for negotiation with the buyer and review by the relevant professionals. Any arrangement requires agreement and documentation; availability is not guaranteed."
   },
   {
-    q: "Is the seller strategy review really free?",
-    a: "Yes, and there is no listing commitment required. The review covers pricing analysis, market timing, positioning recommendation, and a professional profile of the most likely buyer for your property. Submit the review request or WhatsApp Carlos directly. Carlos reviews the property details and contacts you to arrange the conversation.",
-  },
+    "q": "What happens after I request a private seller strategy review?",
+    "a": "Share your property address, contact details, timing and priorities through the seller form or WhatsApp. Carlos reviews the information and contacts you to arrange the conversation. The review covers comparable properties, pricing, preparation, relevant buyer reach and estimated proceeds. There is no fee for the review and no listing commitment."
+  }
 ];
 
-// FAQPage structured data — exposes every answer to search engines and AI
-// answer engines. Without this, only the open accordion item (index 0) is in
-// the prerendered HTML, so the other five answers are invisible to crawlers.
+// Visible answers and structured data share one source of truth.
 export const sellerFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -45,8 +41,6 @@ export const sellerFaqSchema = {
 };
 
 export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-
   return (
     <section id="faq" className="relative overflow-hidden border-t border-gold/20 bg-navy py-8 md:py-20 text-white">
       <JsonLd id="site-faq" data={sellerFaqSchema} />
@@ -55,41 +49,10 @@ export function FAQ() {
         <div className="mb-6 text-center md:mb-12">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Common Questions</p>
           <h2 className="mt-3 font-serif text-2xl leading-tight text-white md:mt-4 md:text-4xl lg:text-5xl">
-            Questions we get asked.
+            Selling a home in South Florida: your questions.
           </h2>
         </div>
-
-        <div className="divide-y divide-white/8">
-          {SELLER_FAQS.map((faq, i) => (
-            <div key={faq.q}>
-              <button
-                type="button"
-                onClick={() => setOpen(open === i ? null : i)}
-                className="flex w-full items-start justify-between gap-6 py-4 text-left md:py-6"
-                aria-expanded={open === i}
-              >
-                <span className="font-serif text-lg text-white leading-snug">{faq.q}</span>
-                <ChevronDown
-                  size={20}
-                  className={`mt-0.5 flex-shrink-0 text-gold transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}
-                />
-              </button>
-              <AnimatePresence initial={false}>
-                {open === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <p className="pb-5 font-sans text-[0.9rem] leading-relaxed text-white/75 md:pb-7">{faq.a}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
+        <FaqAccordion faqs={SELLER_FAQS} tone="dark" />
       </div>
     </section>
   );
