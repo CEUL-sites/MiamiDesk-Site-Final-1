@@ -210,7 +210,8 @@
       "/market-data",
       "/thanks/seller",
       "/thanks/buyer",
-      "/thanks/agent"
+      "/thanks/agent",
+      "/journal/weston-downsizing-equity-post-occupancy-homestead-portability"
     ]
   },
   "dependencies": {
