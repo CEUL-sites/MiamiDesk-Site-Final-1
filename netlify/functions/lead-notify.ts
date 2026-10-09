@@ -6,6 +6,7 @@ import { corsHeaders as buildCorsHeaders, isForbiddenOrigin, rateLimit } from ".
 import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 import { syncHubspotLead } from "./_shared/hubspotLead";
+import { connectLeadStorage } from "./_shared/leadStorage";
 
 // Synchronous backup notifier. The forms call this directly (keepalive) at the
 // same time they POST to Netlify Forms, so a lead is delivered even if Netlify
@@ -140,6 +141,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
   if (!lead.email.includes("@") && !lead.phone) {
     return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: "Missing email and phone" }) };
   }
+
+  connectLeadStorage(event);
 
   const scored = scoreLead(lead);
   const hubspotSync = syncHubspotLead({ ...lead, formRenderedAt: raw.formRenderedAt }, raw.fields || {});

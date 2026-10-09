@@ -7,6 +7,7 @@ import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 import { syncHubspotLead } from "./_shared/hubspotLead";
+import { connectLeadStorage } from "./_shared/leadStorage";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
@@ -46,6 +47,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       console.log("submission-created: rejected as spam", { honeypotFilled: honeypot !== "", elapsedMs });
       return { statusCode: 200, body: "OK" };
     }
+    connectLeadStorage(event);
 
     // ── Normalised fields (shared across all forms) ──────────────────────
     const name    = fields.name || fields.licenseeName || fields.agentName || "";

@@ -1,4 +1,5 @@
 import { getStore } from "@netlify/blobs";
+import { leadStoreName } from "./leadStorage";
 
 // ── Lead dead-letter store ──────────────────────────────────────────────
 // When every alert channel (Google Sheets + email + WhatsApp) fails for a
@@ -15,7 +16,7 @@ export async function storeDeadLetter(source: string, lead: Record<string, unkno
   try {
     const at = new Date().toISOString();
     const key = `${at}|${source}`;
-    await getStore(DEAD_LETTER_STORE).setJSON(key, { source, lead, at });
+    await getStore(leadStoreName(DEAD_LETTER_STORE)).setJSON(key, { source, lead, at });
   } catch (err) {
     console.error("storeDeadLetter failed:", err instanceof Error ? err.message : err);
   }

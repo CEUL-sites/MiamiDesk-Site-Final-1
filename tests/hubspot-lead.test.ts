@@ -1,6 +1,28 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { inquiryKey, inquiryNote, syncHubspotLead } from "../netlify/functions/_shared/hubspotLead";
+import { connectLeadStorage, leadStoreName } from "../netlify/functions/_shared/leadStorage";
+
+test("Lambda lead handlers initialize Blobs and preview storage is isolated", () => {
+  const before = process.env.NETLIFY_BLOBS_CONTEXT;
+  const namespace = process.env.LEAD_STORE_NAMESPACE;
+  try {
+    connectLeadStorage({ blobs: Buffer.from(JSON.stringify({ url: "https://blobs.example.test", token: "test-only" })).toString("base64"), headers: { "x-nf-site-id": "site-test", "x-nf-deploy-id": "deploy-test" } } as any);
+    assert.equal(JSON.parse(Buffer.from(process.env.NETLIFY_BLOBS_CONTEXT!, "base64").toString()).siteID, "site-test");
+    delete process.env.LEAD_STORE_NAMESPACE;
+    assert.equal(leadStoreName("hubspot-inquiries"), "hubspot-inquiries");
+    process.env.LEAD_STORE_NAMESPACE = "preview-169";
+    assert.equal(leadStoreName("hubspot-inquiries"), "hubspot-inquiries-preview-169");
+    assert.equal(leadStoreName("lead-dead-letter"), "lead-dead-letter-preview-169");
+    process.env.LEAD_STORE_NAMESPACE = "../production";
+    assert.throws(() => leadStoreName("hubspot-inquiries"));
+  } finally {
+    if (before === undefined) delete process.env.NETLIFY_BLOBS_CONTEXT;
+    else process.env.NETLIFY_BLOBS_CONTEXT = before;
+    if (namespace === undefined) delete process.env.LEAD_STORE_NAMESPACE;
+    else process.env.LEAD_STORE_NAMESPACE = namespace;
+  }
+});
 
 const lead = { email: "owner@example.test", name: "Owner Name", phone: "+19545550123", formName: "seller-intake", formRenderedAt: "10000" };
 function fixture(responses: { status: number; body: unknown }[]) {

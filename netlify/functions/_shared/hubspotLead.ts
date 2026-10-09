@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { getStore } from "@netlify/blobs";
 import { storeDeadLetter } from "./leadDeadLetter";
+import { leadStoreName } from "./leadStorage";
 
 type Fields = Record<string, string>;
 interface Lead { name?: string; email?: string; phone?: string; formName?: string; formRenderedAt?: string; sourcePage?: string; [key: string]: unknown }
@@ -45,7 +46,7 @@ export async function syncHubspotLead(lead: Lead, fields: Fields = {}, deps: Dep
   let contactId = "";
   let phase = "claim";
   try {
-    const store = deps.store ?? getStore({ name: "hubspot-inquiries", consistency: "strong" });
+    const store = deps.store ?? getStore({ name: leadStoreName("hubspot-inquiries"), consistency: "strong" });
     // Atomic claim prevents the two notifier paths from creating two notes.
     // A claimed but incomplete inquiry needs reconciliation, never blind replay.
     const claimed = await store.setJSON(key, { status: "pending", at: new Date().toISOString(), lead, fields }, { onlyIfNew: true });
