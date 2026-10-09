@@ -49,9 +49,9 @@ const sitewideSchema: JsonLdSchema[] = [
     "@id": `${SITE_URL}/#agent`,
     name: CONTACT.name,
     alternateName: ["Carlos Uzcategui Real Estate", "HomesProfessional.com"],
-    jobTitle: "Florida Licensed Realtor® · SL705771",
+    jobTitle: "Florida Licensed Realtorr � SL705771",
     description:
-      "Carlos Uzcategui is a Florida Licensed Realtor® (SL705771, licensed since 2001 · 25 years experience) with United Realty Group, specializing in South Florida luxury seller representation, complex post-closing leasebacks, and bilateral Spain/LATAM MLS distribution.",
+      "Carlos Uzcategui is a South Florida listing agent and Florida real estate sales associate (SL705771, licensed since 2001) with United Realty Group. He provides seller representation, pricing strategy, buyer-agent outreach and negotiation in English and Spanish. International services operate through applicable professional relationships and written agreements, subject to eligibility and brokerage approval.",
     url: SITE_URL,
     telephone: CONTACT.phoneUS,
     email: CONTACT.email,
@@ -61,17 +61,17 @@ const sitewideSchema: JsonLdSchema[] = [
     memberOf: [
       {
         "@type": "Organization",
-        name: "Miami and South Florida REALTORS®",
+        name: "Miami and South Florida REALTORSr",
         url: "https://www.miamirealtors.com",
       },
       {
         "@type": "Organization",
-        name: "National Association of REALTORS®",
+        name: "National Association of REALTORSr",
         url: "https://www.nar.realtor",
       },
       {
         "@type": "Organization",
-        name: "Florida REALTORS®",
+        name: "Florida REALTORSr",
         url: "https://www.floridarealtors.org",
       },
       {
@@ -124,7 +124,7 @@ const sitewideSchema: JsonLdSchema[] = [
     },
     // areaServed states where this agent serves, and search engines and AI
     // answer engines lift it verbatim. It must not exceed the licence this same
-    // node advertises (Florida, SL705771) — naming Spanish or Latin American
+    // node advertises (Florida, SL705771) - naming Spanish or Latin American
     // territory here made that claim in machine-readable form, with no room for
     // the qualifying language the visible copy carries everywhere else.
     // International origins belong in a free-text description, which can carry
@@ -189,7 +189,7 @@ const sitewideSchema: JsonLdSchema[] = [
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#weston-office`,
-    name: "Carlos Uzcategui, REALTOR® — United Realty Group Weston Office",
+    name: "Carlos Uzcategui, REALTORr - United Realty Group Weston Office",
     telephone: CONTACT.phoneUS,
     email: CONTACT.email,
     image: `${SITE_URL}${CONTACT.headshot}`,
@@ -218,20 +218,20 @@ const sitewideSchema: JsonLdSchema[] = [
     serviceType: "Real Estate Listing and Seller Representation",
     areaServed: "South Florida",
     url: `${SITE_URL}/sell`,
-    description: `Listing preparation, MLS activation, buyer-agent exposure through ${ASSOCIATION_STATS.associationName}, global portal syndication, and offer negotiation for South Florida sellers.`,
+    description: `Listing preparation, pricing strategy, relevant buyer-agent outreach, offer negotiation and closing coordination for South Florida sellers through United Realty Group. MLS visibility through ${ASSOCIATION_STATS.associationName} and eligible syndication are subject to property eligibility, applicable rules, brokerage approval and partner participation.`,
   },
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${SITE_URL}/global-desk#service`,
-    name: "Miami Global Listing Desk — International Property Positioning for South Florida",
+    name: "Miami Global Listing Desk - International Property Positioning for South Florida",
     provider: { "@id": `${SITE_URL}/#agent` },
     serviceType: "International Property Positioning and Professional Cooperation",
     areaServed: "South Florida",
     url: `${SITE_URL}/global-desk`,
     availableLanguage: ["English", "Spanish"],
     description:
-      "Miami Global Listing Desk works with agents, agencies, developers, and qualified local real estate professionals to prepare selected international properties for differentiated positioning and cooperation in the South Florida market, with relevance to U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. The service is operated by Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, through United Realty Group. The originating professional retains the client relationship and local representation. Every property and activity remains subject to eligibility, brokerage approval, platform participation, MLS, association, legal, and compliance requirements.",
+      "Miami Global Listing Desk works with agents, agencies, developers, and qualified local real estate professionals to prepare selected international properties for differentiated positioning and cooperation in the South Florida market, with relevance to U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. The service is operated by Carlos Uzcategui, REALTORr and Florida real estate licensee SL705771, through United Realty Group. The originating professional retains the client relationship and local representation. Every property and activity remains subject to eligibility, brokerage approval, platform participation, MLS, association, legal, and compliance requirements.",
   },
   {
     "@context": "https://schema.org",

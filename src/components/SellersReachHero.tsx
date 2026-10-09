@@ -15,7 +15,7 @@ export function SellersReachHero() {
               <span>Strengthen the Terms. Protect What You Keep.</span>
             </h1>
             <p className="seller-reach-subtitle">
-              Carlos structures the listing around the complete seller outcome: price, net proceeds, market exposure, timing, contract terms, risk, and the move that comes next.
+              Carlos Uzcategui is a South Florida listing agent with United Realty Group. We build your selling strategy around pricing, estimated net proceeds, buyer-agent outreach, contract terms and your next move.
             </p>
             <div className="seller-reach-actions" data-sticky-cta-guard>
               <a
@@ -34,7 +34,7 @@ export function SellersReachHero() {
                 onClick={() => trackContact("whatsapp", "sellers_hero")}
               >WhatsApp Carlos</a>
             </div>
-            <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
+            <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential � No listing commitment</p>
           </div>
           <figure className="seller-reach-image" data-sticky-cta-guard>
             <img
@@ -45,7 +45,7 @@ export function SellersReachHero() {
               fetchPriority="high"
               decoding="async"
             />
-            <figcaption>South Florida · Residential seller representation</figcaption>
+            <figcaption>South Florida � Residential seller representation</figcaption>
           </figure>
         </div>
       </section>
@@ -55,12 +55,12 @@ export function SellersReachHero() {
           <div><p>Buyer-agent reach</p><span>MLS visibility + targeted outreach</span></div>
           <div><p>United Realty Group</p><span>Florida brokerage network</span></div>
         </div>
-        <p className="seller-reach-compliance">Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.</p>
+        <p className="seller-reach-compliance">Florida Licensed Realtorr SL705771 � United Realty Group � Equal Housing Opportunity.</p>
       </section>
       <div className="seller-reach-review-details">
         <p>Your review covers <strong>pricing &amp; positioning</strong>, <strong>your likely buyer</strong>, and <strong>estimated net proceeds</strong>.</p>
         <a href={LEAD_MAGNETS.sellerNetSheet.url} download onClick={() => trackFunnelEvent("net_sheet_download", { source: "sellers_hero" })}>
-          <Download size={16} aria-hidden="true" /> Download the Seller’s Net Sheet 2026
+          <Download size={16} aria-hidden="true" /> Download the Seller's Net Sheet 2026
         </a>
       </div>
     </>

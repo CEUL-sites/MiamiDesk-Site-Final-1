@@ -3,11 +3,11 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- ── Core pages ─────────────────────────────────────────────── -->
+  <!-- �� Core pages ����������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/"/>
@@ -15,11 +15,11 @@
     <xhtml:link rel="alternate" hreflang="es"        href="https://homesprofessional.com/es"/>
   </url>
 
-  <!-- ── Seller funnel ──────────────────────────────────────────── -->
+  <!-- �� Seller funnel �������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/sell</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.97</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell"/>
@@ -28,7 +28,7 @@
 
   <url>
     <loc>https://homesprofessional.com/sell-weston</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-weston"/>
@@ -159,13 +159,13 @@
 
   <url>
     <loc>https://homesprofessional.com/home-value</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.96</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/home-value"/>
   </url>
 
-  <!-- ── Buyer funnel ───────────────────────────────────────────── -->
+  <!-- �� Buyer funnel ��������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/buy</loc>
@@ -183,7 +183,7 @@
     <priority>0.82</priority>
   </url>
 
-  <!-- ── Markets & intelligence ─────────────────────────────────── -->
+  <!-- �� Markets & intelligence ����������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/markets</loc>
@@ -199,7 +199,7 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- ── International ──────────────────────────────────────────── -->
+  <!-- �� International �������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/global-desk</loc>
@@ -259,7 +259,7 @@
     <priority>0.92</priority>
   </url>
 
-  <!-- ── Professionals ──────────────────────────────────────────── -->
+  <!-- �� Professionals �������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/agents</loc>
@@ -270,7 +270,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/agentes"/>
   </url>
 
-  <!-- ── Reviews ──────────────────────────────────────────────────── -->
+  <!-- �� Reviews ���������������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/reviews</loc>
@@ -286,7 +286,7 @@
     <priority>0.50</priority>
   </url>
 
-  <!-- ── About & contact ────────────────────────────────────────── -->
+  <!-- �� About & contact ������������������������������������������ -->
 
   <url>
     <loc>https://homesprofessional.com/contact</loc>
@@ -302,7 +302,7 @@
     <priority>0.78</priority>
   </url>
 
-  <!-- ── Journal index ──────────────────────────────────────────── -->
+  <!-- �� Journal index �������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/journal</loc>
@@ -311,7 +311,7 @@
     <priority>0.86</priority>
   </url>
 
-  <!-- ── Journal posts ──────────────────────────────────────────── -->
+  <!-- �� Journal posts �������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/journal/international-investor-south-florida-income-property-2026</loc>
@@ -635,7 +635,7 @@
     <priority>0.82</priority>
   </url>
 
-  <!-- ── Spanish language ───────────────────────────────────────── -->
+  <!-- �� Spanish language ����������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/es</loc>
@@ -709,7 +709,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-coral-gables"/>
   </url>
 
-  <!-- ── Market Data ──────────────────────────────────────────────── -->
+  <!-- �� Market Data ������������������������������������������������ -->
 
   <url>
     <loc>https://homesprofessional.com/market-data</loc>
@@ -718,7 +718,7 @@
     <priority>0.80</priority>
   </url>
 
-  <!-- ── Legal ──────────────────────────────────────────────────── -->
+  <!-- �� Legal ���������������������������������������������������� -->
 
   <url>
     <loc>https://homesprofessional.com/privacy</loc>

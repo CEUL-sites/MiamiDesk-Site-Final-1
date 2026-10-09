@@ -12,17 +12,17 @@ const HOW_IT_WORKS = [
   {
     icon: Target,
     title: "Submit Your Property",
-    body: "Share your address, property type, and timeline. Carlos reviews every submission personally — no automated reports, no scripts.",
+    body: "Share your address, property type, and timeline. Carlos reviews every submission personally - no automated reports, no scripts.",
   },
   {
     icon: TrendingUp,
     title: "MLS Comparable Analysis",
-    body: "Active listings, recent closings, pending sales, and absorption rate for your specific submarket and property type — pulled from the Miami and South Florida REALTORS® MLS.",
+    body: "Active listings, recent closings, pending sales, and absorption rate for your specific submarket and property type - pulled from the Miami and South Florida REALTORSr MLS.",
   },
   {
     icon: Clock,
     title: "Private Consultation",
-    body: "You receive a property-level positioning analysis and realistic price range — not a Zestimate. A real, market-specific review with no obligation to list.",
+    body: "You receive a property-level positioning analysis and realistic price range - not a Zestimate. A real, market-specific review with no obligation to list.",
   },
 ];
 
@@ -36,70 +36,60 @@ const NEIGHBORHOODS = [
 
 const WHAT_YOU_GET = [
   "Active and closed MLS comparables for your specific submarket",
-  "Absorption rate — how quickly similar properties are selling right now",
+  "Absorption rate - how quickly similar properties are selling right now",
   "Price-per-square-foot range adjusted for condition, floor, view, and lot",
   "Competitive positioning recommendation against current active inventory",
   "Days-on-market risk assessment at various price points",
-  "Private consultation — no obligation to list, no pressure",
+  "Private consultation - no obligation to list, no pressure",
+];
+
+const HOME_VALUE_FAQS = [
+  {
+    "q": "How much is my South Florida home worth?",
+    "a": "A comparative market analysis (CMA) reviews similar recently sold homes, active competition and available pending-sale information alongside your property's location, condition and features. Carlos uses that evidence to discuss a market value range and listing strategy. A CMA is an estimate, not an appraisal or a guarantee of sale price."
+  },
+  {
+    "q": "How does a professional CMA differ from an online home value estimate?",
+    "a": "An online estimate can be a starting point. A property-specific CMA adds a professional review of comparable sales, condition, improvements and current competition. The quality of either estimate depends on the available data and the property; neither guarantees a sale price."
+  },
+  {
+    "q": "Does requesting a home valuation mean I have to list with Carlos?",
+    "a": "No. Carlos provides the confidential review at no cost, with no obligation to list. Share your address, contact details and timing. Carlos reviews the information and contacts you to arrange the conversation."
+  },
+  {
+    "q": "Do you review homes in Broward and Palm Beach as well as Miami-Dade?",
+    "a": "Yes. Carlos provides South Florida seller representation through United Realty Group, including Weston, Fort Lauderdale, Miami, Coral Gables, Doral, Aventura and Boca Raton. The analysis uses comparables relevant to your property's location and type."
+  }
 ];
 
 export default function HomeValuePage() {
   return (
     <>
       <Helmet>
-        <title>What Is My South Florida Home Worth? Free Professional Valuation | HomesProfessional.com</title>
+        <title>South Florida Home Value & CMA | Carlos Uzcategui</title>
         <meta
           name="description"
-          content="Free professional home valuation from Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771 — a real MLS analysis, not an algorithm."
+          content="What is your South Florida home worth? Request an MLS-based comparative market analysis and pricing review from Carlos Uzcategui. No obligation to list."
         />
         <link rel="canonical" href="https://homesprofessional.com/home-value" />
-        <meta property="og:title" content="What Is My South Florida Home Worth? | Free Professional Valuation" />
-        <meta property="og:description" content="Free MLS-based home valuation from Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771. Not an algorithm — a real analysis for your property." />
+        <meta property="og:title" content="South Florida Home Value & CMA | Carlos Uzcategui" />
+        <meta property="og:description" content="What is your South Florida home worth? Request an MLS-based comparative market analysis and pricing review from Carlos Uzcategui. No obligation to list." />
         <meta property="og:url" content="https://homesprofessional.com/home-value" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="What Is My South Florida Home Worth? Free Professional Valuation" />
-        <meta name="twitter:description" content="Free MLS-based home valuation from Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771. 25 years of market experience. No obligation." />
+        <meta name="twitter:title" content="South Florida Home Value & CMA | Carlos Uzcategui" />
+        <meta name="twitter:description" content="What is your South Florida home worth? Request an MLS-based comparative market analysis and pricing review from Carlos Uzcategui. No obligation to list." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="home-value-faq" data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "How much is my South Florida home worth?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "South Florida home values vary significantly by neighborhood, property type, condition, and current absorption rates. A licensed real estate professional provides a Comparative Market Analysis (CMA) using live MLS data to give you an accurate, property-specific valuation — not an algorithm estimate.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Is an online home value estimate accurate in Miami?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Automated valuation tools (Zestimate, Redfin estimate) have a median error rate of 7–14% in South Florida's luxury market, which can represent $200,000–$500,000 on a $2M property. A professional CMA from a local REALTOR® accounts for submarket nuance, condition, upgrades, floor premiums, and current absorption rates.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "What is a Comparative Market Analysis (CMA) in real estate?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "A CMA is a professional evaluation by a licensed real estate professional comparing your property to recently sold, active, and pending listings of similar properties nearby. It accounts for location, size, condition, upgrades, and current demand to determine a realistic market value range — far more accurate than public records-based AVMs.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Is the home valuation request really free?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Yes. Carlos Uzcategui provides a confidential market analysis at no cost, with no obligation to list. Submit your property address and details — Carlos reviews every request personally and responds directly.",
-              },
-            },
-          ],
+          mainEntity: HOME_VALUE_FAQS.map(({ q, a }) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
         }} />
       <JsonLd id="home-value-service" data={{
           "@context": "https://schema.org",
@@ -107,7 +97,7 @@ export default function HomeValuePage() {
           name: "Free South Florida Home Valuation",
           provider: { "@id": "https://homesprofessional.com/#agent" },
           serviceType: "Comparative Market Analysis",
-          description: "Free, professional home valuation using Miami and South Florida REALTORS® MLS data. No obligation to list.",
+          description: "Free, professional home valuation using Miami and South Florida REALTORSr MLS data. No obligation to list.",
           areaServed: "South Florida",
           url: "https://homesprofessional.com/home-value",
           offers: {
@@ -115,7 +105,7 @@ export default function HomeValuePage() {
             price: "0",
             priceCurrency: "USD",
             availability: "https://schema.org/InStock",
-            description: "Free comparative market analysis — no listing commitment required.",
+            description: "Free comparative market analysis - no listing commitment required.",
           },
         }} />
 
@@ -129,7 +119,7 @@ export default function HomeValuePage() {
 
           <div className="relative mx-auto max-w-4xl">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
-              Free · Confidential · Professional Real Estate Advisory
+              Free � Confidential � Professional Real Estate Advisory
             </p>
             <h1
               className="mt-6 font-serif leading-tight text-white tracking-tight"
@@ -139,7 +129,7 @@ export default function HomeValuePage() {
               <em className="italic text-gold font-normal">Property Worth Today?</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
-              Receive a private MLS-based valuation, local absorption analysis, and preliminary net-proceeds review prepared personally by Carlos—not an automated estimate.
+              Receive a private MLS-based valuation, local absorption analysis, and preliminary net-proceeds review prepared personally by Carlos-not an automated estimate.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
@@ -152,11 +142,11 @@ export default function HomeValuePage() {
                 href="#net-calculator"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:border-gold/60 hover:text-gold"
               >
-                Calculate Net Proceeds ↓
+                Calculate Net Proceeds 
               </a>
             </div>
             <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
-              {CONTACT.licenseDisplay} · United Realty Group · 25 Years South Florida Experience
+              {CONTACT.licenseDisplay} � United Realty Group � 25 Years South Florida Experience
             </p>
           </div>
         </section>
@@ -194,7 +184,7 @@ export default function HomeValuePage() {
         <section className="border-t border-b border-bone bg-ivory py-10">
           <div className="mx-auto max-w-5xl px-6">
             <p className="mb-5 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
-              Service areas — Miami-Dade · Broward · Palm Beach
+              Service areas - Miami-Dade � Broward � Palm Beach
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {NEIGHBORHOODS.map((n) => (
@@ -209,7 +199,7 @@ export default function HomeValuePage() {
           </div>
         </section>
 
-        {/* Why not Zestimate — two-col */}
+        {/* Why not Zestimate - two-col */}
         <section className="bg-white py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
@@ -222,21 +212,15 @@ export default function HomeValuePage() {
                 </h2>
                 <div className="mt-8 space-y-5 font-sans text-sm leading-relaxed text-navy/65">
                   <p>
-                    Automated valuation models are trained on broad datasets and cannot account for
-                    South Florida's hyper-local dynamics: the premium for a Coral Gables street over
-                    the next block, the Brickell condo floor premium, or a Weston lot backing to a
-                    golf course in a specific HOA community.
+                    Online estimates can provide a starting point. A property-specific review considers comparable sales, current competition, condition, improvements and features such as a condo's floor and view or a home's lot and community.
                   </p>
                   <p>
-                    In the Miami-Dade luxury segment, the median AVM error rate can represent
-                    $200,000–$500,000 in either direction on a $2M–$4M property. Pricing too low
-                    means leaving equity on the table. Pricing too high means days-on-market
-                    accumulation — and the stigma that follows.
+                    We explain the comparable evidence and the limits of the analysis so you can discuss an asking-price range and preparation priorities. Estimates depend on available data and are not appraisals or guarantees of sale price.
                   </p>
                   <p>
                     A licensed real estate professional who knows the sub-market pulls actual MLS comparables,
                     adjusts for condition and upgrades, and gives you a realistic range with a
-                    positioning strategy — not just a number.
+                    positioning strategy - not just a number.
                   </p>
                 </div>
               </div>
@@ -254,7 +238,7 @@ export default function HomeValuePage() {
                   ))}
                 </ul>
                 <p className="mt-6 border-t border-bone pt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
-                  No listing commitment · No automated reports · No obligation
+                  No listing commitment � No automated reports � No obligation
                 </p>
               </div>
             </div>
@@ -265,15 +249,13 @@ export default function HomeValuePage() {
         <section className="border-t border-hairline bg-white py-12">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <p className="font-sans text-base leading-relaxed text-navy/70">
-              A valuation tells you what your home is worth. Selling at that number is a
-              distribution question — your listing in front of the 93,000 member agents who
-              search the Miami MLS for their buyers every day, in South Florida and abroad.
+              A comparative market analysis informs your pricing decision. We then connect that price position with property presentation, relevant buyer-agent outreach and a negotiation plan. MLS visibility and eligible syndication depend on the property, applicable rules and participating channels.
             </p>
             <a
               href="/sell"
               className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 transition-colors hover:text-navy"
             >
-              See how the listing system works →
+              See how the listing system works 
             </a>
           </div>
         </section>
@@ -297,7 +279,7 @@ export default function HomeValuePage() {
             <SellerIntakeForm sourcePage="home-value" />
             <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
-              Confidential · No commitment required · Equal Housing Opportunity
+              Confidential � No commitment required � Equal Housing Opportunity
             </div>
           </div>
         </section>
@@ -312,24 +294,7 @@ export default function HomeValuePage() {
               Frequently asked about home valuations
             </h2>
             <div className="mt-10 space-y-6">
-              {[
-                {
-                  q: "How accurate is a professional CMA compared to Zillow?",
-                  a: "A CMA prepared by a local REALTOR® accounts for submarket nuance, recent condition-adjusted comparables, and current absorption data that automated tools cannot access. In South Florida's luxury segment, the practical gap is often six figures.",
-                },
-                {
-                  q: "Does requesting a valuation mean I have to list with Carlos?",
-                  a: "No. The valuation is free and carries no obligation. Many sellers use it to understand their position before making a decision about timing. Carlos reviews every submission personally — it is a professional consultation, not a sales call.",
-                },
-                {
-                  q: "How long does the valuation take?",
-                  a: "Carlos responds personally to every request. For properties in active submarkets with good comparable data, the analysis can be prepared quickly. For unique properties in thin markets, slightly more time allows for a more rigorous analysis.",
-                },
-                {
-                  q: "Do you serve areas outside Miami-Dade?",
-                  a: "Yes. Carlos serves the full Miami and South Florida REALTORS® MLS footprint — Miami-Dade, Broward, and Palm Beach counties — through United Realty Group.",
-                },
-              ].map(({ q, a }) => (
+              {HOME_VALUE_FAQS.map(({ q, a }) => (
                 <div key={q} className="border-t border-bone pt-6">
                   <h3 className="font-serif text-lg text-navy-deep">{q}</h3>
                   <p className="mt-3 font-sans text-sm leading-relaxed text-navy/65">{a}</p>
@@ -347,12 +312,12 @@ export default function HomeValuePage() {
               <a href="/journal/what-is-my-home-worth-south-florida-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the valuation guide →</p>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the valuation guide </p>
               </a>
               <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide →</p>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home - Timing, Pricing, and the Cost of Waiting</h3>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide </p>
               </a>
             </div>
           </div>

@@ -24,7 +24,7 @@ import { CONTACT, SOURCES, MESSAGING } from "../constants";
 const WHO_THIS_IS_FOR = [
   {
     title: "South Florida Homeowners",
-    body: "Selling a home in Miami-Dade, Broward, or Palm Beach — where MLS strategy decides the outcome.",
+    body: "Selling a home in Miami-Dade, Broward, or Palm Beach - where MLS strategy decides the outcome.",
   },
   {
     title: "International Property Owners in Florida",
@@ -44,20 +44,20 @@ export default function SellSouthFloridaPage() {
   return (
     <>
       <Helmet>
-        <title>Sell With South Florida MLS Exposure</title>
-        <meta name="description" content="South Florida seller advisory — professional MLS positioning, buyer-agent activation, and distribution. Carlos Uzcategui, FL SL705771, United Realty Group." />
+        <title>South Florida Seller Representation | Carlos Uzcategui</title>
+        <meta name="description" content="Selling a home in South Florida? Review pricing, presentation, buyer-agent outreach and estimated proceeds with Carlos Uzcategui. No listing commitment." />
         <link rel="canonical" href="https://homesprofessional.com/sell" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell" />
-        <meta property="og:title" content="Sell With South Florida MLS Exposure | Carlos Uzcategui, United Realty Group" />
-        <meta property="og:description" content="Professional MLS positioning, buyer-agent activation, and distribution through the network that moves serious South Florida transactions. Free, confidential seller strategy review." />
+        <meta property="og:title" content="South Florida Seller Representation | Carlos Uzcategui" />
+        <meta property="og:description" content="Selling a home in South Florida? Review pricing, presentation, buyer-agent outreach and estimated proceeds with Carlos Uzcategui. No listing commitment." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sell With South Florida MLS Exposure | Carlos Uzcategui" />
-        <meta name="twitter:description" content="Professional MLS positioning and buyer-agent distribution for South Florida sellers. Free, confidential strategy review." />
+        <meta name="twitter:title" content="South Florida Seller Representation | Carlos Uzcategui" />
+        <meta name="twitter:description" content="Selling a home in South Florida? Review pricing, presentation, buyer-agent outreach and estimated proceeds with Carlos Uzcategui. No listing commitment." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="sell-south-florida-breadcrumb" data={{
@@ -74,7 +74,7 @@ export default function SellSouthFloridaPage() {
           "name": "How to Sell Your South Florida Property",
           "description": "A 5-step process to position, prepare, launch, activate, and negotiate your South Florida property with professional MLS visibility and eligible distribution. Timing varies by property and market.",
           "tool": [
-            { "@type": "HowToTool", "name": "Miami and South Florida REALTORS® MLS" },
+            { "@type": "HowToTool", "name": "Miami and South Florida REALTORSr MLS" },
             { "@type": "HowToTool", "name": "Eligible approved syndication channels" },
             { "@type": "HowToTool", "name": "United Realty Group Agent Network" }
           ],
@@ -89,7 +89,7 @@ export default function SellSouthFloridaPage() {
       <JsonLd id="sell-south-florida-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Seller representation and MLS listing — South Florida",
+          "name": "Seller representation and MLS listing - South Florida",
           "serviceType": "Real estate listing and seller representation",
           "areaServed": { "@type": "AdministrativeArea", "name": "South Florida" },
           "provider": {
@@ -105,7 +105,7 @@ export default function SellSouthFloridaPage() {
         <ProofStrip />
         <InstitutionalReach />
 
-        {/* Miami Realtors Association — Why You Need a Miami Realtor */}
+        {/* Miami Realtors Association - Why You Need a Miami Realtor */}
         <section className="bg-white py-10 md:py-28">
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center mb-6 md:mb-10">
@@ -114,7 +114,7 @@ export default function SellSouthFloridaPage() {
                 The case for professional representation.
               </h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/60 md:mt-5">
-                How a REALTOR® helps you navigate the decisions in a property transaction.
+                How a REALTORr helps you navigate the decisions in a property transaction.
               </p>
             </div>
             {/* Responsive 16:9 video embed */}
@@ -124,7 +124,7 @@ export default function SellSouthFloridaPage() {
                 width="560"
                 height="315"
                 src="https://www.youtube-nocookie.com/embed/U2BlBCFaiCo?si=jpLfmggFUuTw-qIG"
-                title="Why Work With a REALTOR® — Professional Representation"
+                title="Why Work With a REALTORr - Professional Representation"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -132,7 +132,7 @@ export default function SellSouthFloridaPage() {
               />
             </div>
             <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70 md:mt-4">
-              Professional representation video · <a href="https://www.youtube.com/watch?v=U2BlBCFaiCo" target="_blank" rel="noopener noreferrer" className="underline">View the original on YouTube</a>
+              Professional representation video � <a href="https://www.youtube.com/watch?v=U2BlBCFaiCo" target="_blank" rel="noopener noreferrer" className="underline">View the original on YouTube</a>
             </p>
           </div>
         </section>
@@ -184,7 +184,7 @@ export default function SellSouthFloridaPage() {
                   href={n.href}
                   className="border border-hairline px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/60 hover:border-gold/50 hover:text-gold transition-colors md:px-5 md:py-2.5"
                 >
-                  {n.label} →
+                  {n.label} 
                 </a>
               ))}
             </div>
@@ -277,33 +277,33 @@ export default function SellSouthFloridaPage() {
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
               <a href="/journal/seller-closing-costs-south-florida-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the cost guide →</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">What Does It Cost to Sell a Home in South Florida - A Guide to Net Proceeds</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the cost guide </p>
               </a>
               <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">HOA Financials and Your Home's Sale Price — What South Florida Sellers Need to Know</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the HOA guide →</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">HOA Financials and Your Home's Sale Price - What South Florida Sellers Need to Know</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the HOA guide </p>
               </a>
               <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Market Analysis</p>
-                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the timing guide →</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">When to List Your South Florida Home - Timing, Pricing, and the Cost of Waiting</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the timing guide </p>
               </a>
               <a href="/journal/florida-homestead-portability-benefits-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">Florida Homestead and Save Our Homes Portability — What Owners Should Understand Before They Sell</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the homestead guide →</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">Florida Homestead and Save Our Homes Portability - What Owners Should Understand Before They Sell</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the homestead guide </p>
               </a>
               <a href="/journal/home-sale-capital-gains-exclusion-500k-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The $250,000 / $500,000 Home Sale Capital Gains Exclusion — How It Works for Primary Residences</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the tax-exclusion guide →</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The $250,000 / $500,000 Home Sale Capital Gains Exclusion - How It Works for Primary Residences</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the tax-exclusion guide </p>
               </a>
               <a href="/journal/1031-exchange-south-florida-investment-property-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The 1031 Exchange — Deferring Capital Gains When You Sell South Florida Investment Property</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the 1031 guide →</p>
+                <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The 1031 Exchange - Deferring Capital Gains When You Sell South Florida Investment Property</h3>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the 1031 guide </p>
               </a>
             </div>
           </div>
@@ -322,7 +322,7 @@ export default function SellSouthFloridaPage() {
             <SellerIntakeForm sourcePage="sell-south-florida" />
             <div className="mt-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 md:mt-6">
               <BadgeCheck size={14} className="text-gold" />
-              Confidential · Licensed Professionals · Equal Housing Opportunity
+              Confidential � Licensed Professionals � Equal Housing Opportunity
             </div>
           </div>
         </section>

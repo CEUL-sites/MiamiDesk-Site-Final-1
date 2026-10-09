@@ -13,7 +13,7 @@ import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
 import { SellerAuthorityStrip } from "../components/SellerAuthorityStrip";
 import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
 
-// Below-the-fold sections — split out of the initial bundle. With
+// Below-the-fold sections - split out of the initial bundle. With
 // hydrateRoot + Suspense, React keeps the prerendered HTML visible and
 // hydrates these progressively once their chunks arrive.
 const AboutContact = lazy(() => import("../components/AboutContact").then((m) => ({ default: m.AboutContact })));
@@ -24,15 +24,15 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>South Florida Listing Strategist | Carlos Uzcategui</title>
-        <meta name="description" content="Request a private South Florida property strategy from Carlos Uzcategui: professional representation, strategic positioning, buyer-agent activation, and the 93,000-member association ecosystem." />
+        <title>South Florida Listing Agent | Carlos Uzcategui</title>
+        <meta name="description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Pricing, buyer-agent outreach and negotiation. Request a private seller strategy review." />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="South Florida Listing Strategist | Carlos Uzcategui" />
-        <meta name="twitter:description" content="South Florida seller representation combining 25 years of Florida experience, buyer-agent activation, strategic negotiation, and the 93,000-member association ecosystem." />
+        <meta name="twitter:title" content="South Florida Listing Agent | Carlos Uzcategui" />
+        <meta name="twitter:description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Pricing, buyer-agent outreach and negotiation. Request a private seller strategy review." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <link rel="canonical" href="https://homesprofessional.com/" />
-        <meta property="og:title" content="South Florida Listing Strategist | Carlos Uzcategui" />
-        <meta property="og:description" content="South Florida seller representation combining 25 years of Florida experience, buyer-agent activation, strategic negotiation, and the 93,000-member association ecosystem." />
+        <meta property="og:title" content="South Florida Listing Agent | Carlos Uzcategui" />
+        <meta property="og:description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Pricing, buyer-agent outreach and negotiation. Request a private seller strategy review." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
