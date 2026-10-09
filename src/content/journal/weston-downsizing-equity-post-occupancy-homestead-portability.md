@@ -16,7 +16,7 @@ funnel_stage: "consideration"
 
 A family bought its Weston home for $500,000 ten years ago. Today, imagine that home selling for $1 million. The bedrooms, garden and gathering spaces have served their purpose, but the family now wants less upkeep, lower monthly expenses and more flexibility.
 
-Could they use $500,000 of the available sale proceeds to buy a townhome outright in Broward County-and carry an eligible portion of their accumulated property-tax assessment benefit into that new home?
+Could they use $500,000 of the available sale proceeds to buy a townhome outright in Broward County—and carry an eligible portion of their accumulated property-tax assessment benefit into that new home?
 
 With sufficient net proceeds and the right transaction plan, that move can be possible. A negotiated post-closing occupancy agreement can also give them time to complete the purchase and move after their sale closes. The opportunity is to convert accumulated home equity into a home and budget that better suit the next chapter.
 
@@ -50,7 +50,7 @@ Buyer consent is essential. Financing, insurance and association requirements mu
 
 In his December 18, 2023 review, Weston client **Diego Tolotto** describes Carlos negotiating a seven-month post-occupancy arrangement as part of his family's sale and relocation. He specifically credits Carlos with:
 
-> "securing a beneficial 7-month post-occupancy that eased our family's relocation, at a low rental per month."
+> “securing a beneficial 7-month post-occupancy that eased our family's relocation, at a low rental per month.”
 
 The review illustrates why possession timing belongs in the negotiation. Time to move can have considerable practical value for a household. This is a client-reported experience, not a promise that another buyer will accept the same terms. It does not establish Diego's tax savings, sale price or replacement purchase. [3]
 
@@ -82,17 +82,17 @@ The increase from a $500,000 purchase to a $1 million sale is **$500,000 of gros
 
 To make the cash purchase concrete, assume the family still owes **$300,000** on its existing mortgage. This balance is an illustration, not a figure implied by the original purchase price.
 
-- **Original purchase price in 2016-historical reference:** $500,000.
+- **Original purchase price in 2016—historical reference:** $500,000.
 - **Sale price:** $1,000,000.
 - **Current equity before selling costs: $1 million less $300,000 debt:** **$700,000**.
-- **Mortgage payoff:** -$300,000.
-- **Assumed total negotiated brokerage commission: 5% of sale price:** -$50,000.
-- **Other seller closing costs allowance: 1% of sale price:** -$10,000.
+- **Mortgage payoff:** −$300,000.
+- **Assumed total negotiated brokerage commission: 5% of sale price:** −$50,000.
+- **Other seller closing costs allowance: 1% of sale price:** −$10,000.
 - **Net sale proceeds:** **$640,000**.
-- **Townhome purchased with cash:** -$500,000.
-- **Townhome purchase closing costs allowance: 3% of purchase price:** -$15,000.
+- **Townhome purchased with cash:** −$500,000.
+- **Townhome purchase closing costs allowance: 3% of purchase price:** −$15,000.
 - **Capital remaining before moving and post-occupancy costs:** **$125,000**.
-- **Moving and post-occupancy allowance:** -$10,000.
+- **Moving and post-occupancy allowance:** −$10,000.
 - **Remaining capital:** **$115,000**.
 
 **The family allocates $500,000 to a mortgage-free next home and retains $115,000 under these assumptions.** They do not have to spend the entire sale price on their next property.
@@ -116,7 +116,7 @@ Save Our Homes limits annual assessment increases; it does not freeze the assess
 - **Accumulated assessment difference:** **$400,000**.
 - **Difference as a share of former just value:** **40%**.
 - **New townhome's assumed just value:** $500,000.
-- **Proportional portability benefit: 40% x $500,000:** **$200,000**.
+- **Proportional portability benefit: 40% × $500,000:** **$200,000**.
 - **New assessed value before exemptions:** **$300,000**.
 
 **The family moves into a $500,000 townhome with an illustrative assessed value of $300,000 before exemptions.** That is the practical portability advantage: a proportional share of the old home's accumulated assessment protection follows them into the smaller home. The transferred reduction is $200,000, rather than the full $400,000 difference. Its qualifying homestead exemptions then reduce the applicable taxable values further. [6]
@@ -131,15 +131,15 @@ These calculations use 2026 exemption amounts to illustrate a stabilized budget 
 
 ### Then compare the full monthly budget
 
-- **Mortgage principal and interest:** $2,100 in the Weston home  $0 in the Broward townhome.
-- **Property taxes and assumed assessments:** $886 in the Weston home  $436 in the Broward townhome.
-- **Insurance:** $600 in the Weston home  $250 in the Broward townhome.
-- **Association dues:** $150 in the Weston home  $550 in the Broward townhome.
-- **Maintenance reserve, outside association coverage:** $550 in the Weston home  $150 in the Broward townhome.
-- **Utilities:** $400 in the Weston home  $250 in the Broward townhome.
-- ****Total monthly outlay**:** **$4,686** in the Weston home  **$1,636** in the Broward townhome.
+- **Mortgage principal and interest:** $2,100 in the Weston home → $0 in the Broward townhome.
+- **Property taxes and assumed assessments:** $886 in the Weston home → $436 in the Broward townhome.
+- **Insurance:** $600 in the Weston home → $250 in the Broward townhome.
+- **Association dues:** $150 in the Weston home → $550 in the Broward townhome.
+- **Maintenance reserve, outside association coverage:** $550 in the Weston home → $150 in the Broward townhome.
+- **Utilities:** $400 in the Weston home → $250 in the Broward townhome.
+- **Total monthly outlay:** **$4,686** in the Weston home → **$1,636** in the Broward townhome.
 
-**Modeled savings: $3,050 per month, or $36,600 per year-approximately 65%.**
+**Modeled savings: $3,050 per month, or $36,600 per year—approximately 65%.**
 
 The largest single change is the **$2,100 monthly mortgage payment disappearing**. The sale pays off the former loan, and $500,000 of the released proceeds purchases the townhome outright. The household has no new mortgage payment.
 
@@ -161,7 +161,7 @@ Eligible taxpayers can generally exclude up to $250,000 of gain, or up to $500,0
 
 For this hypothetical sale, begin with the **$500,000 original purchase price**. For simplicity, assume the adjusted tax basis is also $500,000, with no additional basis adjustments, and that all $60,000 of the modeled selling expenses qualify to reduce the amount realized. The gain would be:
 
-**$1,000,000 - $60,000 - $500,000 = $440,000.**
+**$1,000,000 − $60,000 − $500,000 = $440,000.**
 
 A qualifying married couple filing jointly could potentially exclude that entire $440,000 gain. A taxpayer eligible only for the $250,000 limit could have $190,000 remaining subject to tax. Owning the home for ten years does not by itself establish every eligibility requirement. The mortgage payoff does not reduce the capital gain. [8][9]
 
@@ -181,13 +181,13 @@ Your next home should support the life you want to build. Our role is to connect
 
 Carlos will review your property and priorities with you, develop a preliminary net-proceeds and replacement-cost comparison, and identify the possession terms and specialist input needed. That conversation gives you a basis for deciding whether to move, when to list and what to target next.
 
-[Request your seller strategy review](/sell-weston) � [WhatsApp Carlos: +1 954-865-6622](https://wa.me/19548656622)  
+[Request your seller strategy review](/sell-weston) · [WhatsApp Carlos: +1 954-865-6622](https://wa.me/19548656622)  
 Email: [contact@carlosre.com](mailto:contact@carlosre.com)  
-United Realty Group � 15951 SW 41 St #700, Weston, FL 33331
+United Realty Group · 15951 SW 41 St #700, Weston, FL 33331
 
 *Educational planning example. Costs and tax rules checked October 8, 2026; use the applicable year's rules for an actual move. Tax eligibility is determined by the appropriate authorities. Obtain individualized tax, lending, insurance and legal advice. Outcomes and negotiated terms vary.*
 
-Florida Licensed Realtorr SL705771 � United Realty Group � Equal Housing Opportunity.
+Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
 
 ## Sources
 
@@ -200,5 +200,3 @@ Florida Licensed Realtorr SL705771 � United Realty Group � Equal Housing Opp
 7. [Broward County Property Appraiser: homestead eligibility, applications and filing deadlines](https://bcpa.net/homestead.asp).
 8. [IRS: Topic 701, Sale of Your Home](https://www.irs.gov/taxtopics/tc701).
 9. [IRS: Publication 523, Selling Your Home](https://www.irs.gov/publications/p523).
-
-
