@@ -97,6 +97,7 @@ function EsReferralForm() {
           ...form,
           sourcePage: "referral-intake-es",
           ...getAttribution(),
+          language: "es",
         }),
       });
       if (!res.ok) throw new Error("submission_failed");

@@ -182,6 +182,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
           source: "net-proceeds-calculator",
           sourcePage,
           ...getAttribution(),
+          language: lang,
         }),
       });
       if (!res.ok) throw new Error(String(res.status));

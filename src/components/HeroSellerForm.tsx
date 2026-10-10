@@ -166,6 +166,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           ...form,
           sourcePage: `hero-${lang}`,
           ...getAttribution(),
+          language: lang,
         }),
       });
       if (!res.ok) throw new Error(String(res.status));

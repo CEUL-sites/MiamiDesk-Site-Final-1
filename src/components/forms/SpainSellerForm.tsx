@@ -166,9 +166,9 @@ export function SpainSellerForm({
           "bot-field": "",
           formRenderedAt: String(renderedAt.current),
           ...form,
-          language: lang,
           sourcePage,
           ...getAttribution(),
+          language: lang,
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
