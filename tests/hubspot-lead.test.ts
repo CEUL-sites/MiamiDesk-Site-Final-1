@@ -2,6 +2,36 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { inquiryKey, inquiryNote, syncHubspotLead } from "../netlify/functions/_shared/hubspotLead";
 import { connectLeadStorage, leadStoreName } from "../netlify/functions/_shared/leadStorage";
+import { getStore, setEnvironmentContext } from "@netlify/blobs";
+import { readFileSync } from "node:fs";
+
+test("SDK claim transport sends the atomic header and refuses a repeated claim", async () => {
+  const before = process.env.NETLIFY_BLOBS_CONTEXT;
+  const requests: RequestInit[] = [];
+  try {
+    setEnvironmentContext({ siteID: "site-test", token: "test-only", edgeURL: "https://blobs.example.test" });
+    const store = getStore({ name: "test-claims", fetch: (async (_url: unknown, options: RequestInit) => {
+      requests.push(options);
+      return new Response("", { status: requests.length === 1 ? 200 : 412, headers: { etag: '"stored"' } });
+    }) as typeof fetch });
+    assert.equal((await store.set("inquiry", JSON.stringify({ status: "pending" }), { onlyIfNew: true })).modified, true);
+    assert.equal((await store.set("inquiry", JSON.stringify({ status: "pending" }), { onlyIfNew: true })).modified, false);
+    assert.equal(requests.length, 2);
+    for (const request of requests) assert.equal(new Headers(request.headers).get("if-none-match"), "*");
+  } finally {
+    if (before === undefined) delete process.env.NETLIFY_BLOBS_CONTEXT;
+    else process.env.NETLIFY_BLOBS_CONTEXT = before;
+  }
+});
+
+test("every registered lead schema preserves form identity and current page context", () => {
+  const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  const forms = [...html.matchAll(/<form\b[^>]*name="([^"]+)"[^>]*>([\s\S]*?)<\/form>/g)];
+  assert.ok(forms.length >= 10);
+  for (const [, name, fields] of forms) {
+    for (const key of ["formRenderedAt", "pagePath", "language"]) assert.ok(fields.includes(`name="${key}"`), `${name} drops ${key}`);
+  }
+});
 
 test("Lambda lead handlers initialize Blobs and preview storage is isolated", () => {
   const before = process.env.NETLIFY_BLOBS_CONTEXT;
@@ -33,10 +63,10 @@ function fixture(responses: { status: number; body: unknown }[]) {
     records, calls, recovery,
     deps: {
       enabled: true, token: "test-secret", ownerId: "123",
-      store: { setJSON: async (key: string, value: unknown, options?: { onlyIfNew?: boolean }) => {
+      store: { set: async (key: string, value: string, options?: { onlyIfNew?: boolean }) => {
         if (options?.onlyIfNew && records.has(key)) return { modified: false };
-        records.set(key, value); return { modified: true };
-      } } as any,
+        records.set(key, JSON.parse(value)); return { modified: true, etag: '"test-etag"' };
+      }, setJSON: async (key: string, value: unknown) => { records.set(key, value); return { modified: true, etag: '"test-etag"' }; } } as any,
       fetch: (async (url: string, options: RequestInit) => {
         calls.push({ url, options });
         const r = responses.shift(); if (!r) throw new Error("unexpected API request");
@@ -80,6 +110,19 @@ test("CRM failure is recoverable and does not throw or blindly repeat a note", a
   assert.equal(await syncHubspotLead(lead, {}, f.deps), "needs review");
   assert.equal(f.recovery.length, 1);
   assert.equal(await syncHubspotLead(lead, {}, f.deps), "already captured");
+});
+test("an unconfirmed storage write never permits a CRM write", async () => {
+  const f = fixture([]);
+  f.deps.store.set = async () => ({ modified: true, etag: "" });
+  assert.equal(await syncHubspotLead(lead, {}, f.deps), "needs review");
+  assert.equal(f.calls.length, 0);
+  assert.equal(f.recovery.length, 1);
+});
+test("simultaneous primary and backup claims create one contact and note", async () => {
+  const f = fixture([{ status: 404, body: {} }, { status: 201, body: { id: "42" } }, { status: 201, body: { id: "88" } }]);
+  const outcomes = await Promise.all([syncHubspotLead(lead, {}, f.deps), syncHubspotLead(lead, {}, f.deps)]);
+  assert.deepEqual(outcomes.sort(), ["already captured", "ok"]);
+  assert.equal(f.calls.length, 3);
 });
 test("disabled integration makes no API writes; missing credential preserves inquiry", async () => {
   const f = fixture([]);

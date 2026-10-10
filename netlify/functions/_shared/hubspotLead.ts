@@ -52,8 +52,13 @@ export async function syncHubspotLead(lead: Lead, fields: Fields = {}, deps: Dep
     const store = deps.store ?? getStore(leadStoreName("hubspot-inquiries"));
     // Atomic claim prevents the two notifier paths from creating two notes.
     // A claimed but incomplete inquiry needs reconciliation, never blind replay.
-    const claimed = await store.setJSON(key, { status: "pending", at: new Date().toISOString(), lead, fields }, { onlyIfNew: true });
+    // setJSON in the frozen 10.7.8 SDK drops conditional headers (fixed in
+    // 10.7.12). set sends them correctly without a dependency-wide upgrade.
+    const claimed = await store.set(key, JSON.stringify({ status: "pending", at: new Date().toISOString(), lead, fields }), { onlyIfNew: true });
     if (!claimed.modified) return "already captured";
+    // Older SDKs can report modified=true for failed conditional writes.
+    // A real success carries an ETag; fail closed before making CRM writes.
+    if (!claimed.etag) throw new Error("storage claim was not confirmed");
     const request = async (path: string, method = "GET", body?: unknown) => {
       const response = await (deps.fetch ?? fetch)(API + path, {
         method, headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
