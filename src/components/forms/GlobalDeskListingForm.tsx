@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { CheckCircle2, Loader2, Send, Upload } from "lucide-react";
 import { pushEvent, trackLead } from "../../lib/analytics";
 import { notifyLeadDirect } from "../../lib/leadNotify";
+import { getAttribution } from "../../lib/attribution";
 
 type Lang = "es" | "en";
 
@@ -278,6 +279,8 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
     fd.append("consent", consented ? "yes" : "");
     fd.append("language", lang);
     fd.append("sourcePage", window.location.pathname);
+    Object.entries(getAttribution()).forEach(([key, value]) => fd.set(key, value));
+    fd.set("language", lang);
     images.forEach((file) => fd.append("images", file, file.name));
     documents.forEach((file) => fd.append("documents", file, file.name));
 
@@ -288,6 +291,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
       if (!res.ok) throw new Error("submission_failed");
 
       notifyLeadDirect({
+        fields: Object.fromEntries(Array.from(fd.entries()).filter((entry): entry is [string, string] => typeof entry[1] === "string")),
         name: form.name || "",
         email: form.email || "",
         phone: form.phone || "",

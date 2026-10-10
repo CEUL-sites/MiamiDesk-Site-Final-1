@@ -14,7 +14,11 @@
 // /thanks page immediately after submitting.
 // ──────────────────────────────────────────────────────────────────────────
 
+import { getAttribution } from "./attribution";
+
 export interface DirectLead {
+  /** Full submitted text fields; files remain in Netlify Forms. */
+  fields?: Record<string, string>;
   name?: string;
   email?: string;
   phone?: string;
@@ -53,7 +57,12 @@ export function notifyLeadDirect(lead: DirectLead): void {
     void fetch("/.netlify/functions/lead-notify", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(lead),
+      body: JSON.stringify({ ...lead, fields: {
+        ...getAttribution(), ...lead.fields,
+        pagePath: window.location.pathname,
+        language: lead.fields?.language || document.documentElement.lang || "en",
+        formRenderedAt: lead.formRenderedAt || "",
+      } }),
       keepalive: true,
     }).catch(() => {});
   } catch {

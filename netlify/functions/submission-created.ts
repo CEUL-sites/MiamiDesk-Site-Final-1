@@ -6,6 +6,8 @@ import { sendWhatsAppAlert } from "./_shared/whatsapp";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
+import { syncHubspotLead } from "./_shared/hubspotLead";
+import { connectLeadStorage } from "./_shared/leadStorage";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
@@ -45,11 +47,12 @@ export const handler: Handler = async (event: HandlerEvent) => {
       console.log("submission-created: rejected as spam", { honeypotFilled: honeypot !== "", elapsedMs });
       return { statusCode: 200, body: "OK" };
     }
+    connectLeadStorage(event);
 
     // ── Normalised fields (shared across all forms) ──────────────────────
-    const name    = fields.name || fields.licenseeName || "";
+    const name    = fields.name || fields.licenseeName || fields.agentName || "";
     const email   = fields.email || "";
-    const phone   = fields.phone || "";
+    const phone   = fields.phone || fields.whatsapp || "";
     // propertyAddress covers seller/LeadForm; targetNeighborhoods covers buyer
     // form; location covers spain-seller and global-desk-listing (an
     // international enquiry gives a city/area, not a street address)
@@ -112,6 +115,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       desk: fields.desk || "",
     };
     const scored = scoreLead(scorable);
+    const hubspotSync = syncHubspotLead(scorable, fields);
 
     // The synchronous backup notifier (lead-notify) may have already delivered
     // some of these channels. Each channel is deduped independently so that, for
@@ -241,7 +245,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────
     // First submission wins — a repeat submission never resets a lead's
     // position in the sequence.
-    if (NURTURE_FORMS.has(formName) && email.includes("@")) {
+    if (process.env.SELLER_NURTURE_ENABLED === "true" && NURTURE_FORMS.has(formName) && email.includes("@")) {
       try {
         const store = getStore(NURTURE_STORE);
         const key = email.trim().toLowerCase();
@@ -278,6 +282,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       }
     }
 
+    await hubspotSync;
     return { statusCode: 200, body: "OK" };
   } catch (err) {
     console.error("submission-created fatal error:", err);

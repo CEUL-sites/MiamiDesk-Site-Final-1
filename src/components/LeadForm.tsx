@@ -71,6 +71,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
         throw new Error(`Form submission failed with status ${response.status}`);
       }
       notifyLeadDirect({
+        fields: formData,
         name: formData.name, email: formData.email, phone: formData.phone,
         propertyAddress: formData.propertyAddress, city: formData.city, timeline: formData.timeline,
         message: formData.message, sourcePage: "seller-consultation", formName: "seller-consultation", leadSource: getLeadSource(),

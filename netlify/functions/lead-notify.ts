@@ -5,6 +5,8 @@ import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { corsHeaders as buildCorsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
 import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
+import { syncHubspotLead } from "./_shared/hubspotLead";
+import { connectLeadStorage } from "./_shared/leadStorage";
 
 // Synchronous backup notifier. The forms call this directly (keepalive) at the
 // same time they POST to Netlify Forms, so a lead is delivered even if Netlify
@@ -24,6 +26,7 @@ const TO_EMAIL = "contact@carlosre.com";
 const FROM_EMAIL = process.env.RESEND_FROM ?? "leads@homesprofessional.com";
 
 interface LeadPayload {
+  fields?: Record<string, string>;
   name?: string;
   licenseeName?: string;
   agentName?: string;
@@ -139,7 +142,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: "Missing email and phone" }) };
   }
 
+  connectLeadStorage(event);
+
   const scored = scoreLead(lead);
+  const hubspotSync = syncHubspotLead({ ...lead, formRenderedAt: raw.formRenderedAt }, raw.fields || {});
   // P1/P2 only — P3 is nurture-track, so it skips the Bridge lookup entirely.
   // Never blocks: getLeadMarketContext has its own hard timeout + try/catch
   // and resolves to null on anything short of a clean result.
@@ -231,6 +237,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     results.deadLetter = "stored";
   }
 
+  results.hubspot = await hubspotSync;
   return {
     statusCode: 200,
     headers: corsHeaders,

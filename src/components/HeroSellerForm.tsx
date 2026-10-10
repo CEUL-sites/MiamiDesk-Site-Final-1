@@ -166,10 +166,12 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           ...form,
           sourcePage: `hero-${lang}`,
           ...getAttribution(),
+          language: lang,
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
       notifyLeadDirect({
+        fields: { ...form, language: lang },
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
         sourcePage: `hero-${lang}`, formName: "seller-hero", leadSource: getLeadSource(),

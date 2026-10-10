@@ -1,4 +1,5 @@
 import { getStore } from "@netlify/blobs";
+import { leadStoreName } from "./leadStorage";
 
 // ── Lead-alert de-duplication ────────────────────────────────────────────
 // Two paths can alert Carlos about the same lead:
@@ -37,7 +38,7 @@ export function dedupKey(email?: string, phone?: string): string | null {
 export async function wasAlerted(key: string | null, channel: DedupChannel = "alert"): Promise<boolean> {
   if (!key) return false;
   try {
-    const v = (await getStore(DEDUP_STORE).get(channel + "|" + key, { type: "json" })) as { at: string } | null;
+    const v = (await getStore(leadStoreName(DEDUP_STORE)).get(channel + "|" + key, { type: "json" })) as { at: string } | null;
     if (!v?.at) return false;
     return Date.now() - new Date(v.at).getTime() < WINDOW_MS;
   } catch {
@@ -50,7 +51,7 @@ export async function wasAlerted(key: string | null, channel: DedupChannel = "al
 export async function markAlerted(key: string | null, channel: DedupChannel = "alert"): Promise<void> {
   if (!key) return;
   try {
-    await getStore(DEDUP_STORE).setJSON(channel + "|" + key, { at: new Date().toISOString() });
+    await getStore(leadStoreName(DEDUP_STORE)).setJSON(channel + "|" + key, { at: new Date().toISOString() });
   } catch {
     /* non-fatal — dedup is best-effort */
   }

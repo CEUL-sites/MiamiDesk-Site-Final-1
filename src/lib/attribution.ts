@@ -86,13 +86,14 @@ export function captureAttribution(): void {
 
 /** Returns the stored first-touch attribution as a flat object (or {}). */
 export function getAttribution(): Attribution {
+  const current = { pagePath: window.location.pathname, language: document.documentElement.lang || "en" };
   const store = safeSession();
-  if (!store) return {};
+  if (!store) return current;
   try {
     const raw = store.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as Attribution) : {};
+    return { ...(raw ? (JSON.parse(raw) as Attribution) : {}), ...current };
   } catch {
-    return {};
+    return current;
   }
 }
 
