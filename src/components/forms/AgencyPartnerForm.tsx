@@ -3,6 +3,7 @@ import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { CONTACT, PUBLIC_COMPLIANCE } from "../../constants";
 import { pushEvent, trackLead, navigateAfterTracking } from "../../lib/analytics";
 import { notifyLeadDirect } from "../../lib/leadNotify";
+import { getAttribution } from "../../lib/attribution";
 
 const INITIAL: Record<string, string> = {
   agentName: "",
@@ -92,6 +93,7 @@ export function AgencyPartnerForm({
           ...form,
           source,
           sourcePage: window.location.pathname,
+          ...getAttribution(),
         }),
       });
       if (!res.ok) throw new Error("submission_failed");
