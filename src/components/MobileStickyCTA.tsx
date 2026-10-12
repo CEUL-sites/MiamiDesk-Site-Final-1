@@ -11,13 +11,14 @@ import { shouldRenderMobileSticky } from "./mobileStickyModel";
 // covers it, whatever the viewport height.
 const STICKY_CTA_RESERVED_PX = 96;
 
-export function MobileStickyCTA() {
+export function MobileStickyCTA({ lang }: { lang?: "en" | "es" } = {}) {
   const { pathname } = useLocation();
   const normalizedPathname = pathname.replace(/\/+$/, "") || "/";
-  const spainLine = isSpainMarketRoute(pathname);
-  const spanishLabels = isSpanishLangRoute(pathname);
+  const globalDeskRoute = normalizedPathname === "/global-desk" || normalizedPathname === "/es/spain-desk";
+  const spanishLabels = lang ? lang === "es" : isSpanishLangRoute(pathname);
+  const spainLine = globalDeskRoute ? spanishLabels : isSpainMarketRoute(pathname);
   const buyerRoute = normalizedPathname === "/buy" || normalizedPathname === "/es/comprar";
-  const defaultActionHref = buyerRoute
+  const defaultActionHref = globalDeskRoute ? "#listing-request" : buyerRoute
     ? normalizedPathname === "/buy"
       ? "#buyer-mandate"
       : "/contact"
@@ -59,17 +60,15 @@ export function MobileStickyCTA() {
   // shallower than the pill, and a card could clear the band while still
   // sitting under the pill's upper edge — the very overlap this prevents.
   useEffect(() => {
-    const guards = document.querySelectorAll("[data-sticky-cta-guard]");
-    if (guards.length === 0) return;
-
     const intersecting = new Set<Element>();
     let observer: IntersectionObserver | null = null;
+    let guards = new Set<Element>();
 
     const observeGuards = () => {
       observer?.disconnect();
       intersecting.clear();
       // Inset the root's top edge so only the pill's own strip remains.
-      const topInset = Math.max(0, window.innerHeight - STICKY_CTA_RESERVED_PX);
+      const topInset = Math.max(0, window.innerHeight - STICKY_CTA_RESERVED_PX - 24);
       observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
@@ -83,11 +82,22 @@ export function MobileStickyCTA() {
       guards.forEach((guard) => observer?.observe(guard));
     };
 
+    const syncGuards = () => {
+      const next = new Set(document.querySelectorAll("[data-sticky-cta-guard]"));
+      if (next.size === guards.size && [...next].every(el => guards.has(el))) return;
+      guards = next;
+      observeGuards();
+    };
+    guards = new Set(document.querySelectorAll("[data-sticky-cta-guard]"));
     observeGuards();
+    // Below-the-fold sections are lazy mounted after this component's effect.
+    const mutations = new MutationObserver(syncGuards);
+    mutations.observe(document.body, { childList: true, subtree: true });
     window.addEventListener("resize", observeGuards);
     window.addEventListener("orientationchange", observeGuards);
     return () => {
       observer?.disconnect();
+      mutations.disconnect();
       window.removeEventListener("resize", observeGuards);
       window.removeEventListener("orientationchange", observeGuards);
     };
@@ -105,7 +115,7 @@ export function MobileStickyCTA() {
   if (!shouldRenderMobileSticky({ formVisible: hidden, consentPending, guardVisible })) return null;
 
   const whatsappHref = spainLine ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
-  const actionLabel = buyerRoute
+  const actionLabel = globalDeskRoute ? (spanishLabels ? "Consultar" : "Discuss property") : buyerRoute
     ? spanishLabels
       ? "Iniciar búsqueda"
       : "Start My Search"
@@ -116,8 +126,8 @@ export function MobileStickyCTA() {
         : "Sell My Home";
 
   return (
-    <div className="pointer-events-none fixed bottom-5 left-0 right-0 z-50 flex justify-center lg:hidden">
-      <div className="pointer-events-auto flex items-center gap-2 rounded-full border border-gold/25 bg-navy-deep/92 px-2.5 py-2 shadow-2xl shadow-black/60 backdrop-blur-md">
+    <div className="pointer-events-none fixed bottom-[calc(12px+env(safe-area-inset-bottom))] left-0 right-0 z-50 flex justify-center px-3 lg:hidden">
+      <div className="pointer-events-auto flex max-w-full items-center gap-2 rounded-full border border-gold/25 bg-navy-deep/92 px-2.5 py-2 shadow-2xl shadow-black/60 backdrop-blur-md">
         <a
           href={whatsappHref}
           target="_blank"
@@ -142,7 +152,7 @@ export function MobileStickyCTA() {
               location: "mobile_sticky",
             });
           }}
-          className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.12em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
+          className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.05em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
           {actionLabel}
         </a>

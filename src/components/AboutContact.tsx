@@ -2,7 +2,7 @@ import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
 import { CONTACT, PUBLIC_COMPLIANCE } from "../constants";
 import {
   URG_FLORIDA_OFFICE_NAMES,
-  URG_PUBLIC_OFFICE_NETWORK_LABEL,
+  URG_FLORIDA_OFFICE_COUNT,
 } from "../data/urgOffices";
 import { LeadForm } from "./LeadForm";
 
@@ -36,12 +36,12 @@ export function AboutContact({
 
           <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-12 md:space-y-4 md:text-lg">
             <p>Twenty-five years of active South Florida real estate transactions across residential, luxury, and commercial sectors. Relationships inside the Miami professional community built through closed transactions, not directory listings.</p>
-            <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents across the {URG_PUBLIC_OFFICE_NETWORK_LABEL}, delivering institutional market reach across South Florida corridors.</p>
+            <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations, delivering institutional market reach across South Florida corridors.</p>
             <p>Every assignment is managed directly by Carlos as principal of record—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.</p>
           </div>
 
           {/* Carlos-led advice with visible brokerage infrastructure behind it. */}
-          <div id="brokerage-proof" className="mt-6 scroll-mt-24 overflow-hidden border border-bone bg-navy-deep md:mt-12 md:grid md:grid-cols-[0.9fr_1.1fr]">
+          <div id="brokerage-proof" data-sticky-cta-guard className="mt-6 scroll-mt-24 overflow-hidden border border-bone bg-navy-deep md:mt-12 md:grid md:grid-cols-[0.9fr_1.1fr]">
             <div className="relative min-h-64 overflow-hidden md:min-h-[390px]">
               <img
                 src="/images/urg-weston-office.webp"
@@ -59,14 +59,14 @@ export function AboutContact({
               <img
                 src="/images/urg-logo-original.webp"
                 alt="United Realty Group"
-                className="h-auto w-64 max-w-full object-contain object-left brightness-0 invert md:w-72"
+                className="h-auto w-48 max-w-full object-contain object-left brightness-0 invert md:w-64"
                 loading="lazy"
                 width="2176"
                 height="723"
               />
-              <h3 className="mt-7 font-serif text-3xl leading-tight text-white md:text-4xl">Your strategy is personal. The infrastructure behind it is institutional.</h3>
+              <h3 className="mt-5 font-serif text-2xl leading-tight text-white md:text-4xl">Your strategy is personal. The infrastructure behind it is institutional.</h3>
               <p className="mt-5 font-sans text-sm leading-relaxed text-white/70 md:text-base">
-                Carlos leads the pricing, positioning, negotiation, and communication personally. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents across the {URG_PUBLIC_OFFICE_NETWORK_LABEL}.
+                Carlos leads the pricing, positioning, negotiation, and communication personally. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations.
               </p>
               <div className="mt-7 grid grid-cols-2 border-y border-white/15 py-5">
                 <div>
@@ -74,8 +74,8 @@ export function AboutContact({
                   <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">URG agents</p>
                 </div>
                 <div className="border-l border-white/15 pl-6">
-                  <p className="font-serif text-3xl text-gold">Florida</p>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">Office network</p>
+                  <p className="font-serif text-3xl text-gold">{URG_FLORIDA_OFFICE_COUNT}</p>
+                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-white/60">Florida office locations</p>
                 </div>
               </div>
               <details className="group mt-5 border-t border-white/15 pt-4">
@@ -87,6 +87,7 @@ export function AboutContact({
                     <li key={name} className="border-l border-gold/35 pl-2.5">{name}</li>
                   ))}
                 </ul>
+                <p className="mt-4 font-sans text-xs leading-relaxed text-white/70">The official directory includes Pembroke Pines, marked opening soon.</p>
                 <a
                   href="https://www.urgfl.com/office-locations/"
                   target="_blank"
@@ -101,12 +102,12 @@ export function AboutContact({
           </div>
 
           {/* URG Headquarters — video */}
-          <div className="mt-5 overflow-hidden border border-bone md:mt-12">
+          <div data-sticky-cta-guard className="mt-5 overflow-hidden border border-bone md:mt-12">
             {/* Responsive 16:9 YouTube embed — plays inline, no navigation away */}
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
               <iframe
                 src="https://www.youtube.com/embed/jlOLDjImd2g?si=bcS_Ogl9eNhOakQv&rel=0&modestbranding=1"
-                title="United Realty Group — 3,500+ agents and a Florida office network"
+                title="United Realty Group — 3,500+ agents and 19 Florida office locations"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -116,7 +117,7 @@ export function AboutContact({
             </div>
             <div className="bg-navy-deep px-5 py-3 md:py-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · 3,500+ agents</p>
-              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">Florida office network · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
+              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">19 Florida office locations · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
               <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noreferrer" className="font-mono mt-1 inline-block text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
                 View official branch locations
               </a>

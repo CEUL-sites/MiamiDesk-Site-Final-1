@@ -23,6 +23,9 @@ interface LazyVideoProps {
   idle?: boolean;
   /** Margin around the viewport that counts as "in view" — preloads just before. */
   rootMargin?: string;
+  /** Visible media can be played manually when autoplay is unavailable. */
+  controls?: boolean;
+  label?: string;
 }
 
 /**
@@ -86,9 +89,12 @@ export function LazyVideo({
   eager = false,
   idle = false,
   rootMargin = "300px",
+  controls = false,
+  label,
 }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
   const [active, setActive] = useState(eager && !shouldSkipVideo());
+  const [inView, setInView] = useState(false);
   const resolvedPoster = poster ?? posterFor(src);
 
   // idle mode — wait for window load, then an idle slot, then activate.
@@ -112,14 +118,13 @@ export function LazyVideo({
   }, [idle, eager]);
 
   useEffect(() => {
-    if (shouldSkipVideo()) return; // skip heavy video on data-saver, slow links, or reduce-motion
-    if (eager || idle) return; // handled above (or already active)
     const el = ref.current;
     if (!el) return;
 
     // No IntersectionObserver (old browsers) → just load it.
     if (typeof IntersectionObserver === "undefined") {
-      setActive(true);
+      setInView(true);
+      if (!shouldSkipVideo()) setActive(true);
       return;
     }
 
@@ -127,26 +132,29 @@ export function LazyVideo({
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setActive(true);
-          } else if (active && ref.current) {
-            // Pause off-screen to save CPU/battery; keep the buffered data.
-            ref.current.pause();
+            if (!idle && !shouldSkipVideo()) setActive(true);
           }
         }
       },
       { rootMargin },
     );
     observer.observe(el);
-    return () => observer.disconnect();
-  }, [eager, rootMargin, active]);
+    const visibility = new IntersectionObserver(([entry]) => {
+      setInView(entry.isIntersecting);
+      if (!entry.isIntersecting) el.pause();
+    });
+    visibility.observe(el);
+    return () => { observer.disconnect(); visibility.disconnect(); };
+  }, [idle, rootMargin]);
 
   // Once active, make sure playback (re)starts when it re-enters view.
   useEffect(() => {
-    if (active && ref.current) {
+    if (active && inView && !shouldSkipVideo() && ref.current) {
+      ref.current.muted = true;
       const p = ref.current.play();
       if (p && typeof p.catch === "function") p.catch(() => {});
     }
-  }, [active]);
+  }, [active, inView, src]);
 
   return (
     <video
@@ -154,14 +162,14 @@ export function LazyVideo({
       muted
       loop
       playsInline
-      aria-hidden="true"
+      aria-hidden={controls ? undefined : true}
+      aria-label={controls ? label : undefined}
+      controls={controls}
+      src={active || controls ? src : undefined}
       preload={active ? "auto" : "none"}
       poster={resolvedPoster}
       className={className}
       style={style}
-      {...(active ? { autoPlay: true } : {})}
-    >
-      {active && <source src={src} type="video/mp4" />}
-    </video>
+    />
   );
 }

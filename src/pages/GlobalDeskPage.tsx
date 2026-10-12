@@ -56,7 +56,7 @@ const COPY = {
     trustTitle: "Carlos Uzcategui",
     trustSub: "South Florida real estate since 2001",
     trustBody: "A Florida-licensed principal coordinating bilingual property review, U.S. activation, and structured introductions through United Realty Group.",
-    credentials: ["Licensed since 2001 · 25 years in South Florida", "Certified Luxury Home Marketing Specialist · Certified Seller Representative", "United Realty Group · 3,500+ agents · Florida office network", "Bilingual coordination · South Florida ↔ Spain and LATAM"],
+    credentials: ["Licensed since 2001 · 25 years in South Florida", "Certified Luxury Home Marketing Specialist · Certified Seller Representative", "United Realty Group · 3,500+ agents · 19 Florida office locations", "Bilingual coordination · South Florida ↔ Spain and LATAM"],
     closeTitle: "Ready to expand your property’s professional reach in the U.S.?",
     closeBody: "Present one qualified property or request a private discussion about an agency, developer, or portfolio activation route.",
     closeCta: "Request a Private Global Desk Discussion",
@@ -236,7 +236,7 @@ export default function GlobalDeskPage() {
       <main id="main-content" className="min-h-screen overflow-x-hidden bg-white text-navy pb-20 lg:pb-0">
         <Navbar />
 
-        <section className="relative isolate min-h-[760px] overflow-hidden border-b border-bone bg-white px-6 pb-16 pt-28 sm:pt-32 lg:min-h-[810px] lg:pb-20 lg:pt-36">
+        <section data-sticky-cta-guard className="relative isolate overflow-hidden border-b border-bone bg-white px-6 pb-12 pt-20 sm:pt-24 lg:min-h-[810px] lg:pb-20 lg:pt-36">
           <img src="/images/global-desk-hero-madrid-v2.webp" alt="Madrid skyline from a contemporary international-property terrace at golden hour" width={1672} height={941} fetchPriority="high" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover object-[68%_center]" />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.88)_72%,rgba(255,255,255,0.7)_100%)] lg:bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_36%,rgba(255,255,255,0.94)_50%,rgba(255,255,255,0.18)_76%,rgba(255,255,255,0)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 -z-10 h-36 bg-gradient-to-t from-white to-transparent" />
@@ -249,10 +249,10 @@ export default function GlobalDeskPage() {
                 })}
               </div>
             </div>
-            <motion.div initial="hidden" animate="show" variants={reveal} className="mt-10 max-w-[760px] lg:mt-0">
+            <motion.div initial="hidden" animate="show" variants={reveal} className="mt-5 max-w-[760px] lg:mt-0">
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.product}</p>
-              <h1 className="mt-6 max-w-[760px] text-balance font-serif text-[clamp(2.75rem,4.45vw,4.5rem)] leading-[0.98] text-navy-deep">{t.title}</h1>
-              <p className="mt-7 max-w-[620px] font-sans text-lg font-semibold leading-relaxed text-navy md:text-xl">{t.lead}</p>
+              <h1 className="mt-4 max-w-[760px] text-balance font-serif text-[clamp(2rem,8.5vw,3rem)] leading-[1.08] text-navy-deep sm:text-[clamp(2.75rem,4.45vw,4.5rem)]">{t.title}</h1>
+              <p className="mt-5 max-w-[620px] font-sans text-base font-semibold leading-relaxed text-navy md:text-xl">{t.lead}</p>
               <p className="mt-3 max-w-[600px] font-sans text-base leading-relaxed text-navy/75 md:text-lg">{t.body}</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a href="#how-it-works" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "explore_activation", cta_location: "hero", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 bg-navy px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-gold hover:text-navy">{t.explore}<ArrowRight size={15} /></a>
@@ -399,7 +399,7 @@ export default function GlobalDeskPage() {
         </section>
 
         <Footer />
-        <MobileStickyCTA />
+        <MobileStickyCTA lang={lang} />
       </main>
     </>
   );

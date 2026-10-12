@@ -6,7 +6,7 @@ const root = process.cwd();
 const dataPath = path.join(root, "src", "data", "urgOffices.json");
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
-assert.equal(data.verifiedAt, "2026-09-01");
+assert.equal(data.verifiedAt, "2026-10-12");
 assert.equal(data.sourceUrl, "https://www.urgfl.com/office-locations/");
 assert.equal(data.publicNetworkLabel, "Florida office network");
 assert.equal(data.officialBranches.length, 21, "official source should retain all listed branches");
@@ -49,6 +49,8 @@ const about = fs.readFileSync(path.join(root, "src", "components", "AboutContact
 const distribution = fs.readFileSync(path.join(root, "src", "components", "Distribution.tsx"), "utf8");
 assert.match(about, /URG_FLORIDA_OFFICE_NAMES\.map/);
 assert.match(about, /View the Florida office network/);
+assert.match(about, /URG_FLORIDA_OFFICE_COUNT/);
+assert.match(about, /Pembroke Pines, marked opening soon/);
 assert.match(distribution, /Distribution · United Realty Group · Florida office network/);
 
 const logo = fs.readFileSync(path.join(root, "src", "components", "UrgLogo.tsx"), "utf8");

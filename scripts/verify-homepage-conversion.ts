@@ -222,7 +222,7 @@ assert.match(cookie, /cookie-consent-dialog/);
 assert.match(indexCss, /@media \(min-width: 48rem\)[\s\S]*\.cookie-consent-dialog[\s\S]*left: 1\.5rem;[\s\S]*right: auto;/);
 assert.match(proof, /id="client-reviews"/);
 assert.doesNotMatch(about, /founded in 2002|in-house title|Est\. 2002/i);
-assert.match(about, /3,500\+ agents across the \{URG_PUBLIC_OFFICE_NETWORK_LABEL\}/);
+assert.match(about, /3,500\+ agents and \{URG_FLORIDA_OFFICE_COUNT\} Florida office locations/);
 assert.match(about, /URG_FLORIDA_OFFICE_NAMES\.map/);
 assert.match(about, /View the Florida office network/);
 assert.match(about, /showForm = true/);

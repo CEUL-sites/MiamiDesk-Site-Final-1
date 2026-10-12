@@ -92,7 +92,7 @@ const SHELL = {
 } as const;
 
 function posterFor(clip: string) {
-  return clip.replace("/videos/", "/images/posters/").replace(".mp4", ".jpg");
+  return clip.replace("/videos/", "/images/posters/").replace(".mp4", "-20261012.jpg");
 }
 
 export function MarketingReel3D({ lang = "en" }: { lang?: "en" | "es" }) {
@@ -109,12 +109,13 @@ export function MarketingReel3D({ lang = "en" }: { lang?: "en" | "es" }) {
     if (next === null) return;
     e.preventDefault();
     setActive(next);
+    document.getElementById(`reel-tab-${REEL[next].id}`)?.focus();
   };
 
   const current = REEL[active];
 
   return (
-    <section className="relative overflow-hidden bg-[#081733] py-14 text-white md:py-20">
+    <section data-sticky-cta-guard className="relative overflow-hidden bg-[#081733] py-12 text-white md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
@@ -129,9 +130,8 @@ export function MarketingReel3D({ lang = "en" }: { lang?: "en" | "es" }) {
           <div
             role="tablist"
             aria-label={t.railLabel}
-            aria-orientation="vertical"
             onKeyDown={onKeyDown}
-            className="scrollbar-hide -mx-6 flex gap-3 overflow-x-auto px-6 lg:mx-0 lg:flex-col lg:gap-2.5 lg:overflow-visible lg:px-0"
+            className="grid grid-cols-2 gap-2 lg:grid-cols-1 lg:gap-2.5"
           >
             {REEL.map((item, i) => {
               const on = i === active;
@@ -144,7 +144,7 @@ export function MarketingReel3D({ lang = "en" }: { lang?: "en" | "es" }) {
                   aria-controls="reel-stage"
                   tabIndex={on ? 0 : -1}
                   onClick={() => setActive(i)}
-                  className={`reel-chip flex w-56 shrink-0 items-center gap-3 rounded-lg border px-3 py-3 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 lg:w-full ${
+                  className={`reel-chip flex min-w-0 items-center gap-2 rounded-lg border px-2.5 py-3 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 lg:gap-3 lg:px-3 ${
                     on
                       ? "border-gold/50 bg-gold/10"
                       : "border-white/10 bg-white/[0.02] hover:border-white/25"
@@ -157,7 +157,7 @@ export function MarketingReel3D({ lang = "en" }: { lang?: "en" | "es" }) {
                     decoding="async"
                     width={56}
                     height={40}
-                    className={`h-10 w-14 shrink-0 rounded object-cover transition-opacity ${on ? "opacity-100" : "opacity-55"}`}
+                    className={`hidden h-10 w-14 shrink-0 rounded object-cover transition-opacity sm:block ${on ? "opacity-100" : "opacity-55"}`}
                   />
                   <span className="min-w-0">
                     <span className="flex items-center gap-1.5">
@@ -167,7 +167,7 @@ export function MarketingReel3D({ lang = "en" }: { lang?: "en" | "es" }) {
                         className={on ? "text-gold" : "text-white/45"}
                       />
                       <span
-                        className={`font-mono text-[10px] uppercase tracking-[0.16em] ${on ? "text-gold" : "text-white/60"}`}
+                        className={`font-sans text-xs leading-snug lg:text-sm ${on ? "text-gold" : "text-white/70"}`}
                       >
                         {item[lang].label}
                       </span>
@@ -185,21 +185,17 @@ export function MarketingReel3D({ lang = "en" }: { lang?: "en" | "es" }) {
               aria-labelledby={`reel-tab-${current.id}`}
               className="overflow-hidden rounded-xl border border-white/12 bg-black/40"
             >
-              <div className="relative aspect-[16/9] w-full">
+              <div className={`relative w-full ${current.id === "film" ? "aspect-video" : "aspect-[3/4] sm:aspect-video"}`}>
                 {/* Keyed so switching formats remounts the player and swaps the
                     source cleanly, rather than leaving the previous clip's
                     buffered frame behind the new poster. */}
-                <div key={current.clip} className="absolute inset-0">
-                  <LazyVideo src={current.clip} className="h-full w-full object-cover" />
+                <div key={current.clip} className="absolute inset-0 bg-black">
+                  <LazyVideo src={current.clip} poster={posterFor(current.clip)} controls label={current[lang].label} className="h-full w-full object-contain" />
                 </div>
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#081733]/85 via-transparent to-transparent"
-                />
-                <p className="absolute inset-x-0 bottom-0 max-w-2xl p-5 font-sans text-sm leading-relaxed text-white/85 md:p-7 md:text-base">
-                  {current[lang].copy}
-                </p>
               </div>
+              <p className="border-t border-white/10 bg-[#0d203b] p-4 font-sans text-sm leading-relaxed text-white/85 md:p-6 md:text-base">
+                {current[lang].copy}
+              </p>
             </div>
           </Tilt3D>
         </div>
