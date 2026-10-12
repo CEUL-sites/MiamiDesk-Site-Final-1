@@ -11,6 +11,9 @@
 [functions."seller-nurture"]
   schedule = "@daily"
 
+[functions."hubspot-inquiry-sync"]
+  schedule = "* * * * *"
+
 [build.environment]
   NODE_VERSION = "22"
   NPM_FLAGS = "--version"

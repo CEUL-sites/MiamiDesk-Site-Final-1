@@ -1,3 +1,4 @@
+import { getAttribution } from "../lib/attribution";
 import { useEffect, useState, type FormEvent } from "react";
 import { CheckCircle2, Download, FileText, Loader2, X } from "lucide-react";
 import { LEAD_MAGNETS } from "../constants";
@@ -165,6 +166,8 @@ export function ExitIntentModal({ lang = "en" }: { lang?: Lang } = {}) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encodeForm({
           "form-name": "lead-magnet-download",
+          ...getAttribution(),
+          pagePath: window.location.pathname,
           "bot-field": "",
           email,
           guide: "seller-net-sheet-2026-exit-intent",

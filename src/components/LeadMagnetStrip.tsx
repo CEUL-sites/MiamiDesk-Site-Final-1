@@ -1,3 +1,4 @@
+import { getAttribution } from "../lib/attribution";
 import { useId, useRef, useState, type FormEvent } from "react";
 import { Download, ArrowRight, Loader2, CheckCircle2, FileText } from "lucide-react";
 import { LEAD_MAGNETS } from "../constants";
@@ -47,6 +48,8 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encodeForm({
           "form-name": "lead-magnet-download",
+          ...getAttribution(),
+          pagePath: window.location.pathname,
           "bot-field": "",
           formRenderedAt: String(renderedAt.current),
           email,

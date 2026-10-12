@@ -1,5 +1,6 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
-import { getStore } from "@netlify/blobs";
+import { connectLambda, getStore } from "@netlify/blobs";
+import { enqueueSubmission } from "./_shared/hubspotQueue.mjs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
 import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
 import { sendWhatsAppAlert } from "./_shared/whatsapp";
@@ -23,6 +24,7 @@ const FROM_EMAIL = process.env.RESEND_FROM ?? "leads@homesprofessional.com";
 
 export const handler: Handler = async (event: HandlerEvent) => {
   try {
+    connectLambda(event as HandlerEvent & Parameters<typeof connectLambda>[0]);
     const body = JSON.parse(event.body || "{}");
     // Netlify wraps the submission event in { payload: { data: {...}, form_name: "..." } }
     const payload = body.payload || body;
@@ -46,10 +48,14 @@ export const handler: Handler = async (event: HandlerEvent) => {
       return { statusCode: 200, body: "OK" };
     }
 
+    // Persist complete inquiry before optional notification channels.
+    // All registered forms flow through this event; address-only steps are excluded.
+    await enqueueSubmission(payload);
+
     // ── Normalised fields (shared across all forms) ──────────────────────
-    const name    = fields.name || fields.licenseeName || "";
+    const name    = fields.name || fields.licenseeName || fields.agentName || "";
     const email   = fields.email || "";
-    const phone   = fields.phone || "";
+    const phone   = fields.phone || fields.whatsapp || "";
     // propertyAddress covers seller/LeadForm; targetNeighborhoods covers buyer
     // form; location covers spain-seller and global-desk-listing (an
     // international enquiry gives a city/area, not a street address)
@@ -241,7 +247,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────
     // First submission wins — a repeat submission never resets a lead's
     // position in the sequence.
-    if (NURTURE_FORMS.has(formName) && email.includes("@")) {
+    if (process.env.SELLER_NURTURE_ENABLED === "true" && NURTURE_FORMS.has(formName) && email.includes("@")) {
       try {
         const store = getStore(NURTURE_STORE);
         const key = email.trim().toLowerCase();
@@ -281,7 +287,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 200, body: "OK" };
   } catch (err) {
     console.error("submission-created fatal error:", err);
-    // Always return 200 — Netlify retries on non-200 which can cause duplicates
-    return { statusCode: 200, body: "OK" };
+    // Retain the failed delivery as an error rather than report a CRM queue failure as success.
+    return { statusCode: 500, body: "Submission processing failed" };
   }
 };

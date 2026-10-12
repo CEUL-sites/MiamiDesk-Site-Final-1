@@ -1,5 +1,5 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
-import { getStore } from "@netlify/blobs";
+import { connectLambda, getStore } from "@netlify/blobs";
 import { NURTURE_STORE, nurtureToken, type NurtureLead } from "./_shared/nurture";
 
 // Daily seller nurture — scheduled via netlify.toml.
@@ -272,6 +272,10 @@ async function sendEmail(to: string, subject: string, html: string): Promise<boo
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
+  if (process.env.SELLER_NURTURE_ENABLED !== "true") {
+    return { statusCode: 200, body: JSON.stringify({ skipped: "Seller nurture is disabled" }) };
+  }
+  connectLambda(event as HandlerEvent & Parameters<typeof connectLambda>[0]);
   // Scheduled invocations have no httpMethod; manual HTTP runs need the secret.
   if (event.httpMethod) {
     if (event.httpMethod !== "POST") {
