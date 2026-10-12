@@ -109,7 +109,8 @@ export function SellerExecutionSystem() {
   return (
     <section className="bg-white-soft py-14 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+          <div className="max-w-3xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold-ink">
             Listing execution
           </p>
@@ -119,6 +120,21 @@ export function SellerExecutionSystem() {
           <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-navy/70">
             Distribution creates the opportunity. Execution determines how the market sees, tests and responds to the property.
           </p>
+          </div>
+          <figure className="overflow-hidden rounded-md border border-bone bg-ivory">
+            <img
+              src="/images/carlos-media-team-editorial-20261012.jpg"
+              alt="Carlos Uzcategui with the property media team preparing photography and video at a waterfront home"
+              width="1600"
+              height="901"
+              loading="lazy"
+              decoding="async"
+              className="aspect-video w-full object-cover"
+            />
+            <figcaption className="border-t border-bone px-4 py-3 font-sans text-xs leading-relaxed text-navy/75">
+              Carlos with the property media team · Preparation before presentation.
+            </figcaption>
+          </figure>
         </div>
 
         <div

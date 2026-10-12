@@ -237,7 +237,7 @@ export default function BuyersPage() {
                 <figure className="bg-navy-deep">
                   <div className="aspect-[16/10] overflow-hidden">
                     <img
-                      src="/images/carlos-miami-river.webp"
+                      src="/images/carlos-waterfront-editorial-20261012.jpg"
                       alt="Carlos Uzcategui at a Miami waterfront property"
                       width={1920}
                       height={1081}

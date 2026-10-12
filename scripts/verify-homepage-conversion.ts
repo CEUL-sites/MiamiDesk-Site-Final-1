@@ -172,10 +172,10 @@ for (let index = 1; index < sectionOrder.length; index += 1) {
     `${sectionOrder[index - 1]} must render before ${sectionOrder[index]}`,
   );
 }
-assert.match(home, /<title>South Florida Listing Strategist \| Carlos Uzcategui<\/title>/);
+assert.match(home, /<title>South Florida Listing Agent \| Carlos Uzcategui<\/title>/);
 assert.match(
   home,
-  /Request a private South Florida property strategy from Carlos Uzcategui: professional representation, strategic positioning, buyer-agent activation, and the 93,000-member association ecosystem\./,
+  /Sell your South Florida home with Carlos Uzcategui at United Realty Group. Pricing, buyer-agent outreach and negotiation. Request a private seller strategy review\./,
 );
 assert.match(form, /Private Property Strategy/);
 assert.match(form, /Estrategia Privada de la Propiedad/);
@@ -248,8 +248,8 @@ assert.match(
   "the visible lead form must take priority over a lower profile/contact section",
 );
 assert.doesNotMatch(home, /<meta name="keywords"/, "homepage metadata must not contain a keyword-stuffed tag");
-assert.match(home, /twitter:title" content="South Florida Listing Strategist \| Carlos Uzcategui"/);
-assert.match(home, /og:title" content="South Florida Listing Strategist \| Carlos Uzcategui"/);
+assert.match(home, /twitter:title" content="South Florida Listing Agent \| Carlos Uzcategui"/);
+assert.match(home, /og:title" content="South Florida Listing Agent \| Carlos Uzcategui"/);
 assert.match(
   mobileSticky,
   /querySelectorAll\("\[data-sticky-cta-guard\]"\)/,

@@ -19,3 +19,9 @@ Place these files in this folder exactly as named:
 - `global-desk-hero-madrid-v2.webp` — generated with the built-in Image Gen tool from the user-approved Global Desk reference on 2026-08-31; image-only Madrid terrace and skyline hero, 1672×941, with code-native text and controls layered separately.
 
 Upload via GitHub: go to this folder → Add file → Upload files.
+
+## Adobe editorial refinements — October 12, 2026
+
+- carlos-waterfront-editorial-20261012.jpg: derivative of the approved carlos-miami-river.webp photograph. Non-generative Adobe tone correction and proportional resize to 1600 × 901; used on the buyer and Global Desk pages.
+- carlos-media-team-editorial-20261012.jpg: derivative of the approved carlos-property-media-team.webp photograph. Same non-generative treatment and dimensions; used as documentary imagery in the homepage seller execution section. The other people are described as the property media team, without implying brokerage affiliation.
+- Carlos approved selection, photo treatment, implementation and publication on October 12, 2026. Original photographs are retained.
