@@ -29,7 +29,7 @@ const WESTON_FAQS = [
   },
   {
     q: "What is the current median home price in Weston, FL?",
-    a: `The median closed sale price for Weston single-family homes was ${westonMedian} in ${westonPeriod}, according to the MIAMI REALTORSr city report based on MLS data compiled by Florida Realtorsr. This city median is not a valuation of your home. Carlos reviews competing properties, condition and terms specific to your community.`,
+    a: `The median closed sale price for Weston single-family homes was ${westonMedian} in ${westonPeriod}, according to the MIAMI REALTORS® city report based on MLS data compiled by Florida Realtors®. This city median is not a valuation of your home. Carlos reviews competing properties, condition and terms specific to your community.`,
   },
   {
     q: "How long does it take to sell a home in Weston?",
@@ -87,8 +87,9 @@ export default function SellWestonPage() {
       <JsonLd id="sell-weston-agent" data={{
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
-          "name": "Carlos Uzcategui - Weston FL Listing Agent",
-          "url": "https://homesprofessional.com/sell-weston",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": CONTACT.name,
+          "url": "https://homesprofessional.com/",
           "areaServed": {
             "@type": "City",
             "name": "Weston",
@@ -134,7 +135,7 @@ export default function SellWestonPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Weston, FL � Listing Agent &amp; Seller Representation</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Weston, FL · Listing Agent &amp; Seller Representation</p>
             <h1
               className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
               style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
@@ -178,7 +179,7 @@ export default function SellWestonPage() {
                 ))}
               </span>
               <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-                5.0 � Free &amp; confidential � No listing commitment � Personal reply from Carlos
+                5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
               </span>
             </div>
 
@@ -195,7 +196,7 @@ export default function SellWestonPage() {
               </a>
             </div>
             <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-              United Realty Group � CLHMS � FL SL705771 � 25 Years Licensed in Florida � Office: Weston, FL 33331
+              United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Office: Weston, FL 33331
             </p>
             <HeroReachBar />
           </div>
@@ -243,7 +244,7 @@ export default function SellWestonPage() {
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[
-                    "Miami and South Florida REALTORSr MLS - 93,000 member agents",
+                    "Miami and South Florida REALTORS® MLS - 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group - 3,500+ agents across the Florida office network",
                     "Direct LATAM and European buyer pipeline",
@@ -294,28 +295,28 @@ export default function SellWestonPage() {
               <a href="/journal/selling-weston-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Weston Home in 2026: What Actually Moves the Needle</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market guide </p>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market guide →</p>
               </a>
               <a href="/journal/weston-4-bedroom-single-family-market-june-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Weston 4-Bedroom Single-Family Market - June 2026 Analysis</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market data </p>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market data →</p>
               </a>
               <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price - What Weston Sellers Need to Know</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide </p>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
               </a>
               <a href="/journal/weston-homebuyer-purchase-assistance-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Weston Housing Resource</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Housing Assistance for Weston Buyers and Homeowners</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Purchase, repair, and accessibility options </p>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Purchase, repair, and accessibility options →</p>
               </a>
             </div>
           </div>
         </section>
 
-        {/* Market snapshot - MIAMI REALTORSr April 2026 city report (src/data/cityMarketStats.ts) */}
+        {/* Market snapshot - MIAMI REALTORS® April 2026 city report (src/data/cityMarketStats.ts) */}
         <NeighborhoodMarketStats city="Weston" />
         <CityListingsSample city="Weston" propertyType="Residential" sellerContext />
         <NearbyMarkets current="sell-weston" />
@@ -333,7 +334,7 @@ export default function SellWestonPage() {
             <SellerIntakeForm sourcePage="sell-weston" />
             <div className="mt-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
-              Confidential � Licensed Professional � Equal Housing Opportunity
+              Confidential · Licensed Professional · Equal Housing Opportunity
             </div>
           </div>
         </section>
@@ -343,9 +344,9 @@ export default function SellWestonPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-sans text-xs text-ink-primary/70">
               <a href="/" className="hover:text-gold">Home</a>
-              {" � "}
+              {" · "}
               <a href="/sell" className="hover:text-gold">Sell in South Florida</a>
-              {" � "}
+              {" · "}
               Weston, FL
             </p>
           </div>
