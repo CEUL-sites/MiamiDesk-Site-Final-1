@@ -104,7 +104,7 @@ function CountyCard({ county }: { county: string }) {
     <div className="bg-white border border-hairline rounded-xl p-6 flex flex-col gap-5">
       <div>
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-1">{county} County</p>
-        <h3 className="font-serif text-xl text-ink-primary">{county} County — May 2026</h3>
+        <h3 className="font-serif text-xl text-ink-primary">{county} County — {sfh?.period ?? condo?.period ?? stats.metadata.period}</h3>
       </div>
 
       {/* SFH row */}
@@ -319,12 +319,12 @@ export default function MarketDataPage() {
 
   // Kept under ~160 characters so it is not truncated in search results, while
   // still carrying the source attribution the compliance checklist requires.
-  const metaDesc = `South Florida market data, May 2026. Miami-Dade single-family median ${formatPrice(sfhMedianMD)}, Broward ${formatPrice(sfhMedianBroward)}, Palm Beach ${formatPrice(sfhMedianPB)}. Source: Miami Realtors Association.`;
+  const metaDesc = `South Florida market data, August 2026. Miami-Dade single-family median ${formatPrice(sfhMedianMD)}, Broward ${formatPrice(sfhMedianBroward)}, Palm Beach ${formatPrice(sfhMedianPB)}. Source: Miami Realtors Association.`;
 
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    name: "South Florida Real Estate Market Statistics — May 2026",
+    name: "South Florida Real Estate Market Statistics — August 2026",
     description: metaDesc,
     url: "https://homesprofessional.com/market-data",
     creator: {
@@ -332,7 +332,7 @@ export default function MarketDataPage() {
       name: "Miami and South Florida REALTORS®",
       url: "https://www.miamirealtors.com",
     },
-    temporalCoverage: "2026-05",
+    temporalCoverage: "2026-08",
     spatialCoverage: {
       "@type": "Place",
       name: "South Florida (Miami-Dade, Broward, Palm Beach Counties)",
@@ -350,12 +350,12 @@ export default function MarketDataPage() {
   return (
     <>
       <Helmet>
-        <title>South Florida Real Estate Market Data | May 2026</title>
+        <title>South Florida Real Estate Market Data | August 2026</title>
         <meta name="description" content={metaDesc} />
         <link rel="canonical" href="https://homesprofessional.com/market-data" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/market-data" />
-        <meta property="og:title" content="South Florida Real Estate Market Data | May 2026" />
+        <meta property="og:title" content="South Florida Real Estate Market Data | August 2026" />
         <meta property="og:description" content={metaDesc} />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -370,14 +370,14 @@ export default function MarketDataPage() {
       <section className="bg-navy-deep pt-28 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-            Miami Realtors Association · May 2026
+            Miami Realtors Association · August 2026
           </p>
           <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight">
             What the South Florida Market<br className="hidden md:block" /> Is Doing Right Now
           </h1>
           <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Current figures from Miami Realtors Association — 93,000 member agents tracking 260+ U.S. MLSs.
-            Data covers Miami-Dade, Broward, and Palm Beach counties as of May 2026.
+            Data covers Miami-Dade, Broward, and Palm Beach counties as of August 2026.
           </p>
           <div className="pt-2">
             <a
@@ -398,7 +398,7 @@ export default function MarketDataPage() {
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="text-center space-y-2">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">County Overview</p>
-            <h2 className="font-serif text-2xl md:text-3xl text-ink-primary">Three-County Snapshot — May 2026</h2>
+            <h2 className="font-serif text-2xl md:text-3xl text-ink-primary">Three-County Snapshot — August 2026</h2>
             <p className="text-sm text-gray-500 max-w-xl mx-auto">
               Monthly figures from Miami Realtors Association. Months supply below 3 = seller's market, 3–6 = balanced, above 6 = buyer's market.
             </p>
@@ -418,7 +418,7 @@ export default function MarketDataPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">City-Level Data</p>
             <h2 className="font-serif text-2xl md:text-3xl text-ink-primary">Market Conditions by City</h2>
             <p className="text-sm text-gray-500 max-w-2xl">
-              YTD figures (January – May 2026) from Miami Realtors Association city-level breakdowns. Thin-volume
+              Municipal and city-level breakdowns from Miami Realtors Association and Florida Realtors reports. Thin-volume
               markets are hidden by default.
             </p>
           </div>
@@ -455,8 +455,9 @@ export default function MarketDataPage() {
         <div className="max-w-6xl mx-auto space-y-3">
           <p className="text-xs text-gray-500 leading-relaxed">
             <span className="font-semibold">Data source:</span> Miami and South Florida REALTORS® Monthly Market
-            Statistics Reports, May 2026. County-level figures are monthly; city-level figures are year-to-date
-            (January – May 2026). Days on market at the county level reflects median time to sale. Months supply
+            Statistics Reports, August 2026, and Florida REALTORS® Local Residential Market Metrics city reports.
+            County-level figures reflect August 2026 monthly data; city-level figures reflect quarterly closed sales.
+            Days on market at the county level reflects median time to sale/contract. Months supply
             and median price data are provided directly as published; no estimates or interpolations have been made.{" "}
             <a
               href="https://www.miamirealtors.com/market-statistics/"

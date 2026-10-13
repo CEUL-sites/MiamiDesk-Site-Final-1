@@ -10,3 +10,6 @@ package-lock.json
 
 # Local Netlify folder
 .netlify
+
+# Agent skills
+.agents/
