@@ -34,7 +34,7 @@ export function SellersReachHero() {
                 onClick={() => trackContact("whatsapp", "sellers_hero")}
               >WhatsApp Carlos</a>
             </div>
-            <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential � No listing commitment</p>
+            <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
           </div>
           <figure className="seller-reach-image" data-sticky-cta-guard>
             <img
@@ -45,7 +45,7 @@ export function SellersReachHero() {
               fetchPriority="high"
               decoding="async"
             />
-            <figcaption>South Florida � Residential seller representation</figcaption>
+            <figcaption>South Florida · Residential seller representation</figcaption>
           </figure>
         </div>
       </section>
@@ -55,7 +55,7 @@ export function SellersReachHero() {
           <div><p>Buyer-agent reach</p><span>MLS visibility + targeted outreach</span></div>
           <div><p>United Realty Group</p><span>Florida brokerage network</span></div>
         </div>
-        <p className="seller-reach-compliance">Florida Licensed Realtorr SL705771 � United Realty Group � Equal Housing Opportunity.</p>
+        <p className="seller-reach-compliance">Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.</p>
       </section>
       <div className="seller-reach-review-details">
         <p>Your review covers <strong>pricing &amp; positioning</strong>, <strong>your likely buyer</strong>, and <strong>estimated net proceeds</strong>.</p>

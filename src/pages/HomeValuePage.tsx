@@ -17,7 +17,7 @@ const HOW_IT_WORKS = [
   {
     icon: TrendingUp,
     title: "MLS Comparable Analysis",
-    body: "Active listings, recent closings, pending sales, and absorption rate for your specific submarket and property type - pulled from the Miami and South Florida REALTORSr MLS.",
+    body: "Active listings, recent closings, pending sales, and absorption rate for your specific submarket and property type - pulled from the Miami and South Florida REALTORS® MLS.",
   },
   {
     icon: Clock,
@@ -97,7 +97,7 @@ export default function HomeValuePage() {
           name: "Free South Florida Home Valuation",
           provider: { "@id": "https://homesprofessional.com/#agent" },
           serviceType: "Comparative Market Analysis",
-          description: "Free, professional home valuation using Miami and South Florida REALTORSr MLS data. No obligation to list.",
+          description: "Free, professional home valuation using Miami and South Florida REALTORS® MLS data. No obligation to list.",
           areaServed: "South Florida",
           url: "https://homesprofessional.com/home-value",
           offers: {
@@ -119,7 +119,7 @@ export default function HomeValuePage() {
 
           <div className="relative mx-auto max-w-4xl">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
-              Free � Confidential � Professional Real Estate Advisory
+              Free · Confidential · Professional Real Estate Advisory
             </p>
             <h1
               className="mt-6 font-serif leading-tight text-white tracking-tight"
@@ -129,7 +129,7 @@ export default function HomeValuePage() {
               <em className="italic text-gold font-normal">Property Worth Today?</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
-              Receive a private MLS-based valuation, local absorption analysis, and preliminary net-proceeds review prepared personally by Carlos-not an automated estimate.
+              Receive a private MLS-based valuation, local absorption analysis, and preliminary net-proceeds review prepared personally by Carlos.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
@@ -142,11 +142,11 @@ export default function HomeValuePage() {
                 href="#net-calculator"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:border-gold/60 hover:text-gold"
               >
-                Calculate Net Proceeds 
+                Calculate Net Proceeds ↓
               </a>
             </div>
             <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
-              {CONTACT.licenseDisplay} � United Realty Group � 25 Years South Florida Experience
+              {CONTACT.licenseDisplay} · United Realty Group · 25 Years South Florida Experience
             </p>
           </div>
         </section>
@@ -184,7 +184,7 @@ export default function HomeValuePage() {
         <section className="border-t border-b border-bone bg-ivory py-10">
           <div className="mx-auto max-w-5xl px-6">
             <p className="mb-5 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
-              Service areas - Miami-Dade � Broward � Palm Beach
+              Service areas - Miami-Dade · Broward · Palm Beach
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {NEIGHBORHOODS.map((n) => (
@@ -238,7 +238,7 @@ export default function HomeValuePage() {
                   ))}
                 </ul>
                 <p className="mt-6 border-t border-bone pt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
-                  No listing commitment � No automated reports � No obligation
+                  No listing commitment · No automated reports · No obligation
                 </p>
               </div>
             </div>
@@ -255,7 +255,7 @@ export default function HomeValuePage() {
               href="/sell"
               className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 transition-colors hover:text-navy"
             >
-              See how the listing system works 
+              See how the listing system works →
             </a>
           </div>
         </section>
@@ -279,7 +279,7 @@ export default function HomeValuePage() {
             <SellerIntakeForm sourcePage="home-value" />
             <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
-              Confidential � No commitment required � Equal Housing Opportunity
+              Confidential · No commitment required · Equal Housing Opportunity
             </div>
           </div>
         </section>
@@ -312,12 +312,12 @@ export default function HomeValuePage() {
               <a href="/journal/what-is-my-home-worth-south-florida-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the valuation guide </p>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the valuation guide →</p>
               </a>
               <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home - Timing, Pricing, and the Cost of Waiting</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide </p>
+                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide →</p>
               </a>
             </div>
           </div>

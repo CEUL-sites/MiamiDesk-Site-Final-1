@@ -321,11 +321,6 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </button>
 
-          <p className="text-center font-serif text-[13px] italic leading-snug text-navy/70">
-            "Sharp pricing, professional marketing, and constant communication — Carlos made selling feel handled."{" "}
-            <span className="not-italic font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70 whitespace-nowrap">— Andres P. · Weston · Verified Review</span>
-          </p>
-
           <p className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
             Free · Confidential · No listing commitment · {CONTACT.licenseDisplay}
           </p>

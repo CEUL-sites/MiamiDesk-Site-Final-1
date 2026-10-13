@@ -106,15 +106,9 @@
   status = 301
   force = true
 
-# ── Journal safety net — SPA fallback for not-yet-prerendered posts ────────
-# Every legit route is a prerendered file that Netlify serves before these
-# rules run. New journal posts are added to reactSnap.include by the daily
-# publish flow; if a post ever misses that list, this keeps it rendering
-# client-side instead of hard-404ing a live URL.
-[[redirects]]
-  from = "/journal/*"
-  to = "/200.html"
-  status = 200
+# Journal posts must be included in the prerender output before release.
+# Known posts are served from their generated files; unknown slugs fall
+# through to the real 404 below instead of returning an empty 200 shell.
 
 # ── Everything else that isn't a prerendered file is a real 404 ─────────────
 # Serves the prerendered NotFoundPage with a true 404 status. The previous

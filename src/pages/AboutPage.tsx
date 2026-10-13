@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
-import { AGGREGATE_RATING } from "../data/reviews";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -27,7 +26,7 @@ export default function AboutPage() {
       <JsonLd id="about-person" data={{
           "@context": "https://schema.org",
           "@type": "Person",
-          "@id": "https://homesprofessional.com/#agent",
+          "@id": "https://homesprofessional.com/#person",
           "name": "Carlos Uzcategui",
           "jobTitle": "REALTOR®, CLHMS",
           "description": "South Florida REALTOR® and Certified Luxury Home Marketing Specialist (CLHMS) with 25 years of market experience. Florida License SL705771. United Realty Group.",
@@ -54,7 +53,6 @@ export default function AboutPage() {
             "postalCode": "33331",
             "addressCountry": "US"
           },
-          "aggregateRating": AGGREGATE_RATING,
           "sameAs": [CONTACT.linkedin]
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

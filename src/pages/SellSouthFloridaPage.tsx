@@ -74,7 +74,7 @@ export default function SellSouthFloridaPage() {
           "name": "How to Sell Your South Florida Property",
           "description": "A 5-step process to position, prepare, launch, activate, and negotiate your South Florida property with professional MLS visibility and eligible distribution. Timing varies by property and market.",
           "tool": [
-            { "@type": "HowToTool", "name": "Miami and South Florida REALTORSr MLS" },
+            { "@type": "HowToTool", "name": "Miami and South Florida REALTORS® MLS" },
             { "@type": "HowToTool", "name": "Eligible approved syndication channels" },
             { "@type": "HowToTool", "name": "United Realty Group Agent Network" }
           ],
@@ -114,7 +114,7 @@ export default function SellSouthFloridaPage() {
                 The case for professional representation.
               </h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/60 md:mt-5">
-                How a REALTORr helps you navigate the decisions in a property transaction.
+                How a REALTOR® helps you navigate the decisions in a property transaction.
               </p>
             </div>
             {/* Responsive 16:9 video embed */}
@@ -124,7 +124,7 @@ export default function SellSouthFloridaPage() {
                 width="560"
                 height="315"
                 src="https://www.youtube-nocookie.com/embed/U2BlBCFaiCo?si=jpLfmggFUuTw-qIG"
-                title="Why Work With a REALTORr - Professional Representation"
+                title="Why Work With a REALTOR® - Professional Representation"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -132,7 +132,7 @@ export default function SellSouthFloridaPage() {
               />
             </div>
             <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70 md:mt-4">
-              Professional representation video � <a href="https://www.youtube.com/watch?v=U2BlBCFaiCo" target="_blank" rel="noopener noreferrer" className="underline">View the original on YouTube</a>
+              Professional representation video · <a href="https://www.youtube.com/watch?v=U2BlBCFaiCo" target="_blank" rel="noopener noreferrer" className="underline">View the original on YouTube</a>
             </p>
           </div>
         </section>
@@ -184,7 +184,7 @@ export default function SellSouthFloridaPage() {
                   href={n.href}
                   className="border border-hairline px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/60 hover:border-gold/50 hover:text-gold transition-colors md:px-5 md:py-2.5"
                 >
-                  {n.label} 
+                  {n.label} →
                 </a>
               ))}
             </div>
@@ -278,32 +278,32 @@ export default function SellSouthFloridaPage() {
               <a href="/journal/seller-closing-costs-south-florida-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">What Does It Cost to Sell a Home in South Florida - A Guide to Net Proceeds</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the cost guide </p>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the cost guide →</p>
               </a>
               <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">HOA Financials and Your Home's Sale Price - What South Florida Sellers Need to Know</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the HOA guide </p>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the HOA guide →</p>
               </a>
               <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Market Analysis</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">When to List Your South Florida Home - Timing, Pricing, and the Cost of Waiting</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the timing guide </p>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the timing guide →</p>
               </a>
               <a href="/journal/florida-homestead-portability-benefits-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">Florida Homestead and Save Our Homes Portability - What Owners Should Understand Before They Sell</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the homestead guide </p>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the homestead guide →</p>
               </a>
               <a href="/journal/home-sale-capital-gains-exclusion-500k-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The $250,000 / $500,000 Home Sale Capital Gains Exclusion - How It Works for Primary Residences</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the tax-exclusion guide </p>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the tax-exclusion guide →</p>
               </a>
               <a href="/journal/1031-exchange-south-florida-investment-property-2026" className="block border border-hairline bg-white p-4 hover:border-gold/40 transition-colors md:p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-2 md:mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-sm leading-snug text-navy-deep md:text-lg">The 1031 Exchange - Deferring Capital Gains When You Sell South Florida Investment Property</h3>
-                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the 1031 guide </p>
+                <p className="mt-1.5 font-sans text-xs text-ink-primary/70 md:mt-2 md:text-sm">Read the 1031 guide →</p>
               </a>
             </div>
           </div>
@@ -322,7 +322,7 @@ export default function SellSouthFloridaPage() {
             <SellerIntakeForm sourcePage="sell-south-florida" />
             <div className="mt-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 md:mt-6">
               <BadgeCheck size={14} className="text-gold" />
-              Confidential � Licensed Professionals � Equal Housing Opportunity
+              Confidential · Licensed Professionals · Equal Housing Opportunity
             </div>
           </div>
         </section>

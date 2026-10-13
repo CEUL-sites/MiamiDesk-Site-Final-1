@@ -34,3 +34,13 @@ Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Oppo
 ## Publication check
 
 Before each reuse, check dated figures against official sources and property eligibility. Local checks and a commit are not a release. Obtain Carlos's approval before push or deployment and verify the live URL and key lead flows afterward.
+
+## October 13, 2026 verification and discrepancies
+
+| Claim / entity | Primary source and verification | Applicability and affected surfaces | Review disposition |
+| --- | --- | --- | --- |
+| URG Florida office count | [Official office directory](https://www.urgfl.com/office-locations/), checked October 13; source gives no publication date. Its heading says 21 branch locations; the listed addresses include 19 in Florida and 2 outside Florida. One Florida location is marked opening soon. | The live homepage and brokerage components show 19 Florida locations. Carlos's current project brief approves 20 Florida offices. A directory entry is not proof that an office is operating. | Reconcile with Carlos and URG before new numeric copy. Proposed neutral wording: “United Realty Group's Florida office network.” No count is changed by this patch. |
+| Brokerage website | URG's official office directory and site navigation identify [urgfl.com](https://www.urgfl.com/), checked October 13. | Sitewide Organization JSON-LD previously linked unitedrealty.com; an office directory also appeared as the agent's sameAs identity. | Local patch points the brokerage to urgfl.com and removes the directory from agent identity links. |
+| Intake review quotation | Repository review register records Andres P.'s October 15, 2020 review; its wording differs from the quotation displayed by SellerIntakeForm. Independent current Realtor.com verification was not completed. | Intake appears on seller and valuation journeys. A marketing paraphrase must not be attributed as a verbatim verified review. | Remove the mismatching intake quotation. Preserve the original stored review and existing review pages pending separate evidence review. |
+
+Association figures retain their existing dated evidence and applicability limits. This audit does not newly verify every distribution figure or approve automatic exposure for a particular property.

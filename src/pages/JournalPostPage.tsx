@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import NotFoundPage from './NotFoundPage';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
@@ -61,7 +62,7 @@ export default function JournalPostPage() {
     : [];
 
   if (!post) {
-    return <Navigate to="/journal" replace />;
+    return <NotFoundPage />;
   }
 
   const ogImage = post.image
@@ -81,8 +82,8 @@ export default function JournalPostPage() {
     dateModified,
     image: ogImage,
     author: {
-      '@type': ['Person', 'RealEstateAgent'],
-      '@id': 'https://homesprofessional.com/#agent',
+      '@type': 'Person',
+      '@id': 'https://homesprofessional.com/#person',
       name: 'Carlos Uzcategui',
       url: 'https://homesprofessional.com/about',
       jobTitle: 'REALTOR® · Florida License SL705771',
