@@ -274,7 +274,7 @@ export function SpainSellerForm({
       <input type="hidden" name="form-name" value={FORM_NAME} />
       <p aria-hidden="true" className="hidden">
         <label>
-          Don't fill this out: <input name="bot-field" />
+          <input name="bot-field" tabIndex={-1} autoComplete="off" />
         </label>
       </p>
 

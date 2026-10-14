@@ -7,7 +7,7 @@ import path from 'node:path';
 const origin = 'https://homesprofessional.com';
 const posts = JSON.parse(fs.readFileSync('src/data/journalIndex.json', 'utf8'));
 const sitemap = fs.readFileSync('public/sitemap.xml', 'utf8');
-const config = fs.readFileSync('netlify.toml', 'utf8');
+const config = fs.readFileSync('public/_redirects', 'utf8');
 const include = JSON.parse(fs.readFileSync('package.json', 'utf8')).reactSnap.include;
 const urls = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]));
 for (const post of posts) {
@@ -16,8 +16,8 @@ for (const post of posts) {
   assert(urls.has(origin + route), `${route} missing from sitemap`);
   assert(fs.existsSync(path.join('dist', route, 'index.html')), `${route} missing from built output`);
 }
-assert(!config.includes('from = "/journal/*"'), 'Unknown journal URLs must reach the real 404 rule');
-assert.match(config, /from = "\/\*"\s+to = "\/404\.html"\s+status = 404/);
+assert.match(config, /\/journal\/\* \/404.html 404/);
+assert.match(config, /\/\* \/index.html 200/);
 const routes = ['/', '/sell', '/sell-weston', '/home-value', '/about', '/contact', '/global-desk', '/es', '/es/vender', `/journal/${posts[0].slug}`];
 for (const route of routes) {
   const html = fs.readFileSync(path.join('dist', route === '/' ? '' : route, 'index.html'), 'utf8').replace(/<!--[\s\S]*?-->/g, '');

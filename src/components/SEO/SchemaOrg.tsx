@@ -1,4 +1,5 @@
-import { ASSOCIATION_STATS, CONTACT } from "../../constants";
+import { useLocation } from "react-router-dom";
+import { ASSOCIATION_STATS, CONTACT, isSpainMarketRoute } from "../../constants";
 import { AGGREGATE_RATING, VERIFIED_REVIEWS, buildReviewSchema } from "../../data/reviews";
 import { JsonLd } from "./JsonLd";
 
@@ -253,9 +254,12 @@ function schemaIdSlug(schema: JsonLdSchema): string {
 }
 
 export function SchemaOrg() {
+  const { pathname } = useLocation();
+  const allowSpain = pathname.replace(/\/+$/, "") === "/global-desk" || isSpainMarketRoute(pathname);
+  const schemas = sitewideSchema.map(schema => schema.contactPoint ? { ...schema, contactPoint: (schema.contactPoint as { areaServed: string }[]).filter(point => allowSpain || point.areaServed !== "ES") } : schema);
   return (
     <>
-      {sitewideSchema.map((schema) => (
+      {schemas.map((schema) => (
         <JsonLd key={schema["@id"] ?? schema.name} id={schemaIdSlug(schema)} data={schema} />
       ))}
     </>

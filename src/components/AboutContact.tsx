@@ -105,15 +105,7 @@ export function AboutContact({
           <div data-sticky-cta-guard className="mt-5 overflow-hidden border border-bone md:mt-12">
             {/* Responsive 16:9 YouTube embed — plays inline, no navigation away */}
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                src="https://www.youtube.com/embed/jlOLDjImd2g?si=bcS_Ogl9eNhOakQv&rel=0&modestbranding=1"
-                title="United Realty Group — 3,500+ agents and 19 Florida office locations"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full border-0"
-                loading="lazy"
-              />
+              <img src="/images/urg-hq.jpg" alt="United Realty Group headquarters in Plantation, Florida" width="1920" height="1080" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
             </div>
             <div className="bg-navy-deep px-5 py-3 md:py-4">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · 3,500+ agents</p>

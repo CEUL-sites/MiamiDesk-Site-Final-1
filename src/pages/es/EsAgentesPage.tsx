@@ -117,7 +117,7 @@ function EsReferralForm() {
     } catch (e: unknown) {
       setErr(
         (e as { name?: string }).name === "AbortError"
-          ? "La solicitud ha expirado. Contacte por WhatsApp Madrid."
+          ? "La solicitud ha expirado. Contacte por WhatsApp USA."
           : "No se ha podido enviar. Por favor, use WhatsApp o email."
       );
       setStatus("error");
@@ -430,14 +430,14 @@ export default function EsAgentesPage() {
                   Enviar una referencia de colaboración
                 </a>
                 <a
-                  href={CONTACT.whatsappSpain}
+                  href={CONTACT.whatsappUS}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
                 >
                   <ExternalLink size={13} />
                   {/* TODO: native Madrid editor review */}
-                  WhatsApp Madrid +34 646 853 078
+                  WhatsApp USA +1 954-865-6622
                 </a>
               </motion.div>
             </motion.div>
@@ -735,14 +735,14 @@ export default function EsAgentesPage() {
 
             <div className="mt-12 text-center">
               <a
-                href={CONTACT.whatsappSpain}
+                href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 <ExternalLink size={13} />
                 {/* TODO: native Madrid editor review */}
-                Solicitar conversación inicial · WhatsApp Madrid
+                Solicitar conversación inicial · WhatsApp USA
               </a>
             </div>
           </div>
@@ -989,14 +989,14 @@ export default function EsAgentesPage() {
             {/* Alternative CTAs */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={CONTACT.whatsappSpain}
+                href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-gold/40 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10"
               >
                 <ExternalLink size={13} />
                 {/* TODO: native Madrid editor review */}
-                WhatsApp Madrid +34 646 853 078
+                WhatsApp USA +1 954-865-6622
               </a>
               <a
                 href={CONTACT.whatsappUS}

@@ -138,7 +138,6 @@ If you are considering selling, buying, relocating, or exchanging real estate in
 
 USA WhatsApp: +1 954-865-6622
 
-Spain WhatsApp: +34 646 85 30 78
 
 Email: contact@carlosre.com
 

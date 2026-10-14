@@ -3,11 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 
-// NOTE: The sitemap is maintained by hand at public/sitemap.xml so it can carry
-// per-URL priorities and EN/ES hreflang alternates that vite-plugin-sitemap does
-// not emit. Vite copies public/ into dist/ on build, so that file ships as-is.
-// When adding or removing routes/journal posts, update public/sitemap.xml and the
-// react-snap include list in package.json together.
+// Route assets are generated from src/main.tsx and the journal index in prebuild.
 
 export default defineConfig(({ mode }) => {
   loadEnv(mode, '.', '');

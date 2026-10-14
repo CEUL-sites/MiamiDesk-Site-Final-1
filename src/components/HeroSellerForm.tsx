@@ -259,9 +259,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
       >
         <input type="hidden" name="form-name" value="seller-hero" />
         <input type="hidden" name="formRenderedAt" value={String(renderedAt.current)} />
-        <p aria-hidden="true" className="hidden">
-          <label>Don't fill this out: <input name="bot-field" /></label>
-        </p>
+        <div hidden aria-hidden="true" style={{ display: "none" }}><input name="bot-field" tabIndex={-1} autoComplete="off" /></div>
 
         {/* Clear promise and privacy cue; no decorative step chrome. */}
         {!compact && <div className="mb-3.5">
@@ -290,6 +288,21 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             className={`w-full rounded-md border border-gold/45 px-4 py-3 font-sans text-base outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/25 ${progressiveDesktop ? "bg-white text-navy-deep placeholder:text-slate-600" : "bg-white/[0.055] text-white placeholder:text-white/70 focus:bg-white/[0.09]"}`}
             aria-label={t.address}
           />
+        </div>
+
+        <div className="mt-2">
+            <div className="relative">
+              <select
+                name="city"
+                value={form.city}
+                onChange={update("city")}
+                className={selectCls}
+                aria-label="Market"
+              >
+                {t.markets.map((m) => <option key={m}>{m}</option>)}
+              </select>
+              <span aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
+            </div>
         </div>
 
         {/* Mobile Step 1 button */}
@@ -369,18 +382,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
               aria-label={t.email}
               />
             </label>
-            <div className="relative">
-              <select
-                name="city"
-                value={form.city}
-                onChange={update("city")}
-                className={selectCls}
-                aria-label="Market"
-              >
-                {t.markets.map((m) => <option key={m}>{m}</option>)}
-              </select>
-              <span aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
-            </div>
+
           </div>
           <div className="relative mt-2">
             <select

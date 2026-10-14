@@ -75,13 +75,29 @@ if (rootElement) {
     <StrictMode>
       <HelmetProvider>
         <>
-          <SchemaOrg />
           <BrowserRouter>
+            <SchemaOrg />
             <HtmlLang />
             <Suspense fallback={null}>
               <Routes>
                 <Route path="/"                              element={<HomePage />} />
                 {/* Primary navigation routes */}
+                <Route path="/sell-in-weston" element={<Navigate to="/sell-weston" replace />} />
+                <Route path="/sell-in-coral-gables" element={<Navigate to="/sell-coral-gables" replace />} />
+                <Route path="/sell-in-aventura" element={<Navigate to="/sell-aventura" replace />} />
+                <Route path="/sell-in-doral" element={<Navigate to="/sell-doral" replace />} />
+                <Route path="/sell-in-brickell" element={<Navigate to="/sell-brickell" replace />} />
+                <Route path="/sell-in-coral-springs" element={<Navigate to="/sell-coral-springs" replace />} />
+                <Route path="/sell-in-pembroke-pines" element={<Navigate to="/sell-pembroke-pines" replace />} />
+                <Route path="/sell-in-fort-lauderdale" element={<Navigate to="/sell-fort-lauderdale" replace />} />
+                <Route path="/sell-in-plantation" element={<Navigate to="/sell-plantation" replace />} />
+                <Route path="/sell-in-sunrise" element={<Navigate to="/sell-sunrise" replace />} />
+                <Route path="/sell-in-miami" element={<Navigate to="/sell-miami" replace />} />
+                <Route path="/sell-in-kendall" element={<Navigate to="/sell-kendall" replace />} />
+                <Route path="/sell-in-downtown-miami" element={<Navigate to="/sell-downtown-miami" replace />} />
+                <Route path="/sell-in-north-miami" element={<Navigate to="/sell-north-miami" replace />} />
+                <Route path="/sell-in-pompano-beach" element={<Navigate to="/sell-pompano-beach" replace />} />
+                <Route path="/sell-in-hallandale-beach" element={<Navigate to="/sell-hallandale-beach" replace />} />
                 <Route path="/sell"                          element={<SellSouthFloridaPage />} />
                 <Route path="/sell-south-florida"            element={<Navigate to="/sell" replace />} />
                 <Route path="/sell-weston"                   element={<SellWestonPage />} />

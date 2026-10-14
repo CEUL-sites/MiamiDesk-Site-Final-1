@@ -7,10 +7,10 @@ import { Distribution } from "../components/Distribution";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
-import { ExitIntentModal } from "../components/ExitIntentModal";
 import { MarketPulse } from "../components/MarketPulse";
 import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
 import { SellerAuthorityStrip } from "../components/SellerAuthorityStrip";
+import { SelectedMandateExecution } from "../components/SelectedMandateExecution";
 import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
 
 // Below-the-fold sections - split out of the initial bundle. With
@@ -44,6 +44,7 @@ export default function HomePage() {
         <Navbar />
         <Hero />
         <SellerAuthorityStrip />
+        <SelectedMandateExecution />
         <SellerExecutionSystem />
         <Distribution />
         <Proof />
@@ -56,12 +57,11 @@ export default function HomePage() {
           <SellerPathfinder />
         </Suspense>
         <Suspense fallback={null}>
-          <AboutContact />
+          <AboutContact showForm={false} />
         </Suspense>
         <Footer />
         <MobileStickyCTA />
-        <DesktopStickyCTA />
-        <ExitIntentModal />
+        <DesktopStickyCTA ctaHref="#list-here" />
       </main>
     </>
   );

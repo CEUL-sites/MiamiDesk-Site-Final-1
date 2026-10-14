@@ -1,42 +1,13 @@
-import { motion, useInView } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
+import { DistributionMetrics } from "./DistributionMetrics";
 import { ArrowRight, Camera, Globe2, MessagesSquare, Radar } from "lucide-react";
 import { LazyVideo } from "./LazyVideo";
-import { URG_PUBLIC_OFFICE_NETWORK_LABEL } from "../data/urgOffices";
-import { fig } from "../data/figures";
 
 // Homepage-only merge of ReachAdvantage + ListingSystem — the structural
 // argument made once, at full strength: what happens to the listing in the
 // MLS ecosystem, then how the listing system executes on that placement.
 // ReachAdvantage and ListingSystem remain unchanged for SellSouthFloridaPage,
 // which still uses them as separate sections.
-
-const TOP_STATS = [
-  {
-    value: 93000,
-    display: fig("members"),
-    suffix: "",
-    label: "Association Members",
-    sublabel: "Miami & South Florida REALTORS®",
-    desc: "Approximately 93,000 association members were reported in May 2026. Individual agents decide which properties fit their buyers.",
-  },
-  {
-    value: 437,
-    display: "437",
-    suffix: "+",
-    label: "International Agreements",
-    sublabel: "MIAMI Global Council",
-    desc: "Association cooperation agreements create possible referral paths, subject to participation and property fit.",
-  },
-  {
-    value: 3500,
-    display: "3,500",
-    suffix: "+",
-    label: "United Realty Group Agents",
-    sublabel: URG_PUBLIC_OFFICE_NETWORK_LABEL,
-    desc: "A coordinated Florida brokerage footprint from Aventura and Weston through Boca Raton, Palm Beach Gardens, and Orlando.",
-  },
-];
 
 const PILLARS = [
   {
@@ -68,49 +39,6 @@ const PILLARS = [
       "Weekly showing feedback and MLS analytics delivered by WhatsApp or email, with price adjustments guided by live market evidence.",
   },
 ];
-
-function AnimatedNumber({ display, suffix }: { display: string; suffix: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    if (inView) setVisible(true);
-  }, [inView]);
-
-  return (
-    <div ref={ref} className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-      <span className="font-serif" style={{ lineHeight: 1 }}>
-        {display}
-        {suffix && <span className="text-gold/80">{suffix}</span>}
-      </span>
-    </div>
-  );
-}
-
-function StatCard({ stat, index }: { stat: typeof TOP_STATS[0]; index: number; key?: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.75, delay: index * 0.09 }}
-      className="group relative flex flex-col justify-between border-b border-gold/15 p-6 transition-all duration-500 hover:bg-white/[0.04] md:p-10 lg:border-b-0 lg:border-r last:border-r-0"
-    >
-      <div>
-        <div className="mb-4 h-0.5 w-12 bg-gold/50 transition-all duration-500 group-hover:w-full group-hover:bg-gold" />
-        <div className="font-serif text-gold tracking-tight" style={{ fontSize: "clamp(3.2rem, 5.5vw, 5.2rem)", lineHeight: 1 }}>
-          <AnimatedNumber display={stat.display} suffix={stat.suffix} />
-        </div>
-        <div className="mt-4 md:mt-5">
-          <p className="font-sans text-base font-semibold uppercase tracking-[0.14em] text-white">{stat.label}</p>
-          <p className="font-mono mt-1 text-[11px] uppercase tracking-[0.2em] text-gold/75">{stat.sublabel}</p>
-        </div>
-      </div>
-      <p className="mt-4 font-sans text-sm leading-relaxed text-white/75 md:mt-6">{stat.desc}</p>
-    </motion.div>
-  );
-}
 
 export function Distribution() {
   return (
@@ -179,15 +107,7 @@ export function Distribution() {
         </motion.div>
       </div>
 
-      {/* ── Stats row ────────────────────────────────────────────── */}
-      <div className="relative grid border-b border-gold/15 lg:grid-cols-3">
-        {TOP_STATS.map((stat, i) => (
-          <StatCard key={stat.label} stat={stat} index={i} />
-        ))}
-      </div>
-      <p className="relative px-6 py-3 text-center font-sans text-xs text-white/75">
-        Association figures: <a className="underline underline-offset-2 hover:text-gold" href="https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" target="_blank" rel="noopener noreferrer">MIAMI REALTORS® merger announcement, April 2026</a>. United Realty Group figures: brokerage information. Counts describe the network, not guaranteed listing placement or agent attention.
-      </p>
+      <div className="relative mx-auto max-w-6xl px-6 py-8"><DistributionMetrics dark /></div>
 
       <details className="relative mx-auto max-w-6xl border-b border-gold/15 px-6 py-5 text-white/70">
         <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">
@@ -240,7 +160,7 @@ export function Distribution() {
         {/* Single CTA naming a specific outcome */}
         <div className="mt-10 flex justify-center md:mt-14">
           <a
-            href="/sell#contact"
+            href="#list-here"
             className="group inline-flex items-center gap-2.5 rounded-full bg-gold px-9 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)] md:py-4.5"
           >
             Request Your Private Seller Strategy Review

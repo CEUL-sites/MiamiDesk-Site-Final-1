@@ -261,7 +261,7 @@ export default function EsHomePage() {
           <MarketingReel3D lang="es" />
         </Suspense>
         <Suspense fallback={null}>
-          <SellerPathfinder lang="es" whatsappHref={CONTACT.whatsappSpain} />
+          <SellerPathfinder lang="es" whatsappHref={CONTACT.whatsappUS} />
         </Suspense>
 
         <Footer />

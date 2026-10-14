@@ -17,5 +17,6 @@
   "clhms": { "value": "CLHMS", "label": "Certified Luxury Home Marketing Specialist", "source": "The Institute for Luxury Home Marketing" },
   "memberComparison": { "value": "2×", "label": "More than double the next-largest U.S. local association", "phrase": "more than double the next-largest local association in the U.S. (43,000 members), larger than 47 state associations, and about 33 percent larger than the next largest in the world", "source": "MIAMI REALTORS / RWorld merger announcement, April 20, 2026 (docs/sources/miami-rworld-merger-announcement-2026-04-20.pdf)", "cite": "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" },
   "rworldLanguages": { "value": "100+", "label": "Languages", "source": "MIAMI International MLS (RWorld) syndication platform" },
+  "association2025Volume": {"value": "$69 Billion", "label": "Combined association market volume in 2025", "source": "MIAMI REALTORS® + RWorld merger announcement, April 20, 2026; association volume, not Carlos or URG production", "cite": "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/"},
   "mergerDate": "May 11, 2026"
 }

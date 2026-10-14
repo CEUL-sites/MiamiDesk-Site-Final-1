@@ -278,9 +278,11 @@ assert.match(
 
 // Distribution now uses static, code-native proof instead of the retired
 // ReachFlow3D diagram. Keep the figures exact and retain the eligibility note.
-for (const proof of ["fig(\"members\")", "437", "3,500", "Florida office network"]) {
-  assert.ok(distribution.includes(proof), `Distribution must render verified proof: ${proof}`);
+const distributionMetrics = await readFile("src/components/DistributionMetrics.tsx", "utf8");
+for (const proof of ['members', 'globalWebsites', 'languages', 'usMls', 'mlsDataExchanges', 'internationalAgreements', 'urgAgents', 'urgOfficeNetwork', 'association2025Volume']) {
+  assert.ok(distributionMetrics.includes(`fig('${proof}')`), `Distribution grid must render verified figure: ${proof}`);
 }
+assert.match(distribution, /<DistributionMetrics dark/);
 assert.match(
   distribution,
   /<details/,
@@ -330,12 +332,11 @@ for (const mod of ["MarketingReel3D", "SellerPathfinder"]) {
   );
 }
 
-// /es is a Spain-market route. A Spanish prospect must never be handed the US
-// number, and the component defaults to it, so the call site has to say so.
+// Florida seller routing follows geography, including the Spanish homepage.
 assert.match(
   esHome,
-  /<SellerPathfinder lang="es" whatsappHref=\{CONTACT\.whatsappSpain\}/,
-  "the Spanish homepage pathfinder must answer on the Spain line, not the US default",
+  /<SellerPathfinder lang="es" whatsappHref=\{CONTACT\.whatsappUS\}/,
+  "the Spanish homepage pathfinder must answer on the US line for Florida sellers",
 );
 assert.match(
   esHome,

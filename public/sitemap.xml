@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
-  <!-- �� Core pages ����������������������������������������������� -->
-
-  <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
     <loc>https://homesprofessional.com/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -14,10 +9,7 @@
     <xhtml:link rel="alternate" hreflang="en"        href="https://homesprofessional.com/"/>
     <xhtml:link rel="alternate" hreflang="es"        href="https://homesprofessional.com/es"/>
   </url>
-
-  <!-- �� Seller funnel �������������������������������������������� -->
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -25,16 +17,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-weston</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-weston"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-coral-gables</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -42,16 +32,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-gables"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-coral-gables"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-aventura</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-aventura"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-doral</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -59,8 +47,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-doral"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-brickell</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -68,140 +55,84 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-brickell"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-brickell"/>
   </url>
-
-  <url>
-    <loc>https://homesprofessional.com/sell-miami</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-miami"/>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/sell-kendall</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-kendall"/>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/sell-downtown-miami</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-downtown-miami"/>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/sell-north-miami</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-north-miami"/>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/sell-pompano-beach</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-pompano-beach"/>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/sell-hallandale-beach</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-hallandale-beach"/>
-  </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-coral-springs</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-springs"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-pembroke-pines</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-pembroke-pines"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-fort-lauderdale</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-fort-lauderdale"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-plantation</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-plantation"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/sell-sunrise</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-sunrise"/>
   </url>
-
-  <url>
-    <loc>https://homesprofessional.com/home-value</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.96</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/home-value"/>
-  </url>
-
-  <!-- �� Buyer funnel ��������������������������������������������� -->
-
-  <url>
-    <loc>https://homesprofessional.com/buy</loc>
-    <lastmod>2026-07-03</lastmod>
+<url>
+    <loc>https://homesprofessional.com/sell-miami</loc>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/buy"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/comprar"/>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-miami"/>
   </url>
-
-  <url>
-    <loc>https://homesprofessional.com/new-construction</loc>
-    <lastmod>2026-06-01</lastmod>
+<url>
+    <loc>https://homesprofessional.com/sell-kendall</loc>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-kendall"/>
   </url>
-
-  <!-- �� Markets & intelligence ����������������������������������� -->
-
-  <url>
-    <loc>https://homesprofessional.com/markets</loc>
-    <lastmod>2026-06-07</lastmod>
+<url>
+    <loc>https://homesprofessional.com/sell-downtown-miami</loc>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.87</priority>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-downtown-miami"/>
   </url>
-
-  <url>
-    <loc>https://homesprofessional.com/listings</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
+<url>
+    <loc>https://homesprofessional.com/sell-north-miami</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-north-miami"/>
   </url>
-
-  <!-- �� International �������������������������������������������� -->
-
-  <url>
+<url>
+    <loc>https://homesprofessional.com/sell-pompano-beach</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-pompano-beach"/>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/sell-hallandale-beach</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-hallandale-beach"/>
+  </url>
+<url>
     <loc>https://homesprofessional.com/global-desk</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -209,59 +140,56 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/spain-mls-listing</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/vender-marbella</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/vender-madrid</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/vender-costa-blanca</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/vender-ibiza</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/vender-barcelona</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/vender-valencia</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
-
-  <!-- �� Professionals �������������������������������������������� -->
-
-  <url>
+<url>
+    <loc>https://homesprofessional.com/home-value</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.96</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/home-value"/>
+  </url>
+<url>
     <loc>https://homesprofessional.com/agents</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -269,383 +197,89 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/agents"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/agentes"/>
   </url>
-
-  <!-- �� Reviews ���������������������������������������������������� -->
-
-  <url>
-    <loc>https://homesprofessional.com/reviews</loc>
-    <lastmod>2026-06-02</lastmod>
+<url>
+    <loc>https://homesprofessional.com/buy</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/buy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/comprar"/>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/new-construction</loc>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
-
-  <url>
-    <loc>https://homesprofessional.com/leave-a-review</loc>
-    <lastmod>2026-06-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
-  </url>
-
-  <!-- �� About & contact ������������������������������������������ -->
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/contact</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
-
-  <url>
+<url>
+    <loc>https://homesprofessional.com/listings</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+<url>
     <loc>https://homesprofessional.com/about</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
   </url>
-
-  <!-- �� Journal index �������������������������������������������� -->
-
-  <url>
+<url>
+    <loc>https://homesprofessional.com/reviews</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/leave-a-review</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+<url><loc>https://homesprofessional.com/la-comision-secreta</loc></url>
+<url>
+    <loc>https://homesprofessional.com/markets</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/market-data</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/privacy</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/terms</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
+  </url>
+<url>
     <loc>https://homesprofessional.com/journal</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.86</priority>
   </url>
-
-  <!-- �� Journal posts �������������������������������������������� -->
-
-  <url>
-    <loc>https://homesprofessional.com/journal/international-investor-south-florida-income-property-2026</loc>
-    <lastmod>2026-07-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/global-luxury-investment-buyer-agent-network-2026</loc>
-    <lastmod>2026-07-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/highest-price-buyer-agent-network-south-florida-2026</loc>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-coral-gables-2026-july</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/doral-home-prices-may-2026-market-report</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/relocating-out-of-south-florida-sequence-the-sale-2026</loc>
-    <lastmod>2026-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-south-florida-homestead-portability-example-2026</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/south-florida-may-2026-market-report-home-sellers</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/miami-dade-condo-sellers-may-2026-market</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.86</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/listing-online-vs-activating-the-market-south-florida-2026</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.86</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/review-equity-before-selling-south-florida-2026</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/florida-homestead-portability-benefits-2026</loc>
-    <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/home-sale-capital-gains-exclusion-500k-2026</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/1031-exchange-south-florida-investment-property-2026</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-agreement-south-florida-2026</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-sunny-isles-beach-condo-2026</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-boca-raton-home-2026</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/pre-listing-checklist-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-inherited-home-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/south-florida-april-2026-market-signal-home-sellers</loc>
-    <lastmod>2026-06-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-closing-costs-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/hoa-impact-home-sale-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/when-to-list-south-florida-home-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-doral-home-2026</loc>
-    <lastmod>2026-06-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-coral-springs-home-2026</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-pembroke-pines-home-2026</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-plantation-home-2026</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-sunrise-home-2026</loc>
-    <lastmod>2026-05-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-brickell-condo-2026</loc>
-    <lastmod>2026-06-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-fort-lauderdale-waterfront-2026</loc>
-    <lastmod>2026-06-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owners-south-florida-mls-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/spain-american-investors-2026</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/what-is-my-home-worth-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/weston-4-bedroom-single-family-market-june-2026</loc>
-    <lastmod>2026-06-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/how-to-choose-a-listing-agent-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.84</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-aventura-florida-2026</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-coral-gables-2026</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-weston-florida-2026</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-miami-beach-condo-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/latin-american-buyers-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.78</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-hallandale-beach-condo-2026</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-kendall-home-2026</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-north-miami-home-2026</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-pompano-beach-home-2026</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/selling-downtown-miami-condo-2026</loc>
-    <lastmod>2026-06-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.82</priority>
-  </url>
-
-  <!-- �� Spanish language ����������������������������������������� -->
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/es</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/es/vender</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -653,8 +287,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-south-florida"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/es/comprar</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -662,8 +295,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/buy"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/comprar"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/es/agentes</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -672,8 +304,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/agents"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/agentes"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/es/spain-desk</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -681,8 +312,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/es/vender-doral</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -690,8 +320,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-doral"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/es/vender-brickell</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -699,8 +328,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-brickell"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-brickell"/>
   </url>
-
-  <url>
+<url>
     <loc>https://homesprofessional.com/es/vender-coral-gables</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -708,486 +336,736 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-gables"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-coral-gables"/>
   </url>
-
-  <!-- �� Market Data ������������������������������������������������ -->
-
-  <url>
-    <loc>https://homesprofessional.com/market-data</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- �� Legal ���������������������������������������������������� -->
-
-  <url>
-    <loc>https://homesprofessional.com/privacy</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.40</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/terms</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.40</priority>
-  </url>
-
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-plantation-2026-june</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-pompano-beach-2026-july</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-kendall-2026-july</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-sunny-isles-beach-2026-july</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-boca-raton-2026-july</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-south-florida-2026-july</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/miami-listing-desk-spanish-prime-real-estate</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-aventura-2026-july</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-doral-2026-july</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-brickell-2026-july</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-fort-lauderdale-2026-july</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-plantation-2026-july</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/insurability-roof-wind-mitigation-south-florida-sale-2026</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-pompano-beach-2026-july</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-kendall-2026-july</loc>
-    <lastmod>2026-07-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-sunny-isles-beach-2026-july</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-boca-raton-2026-july</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-south-florida-2026-july</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-weston-2026-july</loc>
-    <lastmod>2026-07-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-coral-gables-2026-july</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-aventura-2026-august</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-doral-2026-august</loc>
-    <lastmod>2026-08-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-brickell-2026-august</loc>
-    <lastmod>2026-08-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-fort-lauderdale-2026-august</loc>
-    <lastmod>2026-08-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-pompano-beach-2026-august</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-kendall-2026-august</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-sunny-isles-beach-2026-august</loc>
-    <lastmod>2026-08-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-boca-raton-2026-august</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/seller-positioning-south-florida-2026-august</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-weston-2026-august</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-aventura-2026-august</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-doral-2026-august</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-brickell-2026-august</loc>
-    <lastmod>2026-08-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-fort-lauderdale-2026-august</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-plantation-2026-august</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-pompano-beach-2026-august</loc>
-    <lastmod>2026-08-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-kendall-2026-august</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-sunny-isles-beach-2026-august</loc>
-    <lastmod>2026-08-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-boca-raton-2026-august</loc>
-    <lastmod>2026-08-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/buyer-discipline-south-florida-2026-august</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-weston-2026-august</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-coral-gables-2026-august</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-aventura-2026-august</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-doral-2026-august</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-brickell-2026-august</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-fort-lauderdale-2026-august</loc>
-    <lastmod>2026-08-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-plantation-2026-august</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-pompano-beach-2026-august</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-kendall-2026-august</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-sunny-isles-beach-2026-september</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-boca-raton-2026-september</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-owner-south-florida-2026-september</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-weston-2026-september</loc>
-    <lastmod>2026-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-coral-gables-2026-september</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-aventura-2026-september</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-doral-2026-september</loc>
-    <lastmod>2026-09-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-brickell-2026-september</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/international-luxury-properties-miami-buyer-agents-global-desk</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/downsizing-sequence-fort-lauderdale-2026-september</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-weston-2026-september</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-coral-gables-2026-september</loc>
-    <lastmod>2026-09-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-aventura-2026-september</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-doral-2026-september</loc>
-    <lastmod>2026-09-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-brickell-2026-september</loc>
-    <lastmod>2026-09-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-fort-lauderdale-2026-september</loc>
-    <lastmod>2026-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/beyond-offer-price-south-florida-representation-2026</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-plantation-2026-september</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-pompano-beach-2026-september</loc>
-    <lastmod>2026-09-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-kendall-2026-september</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-sunny-isles-beach-2026-september</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-boca-raton-2026-september</loc>
-    <lastmod>2026-09-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/post-occupancy-south-florida-2026-september</loc>
-    <lastmod>2026-09-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-weston-2026-september</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://homesprofessional.com/journal/net-proceeds-coral-gables-2026-september</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
+<url>
     <loc>https://homesprofessional.com/journal/weston-downsizing-equity-post-occupancy-homestead-portability</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
-  <url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-coral-gables-2026-september</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-weston-2026-september</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
     <loc>https://homesprofessional.com/journal/weston-homebuyer-purchase-assistance-2026</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-south-florida-2026-september</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-boca-raton-2026-september</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-sunny-isles-beach-2026-september</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-kendall-2026-september</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-pompano-beach-2026-september</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/beyond-offer-price-south-florida-representation-2026</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-plantation-2026-september</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-fort-lauderdale-2026-september</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-brickell-2026-september</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-doral-2026-september</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-aventura-2026-september</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-coral-gables-2026-september</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-weston-2026-september</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-fort-lauderdale-2026-september</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-brickell-2026-september</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-doral-2026-september</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-luxury-properties-miami-buyer-agents-global-desk</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-aventura-2026-september</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-coral-gables-2026-september</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-weston-2026-september</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-south-florida-2026-september</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-boca-raton-2026-september</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-sunny-isles-beach-2026-september</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-kendall-2026-august</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-pompano-beach-2026-august</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-plantation-2026-august</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-fort-lauderdale-2026-august</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-brickell-2026-august</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-doral-2026-august</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-aventura-2026-august</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-coral-gables-2026-august</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owner-weston-2026-august</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-south-florida-2026-august</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-boca-raton-2026-august</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-sunny-isles-beach-2026-august</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-kendall-2026-august</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-pompano-beach-2026-august</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-plantation-2026-august</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-fort-lauderdale-2026-august</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-brickell-2026-august</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-doral-2026-august</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-aventura-2026-august</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-weston-2026-august</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-south-florida-2026-august</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-boca-raton-2026-august</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-sunny-isles-beach-2026-august</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-kendall-2026-august</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/spain-american-investors-2026</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-pompano-beach-2026-august</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-fort-lauderdale-2026-august</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-brickell-2026-august</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-doral-2026-august</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-aventura-2026-august</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-coral-gables-2026-july</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-positioning-weston-2026-july</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-south-florida-2026-july</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-boca-raton-2026-july</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-sunny-isles-beach-2026-july</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-kendall-2026-july</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-pompano-beach-2026-july</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/insurability-roof-wind-mitigation-south-florida-sale-2026</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-plantation-2026-july</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-fort-lauderdale-2026-july</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-brickell-2026-july</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-doral-2026-july</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/net-proceeds-aventura-2026-july</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/global-luxury-investment-buyer-agent-network-2026</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-investor-south-florida-income-property-2026</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/highest-price-buyer-agent-network-south-florida-2026</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/miami-listing-desk-spanish-prime-real-estate</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-south-florida-2026-july</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-boca-raton-2026-july</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-sunny-isles-beach-2026-july</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-kendall-2026-july</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/buyer-discipline-coral-gables-2026-july</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-pompano-beach-2026-july</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/doral-home-prices-may-2026-market-report</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-sequence-plantation-2026-june</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/relocating-out-of-south-florida-sequence-the-sale-2026</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/downsizing-south-florida-homestead-portability-example-2026</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/miami-dade-condo-sellers-may-2026-market</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/south-florida-may-2026-market-report-home-sellers</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/listing-online-vs-activating-the-market-south-florida-2026</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/review-equity-before-selling-south-florida-2026</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-boca-raton-home-2026</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-sunny-isles-beach-condo-2026</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/florida-homestead-portability-benefits-2026</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/home-sale-capital-gains-exclusion-500k-2026</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/1031-exchange-south-florida-investment-property-2026</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/post-occupancy-agreement-south-florida-2026</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/pre-listing-checklist-south-florida-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-downtown-miami-condo-2026</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-hallandale-beach-condo-2026</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-inherited-home-south-florida-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-kendall-home-2026</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-north-miami-home-2026</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-pompano-beach-home-2026</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/seller-closing-costs-south-florida-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/south-florida-april-2026-market-signal-home-sellers</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/hoa-impact-home-sale-south-florida-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-doral-home-2026</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-brickell-condo-2026</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/when-to-list-south-florida-home-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-fort-lauderdale-waterfront-2026</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-owners-south-florida-mls-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-aventura-florida-2026</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-coral-springs-home-2026</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/how-to-choose-a-listing-agent-south-florida-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-pembroke-pines-home-2026</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/weston-4-bedroom-single-family-market-june-2026</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-coral-gables-2026</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-plantation-home-2026</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/what-is-my-home-worth-south-florida-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-sunrise-home-2026</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-weston-florida-2026</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/selling-miami-beach-condo-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+<url>
+    <loc>https://homesprofessional.com/journal/latin-american-buyers-south-florida-2026</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
   </url>
 </urlset>

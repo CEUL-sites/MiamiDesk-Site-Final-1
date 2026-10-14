@@ -48,8 +48,7 @@ const normalizePath = (path: string): string => path.replace(/\/+$/, "") || "/";
 export const isSpainMarketRoute = (path: string): boolean => {
   const p = normalizePath(path);
   return (
-    p === "/es" ||
-    p.startsWith("/es/") ||
+    p === "/es/spain-desk" ||
     [
       "/madrid",
       "/spain-desk",
@@ -61,7 +60,6 @@ export const isSpainMarketRoute = (path: string): boolean => {
       // developer in São Paulo or Dubai. Path-based routing cannot read the
       // page's EN/ES toggle, so the section-level link is what carries it.
       "/spain-mls-listing",
-      "/la-comision-secreta",
       "/vender-marbella",
       "/vender-madrid",
       "/vender-costa-blanca",
