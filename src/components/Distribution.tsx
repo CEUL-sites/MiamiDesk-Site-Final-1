@@ -7,7 +7,7 @@ const GUIDE = "https://www.miamirealtors.com/wp-content/uploads/bsk-pdf-manager/
 const CHANNELS = [
   { id: "regional", icon: House,
     en: { label: "Local MLS", metric: `${fig("members")} association members`, title: "Position the property for local agent discovery.", detail: "Carlos prepares eligible listings for the South Florida MLS environment and coordinates outreach to agents working with relevant buyers. Association membership describes the professional infrastructure available to the campaign." },
-    es: { label: "MLS local", metric: `${fig("members").replaceAll(",", ".")} miembros de la asociación`, title: "Posicionar la propiedad para el descubrimiento profesional local.", detail: "Carlos prepara propiedades elegibles para el entorno MLS del sur de Florida y coordina contactos con agentes que trabajan con compradores relevantes. La cifra de miembros describe la infraestructura profesional disponible para la campaña." } },
+    es: { label: "MLS local", metric: `${fig("members").replace(/,/g, ".")} miembros de la asociación`, title: "Posicionar la propiedad para el descubrimiento profesional local.", detail: "Carlos prepara propiedades elegibles para el entorno MLS del sur de Florida y coordina contactos con agentes que trabajan con compradores relevantes. La cifra de miembros describe la infraestructura profesional disponible para la campaña." } },
   { id: "national", icon: Database,
     en: { label: "National MLS exchange", metric: `${fig("usMls")} U.S. MLSs via RPR · ${fig("mlsDataExchanges")} MLS data exchanges`, title: "Connect the listing with national professional channels.", detail: "MIAMI's distribution program shares listings through RPR with 260+ U.S. MLSs. The association also reports 11 MLS data exchanges. We review the channels applicable to your property and coordinate relevant relocation-agent follow-up." },
     es: { label: "Intercambio MLS nacional", metric: `${fig("usMls")} MLS de EE. UU. vía RPR · ${fig("mlsDataExchanges")} intercambios de datos MLS`, title: "Conectar la propiedad con canales profesionales nacionales.", detail: "El programa de MIAMI comparte propiedades mediante RPR con 260+ MLS de EE. UU. La asociación también informa de 11 intercambios de datos MLS. Revisamos los canales aplicables a su propiedad y coordinamos seguimiento con agentes de reubicación relevantes." } },
@@ -37,8 +37,13 @@ export function Distribution({ lang = "en" }: { lang?: "en" | "es" }) {
   useEffect(() => {
     const query = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
     const update = () => setFollowScroll(query.matches);
-    update(); query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
+    update();
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", update);
+      return () => query.removeEventListener("change", update);
+    }
+    query.addListener(update);
+    return () => query.removeListener(update);
   }, []);
   useEffect(() => {
     if (!followScroll || manual || typeof IntersectionObserver === "undefined") return;
@@ -79,7 +84,7 @@ export function Distribution({ lang = "en" }: { lang?: "en" | "es" }) {
         <h2 className="mt-4 font-serif text-4xl leading-[1.08] md:text-5xl">{es ? "Distribución profesional." : "Professional distribution."}</h2>
         <p className="mt-4 font-serif text-2xl leading-snug md:text-3xl">{es ? "Una ruta coordinada al mercado." : "A coordinated route to market."}</p>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85">{es ? "Carlos combina posicionamiento específico, infraestructura de la mayor asociación local de REALTORS® del mundo y contacto con agentes compradores relevantes." : "Carlos combines property-specific positioning, the world's largest local Realtor association's infrastructure and relevant buyer-agent outreach."}</p>
-        <div className="mt-7 border-t border-white/25 pt-5"><p className="font-serif text-6xl text-gold-soft md:text-7xl">{es ? fig("members").replaceAll(",", ".") : fig("members")}</p><p className="mt-2 text-base font-semibold">{es ? "Miembros de la asociación" : "Association members"}</p><p className="mt-3 text-sm leading-relaxed text-white/80">MIAMI REALTORS® + RWorld · {es ? "Efectivo el 11 de mayo de 2026" : "Effective May 11, 2026"}</p></div>
+        <div className="mt-7 border-t border-white/25 pt-5"><p className="font-serif text-6xl text-gold-soft md:text-7xl">{es ? fig("members").replace(/,/g, ".") : fig("members")}</p><p className="mt-2 text-base font-semibold">{es ? "Miembros de la asociación" : "Association members"}</p><p className="mt-3 text-sm leading-relaxed text-white/80">MIAMI REALTORS® + RWorld · {es ? "Efectivo el 11 de mayo de 2026" : "Effective May 11, 2026"}</p></div>
       </header>
       <div className="distribution-visual mt-8 min-w-0 lg:mt-0"><div className="distribution-pin">
         <figure className="mx-auto w-48 overflow-hidden rounded-md border border-gold/70"><img src="/images/posters/luxury_waterfront_drone-20261012.jpg" width={1080} height={1920} loading="lazy" decoding="async" alt={es ? "Vista ilustrativa de una propiedad junto al agua" : "Illustrative waterfront property presentation"} className="h-36 w-full object-cover" /><figcaption className="bg-gold px-3 py-3 text-center text-sm font-semibold text-navy-deep">{es ? "Su propiedad" : "Your property"}</figcaption></figure>
