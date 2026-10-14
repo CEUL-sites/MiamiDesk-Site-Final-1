@@ -1,0 +1,28 @@
+/* Approved October 14, 2026: editorial evidence, native scroll, static fallback. */
+.story-eyebrow { font-size: .75rem; line-height: 1.6; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+.story-cta { display: inline-flex; align-items: center; justify-content: center; gap: .75rem; min-height: 3rem; max-width: 100%; background: #B08D57; color: #06111F; padding: .95rem 1.4rem; font-size: 1rem; font-weight: 600; line-height: 1.5; text-align: center; border-radius: .25rem; }
+.story-cta:hover { background: #D4AE78; }
+.story-cta:focus-visible { outline: 3px solid #80663C; outline-offset: 4px; }
+.distribution-scenes { display: none; }
+.distribution-connectors { height: 2rem; width: 1px; margin: auto; background: #D4AE78; }
+.distribution-connectors svg { display: none; }
+.distribution-route { transition: background-color .2s, border-color .2s; }
+/* Horizontal clipping must not create a scroll container around the sticky scene. */
+@supports (overflow-x: clip) {
+  #root:has([data-seller-story]) { overflow-x: clip; overflow-y: visible; }
+}
+@media (min-width: 64rem) {
+  .distribution-story { display: grid; grid-template-columns: .95fr 1.05fr; align-items: start; }
+  .distribution-intro { grid-column: 1; grid-row: 1; }
+  .distribution-visual { grid-column: 2; grid-row: 1 / span 2; align-self: stretch; }
+  .distribution-pin { position: sticky; top: 6rem; }
+  .distribution-scenes { display: block; grid-column: 1; grid-row: 2; }
+  .distribution-scene { min-height: 15rem; }
+  .distribution-sources { grid-column: 1 / -1; }
+  .distribution-connectors { height: 3rem; width: 100%; background: none; }
+  .distribution-connectors svg { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .distribution-route { transition: none; }
+  html { scroll-behavior: auto; }
+}

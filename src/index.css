@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./seller-story.css";
 
 @theme {
   --color-navy: #0B1E3F;

@@ -45,8 +45,8 @@ export default function HomePage() {
         <Hero />
         <SellerAuthorityStrip />
         <SelectedMandateExecution />
-        <SellerExecutionSystem />
         <Distribution />
+        <SellerExecutionSystem />
         <Proof />
         <Suspense fallback={null}>
           <MarketingReel3D />

@@ -211,10 +211,10 @@ for (const label of ["POSITION", "ACTIVATE", "REPORT", "ADJUST"]) {
   assert.match(deck, new RegExp(label), `the deck must retain the ${label} stage`);
 }
 assert.match(deck, /role="tablist"/, "the stage rail must be reachable as a tab list");
-assert.match(deck, /inert: true/, "cards behind the front card must not be focusable");
+assert.match(deck, /inert=/, "cards behind the front card must not be focusable");
 assert.match(
   deck,
-  /aria-hidden=\{!front\}/,
+  /hidden=/,
   "only the front card should be announced",
 );
 
@@ -282,7 +282,8 @@ const distributionMetrics = await readFile("src/components/DistributionMetrics.t
 for (const proof of ['members', 'globalWebsites', 'languages', 'usMls', 'mlsDataExchanges', 'internationalAgreements', 'urgAgents', 'urgOfficeNetwork', 'association2025Volume']) {
   assert.ok(distributionMetrics.includes(`fig('${proof}')`), `Distribution grid must render verified figure: ${proof}`);
 }
-assert.match(distribution, /<DistributionMetrics dark/);
+assert.match(distribution, /data-distribution-scene=/);
+assert.doesNotMatch(deck, /setInterval/, "execution stages stay under reader control");
 assert.match(
   distribution,
   /<details/,

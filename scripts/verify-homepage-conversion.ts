@@ -152,7 +152,7 @@ for (const [label, copy] of [
 }
 assert.match(distribution, /The Listing System/);
 assert.match(distribution, /PILLARS\.map/);
-assert.match(distribution, /<DistributionMetrics dark/);
+assert.match(distribution, /data-distribution-scene=/);
 const distributionMetrics = await readFile("src/components/DistributionMetrics.tsx", "utf8");
 assert.match(distributionMetrics, /Association members/);
 assert.match(footer, /93,000 ASSOCIATION MEMBERS/);
@@ -160,8 +160,8 @@ assert.doesNotMatch(footer, /94,000\+ ASSOCIATION MEMBERS/);
 const sectionOrder = [
   "<Hero />",
   "<SellerAuthorityStrip />",
-  "<SellerExecutionSystem />",
   "<Distribution />",
+  "<SellerExecutionSystem />",
   "<Proof />",
   "<GlobalDeskTeaser />",
   "<MarketPulse />",
