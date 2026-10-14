@@ -51,7 +51,7 @@ assert.match(about, /URG_FLORIDA_OFFICE_NAMES\.map/);
 assert.match(about, /View the Florida office network/);
 assert.match(about, /URG_FLORIDA_OFFICE_COUNT/);
 assert.match(about, /Pembroke Pines, marked opening soon/);
-assert.match(distribution, /Distribution · United Realty Group · Florida office network/);
+assert.match(distribution, /United Realty Group · Florida office network/);
 
 const logo = fs.readFileSync(path.join(root, "src", "components", "UrgLogo.tsx"), "utf8");
 assert.match(logo, /urg-logo-original\.webp/);

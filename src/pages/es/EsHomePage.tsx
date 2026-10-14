@@ -10,6 +10,7 @@ import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { EsProof } from "../../components/es/EsProof";
 import { EsDistribution } from "../../components/es/EsDistribution";
+import { SellerExecutionSystem } from "../../components/SellerExecutionSystem";
 import { CONTACT } from "../../constants";
 
 const MarketingReel3D = lazy(() => import("../../components/MarketingReel3D").then((m) => ({ default: m.MarketingReel3D })));
@@ -257,6 +258,7 @@ export default function EsHomePage() {
 
         <EsProof />
         <EsDistribution />
+        <SellerExecutionSystem lang="es" />
         <Suspense fallback={null}>
           <MarketingReel3D lang="es" />
         </Suspense>

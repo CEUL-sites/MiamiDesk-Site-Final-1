@@ -49,15 +49,15 @@ const COPY = {
     networkCta: "Discuss an activation",
     teamVideoTitle: "United Realty Group — the team behind the Greater Miami activation layer",
     teamVideoLabel: "United Realty Group · Professional network",
-    mandateTitleA: "Your mandate stays with you.",
-    mandateTitleB: "We add the U.S. activation layer.",
-    mandateBody: "Miami Global Desk is an additional professional distribution and agent-cooperation layer—not another consumer portal and not a replacement for the originating listing team.",
+    mandateTitleA: "Your local mandate.",
+    mandateTitleB: "A coordinated U.S. route.",
+    mandateBody: "Your team leads the local transaction. Carlos coordinates eligible South Florida professional exposure and broker cooperation.",
     mandatePoints: ["You retain the listing mandate and control of the local transaction.", "We prepare selected property for professional visibility within the Greater Miami agent network.", "Qualified buyer interest can be introduced directly back to your team."],
     trustKicker: "South Florida principal",
     trustTitle: "Carlos Uzcategui",
     trustSub: "South Florida real estate since 2001",
     trustBody: "A Florida-licensed principal coordinating bilingual property review, U.S. activation, and structured introductions through United Realty Group.",
-    credentials: ["Licensed since 2001 · 25 years in South Florida", "Certified Luxury Home Marketing Specialist · Certified Seller Representative", "United Realty Group · 3,500+ agents · 19 Florida office locations", "Bilingual coordination · South Florida ↔ Spain and LATAM"],
+    credentials: ["Florida licensed since 2001", "CLHMS · Certified Luxury Home Marketing Specialist · Certified Seller Representative", "English & Spanish · South Florida, Spain and LATAM coordination", "United Realty Group · Florida office network"],
     closeTitle: "Ready to expand your property’s professional reach in the U.S.?",
     closeBody: "Present one qualified property or request a private discussion about an agency, developer, or portfolio activation route.",
     closeCta: "Request a Private Global Desk Discussion",
@@ -106,15 +106,15 @@ const COPY = {
     networkCta: "Conversar sobre una activación",
     teamVideoTitle: "United Realty Group — el equipo detrás de la capa de activación en Greater Miami",
     teamVideoLabel: "United Realty Group · Red profesional",
-    mandateTitleA: "Su mandato permanece con usted.",
-    mandateTitleB: "Nosotros añadimos la activación en EE. UU.",
-    mandateBody: "Miami Global Desk es una capa adicional de distribución profesional y cooperación entre agentes; no es otro portal de consumo ni reemplaza al equipo captador de origen.",
+    mandateTitleA: "Su mandato local.",
+    mandateTitleB: "Una ruta coordinada en EE. UU.",
+    mandateBody: "Su equipo dirige la operación local. Carlos coordina exposición profesional elegible en el sur de Florida y cooperación entre corredores.",
     mandatePoints: ["Usted conserva el mandato y el control de la operación local.", "Preparamos propiedades seleccionadas para visibilidad profesional dentro de la red de agentes de Greater Miami.", "El interés comprador cualificado puede regresar directamente a su equipo."],
     trustKicker: "Principal en el sur de Florida",
     trustTitle: "Carlos Uzcategui",
     trustSub: "Sector inmobiliario del sur de Florida desde 2001",
     trustBody: "Un principal con licencia de Florida que coordina revisión bilingüe, activación en EE. UU. e introducciones estructuradas a través de United Realty Group.",
-    credentials: ["Licenciado desde 2001 · 25 años en el sur de Florida", "Certified Luxury Home Marketing Specialist · Certified Seller Representative", "United Realty Group · 3,500+ agentes · 19 ubicaciones de oficinas en Florida", "Coordinación bilingüe · sur de Florida ↔ España y LATAM"],
+    credentials: ["Licenciado en Florida desde 2001", "CLHMS · Certified Luxury Home Marketing Specialist · Certified Seller Representative", "Inglés y español · Coordinación sur de Florida, España y LATAM", "United Realty Group · Red de oficinas en Florida"],
     closeTitle: "¿Listo para ampliar el alcance profesional de su propiedad en EE. UU.?",
     closeBody: "Presente una propiedad cualificada o solicite una conversación privada sobre una ruta de activación para agencia, promotora o portafolio.",
     closeCta: "Solicitar conversación privada Global Desk",
@@ -316,22 +316,57 @@ export default function GlobalDeskPage() {
           </motion.div>
         </section>
 
-        <section id="mandate" className="bg-white text-navy">
-          <div className="grid min-h-[680px] lg:grid-cols-2">
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal} className="flex items-center px-6 py-16 sm:px-10 lg:px-[max(4rem,calc((100vw-80rem)/2))] lg:py-24">
-              <div className="max-w-xl"><h2 className="font-serif text-4xl leading-[1.08] text-navy-deep md:text-5xl">{t.mandateTitleA}<br /><span className="text-gold-ink">{t.mandateTitleB}</span></h2><p className="mt-6 font-sans text-base leading-[1.8] text-navy/75 md:text-lg">{t.mandateBody}</p><ul className="mt-8 space-y-5">{t.mandatePoints.map((point) => <li key={point} className="flex gap-4 border-t border-bone pt-5 font-sans text-sm leading-relaxed text-navy md:text-base"><span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-gold text-gold-ink"><Check size={13} /></span>{point}</li>)}</ul></div>
-            </motion.div>
-            <figure className="relative min-h-[420px] overflow-hidden lg:min-h-full"><img src="/images/carlos-waterfront-editorial-20261012.jpg" alt="Carlos Uzcategui at a Miami waterfront property, representing the South Florida activation layer" width={1920} height={1080} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-center" /><figcaption className="absolute bottom-5 left-5 border border-white/25 bg-navy-deep/88 px-4 py-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white backdrop-blur-sm">International property → South Florida activation</figcaption></figure>
+
+        <section id="mandate" data-sticky-cta-guard data-global-partnership className="bg-white-soft px-6 py-14 text-navy-deep md:py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.05fr] lg:gap-12">
+              <header>
+                <p className="story-eyebrow text-gold-ink">{lang === "es" ? "Mandato local · Cooperación en EE. UU." : "Local mandate · U.S. cooperation"}</p>
+                <h2 className="mt-4 font-serif text-4xl leading-[1.08] md:text-5xl">{t.mandateTitleA}<br />{t.mandateTitleB}</h2>
+                <p className="mt-5 hidden text-base leading-relaxed text-navy lg:block">{t.mandateBody}</p>
+              </header>
+              <figure>
+                <img src="/images/carlos-waterfront-editorial-20261012.jpg" alt={lang === "es" ? "Carlos Uzcategui junto al waterfront de Miami" : "Carlos Uzcategui at the Miami waterfront"} width={1920} height={1080} loading="lazy" decoding="async" className="aspect-[4/3] w-full rounded-md object-cover object-[62%_center]" />
+              </figure>
+              <p className="text-base leading-relaxed text-navy lg:hidden">{t.mandateBody}</p>
+            </div>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <article className="rounded-md border border-bone p-6">
+                <Handshake size={26} aria-hidden="true" className="text-gold-ink" />
+                <h3 className="mt-4 font-serif text-2xl">{lang === "es" ? "Socio local" : "Local partner"}</h3>
+                <p className="mt-3 text-base leading-relaxed text-navy">{lang === "es" ? "Mandato · Visitas · Negociación local y cierre" : "Mandate · Showings · Local negotiation and closing"}</p>
+              </article>
+              <article className="rounded-md border border-bone p-6">
+                <UsersRound size={26} aria-hidden="true" className="text-gold-ink" />
+                <h3 className="mt-4 font-serif text-2xl">Carlos / United Realty Group</h3>
+                <p className="mt-3 text-base leading-relaxed text-navy">{lang === "es" ? "Revisión de elegibilidad · Activación aprobada en EE. UU. · Introducciones profesionales" : "Eligibility review · Approved U.S. activation · Professional introductions"}</p>
+              </article>
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-navy">{lang === "es" ? "Sujeto a elegibilidad de la propiedad, aprobación del corretaje, normas MLS y términos escritos de cooperación." : "Subject to property eligibility, brokerage approval, MLS rules and written cooperation terms."}</p>
+            <a href="#listing-request" onClick={() => { setIntakeTab("cooperation"); pushEvent("global_desk_cta_click", { cta_type: "cooperation_review", cta_location: "mandate", language: lang }); }} className="story-cta mt-6">{lang === "es" ? "Conversar sobre cooperación España–sur de Florida" : "Discuss a Spain–South Florida Cooperation Opportunity"}<ArrowRight size={18} aria-hidden="true" /></a>
           </div>
         </section>
 
-        <section id="carlos" className="border-y border-bone bg-ivory px-6 py-16 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-            <motion.figure initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal} className="mx-auto w-full max-w-sm overflow-hidden border border-bone bg-white p-3 shadow-sm lg:mx-0"><img src="/images/carlos-headshot.jpg" alt="Carlos Uzcategui, Florida Licensed Realtor with United Realty Group" width={800} height={817} loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover object-top" /></motion.figure>
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal}><p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-ink">{t.trustKicker}</p><h2 className="mt-4 font-serif text-5xl leading-none text-navy-deep md:text-6xl">{t.trustTitle}</h2><p className="mt-3 font-serif text-2xl text-gold-ink">{t.trustSub}</p><p className="mt-6 max-w-2xl font-sans text-base leading-[1.8] text-navy/75 md:text-lg">{t.trustBody}</p><div className="mt-8 grid gap-px border border-bone bg-bone sm:grid-cols-2">{t.credentials.map((credential) => <p key={credential} className="bg-white p-5 font-sans text-sm font-semibold leading-relaxed text-navy">{credential}</p>)}</div></motion.div>
+        <section id="carlos" data-sticky-cta-guard data-global-principal className="border-y border-bone bg-white-soft px-6 py-14 text-navy-deep md:py-20">
+          <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12">
+            <figure className="mx-auto w-full max-w-[280px] lg:max-w-sm">
+              <img src="/images/carlos-headshot.jpg" alt={lang === "es" ? "Carlos Uzcategui, Realtor con licencia de Florida SL705771, United Realty Group" : "Carlos Uzcategui, Florida Licensed Realtor SL705771, United Realty Group"} width={800} height={817} loading="lazy" decoding="async" className="aspect-[4/5] w-full rounded-md object-cover object-top" />
+            </figure>
+            <div className="min-w-0">
+              <p className="story-eyebrow text-gold-ink">{t.trustKicker}</p>
+              <h2 className="mt-4 font-serif text-4xl leading-tight md:text-6xl">{t.trustTitle}</h2>
+              <ul className="mt-6 space-y-4">{t.credentials.map((credential) => <li key={credential} className="flex items-start gap-3 text-base leading-relaxed text-navy"><Check size={22} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-ink" />{credential}</li>)}</ul>
+              <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "principal_review", cta_location: "principal", language: lang })} className="story-cta mt-7">{t.closeCta}<ArrowRight size={18} aria-hidden="true" /></a>
+              <p className="mt-4 text-base leading-relaxed text-navy">{lang === "es" ? "Comparta los detalles de la propiedad y del mandato. Carlos revisa la elegibilidad antes de proponer una vía de cooperación." : "Share the property and mandate details. Carlos reviews eligibility before proposing a cooperation route."}</p>
+            </div>
           </div>
+          <div className="mx-auto mt-9 grid max-w-6xl gap-4 border-y border-bone py-5 text-base text-navy sm:grid-cols-3">
+            <a href={WA_US} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-3 underline underline-offset-4"><MessageCircle size={20} aria-hidden="true" />USA +1 954-865-6622</a>
+            <a href={WA_ES} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-3 underline underline-offset-4"><MessageCircle size={20} aria-hidden="true" />España +34 646 85 30 78</a>
+            <a href="mailto:contact@carlosre.com" className="inline-flex min-h-11 items-center gap-3 underline underline-offset-4"><Mail size={20} aria-hidden="true" />contact@carlosre.com</a>
+          </div>
+          <p className="mx-auto mt-5 max-w-6xl text-sm leading-relaxed text-navy">{t.compliance}</p>
         </section>
-
         <section className="bg-white px-6 py-14 md:py-20"><div className="mx-auto max-w-4xl"><h2 className="text-center font-serif text-3xl text-navy-deep md:text-4xl">{t.faqTitle}</h2><div className="mt-8 divide-y divide-bone border-y border-bone">{t.faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 font-serif text-lg text-navy-deep marker:hidden">{question}<span aria-hidden="true" className="font-sans text-xl text-gold-ink transition-transform group-open:rotate-45">+</span></summary><p className="max-w-3xl pb-2 pt-3 font-sans text-base leading-[1.8] text-navy/70">{answer}</p></details>)}</div></div></section>
         <JsonLd id="global-desk-faq" data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: t.faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) }} />
 

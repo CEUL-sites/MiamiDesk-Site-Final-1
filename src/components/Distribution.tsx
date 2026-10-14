@@ -1,357 +1,113 @@
-import { motion } from "motion/react";
-import { useState } from "react";
-import { DistributionMetrics } from "./DistributionMetrics";
-import { ArrowRight, Camera, Globe2, MessagesSquare, Radar, CheckCircle2, Share2 } from "lucide-react";
-import { LazyVideo } from "./LazyVideo";
-import { Tilt3D } from "./Tilt3D";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { fig } from "../data/figures";
+import { ArrowRight, Camera, Database, Globe2, House, MessagesSquare, Radar, UsersRound } from "lucide-react";
 
-// Homepage-only merge of ReachAdvantage + ListingSystem — the structural
-// argument made once, at full strength: what happens to the listing in the
-// MLS ecosystem, then how the listing system executes on that placement.
-// ReachAdvantage and ListingSystem remain unchanged for SellSouthFloridaPage,
-// which still uses them as separate sections.
-
-const ECOSYSTEM_CHANNELS = [
-  {
-    id: "regional",
-    step: "01",
-    title: "Regional MLS Ecosystem",
-    scope: "South Florida Local Core",
-    metrics: "93,000 Licensed Professionals",
-    detail:
-      "Direct entry on the Miami MLS positions your property in the daily operating workflow of 93,000 member agents across Miami-Dade, Broward, Palm Beach, and Martin counties.",
-    connectorHighlight: "Daily working MLS search & direct reverse prospecting",
-  },
-  {
-    id: "national",
-    step: "02",
-    title: "National MLS Exchange",
-    scope: "United States Reciprocity",
-    metrics: "260+ U.S. MLSs via RPR",
-    detail:
-      "Syndicated across 260+ U.S. MLS systems through Realtors Property Resource (RPR) and 11 direct North American MLS data exchanges for relocation buyer discovery.",
-    connectorHighlight: "Direct interstate data exchange with top feeder markets",
-  },
-  {
-    id: "global",
-    step: "03",
-    title: "Global Syndication & Bilateral Desk",
-    scope: "International Capital Flow",
-    metrics: "200+ Portals · 19 Languages",
-    detail:
-      "Automated worldwide syndication across 200+ international portals in 19 languages, supported by 437+ bilateral agreements across 75+ countries and Carlos's Madrid-Miami bridge.",
-    connectorHighlight: "Multilingual listing ingestion & cross-border broker referrals",
-  },
-  {
-    id: "brokerage",
-    step: "04",
-    title: "Brokerage Footprint & In-House Title",
-    scope: "Florida Statewide Coordination",
-    metrics: "3,500+ Agents · 19 Florida office locations",
-    detail:
-      "A coordinated network spanning 19 Florida office locations from Weston and Aventura to Boca Raton and Orlando, backed by in-house title oversight for transaction security.",
-    connectorHighlight: "Internal agent network and private showing coordination",
-  },
-];
-
+const MERGER = "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/";
+const GUIDE = "https://www.miamirealtors.com/wp-content/uploads/bsk-pdf-manager/2019/10/MIAMI-linkworld.pdf";
+const CHANNELS = [
+  { id: "regional", icon: House,
+    en: { label: "Local MLS", metric: `${fig("members")} association members`, title: "Position the property for local agent discovery.", detail: "Carlos prepares eligible listings for the South Florida MLS environment and coordinates outreach to agents working with relevant buyers. Association membership describes the professional infrastructure available to the campaign." },
+    es: { label: "MLS local", metric: `${fig("members").replace(/,/g, ".")} miembros de la asociación`, title: "Posicionar la propiedad para el descubrimiento profesional local.", detail: "Carlos prepara propiedades elegibles para el entorno MLS del sur de Florida y coordina contactos con agentes que trabajan con compradores relevantes. La cifra de miembros describe la infraestructura profesional disponible para la campaña." } },
+  { id: "national", icon: Database,
+    en: { label: "National MLS exchange", metric: `${fig("usMls")} U.S. MLSs via RPR · ${fig("mlsDataExchanges")} MLS data exchanges`, title: "Connect the listing with national professional channels.", detail: "MIAMI's distribution program shares listings through RPR with 260+ U.S. MLSs. The association also reports 11 MLS data exchanges. We review the channels applicable to your property and coordinate relevant relocation-agent follow-up." },
+    es: { label: "Intercambio MLS nacional", metric: `${fig("usMls")} MLS de EE. UU. vía RPR · ${fig("mlsDataExchanges")} intercambios de datos MLS`, title: "Conectar la propiedad con canales profesionales nacionales.", detail: "El programa de MIAMI comparte propiedades mediante RPR con 260+ MLS de EE. UU. La asociación también informa de 11 intercambios de datos MLS. Revisamos los canales aplicables a su propiedad y coordinamos seguimiento con agentes de reubicación relevantes." } },
+  { id: "global", icon: Globe2,
+    en: { label: "Eligible global channels", metric: `${fig("globalWebsites")} global portals · ${fig("languages")} languages · ${fig("internationalAgreements")} international agreements`, title: "Prepare the property for relevant international discovery.", detail: "MIAMI's distribution materials describe 200+ websites and apps and property search in 19 languages. Its international agreements create professional cooperation routes. Carlos coordinates relevant Spain and LATAM relationships according to property fit and written cooperation terms." },
+    es: { label: "Canales globales elegibles", metric: `${fig("globalWebsites")} portales globales · ${fig("languages")} idiomas · ${fig("internationalAgreements")} acuerdos internacionales`, title: "Preparar la propiedad para el descubrimiento internacional relevante.", detail: "Los materiales de MIAMI describen 200+ sitios y aplicaciones y búsqueda de propiedades en 19 idiomas. Sus acuerdos internacionales crean vías de cooperación profesional. Carlos coordina relaciones relevantes con España y LATAM según la propiedad y los términos escritos de cooperación." } },
+  { id: "brokerage", icon: UsersRound,
+    en: { label: "Brokerage cooperation", metric: "United Realty Group · Florida office network", title: "Coordinate the professionals around the assignment.", detail: "Carlos leads the property's pricing, positioning, negotiation and communication through United Realty Group. Brokerage relationships support agent coordination and introductions appropriate to the assignment." },
+    es: { label: "Cooperación de corretaje", metric: "United Realty Group · Red de oficinas en Florida", title: "Coordinar a los profesionales del encargo.", detail: "Carlos dirige el precio, posicionamiento, negociación y comunicación a través de United Realty Group. Las relaciones de corretaje apoyan la coordinación e introducciones adecuadas al encargo." } },
+] as const;
 const PILLARS = [
-  {
-    icon: Camera,
-    step: "01",
-    title: "Media that earns the click",
-    body:
-      "Pro photography, cinematic video, and staging direction approved before launch. Media engineered to win buyer attention on the first frame.",
-  },
-  {
-    icon: Globe2,
-    step: "02",
-    title: "Distribution beyond the MLS",
-    body:
-      "MLS positioning within the MIAMI REALTORS® + RWorld ecosystem, supported by targeted buyer-agent outreach and eligible syndication channels.",
-  },
-  {
-    icon: Radar,
-    step: "03",
-    title: "Buyer-agent activation",
-    body:
-      "Targeted outreach to agents representing active buyers in your submarket and price band—local, relocation, and international.",
-  },
-  {
-    icon: MessagesSquare,
-    step: "04",
-    title: "Weekly reporting, real strategy",
-    body:
-      "Weekly showing feedback and MLS analytics delivered by WhatsApp or email, with price adjustments guided by live market evidence.",
-  },
-];
+  { icon: Camera, en: ["Media", "Prepare photography, video and staging direction agreed before launch."], es: ["Material visual", "Preparar fotografía, video y puesta en escena acordados antes del lanzamiento."] },
+  { icon: Globe2, en: ["Distribution", "Position the eligible listing and coordinate the professional channels relevant to the property."], es: ["Distribución", "Posicionar la propiedad elegible y coordinar los canales profesionales relevantes."] },
+  { icon: Radar, en: ["Agent activation", "Reach relevant buyer agents by submarket, property type and price range, then coordinate follow-up."], es: ["Activación de agentes", "Contactar a agentes relevantes por mercado, tipo de propiedad y precio, y coordinar seguimiento."] },
+  { icon: MessagesSquare, en: ["Reporting", "Review showing feedback, agent response and competing inventory together to recommend the next action."], es: ["Informes", "Revisar opiniones de visitas, respuesta de agentes y competencia para recomendar el siguiente paso."] },
+] as const;
 
-export function Distribution() {
-  const [activeChannel, setActiveChannel] = useState(0);
-
-  return (
-    <section id="reach" className="relative overflow-hidden bg-navy-deep text-white">
-
-      {/* Cinematic reach backdrop */}
-      <LazyVideo
-        src="/videos/cinematic_house_reach.mp4"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.11]"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/80 to-navy-deep" />
-      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[700px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.05] blur-[150px]" />
-
-      {/* 3D Perspective ambient grid floor overlay */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[650px] opacity-25"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(176,141,87,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(176,141,87,0.12) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-          maskImage: "radial-gradient(ellipse 70% 50% at 50% 20%, #000 60%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse 70% 50% at 50% 20%, #000 60%, transparent 100%)",
-        }}
-      />
-
-      {/* ── Header — the ecosystem-placement argument ──────────── */}
-      <div className="relative border-b border-gold/15 px-6 py-10 text-center md:py-20">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold"
-        >
-          Distribution · United Realty Group · Florida office network
-        </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mx-auto mt-4 max-w-5xl font-serif leading-[1.08] text-white md:mt-6"
-          style={{ fontSize: "clamp(2.2rem, 4.6vw, 4rem)" }}
-        >
-          Your listing enters the professional MLS ecosystem<br />
-          <em className="italic text-gold">used across South Florida.</em>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-4 max-w-3xl font-sans text-base leading-relaxed text-white/80 md:mt-6"
-        >
-          When a property lists under Carlos Uzcategui&apos;s mandate, it connects directly into the structural distribution framework of the world&apos;s largest local Realtor association. We position eligible listings for direct agent discovery across South Florida, syndicated nationally via RPR, and amplified through bilateral international agreements.
-        </motion.p>
-
-        {/* Association credential pill */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-6 flex flex-col items-center gap-3 md:mt-8"
-        >
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-gold/30 bg-white/[0.04] px-5 py-2 backdrop-blur-md">
-            <img
-              src="/images/miami-realtors-logo.png"
-              alt="MIAMI Association of REALTORS®"
-              width="140"
-              height="48"
-              loading="lazy"
-              className="h-7 w-auto opacity-90"
-              style={{ filter: "brightness(0) invert(1)" }}
-            />
-            <span className="hidden sm:inline-block h-3 w-px bg-gold/30" />
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/75">
-              Powered by membership in the Miami and South Florida REALTORS®
-            </p>
-          </div>
-        </motion.div>
-
-        {/* ── 3D Visual Distribution Nexus & Skill Connectors ──── */}
-        <div className="mx-auto mt-10 max-w-5xl md:mt-14">
-          {/* Central Origin Node */}
-          <div className="relative mx-auto flex w-fit items-center gap-3 rounded-full border border-gold/50 bg-gradient-to-r from-navy-deep via-[#0d2244] to-navy-deep px-6 py-2.5 shadow-[0_12px_30px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(212,175,55,0.4)] backdrop-blur-xl">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-gold" />
-            </span>
-            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
-              Listing Origin · Central Distribution Nexus
-            </span>
-            <span className="rounded bg-gold/20 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-gold-soft">
-              Active Network
-            </span>
-          </div>
-
-          {/* 3D Connector Rails / SVG Conduits */}
-          <div aria-hidden="true" className="hidden lg:block relative h-12 w-full mt-2">
-            <svg className="w-full h-full stroke-gold/45" fill="none" preserveAspectRatio="none" viewBox="0 0 1000 48">
-              <path d="M 500 0 C 500 24, 166 24, 166 48" strokeWidth="1.5" className="opacity-70" />
-              <path d="M 500 0 L 500 48" strokeWidth="1.5" className="opacity-90" />
-              <path d="M 500 0 C 500 24, 833 24, 833 48" strokeWidth="1.5" className="opacity-70" />
-              <circle cx="500" cy="0" r="3.5" fill="#B08D57" />
-              <circle cx="166" cy="48" r="3.5" fill="#B08D57" />
-              <circle cx="500" cy="48" r="3.5" fill="#B08D57" />
-              <circle cx="833" cy="48" r="3.5" fill="#B08D57" />
-            </svg>
-          </div>
+export function Distribution({ lang = "en" }: { lang?: "en" | "es" }) {
+  const es = lang === "es";
+  const [active, setActive] = useState(0);
+  const [manual, setManual] = useState(false);
+  const [followScroll, setFollowScroll] = useState(false);
+  const scenes = useRef<(HTMLElement | null)[]>([]);
+  const controls = useRef<(HTMLButtonElement | null)[]>([]);
+  const current = CHANNELS[active][lang];
+  const prefix = `distribution-${lang}`;
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
+    const update = () => setFollowScroll(query.matches);
+    update();
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", update);
+      return () => query.removeEventListener("change", update);
+    }
+    query.addListener(update);
+    return () => query.removeListener(update);
+  }, []);
+  useEffect(() => {
+    if (!followScroll || manual || typeof IntersectionObserver === "undefined") return;
+    const intersecting = new Set<HTMLElement>();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) intersecting.add(entry.target as HTMLElement);
+        else intersecting.delete(entry.target as HTMLElement);
+      });
+      const focus = window.innerHeight * 0.425;
+      const distance = (scene: HTMLElement) => {
+        const rect = scene.getBoundingClientRect();
+        return Math.abs(rect.top + rect.height / 2 - focus);
+      };
+      const nearest = [...intersecting].sort((a, b) => distance(a) - distance(b))[0];
+      if (nearest) {
+        const index = scenes.current.indexOf(nearest);
+        if (index >= 0) setActive(index);
+      }
+    }, { rootMargin: "-25% 0px -40% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] });
+    scenes.current.forEach((scene) => { if (scene) observer.observe(scene); });
+    return () => observer.disconnect();
+  }, [followScroll, manual]);
+  const pick = (index: number) => { setManual(true); setActive(index); };
+  const navigate = (event: KeyboardEvent) => {
+    let index = active;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") index = (active + 1) % CHANNELS.length;
+    else if (event.key === "ArrowLeft" || event.key === "ArrowUp") index = (active + CHANNELS.length - 1) % CHANNELS.length;
+    else if (event.key === "Home") index = 0;
+    else if (event.key === "End") index = CHANNELS.length - 1;
+    else return;
+    event.preventDefault(); pick(index); controls.current[index]?.focus();
+  };
+  return <section id="reach" data-seller-story className="bg-[#0b1a30] text-white">
+    <div className="distribution-story mx-auto max-w-7xl gap-x-14 px-6 py-14 md:py-20">
+      <header className="distribution-intro">
+        <p className="story-eyebrow text-gold-soft">{es ? "Distribución profesional" : "Professional distribution"}</p>
+        <h2 className="mt-4 font-serif text-4xl leading-[1.08] md:text-5xl">{es ? "Distribución profesional." : "Professional distribution."}</h2>
+        <p className="mt-4 font-serif text-2xl leading-snug md:text-3xl">{es ? "Una ruta coordinada al mercado." : "A coordinated route to market."}</p>
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85">{es ? "Carlos combina posicionamiento específico, infraestructura de la mayor asociación local de REALTORS® del mundo y contacto con agentes compradores relevantes." : "Carlos combines property-specific positioning, the world's largest local Realtor association's infrastructure and relevant buyer-agent outreach."}</p>
+        <div className="mt-7 border-t border-white/25 pt-5"><p className="font-serif text-6xl text-gold-soft md:text-7xl">{es ? fig("members").replace(/,/g, ".") : fig("members")}</p><p className="mt-2 text-base font-semibold">{es ? "Miembros de la asociación" : "Association members"}</p><p className="mt-3 text-sm leading-relaxed text-white/80">MIAMI REALTORS® + RWorld · {es ? "Efectivo el 11 de mayo de 2026" : "Effective May 11, 2026"}</p></div>
+      </header>
+      <div className="distribution-visual mt-8 min-w-0 lg:mt-0"><div className="distribution-pin">
+        <figure className="mx-auto w-48 overflow-hidden rounded-md border border-gold/70"><img src="/images/posters/luxury_waterfront_drone-20261012.jpg" width={1080} height={1920} loading="lazy" decoding="async" alt={es ? "Vista ilustrativa de una propiedad junto al agua" : "Illustrative waterfront property presentation"} className="h-36 w-full object-cover" /><figcaption className="bg-gold px-3 py-3 text-center text-sm font-semibold text-navy-deep">{es ? "Su propiedad" : "Your property"}</figcaption></figure>
+        <div aria-hidden="true" className="distribution-connectors"><svg viewBox="0 0 400 50" preserveAspectRatio="none" className="h-full w-full" fill="none"><path d="M200 0V22H50V50M200 22H150V50M200 22H250V50M200 22H350V50" stroke="#8793a4" strokeWidth="1.5" /><path d={`M200 0V22H${50 + active * 100}V50`} stroke="#D4AE78" strokeWidth="2.5" /></svg></div>
+        <div role="tablist" aria-label={es ? "Canales de distribución" : "Distribution channels"} onKeyDown={navigate} className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+          {CHANNELS.map((channel, index) => <button key={channel.id} type="button" role="tab" ref={(el) => { controls.current[index] = el; }} id={`${prefix}-tab-${channel.id}`} aria-controls={`${prefix}-panel`} aria-selected={active === index} tabIndex={active === index ? 0 : -1} onClick={() => pick(index)} className={`distribution-route min-h-24 rounded-md border px-3 py-4 text-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-soft ${active === index ? "border-gold-soft bg-gold/15 text-gold-soft" : "border-white/40 text-white hover:border-gold-soft"}`}><channel.icon size={24} aria-hidden="true" className="mx-auto mb-2" /><span className="text-sm font-semibold leading-snug">{channel[lang].label}</span></button>)}
         </div>
-
-        {/* ── 3D Distribution Metrics Grid ──────────────────── */}
-        <div className="relative mx-auto max-w-6xl mt-4 px-2 sm:px-6">
-          <DistributionMetrics dark />
-        </div>
+        <p className="mt-4 text-sm leading-relaxed text-white/80">{es ? "Esquema de distribución. Las conexiones no representan alcance medido. Se aplican elegibilidad, normas MLS y participación." : "Distribution schematic. Connections do not represent measured reach. Eligibility, MLS rules and platform participation apply."}</p>
+        <div id={`${prefix}-panel`} role="tabpanel" aria-labelledby={`${prefix}-tab-${CHANNELS[active].id}`} tabIndex={0} className="mt-5 rounded-md border border-white/25 p-5 focus-visible:outline-2 focus-visible:outline-gold-soft"><p className="text-sm font-semibold text-gold-soft">{current.metric}</p><h3 className="mt-3 font-serif text-2xl leading-snug text-white">{current.title}</h3><p className="mt-3 text-base leading-relaxed text-white/85 lg:hidden">{current.detail}</p></div>
+        {followScroll && manual && <button type="button" onClick={() => setManual(false)} className="mt-3 min-h-11 text-sm text-gold-soft underline underline-offset-4">{es ? "Seguir el desplazamiento" : "Follow the scroll"}</button>}
+      </div></div>
+      <div className="distribution-scenes mt-8">{CHANNELS.map((channel, index) => <article key={channel.id} ref={(el) => { scenes.current[index] = el; }} data-distribution-scene={channel.id} className={`distribution-scene border-t py-6 ${active === index ? "border-gold-soft" : "border-white/25"}`}><p className="story-eyebrow text-gold-soft">{String(index + 1).padStart(2, "0")} · {channel[lang].label}</p><h3 className="mt-3 font-serif text-2xl leading-snug text-white">{channel[lang].title}</h3><p className="mt-3 text-sm font-semibold text-gold-soft">{channel[lang].metric}</p><p className="mt-3 text-base leading-relaxed text-white/85">{channel[lang].detail}</p></article>)}</div>
+      <div className="distribution-sources mt-8 border-t border-white/25 pt-5 text-sm leading-relaxed text-white/80">
+        <p>{es ? "Fuentes: " : "Sources: "}<a href={MERGER} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">MIAMI · {es ? "anuncio de fusión, abril de 2026" : "merger announcement, April 2026"}</a>; <a href={GUIDE} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">MIAMI · {es ? "guía de distribución, 2025" : "distribution guide, 2025"}</a>; <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">United Realty Group</a>.</p>
+        <p className="mt-3">{es ? "No todas las propiedades aparecen en todos los sitios. La distribución depende de elegibilidad, normas MLS, aprobación del corretaje y participación de las plataformas. La escala y los acuerdos de la asociación no garantizan atención, contactos, precio ni venta." : "Not all properties appear on all sites. Distribution depends on eligibility, MLS rules, brokerage approval and platform participation. Association scale and agreements do not guarantee attention, leads, price or sale."}</p>
+        <details className="mt-4"><summary className="min-h-11 cursor-pointer text-white">{es ? "Elegibilidad de distribución" : "Distribution eligibility"}</summary><p>{es ? "La distribución está sujeta al tipo de propiedad y su elegibilidad, normas MLS, aprobación del corretaje, participación de las plataformas y disponibilidad de socios de sindicación." : "Distribution is subject to property type and eligibility, MLS rules, brokerage approval, platform participation and syndication partner availability."}</p></details>
       </div>
-
-      {/* ── Interactive 4-Channel Distribution Explorer ──────── */}
-      <div className="relative mx-auto max-w-6xl border-b border-gold/15 px-6 py-10 md:py-14">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">Distribution Channels</p>
-            <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">
-              Four synchronized paths to qualified buyers.
-            </h3>
-          </div>
-          <p className="font-sans text-xs text-white/60 max-w-md">
-            Property attributes explain the asset; multi-channel distribution creates the competitive market tension that drives final contract price.
-          </p>
-        </div>
-
-        {/* Channel Navigation Pills */}
-        <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-4">
-          {ECOSYSTEM_CHANNELS.map((ch, idx) => (
-            <button
-              key={ch.id}
-              onClick={() => setActiveChannel(idx)}
-              className={`flex flex-col items-start rounded-xl border p-4 text-left transition-all duration-300 ${
-                activeChannel === idx
-                  ? "border-gold bg-gold/15 shadow-[0_8px_20px_rgba(176,141,87,0.25)]"
-                  : "border-white/10 bg-white/[0.03] hover:border-gold/40 hover:bg-white/[0.06]"
-              }`}
-            >
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-gold">
-                CHANNEL {ch.step}
-              </span>
-              <span className="mt-1 font-serif text-sm font-semibold text-white">
-                {ch.title}
-              </span>
-              <span className="mt-1 font-mono text-[10px] text-white/60">
-                {ch.metrics}
-              </span>
-            </button>
-          ))}
-        </div>
-
-        {/* Active Channel 3D Detail Slab */}
-        <Tilt3D className="mt-6" maxTilt={3}>
-          <div className="rounded-2xl border border-gold/30 bg-gradient-to-r from-navy-deep via-[#0d2244]/80 to-navy-deep p-6 md:p-8 backdrop-blur-md shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-gold/15 pb-5">
-              <div>
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">
-                  CHANNEL {ECOSYSTEM_CHANNELS[activeChannel].step} · {ECOSYSTEM_CHANNELS[activeChannel].scope}
-                </span>
-                <h4 className="mt-1 font-serif text-xl text-white md:text-2xl">
-                  {ECOSYSTEM_CHANNELS[activeChannel].title}
-                </h4>
-              </div>
-              <div className="flex items-center gap-2 rounded-full border border-gold/30 bg-white/[0.04] px-4 py-1.5 font-mono text-[11px] text-gold-soft">
-                <CheckCircle2 size={14} className="text-gold" />
-                <span>{ECOSYSTEM_CHANNELS[activeChannel].metrics}</span>
-              </div>
-            </div>
-
-            <p className="mt-5 font-sans text-sm leading-relaxed text-white/80 max-w-3xl">
-              {ECOSYSTEM_CHANNELS[activeChannel].detail}
-            </p>
-
-            <div className="mt-5 flex items-center gap-2.5 font-mono text-[11px] text-white/70">
-              <Share2 size={13} className="text-gold shrink-0" />
-              <span>Connector Architecture: <strong className="text-white font-medium">{ECOSYSTEM_CHANNELS[activeChannel].connectorHighlight}</strong></span>
-            </div>
-          </div>
-        </Tilt3D>
-      </div>
-
-      <details className="relative mx-auto max-w-6xl border-b border-gold/15 px-6 py-5 text-white/70">
-        <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">
-          Distribution eligibility
-        </summary>
-        <p className="mt-3 max-w-4xl font-sans text-xs leading-relaxed">
-          Distribution is subject to property type and eligibility, MLS rules, brokerage approval, platform participation and syndication partner availability.
-        </p>
-      </details>
-
-      {/* ── How the listing system executes ─────────────────────── */}
-      <div className="relative mx-auto max-w-6xl px-6 py-12 md:py-20">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">The Listing System</p>
-        <h3 className="mt-3 max-w-2xl font-serif text-2xl leading-tight text-white md:mt-4 md:text-4xl">
-          What actually happens when your home lists with Carlos.
-        </h3>
-
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 md:mt-12">
-          {PILLARS.map(({ icon: Icon, step, title, body }) => (
-            <div key={step} className="h-full">
-              <Tilt3D className="h-full" maxTilt={4}>
-                <div className="group relative flex h-full flex-col justify-between rounded-xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-300 hover:border-gold/50 hover:bg-white/[0.06] hover:shadow-[0_12px_35px_rgba(0,0,0,0.55)] md:p-7">
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-serif text-[2.2rem] leading-none text-gold md:text-[2.8rem]">{step}</span>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold/10 text-gold transition-colors duration-300 group-hover:bg-gold group-hover:text-navy-deep">
-                        <Icon size={20} />
-                      </div>
-                    </div>
-                    <div className="mt-4 h-px w-10 bg-gold/40 transition-all duration-300 group-hover:w-16 md:mt-5" />
-                    <h4 className="mt-4 font-serif text-lg leading-snug text-white md:mt-5">{title}</h4>
-                  </div>
-                  <p className="mt-2.5 font-sans text-[13px] leading-relaxed text-white/70 md:mt-4">{body}</p>
-                </div>
-              </Tilt3D>
-            </div>
-          ))}
-        </div>
-
-        <aside className="mt-8 rounded-xl border border-gold/30 bg-white/[0.05] p-6 md:mt-10 md:flex md:items-start md:gap-10 md:p-8" aria-label="Sample seller update">
-          <div className="md:max-w-xs">
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">Your seller update</p>
-            <h4 className="mt-2 font-serif text-2xl text-white">Evidence to guide the next decision.</h4>
-            <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">A sample of the categories we review together; the actual report reflects your property and available data.</p>
-          </div>
-          <ul className="mt-5 grid flex-1 gap-3 font-sans text-sm text-white/85 sm:grid-cols-2 md:mt-0">
-            <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
-              <span>Showing activity and buyer feedback</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
-              <span>Relevant agent conversations</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
-              <span>New competing listings and price changes</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
-              <span>Recommended action and next review</span>
-            </li>
-          </ul>
-        </aside>
-
-        <p className="mt-6 font-sans text-xs leading-relaxed text-white/75">Sources: MIAMI REALTORS® + RWorld May 2026 membership and April 2026 merger announcements; United Realty Group. Association scale and cooperation agreements do not guarantee listing attention or referrals.</p>
-
-        {/* Single CTA naming a specific outcome */}
-        <div className="mt-10 flex justify-center md:mt-14">
-          <a
-            href="#list-here"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-gold px-9 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)] md:py-4.5"
-          >
-            Request Your Private Seller Strategy Review
-            <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
-      </div>
-
-    </section>
-  );
+    </div>
+    <div className="bg-white-soft text-navy-deep"><div className="mx-auto max-w-7xl px-6 py-14 md:py-20">
+      <p className="story-eyebrow text-gold-ink">{es ? "Nuestro proceso" : "The Listing System"}</p><h3 className="mt-4 max-w-4xl font-serif text-3xl leading-tight md:text-4xl">{es ? "Qué sucede cuando su propiedad se anuncia con Carlos." : "What happens when your home lists with Carlos."}</h3>
+      <div className="mt-8 grid gap-7 md:grid-cols-2 lg:grid-cols-4">{PILLARS.map((pillar, index) => <article key={index} className="border-t border-bone pt-5"><div className="flex items-center gap-4"><span className="font-serif text-4xl text-gold-ink">{String(index + 1).padStart(2, "0")}</span><pillar.icon size={27} aria-hidden="true" /></div><h4 className="mt-4 font-serif text-2xl">{pillar[lang][0]}</h4><p className="mt-3 text-base leading-relaxed text-navy">{pillar[lang][1]}</p></article>)}</div>
+      <div className="mt-9 rounded-md border border-bone p-5 md:p-7"><h4 className="font-serif text-xl">{es ? "Su informe: evidencia para la siguiente decisión." : "Your seller update: evidence for the next decision."}</h4><p className="mt-2 text-sm leading-relaxed text-navy">{es ? "Categorías de ejemplo; el informe real refleja su propiedad y los datos disponibles." : "Sample categories; the actual report reflects your property and available data."}</p><ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{(es ? ["Opiniones de visitas", "Propiedades competidoras", "Conversaciones con agentes", "Acción recomendada y próxima revisión"] : ["Showing feedback", "Competing listings", "Agent conversations", "Recommended action and next review"]).map((label) => <li key={label} className="border-l-2 border-gold pl-3 text-sm font-semibold">{label}</li>)}</ul></div>
+      <a href={es ? "/es/vender#contact" : "/sell#contact"} className="story-cta mt-8">{es ? "Solicitar una llamada privada de estrategia" : "Request a Private Property Strategy Call"}<ArrowRight size={18} aria-hidden="true" /></a><p className="mt-3 text-sm leading-relaxed text-navy">{es ? "Carlos revisa la propiedad y se pone en contacto para coordinar la conversación." : "Carlos reviews the property and contacts you to arrange the conversation."}</p><p className="mt-6 text-sm leading-relaxed text-navy">Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.</p>
+    </div></div>
+  </section>;
 }
