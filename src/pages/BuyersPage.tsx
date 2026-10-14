@@ -406,7 +406,7 @@ export default function BuyersPage() {
                     Request a Spain Buyer Introduction →
                   </a>
                   <a
-                    href={CONTACT.whatsappSpain}
+                    href={CONTACT.whatsappUS}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 border border-navy/20 px-7 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy/50"

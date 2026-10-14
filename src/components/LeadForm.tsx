@@ -193,9 +193,6 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
             <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
               WhatsApp US +1 954-865-6622
             </a>
-            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
-              WhatsApp ES +34 646 85 30 78
-            </a>
             <a href={`mailto:${CONTACT.email}`} className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
               {CONTACT.email}
             </a>

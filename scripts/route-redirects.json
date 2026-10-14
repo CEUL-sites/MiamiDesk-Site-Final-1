@@ -1,0 +1,271 @@
+[
+  {
+    "from": "https://www.homesprofessional.com/*",
+    "to": "https://homesprofessional.com/:splat",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/spain-desk",
+    "to": "/global-desk",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/spain-desk/*",
+    "to": "/global-desk",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/miami-mls-international-desk",
+    "to": "/global-desk",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/madrid-miami",
+    "to": "/global-desk",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/es/madrid",
+    "to": "/markets",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/developers-agencies",
+    "to": "/global-desk",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-south-florida",
+    "to": "/sell",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell",
+    "to": "/index.html",
+    "status": 200
+  },
+  {
+    "from": "/madrid",
+    "to": "/markets",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/market/*",
+    "to": "/markets",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/market",
+    "to": "/markets",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/404.html",
+    "to": "/",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-weston",
+    "to": "/sell-weston",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-weston/",
+    "to": "/sell-weston",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-coral-gables",
+    "to": "/sell-coral-gables",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-coral-gables/",
+    "to": "/sell-coral-gables",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-aventura",
+    "to": "/sell-aventura",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-aventura/",
+    "to": "/sell-aventura",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-doral",
+    "to": "/sell-doral",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-doral/",
+    "to": "/sell-doral",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-brickell",
+    "to": "/sell-brickell",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-brickell/",
+    "to": "/sell-brickell",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-coral-springs",
+    "to": "/sell-coral-springs",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-coral-springs/",
+    "to": "/sell-coral-springs",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-pembroke-pines",
+    "to": "/sell-pembroke-pines",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-pembroke-pines/",
+    "to": "/sell-pembroke-pines",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-fort-lauderdale",
+    "to": "/sell-fort-lauderdale",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-fort-lauderdale/",
+    "to": "/sell-fort-lauderdale",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-plantation",
+    "to": "/sell-plantation",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-plantation/",
+    "to": "/sell-plantation",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-sunrise",
+    "to": "/sell-sunrise",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-sunrise/",
+    "to": "/sell-sunrise",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-miami",
+    "to": "/sell-miami",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-miami/",
+    "to": "/sell-miami",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-kendall",
+    "to": "/sell-kendall",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-kendall/",
+    "to": "/sell-kendall",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-downtown-miami",
+    "to": "/sell-downtown-miami",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-downtown-miami/",
+    "to": "/sell-downtown-miami",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-north-miami",
+    "to": "/sell-north-miami",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-north-miami/",
+    "to": "/sell-north-miami",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-pompano-beach",
+    "to": "/sell-pompano-beach",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-pompano-beach/",
+    "to": "/sell-pompano-beach",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-hallandale-beach",
+    "to": "/sell-hallandale-beach",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/sell-in-hallandale-beach/",
+    "to": "/sell-hallandale-beach",
+    "status": 301,
+    "force": true
+  }
+]

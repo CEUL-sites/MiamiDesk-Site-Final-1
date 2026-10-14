@@ -58,7 +58,7 @@ export function Hero() {
   return (
     <section className="hero-root seller-hero" aria-labelledby="seller-hero-heading">
       <div className="seller-hero-scene">
-        <img className="seller-hero-background" src="/images/homepage-hero-waterfront-v2.webp" width="1672" height="941" fetchPriority="high" alt="" />
+        <img className="seller-hero-background" src="/images/carlos-miami-river.webp" width="1672" height="941" fetchPriority="high" alt="" />
         <div className="seller-hero-layout">
           <div className="seller-hero-primary">
             <p className="seller-hero-eyebrow">Carlos Uzcategui <span aria-hidden="true">/</span> South Florida</p>
@@ -97,7 +97,7 @@ export function Hero() {
             <HeroSellerForm compact progressiveDesktop />
           </div>
         </div>
-        <p className="seller-hero-image-caption">Illustrative property</p>
+        <p className="seller-hero-image-caption">Miami River · South Florida</p>
       </div>
       <aside className="seller-hero-support" aria-label="Experience and professional infrastructure">
         <div className="seller-hero-proof">

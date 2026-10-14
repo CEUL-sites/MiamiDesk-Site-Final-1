@@ -1,3 +1,4 @@
+import { DistributionMetrics } from "../components/DistributionMetrics";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Check, Handshake, Mail, MessageCircle, UserRoundCheck, UsersRound } from "lucide-react";
@@ -265,10 +266,7 @@ export default function GlobalDeskPage() {
 
         <section aria-label="Network proof" className="border-b border-bone bg-white px-6 py-10 md:py-12">
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 md:grid-cols-3 md:gap-0">
-              {t.proof.map(([value, label], index) => <div key={value} className={`text-center md:px-8 ${index > 0 ? "md:border-l md:border-bone" : ""}`}><p className="font-serif text-4xl leading-none text-navy-deep md:text-5xl">{value}</p><p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">{label}</p></div>)}
-            </div>
-            <p className="mt-8 text-center font-mono text-[9px] uppercase tracking-[0.13em] text-navy/50">{t.proofNote}</p>
+            <DistributionMetrics lang={lang} />
           </div>
         </section>
 

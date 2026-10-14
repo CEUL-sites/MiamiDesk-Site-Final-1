@@ -371,14 +371,14 @@ export default function EsVenderPage() {
                 WhatsApp EE.UU.
               </a>
               <a
-                href={CONTACT.whatsappSpain}
+                href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
               >
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
-                WhatsApp España
+                WhatsApp USA
               </a>
             </div>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep/50">

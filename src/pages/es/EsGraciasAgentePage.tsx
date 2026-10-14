@@ -58,13 +58,13 @@ export default function EsGraciasAgentePage() {
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href={CONTACT.whatsappSpain}
+                href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90"
               >
                 {/* TODO: native Madrid editor review */}
-                WhatsApp Madrid +34 646 853 078
+                WhatsApp USA +1 954-865-6622
               </a>
               <a
                 href="/es/agentes"

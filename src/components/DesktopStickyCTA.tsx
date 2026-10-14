@@ -1,6 +1,7 @@
 import { ArrowRight, MessageSquare, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { CONTACT } from "../constants";
+import { useLocation } from "react-router-dom";
+import { CONTACT, isSpainMarketRoute } from "../constants";
 import { trackContact, trackFunnelEvent, trackMicroConversion } from "../lib/analytics";
 
 // Desktop counterpart to MobileStickyCTA — a slim bottom bar that appears
@@ -46,7 +47,8 @@ export function DesktopStickyCTA({
   ctaHref?: string;
 } = {}) {
   const t = COPY[lang];
-  const resolvedWhatsappHref = whatsappHref ?? (lang === "es" ? CONTACT.whatsappSpain : CONTACT.whatsappUS);
+  const { pathname } = useLocation();
+  const resolvedWhatsappHref = whatsappHref ?? (isSpainMarketRoute(pathname) ? CONTACT.whatsappSpain : CONTACT.whatsappUS);
   const [scrolled, setScrolled] = useState(false);
   const [formVisible, setFormVisible] = useState(false);
   const [dismissed, setDismissed] = useState(true);
@@ -62,7 +64,7 @@ export function DesktopStickyCTA({
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const el = document.getElementById("contact");
+    const el = document.getElementById("list-here") ?? document.getElementById("contact");
     let observer: IntersectionObserver | null = null;
     if (el) {
       observer = new IntersectionObserver(
@@ -112,7 +114,7 @@ export function DesktopStickyCTA({
               onClick={() => {
                 trackContact("whatsapp", lang === "es" ? "desktop_sticky_es" : "desktop_sticky");
                 trackMicroConversion("hp_cta_click", {
-                  type: lang === "es" ? "whatsapp_es" : "whatsapp_us",
+                  type: isSpainMarketRoute(pathname) ? "whatsapp_es" : "whatsapp_us",
                   location: "desktop_sticky",
                 });
               }}

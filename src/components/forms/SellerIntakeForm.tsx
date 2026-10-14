@@ -277,7 +277,6 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
             <span className="text-white/55">Prefer to talk now?</span>
             <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">WhatsApp US +1 954-865-6622</a>
-            <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">WhatsApp ES +34 646 85 30 78</a>
             <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center py-2 text-gold transition-colors hover:text-white">{CONTACT.email}</a>
           </div>
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">Step {step} of 2</span>

@@ -1,9 +1,12 @@
-import { CONTACT, NAVIGATION, PUBLIC_COMPLIANCE } from "../constants";
+import { CONTACT, NAVIGATION, PUBLIC_COMPLIANCE, isSpainMarketRoute } from "../constants";
+import { useLocation } from "react-router-dom";
 import { AuroraBackground } from "./AuroraBackground";
 
 const ticker = "SOUTH FLORIDA · MIAMI MLS EXPOSURE · UNITED REALTY GROUP · INTERNATIONAL PROPERTY DISTRIBUTION · 25 YEARS LICENSED IN FLORIDA · GLOBAL DESK · SPAIN · LATIN AMERICA · 93,000 ASSOCIATION MEMBERS · ";
 
 export function Footer() {
+  const { pathname } = useLocation();
+  const showSpainContact = pathname.replace(/\/+$/, "") === "/global-desk" || isSpainMarketRoute(pathname);
   return (
     // pb clears the fixed bottom CTAs: the mobile sticky pill (bottom-5 + pill
     // height ≈ 68px) below lg, and the desktop sticky bar (≈ 60px) at lg and up.
@@ -77,9 +80,9 @@ export function Footer() {
             <p>Direct / WhatsApp:{" "}
               <a href={CONTACT.phoneUSLink} className="text-white/75 underline underline-offset-2 hover:text-gold">{CONTACT.phoneUS}</a>
             </p>
-            <p>Spain WhatsApp:{" "}
+            {showSpainContact && <p>Spain WhatsApp:{" "}
               <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="text-white/75 underline underline-offset-2 hover:text-gold">{CONTACT.phoneSpain}</a>
-            </p>
+            </p>}
             <p>
               <a href={`mailto:${CONTACT.email}`} className="text-white/75 underline underline-offset-2 hover:text-gold">{CONTACT.email}</a>
             </p>

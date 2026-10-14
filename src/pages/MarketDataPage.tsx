@@ -254,6 +254,7 @@ function CityTable() {
                 <tr key={i} className="hover:bg-ivory/60 transition-colors">
                   <td className="py-3 pr-4 font-medium text-ink-primary whitespace-nowrap">
                     {r.area}
+                    <span className="mt-1 block font-mono text-[10px] font-normal text-gray-500">{r.period}</span>
                     {r.flagged && (
                       <span className="ml-1 text-[10px] font-mono text-amber-500 align-super">*</span>
                     )}
@@ -324,7 +325,7 @@ export default function MarketDataPage() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    name: "South Florida Real Estate Market Statistics — August 2026",
+    name: "South Florida Real Estate Market Statistics — August 2026 counties and Q2 2026 cities",
     description: metaDesc,
     url: "https://homesprofessional.com/market-data",
     creator: {
@@ -332,7 +333,7 @@ export default function MarketDataPage() {
       name: "Miami and South Florida REALTORS®",
       url: "https://www.miamirealtors.com",
     },
-    temporalCoverage: "2026-08",
+    temporalCoverage: "2026-04-01/2026-08-31",
     spatialCoverage: {
       "@type": "Place",
       name: "South Florida (Miami-Dade, Broward, Palm Beach Counties)",
@@ -370,14 +371,14 @@ export default function MarketDataPage() {
       <section className="bg-navy-deep pt-28 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-            Miami Realtors Association · August 2026
+            MIAMI REALTORS® · August 2026 counties · Q2 2026 cities
           </p>
           <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight">
             What the South Florida Market<br className="hidden md:block" /> Is Doing Right Now
           </h1>
           <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Current figures from Miami Realtors Association — 93,000 member agents tracking 260+ U.S. MLSs.
-            Data covers Miami-Dade, Broward, and Palm Beach counties as of August 2026.
+            Official closed-sale and inventory data for Miami-Dade, Broward and Palm Beach.
+            County figures cover August 2026; city figures cover Q2 2026. Each city row shows its report period.
           </p>
           <div className="pt-2">
             <a
@@ -456,11 +457,11 @@ export default function MarketDataPage() {
           <p className="text-xs text-gray-500 leading-relaxed">
             <span className="font-semibold">Data source:</span> Miami and South Florida REALTORS® Monthly Market
             Statistics Reports, August 2026, and Florida REALTORS® Local Residential Market Metrics city reports.
-            County-level figures reflect August 2026 monthly data; city-level figures reflect quarterly closed sales.
+            County-level figures reflect August 2026 monthly data; city-level figures reflect Q2 2026 closed sales and each row shows its actual report period.
             Days on market at the county level reflects median time to sale/contract. Months supply
             and median price data are provided directly as published; no estimates or interpolations have been made.{" "}
             <a
-              href="https://www.miamirealtors.com/market-statistics/"
+              href="https://www.miamirealtors.com/news/south-florida-market-stats/south-florida-market-stats-august-2026/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold hover:underline inline-flex items-center gap-0.5"
