@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { BadgeCheck, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { BadgeCheck, ChevronLeft, ChevronRight, Pause, Play, Star } from "lucide-react";
 import type { Review } from "../../data/reviews";
 import { formatReviewDateShort } from "../../data/reviews";
 import { reviewWindow, shouldAutoAdvance, wrapReviewIndex } from "./reviewSpotlightModel";
@@ -11,9 +11,11 @@ const SWIPE_THRESHOLD_PX = 44;
 export interface ReviewSpotlightProps {
   reviews: Review[];
   compact?: boolean;
+  sellerLayout?: boolean;
+  lang?: "en" | "es";
 }
 
-function ReviewMeta({ review }: { review: Review }) {
+function ReviewMeta({ review, lang = "en" }: { review: Review; lang?: "en" | "es" }) {
   return (
     <div className="mt-5 flex items-end justify-between gap-3 border-t border-white/10 pt-4">
       <div>
@@ -25,16 +27,16 @@ function ReviewMeta({ review }: { review: Review }) {
       {review.verified && (
         <span className="flex shrink-0 items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] text-gold">
           <BadgeCheck size={13} aria-hidden="true" />
-          Verified
+          {lang === "es" ? "Verificada" : "Verified"}
         </span>
       )}
     </div>
   );
 }
 
-function ReviewStars({ rating }: { rating: number }) {
+function ReviewStars({ rating, lang = "en" }: { rating: number; lang?: "en" | "es" }) {
   return (
-    <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
+    <div className="flex gap-0.5" aria-label={lang === "es" ? `${rating} de 5 estrellas` : `${rating} out of 5 stars`}>
       {Array.from({ length: rating }, (_, index) => (
         <Star key={index} size={14} className="fill-gold text-gold" aria-hidden="true" />
       ))}
@@ -54,7 +56,8 @@ function ReviewPreview({ review }: { review: Review }) {
   );
 }
 
-export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightProps) {
+export function ReviewSpotlight({ reviews, compact = false, sellerLayout = false, lang = "en" }: ReviewSpotlightProps) {
+  const es = lang === "es";
   const sectionRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -65,6 +68,7 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
   const [touchPaused, setTouchPaused] = useState(false);
   const [documentVisible, setDocumentVisible] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
 
   const moveTo = useCallback((index: number) => {
     setActiveIndex(wrapReviewIndex(index, reviews.length));
@@ -107,7 +111,7 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
     return () => media.removeEventListener("change", updatePreference);
   }, []);
 
-  const paused = hoverPaused || focusPaused || pointerPaused || touchPaused;
+  const paused = userPaused || hoverPaused || focusPaused || pointerPaused || touchPaused;
   const canAutoAdvance = shouldAutoAdvance({ inView, paused, documentVisible, reducedMotion });
 
   useEffect(() => {
@@ -123,13 +127,16 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
   const activeTransition = reducedMotion
     ? undefined
     : { initial: { opacity: 0, x: 18 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: -18 }, transition: { duration: 0.25 } };
-  const activeCardHeight = compact ? "h-[31rem] sm:h-[27rem]" : "h-[36rem] sm:h-[31rem] lg:h-[29rem]";
+  const activeCardHeight = sellerLayout ? "min-h-[22rem] lg:min-h-[16rem]" : compact ? "h-[31rem] sm:h-[27rem]" : "h-[36rem] sm:h-[31rem] lg:h-[29rem]";
 
   return (
     <div
       ref={sectionRef}
       data-sticky-cta-guard=""
-      className="mt-8"
+      className={sellerLayout ? "mt-4" : "mt-8"}
+      role="region"
+      aria-roledescription={es ? "carrusel" : "carousel"}
+      aria-label={es ? "Reseñas de clientes" : "Client reviews"}
       onMouseEnter={() => setHoverPaused(true)}
       onMouseLeave={() => setHoverPaused(false)}
       onFocusCapture={() => setFocusPaused(true)}
@@ -151,52 +158,56 @@ export function ReviewSpotlight({ reviews, compact = false }: ReviewSpotlightPro
         if (startX === null || endX === undefined) return;
 
         const delta = startX - endX;
-        if (Math.abs(delta) >= SWIPE_THRESHOLD_PX) moveBy(delta > 0 ? 1 : -1);
+        if (Math.abs(delta) >= SWIPE_THRESHOLD_PX) { setUserPaused(true); moveBy(delta > 0 ? 1 : -1); }
       }}
       onTouchCancel={() => {
         touchStartX.current = null;
         setTouchPaused(false);
       }}
     >
-      <div className="grid items-stretch gap-5 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.4fr)_minmax(0,0.75fr)]">
-        <div className="hidden lg:block">
+      <div className={sellerLayout ? "grid" : "grid items-stretch gap-5 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.4fr)_minmax(0,0.75fr)]"}>
+        {!sellerLayout && <div className="hidden lg:block">
           <ReviewPreview review={reviews[previous]} />
-        </div>
+        </div>}
 
-        <div className={`${activeCardHeight} overflow-hidden border border-gold/30 bg-white/[0.05] p-6 sm:p-8`}>
+        <div className={`${activeCardHeight} overflow-hidden border border-gold/30 bg-white/[0.05] ${sellerLayout ? "p-5 sm:p-6" : "p-6 sm:p-8"}`}>
           <AnimatePresence initial={false} mode="wait">
-            <motion.article key={activeReview.name} aria-live="polite" className="flex h-full flex-col" {...activeTransition}>
-              <ReviewStars rating={activeReview.rating} />
-              <p className="mt-4 flex-1 overflow-y-auto pr-2 font-serif text-lg leading-relaxed text-white sm:text-xl">
+            <motion.article key={activeReview.name} aria-live="polite" className={`flex flex-col ${sellerLayout ? "min-h-[19rem] lg:min-h-[13rem]" : "h-full"}`} {...activeTransition}>
+              <ReviewStars rating={activeReview.rating} lang={lang} />
+              <p className={sellerLayout ? "mt-4 flex-1 font-serif text-base leading-relaxed text-white sm:text-lg" : "mt-4 flex-1 overflow-y-auto pr-2 font-serif text-lg leading-relaxed text-white sm:text-xl"}>
                 &ldquo;{activeReview.text}&rdquo;
               </p>
-              <ReviewMeta review={activeReview} />
+              <ReviewMeta review={activeReview} lang={lang} />
             </motion.article>
           </AnimatePresence>
         </div>
 
-        <div className="hidden lg:block">
+        {!sellerLayout && <div className="hidden lg:block">
           <ReviewPreview review={reviews[next]} />
-        </div>
+        </div>}
       </div>
 
       <div className="mt-5 flex items-center justify-center gap-3">
         <button
           type="button"
-          onClick={() => moveTo(previous)}
+          onClick={() => { setUserPaused(true); moveTo(previous); }}
           disabled={reviews.length < 2}
-          aria-label="Show previous review"
-          title="Show previous review"
+          aria-label={es ? "Mostrar reseña anterior" : "Show previous review"}
+          title={es ? "Mostrar reseña anterior" : "Show previous review"}
           className="flex size-11 items-center justify-center border border-gold/40 text-gold transition-colors hover:bg-gold/10 disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep"
         >
           <ChevronLeft size={18} aria-hidden="true" />
         </button>
+        <button type="button" onClick={() => setUserPaused((value) => !value)} aria-label={userPaused ? (es ? "Reanudar reseñas" : "Resume rotating reviews") : (es ? "Pausar reseñas" : "Pause rotating reviews")} aria-pressed={userPaused} className="flex size-11 items-center justify-center border border-gold/40 text-gold hover:bg-gold/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+          {userPaused ? <Play size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}
+        </button>
+        <span className="min-w-10 text-center font-mono text-xs text-white/80" aria-live="polite">{active + 1} / {reviews.length}</span>
         <button
           type="button"
-          onClick={() => moveTo(next)}
+          onClick={() => { setUserPaused(true); moveTo(next); }}
           disabled={reviews.length < 2}
-          aria-label="Show next review"
-          title="Show next review"
+          aria-label={es ? "Mostrar siguiente reseña" : "Show next review"}
+          title={es ? "Mostrar siguiente reseña" : "Show next review"}
           className="flex size-11 items-center justify-center border border-gold/40 text-gold transition-colors hover:bg-gold/10 disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep"
         >
           <ChevronRight size={18} aria-hidden="true" />

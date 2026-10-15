@@ -159,10 +159,10 @@ assert.match(footer, /93,000 ASSOCIATION MEMBERS/);
 assert.doesNotMatch(footer, /94,000\+ ASSOCIATION MEMBERS/);
 const sectionOrder = [
   "<Hero />",
-  "<SellerAuthorityStrip />",
-  "<Distribution />",
-  "<SellerExecutionSystem />",
   "<Proof />",
+  "<SellerAuthorityStrip />",
+  "<SellerExecutionSystem />",
+  "<Distribution />",
   "<GlobalDeskTeaser />",
   "<MarketPulse />",
   "<AboutContact showForm={false} />",

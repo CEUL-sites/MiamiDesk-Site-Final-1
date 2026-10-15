@@ -257,7 +257,6 @@ export default function EsHomePage() {
         </section>
 
         <EsProof />
-        <EsDistribution />
         <SellerExecutionSystem lang="es" />
         <Suspense fallback={null}>
           <MarketingReel3D lang="es" />
@@ -265,6 +264,8 @@ export default function EsHomePage() {
         <Suspense fallback={null}>
           <SellerPathfinder lang="es" whatsappHref={CONTACT.whatsappUS} />
         </Suspense>
+
+        <EsDistribution />
 
         <Footer />
         <MobileStickyCTA />

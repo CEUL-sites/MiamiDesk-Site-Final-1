@@ -24,7 +24,7 @@ export function SellerAuthorityStrip() {
           </div>
         ))}
       </div>
-      <p className="sr-only">5.0 average from Verified Realtor.com® reviews.</p>
+      <p className="sr-only">Verified Realtor.com® reviews are linked in the selected client experiences.</p>
     </section>
   );
 }
