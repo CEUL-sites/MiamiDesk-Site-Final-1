@@ -10,7 +10,6 @@ import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { MarketPulse } from "../components/MarketPulse";
 import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
 import { SellerAuthorityStrip } from "../components/SellerAuthorityStrip";
-import { SelectedMandateExecution } from "../components/SelectedMandateExecution";
 import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
 
 // Below-the-fold sections - split out of the initial bundle. With
@@ -43,14 +42,13 @@ export default function HomePage() {
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
         <Hero />
-        <SellerAuthorityStrip />
-        <SelectedMandateExecution />
-        <Distribution />
-        <SellerExecutionSystem />
         <Proof />
+        <SellerAuthorityStrip />
+        <SellerExecutionSystem />
         <Suspense fallback={null}>
           <MarketingReel3D />
         </Suspense>
+        <Distribution />
         <GlobalDeskTeaser />
         <MarketPulse />
         <Suspense fallback={null}>

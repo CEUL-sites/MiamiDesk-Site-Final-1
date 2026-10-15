@@ -1,69 +1,36 @@
-import {
-  REVIEWS,
-  REALTOR_PROFILE_URL,
-  RATING_VALUE,
-} from "../data/reviews";
+import { ArrowRight } from "lucide-react";
+import { REVIEWS, REALTOR_PROFILE_URL } from "../data/reviews";
 import { ReviewSpotlight } from "./reviews/ReviewSpotlight";
 
-function StarRow({ size = 12 }: { size?: number }) {
-  return (
-    <span className="flex gap-0.5" aria-hidden="true">
-      {[1, 2, 3, 4, 5].map((i) => (
-        <svg key={i} width={size} height={size} viewBox="0 0 12 12" fill="currentColor" className="text-gold">
-          <path d="M6 1l1.39 2.82L10.5 4.24l-2.25 2.19.53 3.1L6 8.02l-2.78 1.51.53-3.1L1.5 4.24l3.11-.42z" />
-        </svg>
-      ))}
-    </span>
-  );
-}
+// Keep the original review records as the authority; the carousel labels these
+// contiguous first-sentence selections as excerpts and links to the full source.
+const SELLER_REVIEWS = ["Diego Tolotto", "Maria Isabel Onate", "A. Martinez"]
+  .flatMap((name) => {
+    const review = REVIEWS.find((item) => item.name === name && item.verified);
+    return review ? [{ ...review, text: review.text.match(/^[\s\S]*?[.!?](?=\s|$)/)?.[0] ?? review.text }] : [];
+  });
 
-export function Proof() {
+export function Proof({ lang = "en" }: { lang?: "en" | "es" } = {}) {
+  const es = lang === "es";
   return (
-    <section id="client-reviews" className="scroll-mt-24 border-t border-gold/20 bg-[#06101D] py-12 md:py-20 relative overflow-hidden">
-      {/* Soft ambient background glow */}
-      <div className="pointer-events-none absolute right-0 top-0 h-[450px] w-[450px] rounded-full bg-gold/[0.03] blur-[100px]" aria-hidden="true" />
-      <div className="pointer-events-none absolute left-0 bottom-0 h-[350px] w-[350px] rounded-full bg-[#16449E]/[0.08] blur-[90px]" aria-hidden="true" />
-
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="flex flex-col gap-4 border-b border-gold/15 pb-8 sm:flex-row sm:items-end sm:justify-between md:pb-10">
-          <div>
-            <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
-              Client Reviews &amp; Track Record
-            </p>
-            <h2 className="font-serif text-3xl sm:text-4xl text-white tracking-tight">What My Clients Say</h2>
-            <div className="mt-3 flex items-center gap-2.5">
-              <StarRow size={15} />
-              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/80">
-                {RATING_VALUE} / 5.0 Average &middot; Verified Realtor.com{"\u00AE"} Reviews
-              </span>
-            </div>
-          </div>
-          <a
-            href={REALTOR_PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 self-start rounded-full border border-gold/45 bg-white/[0.03] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold backdrop-blur-sm transition-all hover:bg-gold hover:text-navy-deep sm:self-auto"
-          >
-            Read all reviews on Realtor.com{"\u00AE"} &rarr;
-          </a>
+    <section id="client-reviews" data-seller-transition aria-labelledby={`seller-transition-title-${lang}`} className="scroll-mt-24 border-b border-hairline bg-white-soft py-12 text-navy-deep md:py-16">
+      <div className="mx-auto grid max-w-7xl gap-x-14 gap-y-7 px-6 lg:grid-cols-2">
+        <header className="lg:col-start-1 lg:row-start-1">
+          <p className="story-eyebrow text-gold-ink">{es ? "Su venta · Su próxima etapa" : "Your sale · Your next move"}</p>
+          <h2 id={`seller-transition-title-${lang}`} className="mt-4 font-serif text-4xl leading-[1.1] md:text-5xl">{es ? "Venda su casa." : "Sell your home."}<br />{es ? "Planifique su próxima etapa." : "Plan what comes next."}</h2>
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-navy">{es ? "Coordinamos la estrategia de venta con su próxima etapa: revisamos los ingresos netos estimados, la fecha de cierre y si una ocupación posterior negociada podría facilitar su mudanza." : "We coordinate your sale strategy around your next move—reviewing estimated proceeds, closing timing and whether negotiated post-closing occupancy could support your transition."}</p>
+        </header>
+        <div className="min-w-0 rounded-lg bg-[#0b1a30] p-4 text-white sm:p-6 lg:col-start-2 lg:row-start-1 lg:row-span-2" data-sticky-cta-guard>
+          <p className="story-eyebrow text-gold-soft">{es ? "Experiencias de clientes" : "Client experiences"}</p>
+          <p className="mt-2 text-xs leading-relaxed text-white/75">{es ? "Extractos de reseñas verificadas en Realtor.com®. Se conserva el idioma original del cliente." : "Excerpts from verified Realtor.com® reviews, in each client's own words."}</p>
+          <ReviewSpotlight reviews={SELLER_REVIEWS} compact sellerLayout lang={lang} />
+          <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center text-sm text-gold-soft underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-gold-soft">{es ? "Leer las reseñas completas en Realtor.com® →" : "Read the full reviews on Realtor.com® →"}</a>
         </div>
-
-        <aside className="mt-8 rounded-xl border border-gold/25 bg-white/[0.03] p-6 md:p-8" aria-label="Weston client-reported example">
-          <p className="font-mono text-xs uppercase tracking-[0.16em] text-gold">Weston · Client-reported example</p>
-          <h3 className="mt-3 font-serif text-2xl text-white">The sale and the next move, negotiated together.</h3>
-          <dl className="mt-5 grid gap-5 font-sans text-sm leading-relaxed md:grid-cols-3">
-            <div><dt className="font-semibold text-white">Seller priority</dt><dd className="mt-2 text-white/75">Coordinate the home sale with the family's relocation.</dd></div>
-            <div><dt className="font-semibold text-white">Carlos's action</dt><dd className="mt-2 text-white/75">Negotiate post-closing occupancy alongside the sale terms.</dd></div>
-            <div><dt className="font-semibold text-white">Reported result</dt><dd className="mt-2 text-white/75">The client describes a seven-month occupancy arrangement that eased the transition.</dd></div>
-          </dl>
-          <p className="mt-5 font-sans text-xs leading-relaxed text-white/70">Source: Diego Tolotto's verified client review, December 18, 2023. This is a review-based example; no sale price or contract documentation is presented.</p>
-          <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center font-sans text-sm text-gold underline">Read the client reviews →</a>
-        </aside>
-        <ReviewSpotlight reviews={REVIEWS} />
-
-        <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60 md:mt-12 text-center sm:text-left">
-          Individual results vary and are not a prediction of any sale outcome.
-        </p>
+        <div className="lg:col-start-1 lg:row-start-2" data-sticky-cta-guard>
+          <a href="#list-here" className="story-cta w-full sm:w-auto">{es ? "Planificar mi venta y mi próxima etapa" : "Plan My Sale and Next Move"}<ArrowRight size={18} aria-hidden="true" className="shrink-0" /></a>
+          <p className="mt-3 max-w-lg text-sm leading-relaxed text-navy">{es ? "Cuéntenos sobre su propiedad y sus plazos. Carlos se pondrá en contacto para coordinar una conversación privada." : "Tell us about your property and timing. Carlos will contact you to arrange a private strategy conversation."}</p>
+          <p className="mt-5 max-w-lg text-xs leading-relaxed text-navy/80">{es ? "La ocupación posterior al cierre requiere acuerdo con el comprador y condiciones por escrito. Los ingresos netos dependen de cada operación. Las experiencias individuales no garantizan un resultado, plazo ni acuerdo de ocupación." : "Post-closing occupancy requires buyer agreement and written terms. Net proceeds depend on the transaction. Individual experiences do not guarantee an outcome, timeline or occupancy arrangement."}</p>
+        </div>
       </div>
     </section>
   );
