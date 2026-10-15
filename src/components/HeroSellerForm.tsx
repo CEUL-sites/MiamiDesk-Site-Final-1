@@ -97,18 +97,27 @@ const COPY = {
   },
 } as const;
 
-export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean }) {
-  const t = COPY[lang];
+export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false, valuation = false, initialAddress = "", sourcePage = `hero-${lang}` }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean; valuation?: boolean; initialAddress?: string; sourcePage?: string }) {
+  const valuationSubmit = lang === "es" ? "Solicitar revisión del valor de mi casa" : "Request My Home Value Review";
+  const t = valuation ? {
+    ...COPY[lang],
+    compactSubmit: valuationSubmit,
+    submit: valuationSubmit,
+    compactPromise: lang === "es" ? "Carlos prepara personalmente la revisión con ventas comparables y la competencia actual. Sin compromiso de venta." : "Carlos prepares your review personally using comparable sales and current competition. No listing commitment.",
+    successTag: lang === "es" ? "Solicitud de valoración recibida" : "Home Value Review Requested",
+    successTitle: lang === "es" ? "Carlos revisará el valor de su propiedad." : "Carlos will review your property's value.",
+    successBody: lang === "es" ? "Carlos revisará su propiedad y se pondrá en contacto para hablar sobre su valoración y sus próximos pasos." : "Carlos will review your property and contact you to discuss its pricing and your next steps.",
+  } : COPY[lang];
   const addressId = useId();
   const initial = {
     name: "", phone: "", email: "",
-    propertyAddress: "",
-    city: t.markets[0],
+    propertyAddress: initialAddress,
+    city: valuation ? "" : t.markets[0],
     timeline: t.timelines[0],
     messagingConsent: "no",
   };
   const [form, setForm]       = useState(initial);
-  const [step, setStep]       = useState<1 | 2>(1);
+  const [step, setStep]       = useState<1 | 2>(valuation && initialAddress ? 2 : 1);
   const [status, setStatus]   = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError]     = useState("");
   const addressRef            = useRef<HTMLInputElement>(null);
@@ -164,7 +173,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           "bot-field": "",
           formRenderedAt: String(renderedAt.current),
           ...form,
-          sourcePage: `hero-${lang}`,
+          sourcePage,
           ...getAttribution(),
         }),
       });
@@ -172,10 +181,10 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
       notifyLeadDirect({
         name: form.name, email: form.email, phone: form.phone,
         propertyAddress: form.propertyAddress, city: form.city, timeline: form.timeline,
-        sourcePage: `hero-${lang}`, formName: "seller-hero", leadSource: getLeadSource(),
+        sourcePage, formName: "seller-hero", leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current), messagingConsent: form.messagingConsent,
       });
-      trackLead("seller", { form: "seller-hero", page: `hero-${lang}` });
+      trackLead("seller", { form: "seller-hero", page: sourcePage });
       // Auto-acknowledgment (email/WhatsApp confirmation) — best-effort
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
@@ -271,8 +280,8 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
 
         {compact && <p className="seller-form-progress" aria-live="polite">{step === 1 ? t.step1Progress : t.step2Progress}</p>}
         {/* Address — Step 1 on mobile, always visible on desktop */}
-        {compact && <label htmlFor={addressId} className="seller-form-address-label">{t.compactAddress}</label>}
-        <div className="relative">
+        {compact && !valuation && <label htmlFor={addressId} className="seller-form-address-label">{t.compactAddress}</label>}
+        <div className="relative" hidden={valuation}>
           <MapPin size={16} className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gold z-10" />
           <input
             required
@@ -290,7 +299,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           />
         </div>
 
-        <div className="mt-2">
+        <div className="mt-2" hidden={valuation}>
             <div className="relative">
               <select
                 name="city"
@@ -299,6 +308,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
                 className={selectCls}
                 aria-label="Market"
               >
+                {valuation && <option value="" />}
                 {t.markets.map((m) => <option key={m}>{m}</option>)}
               </select>
               <span aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-gold/60 text-xs">▾</span>
@@ -317,7 +327,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         )}
 
         {/* Mobile Step 2 active address indicator */}
-        {step === 2 && (
+        {step === 2 && !valuation && (
           <div className={`${compact ? "seller-form-address-summary " : ""}mt-2.5 flex items-center justify-between rounded bg-white/[0.04] px-3 py-1.5 text-xs text-white/70 border border-white/10 lg:hidden`}>
             <span className="truncate max-w-[220px] text-white/90 font-medium">📍 {form.propertyAddress}</span>
             <button
@@ -437,7 +447,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         >
           {compact ? "WhatsApp Carlos ↗" : <>{t.prefer} {t.preferLink}</>}
         </a>
-        {compact && <p className="seller-form-privacy">Confidential · No obligation</p>}
+        {compact && <p className="seller-form-privacy">{lang === "es" ? "Confidencial · Sin compromiso" : "Confidential · No obligation"}</p>}
       </form>
 
       {/* Move 1 & 3: Dedicated international bridge caption beneath hero form */}

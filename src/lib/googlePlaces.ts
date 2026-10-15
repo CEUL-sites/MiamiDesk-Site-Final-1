@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-export const MAPS_KEY = (import.meta.env as Record<string, string>)["VITE_GOOGLE_MAPS_KEY"] ?? "";
+export const MAPS_KEY = import.meta.env?.VITE_GOOGLE_MAPS_KEY ?? "";
 
 const callbacks: (() => void)[] = [];
 const failureCallbacks: (() => void)[] = [];

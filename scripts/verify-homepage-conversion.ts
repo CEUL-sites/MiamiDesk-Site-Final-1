@@ -164,7 +164,7 @@ const sectionOrder = [
   "<SellerExecutionSystem />",
   "<Distribution />",
   "<GlobalDeskTeaser />",
-  "<MarketPulse />",
+  "<HomeValueEntry />",
   "<AboutContact showForm={false} />",
   "<Footer />",
 ];
