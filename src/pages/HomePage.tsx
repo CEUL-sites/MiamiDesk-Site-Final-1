@@ -7,7 +7,7 @@ import { Distribution } from "../components/Distribution";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
-import { MarketPulse } from "../components/MarketPulse";
+import { HomeValueEntry } from "../components/HomeValueEntry";
 import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
 import { SellerAuthorityStrip } from "../components/SellerAuthorityStrip";
 import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
@@ -50,7 +50,7 @@ export default function HomePage() {
         </Suspense>
         <Distribution />
         <GlobalDeskTeaser />
-        <MarketPulse />
+        <HomeValueEntry />
         <Suspense fallback={null}>
           <SellerPathfinder />
         </Suspense>

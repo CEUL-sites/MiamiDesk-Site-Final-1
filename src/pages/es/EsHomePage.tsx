@@ -8,6 +8,7 @@ import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
+import { HomeValueEntry } from "../../components/HomeValueEntry";
 import { EsProof } from "../../components/es/EsProof";
 import { EsDistribution } from "../../components/es/EsDistribution";
 import { SellerExecutionSystem } from "../../components/SellerExecutionSystem";
@@ -266,6 +267,7 @@ export default function EsHomePage() {
         </Suspense>
 
         <EsDistribution />
+        <HomeValueEntry lang="es" />
 
         <Footer />
         <MobileStickyCTA />
