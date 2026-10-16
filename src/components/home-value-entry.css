@@ -24,8 +24,8 @@
 .home-value-selected p { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: #64757a; margin-bottom: 5px; }
 .home-value-selected strong { font-size: 14px; font-weight: 500; line-height: 1.6; overflow-wrap: anywhere; }
 .home-value-selected button { color: #6f5936; text-decoration: underline; font-size: 12px; min-height: 44px; flex-shrink: 0; cursor: pointer; }
-.home-value-map { height: 200px; width: 100%; border-radius: 6px; background: #e9ece7; }
-.home-value-map-fallback, .home-value-map-note { font-size: 11px; color: #61737b; line-height: 1.6; }
+.home-value-map { height: 200px; width: 100%; border: 0; border-radius: 6px; background: #e9ece7; }
+.home-value-map-note { font-size: 11px; color: #61737b; line-height: 1.6; }
 .home-value-map-link { display: inline-flex; align-items: center; font-size: 11px; min-height: 44px; color: #6f5936; text-decoration: underline; text-underline-offset: 3px; }
 .home-value-card > h3 { font: 400 24px/1.2 var(--font-serif, Georgia, serif); color: #112733; margin-block: 14px; }
 .home-value-card .seller-hero-form { background: transparent; padding: 0; }

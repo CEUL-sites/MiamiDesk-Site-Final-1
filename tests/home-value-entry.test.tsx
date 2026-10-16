@@ -39,3 +39,13 @@ test('a valuation request carries the address and uses the existing contact inta
   assert.match(html, /Request My Home Value Review/);
   assert.match(html, /name="form-name" value="seller-hero"/);
 });
+
+test('the confirmed-address map does not depend on the restricted API key', async () => {
+  const module = await import('../src/components/HomeValueEntry');
+  assert.equal(typeof module.AddressMapEmbed, 'function', 'a key-independent map preview must exist');
+  const html = renderToStaticMarkup(<module.AddressMapEmbed address="15951 SW 41 St #700, Weston, FL" title="Address preview" />);
+  assert.match(html, /title="Address preview"/);
+  assert.match(html, /https:\/\/www.google.com\/maps\?q=15951%20SW%2041%20St%20%23700%2C%20Weston%2C%20FL/);
+  assert.match(html, /output=embed/);
+  assert(!html.includes('key='));
+});
