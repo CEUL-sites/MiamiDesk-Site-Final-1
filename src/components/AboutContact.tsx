@@ -22,9 +22,9 @@ export function AboutContact({
               <img src={CONTACT.headshot} alt="Carlos Uzcategui, REALTOR®, Florida License SL705771, with United Realty Group, serving South Florida and Madrid since 2001" className="carlos-headshot" loading="lazy" width="280" height="280" />
             </div>
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Meet the Principal</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy md:mt-4 md:text-4xl lg:text-6xl">Carlos Uzcategui</h2>
-              <p className="font-mono mt-3 text-[10px] uppercase tracking-[0.22em] text-navy/70">REALTOR® · Florida License SL705771 · Since 2001</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Our team and professional network</p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy md:mt-4 md:text-4xl lg:text-6xl">Experience. Infrastructure. Teamwork.</h2>
+              <p className="font-mono mt-3 text-[10px] uppercase tracking-[0.22em] text-navy/70">Carlos Uzcategui · REALTOR® · Florida License SL705771 · Since 2001</p>
 
               <div className="mt-5 flex flex-wrap gap-3 md:mt-8">
                 {["CLHMS", "Certified Seller Rep", "Licensed Since 2001"].map((badge) => (
@@ -35,12 +35,12 @@ export function AboutContact({
           </div>
 
           <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-12 md:space-y-4 md:text-lg">
-            <p>Twenty-five years of active South Florida real estate transactions across residential, luxury, and commercial sectors. Relationships inside the Miami professional community built through closed transactions, not directory listings.</p>
-            <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations, delivering institutional market reach across South Florida corridors.</p>
-            <p>Every assignment is managed directly by Carlos as principal of record—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.</p>
+            <p>Florida licensed since 2001, with 25 years of South Florida transaction experience across residential, luxury and commercial property.</p>
+            <p>Our team brings together participating United Realty Group agents and affiliated professionals for property presentation, buyer-agent outreach and transaction coordination. We draw on a brokerage network of 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations.</p>
+            <p>From Weston, we coordinate pricing, eligible distribution, follow-up and negotiation around your property and next move. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.</p>
           </div>
 
-          {/* Carlos-led advice with visible brokerage infrastructure behind it. */}
+          {/* Team execution supported by the brokerage's professional infrastructure. */}
           <div id="brokerage-proof" data-sticky-cta-guard className="mt-6 scroll-mt-24 overflow-hidden border border-bone bg-navy-deep md:mt-12 md:grid md:grid-cols-[0.9fr_1.1fr]">
             <div className="relative min-h-64 overflow-hidden md:min-h-[390px]">
               <img
@@ -66,7 +66,7 @@ export function AboutContact({
               />
               <h3 className="mt-5 font-serif text-2xl leading-tight text-white md:text-4xl">Your strategy is personal. The infrastructure behind it is institutional.</h3>
               <p className="mt-5 font-sans text-sm leading-relaxed text-white/70 md:text-base">
-                Carlos leads the pricing, positioning, negotiation, and communication personally. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations.
+                Our team coordinates pricing, positioning, negotiation and communication. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations.
               </p>
               <div className="mt-7 grid grid-cols-2 border-y border-white/15 py-5">
                 <div>

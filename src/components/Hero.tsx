@@ -61,7 +61,7 @@ export function Hero() {
         <img className="seller-hero-background" src="/images/carlos-miami-river.webp" width="1672" height="941" fetchPriority="high" alt="" />
         <div className="seller-hero-layout">
           <div className="seller-hero-primary">
-            <p className="seller-hero-eyebrow">Carlos Uzcategui <span aria-hidden="true">/</span> South Florida</p>
+            <p className="seller-hero-eyebrow">United Realty Group <span aria-hidden="true">/</span> South Florida</p>
             <h1 id="seller-hero-heading" className="seller-hero-heading">
               Your Home.<br />Our Network.
               <span>A Stronger<br />Selling Strategy.</span>
@@ -72,7 +72,7 @@ export function Hero() {
             <div className="seller-hero-links">
               <a href="#list-here" className="seller-hero-primary-cta" onClick={startInquiry}>See How We’d Sell Your Home <ArrowRight size={18} aria-hidden="true" /></a>
               <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="seller-hero-whatsapp" onClick={() => trackMicroConversion("hp_cta_click", { type: "whatsapp_us", location: "hero_intro" })}>
-                <MessageCircle size={19} aria-hidden="true" /> WhatsApp Carlos
+                <MessageCircle size={19} aria-hidden="true" /> WhatsApp Our Team
               </a>
             </div>
             <p className="seller-hero-credentials">Florida licensed since 2001 · CLHMS · English &amp; Spanish</p>

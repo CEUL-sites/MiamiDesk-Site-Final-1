@@ -1,34 +1,17 @@
-import { ChevronRight, Globe2 } from "lucide-react";
-
-// Homepage entry point to the Global Desk business unit (/global-desk).
-// The landing page itself renders English by default with an EN/ES toggle;
-// this teaser uses the site's English shell copy.
+import { ArrowUpRight } from "lucide-react";
+import { StoryVideo } from "./StoryVideo";
 export function GlobalDeskTeaser() {
-  return (
-    <section className="border-y border-gold/20 bg-navy-deep px-6 py-10 md:py-20 text-white">
-      <div className="mx-auto flex max-w-5xl flex-col gap-5 md:flex-row md:items-center md:justify-between md:gap-8">
-        <div className="max-w-2xl">
-          <p className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
-            <Globe2 size={13} className="text-gold" />
-            Global Desk
-          </p>
-          <h2 className="mt-3 font-serif text-2xl leading-snug text-white md:mt-4 md:text-3xl">
-            Miami Global Listing Desk — buyer-agent activation for prime property
-          </h2>
-          <p className="mt-3 font-sans text-base leading-relaxed text-white/65 md:mt-4">
-            For developers and agencies: prepare selected Spanish and international prime inventory for South Florida buyer-agent discovery through a professional brokerage framework.
-          </p>
-        </div>
-        <div className="flex-shrink-0">
-          <a
-            href="/global-desk"
-            className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
-          >
-            Enter the Global Desk
-            <ChevronRight size={14} />
-          </a>
-        </div>
+  return <section data-global-story data-sticky-cta-guard className="visual-story bg-[#f2eee6] px-6 py-16 text-navy-deep md:py-24">
+    <div className="mx-auto max-w-7xl bridge-story">
+      <div className="min-w-0">
+        <p className="story-eyebrow text-gold-ink">Global Desk</p>
+        <h2 className="visual-section-title mt-5 font-serif">Miami Global Listing Desk — buyer-agent activation for prime property</h2>
+        <p className="mt-5 max-w-lg text-base leading-relaxed">For developers and agencies: prepare selected Spanish and international prime inventory for South Florida buyer-agent discovery through a professional brokerage framework.</p>
+        <div className="bridge-route" aria-hidden="true"><span>SPAIN</span><span>SOUTH FLORIDA</span></div>
+        <a href="/global-desk" className="story-cta mt-6">Enter the Global Desk <ArrowUpRight size={18} aria-hidden="true"/></a>
       </div>
-    </section>
-  );
+      <div className="bridge-window"><StoryVideo src="/videos/miami_madrid_transition.mp4" poster="/images/posters/miami_madrid_transition.jpg" label="Miami and Madrid visual introduction" shape="portrait" note="Miami ↔ Madrid · Illustrative visual introduction"/></div>
+    </div>
+    <p className="mx-auto mt-10 max-w-7xl text-xs leading-relaxed">Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.</p>
+  </section>;
 }

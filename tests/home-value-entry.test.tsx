@@ -16,7 +16,7 @@ test('valuation entry is address-first, with no initial map request or price cla
   assert.match(html, /What could your home sell for\?/);
   assert.match(html, /name="propertyAddress"/);
   assert.match(html, /Request My Home Value Review/);
-  assert.match(html, /personally/);
+  assert.match(html, /Prepared by our team/);
   assert.match(html, /href="\/market-data"/);
   assert(!html.includes('<iframe'));
   assert(!html.includes('Median sale price'));

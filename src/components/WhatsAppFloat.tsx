@@ -13,7 +13,7 @@ export function WhatsAppFloat() {
   const [heroVisible, setHeroVisible] = useState(pathname === "/");
   const spanish = isSpainMarketRoute(pathname);
   const href = spanish ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
-  const label = spanish ? "WhatsApp España" : "WhatsApp Carlos";
+  const label = spanish ? "WhatsApp España" : "WhatsApp Our Team";
 
   useEffect(() => {
     const hero = document.querySelector(".hero-root");

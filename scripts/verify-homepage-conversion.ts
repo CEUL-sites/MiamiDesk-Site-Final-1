@@ -126,7 +126,7 @@ assert.equal(heroFigures.members.value, "93,000");
 assert.equal(heroFigures.urgAgents.value, "3,500+");
 assert.match(form, /compact = false/, "compact hero presentation must be opt-in");
 assert.match(form, /Request Your Private Seller Strategy Review/);
-assert.match(form, /WhatsApp Carlos/);
+assert.match(form, /WhatsApp/);
 assert.match(heroAnimation, /\/media\/hero-property-network\.mp4/);
 assert.match(heroAnimation, /\/images\/hero-property-network\.webp/);
 assert.match(heroAnimation, /width="1280"/);
@@ -140,7 +140,7 @@ assert.match(heroAnimation, /fetchPriority="high"/);
 assert.match(authority, /REALTOR® · FL SL705771/);
 assert.match(authority, /CLHMS Luxury Specialist/);
 assert.match(authority, /Verified Realtor\.com® reviews/);
-assert.match(execution, /What Carlos Does After the Listing Goes Live/);
+assert.match(execution, /What Our Team Does After the Listing Goes Live/);
 for (const [label, copy] of [
   ["POSITION", "Price strategy, presentation, buyer profile, property narrative and launch timing."],
   ["ACTIVATE", "Identify and reach agents working with relevant buyers by location, property type and price range."],
