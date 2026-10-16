@@ -22,7 +22,6 @@ const COPY = {
     next: "How should Carlos reach you?",
     map: "Address preview",
     mapNote: "Confirm the address and unit. Map placement is approximate.",
-    mapFallback: "You can continue without a map preview.",
     openMap: "View address on Google Maps",
     error: "Enter your property address to continue.",
   },
@@ -42,32 +41,15 @@ const COPY = {
     next: "¿Cómo puede Carlos contactarle?",
     map: "Vista previa de la dirección",
     mapNote: "Confirme la dirección y la unidad. La ubicación del mapa es aproximada.",
-    mapFallback: "Puede continuar sin la vista previa del mapa.",
     openMap: "Ver dirección en Google Maps",
     error: "Ingrese la dirección de su propiedad para continuar.",
   },
 };
 
-type Location = { lat: number; lng: number };
-
-function AddressMap({ location, title, onFailure }: { location: Location; title: string; onFailure: () => void }) {
-  const element = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!element.current || !window.google?.maps?.Map) { onFailure(); return; }
-    try {
-      const map = new window.google.maps.Map(element.current, {
-        center: location, zoom: 17, mapTypeId: "roadmap",
-        gestureHandling: "cooperative", streetViewControl: false,
-        mapTypeControl: false, fullscreenControl: false,
-      });
-      const marker = new window.google.maps.Marker({ position: location, map });
-      return () => {
-        marker.setMap(null);
-        window.google.maps.event.clearInstanceListeners(map);
-      };
-    } catch { onFailure(); }
-  }, [location, onFailure]);
-  return <div ref={element} className="home-value-map" role="region" aria-label={title} />;
+export function AddressMapEmbed({ address, title }: { address: string; title: string }) {
+  // Google Maps' embeddable website view is independent of the Places API key.
+  // Mount only after the visitor confirms an address, never on the initial page.
+  return <iframe className="home-value-map" title={title} src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />;
 }
 
 export function HomeValueEntry({ lang = "en" }: { lang?: "en" | "es" }) {
@@ -78,12 +60,8 @@ export function HomeValueEntry({ lang = "en" }: { lang?: "en" | "es" }) {
   const listener = useRef<google.maps.MapsEventListener | null>(null);
   const contactHeading = useRef<HTMLHeadingElement>(null);
   const [address, setAddress] = useState("");
-  const [location, setLocation] = useState<Location | null>(null);
   const [contact, setContact] = useState(false);
-  const [mapFailed, setMapFailed] = useState(false);
   const [error, setError] = useState(false);
-  // Stable callback keeps the map instance alive during contact-field edits.
-  const failMap = useRef(() => setMapFailed(true)).current;
 
   useEffect(() => () => { listener.current?.remove(); }, []);
   useEffect(() => {
@@ -98,20 +76,16 @@ export function HomeValueEntry({ lang = "en" }: { lang?: "en" | "es" }) {
       if (input.current !== field || !window.google?.maps?.places) return;
       const autocomplete = new window.google.maps.places.Autocomplete(field, {
         types: ["address"], componentRestrictions: { country: ["us"] },
-        fields: ["formatted_address", "geometry"],
+        fields: ["formatted_address"],
       });
       listener.current?.remove();
       listener.current = autocomplete.addListener("place_changed", () => {
         const place = autocomplete.getPlace();
         setAddress(place.formatted_address || field.value);
-        const point = place.geometry?.location;
-        setLocation(point ? { lat: point.lat(), lng: point.lng() } : null);
-        setMapFailed(false);
         setError(false);
       });
     }, () => {
       requestAnimationFrame(() => restoreManualAddressEntry(input.current, t.placeholder));
-      setMapFailed(true);
     });
   }
 
@@ -154,7 +128,7 @@ export function HomeValueEntry({ lang = "en" }: { lang?: "en" | "es" }) {
             <form onSubmit={continueToContact} noValidate className="home-value-address-form">
               <label htmlFor={`${id}-address`}>{t.address}</label>
               <div className="home-value-input-wrap"><MapPin size={18} aria-hidden="true" />
-                <input id={`${id}-address`} ref={input} name="propertyAddress" type="text" autoComplete="street-address" value={address} placeholder={t.placeholder} maxLength={300} onFocus={initPlaces} onChange={event => { setAddress(event.target.value); setLocation(null); setError(false); }} aria-invalid={error} aria-describedby={error ? `${id}-error` : undefined} />
+                <input id={`${id}-address`} ref={input} name="propertyAddress" type="text" autoComplete="street-address" value={address} placeholder={t.placeholder} maxLength={300} onFocus={initPlaces} onChange={event => { setAddress(event.target.value); setError(false); }} aria-invalid={error} aria-describedby={error ? `${id}-error` : undefined} />
               </div>
               {error && <p role="alert" id={`${id}-error`}>{t.error}</p>}
               <button type="submit">{t.submit}<ArrowRight size={17} aria-hidden="true" /></button>
@@ -162,9 +136,9 @@ export function HomeValueEntry({ lang = "en" }: { lang?: "en" | "es" }) {
             <p className="home-value-privacy"><ShieldCheck size={14} aria-hidden="true" />{t.privacy}</p>
           </> : <>
             <div className="home-value-selected"><div><p>{t.confirm}</p><strong>{address}</strong></div><button type="button" onClick={() => { setContact(false); requestAnimationFrame(() => input.current?.focus({ preventScroll: true })); }}>{t.edit}</button></div>
-            {location && !mapFailed ? <AddressMap location={location} title={t.map} onFailure={failMap} /> : <p className="home-value-map-fallback">{t.mapFallback}</p>}
+            <AddressMapEmbed address={address} title={t.map} />
             <a className="home-value-map-link" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`} target="_blank" rel="noopener noreferrer">{t.openMap} ↗</a>
-            {location && !mapFailed && <p className="home-value-map-note">{t.mapNote}</p>}
+            <p className="home-value-map-note">{t.mapNote}</p>
             <h3 ref={contactHeading} tabIndex={-1}>{t.next}</h3>
             <HeroSellerForm compact progressiveDesktop valuation initialAddress={address} sourcePage={`homepage-valuation-${lang}`} lang={lang} />
           </>}
