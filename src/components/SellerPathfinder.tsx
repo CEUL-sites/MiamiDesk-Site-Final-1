@@ -65,13 +65,13 @@ const INTENTS: Intent[] = [
     en: {
       choice: "Selling a South Florida property",
       headline: "A private read on your property, before any listing decision.",
-      body: "Carlos reviews the comparable set, the competitive position and the likely buyer profile for your property, then sends the read back to you.",
+      body: "Our team reviews the comparable set, the competitive position and the likely buyer profile for your property, then sends the read back to you.",
       ctaLabel: "Request my property strategy",
     },
     es: {
       choice: "Vender una propiedad en el Sur de Florida",
       headline: "Una lectura privada de su propiedad, antes de cualquier decisión de venta.",
-      body: "Carlos revisa los comparables, la posición competitiva y el perfil probable de comprador de su propiedad, y le devuelve esa lectura.",
+      body: "Nuestro equipo revisa los comparables, la posición competitiva y el perfil probable de comprador de su propiedad, y le devuelve esa lectura.",
       ctaLabel: "Solicitar mi estrategia de venta",
     },
   },
@@ -82,13 +82,13 @@ const INTENTS: Intent[] = [
     en: {
       choice: "Buying or relocating here",
       headline: "A buyer's read on a market that moves through agents.",
-      body: "Carlos works the MLS from the buying side — inventory that fits the brief, the competitive picture around it, and what the numbers look like before an offer goes in.",
+      body: "Our team works the MLS from the buying side — inventory that fits the brief, the competitive picture around it, and what the numbers look like before an offer goes in.",
       ctaLabel: "Open the buyer brief",
     },
     es: {
       choice: "Comprar o mudarse aquí",
       headline: "La lectura de un comprador en un mercado que se mueve a través de agentes.",
-      body: "Carlos trabaja el MLS desde el lado del comprador: inventario que encaja con el encargo, el panorama competitivo a su alrededor y qué dicen los números antes de presentar una oferta.",
+      body: "Nuestro equipo trabaja el MLS desde el lado del comprador: inventario que encaja con el encargo, el panorama competitivo a su alrededor y qué dicen los números antes de presentar una oferta.",
       ctaLabel: "Abrir la guía del comprador",
     },
   },
@@ -116,13 +116,13 @@ const INTENTS: Intent[] = [
     en: {
       choice: "I have a client to refer",
       headline: "A referral handled by a licensed Florida professional.",
-      body: "Carlos takes South Florida referrals from agents inside and outside the United States, with cooperation terms agreed in writing before any client introduction.",
+      body: "Our team takes South Florida referrals from agents inside and outside the United States, with cooperation terms agreed in writing before any client introduction.",
       ctaLabel: "Review the referral terms",
     },
     es: {
       choice: "Tengo un cliente para referir",
       headline: "Un referral gestionado por un profesional con licencia en Florida.",
-      body: "Carlos recibe, de agentes dentro y fuera de Estados Unidos, referrals para el Sur de Florida, con los términos de cooperación acordados por escrito antes de cualquier presentación de cliente.",
+      body: "Nuestro equipo recibe, de agentes dentro y fuera de Estados Unidos, referrals para el Sur de Florida, con los términos de cooperación acordados por escrito antes de cualquier presentación de cliente.",
       ctaLabel: "Ver los términos del referral",
     },
   },
@@ -152,31 +152,31 @@ const STAGES: { id: string; en: StageCopy; es: StageCopy }[] = [
   },
   {
     id: "ready",
-    en: { choice: "Ready to move", note: "You are ready to act, so the direct route is a conversation with Carlos." },
-    es: { choice: "Listo para actuar", note: "Está listo para actuar, así que la vía directa es una conversación con Carlos." },
+    en: { choice: "Ready to move", note: "You are ready to act, so the direct route is a conversation with our team." },
+    es: { choice: "Listo para actuar", note: "Está listo para actuar, así que la vía directa es una conversación con nuestro equipo." },
   },
 ];
 
 const SHELL = {
   en: {
     eyebrow: "Two questions",
-    heading: "Tell Carlos what you are deciding. Get the one route that applies.",
+    heading: "Tell us what you are deciding. Get the one route that applies.",
     step: (n: number) => `Step ${n} of 3`,
     q1: "What are you deciding?",
     q2: "Where are you in it?",
     result: "Your route",
-    whatsapp: "Ask Carlos directly",
-    footnote: "No listing commitment · Carlos responds personally",
+    whatsapp: "Ask our team directly",
+    footnote: "No listing commitment · Our team responds",
   },
   es: {
     eyebrow: "Dos preguntas",
-    heading: "Dígale a Carlos qué está decidiendo. Reciba la vía que le corresponde.",
+    heading: "Cuéntenos qué está decidiendo. Reciba la vía que le corresponde.",
     step: (n: number) => `Paso ${n} de 3`,
     q1: "¿Qué está decidiendo?",
     q2: "¿En qué punto está?",
     result: "Su vía",
-    whatsapp: "Preguntar a Carlos directamente",
-    footnote: "Sin compromiso de listado · Carlos responde personalmente",
+    whatsapp: "Preguntar a nuestro equipo",
+    footnote: "Sin compromiso de listado · Nuestro equipo responde",
   },
 } as const;
 

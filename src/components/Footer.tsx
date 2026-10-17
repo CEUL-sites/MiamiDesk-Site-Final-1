@@ -34,7 +34,7 @@ export function Footer() {
           <h3 className="font-serif text-2xl text-white">Carlos Uzcategui</h3>
           <p className="font-mono mt-2 text-[11px] uppercase tracking-[0.22em] text-gold">REALTOR® · Florida License SL705771</p>
           <p className="mt-3 max-w-xs font-sans text-sm font-light leading-relaxed text-white/70 md:mt-5">
-            Florida listings. Miami MLS exposure. International property distribution. Led by Carlos Uzcategui — 25 years licensed in Florida.
+            Florida listings. Miami MLS exposure. International property distribution. Our team combines experience, brokerage infrastructure and professional cooperation.
           </p>
           <div className="mt-5 flex items-center gap-3 md:mt-8">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110" width="32" height="35" aria-label="Equal Housing Opportunity" role="img" className="flex-shrink-0 opacity-60">

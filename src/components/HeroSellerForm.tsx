@@ -32,18 +32,18 @@ const COPY = {
     compactAddressPlaceholder: "Enter your property address",
     compactContinue: "Continue to Contact Details",
     compactSubmit: "Request Your Private Seller Strategy Review",
-    compactPromise: "Carlos reviews your property, price position and next-move priorities, then contacts you to arrange the call. No listing commitment.",
+    compactPromise: "Our team reviews your property, price position and next-move priorities, then contacts you to arrange the call. No listing commitment.",
     editAddress: "Change address",
     submit: "Request Your Private Seller Strategy Review",
     sending: "Sending…",
     consent: "I agree to receive updates by WhatsApp/SMS at this number. Msg & data rates may apply. Reply STOP to opt out.",
     prefer: "Prefer WhatsApp?",
-    preferLink: "Message Carlos directly",
+    preferLink: "Message our team directly",
     proofQuote: "Sharp pricing, professional marketing, and constant communication — Carlos made selling feel handled.",
     proofName: "Andres P. · Weston · Verified Review",
     successTag: "Seller Strategy Review Requested",
-    successTitle: "Carlos will personally review your property.",
-    successBody: "Carlos reviews your property and selling priorities, then contacts you to arrange the strategy conversation. For urgent timing, reach us on WhatsApp.",
+    successTitle: "Our team will review your property.",
+    successBody: "Our team reviews your property and selling priorities, then contacts you to arrange the strategy conversation. For urgent timing, reach us on WhatsApp.",
     netSheetIntro: "Prepare for your strategy conversation with the Seller's Net Sheet — a guide to estimating what you keep at closing:",
     netSheetCta: "Download the Seller's Net Sheet",
     successCta: "Continue on WhatsApp →",
@@ -74,18 +74,18 @@ const COPY = {
     compactAddressPlaceholder: "Ingrese la dirección de su propiedad",
     compactContinue: "Continuar a datos de contacto",
     compactSubmit: "Solicitar revisión privada de mi estrategia de venta",
-    compactPromise: "Carlos revisa su propiedad, el posicionamiento de precio y sus próximos pasos, y le contacta para coordinar la conversación. Sin compromiso de venta.",
+    compactPromise: "Nuestro equipo revisa su propiedad, el posicionamiento de precio y sus próximos pasos, y le contacta para coordinar la conversación. Sin compromiso de venta.",
     editAddress: "Cambiar dirección",
     submit: "Solicitar revisión privada de mi estrategia de venta",
     sending: "Enviando…",
     consent: "Acepto recibir actualizaciones por WhatsApp/SMS a este número. Pueden aplicar tarifas. Responda STOP para darse de baja.",
     prefer: "¿Prefiere WhatsApp?",
-    preferLink: "Escriba a Carlos directamente",
+    preferLink: "Escriba a nuestro equipo directamente",
     proofQuote: "Precios acertados, marketing profesional y comunicación constante — Carlos hizo que vender se sintiera bajo control.",
     proofName: "Andres P. · Weston · Reseña Verificada",
     successTag: "Solicitud Recibida",
-    successTitle: "Carlos revisará su propiedad personalmente.",
-    successBody: "Carlos revisa su propiedad y sus prioridades de venta, y le contacta para coordinar la conversación. Para asuntos urgentes, contáctenos por WhatsApp.",
+    successTitle: "Nuestro equipo revisará su propiedad.",
+    successBody: "Nuestro equipo revisa su propiedad y sus prioridades de venta, y le contacta para coordinar la conversación. Para asuntos urgentes, contáctenos por WhatsApp.",
     netSheetIntro: "Prepare su conversación de estrategia con la Hoja de Ganancias del Vendedor — una guía para estimar lo que conserva al cierre:",
     netSheetCta: "Descargar la Hoja de Ganancias",
     successCta: "Continuar por WhatsApp →",
@@ -103,10 +103,10 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
     ...COPY[lang],
     compactSubmit: valuationSubmit,
     submit: valuationSubmit,
-    compactPromise: lang === "es" ? "Carlos prepara personalmente la revisión con ventas comparables y la competencia actual. Sin compromiso de venta." : "Carlos prepares your review personally using comparable sales and current competition. No listing commitment.",
+    compactPromise: lang === "es" ? "Nuestro equipo prepara la revisión con ventas comparables y la competencia actual. Sin compromiso de venta." : "Our team prepares your review using comparable sales and current competition. No listing commitment.",
     successTag: lang === "es" ? "Solicitud de valoración recibida" : "Home Value Review Requested",
-    successTitle: lang === "es" ? "Carlos revisará el valor de su propiedad." : "Carlos will review your property's value.",
-    successBody: lang === "es" ? "Carlos revisará su propiedad y se pondrá en contacto para hablar sobre su valoración y sus próximos pasos." : "Carlos will review your property and contact you to discuss its pricing and your next steps.",
+    successTitle: lang === "es" ? "Nuestro equipo revisará el valor de su propiedad." : "Our team will review your property's value.",
+    successBody: lang === "es" ? "Nuestro equipo revisará su propiedad y se pondrá en contacto para hablar sobre su valoración y sus próximos pasos." : "Our team will review your property and contact you to discuss its pricing and your next steps.",
   } : COPY[lang];
   const addressId = useId();
   const initial = {
@@ -436,7 +436,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         )}
 
         <p className={`mt-2 text-center font-sans text-[11px] leading-5 text-white/70 ${compact ? "seller-form-microcopy" : ""}`}>
-          {compact ? t.compactPromise : "Personal reply from Carlos · No listing commitment"}
+          {compact ? t.compactPromise : lang === "es" ? "Respuesta de nuestro equipo · Sin compromiso de venta" : "A reply from our team · No listing commitment"}
         </p>
         <a
           href={CONTACT.whatsappUS}
@@ -445,7 +445,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           onClick={() => trackMicroConversion("hp_cta_click", { type: "whatsapp_us", location: "hero_form" })}
           className={progressiveDesktop ? `mt-1 block text-center text-xs leading-5 text-gold-soft underline underline-offset-4 ${compact ? "seller-form-whatsapp" : ""}` : "sr-only"}
         >
-          {compact ? "WhatsApp Carlos ↗" : <>{t.prefer} {t.preferLink}</>}
+          {compact ? "WhatsApp ↗" : <>{t.prefer} {t.preferLink}</>}
         </a>
         {compact && <p className="seller-form-privacy">{lang === "es" ? "Confidencial · Sin compromiso" : "Confidential · No obligation"}</p>}
       </form>

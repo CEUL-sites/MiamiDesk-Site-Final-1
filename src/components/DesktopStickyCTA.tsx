@@ -17,7 +17,7 @@ const COPY = {
   en: {
     headline: "What's your South Florida home worth?",
     subtext: "Free MLS-based analysis · No listing commitment",
-    whatsappLabel: "WhatsApp Carlos",
+    whatsappLabel: "WhatsApp Our Team",
     ctaLabel: "Get My Home Value",
     dismissLabel: "Dismiss",
   },
@@ -27,7 +27,7 @@ const COPY = {
     // TODO: native Madrid editor review
     subtext: "Análisis gratuito basado en MLS · Sin compromiso de listado",
     // TODO: native Madrid editor review
-    whatsappLabel: "WhatsApp a Carlos",
+    whatsappLabel: "WhatsApp al equipo",
     // TODO: native Madrid editor review
     ctaLabel: "Ver el Valor de Mi Casa",
     // TODO: native Madrid editor review

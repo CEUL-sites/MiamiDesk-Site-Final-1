@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./seller-story.css";
 @import "./components/home-value-entry.css";
+@import "./components/video-story.css";
 
 @theme {
   --color-navy: #0B1E3F;

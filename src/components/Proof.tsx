@@ -28,7 +28,7 @@ export function Proof({ lang = "en" }: { lang?: "en" | "es" } = {}) {
         </div>
         <div className="lg:col-start-1 lg:row-start-2" data-sticky-cta-guard>
           <a href="#list-here" className="story-cta w-full sm:w-auto">{es ? "Planificar mi venta y mi próxima etapa" : "Plan My Sale and Next Move"}<ArrowRight size={18} aria-hidden="true" className="shrink-0" /></a>
-          <p className="mt-3 max-w-lg text-sm leading-relaxed text-navy">{es ? "Cuéntenos sobre su propiedad y sus plazos. Carlos se pondrá en contacto para coordinar una conversación privada." : "Tell us about your property and timing. Carlos will contact you to arrange a private strategy conversation."}</p>
+          <p className="mt-3 max-w-lg text-sm leading-relaxed text-navy">{es ? "Cuéntenos sobre su propiedad y sus plazos. Nuestro equipo se pondrá en contacto para coordinar una conversación privada." : "Tell us about your property and timing. Our team will contact you to arrange a private strategy conversation."}</p>
           <p className="mt-5 max-w-lg text-xs leading-relaxed text-navy/80">{es ? "La ocupación posterior al cierre requiere acuerdo con el comprador y condiciones por escrito. Los ingresos netos dependen de cada operación. Las experiencias individuales no garantizan un resultado, plazo ni acuerdo de ocupación." : "Post-closing occupancy requires buyer agreement and written terms. Net proceeds depend on the transaction. Individual experiences do not guarantee an outcome, timeline or occupancy arrangement."}</p>
         </div>
       </div>

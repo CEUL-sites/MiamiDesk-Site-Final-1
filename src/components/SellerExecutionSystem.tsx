@@ -1,5 +1,6 @@
+import { StoryVideo } from "./StoryVideo";
 import { useRef, useState, type KeyboardEvent } from "react";
-import { Check, Crosshair, LineChart, Radio, SlidersHorizontal } from "lucide-react";
+import { Crosshair, LineChart, Radio, SlidersHorizontal } from "lucide-react";
 import { nextStage, previousStage } from "./listingStageDeckModel";
 
 const STEPS = [
@@ -32,27 +33,40 @@ export function SellerExecutionSystem({ lang = "en" }: { lang?: "en" | "es" }) {
     else return;
     event.preventDefault(); setActive(index); controls.current[index]?.focus();
   };
-  return <section id="seller-execution" data-sticky-cta-guard className="bg-white-soft px-6 py-14 text-navy-deep md:py-20">
-    <div className="mx-auto max-w-7xl">
-      <p className="story-eyebrow text-gold-ink">{es ? "Ejecución del encargo" : "Listing execution"}</p>
-      <h2 className="mt-4 max-w-4xl font-serif text-3xl leading-tight md:text-5xl">{es ? "Qué hace Carlos después del lanzamiento." : "What Carlos Does After the Listing Goes Live"}</h2>
-      <p className="mt-5 max-w-3xl text-base leading-relaxed text-navy">{es ? "El alcance crea oportunidades. El posicionamiento, seguimiento y evidencia guían las decisiones durante la campaña." : "Distribution creates the opportunity. Positioning, follow-up and evidence guide the decisions during the campaign."}</p>
-      <div className="mt-8 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-        <figure className="lg:order-2"><img src="/images/carlos-media-team-editorial-20261012.jpg" alt={es ? "Carlos Uzcategui con el equipo de fotografía y video de la propiedad" : "Carlos Uzcategui with the property media team preparing photography and video at a waterfront home"} width={1600} height={901} loading="lazy" decoding="async" className="aspect-video w-full rounded-md object-cover" /><figcaption className="mt-3 text-sm leading-relaxed text-navy">{es ? "Carlos con el equipo de medios · Preparación antes de la presentación." : "Carlos with the property media team · Preparation before presentation."}</figcaption></figure>
-        <div className="min-w-0 lg:order-1">
-          <div role="tablist" aria-label={es ? "Etapas de ejecución" : "Listing execution stages"} onKeyDown={navigate} className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            {STEPS.map((step, index) => <button key={step.label} type="button" role="tab" ref={(el) => { controls.current[index] = el; }} id={`${prefix}-tab-${index}`} aria-selected={active === index} aria-controls={`${prefix}-panel-${index}`} tabIndex={active === index ? 0 : -1} onClick={() => setActive(index)} className={`min-h-12 rounded-sm border px-2 py-3 text-xs font-semibold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-ink ${active === index ? "border-gold bg-gold text-navy-deep" : "border-bone text-navy hover:border-gold-ink"}`}>{es ? ES_LABELS[index] : step.label}</button>)}
-          </div>
-          <div className="mt-4 rounded-md bg-[#0b1a30] text-white">
-            {STEPS.map((step, index) => <div key={step.label} role="tabpanel" id={`${prefix}-panel-${index}`} aria-labelledby={`${prefix}-tab-${index}`} hidden={index !== active} inert={index !== active ? true : undefined} tabIndex={index === active ? 0 : -1} className="p-6 focus-visible:outline-2 focus-visible:outline-gold-soft md:p-8">
-              <div className="flex items-center gap-3 text-gold-soft"><step.icon size={22} aria-hidden="true" /><p className="text-sm font-semibold">{es ? "Etapa" : "Stage"} {String(index + 1).padStart(2, "0")} / 04 · {es ? ES_LABELS[index] : step.label}</p></div>
-              <h3 className="mt-5 font-serif text-2xl leading-snug text-white md:text-3xl">{step[lang].title}</h3><p className="mt-3 text-base leading-relaxed text-white/85">{step[lang].copy}</p>
-              <ul className="mt-5 space-y-3">{step[lang].points.map((point) => <li key={point} className="flex items-start gap-3 text-sm leading-relaxed"><Check size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-soft" />{point}</li>)}</ul>
-              <p className="mt-6 border-t border-white/25 pt-4 text-sm leading-relaxed text-white/85">{es ? "Entrega" : "Deliverable"}: {step[lang].deliverable}</p>
-            </div>)}
-          </div>
+  const media = [
+    { src: "/videos/stories/experience.mp4", poster: "/images/posters/story-experience.jpg" },
+    { src: "/videos/stories/activation.mp4", poster: "/images/posters/story-activation.jpg" },
+    { src: "", poster: "/images/carlos-media-team-editorial-20261012.jpg" },
+    { src: "", poster: "/images/posters/luxury_waterfront_drone-20261012.jpg" },
+  ];
+  const current = STEPS[active][lang];
+  return <section id="seller-execution" data-sticky-cta-guard className="visual-story bg-white-soft px-6 py-16 text-navy-deep md:py-24">
+    <div className="mx-auto max-w-7xl execution-layout">
+      <div className="min-w-0">
+        <p className="story-eyebrow text-gold-ink">{es ? "Ejecución del encargo" : "Listing execution"}</p>
+        <h2 className="visual-section-title mt-5 font-serif">{es ? "Qué hace nuestro equipo después del lanzamiento." : "What Our Team Does After the Listing Goes Live"}</h2>
+        <p className="mt-5 max-w-lg text-base leading-relaxed">{es ? "El alcance crea oportunidades. El posicionamiento, seguimiento y evidencia guían las decisiones durante la campaña." : "Distribution creates the opportunity. Positioning, follow-up and evidence guide the decisions during the campaign."}</p>
+        <div role="tablist" aria-label={es ? "Etapas de ejecución" : "Listing execution stages"} onKeyDown={navigate} className="execution-chapters">
+          {STEPS.map((step, index) => <button key={step.label} type="button" role="tab" ref={(el) => { controls.current[index] = el; }} id={prefix+"-tab-"+index} aria-selected={active === index} aria-controls={prefix+"-panel-"+index} tabIndex={active === index ? 0 : -1} onClick={() => setActive(index)} className="execution-chapter"><img src={media[index].poster} alt="" loading="lazy" width={64} height={64}/><span>{es ? ES_LABELS[index] : step.label}</span></button>)}
         </div>
+        {STEPS.map((step, index) => <div key={step.label} role="tabpanel" id={prefix+"-panel-"+index} aria-labelledby={prefix+"-tab-"+index} hidden={active !== index} tabIndex={active === index ? 0 : -1} className="execution-panel">
+          <h3 className="font-serif">{step[lang].title}</h3>
+          <p>{step[lang].copy}</p>
+          <details><summary>{es ? "Ver las acciones" : "See the actions"}</summary><ul>{step[lang].points.map(point => <li key={point}>{point}</li>)}</ul></details>
+          <p className="execution-deliverable">{es ? "Entrega" : "Deliverable"}: {step[lang].deliverable}</p>
+        </div>)}
+        <a href="#list-here" className="story-cta">{es ? "Solicitar mi estrategia de venta" : "Request My Property Strategy"} <span aria-hidden="true">↗</span></a>
+        <p className="mt-3 text-sm leading-relaxed">{es ? "Nuestro equipo revisa su propiedad y le contacta para coordinar la conversación." : "Our team reviews your property and contacts you to arrange the conversation."}</p>
+      </div>
+      <div className="execution-visual">
+        {active < 2 ? <div key={active}><StoryVideo src={media[active].src} poster={media[active].poster} label={current.title} lang={lang} shape="bubble" note={es ? "Extracto visual ilustrativo · Texto del video en inglés" : "A short visual chapter · Illustrative footage"}/></div> : <div className="execution-ledger">
+          <p className="story-eyebrow text-gold-soft">{es ? "Etapa" : "Stage"} {String(active + 1).padStart(2, "0")} / 04 · {es ? ES_LABELS[active] : STEPS[active].label}</p>
+          <h3 className="font-serif">{current.title}</h3>
+          <ul>{current.points.map(point => <li key={point}>{point}</li>)}</ul>
+          <small>{es ? "Esquema del proceso. No representa resultados de una campaña." : "Process illustration. This is not a campaign performance report."}</small>
+        </div>}
       </div>
     </div>
+    <p className="mx-auto mt-10 max-w-7xl text-xs leading-relaxed text-navy">Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.</p>
   </section>;
 }
