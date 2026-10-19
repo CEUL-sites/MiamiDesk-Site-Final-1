@@ -1,6 +1,6 @@
 import { ArrowRight, Download } from "lucide-react";
-import { CONTACT, LEAD_MAGNETS } from "../constants";
-import { trackContact, trackFunnelEvent } from "../lib/analytics";
+import { LEAD_MAGNETS } from "../constants";
+import { trackFunnelEvent } from "../lib/analytics";
 import "./sellers-reach-hero.css";
 
 /** Sellers-only opening. Keep shared homepage and lead-form behavior independent. */
@@ -11,11 +11,10 @@ export function SellersReachHero() {
         <div className="seller-reach-layout">
           <div className="seller-reach-copy">
             <h1 id="seller-reach-title">
-              Maximize the Sale Price.{" "}
-              <span>Strengthen the Terms. Protect What You Keep.</span>
+              A Better Sale Begins <span>Before Your Home Goes Live.</span>
             </h1>
             <p className="seller-reach-subtitle">
-              Carlos Uzcategui is a South Florida listing agent with United Realty Group. We build your selling strategy around pricing, estimated net proceeds, buyer-agent outreach, contract terms and your next move.
+              We coordinate price positioning, buyer-agent outreach and negotiation around what you keep—and what comes next.
             </p>
             <div className="seller-reach-actions" data-sticky-cta-guard>
               <a
@@ -23,37 +22,35 @@ export function SellersReachHero() {
                 className="seller-reach-primary"
                 onClick={() => trackFunnelEvent("seller_strategy_cta", { source: "sellers_hero" })}
               >
-                Request Your Private Seller Strategy Review
+                Request My Seller Strategy Review
                 <ArrowRight size={21} aria-hidden="true" />
               </a>
               <a
-                href={CONTACT.whatsappUS}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#selling-system"
                 className="seller-reach-whatsapp"
-                onClick={() => trackContact("whatsapp", "sellers_hero")}
-              >WhatsApp Carlos</a>
+                onClick={() => trackFunnelEvent("seller_strategy_cta", { source: "sellers_hero_system" })}
+              >Explore the Selling System</a>
             </div>
             <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
           </div>
           <figure className="seller-reach-image" data-sticky-cta-guard>
-            <img
-              src="/images/sellers-waterfront-20260904.webp"
-              alt="Illustrative property showing: an agent holding a folder guides a couple along a South Florida waterfront home's poolside terrace"
-              width="1402"
-              height="1122"
+            <picture><source media="(max-width: 1023px)" srcSet="/images/sellers-architecture-mobile.webp" /><img
+              src="/images/sellers-architecture.webp"
+              alt="Conceptual South Florida waterfront architecture with a shaded residential terrace"
+              width="1400"
+              height="1050"
               fetchPriority="high"
               decoding="async"
-            />
-            <figcaption>South Florida · Residential seller representation</figcaption>
+            /></picture>
+            <figcaption>Conceptual residential imagery · Not a property listing</figcaption>
           </figure>
         </div>
       </section>
-      <section className="seller-reach-authority" aria-label="Your advisor and professional network" data-sticky-cta-guard>
+      <section id="selling-system" className="seller-reach-authority" aria-label="Your advisor and professional network" data-sticky-cta-guard>
         <div className="seller-reach-authority-grid">
-          <div><p>25 years</p><span>South Florida experience</span></div>
-          <div><p>Buyer-agent reach</p><span>MLS visibility + targeted outreach</span></div>
-          <div><p>United Realty Group</p><span>Florida brokerage network</span></div>
+          <div><p>Position</p><span>Price, preparation and presentation</span></div>
+          <div><p>Activate</p><span>Contact relevant buyer agents</span></div>
+          <div><p>Negotiate</p><span>Price, terms and your next move</span></div>
         </div>
         <p className="seller-reach-compliance">Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.</p>
       </section>

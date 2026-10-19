@@ -32,6 +32,8 @@ const parsedPhone = (v,region='US') => {
 };
 export const phoneKey = (v,region='US') => parsedPhone(v,region)?.number.slice(1)||'';
 export function classifyInquiry(form, f) {
+ if(form==='seller-consultation' && f.desk==='buyer')return 'buyer';
+ if(form==='seller-consultation' && f.desk==='referral')return 'referral_partner';
  if(['seller-hero','seller-intake','seller-consultation'].includes(form))return /agency|developer/.test(text(f.desk))?'agency_developer':f.desk==='global'?'international_owner':'south_florida_seller';
  if(form==='buyer-mandate')return 'buyer';
  if(['referral-intake','referral-intake-es'].includes(form))return 'referral_partner';

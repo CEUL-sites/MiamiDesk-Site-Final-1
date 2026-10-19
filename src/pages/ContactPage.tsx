@@ -1,14 +1,13 @@
+import { useEffect, useState } from "react";
+import "../components/advisory-heroes.css";
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { useSearchParams } from "react-router-dom";
-import { AuroraBackground } from "../components/AuroraBackground";
-import { LazyVideo } from "../components/LazyVideo";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { AboutContact } from "../components/AboutContact";
-import { LeadForm } from "../components/LeadForm";
-import { BadgeCheck } from "lucide-react";
+import { LeadForm, type ContactIntent } from "../components/LeadForm";
 import { CONTACT } from "../constants";
 
 // Contextual framing for Global Desk arrivals. The ?desk= param carried by the
@@ -35,22 +34,27 @@ const DESK_CONTEXT: Record<string, { eyebrow: string; heading: string; intro: st
 export default function ContactPage() {
   const [searchParams] = useSearchParams();
   const deskParam = searchParams.get("desk") ?? "";
-  const deskCtx = DESK_CONTEXT[deskParam];
+  const validDesk = Object.prototype.hasOwnProperty.call(DESK_CONTEXT, deskParam) ? deskParam : "";
+  const requestedIntent = searchParams.get("intent");
+  const urlIntent: ContactIntent = validDesk ? "international" : requestedIntent === "buyer" || requestedIntent === "referral" || requestedIntent === "international" ? requestedIntent : "seller";
+  const [intent, setIntent] = useState<ContactIntent>(urlIntent);
+  useEffect(() => { setIntent(urlIntent); }, [urlIntent, deskParam]);
+  const deskCtx = intent === "international" ? DESK_CONTEXT[validDesk] : undefined;
 
   return (
     <>
       <Helmet>
-        <title>Request a Private Listing Review | HomesProfessional.com</title>
-        <meta name="description" content="Request a confidential property positioning review. South Florida sellers, international owners, agencies, and brokers. Carlos Uzcategui, FL SL705771." />
+        <title>Contact Carlos Uzcategui | Private Real Estate Consultation</title>
+        <meta name="description" content="Discuss selling, buying, a professional referral or an international partnership with Carlos Uzcategui, Florida licensed REALTOR® SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/contact" />
-        <meta property="og:title" content="Request a Private Listing Review | HomesProfessional.com" />
-        <meta property="og:description" content="Submit a confidential property positioning review. South Florida sellers, international property owners, agencies, and developers. Carlos Uzcategui, FL SL705771." />
+        <meta property="og:title" content="Contact Carlos Uzcategui | Private Real Estate Consultation" />
+        <meta property="og:description" content="Discuss selling, buying, a professional referral or an international partnership with Carlos Uzcategui, Florida licensed REALTOR® SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/contact" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Request a Private Listing Review | HomesProfessional.com" />
-        <meta name="twitter:description" content="Submit a confidential property review. South Florida sellers and international property owners. Carlos Uzcategui, FL SL705771." />
+        <meta name="twitter:title" content="Contact Carlos Uzcategui | Private Real Estate Consultation" />
+        <meta name="twitter:description" content="Discuss your real estate objectives privately with Carlos Uzcategui, Florida licensed REALTOR® SL705771." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
       <JsonLd id="contact-contactpage" data={{
@@ -75,38 +79,18 @@ export default function ContactPage() {
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
-        {/* Header + form share one section and one aurora field — two stacked
-            navy sections each clipped their own blurred blobs, leaving a
-            visible seam between them. */}
-        <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20">
-          {/* Luxury backdrop — infinity pool + ocean views under the aurora */}
-          <LazyVideo
-            idle
-            src="/videos/infinity_pool_ocean_views.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.28] pointer-events-none"
-          />
-          <AuroraBackground variant="warm" interactive />
-          {/* Readability scrim stays the topmost background layer */}
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/75 via-navy-deep/40 to-navy-deep/85 pointer-events-none" />
-          <div className="relative z-10 px-6 text-center">
-            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">{deskCtx?.eyebrow ?? "Confidential · Private Review"}</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl">
-              {deskCtx?.heading ?? "Tell Carlos What You Are Deciding. Get the Right Next Step."}
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-              {deskCtx?.intro ?? "Share your South Florida sale, purchase, referral, or international listing objective. Carlos reviews every inquiry personally and responds privately—without a listing commitment."}
-            </p>
+        <section className="advisory-contact">
+          <div className="advisory-contact-intro">
+            <p className="advisory-eyebrow">{deskCtx?.eyebrow ?? "Direct access · Personal accountability"}</p>
+            <h1>{deskCtx?.heading ?? "Let’s Discuss Your Property and Your Next Move."}</h1>
+            <p className="advisory-summary">{deskCtx?.intro ?? "Selling, buying, referring a client or exploring an international partnership? Share your objectives for a private conversation with Carlos."}</p>
+            <div className="principal-signature"><img src={CONTACT.headshot} alt="Carlos Uzcategui" width="80" height="80" /><p><strong>Carlos Uzcategui, REALTOR®</strong><span>Florida licensed since 2001<br />United Realty Group · English / Spanish</span></p></div>
           </div>
-          <div id="listing-request" className="relative z-10 mx-auto mt-14 max-w-5xl px-6 md:mt-16">
-            <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential · Private Review Desk</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Submit your listing for private review</h2>
-            </div>
-            <LeadForm desk={deskParam || undefined} />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-              <BadgeCheck size={14} className="text-gold" />
-              Confidential · Licensed Professionals · Equal Housing Opportunity
-            </div>
+          <div id="listing-request" className="advisory-contact-form">
+            <fieldset className="inquiry-intents"><legend>I’d like to discuss</legend>
+              {([['seller','Selling'],['buyer','Buying'],['international','International partnership'],['referral','A referral']] as const).map(([value,label]) => <label key={value}><input type="radio" name="inquiry-intent" value={value} checked={intent === value} onChange={() => setIntent(value)} />{label}</label>)}
+            </fieldset>
+            <LeadForm desk={intent === "international" ? validDesk || "global" : undefined} intent={intent} compactHeading />
           </div>
         </section>
         <AboutContact showForm={false} compact />

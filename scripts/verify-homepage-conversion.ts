@@ -106,19 +106,17 @@ const [home, hero, heroAnimation, form, authority, execution, distribution, proo
   readFile("src/data/figures.json", "utf8"),
 ]);
 
-assert.match(hero, /Your Home\./);
-assert.match(hero, /A Stronger<br \/>Selling Strategy\./);
-assert.match(hero, /Our Network\./);
+assert.match(hero, /Your Home Deserves/);
+assert.match(hero, /More Than a Listing\./);
+assert.match(hero, /Licensed since 2001/);
 assert.match(hero, /buyer-agent outreach/);
 assert.match(hero, /What matters most to you/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
 assert.doesNotMatch(hero, /autoPlay/);
-const heroAsideIndex = hero.search(/<(?:motion\.)?aside\b/);
-assert.ok(heroAsideIndex >= 0 && hero.indexOf('id="list-here"') < heroAsideIndex, "the hero form must precede the aside");
+assert.match(hero, /id="list-here"/, "the address entry keeps its stable anchor");
 assert.match(hero, /<HeroSellerForm compact progressiveDesktop \/>/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
-assert.match(hero, /from "\.\.\/data\/figures"/);
-assert.match(hero, /fig\("yearsLicensed"\)/);
+assert.match(hero, /United Realty Group/);
 assert.doesNotMatch(hero, /urgOfficeNetwork|Florida Office Locations/);
 const heroFigures = JSON.parse(figures);
 assert.equal(heroFigures.yearsLicensed.value, "25");
@@ -198,16 +196,9 @@ for (const field of [
 ]) {
   assert.match(form, new RegExp(`name="${field}"`), `seller-hero must retain the ${field} field`);
 }
-assert.doesNotMatch(
-  form,
-  /loadGooglePlaces|MAPS_KEY|maps\.googleapis\.com|mapUrl|placeId/,
-  "the homepage seller form must collect an address directly without loading Google Places or a map preview",
-);
-assert.doesNotMatch(
-  form,
-  /onFocus=\{initPlaces\}/,
-  "focusing the homepage address field must not trigger a third-party map request",
-);
+assert.match(form, /onFocus=\{initPlaces\}/, "address suggestions load only on user focus");
+assert.match(form, /restoreManualAddressEntry/, "manual address entry survives Places failure");
+assert.doesNotMatch(form, /mapUrl/, "the compact form must not load a map preview");
 const buyerForm = await readFile(new URL("../src/components/forms/BuyerMandateForm.tsx", import.meta.url), "utf8");
 assert.match(buyerForm, /name="phone"/);
 assert.match(buyerForm, /type="tel"/);

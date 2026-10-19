@@ -24,7 +24,13 @@ const encodeForm = (data: Record<string, string>) =>
  *   submitted with the lead and attached to analytics so inbound requests
  *   arrive pre-segmented to the right desk.
  */
-export function LeadForm({ desk }: { desk?: string } = {}) {
+export type ContactIntent = "seller" | "buyer" | "international" | "referral";
+export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading = false }: { desk?: string; intent?: ContactIntent; compactHeading?: boolean } = {}) {
+  const Heading = compactHeading ? "h2" : "h3";
+  const desk = suppliedDesk || (intent === "international" ? "global" : intent === "seller" ? undefined : intent);
+  const contactMode = intent !== "seller" || !!suppliedDesk;
+  const intentLabel = { seller: "Seller Strategy", buyer: "Buyer Consultation", international: "International Partnership", referral: "Professional Referral" }[intent];
+  const whatsapp = `https://wa.me/19548656622?text=${encodeURIComponent(`Hello Carlos, I would like to discuss a ${intentLabel.toLowerCase()}.`)}`;
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -77,7 +83,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
         botField: "", formRenderedAt: String(renderedAt.current),
         ...(desk ? { desk } : {}),
       });
-      trackLead("seller", { form: "seller-consultation", form_location: window.location.pathname, ...(desk ? { desk } : {}) });
+      trackLead(intent === "buyer" ? "buyer" : intent === "seller" ? "seller" : "agent", { form: "seller-consultation", form_location: window.location.pathname, ...(desk ? { desk } : {}) });
       setStatus("success");
       setFormData(INITIAL_FORM_DATA);
     } catch (error) {
@@ -100,8 +106,8 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
           <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold md:mb-6">
             <CheckCircle2 size={34} />
           </div>
-          <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Seller Request Received</div>
-          <h3 className="font-serif text-2xl text-navy md:text-3xl">Our licensed team will review your property details personally.</h3>
+          <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Request Received</div>
+          <Heading className="font-serif text-2xl text-navy md:text-3xl">Carlos will personally review your inquiry.</Heading>
           <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/70">
             Your request has been routed through HomesProfessional.com. For urgent timing, use WhatsApp at {CONTACT.phoneUS}.
           </p>
@@ -118,11 +124,11 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
       <div className="absolute inset-x-0 top-0 h-1 bg-gold" />
       <div className="absolute right-0 top-0 h-32 w-32 -translate-y-16 translate-x-16 -rotate-45 bg-ivory" />
       <div className="relative z-10">
-        <div className="mb-5 md:mb-8">
-          <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Confidential Seller Desk</div>
-          <h3 className="font-serif text-2xl text-navy md:text-3xl">Request a South Florida Seller Strategy Review</h3>
+        <div className={`${compactHeading ? "contact-form-heading " : ""}mb-5 md:mb-8`}>
+          <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Private Access · Carlos Uzcategui</div>
+          <Heading className="font-serif text-2xl text-navy md:text-3xl">{contactMode ? intentLabel : "Request a Seller Strategy Review"}</Heading>
           <p className="mt-3 font-sans text-[13px] font-light leading-relaxed text-navy/70">
-            Share the essentials early: email, phone, property address, city, timing, and the context our team should review before responding.
+            {contactMode ? "Share your objectives and how Carlos can reach you. Property details are optional for buyers, partners and referrals." : "Share your property address, timing and objectives so Carlos can prepare for your conversation."}
           </p>
         </div>
 
@@ -166,18 +172,18 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
 
           <div className="grid gap-4 md:grid-cols-2 md:gap-6">
             <div className="flex flex-col gap-2">
-              <label className="input-label" htmlFor={fid("propertyAddress")}>Property Address</label>
-              <input required id={fid("propertyAddress")} name="propertyAddress" type="text" autoComplete="street-address" placeholder="Street address" className="form-input" value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} />
+              <label className="input-label" htmlFor={fid("propertyAddress")}>Property address{contactMode ? " (optional)" : ""}</label>
+              <input required={!contactMode} id={fid("propertyAddress")} name="propertyAddress" type="text" autoComplete="street-address" placeholder="Street address" className="form-input" value={formData.propertyAddress} onChange={(e) => setFormData({ ...formData, propertyAddress: e.target.value })} />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="input-label" htmlFor={fid("city")}>City</label>
-              <input required id={fid("city")} name="city" type="text" autoComplete="address-level2" placeholder="Weston, Coral Gables, Brickell" className="form-input" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
+              <label className="input-label" htmlFor={fid("city")}>City{contactMode ? " (optional)" : ""}</label>
+              <input required={!contactMode} id={fid("city")} name="city" type="text" autoComplete="address-level2" placeholder="Weston, Coral Gables, Brickell" className="form-input" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
             <label className="input-label" htmlFor={fid("message")}>Message</label>
-            <textarea id={fid("message")} name="message" rows={4} placeholder="What should our team know before reviewing your property?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
+            <textarea id={fid("message")} name="message" rows={4} placeholder="What would you like Carlos to help you decide?" className="form-input" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} />
           </div>
 
           <p role="alert" aria-live="assertive" className="min-h-0">
@@ -190,7 +196,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
 
           <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
             <span className="text-navy/70">Prefer to talk now?</span>
-            <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
+            <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
               WhatsApp US +1 954-865-6622
             </a>
             <a href={`mailto:${CONTACT.email}`} className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
@@ -200,7 +206,7 @@ export function LeadForm({ desk }: { desk?: string } = {}) {
 
           <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-5 font-sans text-xs font-bold uppercase tracking-[0.28em] text-white shadow-lg shadow-gold/10 transition-all hover:bg-gold disabled:opacity-60">
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}
-            {status === "submitting" ? "Sending…" : "Request Seller Strategy Review"}
+            {status === "submitting" ? "Sending…" : "Request a Private Conversation"}
           </button>
           <p className="font-mono text-center text-[11px] uppercase tracking-[0.2em] text-navy/70">
             {PUBLIC_COMPLIANCE}

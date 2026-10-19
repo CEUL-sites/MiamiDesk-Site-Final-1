@@ -1,0 +1,87 @@
+/* Shared editorial system. Keep geometry, motion and form content independent. */
+.advisory-hero,.advisory-contact { --advisory-navy:#0b1e3f; --advisory-gold:#d7bc8b; --advisory-ivory:#f9f7f2; background:var(--advisory-navy); color:var(--advisory-ivory); }
+.advisory-hero { padding:140px 5vw 56px; }
+.advisory-hero-inner { display:grid; grid-template-columns:1.05fr 1fr; align-items:center; gap:60px; max-width:1320px; margin:auto; }
+.advisory-eyebrow { color:#d7bc8b; text-transform:uppercase; letter-spacing:.17em; font-size:10px; font-weight:600; margin-bottom:20px; }
+.advisory-hero h1,.advisory-contact h1 { font-family:var(--font-serif); font-size:clamp(36px,4.2vw,60px); line-height:1.12; letter-spacing:-.03em; text-wrap:balance; font-weight:400; }
+.advisory-summary { font-size:17px; line-height:1.75; color:#d4dbe3; margin-top:22px; max-width:620px; }
+.advisory-actions { display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px; margin-top:28px; }
+.advisory-primary,.advisory-secondary { display:inline-flex; align-items:center; justify-content:center; min-height:48px; font-size:13px; line-height:1.5; font-weight:600; }
+.advisory-primary { background:#d7bc8b; color:#0b1e3f; padding:14px 22px; }
+.advisory-primary:hover { background:#e5cda5; }
+.advisory-secondary { color:#f9f7f2; text-decoration:underline; text-underline-offset:5px; }
+.advisory-note { font-size:11px; line-height:1.7; color:#c4ced8; margin-top:20px; }
+.advisory-photo { margin:0; }
+.advisory-photo img { width:100%; height:420px; object-fit:cover; }
+.advisory-photo figcaption { font-size:9px; color:#c4ced8; padding-top:10px; }
+.advisory-hero a:focus-visible,.advisory-hero button:focus-visible,.advisory-contact a:focus-visible { outline:3px solid #d7bc8b; outline-offset:5px; }
+.county-explorer { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center; border:1px solid #ffffff26; padding:24px; background:#071722; }
+.county-explorer svg { width:100%; max-height:350px; overflow:visible; }
+.county-explorer path { fill:#243c51; stroke:#d7bc8b; stroke-width:1; transition:fill .2s; cursor:pointer; }
+.county-explorer path[aria-pressed=true] { fill:#d7bc8b; }
+.county-explorer path:hover { fill:#9b8054; }
+.county-explorer path:focus-visible { outline:none; stroke:white; stroke-width:4; }
+.county-options { display:flex; flex-direction:column; gap:8px; }
+.county-options button { text-align:left; padding:12px 8px; min-height:48px; border-bottom:1px solid #ffffff30; font-size:13px; }
+.county-options button[aria-pressed=true] { color:#d7bc8b; border-color:#d7bc8b; }
+.county-detail { grid-column:1/-1; padding-top:16px; border-top:1px solid #ffffff26; }
+.county-detail h2 { font-family:var(--font-serif); font-size:24px; color:#d7bc8b; }
+.county-detail p { font-size:13px; line-height:1.7; margin:8px 0; color:#d4dbe3; }
+.county-detail a { display:inline-block; padding:10px 0; font-size:12px; text-decoration:underline; text-underline-offset:4px; }
+.global-connections { border:1px solid #ffffff26; padding:28px; background:#071722; }
+.global-connections svg { width:100%; height:auto; }
+.global-connections text { fill:#f9f7f2; font:16px var(--font-sans); }
+.global-connections .connection { fill:none; stroke:#d7bc8b; stroke-width:1.5; stroke-dasharray:6 6; animation:connection-in 1.4s ease-out both; }
+@keyframes connection-in { from { opacity:0; stroke-dashoffset:60; } to { opacity:1; stroke-dashoffset:0; } }
+.global-language { display:flex; justify-content:flex-end; gap:4px; max-width:1320px; margin:0 auto 18px; }
+.global-language button { min-width:44px; min-height:44px; border:1px solid #ffffff40; }
+.global-language button[aria-pressed=true] { background:#d7bc8b; color:#0b1e3f; }
+.advisory-contact { display:grid; grid-template-columns:.85fr 1.15fr; align-items:start; gap:56px; padding:140px max(24px,5vw) 60px; }
+.advisory-contact-intro { max-width:540px; justify-self:end; }
+.advisory-contact-form { max-width:720px; width:100%; scroll-margin-top:100px; }
+.principal-signature { display:flex; align-items:center; gap:18px; margin-top:32px; }
+.principal-signature img { width:80px; height:80px; object-fit:cover; border-radius:50%; }
+.principal-signature strong { font-size:14px; font-weight:600; }
+.principal-signature span { display:block; font-size:11px; line-height:1.8; color:#c4ced8; margin-top:5px; }
+.inquiry-intents { display:flex; flex-wrap:wrap; gap:10px 18px; margin-bottom:22px; }
+.inquiry-intents legend { font-size:13px; margin-bottom:12px; }
+.inquiry-intents label { display:flex; align-items:center; gap:8px; min-height:44px; font-size:12px; cursor:pointer; }
+.inquiry-intents input { accent-color:#d7bc8b; width:18px; height:18px; }
+@media (max-width:1023px) {
+ .advisory-hero { padding:120px 24px 40px; }
+ .advisory-hero-inner { gap:32px; grid-template-columns:1fr; }
+ .advisory-hero h1 { max-width:720px; }
+ .advisory-photo img { height:320px; }
+ .county-explorer,.global-connections { max-width:680px; width:100%; }
+ .advisory-contact { grid-template-columns:1fr; gap:28px; padding:120px 24px 40px; }
+ .advisory-contact-intro { justify-self:start; max-width:720px; }
+ .principal-signature { margin-top:20px; }
+}
+@media (max-width:480px) {
+ .advisory-hero h1,.advisory-contact h1 { font-size:36px; }
+ .advisory-summary { font-size:16px; margin-top:18px; }
+ .advisory-primary { width:100%; }
+ .advisory-photo img { height:240px; }
+ .county-explorer { padding:16px; grid-template-columns:1fr 1fr; }
+ .county-options button { font-size:12px; padding-inline:0; }
+ .global-connections { padding:16px; }
+ .advisory-contact .advisory-summary { font-size:15px; }
+}
+@media (prefers-reduced-motion:reduce) { .global-connections .connection { animation:none; } .county-explorer path { transition:none; } }
+
+/* The contact selector supplies context; keep the first field within easy reach. */
+.advisory-contact .form-input::placeholder { color:#667085; opacity:1; }
+.advisory-contact .input-label { color:#344853; }
+@media (max-width:767px) {
+ .advisory-contact { padding-top:104px; gap:20px; }
+ .advisory-contact h1 { font-size:32px; }
+ .advisory-contact .advisory-eyebrow { margin-bottom:14px; }
+ .advisory-contact .principal-signature { margin-top:16px; gap:12px; }
+ .advisory-contact .principal-signature img { width:48px; height:48px; }
+ .advisory-contact .principal-signature span { font-size:10px; line-height:1.5; }
+ .inquiry-intents { display:grid; grid-template-columns:1fr 1fr; gap:0 12px; margin-bottom:14px; }
+ .inquiry-intents legend { margin-bottom:6px; }
+ .contact-form-heading > p,.contact-form-heading > div { display:none; }
+ .contact-form-heading h3 { font-size:20px; }
+ .contact-form-heading { margin-bottom:16px; }
+}

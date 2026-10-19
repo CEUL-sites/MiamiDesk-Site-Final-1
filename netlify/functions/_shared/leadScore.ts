@@ -502,6 +502,7 @@ export function formatLeadWhatsApp(
     ],
     [
       `Via: ${lead.sourcePage || lead.formName || "homesprofessional.com"}`,
+      lead.desk ? `Inquiry desk: ${lead.desk}` : "",
       lead.leadSource ? `📊 Source: ${lead.leadSource}` : "",
     ],
   ]);
@@ -550,6 +551,7 @@ export function formatLeadEmail(
     marketContextEmailLines(marketContext),
     [
       `Form: ${lead.sourcePage || lead.formName || "—"}`,
+      lead.desk ? `Inquiry desk: ${lead.desk}` : "",
       extras.timestamp ? `Received: ${extras.timestamp} ET` : "",
       `📊 Lead Source: ${lead.leadSource || "direct"}`,
       extras.landingPage ? `Landing page: ${extras.landingPage}` : "",

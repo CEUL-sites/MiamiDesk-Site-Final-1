@@ -13,6 +13,14 @@ test('every contactable form has a category; address-only stage is excluded', ()
   assert.equal(makeJob('seller-valuation-step1',{propertyAddress:'123 Main'},'stage'),null);
   assert.equal(makeJob('unknown',{email:'a@example.com'},'unknown'),null);
 });
+test('contact intent preserves desk and classifies each inquiry without seller fallback', () => {
+ for (const [desk, category] of [['buyer','buyer'], ['referral','referral_partner'], ['global','international_owner'], ['spain-agency','agency_developer'], ['spain-developer','agency_developer']]) {
+  const job = makeJob('seller-consultation', {email:'intent@example.com', desk}, `contact-${desk}`);
+  assert.equal(job.category, category);
+  assert.equal(job.fields.desk, desk);
+ }
+ assert.equal(classifyInquiry('seller-consultation', {}), 'south_florida_seller');
+});
 test('partner aliases, complete attribution, and repeated inquiry identity are retained',()=>{
  const j=makeJob('agency-partner-intake',{agentName:'Ana',whatsapp:'+34 600 111 222',utm_source:'linkedin',consent:'yes'},'one');
  assert.equal(j.fields.name,'Ana'); assert.equal(j.fields.phone,'+34 600 111 222');
