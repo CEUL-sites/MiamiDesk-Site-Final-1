@@ -34,7 +34,7 @@ const DESK_CONTEXT: Record<string, { eyebrow: string; heading: string; intro: st
 export default function ContactPage() {
   const [searchParams] = useSearchParams();
   const deskParam = searchParams.get("desk") ?? "";
-  const validDesk = Object.hasOwn(DESK_CONTEXT, deskParam) ? deskParam : "";
+  const validDesk = Object.prototype.hasOwnProperty.call(DESK_CONTEXT, deskParam) ? deskParam : "";
   const requestedIntent = searchParams.get("intent");
   const urlIntent: ContactIntent = validDesk ? "international" : requestedIntent === "buyer" || requestedIntent === "referral" || requestedIntent === "international" ? requestedIntent : "seller";
   const [intent, setIntent] = useState<ContactIntent>(urlIntent);
