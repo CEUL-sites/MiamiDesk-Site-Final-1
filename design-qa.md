@@ -26,9 +26,9 @@ Comparison history:
 
 Required fidelity surfaces:
 - Typography: existing editorial serif and readable sans preserved; controlled responsive H1 wrapping, no clipping observed at reviewed widths. All six pages have one H1.
-- Spacing: compact initial Home; balanced Sellers split; copy/graphic separation on Buyers, Markets and Global Desk; early intent-aware Contact form. The below-hero site remains intact.
+- Spacing: compact initial Home; balanced Sellers split; copy/graphic separation on Buyers and Markets; a panoramic Global Desk hero; early intent-aware Contact form. The below-hero site remains intact.
 - Palette: navy/ivory/gold uses existing site palette; media scrims keep copy legible; Sellers navigation correction verified.
-- Assets: distinct architecture concepts, labeled as concepts, with optimized mobile sources. Existing principal portrait retained. County geometry is source-derived; Global Desk is explicitly schematic. No fictitious listings or client evidence introduced.
+- Assets: distinct architecture concepts, labeled as concepts, with optimized mobile sources. Existing principal portrait retained. County geometry is source-derived; Global Desk architecture is explicitly conceptual. No fictitious listings or client evidence introduced.
 - Copy: matches the approved six-page direction. Existing Buyer headline retained after audit. Seller benefits focus on positioning, negotiation and personal review rather than promised outcomes.
 
 Primary interactions tested on actual Netlify preview:
@@ -46,3 +46,23 @@ Remaining release conditions: authorize exact Google preview referrer; complete 
 Follow-up polish: real-device keyboard/cropping checks and hosted field/performance validation. No P0/P1/P2 visual-direction discrepancy remains within the reviewed hero presentations.
 
 final result: passed
+
+
+## Global Desk panorama revision — 19 October 2026
+
+The user selected the clean Madrid–Miami architectural panorama and rejected agent cards and connection effects. Replaced only the Global Desk opening, with a page-scoped stylesheet and two optimized WebP sources. No new dependency, video, form, or third-party service. Existing cooperation terms, English/Spanish state, tracking calls and inquiry destinations remain intact.
+
+- English H1: International Property. Miami Agent Connections.
+- Spanish H1: Propiedad internacional. Conexiones con agentes en Miami.
+- English CTA: Discuss Your Listing; secondary: How It Works.
+- Spanish CTA: Consultar su propiedad; secondary: Cómo funciona.
+- Artwork is visibly labeled conceptual; it depicts neither an actual listing nor a real combined city.
+
+Validation: TypeScript, 40 existing frontend/integration tests, Global Desk language/conversion contract, Vite production build and whitespace checks passed. Netlify completed its full configured build and prerender for application commit 938b0edbe501e984b3b1673f036163a98332f02c (deploy 6ad6795ca6a27e06b347ffb0, ready). The local standalone react-snap attempt lacked its downloaded Chromium; the hosted full build supplies the prerender validation.
+
+Browser evidence: desktop 1357×932; local iframe widths 320, 390 and 768 (844px high). The narrow frame has a 314px content viewport after its scrollbar. No horizontal overflow; Spanish CTA bottom approximately501px at that narrow width, with the full hero approximately759px tall. Desktop hero approximately654px tall. EN/ES control contrast was corrected with a dark backing. The mobile crop loads its960px source, desktop its1920px source. Hosted title, one H1, loaded artwork, language toggle, workflow anchor and Spanish inquiry anchor verified. The inquiry destination retains form name global-desk-listing; no submission or third-party message was sent. No relevant application console error observed; browser-extension metadata errors excluded.
+
+Working preview: https://deploy-preview-179--miamidesk.netlify.app/global-desk/
+Review: https://github.com/CEUL-sites/MiamiDesk-Site-Final-1/pull/179
+
+Physical-device keyboard behavior, field Core Web Vitals and new Lighthouse measurements were not tested in this focused visual revision. Existing Google/HubSpot configuration limitations recorded above are not resolved by the hero change. The user approved production publication with the headline revision to "International Property. Miami Agent Connections." on 19 October 2026. Verify the revised headline wrapping before merging and confirm the published deployment afterward.
