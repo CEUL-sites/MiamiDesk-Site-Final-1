@@ -52,8 +52,8 @@ final result: passed
 
 The user selected the clean Madrid–Miami architectural panorama and rejected agent cards and connection effects. Replaced only the Global Desk opening, with a page-scoped stylesheet and two optimized WebP sources. No new dependency, video, form, or third-party service. Existing cooperation terms, English/Spanish state, tracking calls and inquiry destinations remain intact.
 
-- English H1: International Property. Miami Connections.
-- Spanish H1: Propiedad internacional. Conexiones en Miami.
+- English H1: International Property. Miami Agent Connections.
+- Spanish H1: Propiedad internacional. Conexiones con agentes en Miami.
 - English CTA: Discuss Your Listing; secondary: How It Works.
 - Spanish CTA: Consultar su propiedad; secondary: Cómo funciona.
 - Artwork is visibly labeled conceptual; it depicts neither an actual listing nor a real combined city.
@@ -65,4 +65,4 @@ Browser evidence: desktop 1357×932; local iframe widths 320, 390 and 768 (844px
 Working preview: https://deploy-preview-179--miamidesk.netlify.app/global-desk/
 Review: https://github.com/CEUL-sites/MiamiDesk-Site-Final-1/pull/179
 
-Physical-device keyboard behavior, field Core Web Vitals and new Lighthouse measurements were not tested in this focused visual revision. Existing Google/HubSpot configuration limitations recorded above are not resolved by the hero change. Production publication remains a separate approval.
+Physical-device keyboard behavior, field Core Web Vitals and new Lighthouse measurements were not tested in this focused visual revision. Existing Google/HubSpot configuration limitations recorded above are not resolved by the hero change. The user approved production publication with the headline revision to "International Property. Miami Agent Connections." on 19 October 2026. Verify the revised headline wrapping before merging and confirm the published deployment afterward.

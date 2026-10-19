@@ -255,7 +255,7 @@ export default function GlobalDeskPage() {
             <div className="global-desk-hero-copy">
               <h1 id="global-hero-heading">
                 <span>{lang === "es" ? "Propiedad internacional." : "International Property."}</span>{" "}
-                <span>{lang === "es" ? "Conexiones en Miami." : "Miami Connections."}</span>
+                <span>{lang === "es" ? "Conexiones con agentes en Miami." : "Miami Agent Connections."}</span>
               </h1>
               <p className="global-desk-hero-summary">{lang === "es" ? "Para agencias y promotores: presentamos propiedades internacionales seleccionadas a agentes de compradores del sur de Florida." : "For agencies and developers: introduce selected overseas listings to relevant South Florida buyer agents."}</p>
               <div className="global-desk-hero-actions">
