@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
+import { LeadForm } from '../src/components/LeadForm';
 import { Footer } from '../src/components/Footer';
 import { HeroSellerForm } from '../src/components/HeroSellerForm';
 import { MarketPulse } from '../src/components/MarketPulse';
@@ -59,4 +60,10 @@ test('shared media supports a page-specific contact target', () => {
  const html = renderToStaticMarkup(<MarketingReel3D ctaHref="#contact" />);
  assert.match(html, /href="#contact" class="story-cta/);
  assert(!html.includes('href="#list-here" class="story-cta'));
+});
+
+
+test('contact inquiry uses a section heading directly below the page h1', () => {
+ const html = renderToStaticMarkup(<LeadForm intent="buyer" compactHeading />);
+ assert.match(html, /<h2[^>]*>Buyer Consultation<\/h2>/);
 });

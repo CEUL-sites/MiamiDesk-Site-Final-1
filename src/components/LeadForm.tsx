@@ -26,6 +26,7 @@ const encodeForm = (data: Record<string, string>) =>
  */
 export type ContactIntent = "seller" | "buyer" | "international" | "referral";
 export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading = false }: { desk?: string; intent?: ContactIntent; compactHeading?: boolean } = {}) {
+  const Heading = compactHeading ? "h2" : "h3";
   const desk = suppliedDesk || (intent === "international" ? "global" : intent === "seller" ? undefined : intent);
   const contactMode = intent !== "seller" || !!suppliedDesk;
   const intentLabel = { seller: "Seller Strategy", buyer: "Buyer Consultation", international: "International Partnership", referral: "Professional Referral" }[intent];
@@ -106,7 +107,7 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
             <CheckCircle2 size={34} />
           </div>
           <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Request Received</div>
-          <h3 className="font-serif text-2xl text-navy md:text-3xl">Carlos will personally review your inquiry.</h3>
+          <Heading className="font-serif text-2xl text-navy md:text-3xl">Carlos will personally review your inquiry.</Heading>
           <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/70">
             Your request has been routed through HomesProfessional.com. For urgent timing, use WhatsApp at {CONTACT.phoneUS}.
           </p>
@@ -125,7 +126,7 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
       <div className="relative z-10">
         <div className={`${compactHeading ? "contact-form-heading " : ""}mb-5 md:mb-8`}>
           <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Private Access · Carlos Uzcategui</div>
-          <h3 className="font-serif text-2xl text-navy md:text-3xl">{contactMode ? intentLabel : "Request a Seller Strategy Review"}</h3>
+          <Heading className="font-serif text-2xl text-navy md:text-3xl">{contactMode ? intentLabel : "Request a Seller Strategy Review"}</Heading>
           <p className="mt-3 font-sans text-[13px] font-light leading-relaxed text-navy/70">
             {contactMode ? "Share your objectives and how Carlos can reach you. Property details are optional for buyers, partners and referrals." : "Share your property address, timing and objectives so Carlos can prepare for your conversation."}
           </p>

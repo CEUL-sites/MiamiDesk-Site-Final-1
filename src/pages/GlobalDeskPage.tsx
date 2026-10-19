@@ -239,7 +239,7 @@ export default function GlobalDeskPage() {
         <Navbar />
 
         <section data-sticky-cta-guard className="advisory-hero" aria-labelledby="global-hero-heading">
-          <div className="global-language" aria-label="Global Desk language">{(["en","es"] as Lang[]).map(option => <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-pressed={lang === option} aria-label={option === "en" ? "View Global Desk in English" : "Ver Global Desk en español"}>{option.toUpperCase()}</button>)}</div>
+          <div className="global-language" aria-label="Global Desk language">{(["en","es"] as Lang[]).map(option => <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-pressed={lang === option} aria-label={option === "en" ? "EN — View Global Desk in English" : "ES — Ver Global Desk en español"}>{option.toUpperCase()}</button>)}</div>
           <div className="advisory-hero-inner"><div>
             <p className="advisory-eyebrow">Miami Global Desk</p>
             <h1 id="global-hero-heading">{lang === "es" ? "Propiedad internacional. Conexiones profesionales en el sur de Florida." : "International Property. A South Florida Professional Audience."}</h1>
