@@ -1,4 +1,4 @@
-import "../components/advisory-heroes.css";
+import "../components/global-desk-hero.css";
 import { DistributionMetrics } from "../components/DistributionMetrics";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -238,22 +238,38 @@ export default function GlobalDeskPage() {
       <main id="main-content" className="min-h-screen overflow-x-hidden bg-white text-navy pb-20 lg:pb-0">
         <Navbar />
 
-        <section data-sticky-cta-guard className="advisory-hero" aria-labelledby="global-hero-heading">
-          <div className="global-language" aria-label="Global Desk language">{(["en","es"] as Lang[]).map(option => <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-pressed={lang === option} aria-label={option === "en" ? "EN — View Global Desk in English" : "ES — Ver Global Desk en español"}>{option.toUpperCase()}</button>)}</div>
-          <div className="advisory-hero-inner"><div>
-            <p className="advisory-eyebrow">Miami Global Desk</p>
-            <h1 id="global-hero-heading">{lang === "es" ? "Propiedad internacional. Conexiones profesionales en el sur de Florida." : "International Property. A South Florida Professional Audience."}</h1>
-            <p className="advisory-summary">{lang === "es" ? "Preparamos inventario internacional seleccionado para su presentación y cooperación con agentes de compradores del sur de Florida, junto con agencias y promotores autorizados." : "We prepare selected overseas inventory for relevant South Florida buyer-agent discovery and cooperation, working with authorized agencies and developers."}</p>
-            <div className="advisory-actions"><a href="#listing-request" className="advisory-primary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "private_discussion",cta_location: "hero",language: lang})}>{lang === "es" ? "Consultar una propiedad internacional" : "Discuss an International Listing"}</a><a href="#how-it-works" className="advisory-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_activation",cta_location: "hero",language: lang})}>{lang === "es" ? "Explorar el modelo de activación" : "Explore the Activation Model"}</a></div>
-            <p className="advisory-note">{lang === "es" ? "Su equipo conserva el mandato local, la negociación y el cierre. La activación está sujeta a los requisitos aplicables de la correduría, MLS, licencias y cooperación." : "Your team retains the local mandate, negotiation and closing. Activation is subject to applicable brokerage, MLS, licensing and cooperation requirements."}</p>
-          </div><figure className="global-connections">
-            <svg viewBox="0 0 500 330" role="img" aria-label={lang === "es" ? "Relaciones profesionales: Miami, Madrid y Latinoamérica" : "Professional relationships between Miami, Madrid and Latin America"}>
-              <path className="connection" d="M100 125 Q240 -15 400 65 M100 125 Q70 240 230 260 M400 65 Q420 250 230 260" />
-              <circle cx="100" cy="125" r="7" fill="#d7bc8b" /><circle cx="400" cy="65" r="5" fill="#d7bc8b" /><circle cx="230" cy="260" r="5" fill="#d7bc8b" />
-              <text x="70" y="160">Miami</text><text x="370" y="42">Madrid</text><text x="170" y="300">{lang === "es" ? "Latinoamérica" : "Latin America"}</text>
-            </svg>
-            <figcaption className="advisory-note">{lang === "es" ? "Esquema de cooperación profesional. No representa actividad en tiempo real ni exposición garantizada." : "Professional cooperation schematic. Not live activity or guaranteed exposure."}</figcaption>
-          </figure></div>
+        <section data-sticky-cta-guard className="global-desk-hero" aria-labelledby="global-hero-heading" lang={lang}>
+          <picture className="global-desk-hero-art" aria-hidden="true">
+            <source media="(max-width: 767px)" srcSet="/images/global-desk-panorama-mobile.webp" />
+            <img src="/images/global-desk-panorama-desktop.webp" alt="" width="1920" height="800" fetchPriority="high" decoding="async" />
+          </picture>
+          <div className="global-desk-hero-inner">
+            <div className="global-desk-hero-topline">
+              <p className="global-desk-hero-eyebrow">Miami Global Desk</p>
+              <div className="global-desk-hero-language" role="group" aria-label={lang === "es" ? "Idioma de Global Desk" : "Global Desk language"}>
+                {(["en", "es"] as Lang[]).map(option => (
+                  <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-pressed={lang === option} aria-label={option === "en" ? "EN — View Global Desk in English" : "ES — Ver Global Desk en español"}>{option.toUpperCase()}</button>
+                ))}
+              </div>
+            </div>
+            <div className="global-desk-hero-copy">
+              <h1 id="global-hero-heading">
+                <span>{lang === "es" ? "Propiedad internacional." : "International Property."}</span>{" "}
+                <span>{lang === "es" ? "Conexiones en Miami." : "Miami Connections."}</span>
+              </h1>
+              <p className="global-desk-hero-summary">{lang === "es" ? "Para agencias y promotores: presentamos propiedades internacionales seleccionadas a agentes de compradores del sur de Florida." : "For agencies and developers: introduce selected overseas listings to relevant South Florida buyer agents."}</p>
+              <div className="global-desk-hero-actions">
+                <a href="#listing-request" className="global-desk-hero-primary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "private_discussion",cta_location: "hero",language: lang})}>{lang === "es" ? "Consultar su propiedad" : "Discuss Your Listing"}<ArrowRight size={18} aria-hidden="true" /></a>
+                <a href="#how-it-works" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_activation",cta_location: "hero",language: lang})}>{lang === "es" ? "Cómo funciona" : "How It Works"}</a>
+              </div>
+              <p className="global-desk-hero-signature">Carlos Uzcategui <span aria-hidden="true">·</span> United Realty Group</p>
+            </div>
+            <div className="global-desk-hero-footer">
+              <p className="global-desk-hero-geography">Madrid <span aria-hidden="true">·</span> {lang === "es" ? "Latinoamérica" : "Latin America"} <ArrowRight size={14} aria-hidden="true" /> Miami</p>
+              <p className="global-desk-hero-terms">{lang === "es" ? "Su equipo conserva el mandato local, la negociación y el cierre." : "Your team retains the local mandate, negotiation and closing."}<span>{lang === "es" ? "Activación sujeta a los requisitos de la correduría, MLS, licencias y cooperación." : "Activation subject to brokerage, MLS, licensing and cooperation requirements."}</span></p>
+            </div>
+            <p className="global-desk-hero-caption">{lang === "es" ? "Arquitectura conceptual · No es una propiedad en venta" : "Conceptual architecture · Not a property listing"}</p>
+          </div>
         </section>
 
         <section aria-label="Network proof" className="border-b border-bone bg-white px-6 py-10 md:py-12">
