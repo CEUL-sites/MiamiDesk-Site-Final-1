@@ -1,0 +1,47 @@
+{
+  "assets": [
+    {
+      "file": "home-hero-desktop.webp",
+      "origin": "Reused website still, optimized desktop WebP",
+      "bytes": 78200,
+      "sha256": "23d37af9ad93a906a45fd13459230e73ed4abf20b4ab5614f2c2dc679844ca7e"
+    },
+    {
+      "file": "home-hero-mobile.webp",
+      "origin": "Reused website still, portrait crop and mobile WebP",
+      "bytes": 38524,
+      "sha256": "115d5e10d1132206e5ca5dc6b09262b0c280a04b6cc32f1c48dc98ceb3a92621"
+    },
+    {
+      "file": "sellers-architecture.webp",
+      "origin": "New AI-generated conceptual architecture",
+      "bytes": 209144,
+      "sha256": "9c33aa634d7627937f68c9b76636a0ab1963838294357bfbb60b83eef495be1e"
+    },
+    {
+      "file": "sellers-architecture-mobile.webp",
+      "origin": "Mobile optimization of new Sellers concept",
+      "bytes": 55074,
+      "sha256": "20fad78a2dbe8b47aa77589f6e829b215ea58576e5acebd545d4ac2f7c1b0251"
+    },
+    {
+      "file": "buyers-architecture.webp",
+      "origin": "New AI-generated conceptual residential interior",
+      "bytes": 227920,
+      "sha256": "11280fa01b83da89c5704e7ea12db096a10fef729dbba77e131a10090a4584c5"
+    },
+    {
+      "file": "buyers-architecture-mobile.webp",
+      "origin": "Mobile optimization of new Buyers concept",
+      "bytes": 63658,
+      "sha256": "93311c10c4258d255656130aa1cb0da0b1dcb3f24bb63eb051b85cd3d8cedbda"
+    }
+  ],
+  "other_assets": [
+    "Existing CONTACT.headshot reused without alterations",
+    "County paths from U.S. Census Bureau 2025 cartographic boundaries, FIPS12086,12011,12099, simplified for display",
+    "Global Desk: code-native cooperation schematic, not live geography or measured reach"
+  ],
+  "video_decision": "No hero video. Three downloaded Drive samples were inspected; low resolution, artificial effects or geographic inconsistency made them unsuitable. About52 folder entries inventoried; not all footage was frame-reviewed.",
+  "rights": "Architecture concepts are labeled as conceptual, not listings or transaction evidence. No third-party stock license purchased. Independent rights documentation for pre-existing media was not located."
+}
