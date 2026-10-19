@@ -1,3 +1,5 @@
+import { trackMicroConversion } from "../lib/analytics";
+import "../components/advisory-heroes.css";
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { AuroraBackground } from "../components/AuroraBackground";
@@ -127,72 +129,14 @@ export default function BuyersPage() {
         <Navbar />
 
         {/* ── Hero — 25 years + the network behind it ─────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 py-16 md:py-20 text-center sm:px-10">
-          <LazyVideo
-            src="/videos/cinematic_house_reach_2.mp4"
-            idle
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.32]"
-          />
-          <AuroraBackground interactive />
-          {/* Readability scrim stays the topmost background layer — the aurora
-              must never wash out the headline. */}
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/60 via-navy-deep/40 to-navy-deep/80 pointer-events-none" />
-          <div className="relative z-10">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Buyer Representation</p>
-          <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3rem)" }}>
-            Know What You’re Buying—<br />
-            <em className="italic text-gold">Before You Decide What to Pay.</em>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
-            Carlos applies 25 years of South Florida transaction experience to property analysis, offer strategy, negotiation, and closing coordination across Miami-Dade, Broward, and Palm Beach.
-          </p>
-          {/* Scale strip — the strength story in four figures */}
-          <Tilt3D className="mx-auto mt-8 max-w-3xl">
-            <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 sm:grid-cols-4">
-              {[
-                { value: `${CONTACT.stats.experience} yrs`, label: "Licensed since 2001" },
-                { value: CONTACT.stats.urgAgents, label: "URG agents statewide" },
-                { value: "Florida", label: "Office network" },
-                { value: "EN / ES", label: "Bilingual coordination" },
-              ].map((s) => (
-                <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
-                  <p className="font-serif text-2xl text-gold">{s.value}</p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </Tilt3D>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="/contact"
-              className="hero-cta-main inline-flex items-center gap-2 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep"
-            >
-              Request a Buyer Consultation
-            </a>
-            <a
-              href={CONTACT.whatsappUS}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-gold/50 hover:text-white"
-            >
-              WhatsApp Carlos
-            </a>
-          </div>
-          <div className="mt-5 flex items-center justify-center gap-2">
-            <a
-              href={LEAD_MAGNETS.buyerBrief.url}
-              download
-              className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
-            >
-              <Download size={11} />
-              Download Miami Buyer Brief Q3 2026
-            </a>
-          </div>
-          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
-            United Realty Group · CLHMS · FL SL705771 · Buyer representation across Miami-Dade, Broward &amp; Palm Beach
-          </p>
-          </div>
-        </section>
+        <section className="advisory-hero" aria-labelledby="buyer-hero-heading"><div className="advisory-hero-inner">
+          <div><p className="advisory-eyebrow">South Florida · Buyer representation</p>
+          <h1 id="buyer-hero-heading">Know What You’re Buying—Before You Decide What to Pay.</h1>
+          <p className="advisory-summary">Property analysis, local market guidance and experienced negotiation across Miami-Dade, Broward and Palm Beach, with bilingual coordination from search to closing.</p>
+          <div className="advisory-actions"><a href="#buyer-mandate" className="advisory-primary" onClick={() => trackMicroConversion("hp_cta_click", { type: "buyer_consultation", location: "buyers_hero" })}>Request a Private Buyer Consultation</a><a href="/markets" className="advisory-secondary" onClick={() => trackMicroConversion("hp_cta_click", { type: "explore_markets", location: "buyers_hero" })}>Explore South Florida Markets</a></div>
+          <p className="advisory-note">Florida licensed since 2001 · United Realty Group · English / Spanish</p></div>
+          <figure className="advisory-photo"><img src="/images/buyers-architecture.webp" width="1400" height="933" fetchPriority="high" alt="Conceptual residential interior opening onto a South Florida garden and waterway" /><figcaption>Conceptual residential imagery · Not a property listing</figcaption></figure>
+        </div></section>
 
         {/* Active market bridge — Miami-Dade & Broward ~$1M listings */}
         <MLSTicker />

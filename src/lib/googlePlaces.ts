@@ -23,7 +23,7 @@ function failPlacesLoad() {
 
 export function loadGooglePlaces(onReady: () => void, onFailure?: () => void) {
   if (window.google?.maps?.places) { onReady(); return; }
-  if (!MAPS_KEY) return; // no key — plain input fallback
+  if (!MAPS_KEY) { onFailure?.(); return; } // no key — plain input fallback
   if (placesUnavailable) { onFailure?.(); return; }
   callbacks.push(onReady);
   if (onFailure) failureCallbacks.push(onFailure);

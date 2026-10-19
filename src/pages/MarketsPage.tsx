@@ -1,3 +1,5 @@
+import { trackMicroConversion } from "../lib/analytics";
+import { CountyExplorer } from "../components/CountyExplorer";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
@@ -181,37 +183,13 @@ export default function MarketsPage() {
       <main id="main-content" className="min-h-screen bg-white-soft pb-20 lg:pb-0">
         <Navbar />
 
-        {/* ── Hero ──────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
-          <LazyVideo
-            idle
-            src="/videos/south_florida_showcase.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.16] pointer-events-none"
-          />
-          <AuroraBackground variant="warm" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.88),rgba(6,17,31,0.97))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
-          <div className="relative mx-auto max-w-4xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Miami Global Listing Desk · South Florida · Spain</p>
-            <h1 className="mx-auto mt-6 max-w-3xl font-serif leading-[1.1] text-white" style={{ fontSize: "clamp(2.1rem, 5vw, 3.6rem)" }}>
-              South Florida Is Not One Market.<br />
-              <em className="italic text-gold">Your Strategy Should Not Treat It Like One.</em>
-            </h1>
-            <p className="mx-auto mt-7 max-w-2xl font-sans text-base leading-[1.85] text-white/60">
-              Compare pricing, inventory, and time-to-contract across Miami-Dade, Broward, and Palm Beach—then request the property-level analysis that citywide averages cannot provide.
-            </p>
-            <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a href="/contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
-                Request a Private Listing-Distribution Review
-                <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-              </a>
-              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/25 px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold">
-                <MessageSquare size={15} /> WhatsApp Carlos
-              </a>
-            </div>
-            <div className="mt-12"><MiamiRealtorsBadge variant="dark" /></div>
-          </div>
-        </section>
+        <section className="advisory-hero" aria-labelledby="markets-hero-heading"><div className="advisory-hero-inner">
+          <div><p className="advisory-eyebrow">South Florida · Local intelligence</p>
+          <h1 id="markets-hero-heading">One Region. Distinct Markets. Different Strategies.</h1>
+          <p className="advisory-summary">Explore Miami-Dade, Broward and Palm Beach, then discuss the local evidence that matters to your property and next move.</p>
+          <div className="advisory-actions"><a href="#market-explorer" className="advisory-primary" onClick={() => trackMicroConversion("hp_cta_click", { type: "explore_market", location: "markets_hero" })}>Explore Your Market</a><a href="/contact?intent=seller" className="advisory-secondary" onClick={() => trackMicroConversion("hp_cta_click", { type: "property_market_review", location: "markets_hero" })}>Request a Property-Specific Market Review</a></div></div>
+          <CountyExplorer selected={activeCounty} onSelect={setActiveCounty} />
+        </div></section>
 
         {/* ── Network reach visual stat panel ───────────────────── */}
         <div className="bg-navy-deep border-t border-white/10">

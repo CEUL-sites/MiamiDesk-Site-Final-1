@@ -1,5 +1,6 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { connectLambda, getStore } from "@netlify/blobs";
+import { classifyInquiry } from "./_shared/hubspotSync.mjs";
 import { enqueueSubmission } from "./_shared/hubspotQueue.mjs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
 import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
@@ -247,7 +248,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────
     // First submission wins — a repeat submission never resets a lead's
     // position in the sequence.
-    if (process.env.SELLER_NURTURE_ENABLED === "true" && NURTURE_FORMS.has(formName) && email.includes("@")) {
+    if (process.env.SELLER_NURTURE_ENABLED === "true" && NURTURE_FORMS.has(formName) && classifyInquiry(formName, fields) === "south_florida_seller" && email.includes("@")) {
       try {
         const store = getStore(NURTURE_STORE);
         const key = email.trim().toLowerCase();

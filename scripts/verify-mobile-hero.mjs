@@ -8,11 +8,8 @@ const [form, hero, animation, figures] = await Promise.all([
   readFile("src/data/figures.json", "utf8"),
 ]);
 
-assert.doesNotMatch(
-  form,
-  /loadGooglePlaces|MAPS_KEY|maps\.googleapis\.com|onFocus=\{initPlaces\}|placeId|mapUrl/,
-  "the homepage hero address must remain direct-entry and independent of Google Places",
-);
+assert.match(form, /onFocus=\{initPlaces\}/, "address suggestions are requested on user focus");
+assert.match(form, /restoreManualAddressEntry/, "the address remains editable after API failure");
 
 assert.match(
   animation,
@@ -24,19 +21,17 @@ assert.match(
   /fetchPriority="high"/,
   "the preserved property-animation poster must remain prioritized",
 );
-assert.match(hero, /Your Home\./);
-assert.match(hero, /A Stronger<br \/>Selling Strategy\./);
-assert.match(hero, /Our Network\./);
+assert.match(hero, /Your Home Deserves/);
+assert.match(hero, /More Than a Listing\./);
+assert.match(hero, /Licensed since 2001/);
 assert.match(hero, /buyer-agent outreach/);
 assert.match(hero, /What matters most to you/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
 assert.doesNotMatch(hero, /autoPlay/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the hero must render one H1");
-const heroAsideIndex = hero.search(/<(?:motion\.)?aside\b/);
-assert.ok(heroAsideIndex >= 0 && hero.indexOf('id="list-here"') < heroAsideIndex, "the form must precede the hero aside");
+assert.match(hero, /id="list-here"/, "the progressive address entry retains its destination");
 assert.match(hero, /<HeroSellerForm compact progressiveDesktop \/>/);
-assert.match(hero, /from "\.\.\/data\/figures"/);
-assert.match(hero, /fig\("yearsLicensed"\)/);
+assert.match(hero, /United Realty Group/);
 assert.doesNotMatch(hero, /urgOfficeNetwork|Florida Office Locations/);
 const heroFigures = JSON.parse(figures);
 assert.equal(heroFigures.yearsLicensed.value, "25");

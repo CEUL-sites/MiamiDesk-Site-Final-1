@@ -92,3 +92,22 @@
   .seller-reach-review-details { padding: 16px 24px; justify-content: flex-start; gap: 8px; }
 }
 @media (prefers-reduced-motion: reduce) { .seller-reach-primary { transition: none; } }
+
+/* Editorial ivory / architecture split. */
+.seller-reach-hero { background: #f9f7f2; color: #0b1e3f; }
+.seller-reach-layout { max-width: 1440px; margin: auto; min-height: 570px; }
+.seller-reach-copy { padding: 54px clamp(24px,4vw,64px); }
+.seller-reach-copy h1 { color: #0b1e3f; font-size: clamp(38px,4.2vw,62px); line-height: 1.1; text-wrap: balance; }
+.seller-reach-copy h1 span { color: #80663c; }
+.seller-reach-subtitle { color: #405066; font-size: 18px; line-height: 1.7; }
+.seller-reach-whatsapp { color: #80663c; font-size: 15px; }
+.seller-reach-reassurance { color: #52616b; }
+.seller-reach-image img { max-height: 610px; }
+.seller-reach-image figcaption { color: #52616b; font-size: 9px; }
+.seller-reach-authority { background: #0b1e3f; color: #f9f7f2; scroll-margin-top: 90px; }
+.seller-reach-authority-grid p { font-size: 26px; color: #d7bc8b; }
+.seller-reach-authority-grid span { font-size: 13px; }
+@media (max-width: 767px) { .seller-reach-copy { padding: 32px 24px; } .seller-reach-image img { max-height: 290px; } }
+
+/* Maintain legible white brand/navigation over the ivory seller opening. */
+.seller-page > nav.bg-gradient-to-b { background: #071722; }

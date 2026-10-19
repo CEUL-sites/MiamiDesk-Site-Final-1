@@ -1,3 +1,4 @@
+import "../components/advisory-heroes.css";
 import { DistributionMetrics } from "../components/DistributionMetrics";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -237,31 +238,22 @@ export default function GlobalDeskPage() {
       <main id="main-content" className="min-h-screen overflow-x-hidden bg-white text-navy pb-20 lg:pb-0">
         <Navbar />
 
-        <section data-sticky-cta-guard className="relative isolate overflow-hidden border-b border-bone bg-white px-6 pb-12 pt-20 sm:pt-24 lg:min-h-[810px] lg:pb-20 lg:pt-36">
-          <img src="/images/global-desk-hero-madrid-v2.webp" alt="Madrid skyline from a contemporary international-property terrace at golden hour" width={1672} height={941} fetchPriority="high" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover object-[68%_center]" />
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0.94)_0%,rgba(255,255,255,0.88)_72%,rgba(255,255,255,0.7)_100%)] lg:bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_36%,rgba(255,255,255,0.94)_50%,rgba(255,255,255,0.18)_76%,rgba(255,255,255,0)_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 -z-10 h-36 bg-gradient-to-t from-white to-transparent" />
-          <div className="relative mx-auto max-w-7xl">
-            <div className="flex justify-end lg:absolute lg:right-0 lg:top-0" aria-label="Global Desk language">
-              <div className="inline-flex border border-navy/15 bg-white/90 p-1 shadow-sm backdrop-blur-sm">
-                {(["en", "es"] as Lang[]).map((option) => {
-                  const languageLabel = option === "en" ? "View Global Desk in English" : "Ver Global Desk en español";
-                  return <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-label={languageLabel} title={languageLabel} aria-pressed={lang === option} className={`min-h-11 min-w-11 px-3 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors ${lang === option ? "bg-navy text-white" : "text-navy/65 hover:text-navy"}`}>{option}</button>;
-                })}
-              </div>
-            </div>
-            <motion.div initial="hidden" animate="show" variants={reveal} className="mt-5 max-w-[760px] lg:mt-0">
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.product}</p>
-              <h1 className="mt-4 max-w-[760px] text-balance font-serif text-[clamp(2rem,8.5vw,3rem)] leading-[1.08] text-navy-deep sm:text-[clamp(2.75rem,4.45vw,4.5rem)]">{t.title}</h1>
-              <p className="mt-5 max-w-[620px] font-sans text-base font-semibold leading-relaxed text-navy md:text-xl">{t.lead}</p>
-              <p className="mt-3 max-w-[600px] font-sans text-base leading-relaxed text-navy/75 md:text-lg">{t.body}</p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <a href="#how-it-works" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "explore_activation", cta_location: "hero", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 bg-navy px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-gold hover:text-navy">{t.explore}<ArrowRight size={15} /></a>
-                <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "private_discussion", cta_location: "hero", language: lang })} className="inline-flex min-h-12 items-center justify-center border border-navy/25 bg-white/80 px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy transition-colors hover:border-gold hover:text-gold-ink">{t.discuss}</a>
-              </div>
-              <p className="mt-7 max-w-[620px] font-mono text-[9px] uppercase leading-relaxed tracking-[0.13em] text-navy/60">{t.compliance}</p>
-            </motion.div>
-          </div>
+        <section data-sticky-cta-guard className="advisory-hero" aria-labelledby="global-hero-heading">
+          <div className="global-language" aria-label="Global Desk language">{(["en","es"] as Lang[]).map(option => <button key={option} type="button" onClick={() => chooseLanguage(option)} aria-pressed={lang === option} aria-label={option === "en" ? "View Global Desk in English" : "Ver Global Desk en español"}>{option.toUpperCase()}</button>)}</div>
+          <div className="advisory-hero-inner"><div>
+            <p className="advisory-eyebrow">Miami Global Desk</p>
+            <h1 id="global-hero-heading">{lang === "es" ? "Propiedad internacional. Conexiones profesionales en el sur de Florida." : "International Property. A South Florida Professional Audience."}</h1>
+            <p className="advisory-summary">{lang === "es" ? "Preparamos inventario internacional seleccionado para su presentación y cooperación con agentes de compradores del sur de Florida, junto con agencias y promotores autorizados." : "We prepare selected overseas inventory for relevant South Florida buyer-agent discovery and cooperation, working with authorized agencies and developers."}</p>
+            <div className="advisory-actions"><a href="#listing-request" className="advisory-primary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "private_discussion",cta_location: "hero",language: lang})}>{lang === "es" ? "Consultar una propiedad internacional" : "Discuss an International Listing"}</a><a href="#how-it-works" className="advisory-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_activation",cta_location: "hero",language: lang})}>{lang === "es" ? "Explorar el modelo de activación" : "Explore the Activation Model"}</a></div>
+            <p className="advisory-note">{lang === "es" ? "Su equipo conserva el mandato local, la negociación y el cierre. La activación está sujeta a los requisitos aplicables de la correduría, MLS, licencias y cooperación." : "Your team retains the local mandate, negotiation and closing. Activation is subject to applicable brokerage, MLS, licensing and cooperation requirements."}</p>
+          </div><figure className="global-connections">
+            <svg viewBox="0 0 500 330" role="img" aria-label={lang === "es" ? "Relaciones profesionales: Miami, Madrid y Latinoamérica" : "Professional relationships between Miami, Madrid and Latin America"}>
+              <path className="connection" d="M100 125 Q240 -15 400 65 M100 125 Q70 240 230 260 M400 65 Q420 250 230 260" />
+              <circle cx="100" cy="125" r="7" fill="#d7bc8b" /><circle cx="400" cy="65" r="5" fill="#d7bc8b" /><circle cx="230" cy="260" r="5" fill="#d7bc8b" />
+              <text x="70" y="160">Miami</text><text x="370" y="42">Madrid</text><text x="170" y="300">{lang === "es" ? "Latinoamérica" : "Latin America"}</text>
+            </svg>
+            <figcaption className="advisory-note">{lang === "es" ? "Esquema de cooperación profesional. No representa actividad en tiempo real ni exposición garantizada." : "Professional cooperation schematic. Not live activity or guaranteed exposure."}</figcaption>
+          </figure></div>
         </section>
 
         <section aria-label="Network proof" className="border-b border-bone bg-white px-6 py-10 md:py-12">

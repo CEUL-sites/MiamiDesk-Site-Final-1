@@ -1,10 +1,13 @@
 import { motion } from "motion/react";
 import { ArrowRight, MapPin, Loader2, CheckCircle2, Download } from "lucide-react";
-import { useState, useRef, useId, type ChangeEvent, type FormEvent, type MouseEvent } from "react";
+import { useState, useRef, useId, useEffect, type ChangeEvent, type FormEvent, type MouseEvent } from "react";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 import { trackLead, trackFunnelEvent, pushEvent, trackMicroConversion } from "../lib/analytics";
 import { getAttribution, getLeadSource } from "../lib/attribution";
 import { notifyLeadDirect } from "../lib/leadNotify";
+
+import { loadGooglePlaces } from "../lib/googlePlaces";
+import { restoreManualAddressEntry } from "./heroSellerFormModel";
 
 type Lang = "en" | "es";
 
@@ -30,8 +33,8 @@ const COPY = {
     step2Progress: "Step 2 of 2 · How to reach you",
     compactAddress: "South Florida property address",
     compactAddressPlaceholder: "Enter your property address",
-    compactContinue: "Continue to Contact Details",
-    compactSubmit: "Request Your Private Seller Strategy Review",
+    compactContinue: "Request My Private Seller Strategy",
+    compactSubmit: "Request My Private Seller Strategy",
     compactPromise: "Carlos reviews your property, price position and next-move priorities, then contacts you to arrange the call. No listing commitment.",
     editAddress: "Change address",
     submit: "Request Your Private Seller Strategy Review",
@@ -124,6 +127,29 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
   const nameRef               = useRef<HTMLInputElement>(null);
   const formStartFired        = useRef(false);
   const renderedAt            = useRef(Date.now());
+
+  const placesInitialized = useRef(false);
+  const placesListener = useRef<google.maps.MapsEventListener | null>(null);
+  useEffect(() => () => { placesListener.current?.remove(); }, []);
+  function initPlaces() {
+    const field = addressRef.current;
+    if (!field || placesInitialized.current) return;
+    placesInitialized.current = true;
+    pushEvent("address_start", { form_name: "seller-hero", page_path: window.location.pathname });
+    loadGooglePlaces(() => {
+      if (addressRef.current !== field || !window.google?.maps?.places) return;
+      try {
+        const autocomplete = new window.google.maps.places.Autocomplete(field, {
+          types: ["address"], componentRestrictions: { country: ["us"] }, fields: ["formatted_address"],
+        });
+        placesListener.current = autocomplete.addListener("place_changed", () => {
+          setForm(f => ({ ...f, propertyAddress: autocomplete.getPlace().formatted_address || field.value }));
+        });
+      } catch {
+        restoreManualAddressEntry(field, compact ? t.compactAddressPlaceholder : t.address);
+      }
+    }, () => requestAnimationFrame(() => restoreManualAddressEntry(addressRef.current, compact ? t.compactAddressPlaceholder : t.address)));
+  }
 
   const handleFormFocus = () => {
     if (formStartFired.current || navigator.webdriver) return;
@@ -291,6 +317,8 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             type="text"
             value={form.propertyAddress}
             onChange={update("propertyAddress")}
+            onFocus={initPlaces}
+            enterKeyHint="next"
             placeholder={compact ? t.compactAddressPlaceholder : progressiveDesktop ? "Property address" : t.address}
             autoComplete="street-address"
             style={{ paddingLeft: "2.75rem" }}
