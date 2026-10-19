@@ -111,3 +111,5 @@
 
 /* Maintain legible white brand/navigation over the ivory seller opening. */
 .seller-page > nav.bg-gradient-to-b { background: #071722; }
+
+.seller-reach-image picture { display: flex; flex: 1; min-height: 0; }

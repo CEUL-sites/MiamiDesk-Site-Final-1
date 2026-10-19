@@ -135,7 +135,7 @@ export default function BuyersPage() {
           <p className="advisory-summary">Property analysis, local market guidance and experienced negotiation across Miami-Dade, Broward and Palm Beach, with bilingual coordination from search to closing.</p>
           <div className="advisory-actions"><a href="#buyer-mandate" className="advisory-primary" onClick={() => trackMicroConversion("hp_cta_click", { type: "buyer_consultation", location: "buyers_hero" })}>Request a Private Buyer Consultation</a><a href="/markets" className="advisory-secondary" onClick={() => trackMicroConversion("hp_cta_click", { type: "explore_markets", location: "buyers_hero" })}>Explore South Florida Markets</a></div>
           <p className="advisory-note">Florida licensed since 2001 · United Realty Group · English / Spanish</p></div>
-          <figure className="advisory-photo"><img src="/images/buyers-architecture.webp" width="1400" height="933" fetchPriority="high" alt="Conceptual residential interior opening onto a South Florida garden and waterway" /><figcaption>Conceptual residential imagery · Not a property listing</figcaption></figure>
+          <figure className="advisory-photo"><picture><source media="(max-width: 1023px)" srcSet="/images/buyers-architecture-mobile.webp" /><img src="/images/buyers-architecture.webp" width="1400" height="933" fetchPriority="high" alt="Conceptual residential interior opening onto a South Florida garden and waterway" /></picture><figcaption>Conceptual residential imagery · Not a property listing</figcaption></figure>
         </div></section>
 
         {/* Active market bridge — Miami-Dade & Broward ~$1M listings */}

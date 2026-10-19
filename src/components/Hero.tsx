@@ -49,7 +49,7 @@ export function Hero() {
   return (
     <section className="hero-root seller-hero" aria-labelledby="seller-hero-heading">
       <div className="seller-hero-scene">
-        <img className="seller-hero-background" src="/images/homepage-hero-waterfront-v2.jpg" width="1672" height="941" fetchPriority="high" alt="" />
+        <picture><source media="(max-width: 767px)" srcSet="/images/home-hero-mobile.webp" /><img className="seller-hero-background" src="/images/home-hero-desktop.webp" width="1400" height="788" fetchPriority="high" alt="" /></picture>
         <div className="seller-hero-layout">
           <div className="seller-hero-primary">
             <p className="seller-hero-eyebrow">Carlos Uzcategui <span aria-hidden="true">/</span> South Florida</p>

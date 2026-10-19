@@ -34,14 +34,14 @@ export function SellersReachHero() {
             <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
           </div>
           <figure className="seller-reach-image" data-sticky-cta-guard>
-            <img
+            <picture><source media="(max-width: 1023px)" srcSet="/images/sellers-architecture-mobile.webp" /><img
               src="/images/sellers-architecture.webp"
               alt="Conceptual South Florida waterfront architecture with a shaded residential terrace"
               width="1400"
               height="1050"
               fetchPriority="high"
               decoding="async"
-            />
+            /></picture>
             <figcaption>Conceptual residential imagery · Not a property listing</figcaption>
           </figure>
         </div>
