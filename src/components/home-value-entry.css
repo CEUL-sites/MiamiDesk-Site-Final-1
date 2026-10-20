@@ -6,9 +6,10 @@
 .home-value-detail { color: #52616b; font-size: 13px; line-height: 1.7; margin-top: 16px; max-width: 400px; }
 .home-value-market { display: inline-flex; gap: 10px; align-items: center; min-height: 44px; color: #6f5936; font-size: 12px; margin-top: 20px; text-underline-offset: 4px; text-decoration: underline; }
 .home-value-card { --hero-gold: #b08d57; position: relative; min-width: 0; border: 1px solid #d6dcd7; border-radius: 12px; background: #fff; padding: 26px; box-shadow: 0 10px 0 -5px #e7e9e1, 0 24px 45px -32px #1c394b66; }
-.home-value-scene { height: 145px; overflow: hidden; position: relative; margin: -10px -10px 20px; background: radial-gradient(ellipse, #f6f7f0 20%, transparent 72%); }
-.home-value-scene > svg { display: block; height: 160px; width: 100%; }
-.home-value-scene span { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 6px; white-space: nowrap; font: 10px/1.5 var(--font-mono, monospace); color: #5c6f6e; background: #fff; padding: 4px 10px; border: 1px solid #e4e8e2; border-radius: 20px; }
+.home-value-scene { display: grid; justify-items: center; gap: 6px; margin: -10px 0 20px; padding: 4px 0 0; background: radial-gradient(ellipse, #f6f7f0 20%, transparent 72%); }
+.home-value-scene > svg { display: block; width: 100%; max-width: 320px; height: auto; aspect-ratio: 420 / 250; }
+.home-value-scene > span { display: flex; align-items: center; justify-content: center; gap: 6px; max-width: 100%; text-align: center; font: 11px/1.5 var(--font-sans, sans-serif); color: #5c6f6e; background: #fff; padding: 4px 10px; border: 1px solid #e4e8e2; border-radius: 20px; }
+.home-value-scene > span > svg { flex-shrink: 0; }
 .home-value-address-form label { display: block; color: #344853; font-size: 12px; font-weight: 600; line-height: 1.5; margin-bottom: 8px; }
 .home-value-input-wrap { position: relative; }
 .home-value-input-wrap > svg { position: absolute; left: 14px; top: 17px; color: #967641; pointer-events: none; }
@@ -39,13 +40,16 @@
   .home-value-detail { display: none; }
   .home-value-market { margin-top: 10px; }
   .home-value-card { padding: 20px; }
-  .home-value-scene { height: 84px; margin-bottom: 16px; }
-  .home-value-scene > svg { height: 110px; margin-top: -10px; }
-  .home-value-scene span { font-size: 9px; }
+  .home-value-scene { margin-bottom: 16px; }
+  .home-value-scene > svg { max-width: 260px; }
   .home-value-selected { gap: 10px; }
   .home-value-selected button { max-width: 84px; }
 }
-@media (prefers-reduced-motion: no-preference) and (hover: hover) {
-  .home-value-scene > svg { transition: transform .4s ease; }
-  .home-value-card:hover .home-value-scene > svg { transform: translateY(-4px); }
+/* Brief depth cue on entry works on touch screens and settles before five seconds. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-value-scene[data-visible="true"] .home-value-house { animation: home-value-house-float 2.4s ease-in-out 2; }
+}
+@keyframes home-value-house-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }

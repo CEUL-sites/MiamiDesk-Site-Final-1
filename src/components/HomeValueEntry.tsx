@@ -59,11 +59,26 @@ export function HomeValueEntry({ lang = "en" }: { lang?: "en" | "es" }) {
   const placesInput = useRef<HTMLInputElement | null>(null);
   const listener = useRef<google.maps.MapsEventListener | null>(null);
   const contactHeading = useRef<HTMLHeadingElement>(null);
+  const scene = useRef<HTMLDivElement>(null);
+  const [sceneVisible, setSceneVisible] = useState(false);
   const [address, setAddress] = useState("");
   const [contact, setContact] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => () => { listener.current?.remove(); }, []);
+  useEffect(() => {
+    const element = scene.current;
+    if (!element) return;
+    if (!("IntersectionObserver" in window)) { setSceneVisible(true); return; }
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        setSceneVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     if (contact) contactHeading.current?.focus({ preventScroll: true });
   }, [contact]);
@@ -110,17 +125,20 @@ export function HomeValueEntry({ lang = "en" }: { lang?: "en" | "es" }) {
         </div>
         <div className="home-value-card">
           {!contact ? <>
-            <div className="home-value-scene" aria-hidden="true">
-              <svg viewBox="0 0 420 190" fill="none">
+            <div ref={scene} className="home-value-scene" data-visible={sceneVisible} aria-hidden="true">
+              <svg viewBox="0 0 420 250" fill="none" focusable="false">
                 <path d="M20 137 202 33 400 139 220 240Z" fill="#e5e9e5" />
                 <path d="m20 167 185-105 196 106M70 105l199 107M146 62l199 107" stroke="#c4cec8" strokeWidth="2" />
-                <path d="m150 111 64-37 62 36-62 37Z" fill="#B08D57" fillOpacity=".22" stroke="#B08D57" />
-                <path d="m172 93 42-24 42 24v39l-42 24-42-24Z" fill="#fff" stroke="#7c8e8c" />
-                <path d="m214 156 42-24V93l-42 24Z" fill="#d4ddd7" stroke="#7c8e8c" />
-                <path d="m163 96 51-53 51 53-51 29Z" fill="#112d40" />
-                <path d="m214 43 51 53-9 5-42-44Z" fill="#24465a" />
-                <path d="m187 115 12 7v19l-12-7Z" fill="#B08D57" />
-                <path d="m230 118 12-7v13l-12 7Z" fill="#8ba9a7" />
+                <path d="m148 166 66-38 66 38-66 38Z" fill="#B08D57" fillOpacity=".16" stroke="#B08D57" />
+                <ellipse cx="214" cy="177" rx="45" ry="14" fill="#112d40" fillOpacity=".12" />
+                <g className="home-value-house">
+                  <path d="m172 101 42-24 42 24v57l-42 24-42-24Z" fill="#fff" stroke="#7c8e8c" />
+                  <path d="m214 182 42-24v-57l-42 24Z" fill="#d4ddd7" stroke="#7c8e8c" />
+                  <path d="m163 96 51-53 51 53-51 29Z" fill="#112d40" />
+                  <path d="m214 43 51 53-9 5-42-44Z" fill="#24465a" />
+                  <path d="m187 136 12 7v29l-12-7Z" fill="#B08D57" />
+                  <path d="m230 140 12-7v17l-12 7Z" fill="#8ba9a7" />
+                </g>
                 <circle cx="300" cy="58" r="17" fill="#B08D57" /><path d="m294 58 4 4 8-9" stroke="white" strokeWidth="2" />
               </svg>
               <span><MapPin size={13} />{lang === "es" ? "El punto de partida es su casa" : "Your home is the starting point"}</span>
