@@ -1,9 +1,10 @@
 ---
-title: "From a $500,000 Purchase to a Mortgage-Free Next Chapter"
-seoTitle: "Broward Downsizing: Sell in Weston, Buy Your Next Home Cash"
+title: "Downsize With a Plan: Sell, Buy Cash and Preserve Eligible Homestead Benefits"
+seoTitle: "South Florida Downsizing: Cash & Homestead Portability"
 date: "2026-10-08"
+updated: "2026-10-21"
 slug: "weston-downsizing-equity-post-occupancy-homestead-portability"
-excerpt: "A Broward County plan to sell a Weston home, buy a townhome with cash, negotiate post-closing occupancy and preserve eligible homestead benefits."
+excerpt: "Plan a South Florida downsize around net sale proceeds, post-closing occupancy, a cash purchase and eligible Florida homestead portability."
 category: "Seller Strategy"
 image: "/images/journal/og/weston-downsizing-equity-post-occupancy-homestead-portability.jpg"
 created_by: "codex"
@@ -12,191 +13,106 @@ market: "Weston"
 funnel_stage: "consideration"
 ---
 
-## How a coordinated Broward County sale and cash purchase can turn accumulated equity into a simpler, more affordable home
+Your home may hold the equity to fund a more manageable next chapter. The question is whether selling it can leave you with the right replacement home, a lower monthly housing outlay and enough capital in reserve.
 
-A family bought its Weston home for $500,000 ten years ago. Today, imagine that home selling for $1 million. The bedrooms, garden and gathering spaces have served their purpose, but the family now wants less upkeep, lower monthly expenses and more flexibility.
+For a South Florida homeowner with sufficient net proceeds, the strategy can combine three decisions: purchase the next home without a mortgage, preserve eligible property-tax benefits and negotiate time to move after the sale closes.
 
-Could they use $500,000 of the available sale proceeds to buy a townhome outright in Broward County—and carry an eligible portion of their accumulated property-tax assessment benefit into that new home?
+We plan those decisions together. The post-closing stay provides time. The replacement purchase changes the household budget. Homestead exemption and portability can influence the new tax assessment. Each part must work for your circumstances.
 
-With sufficient net proceeds and the right transaction plan, that move can be possible. A negotiated post-closing occupancy agreement can also give them time to complete the purchase and move after their sale closes. The opportunity is to convert accumulated home equity into a home and budget that better suit the next chapter.
+## Start with the cash you can actually use
 
-For another household, the next chapter calls for additional bedrooms, a different location or a home better suited to daily life. The same planning discipline supports an upgrade, with a different replacement budget.
+Before choosing the next home, establish the amount available after the sale. Price appreciation, equity and net proceeds are different figures.
 
-The question is practical: **How do we turn the equity in your current Broward County home into the right next home within the county, while managing the timing, costs and disruption?**
+We begin with an estimated selling price, then account for the mortgage payoff, other liens, negotiated transaction expenses and any agreed concessions. We also identify money needed for the next purchase, moving, repairs, temporary occupancy and any applicable tax obligations.
 
-We approach the sale and purchase as one coordinated assignment. The plan starts with what you need from the move: a manageable monthly budget, room to grow, capital in reserve or a simpler routine.
+An occupancy deposit or escrow holdback may temporarily reduce the cash available at closing. The replacement-home budget must leave room for that restriction and your chosen emergency reserve.
 
-## Experience and infrastructure that serve your move
+**A cash purchase works only when available funds cover the purchase, its expenses and the reserves you intend to retain.** Spending every available dollar to eliminate a mortgage can leave the household with too little liquidity.
 
-Carlos Uzcategui brings 25 years of South Florida real estate experience, supported by United Realty Group's approximately 3,500-agent brokerage network. His work is backed by its Florida office network. [1]
+## Use post-closing occupancy to coordinate the move
 
-For homeowners, the value of that infrastructure is in its use: relevant agent relationships, local market knowledge, brokerage support and coordination across the communities you are considering. We combine MLS positioning, property presentation and outreach to appropriate buyer agents with direct management of negotiations and the next purchase. Agent participation and distribution depend on the property and the relevant channels.
+A negotiated post-closing occupancy agreement can allow you to remain temporarily in the home after ownership transfers. Once the sale closes and the available funds are disbursed, those proceeds can support the replacement purchase while you occupy the former home under the written arrangement.
 
-Professionalism means keeping your priorities visible at every stage. We examine the likely net proceeds, the replacement home's full carrying costs and the terms that can make the transition workable. The strongest offer for your circumstances may depend on financing certainty, inspection terms and possession timing as well as price.
+That sequence may help avoid temporary accommodation, storage and a second move when the two transactions fit within the agreed period. It also gives the next purchase a firm move-out deadline, so the replacement search and a backup plan should be underway before committing to the stay.
 
-## Sell, release equity and negotiate time to move
+The arrangement requires buyer agreement. We assess whether the proposed duration fits the buyer's financing, insurance, intended occupancy and applicable association requirements.
 
-A negotiated **post-closing occupancy agreement**, sometimes called a rent-back, can let a seller remain in the home for an agreed period after the sale closes.
+The written terms should settle the departure date, occupancy payment, deposit or holdback, utilities, maintenance, insurance responsibilities, damage, access, inspections and consequences of delayed possession. Legal counsel should address the agreement's terms and enforceability.
 
-Ownership transfers to the buyer. Once the transaction closes and funds are disbursed, the seller receives the available net proceeds after mortgage payoff, transaction costs and any agreed holdbacks. The seller then occupies the home under the written agreement rather than as its owner.
+Florida Realtors explains that the post-closing occupancy rider is not the complete occupancy agreement. It can make the contract contingent on reaching that agreement and provide termination rights if the parties cannot agree. The actual occupancy terms need to be resolved. [1]
 
-That sequence can allow you to use released equity for the next Broward County purchase while having time to complete the move. It can reduce the need for temporary accommodation, storage and a second move, depending on the schedule and costs negotiated.
+## Protect the homestead benefits that may support the move
 
-The written arrangement should address the departure date, occupancy payment, deposits or escrow, utilities, maintenance, insurance, damage, inspections and what happens if possession is delayed. Florida Realtors explains that the post-closing occupancy rider is not itself a complete occupancy agreement; the parties must settle the actual terms. We coordinate with the closing professionals and legal counsel as appropriate. [2]
+Three related concepts affect the replacement home's tax position:
 
-Buyer consent is essential. Financing, insurance and association requirements must support the arrangement. A long occupancy period can conflict with a buyer's intended use or lender requirements. It must be evaluated for that transaction.
+- **Homestead exemption** reduces an eligible primary residence's taxable value. Verify the new home's eligibility and submit a new application.
+- **Save Our Homes** limits annual assessed-value increases on qualifying homestead property, generally to the lower of 3% or the applicable CPI change. Review the former home's assessment record and accumulated assessment difference.
+- **Portability** transfers an eligible portion of that assessment difference to another Florida homestead. Confirm eligibility, the transfer calculation and timely filing.
 
-## A client's experience: Diego Tolotto
+These are assessment and exemption benefits; they are not cash credits or a guarantee that the entire tax bill will fall. [2][3]
 
-In his December 18, 2023 review, Weston client **Diego Tolotto** describes Carlos negotiating a seven-month post-occupancy arrangement as part of his family's sale and relocation. He specifically credits Carlos with:
+For 2026, the first $25,000 homestead exemption applies to school and non-school property taxes. The additional inflation-adjusted exemption is up to $26,411 on assessed value above $50,000 and applies only to non-school taxes. Use the amounts applicable to the year your new home qualifies. [3][4]
 
-> “securing a beneficial 7-month post-occupancy that eased our family's relocation, at a low rental per month.”
+**The old homestead exemption does not automatically move with you.** You apply for the new home's exemption and separately request the eligible portability transfer. [5]
 
-The review illustrates why possession timing belongs in the negotiation. Time to move can have considerable practical value for a household. This is a client-reported experience, not a promise that another buyer will accept the same terms. It does not establish Diego's tax savings, sale price or replacement purchase. [3]
+### Downsizing does not necessarily transfer the entire assessment difference
 
-## Florida homestead benefits: preserve the assessment advantage
+Portability uses the property appraiser's relevant just values and assessed values. It is not calculated from your mortgage balance, original purchase price or sale profit.
 
-Three separate concepts matter when moving between Florida primary residences.
+When the replacement has a lower just value, the transfer is generally proportional rather than the full former assessment difference. Applicable rules impose a maximum $500,000 assessment reduction. Ownership interests and changes in co-ownership can affect the result; the property appraiser determines the approved amount. [6]
 
-**Homestead exemption** reduces an eligible home's taxable value. For 2026, the first $25,000 applies to school and non-school property taxes. The additional, inflation-adjusted exemption is up to $26,411 and applies only to non-school taxes. These are reductions in taxable value, not cash credits. [4]
+The practical step is to obtain the former home's assessment record and estimate the replacement home's taxes with and without eligible portability. Do not budget from the replacement seller's existing tax bill: their ownership history and benefits may differ from yours. [7]
 
-**Save Our Homes** limits annual increases in a qualifying homestead's assessed value to the lower of 3% or the applicable inflation measure. Over time, the assessed value can become substantially lower than the property appraiser's just value. That difference is the accumulated assessment benefit. The cap limits assessed-value growth, not the entire tax bill. [5]
+## Connect the occupancy agreement to the tax calendar
 
-**Portability** can move an eligible assessment benefit to a new Florida homestead. When downsizing to a property with a lower just value, the benefit is generally proportional. When moving to a property of equal or greater just value, the eligible assessment difference can generally transfer up to $500,000. The property appraiser determines the amount. [6]
+An extended stay may suit your move while delaying when you establish the next home as your permanent residence. That tradeoff deserves attention before you agree to possession terms.
 
-You apply for a new homestead exemption and separately request portability; the former exemption does not automatically transfer. The eligibility window is measured by tax years and abandonment of the former homestead, not simply three years after closing. Establishing permanent residence by January 1 and meeting the filing deadline matter. For 2027, Broward's timely homestead filing deadline is March 1, 2027. An occupancy period extending across January 1 can affect the plan. [5][7]
+Homestead eligibility generally depends on qualifying ownership and permanent residence as of January 1. A purchase alone does not establish every eligibility requirement. For a move intended to qualify for 2027 benefits, confirm your position as of January 1, 2027, and the timely filing deadline of March 1, 2027. [3][8]
 
-## The Weston example: bought for $500,000 ten years ago, now selling for $1 million
+Portability also has a tax-year eligibility window. It is not a rolling three years from your closing date. Broward's property appraiser explains that the window is tied to the former homestead and obtaining the new exemption within the applicable following tax years. [9]
 
-Consider a hypothetical family that purchased a Weston single-family home for **$500,000 in 2016**, maintained it as an eligible Florida homestead, and now sells it for **$1,000,000**. They use **$500,000 of their net sale proceeds to pay cash for a townhome in Broward County**, establishing it as their new Florida primary residence. Both the sale and the replacement purchase take place in Broward County, Florida.
+We therefore coordinate the sale closing, occupancy end date, replacement closing and intended residence date with the property appraiser and closing professionals. A stay crossing January 1 warrants particular review; it does not automatically preserve or disqualify a benefit.
 
-The townhome could be in Weston, Davie, Plantation, Pembroke Pines or another Broward community that fits the family's needs. We compare the specific property's budget and association documents before selecting it.
+## Calculate the full monthly result
 
-The original purchase price explains the family's appreciation history. Their current homestead tax record explains the assessment benefit. Their remaining loan balance and transaction costs determine the cash they can actually use. These are three different calculations.
+Buying cash eliminates the replacement mortgage payment. It leaves other ownership costs to be paid.
 
-This is a planning illustration, not an appraisal, lender quote or estimate for a particular listing. All costs are assumptions. For the portability calculation, we assume the property appraiser's relevant just values equal those prices; actual appraiser values can differ.
+Our comparison includes mortgage principal and interest, property taxes and assessments, insurance, association dues, maintenance reserves and utilities. We review association budgets, reserve funding, insurance coverage, scheduled increases and potential special assessments before recommending the replacement property.
 
-### First, distinguish appreciation from spendable equity
+We also separate the transition budget from the ongoing budget. Moving charges, transaction expenses and occupancy payments are one-time or temporary outlays. The ongoing comparison starts after the move and after any approved tax benefits take effect. Avoid double-counting taxes and insurance already included in mortgage escrow, or maintenance already covered by association dues.
 
-The increase from a $500,000 purchase to a $1 million sale is **$500,000 of gross price appreciation**. It is not automatically $500,000 of available cash. Current equity is the home's value less the remaining debt; net sale proceeds also subtract selling expenses.
+**Your potential reduction must be calculated from your numbers.** The result depends on the mortgage being eliminated and the replacement home's verified costs. An owner who already has no mortgage starts from a different position. We would substantiate any percentage estimate with a property-specific comparison before presenting it as your potential outcome.
 
-To make the cash purchase concrete, assume the family still owes **$300,000** on its existing mortgage. This balance is an illustration, not a figure implied by the original purchase price.
+We calculate the percentage as the reduction in monthly housing outlay divided by the current monthly housing outlay. Mortgage principal belongs in this cash-flow comparison because it affects the monthly budget, even though it also builds equity. We label estimates and distinguish cash-flow relief from economic savings.
 
-- **Original purchase price in 2016—historical reference:** $500,000.
-- **Sale price:** $1,000,000.
-- **Current equity before selling costs: $1 million less $300,000 debt:** **$700,000**.
-- **Mortgage payoff:** −$300,000.
-- **Assumed total negotiated brokerage commission: 5% of sale price:** −$50,000.
-- **Other seller closing costs allowance: 1% of sale price:** −$10,000.
-- **Net sale proceeds:** **$640,000**.
-- **Townhome purchased with cash:** −$500,000.
-- **Townhome purchase closing costs allowance: 3% of purchase price:** −$15,000.
-- **Capital remaining before moving and post-occupancy costs:** **$125,000**.
-- **Moving and post-occupancy allowance:** −$10,000.
-- **Remaining capital:** **$115,000**.
+## One coordinated plan for the sale and the next home
 
-**The family allocates $500,000 to a mortgage-free next home and retains $115,000 under these assumptions.** They do not have to spend the entire sale price on their next property.
+Carlos Uzcategui has been licensed in Florida since 2001. Through United Realty Group, we approach the sale, possession negotiation and replacement purchase as one assignment.
 
-The seller's combined cost allowance is **6%, or $60,000**: a hypothetical negotiated 5% total brokerage commission plus 1% for other seller closing costs. The townhome purchase allowance is **3%, or $15,000**. These are planning assumptions, not prescribed rates or quotes. Actual title charges, transfer taxes, prorations, prepaid expenses and negotiated concessions depend on the transaction; avoid counting the same charge twice.
+We position your current property against its immediate competition, prepare it for buyer review and use MLS visibility and relevant agent outreach to support the sale. We weigh offer price alongside financing certainty, concessions and possession terms. At the same time, we evaluate the next home's complete budget and the professional input needed to confirm the tax and occupancy plan.
 
-The **$125,000 remaining after the cash purchase and purchase closing costs** provides room for the move. After a further $10,000 moving and post-occupancy allowance, **$115,000 remains**, before any applicable income tax, additional repairs or furnishing, and temporary escrow holdbacks. A rent-back deposit may temporarily reduce the funds available for the purchase.
+The objective is a move that leaves you in a suitable home, with a manageable monthly commitment and capital available for what comes next.
 
-If the family had only $500,000 of equity before selling expenses, $60,000 of assumed selling costs would leave $440,000. A $500,000 cash purchase would then require additional funds. We establish the net-proceeds figure before setting the replacement-home budget.
+## Request a Private Downsizing Strategy Review
 
-### Next, preserve part of the assessment benefit accumulated over ten years
+Start with your property address, approximate mortgage balance, current monthly housing costs, preferred communities and intended moving date. We will review those priorities with you and develop a preliminary proceeds estimate, replacement-home budget and possession timeline, with tax and legal questions identified for the appropriate professionals.
 
-The family is not assumed to be paying property taxes on a $1 million assessed value. Its uninterrupted homestead history may have kept the assessment closer to its earlier value, even as market value rose.
+**[Request a Private Downsizing Strategy Review](/sell-weston?journal_cta=bottom&journal_offer=seller-strategy&journal_origin=weston-downsizing-equity-post-occupancy-homestead-portability&utm_campaign=weston-downsizing-equity-post-occupancy-homestead-portability&utm_content=bottom&utm_medium=internal&utm_source=journal#contact)**
 
-For this illustration, assume the original assessment was approximately $500,000 and the current Save Our Homes assessed value is **$600,000 before exemptions**, against a relevant appraiser just value of $1 million. The $600,000 figure is a hypothetical tax-record input. It cannot be established from the purchase price alone.
+WhatsApp / Text: [+1 954-865-6622](https://wa.me/19548656622) · Email: [contact@carlosre.com](mailto:contact@carlosre.com)
 
-Save Our Homes limits annual assessment increases; it does not freeze the assessment at $500,000. Actual increases, improvements and ownership changes must be checked against the property's record. [5]
-
-- **Former just value:** $1,000,000.
-- **Former assessed value before exemptions:** $600,000.
-- **Accumulated assessment difference:** **$400,000**.
-- **Difference as a share of former just value:** **40%**.
-- **New townhome's assumed just value:** $500,000.
-- **Proportional portability benefit: 40% × $500,000:** **$200,000**.
-- **New assessed value before exemptions:** **$300,000**.
-
-**The family moves into a $500,000 townhome with an illustrative assessed value of $300,000 before exemptions.** That is the practical portability advantage: a proportional share of the old home's accumulated assessment protection follows them into the smaller home. The transferred reduction is $200,000, rather than the full $400,000 difference. Its qualifying homestead exemptions then reduce the applicable taxable values further. [6]
-
-For transparent arithmetic, assume school taxes of 6 mills, non-school taxes of 12 mills and $600 annually in non-ad valorem assessments on each home. **These are illustrative rates and assessments, not the adopted rates for Weston or any other Broward municipality.** Taxing districts and non-ad valorem charges can differ between properties within Broward. Using the 2026 exemptions, the model produces annual property charges of approximately **$10,633 on the original home** and **$5,233 on the replacement**.
-
-Without portability, the same townhome with homestead exemption would have modeled annual property charges of approximately $8,833. **Portability therefore contributes $3,600 a year, or $300 a month, to this family's modeled savings.** The remaining property-charge reduction comes from the lower assessed value associated with the smaller purchase. [4][6]
-
-For this move within Broward, the family applies to the **Broward County Property Appraiser** for the new home's homestead exemption and the transfer of the eligible Save Our Homes benefit. Remaining in the same county does not make either benefit automatic. We use the former home's assessment record and the replacement property's tax estimate to plan the application and budget. [7]
-
-These calculations use 2026 exemption amounts to illustrate a stabilized budget after the new benefits take effect. A purchase later in 2026 may first qualify for 2027 benefits; use the enacted rules and exemption amounts for that tax year. Closing-year prorations and the first escrow estimate may differ. A buyer should not budget from the seller's existing tax bill.
-
-### Then compare the full monthly budget
-
-- **Mortgage principal and interest:** $2,100 in the Weston home → $0 in the Broward townhome.
-- **Property taxes and assumed assessments:** $886 in the Weston home → $436 in the Broward townhome.
-- **Insurance:** $600 in the Weston home → $250 in the Broward townhome.
-- **Association dues:** $150 in the Weston home → $550 in the Broward townhome.
-- **Maintenance reserve, outside association coverage:** $550 in the Weston home → $150 in the Broward townhome.
-- **Utilities:** $400 in the Weston home → $250 in the Broward townhome.
-- **Total monthly outlay:** **$4,686** in the Weston home → **$1,636** in the Broward townhome.
-
-**Modeled savings: $3,050 per month, or $36,600 per year—approximately 65%.**
-
-The largest single change is the **$2,100 monthly mortgage payment disappearing**. The sale pays off the former loan, and $500,000 of the released proceeds purchases the townhome outright. The household has no new mortgage payment.
-
-Of the modeled $3,050 monthly reduction, **$2,100 comes from removing mortgage principal and interest, $300 comes from portability, and $650 comes from the remaining changes in taxes and operating expenses**. Federal tax treatment is not counted as an additional monthly saving.
-
-This comparison already accounts for the original home's assumed $600,000 homestead assessment. It does not inflate the old tax bill by treating its full $1 million market value as its assessed value.
-
-The association budget deserves scrutiny. Confirm what dues cover, the insurance you must purchase, reserve funding, scheduled increases and potential special assessments. Maintenance allowances should not duplicate services already included in dues.
-
-The mortgage assumption matters particularly. If the original home already had no mortgage, its modeled monthly outlay would be approximately $2,586. Moving to the same townhome would then save about **37%, rather than 65%**. Mortgage principal is included here because it affects household cash flow, although it also builds equity.
-
-A smaller home can create financial breathing room. The actual result must be calculated from your mortgage, insurance quotes, tax record and replacement property's association documents.
-
-## The federal benefit: home-sale gain exclusion
-
-Florida homestead exemption is a **state property-tax benefit**. The separate federal provision relevant to selling a primary residence is the **home-sale capital-gains exclusion**.
-
-Eligible taxpayers can generally exclude up to $250,000 of gain, or up to $500,000 for qualifying married couples filing jointly. Ownership, use and prior-exclusion rules apply, including the general two-out-of-five-year tests. Buying another home or spending all the proceeds is not a condition of the current exclusion. [8]
-
-For this hypothetical sale, begin with the **$500,000 original purchase price**. For simplicity, assume the adjusted tax basis is also $500,000, with no additional basis adjustments, and that all $60,000 of the modeled selling expenses qualify to reduce the amount realized. The gain would be:
-
-**$1,000,000 − $60,000 − $500,000 = $440,000.**
-
-A qualifying married couple filing jointly could potentially exclude that entire $440,000 gain. A taxpayer eligible only for the $250,000 limit could have $190,000 remaining subject to tax. Owning the home for ten years does not by itself establish every eligibility requirement. The mortgage payoff does not reduce the capital gain. [8][9]
-
-Adjusted tax basis is separate from the home's assessed value and your remaining loan balance. Rental or business use, depreciation and other circumstances can change the result. Your CPA should confirm the calculation and reporting requirements before you commit sale proceeds.
-
-## Upgrading uses the same discipline
-
-For a family purchasing a larger or more expensive home within Broward County, released equity can support the down payment and a negotiated occupancy period can support the transition. Eligible portability can also help moderate the new property's assessment.
-
-An upgrade can still increase mortgage payments, insurance, taxes and maintenance. We compare the complete replacement budget, financing terms and cash reserves with your goals before negotiating the move.
-
-## Begin with your property's numbers
-
-Your next home should support the life you want to build. Our role is to connect that objective to a workable sale, a documented transition and an informed purchase.
-
-**Request a Private Property Strategy Call.** Share your Broward County property address, approximate mortgage balance, intended move date, preferred Broward communities and whether you are downsizing or upgrading.
-
-Carlos will review your property and priorities with you, develop a preliminary net-proceeds and replacement-cost comparison, and identify the possession terms and specialist input needed. That conversation gives you a basis for deciding whether to move, when to list and what to target next.
-
-[Request your seller strategy review](/sell-weston) · [WhatsApp Carlos: +1 954-865-6622](https://wa.me/19548656622)  
-Email: [contact@carlosre.com](mailto:contact@carlosre.com)  
-United Realty Group · 15951 SW 41 St #700, Weston, FL 33331
-
-*Educational planning example. Costs and tax rules checked October 8, 2026; use the applicable year's rules for an actual move. Tax eligibility is determined by the appropriate authorities. Obtain individualized tax, lending, insurance and legal advice. Outcomes and negotiated terms vary.*
+*Educational information reviewed October 21, 2026. Actual costs, negotiated terms and eligibility vary. The property appraiser determines exemption and portability eligibility. Obtain individualized legal, tax, lending and insurance advice before making binding decisions. This article makes no claim of achieved client savings.*
 
 Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
 
 ## Sources
 
-1. [United Realty Group: brokerage support and agent count](https://www.urgfl.com/join-the-family/) and [official branch directory](https://www.urgfl.com/office-locations/), reviewed October 8, 2026.
-2. [Florida Realtors: The Most Misunderstood Form in the Library?](https://www.floridarealtors.org/news-media/news-articles/2023/06/most-misunderstood-form-library), June 2023; explanation of the post-closing occupancy rider.
-3. Diego Tolotto, verified review dated December 18, 2023, attributed and reproduced on [HomesProfessional.com](https://homesprofessional.com/). [Carlos's Realtor.com profile](https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51) identifies the reviewer and review date; availability may vary by region.
-4. [Florida Department of Revenue: 2026 additional homestead exemption adjustment](https://floridarevenue.com/property/Documents/cpi_homestead_exemption.pdf) and [Saint Johns County Property Appraiser: school and non-school exemption treatment](https://www.sjcpa.gov/homesteadportability/).
-5. [Florida Department of Revenue: Save Our Homes Assessment Limitation and Portability Transfer](https://floridarevenue.com/property/Documents/pt112.pdf).
-6. [Broward County Property Appraiser: portability downsizing and upsizing formulas](https://bcpa.net/FrequentlyAskedQuestions.asp).
-7. [Broward County Property Appraiser: homestead eligibility, applications and filing deadlines](https://bcpa.net/homestead.asp).
-8. [IRS: Topic 701, Sale of Your Home](https://www.irs.gov/taxtopics/tc701).
-9. [IRS: Publication 523, Selling Your Home](https://www.irs.gov/publications/p523).
+1. [Florida Realtors — The Most Misunderstood Form in the Library?](https://www.floridarealtors.org/news-media/news-articles/2023/06/most-misunderstood-form-library), June 2023; reviewed October 21, 2026.
+2. [Florida Department of Revenue — Save Our Homes Assessment Limitation and Portability Transfer, PT-112](https://floridarevenue.com/property/Documents/pt112.pdf).
+3. [Florida Department of Revenue — Property Tax Information for Homestead Exemption, PT-113](https://floridarevenue.com/property/Documents/pt113.pdf).
+4. [Florida Department of Revenue — Additional Homestead Exemption Adjustment, revised January 2026](https://floridarevenue.com/property/Documents/cpi_homestead_exemption.pdf).
+5. [Florida Department of Revenue — Can I keep my homestead exemption if I move?](https://floridarevenue.com/faq/Pages/FAQDetails.aspx?FAQID=1641&IsDlg=1).
+6. [Florida Statutes §193.155(8) — Homestead assessments and portability](https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0100-0199/0193/Sections/0193.155.html). Apply the provisions effective for the relevant tax roll.
+7. [Broward County Property Appraiser — Frequently Asked Questions, estimating first-year taxes](https://bcpa.net/FrequentlyAskedQuestions.asp).
+8. [Broward County Property Appraiser — Homestead filing and 2027 deadlines](https://bcpa.net/homestead.asp).
+9. [Broward County Property Appraiser — Frequently Asked Questions, portability eligibility window](https://bcpa.net/FrequentlyAskedQuestions.asp).
