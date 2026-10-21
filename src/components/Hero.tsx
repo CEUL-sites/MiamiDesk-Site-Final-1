@@ -54,16 +54,16 @@ export function Hero() {
           <div className="seller-hero-primary">
             <p className="seller-hero-eyebrow">Carlos Uzcategui <span aria-hidden="true">/</span> South Florida</p>
             <h1 id="seller-hero-heading" className="seller-hero-heading">
-              Your Home Deserves<br className="hero-desktop-break" /> <span>More Than a Listing.</span>
+              Your next move starts <span>with a clear selling plan.</span>
             </h1>
             <p className="seller-hero-summary">
-              We align pricing, presentation and buyer-agent outreach with your priorities—and negotiate the terms of your next move.
+              Get Carlos’s personal guidance on pricing, preparing your home, and reaching potential buyers.
             </p>
-            <p className="seller-hero-credentials">Licensed since 2001 · United Realty Group · EN / ES</p>
+            <p className="seller-hero-credentials">Licensed since 2001 · United Realty Group · English / Español</p>
           </div>
-          <div id="list-here" className="seller-hero-action" aria-label="Request a private property strategy">
-            <h2>Start with your property.</h2>
-            <HeroSellerForm compact progressiveDesktop />
+          <div id="list-here" className="seller-hero-action" aria-label="Request a seller consultation">
+            <h2>Let’s start with your property.</h2>
+            <HeroSellerForm compact progressiveDesktop consultation />
             <details className="seller-priority-disclosure"><summary id="seller-priority-heading">What matters most to you?</summary>
             <div className="seller-priority-tabs" role="tablist" aria-labelledby="seller-priority-heading">
               {PRIORITIES.map((priority, index) => (

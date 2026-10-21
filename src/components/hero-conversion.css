@@ -106,26 +106,33 @@
 .seller-hero-layout { min-height: 580px; max-width: 1440px; padding-block: 48px; grid-template-columns: minmax(0,1.25fr) minmax(320px,.8fr); gap: 64px; }
 .seller-hero-heading { font-size: clamp(42px,4.7vw,68px); line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
 .seller-hero-action { margin-top: 0; padding: 24px; border-radius: 2px; }
-.seller-hero-action h2 { font-size: 26px; margin-bottom: 18px; }
+.seller-hero-action h2 { font-size: 26px; margin-bottom: 14px; text-wrap: balance; }
 .seller-priority-disclosure { border-top: 1px solid #c9cecb; margin-top: 12px; padding-top: 10px; }
 .seller-priority-disclosure summary { cursor: pointer; font-size: 13px; padding-block: 8px; }
 .seller-priority-content { padding-bottom: 0; }
 .seller-hero-foot { padding-block: 12px; }
 @media (max-width: 1023px) {
- .seller-hero-layout { grid-template-columns: 1fr; gap: 20px; padding: 28px 24px; min-height: 0; }
+ .seller-hero-layout { grid-template-columns: 1fr; gap: 18px; padding: 24px; min-height: 0; }
  .seller-hero-primary { max-width: 640px; }
  .seller-hero-action { max-width: 640px; width: 100%; }
  .seller-hero-background { height: 100%; object-position: 65% center; }
  .seller-hero-scene::before { background: linear-gradient(90deg,#071722f2,#071722b8); }
- .seller-hero-heading { font-size: clamp(36px,7vw,58px); }
- .seller-hero-summary { margin-top: 16px; }
+ .seller-hero-heading { font-size: clamp(32px,6vw,52px); line-height: 1.08; }
+ .seller-hero-heading > span { display: inline; }
+ .seller-hero-summary { margin-top: 12px; line-height: 1.55; }
  .seller-hero-credentials { font-size: 11px; margin-top: 12px; }
  .seller-hero-links { margin-top: 18px; }
  .seller-hero-image-caption { position: static; padding: 0 24px 14px; font-size: 10px; }
 }
 @media (max-width: 480px) {
  .hero-desktop-break { display: none; }
- .seller-hero-heading { font-size: 38px; }
+ .seller-hero-heading { font-size: clamp(30px,8.2vw,38px); }
+ .seller-hero-eyebrow { margin-bottom: 10px; }
+ .seller-hero-summary { font-size: 14px; }
+ .seller-hero-credentials { line-height: 1.6; margin-top: 10px; }
  .seller-hero-primary-cta { width: 100%; }
- .seller-hero-action { padding: 20px; }
+ .seller-hero-action { padding: 18px; }
+ .seller-hero-action h2 { font-size: 23px; margin-bottom: 12px; }
+ .seller-hero-form .hero-cta-main { min-height: 48px; }
+ .seller-hero-form .seller-form-microcopy { line-height: 1.5; margin-top: 10px; }
 }
