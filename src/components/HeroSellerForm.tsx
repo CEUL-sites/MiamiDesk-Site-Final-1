@@ -100,7 +100,7 @@ const COPY = {
   },
 } as const;
 
-export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false, valuation = false, initialAddress = "", sourcePage = `hero-${lang}` }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean; valuation?: boolean; initialAddress?: string; sourcePage?: string }) {
+export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false, valuation = false, consultation = false, initialAddress = "", sourcePage = `hero-${lang}` }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean; valuation?: boolean; consultation?: boolean; initialAddress?: string; sourcePage?: string }) {
   const valuationSubmit = lang === "es" ? "Solicitar revisión del valor de mi casa" : "Request My Home Value Review";
   const t = valuation ? {
     ...COPY[lang],
@@ -110,6 +110,11 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
     successTag: lang === "es" ? "Solicitud de valoración recibida" : "Home Value Review Requested",
     successTitle: lang === "es" ? "Carlos revisará el valor de su propiedad." : "Carlos will review your property's value.",
     successBody: lang === "es" ? "Carlos revisará su propiedad y se pondrá en contacto para hablar sobre su valoración y sus próximos pasos." : "Carlos will review your property and contact you to discuss its pricing and your next steps.",
+  } : consultation && compact && lang === "en" ? {
+    ...COPY.en,
+    compactContinue: "Continue",
+    compactSubmit: "Request My Seller Consultation",
+    compactPromise: "Carlos reviews your property and contacts you to discuss next steps. No listing commitment.",
   } : COPY[lang];
   const addressId = useId();
   const initial = {
