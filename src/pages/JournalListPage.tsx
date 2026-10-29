@@ -8,6 +8,7 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
 import { getAllPosts } from '../lib/markdown';
+import { FEATURED_JOURNAL_SLUG, getJournalListPosts } from './journalListModel';
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -16,7 +17,7 @@ function formatDate(iso: string): string {
 }
 
 export default function JournalListPage() {
-  const posts = getAllPosts();
+  const posts = useMemo(() => getJournalListPosts(getAllPosts()), []);
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -227,9 +228,16 @@ export default function JournalListPage() {
 
                   <div className="flex flex-1 flex-col p-6 sm:p-7">
                     {/* Category badge */}
-                    <span className="inline-block self-start rounded-md border border-gold/30 bg-gold/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold">
-                      {post.category || "Market Insight"}
-                    </span>
+                    <div className="flex flex-wrap items-center gap-2">
+                      {post.slug === FEATURED_JOURNAL_SLUG && (
+                        <span className="rounded-md bg-navy px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-white">
+                          Featured
+                        </span>
+                      )}
+                      <span className="inline-block self-start rounded-md border border-gold/30 bg-gold/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold">
+                        {post.category || "Market Insight"}
+                      </span>
+                    </div>
 
                     {/* Title */}
                     <h2 className="mt-3.5 font-serif text-xl leading-snug text-navy-deep group-hover:text-gold-deep transition-colors">
