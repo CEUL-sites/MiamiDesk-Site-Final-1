@@ -23,9 +23,9 @@ export default function JournalListPage() {
 
   const categories = useMemo(() => {
     const set = new Set<string>();
-    posts.forEach(p => { if (p.category) set.add(p.category); });
+    getAllPosts().forEach(p => { if (p.category) set.add(p.category); });
     return ["All", ...Array.from(set)];
-  }, [posts]);
+  }, []);
 
   const filteredPosts = useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
