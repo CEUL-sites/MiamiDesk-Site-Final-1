@@ -13,9 +13,12 @@ export const handler: Handler = async (event: HandlerEvent) => {
   if (event.queryStringParameters?.check === 'delivery') {
     const retry = rateLimit(event, 'hubspot-delivery-status', 5, 60_000);
     if (retry !== null) return { statusCode: 429, headers: { ...headers, 'Retry-After': String(retry) }, body: '{}' };
+    let phase = 'lambda_context';
     try {
       connectLambda(event as HandlerEvent & Parameters<typeof connectLambda>[0]);
+      phase = 'store_configuration';
       const store = inquiryStore();
+      phase = 'store_read';
       const [pending, done] = await Promise.all([
         store.list({ prefix: 'pending/' }), store.list({ prefix: 'done/' }),
       ]);
@@ -27,8 +30,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
         needsReview: jobs.some(j => j?.status === 'review'),
         upstreamStatusCodes: codes,
       };
-    } catch {
-      state.delivery = { storage: 'unavailable' };
+    } catch (error) {
+      state.delivery = { storage: 'unavailable', phase, errorType: error instanceof Error ? error.name : 'UnknownError', lambdaContextPresent: typeof (event as HandlerEvent & { blobs?: string }).blobs === 'string' };
     }
   }
   return { statusCode: 200, headers, body: JSON.stringify(state) };
