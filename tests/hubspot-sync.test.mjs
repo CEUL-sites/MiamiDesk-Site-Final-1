@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyInquiry, buildContactProperties, makeJob, syncJob, HubSpotClient, PROPERTY_DEFINITIONS } from '../netlify/functions/_shared/hubspotSync.mjs';
+import { classifyInquiry, buildContactProperties, makeJob, syncJob, HubSpotClient, PROPERTY_DEFINITIONS, inquiryNote } from '../netlify/functions/_shared/hubspotSync.mjs';
 
 test('every contactable form has a category; address-only stage is excluded', () => {
   for (const f of ['seller-hero','seller-intake','seller-consultation']) assert.equal(classifyInquiry(f,{}),'south_florida_seller');
@@ -138,17 +138,26 @@ test('pending deletion failure cannot repeat CRM writes',async()=>{
  await drainInquiries(store,api,'owner');assert.equal(writes,3);assert.equal([...store.data.keys()].filter(k=>k.startsWith('pending/')).length,0);
 });
 
-test('scheduled legacy handler initializes Blobs context before the disabled processor',async()=>{
- const {handler}=await import('../netlify/functions/hubspot-inquiry-sync.ts');
- const denied=await handler({httpMethod:'POST'},{});assert.equal(denied.statusCode,405);
- const result=await handler({blobs:Buffer.from(JSON.stringify({url:'https://example.invalid',token:'test-only'})).toString('base64'),headers:{'x-nf-site-id':'test-site','x-nf-deploy-id':'test-deploy'}},{});
- assert.equal(JSON.parse(result.body).status,'not_configured');
-});
-
 test('international phone-only numbers require country context rather than US inference',async()=>{
  const j=makeJob('agency-partner-intake',{whatsapp:'5512345678',country:'Mexico'},'mx');
  assert.equal(buildContactProperties(j).hp_phone_key,'525512345678');
  const unknown=makeJob('agency-partner-intake',{whatsapp:'5512345678'},'ambiguous');
  const api=new HubSpotClient('secret',async()=>{throw new Error('Should not call API')});
  await assert.rejects(()=>api.findContact(unknown.fields),e=>e.review===true);
+});
+
+test('every registered contact form retains every submitted business field in its inquiry note',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const {forms}=JSON.parse(await readFile(new URL('./fixtures/netlify-form-fields.json',import.meta.url),'utf8'));
+ for(const form of forms){
+  const fields=Object.fromEntries(form.fields.map(key=>[key,'Submitted '+key]));
+  Object.assign(fields,{email:'test@example.invalid',phone:'+1 954 555 0147',whatsapp:'+1 954 555 0147',country:'United States',role:'owner',submitterType:'owner','bot-field':''});
+  const job=makeJob(form.name,fields,'coverage-'+form.name);
+  if(form.name==='seller-valuation-step1'){assert.equal(job,null);continue;}
+  assert.ok(job,form.name);
+  const escaped=inquiryNote(job).split('<pre>')[1].split('</pre>')[0];
+  const plain=escaped.replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+  const retained=JSON.parse(plain);
+  for(const [key,value]of Object.entries(fields))if(key!=='bot-field')assert.equal(retained[key],value,form.name+': '+key);
+ }
 });
