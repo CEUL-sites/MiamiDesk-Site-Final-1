@@ -1,22 +1,19 @@
-import type { Handler, HandlerEvent } from '@netlify/functions';
-import { connectLambda } from '@netlify/blobs';
+import type { HandlerEvent } from '@netlify/functions';
 import { syncConfigured, inquiryStore } from './_shared/hubspotQueue.mjs';
 import { rateLimit } from './_shared/requestGuard';
 
-export const handler: Handler = async (event: HandlerEvent) => {
+export default async (request: Request) => {
   const headers = { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' };
-  if (event.httpMethod !== 'GET') return { statusCode: 405, headers, body: '{}' };
+  if (request.method !== 'GET') return new Response('{}', { status: 405, headers });
   const state: Record<string, unknown> = {
     configured: syncConfigured(), processing: 'scheduled', marketingEnrollment: false,
   };
   // Optional operational check: no contact data, submission IDs, or credentials.
-  if (event.queryStringParameters?.check === 'delivery') {
-    const retry = rateLimit(event, 'hubspot-delivery-status', 5, 60_000);
-    if (retry !== null) return { statusCode: 429, headers: { ...headers, 'Retry-After': String(retry) }, body: '{}' };
-    let phase = 'lambda_context';
+  if (new URL(request.url).searchParams.get('check') === 'delivery') {
+    const retry = rateLimit({ headers: Object.fromEntries(request.headers) } as HandlerEvent, 'hubspot-delivery-status', 5, 60_000);
+    if (retry !== null) return new Response('{}', { status: 429, headers: { ...headers, 'Retry-After': String(retry) } });
+    let phase = 'store_configuration';
     try {
-      connectLambda(event as HandlerEvent & Parameters<typeof connectLambda>[0]);
-      phase = 'store_configuration';
       const store = inquiryStore();
       phase = 'store_read';
       const [pending, done] = await Promise.all([
@@ -31,8 +28,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
         upstreamStatusCodes: codes,
       };
     } catch (error) {
-      state.delivery = { storage: 'unavailable', phase, errorType: error instanceof Error ? error.name : 'UnknownError', lambdaContextPresent: typeof (event as HandlerEvent & { blobs?: string }).blobs === 'string' };
+      state.delivery = { storage: 'unavailable', phase, errorType: error instanceof Error ? error.name : 'UnknownError' };
     }
   }
-  return { statusCode: 200, headers, body: JSON.stringify(state) };
+  return new Response(JSON.stringify(state), { status: 200, headers });
 };
