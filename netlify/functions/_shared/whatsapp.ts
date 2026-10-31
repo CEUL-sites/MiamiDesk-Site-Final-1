@@ -40,7 +40,7 @@ export async function sendWhatsAppAlert(
     `&text=${encodeURIComponent(message)}&apikey=${encodeURIComponent(apikey)}`;
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
     const body = (await res.text()).trim();
     const lower = body.toLowerCase();
     // Success bodies say the message was queued/sent; error bodies (still HTTP
