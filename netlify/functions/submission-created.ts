@@ -3,9 +3,8 @@ import { classifyInquiry } from "./_shared/hubspotSync.mjs";
 import { enqueueSubmission } from "./_shared/hubspotQueue.mjs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
 import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
-import { sendWhatsAppAlert } from "./_shared/whatsapp";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
-import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
+import { scoreLead, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 
 // Seller forms whose leads enter the automated nurture sequence
@@ -15,10 +14,8 @@ const NURTURE_FORMS = new Set(["seller-intake", "seller-hero", "seller-consultat
 // Env var names — set these in Netlify → Site settings → Environment variables.
 // GOOGLE_SHEETS_WEBHOOK_URL  — Google Apps Script web app URL (doPost webhook)
 // RESEND_API_KEY             — Resend API key for email notifications
-// CALLMEBOT_APIKEY           — CallMeBot API key for WhatsApp notifications
 const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "";
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
-const CALLMEBOT_APIKEY = process.env.CALLMEBOT_APIKEY ?? "";
 const TO_EMAIL = "contact@carlosre.com";
 const FROM_EMAIL = process.env.RESEND_FROM ?? "leads@homesprofessional.com";
 
@@ -125,7 +122,7 @@ export default async (request: Request) => {
     // doesn't block the email here (and never produces a duplicate Sheets row).
     const alertKey = dedupKey(email, phone);
     let sheetsOk = false;   // true once a Sheets row exists for this lead (this run or the backup)
-    let alerted = false;    // true once Carlos was actually alerted (this run or the backup)
+    let alerted = false;    // true once the email notification was delivered
 
     // ── 1. Google Sheets via Apps Script webhook ─────────────────────────
     if (await wasAlerted(alertKey, "sheets")) {
@@ -168,7 +165,7 @@ export default async (request: Request) => {
       console.error("GOOGLE_SHEETS_WEBHOOK_URL is not set — submission not logged to Sheets.");
     }
 
-    // ── 2 & 3. Email + WhatsApp alert to Carlos (deduped together) ────────
+    // ── 2. Email backup alert to Carlos (independent of CRM sync) ──────────
     if (await wasAlerted(alertKey, "alert")) {
       console.log("submission-created: Carlos already alerted by backup notifier — skipping email/WhatsApp", alertKey);
       alerted = true;
@@ -214,16 +211,7 @@ export default async (request: Request) => {
         console.error("RESEND_API_KEY is not set — email notification skipped.");
       }
 
-      // ── 3. WhatsApp notification via CallMeBot ─────────────────────────
-      // CallMeBot returns HTTP 200 even on rejection, so sendWhatsAppAlert
-      // inspects the body and reports the true outcome (logged for diagnosis).
-      {
-        const wa = await sendWhatsAppAlert(formatLeadWhatsApp(scorable, scored, marketContext), CALLMEBOT_APIKEY);
-        if (wa.ok) alerted = true;
-        else if (CALLMEBOT_APIKEY) console.error("submission-created CallMeBot:", wa.detail);
-      }
-
-      // Only mark the alert channel if something actually reached Carlos, so a
+            // Only mark the email alert channel if an email was accepted, so a
       // total failure here doesn't suppress a later retry.
       if (alerted) await markAlerted(alertKey, "alert");
     }

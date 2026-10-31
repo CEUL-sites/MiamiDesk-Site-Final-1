@@ -13,7 +13,7 @@ export async function enqueueSubmission(payload,store=inquiryStore()) {
  await store.setJSON('pending/'+job.key,job,{onlyIfNew:true});
  return {status:'queued',key:job.key};
 }
-export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT_OWNER_ID')) {
+export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT_OWNER_ID'),notifySynced) {
  if(!api&&!syncConfigured())return {status:'not_configured',processed:0};
  const deadline=Date.now()+20_000;
  api ||= new HubSpotClient(env('HUBSPOT_PRIVATE_APP_TOKEN'),fetch,undefined,deadline);
@@ -32,13 +32,27 @@ export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT
    const save=j=>store.setJSON(blob.key,j);
    try{
     await syncJob(job,api,save,owner);
+    // WhatsApp is intentionally gated on a completed HubSpot contact, note, and task.
+    // Persist its delivery checkpoint before marking the CRM job done so a retry
+    // cannot re-create CRM activities or normally re-send the notification.
+    if(notifySynced && !job.whatsappSentAt){
+      let delivery;
+      try{delivery=await notifySynced(job);}
+      catch(e){delivery={ok:false,detail:e instanceof Error?e.message:'unknown error'};}
+      if(!delivery?.ok){
+        const e=new Error('WhatsApp delivery not confirmed: '+String(delivery?.detail||'unknown').slice(0,160));
+        e.notificationFailure=true;throw e;
+      }
+      job.whatsappSentAt=new Date().toISOString();
+      await save(job);
+    }
     await store.setJSON('done/'+job.key,job);await store.delete(blob.key);
    }catch(e){
-    job.attempts++;job.lastError=e.message;job.status=e.review||e.status===400?'review':'pending';
+    job.attempts++;job.lastError=e.message;job.status=e.review||e.status===400?'review':job.status==='synced'?'synced':'pending';
     job.nextAttemptAt=Date.now()+Math.min(3600_000,60_000*2**Math.min(job.attempts,6));
     await save(job);failed++;
     // No raw lead values or credential in logs. Review jobs are retained for reconciliation.
-    console.error('HubSpot inquiry needs attention',{key:job.key,status:job.status,error:e.message});
+    console.error(e.notificationFailure?'WhatsApp notification will retry':'HubSpot inquiry needs attention',{key:job.key,status:job.status,error:e.message});
    }
    processed++;
   }

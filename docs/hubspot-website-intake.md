@@ -94,6 +94,32 @@ storage and exposes only operational flags/status codes. It is rate limited and
 does not expose contacts, submission IDs, or credentials. Validate activation with
 a marked live submission and an independent HubSpot contact/note/task read-back.
 
+## Owner WhatsApp notifications
+
+New completed, contactable inquiries generate one WhatsApp notification to Carlos's
+USA number **+1 954-865-6622**, using the existing `CALLMEBOT_APIKEY`
+configured in Netlify Functions and the server-side CallMeBot adapter. No HubSpot
+workflow, credits, marketing enrollment, or Make.com automation is required.
+
+**Delivery gate:** `hubspot-inquiry-sync` only sends after successful HubSpot
+contact create/match/update, complete inquiry note, and assigned follow-up task.
+The message contains category, name, email, phone, location, form, referral-client
+name if submitted, source, and an authenticated HubSpot contact URL. Email and
+Google Sheets are independent backups and may be sent before CRM synchronization.
+
+One submission ID produces one queue job and one WhatsApp send checkpoint. If
+CallMeBot rejects a message, is unconfigured, or times out, the CRM job remains
+queued for exponential-backoff notification retries **without recreating** the
+contact, note or task. Delivery acceptance is not the same as confirmation that
+the phone displayed the notification. Rare duplicate alerts remain possible if
+the remote provider accepts a message immediately before a worker crash and
+the local checkpoint has not yet been saved. CallMeBot is a third-party
+unofficial WhatsApp bridge; use the CRM record for full details.
+
+Excluded: incomplete address-only `seller-valuation-step1`, unknown forms,
+and non-contactable submissions. Every new submission is evaluated independently,
+including a repeat inquiry by an existing HubSpot contact.
+
 ## Recovery and limits
 
 Delivery is asynchronous, ordinarily on the next scheduled invocation, not a browser
