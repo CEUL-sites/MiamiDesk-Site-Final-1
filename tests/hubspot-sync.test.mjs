@@ -161,3 +161,56 @@ test('every registered contact form retains every submitted business field in it
   for(const [key,value]of Object.entries(fields))if(key!=='bot-field')assert.equal(retained[key],value,form.name+': '+key);
  }
 });
+
+
+test('WhatsApp alert runs only after the contact, note, and task were saved in HubSpot; failed delivery retries without duplicate CRM writes',async()=>{
+ const {drainInquiries,enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore();
+ const payload={id:'whatsapp-verification',form_name:'referral-intake',data:{licenseeName:'Test Partner',email:'test-partner@example.invalid',phone:'+19545550101',clientName:'Client Example'}};
+ await enqueueSubmission(payload,store);
+ const counts={contact:0,note:0,task:0,alert:0};
+ const api={
+  findContact:async()=>null,
+  createContact:async()=>{counts.contact++;return{id:'12345'};},
+  updateContact:async()=>{throw new Error('No duplicate contact update expected');},
+  createNote:async()=>{counts.note++;return{id:'note-1'};},
+  createTask:async()=>{counts.task++;return{id:'task-1'};},
+ };
+ let whatsappAvailable=false;
+ const notify=async job=>{
+  counts.alert++;
+  assert.equal(job.status,'synced');
+  assert.equal(job.contactId,'12345');
+  assert.equal(job.noteId,'note-1');
+  assert.equal(job.taskId,'task-1');
+  return whatsappAvailable?{ok:true,detail:'ok'}:{ok:false,detail:'temporary outage'};
+ };
+ await drainInquiries(store,api,'owner',notify);
+ const pendingKey=[...store.data.keys()].find(k=>k.startsWith('pending/'));
+ assert.ok(pendingKey,'Unsents must stay in the delivery queue');
+ assert.equal(store.data.get(pendingKey).status,'synced');
+ assert.equal(store.data.get(pendingKey).whatsappSentAt,undefined);
+ assert.deepEqual(counts,{contact:1,note:1,task:1,alert:1});
+ const pending=store.data.get(pendingKey);
+ pending.nextAttemptAt=Date.now()-1;
+ await store.setJSON(pendingKey,pending);
+ whatsappAvailable=true;
+ await drainInquiries(store,api,'owner',notify);
+ assert.equal(store.data.has(pendingKey),false);
+ const done=[...store.data.entries()].find(([k])=>k.startsWith('done/'));
+ assert.ok(done?.[1].whatsappSentAt,'Successful WhatsApp delivery must be checkpointed');
+ assert.deepEqual(counts,{contact:1,note:1,task:1,alert:2});
+ await drainInquiries(store,api,'owner',notify);
+ assert.deepEqual(counts,{contact:1,note:1,task:1,alert:2},'Completed submission must never be resent');
+});
+
+test('address-only valuation step is not queued for a WhatsApp alert',async()=>{
+ const {drainInquiries,enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore();
+ await enqueueSubmission({id:'partial',form_name:'seller-valuation-step1',data:{propertyAddress:'Test Ave'}},store);
+ let alerts=0;
+ const api={findContact:async()=>{throw new Error('No CRM entry expected')}};
+ await drainInquiries(store,api,'owner',async()=>{alerts++;return{ok:true}});
+ assert.equal(alerts,0);
+ assert.equal([...store.data.keys()].filter(k=>k.startsWith('done/')||k.startsWith('pending/')).length,0);
+});
