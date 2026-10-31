@@ -887,10 +887,10 @@ export default function AgentsPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-6 text-center md:mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Referral Desk</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Submit a South Florida cross-border referral.</h2>
+              <h2 className="mt-3 font-serif text-3xl text-white">Agent registration and client referrals.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                For agencies, developers, and listing agents. Submit a portfolio or a single listing for review.
-                Carlos reviews every inquiry personally and responds with partnership terms.
+                Register your professional profile or submit an authorized client referral.
+                Carlos reviews each inquiry personally; client details remain linked to the referring agent.
               </p>
             </div>
             <ReferralIntakeForm />
