@@ -1,25 +1,22 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
 import { dedupKey, markAlerted } from "./_shared/leadDedup";
-import { sendWhatsAppAlert } from "./_shared/whatsapp";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { corsHeaders as buildCorsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
-import { scoreLead, formatLeadWhatsApp, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
+import { scoreLead, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 
 // Synchronous backup notifier. The forms call this directly (keepalive) at the
 // same time they POST to Netlify Forms, so a lead is delivered even if Netlify
 // drops or spam-files the submission and never fires submission-created.
 // Delivers the same three channels as submission-created: Google Sheets, email
-// (Resend), and WhatsApp (CallMeBot). Writes a dedup marker on a successful
-// alert so submission-created won't notify Carlos a second time.
+// (Resend). WhatsApp is sent only by the post-HubSpot-sync worker. Writes a
+// dedup marker on a successful email so submission-created will not duplicate it.
 //
 // Env vars (Netlify → Site settings → Environment variables):
 //   GOOGLE_SHEETS_WEBHOOK_URL — Apps Script web app URL
 //   RESEND_API_KEY            — Resend API key for email
-//   CALLMEBOT_APIKEY          — CallMeBot API key for WhatsApp
 const SHEET_WEBHOOK = process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "";
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
-const CALLMEBOT_KEY = process.env.CALLMEBOT_APIKEY ?? "";
 const TO_EMAIL = "contact@carlosre.com";
 const FROM_EMAIL = process.env.RESEND_FROM ?? "leads@homesprofessional.com";
 
@@ -147,7 +144,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
   const results: Record<string, string> = {};
   const alertKey = dedupKey(lead.email, lead.phone);
-  let alerted = false; // true once an actual alert (email/WhatsApp) reaches Carlos
+  let alerted = false; // true only when Resend accepts an email to Carlos
 
   // ── 1. Google Sheets via Apps Script webhook ────────────────────────────
   if (SHEET_WEBHOOK) {
@@ -210,14 +207,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
   } else {
     results.email = "not configured";
   }
-
-  // ── 3. WhatsApp notification via CallMeBot ──────────────────────────────
-  // CallMeBot returns HTTP 200 even on rejection, so sendWhatsAppAlert inspects
-  // the body and reports the true outcome (logged for diagnosis).
-  const wa = await sendWhatsAppAlert(formatLeadWhatsApp(lead, scored, marketContext), CALLMEBOT_KEY);
-  results.whatsapp = wa.detail;
-  if (wa.ok) alerted = true;
-  else if (CALLMEBOT_KEY) console.error("lead-notify CallMeBot:", wa.detail);
 
   // Only suppress the primary path's alert if one actually reached Carlos.
   if (alerted) {
