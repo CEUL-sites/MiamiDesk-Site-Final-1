@@ -1,6 +1,32 @@
 # HomesProfessional website → HubSpot intake
 
-Prepared for HubSpot account 149513532 and the existing Netlify miamidesk project.
+Active in HubSpot account 149513532 and the existing Netlify miamidesk project.
+
+## Verified production status — October 31, 2026
+
+The runtime credential, ten custom contact properties, and one-minute delivery schedule
+are configured. Production deploy `6ae5a025316f424aa22e728f` published commit
+`fb412506e4ae23853fb719961be45224adf947f9` at 08:02 UTC.
+
+Live seller and buyer submissions were accepted by the website and independently read
+back from HubSpot. All 27 captured seller fields and all 29 captured buyer fields matched
+their complete inquiry notes. Each contact has one associated note and one follow-up
+task assigned to Carlos. Delivery diagnostics reported a clear queue and no review holds.
+The test names explicitly identify them as Website Seller/Buyer Verification.
+
+| Test | Contact ID | Note ID | Task ID |
+| --- | --- | --- | --- |
+| Seller | 908603395301 | 536694657245 | 536701615300 |
+| Buyer | 908602618070 | 536691101903 | 536626143427 |
+
+The saved **Website Inquiries** contact view (162477524) filters on Website Inquiry
+Categories. Core inquiry fields appear as contact properties; the complete submission,
+including additional business fields and attribution, appears in the associated note.
+
+The form receiver, worker, and diagnostic endpoint use modern Request/Response
+functions. Do not add `connectLambda`: its legacy context omits the uncached endpoint
+needed for strongly consistent queue reads. Keep strong consistency and checkpoints.
+Marketing enrollment and seller nurture remain disabled.
 
 ## Coverage
 
@@ -24,8 +50,8 @@ own integration and are outside the website's Netlify forms.
 ## Record changes
 
 Each completed contactable submission is retained in Netlify Forms and a durable
-HubSpot delivery queue. A scheduled processor runs every minute. Enable only after
-installing a server credential and verifying the ten-field custom schema. It creates or matches
+HubSpot delivery queue. A scheduled processor runs every minute. Production activation follows installation of a server credential and verification of
+the ten-field custom schema. It creates or matches
 one contact, adds the category to a multi-category field, appends a submission note,
 and creates a review task assigned to Carlos (verified owner ID 100759119).
 
@@ -41,39 +67,32 @@ not cancel an existing unsubscribe or authorize other marketing channels. Names,
 phones, and message values are not inferred. Unknown forms and address-only steps
 are excluded. Conflicting email/phone identities go to manual review.
 
-## Activation (remaining prerequisite)
+## Runtime configuration and credential replacement
 
-The ChatGPT HubSpot connector is not a website runtime credential. Create a dedicated
-HubSpot private app for HomesProfessional Website Intake, in account 149513532.
-Grant `crm.objects.contacts.read`, `crm.objects.contacts.write`,
-`crm.schemas.contacts.read`, `crm.schemas.contacts.write`, and
-`crm.objects.owners.read` (owner verification). Use the HubSpot
-scope guidance for notes/tasks (these CRM activity endpoints use contact access).
-Do not grant marketing, campaign, email-send, or company-write scopes.
+The ChatGPT HubSpot connector is separate from the website runtime credential.
+The dedicated **HomesProfessional Website Inquiry CRM** HubSpot service key is
+stored in Netlify production, Functions scope, as a secret. Its contact read/write
+permissions support contact matching and associated note/task creation. The ten
+custom properties were verified separately; runtime schema-write permission is not needed.
 
-The one-time setup script accepts the credential on stdin and checks Carlos's owner
-before creating only the missing `hp_` contact properties:
-
-`node scripts/setup-hubspot-inquiries.mjs`
-
-Feed stdin securely from the executing session; do not paste the token into chat,
-place it in a command argument, or commit it. The script verifies schema mismatches
-rather than modifying existing definitions silently.
-
-Set these in Netlify's miamidesk project, production context, Functions scope:
-
-| Variable | Value |
+| Variable | Production value |
 | --- | --- |
-| HUBSPOT_PRIVATE_APP_TOKEN | Dedicated private-app token, stored as a secret |
+| HUBSPOT_PRIVATE_APP_TOKEN | Dedicated HubSpot service key, stored as a secret |
 | HUBSPOT_OWNER_ID | 100759119 |
-| HUBSPOT_SYNC_ENABLED | true, only after schema verification |
-| SELLER_NURTURE_ENABLED | false; leave disabled pending separate marketing authorization |
+| HUBSPOT_SYNC_ENABLED | true |
+| SELLER_NURTURE_ENABLED | false, pending separate marketing authorization |
 
-Redeploy so the function runtime receives updated settings. GET
-`/.netlify/functions/hubspot-status` reports configuration only, not successful delivery.
-Submit clearly marked test inquiries with a controlled test address; check contact,
-category, complete note, assigned task and repeated-submission behavior in HubSpot.
-No live test submissions were created during code preparation.
+Never paste a credential into chat, put it in command arguments, or commit it.
+For a replacement environment, verify the schema before enabling delivery.
+The one-time setup script (`node scripts/setup-hubspot-inquiries.mjs`) requires
+separate schema permissions and accepts its credential securely on stdin.
+
+Redeploy after changing runtime settings. GET
+`/.netlify/functions/hubspot-status` reports configuration, not delivery proof.
+GET `/.netlify/functions/hubspot-status?check=delivery` additionally checks queue
+storage and exposes only operational flags/status codes. It is rate limited and
+does not expose contacts, submission IDs, or credentials. Validate activation with
+a marked live submission and an independent HubSpot contact/note/task read-back.
 
 ## Recovery and limits
 
@@ -86,12 +105,15 @@ Review records must be reconciled against the contact timeline before resetting 
 Inspect Netlify function logs for summary failures; logs omit raw lead values and tokens.
 
 This is not a historical import. Existing Netlify submissions can be reconciled separately
-with explicit selection and duplicate checks. Existing CRM saved views/segments are not
-created automatically; filter contacts on Website Inquiry Categories to inspect them.
+with explicit selection and duplicate checks. The saved Website Inquiries view is already available; filter contacts on Website
+Inquiry Categories when creating another view.
 
 ## Validation
 
 Node tests cover categories, exclusion of address-only stages, complete submission
 retention, alias fields, preservation of existing contact context, partial failure
 recovery, ambiguous identities, request throttling, uncertain writes, and queue dedup.
-CRM delivery and secret configuration still require live activation checks.
+Hosted-runtime regression tests cover form enqueueing, worker leases, and diagnostic
+strong reads. Field-retention fixtures cover all ten registered contact forms. GitHub
+CI passed 70 tests, type checking, the production build, and search coverage checks.
+Live seller/buyer delivery was verified as recorded above.
