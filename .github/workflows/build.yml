@@ -38,6 +38,7 @@ jobs:
       - name: Test lead safeguards and native notifications
         run: |
           npm test
+          node --import tsx --test tests/hubspot-sync.test.mjs tests/hubspot-runtime.test.mjs
           node --test scripts/ensure-native-lead-email.test.mjs
 
       - name: Prefetch video assets

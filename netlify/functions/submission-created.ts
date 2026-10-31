@@ -1,5 +1,4 @@
-import type { Handler, HandlerEvent } from "@netlify/functions";
-import { connectLambda, getStore } from "@netlify/blobs";
+import { getStore } from "@netlify/blobs";
 import { classifyInquiry } from "./_shared/hubspotSync.mjs";
 import { enqueueSubmission } from "./_shared/hubspotQueue.mjs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
@@ -23,10 +22,10 @@ const CALLMEBOT_APIKEY = process.env.CALLMEBOT_APIKEY ?? "";
 const TO_EMAIL = "contact@carlosre.com";
 const FROM_EMAIL = process.env.RESEND_FROM ?? "leads@homesprofessional.com";
 
-export const handler: Handler = async (event: HandlerEvent) => {
+// Modern functions retain the automatic uncached Blobs endpoint for strong reads.
+export default async (request: Request) => {
   try {
-    connectLambda(event as HandlerEvent & Parameters<typeof connectLambda>[0]);
-    const body = JSON.parse(event.body || "{}");
+    const body = await request.json();
     // Netlify wraps the submission event in { payload: { data: {...}, form_name: "..." } }
     const payload = body.payload || body;
     const fields: Record<string, string> = payload.data || {};
@@ -46,7 +45,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     const tooFast = elapsedMs !== null && elapsedMs >= 0 && elapsedMs < 1500;
     if (honeypot !== "" || tooFast) {
       console.log("submission-created: rejected as spam", { honeypotFilled: honeypot !== "", elapsedMs });
-      return { statusCode: 200, body: "OK" };
+      return new Response("OK", { status: 200 });
     }
 
     // Persist complete inquiry before optional notification channels.
@@ -285,10 +284,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
       }
     }
 
-    return { statusCode: 200, body: "OK" };
+    return new Response("OK", { status: 200 });
   } catch (err) {
     console.error("submission-created fatal error:", err);
     // Retain the failed delivery as an error rather than report a CRM queue failure as success.
-    return { statusCode: 500, body: "Submission processing failed" };
+    return new Response("Submission processing failed", { status: 500 });
   }
 };
