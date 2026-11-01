@@ -1,9 +1,9 @@
 # Agent profiles and linked client referrals
 
-Implementation prepared for HomesProfessional.com and HubSpot portal **149513532**.
-Production activation is pending creation and read-back of the six approved properties.
-Do not merge or deploy this change before those properties exist: professional writes
-include them. The current production intake remains on its previously verified version.
+Active on HomesProfessional.com and HubSpot portal **149513532**, verified November 1, 2026.
+All six approved properties were created and read back before PR #184 was merged.
+Production deploy `6ae6fa52cb4a6668d6b1121e` published commit
+`f0aeeb9de98150d58f09dce54a863f529b275578` at 08:39 UTC.
 
 ## Approved new Contact properties
 
@@ -62,26 +62,59 @@ collisions are held for review. A legacy summary alone never creates a client co
 New registrations are inquiries pending professional review, not confirmed partnerships.
 Marketing enrollment and seller nurture remain off.
 
-## Activation checks
+## Saved CRM view
 
-Create/read back the six approved properties. Configure a **Website Agents & Referrals**
-view filtered by Website Inquiry Categories containing Referral Partner or
-Agency / Developer. Include name, email, phone, company, job title, website,
-registration purpose, professional market, referral type, inventory type/count,
-and listing URL as visible columns. Keep the existing Website Inquiries view.
+[Website Agents & Referrals](https://app-eu1.hubspot.com/contacts/149513532/objects/0-1/views/162524907/list)
+is saved with Website Inquiry Categories **is known** AND Registration purpose **is known**.
+It displays 17 columns: name; registration purpose; company; job title; professional
+market; referral type; inventory type; listing count; listing URL; email; phone;
+website; owner; create date; preferred contact; language; inquiry categories.
+The professional properties appear first. The existing Website Inquiries view is retained.
+The view was reloaded and verified with the agent and agency test records; the separate
+referred buyer is excluded because it has no professional registration purpose.
 
-After merge and production deployment, submit marked agent-only, structured-client,
-and agency-listing tests through the website. Read back the standard/professional
-properties, the distinct client contact, the Contact-to-Contact association, and the
-shared note/task. Verify delivery status reports no pending jobs or review holds.
-Use controlled test aliases and reserved fictional phone numbers; no prospect outreach.
-
-## Verification before activation
+## Automated and live verification
 
 Regression tests were observed failing before the mapping/client-link fix. The
 localized form tests likewise failed before the new registration controls existed.
-The full automated test suite, hosted-runtime tests, and native notification checks
-must pass. GitHub CI supplies the complete prerender/build and search-coverage check.
-Live agent/client delivery remains unverified until the schema and production deploy
-are active. This change does not import historical submissions or modify the existing
+All 81 automated tests passed (48 site/form, 28 HubSpot/runtime, 5 native notification),
+along with type checks, build/prerender, and search coverage in GitHub CI run 41185562755.
+Three marked submissions were then sent through the production website and read back
+independently from Netlify Forms and HubSpot:
+
+| Path | Submission | Saved note fields | Result |
+| --- | --- | --- | --- |
+| Agent registration | 6ae6fbc276826dd58e2c8a24 | 41/41 matched | One agent contact, note and assigned task |
+| Structured client referral | 6ae6fbe80db500f8c5b74ee7 | 41/41 matched | Same agent reused, distinct client linked, shared note/task |
+| Agency listing review | 6ae6fc0352c85a40e1161311 | 32/32 matched | Company, role, market, inventory, count and listing URL populated |
+
+The client's phone, city, property address, budget and timeline were confirmed in
+structured CRM properties. Client country, requirement and sharing authorization are
+also preserved in the complete shared note. All three contacts and follow-up tasks
+are assigned to Carlos (owner 100759119). No duplicate agent was created.
+
+Operational status reported configured=true, synced=true, needsReview=false and no
+upstream HTTP status codes. It still reported pending=true with attempted=true.
+That flag also covers post-CRM WhatsApp delivery retries: the current worker checkpoints
+completed CRM writes before waiting for notification confirmation. The three CRM
+submissions, notes, tasks and client association above are independently verified;
+this check does not certify that the entire notification queue is empty. This change does not import historical submissions or modify the existing
 500-contact GILMAR cohort.
+
+
+## Verification records
+
+Contacts: [909229184201](https://app.hubspot.com/contacts/149513532/record/0-1/909229184201?utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search), [909036551359](https://app.hubspot.com/contacts/149513532/record/0-1/909036551359?utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search), [909225540818](https://app.hubspot.com/contacts/149513532/record/0-1/909225540818?utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search).
+
+Agent notes: [536956195064](https://app.hubspot.com/contacts/149513532/objects/0-46/views/all/list?filters=%5B%7B%22property%22%3A%22hs_object_id%22%2C%22operator%22%3A%22EQ%22%2C%22value%22%3A%22536956195064%22%7D%5D&utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search), [536956318921](https://app.hubspot.com/contacts/149513532/objects/0-46/views/all/list?filters=%5B%7B%22property%22%3A%22hs_object_id%22%2C%22operator%22%3A%22EQ%22%2C%22value%22%3A%22536956318921%22%7D%5D&utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search).
+
+Client notes: [536956195064](https://app.hubspot.com/contacts/149513532/objects/0-46/views/all/list?filters=%5B%7B%22property%22%3A%22hs_object_id%22%2C%22operator%22%3A%22EQ%22%2C%22value%22%3A%22536956195064%22%7D%5D&utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search).
+
+Agency notes: [536906776772](https://app.hubspot.com/contacts/149513532/objects/0-46/views/all/list?filters=%5B%7B%22property%22%3A%22hs_object_id%22%2C%22operator%22%3A%22EQ%22%2C%22value%22%3A%22536906776772%22%7D%5D&utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search).
+
+Agent tasks: [536956318968](https://app.hubspot.com/tasks/149513532/view/all/task/536956318968?utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search), [536950438104](https://app.hubspot.com/tasks/149513532/view/all/task/536950438104?utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search).
+
+Client tasks: [536956318968](https://app.hubspot.com/tasks/149513532/view/all/task/536956318968?utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search).
+
+Agency tasks: [536924050642](https://app.hubspot.com/tasks/149513532/view/all/task/536924050642?utm_source=app_12360546_mcp&utm_medium=ai_agent&utm_campaign=search).
+
