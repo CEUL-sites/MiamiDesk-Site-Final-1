@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AssociationFilms } from "../../components/AssociationFilms";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck } from "lucide-react";
@@ -152,6 +153,7 @@ export default function EsHomePage() {
               >
                 <HeroSellerForm lang="es" />
               </motion.div>
+              <AssociationFilms lang="es" location="es_home_hero" />
 
               {/* Trust bar — luxury glass cards */}
               <motion.div

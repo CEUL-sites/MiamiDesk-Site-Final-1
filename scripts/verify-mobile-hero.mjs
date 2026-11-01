@@ -21,8 +21,8 @@ assert.match(
   /fetchPriority="high"/,
   "the preserved property-animation poster must remain prioritized",
 );
-assert.match(hero, /Your next move starts/);
-assert.match(hero, /with a clear selling plan\./);
+assert.match(hero, /Your home\./);
+assert.match(hero, /Positioned to reach buyers\./);
 assert.match(hero, /Licensed since 2001/);
 assert.match(hero, /buyer-agent outreach/);
 assert.match(hero, /What matters most to you/);

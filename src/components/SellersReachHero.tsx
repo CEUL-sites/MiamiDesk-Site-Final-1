@@ -1,4 +1,5 @@
 import { ArrowRight, Download } from "lucide-react";
+import { AssociationFilms } from "./AssociationFilms";
 import { LEAD_MAGNETS } from "../constants";
 import { trackFunnelEvent } from "../lib/analytics";
 import "./sellers-reach-hero.css";
@@ -14,7 +15,7 @@ export function SellersReachHero() {
               A Better Sale Begins <span>Before Your Home Goes Live.</span>
             </h1>
             <p className="seller-reach-subtitle">
-              We coordinate price positioning, buyer-agent outreach and negotiation around what you keep—and what comes next.
+              We coordinate price positioning, buyer-agent outreach and negotiation around what you keep — and what comes next.
             </p>
             <div className="seller-reach-actions" data-sticky-cta-guard>
               <a
@@ -32,6 +33,7 @@ export function SellersReachHero() {
               >Explore the Selling System</a>
             </div>
             <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
+            <AssociationFilms initialFilm="broward" location="sellers_hero" tone="light" />
           </div>
           <figure className="seller-reach-image" data-sticky-cta-guard>
             <picture><source media="(max-width: 1023px)" srcSet="/images/sellers-architecture-mobile.webp" /><img

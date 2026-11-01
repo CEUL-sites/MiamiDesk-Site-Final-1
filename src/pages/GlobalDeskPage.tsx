@@ -1,4 +1,6 @@
 import "../components/global-desk-hero.css";
+import { AssociationFilms } from "../components/AssociationFilms";
+import { GlobalResearchLinks } from "../components/GlobalResearchLinks";
 import { DistributionMetrics } from "../components/DistributionMetrics";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -257,12 +259,13 @@ export default function GlobalDeskPage() {
                 <span>{lang === "es" ? "Propiedad internacional." : "International Property."}</span>{" "}
                 <span>{lang === "es" ? "Conexiones con agentes en Miami." : "Miami Agent Connections."}</span>
               </h1>
-              <p className="global-desk-hero-summary">{lang === "es" ? "Para agencias y promotores: presentamos propiedades internacionales seleccionadas a agentes de compradores del sur de Florida." : "For agencies and developers: introduce selected overseas listings to relevant South Florida buyer agents."}</p>
+              <p className="global-desk-hero-summary">{lang === "es" ? "Para propietarios, agencias y promotores: presentamos propiedades internacionales seleccionadas a agentes de compradores del sur de Florida." : "For property owners, agencies and developers: introduce selected international inventory to relevant South Florida buyer agents."}</p>
               <div className="global-desk-hero-actions">
                 <a href="#listing-request" className="global-desk-hero-primary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "private_discussion",cta_location: "hero",language: lang})}>{lang === "es" ? "Consultar su propiedad" : "Discuss Your Listing"}<ArrowRight size={18} aria-hidden="true" /></a>
                 <a href="#how-it-works" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_activation",cta_location: "hero",language: lang})}>{lang === "es" ? "Cómo funciona" : "How It Works"}</a>
               </div>
               <p className="global-desk-hero-signature">Carlos Uzcategui <span aria-hidden="true">·</span> United Realty Group</p>
+              <AssociationFilms lang={lang} location="global_desk_hero" />
             </div>
             <div className="global-desk-hero-footer">
               <p className="global-desk-hero-geography">Madrid <span aria-hidden="true">·</span> {lang === "es" ? "Latinoamérica" : "Latin America"} <ArrowRight size={14} aria-hidden="true" /> Miami</p>
@@ -275,6 +278,7 @@ export default function GlobalDeskPage() {
         <section aria-label="Network proof" className="border-b border-bone bg-white px-6 py-10 md:py-12">
           <div className="mx-auto max-w-6xl">
             <DistributionMetrics lang={lang} />
+            <GlobalResearchLinks lang={lang} />
           </div>
         </section>
 

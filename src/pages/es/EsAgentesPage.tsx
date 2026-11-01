@@ -1,6 +1,7 @@
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { ReferralIntakeForm } from "../../components/forms/ReferralIntakeForm";
 import { Helmet } from "react-helmet-async";
+import { AssociationFilms } from "../../components/AssociationFilms";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck, Download, ExternalLink } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
@@ -154,6 +155,7 @@ export default function EsAgentesPage() {
                   WhatsApp USA +1 954-865-6622
                 </a>
               </motion.div>
+              <AssociationFilms lang="es" location="es_agents_hero" />
             </motion.div>
           </div>
         </section>

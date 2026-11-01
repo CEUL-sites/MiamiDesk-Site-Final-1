@@ -1,5 +1,6 @@
 import { useRef, useState, type KeyboardEvent } from "react";
 import { ArrowRight } from "lucide-react";
+import { AssociationFilms } from "./AssociationFilms";
 import { HeroSellerForm } from "./HeroSellerForm";
 import { pushEvent } from "../lib/analytics";
 import "./hero-conversion.css";
@@ -54,12 +55,13 @@ export function Hero() {
           <div className="seller-hero-primary">
             <p className="seller-hero-eyebrow">Carlos Uzcategui <span aria-hidden="true">/</span> South Florida</p>
             <h1 id="seller-hero-heading" className="seller-hero-heading">
-              Your next move starts <span>with a clear selling plan.</span>
+              Your home. <span>Positioned to reach buyers.</span>
             </h1>
             <p className="seller-hero-summary">
-              Get Carlos’s personal guidance on pricing, preparing your home, and reaching potential buyers.
+              We align pricing, presentation and relevant buyer-agent outreach around your property. Carlos leads your strategy, from the first review through negotiation.
             </p>
             <p className="seller-hero-credentials">Licensed since 2001 · United Realty Group · English / Español</p>
+            <AssociationFilms location="home_hero" />
           </div>
           <div id="list-here" className="seller-hero-action" aria-label="Request a seller consultation">
             <h2>Let’s start with your property.</h2>

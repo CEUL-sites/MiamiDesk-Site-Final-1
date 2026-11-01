@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AssociationFilms } from "../../components/AssociationFilms";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck, ChevronRight, Download, MessageSquare, Check, Shield, FileText, Globe } from "lucide-react";
@@ -319,6 +320,7 @@ export default function EsSpainDeskPage() {
                 Descargar: Metodología de Activación MLS — PDF
               </a>
             </motion.div>
+            <AssociationFilms lang="es" location="es_global_desk_hero" />
 
             {/* Network ticker — same scrolling marquee as the homepage hero */}
             <motion.div
@@ -348,7 +350,7 @@ export default function EsSpainDeskPage() {
               className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
             >
               {[
-                { icon: Shield,     text: "Broker Licenciado en Florida" },
+                { icon: Shield,     text: "Realtor® · Licencia de Florida SL705771" },
                 { icon: FileText,   text: "Acuerdos por Escrito" },
                 { icon: BadgeCheck, text: "Usted Mantiene el Mandato" },
                 { icon: Globe,      text: "Alcance a 93.000 Agentes" },
@@ -378,7 +380,7 @@ export default function EsSpainDeskPage() {
               variants={heroItem}
               className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70"
             >
-              United Realty Group · FL SL705771 · Miami and South Florida REALTORS® · Equal Housing Opportunity
+              Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
             </motion.p>
           </motion.div>
         </section>
