@@ -160,7 +160,21 @@
         "utm_content",
         "utm_medium",
         "utm_source",
-        "utm_term"
+        "utm_term",
+        "registrationPurpose",
+        "registrationVersion",
+        "role",
+        "website",
+        "clientName",
+        "clientEmail",
+        "clientPhone",
+        "clientCountry",
+        "clientNeed",
+        "clientBudget",
+        "clientTimeline",
+        "clientLocation",
+        "clientPropertyAddress",
+        "clientSharingConsent"
       ]
     },
     {
@@ -191,7 +205,21 @@
         "utm_content",
         "utm_medium",
         "utm_source",
-        "utm_term"
+        "utm_term",
+        "registrationPurpose",
+        "registrationVersion",
+        "role",
+        "website",
+        "clientName",
+        "clientEmail",
+        "clientPhone",
+        "clientCountry",
+        "clientNeed",
+        "clientBudget",
+        "clientTimeline",
+        "clientLocation",
+        "clientPropertyAddress",
+        "clientSharingConsent"
       ]
     },
     {

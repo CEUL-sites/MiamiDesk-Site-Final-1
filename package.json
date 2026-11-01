@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "test": "node --import tsx --test tests/ticker-inventory.test.ts tests/mls-ticker.test.tsx tests/neo-embed.test.ts tests/journal-global-desk-cta.test.tsx tests/journal-list-order.test.ts tests/seller-page-layout.test.ts tests/analytics-consent.test.ts tests/netlify-form-fields.test.ts tests/production-fixes.test.tsx tests/seller-review-intro.test.tsx tests/home-value-entry.test.tsx",
+    "test": "node --import tsx --test tests/ticker-inventory.test.ts tests/mls-ticker.test.tsx tests/neo-embed.test.ts tests/journal-global-desk-cta.test.tsx tests/journal-list-order.test.ts tests/seller-page-layout.test.ts tests/analytics-consent.test.ts tests/netlify-form-fields.test.ts tests/production-fixes.test.tsx tests/seller-review-intro.test.tsx tests/home-value-entry.test.tsx tests/referral-registration.test.tsx",
     "verify:homepage-conversion": "node --import tsx scripts/verify-homepage-conversion.ts",
     "verify:journal": "node scripts/verify-journal-content.mjs",
     "verify:review-spotlight": "node --import tsx scripts/verify-review-spotlight.ts",

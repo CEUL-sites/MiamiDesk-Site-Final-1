@@ -2,6 +2,110 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { classifyInquiry, buildContactProperties, makeJob, syncJob, HubSpotClient, PROPERTY_DEFINITIONS, inquiryNote } from '../netlify/functions/_shared/hubspotSync.mjs';
 
+test('professional submissions expose brokerage, market and referral fields without replacing identity',()=>{
+ const job=makeJob('referral-intake',{licenseeName:'Ana Agent',email:'agent@example.invalid',phone:'+19545550101',brokerageName:'Example Brokerage',country:'Spain',registrationPurpose:'agent_registration',referralType:'Buyer mandate',clientName:'Separate Client'},'agent-profile');
+ const p=buildContactProperties(job,{},'owner');
+ assert.equal(p.firstname,'Ana');assert.equal(p.lastname,'Agent');assert.equal(p.company,'Example Brokerage');
+ assert.equal(p.country,'Spain');assert.equal(p.hp_professional_market,'Spain');
+ assert.equal(p.hp_agent_registration_purpose,'agent_registration');assert.equal(p.hp_referral_type,'Buyer mandate');
+ const existing=buildContactProperties(job,{company:'Existing Brokerage',country:'Existing Country',hubspot_owner_id:'existing-owner'},'owner');
+ assert.equal(existing.company,undefined);assert.equal(existing.country,undefined);assert.equal(existing.hubspot_owner_id,undefined);
+});
+
+test('agency listing details populate professional fields while homeowner submissions do not',()=>{
+ const data={email:'agency@example.invalid',agency:'Example Agency',role:'Agency director',country:'Madrid',website:'https://agency.example.invalid',inventoryType:'New development',numberOfListings:'3–5',listingUrl:'https://agency.example.invalid/listing/1'};
+ const p=buildContactProperties(makeJob('agency-partner-intake',data,'agency'));
+ assert.equal(p.company,'Example Agency');assert.equal(p.jobtitle,'Agency director');assert.equal(p.website,'https://agency.example.invalid');
+ assert.equal(p.hp_inventory_type,'New development');assert.equal(p.hp_inventory_count,'3–5');assert.equal(p.hp_listing_url,'https://agency.example.invalid/listing/1');
+ assert.equal(p.hp_agent_registration_purpose,'listing_review');assert.equal(p.hp_professional_market,'Madrid');
+ assert.equal(p.country,undefined,'A business market must not become a residential country');
+ const seller=buildContactProperties(makeJob('seller-hero',data,'seller'));
+ assert.equal(seller.company,undefined);assert.equal(seller.hp_inventory_type,undefined);
+});
+
+function referralFixture(overrides={}) {
+ return makeJob('referral-intake',{registrationVersion:'2',registrationPurpose:'client_referral',licenseeName:'Ana Agent',email:'agent@example.invalid',brokerageName:'Example Brokerage',country:'Spain',clientName:'Casey Client',clientEmail:'client@example.invalid',clientPhone:'+19545550102',clientCountry:'United States',clientNeed:'buyer',clientBudget:'$500K–$1M',clientTimeline:'3–6 months',clientLocation:'Weston',clientSummary:'Referred buyer brief',clientSharingConsent:'yes',...overrides},'structured-referral');
+}
+
+// Exercise the real client and synchronizer; only the external HTTP boundary is replaced.
+function referralApi({failTaskOnce=false,existing=[]}={}) {
+ const contacts=new Map(existing.map(c=>[String(c.id),structuredClone(c)])),notes=[],tasks=[],associations=[];
+ let next=100,fail=failTaskOnce;
+ const api=new HubSpotClient('test-only',async(url,init={})=>{
+  const u=new URL(url),path=u.pathname,method=init.method||'GET',body=init.body?JSON.parse(init.body):{};
+  if(path.endsWith('/contacts/search')){
+   const key=body.filterGroups?.[0]?.filters?.[0]?.value;
+   const results=key?[...contacts.values()].filter(c=>c.properties.hp_phone_key===key):[];
+   return Response.json({total:results.length,results});
+  }
+  if(method==='GET'&&path.includes('/contacts/')){
+   const email=decodeURIComponent(path.split('/').pop()),c=[...contacts.values()].find(c=>c.properties.email===email);
+   if(!c)return Response.json({}, {status:404});
+   const names=(u.searchParams.get('properties')||'').split(',');
+   return Response.json({id:c.id,properties:Object.fromEntries(names.filter(k=>k in c.properties).map(k=>[k,c.properties[k]]))});
+  }
+  if(method==='POST'&&path.endsWith('/contacts')){const c={id:String(next++),properties:body.properties};contacts.set(c.id,c);return Response.json(c);}
+  if(method==='PATCH'){const c=contacts.get(path.split('/').pop());Object.assign(c.properties,body.properties);return Response.json(c);}
+  if(method==='PUT'&&path.includes('/associations/default/')){associations.push(path);return new Response(null,{status:204});}
+  if(path.endsWith('/notes')){notes.push(body);return Response.json({id:'note-'+notes.length});}
+  if(path.endsWith('/tasks')){if(fail){fail=false;return Response.json({}, {status:429});}tasks.push(body);return Response.json({id:'task-'+tasks.length});}
+  throw new Error('Unexpected external request '+method+' '+path);
+ },async()=>{});
+ return {api,contacts,notes,tasks,associations};
+}
+
+test('client referral creates two distinct contacts and links its note and task to both',async()=>{
+ const state=referralApi(),job=referralFixture();
+ await syncJob(job,state.api,async()=>{},'owner');
+ assert.equal(state.contacts.size,2);
+ const agent=state.contacts.get('100'),client=state.contacts.get('101');
+ assert.equal(agent.properties.email,'agent@example.invalid');assert.equal(agent.properties.company,'Example Brokerage');
+ assert.equal(client.properties.email,'client@example.invalid');assert.equal(client.properties.firstname,'Casey');
+ assert.equal(client.properties.company,undefined);assert.equal(client.properties.hp_inquiry_categories,'buyer');
+ assert.equal(client.properties.hp_value_band,'$500K–$1M');assert.equal(client.properties.hp_property_city,'Weston');
+ assert.deepEqual(state.associations,['/crm/v4/objects/contacts/100/associations/default/contacts/101']);
+ assert.deepEqual(state.notes[0].associations.map(a=>a.to.id),['100','101']);
+ assert.deepEqual(state.tasks[0].associations.map(a=>a.to.id),['100','101']);
+ assert.match(state.notes[0].properties.hs_note_body,/Referring agent/);
+ assert.match(state.tasks[0].properties.hs_task_subject,/Casey Client/);
+ assert.equal(job.status,'synced');
+});
+
+test('structured client creation requires sharing authorization before any CRM writes',async()=>{
+ const state=referralApi();
+ await assert.rejects(()=>syncJob(referralFixture({clientSharingConsent:''}),state.api,async()=>{},'owner'),e=>e.review===true);
+ assert.equal(state.contacts.size,0);assert.equal(state.notes.length,0);
+});
+
+test('client referral rejects agent identity reuse and invalid client addresses',async()=>{
+ for(const patch of [{clientEmail:'agent@example.invalid'},{clientEmail:'invalid'},{clientName:''},{clientNeed:'unknown'},{clientPhone:'+12'},{registrationPurpose:'unknown'},{registrationVersion:'unknown'}]){
+  const state=referralApi();
+  await assert.rejects(()=>syncJob(referralFixture(patch),state.api,async()=>{},'owner'),e=>e.review===true);
+  assert.equal(state.contacts.size,0);
+ }
+});
+
+test('agent-only registration cannot create a client from stale fields',async()=>{
+ const state=referralApi(),job=referralFixture({registrationPurpose:'agent_registration',clientSharingConsent:''});
+ await syncJob(job,state.api,async()=>{},'owner');
+ assert.equal(state.contacts.size,1);assert.equal(state.associations.length,0);
+});
+
+test('referral retries reuse both contacts, their association and the saved inquiry note',async()=>{
+ const state=referralApi({failTaskOnce:true}),job=referralFixture();
+ await assert.rejects(()=>syncJob(job,state.api,async()=>{},'owner'),/429/);
+ await syncJob(job,state.api,async()=>{},'owner');
+ assert.equal(state.contacts.size,2);assert.equal(state.associations.length,1);assert.equal(state.notes.length,1);assert.equal(state.tasks.length,1);
+});
+
+test('existing professional company, website and role are fetched before blank-only updates',async()=>{
+ const state=referralApi({existing:[{id:'existing',properties:{email:'agent@example.invalid',firstname:'Ana',company:'Original Firm',website:'https://original.example.invalid',jobtitle:'Original Role',country:'Spain',hubspot_owner_id:'original-owner'}}]});
+ const job=makeJob('agency-partner-intake',{email:'agent@example.invalid',agency:'New Firm',website:'https://new.example.invalid',role:'New Role',country:'France'},'existing-professional');
+ await syncJob(job,state.api,async()=>{},'owner');
+ const p=state.contacts.get('existing').properties;
+ assert.equal(p.company,'Original Firm');assert.equal(p.website,'https://original.example.invalid');assert.equal(p.jobtitle,'Original Role');assert.equal(p.country,'Spain');assert.equal(p.hubspot_owner_id,'original-owner');
+});
+
 test('every contactable form has a category; address-only stage is excluded', () => {
   for (const f of ['seller-hero','seller-intake','seller-consultation']) assert.equal(classifyInquiry(f,{}),'south_florida_seller');
   assert.equal(classifyInquiry('buyer-mandate',{}),'buyer');
