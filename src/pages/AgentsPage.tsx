@@ -1,4 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import { AssociationFilms } from "../components/AssociationFilms";
+import { GlobalResearchLinks } from "../components/GlobalResearchLinks";
+import "../components/agent-partner-hero.css";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { BadgeCheck, ChevronRight, MessageSquare, Globe2, Languages, Building2, Handshake, UserPlus, BookOpen, Star, Users } from "lucide-react";
 import { Navbar } from "../components/Navbar";
@@ -188,56 +191,29 @@ export default function AgentsPage() {
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
 
-        {/* ── Hero ─────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep px-6 py-12 md:py-16 text-center sm:px-10">
-          {/* Cinematic video backdrop */}
-          <LazyVideo
-            src="/videos/split_miami_spain_mls.mp4"
-            eager
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.28]"
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.92),rgba(5,13,30,0.97))]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/40 via-transparent to-navy-deep" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.10),transparent_55%)]" />
-          <div className="relative mx-auto max-w-4xl">
-            <div className="inline-flex items-center gap-2 border border-gold/25 bg-gold/[0.06] px-4 py-1.5 mb-5 md:mb-7 backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/85">
-                For Agents · Referrals · International Exposure · Careers
-              </span>
+        {/* Agent partnerships: keep the three existing paths below. */}
+        <section className="agent-partner-hero" aria-labelledby="agent-partner-heading">
+          <picture className="agent-partner-art" aria-hidden="true">
+            <source media="(max-width: 767px)" srcSet="/images/global-desk-panorama-mobile.webp" />
+            <img src="/images/global-desk-panorama-desktop.webp" alt="" width="1920" height="800" fetchPriority="high" />
+          </picture>
+          <div className="agent-partner-layout">
+            <div className="agent-partner-copy">
+              <p className="agent-partner-eyebrow">Agents · Referrals · International cooperation</p>
+              <h1 id="agent-partner-heading">Your clients.<span>A connected South Florida partner.</span></h1>
+              <p className="agent-partner-summary">Refer a client, discuss selected international inventory, or explore a career with United Realty Group. Carlos coordinates the next step personally.</p>
+              <div className="agent-partner-actions" data-sticky-cta-guard>
+                <a href="#choose-path" className="agent-partner-primary">Choose Your Professional Path<ChevronRight size={16} aria-hidden="true" /></a>
+                <a href={CONTACT.whatsappBroker} target="_blank" rel="noopener noreferrer" className="agent-partner-secondary"><MessageSquare size={16} aria-hidden="true" />Message Carlos Directly</a>
+              </div>
+              <p className="agent-partner-credentials">Carlos Uzcategui · Licensed since 2001 · United Realty Group · English / Español</p>
             </div>
-            <h1
-              className="mx-auto max-w-4xl font-serif leading-[1.08] text-white"
-              style={{ fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)" }}
-            >
-              Three Ways Agents<br />
-              <em className="italic text-gold">Work With Carlos.</em>
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-[1.5] text-white/65 md:mt-7 md:leading-[1.85]">
-              Refer a buyer or seller, activate selected international inventory for South Florida buyer-agent discovery, or discuss building your business with United Realty Group—each through a documented professional path.
-            </p>
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap md:mt-9">
-              <a
-                href="#choose-path"
-                className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
-              >
-                See How It Works
-                <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href={CONTACT.whatsappBroker}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
-              >
-                <MessageSquare size={14} />
-                Message Carlos Directly
-              </a>
+            <div className="agent-partner-film">
+              <AssociationFilms location="agents_hero" variant="feature" />
+              <p className="agent-partner-film-note">Archival association film · June 2022</p>
             </div>
-            <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70 md:mt-7">
-              Carlos Uzcategui · FL SL705771 · United Realty Group · Miami and South Florida REALTORS® · 25 Years Licensed
-            </p>
           </div>
+          <p className="agent-partner-caption">Conceptual architecture · Not a property listing</p>
         </section>
 
         {/* ── Proof strip ─────────────────────────────────────────── */}
@@ -259,6 +235,7 @@ export default function AgentsPage() {
         </div>
 
         {/* ── Choose Your Path ─────────────────────────────────────── */}
+        <div className="mx-auto max-w-6xl px-6 pb-6"><GlobalResearchLinks /></div>
         <section className="bg-white py-8 md:py-14" id="choose-path">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-5 text-center md:mb-8">

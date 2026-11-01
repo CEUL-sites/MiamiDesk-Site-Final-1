@@ -1,0 +1,20 @@
+.agent-partner-hero { position: relative; isolation: isolate; overflow: hidden; background: #071722; color: #fff; padding-top: 90px; }
+.agent-partner-art { position: absolute; inset: 0; z-index: -2; }
+.agent-partner-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.agent-partner-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#071722f5 0%,#071722e8 34%,#07172270 74%,#07172260),linear-gradient(0deg,#071722e8,transparent 38%); }
+.agent-partner-layout { max-width: 1440px; margin: auto; display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,.9fr); align-items: center; gap: 56px; padding: 64px clamp(24px,4vw,64px); min-height: 590px; }
+.agent-partner-eyebrow { color: #e0c28d; font-family: var(--font-sans); font-size: 11px; line-height: 1.7; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 20px; }
+.agent-partner-copy h1 { font-family: var(--font-serif); font-size: clamp(40px,4.4vw,66px); line-height: 1.08; letter-spacing: -.035em; font-weight: 400; text-wrap: balance; }
+.agent-partner-copy h1 span { display: block; color: #e0c28d; }
+.agent-partner-summary { max-width: 580px; margin-top: 24px; font-size: 17px; line-height: 1.7; color: #e0e6ed; }
+.agent-partner-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 28px; }
+.agent-partner-primary { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 50px; padding: 14px 22px; background: #d7bc8b; color: #071722; font-family: var(--font-sans); font-size: 14px; line-height: 1.4; font-weight: 600; }
+.agent-partner-primary:hover { background: #e8ce9f; }
+.agent-partner-secondary { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #f9f7f2; font-size: 13px; text-decoration: underline; text-underline-offset: 5px; }
+.agent-partner-credentials { margin-top: 24px; max-width: 550px; font-size: 12px; line-height: 1.8; color: #d3dde6; }
+.agent-partner-film { min-width: 0; }
+.agent-partner-film-note { font-size: 11px; line-height: 1.6; color: #d3dde6; margin-top: 12px; }
+.agent-partner-caption { max-width: 1440px; margin: auto; padding: 0 clamp(24px,4vw,64px) 16px; font-size: 10px; line-height: 1.6; color: #d3dde6; text-align: right; }
+.agent-partner-hero a:focus-visible { outline: 3px solid #e8ce9f; outline-offset: 4px; }
+@media(max-width:1023px) { .agent-partner-hero { padding-top: 82px; } .agent-partner-layout { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; min-height: 0; max-width: 720px; } .agent-partner-film { max-width: 520px; } .agent-partner-copy h1 { font-size: clamp(36px,6vw,54px); } .agent-partner-caption { max-width: 720px; text-align: left; } }
+@media(max-width:480px) { .agent-partner-layout { padding-block: 28px; } .agent-partner-copy h1 { font-size: clamp(34px,9vw,42px); } .agent-partner-eyebrow { font-size: 10px; letter-spacing: .09em; margin-bottom: 16px; } .agent-partner-summary { font-size: 15px; margin-top: 18px; } .agent-partner-actions { margin-top: 22px; gap: 8px; } .agent-partner-primary { width: 100%; font-size: 13px; } .agent-partner-credentials { font-size: 11px; margin-top: 16px; } }

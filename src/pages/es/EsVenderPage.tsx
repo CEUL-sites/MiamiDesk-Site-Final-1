@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AssociationFilms } from "../../components/AssociationFilms";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { ChevronRight, MessageSquare, BadgeCheck } from "lucide-react";
@@ -224,6 +225,7 @@ export default function EsVenderPage() {
               >
                 United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
               </motion.p>
+              <AssociationFilms lang="es" initialFilm="broward" location="es_sellers_hero" />
             </motion.div>
           </div>
         </section>

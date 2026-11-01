@@ -1,0 +1,46 @@
+.association-films { --film-text: #e8d1a7; --film-muted: #d6dfe5; --film-border: #d7bc8b70; margin-top: 18px; }
+.association-films--light { --film-text: #72572e; --film-muted: #405066; --film-border: #80663c65; }
+.association-film-trigger { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; max-width: 100%; padding: 8px 0; color: var(--film-text); text-align: left; font-family: var(--font-sans); font-size: 13px; line-height: 1.55; cursor: pointer; }
+.association-film-play { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex: 0 0 auto; border: 1px solid var(--film-border); border-radius: 50%; }
+.association-film-play svg { margin-left: 2px; }
+.association-film-trigger:hover { color: var(--film-muted); }
+.association-films :is(button,a):focus-visible { outline: 3px solid #b08d57; outline-offset: 4px; }
+.association-films--feature { margin-top: 0; width: 100%; }
+.association-films--feature .association-film-trigger { width: 100%; align-items: flex-start; gap: 22px; padding: 34px; border: 1px solid #e8d1a760; background: #071722e8; backdrop-filter: blur(8px); }
+.association-films--feature .association-film-play { width: 62px; height: 62px; }
+.association-film-feature-copy { display: flex; flex-direction: column; gap: 14px; }
+.association-film-feature-title { font-family: var(--font-serif); font-size: 32px; line-height: 1.15; color: #fff; }
+.association-film-feature-summary { font-size: 14px; line-height: 1.65; color: var(--film-muted); max-width: 280px; }
+.association-film-feature-action { display: flex; align-items: center; gap: 16px; font-size: 13px; color: #e8d1a7; }
+.association-film-dialog { position: fixed; inset: 0; margin: auto; padding: 0; width: min(960px,calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 32px); overflow-y: auto; color: #102733; background: #f9f7f2; border: 1px solid #d7bc8b; box-shadow: 0 20px 80px #0008; text-align: left; }
+.association-film-dialog::backdrop { background: #030c17de; }
+.association-film-dialog[data-inline-fallback] { position: static; width: 100%; max-height: none; margin-top: 16px; }
+.association-film-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 24px; }
+.association-film-dialog-header h2 { margin: 0; font-family: var(--font-serif); font-size: clamp(22px,3vw,28px); line-height: 1.2; font-weight: 400; }
+.association-film-close { display: grid; place-items: center; flex: 0 0 auto; width: 44px; height: 44px; color: #102733; cursor: pointer; }
+.association-film-close:hover { background: #0b1e3f0d; }
+.association-film-options { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 24px 16px; }
+.association-film-options button { min-height: 44px; padding: 10px 16px; border: 1px solid #c6cdcf; color: #344853; font-family: var(--font-sans); font-size: 13px; line-height: 1.4; cursor: pointer; }
+.association-film-options button[aria-pressed=true] { color: #fff; background: #0b1e3f; border-color: #0b1e3f; }
+.association-film-player { position: relative; aspect-ratio: 16/9; width: 100%; background: #071722; }
+.association-film-player iframe { display: block; position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.association-film-details { padding: 20px 24px 24px; }
+.association-film-details h3 { margin: 0; font-family: var(--font-serif); font-size: 23px; line-height: 1.3; font-weight: 400; color: #102733; }
+.association-film-source { margin-top: 8px; font-size: 12px; line-height: 1.6; color: #52616b; }
+.association-film-archive { margin-top: 12px; max-width: 760px; color: #405066; font-size: 13px; line-height: 1.65; }
+.association-film-fallback { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 24px; margin-top: 16px; }
+.association-film-fallback button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #72572e; text-decoration: underline; text-underline-offset: 4px; font-size: 13px; cursor: pointer; }
+.association-film-fallback > span { color: #52616b; font-size: 12px; line-height: 1.5; }
+@media(max-width:767px) {
+  .association-films { margin-top: 12px; }
+  .association-films--feature { margin-top: 0; }
+  .association-films--feature .association-film-trigger { padding: 24px; gap: 18px; }
+  .association-films--feature .association-film-play { width: 48px; height: 48px; }
+  .association-film-feature-title { font-size: 26px; }
+  .association-film-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 20px); }
+  .association-film-dialog-header { padding: 12px 16px; }
+  .association-film-options { gap: 6px; padding: 0 16px 14px; }
+  .association-film-options button { padding: 10px 12px; font-size: 12px; }
+  .association-film-details { padding: 16px; }
+  .association-film-details h3 { font-size: 21px; }
+}
