@@ -6,6 +6,7 @@ const pagePaths = [
   "src/pages/HomePage.tsx",
   "src/pages/SellSouthFloridaPage.tsx",
   "src/pages/HomeValuePage.tsx",
+  "src/pages/BuyersPage.tsx",
 ] as const;
 
 test("seller entry pages omit the retired three-pillar module", async () => {
@@ -41,4 +42,14 @@ test("home value page places intake in top fold, uses FaqAccordion, and avoids o
   assert.match(page, /<FaqAccordion faqs=\{HOME_VALUE_FAQS\}/);
   assert.doesNotMatch(page, /buyer-agent outreach/i);
   assert.doesNotMatch(page, /NEIGHBORHOODS/);
+});
+
+test("buyers page renders visible FaqAccordion matching FAQPage schema and omits inline NeoEmbed and raw YouTube iframe", async () => {
+  const page = await readFile("src/pages/BuyersPage.tsx", "utf8");
+  assert.match(page, /<FaqAccordion faqs=\{BUYER_FAQS\}/);
+  assert.doesNotMatch(page, /<NeoEmbed/);
+  assert.doesNotMatch(page, /youtube\.com\/embed/);
+  assert.doesNotMatch(page, /WhatsApp · Spain Line/);
+  const schemaOrg = await readFile("src/components/SEO/SchemaOrg.tsx", "utf8");
+  assert.doesNotMatch(schemaOrg, /buyer-agent outreach/i);
 });
