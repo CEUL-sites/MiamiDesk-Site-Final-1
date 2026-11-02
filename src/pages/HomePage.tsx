@@ -1,23 +1,13 @@
-import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
+import { HomepageListingApproach } from "../components/HomepageListingApproach";
 import { Proof } from "../components/Proof";
-import { Distribution } from "../components/Distribution";
+import { HomepageObjectives } from "../components/HomepageObjectives";
+import { HomepageConsultation } from "../components/HomepageConsultation";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
-import { HomeValueEntry } from "../components/HomeValueEntry";
-import { GlobalDeskTeaser } from "../components/GlobalDeskTeaser";
-import { SellerAuthorityStrip } from "../components/SellerAuthorityStrip";
-import { SellerExecutionSystem } from "../components/SellerExecutionSystem";
-
-// Below-the-fold sections - split out of the initial bundle. With
-// hydrateRoot + Suspense, React keeps the prerendered HTML visible and
-// hydrates these progressively once their chunks arrive.
-const AboutContact = lazy(() => import("../components/AboutContact").then((m) => ({ default: m.AboutContact })));
-const MarketingReel3D = lazy(() => import("../components/MarketingReel3D").then((m) => ({ default: m.MarketingReel3D })));
-const SellerPathfinder = lazy(() => import("../components/SellerPathfinder").then((m) => ({ default: m.SellerPathfinder })));
 
 export default function HomePage() {
   return (
@@ -41,22 +31,17 @@ export default function HomePage() {
       </Helmet>
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
+        {/* Section A: Hero */}
         <Hero />
+        {/* Section B: Why Our Listing Approach */}
+        <HomepageListingApproach />
+        {/* Section C: Proven Client Confidence */}
         <Proof />
-        <SellerAuthorityStrip />
-        <SellerExecutionSystem />
-        <Suspense fallback={null}>
-          <MarketingReel3D />
-        </Suspense>
-        <Distribution />
-        <GlobalDeskTeaser />
-        <HomeValueEntry />
-        <Suspense fallback={null}>
-          <SellerPathfinder />
-        </Suspense>
-        <Suspense fallback={null}>
-          <AboutContact showForm={false} />
-        </Suspense>
+        {/* Section D: Choose Your Property Objective */}
+        <HomepageObjectives />
+        {/* Section E: Meet Carlos / Private Consultation */}
+        <HomepageConsultation />
+        {/* Global Footer (Preserved untouched in Phase 1) */}
         <Footer />
         <MobileStickyCTA />
         <DesktopStickyCTA ctaHref="#list-here" />

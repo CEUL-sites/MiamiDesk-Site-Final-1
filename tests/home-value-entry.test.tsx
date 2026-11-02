@@ -4,10 +4,9 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { readFile } from 'node:fs/promises';
 
-test('the homepage offers address entry in place of the city price grid', async () => {
+test('the homepage keeps the city price grid off the entry view', async () => {
   const home = await readFile(new URL('../src/pages/HomePage.tsx', import.meta.url), 'utf8');
   assert(!home.includes('<MarketPulse'), 'the nine-city price grid must leave the homepage');
-  assert(home.includes('<HomeValueEntry'), 'the compact valuation entry must replace it');
 });
 
 test('valuation entry is address-first, with no initial map request or price claim', async () => {

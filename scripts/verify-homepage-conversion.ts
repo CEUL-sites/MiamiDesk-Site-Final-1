@@ -88,11 +88,33 @@ assert.equal(
   "the seller CTA should hide while a guarded element (e.g. the review card) crosses the bottom action area",
 );
 
-const [home, hero, heroAnimation, form, authority, execution, distribution, proof, about, contactPage, cookie, indexCss, mobileSticky, footer, figures] = await Promise.all([
+const [
+  home,
+  hero,
+  heroAnimation,
+  form,
+  approach,
+  objectives,
+  consultation,
+  authority,
+  execution,
+  distribution,
+  proof,
+  about,
+  contactPage,
+  cookie,
+  indexCss,
+  mobileSticky,
+  footer,
+  figures,
+] = await Promise.all([
   readFile("src/pages/HomePage.tsx", "utf8"),
   readFile("src/components/Hero.tsx", "utf8"),
   readFile("src/components/HeroPropertyAnimation.tsx", "utf8"),
   readFile("src/components/HeroSellerForm.tsx", "utf8"),
+  readFile("src/components/HomepageListingApproach.tsx", "utf8"),
+  readFile("src/components/HomepageObjectives.tsx", "utf8"),
+  readFile("src/components/HomepageConsultation.tsx", "utf8"),
   readFile("src/components/SellerAuthorityStrip.tsx", "utf8"),
   readFile("src/components/SellerExecutionSystem.tsx", "utf8"),
   readFile("src/components/Distribution.tsx", "utf8"),
@@ -106,15 +128,17 @@ const [home, hero, heroAnimation, form, authority, execution, distribution, proo
   readFile("src/data/figures.json", "utf8"),
 ]);
 
-assert.match(hero, /Your home\./);
-assert.match(hero, /Positioned to reach buyers\./);
-assert.match(hero, /Licensed since 2001/);
+assert.match(hero, /Your Property Deserves a/);
+assert.match(hero, /Stronger Market Strategy\./);
+assert.match(hero, /Licensed Since 2001/i);
 assert.match(hero, /buyer-agent outreach/);
-assert.match(hero, /What matters most to you/);
+assert.match(hero, /Request a Private Seller Strategy/);
+assert.match(hero, /Explore Our Listing Approach/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
 assert.doesNotMatch(hero, /autoPlay/);
-assert.match(hero, /id="list-here"/, "the address entry keeps its stable anchor");
-assert.match(hero, /<HeroSellerForm compact progressiveDesktop consultation \/>/);
+assert.match(hero, /href="#list-here"/, "the hero CTA navigates to the consultation intake");
+assert.match(consultation, /id="list-here"/, "the consultation section provides the stable list-here anchor");
+assert.match(consultation, /<HeroSellerForm[\s\S]*compact[\s\S]*progressiveDesktop[\s\S]*consultation/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the homepage hero must render one H1");
 assert.match(hero, /United Realty Group/);
 assert.doesNotMatch(hero, /urgOfficeNetwork|Florida Office Locations/);
@@ -155,15 +179,19 @@ const distributionMetrics = await readFile("src/components/DistributionMetrics.t
 assert.match(distributionMetrics, /Association members/);
 assert.match(footer, /93,000 ASSOCIATION MEMBERS/);
 assert.doesNotMatch(footer, /94,000\+ ASSOCIATION MEMBERS/);
+
+assert.match(approach, /Position\. Distribute\. Activate\./);
+assert.match(approach, /Why Our Listing Approach/);
+assert.match(objectives, /Choose Your Property Objective/);
+assert.match(objectives, /Sell in South Florida/);
+assert.match(consultation, /Meet Carlos · Private Consultation/);
+
 const sectionOrder = [
   "<Hero />",
+  "<HomepageListingApproach />",
   "<Proof />",
-  "<SellerAuthorityStrip />",
-  "<SellerExecutionSystem />",
-  "<Distribution />",
-  "<GlobalDeskTeaser />",
-  "<HomeValueEntry />",
-  "<AboutContact showForm={false} />",
+  "<HomepageObjectives />",
+  "<HomepageConsultation />",
   "<Footer />",
 ];
 for (let index = 1; index < sectionOrder.length; index += 1) {

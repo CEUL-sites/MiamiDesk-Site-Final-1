@@ -21,16 +21,15 @@ assert.match(
   /fetchPriority="high"/,
   "the preserved property-animation poster must remain prioritized",
 );
-assert.match(hero, /Your home\./);
-assert.match(hero, /Positioned to reach buyers\./);
-assert.match(hero, /Licensed since 2001/);
+assert.match(hero, /Your Property Deserves a/);
+assert.match(hero, /Stronger Market Strategy\./);
+assert.match(hero, /Licensed Since 2001/i);
 assert.match(hero, /buyer-agent outreach/);
-assert.match(hero, /What matters most to you/);
+assert.match(hero, /Request a Private Seller Strategy/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
 assert.doesNotMatch(hero, /autoPlay/);
 assert.equal((hero.match(/<motion\.h1|<h1/g) ?? []).length, 1, "the hero must render one H1");
-assert.match(hero, /id="list-here"/, "the progressive address entry retains its destination");
-assert.match(hero, /<HeroSellerForm compact progressiveDesktop consultation \/>/);
+assert.match(hero, /href="#list-here"/, "the primary hero cta navigates to the private consultation intake");
 assert.match(hero, /United Realty Group/);
 assert.doesNotMatch(hero, /urgOfficeNetwork|Florida Office Locations/);
 const heroFigures = JSON.parse(figures);
