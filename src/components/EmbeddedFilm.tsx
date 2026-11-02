@@ -9,7 +9,7 @@ export const SITE_PREVIEW = {
 } as const;
 
 export function SiteVideoPreview({ lang = "en", onError }: { lang?: "en" | "es"; onError?: () => void }) {
-  return <video className="embedded-film-native" src={SITE_PREVIEW.src} poster={SITE_PREVIEW.poster} aria-label={lang === "es" ? "Vista previa ilustrativa de presentación inmobiliaria de HomesProfessional" : SITE_PREVIEW.title} controls playsInline autoPlay preload="none" onError={onError} />;
+  return <video className="embedded-film-native" src={SITE_PREVIEW.src} poster={SITE_PREVIEW.poster} aria-label={lang === "es" ? "Vista previa ilustrativa de presentación inmobiliaria de HomesProfessional" : SITE_PREVIEW.title} controls playsInline autoPlay muted preload="none" onError={onError} />;
 }
 
 /** YouTube restrictions cannot be read through a cross-origin iframe or bypassed by this site. */
