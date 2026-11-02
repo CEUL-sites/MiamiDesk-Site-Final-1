@@ -1,136 +1,104 @@
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AssociationFilms } from "../components/AssociationFilms";
-import { GlobalResearchLinks } from "../components/GlobalResearchLinks";
 import "../components/agent-partner-hero.css";
 import { JsonLd } from "../components/SEO/JsonLd";
-import { BadgeCheck, ChevronRight, MessageSquare, Globe2, Languages, Building2, Handshake, UserPlus, BookOpen, Star, Users } from "lucide-react";
+import {
+  BadgeCheck,
+  ChevronRight,
+  MessageSquare,
+  Globe2,
+  Languages,
+  Building2,
+  Handshake,
+  UserPlus,
+  BookOpen,
+  Star,
+  Users,
+  CheckCircle2,
+} from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { LazyVideo } from "../components/LazyVideo";
-import { RevealText } from "../components/RevealText";
-import { SectionTabs } from "../components/SectionTabs";
+import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { CONTACT } from "../constants";
 
-const ADVANTAGES = [
-  {
-    number: "01",
-    title: "Win more listing mandates",
-    body: "When you can offer a Miami-facing exposure layer, your listing presentation stands apart from agencies relying only on Idealista, Fotocasa, Kyero, or their own website. Sellers in premium segments want proof that their property reaches further.",
-  },
-  {
-    number: "02",
-    title: "Strengthen seller confidence",
-    body: "Sellers increasingly ask: 'What else will you do?' A documented international channel through a Florida-licensed real estate professional answers that question with credibility — not a vague promise.",
-  },
-  {
-    number: "03",
-    title: "Defend your professional fees",
-    body: "A stronger service offering justifies a stronger fee. The agent who brings a South Florida exposure layer to the table is not competing on the same terms as an agent whose pitch ends at local portals.",
-  },
-  {
-    number: "04",
-    title: "No U.S. office required",
-    body: "You keep the mandate, the client relationship, and the local authority. The Miami Desk handles the U.S.-facing layer — bilingual packaging, South Florida agent-network presentation, and referral coordination.",
-  },
-  {
-    number: "05",
-    title: "Access South Florida buyer channels",
-    body: "South Florida is the primary gateway for U.S., Latin American, and European capital targeting Spanish and Mediterranean real estate. A Florida-licensed channel creates a legitimate connection to that buyer pool.",
-  },
-  {
-    number: "06",
-    title: "Create referral opportunities",
-    body: "Qualified buyer inquiries from South Florida, U.S., or Latin American networks are coordinated back through you — creating structured referral opportunities with professional documentation.",
-  },
-];
-
 const SERVICES = [
   {
-    title: "Miami-facing listing review",
-    body: "Selected properties reviewed for positioning fit, buyer profile alignment, and international presentation suitability.",
+    title: "Miami-Facing Listing Review",
+    body: "Selected properties reviewed for positioning fit, buyer profile alignment, and international presentation suitability across South Florida channels.",
   },
   {
-    title: "Bilingual property positioning",
-    body: "English and Spanish property narrative development for U.S. and international buyer-agent presentation.",
+    title: "Bilingual Property Positioning",
+    body: "English and Spanish property narrative development tailored specifically for U.S. and Latin American cooperating buyer agents.",
   },
   {
-    title: "South Florida agent-network reach",
-    body: "Introduction to the 93,000-member Miami and South Florida REALTORS® agent network — the world's largest local REALTOR® association.",
+    title: "South Florida Agent-Network Reach",
+    body: "Visibility within the 93,000-member Miami and South Florida REALTORS® ecosystem — the world's largest local REALTOR® association.",
   },
   {
-    title: "U.S. and LATAM buyer-channel access",
-    body: "Exposure to Florida-based buyer agents representing U.S., Latin American, and international buyers actively seeking European real estate.",
+    title: "U.S. and LATAM Buyer Channels",
+    body: "Structured exposure to Florida-based buyer agents representing qualified domestic, Latin American, and international capital.",
   },
   {
-    title: "Professional listing packaging",
-    body: "Property landing page or structured presentation document designed for U.S. buyer-agent distribution — beyond a portal link.",
+    title: "Professional Listing Packaging",
+    body: "Dedicated property landing presentation designed for cooperating buyer-agent discovery and review, far beyond standard portal links.",
   },
   {
-    title: "Referral inquiry coordination",
-    body: "Any buyer inquiry or referral opportunity is coordinated through documented professional channels — no ambiguity, no surprises.",
+    title: "Referral Inquiry Coordination",
+    body: "Every buyer inquiry or referral opportunity is coordinated through formal, documented professional channels with transparent terms.",
   },
   {
-    title: "Exposure reporting",
-    body: "Periodic reporting on presentation activity, referral pipeline, and buyer-channel engagement where applicable.",
+    title: "Bilateral Co-Listing Architecture",
+    body: "Formal cooperation structure where the local agent retains the seller mandate while Carlos serves as the Florida licensee of record.",
   },
   {
-    title: "Agency partnership structure",
-    body: "Formal cooperation agreements available for agencies with ongoing international inventory — structured for professional compliance.",
+    title: "Documented Fee Protection",
+    body: "All referral compensation and co-broker terms are executed under formal written agreements prior to client engagement and paid at closing.",
   },
-];
-
-const IDEAL_FOR = [
-  "Madrid luxury apartments and penthouses",
-  "Marbella and Costa del Sol villas",
-  "Ibiza and Mallorca premium residences",
-  "Branded residences and new developments",
-  "Agencies with international sellers",
-  "Developers seeking U.S. and LatAm visibility",
-  "Properties with price points that attract U.S. capital",
-  "Listing teams competing for premium mandates",
 ];
 
 const PROCESS_STEPS = [
   {
     number: "01",
-    title: "Submit your listing or agency",
-    body: "Submit the property details, portfolio overview, or agency profile using the form below. Carlos reviews every submission personally.",
+    title: "Submit Listing or Referral",
+    body: "Submit property details, portfolio overview, or client referral using the intake desk below. Carlos reviews every submission personally.",
   },
   {
     number: "02",
-    title: "Miami Desk reviews fit",
-    body: "Carlos evaluates positioning suitability, buyer profile alignment, referral structure, and the most appropriate collaboration model for the specific inventory.",
+    title: "Miami Desk Fit Review",
+    body: "Carlos evaluates positioning suitability, buyer profile alignment, referral structure, and the most effective collaboration protocol.",
   },
   {
     number: "03",
-    title: "Exposure strategy agreed and packaged",
-    body: "Approved listings are packaged for Miami-facing presentation. Scope, channels, documentation, and professional terms are agreed in writing before activation.",
+    title: "Written Terms & Packaging",
+    body: "Scope, documentation, and referral compensation are agreed in writing before activation. Approved listings are packaged for Miami-facing exposure.",
   },
   {
     number: "04",
-    title: "Inquiries and reporting coordinated",
-    body: "Buyer inquiries, referral opportunities, and exposure reporting are handled professionally and coordinated directly with you throughout the engagement.",
+    title: "Execution & Inquiries",
+    body: "Buyer inquiries, cooperating agent introductions, and transaction milestones are coordinated directly with you throughout closing.",
   },
 ];
 
-const SOUTH_FL_PATHWAYS = [
+const AGENTS_FAQS: FaqItem[] = [
   {
-    number: "01",
-    title: "Refer a South Florida Seller",
-    body: "Your client needs representation in Miami-Dade, Broward, or Palm Beach. Carlos takes the listing, handles the full transaction, and pays your referral fee at closing under a formal written agreement.",
+    q: "Does the local agent keep the client relationship?",
+    a: "Yes. The local agent retains the seller mandate, the client relationship, and all local market authority. The Miami Desk supports only the international exposure layer. Any buyer inquiry or referral is coordinated back through the local agent.",
   },
   {
-    number: "02",
-    title: "Refer a South Florida Buyer",
-    body: "Your buyer is relocating to or investing in South Florida. Full MLS access, neighborhood-level advisory, offer strategy, and closing coordination. Documented referral fee at closing.",
+    q: "What markets does the Miami Desk serve for international agents?",
+    a: "Spain (Madrid, Marbella, Costa del Sol, Barcelona, Mallorca, Ibiza), Latin America, and other international markets. Properties are reviewed individually for positioning suitability and buyer profile alignment.",
+  },
+  {
+    q: "What is the Miami and South Florida REALTORS® network?",
+    a: "Miami and South Florida REALTORS® is the world's largest local REALTOR® association, with 93,000 member agents and listing syndication reaching 260+ U.S. MLSs via the RPR data exchange. It has over 437 signed international agreements, providing a professional referral infrastructure across 75+ countries.",
   },
 ];
 
-// Careers-specific WhatsApp deep link — the generic CONTACT.whatsappUS opens with
-// seller copy, which misframes a recruiting conversation. This pre-fills the intent.
 const WA_CAREERS =
   "https://wa.me/19548656622?text=" +
   encodeURIComponent(
@@ -138,11 +106,30 @@ const WA_CAREERS =
   );
 
 export default function AgentsPage() {
+  const [activeTab, setActiveTab] = useState<"referral" | "listing">("referral");
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash === "#submit-listing") {
+        setActiveTab("listing");
+      } else if (hash === "#south-florida-referral") {
+        setActiveTab("referral");
+      }
+    };
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
   return (
     <>
       <Helmet>
         <title>For Real Estate Agents | Referrals, Miami Exposure & Careers</title>
-        <meta name="description" content="Three ways agents work with Carlos: refer a buyer or seller for a fee at closing, add Miami-facing exposure to a listing, or join URG with 25-year mentorship." />
+        <meta
+          name="description"
+          content="Three ways agents work with Carlos: refer a buyer or seller for a fee at closing, add Miami-facing exposure to a listing, or join URG with 25-year mentorship."
+        />
         <link rel="canonical" href="https://homesprofessional.com/agents" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/agents" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/agents" />
@@ -150,63 +137,112 @@ export default function AgentsPage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/agents" />
         <meta property="og:title" content="Win More Seller Mandates With a South Florida Exposure Strategy" />
-        <meta property="og:description" content="Give your agency a listing-presentation advantage local competitors cannot match: documented South Florida-facing exposure for your sellers, where eligible. You keep the mandate." />
+        <meta
+          property="og:description"
+          content="Give your agency a listing-presentation advantage local competitors cannot match: documented South Florida-facing exposure for your sellers, where eligible. You keep the mandate."
+        />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
-      <JsonLd id="agents-service" data={{
+
+      <JsonLd
+        id="agents-service"
+        data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Miami Desk — International Listing Exposure & Agent Referral",
-          "provider": { "@id": "https://homesprofessional.com/#agent" },
-          "serviceType": "International Real Estate Listing Exposure & Referral",
-          "description": "A Miami-facing exposure and referral coordination service for international real estate agents, agencies, and developers seeking access to the South Florida real estate network and U.S. buyer channels.",
-          "areaServed": ["South Florida", "Spain", "Latin America", "Europe"],
-          "url": "https://homesprofessional.com/agents",
-          "availableLanguage": ["English", "Spanish"]
-        }} />
-      <JsonLd id="agents-faq" data={{
+          name: "Miami Desk — International Listing Exposure & Agent Referral",
+          provider: { "@id": "https://homesprofessional.com/#agent" },
+          serviceType: "International Real Estate Listing Exposure & Referral",
+          description:
+            "A Miami-facing exposure and referral coordination service for international real estate agents, agencies, and developers seeking access to the South Florida real estate network and U.S. buyer channels.",
+          areaServed: ["South Florida", "Spain", "Latin America", "Europe"],
+          url: "https://homesprofessional.com/agents",
+          availableLanguage: ["English", "Spanish"],
+        }}
+      />
+
+      <JsonLd
+        id="agents-faq"
+        data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Does the local agent keep the client relationship?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Yes. The local agent retains the seller mandate, the client relationship, and all local market authority. The Miami Desk supports only the international exposure layer. Any buyer inquiry or referral is coordinated back through the local agent." }
+          mainEntity: AGENTS_FAQS.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.a,
             },
-            {
-              "@type": "Question",
-              "name": "What markets does the Miami Desk serve for international agents?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Spain (Madrid, Marbella, Costa del Sol, Barcelona, Mallorca, Ibiza), Latin America, and other international markets. Properties are reviewed individually for positioning suitability and buyer profile alignment." }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the Miami and South Florida REALTORS® network?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Miami and South Florida REALTORS® is the world's largest local REALTOR® association, with 93,000 member agents and listing syndication reaching 260+ U.S. MLSs via the RPR data exchange. It has over 437 signed international agreements, providing a professional referral infrastructure across 75+ countries." }
-            }
-          ]
-        }} />
+          })),
+        }}
+      />
 
-      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <JsonLd
+        id="agents-breadcrumbs"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://homesprofessional.com",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Agents & Referrals",
+              item: "https://homesprofessional.com/agents",
+            },
+          ],
+        }}
+      />
+
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
 
-        {/* Agent partnerships: keep the three existing paths below. */}
+        {/* ── SECTION 1: Agent Partner Hero ────────────────────────── */}
         <section className="agent-partner-hero" aria-labelledby="agent-partner-heading">
           <picture className="agent-partner-art" aria-hidden="true">
             <source media="(max-width: 767px)" srcSet="/images/global-desk-panorama-mobile.webp" />
-            <img src="/images/global-desk-panorama-desktop.webp" alt="" width="1920" height="800" fetchPriority="high" />
+            <img
+              src="/images/global-desk-panorama-desktop.webp"
+              alt=""
+              width="1920"
+              height="800"
+              fetchPriority="high"
+            />
           </picture>
           <div className="agent-partner-layout">
             <div className="agent-partner-copy">
-              <p className="agent-partner-eyebrow">Agents · Referrals · International cooperation</p>
-              <h1 id="agent-partner-heading">Your clients.<span>A connected South Florida partner.</span></h1>
-              <p className="agent-partner-summary">Refer a client, discuss selected international inventory, or explore a career with United Realty Group. Carlos coordinates the next step personally.</p>
+              <p className="agent-partner-eyebrow">Agents · Referrals · International Cooperation</p>
+              <h1 id="agent-partner-heading">
+                Your clients.<span>A connected South Florida partner.</span>
+              </h1>
+              <p className="agent-partner-summary">
+                Refer a client, discuss selected international inventory, or explore a career with United Realty Group.
+                Carlos coordinates the next step personally.
+              </p>
               <div className="agent-partner-actions" data-sticky-cta-guard>
-                <a href="#choose-path" className="agent-partner-primary">Choose Your Professional Path<ChevronRight size={16} aria-hidden="true" /></a>
-                <a href={CONTACT.whatsappBroker} target="_blank" rel="noopener noreferrer" className="agent-partner-secondary"><MessageSquare size={16} aria-hidden="true" />Message Carlos Directly</a>
+                <a href="#choose-path" className="agent-partner-primary">
+                  Choose Your Professional Path
+                  <ChevronRight size={16} aria-hidden="true" />
+                </a>
+                <a
+                  href={CONTACT.whatsappBroker}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="agent-partner-secondary"
+                >
+                  <MessageSquare size={16} aria-hidden="true" />
+                  Message Carlos Directly
+                </a>
               </div>
-              <p className="agent-partner-credentials">Carlos Uzcategui · Licensed since 2001 · United Realty Group · English / Español</p>
+              <p className="agent-partner-credentials">
+                Carlos Uzcategui · Licensed since 2001 · United Realty Group · English / Español
+              </p>
             </div>
             <div className="agent-partner-film" data-sticky-cta-guard>
               <AssociationFilms location="agents_hero" variant="feature" />
@@ -216,36 +252,37 @@ export default function AgentsPage() {
           <p className="agent-partner-caption">Conceptual architecture · Not a property listing</p>
         </section>
 
-        {/* ── Proof strip ─────────────────────────────────────────── */}
+        {/* ── Institutional Proof Strip ────────────────────────────── */}
         <div className="border-b border-hairline bg-white">
           <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-hairline border-x border-hairline md:grid-cols-4">
             {[
-              { icon: Globe2,    value: "93,000",  label: "MIAMI REALTORS® member agents" },
-              { icon: Handshake, value: "437+",    label: "International agreements · 75+ countries" },
-              { icon: Languages, value: "19",      label: "Languages · 200+ global portals" },
-              { icon: Building2, value: "25 yrs",  label: "Florida licensed · bilingual" },
+              { icon: Globe2, value: "93,000", label: "MIAMI REALTORS® member agents" },
+              { icon: Handshake, value: "437+", label: "International agreements · 75+ countries" },
+              { icon: Languages, value: "19", label: "Languages · 200+ global portals" },
+              { icon: Building2, value: "25 yrs", label: "Florida licensed · bilingual" },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center px-4 py-5 text-center md:py-7">
                 <s.icon size={18} className="text-gold" strokeWidth={1.5} />
                 <span className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">{s.value}</span>
-                <span className="mt-1.5 font-mono text-[10px] uppercase leading-snug tracking-[0.16em] text-navy/70">{s.label}</span>
+                <span className="mt-1.5 font-mono text-[10px] uppercase leading-snug tracking-[0.16em] text-navy/70">
+                  {s.label}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ── Choose Your Path ─────────────────────────────────────── */}
-        <div className="mx-auto max-w-6xl px-6 pb-6"><GlobalResearchLinks /></div>
-        <section className="scroll-mt-24 bg-white py-8 md:py-14" id="choose-path">
+        {/* ── SECTION 2: Choose Your Path ──────────────────────────── */}
+        <section className="scroll-mt-24 bg-white py-12 md:py-16" id="choose-path">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="mb-5 text-center md:mb-8">
+            <div className="mb-8 text-center md:mb-12">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Agents Work With Carlos</p>
-              <h2 className="mx-auto mt-4 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:mt-5 md:text-4xl">
+              <h2 className="mx-auto mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:text-4xl">
                 One desk. Three ways to win.
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl font-sans text-[15px] leading-relaxed text-ink-primary/60 md:mt-5">
-                Wherever you are in your business, there is a structured, documented way to work together —
-                and a personal response from Carlos, not a call center.
+              <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/65 md:text-base">
+                Wherever you are in your business, there is a structured, documented way to work together — and a
+                personal response from Carlos, not a call center.
               </p>
             </div>
             <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-3">
@@ -254,46 +291,62 @@ export default function AgentsPage() {
                   icon: Handshake,
                   tag: "Path 01 · Referrals",
                   title: "Refer a buyer or seller",
-                  body: "Have a client buying or selling in South Florida — or a U.S./international buyer looking abroad? Send the referral, keep the relationship, and get paid at closing under a written agreement.",
-                  points: ["Both directions — buyers and sellers", "Local + cross-border", "Documented fee at closing"],
+                  body: "Have a client buying or selling in South Florida — or a U.S./international buyer looking abroad? Send the referral, keep the client relationship, and get paid at closing under a formal written agreement.",
+                  points: [
+                    "Both directions — buyers and sellers",
+                    "Local + cross-border coordination",
+                    "Documented fee protection at closing",
+                  ],
                   cta: "Submit a referral",
                   href: "#south-florida-referral",
+                  onClick: () => setActiveTab("referral"),
                 },
                 {
                   icon: Globe2,
                   tag: "Path 02 · Exposure",
                   title: "Give a listing international reach",
-                  body: "International or premium listing agents can add a Miami-facing exposure layer — bilingual packaging into the South Florida network and U.S./LATAM buyer channels. You keep the mandate.",
-                  points: ["You keep the mandate & client", "Visibility within a 93,000-member association ecosystem", "Bilingual U.S./LATAM channels"],
+                  body: "International and premium listing agents can add a Miami-facing exposure layer — bilingual packaging into the South Florida network and U.S./LATAM buyer channels. You keep the mandate.",
+                  points: [
+                    "You keep the mandate & client",
+                    "93,000-member association ecosystem",
+                    "Bilingual U.S. and LATAM buyer channels",
+                  ],
                   cta: "Submit a listing",
                   href: "#submit-listing",
+                  onClick: () => setActiveTab("listing"),
                 },
                 {
                   icon: UserPlus,
                   tag: "Path 03 · Careers",
                   title: "Join URG or get mentored",
                   body: "New to real estate, or an experienced agent ready for a change? Build your career alongside an active 25-year agent who runs live seller, buyer, and cross-border desks on the same MLS you'll work.",
-                  points: ["New agents — start strong", "Switching from another agency", "Mentorship from an active producer"],
+                  points: [
+                    "New agents — build a clear pipeline",
+                    "Switching from another brokerage",
+                    "Direct mentorship from an active producer",
+                  ],
                   cta: "Explore joining",
                   href: "#join-urg",
+                  onClick: undefined,
                 },
               ].map((p) => (
-                <div key={p.title} className="flex flex-col bg-white p-4 md:p-6">
+                <div key={p.title} className="flex flex-col bg-white p-6 md:p-8">
                   <p.icon size={22} className="text-gold" strokeWidth={1.5} />
-                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80 md:mt-5">{p.tag}</p>
-                  <h3 className="mt-2 font-serif text-xl text-navy-deep leading-snug">{p.title}</h3>
-                  <RevealText lines={2} className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65">{p.body}</RevealText>
-                  <ul className="mt-4 space-y-2 md:mt-5">
+                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">{p.tag}</p>
+                  <h3 className="mt-2 font-serif text-xl leading-snug text-navy-deep">{p.title}</h3>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">{p.body}</p>
+                  <ul className="mt-5 space-y-2.5">
                     {p.points.map((pt) => (
                       <li key={pt} className="flex items-start gap-2.5">
-                        <BadgeCheck size={13} className="mt-0.5 flex-shrink-0 text-gold/70" />
-                        <span className="font-sans text-[13px] leading-snug text-ink-primary/70">{pt}</span>
+                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                        <span className="font-sans text-[13px] leading-snug text-ink-primary/75">{pt}</span>
                       </li>
                     ))}
                   </ul>
                   <a
                     href={p.href}
-                    className="group mt-5 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold md:mt-7"
+                    onClick={p.onClick}
+                    className="group mt-7 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold"
                   >
                     {p.cta}
                     <ChevronRight size={13} className="transition-transform group-hover:translate-x-0.5" />
@@ -304,616 +357,281 @@ export default function AgentsPage() {
           </div>
         </section>
 
+        {/* ── SECTION 3: Bilateral Co-Listing & Referral Architecture ─ */}
+        <section className="bg-ivory py-12 md:py-18 border-t border-hairline">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-10 text-center md:mb-14">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                Bilateral Architecture · Cross-Border Protocol
+              </p>
+              <h2 className="mx-auto mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:text-4xl">
+                You keep the mandate. We support the international layer.
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/65 md:text-base">
+                The Miami Desk is designed to complement local market representation — not replace it. The local agent
+                maintains full authority over the seller relationship, the mandate, and local market operations.
+              </p>
+            </div>
 
-        {/* ── The case, consolidated into one tabbed module ──────────
-            Four consecutive full-height sections all arguing why the
-            international layer matters. Same markup, same copy. */}
-        <SectionTabs
-          eyebrow="The case"
-          heading="Why an international layer matters."
-          tabs={[
-            {
-              id: "gap",
-              label: "The gap",
-              panel: (
-            <section className="bg-ivory py-8 md:py-14">
-              <div className="mx-auto max-w-5xl px-6">
-                <div className="grid gap-8 md:grid-cols-2 md:items-start md:gap-14">
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Competitive Gap</p>
-                    <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                      Your listing presentation should not end at local portals.
-                    </h2>
-                    <div className="mt-6 space-y-4 font-sans text-[15px] leading-[1.5] text-ink-primary/70 md:leading-[1.8]">
-                      <p>
-                        Most agencies competing for the same mandates offer the same visibility: Idealista, Fotocasa, Kyero,
-                        Habitaclia, their agency website, and perhaps one or two international portals. Sellers at the premium
-                        level see through undifferentiated exposure promises.
-                      </p>
-                      <p>
-                        Luxury sellers increasingly want to know whether their property is being positioned in front of the
-                        right international buyer channels — not simply listed on the same platforms as every other agency.
-                        The agent who can explain a stronger, documented exposure strategy has a meaningful advantage in
-                        winning the mandate.
-                      </p>
-                    </div>
-
-                    {/* Cinematic video accent — landscape property walkthrough fills the
-                        wide frame cleanly (replaces the portrait clip that cropped mid-frame). */}
-                    <div className="mt-6 relative overflow-hidden bg-navy-deep md:mt-8" style={{ paddingBottom: "52%" }}>
-                      <LazyVideo
-                        src="/videos/luxury_home_walkthrough.mp4"
-                        className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-navy-deep/30 pointer-events-none" />
-                      <div className="absolute bottom-4 left-5">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">
-                          International listing exposure · South Florida network
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="border border-hairline bg-white p-6 md:p-8">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 mb-4 md:mb-6">What sellers increasingly ask</p>
-                    <div className="space-y-3 md:space-y-5">
-                      {[
-                        "Where exactly will my property be presented?",
-                        "Who will actually see it — and can they buy it?",
-                        "Do you have access to U.S. or international buyer networks?",
-                        "How is your exposure different from other agencies?",
-                        "What proof can you give me of international demand access?",
-                      ].map((q) => (
-                        <div key={q} className="flex items-start gap-3">
-                          <ChevronRight size={12} className="mt-1 flex-shrink-0 text-gold" />
-                          <p className="font-sans text-sm leading-relaxed text-ink-primary/75">{q}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="mt-4 border-t border-hairline pt-4 md:mt-8 md:pt-6">
-                      <p className="font-sans text-xs italic leading-relaxed text-ink-primary/50">
-                        "The better question is not only 'Where will my property be advertised?' It is 'Who will actually
-                        see it, present it, and connect it to potential buyers?'"
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-              ),
-            },
-            {
-              id: "sellers",
-              label: "What sellers ask",
-              panel: (
-            <section className="bg-navy-deep py-8 md:py-14 text-white">
-              <div className="mx-auto max-w-5xl px-6 text-center">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Seller Psychology</p>
-                <h2 className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
-                  What sellers really want to know.
-                </h2>
-                <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.5] text-white/60 md:leading-[1.8]">
-                  Premium sellers are not simply looking for the most portals. They are looking for evidence that
-                  their property will reach serious, qualified buyers — including buyers they may not find through local
-                  channels alone. The agent who delivers a credible international story earns the mandate.
-                </p>
-                <div className="mt-8 divide-y divide-white/10 border border-white/10 md:mt-14">
+            {/* Role Separation Grid */}
+            <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-3 mb-12">
+              <div className="bg-white p-6 md:p-8">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 01 · Local Agent</span>
+                <h3 className="mt-2 font-serif text-xl text-navy-deep">Retains Full Authority</h3>
+                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">Mandate · Client · Fee</p>
+                <ul className="mt-5 space-y-3">
                   {[
-                    {
-                      q: "Where?",
-                      a: "Not just local portals — a documented Miami-facing exposure layer with a Florida-licensed real estate professional connected to the South Florida real estate network.",
-                    },
-                    {
-                      q: "Who sees it?",
-                      a: "South Florida buyer agents. U.S. and Latin American buyers with capital for European real estate. International buyer networks reached through 437+ MIAMI Association referral agreements in 75+ countries.",
-                    },
-                    {
-                      q: "How is it different?",
-                      a: "Not a generic portal subscription. A professional listing relationship with a Florida-licensed real estate professional — documented exposure, bilingual packaging, professional referral coordination.",
-                    },
+                    "The seller relationship and local authority",
+                    "The local listing mandate and exclusivity",
+                    "Direct client advisory and on-the-ground showings",
+                    "Local fee and agreed transaction commission",
                   ].map((item) => (
-                    <div key={item.q} className="grid md:grid-cols-[200px_1fr] md:items-start gap-4 p-5 md:gap-6 md:p-8">
-                      <div className="font-serif text-5xl text-gold leading-none">{item.q}</div>
-                      <p className="font-sans text-[15px] leading-relaxed text-white/65 md:pt-1">{item.a}</p>
-                    </div>
+                    <li key={item} className="flex items-start gap-2.5">
+                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                      <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
-            </section>
-              ),
-            },
-            {
-              id: "advantage",
-              label: "Why agents partner",
-              panel: (
-            <section className="bg-white py-8 md:py-14">
-              <div className="mx-auto max-w-5xl px-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Agent Advantage</p>
-                <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                  Six reasons international agents work with the Miami Desk.
-                </h2>
-                <div className="mt-7 md:mt-8">
-                  {/* Featured first advantage */}
-                  <div className="border border-hairline bg-ivory p-5 md:p-8 mb-px">
-                    <div className="grid md:grid-cols-[auto_1fr] md:gap-10 md:items-start">
-                      <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3 md:mb-0 md:mt-1">{ADVANTAGES[0].number}</div>
-                      <div>
-                        <h3 className="font-serif text-xl text-navy-deep md:text-2xl">{ADVANTAGES[0].title}</h3>
-                        <p className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:text-base md:leading-relaxed">{ADVANTAGES[0].body}</p>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Remaining advantages */}
-                  <div className="grid grid-cols-2 gap-px border border-hairline border-t-0 bg-hairline lg:grid-cols-3">
-                    {ADVANTAGES.slice(1).map((a) => (
-                      <div key={a.number} className="bg-white p-3 md:p-6">
-                        <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-2 md:mb-4">{a.number}</div>
-                        <h3 className="font-serif text-base leading-snug text-navy-deep md:text-lg">{a.title}</h3>
-                        <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-ink-primary/65 md:mt-3 md:text-sm md:leading-relaxed">{a.body}</RevealText>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-              ),
-            },
-            {
-              id: "infrastructure",
-              label: "The infrastructure",
-              panel: (
-            <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
-              <LazyVideo
-                src="/videos/dollhouse_global_reach.mp4"
-                className="absolute inset-0 h-full w-full object-cover opacity-[0.18] pointer-events-none"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-deep/85 to-navy-deep pointer-events-none" />
-              <div className="relative mx-auto max-w-5xl px-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center mb-3">
-                  The network behind the Miami Desk
-                </p>
-                <h2 className="mx-auto mb-7 max-w-2xl text-center font-serif text-3xl leading-tight text-white md:mb-8 md:text-4xl">
-                  Infrastructure, not adjectives.
-                </h2>
-                <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+
+              <div className="bg-gold/[0.04] border-2 border-gold/40 p-6 md:p-8">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 02 · Miami Desk</span>
+                <h3 className="mt-2 font-serif text-xl text-navy-deep">U.S. &amp; LATAM Exposure</h3>
+                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">Florida License SL705771</p>
+                <ul className="mt-5 space-y-3">
                   {[
-                    {
-                      value: "93,000",
-                      label: "Member Agents",
-                      desc: "Miami and South Florida REALTORS® — the world's largest local REALTOR® association and the primary buyer-agent network behind South Florida real estate.",
-                    },
-                    {
-                      value: "437+",
-                      label: "International Agreements",
-                      desc: "Signed referral agreements with real estate organizations across 75+ countries, creating a professional infrastructure for cross-border introductions.",
-                    },
-                    {
-                      value: "25 yrs",
-                      label: "South Florida Experience",
-                      desc: "Carlos Uzcategui has been licensed in Florida since 2001. Bilingual English/Spanish. Physically connected to South Florida and Madrid markets.",
-                    },
-                  ].map((s) => (
-                    <div key={s.value} className="bg-navy-deep p-4 md:p-8">
-                      <div className="font-serif text-3xl text-gold md:text-5xl">{s.value}</div>
-                      <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/60">{s.label}</div>
-                      <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-white/60 md:mt-4 md:text-sm md:leading-relaxed">{s.desc}</RevealText>
-                    </div>
+                    "Miami MLS & 93,000-member agent ecosystem",
+                    "Bilingual English / Spanish property packaging",
+                    "U.S. and Latin American buyer-channel reach",
+                    "Structured referral inquiry and tour coordination",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                      <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
-            </section>
-              ),
-            },
-          ]}
-        />
 
+              <div className="bg-white p-6 md:p-8">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 03 · Governance</span>
+                <h3 className="mt-2 font-serif text-xl text-navy-deep">Written Legal Protection</h3>
+                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">Compliance &amp; Terms</p>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    "Written bilateral cooperation agreement",
+                    "Documented referral structure before engagement",
+                    "Transparent scope, milestones, and fees",
+                    "Full compliance with applicable real estate licensing",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                      <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-        {/* ── Cinematic pull-quote band ─────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-14">
-          <LazyVideo
-            src="/videos/miami_madrid_transition.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.22]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/70 to-navy-deep/40" />
-          <div className="relative mx-auto max-w-4xl px-6">
-            <Globe2 size={28} className="text-gold/70" strokeWidth={1.25} />
-            <blockquote className="mt-6 font-serif text-2xl leading-[1.4] text-white md:text-[2.1rem] md:leading-[1.35]">
-              "The internet creates visibility. <span className="text-gold">Agent networks create movement.</span>
-              A listing is not fully marketed until buyer agents know how to present it."
-            </blockquote>
-            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 md:mt-7">
-              Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group
-            </p>
+            {/* Core Services Deliverables */}
+            <div className="mb-12">
+              <div className="mb-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">Core Deliverables</p>
+                <h3 className="mt-1 font-serif text-2xl text-navy-deep">What the Miami Desk Provides</h3>
+              </div>
+              <div className="grid grid-cols-1 gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+                {SERVICES.map((s) => (
+                  <div key={s.title} className="bg-white p-5 md:p-6">
+                    <CheckCircle2 size={16} className="text-gold" />
+                    <h4 className="mt-3 font-serif text-base font-medium text-navy-deep">{s.title}</h4>
+                    <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/65">{s.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Collaboration Process */}
+            <div className="mb-12">
+              <div className="mb-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">Step-by-Step Sequence</p>
+                <h3 className="mt-1 font-serif text-2xl text-navy-deep">Four Steps. No Ambiguity.</h3>
+              </div>
+              <div className="grid grid-cols-1 gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+                {PROCESS_STEPS.map((step) => (
+                  <div key={step.number} className="bg-white p-5 md:p-6">
+                    <span className="font-mono text-xs uppercase tracking-[0.16em] text-gold font-bold">
+                      {step.number}
+                    </span>
+                    <h4 className="mt-2 font-serif text-base text-navy-deep">{step.title}</h4>
+                    <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/65">{step.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Pull Quote */}
+            <div className="border border-gold/30 bg-navy-deep p-6 text-center md:p-10 text-white">
+              <Globe2 size={26} className="mx-auto text-gold/70" strokeWidth={1.25} />
+              <blockquote className="mx-auto mt-4 max-w-3xl font-serif text-xl leading-relaxed text-white md:text-2xl">
+                &ldquo;The internet creates visibility. <span className="text-gold">Agent networks create movement.</span> A
+                listing is not fully marketed until buyer agents know how to present it.&rdquo;
+              </blockquote>
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+                Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* ── The offer, consolidated into one tabbed module ─────────
-            These four arguments ran as four consecutive full-height
-            sections. Same markup, same copy — one screen instead of four. */}
-        <SectionTabs
-          eyebrow="The Miami Desk"
-          heading="What it provides, how it works, and who it is for."
-          tabs={[
-            {
-              id: "provides",
-              label: "What we provide",
-              panel: (
-            <section className="bg-ivory py-8 md:py-14">
-              <div className="mx-auto max-w-5xl px-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Service Coverage</p>
-                <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                  What the Miami Desk provides.
-                </h2>
-                <p className="mt-5 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/60">
-                  Scope varies by property type, market, and collaboration model. Every engagement is reviewed individually
-                  and documented in a professional written agreement before activation.
-                </p>
-                <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-4 md:mt-12 md:gap-5">
-                  {SERVICES.map((s) => (
-                    <div key={s.title} className="flex gap-3 border-l-2 border-gold/40 pl-3 py-1 md:gap-5 md:pl-5">
-                      <div>
-                        <h3 className="font-sans text-sm font-semibold text-navy-deep">{s.title}</h3>
-                        <RevealText lines={2} className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/60">{s.body}</RevealText>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-              ),
-            },
-            {
-              id: "collaboration",
-              label: "How we work together",
-              panel: (
-            <section className="relative overflow-hidden bg-navy-deep py-8 md:py-14 text-white">
-              <LazyVideo
-                src="/videos/luxury_listing_showcase.mp4"
-                className="absolute inset-0 h-full w-full object-cover opacity-[0.10] pointer-events-none"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-navy-deep via-navy-deep/90 to-navy-deep/70 pointer-events-none" />
-              <div className="relative mx-auto max-w-5xl px-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Collaboration Works</p>
-                <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-white md:text-4xl">
-                  You keep the mandate. We support the international layer.
-                </h2>
-                <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-[1.5] text-white/60 md:leading-[1.8]">
-                  The Miami Desk is designed to complement local market representation — not replace it. The local agent
-                  maintains full authority over the seller relationship, the mandate, and local market operations.
-                </p>
-                {/* Visual flow diagram */}
-                <div className="mt-6 mb-6 md:mt-10 md:mb-10">
-                  <svg viewBox="0 0 800 80" className="w-full max-w-3xl mx-auto" aria-hidden="true">
-                    {/* Flow line */}
-                    <line x1="160" y1="40" x2="380" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
-                    <line x1="420" y1="40" x2="640" y2="40" stroke="#B08D57" strokeWidth="1" strokeDasharray="5 5" opacity="0.5" />
-                    {/* Arrowheads */}
-                    <polygon points="376,35 386,40 376,45" fill="#B08D57" opacity="0.5" />
-                    <polygon points="636,35 646,40 636,45" fill="#B08D57" opacity="0.5" />
-                    {/* Node 1: Local Agent */}
-                    <rect x="0" y="20" width="158" height="40" rx="2" fill="#B08D5712" stroke="#B08D57" strokeWidth="0.75" opacity="0.7" />
-                    <text x="79" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">LOCAL AGENT</text>
-                    <text x="79" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">Mandate · Client · Fee</text>
-                    {/* Node 2: Miami Desk */}
-                    <rect x="390" y="16" width="120" height="48" rx="2" fill="#B08D5720" stroke="#B08D57" strokeWidth="1.25" />
-                    <text x="450" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">MIAMI DESK</text>
-                    <text x="450" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">FL SL705771</text>
-                    {/* Node 3: Buyers */}
-                    <rect x="642" y="20" width="158" height="40" rx="2" fill="#B08D5712" stroke="#B08D57" strokeWidth="0.75" opacity="0.7" />
-                    <text x="721" y="36" textAnchor="middle" fill="#B08D57" fontSize="9" fontFamily="monospace" letterSpacing="2">U.S. · LATAM</text>
-                    <text x="721" y="50" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="8" fontFamily="monospace">93,000 Agents</text>
-                  </svg>
-                </div>
-
-                <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
-                  {[
-                    {
-                      role: "Local Agent",
-                      keeps: ["The seller relationship", "The local mandate", "All local market authority", "Local fee and commission"],
-                      highlight: true,
-                    },
-                    {
-                      role: "Miami Desk",
-                      keeps: ["Miami-facing exposure layer", "U.S. and LATAM channel access", "Bilingual positioning support", "Referral inquiry coordination"],
-                      highlight: false,
-                    },
-                    {
-                      role: "Professional Terms",
-                      keeps: ["Written cooperation agreement", "Documented referral structure", "Transparent scope and fees", "Compliance with applicable law"],
-                      highlight: false,
-                    },
-                  ].map((col) => (
-                    <div key={col.role} className={`p-4 md:p-8 ${col.highlight ? "bg-gold/[0.07] border border-gold/20" : "bg-navy-deep"}`}>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-3 md:mb-5">{col.role}</p>
-                      <ul className="space-y-2 md:space-y-3">
-                        {col.keeps.map((k) => (
-                          <li key={k} className="flex items-start gap-2.5">
-                            <BadgeCheck size={13} className="mt-0.5 flex-shrink-0 text-gold/70" />
-                            <span className="font-sans text-xs leading-snug text-white/70 md:text-sm md:leading-normal">{k}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-              ),
-            },
-            {
-              id: "ideal",
-              label: "Who it is for",
-              panel: (
-            <section className="bg-white py-8 md:py-14">
-              <div className="mx-auto max-w-5xl px-6">
-                <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-14">
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Ideal For</p>
-                    <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                      Selected listings and agencies.
-                    </h2>
-                    <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
-                      The Miami Desk reviews every submission individually. Not every property qualifies — positioning
-                      for U.S. and LATAM buyers requires the right product type, price point, and market context.
-                    </p>
-                    <div className="mt-6 space-y-4 md:mt-8 md:space-y-5">
-                      <div>
-                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/80 mb-3">Property types</p>
-                        <div className="flex flex-wrap gap-2">
-                          {IDEAL_FOR.slice(0, 4).map((item) => (
-                            <span key={item} className="inline-flex items-center gap-2 border border-gold/20 bg-gold/5 px-4 py-2 font-sans text-sm text-navy-deep">
-                              <span className="h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
-                              {item}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <div>
-                        <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 mb-3">Agencies &amp; teams</p>
-                        <div className="flex flex-wrap gap-2">
-                          {IDEAL_FOR.slice(4).map((item) => (
-                            <span key={item} className="inline-flex items-center gap-2 border border-navy/10 bg-ivory px-4 py-2 font-sans text-sm text-navy-deep">
-                              <span className="h-1 w-1 flex-shrink-0 rounded-full bg-navy/30" />
-                              {item}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <p className="mt-6 font-sans text-xs italic text-ink-primary/70 md:mt-8">
-                      Every submission is reviewed personally.
-                    </p>
-                  </div>
-
-                  {/* Right: cinematic property visual */}
-                  <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "70%" }}>
-                    <LazyVideo
-                      src="/videos/gemini_property_vision.mp4"
-                      className="absolute inset-0 h-full w-full object-cover opacity-[0.6]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
-                    <div className="absolute inset-x-0 bottom-0 p-7">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80 mb-1">Miami Desk</p>
-                      <p className="font-serif text-lg text-white leading-snug">
-                        Premium properties.<br />International buyers.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-              ),
-            },
-            {
-              id: "process",
-              label: "The four steps",
-              panel: (
-            <section className="bg-ivory py-8 md:py-14">
-              <div className="mx-auto max-w-5xl px-6">
-                <div className="grid gap-8 lg:grid-cols-[0.4fr_0.6fr] lg:items-start lg:gap-16">
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Collaboration Process</p>
-                    <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                      Four steps.<br />No ambiguity.
-                    </h2>
-                    <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
-                      Every engagement is reviewed, scoped, documented, and activated in a defined sequence.
-                      No surprises on structure or professional terms.
-                    </p>
-                  </div>
-                  {/* Vertical timeline */}
-                  <div className="space-y-0">
-                    {PROCESS_STEPS.map((step, i) => (
-                      <div key={step.number} className="relative flex gap-5 items-start pb-6 last:pb-0 md:gap-7 md:pb-10">
-                        {i < PROCESS_STEPS.length - 1 && (
-                          <div className="absolute left-[20px] top-11 bottom-0 w-px bg-navy/10" />
-                        )}
-                        <div className="relative z-10 flex-shrink-0 h-10 w-10 border border-gold/50 bg-white flex items-center justify-center">
-                          <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-gold">{step.number}</span>
-                        </div>
-                        <div className="pt-1">
-                          <h3 className="font-serif text-lg text-navy-deep">{step.title}</h3>
-                          <RevealText lines={2} className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/65">{step.body}</RevealText>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-              ),
-            },
-          ]}
-        />
-
-
-        {/* ── Agency / Listing Submission Form ──────────────────────── */}
-        <section className="bg-navy-deep py-8 md:py-14" id="submit-listing">
+        {/* ── SECTION 4: Unified Partner & Referral Intake Desk ─────── */}
+        <section className="bg-navy-deep py-12 md:py-18 text-white">
           <div className="mx-auto max-w-4xl px-6">
-            <div className="mb-6 text-center md:mb-10">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Miami Desk · Listing & Agency Inquiry</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Give your sellers a stronger international story.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Submit a listing, portfolio, or agency profile for review. Carlos evaluates every submission personally
-                and responds to every serious submission directly.
+            <div className="text-center mb-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Professional Collaboration</p>
+              <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">Partner &amp; Referral Intake Desk</h2>
+              <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-white/60">
+                Select your path below to register a client referral or submit an international listing for review.
+                Carlos evaluates each inquiry personally under strict confidentiality.
               </p>
             </div>
-            <AgencyPartnerForm />
-            <div className="mt-6 space-y-3">
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
-                <BadgeCheck size={14} className="text-gold" />
-                Confidential · No Obligation · Professional Review · Equal Housing Opportunity
-              </div>
-              <p className="font-sans text-[10px] leading-relaxed text-white/70">
-                Exposure, marketing, and referral coordination do not guarantee a buyer, offer, sale, or closing.
-                All collaborations are subject to professional review, property suitability, local law, broker
-                compliance, MLS/platform rules where applicable, and written agreement. Florida real estate
-                brokerage services are provided through United Realty Group. International property opportunities
-                are handled through referral, cooperating broker, or advisory relationships depending on
-                jurisdiction and applicable regulations.
-              </p>
-            </div>
-          </div>
-        </section>
 
-        {/* ── WhatsApp / Calendar CTA ───────────────────────────────── */}
-        <section className="bg-gold/5 border-y border-gold/15 py-6 md:py-8">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between md:gap-6 md:text-left">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Prefer to speak directly?</p>
-                <p className="mt-2 font-serif text-2xl text-navy-deep">Request an agency partnership call.</p>
-                <p className="mt-2 font-sans text-sm text-ink-primary/60 max-w-md">
-                  For agency directors and developer sales teams exploring ongoing collaboration. Carlos is bilingual
-                  English/Spanish and available for a structured 30-minute introduction.
+            {/* Hidden Anchors for direct link navigation */}
+            <div id="south-florida-referral" className="scroll-mt-28" />
+            <div id="submit-listing" className="scroll-mt-28" />
+
+            {/* 2-Tab Switcher */}
+            <div className="flex justify-center border-b border-white/10 mb-8">
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveTab("referral");
+                  window.history.replaceState(null, "", "#south-florida-referral");
+                }}
+                className={`px-5 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-all border-b-2 -mb-px ${
+                  activeTab === "referral"
+                    ? "border-gold text-gold font-bold bg-white/5"
+                    : "border-transparent text-white/60 hover:text-white"
+                }`}
+              >
+                Path 01 · Client Referral Registration
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveTab("listing");
+                  window.history.replaceState(null, "", "#submit-listing");
+                }}
+                className={`px-5 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-all border-b-2 -mb-px ${
+                  activeTab === "listing"
+                    ? "border-gold text-gold font-bold bg-white/5"
+                    : "border-transparent text-white/60 hover:text-white"
+                }`}
+              >
+                Path 02 · International Listing Inquiry
+              </button>
+            </div>
+
+            {/* Tab Panel 1: Client Referral Form */}
+            <div className={activeTab === "referral" ? "block" : "hidden"}>
+              <div className="mb-6 text-center">
+                <h3 className="font-serif text-2xl text-white">South Florida Client Referral Desk</h3>
+                <p className="mx-auto mt-2 max-w-lg font-sans text-xs leading-relaxed text-white/60">
+                  Register your professional profile or submit an authorized buyer or seller client referral.
+                  Written agreement executed prior to client contact. Paid at closing.
                 </p>
               </div>
-              <div className="flex flex-col items-center gap-3 sm:flex-row md:flex-col md:items-end lg:flex-row">
+              <ReferralIntakeForm />
+              <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
+                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                  <BadgeCheck size={14} className="text-gold" />
+                  Licensed Professionals Only · Formal Written Agreements · Equal Housing Opportunity
+                </div>
+                <p className="font-sans text-[11px] leading-relaxed text-white/70">
+                  Referral fee compensation is subject to a written referral agreement executed prior to client engagement.
+                  Florida real estate brokerage services are provided through United Realty Group. International referral
+                  opportunities may be handled through formal broker-to-broker agreements depending on jurisdiction and
+                  applicable regulations.
+                </p>
+              </div>
+            </div>
+
+            {/* Tab Panel 2: International Listing / Agency Form */}
+            <div className={activeTab === "listing" ? "block" : "hidden"}>
+              <div className="mb-6 text-center">
+                <h3 className="font-serif text-2xl text-white">Miami Desk · Listing &amp; Agency Inquiry</h3>
+                <p className="mx-auto mt-2 max-w-lg font-sans text-xs leading-relaxed text-white/60">
+                  Submit a property, portfolio, or agency profile for South Florida exposure review.
+                  Carlos personally evaluates market fit, buyer profile alignment, and cooperation structure.
+                </p>
+              </div>
+              <AgencyPartnerForm />
+              <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
+                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                  <BadgeCheck size={14} className="text-gold" />
+                  Confidential · No Obligation · Professional Review · Equal Housing Opportunity
+                </div>
+                <p className="font-sans text-[11px] leading-relaxed text-white/70">
+                  Exposure, marketing, and referral coordination do not guarantee a buyer, offer, sale, or closing. All
+                  collaborations are subject to professional review, property suitability, local law, broker compliance,
+                  MLS/platform rules where applicable, and written agreement. Florida real estate brokerage services are
+                  provided through United Realty Group.
+                </p>
+              </div>
+            </div>
+
+            {/* Direct Contact Bar */}
+            <div className="mt-12 border border-gold/20 bg-white/5 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Direct Broker Communication</p>
+                <h4 className="mt-1 font-serif text-xl text-white">Prefer to speak directly?</h4>
+                <p className="mt-1 font-sans text-xs text-white/60 max-w-md">
+                  For agency directors, brokerages, and developer sales teams exploring ongoing collaboration.
+                  Bilingual English / Spanish.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
                 <a
                   href={CONTACT.whatsappBroker}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-navy-deep px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep whitespace-nowrap"
+                  className="inline-flex items-center gap-2 bg-gold px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep font-bold transition-opacity hover:opacity-90"
                 >
-                  <MessageSquare size={14} />
+                  <MessageSquare size={13} />
                   WhatsApp Carlos
                 </a>
                 <a
                   href={CONTACT.calendly}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-navy/20 px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy hover:bg-navy hover:text-white whitespace-nowrap"
+                  className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold"
                 >
-                  Schedule a Call
+                  Schedule Call
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── South Florida Cross-Border Referral Desk (secondary) ──── */}
-        <section className="bg-white py-8 md:py-14">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-7 lg:grid-cols-[1fr_0.8fr] lg:items-start lg:gap-12">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Also Available · South Florida</p>
-                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                  South Florida cross-border referral desk.
-                </h2>
-                <p className="mt-5 font-sans text-sm leading-relaxed text-ink-primary/60">
-                  Licensed real estate professionals with clients buying or selling in South Florida can refer
-                  those transactions through a documented professional channel. Formal written agreement. Paid at closing.
-                </p>
-                <div className="mt-6 divide-y divide-hairline border border-hairline md:mt-8">
-                  {SOUTH_FL_PATHWAYS.map((p) => (
-                    <div key={p.number} className="flex flex-col bg-white p-5 md:p-6">
-                      <div className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-3">{p.number}</div>
-                      <h3 className="font-serif text-lg text-navy-deep leading-snug">{p.title}</h3>
-                      <RevealText lines={2} className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/65 flex-1">{p.body}</RevealText>
-                      <a href="#south-florida-referral" className="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold hover:underline underline-offset-2">
-                        Submit a referral →
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: cinematic video accent */}
-              <div className="relative overflow-hidden bg-navy-deep" style={{ paddingBottom: "85%" }}>
-                <LazyVideo
-                  src="/videos/dollhouse_hand_team_2.mp4"
-                  className="absolute inset-0 h-full w-full object-cover opacity-[0.55]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-navy-deep/20 to-transparent pointer-events-none" />
-                <div className="absolute inset-x-0 bottom-0 p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80 mb-2">South Florida</p>
-                  <p className="font-serif text-xl text-white leading-snug">
-                    Miami-Dade · Broward<br />Palm Beach
-                  </p>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-                    Full MLS · Bilingual · 25 years
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* South Florida Referral Form */}
-        <section className="bg-navy-deep py-8 md:py-14" id="south-florida-referral">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="mb-6 text-center md:mb-10">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">South Florida Referral Desk</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Agent registration and client referrals.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Register your professional profile or submit an authorized client referral.
-                Carlos reviews each inquiry personally; client details remain linked to the referring agent.
-              </p>
-            </div>
-            <ReferralIntakeForm />
-            <div className="mt-6 space-y-3">
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
-                <BadgeCheck size={14} className="text-gold" />
-                Licensed Professionals Only · Written Agreements · Equal Housing Opportunity
-              </div>
-              <p className="font-sans text-[10px] leading-relaxed text-white/70">
-                Referral fee compensation is subject to a written referral agreement executed prior to client engagement.
-                Florida real estate brokerage services are provided through United Realty Group. International referral
-                opportunities may be handled through formal broker-to-broker agreements depending on jurisdiction
-                and applicable regulations.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Join United Realty Group ──────────────────────────────── */}
-        <section className="relative overflow-hidden bg-ivory py-8 md:py-14" id="join-urg">
-          <LazyVideo
-            src="/videos/ceul_team_dollhouse.mp4"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.07] pointer-events-none"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-ivory via-ivory/95 to-ivory/80 pointer-events-none" />
-          <div className="relative mx-auto max-w-6xl px-6">
-
-            {/* Section header */}
-            <div className="mb-7 md:mb-8">
+        {/* ── SECTION 5: Join URG, Career Guide & Visible Agent FAQ ─── */}
+        <section className="bg-ivory py-12 md:py-18 border-t border-hairline" id="join-urg">
+          <div className="mx-auto max-w-6xl px-6">
+            {/* Header */}
+            <div className="mb-8 md:mb-12">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Career Opportunity · South Florida</p>
-              <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                Don't just join a brokerage.<br />
+              <h2 className="mt-3 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                Don&apos;t just join a brokerage.<br />
                 <span className="text-gold">Join a desk that already moves business.</span>
               </h2>
-              <p className="mt-5 max-w-2xl font-sans text-base leading-snug text-ink-primary/65 md:leading-relaxed">
+              <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/65 md:text-base">
                 United Realty Group provides a coordinated Florida brokerage platform — {CONTACT.stats.urgAgents} agents
-                across the {CONTACT.stats.urgOfficeNetwork}. Whatever stage you
-                are at, you work directly with Carlos — an active 25-year agent on the same MLS, not a branch manager
-                reviewing paperwork.
+                across the {CONTACT.stats.urgOfficeNetwork}. Whatever stage you are at, you work directly with Carlos — an
+                active 25-year agent on the same MLS, not a branch manager reviewing paperwork.
               </p>
             </div>
 
-            {/* Featured United Realty brand film — the recruiting "ad" + the business case */}
-            <div className="mb-8 grid gap-px overflow-hidden border border-gold/25 bg-gold/10 md:mb-10 md:grid-cols-[1.15fr_0.85fr]">
-              {/* Brand film */}
-              <div className="relative min-h-[220px] overflow-hidden bg-navy-deep md:min-h-[440px]">
+            {/* Brand Film & Business Case */}
+            <div className="mb-10 grid gap-px overflow-hidden border border-gold/25 bg-gold/10 md:grid-cols-[1.1fr_0.9fr]">
+              <div className="relative min-h-[240px] overflow-hidden bg-navy-deep md:min-h-[420px]">
                 <LazyVideo
                   src="/videos/advisor-brand.mp4"
                   className="absolute inset-0 h-full w-full object-cover"
@@ -925,7 +643,7 @@ export default function AgentsPage() {
                     United Realty Group · Brand Film
                   </span>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-7">
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
                   <p className="font-serif text-xl leading-snug text-white md:text-2xl">
                     See what working inside the brokerage looks like.
                   </p>
@@ -935,15 +653,14 @@ export default function AgentsPage() {
                 </div>
               </div>
 
-              {/* The business case for why agents grow here */}
-              <div className="flex flex-col justify-center bg-navy-deep p-5 md:p-6">
+              <div className="flex flex-col justify-center bg-navy-deep p-6 md:p-8 text-white">
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">Why agents grow here</p>
-                <p className="mt-3 font-sans text-[15px] leading-[1.5] text-white/70 md:mt-4 md:leading-[1.8]">
+                <p className="mt-3 font-sans text-sm leading-relaxed text-white/70 md:text-[15px]">
                   The agents who build the fastest are the ones who plug into demand that already exists instead of
-                  generating every lead alone. Carlos runs active seller, buyer, and cross-border desks on the same
-                  MLS you will work — and brings 25 years of in-market relationships to the agents around him.
+                  generating every lead alone. Carlos runs active seller, buyer, and cross-border desks on the same MLS
+                  you will work — and brings 25 years of in-market relationships to the agents around him.
                 </p>
-                <ul className="mt-4 space-y-2 md:mt-5 md:space-y-3">
+                <ul className="mt-5 space-y-3">
                   {[
                     "Mentorship from an active producer — not a back-office manager",
                     "A bilingual, international niche most local agents cannot serve",
@@ -951,80 +668,85 @@ export default function AgentsPage() {
                     "Coordinated infrastructure: listing marketing, MLS reach, brokerage support, and compliance",
                   ].map((point) => (
                     <li key={point} className="flex items-start gap-2.5">
-                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold/70" />
-                      <span className="font-sans text-sm leading-snug text-white/75">{point}</span>
+                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                      <span className="font-sans text-xs leading-snug text-white/75 md:text-sm">{point}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            {/* Two audiences — new vs. experienced */}
-            <div className="mb-8 grid gap-px border border-hairline bg-hairline md:mb-10 md:grid-cols-2">
-              {[
-                {
-                  icon: UserPlus,
-                  tag: "New to real estate",
-                  title: "Start your career the right way.",
-                  body: "From licensing to your first closing, you get a clear path and a mentor who has done it for 25 years — instead of a desk and a login. Learn the MLS, listing strategy, and how to build a pipeline from zero in a competitive, international market.",
-                },
-                {
-                  icon: Handshake,
-                  tag: "Experienced · switching agency",
-                  title: "Ready for a change and real guidance.",
-                  body: "Already licensed but underserved by your current brokerage? Bring your book, keep your independence, and gain a hands-on partner working the same market. For agents who want mentorship and growth — not just a lower split and silence.",
-                },
-              ].map((a) => (
-                <div key={a.tag} className="bg-white p-5 md:p-6">
-                  <a.icon size={20} className="text-gold" strokeWidth={1.5} />
-                  <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80 md:mt-4">{a.tag}</p>
-                  <h3 className="mt-2 font-serif text-lg leading-snug text-navy-deep md:text-xl">{a.title}</h3>
-                  <RevealText lines={2} className="mt-2 font-sans text-sm leading-snug text-ink-primary/65 md:mt-3 md:leading-relaxed">{a.body}</RevealText>
-                </div>
-              ))}
+            {/* Two Audiences Grid: New vs Experienced */}
+            <div className="mb-10 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+              <div className="bg-white p-6 md:p-8">
+                <UserPlus size={20} className="text-gold" strokeWidth={1.5} />
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">New to Real Estate</p>
+                <h3 className="mt-2 font-serif text-lg leading-snug text-navy-deep md:text-xl">
+                  Start your career the right way.
+                </h3>
+                <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
+                  From licensing to your first closing, you get a clear path and a mentor who has done it for 25 years —
+                  instead of a desk and a login. Learn the MLS, listing strategy, and how to build a pipeline from zero in
+                  a competitive, international market.
+                </p>
+              </div>
+
+              <div className="bg-white p-6 md:p-8">
+                <Handshake size={20} className="text-gold" strokeWidth={1.5} />
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">
+                  Experienced · Switching Agency
+                </p>
+                <h3 className="mt-2 font-serif text-lg leading-snug text-navy-deep md:text-xl">
+                  Ready for a change and real guidance.
+                </h3>
+                <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
+                  Already licensed but underserved by your current brokerage? Bring your book, keep your independence, and
+                  gain a hands-on partner working the same market. For agents who want mentorship and growth — not just a
+                  lower split and silence.
+                </p>
+              </div>
             </div>
 
-            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-10">
-
-              {/* Left — join reasons + CTA */}
+            {/* Growth Pillars + Book Card Layout */}
+            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start mb-14">
               <div>
-                <div className="grid grid-cols-2 gap-px border border-hairline bg-hairline">
+                <div className="grid grid-cols-1 gap-px border border-hairline bg-hairline sm:grid-cols-2">
                   {[
                     {
                       icon: Building2,
-                      title: "A platform for coordinated execution",
-                      body: `United Realty Group supports its agents through the ${CONTACT.stats.urgOfficeNetwork}, providing a statewide brokerage framework for listing execution, local coordination, and compliant transactions.`,
+                      title: "Platform for Coordinated Execution",
+                      body: `United Realty Group supports its agents through the ${CONTACT.stats.urgOfficeNetwork}, providing a statewide brokerage framework for listing execution and compliant transactions.`,
                     },
                     {
                       icon: Globe2,
-                      title: "Association reach, built in",
-                      body: "Every affiliated agent enters the Miami and South Florida REALTORS® ecosystem — a 93,000-member association, 200+ global portals in 19 languages, and 437+ international referral agreements. You present like a luxury team without building one yourself.",
+                      title: "Association Reach, Built In",
+                      body: "Every affiliated agent enters the Miami and South Florida REALTORS® ecosystem — a 93,000-member association, 200+ global portals in 19 languages, and 437+ international referral agreements.",
                     },
                     {
                       icon: Users,
-                      title: "Built for a bilingual market",
-                      body: "South Florida runs on English and Spanish — and so does the international buyer pool. An agent who can work both markets fluently competes for mandates and clients that monolingual agents simply can't reach.",
+                      title: "Built for a Bilingual Market",
+                      body: "South Florida runs on English and Spanish — and so does the international buyer pool. An agent who can work both fluently competes for mandates monolingual agents cannot reach.",
                     },
                     {
                       icon: Star,
-                      title: "A mentor who is still in the game",
-                      body: "Carlos has worked this market since 2001 and is closing deals on the same MLS today. You learn current strategy from someone doing the work now — not a branch manager reviewing paperwork.",
+                      title: "Active Producer Mentorship",
+                      body: "Carlos has worked this market since 2001 and is actively closing transactions on the same MLS today. You learn current strategy from someone doing the work now.",
                     },
                   ].map((item) => (
-                    <div key={item.title} className="bg-white p-3 md:p-6">
+                    <div key={item.title} className="bg-white p-5 md:p-6">
                       <item.icon size={18} className="text-gold" strokeWidth={1.5} />
-                      <h3 className="mt-2 font-serif text-sm leading-snug text-navy-deep md:mt-4 md:text-base">{item.title}</h3>
-                      <RevealText lines={2} className="mt-2 font-sans text-xs leading-snug text-ink-primary/60 md:text-sm md:leading-relaxed">{item.body}</RevealText>
+                      <h4 className="mt-3 font-serif text-base text-navy-deep">{item.title}</h4>
+                      <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/65">{item.body}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-6">
+                <div className="mt-6 flex flex-wrap items-center gap-4">
                   <a
                     href={WA_CAREERS}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 bg-navy-deep px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+                    className="inline-flex items-center gap-2 bg-navy-deep px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep font-semibold"
                   >
                     <UserPlus size={14} />
                     Ask About Joining URG
@@ -1034,94 +756,79 @@ export default function AgentsPage() {
                   </p>
                 </div>
 
-                <p className="mt-4 font-sans text-xs italic text-ink-primary/70 md:mt-5">
-                  All license affiliations are subject to United Realty Group's standard broker requirements, Florida DBPR licensing,
-                  and applicable MLS membership rules. Contact Carlos directly for current availability and affiliate terms.
+                <p className="mt-4 font-sans text-xs italic text-ink-primary/60">
+                  All license affiliations are subject to United Realty Group&apos;s standard broker requirements, Florida
+                  DBPR licensing, and applicable MLS membership rules. Contact Carlos directly for current affiliate terms.
                 </p>
               </div>
 
-              {/* Right — booklet teaser card */}
-              <div className="lg:sticky lg:top-24">
-                <div className="relative overflow-hidden border border-gold/30 bg-navy-deep shadow-2xl shadow-navy/20">
-                  {/* Coming-soon badge */}
-                  <div className="absolute right-4 top-4 z-10">
-                    <span className="bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-navy-deep">
-                      Coming Soon
-                    </span>
-                  </div>
-
-                  {/* Visual header */}
-                  <div className="relative overflow-hidden bg-[radial-gradient(ellipse_at_30%_40%,rgba(176,141,87,0.18),rgba(6,17,31,1))] px-6 pt-5 pb-5 md:px-8 md:pt-8 md:pb-6">
-                    <div className="mb-3 md:mb-6">
-                      <BookOpen size={36} className="text-gold" strokeWidth={1.25} />
-                    </div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold/70 mb-3">
-                      The South Florida Career Guide
-                    </p>
-                    <h3 className="font-serif text-2xl leading-snug text-white">
-                      How to Become a Successful<br />
-                      <em className="italic text-gold">Real Estate Agent in South Florida</em>
-                    </h3>
-                    <p className="mt-3 font-sans text-sm leading-snug text-white/60 md:mt-4 md:leading-relaxed">
-                      A practical guide to starting and building a real estate career in one of the most
-                      competitive and internationally connected markets in the United States — from
-                      licensing, to your first transaction, to working inside a professional network.
-                    </p>
-                  </div>
-
-                  {/* What's inside */}
-                  <div className="border-t border-white/10 px-6 py-4 md:px-8 md:py-5">
-                    <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/60 md:mb-4">What's inside</p>
-                    <ul className="space-y-1.5 md:space-y-2.5">
-                      {[
-                        "Florida real estate licensing — step by step",
-                        "Choosing the right brokerage for your career",
-                        "Building a pipeline from zero in South Florida",
-                        "Working with international and Latin American buyers",
-                        "MLS, listing strategy, and the agent network",
-                        "What 25 years in this market actually teaches you",
-                      ].map((item) => (
-                        <li key={item} className="flex items-start gap-2.5">
-                          <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
-                          <span className="font-sans text-[13px] leading-snug text-white/65">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="border-t border-white/10 px-6 py-4 md:px-8 md:py-5">
-                    <a
-                      href="/la-comision-secreta"
-                      className="group flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
-                    >
-                      <BookOpen size={13} />
-                      Preview the Book
-                    </a>
-                    <p className="mt-2 text-center font-mono text-[11px] uppercase tracking-[0.16em] text-white/70 md:mt-3">
-                      By Carlos Uzcategui · FL SL705771 · United Realty Group
-                    </p>
-                  </div>
+              {/* Book Teaser Card */}
+              <div className="relative overflow-hidden border border-gold/30 bg-navy-deep shadow-xl text-white">
+                <div className="absolute right-4 top-4 z-10">
+                  <span className="bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-navy-deep font-bold">
+                    Coming Soon
+                  </span>
+                </div>
+                <div className="p-6 md:p-8">
+                  <BookOpen size={32} className="text-gold" strokeWidth={1.25} />
+                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.28em] text-gold/70">
+                    The South Florida Career Guide
+                  </p>
+                  <h3 className="mt-2 font-serif text-2xl leading-snug text-white">
+                    How to Become a Successful<br />
+                    <em className="italic text-gold">Real Estate Agent in South Florida</em>
+                  </h3>
+                  <p className="mt-3 font-sans text-xs leading-relaxed text-white/60 md:text-sm">
+                    A practical guide to starting and building a real estate career in one of the most competitive and
+                    internationally connected markets in the United States — from licensing, to your first transaction, to
+                    working inside a professional network.
+                  </p>
+                </div>
+                <div className="border-t border-white/10 px-6 py-4 md:px-8">
+                  <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">What&apos;s inside</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Florida real estate licensing — step by step",
+                      "Choosing the right brokerage for your career",
+                      "Building a pipeline from zero in South Florida",
+                      "Working with international and Latin American buyers",
+                      "MLS, listing strategy, and the agent network",
+                      "What 25 years in this market actually teaches you",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
+                        <span className="font-sans text-xs leading-snug text-white/70">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="border-t border-white/10 p-6 md:px-8">
+                  <a
+                    href="/la-comision-secreta"
+                    className="flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep font-bold transition-opacity hover:opacity-90"
+                  >
+                    <BookOpen size={14} />
+                    Preview the Book
+                  </a>
+                  <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+                    By Carlos Uzcategui · FL SL705771 · United Realty Group
+                  </p>
                 </div>
               </div>
-
             </div>
-          </div>
-        </section>
 
-        {/* Compliance */}
-        <section className="bg-navy-deep py-6 md:py-8">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 mb-3">
-              <BadgeCheck size={14} className="text-gold" />
-              Confidential · Licensed Professionals · Equal Housing Opportunity
+            {/* Visible FAQ Section matching FAQPage Schema */}
+            <div className="border-t border-hairline pt-12 md:pt-16">
+              <div className="mb-8 text-center">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Frequently Asked Questions</p>
+                <h3 className="mt-2 font-serif text-2xl text-navy-deep md:text-3xl">
+                  Questions for Real Estate Professionals
+                </h3>
+              </div>
+              <div className="mx-auto max-w-3xl">
+                <FaqAccordion faqs={AGENTS_FAQS} tone="light" defaultOpen={0} />
+              </div>
             </div>
-            <p className="font-sans text-[11px] leading-relaxed text-white/70">
-              Carlos Uzcategui is a REALTOR® and Florida real estate licensee (SL705771) affiliated with United Realty Group. He is not licensed as a real estate broker in Spain.
-              Miami MLS exposure, syndication, referral compensation, cooperation, and listing distribution are subject to MLS rules, broker approval, written agreements,
-              property eligibility, local law, and platform availability. Network figures are provided for context. We do not guarantee buyers, offers, closings, syndication
-              results, or specific platform placement. All partnerships and referrals are documented through written agreements executed before engagement.
-            </p>
           </div>
         </section>
 

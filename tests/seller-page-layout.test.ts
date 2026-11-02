@@ -62,3 +62,15 @@ test("markets page renders CountyExplorer, visible FaqAccordion matching FAQPage
   assert.doesNotMatch(page, /youtube\.com\/embed/);
   assert.doesNotMatch(page, /const PILLARS =/);
 });
+
+
+test("agents page renders visible FaqAccordion matching FAQPage schema, 2-tab intake desk, and omits RevealText truncation", async () => {
+  const page = await readFile("src/pages/AgentsPage.tsx", "utf8");
+  assert.match(page, /pb-28 lg:pb-0/);
+  assert.match(page, /<FaqAccordion faqs=\{AGENTS_FAQS\}/);
+  assert.match(page, /<ReferralIntakeForm \/>/);
+  assert.match(page, /<AgencyPartnerForm \/>/);
+  assert.doesNotMatch(page, /<RevealText/);
+  assert.doesNotMatch(page, /<SectionTabs/);
+  assert.doesNotMatch(page, /<GlobalResearchLinks/);
+});
