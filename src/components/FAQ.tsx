@@ -5,11 +5,11 @@ import { FaqAccordion } from "./FaqAccordion";
 export const SELLER_FAQS = [
   {
     "q": "How do I choose a listing agent in South Florida?",
-    "a": "Compare how each agent will price your property, prepare it for market, reach relevant buyer agents, report feedback and negotiate the contract. Carlos Uzcategui provides seller representation through United Realty Group. Request a private seller strategy review to discuss your property, timing and priorities before making a listing commitment."
+    "a": "Compare how each agent will price your property, prepare it for market, coordinate with cooperating buyer agents, report feedback and negotiate the contract. Carlos Uzcategui provides seller representation through United Realty Group. Request a private seller strategy review to discuss your property, timing and priorities before making a listing commitment."
   },
   {
     "q": "How will you market my South Florida home?",
-    "a": "We review competing listings and recent sales, agree the preparation and media scope, and position eligible listings in the MLS. We then coordinate relevant buyer-agent outreach, inquiry follow-up and showing feedback. Syndication and referral reach depend on property eligibility, MLS rules, brokerage approval and participating channels; placement, inquiries and sales are not guaranteed."
+    "a": "We review competing listings and recent sales, agree the preparation and media scope, and position eligible listings in the MLS. We then leverage MLS reverse prospecting to connect with agents whose buyers have matching saved searches, maintain prompt broker communication, and provide structured showing feedback. Syndication and referral reach depend on property eligibility, MLS rules, brokerage approval and participating channels; placement, inquiries and sales are not guaranteed."
   },
   {
     "q": "Can you help me sell a home in South Florida while I live abroad?",
