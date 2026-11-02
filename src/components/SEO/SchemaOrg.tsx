@@ -46,7 +46,7 @@ const sitewideSchema: JsonLdSchema[] = [
     name: CONTACT.name,
     alternateName: ["Carlos Uzcategui Real Estate", "HomesProfessional.com"],
     description:
-      "Carlos Uzcategui is a South Florida listing agent and Florida real estate sales associate (SL705771, licensed since 2001) with United Realty Group. He provides seller representation, pricing strategy, buyer-agent outreach and negotiation in English and Spanish. International services operate through applicable professional relationships and written agreements, subject to eligibility and brokerage approval.",
+      "Carlos Uzcategui is a South Florida listing agent and Florida real estate sales associate (SL705771, licensed since 2001) with United Realty Group. He provides seller representation, pricing strategy, cooperating buyer-agent relations, MLS positioning, and contract negotiation in English and Spanish. International services operate through applicable professional relationships and written agreements, subject to eligibility and brokerage approval.",
     url: SITE_URL,
     telephone: CONTACT.phoneUS,
     email: CONTACT.email,
@@ -212,7 +212,7 @@ const sitewideSchema: JsonLdSchema[] = [
     serviceType: "Real Estate Listing and Seller Representation",
     areaServed: "South Florida",
     url: `${SITE_URL}/sell`,
-    description: `Listing preparation, pricing strategy, relevant buyer-agent outreach, offer negotiation and closing coordination for South Florida sellers through United Realty Group. MLS visibility through ${ASSOCIATION_STATS.associationName} and eligible syndication are subject to property eligibility, applicable rules, brokerage approval and partner participation.`,
+    description: `Listing preparation, pricing strategy, cooperating buyer-agent positioning, offer negotiation and closing coordination for South Florida sellers through United Realty Group. MLS visibility through ${ASSOCIATION_STATS.associationName} and eligible syndication are subject to property eligibility, applicable rules, brokerage approval and partner participation.`,
   },
   {
     "@context": "https://schema.org",

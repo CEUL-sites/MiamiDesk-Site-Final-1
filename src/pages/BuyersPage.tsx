@@ -6,26 +6,24 @@ import { AuroraBackground } from "../components/AuroraBackground";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { MLSTicker } from "../components/MLSTicker";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
+import { FaqAccordion } from "../components/FaqAccordion";
 import {
+  ArrowRight,
   BadgeCheck,
-  Download,
   Banknote,
-  Sun,
+  Building2,
   Globe2,
-  HeartPulse,
-  Landmark,
-  Waves,
   GraduationCap,
+  HeartPulse,
+  Home,
+  Landmark,
   Plane,
+  Sun,
   Trophy,
+  Waves,
 } from "lucide-react";
-import { CONTACT, LEAD_MAGNETS, URG_CITIES } from "../constants";
-import { LazyVideo } from "../components/LazyVideo";
-import { NeoEmbed } from "../components/NeoEmbed";
-import { Tilt3D } from "../components/Tilt3D";
-import { RevealText } from "../components/RevealText";
+import { CONTACT } from "../constants";
 import { FloridaBuyerJourney } from "../components/FloridaBuyerJourney";
 
 // Condensed from "Top 20 Reasons to Buy & Live in Miami" — Miami and South
@@ -78,111 +76,230 @@ const WHY_FLORIDA = [
   },
 ];
 
-const COUNTY_ORDER = ["Broward County", "Miami-Dade County", "Palm Beach County"];
+const BUYER_FAQS = [
+  {
+    q: "Do I need a buyer's agent in South Florida?",
+    a: "A buyer's agent provides professional property search, negotiation support, market analysis, and closing coordination. Carlos works through United Realty Group's brokerage framework and applicable MLS, platform, legal, and compliance requirements.",
+  },
+  {
+    q: "What does United Realty Group's size mean for me as a buyer?",
+    a: "United Realty Group has 3,500+ agents across the Florida office network. For a buyer, that supports local coordination and buyer-agent cooperation across South Florida, subject to brokerage, platform, and compliance requirements.",
+  },
+  {
+    q: "Can I buy a home in South Florida from abroad?",
+    a: "Yes. We specialize in serving international buyers, particularly from Spain and Latin America. Bilingual English/Spanish representation, foreign-national financing introductions, and remote transaction management are available.",
+  },
+  {
+    q: "What is the buying process in Miami?",
+    a: "The process includes buyer consultation, professional property search, offer submission, inspection, financing coordination, title review, and closing. Timing depends on the contract, financing, property, and parties involved.",
+  },
+] as const;
 
 export default function BuyersPage() {
   return (
     <>
       <Helmet>
         <title>Buy in South Florida · 25 Years + a 3,500-Agent Network</title>
-        <meta name="description" content="Buyer representation across South Florida — 25 years, backed by United Realty Group's 3,500+ agents across the Florida office network. FL SL705771." />
+        <meta
+          name="description"
+          content="Buyer representation across South Florida — 25 years, backed by United Realty Group's 3,500+ agents across the Florida office network. FL SL705771."
+        />
         <link rel="canonical" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/comprar" />
-        <meta property="og:title" content="Buy in South Florida | 25 Years + 3,500+ Agents Behind Every Purchase | Carlos Uzcategui" />
-        <meta property="og:description" content="Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by United Realty Group: 3,500+ agents; Florida office network. Bilingual English/Spanish. FL SL705771." />
+        <meta
+          property="og:title"
+          content="Buy in South Florida | 25 Years + 3,500+ Agents Behind Every Purchase | Carlos Uzcategui"
+        />
+        <meta
+          property="og:description"
+          content="Buyer representation across Miami-Dade, Broward, and Palm Beach — backed by United Realty Group: 3,500+ agents; Florida office network. Bilingual English/Spanish. FL SL705771."
+        />
         <meta property="og:url" content="https://homesprofessional.com/buy" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Buy in South Florida | 25 Years + 3,500+ Agents Behind Every Purchase" />
-        <meta name="twitter:description" content="Professional MLS search, negotiation, and closing coordination across Miami-Dade, Broward, and Palm Beach through United Realty Group." />
+        <meta
+          name="twitter:title"
+          content="Buy in South Florida | 25 Years + 3,500+ Agents Behind Every Purchase"
+        />
+        <meta
+          name="twitter:description"
+          content="Professional MLS search, negotiation, and closing coordination across Miami-Dade, Broward, and Palm Beach through United Realty Group."
+        />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
-      <JsonLd id="buyers-service" data={{
+
+      <JsonLd
+        id="buyers-service"
+        data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "South Florida Buyer Representation",
-          "provider": { "@id": "https://homesprofessional.com/#agent" },
-          "serviceType": "Real Estate Buyer Representation",
-          "description": "Buyer representation including professional MLS search, neighborhood analysis, offer strategy, and closing coordination across Miami-Dade, Broward, and Palm Beach counties — backed by United Realty Group's 3,500+ agents across the Florida office network.",
-          "areaServed": "South Florida",
-          "url": "https://homesprofessional.com/buy",
-          "offers": {
+          name: "South Florida Buyer Representation",
+          provider: { "@id": "https://homesprofessional.com/#agent" },
+          serviceType: "Real Estate Buyer Representation",
+          description:
+            "Buyer representation including professional MLS search, neighborhood analysis, offer strategy, and closing coordination across Miami-Dade, Broward, and Palm Beach counties — backed by United Realty Group's 3,500+ agents across the Florida office network.",
+          areaServed: "South Florida",
+          url: "https://homesprofessional.com/buy",
+          offers: {
             "@type": "Offer",
-            "availability": "https://schema.org/InStock",
-            "description": "Free buyer consultation — no commitment required."
-          }
-        }} />
-      <JsonLd id="buyers-faq" data={{
+            availability: "https://schema.org/InStock",
+            description: "Free buyer consultation — no commitment required.",
+          },
+        }}
+      />
+
+      <JsonLd
+        id="buyers-faq"
+        data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": [
-            { "@type": "Question", "name": "Do I need a buyer's agent in South Florida?", "acceptedAnswer": { "@type": "Answer", "text": "A buyer's agent provides professional property search, negotiation support, market analysis, and closing coordination. Carlos works through United Realty Group's brokerage framework and applicable MLS, platform, legal, and compliance requirements." } },
-            { "@type": "Question", "name": "What does United Realty Group's size mean for me as a buyer?", "acceptedAnswer": { "@type": "Answer", "text": "United Realty Group has 3,500+ agents across the Florida office network. For a buyer, that supports local coordination and buyer-agent cooperation across South Florida, subject to brokerage, platform, and compliance requirements." } },
-            { "@type": "Question", "name": "Can I buy a home in South Florida from abroad?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in serving international buyers, particularly from Spain and Latin America. Bilingual English/Spanish representation, foreign-national financing introductions, and remote transaction management are available." } },
-            { "@type": "Question", "name": "What is the buying process in Miami?", "acceptedAnswer": { "@type": "Answer", "text": "The process includes buyer consultation, professional property search, offer submission, inspection, financing coordination, title review, and closing. Timing depends on the contract, financing, property, and parties involved." } }
-          ]
-        }} />
+          mainEntity: BUYER_FAQS.map(({ q, a }) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
+        }}
+      />
+
+      <JsonLd
+        id="buyers-breadcrumb"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://homesprofessional.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Buy in South Florida",
+              item: "https://homesprofessional.com/buy",
+            },
+          ],
+        }}
+      />
+
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
 
-        {/* ── Hero — 25 years + the network behind it ─────────────── */}
-        <section className="advisory-hero" aria-labelledby="buyer-hero-heading"><div className="advisory-hero-inner">
-          <div><p className="advisory-eyebrow">South Florida · Buyer representation</p>
-          <h1 id="buyer-hero-heading">Know What You’re Buying—Before You Decide What to Pay.</h1>
-          <p className="advisory-summary">Property analysis, local market guidance and experienced negotiation across Miami-Dade, Broward and Palm Beach, with bilingual coordination from search to closing.</p>
-          <div className="advisory-actions"><a href="#buyer-mandate" className="advisory-primary" onClick={() => trackMicroConversion("hp_cta_click", { type: "buyer_consultation", location: "buyers_hero" })}>Request a Private Buyer Consultation</a><a href="/markets" className="advisory-secondary" onClick={() => trackMicroConversion("hp_cta_click", { type: "explore_markets", location: "buyers_hero" })}>Explore South Florida Markets</a></div>
-          <p className="advisory-note">Florida licensed since 2001 · United Realty Group · English / Spanish</p></div>
-          <figure className="advisory-photo"><picture><source media="(max-width: 1023px)" srcSet="/images/buyers-architecture-mobile.webp" /><img src="/images/buyers-architecture.webp" width="1400" height="933" fetchPriority="high" alt="Conceptual residential interior opening onto a South Florida garden and waterway" /></picture><figcaption>Conceptual residential imagery · Not a property listing</figcaption></figure>
-        </div></section>
+        {/* Section 1: Executive Buyer Representation Hero */}
+        <section className="advisory-hero" aria-labelledby="buyer-hero-heading">
+          <div className="advisory-hero-inner">
+            <div>
+              <p className="advisory-eyebrow">South Florida · Buyer representation</p>
+              <h1 id="buyer-hero-heading">
+                Know What You’re Buying—Before You Decide What to Pay.
+              </h1>
+              <p className="advisory-summary">
+                Property analysis, local market guidance and experienced negotiation across Miami-Dade, Broward and Palm Beach, with bilingual coordination from search to closing.
+              </p>
+              <div className="advisory-actions">
+                <a
+                  href="#buyer-mandate"
+                  className="advisory-primary"
+                  onClick={() =>
+                    trackMicroConversion("hp_cta_click", {
+                      type: "buyer_consultation",
+                      location: "buyers_hero",
+                    })
+                  }
+                >
+                  Request a Private Buyer Consultation
+                </a>
+                <a
+                  href="/markets"
+                  className="advisory-secondary"
+                  onClick={() =>
+                    trackMicroConversion("hp_cta_click", {
+                      type: "explore_markets",
+                      location: "buyers_hero",
+                    })
+                  }
+                >
+                  Explore South Florida Markets
+                </a>
+              </div>
+              <p className="advisory-note">
+                Florida licensed since 2001 · United Realty Group · English / Spanish
+              </p>
+            </div>
+            <figure className="advisory-photo">
+              <picture>
+                <source
+                  media="(max-width: 1023px)"
+                  srcSet="/images/buyers-architecture-mobile.webp"
+                />
+                <img
+                  src="/images/buyers-architecture.webp"
+                  width="1400"
+                  height="933"
+                  fetchPriority="high"
+                  alt="Conceptual residential interior opening onto a South Florida garden and waterway"
+                />
+              </picture>
+              <figcaption>Conceptual residential imagery · Not a property listing</figcaption>
+            </figure>
+          </div>
+        </section>
 
-        {/* Active market bridge — Miami-Dade & Broward ~$1M listings */}
-        <MLSTicker />
+        {/* Section 2: Six-Stage Acquisition Mandate */}
+        <FloridaBuyerJourney />
 
-        {/* ── The network behind your purchase — URG ──────────────── */}
-        <section className="bg-white py-16 md:py-24 border-t border-hairline">
+        {/* Section 3: Principal Accountability & Specialized Acquisition Desks */}
+        <section className="border-t border-hairline bg-white py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">The Network Behind Your Purchase</p>
-                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                  One agent negotiates for you.<br />
-                  <span className="italic text-gold-ink font-light">{CONTACT.stats.urgAgents} stand behind him.</span>
-                </h2>
-                <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/65">
-                  Carlos represents buyers through United Realty Group's professional Florida brokerage framework:
-                  {" "}{CONTACT.stats.urgAgents} agents across the {CONTACT.stats.urgOfficeNetwork}. That scale supports
-                  local coordination across Miami-Dade, Broward, and Palm Beach while Carlos remains the accountable buyer representative.
+            <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+              {/* Left Column: Principal Accountability + URG Infrastructure */}
+              <div className="lg:col-span-7">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                  The Network Behind Your Purchase
                 </p>
-                <p className="mt-4 font-sans text-[15px] leading-relaxed text-ink-primary/65">
-                  For a buyer, scale supports coordinated local market review and professional cooperation
-                  across South Florida. Carlos remains the accountable representative for search strategy,
-                  property analysis, offer preparation, and transaction coordination.
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  One agent negotiates for you.
+                  <br />
+                  <span className="font-light italic text-gold-ink">
+                    {CONTACT.stats.urgAgents} stand behind him.
+                  </span>
+                </h2>
+                <p className="mt-5 font-sans text-[15px] leading-relaxed text-ink-primary/70">
+                  Carlos represents buyers through United Realty Group's Florida brokerage framework:{" "}
+                  {CONTACT.stats.urgAgents} licensed agents across the {CONTACT.stats.urgOfficeNetwork} (19 Florida office locations). That footprint supports local submarket intelligence and agent-to-agent cooperation across Miami-Dade, Broward, and Palm Beach while Carlos remains your single accountable advisor.
+                </p>
+                <p className="mt-4 font-sans text-[15px] leading-relaxed text-ink-primary/70">
+                  Whether acquiring a primary residence in Weston or Coral Gables, a waterfront condominium in Brickell or Sunny Isles Beach, or an investment property, every property is underwritten against verified MLS comparables, HOA/condo reserve health, insurance parameters, and contract contingencies before an offer is submitted.
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
-                    `${CONTACT.stats.urgAgents} licensed agents across the ${CONTACT.stats.urgOfficeNetwork}`,
-                    "Deep office coverage of Broward & Miami-Dade — Plantation HQ, Weston, Pembroke Pines, Kendall, Hialeah, Aventura, Fort Lauderdale & more",
-                    "Eligible MLS search and buyer-agent coordination",
-                    "Bilingual English / Spanish representation",
-                    "Professional brokerage and compliance framework",
+                    `${CONTACT.stats.urgAgents} licensed agents across the ${CONTACT.stats.urgOfficeNetwork} (19 Florida office locations)`,
+                    "Direct MLS property underwriting, comparable sales review, and inspection/appraisal defense",
+                    "Established peer relationships with listing agents across Miami-Dade, Broward, and Palm Beach",
+                    "Bilingual English / Spanish transaction management for domestic and international buyers",
+                    "Full brokerage compliance and escrow coordination from initial brief to closing",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5">
-                      <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
-                      <span className="font-sans text-[14px] leading-snug text-ink-primary/70">{item}</span>
+                    <li key={item} className="flex items-start gap-3">
+                      <BadgeCheck size={16} className="mt-0.5 shrink-0 text-gold" />
+                      <span className="font-sans text-[14px] leading-snug text-ink-primary/75">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
-              {/* Local market proof and URG team video */}
-              <div className="space-y-px overflow-hidden border border-hairline bg-hairline shadow-xl shadow-navy/10">
-                <figure className="bg-navy-deep">
-                  <div className="aspect-[16/10] overflow-hidden">
+
+              {/* Right Column: Editorial Portrait Card */}
+              <div className="lg:col-span-5">
+                <figure className="overflow-hidden border border-bone bg-navy-deep shadow-[0_20px_50px_rgba(11,30,63,0.14)]">
+                  <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src="/images/carlos-waterfront-editorial-20261012.jpg"
-                      alt="Carlos Uzcategui at a Miami waterfront property"
+                      alt="Carlos Uzcategui conducting a local property review on the Miami waterfront"
                       width={1920}
                       height={1081}
                       loading="lazy"
@@ -190,213 +307,196 @@ export default function BuyersPage() {
                       className="h-full w-full object-cover object-[center_42%]"
                     />
                   </div>
-                  <figcaption className="bg-navy-deep px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
-                    Carlos Uzcategui · Local property review · Miami waterfront
+                  <figcaption className="border-t border-white/10 bg-navy-deep px-6 py-5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                      {CONTACT.licenseDisplay}
+                    </p>
+                    <p className="mt-1 font-serif text-lg text-white">
+                      25 Years of South Florida Acquisition & Contract Negotiation
+                    </p>
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/65">
+                      United Realty Group · {CONTACT.stats.urgAgents} Agents · 19 Florida Office Locations
+                    </p>
                   </figcaption>
                 </figure>
-                <div className="bg-navy-deep">
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/M8Hx5D5ghag?si=XAE-_zpkAJCVf_Yp&rel=0&modestbranding=1"
-                    title="United Realty Group — the team behind every South Florida purchase"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full border-0"
-                  />
-                </div>
-                <div className="bg-navy-deep px-5 py-4">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · The Team</p>
-                  <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
-                    {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOfficeNetwork}
-                  </p>
-                </div>
-                </div>
               </div>
             </div>
 
-            {/* County coverage — regional URG presence */}
-            <div className="mt-14 border-t border-hairline pt-10">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Coverage · Broward · Miami-Dade · Palm Beach</p>
-              <div className="mt-6 grid gap-8 md:grid-cols-3">
-                {COUNTY_ORDER.map((county) => (
-                  <div key={county}>
-                    <h3 className="font-serif text-lg text-navy-deep">{county}</h3>
-                    <p className="mt-2 font-sans text-[13px] leading-relaxed text-ink-primary/60">
-                      {URG_CITIES.filter((c) => c.region === county).map((c) => c.city).join(" · ")}
+            {/* Specialized Buyer Advisory Desks (Consolidating Pre-Construction, Cross-Border/Spain, and Weston Programs) */}
+            <div className="mt-16 border-t border-hairline pt-14">
+              <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                    Specialized Buyer Desks
+                  </p>
+                  <h3 className="mt-2 font-serif text-2xl text-navy-deep md:text-3xl">
+                    Tailored guidance for new developments, international buyers, and local programs.
+                  </h3>
+                </div>
+                <a
+                  href="/listings"
+                  className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-navy-deep"
+                >
+                  Browse Active MLS Opportunities →
+                </a>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-3">
+                {/* Card 1: Pre-Construction */}
+                <div className="flex flex-col justify-between border border-bone bg-ivory p-7">
+                  <div>
+                    <div className="flex items-center gap-2.5 text-gold-ink">
+                      <Building2 size={18} />
+                      <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+                        Pre-Construction · NEO Portal
+                      </span>
+                    </div>
+                    <h4 className="mt-4 font-serif text-xl text-navy-deep">
+                      South Florida New Developments
+                    </h4>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
+                      Access live South Florida pre-construction inventory via the NEO platform. Carlos represents buyers independently in reviewing developer contracts, staged deposit schedules, reserve budgets, and delivery timelines.
                     </p>
                   </div>
-                ))}
+                  <a
+                    href="/new-construction"
+                    className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                  >
+                    Open Live Pre-Construction Feed
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+
+                {/* Card 2: International & Cross-Border / Spain Referrals */}
+                <div className="flex flex-col justify-between border border-bone bg-ivory p-7">
+                  <div>
+                    <div className="flex items-center gap-2.5 text-gold-ink">
+                      <Globe2 size={18} />
+                      <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+                        Cross-Border & Spain Desk
+                      </span>
+                    </div>
+                    <h4 className="mt-4 font-serif text-xl text-navy-deep">
+                      International Buyers & Spain Introductions
+                    </h4>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
+                      Bilingual English/Spanish acquisition support for Latin American and European buyers purchasing in Florida, plus formal referral introductions to vetted local agencies and legal counsel for clients purchasing in Spain.
+                    </p>
+                  </div>
+                  <a
+                    href="/global-desk"
+                    className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                  >
+                    Visit the International & Spain Desk
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+
+                {/* Card 3: Weston & Broward Municipal Programs */}
+                <div className="flex flex-col justify-between border border-bone bg-ivory p-7">
+                  <div>
+                    <div className="flex items-center gap-2.5 text-gold-ink">
+                      <Home size={18} />
+                      <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+                        Weston Buyer Resource
+                      </span>
+                    </div>
+                    <h4 className="mt-4 font-serif text-xl text-navy-deep">
+                      Weston Purchase Assistance Guide
+                    </h4>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
+                      The City of Weston describes purchase assistance of up to $120,000 for eligible primary-residence buyers, subject to financial need, available funds, mortgage approval, and Broward County eligibility rules.
+                    </p>
+                  </div>
+                  <a
+                    href="/journal/weston-homebuyer-purchase-assistance-2026"
+                    className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                  >
+                    Read the Weston Housing Guide
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
               </div>
-              <p className="mt-6 font-sans text-xs italic text-ink-primary/70">
-                All representation is through Florida License SL705771 and United Realty Group. MLS search and related
-                activity are subject to brokerage, platform, legal, and compliance requirements.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* ── Buying in Florida — the complete service ────────────── */}
-        <FloridaBuyerJourney />
-
-        <section className="border-t border-hairline bg-ivory py-12 md:py-16" aria-labelledby="weston-assistance-title">
-          <div className="mx-auto grid max-w-6xl gap-7 px-6 md:grid-cols-[1fr_auto] md:items-center">
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink">Weston buyer resource</p>
-              <h2 id="weston-assistance-title" className="mt-3 font-serif text-3xl text-navy-deep">Purchasing in Weston? Check the assistance program first.</h2>
-              <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/70">
-                The City of Weston describes purchase assistance of up to $120,000 for eligible buyers. The amount depends on financial need and available funds. Mortgage approval, a buyer contribution, prior ownership, and primary residence rules apply; Broward County determines eligibility.
-              </p>
-              <p className="mt-2 font-sans text-sm text-ink-primary/60">Program information reviewed September 28, 2026. Confirm current terms with Broward County before making an offer.</p>
-            </div>
-            <a href="/journal/weston-homebuyer-purchase-assistance-2026" className="inline-flex min-h-12 items-center justify-center border border-gold px-6 py-3 font-sans text-sm font-semibold text-navy-deep transition-colors hover:bg-gold/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
-              Read the Weston housing guide
-            </a>
-          </div>
-        </section>
-
-        {/* ── Why Florida — relocation case ───────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-16 md:py-24">
+        {/* Section 4: Why Buyers & Capital Choose South Florida */}
+        <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28">
           <AuroraBackground variant="subtle" />
           <div className="relative z-10 mx-auto max-w-6xl px-6">
-            <div className="mb-10 max-w-2xl">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Moving to Florida</p>
+            <div className="mb-12 max-w-2xl">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                Market Fundamentals · Moving to Florida
+              </p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Why buyers keep choosing South Florida.
               </h2>
-              <p className="mt-4 font-sans text-base leading-relaxed text-white/55">
-                Relocation is the largest decision most buyers make. These are the fundamentals that
-                keep pulling people — and capital — to Miami-Dade and Broward.
+              <p className="mt-4 font-sans text-base leading-relaxed text-white/65">
+                Relocation and capital allocation depend on long-term regional fundamentals. These nine structural drivers support residential demand across Miami-Dade, Broward, and Palm Beach.
               </p>
             </div>
+
             <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
               {WHY_FLORIDA.map((r) => (
-                <div key={r.title} className="bg-navy-deep/90 p-6">
+                <div key={r.title} className="bg-navy-deep/95 p-7">
                   <r.icon size={20} className="text-gold" />
                   <h3 className="mt-4 font-serif text-lg leading-snug text-white">{r.title}</h3>
-                  <RevealText lines={2} className="mt-2 font-sans text-[13px] leading-relaxed text-white/55">
+                  <p className="mt-2.5 font-sans text-[13.5px] leading-relaxed text-white/65">
                     {r.desc}
-                  </RevealText>
+                  </p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-white/65">
               Source: Miami and South Florida REALTORS® — "Top 20 Reasons to Buy &amp; Live in Miami" (MiamiRealtors.com)
             </p>
           </div>
         </section>
 
-        {/* ── New Construction Feed ──────────────────────────── */}
-        <section className="bg-white py-12 md:py-16 border-t border-hairline">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mb-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">New Construction · South Florida</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                Pre-construction inventory — live feed.
-              </h2>
-              <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-ink-primary/60">
-                New-development projects across South Florida, accessed through the NEO platform. Carlos provides
-                advisory representation for buyers navigating deposit structures, delivery timelines, and developer terms.
+        {/* Section 5: Confidential Buyer Mandate Form & Buyer FAQ */}
+        <section id="buyer-mandate" className="scroll-mt-24 bg-ivory py-20 md:py-28">
+          <div className="mx-auto max-w-4xl px-6">
+            <div className="mb-10 text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                Confidential Buyer Desk
               </p>
-              <a
-                href="/new-construction"
-                className="mt-4 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-gold"
-              >
-                Full pre-construction advisory →
-              </a>
+              <h2 className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
+                Define Your South Florida Acquisition Brief
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-navy/70">
+                Share your target neighborhoods, budget, and timeline. Carlos reviews every mandate personally from his Weston office.
+              </p>
             </div>
-            <div className="w-full overflow-hidden">
-              <NeoEmbed lang="en" />
-            </div>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70 text-center">
-              Live pre-construction inventory via NEO · newestateonly.com · Subject to change without notice. Not a guarantee of availability or pricing.
-            </p>
-          </div>
-        </section>
 
-        {/* ── Service Two — Buying in Spain (separate desk) ───────── */}
-        <section className="bg-bone-warm py-16 md:py-20 border-t border-hairline">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Service Two · Buying in Spain</p>
-                <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                  Buying in Spain — a separate, referral-based service.
-                </h2>
-                <p className="mt-4 font-sans text-base leading-relaxed text-ink-primary/60">
-                  Spain works differently, and it is handled differently. Carlos is licensed in Florida —
-                  not in Spain — so for Spanish purchases he acts as your introduction point: connecting
-                  you with trusted, vetted local professionals in Madrid and beyond through formal
-                  referral relationships, with clarity before every introduction and transparency throughout.
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {[
-                    "Introductions to established local agencies and legal professionals in Spain",
-                    "Bilingual coordination in English and Spanish from first call to referral",
-                    "One familiar point of contact while local experts handle the Spanish transaction",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5">
-                      <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
-                      <span className="font-sans text-[14px] leading-snug text-ink-primary/70">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-7 flex flex-wrap items-center gap-4">
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-navy-deep px-7 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90"
-                  >
-                    Request a Spain Buyer Introduction →
-                  </a>
-                  <a
-                    href={CONTACT.whatsappUS}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-navy/20 px-7 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy/50"
-                  >
-                    WhatsApp · Spain Line
-                  </a>
-                </div>
-              </div>
-              <div className="border border-bone bg-white p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">How the two services differ</p>
-                <div className="mt-5 space-y-5">
-                  <div>
-                    <h3 className="font-serif text-lg text-navy-deep">Florida — direct representation</h3>
-                    <p className="mt-1.5 font-sans text-[13px] leading-relaxed text-ink-primary/60">
-                      Licensed buyer representation (FL SL705771) with professional MLS search, negotiation, and
-                      closing coordination through United Realty Group and applicable platform requirements.
-                    </p>
-                  </div>
-                  <div className="border-t border-bone pt-5">
-                    <h3 className="font-serif text-lg text-navy-deep">Spain — professional introductions</h3>
-                    <p className="mt-1.5 font-sans text-[13px] leading-relaxed text-ink-primary/60">
-                      Formal referral relationships with local professionals who are licensed and
-                      established in the Spanish market. Carlos coordinates; local experts execute.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="shadow-[0_20px_50px_rgba(11,30,63,0.08)]">
+              <BuyerMandateForm />
             </div>
-          </div>
-        </section>
 
-        {/* ── Buyer mandate form ──────────────────────────────────── */}
-        <section id="buyer-mandate" className="relative scroll-mt-24 overflow-hidden bg-navy-deep py-14 md:py-20">
-          <AuroraBackground variant="subtle" />
-          <div className="relative z-10 mx-auto max-w-5xl px-6">
-            <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Confidential Buyer Desk</p>
-              <h2 className="mt-3 font-serif text-3xl text-white">Ready to start your search?</h2>
-            </div>
-            <BuyerMandateForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <div className="mt-5 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
               <BadgeCheck size={14} className="text-gold" />
-              Confidential · Licensed Professionals · Equal Housing Opportunity
+              Confidential · {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
+            </div>
+
+            {/* Visible Buyer FAQ Accordion (100% Parity with FAQPage JSON-LD) */}
+            <div className="mt-20 border-t border-bone pt-16">
+              <div className="text-center">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                  Buyer Representation FAQ
+                </p>
+                <h3 className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">
+                  Common questions about buying in South Florida
+                </h3>
+              </div>
+
+              <div className="mt-8 border border-bone bg-white px-6 py-2 md:px-10">
+                <FaqAccordion faqs={BUYER_FAQS} tone="light" defaultOpen={0} />
+              </div>
             </div>
           </div>
         </section>
+
         <Footer />
         <MobileStickyCTA />
       </main>
