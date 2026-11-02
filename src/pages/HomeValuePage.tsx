@@ -1,65 +1,58 @@
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
-import { BadgeCheck, TrendingUp, Clock, Target } from "lucide-react";
+import { ArrowDown, ArrowRight, BadgeCheck, Clock, Target, TrendingUp } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 import { SellerNetCalculator } from "../components/SellerNetCalculator";
+import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT } from "../constants";
 
 const HOW_IT_WORKS = [
   {
     icon: Target,
     title: "Submit Your Property",
-    body: "Share your address, property type, and timeline. Carlos reviews every submission personally - no automated reports, no scripts.",
+    body: "Enter your street address and city. Carlos reviews every submission personally—no automated reports or call-center scripts.",
   },
   {
     icon: TrendingUp,
-    title: "MLS Comparable Analysis",
-    body: "Active listings, recent closings, pending sales, and absorption rate for your specific submarket and property type - pulled from the Miami and South Florida REALTORS® MLS.",
+    title: "MLS Comparable & Absorption Analysis",
+    body: "Active competition, recent closed sales, pending contracts, and months-of-inventory pulled directly from the Miami and South Florida REALTORS® MLS.",
   },
   {
     icon: Clock,
-    title: "Private Consultation",
-    body: "You receive a property-level positioning analysis and realistic price range - not a Zestimate. A real, market-specific review with no obligation to list.",
+    title: "Private Strategy Review",
+    body: "You receive a property-specific price range and positioning brief tailored to your timeline, with zero obligation to list.",
   },
 ];
 
-const NEIGHBORHOODS = [
-  "Coral Gables", "Weston", "Brickell", "Miami Beach", "Pinecrest",
-  "Coconut Grove", "Aventura", "Bal Harbour", "Sunny Isles Beach",
-  "Key Biscayne", "Palmetto Bay", "Doral", "Fort Lauderdale", "Hollywood",
-  "Hallandale Beach", "Boca Raton", "Delray Beach", "Plantation",
-  "Pembroke Pines", "Coral Springs", "West Palm Beach", "Kendall",
-];
-
 const WHAT_YOU_GET = [
-  "Active and closed MLS comparables for your specific submarket",
-  "Absorption rate - how quickly similar properties are selling right now",
-  "Price-per-square-foot range adjusted for condition, floor, view, and lot",
-  "Competitive positioning recommendation against current active inventory",
-  "Days-on-market risk assessment at various price points",
-  "Private consultation - no obligation to list, no pressure",
+  "Active, pending, and closed MLS comparables for your specific submarket",
+  "Current absorption rate—how quickly comparable properties are going under contract",
+  "Price-per-square-foot adjustments for condition, floor height, view, impact glass, and lot",
+  "Competitive positioning strategy against current active inventory in your price band",
+  "Days-on-market and appraisal risk assessment across pricing scenarios",
+  "Private review with Carlos Uzcategui—no obligation to list, no sales pressure",
 ];
 
 const HOME_VALUE_FAQS = [
   {
-    "q": "How much is my South Florida home worth?",
-    "a": "A comparative market analysis (CMA) reviews similar recently sold homes, active competition and available pending-sale information alongside your property's location, condition and features. Carlos uses that evidence to discuss a market value range and listing strategy. A CMA is an estimate, not an appraisal or a guarantee of sale price."
+    q: "How much is my South Florida home worth?",
+    a: "A comparative market analysis (CMA) reviews similar recently sold homes, active competition and available pending-sale information alongside your property's location, condition and features. Carlos uses that evidence to discuss a market value range and listing strategy. A CMA is an estimate, not an appraisal or a guarantee of sale price.",
   },
   {
-    "q": "How does a professional CMA differ from an online home value estimate?",
-    "a": "An online estimate can be a starting point. A property-specific CMA adds a professional review of comparable sales, condition, improvements and current competition. The quality of either estimate depends on the available data and the property; neither guarantees a sale price."
+    q: "How does a professional CMA differ from an online home value estimate?",
+    a: "An online estimate can be a starting point. A property-specific CMA adds a professional review of comparable sales, condition, improvements and current competition. The quality of either estimate depends on the available data and the property; neither guarantees a sale price.",
   },
   {
-    "q": "Does requesting a home valuation mean I have to list with Carlos?",
-    "a": "No. Carlos provides the confidential review at no cost, with no obligation to list. Share your address, contact details and timing. Carlos reviews the information and contacts you to arrange the conversation."
+    q: "Does requesting a home valuation mean I have to list with Carlos?",
+    a: "No. Carlos provides the confidential review at no cost, with no obligation to list. Share your address, contact details and timing. Carlos reviews the information and contacts you to arrange the conversation.",
   },
   {
-    "q": "Do you review homes in Broward and Palm Beach as well as Miami-Dade?",
-    "a": "Yes. Carlos provides South Florida seller representation through United Realty Group, including Weston, Fort Lauderdale, Miami, Coral Gables, Doral, Aventura and Boca Raton. The analysis uses comparables relevant to your property's location and type."
-  }
+    q: "Do you review homes in Broward and Palm Beach as well as Miami-Dade?",
+    a: "Yes. Carlos provides South Florida seller representation through United Realty Group, including Weston, Fort Lauderdale, Miami, Coral Gables, Doral, Aventura and Boca Raton. The analysis uses comparables relevant to your property's location and type.",
+  },
 ];
 
 export default function HomeValuePage() {
@@ -73,16 +66,25 @@ export default function HomeValuePage() {
         />
         <link rel="canonical" href="https://homesprofessional.com/home-value" />
         <meta property="og:title" content="South Florida Home Value & CMA | Carlos Uzcategui" />
-        <meta property="og:description" content="What is your South Florida home worth? Request an MLS-based comparative market analysis and pricing review from Carlos Uzcategui. No obligation to list." />
+        <meta
+          property="og:description"
+          content="What is your South Florida home worth? Request an MLS-based comparative market analysis and pricing review from Carlos Uzcategui. No obligation to list."
+        />
         <meta property="og:url" content="https://homesprofessional.com/home-value" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="South Florida Home Value & CMA | Carlos Uzcategui" />
-        <meta name="twitter:description" content="What is your South Florida home worth? Request an MLS-based comparative market analysis and pricing review from Carlos Uzcategui. No obligation to list." />
+        <meta
+          name="twitter:description"
+          content="What is your South Florida home worth? Request an MLS-based comparative market analysis and pricing review from Carlos Uzcategui. No obligation to list."
+        />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
-      <JsonLd id="home-value-faq" data={{
+
+      <JsonLd
+        id="home-value-faq"
+        data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
           mainEntity: HOME_VALUE_FAQS.map(({ q, a }) => ({
@@ -90,14 +92,19 @@ export default function HomeValuePage() {
             name: q,
             acceptedAnswer: { "@type": "Answer", text: a },
           })),
-        }} />
-      <JsonLd id="home-value-service" data={{
+        }}
+      />
+
+      <JsonLd
+        id="home-value-service"
+        data={{
           "@context": "https://schema.org",
           "@type": "Service",
           name: "Free South Florida Home Valuation",
           provider: { "@id": "https://homesprofessional.com/#agent" },
           serviceType: "Comparative Market Analysis",
-          description: "Free, professional home valuation using Miami and South Florida REALTORS® MLS data. No obligation to list.",
+          description:
+            "Free, professional home valuation using Miami and South Florida REALTORS® MLS data. No obligation to list.",
           areaServed: "South Florida",
           url: "https://homesprofessional.com/home-value",
           offers: {
@@ -107,218 +114,273 @@ export default function HomeValuePage() {
             availability: "https://schema.org/InStock",
             description: "Free comparative market analysis - no listing commitment required.",
           },
-        }} />
+        }}
+      />
 
-      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
+      <JsonLd
+        id="home-value-breadcrumb"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://homesprofessional.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "South Florida Home Valuation",
+              item: "https://homesprofessional.com/home-value",
+            },
+          ],
+        }}
+      />
+
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
 
-        {/* Hero */}
-        <section className="relative overflow-hidden bg-[#060D18] px-6 py-20 md:py-28 text-center sm:px-10 text-white">
-          <div className="pointer-events-none absolute right-0 top-0 h-[450px] w-[450px] rounded-full bg-gold/[0.04] blur-[100px]" aria-hidden="true" />
-          <div className="pointer-events-none absolute left-0 bottom-0 h-[350px] w-[350px] rounded-full bg-[#16449E]/[0.08] blur-[90px]" aria-hidden="true" />
+        {/* Section 1: Address-First Split-Screen Valuation Hero */}
+        <section className="relative overflow-hidden bg-[#060D18] pt-24 pb-20 md:pt-32 md:pb-28 text-white">
+          <div
+            className="pointer-events-none absolute right-0 top-0 h-[480px] w-[480px] rounded-full bg-gold/[0.05] blur-[110px]"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute left-0 bottom-0 h-[380px] w-[380px] rounded-full bg-[#16449E]/[0.08] blur-[100px]"
+            aria-hidden="true"
+          />
 
-          <div className="relative mx-auto max-w-4xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
-              Free · Confidential · Professional Real Estate Advisory
-            </p>
-            <h1
-              className="mt-6 font-serif leading-tight text-white tracking-tight"
-              style={{ fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)" }}
-            >
-              What Is Your South Florida<br />
-              <em className="italic text-gold font-normal">Property Worth Today?</em>
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
-              Receive a private MLS-based valuation, local absorption analysis, and preliminary net-proceeds review prepared personally by Carlos.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="#valuation-form"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-all hover:bg-white hover:text-navy-deep shadow-[0_8px_25px_rgba(176,141,87,0.35)]"
+          <div className="relative mx-auto max-w-7xl px-6 lg:grid lg:grid-cols-12 lg:items-start lg:gap-12">
+            {/* Left Column: Editorial Positioning & 3-Step Process */}
+            <div className="lg:col-span-6 lg:pr-4">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">
+                Confidential · MLS Comparative Analysis · South Florida
+              </p>
+              <h1
+                className="mt-5 font-serif leading-[1.08] tracking-tight text-white"
+                style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.6rem)" }}
               >
-                Request My Free Valuation
-              </a>
-              <a
-                href="#net-calculator"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:border-gold/60 hover:text-gold"
-              >
-                Calculate Net Proceeds ↓
-              </a>
-            </div>
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
-              {CONTACT.licenseDisplay} · United Realty Group · 25 Years South Florida Experience
-            </p>
-          </div>
-        </section>
+                What Is Your South Florida{" "}
+                <em className="font-normal italic text-gold">Property Worth Today?</em>
+              </h1>
+              <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
+                Receive a private MLS-based valuation, submarket absorption analysis, and preliminary net-proceeds review prepared personally by Carlos Uzcategui.
+              </p>
 
-        {/* How it works */}
-        <section className="bg-white py-16 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-              The Process
-            </p>
-            <h2 className="mx-auto mt-5 max-w-2xl text-center font-serif text-3xl leading-tight text-navy-deep">
-              A professional valuation, not an automated estimate.
-            </h2>
-            <div className="mt-12 grid gap-8 md:grid-cols-3">
-              {HOW_IT_WORKS.map((step, i) => {
-                const Icon = step.icon;
-                return (
-                  <div key={step.title} className="flex flex-col items-start border-t-2 border-gold/40 pt-6">
-                    <div className="mb-3 flex items-center gap-3">
-                      <span className="flex h-7 w-7 items-center justify-center border border-gold/30 font-mono text-[10px] text-gold">
-                        {i + 1}
+              {/* 3-Step Executive Process Strip */}
+              <div className="mt-10 space-y-5 border-t border-white/10 pt-8">
+                {HOW_IT_WORKS.map((step, i) => {
+                  const Icon = step.icon;
+                  return (
+                    <div key={step.title} className="flex items-start gap-4">
+                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center border border-gold/40 bg-gold/[0.06] font-mono text-[10px] text-gold">
+                        0{i + 1}
                       </span>
-                      <Icon size={16} className="text-gold/60" />
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h2 className="font-serif text-lg text-white">{step.title}</h2>
+                          <Icon size={14} className="text-gold/70" aria-hidden="true" />
+                        </div>
+                        <p className="mt-1 font-sans text-sm leading-relaxed text-white/65">
+                          {step.body}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="font-serif text-xl text-navy-deep">{step.title}</h3>
-                    <p className="mt-3 font-sans text-sm leading-relaxed text-navy/60">{step.body}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+                  );
+                })}
+              </div>
 
-        {/* Service area chips */}
-        <section className="border-t border-b border-bone bg-ivory py-10">
-          <div className="mx-auto max-w-5xl px-6">
-            <p className="mb-5 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
-              Service areas - Miami-Dade · Broward · Palm Beach
-            </p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {NEIGHBORHOODS.map((n) => (
-                <span
-                  key={n}
-                  className="border border-bone px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70"
+              {/* Secondary Navigation to Net Calculator & Seller System */}
+              <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6">
+                <a
+                  href="#net-calculator"
+                  className="inline-flex min-h-11 items-center gap-2 border border-white/20 bg-white/[0.03] px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:border-gold hover:text-gold"
                 >
-                  {n}
-                </span>
-              ))}
+                  Calculate Estimated Net Proceeds
+                  <ArrowDown size={14} className="text-gold" />
+                </a>
+                <a
+                  href="/sell"
+                  className="inline-flex min-h-11 items-center gap-2 px-2 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/90 transition-colors hover:text-white"
+                >
+                  Explore Seller Representation
+                  <ArrowRight size={14} />
+                </a>
+              </div>
+
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">
+                {CONTACT.licenseDisplay} · United Realty Group · 25 Years South Florida Experience
+              </p>
+            </div>
+
+            {/* Right Column: Immediate Address-First Valuation Form */}
+            <div id="valuation-form" className="mt-12 lg:col-span-6 lg:mt-0">
+              <div id="contact" className="shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+                <SellerIntakeForm sourcePage="home-value" />
+              </div>
+              <div className="mt-4 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/65">
+                <BadgeCheck size={14} className="text-gold" />
+                Confidential Review · No Commitment Required · Equal Housing Opportunity
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Why not Zestimate - two-col */}
-        <section className="bg-white py-16 md:py-24">
-          <div className="mx-auto max-w-5xl px-6">
-            <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                  The Problem With Automated Estimates
+        {/* Section 2: Valuation Methodology & Deliverables */}
+        <section className="border-b border-hairline bg-white py-20 md:py-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+              {/* Left Column: Why CMA Beats Automated Algorithms + MLS Strategy Bridge */}
+              <div className="lg:col-span-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                  Valuation Methodology
                 </p>
-                <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep">
-                  Why a Zestimate isn't enough for a South Florida sale.
+                <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep sm:text-4xl">
+                  Why an automated estimate is not enough for a South Florida sale.
                 </h2>
-                <div className="mt-8 space-y-5 font-sans text-sm leading-relaxed text-navy/65">
+                <div className="mt-6 space-y-5 font-sans text-sm leading-relaxed text-navy/70 sm:text-base">
                   <p>
-                    Online estimates can provide a starting point. A property-specific review considers comparable sales, current competition, condition, improvements and features such as a condo's floor and view or a home's lot and community.
+                    Online algorithms offer a broad starting point, but they cannot inspect interior condition, impact-glass upgrades, roof age, waterfront exposure, condo floor height, or special-assessment reserves. In South Florida luxury and residential submarkets, those property-specific factors routinely separate two neighboring addresses by 15% to 30%.
                   </p>
                   <p>
-                    We explain the comparable evidence and the limits of the analysis so you can discuss an asking-price range and preparation priorities. Estimates depend on available data and are not appraisals or guarantees of sale price.
+                    A property-specific Comparative Market Analysis (CMA) evaluates verified closed sales, active competing listings, and pending absorption so you can establish a defensible asking-price range before going to market. Estimates depend on available data and are not formal appraisals or guarantees of sale price.
                   </p>
-                  <p>
-                    A licensed real estate professional who knows the sub-market pulls actual MLS comparables,
-                    adjusts for condition and upgrades, and gives you a realistic range with a
-                    positioning strategy - not just a number.
+                </div>
+
+                {/* Integrated Cooperating Buyer-Agent & MLS Positioning Callout */}
+                <div className="mt-8 border-l-2 border-gold bg-ivory p-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">
+                    From Valuation to Market Execution
                   </p>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-navy/75">
+                    Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects directly with structured presentation on the Miami and South Florida REALTORS® MLS—where over 90% of residential sales close through cooperating buyer agents—supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation.
+                  </p>
+                  <a
+                    href="/sell"
+                    className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                  >
+                    See how the South Florida selling system works
+                    <ArrowRight size={13} />
+                  </a>
                 </div>
               </div>
 
-              <div className="border border-bone bg-ivory p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                  What Carlos Provides
+              {/* Right Column: What Carlos Provides Card */}
+              <div className="border border-bone bg-ivory p-8 md:p-10 lg:col-span-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                  What Your Review Includes
                 </p>
+                <h3 className="mt-3 font-serif text-2xl text-navy-deep">
+                  Prepared personally from live MLS data.
+                </h3>
                 <ul className="mt-6 space-y-4">
                   {WHAT_YOU_GET.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                      <span className="font-sans text-sm leading-relaxed text-navy/70">{item}</span>
+                      <BadgeCheck size={16} className="mt-0.5 shrink-0 text-gold" />
+                      <span className="font-sans text-sm leading-relaxed text-navy/75">{item}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 border-t border-bone pt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
-                  No listing commitment · No automated reports · No obligation
-                </p>
+
+                <div className="mt-8 border-t border-bone pt-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                    Tri-County Coverage · Miami-Dade · Broward · Palm Beach
+                  </p>
+                  <p className="mt-2 font-sans text-xs leading-relaxed text-navy/65">
+                    Weston · Coral Gables · Brickell · Miami Beach · Pinecrest · Coconut Grove · Aventura · Sunny Isles Beach · Key Biscayne · Doral · Fort Lauderdale · Plantation · Boca Raton
+                  </p>
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-bone pt-5">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">
+                    No listing commitment · No obligation
+                  </span>
+                  <a
+                    href="#valuation-form"
+                    className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-navy-deep"
+                  >
+                    Start Address Review ↑
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Bridge: valuation -> listing distribution funnel */}
-        <section className="border-t border-hairline bg-white py-12">
-          <div className="mx-auto max-w-3xl px-6 text-center">
-            <p className="font-sans text-base leading-relaxed text-navy/70">
-              A comparative market analysis informs your pricing decision. We then connect that price position with property presentation, relevant buyer-agent outreach and a negotiation plan. MLS visibility and eligible syndication depend on the property, applicable rules and participating channels.
-            </p>
-            <a
-              href="/sell"
-              className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 transition-colors hover:text-navy"
-            >
-              See how the listing system works →
-            </a>
-          </div>
-        </section>
-
+        {/* Section 3: Interactive Seller Net Proceeds Calculator */}
         <SellerNetCalculator sourcePage="home-value" />
 
-        {/* Form */}
-        <section className="bg-navy-deep py-16 md:py-24" id="valuation-form">
-          <div className="mx-auto max-w-3xl px-6">
-            <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                Confidential Valuation Request
+        {/* Section 4: Valuation FAQ & Seller Research Guides */}
+        <section className="border-t border-bone bg-ivory py-20 md:py-24">
+          <div className="mx-auto max-w-4xl px-6">
+            <div className="text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                Common Questions
               </p>
-              <h2 className="mt-3 font-serif text-3xl text-white">
-                Submit Your Property for a Free Review
+              <h2 className="mt-4 font-serif text-3xl text-navy-deep">
+                Frequently asked about South Florida home valuations
               </h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Carlos reviews every submission personally. No listing commitment required.
-              </p>
             </div>
-            <SellerIntakeForm sourcePage="home-value" />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
-              <BadgeCheck size={14} className="text-gold" />
-              Confidential · No commitment required · Equal Housing Opportunity
-            </div>
-          </div>
-        </section>
 
-        {/* FAQ */}
-        <section className="bg-ivory py-14 md:py-20">
-          <div className="mx-auto max-w-3xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold text-center">
-              Common Questions
-            </p>
-            <h2 className="mt-5 text-center font-serif text-2xl text-navy-deep">
-              Frequently asked about home valuations
-            </h2>
-            <div className="mt-10 space-y-6">
-              {HOME_VALUE_FAQS.map(({ q, a }) => (
-                <div key={q} className="border-t border-bone pt-6">
-                  <h3 className="font-serif text-lg text-navy-deep">{q}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-navy/65">{a}</p>
+            <div className="mt-10 border border-bone bg-white px-6 py-2 md:px-10">
+              <FaqAccordion faqs={HOME_VALUE_FAQS} tone="light" defaultOpen={0} />
+            </div>
+
+            {/* Valuation & Timing Research Guides */}
+            <div className="mt-16 border-t border-bone pt-12">
+              <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                    Seller Advisory Research
+                  </p>
+                  <h3 className="mt-2 font-serif text-2xl text-navy-deep">
+                    South Florida Pricing & Timing Guides
+                  </h3>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+                <a
+                  href="/journal"
+                  className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink hover:text-navy-deep transition-colors"
+                >
+                  View All Articles →
+                </a>
+              </div>
 
-        {/* Journal crosslinks */}
-        <section className="bg-white border-t border-hairline py-12">
-          <div className="mx-auto max-w-3xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Further Reading</p>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/what-is-my-home-worth-south-florida-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the valuation guide →</p>
-              </a>
-              <a href="/journal/when-to-list-south-florida-home-2026" className="block border border-hairline bg-ivory p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Market Analysis</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">When to List Your South Florida Home - Timing, Pricing, and the Cost of Waiting</h3>
-                <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the timing guide →</p>
-              </a>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <a
+                  href="/journal/what-is-my-home-worth-south-florida-2026"
+                  className="group block border border-bone bg-white p-6 transition-all hover:border-gold/50 hover:shadow-sm"
+                >
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-3">
+                    Valuation Methodology
+                  </p>
+                  <h4 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
+                    What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026
+                  </h4>
+                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70 group-hover:text-navy-deep">
+                    Read the valuation guide
+                    <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                  </p>
+                </a>
+
+                <a
+                  href="/journal/when-to-list-south-florida-home-2026"
+                  className="group block border border-bone bg-white p-6 transition-all hover:border-gold/50 hover:shadow-sm"
+                >
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-3">
+                    Market Timing
+                  </p>
+                  <h4 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
+                    When to List Your South Florida Home - Timing, Pricing, and the Cost of Waiting
+                  </h4>
+                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70 group-hover:text-navy-deep">
+                    Read the timing guide
+                    <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                  </p>
+                </a>
+              </div>
             </div>
           </div>
         </section>
