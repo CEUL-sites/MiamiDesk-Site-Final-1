@@ -208,7 +208,7 @@ export default function AgentsPage() {
               </div>
               <p className="agent-partner-credentials">Carlos Uzcategui · Licensed since 2001 · United Realty Group · English / Español</p>
             </div>
-            <div className="agent-partner-film">
+            <div className="agent-partner-film" data-sticky-cta-guard>
               <AssociationFilms location="agents_hero" variant="feature" />
               <p className="agent-partner-film-note">Archival association film · June 2022</p>
             </div>
@@ -236,7 +236,7 @@ export default function AgentsPage() {
 
         {/* ── Choose Your Path ─────────────────────────────────────── */}
         <div className="mx-auto max-w-6xl px-6 pb-6"><GlobalResearchLinks /></div>
-        <section className="bg-white py-8 md:py-14" id="choose-path">
+        <section className="scroll-mt-24 bg-white py-8 md:py-14" id="choose-path">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-5 text-center md:mb-8">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Agents Work With Carlos</p>

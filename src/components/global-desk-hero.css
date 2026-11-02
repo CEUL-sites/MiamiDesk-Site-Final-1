@@ -52,7 +52,7 @@
 .global-desk-hero-geography { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; flex-shrink: 0; font-size: 12px; letter-spacing: .08em; line-height: 1.8; }
 .global-desk-hero-terms { margin: 0; padding-left: 32px; border-left: 1px solid #ffffff30; font-size: 12px; line-height: 1.65; color: #e0e6ed; }
 .global-desk-hero-terms span { display: block; font-size: 11px; color: #c5d0dc; }
-.global-desk-hero-caption { margin: 16px 0 0; text-align: right; font-size: 9px; line-height: 1.5; color: #c5d0dc; }
+.global-desk-hero-caption { margin: 16px 0 0; text-align: right; font-size: 11px; line-height: 1.6; color: #d3dde6; }
 @media (min-width: 1600px) {
   .global-desk-hero { padding-top: 120px; }
   .global-desk-hero-copy { padding-top: 16px; padding-bottom: 48px; }
@@ -78,12 +78,12 @@
   .global-desk-hero-actions { margin-top: 22px; gap: 4px; }
   .global-desk-hero-primary { width: 100%; justify-content: space-between; padding-inline: 20px; }
   .global-desk-hero-secondary { width: 100%; min-height: 44px; font-size: 13px; }
-  .global-desk-hero-signature { margin-top: 12px; font-size: 10px; }
+  .global-desk-hero-signature { margin-top: 12px; font-size: 12px; }
   .global-desk-hero-footer { display: block; padding-top: 16px; }
-  .global-desk-hero-geography { font-size: 10px; gap: 8px; margin: 0 0 10px; }
-  .global-desk-hero-terms { padding: 0; border: 0; font-size: 10px; line-height: 1.65; }
-  .global-desk-hero-terms span { font-size: 10px; margin-top: 3px; }
-  .global-desk-hero-caption { font-size: 8px; margin-top: 12px; text-align: left; }
+  .global-desk-hero-geography { font-size: 12px; gap: 8px; margin: 0 0 10px; }
+  .global-desk-hero-terms { padding: 0; border: 0; font-size: 12px; line-height: 1.65; }
+  .global-desk-hero-terms span { font-size: 11px; margin-top: 4px; }
+  .global-desk-hero-caption { font-size: 11px; margin-top: 12px; text-align: left; }
 }
 @media (max-width: 359px) {
   .global-desk-hero { padding-inline: 20px; }
