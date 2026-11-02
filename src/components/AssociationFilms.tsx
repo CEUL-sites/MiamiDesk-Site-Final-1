@@ -1,6 +1,7 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { Fragment, useEffect, useId, useRef, useState } from "react";
 import { Play, X } from "lucide-react";
 import { pushEvent } from "../lib/analytics";
+import { EmbeddedFilm } from "./EmbeddedFilm";
 import "./association-films.css";
 
 const FILMS = {
@@ -19,7 +20,7 @@ const COPY = {
     choices: { miami: "Miami · 0:35", broward: "Broward · 2:11", rankings: "Miami rankings · 4:52" },
     source: "Source: MIAMI Association of REALTORS® · Published",
     archive: "Archival association films. Rankings and market references reflect their original publication, not current market data. English-language videos; captions depend on the publisher.",
-    reload: "Reload video", privacy: "Playing loads video from YouTube.",
+    previewTitle: "Our property presentation preview", previewSource: "HomesProfessional.com · 0:10 · Illustrative media, not an association film or a property listing.",
   },
   es: {
     triggers: { miami: "Ver la perspectiva de Miami · 0:35", broward: "Ver la perspectiva de Broward · 2:11", rankings: "Ver Miami in the Rankings · 4:52" },
@@ -29,7 +30,7 @@ const COPY = {
     choices: { miami: "Miami · 0:35", broward: "Broward · 2:11", rankings: "Rankings de Miami · 4:52" },
     source: "Fuente: MIAMI Association of REALTORS® · Publicado",
     archive: "Vídeos de archivo de la asociación. Los rankings y referencias de mercado corresponden a su publicación original, no a datos actuales. Vídeos en inglés; subtítulos según disponibilidad del editor.",
-    reload: "Volver a cargar el vídeo", privacy: "Al reproducir, se carga vídeo de YouTube.",
+    previewTitle: "Nuestra vista previa de presentación inmobiliaria", previewSource: "HomesProfessional.com · 0:10 · Contenido ilustrativo; no es un vídeo de la asociación ni una propiedad en venta.",
   },
 } as const;
 
@@ -46,7 +47,7 @@ export function AssociationFilms({ initialFilm = "miami", lang = "en", location,
   const [selected, setSelected] = useState<FilmKey>(initialFilm);
   const [active, setActive] = useState(false);
   const [inlineFallback, setInlineFallback] = useState(false);
-  const [reloadKey, setReloadKey] = useState(0);
+  const [sitePreview, setSitePreview] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const id = useId();
@@ -63,6 +64,7 @@ export function AssociationFilms({ initialFilm = "miami", lang = "en", location,
   function open() {
     pushEvent("association_film_open", { film_key: initialFilm, location, language: lang });
     setSelected(initialFilm);
+    setSitePreview(false);
     setActive(true);
     if (typeof dialog.current?.showModal !== "function") {
       setInlineFallback(true);
@@ -72,7 +74,9 @@ export function AssociationFilms({ initialFilm = "miami", lang = "en", location,
   }
 
   function select(key: FilmKey) {
+    if (key === selected) return;
     setSelected(key);
+    setSitePreview(false);
     pushEvent("association_film_selected", { film_key: key, location, language: lang });
   }
 
@@ -107,14 +111,11 @@ export function AssociationFilms({ initialFilm = "miami", lang = "en", location,
         <div className="association-film-options">
           {(Object.keys(FILMS) as FilmKey[]).map(key => <button key={key} type="button" aria-pressed={selected === key} onClick={() => select(key)}>{t.choices[key]}</button>)}
         </div>
-        <div className="association-film-player">
-          {active && <iframe key={`${film.id}-${reloadKey}`} src={`https://www.youtube-nocookie.com/embed/${film.id}?rel=0&autoplay=1&playsinline=1`} title={film.title} allow="autoplay; encrypted-media; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />}
-        </div>
+        {active && <Fragment key={film.id}><EmbeddedFilm videoId={film.id} title={film.title} duration={film.duration} lang={lang} onPreviewChange={setSitePreview} /></Fragment>}
         <div className="association-film-details">
-          <h3 lang="en">{film.title}</h3>
-          <p className="association-film-source">{t.source} <time dateTime={film.published}>{film.published}</time></p>
-          <p id={`${id}-archive`} className="association-film-archive">{t.archive}</p>
-          <div className="association-film-fallback"><button type="button" onClick={() => setReloadKey(key => key + 1)}>{t.reload}</button><span>{t.privacy}</span></div>
+          <h3 lang={sitePreview ? lang : "en"}>{sitePreview ? t.previewTitle : film.title}</h3>
+          <p className="association-film-source">{sitePreview ? t.previewSource : <>{t.source} <time dateTime={film.published}>{film.published}</time></>}</p>
+          <p id={`${id}-archive`} className="association-film-archive">{sitePreview ? (lang === "es" ? "El vídeo original de la asociación sigue disponible en las opciones de arriba; su reproducción depende de YouTube." : "The original association film remains available above; its playback depends on YouTube.") : t.archive}</p>
         </div>
       </dialog>
     </div>

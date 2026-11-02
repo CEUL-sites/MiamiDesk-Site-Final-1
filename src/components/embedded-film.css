@@ -1,0 +1,16 @@
+.embedded-film { color: #102733; text-align: left; }
+.embedded-film-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; padding: 12px 20px; background: #eeeae1; border-block: 1px solid #d2d7d5; }
+.embedded-film-toolbar p { flex: 1 1 260px; font-size: 12px; line-height: 1.6; color: #344853; }
+.embedded-film-toolbar button, .embedded-film-error button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 14px; border: 1px solid #80663c; background: #fff; color: #5f4929; font-size: 13px; line-height: 1.4; cursor: pointer; }
+.embedded-film button:focus-visible { outline: 3px solid #80663c; outline-offset: 3px; }
+.embedded-film-stage { position: relative; aspect-ratio: 16/9; width: 100%; background: #071722; }
+.embedded-film-stage--youtube { min-height: 200px; }
+.embedded-film-stage iframe, .embedded-film-native { display: block; position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.embedded-film-native { object-fit: contain; }
+.embedded-film-choice { position: relative; min-height: 220px; height: 100%; display: grid; place-items: center; padding: 24px; color: #fff; text-align: center; isolation: isolate; }
+.embedded-film-stage--choice { aspect-ratio: auto; }
+.embedded-film-choice p { max-width: 38ch; margin-inline: auto; font-family: var(--font-serif); font-size: 22px; line-height: 1.3; }
+.embedded-film-choice button { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; min-height: 48px; margin-top: 18px; padding: 12px 18px; background: #d7bc8b; color: #071722; font-size: 14px; line-height: 1.4; cursor: pointer; }
+.embedded-film-choice small { display: block; margin-top: 12px; color: #e0e6ed; font-size: 12px; line-height: 1.5; }
+.embedded-film-error { min-height: 200px; display: grid; place-content: center; gap: 14px; padding: 24px; color: #fff; font-size: 14px; }
+@media(max-width: 767px) { .embedded-film-toolbar { padding: 12px 16px; gap: 8px; } .embedded-film-toolbar button { width: 100%; } .embedded-film-choice { padding: 20px 16px; } .embedded-film-choice p { font-size: 20px; } }

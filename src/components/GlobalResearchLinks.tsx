@@ -1,9 +1,12 @@
 import { ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { EmbeddedFilm } from "./EmbeddedFilm";
 import "./global-research-links.css";
 
 /** Official references, separate from property-specific reach and eligibility. */
 export function GlobalResearchLinks({ lang = "en" }: { lang?: "en" | "es" }) {
   const es = lang === "es";
+  const [sitePreview, setSitePreview] = useState(false);
   return (
     <aside className="global-research-links" data-sticky-cta-guard aria-label={es ? "Recursos internacionales de Florida Realtors" : "Florida Realtors international resources"}>
       <div className="global-research-copy">
@@ -23,13 +26,13 @@ export function GlobalResearchLinks({ lang = "en" }: { lang?: "en" | "es" }) {
         </p>
       </div>
       <figure className="global-research-film">
-        <div className="relative aspect-video overflow-hidden bg-navy-deep">
-          <iframe src="https://www.youtube-nocookie.com/embed/RXNXHt09Tdo?rel=0&playsinline=1" title={es ? "Florida Realtors® en CiMi 360, Brasil" : "Florida Realtors® at CiMi 360, Brazil"} loading="lazy" width="560" height="315" allow="encrypted-media; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 h-full w-full border-0" />
-        </div>
+        <EmbeddedFilm videoId="RXNXHt09Tdo" title={es ? "Florida Realtors® en CiMi 360, Brasil" : "Florida Realtors® at CiMi 360, Brazil"} duration="3:03" lang={lang} onPreviewChange={setSitePreview} />
         <figcaption className="mt-3 font-sans text-xs leading-relaxed text-navy/70">
+          {sitePreview ? (es ? "Vista previa de HomesProfessional.com · 0:10 · Contenido ilustrativo; no es un vídeo de Florida Realtors® ni una propiedad en venta." : "HomesProfessional.com preview · 0:10 · Illustrative media, not Florida Realtors® footage or a property listing.") : <>
           {es ? "Florida Realtors® en CiMi 360. Vídeo de la asociación, publicado el " : "Florida Realtors® at CiMi 360. Association footage, published "}
           <time dateTime="2026-09-16">{es ? "16 de septiembre de 2026." : "September 16, 2026."}</time>
           {es ? " Duración: 3:03." : " Duration: 3:03."}
+          </>}
         </figcaption>
       </figure>
     </aside>
