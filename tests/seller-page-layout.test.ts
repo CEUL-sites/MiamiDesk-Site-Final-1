@@ -7,6 +7,7 @@ const pagePaths = [
   "src/pages/SellSouthFloridaPage.tsx",
   "src/pages/HomeValuePage.tsx",
   "src/pages/BuyersPage.tsx",
+  "src/pages/MarketsPage.tsx",
 ] as const;
 
 test("seller entry pages omit the retired three-pillar module", async () => {
@@ -52,4 +53,12 @@ test("buyers page renders visible FaqAccordion matching FAQPage schema and omits
   assert.doesNotMatch(page, /WhatsApp · Spain Line/);
   const schemaOrg = await readFile("src/components/SEO/SchemaOrg.tsx", "utf8");
   assert.doesNotMatch(schemaOrg, /buyer-agent outreach/i);
+});
+
+test("markets page renders CountyExplorer, visible FaqAccordion matching FAQPage schema, and omits raw YouTube iframe", async () => {
+  const page = await readFile("src/pages/MarketsPage.tsx", "utf8");
+  assert.match(page, /<CountyExplorer/);
+  assert.match(page, /<FaqAccordion faqs=\{MARKETS_FAQS\}/);
+  assert.doesNotMatch(page, /youtube\.com\/embed/);
+  assert.doesNotMatch(page, /const PILLARS =/);
 });
