@@ -24,7 +24,7 @@ assert.match(
 assert.match(hero, /Your Property Deserves a/);
 assert.match(hero, /Stronger Market Strategy\./);
 assert.match(hero, /Licensed Since 2001/i);
-assert.match(hero, /buyer-agent outreach/);
+assert.match(hero, /buyer-agent relationships/);
 assert.match(hero, /Request a Private Seller Strategy/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
 assert.doesNotMatch(hero, /autoPlay/);

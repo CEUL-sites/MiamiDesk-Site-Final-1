@@ -54,7 +54,7 @@ export function HomepageObjectives() {
                   Sell in South Florida
                 </h3>
                 <p className="mt-3 font-sans text-sm leading-relaxed text-white/80">
-                  Request a private review of your property's price position, competing inventory, estimated net proceeds, and buyer-agent activation plan across Broward, Miami-Dade, and Palm Beach.
+                  Request a private review of your property's price position, competing inventory, estimated net proceeds, and cooperating buyer-agent strategy across Broward, Miami-Dade, and Palm Beach.
                 </p>
               </div>
             </div>
@@ -133,7 +133,7 @@ export function HomepageObjectives() {
                   International Property
                 </h3>
                 <p className="mt-2.5 font-sans text-xs leading-relaxed text-navy/75">
-                  For international owners and agencies: prepare eligible Spanish and European prime inventory for South Florida buyer-agent discovery.
+                  For international owners and agencies: position eligible Spanish and European prime inventory on the Miami MLS for South Florida cooperating agents and cross-border buyers.
                 </p>
               </div>
             </div>

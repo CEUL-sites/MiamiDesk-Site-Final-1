@@ -54,7 +54,7 @@ export function HomepageConsultation({ initialAddress = "" }: { initialAddress?:
 
             <div className="mt-8 space-y-4 font-sans text-sm leading-relaxed text-white/80 md:text-base">
               <p>
-                With 25 years of active South Florida real estate experience across residential, luxury, and investment properties, Carlos Uzcategui leads every listing strategy personally—from pricing analysis and media preparation through buyer-agent outreach and closing negotiation.
+                With 25 years of active South Florida real estate experience across residential, luxury, and investment properties, Carlos Uzcategui leads every listing strategy personally—from pricing analysis and media preparation through cooperating broker relationships, contract negotiation, and closing.
               </p>
               <p>
                 Affiliated with United Realty Group in Weston (3,500+ agents across 19 Florida office locations), Carlos pairs one-on-one advisory with statewide brokerage infrastructure and documented cross-border referral relationships in Spain and Latin America.

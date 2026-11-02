@@ -22,9 +22,9 @@ const PILLARS = [
     step: "03",
     label: "Activate",
     icon: Radio,
-    title: "Direct Buyer-Agent Outreach",
-    copy: "We proactively contact agents representing qualified buyers in your submarket and price band, followed by structured weekly updates on showings, feedback, and competing inventory.",
-    outcome: "Clear market evidence for every decision",
+    title: "Buyer-Agent Relations & Reverse Prospecting",
+    copy: "More than 90% of buyers are brought by cooperating agents. With 25 years of South Florida contract negotiation and peer relationships, we leverage MLS reverse prospecting and professional coordination to engage agents with matched, qualified buyers.",
+    outcome: "Expert contract negotiation & deal protection",
   },
 ] as const;
 
@@ -50,7 +50,7 @@ export function HomepageListingApproach() {
           </div>
           <p className="max-w-md font-sans text-sm leading-relaxed text-navy/75 md:text-base">
             Every listing campaign is led personally by Carlos Uzcategui through United Realty Group—aligning
-            pricing, presentation, and targeted buyer-agent outreach around your property.
+            pricing, presentation, and trusted cooperating buyer-agent relationships around your property.
           </p>
         </div>
 

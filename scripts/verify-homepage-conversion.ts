@@ -131,7 +131,7 @@ const [
 assert.match(hero, /Your Property Deserves a/);
 assert.match(hero, /Stronger Market Strategy\./);
 assert.match(hero, /Licensed Since 2001/i);
-assert.match(hero, /buyer-agent outreach/);
+assert.match(hero, /buyer-agent relationships/);
 assert.match(hero, /Request a Private Seller Strategy/);
 assert.match(hero, /Explore Our Listing Approach/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
@@ -203,7 +203,7 @@ for (let index = 1; index < sectionOrder.length; index += 1) {
 assert.match(home, /<title>South Florida Listing Agent \| Carlos Uzcategui<\/title>/);
 assert.match(
   home,
-  /Sell your South Florida home with Carlos Uzcategui at United Realty Group. Pricing, buyer-agent outreach and negotiation. Request a private seller strategy review\./,
+  /Sell your South Florida home with Carlos Uzcategui at United Realty Group. Strategic MLS positioning, buyer-agent negotiation, and contract protection. Request a private seller strategy review\./,
 );
 assert.match(form, /Private Property Strategy/);
 assert.match(form, /Estrategia Privada de la Propiedad/);

@@ -14,14 +14,14 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>South Florida Listing Agent | Carlos Uzcategui</title>
-        <meta name="description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Pricing, buyer-agent outreach and negotiation. Request a private seller strategy review." />
+        <meta name="description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Strategic MLS positioning, buyer-agent negotiation, and contract protection. Request a private seller strategy review." />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="South Florida Listing Agent | Carlos Uzcategui" />
-        <meta name="twitter:description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Pricing, buyer-agent outreach and negotiation. Request a private seller strategy review." />
+        <meta name="twitter:description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Strategic MLS positioning, buyer-agent negotiation, and contract protection. Request a private seller strategy review." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <link rel="canonical" href="https://homesprofessional.com/" />
         <meta property="og:title" content="South Florida Listing Agent | Carlos Uzcategui" />
-        <meta property="og:description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Pricing, buyer-agent outreach and negotiation. Request a private seller strategy review." />
+        <meta property="og:description" content="Sell your South Florida home with Carlos Uzcategui at United Realty Group. Strategic MLS positioning, buyer-agent negotiation, and contract protection. Request a private seller strategy review." />
         <meta property="og:url" content="https://homesprofessional.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />

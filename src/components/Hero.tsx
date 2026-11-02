@@ -58,7 +58,7 @@ export function Hero() {
               <span>Stronger Market Strategy.</span>
             </h1>
             <p className="seller-hero-summary">
-              25 years of South Florida experience. Strategic positioning, professional buyer-agent outreach, and international reach.
+              25 years of South Florida experience. Strategic MLS positioning, trusted buyer-agent relationships, and disciplined contract negotiation.
             </p>
             <div className="seller-hero-links">
               <a href="#list-here" className="seller-hero-primary-cta" onClick={startInquiry}>
