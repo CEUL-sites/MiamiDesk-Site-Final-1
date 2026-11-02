@@ -74,3 +74,14 @@ test("agents page renders visible FaqAccordion matching FAQPage schema, 2-tab in
   assert.doesNotMatch(page, /<SectionTabs/);
   assert.doesNotMatch(page, /<GlobalResearchLinks/);
 });
+
+
+test("global desk page preserves 2-tab intake desk, uses FaqAccordion with single FAQPage schema, and avoids motion opacity traps", async () => {
+  const page = await readFile("src/pages/GlobalDeskPage.tsx", "utf8");
+  assert.match(page, /pb-28 lg:pb-0/);
+  assert.match(page, /<FaqAccordion/);
+  assert.match(page, /<GlobalDeskListingForm lang=\{lang\} \/>/);
+  assert.match(page, /<AgencyPartnerForm/);
+  assert.equal((page.match(/id="global-desk-faq"/g) ?? []).length, 1);
+  assert.doesNotMatch(page, /initial="hidden"/);
+});

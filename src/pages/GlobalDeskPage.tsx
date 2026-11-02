@@ -5,7 +5,7 @@ import { DistributionMetrics } from "../components/DistributionMetrics";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Check, Handshake, Mail, MessageCircle, UserRoundCheck, UsersRound } from "lucide-react";
-import { motion } from "motion/react";
+import { FaqAccordion } from "../components/FaqAccordion";
 import { Footer } from "../components/Footer";
 import { GlobalActivationFlow, type ActivationStage } from "../components/GlobalActivationFlow";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -68,6 +68,7 @@ const COPY = {
     formBody: "Tell us whether you represent a property, agency or development, and what you want to discuss. We review eligibility and commercial terms privately, property by property, before proposing an activation route.",
     faqTitle: "Common questions",
     faqs: [
+      ["Can Spanish or European properties be listed directly on the Miami MLS?", "Yes. Through a bilateral mandate structure, Carlos Uzcategui operates as the licensed Florida principal of record (Realtor® SL705771 · United Realty Group) placing eligible prime international inventory directly into the Miami MLS for discovery by 93,000 South Florida member agents and their buyer clients, while the local Spanish agency retains the mandate, on-the-ground client relationship, and local closing."],
       ["Is Miami Global Desk another property portal?", "No. It is a professional activation and cooperation layer for selected international property entering a South Florida real estate conversation."],
       ["Does my local mandate change?", "No. The originating agency, developer, or listing professional keeps the mandate, client relationship, local negotiation, and closing."],
       ["Who provides property photography, renderings, and documentation?", "Originating listing principals, developers, and cooperating agencies provide verified professional photography, architectural renderings, floor plans, and property documentation. The Miami Global Desk provides licensed Florida MLS activation, professional distribution across the 93,000-member network, bilingual property positioning, and broker-to-broker cooperation management. Carlos operates as the licensed Florida-side principal of record (Realtor® SL705771 · United Realty Group) and does not hold a real estate broker or agency license in Spain."],
@@ -125,6 +126,7 @@ const COPY = {
     formBody: "Indíquenos si representa una propiedad, agencia o promoción y qué desea explorar. Revisamos la elegibilidad y las condiciones comerciales en privado antes de proponer una vía de activación.",
     faqTitle: "Preguntas frecuentes",
     faqs: [
+      ["¿Pueden las propiedades de España o Europa publicarse directamente en el MLS de Miami?", "Sí. Mediante una estructura de mandato bilateral, Carlos Uzcategui opera como principal de registro con licencia en Florida (Realtor® SL705771 · United Realty Group), posicionando inventario internacional prime elegible directamente en el MLS de Miami ante 93.000 agentes miembros del sur de Florida y sus clientes compradores, mientras la agencia local en España conserva el mandato, la relación con el cliente y el cierre local."],
       ["¿Miami Global Desk es otro portal inmobiliario?", "No. Es una capa profesional de activación y cooperación para propiedades internacionales seleccionadas que entran en una conversación inmobiliaria en el sur de Florida."],
       ["¿Cambia mi mandato local?", "No. La agencia, promotora o profesional de origen conserva el mandato, la relación con el cliente, la negociación local y el cierre."],
       ["¿Quién proporciona la fotografía, infografías y documentación de la propiedad?", "Los promotores, agencias colaboradoras y profesionales con mandato de origen proporcionan fotografía profesional verificada, infografías arquitectónicas, planos y documentación del inmueble. Miami Global Desk aporta la activación en el MLS de Florida, distribución profesional ante la red de 93.000 miembros, posicionamiento bilingüe y gestión de cooperación broker a broker. Carlos opera como principal de registro con licencia en Florida (Realtor® SL705771 · United Realty Group) y no posee licencia de agencia ni corretaje en España."],
@@ -136,8 +138,6 @@ const COPY = {
     pageDescription: "Miami Global Desk activa propiedades internacionales seleccionadas para visibilidad profesional y cooperación con agentes compradores del sur de Florida, preservando el mandato local.",
   },
 } as const;
-
-const reveal = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.55 } } };
 
 export default function GlobalDeskPage() {
   const [lang, setLang] = useState<Lang>("en");
@@ -184,60 +184,15 @@ export default function GlobalDeskPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "Can Spanish or European properties be listed directly on the Miami MLS?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Yes. Through a bilateral mandate structure, Carlos Uzcategui operates as the licensed Florida principal of record (Realtor® SL705771 · United Realty Group) placing eligible prime international inventory directly into the Miami MLS for discovery by 93,000 South Florida member agents and their buyer clients, while the local Spanish agency retains the mandate, on-the-ground client relationship, and local closing.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Is Miami Global Desk another property portal?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "No. It is a professional activation and cooperation layer for selected international property entering a South Florida real estate conversation.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Does my local mandate change?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "No. The originating agency, developer, or listing professional keeps the mandate, client relationship, local negotiation, and closing.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Who provides property photography, renderings, and documentation?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Originating listing principals, developers, and cooperating agencies provide verified professional photography, architectural renderings, floor plans, and property documentation. The Miami Global Desk provides licensed Florida MLS activation, professional distribution across the 93,000-member network, bilingual property positioning, and broker-to-broker cooperation management. Carlos operates as the licensed Florida-side principal of record (Realtor® SL705771 · United Realty Group) and does not hold a real estate broker or agency license in Spain.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "What happens when buyer interest is identified?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Relevant interest can be prepared and introduced to the originating team, which controls the local transaction and next steps.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Is exposure or a buyer guaranteed?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "No. Activation is subject to brokerage approval, platform rules, property eligibility, cooperation terms, and applicable compliance requirements.",
-              },
-            },
-          ],
+          mainEntity: t.faqs.map(([question, answer]) => ({
+            "@type": "Question",
+            name: question,
+            acceptedAnswer: { "@type": "Answer", text: answer },
+          })),
         }}
       />
 
-      <main id="main-content" className="min-h-screen overflow-x-hidden bg-white text-navy pb-20 lg:pb-0">
+      <main id="main-content" className="min-h-screen overflow-x-hidden bg-white text-navy pb-28 lg:pb-0">
         <Navbar />
 
         <section data-sticky-cta-guard className="global-desk-hero" aria-labelledby="global-hero-heading" lang={lang}>
@@ -283,25 +238,31 @@ export default function GlobalDeskPage() {
         </section>
 
         <section id="how-it-works" className="scroll-mt-20 bg-ivory px-6 py-16 md:py-24">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }} variants={reveal} className="mx-auto max-w-6xl">
-            <div className="mx-auto max-w-3xl text-center"><p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-ink">{t.workflowKicker}</p><h2 className="mt-4 text-balance font-serif text-4xl leading-tight text-navy-deep md:text-5xl">{t.workflowTitle}</h2><p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-navy/70 md:text-lg">{t.workflowBody}</p></div>
-            <div className="mt-10 border-y border-bone bg-white px-3 py-7 md:mt-14 md:px-8 md:py-10"><GlobalActivationFlow stages={[...t.stages]} ariaLabel={t.workflowTitle} selectedLabel={t.selectedStage} /></div>
+          <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-ink">{t.workflowKicker}</p>
+              <h2 className="mt-4 text-balance font-serif text-4xl leading-tight text-navy-deep md:text-5xl">{t.workflowTitle}</h2>
+              <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-navy/80 md:text-lg">{t.workflowBody}</p>
+            </div>
+            <div className="mt-10 border-y border-bone bg-white px-3 py-7 md:mt-14 md:px-8 md:py-10">
+              <GlobalActivationFlow stages={[...t.stages]} ariaLabel={t.workflowTitle} selectedLabel={t.selectedStage} />
+            </div>
             <div id="local-network" className="scroll-mt-24 mt-12 lg:mt-16">
               <div className="max-w-4xl">
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.networkKicker}</p>
                 <h3 className="mt-4 text-balance font-serif text-4xl leading-[1.08] text-navy-deep md:text-5xl">{t.networkTitle}</h3>
-                <p className="mt-5 max-w-3xl font-sans text-base leading-[1.8] text-navy/72 md:text-lg">{t.networkBody}</p>
+                <p className="mt-5 max-w-3xl font-sans text-base leading-[1.8] text-navy/80 md:text-lg">{t.networkBody}</p>
               </div>
 
               <div className="mt-9 grid items-start gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:gap-8">
-                <motion.figure initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal} className="flex min-w-0 flex-col overflow-hidden border border-bone bg-white shadow-sm">
+                <figure className="flex min-w-0 flex-col overflow-hidden border border-bone bg-white shadow-sm">
                   <div className="relative aspect-video w-full overflow-hidden bg-navy-deep">
                     <iframe src="https://www.youtube-nocookie.com/embed/M8Hx5D5ghag?rel=0&modestbranding=1" title={t.teamVideoTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 h-full w-full border-0" />
                   </div>
                   <figcaption className="flex min-h-14 items-center bg-navy-deep px-5 py-4 font-mono text-[9px] font-semibold uppercase tracking-[0.19em] text-gold sm:px-6 sm:text-[10px]">{t.teamVideoLabel}</figcaption>
-                </motion.figure>
+                </figure>
 
-                <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={reveal} className="relative overflow-hidden bg-navy-deep px-6 py-7 text-white sm:px-7 sm:py-8" aria-label={t.networkTitle}>
+                <div className="relative overflow-hidden bg-navy-deep px-6 py-7 text-white sm:px-7 sm:py-8" aria-label={t.networkTitle}>
                   <div aria-hidden="true" className="absolute bottom-8 left-[3.2rem] top-8 w-px bg-gold/45 sm:left-[3.95rem]" />
                   <ol className="relative space-y-7">
                     {t.networkSteps.map(([title, body], index) => {
@@ -312,22 +273,21 @@ export default function GlobalDeskPage() {
                           <div className="pt-0.5">
                             <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-gold">0{index + 1}</p>
                             <h4 className="mt-1 font-serif text-xl leading-tight text-white sm:text-[1.35rem]">{title}</h4>
-                            <p className="mt-2 font-sans text-[13px] leading-[1.55] text-white/70">{body}</p>
+                            <p className="mt-2 font-sans text-[13px] leading-[1.55] text-white/75">{body}</p>
                           </div>
                         </li>
                       );
                     })}
                   </ol>
-                </motion.div>
+                </div>
               </div>
 
               <div className="mt-8 flex justify-start lg:justify-center">
                 <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "network_activation", cta_location: "local_network", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 border border-gold bg-white px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-gold hover:text-navy-deep">{t.networkCta}<ArrowRight size={15} /></a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </section>
-
 
         <section id="mandate" data-sticky-cta-guard data-global-partnership className="bg-white-soft px-6 py-14 text-navy-deep md:py-20">
           <div className="mx-auto max-w-6xl">
@@ -379,8 +339,18 @@ export default function GlobalDeskPage() {
           </div>
           <p className="mx-auto mt-5 max-w-6xl text-sm leading-relaxed text-navy">{t.compliance}</p>
         </section>
-        <section className="bg-white px-6 py-14 md:py-20"><div className="mx-auto max-w-4xl"><h2 className="text-center font-serif text-3xl text-navy-deep md:text-4xl">{t.faqTitle}</h2><div className="mt-8 divide-y divide-bone border-y border-bone">{t.faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 font-serif text-lg text-navy-deep marker:hidden">{question}<span aria-hidden="true" className="font-sans text-xl text-gold-ink transition-transform group-open:rotate-45">+</span></summary><p className="max-w-3xl pb-2 pt-3 font-sans text-base leading-[1.8] text-navy/70">{answer}</p></details>)}</div></div></section>
-        <JsonLd id="global-desk-faq" data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: t.faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) }} />
+
+        <section className="bg-white px-6 py-14 md:py-20">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="text-center font-serif text-3xl text-navy-deep md:text-4xl">{t.faqTitle}</h2>
+            <FaqAccordion
+              faqs={t.faqs.map(([q, a]) => ({ q, a }))}
+              tone="light"
+              defaultOpen={0}
+              className="mt-8"
+            />
+          </div>
+        </section>
 
         <section id="listing-request" className="scroll-mt-20 bg-navy-deep px-6 py-16 text-white md:py-24">
           <div className="mx-auto max-w-6xl">
@@ -420,24 +390,22 @@ export default function GlobalDeskPage() {
                 </div>
               </div>
 
-              {intakeTab === "developer" ? (
-                <div>
-                  <div className="mb-8 text-center">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.formIntro}</p>
-                    <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-white/70">{t.formBody}</p>
-                  </div>
-                  <GlobalDeskListingForm lang={lang} />
+              <div className={intakeTab === "developer" ? "block" : "hidden"}>
+                <div className="mb-8 text-center">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.formIntro}</p>
+                  <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-white/70">{t.formBody}</p>
                 </div>
-              ) : (
-                <div>
-                  <AgencyPartnerForm
-                    source="global-desk-cooperation"
-                    eyebrow={lang === "es" ? "Miami Global Desk · Cooperación Profesional" : "Miami Global Desk · Professional Cooperation"}
-                    heading={lang === "es" ? "Registro de Agencias y Brokers Colaboradores" : "Licensed Broker & Agent Cooperation Intake"}
-                    intro={lang === "es" ? "Para agencias, brokers y agentes inmobiliarios licenciados fuera del sur de Florida. Comparta el perfil de su cliente o cartera para estructurar un acuerdo de cooperación profesional y referido." : "For licensed agents, brokers, and cooperating agencies outside South Florida. Submit client profiles or portfolio inquiries to structure formal broker-to-broker cooperation and referral agreements."}
-                  />
-                </div>
-              )}
+                <GlobalDeskListingForm lang={lang} />
+              </div>
+
+              <div className={intakeTab === "cooperation" ? "block" : "hidden"}>
+                <AgencyPartnerForm
+                  source="global-desk-cooperation"
+                  eyebrow={lang === "es" ? "Miami Global Desk · Cooperación Profesional" : "Miami Global Desk · Professional Cooperation"}
+                  heading={lang === "es" ? "Registro de Agencias y Brokers Colaboradores" : "Licensed Broker & Agent Cooperation Intake"}
+                  intro={lang === "es" ? "Para agencias, brokers y agentes inmobiliarios licenciados fuera del sur de Florida. Comparta el perfil de su cliente o cartera para estructurar un acuerdo de cooperación profesional y referido." : "For licensed agents, brokers, and cooperating agencies outside South Florida. Submit client profiles or portfolio inquiries to structure formal broker-to-broker cooperation and referral agreements."}
+                />
+              </div>
             </div>
             <div className="mt-12 border-t border-white/10 pt-8 text-center"><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/80">{t.compliance}</p><div className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-3 font-mono text-[10px] uppercase tracking-[0.12em] text-white/55"><a href={WA_US} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp USA +1 954-865-6622</a><a href={WA_ES} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp Spain +34 646 85 30 78</a><a href="tel:+19544502000" className="hover:text-gold">Office 1-954-450-2000</a></div></div>
           </div>
