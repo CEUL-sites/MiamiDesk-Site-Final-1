@@ -18,7 +18,7 @@ const ALLOWED_ZONES = new Set([
   "Sunrise", "North Miami", "Pompano Beach",
 ]);
 
-const ALLOWED_TYPES = new Set(["Residential", "Condominium", "Single Family Residence"]);
+const ALLOWED_TYPES = new Set(["Residential", "Condominium", "Single Family Residence", "Townhouse"]);
 const ALLOWED_STATUS = new Set(["Active", "Pending"]);
 
 // Whitelisted sort orders — never interpolate raw client input into $orderby.
@@ -64,12 +64,17 @@ export const handler: Handler = async (event: HandlerEvent) => {
     };
   }
 
-  const filters: string[] = [`StandardStatus eq '${status}'`];
+  const filters: string[] = [
+    `StandardStatus eq '${status}'`,
+    `PropertyType eq 'Residential'`,
+  ];
   if (zone) filters.push(`City eq '${zone.replace(/'/g, "''")}'`);
   if (minPrice > 0) filters.push(`ListPrice ge ${minPrice}`);
   if (maxPrice > 0) filters.push(`ListPrice le ${maxPrice}`);
   if (beds > 0) filters.push(`BedroomsTotal ge ${beds}`);
-  if (propType) filters.push(`PropertyType eq '${propType.replace(/'/g, "''")}'`);
+  if (propType && propType !== "Residential") {
+    filters.push(`PropertySubType eq '${propType.replace(/'/g, "''")}'`);
+  }
   if (keyword) filters.push(`(contains(UnparsedAddress,'${keyword}') or contains(City,'${keyword}'))`);
 
   const $filter = filters.join(" and ");
@@ -90,7 +95,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     $top: String(perPage),
     $skip: String(skip),
     $count: "true",
-    $select: "ListingId,UnparsedAddress,City,StateOrProvince,PostalCode,ListPrice,BedroomsTotal,BathroomsTotalDecimal,LivingArea,PropertyType,StandardStatus,DaysOnMarket,ListOfficeName,ModificationTimestamp,Media",
+    $select: "ListingId,ListingKey,UnparsedAddress,City,StateOrProvince,PostalCode,ListPrice,BedroomsTotal,BathroomsTotalDecimal,LivingArea,PropertyType,PropertySubType,StandardStatus,DaysOnMarket,ListOfficeName,ModificationTimestamp,Media",
   });
 
   try {
@@ -124,7 +129,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return {
       statusCode: 500,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ error: "fetch_failed" }),
+      body: JSON.stringify({ error: "Search failed" }),
     };
   }
 };

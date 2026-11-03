@@ -2,6 +2,7 @@ import "../components/global-desk-hero.css";
 import { AssociationFilms } from "../components/AssociationFilms";
 import { GlobalResearchLinks } from "../components/GlobalResearchLinks";
 import { DistributionMetrics } from "../components/DistributionMetrics";
+import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Check, Handshake, Mail, MessageCircle, UserRoundCheck, UsersRound } from "lucide-react";
@@ -217,6 +218,7 @@ export default function GlobalDeskPage() {
               <p className="global-desk-hero-summary">{lang === "es" ? "Para propietarios, agencias y promotores: presentamos propiedades internacionales seleccionadas a agentes de compradores del sur de Florida." : "For property owners, agencies and developers: introduce selected international inventory to relevant South Florida buyer agents."}</p>
               <div className="global-desk-hero-actions">
                 <a href="#listing-request" className="global-desk-hero-primary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "private_discussion",cta_location: "hero",language: lang})}>{lang === "es" ? "Consultar su propiedad" : "Discuss Your Listing"}<ArrowRight size={18} aria-hidden="true" /></a>
+                <a href="#gilmar-global-desk" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_gilmar_spain",cta_location: "hero",language: lang})}>{lang === "es" ? "Ver Portal GILMAR España" : "GILMAR Spain Showcase"}</a>
                 <a href="#how-it-works" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_activation",cta_location: "hero",language: lang})}>{lang === "es" ? "Cómo funciona" : "How It Works"}</a>
               </div>
               <p className="global-desk-hero-signature">Carlos Uzcategui <span aria-hidden="true">·</span> United Realty Group</p>
@@ -236,6 +238,9 @@ export default function GlobalDeskPage() {
             <GlobalResearchLinks lang={lang} />
           </div>
         </section>
+
+        {/* GILMAR × United Realty Group Active Bilateral Showcase */}
+        <GilmarGlobalDeskSection variant="global-desk" lang={lang} />
 
         <section id="how-it-works" className="scroll-mt-20 bg-ivory px-6 py-16 md:py-24">
           <div className="mx-auto max-w-6xl">

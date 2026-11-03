@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
+import { ListingsBrowser } from "../components/listings/ListingsBrowser";
 import { HomepageListingApproach } from "../components/HomepageListingApproach";
 import { Proof } from "../components/Proof";
 import { HomepageObjectives } from "../components/HomepageObjectives";
@@ -29,10 +30,12 @@ export default function HomePage() {
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/" />
         <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es" />
       </Helmet>
-      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-28 lg:pb-0">
+      <main id="main-content" className="min-h-screen overflow-x-hidden bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
         {/* Section A: Hero */}
         <Hero />
+        {/* Primary Live Bridge IDX Search Desk */}
+        <ListingsBrowser compact />
         {/* Section B: Why Our Listing Approach */}
         <HomepageListingApproach />
         {/* Section C: Proven Client Confidence */}
