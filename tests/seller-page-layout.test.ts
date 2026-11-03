@@ -95,3 +95,14 @@ test("journal index paginates initial grid to 12 articles, elevates featured bri
   assert.match(page, /id="journal-list-breadcrumb"/);
   assert.match(page, /Complete Publication Index/);
 });
+
+
+test("contact page surfaces direct advisory channels in top fold, renders FaqAccordion with FAQPage and BreadcrumbList schema, and reserves mobile sticky CTA space", async () => {
+  const page = await readFile("src/pages/ContactPage.tsx", "utf8");
+  assert.match(page, /pb-28 lg:pb-0/);
+  assert.match(page, /Direct Advisory Channels/);
+  assert.match(page, /<FaqAccordion faqs=\{CONTACT_FAQS\}/);
+  assert.match(page, /id="contact-faq"/);
+  assert.match(page, /id="contact-breadcrumb"/);
+  assert.match(page, /<AboutContact showForm=\{false\} compact \/>/);
+});
