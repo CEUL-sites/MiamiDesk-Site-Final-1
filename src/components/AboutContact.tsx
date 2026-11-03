@@ -9,9 +9,13 @@ import { LeadForm } from "./LeadForm";
 export function AboutContact({
   showForm = true,
   compact = false,
+  title = "Carlos Uzcategui",
+  eyebrow = "Meet the Principal",
 }: {
   showForm?: boolean;
   compact?: boolean;
+  title?: string;
+  eyebrow?: string;
 } = {}) {
   return (
     <section id="contact" className={`bg-ivory ${compact ? "py-12 md:py-16" : "py-10 md:py-24"}`}>
@@ -24,8 +28,8 @@ export function AboutContact({
               </div>
             )}
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Meet the Principal</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy md:mt-4 md:text-4xl lg:text-5xl">Carlos Uzcategui</h2>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{eyebrow}</p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy md:mt-4 md:text-4xl lg:text-5xl">{title}</h2>
               <p className="font-mono mt-3 text-[10px] uppercase tracking-[0.22em] text-navy/70">REALTOR® · Florida License SL705771 · Since 2001</p>
 
               <div className="mt-5 flex flex-wrap gap-3 md:mt-6">

@@ -106,3 +106,15 @@ test("contact page surfaces direct advisory channels in top fold, renders FaqAcc
   assert.match(page, /id="contact-breadcrumb"/);
   assert.match(page, /<AboutContact showForm=\{false\} compact \/>/);
 });
+
+
+test("about page structures four advisory disciplines, renders FaqAccordion with FAQPage and BreadcrumbList schema, and reserves mobile sticky CTA space", async () => {
+  const page = await readFile("src/pages/AboutPage.tsx", "utf8");
+  assert.match(page, /pb-28 lg:pb-0/);
+  assert.match(page, /Direct Principal Advisory Across Four Corridors/);
+  assert.match(page, /<FaqAccordion faqs=\{ABOUT_FAQS\}/);
+  assert.match(page, /id="about-person"/);
+  assert.match(page, /id="about-faq"/);
+  assert.match(page, /id="about-breadcrumb"/);
+  assert.match(page, /<AboutContact[\s\S]*showForm=\{false\}[\s\S]*compact/);
+});
