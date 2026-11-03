@@ -8,6 +8,9 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { FaqAccordion } from "../components/FaqAccordion";
+import { ListingsBrowser } from "../components/listings/ListingsBrowser";
+import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
+import { Tilt3D } from "../components/Tilt3D";
 import {
   ArrowRight,
   BadgeCheck,
@@ -19,6 +22,7 @@ import {
   Home,
   Landmark,
   Plane,
+  Search,
   Sun,
   Trophy,
   Waves,
@@ -214,6 +218,18 @@ export default function BuyersPage() {
                   Request a Private Buyer Consultation
                 </a>
                 <a
+                  href="#search"
+                  className="advisory-secondary"
+                  onClick={() =>
+                    trackMicroConversion("hp_cta_click", {
+                      type: "search_mls_hero",
+                      location: "buyers_hero",
+                    })
+                  }
+                >
+                  <Search size={15} className="mr-1.5 inline" /> Search Live MLS
+                </a>
+                <a
                   href="/markets"
                   className="advisory-secondary"
                   onClick={() =>
@@ -248,6 +264,13 @@ export default function BuyersPage() {
             </figure>
           </div>
         </section>
+
+        {/* Primary Live Bridge IDX Search Browser */}
+        <ListingsBrowser
+          compact
+          heading="Search Live Miami & South Florida MLS Inventory"
+          subtitle="Filter active and pending residences across Weston, Coral Gables, Brickell, Fort Lauderdale, Aventura, and Boca Raton — or click any property card to inspect the interactive gallery."
+        />
 
         {/* Section 2: Six-Stage Acquisition Mandate */}
         <FloridaBuyerJourney />
@@ -295,34 +318,36 @@ export default function BuyersPage() {
 
               {/* Right Column: Editorial Portrait Card */}
               <div className="lg:col-span-5">
-                <figure className="overflow-hidden border border-bone bg-navy-deep shadow-[0_20px_50px_rgba(11,30,63,0.14)]">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
-                      src="/images/carlos-waterfront-editorial-20261012.jpg"
-                      alt="Carlos Uzcategui conducting a local property review on the Miami waterfront"
-                      width={1920}
-                      height={1081}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover object-[center_42%]"
-                    />
-                  </div>
-                  <figcaption className="border-t border-white/10 bg-navy-deep px-6 py-5">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
-                      {CONTACT.licenseDisplay}
-                    </p>
-                    <p className="mt-1 font-serif text-lg text-white">
-                      25 Years of South Florida Acquisition & Contract Negotiation
-                    </p>
-                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/65">
-                      United Realty Group · {CONTACT.stats.urgAgents} Agents · 19 Florida Office Locations
-                    </p>
-                  </figcaption>
-                </figure>
+                <Tilt3D maxTilt={4}>
+                  <figure className="overflow-hidden border border-bone bg-navy-deep shadow-[0_20px_50px_rgba(11,30,63,0.14)]">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src="/images/carlos-waterfront-editorial-20261012.jpg"
+                        alt="Carlos Uzcategui conducting a local property review on the Miami waterfront"
+                        width={1920}
+                        height={1081}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover object-[center_42%]"
+                      />
+                    </div>
+                    <figcaption className="border-t border-white/10 bg-navy-deep px-6 py-5">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                        {CONTACT.licenseDisplay}
+                      </p>
+                      <p className="mt-1 font-serif text-lg text-white">
+                        25 Years of South Florida Acquisition & Contract Negotiation
+                      </p>
+                      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/65">
+                        United Realty Group · {CONTACT.stats.urgAgents} Agents · 19 Florida Office Locations
+                      </p>
+                    </figcaption>
+                  </figure>
+                </Tilt3D>
               </div>
             </div>
 
-            {/* Specialized Buyer Advisory Desks (Consolidating Pre-Construction, Cross-Border/Spain, and Weston Programs) */}
+            {/* Specialized Buyer Advisory Desks */}
             <div className="mt-16 border-t border-hairline pt-14">
               <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
                 <div>
@@ -343,83 +368,92 @@ export default function BuyersPage() {
 
               <div className="grid gap-6 md:grid-cols-3">
                 {/* Card 1: Pre-Construction */}
-                <div className="flex flex-col justify-between border border-bone bg-ivory p-7">
-                  <div>
-                    <div className="flex items-center gap-2.5 text-gold-ink">
-                      <Building2 size={18} />
-                      <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
-                        Pre-Construction · NEO Portal
-                      </span>
+                <Tilt3D maxTilt={4} className="h-full">
+                  <div className="flex h-full flex-col justify-between border border-bone bg-ivory p-7 transition-all duration-300 hover:border-gold hover:shadow-lg">
+                    <div>
+                      <div className="flex items-center gap-2.5 text-gold-ink">
+                        <Building2 size={18} />
+                        <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+                          Pre-Construction · NEO Portal
+                        </span>
+                      </div>
+                      <h4 className="mt-4 font-serif text-xl text-navy-deep">
+                        South Florida New Developments
+                      </h4>
+                      <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
+                        Access live South Florida pre-construction inventory via the NEO platform. Carlos represents buyers independently in reviewing developer contracts, staged deposit schedules, reserve budgets, and delivery timelines.
+                      </p>
                     </div>
-                    <h4 className="mt-4 font-serif text-xl text-navy-deep">
-                      South Florida New Developments
-                    </h4>
-                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
-                      Access live South Florida pre-construction inventory via the NEO platform. Carlos represents buyers independently in reviewing developer contracts, staged deposit schedules, reserve budgets, and delivery timelines.
-                    </p>
+                    <a
+                      href="/new-construction"
+                      className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                    >
+                      Open Live Pre-Construction Feed
+                      <ArrowRight size={13} />
+                    </a>
                   </div>
-                  <a
-                    href="/new-construction"
-                    className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
-                  >
-                    Open Live Pre-Construction Feed
-                    <ArrowRight size={13} />
-                  </a>
-                </div>
+                </Tilt3D>
 
                 {/* Card 2: International & Cross-Border / Spain Referrals */}
-                <div className="flex flex-col justify-between border border-bone bg-ivory p-7">
-                  <div>
-                    <div className="flex items-center gap-2.5 text-gold-ink">
-                      <Globe2 size={18} />
-                      <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
-                        Cross-Border & Spain Desk
-                      </span>
+                <Tilt3D maxTilt={4} className="h-full">
+                  <div className="flex h-full flex-col justify-between border border-bone bg-ivory p-7 transition-all duration-300 hover:border-gold hover:shadow-lg">
+                    <div>
+                      <div className="flex items-center gap-2.5 text-gold-ink">
+                        <Globe2 size={18} />
+                        <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+                          Cross-Border & Spain Desk
+                        </span>
+                      </div>
+                      <h4 className="mt-4 font-serif text-xl text-navy-deep">
+                        International Buyers & Spain Introductions
+                      </h4>
+                      <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
+                        Bilingual English/Spanish acquisition support for Latin American and European buyers purchasing in Florida, plus formal referral introductions to GILMAR Consulting Inmobiliario and legal counsel for clients purchasing in Spain.
+                      </p>
                     </div>
-                    <h4 className="mt-4 font-serif text-xl text-navy-deep">
-                      International Buyers & Spain Introductions
-                    </h4>
-                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
-                      Bilingual English/Spanish acquisition support for Latin American and European buyers purchasing in Florida, plus formal referral introductions to vetted local agencies and legal counsel for clients purchasing in Spain.
-                    </p>
+                    <a
+                      href="#gilmar-global-desk"
+                      className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                    >
+                      Explore GILMAR Spain Portfolio
+                      <ArrowRight size={13} />
+                    </a>
                   </div>
-                  <a
-                    href="/global-desk"
-                    className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
-                  >
-                    Visit the International & Spain Desk
-                    <ArrowRight size={13} />
-                  </a>
-                </div>
+                </Tilt3D>
 
                 {/* Card 3: Weston & Broward Municipal Programs */}
-                <div className="flex flex-col justify-between border border-bone bg-ivory p-7">
-                  <div>
-                    <div className="flex items-center gap-2.5 text-gold-ink">
-                      <Home size={18} />
-                      <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
-                        Weston Buyer Resource
-                      </span>
+                <Tilt3D maxTilt={4} className="h-full">
+                  <div className="flex h-full flex-col justify-between border border-bone bg-ivory p-7 transition-all duration-300 hover:border-gold hover:shadow-lg">
+                    <div>
+                      <div className="flex items-center gap-2.5 text-gold-ink">
+                        <Home size={18} />
+                        <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+                          Weston Buyer Resource
+                        </span>
+                      </div>
+                      <h4 className="mt-4 font-serif text-xl text-navy-deep">
+                        Weston Purchase Assistance Guide
+                      </h4>
+                      <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
+                        The City of Weston describes purchase assistance of up to $120,000 for eligible primary-residence buyers, subject to financial need, available funds, mortgage approval, and Broward County eligibility rules.
+                      </p>
                     </div>
-                    <h4 className="mt-4 font-serif text-xl text-navy-deep">
-                      Weston Purchase Assistance Guide
-                    </h4>
-                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
-                      The City of Weston describes purchase assistance of up to $120,000 for eligible primary-residence buyers, subject to financial need, available funds, mortgage approval, and Broward County eligibility rules.
-                    </p>
+                    <a
+                      href="/journal/weston-homebuyer-purchase-assistance-2026"
+                      className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                    >
+                      Read the Weston Housing Guide
+                      <ArrowRight size={13} />
+                    </a>
                   </div>
-                  <a
-                    href="/journal/weston-homebuyer-purchase-assistance-2026"
-                    className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
-                  >
-                    Read the Weston Housing Guide
-                    <ArrowRight size={13} />
-                  </a>
-                </div>
+                </Tilt3D>
               </div>
             </div>
           </div>
         </section>
+
+        {/* GILMAR × United Realty Group Spain Acquisition Desk */}
+        <GilmarGlobalDeskSection variant="buyers" />
 
         {/* Section 4: Why Buyers & Capital Choose South Florida */}
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28">
@@ -437,15 +471,17 @@ export default function BuyersPage() {
               </p>
             </div>
 
-            <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {WHY_FLORIDA.map((r) => (
-                <div key={r.title} className="bg-navy-deep/95 p-7">
-                  <r.icon size={20} className="text-gold" />
-                  <h3 className="mt-4 font-serif text-lg leading-snug text-white">{r.title}</h3>
-                  <p className="mt-2.5 font-sans text-[13.5px] leading-relaxed text-white/65">
-                    {r.desc}
-                  </p>
-                </div>
+                <Tilt3D key={r.title} maxTilt={4} className="h-full">
+                  <div className="h-full border border-white/12 bg-navy-deep/95 p-7 transition-colors hover:border-gold/40">
+                    <r.icon size={20} className="text-gold" />
+                    <h3 className="mt-4 font-serif text-lg leading-snug text-white">{r.title}</h3>
+                    <p className="mt-2.5 font-sans text-[13.5px] leading-relaxed text-white/65">
+                      {r.desc}
+                    </p>
+                  </div>
+                </Tilt3D>
               ))}
             </div>
 

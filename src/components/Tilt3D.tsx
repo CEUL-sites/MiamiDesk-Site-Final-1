@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type Key, type ReactNode } from "react";
 
 /* Pointer-tracked 3D tilt wrapper for hero cards and stat strips.
  * Adds a subtle perspective rotation toward the cursor plus a moving gold
@@ -14,6 +14,7 @@ export function Tilt3D({
   className = "",
   maxTilt = MAX_TILT_DEG,
 }: {
+  key?: Key;
   children: ReactNode;
   className?: string;
   maxTilt?: number;
@@ -80,8 +81,8 @@ export function Tilt3D({
   }, [maxTilt]);
 
   return (
-    <div ref={outer} className={className} style={{ perspective: "900px" }}>
-      <div ref={inner} className="relative will-change-transform" style={{ transformStyle: "preserve-3d" }}>
+    <div ref={outer} className={`min-w-0 ${className}`} style={{ perspective: "900px" }}>
+      <div ref={inner} className="relative h-full min-w-0 will-change-transform" style={{ transformStyle: "preserve-3d" }}>
         {children}
         <div
           ref={sheen}

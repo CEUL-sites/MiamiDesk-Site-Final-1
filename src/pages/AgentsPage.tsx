@@ -24,6 +24,8 @@ import { LazyVideo } from "../components/LazyVideo";
 import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
+import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
+import { Tilt3D } from "../components/Tilt3D";
 import { CONTACT } from "../constants";
 
 const SERVICES = [
@@ -230,6 +232,9 @@ export default function AgentsPage() {
                   Choose Your Professional Path
                   <ChevronRight size={16} aria-hidden="true" />
                 </a>
+                <a href="#gilmar-global-desk" className="agent-partner-secondary">
+                  GILMAR Spain 4% Desk
+                </a>
                 <a
                   href={CONTACT.whatsappBroker}
                   target="_blank"
@@ -285,7 +290,7 @@ export default function AgentsPage() {
                 personal response from Carlos, not a call center.
               </p>
             </div>
-            <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
                   icon: Handshake,
@@ -330,28 +335,30 @@ export default function AgentsPage() {
                   onClick: undefined,
                 },
               ].map((p) => (
-                <div key={p.title} className="flex flex-col bg-white p-6 md:p-8">
-                  <p.icon size={22} className="text-gold" strokeWidth={1.5} />
-                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">{p.tag}</p>
-                  <h3 className="mt-2 font-serif text-xl leading-snug text-navy-deep">{p.title}</h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">{p.body}</p>
-                  <ul className="mt-5 space-y-2.5">
-                    {p.points.map((pt) => (
-                      <li key={pt} className="flex items-start gap-2.5">
-                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                        <span className="font-sans text-[13px] leading-snug text-ink-primary/75">{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={p.href}
-                    onClick={p.onClick}
-                    className="group mt-7 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold"
-                  >
-                    {p.cta}
-                    <ChevronRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-                  </a>
-                </div>
+                <Tilt3D key={p.title} maxTilt={4} className="h-full">
+                  <div className="flex h-full flex-col border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-lg md:p-8">
+                    <p.icon size={22} className="text-gold" strokeWidth={1.5} />
+                    <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">{p.tag}</p>
+                    <h3 className="mt-2 font-serif text-xl leading-snug text-navy-deep">{p.title}</h3>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">{p.body}</p>
+                    <ul className="mt-5 space-y-2.5">
+                      {p.points.map((pt) => (
+                        <li key={pt} className="flex items-start gap-2.5">
+                          <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                          <span className="font-sans text-[13px] leading-snug text-ink-primary/75">{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={p.href}
+                      onClick={p.onClick}
+                      className="group mt-7 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold"
+                    >
+                      {p.cta}
+                      <ChevronRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                    </a>
+                  </div>
+                </Tilt3D>
               ))}
             </div>
           </div>
@@ -374,63 +381,69 @@ export default function AgentsPage() {
             </div>
 
             {/* Role Separation Grid */}
-            <div className="grid gap-px border border-hairline bg-hairline md:grid-cols-3 mb-12">
-              <div className="bg-white p-6 md:p-8">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 01 · Local Agent</span>
-                <h3 className="mt-2 font-serif text-xl text-navy-deep">Retains Full Authority</h3>
-                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">Mandate · Client · Fee</p>
-                <ul className="mt-5 space-y-3">
-                  {[
-                    "The seller relationship and local authority",
-                    "The local listing mandate and exclusivity",
-                    "Direct client advisory and on-the-ground showings",
-                    "Local fee and agreed transaction commission",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5">
-                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                      <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="grid gap-6 md:grid-cols-3 mb-12">
+              <Tilt3D maxTilt={4} className="h-full">
+                <div className="h-full border border-hairline bg-white p-6 md:p-8">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 01 · Local Agent</span>
+                  <h3 className="mt-2 font-serif text-xl text-navy-deep">Retains Full Authority</h3>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">Mandate · Client · Fee</p>
+                  <ul className="mt-5 space-y-3">
+                    {[
+                      "The seller relationship and local authority",
+                      "The local listing mandate and exclusivity",
+                      "Direct client advisory and on-the-ground showings",
+                      "Local fee and agreed transaction commission",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                        <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Tilt3D>
 
-              <div className="bg-gold/[0.04] border-2 border-gold/40 p-6 md:p-8">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 02 · Miami Desk</span>
-                <h3 className="mt-2 font-serif text-xl text-navy-deep">U.S. &amp; LATAM Exposure</h3>
-                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">Florida License SL705771</p>
-                <ul className="mt-5 space-y-3">
-                  {[
-                    "Miami MLS & 93,000-member agent ecosystem",
-                    "Bilingual English / Spanish property packaging",
-                    "U.S. and Latin American buyer-channel reach",
-                    "Structured referral inquiry and tour coordination",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5">
-                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                      <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Tilt3D maxTilt={4} className="h-full">
+                <div className="h-full bg-gold/[0.04] border-2 border-gold/40 p-6 md:p-8">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 02 · Miami Desk</span>
+                  <h3 className="mt-2 font-serif text-xl text-navy-deep">U.S. &amp; LATAM Exposure</h3>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">Florida License SL705771</p>
+                  <ul className="mt-5 space-y-3">
+                    {[
+                      "Miami MLS & 93,000-member agent ecosystem",
+                      "Bilingual English / Spanish property packaging",
+                      "U.S. and Latin American buyer-channel reach",
+                      "Structured referral inquiry and tour coordination",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                        <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Tilt3D>
 
-              <div className="bg-white p-6 md:p-8">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 03 · Governance</span>
-                <h3 className="mt-2 font-serif text-xl text-navy-deep">Written Legal Protection</h3>
-                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">Compliance &amp; Terms</p>
-                <ul className="mt-5 space-y-3">
-                  {[
-                    "Written bilateral cooperation agreement",
-                    "Documented referral structure before engagement",
-                    "Transparent scope, milestones, and fees",
-                    "Full compliance with applicable real estate licensing",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2.5">
-                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                      <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <Tilt3D maxTilt={4} className="h-full">
+                <div className="h-full border border-hairline bg-white p-6 md:p-8">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 03 · Governance</span>
+                  <h3 className="mt-2 font-serif text-xl text-navy-deep">Written Legal Protection</h3>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">Compliance &amp; Terms</p>
+                  <ul className="mt-5 space-y-3">
+                    {[
+                      "Written bilateral cooperation agreement",
+                      "Documented referral structure before engagement",
+                      "Transparent scope, milestones, and fees",
+                      "Full compliance with applicable real estate licensing",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                        <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Tilt3D>
             </div>
 
             {/* Core Services Deliverables */}
@@ -482,6 +495,9 @@ export default function AgentsPage() {
             </div>
           </div>
         </section>
+
+        {/* ── GILMAR × United Realty Group 4% Buyer-Agent Co-Brokering Showcase ── */}
+        <GilmarGlobalDeskSection variant="agents" />
 
         {/* ── SECTION 4: Unified Partner & Referral Intake Desk ─────── */}
         <section className="bg-navy-deep py-12 md:py-18 text-white">

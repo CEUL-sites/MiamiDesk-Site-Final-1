@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { BadgeCheck } from "lucide-react";
+import { JsonLd } from "../components/SEO/JsonLd";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -7,7 +8,23 @@ import { MLSTicker } from "../components/MLSTicker";
 import { NeoListingsEmbed } from "../components/NeoListingsEmbed";
 import { PropertyMarketFeed } from "../components/PropertyMarketFeed";
 import { ListingsBrowser } from "../components/listings/ListingsBrowser";
+import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT } from "../constants";
+
+const LISTINGS_FAQS = [
+  {
+    q: "How often is the South Florida MLS search updated?",
+    a: "Active and pending listings are queried directly from the Miami and South Florida REALTORS® MLS via our Bridge Interactive data connection, reflecting real-time inventory across Miami-Dade, Broward, and Palm Beach counties.",
+  },
+  {
+    q: "Can Carlos arrange private showings for any listing shown here?",
+    a: "Yes. As a Florida Licensed Realtor® (SL705771) with United Realty Group, Carlos coordinates private showings, comparable sales underwriting, and contract representation across all participating MLS brokerages.",
+  },
+  {
+    q: "How do I evaluate pre-construction developments alongside resale homes?",
+    a: "Use the live MLS browser above for resale and completed residences, and the New Estate Only (NEO) pre-construction portal below to compare floorplans, deposit schedules, and delivery timelines side by side.",
+  },
+] as const;
 
 export default function ListingsPage() {
   return (
@@ -31,7 +48,42 @@ export default function ListingsPage() {
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>
 
-      <main id="main-content" className="min-h-screen bg-navy-deep grain-overlay pb-20 lg:pb-0">
+      <JsonLd
+        id="listings-breadcrumb"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://homesprofessional.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "South Florida MLS Listings",
+              item: "https://homesprofessional.com/listings",
+            },
+          ],
+        }}
+      />
+
+      <JsonLd
+        id="listings-faq"
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: LISTINGS_FAQS.map(({ q, a }) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
+        }}
+      />
+
+      <main id="main-content" className="min-h-screen bg-navy-deep grain-overlay pb-28 lg:pb-0">
         <Navbar />
 
         {/* ── Page header ───────────────────────────────────────── */}
@@ -45,7 +97,7 @@ export default function ListingsPage() {
           >
             Search Live South Florida MLS Listings
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55">
+          <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/65">
             Search the live Miami and South Florida REALTORS® MLS, plus new
             pre-construction developments — Miami-Dade, Broward, and Palm Beach.
           </p>
@@ -76,7 +128,6 @@ export default function ListingsPage() {
 
         {/* ── NEO new developments iframe ──────────────────────── */}
         <section className="bg-white">
-          {/* Section header band */}
           <div className="border-b border-gold/20 bg-navy-deep px-6 py-5">
             <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
               <div>
@@ -93,21 +144,36 @@ export default function ListingsPage() {
             </div>
           </div>
 
-          {/* NEO iframe — loads asynchronously, targets the iframe by id */}
           <NeoListingsEmbed />
         </section>
 
+        {/* ── MLS Search FAQ ────────────────────────────────────── */}
+        <section className="border-t border-white/10 bg-navy-deep px-6 py-16">
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-8 text-center">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                MLS Search &amp; Representation FAQ
+              </p>
+              <h2 className="mt-3 font-serif text-2xl text-white md:text-3xl">
+                Common questions about South Florida MLS inventory
+              </h2>
+            </div>
+            <div className="border border-white/15 bg-white/[0.03] px-6 py-2 md:px-10">
+              <FaqAccordion faqs={LISTINGS_FAQS} tone="dark" defaultOpen={0} />
+            </div>
+          </div>
+        </section>
+
         {/* ── Buyer CTA ─────────────────────────────────────────── */}
-        <section className="bg-navy-deep px-6 py-12 text-center md:py-16">
+        <section className="border-t border-white/10 bg-navy-deep px-6 py-12 text-center md:py-16">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
             Buyer Representation
           </p>
           <h2 className="mx-auto mt-4 max-w-xl font-serif text-3xl text-white">
-            Found something worth exploring?
+            Found a residence worth underwriting?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/55">
-            Our team arranges private showings, negotiates on your behalf, and guides
-            you through every step. Buyer representation at no additional cost to you.
+          <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/65">
+            Carlos coordinates private showings, comparable sales analysis, and disciplined contract negotiation across Miami-Dade, Broward, and Palm Beach. Representation terms are reviewed in writing before touring.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
@@ -126,7 +192,7 @@ export default function ListingsPage() {
             </a>
           </div>
           <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
-            {CONTACT.licenseDisplay} · {CONTACT.brokerage} · Equal Housing Opportunity
+            Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
           </p>
         </section>
 

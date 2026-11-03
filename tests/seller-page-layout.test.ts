@@ -63,7 +63,6 @@ test("markets page renders CountyExplorer, visible FaqAccordion matching FAQPage
   assert.doesNotMatch(page, /const PILLARS =/);
 });
 
-
 test("agents page renders visible FaqAccordion matching FAQPage schema, 2-tab intake desk, and omits RevealText truncation", async () => {
   const page = await readFile("src/pages/AgentsPage.tsx", "utf8");
   assert.match(page, /pb-28 lg:pb-0/);
@@ -75,7 +74,6 @@ test("agents page renders visible FaqAccordion matching FAQPage schema, 2-tab in
   assert.doesNotMatch(page, /<GlobalResearchLinks/);
 });
 
-
 test("global desk page preserves 2-tab intake desk, uses FaqAccordion with single FAQPage schema, and avoids motion opacity traps", async () => {
   const page = await readFile("src/pages/GlobalDeskPage.tsx", "utf8");
   assert.match(page, /pb-28 lg:pb-0/);
@@ -86,7 +84,6 @@ test("global desk page preserves 2-tab intake desk, uses FaqAccordion with singl
   assert.doesNotMatch(page, /initial="hidden"/);
 });
 
-
 test("journal index paginates initial grid to 12 articles, elevates featured briefing, and preserves full archive links", async () => {
   const page = await readFile("src/pages/JournalListPage.tsx", "utf8");
   assert.match(page, /pb-28 lg:pb-0/);
@@ -95,7 +92,6 @@ test("journal index paginates initial grid to 12 articles, elevates featured bri
   assert.match(page, /id="journal-list-breadcrumb"/);
   assert.match(page, /Complete Publication Index/);
 });
-
 
 test("contact page surfaces direct advisory channels in top fold, renders FaqAccordion with FAQPage and BreadcrumbList schema, and reserves mobile sticky CTA space", async () => {
   const page = await readFile("src/pages/ContactPage.tsx", "utf8");
@@ -107,7 +103,6 @@ test("contact page surfaces direct advisory channels in top fold, renders FaqAcc
   assert.match(page, /<AboutContact showForm=\{false\} compact \/>/);
 });
 
-
 test("about page structures four advisory disciplines, renders FaqAccordion with FAQPage and BreadcrumbList schema, and reserves mobile sticky CTA space", async () => {
   const page = await readFile("src/pages/AboutPage.tsx", "utf8");
   assert.match(page, /pb-28 lg:pb-0/);
@@ -117,4 +112,31 @@ test("about page structures four advisory disciplines, renders FaqAccordion with
   assert.match(page, /id="about-faq"/);
   assert.match(page, /id="about-breadcrumb"/);
   assert.match(page, /<AboutContact[\s\S]*showForm=\{false\}[\s\S]*compact/);
+});
+
+test("phase 11 mounts primary Bridge IDX browser on Home and Buyers, interactive ReviewModal/ReviewMarquee, and GILMAR Spain Desk across Global Desk, Agents, and Buyers", async () => {
+  const [home, buyers, globalDesk, agents, reviews, listings, proof, gilmar] = await Promise.all([
+    readFile("src/pages/HomePage.tsx", "utf8"),
+    readFile("src/pages/BuyersPage.tsx", "utf8"),
+    readFile("src/pages/GlobalDeskPage.tsx", "utf8"),
+    readFile("src/pages/AgentsPage.tsx", "utf8"),
+    readFile("src/pages/ReviewsPage.tsx", "utf8"),
+    readFile("src/pages/ListingsPage.tsx", "utf8"),
+    readFile("src/components/Proof.tsx", "utf8"),
+    readFile("src/components/GilmarGlobalDeskSection.tsx", "utf8"),
+  ]);
+
+  assert.match(home, /<ListingsBrowser compact \/>/);
+  assert.match(buyers, /<ListingsBrowser[\s\S]*compact/);
+  assert.match(buyers, /<GilmarGlobalDeskSection variant="buyers" \/>/);
+  assert.match(globalDesk, /<GilmarGlobalDeskSection variant="global-desk" lang=\{lang\} \/>/);
+  assert.match(agents, /<GilmarGlobalDeskSection variant="agents" \/>/);
+  assert.match(reviews, /<ReviewMarquee/);
+  assert.match(reviews, /<ReviewModal/);
+  assert.match(reviews, /pb-28 lg:pb-0/);
+  assert.match(proof, /<ReviewMarquee/);
+  assert.match(listings, /pb-28 lg:pb-0/);
+  assert.match(listings, /id="listings-faq"/);
+  assert.doesNotMatch(listings, /at no additional cost to you/i);
+  assert.match(gilmar, /https:\/\/gilmar-urg-global-desk\.ucarlos\.chatgpt\.site/);
 });
