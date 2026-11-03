@@ -14,40 +14,41 @@ export function AboutContact({
   compact?: boolean;
 } = {}) {
   return (
-    <section id="contact" className={`bg-ivory ${compact ? "py-10 md:py-16" : "py-10 md:py-24"}`}>
+    <section id="contact" className={`bg-ivory ${compact ? "py-12 md:py-16" : "py-10 md:py-24"}`}>
       <div className={`mx-auto grid gap-7 px-6 ${showForm ? "max-w-7xl lg:grid-cols-[1.1fr_0.9fr] lg:gap-16" : "max-w-5xl"}`}>
         <div>
-          <div className="grid gap-4 md:grid-cols-[280px_1fr] md:items-start md:gap-10">
-            <div className="carlos-headshot-card">
-              <img src={CONTACT.headshot} alt="Carlos Uzcategui, REALTOR®, Florida License SL705771, with United Realty Group, serving South Florida and Madrid since 2001" className="carlos-headshot" loading="lazy" width="280" height="280" />
-            </div>
+          <div className={compact ? "" : "grid gap-4 md:grid-cols-[280px_1fr] md:items-start md:gap-10"}>
+            {!compact && (
+              <div className="carlos-headshot-card">
+                <img src={CONTACT.headshot} alt="Carlos Uzcategui, REALTOR®, Florida License SL705771, with United Realty Group, serving South Florida and Madrid since 2001" className="carlos-headshot" loading="lazy" width="280" height="280" />
+              </div>
+            )}
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Meet the Principal</p>
-              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy md:mt-4 md:text-4xl lg:text-6xl">Carlos Uzcategui</h2>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-navy md:mt-4 md:text-4xl lg:text-5xl">Carlos Uzcategui</h2>
               <p className="font-mono mt-3 text-[10px] uppercase tracking-[0.22em] text-navy/70">REALTOR® · Florida License SL705771 · Since 2001</p>
 
-              <div className="mt-5 flex flex-wrap gap-3 md:mt-8">
+              <div className="mt-5 flex flex-wrap gap-3 md:mt-6">
                 {["CLHMS", "Certified Seller Rep", "Licensed Since 2001"].map((badge) => (
-                  <span key={badge} className="border border-gold/45 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">{badge}</span>
+                  <span key={badge} className="border border-gold/45 bg-white/70 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">{badge}</span>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-12 md:space-y-4 md:text-lg">
+          <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-8 md:space-y-4 md:text-lg">
             <p>Twenty-five years of active South Florida real estate transactions across residential, luxury, and commercial sectors. Relationships inside the Miami professional community built through closed transactions, not directory listings.</p>
             <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations, delivering institutional market reach across South Florida corridors.</p>
             <p>Every assignment is managed directly by Carlos as principal of record—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.</p>
           </div>
 
           {/* Carlos-led advice with visible brokerage infrastructure behind it. */}
-          <div id="brokerage-proof" data-sticky-cta-guard className="mt-6 scroll-mt-24 overflow-hidden border border-bone bg-navy-deep md:mt-12 md:grid md:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative min-h-64 overflow-hidden md:min-h-[390px]">
+          <div id="brokerage-proof" data-sticky-cta-guard className="mt-6 scroll-mt-24 overflow-hidden border border-bone bg-navy-deep md:mt-10 md:grid md:grid-cols-[0.9fr_1.1fr]">
+            <div className="relative h-72 overflow-hidden md:h-auto md:min-h-[390px]">
               <img
                 src="/images/urg-weston-office.webp"
                 alt="United Realty Group Weston office reception and client meeting area"
                 className="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
                 width="1920"
                 height="2560"
               />
@@ -97,46 +98,51 @@ export function AboutContact({
                   United Realty Group office directory
                 </a>
               </details>
-              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">Carlos Uzcategui · United Realty Group · FL SL705771</p>
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">
+                Carlos Uzcategui · United Realty Group · FL SL705771 · HQ: 1200 S Pine Island Rd, Suite 600, Plantation, FL 33324
+              </p>
             </div>
           </div>
 
-          {/* URG Headquarters — video */}
-          <div data-sticky-cta-guard className="mt-5 overflow-hidden border border-bone md:mt-12">
-            {/* Responsive 16:9 YouTube embed — plays inline, no navigation away */}
-            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-              <img src="/images/urg-hq.jpg" alt="United Realty Group headquarters in Plantation, Florida" width="1920" height="1080" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+          {/* URG Headquarters — full profile mode only */}
+          {!compact && (
+            <div data-sticky-cta-guard className="mt-5 overflow-hidden border border-bone md:mt-12">
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <img src="/images/urg-hq.jpg" alt="United Realty Group headquarters in Plantation, Florida" width="1920" height="1080" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              </div>
+              <div className="bg-navy-deep px-5 py-3 md:py-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · 3,500+ agents</p>
+                <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">19 Florida office locations · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
+                <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noreferrer" className="font-mono mt-1 inline-block text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
+                  View official branch locations
+                </a>
+                <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
+              </div>
             </div>
-            <div className="bg-navy-deep px-5 py-3 md:py-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · 3,500+ agents</p>
-              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">19 Florida office locations · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
-              <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noreferrer" className="font-mono mt-1 inline-block text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
-                View official branch locations
-              </a>
-              <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
-            </div>
-          </div>
+          )}
 
-          <div className="mt-3 border-t border-bone pt-3 space-y-1.5 md:mt-6 md:pt-6">
+          <div className="mt-4 border-t border-bone pt-4 space-y-1.5 md:mt-6 md:pt-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">{CONTACT.licenseDisplay}</p>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Member: Miami and South Florida REALTORS®</p>
           </div>
 
-          <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:mt-12 md:gap-5">
-            <a href={CONTACT.whatsappUS} className="flex items-start gap-3 border border-bone bg-white p-4 transition-colors hover:border-gold sm:p-5">
-              <Phone className="text-gold" size={20} />
-              <div><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
-            </a>
-            <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 border border-bone bg-white p-4 transition-colors hover:border-gold sm:p-5">
-              <Mail className="text-gold" size={20} />
-              <div><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Email</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.email}</div></div>
-            </a>
-            <div className="col-span-2 flex items-start gap-3 border border-bone bg-white p-4 sm:col-span-1 sm:p-5">
-              <MapPin className="text-gold" size={20} />
-              <div><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
+          {!compact && (
+            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-12 md:gap-5">
+              <a href={CONTACT.whatsappUS} className="flex items-start gap-3 border border-bone bg-white p-4 transition-colors hover:border-gold sm:p-5">
+                <Phone className="shrink-0 text-gold" size={20} />
+                <div className="min-w-0"><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
+              </a>
+              <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 border border-bone bg-white p-4 transition-colors hover:border-gold sm:p-5">
+                <Mail className="shrink-0 text-gold" size={20} />
+                <div className="min-w-0"><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Email</div><div className="mt-1 break-all font-sans text-sm text-navy">{CONTACT.email}</div></div>
+              </a>
+              <div className="flex items-start gap-3 border border-bone bg-white p-4 sm:p-5">
+                <MapPin className="shrink-0 text-gold" size={20} />
+                <div className="min-w-0"><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {showForm && (
