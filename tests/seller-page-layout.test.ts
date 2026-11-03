@@ -85,3 +85,13 @@ test("global desk page preserves 2-tab intake desk, uses FaqAccordion with singl
   assert.equal((page.match(/id="global-desk-faq"/g) ?? []).length, 1);
   assert.doesNotMatch(page, /initial="hidden"/);
 });
+
+
+test("journal index paginates initial grid to 12 articles, elevates featured briefing, and preserves full archive links", async () => {
+  const page = await readFile("src/pages/JournalListPage.tsx", "utf8");
+  assert.match(page, /pb-28 lg:pb-0/);
+  assert.match(page, /const INITIAL_VISIBLE_COUNT = 12/);
+  assert.match(page, /Featured Briefing/);
+  assert.match(page, /id="journal-list-breadcrumb"/);
+  assert.match(page, /Complete Publication Index/);
+});
