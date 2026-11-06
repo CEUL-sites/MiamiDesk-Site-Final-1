@@ -335,11 +335,41 @@ export default function GlobalDeskPage() {
               <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:gap-8">
                 <figure className="flex min-w-0 flex-col justify-between overflow-hidden rounded-xl border border-bone bg-white shadow-sm">
                   <div className="relative aspect-video w-full overflow-hidden bg-navy-deep">
-                    <iframe src="https://www.youtube-nocookie.com/embed/M8Hx5D5ghag?rel=0&modestbranding=1" title={t.teamVideoTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 h-full w-full border-0" />
+                    <video
+                      src="/videos/ceul_team_dollhouse.mp4"
+                      poster="/images/posters/ceul_team_dollhouse.jpg"
+                      title={t.teamVideoTitle}
+                      controls
+                      playsInline
+                      muted
+                      autoPlay
+                      loop
+                      preload="metadata"
+                      className="h-full w-full object-cover"
+                    />
+                    <a
+                      href="https://www.youtube.com/watch?v=M8Hx5D5ghag"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-embed="https://www.youtube-nocookie.com/embed/M8Hx5D5ghag?rel=0&modestbranding=1"
+                      className="sr-only"
+                    >
+                      {t.teamVideoTitle}
+                    </a>
                   </div>
-                  <figcaption className="flex min-h-14 items-center justify-between bg-navy-deep px-5 py-4 font-mono text-[9px] font-semibold uppercase tracking-[0.19em] text-gold sm:px-6 sm:text-[10px]">
+                  <figcaption className="flex min-h-14 flex-wrap items-center justify-between gap-2 bg-navy-deep px-5 py-4 font-mono text-[9px] font-semibold uppercase tracking-[0.19em] text-gold sm:px-6 sm:text-[10px]">
                     <span>{t.teamVideoLabel}</span>
-                    <span className="text-white/60">3,500+ FL Agents</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-white/60">3,500+ FL Agents</span>
+                      <a
+                        href="https://www.youtube.com/watch?v=M8Hx5D5ghag"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border border-gold/40 px-2.5 py-1 text-[9px] text-gold transition-colors hover:border-gold hover:text-white"
+                      >
+                        {lang === "es" ? "Ver en YouTube ↗" : "Watch on YouTube ↗"}
+                      </a>
+                    </div>
                   </figcaption>
                 </figure>
 

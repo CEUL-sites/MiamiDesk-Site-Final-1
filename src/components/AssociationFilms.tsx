@@ -47,7 +47,7 @@ export function AssociationFilms({ initialFilm = "miami", lang = "en", location,
   const [selected, setSelected] = useState<FilmKey>(initialFilm);
   const [active, setActive] = useState(false);
   const [inlineFallback, setInlineFallback] = useState(false);
-  const [sitePreview, setSitePreview] = useState(false);
+  const [sitePreview, setSitePreview] = useState(true);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const id = useId();
@@ -64,7 +64,7 @@ export function AssociationFilms({ initialFilm = "miami", lang = "en", location,
   function open() {
     pushEvent("association_film_open", { film_key: initialFilm, location, language: lang });
     setSelected(initialFilm);
-    setSitePreview(false);
+    setSitePreview(true);
     setActive(true);
     if (typeof dialog.current?.showModal !== "function") {
       setInlineFallback(true);
@@ -76,7 +76,7 @@ export function AssociationFilms({ initialFilm = "miami", lang = "en", location,
   function select(key: FilmKey) {
     if (key === selected) return;
     setSelected(key);
-    setSitePreview(false);
+    setSitePreview(true);
     pushEvent("association_film_selected", { film_key: key, location, language: lang });
   }
 
@@ -111,7 +111,7 @@ export function AssociationFilms({ initialFilm = "miami", lang = "en", location,
         <div className="association-film-options">
           {(Object.keys(FILMS) as FilmKey[]).map(key => <button key={key} type="button" aria-pressed={selected === key} onClick={() => select(key)}>{t.choices[key]}</button>)}
         </div>
-        {active && <Fragment key={film.id}><EmbeddedFilm videoId={film.id} title={film.title} duration={film.duration} lang={lang} onPreviewChange={setSitePreview} /></Fragment>}
+        {active && <Fragment key={film.id}><EmbeddedFilm videoId={film.id} title={film.title} duration={film.duration} lang={lang} defaultMode="preview" onPreviewChange={setSitePreview} /></Fragment>}
         <div className="association-film-details">
           <h3 lang={sitePreview ? lang : "en"}>{sitePreview ? t.previewTitle : film.title}</h3>
           <p className="association-film-source">{sitePreview ? t.previewSource : <>{t.source} <time dateTime={film.published}>{film.published}</time></>}</p>

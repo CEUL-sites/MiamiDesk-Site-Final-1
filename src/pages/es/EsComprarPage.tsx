@@ -346,14 +346,17 @@ export default function EsComprarPage() {
               {/* Video del equipo URG */}
               <div className="overflow-hidden border border-navy-deep/10 bg-navy-deep shadow-xl shadow-navy/10">
                 <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/M8Hx5D5ghag?si=XAE-_zpkAJCVf_Yp&rel=0&modestbranding=1"
+                  <video
+                    src="/videos/ceul_team_dollhouse.mp4"
+                    poster="/images/posters/ceul_team_dollhouse.jpg"
                     title="United Realty Group — el equipo detrás de cada compra en Sur de Florida"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full border-0"
+                    controls
+                    playsInline
+                    muted
+                    autoPlay
+                    loop
+                    preload="metadata"
+                    className="absolute inset-0 h-full w-full border-0 object-cover"
                   />
                 </div>
                 <div className="bg-navy-deep px-5 py-4">
