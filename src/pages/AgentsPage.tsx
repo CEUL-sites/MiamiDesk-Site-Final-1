@@ -305,7 +305,6 @@ export default function AgentsPage() {
             </div>
             <div className="agent-partner-film" data-sticky-cta-guard>
               <AssociationFilms location="agents_hero" variant="feature" />
-              <p className="agent-partner-film-note">Archival association film · June 2022</p>
             </div>
           </div>
           <p className="agent-partner-caption">Conceptual architecture · Not a property listing</p>
