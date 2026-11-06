@@ -1,9 +1,37 @@
-import { BadgeCheck, Building2, CalendarCheck, CheckCircle2, Languages, MessageCircle, ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import { BadgeCheck, Building2, Languages, MessageCircle } from "lucide-react";
 import { CONTACT } from "../constants";
 import { HeroSellerForm } from "./HeroSellerForm";
 import { UrgLogo } from "./UrgLogo";
 
+const PROCESS_STEPS = [
+  {
+    step: "01",
+    label: "Comp & Market Read",
+    summary: "Carlos personally reviews your property address, closed comparable sales, and active competition.",
+  },
+  {
+    step: "02",
+    label: "Private Strategy Call",
+    summary: "He contacts you by phone or WhatsApp to align pricing, net proceeds, and your next-move timeline.",
+  },
+  {
+    step: "03",
+    label: "Zero Obligation",
+    summary: "No automated sales sequence and no listing commitment—just a direct, data-grounded read.",
+  },
+] as const;
+
+const CREDENTIAL_STATS = [
+  { value: "25 Yrs", label: "Licensed in FL (2001)" },
+  { value: "CLHMS", label: "Luxury Home Specialist" },
+  { value: "3,500+", label: "URG Florida Agents" },
+  { value: "19", label: "FL Office Locations" },
+] as const;
+
 export function HomepageConsultation({ initialAddress = "" }: { initialAddress?: string } = {}) {
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <section
       id="contact"
@@ -12,8 +40,8 @@ export function HomepageConsultation({ initialAddress = "" }: { initialAddress?:
       className="border-t border-hairline bg-navy-deep py-16 text-white md:py-24"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
-          {/* Left Column: Advisor Profile & Biography (7 cols) */}
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 items-start">
+          {/* Left Column: Executive Profile & Interactive Process Strip (7 cols) */}
           <div className="lg:col-span-7">
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold font-semibold">
               Meet Carlos · Private Consultation
@@ -25,61 +53,102 @@ export function HomepageConsultation({ initialAddress = "" }: { initialAddress?:
               Personal Representation.<br />Institutional Infrastructure.
             </h2>
 
-            <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
-              <img
-                src={CONTACT.headshot}
-                alt="Carlos Uzcategui, Florida Licensed Realtor® SL705771"
-                className="h-28 w-28 rounded-md object-cover border-2 border-gold/40 shadow-md shrink-0"
-                width="112"
-                height="112"
-              />
-              <div>
-                <h3 className="font-serif text-2xl text-white font-normal">Carlos Uzcategui</h3>
-                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold mt-1">
-                  Florida Licensed Realtor® SL705771 · Since 2001
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2 text-white/80">
-                  <span className="inline-flex items-center gap-1 rounded bg-white/[0.05] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
-                    <BadgeCheck size={12} className="text-gold" /> CLHMS Specialist
-                  </span>
-                  <span className="inline-flex items-center gap-1 rounded bg-white/[0.05] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
-                    <Building2 size={12} className="text-gold" /> United Realty Group
-                  </span>
-                  <span className="inline-flex items-center gap-1 rounded bg-white/[0.05] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
-                    <Languages size={12} className="text-gold" /> English &amp; Español
-                  </span>
+            {/* Executive Portrait & Core Credentials Card */}
+            <div className="mt-7 rounded-xl border border-white/12 bg-white/[0.03] p-5 sm:p-6">
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+                <img
+                  src={CONTACT.headshot}
+                  alt="Carlos Uzcategui, Florida Licensed Realtor® SL705771"
+                  className="h-24 w-24 rounded-lg object-cover border-2 border-gold/40 shadow-md shrink-0"
+                  width="96"
+                  height="96"
+                />
+                <div>
+                  <h3 className="font-serif text-2xl text-white font-normal">Carlos Uzcategui</h3>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold mt-1">
+                    Florida Licensed Realtor® SL705771 · Since 2001
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2 text-white/85">
+                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
+                      <BadgeCheck size={12} className="text-gold" /> Certified Seller Rep
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
+                      <Building2 size={12} className="text-gold" /> United Realty Group
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
+                      <Languages size={12} className="text-gold" /> English &amp; Español
+                    </span>
+                  </div>
                 </div>
+              </div>
+
+              {/* 4 Visual Stat Chips instead of multi-paragraph biography */}
+              <div className="mt-5 grid grid-cols-2 gap-2.5 border-t border-white/10 pt-5 sm:grid-cols-4">
+                {CREDENTIAL_STATS.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-lg border border-white/10 bg-[#071321]/70 px-3 py-2.5"
+                  >
+                    <p className="font-serif text-xl text-gold">{stat.value}</p>
+                    <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-white/75">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="mt-8 space-y-4 font-sans text-sm leading-relaxed text-white/80 md:text-base">
-              <p>
-                With 25 years of active South Florida real estate experience across residential, luxury, and investment properties, Carlos Uzcategui leads every listing strategy personally—from pricing analysis and media preparation through cooperating broker relationships, contract negotiation, and closing.
-              </p>
-              <p>
-                Affiliated with United Realty Group in Weston (3,500+ agents across 19 Florida office locations), Carlos pairs one-on-one advisory with statewide brokerage infrastructure and documented cross-border referral relationships in Spain and Latin America.
-              </p>
-            </div>
+            {/* Interactive 3-Step Next Actions Selector */}
+            <div className="mt-5 rounded-xl border border-white/15 bg-white/[0.03] p-5 backdrop-blur-sm sm:p-6">
+              <div className="flex items-center justify-between gap-2">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold font-semibold">
+                  What Happens After You Submit
+                </p>
+                <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white/55">
+                  Tap step to inspect
+                </span>
+              </div>
 
-            {/* 3 Step Next Actions Box */}
-            <div className="mt-8 rounded-lg border border-white/15 bg-white/[0.03] p-6 backdrop-blur-sm">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold font-semibold">
-                What Happens After You Submit
-              </p>
-              <ol className="mt-4 space-y-3 font-sans text-xs leading-relaxed text-white/80 sm:text-sm">
-                <li className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/20 font-mono text-[10px] font-bold text-gold">1</span>
-                  <span>Carlos personally reviews your property address, recent comparable sales, and active competing listings.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/20 font-mono text-[10px] font-bold text-gold">2</span>
-                  <span>He contacts you by phone or WhatsApp to coordinate a confidential strategy conversation around your timing and proceeds.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold/20 font-mono text-[10px] font-bold text-gold">3</span>
-                  <span>There is no automated sales sequence and no listing obligation.</span>
-                </li>
-              </ol>
+              <div className="mt-4 grid grid-cols-3 gap-2" role="tablist" aria-label="Consultation steps">
+                {PROCESS_STEPS.map((item, idx) => {
+                  const selected = activeStep === idx;
+                  return (
+                    <button
+                      key={item.step}
+                      type="button"
+                      role="tab"
+                      aria-selected={selected}
+                      onClick={() => setActiveStep(idx)}
+                      className={`rounded-lg border p-3 text-left transition-all ${
+                        selected
+                          ? "border-gold bg-gold text-navy-deep shadow-md"
+                          : "border-white/12 bg-white/[0.03] text-white hover:border-gold/50"
+                      }`}
+                    >
+                      <span
+                        className={`font-mono text-[10px] font-bold uppercase tracking-[0.16em] ${
+                          selected ? "text-navy-deep" : "text-gold"
+                        }`}
+                      >
+                        Step {item.step}
+                      </span>
+                      <p
+                        className={`mt-1 font-serif text-sm leading-snug ${
+                          selected ? "text-navy-deep font-semibold" : "text-white"
+                        }`}
+                      >
+                        {item.label}
+                      </p>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="mt-3 rounded-lg border border-white/10 bg-[#071321] px-4 py-3">
+                <p className="font-sans text-sm leading-relaxed text-white/90">
+                  {PROCESS_STEPS[activeStep].summary}
+                </p>
+              </div>
             </div>
 
             <div className="mt-6 flex items-center gap-3">

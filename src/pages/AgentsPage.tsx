@@ -30,38 +30,46 @@ import { CONTACT } from "../constants";
 
 const SERVICES = [
   {
+    group: "exposure",
     title: "Miami-Facing Listing Review",
     body: "Selected properties reviewed for positioning fit, buyer profile alignment, and international presentation suitability across South Florida channels.",
   },
   {
+    group: "exposure",
     title: "Bilingual Property Positioning",
     body: "English and Spanish property narrative development tailored specifically for U.S. and Latin American cooperating buyer agents.",
   },
   {
+    group: "exposure",
     title: "South Florida Agent-Network Reach",
     body: "Visibility within the 93,000-member Miami and South Florida REALTORS® ecosystem — the world's largest local REALTOR® association.",
   },
   {
+    group: "exposure",
     title: "U.S. and LATAM Buyer Channels",
     body: "Structured exposure to Florida-based buyer agents representing qualified domestic, Latin American, and international capital.",
   },
   {
+    group: "protection",
     title: "Professional Listing Packaging",
     body: "Dedicated property landing presentation designed for cooperating buyer-agent discovery and review, far beyond standard portal links.",
   },
   {
+    group: "protection",
     title: "Referral Inquiry Coordination",
     body: "Every buyer inquiry or referral opportunity is coordinated through formal, documented professional channels with transparent terms.",
   },
   {
+    group: "protection",
     title: "Bilateral Co-Listing Architecture",
     body: "Formal cooperation structure where the local agent retains the seller mandate while Carlos serves as the Florida licensee of record.",
   },
   {
+    group: "protection",
     title: "Documented Fee Protection",
     body: "All referral compensation and co-broker terms are executed under formal written agreements prior to client engagement and paid at closing.",
   },
-];
+] as const;
 
 const PROCESS_STEPS = [
   {
@@ -84,7 +92,46 @@ const PROCESS_STEPS = [
     title: "Execution & Inquiries",
     body: "Buyer inquiries, cooperating agent introductions, and transaction milestones are coordinated directly with you throughout closing.",
   },
-];
+] as const;
+
+const BILATERAL_ROLES = [
+  {
+    id: "local",
+    tag: "Role 01 · Local Agent",
+    title: "Retains Full Authority",
+    subtitle: "Mandate · Client · Fee",
+    points: [
+      "The seller relationship and local authority",
+      "The local listing mandate and exclusivity",
+      "Direct client advisory and on-the-ground showings",
+      "Local fee and agreed transaction commission",
+    ],
+  },
+  {
+    id: "miami",
+    tag: "Role 02 · Miami Desk",
+    title: "U.S. & LATAM Exposure",
+    subtitle: "Florida License SL705771",
+    points: [
+      "Miami MLS & 93,000-member agent ecosystem",
+      "Bilingual English / Spanish property packaging",
+      "U.S. and Latin American buyer-channel reach",
+      "Structured referral inquiry and tour coordination",
+    ],
+  },
+  {
+    id: "governance",
+    tag: "Role 03 · Governance",
+    title: "Written Legal Protection",
+    subtitle: "Compliance & Terms",
+    points: [
+      "Written bilateral cooperation agreement",
+      "Documented referral structure before engagement",
+      "Transparent scope, milestones, and fees",
+      "Full compliance with applicable real estate licensing",
+    ],
+  },
+] as const;
 
 const AGENTS_FAQS: FaqItem[] = [
   {
@@ -109,6 +156,10 @@ const WA_CAREERS =
 
 export default function AgentsPage() {
   const [activeTab, setActiveTab] = useState<"referral" | "listing">("referral");
+  const [activeRole, setActiveRole] = useState(0);
+  const [serviceGroup, setServiceGroup] = useState<"exposure" | "protection">("exposure");
+  const [activeProcessStep, setActiveProcessStep] = useState(0);
+  const [careerTrack, setCareerTrack] = useState<"new" | "experienced">("new");
 
   useEffect(() => {
     const handleHash = () => {
@@ -124,10 +175,13 @@ export default function AgentsPage() {
     return () => window.removeEventListener("hashchange", handleHash);
   }, []);
 
+  const currentRole = BILATERAL_ROLES[activeRole];
+  const currentStep = PROCESS_STEPS[activeProcessStep];
+
   return (
     <>
       <Helmet>
-        <title>For Real Estate Agents | Referrals, Miami Exposure & Careers</title>
+        <title>For Real Estate Agents | Referrals, Miami Exposure &amp; Careers</title>
         <meta
           name="description"
           content="Three ways agents work with Carlos: refer a buyer or seller for a fee at closing, add Miami-facing exposure to a listing, or join URG with 25-year mentorship."
@@ -280,23 +334,22 @@ export default function AgentsPage() {
         {/* ── SECTION 2: Choose Your Path ──────────────────────────── */}
         <section className="scroll-mt-24 bg-white py-12 md:py-16" id="choose-path">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="mb-8 text-center md:mb-12">
+            <div className="mb-8 text-center md:mb-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Agents Work With Carlos</p>
               <h2 className="mx-auto mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:text-4xl">
                 One desk. Three ways to win.
               </h2>
-              <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/65 md:text-base">
-                Wherever you are in your business, there is a structured, documented way to work together — and a
-                personal response from Carlos, not a call center.
+              <p className="mx-auto mt-2 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/65">
+                Structured, documented broker cooperation with a direct response from Carlos.
               </p>
             </div>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-5 md:grid-cols-3">
               {[
                 {
                   icon: Handshake,
                   tag: "Path 01 · Referrals",
                   title: "Refer a buyer or seller",
-                  body: "Have a client buying or selling in South Florida — or a U.S./international buyer looking abroad? Send the referral, keep the client relationship, and get paid at closing under a formal written agreement.",
+                  body: "Send a South Florida or cross-border client referral under a formal written agreement and get paid at closing.",
                   points: [
                     "Both directions — buyers and sellers",
                     "Local + cross-border coordination",
@@ -310,7 +363,7 @@ export default function AgentsPage() {
                   icon: Globe2,
                   tag: "Path 02 · Exposure",
                   title: "Give a listing international reach",
-                  body: "International and premium listing agents can add a Miami-facing exposure layer — bilingual packaging into the South Florida network and U.S./LATAM buyer channels. You keep the mandate.",
+                  body: "Add bilingual South Florida MLS and U.S./LATAM buyer-agent exposure to eligible prime inventory while keeping your local mandate.",
                   points: [
                     "You keep the mandate & client",
                     "93,000-member association ecosystem",
@@ -324,7 +377,7 @@ export default function AgentsPage() {
                   icon: UserPlus,
                   tag: "Path 03 · Careers",
                   title: "Join URG or get mentored",
-                  body: "New to real estate, or an experienced agent ready for a change? Build your career alongside an active 25-year agent who runs live seller, buyer, and cross-border desks on the same MLS you'll work.",
+                  body: "Build your business alongside an active 25-year Florida licensee running live seller, buyer, and cross-border desks.",
                   points: [
                     "New agents — build a clear pipeline",
                     "Switching from another brokerage",
@@ -336,23 +389,29 @@ export default function AgentsPage() {
                 },
               ].map((p) => (
                 <Tilt3D key={p.title} maxTilt={4} className="h-full">
-                  <div className="flex h-full flex-col border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-lg md:p-8">
-                    <p.icon size={22} className="text-gold" strokeWidth={1.5} />
-                    <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">{p.tag}</p>
-                    <h3 className="mt-2 font-serif text-xl leading-snug text-navy-deep">{p.title}</h3>
-                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">{p.body}</p>
-                    <ul className="mt-5 space-y-2.5">
-                      {p.points.map((pt) => (
-                        <li key={pt} className="flex items-start gap-2.5">
-                          <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                          <span className="font-sans text-[13px] leading-snug text-ink-primary/75">{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="flex h-full flex-col justify-between rounded-xl border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-lg">
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink font-semibold">
+                          {p.tag}
+                        </span>
+                        <p.icon size={20} className="text-gold" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="mt-3 font-serif text-xl leading-snug text-navy-deep">{p.title}</h3>
+                      <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/70">{p.body}</p>
+                      <ul className="mt-4 space-y-2">
+                        {p.points.map((pt) => (
+                          <li key={pt} className="flex items-start gap-2">
+                            <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                            <span className="font-sans text-xs leading-snug text-ink-primary/80">{pt}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                     <a
                       href={p.href}
                       onClick={p.onClick}
-                      className="group mt-7 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold"
+                      className="group mt-6 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold"
                     >
                       {p.cta}
                       <ChevronRight size={13} className="transition-transform group-hover:translate-x-0.5" />
@@ -364,132 +423,201 @@ export default function AgentsPage() {
           </div>
         </section>
 
-        {/* ── SECTION 3: Bilateral Co-Listing & Referral Architecture ─ */}
-        <section className="bg-ivory py-12 md:py-18 border-t border-hairline">
+        {/* ── SECTION 3: Interactive Bilateral Architecture, Deliverables & 4-Step Stepper ─ */}
+        <section className="bg-ivory py-14 md:py-20 border-t border-hairline">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="mb-10 text-center md:mb-14">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                Bilateral Architecture · Cross-Border Protocol
-              </p>
-              <h2 className="mx-auto mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:text-4xl">
-                You keep the mandate. We support the international layer.
-              </h2>
-              <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/65 md:text-base">
-                The Miami Desk is designed to complement local market representation — not replace it. The local agent
-                maintains full authority over the seller relationship, the mandate, and local market operations.
-              </p>
-            </div>
-
-            {/* Role Separation Grid */}
-            <div className="grid gap-6 md:grid-cols-3 mb-12">
-              <Tilt3D maxTilt={4} className="h-full">
-                <div className="h-full border border-hairline bg-white p-6 md:p-8">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 01 · Local Agent</span>
-                  <h3 className="mt-2 font-serif text-xl text-navy-deep">Retains Full Authority</h3>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">Mandate · Client · Fee</p>
-                  <ul className="mt-5 space-y-3">
-                    {[
-                      "The seller relationship and local authority",
-                      "The local listing mandate and exclusivity",
-                      "Direct client advisory and on-the-ground showings",
-                      "Local fee and agreed transaction commission",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2.5">
-                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                        <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Tilt3D>
-
-              <Tilt3D maxTilt={4} className="h-full">
-                <div className="h-full bg-gold/[0.04] border-2 border-gold/40 p-6 md:p-8">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 02 · Miami Desk</span>
-                  <h3 className="mt-2 font-serif text-xl text-navy-deep">U.S. &amp; LATAM Exposure</h3>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80">Florida License SL705771</p>
-                  <ul className="mt-5 space-y-3">
-                    {[
-                      "Miami MLS & 93,000-member agent ecosystem",
-                      "Bilingual English / Spanish property packaging",
-                      "U.S. and Latin American buyer-channel reach",
-                      "Structured referral inquiry and tour coordination",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2.5">
-                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                        <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Tilt3D>
-
-              <Tilt3D maxTilt={4} className="h-full">
-                <div className="h-full border border-hairline bg-white p-6 md:p-8">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Role 03 · Governance</span>
-                  <h3 className="mt-2 font-serif text-xl text-navy-deep">Written Legal Protection</h3>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/60">Compliance &amp; Terms</p>
-                  <ul className="mt-5 space-y-3">
-                    {[
-                      "Written bilateral cooperation agreement",
-                      "Documented referral structure before engagement",
-                      "Transparent scope, milestones, and fees",
-                      "Full compliance with applicable real estate licensing",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2.5">
-                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                        <span className="font-sans text-xs leading-snug text-ink-primary/75 md:text-sm">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Tilt3D>
-            </div>
-
-            {/* Core Services Deliverables */}
-            <div className="mb-12">
-              <div className="mb-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">Core Deliverables</p>
-                <h3 className="mt-1 font-serif text-2xl text-navy-deep">What the Miami Desk Provides</h3>
+            <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end mb-8">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">
+                  Bilateral Architecture · Cross-Border Protocol
+                </p>
+                <h2 className="mt-2 font-serif text-2xl leading-tight text-navy-deep md:text-4xl">
+                  You keep the mandate. We support the international layer.
+                </h2>
               </div>
-              <div className="grid grid-cols-1 gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
-                {SERVICES.map((s) => (
-                  <div key={s.title} className="bg-white p-5 md:p-6">
-                    <CheckCircle2 size={16} className="text-gold" />
-                    <h4 className="mt-3 font-serif text-base font-medium text-navy-deep">{s.title}</h4>
-                    <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/65">{s.body}</p>
+              <p className="max-w-md font-sans text-sm leading-relaxed text-ink-primary/70">
+                Select any role or sequence step below to inspect how mandates, fees, and buyer introductions are governed.
+              </p>
+            </div>
+
+            {/* Interactive 2-Column Command Deck: Role Switcher (Left) + 4-Step Sequence Stepper (Right) */}
+            <div className="grid gap-6 lg:grid-cols-12 mb-10">
+              {/* Left: Interactive 3-Role Switcher (6 cols) */}
+              <div className="flex flex-col justify-between rounded-xl border border-bone bg-white p-6 shadow-sm lg:col-span-6">
+                <div>
+                  <div className="grid grid-cols-3 gap-2" role="tablist" aria-label="Bilateral roles">
+                    {BILATERAL_ROLES.map((r, idx) => {
+                      const selected = activeRole === idx;
+                      return (
+                        <button
+                          key={r.id}
+                          type="button"
+                          role="tab"
+                          aria-selected={selected}
+                          onClick={() => setActiveRole(idx)}
+                          className={`rounded-lg border px-3 py-2.5 text-left transition-all ${
+                            selected
+                              ? "border-gold bg-navy-deep text-white shadow"
+                              : "border-bone bg-ivory/60 text-navy-deep hover:border-gold/60"
+                          }`}
+                        >
+                          <span className={`block font-mono text-[9px] uppercase tracking-[0.14em] ${selected ? "text-gold" : "text-gold-ink"}`}>
+                            0{idx + 1}
+                          </span>
+                          <span className="mt-0.5 block truncate font-serif text-sm">
+                            {r.title}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Collaboration Process */}
-            <div className="mb-12">
-              <div className="mb-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">Step-by-Step Sequence</p>
-                <h3 className="mt-1 font-serif text-2xl text-navy-deep">Four Steps. No Ambiguity.</h3>
+                  <div className="mt-5 rounded-xl bg-navy-deep p-5 text-white">
+                    <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                      <div>
+                        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold">
+                          {currentRole.tag}
+                        </span>
+                        <h3 className="mt-0.5 font-serif text-xl text-white">{currentRole.title}</h3>
+                      </div>
+                      <span className="rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
+                        {currentRole.subtitle}
+                      </span>
+                    </div>
+                    <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                      {currentRole.points.map((item) => (
+                        <li key={item} className="flex items-start gap-2 rounded border border-white/10 bg-white/[0.03] p-2.5">
+                          <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                          <span className="font-sans text-xs leading-snug text-white/85">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div className="grid grid-cols-1 gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
-                {PROCESS_STEPS.map((step) => (
-                  <div key={step.number} className="bg-white p-5 md:p-6">
-                    <span className="font-mono text-xs uppercase tracking-[0.16em] text-gold font-bold">
-                      {step.number}
+
+              {/* Right: Interactive 4-Step Sequence Stepper (6 cols) */}
+              <div className="flex flex-col justify-between rounded-xl border border-bone bg-white p-6 shadow-sm lg:col-span-6">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink font-semibold">
+                      Four Steps · No Ambiguity
+                    </p>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-navy/60">
+                      Step {currentStep.number} of 04
                     </span>
-                    <h4 className="mt-2 font-serif text-base text-navy-deep">{step.title}</h4>
-                    <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/65">{step.body}</p>
                   </div>
-                ))}
+
+                  <div className="mt-3 grid grid-cols-4 gap-2" role="tablist" aria-label="Collaboration sequence">
+                    {PROCESS_STEPS.map((s, idx) => {
+                      const selected = activeProcessStep === idx;
+                      return (
+                        <button
+                          key={s.number}
+                          type="button"
+                          role="tab"
+                          aria-selected={selected}
+                          onClick={() => setActiveProcessStep(idx)}
+                          className={`rounded-lg border p-2.5 text-center transition-all ${
+                            selected
+                              ? "border-gold bg-gold text-navy-deep font-bold shadow"
+                              : "border-bone bg-ivory/60 text-navy-deep hover:border-gold/60"
+                          }`}
+                        >
+                          <span className="block font-mono text-xs">{s.number}</span>
+                          <span className="mt-0.5 block truncate font-sans text-[10px]">
+                            {s.title.split(" ")[0]}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <div className="mt-5 rounded-xl border border-gold/30 bg-ivory p-5">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-ink">
+                      Step {currentStep.number}
+                    </span>
+                    <h4 className="mt-1 font-serif text-xl text-navy-deep">{currentStep.title}</h4>
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/80">
+                      {currentStep.body}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between border-t border-hairline pt-3">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-navy/65">
+                    Written terms before client contact
+                  </span>
+                  <a
+                    href="#south-florida-referral"
+                    className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-gold-ink hover:underline"
+                  >
+                    Open Intake Desk ↓
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive 2-Category Deliverables Filter (Replaces 8-Card Wall) */}
+            <div className="mb-10">
+              <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink font-semibold">
+                    Core Deliverables
+                  </p>
+                  <h3 className="mt-1 font-serif text-2xl text-navy-deep">What the Miami Desk Provides</h3>
+                </div>
+                <div className="inline-flex rounded-lg border border-bone bg-white p-1" role="tablist" aria-label="Deliverable categories">
+                  {[
+                    { id: "exposure", label: "01 · Exposure & Positioning (4)" },
+                    { id: "protection", label: "02 · Co-Listing & Fee Protection (4)" },
+                  ].map((tab) => {
+                    const selected = serviceGroup === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={selected}
+                        onClick={() => setServiceGroup(tab.id as "exposure" | "protection")}
+                        className={`rounded-md px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                          selected
+                            ? "bg-navy-deep text-gold font-bold"
+                            : "text-navy/70 hover:text-navy-deep"
+                        }`}
+                      >
+                        {tab.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {SERVICES.map((s) => {
+                  const visible = s.group === serviceGroup;
+                  return (
+                    <div
+                      key={s.title}
+                      hidden={!visible}
+                      className="rounded-xl border border-bone bg-white p-5 shadow-sm"
+                    >
+                      <CheckCircle2 size={16} className="text-gold" />
+                      <h4 className="mt-3 font-serif text-base font-medium text-navy-deep">{s.title}</h4>
+                      <p className="mt-1.5 font-sans text-xs leading-relaxed text-ink-primary/70">{s.body}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
             {/* Pull Quote */}
-            <div className="border border-gold/30 bg-navy-deep p-6 text-center md:p-10 text-white">
-              <Globe2 size={26} className="mx-auto text-gold/70" strokeWidth={1.25} />
-              <blockquote className="mx-auto mt-4 max-w-3xl font-serif text-xl leading-relaxed text-white md:text-2xl">
+            <div className="rounded-xl border border-gold/30 bg-navy-deep p-6 text-center md:p-8 text-white">
+              <blockquote className="mx-auto max-w-3xl font-serif text-xl leading-relaxed text-white md:text-2xl">
                 &ldquo;The internet creates visibility. <span className="text-gold">Agent networks create movement.</span> A
                 listing is not fully marketed until buyer agents know how to present it.&rdquo;
               </blockquote>
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
                 Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group
               </p>
             </div>
@@ -628,215 +756,127 @@ export default function AgentsPage() {
           </div>
         </section>
 
-        {/* ── SECTION 5: Join URG, Career Guide & Visible Agent FAQ ─── */}
+        {/* ── SECTION 5: Interactive Career Track Switcher, Brand Film & Agent FAQ ─── */}
         <section className="bg-ivory py-12 md:py-18 border-t border-hairline" id="join-urg">
           <div className="mx-auto max-w-6xl px-6">
-            {/* Header */}
-            <div className="mb-8 md:mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Career Opportunity · South Florida</p>
-              <h2 className="mt-3 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-                Don&apos;t just join a brokerage.<br />
-                <span className="text-gold">Join a desk that already moves business.</span>
-              </h2>
-              <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-ink-primary/65 md:text-base">
-                United Realty Group provides a coordinated Florida brokerage platform — {CONTACT.stats.urgAgents} agents
-                across the {CONTACT.stats.urgOfficeNetwork}. Whatever stage you are at, you work directly with Carlos — an
-                active 25-year agent on the same MLS, not a branch manager reviewing paperwork.
-              </p>
+            {/* Header + Interactive Track Toggle */}
+            <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">
+                  Career Opportunity · South Florida
+                </p>
+                <h2 className="mt-2 max-w-2xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
+                  Don&apos;t just join a brokerage.{" "}
+                  <span className="text-gold-ink">Join a desk that already moves business.</span>
+                </h2>
+              </div>
+
+              <div className="inline-flex rounded-lg border border-bone bg-white p-1" role="tablist" aria-label="Agent career tracks">
+                {[
+                  { id: "new", label: "New to Real Estate" },
+                  { id: "experienced", label: "Experienced · Switching Agency" },
+                ].map((tab) => {
+                  const selected = careerTrack === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={selected}
+                      onClick={() => setCareerTrack(tab.id as "new" | "experienced")}
+                      className={`rounded-md px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                        selected
+                          ? "bg-navy-deep text-gold font-bold"
+                          : "text-navy/70 hover:text-navy-deep"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Brand Film & Business Case */}
-            <div className="mb-10 grid gap-px overflow-hidden border border-gold/25 bg-gold/10 md:grid-cols-[1.1fr_0.9fr]">
-              <div className="relative min-h-[240px] overflow-hidden bg-navy-deep md:min-h-[420px]">
+            {/* Brand Film & Interactive Career Track Panel */}
+            <div className="mb-10 grid gap-6 overflow-hidden rounded-xl border border-gold/30 bg-navy-deep p-6 text-white md:grid-cols-12 md:p-8">
+              <div className="relative min-h-[240px] overflow-hidden rounded-lg bg-black/40 md:col-span-6">
                 <LazyVideo
                   src="/videos/advisor-brand.mp4"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/15 to-navy-deep/20 pointer-events-none" />
-                <div className="absolute left-6 top-6">
-                  <span className="inline-flex items-center gap-2 border border-gold/40 bg-navy-deep/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold backdrop-blur-sm">
+                <div className="absolute left-4 top-4">
+                  <span className="inline-flex items-center gap-2 border border-gold/40 bg-navy-deep/75 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold backdrop-blur-sm">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
                     United Realty Group · Brand Film
                   </span>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
-                  <p className="font-serif text-xl leading-snug text-white md:text-2xl">
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="font-serif text-xl leading-snug text-white">
                     See what working inside the brokerage looks like.
                   </p>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/75">
                     {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOfficeNetwork}
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-col justify-center bg-navy-deep p-6 md:p-8 text-white">
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">Why agents grow here</p>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-white/70 md:text-[15px]">
-                  The agents who build the fastest are the ones who plug into demand that already exists instead of
-                  generating every lead alone. Carlos runs active seller, buyer, and cross-border desks on the same MLS
-                  you will work — and brings 25 years of in-market relationships to the agents around him.
-                </p>
-                <ul className="mt-5 space-y-3">
-                  {[
-                    "Mentorship from an active producer — not a back-office manager",
-                    "A bilingual, international niche most local agents cannot serve",
-                    "Where appropriate, qualified overflow inquiries are routed to affiliated agents",
-                    "Coordinated infrastructure: listing marketing, MLS reach, brokerage support, and compliance",
-                  ].map((point) => (
-                    <li key={point} className="flex items-start gap-2.5">
-                      <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
-                      <span className="font-sans text-xs leading-snug text-white/75 md:text-sm">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Two Audiences Grid: New vs Experienced */}
-            <div className="mb-10 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
-              <div className="bg-white p-6 md:p-8">
-                <UserPlus size={20} className="text-gold" strokeWidth={1.5} />
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">New to Real Estate</p>
-                <h3 className="mt-2 font-serif text-lg leading-snug text-navy-deep md:text-xl">
-                  Start your career the right way.
-                </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
-                  From licensing to your first closing, you get a clear path and a mentor who has done it for 25 years —
-                  instead of a desk and a login. Learn the MLS, listing strategy, and how to build a pipeline from zero in
-                  a competitive, international market.
-                </p>
-              </div>
-
-              <div className="bg-white p-6 md:p-8">
-                <Handshake size={20} className="text-gold" strokeWidth={1.5} />
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-gold/80">
-                  Experienced · Switching Agency
-                </p>
-                <h3 className="mt-2 font-serif text-lg leading-snug text-navy-deep md:text-xl">
-                  Ready for a change and real guidance.
-                </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/70">
-                  Already licensed but underserved by your current brokerage? Bring your book, keep your independence, and
-                  gain a hands-on partner working the same market. For agents who want mentorship and growth — not just a
-                  lower split and silence.
-                </p>
-              </div>
-            </div>
-
-            {/* Growth Pillars + Book Card Layout */}
-            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start mb-14">
-              <div>
-                <div className="grid grid-cols-1 gap-px border border-hairline bg-hairline sm:grid-cols-2">
-                  {[
-                    {
-                      icon: Building2,
-                      title: "Platform for Coordinated Execution",
-                      body: `United Realty Group supports its agents through the ${CONTACT.stats.urgOfficeNetwork}, providing a statewide brokerage framework for listing execution and compliant transactions.`,
-                    },
-                    {
-                      icon: Globe2,
-                      title: "Association Reach, Built In",
-                      body: "Every affiliated agent enters the Miami and South Florida REALTORS® ecosystem — a 93,000-member association, 200+ global portals in 19 languages, and 437+ international referral agreements.",
-                    },
-                    {
-                      icon: Users,
-                      title: "Built for a Bilingual Market",
-                      body: "South Florida runs on English and Spanish — and so does the international buyer pool. An agent who can work both fluently competes for mandates monolingual agents cannot reach.",
-                    },
-                    {
-                      icon: Star,
-                      title: "Active Producer Mentorship",
-                      body: "Carlos has worked this market since 2001 and is actively closing transactions on the same MLS today. You learn current strategy from someone doing the work now.",
-                    },
-                  ].map((item) => (
-                    <div key={item.title} className="bg-white p-5 md:p-6">
-                      <item.icon size={18} className="text-gold" strokeWidth={1.5} />
-                      <h4 className="mt-3 font-serif text-base text-navy-deep">{item.title}</h4>
-                      <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/65">{item.body}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 flex flex-wrap items-center gap-4">
-                  <a
-                    href={WA_CAREERS}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-navy-deep px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep font-semibold"
-                  >
-                    <UserPlus size={14} />
-                    Ask About Joining URG
-                  </a>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
-                    Personal response from Carlos
-                  </p>
-                </div>
-
-                <p className="mt-4 font-sans text-xs italic text-ink-primary/60">
-                  All license affiliations are subject to United Realty Group&apos;s standard broker requirements, Florida
-                  DBPR licensing, and applicable MLS membership rules. Contact Carlos directly for current affiliate terms.
-                </p>
-              </div>
-
-              {/* Book Teaser Card */}
-              <div className="relative overflow-hidden border border-gold/30 bg-navy-deep shadow-xl text-white">
-                <div className="absolute right-4 top-4 z-10">
-                  <span className="bg-gold px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-navy-deep font-bold">
-                    Coming Soon
+              <div className="flex flex-col justify-between md:col-span-6">
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                    {careerTrack === "new" ? "Track 01 · Newly Licensed Agents" : "Track 02 · Experienced Producers"}
                   </span>
-                </div>
-                <div className="p-6 md:p-8">
-                  <BookOpen size={32} className="text-gold" strokeWidth={1.25} />
-                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.28em] text-gold/70">
-                    The South Florida Career Guide
-                  </p>
-                  <h3 className="mt-2 font-serif text-2xl leading-snug text-white">
-                    How to Become a Successful<br />
-                    <em className="italic text-gold">Real Estate Agent in South Florida</em>
+                  <h3 className="mt-2 font-serif text-2xl text-white">
+                    {careerTrack === "new"
+                      ? "Start your career with a 25-year mentor."
+                      : "Bring your book. Gain a bilateral desk."}
                   </h3>
-                  <p className="mt-3 font-sans text-xs leading-relaxed text-white/60 md:text-sm">
-                    A practical guide to starting and building a real estate career in one of the most competitive and
-                    internationally connected markets in the United States — from licensing, to your first transaction, to
-                    working inside a professional network.
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-white/80">
+                    {careerTrack === "new"
+                      ? "Learn MLS pricing, listing preparation, and international buyer-agent coordination directly alongside an active producer—not a back-office manager."
+                      : "Keep your independence while plugging into United Realty Group's 19 Florida office locations and the 93,000-member association ecosystem."}
                   </p>
-                </div>
-                <div className="border-t border-white/10 px-6 py-4 md:px-8">
-                  <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold/70">What&apos;s inside</p>
-                  <ul className="space-y-2">
+
+                  <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
                     {[
-                      "Florida real estate licensing — step by step",
-                      "Choosing the right brokerage for your career",
-                      "Building a pipeline from zero in South Florida",
-                      "Working with international and Latin American buyers",
-                      "MLS, listing strategy, and the agent network",
-                      "What 25 years in this market actually teaches you",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-2.5">
-                        <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-gold" />
-                        <span className="font-sans text-xs leading-snug text-white/70">{item}</span>
+                      "Direct mentorship from an active 25-year producer",
+                      "Bilingual English / Spanish international niche",
+                      "93,000-member association & 200+ global portals",
+                      `${CONTACT.stats.urgAgents} agents · ${CONTACT.stats.urgOfficeNetwork}`,
+                    ].map((point) => (
+                      <li key={point} className="flex items-start gap-2 rounded border border-white/10 bg-white/[0.04] p-2.5">
+                        <BadgeCheck size={14} className="mt-0.5 flex-shrink-0 text-gold" />
+                        <span className="font-sans text-xs leading-snug text-white/85">{point}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="border-t border-white/10 p-6 md:px-8">
+
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4">
+                  <a
+                    href={WA_CAREERS}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded bg-gold px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
+                  >
+                    <UserPlus size={14} />
+                    Ask About Joining URG
+                  </a>
                   <a
                     href="/la-comision-secreta"
-                    className="flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep font-bold transition-opacity hover:opacity-90"
+                    className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:underline"
                   >
                     <BookOpen size={14} />
-                    Preview the Book
+                    Preview Career Guide Book →
                   </a>
-                  <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-                    By Carlos Uzcategui · FL SL705771 · United Realty Group
-                  </p>
                 </div>
               </div>
             </div>
 
             {/* Visible FAQ Section matching FAQPage Schema */}
-            <div className="border-t border-hairline pt-12 md:pt-16">
+            <div className="border-t border-hairline pt-12 md:pt-14">
               <div className="mb-8 text-center">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Frequently Asked Questions</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Frequently Asked Questions</p>
                 <h3 className="mt-2 font-serif text-2xl text-navy-deep md:text-3xl">
                   Questions for Real Estate Professionals
                 </h3>

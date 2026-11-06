@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { Link } from "react-router-dom";
 import {
+  ArrowRight,
   Building2,
+  CheckCircle2,
   Clock,
   Globe2,
   Mail,
@@ -18,7 +21,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { AboutContact } from "../components/AboutContact";
 import { LeadForm } from "../components/LeadForm";
 import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
-import { CONTACT, PUBLIC_COMPLIANCE } from "../constants";
+import { CONTACT } from "../constants";
 
 const ABOUT_FAQS: readonly FaqItem[] = [
   {
@@ -41,36 +44,102 @@ const ABOUT_FAQS: readonly FaqItem[] = [
 
 const ADVISORY_PILLARS = [
   {
+    id: "seller-mandates",
+    num: "01",
     icon: Scale,
+    shortLabel: "01 · Seller Mandates",
     title: "Direct Seller Mandates & Valuation Strategy",
+    headline: "100% Principal-Led Pricing, Positioning & Contract Defense",
     description:
       "Precision comparative market analysis, target absorption modeling, contract structuring, post-occupancy leaseback negotiation, and escrow defense across South Florida prime corridors.",
     badge: "Seller Representation",
+    metrics: [
+      { value: "25 Yrs", label: "Licensed FL Principal" },
+      { value: "CLHMS", label: "Luxury Specialist" },
+      { value: "Direct", label: "Zero Junior Delegation" },
+    ],
+    deliverables: [
+      "Verified MLS CMA & submarket absorption modeling",
+      "Post-closing occupancy & transition timing terms",
+      "Inspection, appraisal & escrow risk defense",
+    ],
+    ctaLabel: "Explore Seller Representation",
+    ctaHref: "/sell",
   },
   {
+    id: "mls-engine",
+    num: "02",
     icon: TrendingUp,
+    shortLabel: "02 · 93,000 MLS Engine",
     title: "Structural MLS Distribution Engine",
+    headline: "Built for the >90% Cooperating Buyer-Agent Reality",
     description:
       "Over 90% of buyers and winning offers originate through cooperating buyer agents in the MLS. Direct syndication to 93,000 member agents, 260+ U.S. MLSs via RPR, 200+ global portals in 19 languages, and 437+ bilateral agreements.",
     badge: "93,000 MLS Network",
+    metrics: [
+      { value: "93,000", label: "Member Agents" },
+      { value: "260+", label: "U.S. MLSs via RPR" },
+      { value: "200+", label: "Global Portals (19 Langs)" },
+    ],
+    deliverables: [
+      "Complete seller disclosure & HOA/condo packet readiness",
+      "MLS Reverse Prospecting to active buyer searches",
+      "11 direct North American MLS data exchanges",
+    ],
+    ctaLabel: "Request Property Valuation",
+    ctaHref: "/home-value",
   },
   {
+    id: "urg-platform",
+    num: "03",
     icon: Building2,
+    shortLabel: "03 · 3,500+ URG Platform",
     title: "Institutional Brokerage Platform",
+    headline: "Personal Advisory Backed by Statewide Scale",
     description:
       "Personal advisory grounded in the Weston branch of United Realty Group, powered by 3,500+ Florida licensed agents and 19 Florida office locations across the state.",
     badge: "3,500+ URG Agents",
+    metrics: [
+      { value: "3,500+", label: "FL Licensed Agents" },
+      { value: "19", label: "FL Office Locations" },
+      { value: "Weston", label: "Primary Advisory Desk" },
+    ],
+    deliverables: [
+      "Tri-county coverage across Miami-Dade, Broward & Palm Beach",
+      "Statewide internal broker & relocation network",
+      "Institutional compliance & transaction governance",
+    ],
+    ctaLabel: "Explore Tri-County Markets",
+    ctaHref: "/markets",
   },
   {
+    id: "global-desk",
+    num: "04",
     icon: Globe2,
+    shortLabel: "04 · Spain & LATAM Desk",
     title: "Transatlantic Spain & LATAM Desk",
+    headline: "U.S. Dollar Exposure With Vetted Local Execution",
     description:
       "Direct Miami MLS representation of prime Spanish and Latin American properties for American dollar exposure, with vetted local advisory teams managing on-the-ground viewings in Madrid and Costa del Sol.",
     badge: "Bilateral Bridge",
+    metrics: [
+      { value: "437+", label: "Bilateral Partners" },
+      { value: "EN / ES", label: "Bilingual Execution" },
+      { value: "U.S. MLS", label: "Principal of Record" },
+    ],
+    deliverables: [
+      "Direct Miami MLS syndication for eligible international assets",
+      "Co-brokering with established Madrid & Marbella agencies",
+      "Protected written referral & co-listing agreements",
+    ],
+    ctaLabel: "Open Miami Global Desk",
+    ctaHref: "/global-desk",
   },
 ] as const;
 
 export default function AboutPage() {
+  const [activePillarIndex, setActivePillarIndex] = useState(0);
+
   return (
     <>
       <Helmet>
@@ -193,26 +262,28 @@ export default function AboutPage() {
                 <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-white/70">
                   License SL705771 · United Realty Group · Weston Advisory Branch
                 </p>
-                <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:text-lg">
+                <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:text-lg">
                   Twenty-five years of direct representation across South Florida residential, luxury, and commercial
-                  transactions. Personal accountability from valuation and MLS positioning through contract execution and
-                  escrow defense.
+                  transactions—from valuation and MLS positioning through contract execution and escrow defense.
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-2.5">
+                {/* Executive At-a-Glance Metrics Strip */}
+                <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
                   {[
-                    "CLHMS Luxury Specialist",
-                    "Certified Seller Rep",
-                    "Licensed Since 2001",
-                    "3,500+ URG Network",
-                    "Miami REALTORS® (93k)",
-                  ].map((badge) => (
-                    <span
-                      key={badge}
-                      className="border border-gold/40 bg-white/[0.04] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold"
+                    { k: "25 Yrs", v: "Licensed Since 2001" },
+                    { k: "CLHMS", v: "Luxury Specialist" },
+                    { k: "93,000", v: "Miami REALTORS®" },
+                    { k: "3,500+", v: "URG FL Agents" },
+                  ].map((stat) => (
+                    <div
+                      key={stat.k}
+                      className="border border-gold/35 bg-white/[0.04] px-3.5 py-2.5"
                     >
-                      {badge}
-                    </span>
+                      <p className="font-serif text-xl text-gold">{stat.k}</p>
+                      <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.15em] text-white/65">
+                        {stat.v}
+                      </p>
+                    </div>
                   ))}
                 </div>
 
@@ -257,45 +328,137 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Section 2: Four Core Advisory Disciplines */}
+        {/* Section 2: Interactive Four-Corridor Advisory Command Deck */}
         <section className="border-b border-bone bg-white px-6 py-16 md:py-24">
           <div className="mx-auto max-w-6xl">
-            <div className="max-w-3xl">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold-ink">
-                Institutional Practice · Scope of Representation
-              </p>
-              <h2 className="mt-3 font-serif text-3xl text-navy md:text-4xl lg:text-5xl">
-                Direct Principal Advisory Across Four Corridors
-              </h2>
-              <p className="mt-4 font-sans text-base leading-relaxed text-navy/70">
-                Every mandate is managed personally by Carlos as Florida principal of record—never delegated to an intake
-                pool or junior licensees.
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-2xl">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold-ink">
+                  Institutional Practice · Scope of Representation
+                </p>
+                <h2 className="mt-3 font-serif text-3xl text-navy md:text-4xl lg:text-5xl">
+                  Direct Principal Advisory Across Four Corridors
+                </h2>
+              </div>
+              <p className="max-w-md font-sans text-sm leading-relaxed text-navy/70">
+                Select a corridor below to inspect how every mandate is managed personally by Carlos as Florida principal of record.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {ADVISORY_PILLARS.map((pillar) => {
+            {/* 4-Corridor Selector Tabs */}
+            <div
+              role="tablist"
+              aria-label="Four Core Advisory Corridors"
+              className="mt-10 grid grid-cols-2 gap-2.5 lg:grid-cols-4"
+            >
+              {ADVISORY_PILLARS.map((pillar, idx) => {
                 const Icon = pillar.icon;
+                const isSelected = activePillarIndex === idx;
+                return (
+                  <button
+                    key={pillar.id}
+                    type="button"
+                    role="tab"
+                    id={`tab-${pillar.id}`}
+                    aria-selected={isSelected}
+                    aria-controls={`panel-${pillar.id}`}
+                    onClick={() => setActivePillarIndex(idx)}
+                    className={`flex flex-col justify-between border p-4 text-left transition-all ${
+                      isSelected
+                        ? "border-navy-deep bg-navy-deep text-white shadow-md"
+                        : "border-bone bg-ivory/50 text-navy hover:border-gold/60 hover:bg-ivory"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <span
+                        className={`font-mono text-[10px] uppercase tracking-[0.2em] ${
+                          isSelected ? "text-gold" : "text-gold-ink"
+                        }`}
+                      >
+                        {pillar.shortLabel}
+                      </span>
+                      <Icon size={16} className={isSelected ? "text-gold" : "text-gold-ink"} />
+                    </div>
+                    <p
+                      className={`mt-3 font-serif text-base leading-snug ${
+                        isSelected ? "text-white" : "text-navy"
+                      }`}
+                    >
+                      {pillar.badge}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Prerender-Safe Corridor Panels */}
+            <div className="mt-6">
+              {ADVISORY_PILLARS.map((pillar, idx) => {
+                const Icon = pillar.icon;
+                const isSelected = activePillarIndex === idx;
                 return (
                   <div
-                    key={pillar.title}
-                    className="flex flex-col justify-between border border-bone bg-ivory/40 p-6 transition-colors hover:border-gold/60"
+                    key={pillar.id}
+                    id={`panel-${pillar.id}`}
+                    role="tabpanel"
+                    aria-labelledby={`tab-${pillar.id}`}
+                    hidden={!isSelected}
+                    className="border border-bone bg-ivory/40 p-6 md:p-10"
                   >
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-none border border-gold/30 bg-gold/10 text-gold-ink">
-                          <Icon size={20} />
+                    <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+                      <div>
+                        <div className="inline-flex items-center gap-2.5 border border-gold/40 bg-white px-3.5 py-1.5">
+                          <Icon size={15} className="text-gold-ink" />
+                          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                            {pillar.badge}
+                          </span>
                         </div>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink">
-                          {pillar.badge}
-                        </span>
+                        <h3 className="mt-4 font-serif text-2xl text-navy md:text-3xl">
+                          {pillar.title}
+                        </h3>
+                        <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-ink">
+                          {pillar.headline}
+                        </p>
+                        <p className="mt-4 font-sans text-sm leading-relaxed text-navy/75 md:text-base">
+                          {pillar.description}
+                        </p>
+
+                        <ul className="mt-5 space-y-2.5 border-t border-bone pt-4">
+                          {pillar.deliverables.map((item) => (
+                            <li key={item} className="flex items-start gap-2.5 font-sans text-sm text-navy/80">
+                              <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-gold-ink" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="mt-6">
+                          <Link
+                            to={pillar.ctaHref}
+                            className="inline-flex items-center gap-2 bg-navy-deep px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy"
+                          >
+                            {pillar.ctaLabel}
+                            <ArrowRight size={13} />
+                          </Link>
+                        </div>
                       </div>
-                      <h3 className="mt-5 font-serif text-xl leading-snug text-navy">
-                        {pillar.title}
-                      </h3>
-                      <p className="mt-3 font-sans text-sm leading-relaxed text-navy/70">
-                        {pillar.description}
-                      </p>
+
+                      {/* Key Metrics Tile Grid */}
+                      <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                        {pillar.metrics.map((m) => (
+                          <div
+                            key={m.label}
+                            className="flex items-center justify-between border border-bone bg-white px-5 py-4"
+                          >
+                            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-navy/65">
+                              {m.label}
+                            </span>
+                            <span className="font-serif text-2xl text-navy-deep">
+                              {m.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );
@@ -324,8 +487,7 @@ export default function AboutPage() {
                   Schedule a Private Consultation With Carlos Uzcategui
                 </h2>
                 <p className="mt-4 font-sans text-base leading-relaxed text-white/70">
-                  Whether preparing a South Florida luxury property for sale, evaluating portfolio acquisition, or coordinating
-                  a cross-border referral, share your objectives directly with Carlos.
+                  Selling a South Florida property, evaluating an acquisition, or coordinating a cross-border referral? Connect directly with Carlos.
                 </p>
 
                 {/* Direct Channels Ledger */}

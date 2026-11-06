@@ -1,10 +1,38 @@
-import { BadgeCheck, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
+import { BadgeCheck, Building2, Mail, MapPin, Phone, Scale, ShieldCheck } from "lucide-react";
 import { CONTACT, PUBLIC_COMPLIANCE } from "../constants";
 import {
   URG_FLORIDA_OFFICE_NAMES,
   URG_FLORIDA_OFFICE_COUNT,
 } from "../data/urgOffices";
 import { LeadForm } from "./LeadForm";
+
+const PRINCIPAL_LENSES = [
+  {
+    id: "experience",
+    label: "01 · 25-Year Track Record",
+    icon: Scale,
+    stat: "Since 2001",
+    headline: "Built Through Closed Transactions, Not Directory Listings",
+    body: "Twenty-five years of active South Florida real estate transactions across residential, luxury, and commercial sectors. Relationships inside the Miami professional community built through closed transactions, not directory listings.",
+  },
+  {
+    id: "platform",
+    label: "02 · Weston & URG Network",
+    icon: Building2,
+    stat: `3,500+ Agents · ${URG_FLORIDA_OFFICE_COUNT} FL Locations`,
+    headline: "Statewide Brokerage Scale From the Weston Advisory Desk",
+    body: `From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents and ${URG_FLORIDA_OFFICE_COUNT} Florida office locations, delivering institutional market reach across South Florida corridors.`,
+  },
+  {
+    id: "governance",
+    label: "03 · Direct Principal Accountability",
+    icon: ShieldCheck,
+    stat: "FL SL705771",
+    headline: "Every Mandate Led Personally by Carlos as Principal of Record",
+    body: "Every assignment is managed directly by Carlos as principal of record—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.",
+  },
+] as const;
 
 export function AboutContact({
   showForm = true,
@@ -17,6 +45,8 @@ export function AboutContact({
   title?: string;
   eyebrow?: string;
 } = {}) {
+  const [activeLensIndex, setActiveLensIndex] = useState(0);
+
   return (
     <section id="contact" className={`bg-ivory ${compact ? "py-12 md:py-16" : "py-10 md:py-24"}`}>
       <div className={`mx-auto grid gap-7 px-6 ${showForm ? "max-w-7xl lg:grid-cols-[1.1fr_0.9fr] lg:gap-16" : "max-w-5xl"}`}>
@@ -40,10 +70,67 @@ export function AboutContact({
             </div>
           </div>
 
-          <div className="mt-5 max-w-4xl space-y-3 font-sans text-base leading-relaxed text-navy/68 md:mt-8 md:space-y-4 md:text-lg">
-            <p>Twenty-five years of active South Florida real estate transactions across residential, luxury, and commercial sectors. Relationships inside the Miami professional community built through closed transactions, not directory listings.</p>
-            <p>From the United Realty Group office in Weston, Carlos serves South Florida sellers and buyers through a brokerage network of 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations, delivering institutional market reach across South Florida corridors.</p>
-            <p>Every assignment is managed directly by Carlos as principal of record—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.</p>
+          {/* Interactive 3-Lens Principal Credentials Deck (replaces 3 stacked text paragraphs while keeping all copy in DOM) */}
+          <div className="mt-6 max-w-4xl md:mt-8">
+            <div
+              role="tablist"
+              aria-label="Principal Credentials and Governance"
+              className="grid gap-2 sm:grid-cols-3"
+            >
+              {PRINCIPAL_LENSES.map((lens, idx) => {
+                const Icon = lens.icon;
+                const isSelected = activeLensIndex === idx;
+                return (
+                  <button
+                    key={lens.id}
+                    type="button"
+                    role="tab"
+                    id={`about-lens-tab-${lens.id}`}
+                    aria-selected={isSelected}
+                    aria-controls={`about-lens-panel-${lens.id}`}
+                    onClick={() => setActiveLensIndex(idx)}
+                    className={`flex items-center justify-between gap-2 border px-4 py-3 text-left transition-all ${
+                      isSelected
+                        ? "border-navy-deep bg-navy-deep text-white"
+                        : "border-bone bg-white text-navy hover:border-gold/60"
+                    }`}
+                  >
+                    <span
+                      className={`font-mono text-[10px] uppercase tracking-[0.16em] ${
+                        isSelected ? "text-gold" : "text-navy"
+                      }`}
+                    >
+                      {lens.label}
+                    </span>
+                    <Icon size={14} className={isSelected ? "text-gold" : "text-gold-ink"} />
+                  </button>
+                );
+              })}
+            </div>
+
+            {PRINCIPAL_LENSES.map((lens, idx) => {
+              const isSelected = activeLensIndex === idx;
+              return (
+                <div
+                  key={lens.id}
+                  id={`about-lens-panel-${lens.id}`}
+                  role="tabpanel"
+                  aria-labelledby={`about-lens-tab-${lens.id}`}
+                  hidden={!isSelected}
+                  className="border border-t-0 border-bone bg-white p-5 md:p-6"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="font-serif text-xl text-navy">{lens.headline}</h3>
+                    <span className="border border-gold/40 bg-ivory px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">
+                      {lens.stat}
+                    </span>
+                  </div>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-navy/75 md:text-base">
+                    {lens.body}
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
           {/* Carlos-led advice with visible brokerage infrastructure behind it. */}

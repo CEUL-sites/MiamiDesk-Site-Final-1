@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
-import { ArrowDown, ArrowRight, BadgeCheck, Clock, Target, TrendingUp } from "lucide-react";
+import { ArrowDown, ArrowRight, BadgeCheck, Clock, Layers, Scale, ShieldCheck, Target, TrendingUp } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -11,21 +12,30 @@ import { CONTACT } from "../constants";
 
 const HOW_IT_WORKS = [
   {
+    id: "step-1",
+    num: "01",
     icon: Target,
     title: "Submit Your Property",
+    shortLabel: "01 · Address Intake",
     body: "Enter your street address and city. Carlos reviews every submission personally—no automated reports or call-center scripts.",
   },
   {
+    id: "step-2",
+    num: "02",
     icon: TrendingUp,
     title: "MLS Comparable & Absorption Analysis",
+    shortLabel: "02 · Live MLS Comps",
     body: "Active competition, recent closed sales, pending contracts, and months-of-inventory pulled directly from the Miami and South Florida REALTORS® MLS.",
   },
   {
+    id: "step-3",
+    num: "03",
     icon: Clock,
     title: "Private Strategy Review",
+    shortLabel: "03 · Pricing Brief",
     body: "You receive a property-specific price range and positioning brief tailored to your timeline, with zero obligation to list.",
   },
-];
+] as const;
 
 const WHAT_YOU_GET = [
   "Active, pending, and closed MLS comparables for your specific submarket",
@@ -35,6 +45,33 @@ const WHAT_YOU_GET = [
   "Days-on-market and appraisal risk assessment across pricing scenarios",
   "Private review with Carlos Uzcategui—no obligation to list, no sales pressure",
 ];
+
+const METHODOLOGY_LENSES = [
+  {
+    id: "variance",
+    label: "01 · 15%–30% Property Variance",
+    icon: Layers,
+    stat: "15%–30% Spread",
+    headline: "Why Neighboring South Florida Addresses Trade 15% to 30% Apart",
+    body: "Online algorithms offer a broad starting point, but they cannot inspect interior condition, impact-glass upgrades, roof age, waterfront exposure, condo floor height, or special-assessment reserves. In South Florida luxury and residential submarkets, those property-specific factors routinely separate two neighboring addresses by 15% to 30%.",
+  },
+  {
+    id: "cma",
+    label: "02 · Verified MLS CMA",
+    icon: Scale,
+    stat: "Live MLS Data",
+    headline: "Verified Closed Sales, Active Competition & Pending Absorption",
+    body: "A property-specific Comparative Market Analysis (CMA) evaluates verified closed sales, active competing listings, and pending absorption so you can establish a defensible asking-price range before going to market. Estimates depend on available data and are not formal appraisals or guarantees of sale price.",
+  },
+  {
+    id: "execution",
+    label: "03 · >90% Agent Activation",
+    icon: ShieldCheck,
+    stat: "93,000 Agents",
+    headline: "From Pricing Precision to Cooperating Buyer-Agent Execution",
+    body: "Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects directly with structured presentation on the Miami and South Florida REALTORS® MLS—where over 90% of residential sales close through cooperating buyer agents—supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation.",
+  },
+] as const;
 
 const HOME_VALUE_FAQS = [
   {
@@ -56,6 +93,9 @@ const HOME_VALUE_FAQS = [
 ];
 
 export default function HomeValuePage() {
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [activeLensIndex, setActiveLensIndex] = useState(0);
+
   return (
     <>
       <Helmet>
@@ -154,7 +194,7 @@ export default function HomeValuePage() {
           />
 
           <div className="relative mx-auto max-w-7xl px-6 lg:grid lg:grid-cols-12 lg:items-start lg:gap-12">
-            {/* Left Column: Editorial Positioning & 3-Step Process */}
+            {/* Left Column: Editorial Positioning & Interactive 3-Step Process */}
             <div className="lg:col-span-6 lg:pr-4">
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">
                 Confidential · MLS Comparative Analysis · South Florida
@@ -166,35 +206,73 @@ export default function HomeValuePage() {
                 What Is Your South Florida{" "}
                 <em className="font-normal italic text-gold">Property Worth Today?</em>
               </h1>
-              <p className="mt-6 max-w-xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
+              <p className="mt-5 max-w-xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
                 Receive a private MLS-based valuation, submarket absorption analysis, and preliminary net-proceeds review prepared personally by Carlos Uzcategui.
               </p>
 
-              {/* 3-Step Executive Process Strip */}
-              <div className="mt-10 space-y-5 border-t border-white/10 pt-8">
+              {/* Interactive 3-Step Executive Process Selector */}
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <div
+                  role="tablist"
+                  aria-label="Three-Step Valuation Process"
+                  className="grid grid-cols-3 gap-2"
+                >
+                  {HOW_IT_WORKS.map((step, i) => {
+                    const isSelected = activeStepIndex === i;
+                    return (
+                      <button
+                        key={step.id}
+                        type="button"
+                        role="tab"
+                        id={`hv-step-tab-${step.id}`}
+                        aria-selected={isSelected}
+                        aria-controls={`hv-step-panel-${step.id}`}
+                        onClick={() => setActiveStepIndex(i)}
+                        className={`border px-3 py-2.5 text-left transition-all ${
+                          isSelected
+                            ? "border-gold bg-gold/[0.12] text-white"
+                            : "border-white/15 bg-white/[0.03] text-white/65 hover:border-white/35 hover:text-white"
+                        }`}
+                      >
+                        <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+                          {step.shortLabel}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
                 {HOW_IT_WORKS.map((step, i) => {
                   const Icon = step.icon;
+                  const isSelected = activeStepIndex === i;
                   return (
-                    <div key={step.title} className="flex items-start gap-4">
-                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center border border-gold/40 bg-gold/[0.06] font-mono text-[10px] text-gold">
-                        0{i + 1}
-                      </span>
-                      <div>
-                        <div className="flex items-center gap-2">
+                    <div
+                      key={step.id}
+                      id={`hv-step-panel-${step.id}`}
+                      role="tabpanel"
+                      aria-labelledby={`hv-step-tab-${step.id}`}
+                      hidden={!isSelected}
+                      className="mt-3 border border-white/15 bg-white/[0.04] p-5"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-2.5">
+                          <span className="flex h-6 w-6 items-center justify-center border border-gold/40 bg-gold/10 font-mono text-[10px] text-gold">
+                            {step.num}
+                          </span>
                           <h2 className="font-serif text-lg text-white">{step.title}</h2>
-                          <Icon size={14} className="text-gold/70" aria-hidden="true" />
                         </div>
-                        <p className="mt-1 font-sans text-sm leading-relaxed text-white/65">
-                          {step.body}
-                        </p>
+                        <Icon size={16} className="text-gold" aria-hidden="true" />
                       </div>
+                      <p className="mt-2.5 font-sans text-sm leading-relaxed text-white/75">
+                        {step.body}
+                      </p>
                     </div>
                   );
                 })}
               </div>
 
               {/* Secondary Navigation to Net Calculator & Seller System */}
-              <div className="mt-9 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6">
+              <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6">
                 <a
                   href="#net-calculator"
                   className="inline-flex min-h-11 items-center gap-2 border border-white/20 bg-white/[0.03] px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:border-gold hover:text-gold"
@@ -229,11 +307,11 @@ export default function HomeValuePage() {
           </div>
         </section>
 
-        {/* Section 2: Valuation Methodology & Deliverables */}
+        {/* Section 2: Interactive Valuation Methodology Comparator & Deliverables */}
         <section className="border-b border-hairline bg-white py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
-              {/* Left Column: Why CMA Beats Automated Algorithms + MLS Strategy Bridge */}
+              {/* Left Column: Interactive 3-Lens Valuation Comparator */}
               <div className="lg:col-span-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
                   Valuation Methodology
@@ -241,31 +319,80 @@ export default function HomeValuePage() {
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep sm:text-4xl">
                   Why an automated estimate is not enough for a South Florida sale.
                 </h2>
-                <div className="mt-6 space-y-5 font-sans text-sm leading-relaxed text-navy/70 sm:text-base">
-                  <p>
-                    Online algorithms offer a broad starting point, but they cannot inspect interior condition, impact-glass upgrades, roof age, waterfront exposure, condo floor height, or special-assessment reserves. In South Florida luxury and residential submarkets, those property-specific factors routinely separate two neighboring addresses by 15% to 30%.
-                  </p>
-                  <p>
-                    A property-specific Comparative Market Analysis (CMA) evaluates verified closed sales, active competing listings, and pending absorption so you can establish a defensible asking-price range before going to market. Estimates depend on available data and are not formal appraisals or guarantees of sale price.
-                  </p>
+                <p className="mt-3 font-sans text-sm leading-relaxed text-navy/70">
+                  Select a valuation factor below to compare automated estimates against a principal-prepared MLS review.
+                </p>
+
+                <div
+                  role="tablist"
+                  aria-label="Valuation Methodology Factors"
+                  className="mt-6 grid gap-2 sm:grid-cols-3"
+                >
+                  {METHODOLOGY_LENSES.map((lens, idx) => {
+                    const isSelected = activeLensIndex === idx;
+                    return (
+                      <button
+                        key={lens.id}
+                        type="button"
+                        role="tab"
+                        id={`hv-method-tab-${lens.id}`}
+                        aria-selected={isSelected}
+                        aria-controls={`hv-method-panel-${lens.id}`}
+                        onClick={() => setActiveLensIndex(idx)}
+                        className={`border px-3.5 py-3 text-left transition-all ${
+                          isSelected
+                            ? "border-navy-deep bg-navy-deep text-white"
+                            : "border-bone bg-ivory/60 text-navy hover:border-gold/60"
+                        }`}
+                      >
+                        <span
+                          className={`block font-mono text-[10px] uppercase tracking-[0.15em] ${
+                            isSelected ? "text-gold" : "text-gold-ink"
+                          }`}
+                        >
+                          {lens.label}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
 
-                {/* Integrated Cooperating Buyer-Agent & MLS Positioning Callout */}
-                <div className="mt-8 border-l-2 border-gold bg-ivory p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">
-                    From Valuation to Market Execution
-                  </p>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-navy/75">
-                    Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects directly with structured presentation on the Miami and South Florida REALTORS® MLS—where over 90% of residential sales close through cooperating buyer agents—supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation.
-                  </p>
-                  <a
-                    href="/sell"
-                    className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
-                  >
-                    See how the South Florida selling system works
-                    <ArrowRight size={13} />
-                  </a>
-                </div>
+                {METHODOLOGY_LENSES.map((lens, idx) => {
+                  const Icon = lens.icon;
+                  const isSelected = activeLensIndex === idx;
+                  return (
+                    <div
+                      key={lens.id}
+                      id={`hv-method-panel-${lens.id}`}
+                      role="tabpanel"
+                      aria-labelledby={`hv-method-tab-${lens.id}`}
+                      hidden={!isSelected}
+                      className="border border-t-0 border-bone bg-ivory/40 p-6"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div className="inline-flex items-center gap-2">
+                          <Icon size={16} className="text-gold-ink" />
+                          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                            {lens.stat}
+                          </span>
+                        </div>
+                      </div>
+                      <h3 className="mt-3 font-serif text-xl text-navy-deep">
+                        {lens.headline}
+                      </h3>
+                      <p className="mt-3 font-sans text-sm leading-relaxed text-navy/75">
+                        {lens.body}
+                      </p>
+                      <a
+                        href="/sell"
+                        className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                      >
+                        See how the South Florida selling system works
+                        <ArrowRight size={13} />
+                      </a>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Right Column: What Carlos Provides Card */}
@@ -276,7 +403,7 @@ export default function HomeValuePage() {
                 <h3 className="mt-3 font-serif text-2xl text-navy-deep">
                   Prepared personally from live MLS data.
                 </h3>
-                <ul className="mt-6 space-y-4">
+                <ul className="mt-6 space-y-3.5">
                   {WHAT_YOU_GET.map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <BadgeCheck size={16} className="mt-0.5 shrink-0 text-gold" />

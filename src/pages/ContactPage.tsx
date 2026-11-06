@@ -3,7 +3,7 @@ import "../components/advisory-heroes.css";
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { Link, useSearchParams } from "react-router-dom";
-import { Clock, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Clock, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -30,6 +30,44 @@ const DESK_CONTEXT: Record<string, { eyebrow: string; heading: string; intro: st
     eyebrow: "Global Desk · Distribution Assessment",
     heading: "Request a Distribution Assessment",
     intro: "A written read on whether selected international inventory fits the South Florida buyer-agent ecosystem, which activation path is appropriate, and which compliance requirements apply.",
+  },
+};
+
+const INTENT_BRIEFINGS: Record<
+  ContactIntent,
+  { badge: string; headline: string; points: readonly string[] }
+> = {
+  seller: {
+    badge: "01 · Private Seller Strategy Review",
+    headline: "MLS Valuation, 93,000-Agent Distribution & Net Proceeds Brief",
+    points: [
+      "Verified closed & active MLS comparables for your submarket",
+      "Post-closing occupancy & synchronized next-move options",
+    ],
+  },
+  buyer: {
+    badge: "02 · Buyer & Relocation Mandate",
+    headline: "Tri-County Property Underwriting & Contract Representation",
+    points: [
+      "HOA/condo reserve, insurance & flood-zone underwriting",
+      "Access to active MLS inventory across Miami-Dade, Broward & Palm Beach",
+    ],
+  },
+  international: {
+    badge: "03 · Miami Global Desk Partnership",
+    headline: "Bilateral U.S. MLS Exposure for Spain & LATAM Assets",
+    points: [
+      "Direct Miami MLS positioning with Carlos as FL principal of record",
+      "Protected local agency mandate & written cooperation structure",
+    ],
+  },
+  referral: {
+    badge: "04 · Cooperating Broker Referral",
+    headline: "Written Referral Fee Protection & Principal Execution",
+    points: [
+      "Documented referral agreement executed prior to client introduction",
+      "Direct representation by Carlos (25 years licensed FL experience)",
+    ],
   },
 };
 
@@ -61,6 +99,7 @@ export default function ContactPage() {
   const [intent, setIntent] = useState<ContactIntent>(urlIntent);
   useEffect(() => { setIntent(urlIntent); }, [urlIntent, deskParam]);
   const deskCtx = intent === "international" ? DESK_CONTEXT[validDesk] : undefined;
+  const activeBrief = INTENT_BRIEFINGS[intent];
 
   return (
     <>
@@ -137,8 +176,26 @@ export default function ContactPage() {
               </p>
             </div>
 
+            {/* Dynamic Intent Briefing Card (updates live with form selection) */}
+            <div className="mt-5 border border-gold/35 bg-white/[0.04] p-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                {activeBrief.badge}
+              </p>
+              <p className="mt-1.5 font-serif text-lg text-white">
+                {activeBrief.headline}
+              </p>
+              <ul className="mt-2.5 space-y-1.5">
+                {activeBrief.points.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2 text-xs text-white/75">
+                    <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-gold" />
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Direct Advisory Channels Ledger */}
-            <div className="mt-6 space-y-3 border border-white/15 bg-white/[0.03] p-5">
+            <div className="mt-5 space-y-3 border border-white/15 bg-white/[0.03] p-5">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
                 Direct Advisory Channels
               </p>

@@ -5,7 +5,7 @@ import { DistributionMetrics } from "../components/DistributionMetrics";
 import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Check, Handshake, Mail, MessageCircle, UserRoundCheck, UsersRound } from "lucide-react";
+import { ArrowRight, Check, Handshake, Mail, MessageCircle, ShieldCheck, UserRoundCheck, UsersRound } from "lucide-react";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { Footer } from "../components/Footer";
 import { GlobalActivationFlow, type ActivationStage } from "../components/GlobalActivationFlow";
@@ -143,6 +143,8 @@ const COPY = {
 export default function GlobalDeskPage() {
   const [lang, setLang] = useState<Lang>("en");
   const [intakeTab, setIntakeTab] = useState<"developer" | "cooperation">("developer");
+  const [activeNetStep, setActiveNetStep] = useState(0);
+  const [activeMandateRole, setActiveMandateRole] = useState<"local" | "florida" | "protection">("local");
 
   useEffect(() => {
     try {
@@ -161,6 +163,74 @@ export default function GlobalDeskPage() {
   const whatsappMessage = lang === "es"
     ? "Hola Carlos, deseo solicitar una conversación privada sobre una oportunidad cualificada para Miami Global Desk."
     : "Hello Carlos, I would like a private discussion about a qualified Miami Global Desk opportunity.";
+
+  const mandateRoles = lang === "es"
+    ? {
+        local: {
+          badge: "En Jurisdicción de Origen",
+          title: "Socio local (Agencia / Promotor)",
+          summary: "Mandato · Visitas · Negociación local y cierre",
+          points: [
+            "Conserva el mandato exclusivo y la relación directa con el propietario.",
+            "Coordina visitas presenciales, due diligence legal y notaría local.",
+            "Dirige la negociación final y el cierre en la jurisdicción del inmueble.",
+          ],
+        },
+        florida: {
+          badge: "En el Sur de Florida",
+          title: "Carlos / United Realty Group",
+          summary: "Revisión de elegibilidad · Activación aprobada en EE. UU. · Introducciones profesionales",
+          points: [
+            "Opera como Realtor® con licencia en Florida (SL705771) ante el ecosistema MLS.",
+            "Posiciona el activo bilingüe ante la red de 93,000 miembros de la asociación.",
+            "Filtra y estructura introducciones con agentes de compradores cualificados.",
+          ],
+        },
+        protection: {
+          badge: "Acuerdo Bilateral Escrito",
+          title: "Protección de Mandato y Honorarios",
+          summary: "Términos comerciales firmados propiedad por propiedad antes de activar.",
+          points: [
+            t.mandatePoints[0],
+            t.mandatePoints[1],
+            t.mandatePoints[2],
+          ],
+        },
+      }
+    : {
+        local: {
+          badge: "In Originating Jurisdiction",
+          title: "Local partner (Agency / Developer)",
+          summary: "Mandate · Showings · Local negotiation and closing",
+          points: [
+            "Retains the primary listing mandate and direct seller relationship.",
+            "Manages on-the-ground property showings, legal due diligence, and local notary.",
+            "Controls final contract negotiation and closing in the property's jurisdiction.",
+          ],
+        },
+        florida: {
+          badge: "In South Florida",
+          title: "Carlos / United Realty Group",
+          summary: "Eligibility review · Approved U.S. activation · Professional introductions",
+          points: [
+            "Operates as the Florida-licensed Realtor® of record (SL705771 · United Realty Group).",
+            "Prepares bilingual positioning for the 93,000-member South Florida ecosystem.",
+            "Screens and structures introductions with cooperating buyer agents.",
+          ],
+        },
+        protection: {
+          badge: "Written Bilateral Terms",
+          title: "Mandate & Fee Protection",
+          summary: "Commercial cooperation agreed in writing property by property before launch.",
+          points: [
+            t.mandatePoints[0],
+            t.mandatePoints[1],
+            t.mandatePoints[2],
+          ],
+        },
+      };
+
+  const currentRole = mandateRoles[activeMandateRole];
 
   return (
     <>
@@ -252,89 +322,207 @@ export default function GlobalDeskPage() {
             <div className="mt-10 border-y border-bone bg-white px-3 py-7 md:mt-14 md:px-8 md:py-10">
               <GlobalActivationFlow stages={[...t.stages]} ariaLabel={t.workflowTitle} selectedLabel={t.selectedStage} />
             </div>
+
             <div id="local-network" className="scroll-mt-24 mt-12 lg:mt-16">
-              <div className="max-w-4xl">
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.networkKicker}</p>
-                <h3 className="mt-4 text-balance font-serif text-4xl leading-[1.08] text-navy-deep md:text-5xl">{t.networkTitle}</h3>
-                <p className="mt-5 max-w-3xl font-sans text-base leading-[1.8] text-navy/80 md:text-lg">{t.networkBody}</p>
+              <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+                <div className="max-w-3xl">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.networkKicker}</p>
+                  <h3 className="mt-3 text-balance font-serif text-3xl leading-[1.08] text-navy-deep md:text-5xl">{t.networkTitle}</h3>
+                </div>
+                <p className="max-w-md font-sans text-sm leading-relaxed text-navy/75">{t.networkBody}</p>
               </div>
 
-              <div className="mt-9 grid items-start gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:gap-8">
-                <figure className="flex min-w-0 flex-col overflow-hidden border border-bone bg-white shadow-sm">
+              <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:gap-8">
+                <figure className="flex min-w-0 flex-col justify-between overflow-hidden rounded-xl border border-bone bg-white shadow-sm">
                   <div className="relative aspect-video w-full overflow-hidden bg-navy-deep">
                     <iframe src="https://www.youtube-nocookie.com/embed/M8Hx5D5ghag?rel=0&modestbranding=1" title={t.teamVideoTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen className="absolute inset-0 h-full w-full border-0" />
                   </div>
-                  <figcaption className="flex min-h-14 items-center bg-navy-deep px-5 py-4 font-mono text-[9px] font-semibold uppercase tracking-[0.19em] text-gold sm:px-6 sm:text-[10px]">{t.teamVideoLabel}</figcaption>
+                  <figcaption className="flex min-h-14 items-center justify-between bg-navy-deep px-5 py-4 font-mono text-[9px] font-semibold uppercase tracking-[0.19em] text-gold sm:px-6 sm:text-[10px]">
+                    <span>{t.teamVideoLabel}</span>
+                    <span className="text-white/60">3,500+ FL Agents</span>
+                  </figcaption>
                 </figure>
 
-                <div className="relative overflow-hidden bg-navy-deep px-6 py-7 text-white sm:px-7 sm:py-8" aria-label={t.networkTitle}>
-                  <div aria-hidden="true" className="absolute bottom-8 left-[3.2rem] top-8 w-px bg-gold/45 sm:left-[3.95rem]" />
-                  <ol className="relative space-y-7">
+                {/* Interactive 3-Step Network Selector instead of static list */}
+                <div className="flex flex-col justify-between rounded-xl bg-navy-deep p-5 text-white sm:p-6" aria-label={t.networkTitle}>
+                  <div className="space-y-3" role="tablist" aria-label={t.networkTitle}>
                     {t.networkSteps.map(([title, body], index) => {
                       const StepIcon = [UsersRound, UserRoundCheck, Handshake][index];
+                      const selected = activeNetStep === index;
                       return (
-                        <li key={title} className="relative grid grid-cols-[3.25rem_1fr] gap-4 sm:grid-cols-[3.75rem_1fr] sm:gap-4">
-                          <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-navy-deep text-gold"><StepIcon size={21} strokeWidth={1.45} aria-hidden="true" /></div>
-                          <div className="pt-0.5">
-                            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-gold">0{index + 1}</p>
-                            <h4 className="mt-1 font-serif text-xl leading-tight text-white sm:text-[1.35rem]">{title}</h4>
-                            <p className="mt-2 font-sans text-[13px] leading-[1.55] text-white/75">{body}</p>
+                        <button
+                          key={title}
+                          type="button"
+                          role="tab"
+                          aria-selected={selected}
+                          onClick={() => setActiveNetStep(index)}
+                          className={`flex w-full items-start gap-3.5 rounded-lg border p-4 text-left transition-all ${
+                            selected
+                              ? "border-gold bg-white/[0.08] shadow-md"
+                              : "border-white/10 bg-white/[0.02] hover:border-gold/40"
+                          }`}
+                        >
+                          <div
+                            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border ${
+                              selected
+                                ? "border-gold bg-gold text-navy-deep"
+                                : "border-gold/40 bg-navy-deep text-gold"
+                            }`}
+                          >
+                            <StepIcon size={18} strokeWidth={1.6} aria-hidden="true" />
                           </div>
-                        </li>
+                          <div className="min-w-0">
+                            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-gold">
+                              0{index + 1} · {lang === "es" ? "Paso" : "Step"}
+                            </p>
+                            <h4 className="mt-0.5 font-serif text-lg leading-tight text-white">{title}</h4>
+                            <p className="mt-1 font-sans text-xs leading-relaxed text-white/80">{body}</p>
+                          </div>
+                        </button>
                       );
                     })}
-                  </ol>
-                </div>
-              </div>
+                  </div>
 
-              <div className="mt-8 flex justify-start lg:justify-center">
-                <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "network_activation", cta_location: "local_network", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 border border-gold bg-white px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy transition-colors hover:bg-gold hover:text-navy-deep">{t.networkCta}<ArrowRight size={15} /></a>
+                  <div className="mt-4 pt-3 border-t border-white/10 flex justify-end">
+                    <a
+                      href="#listing-request"
+                      onClick={() => pushEvent("global_desk_cta_click", { cta_type: "network_activation", cta_location: "local_network", language: lang })}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy-deep transition-colors hover:bg-white"
+                    >
+                      {t.networkCta}
+                      <ArrowRight size={14} />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Interactive Bilateral Mandate Architecture */}
         <section id="mandate" data-sticky-cta-guard data-global-partnership className="bg-white-soft px-6 py-14 text-navy-deep md:py-20">
           <div className="mx-auto max-w-6xl">
-            <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.05fr] lg:gap-12">
-              <header>
-                <p className="story-eyebrow text-gold-ink">{lang === "es" ? "Mandato local · Cooperación en EE. UU." : "Local mandate · U.S. cooperation"}</p>
-                <h2 className="mt-4 font-serif text-4xl leading-[1.08] md:text-5xl">{t.mandateTitleA}<br />{t.mandateTitleB}</h2>
-                <p className="mt-5 hidden text-base leading-relaxed text-navy lg:block">{t.mandateBody}</p>
-              </header>
-              <figure>
-                <img src="/images/carlos-waterfront-editorial-20261012.jpg" alt={lang === "es" ? "Carlos Uzcategui junto al waterfront de Miami" : "Carlos Uzcategui at the Miami waterfront"} width={1920} height={1080} loading="lazy" decoding="async" className="aspect-[4/3] w-full rounded-md object-cover object-[62%_center]" />
+            <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
+              {/* Left Column: Interactive Role Switcher (7 cols) */}
+              <div className="lg:col-span-7">
+                <p className="story-eyebrow text-gold-ink">
+                  {lang === "es" ? "Mandato local · Cooperación en EE. UU." : "Local mandate · U.S. cooperation"}
+                </p>
+                <h2 className="mt-3 font-serif text-3xl leading-[1.08] sm:text-4xl md:text-5xl">
+                  {t.mandateTitleA} <span className="text-gold-ink">{t.mandateTitleB}</span>
+                </h2>
+                <p className="mt-3 font-sans text-sm leading-relaxed text-navy/80 sm:text-base">
+                  {t.mandateBody}
+                </p>
+
+                {/* Role Switcher Tabs */}
+                <div className="mt-6 grid grid-cols-3 gap-2" role="tablist" aria-label="Bilateral mandate roles">
+                  {[
+                    { id: "local", icon: Handshake, label: lang === "es" ? "Socio local" : "Local partner" },
+                    { id: "florida", icon: UsersRound, label: "Carlos / URG" },
+                    { id: "protection", icon: ShieldCheck, label: lang === "es" ? "Protección" : "Protection" },
+                  ].map((tab) => {
+                    const Icon = tab.icon;
+                    const selected = activeMandateRole === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        role="tab"
+                        aria-selected={selected}
+                        onClick={() => setActiveMandateRole(tab.id as "local" | "florida" | "protection")}
+                        className={`flex items-center gap-2 rounded-lg border px-3.5 py-3 text-left transition-all ${
+                          selected
+                            ? "border-gold bg-navy-deep text-white shadow-md"
+                            : "border-bone bg-white text-navy-deep hover:border-gold/60"
+                        }`}
+                      >
+                        <Icon size={16} className={selected ? "text-gold shrink-0" : "text-gold-ink shrink-0"} aria-hidden="true" />
+                        <span className="truncate font-mono text-[10px] font-semibold uppercase tracking-[0.12em]">
+                          {tab.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Active Role Detail Card */}
+                <article className="mt-3 rounded-xl border border-gold/35 bg-navy-deep p-6 text-white shadow-lg">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+                    <h3 className="font-serif text-xl text-white">{currentRole.title}</h3>
+                    <span className="rounded-full border border-gold/30 bg-gold/10 px-3 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
+                      {currentRole.badge}
+                    </span>
+                  </div>
+                  <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-gold">
+                    {currentRole.summary}
+                  </p>
+                  <ul className="mt-4 space-y-2">
+                    {currentRole.points.map((pt) => (
+                      <li key={pt} className="flex items-start gap-2.5 font-sans text-xs leading-relaxed text-white/85 sm:text-sm">
+                        <Check size={15} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
+                  <a
+                    href="#listing-request"
+                    onClick={() => {
+                      setIntakeTab("cooperation");
+                      pushEvent("global_desk_cta_click", { cta_type: "cooperation_review", cta_location: "mandate", language: lang });
+                    }}
+                    className="story-cta"
+                  >
+                    {lang === "es" ? "Conversar sobre cooperación España–sur de Florida" : "Discuss a Spain–South Florida Cooperation Opportunity"}
+                    <ArrowRight size={18} aria-hidden="true" />
+                  </a>
+                  <p className="text-xs leading-relaxed text-navy/70">
+                    {lang === "es"
+                      ? "Sujeto a elegibilidad de la propiedad, aprobación del corretaje, normas MLS y términos escritos de cooperación."
+                      : "Subject to property eligibility, brokerage approval, MLS rules and written cooperation terms."}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Column: Editorial Waterfront Visual (5 cols) */}
+              <figure className="lg:col-span-5">
+                <img
+                  src="/images/carlos-waterfront-editorial-20261012.jpg"
+                  alt={lang === "es" ? "Carlos Uzcategui junto al waterfront de Miami" : "Carlos Uzcategui at the Miami waterfront"}
+                  width={1920}
+                  height={1080}
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[4/3] w-full rounded-xl object-cover object-[62%_center] shadow-lg"
+                />
               </figure>
-              <p className="text-base leading-relaxed text-navy lg:hidden">{t.mandateBody}</p>
             </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              <article className="rounded-md border border-bone p-6">
-                <Handshake size={26} aria-hidden="true" className="text-gold-ink" />
-                <h3 className="mt-4 font-serif text-2xl">{lang === "es" ? "Socio local" : "Local partner"}</h3>
-                <p className="mt-3 text-base leading-relaxed text-navy">{lang === "es" ? "Mandato · Visitas · Negociación local y cierre" : "Mandate · Showings · Local negotiation and closing"}</p>
-              </article>
-              <article className="rounded-md border border-bone p-6">
-                <UsersRound size={26} aria-hidden="true" className="text-gold-ink" />
-                <h3 className="mt-4 font-serif text-2xl">Carlos / United Realty Group</h3>
-                <p className="mt-3 text-base leading-relaxed text-navy">{lang === "es" ? "Revisión de elegibilidad · Activación aprobada en EE. UU. · Introducciones profesionales" : "Eligibility review · Approved U.S. activation · Professional introductions"}</p>
-              </article>
-            </div>
-            <p className="mt-5 text-sm leading-relaxed text-navy">{lang === "es" ? "Sujeto a elegibilidad de la propiedad, aprobación del corretaje, normas MLS y términos escritos de cooperación." : "Subject to property eligibility, brokerage approval, MLS rules and written cooperation terms."}</p>
-            <a href="#listing-request" onClick={() => { setIntakeTab("cooperation"); pushEvent("global_desk_cta_click", { cta_type: "cooperation_review", cta_location: "mandate", language: lang }); }} className="story-cta mt-6">{lang === "es" ? "Conversar sobre cooperación España–sur de Florida" : "Discuss a Spain–South Florida Cooperation Opportunity"}<ArrowRight size={18} aria-hidden="true" /></a>
           </div>
         </section>
 
         <section id="carlos" data-sticky-cta-guard data-global-principal className="border-y border-bone bg-white-soft px-6 py-14 text-navy-deep md:py-20">
-          <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12">
-            <figure className="mx-auto w-full max-w-[280px] lg:max-w-sm">
-              <img src="/images/carlos-headshot.jpg" alt={lang === "es" ? "Carlos Uzcategui, Realtor con licencia de Florida SL705771, United Realty Group" : "Carlos Uzcategui, Florida Licensed Realtor SL705771, United Realty Group"} width={800} height={817} loading="lazy" decoding="async" className="aspect-[4/5] w-full rounded-md object-cover object-top" />
+          <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-12">
+            <figure className="mx-auto w-full max-w-[260px] lg:max-w-xs">
+              <img src="/images/carlos-headshot.jpg" alt={lang === "es" ? "Carlos Uzcategui, Realtor con licencia de Florida SL705771, United Realty Group" : "Carlos Uzcategui, Florida Licensed Realtor SL705771, United Realty Group"} width={800} height={817} loading="lazy" decoding="async" className="aspect-[4/5] w-full rounded-xl object-cover object-top shadow-md" />
             </figure>
             <div className="min-w-0">
               <p className="story-eyebrow text-gold-ink">{t.trustKicker}</p>
-              <h2 className="mt-4 font-serif text-4xl leading-tight md:text-6xl">{t.trustTitle}</h2>
-              <ul className="mt-6 space-y-4">{t.credentials.map((credential) => <li key={credential} className="flex items-start gap-3 text-base leading-relaxed text-navy"><Check size={22} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-ink" />{credential}</li>)}</ul>
-              <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "principal_review", cta_location: "principal", language: lang })} className="story-cta mt-7">{t.closeCta}<ArrowRight size={18} aria-hidden="true" /></a>
-              <p className="mt-4 text-base leading-relaxed text-navy">{lang === "es" ? "Comparta los detalles de la propiedad y del mandato. Carlos revisa la elegibilidad antes de proponer una vía de cooperación." : "Share the property and mandate details. Carlos reviews eligibility before proposing a cooperation route."}</p>
+              <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">{t.trustTitle}</h2>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                {t.credentials.map((credential) => (
+                  <div key={credential} className="flex items-start gap-2.5 rounded-lg border border-bone bg-white p-3.5 text-sm leading-snug text-navy shadow-sm">
+                    <Check size={17} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-ink" />
+                    <span>{credential}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "principal_review", cta_location: "principal", language: lang })} className="story-cta">{t.closeCta}<ArrowRight size={18} aria-hidden="true" /></a>
+                <p className="text-xs leading-relaxed text-navy/75 max-w-sm">{lang === "es" ? "Comparta los detalles de la propiedad y del mandato. Carlos revisa la elegibilidad antes de proponer una vía de cooperación." : "Share the property and mandate details. Carlos reviews eligibility before proposing a cooperation route."}</p>
+              </div>
             </div>
           </div>
           <div className="mx-auto mt-9 grid max-w-6xl gap-4 border-y border-bone py-5 text-base text-navy sm:grid-cols-3">

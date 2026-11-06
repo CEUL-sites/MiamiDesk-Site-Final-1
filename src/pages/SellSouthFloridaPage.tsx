@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
-import { BadgeCheck } from "lucide-react";
+import { ArrowUpRight, BadgeCheck } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -13,7 +14,54 @@ import { Testimonials } from "../components/Testimonials";
 import { FAQ } from "../components/FAQ";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
 
+const SELLER_GUIDES = [
+  {
+    href: "/journal/seller-closing-costs-south-florida-2026",
+    category: "tax",
+    tag: "Net Proceeds Strategy",
+    title: "What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds",
+    takeaway: "Documentary stamp taxes, title fees, and settlement prorations explained.",
+  },
+  {
+    href: "/journal/hoa-impact-home-sale-south-florida-2026",
+    category: "market",
+    tag: "Condo & HOA Advisory",
+    title: "HOA Financials and Your Home's Sale Price — What South Florida Sellers Need to Know",
+    takeaway: "How reserve studies, milestone inspections, and estoppels impact buyer lending.",
+  },
+  {
+    href: "/journal/when-to-list-south-florida-home-2026",
+    category: "market",
+    tag: "Market Analysis",
+    title: "When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting",
+    takeaway: "Seasonal inventory shifts, winter migration windows, and launch timing.",
+  },
+  {
+    href: "/journal/florida-homestead-portability-benefits-2026",
+    category: "tax",
+    tag: "Tax Strategy",
+    title: "Florida Homestead & Save Our Homes Portability — What Owners Must Understand",
+    takeaway: "Transferring accumulated tax assessment savings when upgrading or downsizing.",
+  },
+  {
+    href: "/journal/home-sale-capital-gains-exclusion-500k-2026",
+    category: "tax",
+    tag: "Capital Gains",
+    title: "The $250,000 / $500,000 Capital Gains Exclusion for Primary Residences",
+    takeaway: "IRS Section 121 rules, ownership timelines, and documentation standards.",
+  },
+  {
+    href: "/journal/1031-exchange-south-florida-investment-property-2026",
+    category: "tax",
+    tag: "Portfolio Exit",
+    title: "The 1031 Exchange — Deferring Capital Gains on South Florida Investment Sales",
+    takeaway: "45-day identification and 180-day closing rules for replacement assets.",
+  },
+] as const;
+
 export default function SellSouthFloridaPage() {
+  const [guideFilter, setGuideFilter] = useState<"all" | "tax" | "market">("all");
+
   return (
     <>
       <Helmet>
@@ -118,7 +166,7 @@ export default function SellSouthFloridaPage() {
         {/* Section 1: Executive Seller Hero */}
         <SellersReachHero />
 
-        {/* Section 2 & 3: 4-Stage Selling System & The Cooperating Market Reality (>90%) */}
+        {/* Section 2 & 3: Interactive 4-Stage Selling System & Cooperating Market Comparator */}
         <SellerSellingSystem />
 
         {/* Section 4: Interactive Net Proceeds Calculator */}
@@ -130,114 +178,71 @@ export default function SellSouthFloridaPage() {
         {/* Section 6: Seller FAQ, Research Library & Confidential Intake */}
         <FAQ />
 
-        {/* Seller Research Library */}
+        {/* Interactive Seller Research Library */}
         <section className="bg-ivory py-12 md:py-20 border-t border-hairline" aria-labelledby="research-library-heading">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="max-w-2xl mb-8 md:mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">
-                Seller Research &amp; Advisory
-              </p>
-              <h2 id="research-library-heading" className="mt-2 font-serif text-2xl text-navy-deep sm:text-3xl md:text-4xl">
-                Critical Financial &amp; Legal Guides Before You List
-              </h2>
+            <div className="flex flex-col justify-between gap-4 mb-8 md:flex-row md:items-end">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">
+                  Seller Research &amp; Advisory
+                </p>
+                <h2 id="research-library-heading" className="mt-2 font-serif text-2xl text-navy-deep sm:text-3xl md:text-4xl">
+                  Critical Financial &amp; Legal Guides Before You List
+                </h2>
+              </div>
+
+              <div className="inline-flex rounded-lg border border-bone bg-white p-1" role="group" aria-label="Filter guides">
+                {[
+                  { id: "all", label: "All 6 Briefings" },
+                  { id: "tax", label: "Proceeds & Tax" },
+                  { id: "market", label: "HOA & Timing" },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setGuideFilter(tab.id as "all" | "tax" | "market")}
+                    className={`rounded-md px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                      guideFilter === tab.id
+                        ? "bg-navy-deep text-gold font-bold"
+                        : "text-navy/70 hover:text-navy-deep"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
-              <a
-                href="/journal/seller-closing-costs-south-florida-2026"
-                className="group flex flex-col justify-between border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-md"
-              >
-                <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold mb-2">Net Proceeds Strategy</p>
-                  <h3 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
-                    What Does It Cost to Sell a Home in South Florida — A Guide to Net Proceeds
-                  </h3>
-                  <p className="mt-2.5 font-sans text-xs leading-relaxed text-navy/70">
-                    A realistic accounting of Florida documentary stamp taxes, title fees, and settlement prorations.
-                  </p>
-                </div>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-medium">Read the guide →</p>
-              </a>
-
-              <a
-                href="/journal/hoa-impact-home-sale-south-florida-2026"
-                className="group flex flex-col justify-between border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-md"
-              >
-                <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold mb-2">Condo &amp; HOA Advisory</p>
-                  <h3 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
-                    HOA Financials and Your Home's Sale Price — What South Florida Sellers Need to Know
-                  </h3>
-                  <p className="mt-2.5 font-sans text-xs leading-relaxed text-navy/70">
-                    How reserve studies, milestone inspections, and HOA estoppel packages impact buyer financing.
-                  </p>
-                </div>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-medium">Read the guide →</p>
-              </a>
-
-              <a
-                href="/journal/when-to-list-south-florida-home-2026"
-                className="group flex flex-col justify-between border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-md"
-              >
-                <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold mb-2">Market Analysis</p>
-                  <h3 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
-                    When to List Your South Florida Home — Timing, Pricing, and the Cost of Waiting
-                  </h3>
-                  <p className="mt-2.5 font-sans text-xs leading-relaxed text-navy/70">
-                    Seasonal inventory shifts, winter migration patterns, and competitive positioning windows.
-                  </p>
-                </div>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-medium">Read the guide →</p>
-              </a>
-
-              <a
-                href="/journal/florida-homestead-portability-benefits-2026"
-                className="group flex flex-col justify-between border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-md"
-              >
-                <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold mb-2">Tax Strategy</p>
-                  <h3 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
-                    Florida Homestead &amp; Save Our Homes Portability — What Owners Must Understand
-                  </h3>
-                  <p className="mt-2.5 font-sans text-xs leading-relaxed text-navy/70">
-                    How transferring accumulated tax assessment savings protects your equity when upgrading or downsizing.
-                  </p>
-                </div>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-medium">Read the guide →</p>
-              </a>
-
-              <a
-                href="/journal/home-sale-capital-gains-exclusion-500k-2026"
-                className="group flex flex-col justify-between border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-md"
-              >
-                <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold mb-2">Capital Gains</p>
-                  <h3 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
-                    The $250,000 / $500,000 Capital Gains Exclusion for Primary Residences
-                  </h3>
-                  <p className="mt-2.5 font-sans text-xs leading-relaxed text-navy/70">
-                    IRS Section 121 rules, ownership timelines, and documentation best practices.
-                  </p>
-                </div>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-medium">Read the guide →</p>
-              </a>
-
-              <a
-                href="/journal/1031-exchange-south-florida-investment-property-2026"
-                className="group flex flex-col justify-between border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-md"
-              >
-                <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold mb-2">Portfolio Exit</p>
-                  <h3 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
-                    The 1031 Exchange — Deferring Capital Gains on South Florida Investment Sales
-                  </h3>
-                  <p className="mt-2.5 font-sans text-xs leading-relaxed text-navy/70">
-                    Strict 45-day identification and 180-day closing deadlines for residential and commercial replacement assets.
-                  </p>
-                </div>
-                <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-medium">Read the guide →</p>
-              </a>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {SELLER_GUIDES.map((guide) => {
+                const visible = guideFilter === "all" || guide.category === guideFilter;
+                return (
+                  <a
+                    key={guide.href}
+                    href={guide.href}
+                    hidden={!visible}
+                    className="group flex flex-col justify-between rounded-xl border border-bone bg-white p-5 transition-all duration-300 hover:border-gold hover:shadow-md"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="rounded bg-ivory px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink font-semibold">
+                          {guide.tag}
+                        </span>
+                        <ArrowUpRight size={15} className="text-navy/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold-ink" />
+                      </div>
+                      <h3 className="mt-3 font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
+                        {guide.title}
+                      </h3>
+                      <p className="mt-2 font-sans text-xs leading-relaxed text-navy/70">
+                        {guide.takeaway}
+                      </p>
+                    </div>
+                    <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-semibold">
+                      Open Briefing →
+                    </p>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </section>
