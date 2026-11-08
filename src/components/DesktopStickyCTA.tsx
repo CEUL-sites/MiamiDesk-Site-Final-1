@@ -85,9 +85,9 @@ export function DesktopStickyCTA({
   // (rendered in a separate tree) can yield — the bar has its own WhatsApp
   // action, and the two otherwise stack at the same bottom edge.
   useEffect(() => {
-    document.body.toggleAttribute("data-desktop-cta", visible);
+    document.body.toggleAttribute("data-desktop-cta", visible || formVisible);
     return () => document.body.removeAttribute("data-desktop-cta");
-  }, [visible]);
+  }, [visible, formVisible]);
 
   if (!visible) return null;
 

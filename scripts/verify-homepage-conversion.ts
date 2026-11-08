@@ -128,10 +128,16 @@ const [
   readFile("src/data/figures.json", "utf8"),
 ]);
 
-assert.match(hero, /Your Property Deserves a/);
-assert.match(hero, /Stronger Market Strategy\./);
+assert.match(hero, /A stronger strategy for your South Florida sale\./);
+assert.match(hero, /Start with your property address/);
+assert.match(hero, /Enter your South Florida property address/);
+assert.match(hero, /Continue With My Property/);
+assert.match(hero, /Next: share your contact details\. Carlos reviews your property and contacts you to arrange a private strategy call\./);
+assert.match(hero, /Licensed since 2001 · CLHMS · United Realty Group · English \/ Español/);
+assert.doesNotMatch(hero, /inputEl\.value\s*=/);
+assert.doesNotMatch(hero, /Tilt3D/);
 assert.match(hero, /Licensed Since 2001/i);
-assert.match(hero, /buyer-agent relationships/);
+assert.match(hero, /We align pricing, presentation and buyer-agent outreach around your property\. Carlos leads your strategy and negotiation, with Florida experience since 2001\./);
 assert.match(hero, /Request a Private Seller Strategy/);
 assert.match(hero, /Explore Our Listing Approach/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
@@ -187,11 +193,11 @@ assert.match(objectives, /Sell in South Florida/);
 assert.match(consultation, /Meet Carlos · Private Consultation/);
 
 const sectionOrder = [
-  "<Hero />",
+  "<Hero",
   "<HomepageListingApproach />",
   "<Proof />",
   "<HomepageObjectives />",
-  "<HomepageConsultation />",
+  "<HomepageConsultation",
   "<Footer />",
 ];
 for (let index = 1; index < sectionOrder.length; index += 1) {

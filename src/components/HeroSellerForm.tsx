@@ -100,7 +100,12 @@ const COPY = {
   },
 } as const;
 
-export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false, valuation = false, consultation = false, initialAddress = "", sourcePage = `hero-${lang}` }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean; valuation?: boolean; consultation?: boolean; initialAddress?: string; sourcePage?: string }) {
+export interface HeroAddressTransfer {
+  address: string;
+  seq: number;
+}
+
+export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false, valuation = false, consultation = false, initialAddress = "", addressTransfer = null, sourcePage = `hero-${lang}` }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean; valuation?: boolean; consultation?: boolean; initialAddress?: string; addressTransfer?: HeroAddressTransfer | null; sourcePage?: string }) {
   const valuationSubmit = lang === "es" ? "Solicitar revisión del valor de mi casa" : "Request My Home Value Review";
   const t = valuation ? {
     ...COPY[lang],
@@ -119,7 +124,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
   const addressId = useId();
   const initial = {
     name: "", phone: "", email: "",
-    propertyAddress: initialAddress,
+    propertyAddress: (addressTransfer?.address ?? initialAddress).trim(),
     city: valuation ? "" : t.markets[0],
     timeline: t.timelines[0],
     messagingConsent: "no",
@@ -132,6 +137,17 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
   const nameRef               = useRef<HTMLInputElement>(null);
   const formStartFired        = useRef(false);
   const renderedAt            = useRef(Date.now());
+  const lastTransferSeq       = useRef<number | null>(addressTransfer ? addressTransfer.seq : null);
+
+  useEffect(() => {
+    if (!addressTransfer || addressTransfer.seq === lastTransferSeq.current) return;
+    lastTransferSeq.current = addressTransfer.seq;
+    const nextAddress = addressTransfer.address.trim();
+    if (!nextAddress) return;
+    setForm((f) => ({ ...f, propertyAddress: nextAddress }));
+    setError("");
+    setForm((f) => ({ ...f, propertyAddress: f.propertyAddress.trim() }));
+  }, [addressTransfer]);
 
   const placesInitialized = useRef(false);
   const placesListener = useRef<google.maps.MapsEventListener | null>(null);
@@ -177,6 +193,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
       return;
     }
     setError("");
+    setForm((f) => ({ ...f, propertyAddress: f.propertyAddress.trim() }));
     setStep(2);
     setTimeout(() => {
       nameRef.current?.focus();
@@ -189,9 +206,25 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
       handleStep1Continue(e);
       return;
     }
+    if (!valuation && !form.propertyAddress.trim()) {
+      setStep(1);
+      addressRef.current?.focus();
+      setError(lang === "es" ? "Por favor ingrese la dirección de la propiedad" : "Please enter your property address");
+      return;
+    }
+    if (!form.name.trim()) {
+      nameRef.current?.focus();
+      setError(lang === "es" ? "Por favor ingrese su nombre completo" : "Please enter your full name");
+      return;
+    }
+    if (!form.phone.trim()) {
+      setError(lang === "es" ? "Por favor ingrese su teléfono o WhatsApp" : "Please enter your phone or WhatsApp number");
+      return;
+    }
     if (status === "submitting") return;
     setStatus("submitting");
     setError("");
+    setForm((f) => ({ ...f, propertyAddress: f.propertyAddress.trim() }));
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 12000);
     try {
@@ -361,11 +394,11 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
 
         {/* Mobile Step 2 active address indicator */}
         {step === 2 && !valuation && (
-          <div className={`${compact ? "seller-form-address-summary " : ""}mt-2.5 flex items-center justify-between rounded bg-white/[0.04] px-3 py-1.5 text-xs text-white/70 border border-white/10 lg:hidden`}>
+          <div className={`${compact ? "seller-form-address-summary " : ""}mt-2.5 flex items-center justify-between rounded bg-white/[0.04] px-3 py-1.5 text-xs text-white/70 border border-white/10 ${progressiveDesktop ? "" : "lg:hidden"}`}>
             <span className="truncate max-w-[220px] text-white/90 font-medium">📍 {form.propertyAddress}</span>
             <button
               type="button"
-              onClick={() => setStep(1)}
+              onClick={() => { setStep(1); requestAnimationFrame(() => addressRef.current?.focus({ preventScroll: true })); }}
               className="text-gold underline hover:text-gold-soft ml-2 flex-shrink-0 font-mono text-[11px]"
             >
               {t.editAddress}

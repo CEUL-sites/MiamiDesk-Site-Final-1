@@ -21,10 +21,13 @@ assert.match(
   /fetchPriority="high"/,
   "the preserved property-animation poster must remain prioritized",
 );
-assert.match(hero, /Your Property Deserves a/);
-assert.match(hero, /Stronger Market Strategy\./);
+assert.match(hero, /A stronger strategy for your South Florida sale\./);
+assert.match(hero, /Start with your property address/);
+assert.match(hero, /Continue With My Property/);
+assert.match(hero, /Licensed since 2001 · CLHMS · United Realty Group · English \/ Español/);
+assert.doesNotMatch(hero, /Tilt3D/);
 assert.match(hero, /Licensed Since 2001/i);
-assert.match(hero, /buyer-agent relationships/);
+assert.match(hero, /We align pricing, presentation and buyer-agent outreach around your property\. Carlos leads your strategy and negotiation, with Florida experience since 2001\./);
 assert.match(hero, /Request a Private Seller Strategy/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
 assert.doesNotMatch(hero, /autoPlay/);

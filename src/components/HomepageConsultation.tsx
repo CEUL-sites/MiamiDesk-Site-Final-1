@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BadgeCheck, Building2, Languages, MessageCircle } from "lucide-react";
 import { CONTACT } from "../constants";
-import { HeroSellerForm } from "./HeroSellerForm";
+import { HeroSellerForm, type HeroAddressTransfer } from "./HeroSellerForm";
 import { UrgLogo } from "./UrgLogo";
 
 const PROCESS_STEPS = [
@@ -29,7 +29,13 @@ const CREDENTIAL_STATS = [
   { value: "19", label: "FL Office Locations" },
 ] as const;
 
-export function HomepageConsultation({ initialAddress = "" }: { initialAddress?: string } = {}) {
+export function HomepageConsultation({
+  initialAddress = "",
+  addressTransfer = null,
+}: {
+  initialAddress?: string;
+  addressTransfer?: HeroAddressTransfer | null;
+} = {}) {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
@@ -180,6 +186,7 @@ export function HomepageConsultation({ initialAddress = "" }: { initialAddress?:
                 progressiveDesktop
                 consultation
                 initialAddress={initialAddress}
+                addressTransfer={addressTransfer}
                 sourcePage="homepage-consultation-en"
               />
 

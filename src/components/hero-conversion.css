@@ -1,44 +1,55 @@
-/* Interactive seller strategy. Presentation scoped to the English homepage. */
+/* Interactive seller strategy. Presentation scoped to the English homepage and shared seller-hero-form consumers. */
 .seller-hero { --hero-navy: #071722; --hero-gold: #d7bc8b; --hero-ivory: #f5f2eb; background: var(--hero-navy); color: #fff; padding-top: 82px; }
+#list-here { --hero-gold: #d7bc8b; }
 .seller-hero-scene { position: relative; isolation: isolate; }
 .seller-hero-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; z-index: -2; }
-.seller-hero-scene::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #071722f5 0%, #071722d6 25%, #07172274 48%, #07172218 78%), linear-gradient(0deg, #071722c2 0%, transparent 30%); }
-.seller-hero-layout { max-width: 1600px; margin: auto; padding: 52px clamp(28px, 4vw, 64px) 60px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, clamp(360px, 34vw, 490px)); gap: clamp(36px, 6vw, 96px); align-items: center; min-height: 730px; }
+.seller-hero-scene::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #071722f5 0%, #071722d6 28%, #07172285 52%, #07172226 80%), linear-gradient(0deg, #071722c8 0%, transparent 32%); }
+.seller-hero-layout { max-width: 1440px; margin: auto; padding: 44px clamp(28px, 4vw, 64px) 48px; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.85fr); gap: clamp(32px, 5vw, 64px); align-items: center; min-height: 560px; }
 .seller-hero-primary { min-width: 0; }
-.seller-hero-eyebrow { color: var(--hero-gold); font-size: 11px; line-height: 1.5; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 17px; font-weight: 600; }
+.seller-hero-eyebrow { color: var(--hero-gold); font-size: 11px; line-height: 1.5; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 14px; font-weight: 600; }
 .seller-hero-eyebrow span { margin: 0 6px; }
-.seller-hero-heading { font-size: clamp(48px, 5.35vw, 82px); line-height: 1.035; font-weight: 400; letter-spacing: -.047em; }
-.seller-hero-heading > span { display: block; color: var(--hero-gold); }
-.seller-hero-summary { max-width: 580px; color: #e0e5e9; font-size: clamp(16px, 1.35vw, 20px); line-height: 1.65; margin-top: 26px; }
-.seller-hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 26px; }
-.seller-hero-primary-cta, .seller-hero-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 54px; font-size: 14px; line-height: 1.3; font-weight: 600; transition: background-color .2s, color .2s; }
-.seller-hero-primary-cta { background: var(--hero-gold); color: var(--hero-navy); padding: 16px 22px; border-radius: 3px; }
-.seller-hero-primary-cta:hover { background: #e5cda5; }
-.seller-hero-whatsapp { border-bottom: 1px solid var(--hero-gold); color: #fff; padding: 12px 0; }
+.seller-hero-heading { font-size: clamp(40px, 4.5vw, 64px); line-height: 1.07; font-weight: 400; letter-spacing: -.032em; text-wrap: balance; color: #fff; }
+.seller-hero-heading > span { display: inline; color: var(--hero-gold); }
+.seller-hero-summary { max-width: 570px; color: #e4eaee; font-size: clamp(16px, 1.25vw, 19px); line-height: 1.62; margin-top: 20px; }
+.seller-hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 24px; }
+.seller-hero-primary-cta, .seller-hero-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; font-size: 14px; line-height: 1.3; font-weight: 600; transition: background-color .2s, color .2s, border-color .2s; }
+/* Secondary visual emphasis so the address button ("Continue With My Property") holds sole primary gold fill */
+.seller-hero-primary-cta { background: rgba(215, 188, 139, 0.12); color: #fff; border: 1px solid var(--hero-gold); padding: 12px 20px; border-radius: 4px; }
+.seller-hero-primary-cta svg { color: var(--hero-gold); }
+.seller-hero-primary-cta:hover { background: rgba(215, 188, 139, 0.22); color: var(--hero-gold); }
+.seller-hero-whatsapp { border-bottom: 1px solid var(--hero-gold); color: #fff; padding: 10px 0; }
 .seller-hero-whatsapp svg { color: var(--hero-gold); }
 .seller-hero-whatsapp:hover { color: var(--hero-gold); }
-.seller-hero-credentials { font-size: 12px; line-height: 1.8; color: #c8d2da; margin-top: 22px; }
-.seller-hero-action { min-width: 0; padding: clamp(25px, 2.3vw, 34px); margin-top: 48px; color: #112733; background: var(--hero-ivory); border: 1px solid #d7bc8b60; border-radius: 8px; box-shadow: 0 16px 50px #0003; scroll-margin-top: 100px; }
-.seller-hero-action h2 { font-size: clamp(24px, 2.15vw, 32px); line-height: 1.2; font-weight: 400; }
+.seller-hero-whatsapp.seller-hero-tertiary-link { border-bottom-color: rgba(200, 210, 218, 0.38); color: #c8d2da; font-weight: 500; font-size: 13px; }
+.seller-hero-whatsapp.seller-hero-tertiary-link:hover { color: var(--hero-gold); border-bottom-color: var(--hero-gold); }
+.seller-hero-credentials { font-size: 12px; line-height: 1.65; color: #cfd8df; margin-top: 18px; }
+.seller-hero-showcase { min-width: 0; width: 100%; }
+.seller-hero-address-input { font-size: 16px; min-height: 48px; }
+.seller-hero-address-submit { min-height: 48px; cursor: pointer; }
+.seller-hero-action { min-width: 0; padding: 24px; margin-top: 0; color: #112733; background: var(--hero-ivory); border: 1px solid #d7bc8b60; border-radius: 2px; box-shadow: 0 16px 50px #0003; scroll-margin-top: 100px; }
+.seller-hero-action h2 { font-size: 26px; line-height: 1.2; font-weight: 400; margin-bottom: 14px; text-wrap: balance; }
 .seller-priority-tabs { display: grid; grid-template-columns: 1.15fr 1fr .9fr; border-bottom: 1px solid #c9cecb; margin-top: 17px; }
 .seller-priority-tabs button { position: relative; min-width: 0; min-height: 46px; border-bottom: 3px solid transparent; margin-bottom: -1px; padding: 8px 4px 11px; color: #52626c; font-family: var(--font-sans); font-size: 11px; line-height: 1.35; font-weight: 600; cursor: pointer; transition: color .2s, border-color .2s; }
 .seller-priority-tabs button:hover { color: #071722; background: #07172206; }
 .seller-priority-tabs button[aria-selected=true] { color: #071722; border-bottom-color: #b89558; }
-.seller-priority-content { display: grid; padding: 22px 0; }
+.seller-priority-disclosure { border-top: 1px solid #c9cecb; margin-top: 12px; padding-top: 10px; }
+.seller-priority-disclosure summary { cursor: pointer; font-size: 13px; padding-block: 8px; }
+.seller-priority-content { display: grid; padding: 22px 0 0; }
 .seller-priority-content [role=tabpanel] { grid-area: 1 / 1; min-height: 104px; }
 .seller-priority-content [role=tabpanel][aria-hidden=true] { display: block; visibility: hidden; pointer-events: none; }
 .seller-priority-content [role=tabpanel][aria-hidden=false] { animation: seller-panel-reveal .22s ease-out; }
 .seller-priority-content h3 { font-size: 24px; line-height: 1.25; font-weight: 400; margin-bottom: 9px; }
 .seller-priority-content p { color: #52616b; font-size: 13px; line-height: 1.65; }
+/* Shared compact seller-hero-form rules (used by HomeValueEntry on light cards and HomepageConsultation on dark cards) */
 .seller-hero .seller-hero-form { background: transparent; border: 0; border-radius: 0; padding: 0; box-shadow: none; }
 .seller-hero-form .seller-form-address-label { display: block; color: #344853; font-size: 12px; font-weight: 500; line-height: 1.5; letter-spacing: .04em; margin-bottom: 7px; }
 .seller-hero-form .seller-form-progress { color: #344853; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
 .seller-hero-form .seller-form-field { display: block; min-width: 0; }
 .seller-hero-form .seller-form-field > span { display: block; color: #344853; font-size: 11px; font-weight: 600; line-height: 1.4; margin-bottom: 4px; }
-.seller-hero-form .hero-cta-main { min-height: 52px; font-size: 13px; background: var(--hero-gold); color: #071722; border-radius: 3px; box-shadow: none; }
+.seller-hero-form .hero-cta-main { min-height: 52px; font-size: 13px; background: var(--hero-gold, #d7bc8b); color: #071722; border-radius: 3px; box-shadow: none; cursor: pointer; }
 .seller-hero-form .hero-cta-main:hover { background: #cbaa70; transform: none; box-shadow: none; }
-.seller-hero-form input:not([type=checkbox]), .seller-hero-form select { color: #112733; background: #fff; border-color: #b5bfc3; border-radius: 3px; }
-.seller-hero-form input::placeholder { color: #65747c; }
+.seller-hero-form input:not([type=checkbox]), .seller-hero-form select { color: #112733; background: #fff; border-color: #b5bfc3; border-radius: 3px; font-size: 16px; min-height: 48px; }
+.seller-hero-form input::placeholder { color: #56656e; }
 .seller-hero-form select option { background: #fff; color: #112733; }
 .seller-hero-form label > span { color: #52616b; font-size: 11px; line-height: 1.5; }
 .seller-hero-form .seller-form-microcopy { color: #52616b; font-size: 12px; line-height: 1.65; margin-top: 12px; text-align: left; }
@@ -46,94 +57,80 @@
 .seller-hero-form .seller-form-privacy { text-align: center; font-size: 11px; color: #52616b; }
 .seller-hero-form [role=alert] { color: #b42318; }
 .seller-hero-form .seller-form-address-summary { background: #e9e7df; color: #344853; border-color: #c7cdcf; }
-.seller-hero-form .seller-form-address-summary span, .seller-hero-form .seller-form-address-summary button { color: #344853; }
+.seller-hero-form .seller-form-address-summary span, .seller-hero-form .seller-form-address-summary button { color: #344853; min-height: 36px; display: inline-flex; align-items: center; }
+/* High-contrast overrides for dark consultation card (#list-here) while keeping light-card consumers intact */
+#list-here .seller-hero-form .seller-form-progress { color: #d7bc8b; }
+#list-here .seller-hero-form .seller-form-address-label,
+#list-here .seller-hero-form .seller-form-field > span { color: #e4eaee; }
+#list-here .seller-hero-form label > span,
+#list-here .seller-hero-form .seller-form-microcopy,
+#list-here .seller-hero-form .seller-form-privacy { color: #c8d2da; }
+#list-here .seller-hero-form .seller-form-whatsapp { color: #d7bc8b; }
+#list-here .seller-hero-form [role=alert] { color: #fca5a5; }
+#list-here .seller-hero-form .seller-form-address-summary { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.18); color: #f5f2eb; }
+#list-here .seller-hero-form .seller-form-address-summary span { color: #fff; }
+#list-here .seller-hero-form .seller-form-address-summary button { color: #d7bc8b; }
 .seller-hero-image-caption { position: absolute; right: 20px; bottom: 10px; color: #e0e5e9; font-size: 11px; }
 .seller-hero-support { border-top: 1px solid #29404c; border-bottom: 1px solid #29404c; }
 .seller-hero-proof { max-width: 1520px; margin: auto; padding: 28px; display: grid; grid-template-columns: 1fr 1.3fr 1.3fr; gap: 28px; }
 .seller-hero-proof > p + p { border-left: 1px solid #47606c; padding-left: 32px; }
 .seller-hero-proof strong { display: block; color: var(--hero-gold); font-family: var(--font-serif); font-size: clamp(20px, 2vw, 29px); line-height: 1.3; font-weight: 400; }
 .seller-hero-proof span { display: block; color: #c0ccd3; margin-top: 8px; font-size: 10px; line-height: 1.6; letter-spacing: .07em; text-transform: uppercase; }
-.seller-hero-foot { max-width: 1520px; margin: auto; padding: 16px 28px 20px; }
-.seller-hero-foot > p:first-child { font-size: 12px; line-height: 1.7; color: #d3dde6; }
-.seller-hero-foot a { color: var(--hero-gold); display: inline-flex; align-items: center; gap: 5px; text-underline-offset: 4px; }
+.seller-hero-foot { max-width: 1440px; margin: auto; padding: 12px clamp(28px, 4vw, 64px) 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.seller-hero-foot > p:first-child { font-size: 12px; line-height: 1.6; color: #d3dde6; }
+.seller-hero-foot a { color: var(--hero-gold); display: inline-flex; align-items: center; gap: 5px; text-underline-offset: 4px; min-height: 36px; }
 .seller-hero-foot a:hover { text-decoration: underline; }
-.seller-hero-compliance { font-size: 11px; line-height: 1.7; color: #aebbc3; margin-top: 7px; max-width: 1100px; }
-.seller-hero :is(a,button,[role=tabpanel]):focus-visible { outline: 2px solid #ac7c28; outline-offset: 4px; }
+.seller-hero-compliance { font-size: 11px; line-height: 1.6; color: #aebbc3; margin-top: 4px; max-width: 1100px; }
+.seller-hero :is(a, button, input, select, [role=tabpanel]):focus-visible,
+#list-here :is(a, button, input, select):focus-visible { outline: 2px solid #d7bc8b; outline-offset: 3px; }
 @keyframes seller-panel-reveal { from { opacity: .5; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (min-width: 1440px) { .seller-priority-tabs button { font-size: 13px; } .seller-priority-content p { font-size: 14px; } }
 @media (max-width: 1023px) {
-  .seller-hero { padding-top: 76px; }
-  .seller-hero-layout { grid-template-columns: 1fr; min-height: 0; padding: 32px 24px 28px; gap: 26px; max-width: 720px; }
-  .seller-hero-background { object-position: 65% top; height: 510px; }
-  .seller-hero-scene::before { background: linear-gradient(90deg, #071722e8, #0717228c), linear-gradient(0deg, #071722 46%, transparent 85%); }
-  .seller-hero-heading { font-size: clamp(40px, 7vw, 62px); line-height: 1.05; }
-  .seller-hero-heading > span br { display: none; }
-  .seller-hero-eyebrow { font-size: 10px; margin-bottom: 16px; }
-  .seller-hero-summary { font-size: 15px; line-height: 1.6; margin-top: 19px; max-width: 530px; }
-  .seller-hero-links { margin-top: 20px; gap: 8px 20px; }
-  .seller-hero-primary-cta, .seller-hero-whatsapp { font-size: 14px; min-height: 48px; }
-  .seller-hero-primary-cta { padding: 14px 17px; width: 100%; }
-  .seller-hero-credentials { margin-top: 15px; font-size: 12px; }
-  .seller-hero-action { margin-top: 0; padding: 27px; }
-  .seller-hero-action h2 { font-size: 28px; }
-  .seller-priority-tabs button { font-size: 12px; }
-  .seller-priority-content [role=tabpanel] { min-height: 98px; }
-  .seller-priority-content h3 { font-size: 23px; }
-  .seller-hero-proof { padding: 20px 24px; gap: 15px; }
-  .seller-hero-proof > p + p { padding-left: 15px; }
-  .seller-hero-proof strong { font-size: 18px; }
-  .seller-hero-proof span { font-size: 9px; letter-spacing: 0; text-transform: none; }
-  .seller-hero-foot { padding: 15px 24px 18px; }
+  .seller-hero { padding-top: 72px; }
+  .seller-hero-layout { grid-template-columns: 1fr; gap: 16px; padding: 20px 20px 16px; min-height: 0; max-width: 680px; }
+  .seller-hero-primary { max-width: 640px; }
+  .seller-hero-showcase { max-width: 640px; width: 100%; }
+  .seller-hero-action { max-width: 640px; width: 100%; margin-top: 0; padding: 22px; }
+  .seller-hero-background { height: 100%; object-position: 65% center; }
+  .seller-hero-scene::before { background: linear-gradient(180deg, #071722eb 0%, #071722d9 55%, #071722fa 100%); }
+  .seller-hero-eyebrow { font-size: 10px; margin-bottom: 8px; }
+  .seller-hero-heading { font-size: clamp(30px, 5.8vw, 46px); line-height: 1.08; }
+  .seller-hero-summary { font-size: 15px; line-height: 1.52; margin-top: 10px; max-width: 560px; }
+  .seller-hero-links { margin-top: 14px; gap: 8px 18px; }
+  .seller-hero-primary-cta, .seller-hero-whatsapp { font-size: 13px; min-height: 44px; }
+  .seller-hero-primary-cta { padding: 10px 16px; }
+  .seller-hero-whatsapp { padding: 8px 0; }
+  .seller-hero-credentials { font-size: 11.5px; line-height: 1.5; margin-top: 10px; }
+  .seller-hero-image-caption { position: static; padding: 0 20px 10px; font-size: 10px; max-width: 680px; margin: auto; }
+  .seller-hero-foot { padding: 10px 20px 14px; max-width: 680px; }
+  .seller-hero-foot a { min-height: 44px; }
+}
+@media (max-width: 767px) {
+  .seller-hero { padding-top: 66px; }
+  .seller-hero-layout { padding: 14px 18px 12px; gap: 12px; }
+  .seller-hero-eyebrow { margin-bottom: 6px; letter-spacing: .12em; }
+  .seller-hero-heading { font-size: clamp(27px, 7.2vw, 34px); line-height: 1.08; }
+  .seller-hero-summary { font-size: 14px; line-height: 1.48; margin-top: 8px; }
+  .seller-hero-links { margin-top: 10px; gap: 6px 16px; }
+  .seller-hero-primary-cta { width: 100%; padding: 10px 14px; min-height: 44px; }
+  .seller-hero-whatsapp { min-height: 44px; padding: 6px 0; font-size: 13px; }
+  .seller-hero-credentials { font-size: 11px; line-height: 1.45; margin-top: 6px; }
+  /* Compact architectural crop on phones so the address entry appears substantially earlier in the opening viewport */
+  .seller-hero-showcase-media { aspect-ratio: auto; height: 92px; }
+  .seller-hero-showcase-media img { object-position: center 56%; }
+  .seller-hero-intake { padding: 14px 16px 16px; }
+  .seller-hero-address-input { padding-left: 34px; padding-right: 10px; }
+  .seller-hero-address-input::placeholder { letter-spacing: -.01em; }
+  .seller-hero-address-next { margin-top: 10px; font-size: 12px; line-height: 1.45; }
+  .seller-hero-address-reassurance { margin-top: 4px; }
+  .seller-hero-image-caption { padding: 0 18px 8px; }
+  .seller-hero-foot { padding: 8px 18px 12px; }
 }
 @media (max-width: 420px) {
-  .seller-hero-layout { padding: 27px 20px 28px; gap: 24px; }
-  .seller-hero-heading { font-size: 39px; }
-  .seller-hero-heading > span br { display: initial; }
-  .seller-hero-summary { font-size: 15px; }
-  .seller-hero-eyebrow { font-size: 10px; letter-spacing: .08em; }
-  .seller-hero-action { padding: 23px 18px; }
-  .seller-hero-action h2 { font-size: 25px; }
-  .seller-priority-tabs button { font-size: 11px; }
-  .seller-priority-content h3 { font-size: 21px; }
-  .seller-priority-content p { font-size: 13px; }
   .seller-hero-proof { grid-template-columns: 1fr; gap: 12px; padding: 22px; }
   .seller-hero-proof > p + p { border-left: 0; border-top: 1px solid #29404c; padding: 12px 0 0; }
   .seller-hero-proof strong { font-size: 20px; }
 }
-@media (prefers-reduced-motion: reduce) { .seller-hero *, .seller-hero *::before, .seller-hero *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
-
-/* Approved principal-led opening: compact initial state, expanding only for inquiry. */
-.seller-hero-layout { min-height: 580px; max-width: 1440px; padding-block: 48px; grid-template-columns: minmax(0,1.25fr) minmax(320px,.8fr); gap: 64px; }
-.seller-hero-heading { font-size: clamp(42px,4.7vw,68px); line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
-.seller-hero-action { margin-top: 0; padding: 24px; border-radius: 2px; }
-.seller-hero-action h2 { font-size: 26px; margin-bottom: 14px; text-wrap: balance; }
-.seller-priority-disclosure { border-top: 1px solid #c9cecb; margin-top: 12px; padding-top: 10px; }
-.seller-priority-disclosure summary { cursor: pointer; font-size: 13px; padding-block: 8px; }
-.seller-priority-content { padding-bottom: 0; }
-.seller-hero-foot { padding-block: 12px; }
-@media (max-width: 1023px) {
- .seller-hero-layout { grid-template-columns: 1fr; gap: 18px; padding: 24px; min-height: 0; }
- .seller-hero-primary { max-width: 640px; }
- .seller-hero-action { max-width: 640px; width: 100%; }
- .seller-hero-background { height: 100%; object-position: 65% center; }
- .seller-hero-scene::before { background: linear-gradient(90deg,#071722f2,#071722b8); }
- .seller-hero-heading { font-size: clamp(32px,6vw,52px); line-height: 1.08; }
- .seller-hero-heading > span { display: inline; }
- .seller-hero-summary { margin-top: 12px; line-height: 1.55; }
- .seller-hero-credentials { font-size: 11px; margin-top: 12px; }
- .seller-hero-links { margin-top: 18px; }
- .seller-hero-image-caption { position: static; padding: 0 24px 14px; font-size: 10px; }
-}
-@media (max-width: 480px) {
- .hero-desktop-break { display: none; }
- .seller-hero-foot a { min-height: 44px; }
- .seller-hero-heading { font-size: clamp(30px,8.2vw,38px); }
- .seller-hero-eyebrow { margin-bottom: 10px; }
- .seller-hero-summary { font-size: 14px; }
- .seller-hero-credentials { line-height: 1.6; margin-top: 10px; }
- .seller-hero-primary-cta { width: 100%; }
- .seller-hero-action { padding: 18px; }
- .seller-hero-action h2 { font-size: 23px; margin-bottom: 12px; }
- .seller-hero-form .hero-cta-main { min-height: 48px; }
- .seller-hero-form .seller-form-microcopy { line-height: 1.5; margin-top: 10px; }
+@media (prefers-reduced-motion: reduce) {
+  .seller-hero *, .seller-hero *::before, .seller-hero *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

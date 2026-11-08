@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
@@ -9,8 +10,20 @@ import { HomepageConsultation } from "../components/HomepageConsultation";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
+import type { HeroAddressTransfer } from "../components/HeroSellerForm";
 
 export default function HomePage() {
+  const [addressTransfer, setAddressTransfer] = useState<HeroAddressTransfer | null>(null);
+
+  function handleHeroAddressSubmit(address: string) {
+    const trimmed = address.trim();
+    if (!trimmed) return;
+    setAddressTransfer((prev) => ({
+      address: trimmed,
+      seq: (prev?.seq ?? 0) + 1,
+    }));
+  }
+
   return (
     <>
       <Helmet>
@@ -33,7 +46,7 @@ export default function HomePage() {
       <main id="main-content" className="min-h-screen overflow-x-hidden bg-white-soft grain-overlay pb-28 lg:pb-0">
         <Navbar />
         {/* Section A: Hero */}
-        <Hero />
+        <Hero onAddressSubmit={handleHeroAddressSubmit} />
         {/* Primary Live Bridge IDX Search Desk */}
         <ListingsBrowser compact />
         {/* Section B: Why Our Listing Approach */}
@@ -43,7 +56,10 @@ export default function HomePage() {
         {/* Section D: Choose Your Property Objective */}
         <HomepageObjectives />
         {/* Section E: Meet Carlos / Private Consultation */}
-        <HomepageConsultation />
+        <HomepageConsultation
+          initialAddress={addressTransfer?.address ?? ""}
+          addressTransfer={addressTransfer}
+        />
         {/* Global Footer (Preserved untouched in Phase 1) */}
         <Footer />
         <MobileStickyCTA />
