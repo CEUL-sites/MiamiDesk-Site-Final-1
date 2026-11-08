@@ -3,6 +3,7 @@ import { AssociationFilms } from "../components/AssociationFilms";
 import { GlobalResearchLinks } from "../components/GlobalResearchLinks";
 import { DistributionMetrics } from "../components/DistributionMetrics";
 import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
+import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Check, Handshake, Mail, MessageCircle, ShieldCheck, UserRoundCheck, UsersRound } from "lucide-react";
@@ -311,6 +312,9 @@ export default function GlobalDeskPage() {
 
         {/* GILMAR × United Realty Group Active Bilateral Showcase */}
         <GilmarGlobalDeskSection variant="global-desk" lang={lang} />
+
+        {/* MIAMI REALTORS® + RWorld Video Hub (Only a REALTOR® · Global Ecosystem) */}
+        <RealtorAssociationVideoHub variant="global-desk" lang={lang} />
 
         <section id="how-it-works" className="scroll-mt-20 bg-ivory px-6 py-16 md:py-24">
           <div className="mx-auto max-w-6xl">

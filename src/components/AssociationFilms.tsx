@@ -4,6 +4,16 @@ import { pushEvent } from "../lib/analytics";
 import "./association-films.css";
 
 const FILMS = {
+  realtor: {
+    id: "perfect-strangers",
+    src: "/videos/only_a_realtor_perfect_strangers.mp4",
+    poster: "/images/posters/miami_realtor_association.jpg",
+    title: "Only a REALTOR® — Perfect Strangers",
+    subtitleEn: "MIAMI REALTORS® + RWorld · 93,000 Member Ecosystem",
+    subtitleEs: "MIAMI REALTORS® + RWorld · Ecosistema de 93,000 Miembros",
+    duration: "0:30",
+    published: "2024-01-15",
+  },
   miami: {
     id: "SgqCKBQykVs",
     src: "/videos/miami_realtor_association.mp4",
@@ -28,7 +38,7 @@ const FILMS = {
     id: "0OmztZur7pw",
     src: "/videos/split_miami_spain_mls.mp4",
     poster: "/images/posters/split_miami_spain_mls.jpg",
-    title: "Bilateral Spain & LATAM MLS Bridge",
+    title: "Miami in the Rankings & Global Bridge",
     subtitleEn: "437+ International Partner Agreements",
     subtitleEs: "437+ Acuerdos Internacionales",
     duration: "4:52",
@@ -40,37 +50,41 @@ type FilmKey = keyof typeof FILMS;
 const COPY = {
   en: {
     triggers: {
+      realtor: "Watch Only a REALTOR® · 0:30",
       miami: "Watch the Miami perspective · 0:35",
       broward: "Watch the Broward perspective · 2:11",
       rankings: "Watch Miami in the Rankings · 4:52",
     },
-    featureTitle: "The Miami connection",
-    featureSummary: "Interactive South Florida & Global MLS video showcase",
+    featureTitle: "Only a REALTOR® · The 93,000-Agent Network",
+    featureSummary: "Interactive MIAMI REALTORS® & Global MLS video showcase",
     heading: "South Florida, in perspective",
     hide: "Hide player",
     choices: {
-      miami: "01 · Miami MLS",
-      broward: "02 · Broward & URG",
-      rankings: "03 · Global Bridge",
+      realtor: "01 · Only a REALTOR®",
+      miami: "02 · Miami MLS",
+      broward: "03 · Broward & URG",
+      rankings: "04 · Global Rankings",
     },
-    source: "HomesProfessional.com · Native HD Showcase · No sign-in required",
+    source: "MIAMI REALTORS® + RWorld · Native HD Showcase",
   },
   es: {
     triggers: {
+      realtor: "Ver Only a REALTOR® · 0:30",
       miami: "Ver la perspectiva de Miami · 0:35",
       broward: "Ver la perspectiva de Broward · 2:11",
       rankings: "Ver Miami in the Rankings · 4:52",
     },
-    featureTitle: "La conexión con Miami",
-    featureSummary: "Presentación interactiva del ecosistema MLS de Miami y alcance global",
+    featureTitle: "Only a REALTOR® · Red de 93,000 Agentes",
+    featureSummary: "Presentación interactiva de MIAMI REALTORS® y alcance global",
     heading: "Una perspectiva del sur de Florida",
     hide: "Ocultar vídeo",
     choices: {
-      miami: "01 · Miami MLS",
-      broward: "02 · Broward y URG",
-      rankings: "03 · Puente Global",
+      realtor: "01 · Only a REALTOR®",
+      miami: "02 · Miami MLS",
+      broward: "03 · Broward y URG",
+      rankings: "04 · Rankings Globales",
     },
-    source: "HomesProfessional.com · Vídeo nativo en el sitio · Sin inicio de sesión",
+    source: "MIAMI REALTORS® + RWorld · Vídeo nativo en el sitio",
   },
 } as const;
 
@@ -84,7 +98,7 @@ interface AssociationFilmsProps {
 
 /** Inline native video showcase — zero popups, zero YouTube sign-in walls. */
 export function AssociationFilms({
-  initialFilm = "miami",
+  initialFilm = "realtor",
   lang = "en",
   location,
   tone = "dark",
@@ -114,7 +128,7 @@ export function AssociationFilms({
     return (
       <div className={`association-films association-films--${tone} association-films--feature`}>
         <div className="overflow-hidden border border-[#e8d1a760] bg-[#071722f2] shadow-2xl backdrop-blur-md">
-          {/* Top 3-Channel Selector Bar */}
+          {/* Top 4-Channel Selector Bar */}
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/15 bg-black/30 px-3.5 py-2.5">
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#e8d1a7]">
               {t.featureTitle}

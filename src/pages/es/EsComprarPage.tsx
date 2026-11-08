@@ -16,6 +16,7 @@ import {
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
+import { RealtorAssociationVideoHub } from "../../components/RealtorAssociationVideoHub";
 import { CONTACT } from "../../constants";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -304,6 +305,9 @@ export default function EsComprarPage() {
             </div>
           </div>
         </section>
+
+        {/* ─── MIAMI REALTORS® + RWorld Video Hub (Only a REALTOR®) ─ */}
+        <RealtorAssociationVideoHub variant="buyers" lang="es" />
 
         {/* ─── La red detrás de cada compra — URG ───────────────── */}
         <section className="bg-navy-deep/4 py-20 border-t border-navy-deep/10">

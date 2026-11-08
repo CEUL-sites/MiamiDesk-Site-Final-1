@@ -11,6 +11,7 @@ import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { ListingsBrowser } from "../components/listings/ListingsBrowser";
 import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
+import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
 import { Tilt3D } from "../components/Tilt3D";
 import {
   ArrowRight,
@@ -326,6 +327,9 @@ export default function BuyersPage() {
 
         {/* Section 2: Six-Stage Acquisition Mandate */}
         <FloridaBuyerJourney />
+
+        {/* MIAMI REALTORS® + RWorld Video Hub (Only a REALTOR® · Buyer Advocacy) */}
+        <RealtorAssociationVideoHub variant="buyers" />
 
         {/* Section 3: Interactive Buyer Underwriting & Specialized Desks */}
         <section className="border-t border-hairline bg-white py-16 md:py-24">

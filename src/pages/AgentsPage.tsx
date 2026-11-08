@@ -25,6 +25,7 @@ import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
+import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
 import { Tilt3D } from "../components/Tilt3D";
 import { CONTACT } from "../constants";
 
@@ -421,6 +422,9 @@ export default function AgentsPage() {
             </div>
           </div>
         </section>
+
+        {/* ── MIAMI REALTORS® + RWorld Video Hub (Only a REALTOR® · Perfect Strangers) ── */}
+        <RealtorAssociationVideoHub variant="agents" />
 
         {/* ── SECTION 3: Interactive Bilateral Architecture, Deliverables & 4-Step Stepper ─ */}
         <section className="bg-ivory py-14 md:py-20 border-t border-hairline">
