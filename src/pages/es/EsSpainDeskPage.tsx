@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { AssociationFilms } from "../../components/AssociationFilms";
+import { RealtorAssociationVideoHub } from "../../components/RealtorAssociationVideoHub";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck, ChevronRight, Download, MessageSquare, Check, Shield, FileText, Globe } from "lucide-react";
@@ -384,6 +385,9 @@ export default function EsSpainDeskPage() {
             </motion.p>
           </motion.div>
         </section>
+
+        {/* ── MIAMI REALTORS® + RWorld Video Hub (Español) ── */}
+        <RealtorAssociationVideoHub variant="global-desk" lang="es" />
 
         {/* ── Dos Flujos de Ingresos ─────────────────────────────────── */}
         <section className="bg-navy-deep py-16 md:py-20 text-white">

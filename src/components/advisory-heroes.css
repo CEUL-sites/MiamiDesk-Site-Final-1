@@ -22,8 +22,9 @@
 .county-explorer path:hover { fill:#9b8054; }
 .county-explorer path:focus-visible { outline:none; stroke:white; stroke-width:4; }
 .county-options { display:flex; flex-direction:column; gap:8px; }
-.county-options button { text-align:left; padding:12px 8px; min-height:48px; border-bottom:1px solid #ffffff30; font-size:13px; }
-.county-options button[aria-pressed=true] { color:#d7bc8b; border-color:#d7bc8b; }
+.county-options button { text-align:left; padding:10px 12px; min-height:48px; border:1px solid #ffffff24; background:#ffffff08; font-size:13px; cursor:pointer; transition:border-color .2s,background-color .2s; }
+.county-options button:hover { border-color:#d7bc8b80; background:#ffffff12; }
+.county-options button[aria-pressed=true] { color:#d7bc8b; border-color:#d7bc8b; background:#d7bc8b1a; }
 .county-detail { grid-column:1/-1; padding-top:16px; border-top:1px solid #ffffff26; }
 .county-detail h2 { font-family:var(--font-serif); font-size:24px; color:#d7bc8b; }
 .county-detail p { font-size:13px; line-height:1.7; margin:8px 0; color:#d4dbe3; }

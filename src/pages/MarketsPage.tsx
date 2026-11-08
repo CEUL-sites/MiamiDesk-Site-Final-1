@@ -93,6 +93,11 @@ const COUNTIES = [
       "Integrated tri-county MLS exposure connecting Broward and Miami-Dade buyer agents",
     ],
     featuredLinks: [
+      { label: "Boca Raton Seller Guide", href: "/journal/selling-boca-raton-home-2026" },
+      { label: "Boca Raton Net Proceeds", href: "/journal/net-proceeds-boca-raton-2026-july" },
+      { label: "Boca Raton Post-Occupancy", href: "/journal/post-occupancy-boca-raton-2026-september" },
+      { label: "Boca Raton Downsizing", href: "/journal/downsizing-sequence-boca-raton-2026-july" },
+      { label: "Boca Raton Buyer Discipline", href: "/journal/buyer-discipline-boca-raton-2026-august" },
       { label: "Request Palm Beach CMA", href: "/home-value" },
       { label: "Live Market Statistics", href: "/market-data" },
       { label: "Private Seller Consultation", href: "/contact?intent=seller&market=palm-beach" },
@@ -100,6 +105,9 @@ const COUNTIES = [
     cities: PALM_BEACH,
   },
 ];
+
+// Geographic North-to-South order (2 = Palm Beach, 1 = Broward, 0 = Miami-Dade)
+const NORTH_TO_SOUTH_COUNTY_INDICES = [2, 1, 0] as const;
 
 const SOUTH_FL_DRIVERS = [
   {
@@ -337,33 +345,47 @@ export default function MarketsPage() {
               </a>
             </div>
 
-            {/* Interactive County Tab Switcher */}
+            {/* Interactive County Tab Switcher (North to South: Palm Beach → Broward → Miami-Dade) */}
             <div
               role="tablist"
               aria-label="South Florida counties"
               className="grid grid-cols-1 gap-3 sm:grid-cols-3"
             >
-              {COUNTIES.map((county, i) => {
-                const isSelected = activeCounty === i;
+              {NORTH_TO_SOUTH_COUNTY_INDICES.map((countyIdx) => {
+                const county = COUNTIES[countyIdx];
+                const isSelected = activeCounty === countyIdx;
+                const corridorLabel =
+                  countyIdx === 2
+                    ? "North · Palm Beach Corridor"
+                    : countyIdx === 1
+                      ? "Central · Broward Corridor"
+                      : "South · Miami-Dade Corridor";
                 return (
                   <button
                     key={county.name}
                     type="button"
                     role="tab"
                     aria-selected={isSelected}
-                    onClick={() => setActiveCounty(i)}
-                    className={`rounded-xl border px-6 py-4 text-left transition-all ${
+                    onClick={() => setActiveCounty(countyIdx)}
+                    className={`rounded-xl border px-6 py-4 text-left transition-all cursor-pointer ${
                       isSelected
                         ? "border-gold bg-navy-deep text-white shadow-lg"
                         : "border-bone bg-ivory/60 text-navy-deep hover:border-gold/60 hover:bg-white"
                     }`}
                   >
-                    <span className="block font-serif text-lg">
+                    <span
+                      className={`block font-mono text-[9px] uppercase tracking-[0.18em] ${
+                        isSelected ? "text-gold" : "text-gold-ink"
+                      }`}
+                    >
+                      {corridorLabel}
+                    </span>
+                    <span className="mt-1 block font-serif text-lg">
                       {county.name}
                     </span>
                     <span
                       className={`mt-1 block font-mono text-[10px] uppercase tracking-[0.16em] ${
-                        isSelected ? "text-gold" : "text-gold-ink"
+                        isSelected ? "text-white/75" : "text-navy/65"
                       }`}
                     >
                       {county.stat}

@@ -2,6 +2,7 @@ import { JsonLd } from "../../components/SEO/JsonLd";
 import { ReferralIntakeForm } from "../../components/forms/ReferralIntakeForm";
 import { Helmet } from "react-helmet-async";
 import { AssociationFilms } from "../../components/AssociationFilms";
+import { RealtorAssociationVideoHub } from "../../components/RealtorAssociationVideoHub";
 import { motion, type Variants } from "motion/react";
 import { BadgeCheck, Download, ExternalLink } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
@@ -280,6 +281,9 @@ export default function EsAgentesPage() {
             </div>
           </div>
         </section>
+
+        {/* ── MIAMI REALTORS® + RWorld Video Hub (Español) ── */}
+        <RealtorAssociationVideoHub variant="agents" lang="es" />
 
         {/* ─── Section 2 — Infraestructura de Distribución ─────── */}
         <section className="bg-bone/40 py-20">
