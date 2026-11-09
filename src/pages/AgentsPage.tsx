@@ -802,21 +802,28 @@ export default function AgentsPage() {
 
             {/* Brand Film & Interactive Career Track Panel */}
             <div className="mb-10 grid gap-6 overflow-hidden rounded-xl border border-gold/30 bg-navy-deep p-6 text-white md:grid-cols-12 md:p-8">
-              <div className="relative min-h-[240px] overflow-hidden rounded-lg bg-black/40 md:col-span-6">
-                <LazyVideo
-                  src="/videos/advisor-brand.mp4"
+              <div className="relative min-h-[260px] overflow-hidden rounded-lg bg-black/40 md:col-span-6">
+                <video
+                  src="/videos/urg_corporate_hq.mp4"
+                  poster="/images/urg-corporate-hq-aerial.jpg"
+                  controls
+                  playsInline
+                  muted
+                  autoPlay
+                  loop
+                  preload="metadata"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/15 to-navy-deep/20 pointer-events-none" />
-                <div className="absolute left-4 top-4">
+                <div className="absolute left-4 top-4 pointer-events-none">
                   <span className="inline-flex items-center gap-2 border border-gold/40 bg-navy-deep/75 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold backdrop-blur-sm">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-                    United Realty Group · Brand Film
+                    United Realty Group · Plantation Corporate HQ
                   </span>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-5">
+                <div className="absolute inset-x-0 bottom-10 p-5 pointer-events-none">
                   <p className="font-serif text-xl leading-snug text-white">
-                    See what working inside the brokerage looks like.
+                    Inside Corporate Headquarters · 1200 S. Pine Island Rd, Suite 600, Plantation
                   </p>
                   <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/75">
                     {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOfficeNetwork}
@@ -853,6 +860,31 @@ export default function AgentsPage() {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Affiliated Transaction Partners for Cooperating & URG Agents */}
+                  <div className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-lg border border-white/12 bg-white/[0.03] px-3.5 py-2.5">
+                    <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold">
+                      Affiliated Closing &amp; Lending Desk:
+                    </span>
+                    <div className="flex flex-wrap items-center gap-3 font-mono text-[9px] uppercase tracking-[0.14em]">
+                      <a
+                        href="https://sftafl.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/85 underline decoration-gold/50 underline-offset-4 hover:text-gold"
+                      >
+                        South Florida Title Associates ↗
+                      </a>
+                      <a
+                        href="https://certifiedhomeloans.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/85 underline decoration-gold/50 underline-offset-4 hover:text-gold"
+                      >
+                        Certified Home Loans ↗
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4">
@@ -865,13 +897,23 @@ export default function AgentsPage() {
                     <UserPlus size={14} />
                     Ask About Joining URG
                   </a>
-                  <a
-                    href="/la-comision-secreta"
-                    className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:underline"
-                  >
-                    <BookOpen size={14} />
-                    Preview Career Guide Book →
-                  </a>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <a
+                      href="https://www.urgfl.com/office-locations/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/75 hover:text-gold"
+                    >
+                      19 FL Office Locations ↗
+                    </a>
+                    <a
+                      href="/la-comision-secreta"
+                      className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:underline"
+                    >
+                      <BookOpen size={14} />
+                      Preview Career Guide Book →
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -22,6 +22,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { Testimonials } from "../components/Testimonials";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CountUp } from "../components/CountUp";
+import { UrgCorporateShowcase } from "../components/UrgCorporateShowcase";
 import { ASSOCIATION_STATS, CONTACT, URG_CITIES } from "../constants";
 
 const MIAMI_DADE = URG_CITIES.filter((c) => c.region === "Miami-Dade County").map((c) => c.city);
@@ -495,19 +496,21 @@ export default function MarketsPage() {
               <div className="lg:col-span-5">
                 <figure className="overflow-hidden rounded-xl border border-white/15 bg-[#060D18]">
                   <div className="aspect-[16/10] overflow-hidden">
-                    <img
-                      src="/images/urg-weston-office.webp"
-                      alt="United Realty Group office interior in Weston, Florida"
-                      width={1920}
-                      height={2560}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover object-[center_42%]"
+                    <video
+                      src="/videos/urg_corporate_hq.mp4"
+                      poster="/images/urg-corporate-hq-aerial.jpg"
+                      controls
+                      playsInline
+                      muted
+                      autoPlay
+                      loop
+                      preload="metadata"
+                      className="h-full w-full object-cover"
                     />
                   </div>
                   <figcaption className="border-t border-white/10 px-5 py-3.5">
                     <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                      United Realty Group · Weston Office
+                      United Realty Group · Plantation HQ &amp; Weston Office
                     </p>
                     <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">
                       {CONTACT.stats.urgAgents} Agents · 19 Florida Office Locations · {CONTACT.licenseDisplay}
@@ -574,6 +577,9 @@ export default function MarketsPage() {
             </div>
           </div>
         </section>
+
+        {/* United Realty Group Corporate HQ, 19 Florida Office Locations & Affiliated Title / Lending Partners */}
+        <UrgCorporateShowcase variant="markets" />
 
         {/* Section 4: Interactive Cross-Border Corridors & Bilateral Spain-Miami Desk */}
         <section className="border-b border-hairline bg-white py-16 md:py-24">

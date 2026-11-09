@@ -10,6 +10,7 @@ import { ExitIntentModal } from "../components/ExitIntentModal";
 import { SellersReachHero } from "../components/SellersReachHero";
 import { SellerSellingSystem } from "../components/SellerSellingSystem";
 import { SellerNetCalculator } from "../components/SellerNetCalculator";
+import { UrgCorporateShowcase } from "../components/UrgCorporateShowcase";
 import { Testimonials } from "../components/Testimonials";
 import { FAQ } from "../components/FAQ";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
@@ -171,6 +172,9 @@ export default function SellSouthFloridaPage() {
 
         {/* Section 4: Interactive Net Proceeds Calculator */}
         <SellerNetCalculator sourcePage="sell-south-florida" />
+
+        {/* United Realty Group Corporate HQ, 19 Florida Office Locations & Affiliated Title / Mortgage Partners */}
+        <UrgCorporateShowcase variant="sellers" />
 
         {/* Section 5: Proven Client Track Record (Diego Tolotto post-occupancy & verified reviews) */}
         <Testimonials />

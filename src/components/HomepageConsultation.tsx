@@ -160,7 +160,7 @@ export function HomepageConsultation({
             <div className="mt-6 flex items-center gap-3">
               <UrgLogo className="h-6 w-auto opacity-75 brightness-0 invert" />
               <p className="font-sans text-xs text-white/60">
-                Weston Office: 1615 S Congress Ave · United Realty Group Florida Office Network
+                Weston Branch: 15951 SW 41st St, Suite 700 · Corporate HQ: 1200 S. Pine Island Rd, Suite 600, Plantation · 19 Florida Office Locations · Affiliated Closing Partners: South Florida Title Associates (sftafl.com) &amp; Certified Home Loans (certifiedhomeloans.com)
               </p>
             </div>
           </div>

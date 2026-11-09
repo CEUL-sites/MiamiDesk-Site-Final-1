@@ -19,6 +19,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { AboutContact } from "../components/AboutContact";
+import { UrgCorporateShowcase } from "../components/UrgCorporateShowcase";
 import { LeadForm } from "../components/LeadForm";
 import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
 import { CONTACT } from "../constants";
@@ -474,6 +475,9 @@ export default function AboutPage() {
           title="Professional Background & Infrastructure"
           eyebrow="Institutional Governance"
         />
+
+        {/* Section 3B: Complete URG Corporate HQ, 19 Florida Office Locations & Affiliated Partners */}
+        <UrgCorporateShowcase variant="about" />
 
         {/* Section 4: Private Consultation & Direct Advisory Desk */}
         <section id="contact" className="border-t border-bone bg-navy-deep px-6 py-16 md:py-24">

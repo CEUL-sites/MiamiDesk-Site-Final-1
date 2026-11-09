@@ -12,6 +12,7 @@ import { FaqAccordion } from "../components/FaqAccordion";
 import { ListingsBrowser } from "../components/listings/ListingsBrowser";
 import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
 import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
+import { UrgCorporateShowcase } from "../components/UrgCorporateShowcase";
 import { Tilt3D } from "../components/Tilt3D";
 import {
   ArrowRight,
@@ -525,6 +526,9 @@ export default function BuyersPage() {
             </div>
           </div>
         </section>
+
+        {/* United Realty Group Corporate HQ, 19 FL Office Locations & Affiliated Lending / Title Partners */}
+        <UrgCorporateShowcase variant="buyers" />
 
         {/* GILMAR × United Realty Group Spain Acquisition Desk */}
         <GilmarGlobalDeskSection variant="buyers" />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BadgeCheck, Building2, Mail, MapPin, Phone, Scale, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, Building2, Mail, MapPin, Phone, Scale, ShieldCheck } from "lucide-react";
 import { CONTACT, PUBLIC_COMPLIANCE } from "../constants";
 import {
   URG_FLORIDA_OFFICE_NAMES,
@@ -46,6 +46,7 @@ export function AboutContact({
   eyebrow?: string;
 } = {}) {
   const [activeLensIndex, setActiveLensIndex] = useState(0);
+  const [brokerageMediaMode, setBrokerageMediaMode] = useState<"video" | "hq" | "weston">("video");
 
   return (
     <section id="contact" className={`bg-ivory ${compact ? "py-12 md:py-16" : "py-10 md:py-24"}`}>
@@ -134,20 +135,74 @@ export function AboutContact({
           </div>
 
           {/* Carlos-led advice with visible brokerage infrastructure behind it. */}
-          <div id="brokerage-proof" data-sticky-cta-guard className="mt-6 scroll-mt-24 overflow-hidden border border-bone bg-navy-deep md:mt-10 md:grid md:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative h-72 overflow-hidden md:h-auto md:min-h-[390px]">
-              <img
-                src="/images/urg-weston-office.webp"
-                alt="United Realty Group Weston office reception and client meeting area"
-                className="absolute inset-0 h-full w-full object-cover"
-                width="1920"
-                height="2560"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-5 pb-5 pt-16">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white">Weston office · South Florida</p>
+          <div id="brokerage-proof" data-sticky-cta-guard className="mt-6 scroll-mt-24 overflow-hidden border border-bone bg-navy-deep md:mt-10 md:grid md:grid-cols-[0.95fr_1.05fr]">
+            <div className="relative flex flex-col justify-between bg-[#050C18] min-h-[340px] md:min-h-[460px]">
+              {/* Interactive Media Switcher Pill Bar */}
+              <div className="relative z-10 flex flex-wrap gap-1.5 border-b border-white/10 bg-navy-deep/90 p-3 backdrop-blur-sm">
+                {[
+                  { id: "video" as const, label: "HQ Film · Plantation" },
+                  { id: "hq" as const, label: "HQ Aerial · 1200 Bldg" },
+                  { id: "weston" as const, label: "Weston Office" },
+                ].map((tab) => {
+                  const selected = brokerageMediaMode === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setBrokerageMediaMode(tab.id)}
+                      className={`px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.15em] transition-all ${
+                        selected
+                          ? "bg-gold text-navy-deep font-bold"
+                          : "border border-white/15 bg-white/[0.04] text-white/80 hover:border-gold/50 hover:text-white"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="relative flex-1 min-h-[260px] overflow-hidden">
+                <video
+                  hidden={brokerageMediaMode !== "video"}
+                  src="/videos/urg_corporate_hq.mp4"
+                  poster="/images/urg-corporate-hq-aerial.jpg"
+                  controls
+                  playsInline
+                  muted
+                  autoPlay
+                  loop
+                  preload="metadata"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <img
+                  hidden={brokerageMediaMode !== "hq"}
+                  src="/images/urg-corporate-hq-aerial.jpg"
+                  alt="United Realty Group Corporate Headquarters waterfront campus at 1200 S. Pine Island Road, Plantation, Florida"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                />
+                <img
+                  hidden={brokerageMediaMode !== "weston"}
+                  src="/images/urg-weston-office.webp"
+                  alt="United Realty Group Weston office reception and client meeting area"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  width="1920"
+                  height="2560"
+                />
+              </div>
+
+              <div className="relative z-10 border-t border-white/10 bg-navy-deep/95 px-5 py-3">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                  {brokerageMediaMode === "weston"
+                    ? "Weston office · 15951 SW 41st St, Suite 700"
+                    : "Plantation Corporate HQ · 1200 S. Pine Island Rd, Suite 600"}
+                </p>
               </div>
             </div>
-            <div className="flex flex-col justify-center px-6 py-8 md:px-10 md:py-12">
+            <div className="flex flex-col justify-center px-6 py-8 md:px-10 md:py-10">
               <img
                 src="/images/urg-logo-original.webp"
                 alt="United Realty Group"
@@ -160,7 +215,7 @@ export function AboutContact({
               <p className="mt-5 font-sans text-sm leading-relaxed text-white/70 md:text-base">
                 Carlos leads the pricing, positioning, negotiation, and communication personally. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations.
               </p>
-              <div className="mt-7 grid grid-cols-2 border-y border-white/15 py-5">
+              <div className="mt-6 grid grid-cols-2 border-y border-white/15 py-4">
                 <div>
                   <p className="font-serif text-3xl text-gold">3,500+</p>
                   <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">URG agents</p>
@@ -170,7 +225,70 @@ export function AboutContact({
                   <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-white/60">Florida office locations</p>
                 </div>
               </div>
-              <details className="group mt-5 border-t border-white/15 pt-4">
+
+              {/* Affiliated Transaction & Settlement Service Providers */}
+              <div className="mt-5 border-b border-white/15 pb-5">
+                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold">
+                  Affiliated Transaction &amp; Closing Partners
+                </p>
+                <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
+                  <a
+                    href="https://sftafl.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between gap-2.5 border border-white/15 bg-white/[0.04] p-2.5 transition-colors hover:border-gold"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="flex h-8 shrink-0 items-center rounded bg-white px-2 py-1">
+                        <img
+                          src="/images/urg-partners/sfta-logo.png"
+                          alt="South Florida Title Associates"
+                          className="h-5 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      </span>
+                      <div className="min-w-0">
+                        <span className="block truncate font-serif text-xs text-white group-hover:text-gold">
+                          South Florida Title
+                        </span>
+                        <span className="block font-mono text-[8px] uppercase tracking-[0.12em] text-white/60">
+                          Title &amp; Escrow · sftafl.com
+                        </span>
+                      </div>
+                    </div>
+                    <ArrowUpRight size={13} className="shrink-0 text-gold" />
+                  </a>
+
+                  <a
+                    href="https://certifiedhomeloans.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between gap-2.5 border border-white/15 bg-white/[0.04] p-2.5 transition-colors hover:border-gold"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="flex h-8 shrink-0 items-center rounded bg-white px-2 py-1">
+                        <img
+                          src="/images/urg-partners/certified-home-loans-logo.png"
+                          alt="Certified Home Loans"
+                          className="h-4 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      </span>
+                      <div className="min-w-0">
+                        <span className="block truncate font-serif text-xs text-white group-hover:text-gold">
+                          Certified Home Loans
+                        </span>
+                        <span className="block font-mono text-[8px] uppercase tracking-[0.12em] text-white/60">
+                          Mortgage · CHL
+                        </span>
+                      </div>
+                    </div>
+                    <ArrowUpRight size={13} className="shrink-0 text-gold" />
+                  </a>
+                </div>
+              </div>
+
+              <details className="group mt-4 pt-1">
                 <summary className="cursor-pointer list-none font-mono text-[10px] uppercase tracking-[0.16em] text-gold transition-colors hover:text-white">
                   View the Florida office network
                 </summary>
@@ -189,7 +307,7 @@ export function AboutContact({
                   United Realty Group office directory
                 </a>
               </details>
-              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">
+              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">
                 Carlos Uzcategui · United Realty Group · FL SL705771 · HQ: 1200 S Pine Island Rd, Suite 600, Plantation, FL 33324
               </p>
             </div>
@@ -198,16 +316,29 @@ export function AboutContact({
           {/* URG Headquarters — full profile mode only */}
           {!compact && (
             <div data-sticky-cta-guard className="mt-5 overflow-hidden border border-bone md:mt-12">
-              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                <img src="/images/urg-hq.jpg" alt="United Realty Group headquarters in Plantation, Florida" width="1920" height="1080" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <div className="grid sm:grid-cols-2 bg-navy-deep">
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <img src="/images/urg-corporate-hq-aerial.jpg" alt="United Realty Group Corporate Headquarters waterfront campus in Plantation, Florida" width="1280" height="720" loading="lazy" className="h-full w-full object-cover" />
+                </div>
+                <div className="relative aspect-video w-full overflow-hidden border-t border-white/10 sm:border-l sm:border-t-0">
+                  <img src="/images/urg-hq.jpg" alt="United Realty Group headquarters entrance in Plantation, Florida" width="1920" height="1080" loading="lazy" className="h-full w-full object-cover" />
+                </div>
               </div>
-              <div className="bg-navy-deep px-5 py-3 md:py-4">
+              <div className="bg-navy-deep px-5 py-3 md:py-4 border-t border-white/10">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · 3,500+ agents</p>
                 <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">19 Florida office locations · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
-                <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noreferrer" className="font-mono mt-1 inline-block text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
-                  View official branch locations
-                </a>
-                <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
+                <div className="mt-1.5 flex flex-wrap items-center gap-4">
+                  <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noreferrer" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
+                    View official branch locations ↗
+                  </a>
+                  <a href="https://sftafl.com/" target="_blank" rel="noreferrer" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
+                    South Florida Title Associates ↗
+                  </a>
+                  <a href="https://certifiedhomeloans.com/" target="_blank" rel="noreferrer" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
+                    Certified Home Loans ↗
+                  </a>
+                </div>
+                <p className="font-mono mt-1 text-[10px] uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
               </div>
             </div>
           )}

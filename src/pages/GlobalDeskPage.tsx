@@ -340,8 +340,8 @@ export default function GlobalDeskPage() {
                 <figure className="flex min-w-0 flex-col justify-between overflow-hidden rounded-xl border border-bone bg-white shadow-sm">
                   <div className="relative aspect-video w-full overflow-hidden bg-navy-deep">
                     <video
-                      src="/videos/ceul_team_dollhouse.mp4"
-                      poster="/images/posters/ceul_team_dollhouse.jpg"
+                      src="/videos/urg_corporate_hq.mp4"
+                      poster="/images/urg-corporate-hq-aerial.jpg"
                       title={t.teamVideoTitle}
                       controls
                       playsInline
@@ -362,9 +362,17 @@ export default function GlobalDeskPage() {
                     </a>
                   </div>
                   <figcaption className="flex min-h-14 flex-wrap items-center justify-between gap-2 bg-navy-deep px-5 py-4 font-mono text-[9px] font-semibold uppercase tracking-[0.19em] text-gold sm:px-6 sm:text-[10px]">
-                    <span>{t.teamVideoLabel}</span>
-                    <div className="flex items-center gap-3">
+                    <span>{t.teamVideoLabel} · Plantation HQ &amp; 19 FL Office Locations</span>
+                    <div className="flex flex-wrap items-center gap-3">
                       <span className="text-white/60">3,500+ FL Agents</span>
+                      <a
+                        href="https://www.urgfl.com/office-locations/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border border-white/20 px-2.5 py-1 text-[9px] text-white/80 transition-colors hover:border-gold hover:text-gold"
+                      >
+                        {lang === "es" ? "19 Oficinas en FL ↗" : "19 FL Office Locations ↗"}
+                      </a>
                       <a
                         href="https://www.youtube.com/watch?v=M8Hx5D5ghag"
                         target="_blank"
