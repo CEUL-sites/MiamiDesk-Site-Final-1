@@ -114,7 +114,7 @@ const ALL_OFFICIAL_BRANCHES: readonly OfficialBranchCard[] = [
     state: "FL",
     address: "3100 S. Federal Hwy, Suite 100, Delray Beach, FL 33483",
     phone: "(954) 600-0844",
-    image: "https://www.urgfl.com/wp-content/uploads/2022/02/DELRAY-BEACH1.png",
+    image: "/images/urg-branches/delray-beach.jpg",
     url: "https://www.urgfl.com/office/delray-beach/",
   },
   {
@@ -205,7 +205,7 @@ const ALL_OFFICIAL_BRANCHES: readonly OfficialBranchCard[] = [
     state: "FL",
     address: "9200 Belvedere Road, Suite 207, Royal Palm Beach, FL 33411",
     phone: "(954) 450-2000",
-    image: "https://www.urgfl.com/wp-content/uploads/2023/07/pastedImage.png",
+    image: "/images/urg-branches/royal-palm-beach.jpg",
     url: "https://www.urgfl.com/office/royal-palm-beach/",
   },
   {

@@ -212,6 +212,7 @@ export const URG_CITIES = [
   { city: "Miami", region: "Miami-Dade County" },
   { city: "Coral Gables", region: "Miami-Dade County" },
   { city: "Aventura", region: "Miami-Dade County" },
+  { city: "Kendall", region: "Miami-Dade County" },
   { city: "Miami Beach", region: "Miami-Dade County" },
   { city: "Sunny Isles Beach", region: "Miami-Dade County" },
   { city: "Bal Harbour", region: "Miami-Dade County" },
