@@ -22,7 +22,16 @@ export type HeroVideoName = "home" | "sellers" | "buyers" | "markets" | "global"
 
 const MOBILE_QUERY = "(max-width: 767px)";
 
-export function HeroVideoBackdrop({ name, position = "center" }: { name: HeroVideoName; position?: string }) {
+export function HeroVideoBackdrop({
+  name,
+  position = "center",
+  mobileCut = true,
+}: {
+  name: HeroVideoName;
+  position?: string;
+  /** Use the vertical phone cut below 768px. Set false to center-crop the landscape clip instead (sharper for some sources). */
+  mobileCut?: boolean;
+}) {
   const [isMobile, setIsMobile] = useState(false);
   // The clip mounts only in a real browser document (never in DOM-less test harnesses).
   const [hasDocument, setHasDocument] = useState(false);
@@ -41,13 +50,14 @@ export function HeroVideoBackdrop({ name, position = "center" }: { name: HeroVid
     return () => query.removeEventListener?.("change", onChange);
   }, []);
 
-  const poster = isMobile ? `/images/hero/${name}-mobile.webp` : `/images/hero/${name}.webp`;
-  const src = isMobile ? `/videos/hero/${name}-mobile.mp4` : `/videos/hero/${name}.mp4`;
+  const useMobileCut = isMobile && mobileCut;
+  const poster = useMobileCut ? `/images/hero/${name}-mobile.webp` : `/images/hero/${name}.webp`;
+  const src = useMobileCut ? `/videos/hero/${name}-mobile.mp4` : `/videos/hero/${name}.mp4`;
 
   return (
     <div className="hero-video-backdrop" aria-hidden="true">
       <picture>
-        <source media={MOBILE_QUERY} srcSet={`/images/hero/${name}-mobile.webp`} />
+        {mobileCut && <source media={MOBILE_QUERY} srcSet={`/images/hero/${name}-mobile.webp`} />}
         <img
           className="hero-video-media"
           src={`/images/hero/${name}.webp`}

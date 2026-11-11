@@ -97,3 +97,7 @@
 /* Video backdrop lives inside .global-desk-hero-art so it inherits the art box and its ::after scrim. */
 .global-desk-hero-art > .hero-video-backdrop { z-index: -1; }
 .global-desk-hero-art > .hero-video-backdrop .hero-video-scrim { display: none; }
+@media (max-width: 767px) {
+  /* The art box is 370px tall here: fill it and fade its foot into the hero navy so no seam crosses the copy. */
+  .global-desk-hero-art > .hero-video-backdrop { height: 100%; -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
+}

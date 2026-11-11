@@ -31,7 +31,7 @@ export function SellersReachHero() {
   return (
     <>
       <section className="seller-reach-hero" aria-labelledby="seller-reach-title">
-        <HeroVideoBackdrop name="sellers" position="center 45%" />
+        <HeroVideoBackdrop name="sellers" position="center 45%" mobileCut={false} />
         <div className="seller-reach-layout">
           <div className="seller-reach-copy">
             <h1 id="seller-reach-title">
@@ -81,7 +81,7 @@ export function SellersReachHero() {
                     document.getElementById(`seller-stage-tab-${STAGES[next].id}`)?.focus();
                   }}
                 >
-                  0{i + 1} · {item.label}
+                  <span className="hero-tab-num">0{i + 1} · </span>{item.label}
                 </button>
               ))}
             </div>
