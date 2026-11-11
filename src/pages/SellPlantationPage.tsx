@@ -74,29 +74,13 @@ export default function SellPlantationPage() {
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           }))
         }} />
-      <JsonLd id="sell-plantation-agent" data={{
-          "@context": "https://schema.org",
-          "@type": "RealEstateAgent",
-          "name": "Carlos Uzcategui — Plantation FL Listing Agent",
-          "url": "https://homesprofessional.com/sell-plantation",
-          "areaServed": { "@type": "City", "name": "Plantation", "addressRegion": "FL", "postalCode": "33324", "addressCountry": "US" },
-          "telephone": CONTACT.phoneUS,
-          "email": CONTACT.email,
-          "address": { "@type": "PostalAddress", "streetAddress": "1200 S Pine Island Rd Suite 600", "addressLocality": "Plantation", "addressRegion": "FL", "postalCode": "33324", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
-          "aggregateRating": AGGREGATE_RATING
-        }} />
       <JsonLd id="sell-plantation-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — Plantation, FL",
           "serviceType": "Real estate listing and seller representation",
           "areaServed": { "@type": "City", "name": "Plantation", "addressRegion": "FL", "addressCountry": "US" },
-          "provider": {
-            "@type": "RealEstateAgent",
-            "name": "Carlos Uzcategui",
-            "url": "https://homesprofessional.com/sell-plantation"
-          },
+          "provider": { "@id": "https://homesprofessional.com/#agent" },
           "url": "https://homesprofessional.com/sell-plantation"
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

@@ -16,6 +16,10 @@ export default function PrivacyPage() {
         <meta name="description" content="Privacy policy for HomesProfessional.com — how we collect, use, and protect your information." />
         <link rel="canonical" href="https://homesprofessional.com/privacy" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Privacy Policy | HomesProfessional.com" />
+        <meta name="twitter:description" content="Privacy policy for HomesProfessional.com — how we collect, use, and protect your information." />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="robots" content="noindex" />
       </Helmet>
       <main id="main-content" className="min-h-screen bg-white pb-20">

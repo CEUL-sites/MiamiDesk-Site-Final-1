@@ -16,6 +16,10 @@ export default function TermsPage() {
         <meta name="description" content="Terms of use for HomesProfessional.com — conditions governing use of this website and its services." />
         <link rel="canonical" href="https://homesprofessional.com/terms" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Terms of Use | HomesProfessional.com" />
+        <meta name="twitter:description" content="Terms of use for HomesProfessional.com — conditions governing use of this website and its services." />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="robots" content="noindex" />
       </Helmet>
       <main id="main-content" className="min-h-screen bg-white pb-20">

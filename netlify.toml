@@ -66,3 +66,27 @@
   for = "/robots.txt"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+# ── AI discovery files + journal feed ───────────────────────────────────────
+# text/plain (not text/markdown): the sitewide nosniff header makes browsers
+# download unknown text subtypes instead of displaying them. The explicit
+# charset keeps the ® in the compliance footer intact for every client.
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "text/plain; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/llms-full.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "text/plain; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/rss.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/rss+xml; charset=utf-8"

@@ -73,29 +73,13 @@ export default function SellHallandaleBeachPage() {
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           }))
         }} />
-      <JsonLd id="sell-hallandale-beach-agent" data={{
-          "@context": "https://schema.org",
-          "@type": "RealEstateAgent",
-          "name": "Carlos Uzcategui — Hallandale Beach FL Listing Agent",
-          "url": "https://homesprofessional.com/sell-hallandale-beach",
-          "areaServed": { "@type": "City", "name": "Hallandale Beach", "addressRegion": "FL", "postalCode": "33009", "addressCountry": "US" },
-          "telephone": CONTACT.phoneUS,
-          "email": CONTACT.email,
-          "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
-          "aggregateRating": AGGREGATE_RATING
-        }} />
       <JsonLd id="sell-hallandale-beach-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — Hallandale Beach, FL",
           "serviceType": "Real estate listing and seller representation",
           "areaServed": { "@type": "City", "name": "Hallandale Beach", "addressRegion": "FL", "addressCountry": "US" },
-          "provider": {
-            "@type": "RealEstateAgent",
-            "name": "Carlos Uzcategui",
-            "url": "https://homesprofessional.com/sell-hallandale-beach"
-          },
+          "provider": { "@id": "https://homesprofessional.com/#agent" },
           "url": "https://homesprofessional.com/sell-hallandale-beach"
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

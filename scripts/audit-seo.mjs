@@ -24,7 +24,8 @@ pages.forEach((p) => {
   const hasDesc = content.includes('name="description"');
   const hasCanonical = content.includes('rel="canonical"');
   const isNoIndex = content.includes('content="noindex');
-  const isThankYou = p.includes('thanks') || p.includes('gracias') || p.includes('NotFoundPage');
+  const lower = p.toLowerCase();
+  const isThankYou = lower.includes('thanks') || lower.includes('gracias') || p.includes('NotFoundPage');
 
   const issues = [];
   if (!hasHelmet && !isThankYou) issues.push('Missing Helmet');
