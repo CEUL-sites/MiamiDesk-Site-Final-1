@@ -14,6 +14,7 @@ import { EsProof } from "../../components/es/EsProof";
 import { EsDistribution } from "../../components/es/EsDistribution";
 import { SellerExecutionSystem } from "../../components/SellerExecutionSystem";
 import { CONTACT } from "../../constants";
+import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
 
 const MarketingReel3D = lazy(() => import("../../components/MarketingReel3D").then((m) => ({ default: m.MarketingReel3D })));
 const SellerPathfinder = lazy(() => import("../../components/SellerPathfinder").then((m) => ({ default: m.SellerPathfinder })));
@@ -80,29 +81,8 @@ export default function EsHomePage() {
         <Navbar />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
-        <section className="relative min-h-screen overflow-hidden bg-navy-deep text-white">
-          {/* Layered gradient background */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_25%,rgba(176,141,87,0.10),transparent_42%)]" />
-
-          {/* Photo layer */}
-          <div className="absolute inset-0">
-            <img
-              src="/images/miami-realtors-rworld.jpg"
-              alt=""
-              aria-hidden="true"
-              width="1920"
-              height="1080"
-              loading="eager"
-              fetchPriority="high"
-              className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-700"
-              onLoad={(e) => {
-                (e.target as HTMLImageElement).style.opacity = "0.28";
-              }}
-            />
-            <div className="absolute inset-0 bg-navy-deep/55" />
-          </div>
+        <section className="relative isolate min-h-screen overflow-hidden bg-navy-deep text-white">
+          <HeroVideoBackdrop name="home" scrim="center" />
 
           <div className="relative flex min-h-screen items-start pt-24 pb-14 px-6 sm:pt-28 sm:pb-24 sm:px-10 lg:px-20">
             <motion.div
@@ -126,10 +106,10 @@ export default function EsHomePage() {
                 className="font-serif text-white leading-[1.05]"
                 style={{ fontSize: "clamp(2.1rem, 6vw, 6.5rem)", fontWeight: 400 }}
               >
-                Los bienes raíces son locales.
+                Su propiedad, dentro de
                 <br />
                 <em className="text-gold font-serif italic">
-                  El precio máximo es global.
+                  la mayor asociación local de REALTORS® del mundo.
                 </em>
               </motion.h1>
 
@@ -139,10 +119,11 @@ export default function EsHomePage() {
                 className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
                 style={{ fontSize: "1.05rem" }}
               >
-                Representación de vendedores en el Sur de Florida y España. Cada
-                propiedad en exclusiva activa la red de la asociación local de
-                REALTORS® más grande del mundo — 93,000 agentes miembros, 200+
-                portales globales en 19 idiomas y 437+ acuerdos internacionales.
+                Veinticinco años de experiencia en Florida. Su listado entra en el
+                ecosistema MLS en el que más de 90,000 agentes del Sur de Florida
+                trabajan a diario, y se sindica a 260+ MLS de EE. UU. y 200+
+                portales globales en 19 idiomas. Carlos dirige su estrategia de
+                precio y la negociación.
               </motion.p>
 
               {/* Primary seller lead capture */}
@@ -161,7 +142,7 @@ export default function EsHomePage() {
                 className="mx-auto mt-12 grid w-full max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"
               >
                 {[
-                  { value: "93,000", label: "Agentes Miembros" },
+                  { value: "93,000", label: "Miembros de la asociación" },
                   { value: "200+",   label: "Portales Globales" },
                   { value: "437+",   label: "Acuerdos Internacionales" },
                   { value: "260+",   label: "MLSs en EE. UU." },
@@ -180,6 +161,9 @@ export default function EsHomePage() {
                   </div>
                 ))}
               </motion.div>
+              <p className="mx-auto mt-4 max-w-3xl font-sans text-[11px] leading-relaxed text-white/60">
+                Fuentes: anuncio de fusión de Miami and South Florida REALTORS® (abril de 2026); intercambio nacional de datos MLS de RPR; Global Council de MIAMI REALTORS®. La distribución depende de la elegibilidad de la propiedad, las normas del MLS y la participación de los socios.
+              </p>
 
               {/* Credibility badges */}
               <motion.div

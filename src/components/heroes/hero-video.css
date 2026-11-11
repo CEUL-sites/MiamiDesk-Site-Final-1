@@ -16,6 +16,10 @@
       linear-gradient(180deg, rgba(6, 17, 31, 0.42) 0%, rgba(6, 17, 31, 0.62) 40%, rgba(6, 17, 31, 0.9) 100%);
   }
 }
+/* Centered copy (Spanish pages): even scrim instead of the side-weighted one. */
+.hero-video-backdrop--center .hero-video-scrim {
+  background: linear-gradient(180deg, rgba(6, 17, 31, 0.74) 0%, rgba(6, 17, 31, 0.62) 40%, rgba(6, 17, 31, 0.94) 100%);
+}
 /* Phones: the hero stacks tall, so keep the clip to the first screen instead of stretching it
    (which softens it) across the whole section, and fade it into the section's navy. */
 @media (max-width: 767px) {
