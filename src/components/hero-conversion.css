@@ -134,3 +134,12 @@
 @media (prefers-reduced-motion: reduce) {
   .seller-hero *, .seller-hero *::before, .seller-hero *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Video backdrop (HeroVideoBackdrop). The scene's own ::before scrim stays the legibility layer here. */
+.seller-hero-scene > .hero-video-backdrop { z-index: -2; }
+.seller-hero-scene > .hero-video-backdrop .hero-video-scrim { display: none; }
+.seller-hero-reach .hero-reach-item:first-child { border-top: 0; }
+@media (max-width: 767px) {
+  .seller-hero-reach .hero-reach-value { font-size: 18px; }
+  .seller-hero-reach .hero-reach-item { padding: 8px 0; }
+}

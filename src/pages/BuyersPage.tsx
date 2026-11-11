@@ -14,6 +14,8 @@ import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
 import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
 import { UrgCorporateShowcase } from "../components/UrgCorporateShowcase";
 import { Tilt3D } from "../components/Tilt3D";
+import { HeroVideoBackdrop } from "../components/heroes/HeroVideoBackdrop";
+import { BuyerSearchPanel } from "../components/heroes/BuyerSearchPanel";
 import {
   ArrowRight,
   BadgeCheck,
@@ -248,15 +250,16 @@ export default function BuyersPage() {
         <Navbar />
 
         {/* Section 1: Executive Buyer Representation Hero */}
-        <section className="advisory-hero" aria-labelledby="buyer-hero-heading">
+        <section className="advisory-hero advisory-hero--video" aria-labelledby="buyer-hero-heading">
+          <HeroVideoBackdrop name="buyers" />
           <div className="advisory-hero-inner">
             <div>
               <p className="advisory-eyebrow">South Florida · Buyer representation</p>
               <h1 id="buyer-hero-heading">
-                Know What You’re Buying—Before You Decide What to Pay.
+                Every South Florida MLS listing. One advisor negotiating for you.
               </h1>
               <p className="advisory-summary">
-                Property analysis, local market guidance and experienced negotiation across Miami-Dade, Broward and Palm Beach, with bilingual coordination from search to closing.
+                Search the live MLS feed, then let Carlos shortlist, tour and negotiate across Miami-Dade, Broward and Palm Beach. Twenty-five years of local pricing knowledge on your side of the table, in English or Spanish.
               </p>
               <div className="advisory-actions">
                 <a
@@ -300,22 +303,7 @@ export default function BuyersPage() {
                 Florida licensed since 2001 · United Realty Group · English / Spanish
               </p>
             </div>
-            <figure className="advisory-photo">
-              <picture>
-                <source
-                  media="(max-width: 1023px)"
-                  srcSet="/images/buyers-architecture-mobile.webp"
-                />
-                <img
-                  src="/images/buyers-architecture.webp"
-                  width="1400"
-                  height="933"
-                  fetchPriority="high"
-                  alt="Conceptual residential interior opening onto a South Florida garden and waterway"
-                />
-              </picture>
-              <figcaption>Conceptual residential imagery · Not a property listing</figcaption>
-            </figure>
+            <BuyerSearchPanel />
           </div>
         </section>
 

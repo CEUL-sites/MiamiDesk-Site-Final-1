@@ -89,3 +89,8 @@
  .contact-form-heading h3 { font-size:20px; }
  .contact-form-heading { margin-bottom:16px; }
 }
+
+/* Video variant (Buyers, Markets): full-bleed clip behind the editorial grid. */
+.advisory-hero--video { position:relative; isolation:isolate; overflow:hidden; background:#06111f; min-height:640px; display:flex; align-items:center; }
+.advisory-hero--video .advisory-hero-inner { width:100%; }
+.advisory-hero--video .county-explorer { background:rgba(7,23,34,.86); backdrop-filter:blur(6px); }

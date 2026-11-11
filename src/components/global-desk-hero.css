@@ -1,4 +1,4 @@
-/* Global Desk only: one responsive image, live HTML copy, no decorative motion. */
+/* Global Desk only: Miami–Madrid video backdrop (poster first, clip deferred; still image on reduced motion / data saver), live HTML copy. */
 .global-desk-hero {
   position: relative;
   isolation: isolate;
@@ -93,3 +93,7 @@
 @media (prefers-reduced-motion: reduce) {
   .global-desk-hero-primary { transition: none; }
 }
+
+/* Video backdrop lives inside .global-desk-hero-art so it inherits the art box and its ::after scrim. */
+.global-desk-hero-art > .hero-video-backdrop { z-index: -1; }
+.global-desk-hero-art > .hero-video-backdrop .hero-video-scrim { display: none; }

@@ -21,13 +21,15 @@ assert.match(
   /fetchPriority="high"/,
   "the preserved property-animation poster must remain prioritized",
 );
-assert.match(hero, /A stronger strategy for your South Florida sale\./);
+assert.match(hero, /Your property, placed inside the world's largest local REALTOR® association\./);
 assert.match(hero, /Start with your property address/);
 assert.match(hero, /Continue With My Property/);
 assert.match(hero, /Licensed since 2001 · CLHMS · United Realty Group · English \/ Español/);
 assert.doesNotMatch(hero, /Tilt3D/);
 assert.match(hero, /Licensed Since 2001/i);
-assert.match(hero, /We align pricing, presentation and buyer-agent outreach around your property\. Carlos leads your strategy and negotiation, with Florida experience since 2001\./);
+assert.match(hero, /Your listing enters the MLS ecosystem 90,000\+ South Florida agents work from daily/);
+assert.match(hero, /HeroVideoBackdrop name="home"/, "the homepage hero uses the deferred video backdrop");
+assert.match(hero, /Sources: Miami and South Florida REALTORS®/, "hero figures carry a displayed source line");
 assert.match(hero, /Request a Private Seller Strategy/);
 assert.doesNotMatch(hero, /HeroPropertyAnimation/);
 assert.doesNotMatch(hero, /autoPlay/);

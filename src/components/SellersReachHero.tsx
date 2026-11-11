@@ -1,20 +1,44 @@
+import { useState } from "react";
 import { ArrowRight, Download } from "lucide-react";
 import { LEAD_MAGNETS } from "../constants";
 import { trackFunnelEvent } from "../lib/analytics";
+import { HeroVideoBackdrop } from "./heroes/HeroVideoBackdrop";
+import figures from "../data/figures.json";
 import "./sellers-reach-hero.css";
+
+const STAGES = [
+  {
+    id: "position",
+    label: "Position",
+    text: "Pricing set from closed comparables and current competition, with the property's media and presentation prepared before the listing goes live.",
+  },
+  {
+    id: "distribute",
+    label: "Distribute",
+    text: `The listing enters the MLS ecosystem 90,000+ South Florida agents work from daily, with syndication to ${figures.usMls.value} U.S. MLSs and ${figures.globalWebsites.value} global portals in ${figures.languages.value} languages.`,
+  },
+  {
+    id: "activate",
+    label: "Activate",
+    text: "Direct outreach to the cooperating buyer agents most likely to have a match, then disciplined negotiation and contract protection through closing.",
+  },
+];
 
 /** Sellers-only opening. Keep shared homepage and lead-form behavior independent. */
 export function SellersReachHero() {
+  const [stage, setStage] = useState(0);
+
   return (
     <>
       <section className="seller-reach-hero" aria-labelledby="seller-reach-title">
+        <HeroVideoBackdrop name="sellers" position="center 45%" />
         <div className="seller-reach-layout">
           <div className="seller-reach-copy">
             <h1 id="seller-reach-title">
-              A Stronger Sale Begins <span>Before Your Home Goes Live.</span>
+              The final price depends <span>on who sees the listing.</span>
             </h1>
             <p className="seller-reach-subtitle">
-              25 years of South Florida experience. Strategic MLS positioning, trusted buyer-agent relationships, and disciplined contract negotiation structured around what you keep—and what comes next.
+              Pricing, presentation and buyer-agent outreach, run as one plan. Carlos leads the strategy and the negotiation personally, with 25 years of South Florida experience behind each decision.
             </p>
             <div className="seller-reach-actions" data-sticky-cta-guard>
               <a
@@ -33,17 +57,42 @@ export function SellersReachHero() {
             </div>
             <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
           </div>
-          <figure className="seller-reach-image" data-sticky-cta-guard>
-            <picture><source media="(max-width: 1023px)" srcSet="/images/sellers-architecture-mobile.webp" /><img
-              src="/images/sellers-architecture.webp"
-              alt="Conceptual South Florida waterfront architecture with a shaded residential terrace"
-              width="1400"
-              height="1050"
-              fetchPriority="high"
-              decoding="async"
-            /></picture>
-            <figcaption>Conceptual residential imagery · Not a property listing</figcaption>
-          </figure>
+          <div className="seller-reach-panel hero-panel" data-sticky-cta-guard>
+            <p className="hero-panel-kicker">How your listing is run</p>
+            <div className="hero-tabs" role="tablist" aria-label="Listing approach">
+              {STAGES.map((item, i) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  role="tab"
+                  id={`seller-stage-tab-${item.id}`}
+                  aria-selected={stage === i}
+                  aria-controls="seller-stage-panel"
+                  tabIndex={stage === i ? 0 : -1}
+                  onClick={() => {
+                    setStage(i);
+                    trackFunnelEvent("seller_strategy_cta", { source: `sellers_hero_stage_${item.id}` });
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+                    event.preventDefault();
+                    const next = (i + (event.key === "ArrowRight" ? 1 : STAGES.length - 1)) % STAGES.length;
+                    setStage(next);
+                    document.getElementById(`seller-stage-tab-${STAGES[next].id}`)?.focus();
+                  }}
+                >
+                  0{i + 1} · {item.label}
+                </button>
+              ))}
+            </div>
+            <p id="seller-stage-panel" role="tabpanel" aria-labelledby={`seller-stage-tab-${STAGES[stage].id}`} className="hero-tabpanel">
+              {STAGES[stage].text}
+            </p>
+            {STAGES[stage].id === "distribute" && (
+              <p className="hero-video-sources">Sources: Miami and South Florida REALTORS®; RPR National MLS data exchange. Distribution is subject to property eligibility, MLS rules and partner participation.</p>
+            )}
+            <p className="hero-video-sources mt-3">Conceptual AI-generated imagery · Not a property listing</p>
+          </div>
         </div>
       </section>
       <section id="selling-system" className="seller-reach-authority" aria-label="Your advisor and professional network" data-sticky-cta-guard>

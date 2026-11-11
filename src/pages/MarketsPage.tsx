@@ -1,5 +1,6 @@
 import { trackMicroConversion } from "../lib/analytics";
 import { CountyExplorer } from "../components/CountyExplorer";
+import { HeroVideoBackdrop } from "../components/heroes/HeroVideoBackdrop";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../components/SEO/JsonLd";
@@ -278,15 +279,16 @@ export default function MarketsPage() {
         <Navbar />
 
         {/* Section 1: Regional Intelligence Hero + Interactive County Explorer */}
-        <section className="advisory-hero" aria-labelledby="markets-hero-heading">
+        <section className="advisory-hero advisory-hero--video" aria-labelledby="markets-hero-heading">
+          <HeroVideoBackdrop name="markets" position="center 40%" />
           <div className="advisory-hero-inner">
             <div>
               <p className="advisory-eyebrow">South Florida · Regional Market Intelligence</p>
               <h1 id="markets-hero-heading">
-                One Region. Distinct Markets. Different Strategies.
+                South Florida, read through the data.
               </h1>
               <p className="advisory-summary">
-                Explore Miami-Dade, Broward and Palm Beach, then discuss the local evidence that matters to your property and next move.
+                Choose a county to see how its submarkets behave, then turn the local evidence into a pricing and timing decision for your property.
               </p>
               <div className="advisory-actions">
                 <a

@@ -12,6 +12,7 @@ import { Footer } from "../components/Footer";
 import { GlobalActivationFlow, type ActivationStage } from "../components/GlobalActivationFlow";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { Navbar } from "../components/Navbar";
+import { HeroVideoBackdrop } from "../components/heroes/HeroVideoBackdrop";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
@@ -268,10 +269,9 @@ export default function GlobalDeskPage() {
         <Navbar />
 
         <section data-sticky-cta-guard className="global-desk-hero" aria-labelledby="global-hero-heading" lang={lang}>
-          <picture className="global-desk-hero-art" aria-hidden="true">
-            <source media="(max-width: 767px)" srcSet="/images/global-desk-panorama-mobile.webp" />
-            <img src="/images/global-desk-panorama-desktop.webp" alt="" width="1920" height="800" fetchPriority="high" decoding="async" />
-          </picture>
+          <div className="global-desk-hero-art" aria-hidden="true">
+            <HeroVideoBackdrop name="global" />
+          </div>
           <div className="global-desk-hero-inner">
             <div className="global-desk-hero-topline">
               <p className="global-desk-hero-eyebrow">Miami Global Desk</p>

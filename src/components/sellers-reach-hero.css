@@ -113,3 +113,18 @@
 .seller-page > nav.bg-gradient-to-b { background: #071722; }
 
 .seller-reach-image picture { display: flex; flex: 1; min-height: 0; }
+
+/* Video hero redesign: full-bleed clip behind the copy, interactive stage panel in the second column. */
+.seller-reach-hero { position: relative; isolation: isolate; overflow: hidden; }
+.seller-reach-hero .seller-reach-layout { align-items: center; min-height: 600px; }
+.seller-reach-panel { margin: 32px 52px 40px 0; max-width: 540px; justify-self: end; width: 100%; }
+@media (max-width: 1023px) {
+  .seller-reach-panel { margin: 0 20px 32px; justify-self: stretch; max-width: none; width: auto; }
+}
+/* Dark theme over the video (overrides the earlier ivory editorial block). */
+.seller-reach-hero { background: #06111f; color: #fff; }
+.seller-reach-hero .seller-reach-copy h1 { color: #fff; }
+.seller-reach-hero .seller-reach-copy h1 span { color: #d7bc8b; }
+.seller-reach-hero .seller-reach-subtitle { color: #e4eaee; }
+.seller-reach-hero .seller-reach-whatsapp { color: #d7bc8b; }
+.seller-reach-hero .seller-reach-reassurance { color: #c8d2da; }
