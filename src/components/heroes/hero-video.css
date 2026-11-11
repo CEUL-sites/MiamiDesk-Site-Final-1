@@ -1,0 +1,51 @@
+/* Shared video backdrop for the redesigned page heroes (Home, Sellers, Buyers, Markets, Global Desk).
+   The parent section must be `position: relative; isolation: isolate`. */
+.hero-video-backdrop { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: #06111f; }
+.hero-video-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-video-clip { opacity: 1; }
+/* Legibility scrim: heavy on the copy side, open on the image side, closing into navy at the foot. */
+.hero-video-scrim {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(6, 17, 31, 0.94) 0%, rgba(6, 17, 31, 0.82) 34%, rgba(6, 17, 31, 0.5) 62%, rgba(6, 17, 31, 0.22) 100%),
+    linear-gradient(0deg, rgba(6, 17, 31, 0.9) 0%, rgba(6, 17, 31, 0) 34%);
+}
+@media (max-width: 1023px) {
+  .hero-video-scrim {
+    background:
+      linear-gradient(180deg, rgba(6, 17, 31, 0.55) 0%, rgba(6, 17, 31, 0.86) 45%, rgba(6, 17, 31, 0.96) 100%);
+  }
+}
+
+/* Small "conceptual imagery" caption + source lines used under hero figures. */
+.hero-video-sources { font-size: 11px; line-height: 1.55; color: #aab6c0; }
+.hero-video-sources a { color: #d7bc8b; text-decoration: underline; text-underline-offset: 2px; }
+
+/* Reach reveal (homepage): four distribution layers lighting in sequence after the address step. */
+.hero-reach-list { list-style: none; margin: 14px 0 0; padding: 0; }
+.hero-reach-item { display: flex; gap: 12px; align-items: flex-start; padding: 11px 0; border-top: 1px solid rgba(215, 188, 139, 0.22); opacity: 0.2; transform: translateX(6px); transition: opacity .5s ease, transform .5s ease; }
+.hero-reach-item[data-on="true"] { opacity: 1; transform: none; }
+.hero-reach-dot { flex: none; width: 11px; height: 11px; margin-top: 7px; border-radius: 50%; border: 2px solid #d7bc8b; background: transparent; transition: background-color .5s ease, box-shadow .5s ease; }
+.hero-reach-item[data-on="true"] .hero-reach-dot { background: #d7bc8b; box-shadow: 0 0 12px rgba(215, 188, 139, 0.75); }
+.hero-reach-value { display: block; font-family: var(--font-serif); font-size: 22px; line-height: 1.2; color: #fff; }
+.hero-reach-label { display: block; font-size: 13px; line-height: 1.5; color: #cfd8df; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-reach-item, .hero-reach-dot { transition: none; }
+}
+
+/* Tabbed stage panel and pill pickers used on Sellers and Buyers heroes. */
+.hero-panel { background: rgba(6, 17, 31, 0.84); border: 1px solid rgba(215, 188, 139, 0.42); border-radius: 4px; padding: clamp(20px, 2.4vw, 30px); color: #fff; backdrop-filter: blur(6px); }
+.hero-panel h2 { font-family: var(--font-serif); font-size: clamp(24px, 2.2vw, 30px); line-height: 1.15; font-weight: 400; color: #fff; }
+.hero-panel-kicker { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d7bc8b; font-weight: 600; }
+.hero-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid rgba(215, 188, 139, 0.35); margin-top: 16px; }
+.hero-tabs button { min-height: 46px; padding: 10px 4px; margin-bottom: -1px; border-bottom: 2px solid transparent; color: #cfd8df; font-size: 14px; font-weight: 600; text-align: left; cursor: pointer; }
+.hero-tabs button[aria-selected="true"] { color: #d7bc8b; border-bottom-color: #d7bc8b; }
+.hero-tabpanel { min-height: 118px; padding-top: 16px; font-size: 15px; line-height: 1.65; color: #e4eaee; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.hero-pills button { min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1px solid #d7bc8b; color: #fff; font-size: 14px; cursor: pointer; transition: background-color .2s, color .2s; }
+.hero-pills button[aria-pressed="true"] { background: #d7bc8b; color: #06111f; font-weight: 600; }
+.hero-panel-primary { display: inline-flex; width: 100%; align-items: center; justify-content: center; gap: 8px; min-height: 52px; margin-top: 18px; border-radius: 3px; background: #d7bc8b; color: #06111f; font-size: 14px; font-weight: 700; letter-spacing: .04em; }
+.hero-panel-primary:hover { background: #cbaa70; }
+.hero-panel-secondary { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; margin-top: 6px; color: #d7bc8b; font-size: 14px; border-bottom: 1px solid transparent; }
+.hero-panel-secondary:hover { border-bottom-color: #d7bc8b; }
+.hero-panel :focus-visible, .seller-hero :focus-visible { outline: 2px solid #d7bc8b; outline-offset: 2px; }

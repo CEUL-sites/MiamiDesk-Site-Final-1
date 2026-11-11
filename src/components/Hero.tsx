@@ -3,9 +3,19 @@ import { ArrowRight, MapPin, Search } from "lucide-react";
 import { trackMicroConversion } from "../lib/analytics";
 import { loadGooglePlaces } from "../lib/googlePlaces";
 import { restoreManualAddressEntry } from "./heroSellerFormModel";
+import { HeroVideoBackdrop } from "./heroes/HeroVideoBackdrop";
+import figures from "../data/figures.json";
 import "./hero-conversion.css";
 
 const HERO_ADDRESS_PLACEHOLDER = "Enter your South Florida property address";
+
+/** Distribution layers revealed in the hero card. Every value is read from figures.json. */
+const REACH_LAYERS = [
+  { value: "Miami MLS", label: "The MLS ecosystem 90,000+ South Florida agents work from daily" },
+  { value: `${figures.usMls.value} U.S. MLSs`, label: `Syndicated ${figures.usMls.sublabel}` },
+  { value: `${figures.globalWebsites.value} global portals`, label: `Published in ${figures.languages.value} languages` },
+  { value: `${figures.internationalAgreements.value} international agreements`, label: `Plus ${figures.mlsDataExchanges.value} MLS data exchanges` },
+];
 
 export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) => void } = {}) {
   const [quickAddress, setQuickAddress] = useState("");
@@ -13,9 +23,48 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
   const quickAddressRef = useRef<HTMLInputElement>(null);
   const placesInitialized = useRef(false);
   const placesListener = useRef<google.maps.MapsEventListener | null>(null);
+  const reachRef = useRef<HTMLDivElement>(null);
+  const reachStarted = useRef(false);
+  const [reachShown, setReachShown] = useState(0);
 
   useEffect(() => () => {
     placesListener.current?.remove();
+  }, []);
+
+  /** Light the distribution layers one at a time, once. Reduced motion and prerender show all at once. */
+  function startReach() {
+    if (reachStarted.current) return;
+    reachStarted.current = true;
+    const instant =
+      (typeof navigator !== "undefined" && navigator.webdriver) ||
+      (typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
+    if (instant) {
+      setReachShown(REACH_LAYERS.length);
+      return;
+    }
+    REACH_LAYERS.forEach((_, i) => globalThis.setTimeout(() => setReachShown(i + 1), 450 + i * 650));
+  }
+
+  useEffect(() => {
+    const el = reachRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      startReach();
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        startReach();
+        observer.disconnect();
+      }
+    }, { threshold: 0.4 });
+    observer.observe(el);
+    // The card sits above the fold; if the observer never reports (throttled or embedded views), light it anyway.
+    const fallback = globalThis.setTimeout(startReach, 2500);
+    return () => {
+      observer.disconnect();
+      globalThis.clearTimeout(fallback);
+    };
   }, []);
 
   function initQuickPlaces() {
@@ -80,26 +129,16 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
   return (
     <section className="hero-root seller-hero" aria-labelledby="seller-hero-heading">
       <div className="seller-hero-scene">
-        <picture>
-          <source media="(max-width: 767px)" srcSet="/images/home-hero-mobile.webp" />
-          <img
-            className="seller-hero-background"
-            src="/images/home-hero-desktop.webp"
-            width="1400"
-            height="788"
-            fetchPriority="high"
-            alt=""
-          />
-        </picture>
+        <HeroVideoBackdrop name="home" position="center 60%" />
         <div className="seller-hero-layout">
           {/* Left Column: Core Value Proposition */}
           <div className="seller-hero-primary">
             <p className="seller-hero-eyebrow">Carlos Uzcategui <span aria-hidden="true">/</span> South Florida</p>
             <h1 id="seller-hero-heading" className="seller-hero-heading">
-              A stronger strategy for your South Florida sale.
+              Your property, placed inside the world's largest local REALTOR® association.
             </h1>
             <p className="seller-hero-summary">
-              We align pricing, presentation and buyer-agent outreach around your property. Carlos leads your strategy and negotiation, with Florida experience since 2001.
+              Twenty-five years of Florida practice. Your listing enters the MLS ecosystem 90,000+ South Florida agents work from daily, then syndicates to {figures.usMls.value} U.S. MLSs and {figures.globalWebsites.value} global portals in {figures.languages.value} languages. Carlos leads your pricing strategy and negotiation.
             </p>
             <div className="seller-hero-links">
               <a href="#list-here" className="seller-hero-primary-cta" onClick={startInquiry}>
@@ -120,20 +159,22 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
           {/* Right Column: Architectural Showcase & Primary Address Intake (static card, no 3D tilt during typing) */}
           <div className="seller-hero-showcase" data-sticky-cta-guard>
             <div className="seller-hero-card overflow-hidden rounded-lg border border-gold/45 bg-[#071321]/95 shadow-2xl backdrop-blur-md">
-              <div className="seller-hero-showcase-media relative aspect-[16/10] w-full overflow-hidden">
-                <img
-                  src="/images/homepage-hero-waterfront-v2.webp"
-                  alt="South Florida waterfront architectural home"
-                  className="h-full w-full object-cover"
-                  loading="eager"
-                  fetchPriority="high"
-                  width="1200"
-                  height="750"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071321] via-transparent to-black/20" />
-                <span className="seller-hero-showcase-badge absolute bottom-2.5 left-3 rounded bg-black/65 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/90 backdrop-blur-sm">
-                  South Florida Residential Advisory
-                </span>
+              <div ref={reachRef} className="seller-hero-reach px-5 pt-5 sm:px-6 sm:pt-6">
+                <p className="hero-panel-kicker">See where your property will be seen</p>
+                <ul className="hero-reach-list" aria-label="Listing distribution">
+                  {REACH_LAYERS.map((layer, i) => (
+                    <li key={layer.value} className="hero-reach-item" data-on={i < reachShown ? "true" : "false"}>
+                      <span className="hero-reach-dot" aria-hidden="true" />
+                      <span>
+                        <span className="hero-reach-value">{layer.value}</span>
+                        <span className="hero-reach-label">{layer.label}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="hero-video-sources mt-3">
+                  Sources: Miami and South Florida REALTORS® merger announcement (April 2026); RPR National MLS data exchange; MIAMI REALTORS® Global Council.
+                </p>
               </div>
               <div className="seller-hero-intake p-5 sm:p-6">
                 <form onSubmit={handleQuickAddress} noValidate className="space-y-3">
@@ -148,7 +189,7 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
                       name="heroPropertyAddress"
                       type="text"
                       value={quickAddress}
-                      onFocus={initQuickPlaces}
+                      onFocus={() => { initQuickPlaces(); startReach(); }}
                       onChange={(e) => {
                         setQuickAddress(e.target.value);
                         if (addressError) setAddressError("");
@@ -182,7 +223,7 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
             </div>
           </div>
         </div>
-        <p className="seller-hero-image-caption">Conceptual residential imagery · South Florida</p>
+        <p className="seller-hero-image-caption">Conceptual AI-generated imagery · Not a property listing</p>
       </div>
 
       <div className="seller-hero-foot">
