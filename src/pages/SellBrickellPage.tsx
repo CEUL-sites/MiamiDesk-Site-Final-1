@@ -77,29 +77,13 @@ export default function SellBrickellPage() {
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           }))
         }} />
-      <JsonLd id="sell-brickell-agent" data={{
-          "@context": "https://schema.org",
-          "@type": "RealEstateAgent",
-          "name": "Carlos Uzcategui — Brickell Miami Listing Agent",
-          "url": "https://homesprofessional.com/sell-brickell",
-          "areaServed": { "@type": "City", "name": "Brickell", "addressRegion": "FL", "postalCode": "33131", "addressCountry": "US" },
-          "telephone": CONTACT.phoneUS,
-          "email": CONTACT.email,
-          "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
-          "aggregateRating": AGGREGATE_RATING
-        }} />
       <JsonLd id="sell-brickell-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — Brickell, FL",
           "serviceType": "Real estate listing and seller representation",
           "areaServed": { "@type": "City", "name": "Brickell", "addressRegion": "FL", "addressCountry": "US" },
-          "provider": {
-            "@type": "RealEstateAgent",
-            "name": "Carlos Uzcategui",
-            "url": "https://homesprofessional.com/sell-brickell"
-          },
+          "provider": { "@id": "https://homesprofessional.com/#agent" },
           "url": "https://homesprofessional.com/sell-brickell"
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

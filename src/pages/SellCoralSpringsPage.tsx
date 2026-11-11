@@ -74,29 +74,13 @@ export default function SellCoralSpringsPage() {
             "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           }))
         }} />
-      <JsonLd id="sell-coral-springs-agent" data={{
-          "@context": "https://schema.org",
-          "@type": "RealEstateAgent",
-          "name": "Carlos Uzcategui — Coral Springs FL Listing Agent",
-          "url": "https://homesprofessional.com/sell-coral-springs",
-          "areaServed": { "@type": "City", "name": "Coral Springs", "addressRegion": "FL", "postalCode": "33065", "addressCountry": "US" },
-          "telephone": CONTACT.phoneUS,
-          "email": CONTACT.email,
-          "address": { "@type": "PostalAddress", "streetAddress": "15951 SW 41 St #700", "addressLocality": "Weston", "addressRegion": "FL", "postalCode": "33331", "addressCountry": "US" },
-          "memberOf": { "@type": "Organization", "name": "United Realty Group" },
-          "aggregateRating": AGGREGATE_RATING
-        }} />
       <JsonLd id="sell-coral-springs-service" data={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "Seller representation and MLS listing — Coral Springs, FL",
           "serviceType": "Real estate listing and seller representation",
           "areaServed": { "@type": "City", "name": "Coral Springs", "addressRegion": "FL", "addressCountry": "US" },
-          "provider": {
-            "@type": "RealEstateAgent",
-            "name": "Carlos Uzcategui",
-            "url": "https://homesprofessional.com/sell-coral-springs"
-          },
+          "provider": { "@id": "https://homesprofessional.com/#agent" },
           "url": "https://homesprofessional.com/sell-coral-springs"
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">

@@ -53,6 +53,10 @@ const sitewideSchema: JsonLdSchema[] = [
     image: `${SITE_URL}${CONTACT.headshot}`,
     priceRange: "$$$$",
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
+    // Ties the practice node to the Person node emitted on /about, so answer
+    // engines resolve "Carlos Uzcategui" the business and the individual as
+    // one entity. Nested references only - the standalone Person stays on /about.
+    employee: { "@type": "Person", "@id": `${SITE_URL}/#person`, name: CONTACT.name },
     memberOf: [
       {
         "@type": "Organization",
@@ -80,6 +84,7 @@ const sitewideSchema: JsonLdSchema[] = [
         "@type": "EducationalOccupationalCredential",
         credentialCategory: "license",
         name: "Florida Real Estate License SL705771",
+        identifier: "SL705771",
         recognizedBy: {
           "@type": "GovernmentOrganization",
           name: "Florida Department of Business and Professional Regulation (DBPR)",

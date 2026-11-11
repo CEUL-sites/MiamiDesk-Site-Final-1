@@ -192,7 +192,12 @@ export default function AboutPage() {
               "@type": "EducationalOccupationalCredential",
               credentialCategory: "license",
               name: "Florida Real Estate License SL705771",
-              recognizedBy: { "@type": "Organization", name: "Florida DBPR" },
+              identifier: "SL705771",
+              recognizedBy: {
+                "@type": "GovernmentOrganization",
+                name: "Florida Department of Business and Professional Regulation (DBPR)",
+                url: "https://www.myfloridalicense.com",
+              },
             },
             {
               "@type": "EducationalOccupationalCredential",
@@ -209,7 +214,14 @@ export default function AboutPage() {
             postalCode: "33331",
             addressCountry: "US",
           },
-          sameAs: [CONTACT.linkedin],
+          sameAs: [
+            CONTACT.linkedin,
+            "https://www.realtor.com/realestateagents/56b2bc997e54f7010020ea51",
+            "https://www.homes.com/real-estate-agents/carlos-uzcategui/tgh3j9b/",
+            "https://www.loopnet.com/commercial-real-estate-brokers/profile/carlos-uzcategui/35mjrefb",
+            "https://reviews.birdeye.com/carlos-uzcategui-pa-171703249888930",
+            "https://www.facebook.com/sfloridahome/",
+          ],
         }}
       />
 

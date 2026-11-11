@@ -250,6 +250,10 @@ export default function GlobalDeskPage() {
         <meta property="og:description" content={t.pageDescription} />
         <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
         <meta property="og:image" content="https://homesprofessional.com/images/global-desk-hero-madrid-v2.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t.pageTitle} />
+        <meta name="twitter:description" content={t.pageDescription} />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/global-desk-hero-madrid-v2.webp" />
       </Helmet>
       <JsonLd id="global-desk-breadcrumb" data={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://homesprofessional.com/" }, { "@type": "ListItem", position: 2, name: "Miami Global Desk", item: "https://homesprofessional.com/global-desk" }] }} />
       <JsonLd
