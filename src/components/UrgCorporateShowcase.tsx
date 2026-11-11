@@ -315,6 +315,11 @@ export function UrgCorporateShowcase({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const copy = VARIANT_COPY[variant];
 
+/** Filter-pill counts come from the directory itself so they can never drift from it. */
+function countBranches(predicate: (branch: OfficialBranchCard) => boolean): number {
+  return ALL_OFFICIAL_BRANCHES.filter(predicate).length;
+}
+
   const toggleMute = () => {
     const next = !isMuted;
     setIsMuted(next);
@@ -656,10 +661,10 @@ export function UrgCorporateShowcase({
               <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter URG office locations by county">
                 {[
                   { id: "all-fl" as const, label: `All ${URG_FLORIDA_OFFICE_COUNT} FL Locations` },
-                  { id: "Broward" as const, label: "Broward (9)" },
-                  { id: "Palm Beach" as const, label: "Palm Beach (6)" },
-                  { id: "Miami-Dade" as const, label: "Miami-Dade (3)" },
-                  { id: "other" as const, label: "Orlando & Out-of-State (3)" },
+                  { id: "Broward" as const, label: `Broward (${countBranches((b) => b.region === "Broward")})` },
+                  { id: "Palm Beach" as const, label: `Palm Beach (${countBranches((b) => b.region === "Palm Beach")})` },
+                  { id: "Miami-Dade" as const, label: `Miami-Dade (${countBranches((b) => b.region === "Miami-Dade")})` },
+                  { id: "other" as const, label: `Orlando & Out-of-State (${countBranches((b) => b.region === "Central FL" || b.region === "National")})` },
                 ].map((f) => {
                   const active = branchFilter === f.id;
                   return (

@@ -298,15 +298,17 @@ mirrors it for legacy imports). Each entry there carries a `source` field —
 check `docs/sources/SOURCES.md` for the primary documents backing those
 sources before changing or adding a figure.
 
-**United Realty Group office positioning**: do not publish a definitive office
-count. The official URG office page, verified 2026-08-31, labels 21 total branch
-locations and lists 19 Florida locations, including Pembroke Pines as "Opening
-Soon," plus Texas and North Carolina. That live directory conflicts with the
-earlier internal confirmation used by this repository. Public copy therefore
-uses the neutral phrase **Florida office network** until the brokerage confirms
-the institutional count it wants advertised. Exact official branch names,
-addresses, states, and status live in `src/data/urgOffices.json`; service areas
-and referral markets are separate fields and must never be presented as offices.
+**United Realty Group office positioning**: the official URG office page
+(`https://www.urgfl.com/office-locations/`, re-verified by Carlos 2026-11-11)
+lists **19 Florida office locations**, including Pembroke Pines as "Opening
+Soon," plus out-of-state branches in San Antonio, TX and Greensboro, NC. The
+approved public phrasings are **"19 Florida office locations"** and the neutral
+**"Florida office network"**; never "20" or "21" Florida offices, and never a bare
+"19 offices." Exact branch names, addresses, states, and status live in
+`src/data/urgOffices.json`; the public branch directory in
+`UrgCorporateShowcase.tsx` must match it card for card (`npm run verify:urg-offices`
+enforces this). Service areas and referral markets are separate fields and must
+never be presented as offices.
 
 **MLS ranking**: the merged association is the **third-largest MLS in the
 United States** and the largest MLS owned by a single U.S. Realtor association.
@@ -323,7 +325,7 @@ is the enforcing agent; these are its hard rules.
 
 1. **No `$69B` / `$69 billion` anywhere.** That figure belongs to the
    association, not to Carlos or URG. Approved network facts: 3,500+ URG agents,
-   Florida office network, 25+ years South Florida presence, full-service brokerage
+   Florida office network (or "19 Florida office locations"), 25+ years South Florida presence, full-service brokerage
    with in-house title company.
 2. **No time-based promises** — no "Day 1 MLS activation," "within 24 hours,"
    "same day," or any listing-timeline guarantee.

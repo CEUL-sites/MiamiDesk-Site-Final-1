@@ -6,7 +6,7 @@ const root = process.cwd();
 const dataPath = path.join(root, "src", "data", "urgOffices.json");
 const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
-assert.equal(data.verifiedAt, "2026-10-12");
+assert.equal(data.verifiedAt, "2026-11-11", "re-verified against urgfl.com/office-locations (Carlos, 2026-11-11)");
 assert.equal(data.sourceUrl, "https://www.urgfl.com/office-locations/");
 assert.equal(data.publicNetworkLabel, "Florida office network");
 assert.equal(data.officialBranches.length, 21, "official source should retain all listed branches");
@@ -23,6 +23,24 @@ assert.equal(byId.get("pembroke-pines")?.status, "opening-soon");
 assert.ok(byId.has("weston"), "Weston must remain an official branch");
 assert.ok(data.carlosSouthFloridaServiceAreas.includes("Broward County"));
 assert.ok(data.crossBorderReferralMarkets.includes("Spain"));
+
+// The public branch directory (UrgCorporateShowcase) keeps its own card list with
+// photos and phones. It must carry exactly the official branches, same names and
+// addresses, so the directory never drifts from the source of truth.
+{
+  const showcase = fs.readFileSync(path.join(root, "src", "components", "UrgCorporateShowcase.tsx"), "utf8");
+  const start = showcase.indexOf("const ALL_OFFICIAL_BRANCHES");
+  const listSource = showcase.slice(start, showcase.indexOf("];", start));
+  const cards = [...listSource.matchAll(/id: "([^"]+)",\s*name: "([^"]+)",[\s\S]*?address: "([^"]+)"/g)].map(([, id, name, address]) => ({ id, name, address }));
+  assert.equal(cards.length, data.officialBranches.length, "branch directory card count matches urgOffices.json");
+  for (const card of cards) {
+    const official = byId.get(card.id);
+    assert.ok(official, `branch directory card ${card.id} is not an official branch`);
+    assert.equal(card.name, official.name, `branch directory name for ${card.id}`);
+    assert.equal(card.address, official.address, `branch directory address for ${card.id}`);
+  }
+  assert.doesNotMatch(listSource + showcase, /label: "(?:Broward|Palm Beach|Miami-Dade) \(\d+\)"/, "filter counts must be derived from the directory, not typed in");
+}
 
 function walk(dir, out = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
