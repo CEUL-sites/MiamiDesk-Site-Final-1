@@ -12,6 +12,7 @@ import { SellerNetCalculator } from "../../components/SellerNetCalculator";
 import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT } from "../../constants";
+import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -148,9 +149,8 @@ export default function EsVenderPage() {
         <Navbar />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20 text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
+        <section className="relative isolate overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
+          <HeroVideoBackdrop name="sellers" mobileCut={false} scrim="center" />
 
           <div className="relative mx-auto max-w-4xl px-6">
             <motion.div
@@ -171,25 +171,23 @@ export default function EsVenderPage() {
                 className="mx-auto mt-6 max-w-4xl font-serif text-4xl leading-tight text-white md:text-5xl"
               >
                 {/* TODO: native Madrid editor review */}
-                Su propiedad merece más que visibilidad local.
+                El precio final depende
                 <br />
                 {/* TODO: native Madrid editor review */}
                 <em className="italic text-gold">
-                  Merece alcance global.
+                  de quién ve el listado.
                 </em>
               </motion.h1>
 
               <motion.p
                 variants={itemVariants}
-                className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55"
+                className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/80"
               >
                 {/* TODO: native Madrid editor review */}
-                25 años de transacciones en Sur de Florida. Cada exclusiva
-                entra en el ecosistema del MLS operado por la Asociación de
-                REALTORS® de Miami y Sur de Florida — la mayor asociación
-                local de REALTORS® del mundo, con 93.000 agentes miembros,
-                200+ portales globales en 19 idiomas y 260+ MLSs en EE. UU.
-                a través de RPR.
+                Precio, presentación y contacto con los agentes compradores,
+                en un solo plan. Carlos dirige personalmente la estrategia y la
+                negociación, con 25 años de experiencia en el Sur de Florida
+                detrás de cada decisión.
               </motion.p>
 
               <motion.div

@@ -26,11 +26,15 @@ export function HeroVideoBackdrop({
   name,
   position = "center",
   mobileCut = true,
+  scrim = "side",
 }: {
   name: HeroVideoName;
   position?: string;
   /** Use the vertical phone cut below 768px. Set false to center-crop the landscape clip instead (sharper for some sources). */
   mobileCut?: boolean;
+  /** "side" for copy on the left (default); "center" for centered copy, as on the Spanish pages;
+   *  "none" when the page already layers its own overlays. */
+  scrim?: "side" | "center" | "none";
 }) {
   const [isMobile, setIsMobile] = useState(false);
   // The clip mounts only in a real browser document (never in DOM-less test harnesses).
@@ -55,7 +59,7 @@ export function HeroVideoBackdrop({
   const src = useMobileCut ? `/videos/hero/${name}-mobile.mp4` : `/videos/hero/${name}.mp4`;
 
   return (
-    <div className="hero-video-backdrop" aria-hidden="true">
+    <div className={scrim === "center" ? "hero-video-backdrop hero-video-backdrop--center" : "hero-video-backdrop"} aria-hidden="true">
       <picture>
         {mobileCut && <source media={MOBILE_QUERY} srcSet={`/images/hero/${name}-mobile.webp`} />}
         <img
@@ -78,7 +82,7 @@ export function HeroVideoBackdrop({
           style={{ objectPosition: position }}
         />
       )}
-      <div className="hero-video-scrim" />
+      {scrim !== "none" && <div className="hero-video-scrim" />}
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { BadgeCheck, ChevronRight, Download, MessageSquare, Check, Shield, FileT
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
-import { LazyVideo } from "../../components/LazyVideo";
+import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
 import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { AgencyPartnerForm } from "../../components/forms/AgencyPartnerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
@@ -190,7 +190,7 @@ export default function EsSpainDeskPage() {
             column, layered grain/grid/vignette texture, pill eyebrow, gold-italic
             serif headline, italic subtitle, scrolling network ticker, and an icon
             trust row. Copy, CTAs, PDF download and compliance line preserved. */}
-        <section className="hero-root relative overflow-hidden bg-[#060D18] px-6 pt-24 pb-16 md:pt-32 md:pb-24 text-center sm:px-10 text-white">
+        <section className="hero-root relative isolate overflow-hidden bg-[#060D18] px-6 pt-24 pb-16 md:pt-32 md:pb-24 text-center sm:px-10 text-white">
           <style>{`
             .gd-hero-grain {
               position:absolute; inset:0; pointer-events:none; opacity:0.025;
@@ -224,12 +224,7 @@ export default function EsSpainDeskPage() {
             }
           `}</style>
 
-          <LazyVideo
-            eager
-            src="/videos/dollhouse_global_reach.mp4"
-            poster="/images/og-default.png"
-            className="absolute inset-0 h-full w-full object-cover opacity-[0.45] pointer-events-none"
-          />
+          <HeroVideoBackdrop name="global" scrim="none" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060D18]/80 via-[#060D18]/50 to-[#060D18]/95" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(22,68,158,0.25),transparent_75%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_80%_70%,rgba(176,141,87,0.10),transparent_70%)]" />

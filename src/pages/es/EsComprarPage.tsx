@@ -18,6 +18,7 @@ import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { RealtorAssociationVideoHub } from "../../components/RealtorAssociationVideoHub";
 import { CONTACT } from "../../constants";
+import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -168,9 +169,8 @@ export default function EsComprarPage() {
         <Navbar />
 
         {/* ─── Hero ─────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-navy-deep py-16 md:py-20 text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_10%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(176,141,87,0.07),transparent_50%)]" />
+        <section className="relative isolate overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
+          <HeroVideoBackdrop name="buyers" scrim="center" />
 
           <div className="relative mx-auto max-w-4xl px-6">
             <motion.div
@@ -201,14 +201,14 @@ export default function EsComprarPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/55"
+                className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/80"
               >
                 Acceso completo al MLS en Miami-Dade, Broward y Palm Beach, con
                 representación bilingüe en inglés y español en todas las etapas.
                 25 años de experiencia respaldados por United Realty Group — una
-                firma con {CONTACT.stats.urgAgents} agentes y una red de 19 ubicaciones de
-                oficinas en Florida que respalda la coordinación en Broward,
-                Miami-Dade y Palm Beach.
+                firma con {CONTACT.stats.urgAgents} agentes y una red de oficinas en
+                Florida que respalda la coordinación en Broward, Miami-Dade y
+                Palm Beach.
               </motion.p>
 
               {/* Escala — la fortaleza en cuatro cifras */}
