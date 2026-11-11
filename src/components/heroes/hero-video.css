@@ -1,6 +1,6 @@
 /* Shared video backdrop for the redesigned page heroes (Home, Sellers, Buyers, Markets, Global Desk).
    The parent section must be `position: relative; isolation: isolate`. */
-.hero-video-backdrop { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: #06111f; }
+.hero-video-backdrop { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: transparent; }
 .hero-video-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-video-clip { opacity: 1; }
 /* Legibility scrim: heavy on the copy side, open on the image side, closing into navy at the foot. */
@@ -13,7 +13,17 @@
 @media (max-width: 1023px) {
   .hero-video-scrim {
     background:
-      linear-gradient(180deg, rgba(6, 17, 31, 0.55) 0%, rgba(6, 17, 31, 0.86) 45%, rgba(6, 17, 31, 0.96) 100%);
+      linear-gradient(180deg, rgba(6, 17, 31, 0.42) 0%, rgba(6, 17, 31, 0.62) 40%, rgba(6, 17, 31, 0.9) 100%);
+  }
+}
+/* Phones: the hero stacks tall, so keep the clip to the first screen instead of stretching it
+   (which softens it) across the whole section, and fade it into the section's navy. */
+@media (max-width: 767px) {
+  .hero-video-backdrop {
+    bottom: auto;
+    height: min(100%, 720px);
+    -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 62%, transparent 100%);
   }
 }
 
@@ -38,7 +48,7 @@
 .hero-panel h2 { font-family: var(--font-serif); font-size: clamp(24px, 2.2vw, 30px); line-height: 1.15; font-weight: 400; color: #fff; }
 .hero-panel-kicker { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d7bc8b; font-weight: 600; }
 .hero-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid rgba(215, 188, 139, 0.35); margin-top: 16px; }
-.hero-tabs button { min-height: 46px; padding: 10px 4px; margin-bottom: -1px; border-bottom: 2px solid transparent; color: #cfd8df; font-size: 14px; font-weight: 600; text-align: left; cursor: pointer; }
+.hero-tabs button { min-width: 0; min-height: 46px; padding: 10px 4px; margin-bottom: -1px; border-bottom: 2px solid transparent; color: #cfd8df; font-size: 14px; font-weight: 600; text-align: left; cursor: pointer; }
 .hero-tabs button[aria-selected="true"] { color: #d7bc8b; border-bottom-color: #d7bc8b; }
 .hero-tabpanel { min-height: 118px; padding-top: 16px; font-size: 15px; line-height: 1.65; color: #e4eaee; }
 .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
@@ -49,3 +59,8 @@
 .hero-panel-secondary { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; margin-top: 6px; color: #d7bc8b; font-size: 14px; border-bottom: 1px solid transparent; }
 .hero-panel-secondary:hover { border-bottom-color: #d7bc8b; }
 .hero-panel :focus-visible, .seller-hero :focus-visible { outline: 2px solid #d7bc8b; outline-offset: 2px; }
+
+@media (max-width: 480px) {
+  .hero-tabs button { font-size: 13px; }
+  .hero-tab-num { display: none; }
+}

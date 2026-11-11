@@ -143,3 +143,16 @@
   .seller-hero-reach .hero-reach-value { font-size: 18px; }
   .seller-hero-reach .hero-reach-item { padding: 8px 0; }
 }
+
+/* Phones: lighter top scrim so the clip reads, address intake ahead of the reach list, compact reach grid. */
+@media (max-width: 767px) {
+  .seller-hero-scene::before { background: linear-gradient(180deg, #07172280 0%, #071722c2 40%, #071722f2 70%, #071722 100%); }
+  .seller-hero-card { display: flex; flex-direction: column; }
+  .seller-hero-card .seller-hero-intake { order: -1; }
+  .seller-hero-card .seller-hero-reach { padding: 0 20px 18px; border-top: 1px solid rgba(215, 188, 139, 0.22); padding-top: 16px; }
+  .seller-hero-reach .hero-reach-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 14px; margin-top: 8px; }
+  .seller-hero-reach .hero-reach-item { padding: 8px 0; border-top: 0; }
+  .seller-hero-reach .hero-reach-value { font-size: 15px; line-height: 1.3; }
+  .seller-hero-reach .hero-reach-label { display: none; }
+  .seller-hero-reach .hero-reach-dot { width: 9px; height: 9px; margin-top: 5px; }
+}

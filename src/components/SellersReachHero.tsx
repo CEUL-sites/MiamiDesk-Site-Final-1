@@ -81,7 +81,7 @@ export function SellersReachHero() {
                     document.getElementById(`seller-stage-tab-${STAGES[next].id}`)?.focus();
                   }}
                 >
-                  0{i + 1} · {item.label}
+                  <span className="hero-tab-num">0{i + 1} · </span>{item.label}
                 </button>
               ))}
             </div>
