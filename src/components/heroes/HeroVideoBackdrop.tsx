@@ -11,8 +11,9 @@ import "./hero-video.css";
  * - The clip itself goes through LazyVideo in `idle` mode: nothing is fetched
  *   until window `load` plus an idle slot, and nothing loads at all on
  *   data-saver, 2g or prefers-reduced-motion. Those visitors keep the poster.
- * - Phones get a vertical cut chosen once on mount; the prerendered markup is
- *   the desktop poster, so react-snap output is unchanged.
+ * - Phones get a vertical cut chosen on mount (and on breakpoint changes). The
+ *   clip is never mounted during react-snap prerendering, so the static HTML
+ *   holds only the responsive poster.
  *
  * Clips are AI-generated conceptual imagery from the HomesProfessional video
  * library (public/videos/hero/*). Each page passes its own `name`.
@@ -28,6 +29,9 @@ export function HeroVideoBackdrop({ name, position = "center" }: { name: HeroVid
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof document === "undefined") return;
+    // react-snap (puppeteer) sets navigator.webdriver during prerender. Keep the clip out of the
+    // snapshot so the static HTML carries only the responsive poster, never a <video src preload>.
+    if (typeof navigator !== "undefined" && navigator.webdriver) return;
     setHasDocument(true);
     if (typeof window.matchMedia !== "function") return;
     const query = window.matchMedia(MOBILE_QUERY);
