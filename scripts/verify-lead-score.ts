@@ -345,6 +345,12 @@ assert.ok(!emailPartial.includes("Avg days on market"), "email omits the whole l
 assert.ok(!emailPartial.includes("Price per sq ft"), "email omits the whole labeled line, not just the value");
 assert.ok(!emailPartial.includes("null") && !emailPartial.includes("undefined"));
 
+// ── WhatsApp is sent only after the HubSpot sync ────────────────────────
+{
+  const sync = readFileSync(new URL("../netlify/functions/hubspot-inquiry-sync.ts", import.meta.url), "utf8");
+  assert.match(sync, /sendWhatsAppAlert\(/, "hubspot-inquiry-sync.ts sends the owner WhatsApp alert after the CRM sync");
+}
+
 // ── Both handlers are actually wired to the shared formatter ────────────
 // Guards against one path being updated and the other quietly drifting back
 // to its own hand-rolled message.
@@ -352,7 +358,10 @@ for (const handler of ["lead-notify.ts", "submission-created.ts"]) {
   const source = readFileSync(new URL(`../netlify/functions/${handler}`, import.meta.url), "utf8");
   assert.match(source, /from "\.\/_shared\/leadScore"/, `${handler} imports the shared scorer`);
   assert.match(source, /scoreLead\(/, `${handler} scores the lead`);
-  assert.match(source, /formatLeadWhatsApp\(/, `${handler} uses the shared WhatsApp format`);
+  // WhatsApp moved out of both form paths on 2026-10-31 (commit 0a0e9bf): the
+  // owner alert is sent only by hubspot-inquiry-sync.ts after the CRM note and
+  // task are saved. Neither form path may send it directly again.
+  assert.doesNotMatch(source, /sendWhatsAppAlert\(/, `${handler} must not send WhatsApp before the CRM sync`);
   assert.match(source, /formatLeadEmailSubject\(/, `${handler} uses the shared subject line`);
   assert.match(source, /tier: scored\.tier/, `${handler} writes the tier to Sheets`);
 
@@ -364,11 +373,6 @@ for (const handler of ["lead-notify.ts", "submission-created.ts"]) {
   assert.match(source, /from "\.\/_shared\/leadMarketContext"/, `${handler} imports the market-context module`);
   assert.match(source, /shouldFetchMarketContext\(scored\.tier\)/, `${handler} gates the lookup on the shared tier check`);
   assert.match(source, /getLeadMarketContext\(/, `${handler} calls the market-context lookup`);
-  assert.match(
-    source,
-    /formatLeadWhatsApp\([^)]*marketContext\)/,
-    `${handler} passes marketContext into the WhatsApp formatter`,
-  );
   assert.match(
     source,
     /formatLeadEmail\([\s\S]*?marketContext\)/,
