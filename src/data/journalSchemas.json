@@ -1,0 +1,115 @@
+{
+  "mortgage-rate-lock-in-south-florida-sellers-2026": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        "@id": "https://homesprofessional.com/journal/mortgage-rate-lock-in-south-florida-sellers-2026#article",
+        "headline": "7.18% Mortgage Rates and the Move-Up Payment Gap: What South Florida Sellers Should Review",
+        "description": "Review mortgage lock-in, replacement-home costs and South Florida pricing evidence before deciding whether to sell. A property-specific framework for owners.",
+        "url": "https://homesprofessional.com/journal/mortgage-rate-lock-in-south-florida-sellers-2026",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://homesprofessional.com/journal/mortgage-rate-lock-in-south-florida-sellers-2026"
+        },
+        "author": {
+          "@id": "https://homesprofessional.com/#person"
+        },
+        "publisher": {
+          "@id": "https://homesprofessional.com/#urg-weston"
+        },
+        "inLanguage": "en-US",
+        "articleSection": "Market Analysis",
+        "citation": [
+          "https://www.freddiemac.com/pmms",
+          "https://mediaroom.realtor.com/2026-11-11-Buying-a-Median-Priced-Home-Would-Cost-Typical-Mortgage-Holders-About-1%2C100-More-a-Month",
+          "https://fred.stlouisfed.org/data/ATNHPIUS33124Q",
+          "https://fred.stlouisfed.org/data/FLSTHPI",
+          "https://fred.stlouisfed.org/data/USSTHPI",
+          "https://www.fhfa.gov/faqs/hpi",
+          "https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/",
+          "https://blog.narrpr.com/support/how-can-i-see-which-mlss-share-data-with-me/",
+          "https://www.urgfl.com/join-the-family/",
+          "https://www.urgfl.com/office-locations/"
+        ],
+        "datePublished": "2026-11-11",
+        "dateModified": "2026-11-11",
+        "image": "https://homesprofessional.com/images/journal/og/mortgage-rate-lock-in-south-florida-sellers-2026.jpg"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://homesprofessional.com/#person",
+        "name": "Carlos Uzcategui",
+        "url": "https://homesprofessional.com/about",
+        "jobTitle": "REALTOR® · Florida License SL705771",
+        "knowsLanguage": [
+          "English",
+          "Spanish"
+        ],
+        "worksFor": {
+          "@id": "https://homesprofessional.com/#urg-weston"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Florida Real Estate Sales Associate License",
+            "identifier": "SL705771"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Certified Luxury Home Marketing Specialist"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Certified Seller Representative"
+          }
+        ]
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://homesprofessional.com/#urg-weston",
+        "name": "United Realty Group — Weston Office",
+        "url": "https://www.urgfl.com/",
+        "telephone": "+1-954-450-2000",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "15951 SW 41st Street, Suite 700",
+          "addressLocality": "Weston",
+          "addressRegion": "FL",
+          "postalCode": "33331",
+          "addressCountry": "US"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://homesprofessional.com/journal/mortgage-rate-lock-in-south-florida-sellers-2026#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does a 7.18% national mortgage average determine my home’s value?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. A national mortgage average is financing context. Property-specific pricing requires current competing listings, recent comparable sales, condition and transaction terms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Miami’s historical price growth show that mortgage rates do not matter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. A long-run house-price index does not measure current rate sensitivity or establish the value of a particular property."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after a Private Seller Strategy Review request?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Share the property address, current use and intended timing. Carlos reviews your objectives and available property information, then contacts you to arrange the strategy conversation. No listing commitment is required."
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
