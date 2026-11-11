@@ -31,7 +31,7 @@ export function SellersReachHero() {
   return (
     <>
       <section className="seller-reach-hero" aria-labelledby="seller-reach-title">
-        <HeroVideoBackdrop name="sellers" position="center 45%" />
+        <HeroVideoBackdrop name="sellers" position="center 45%" mobileCut={false} />
         <div className="seller-reach-layout">
           <div className="seller-reach-copy">
             <h1 id="seller-reach-title">
