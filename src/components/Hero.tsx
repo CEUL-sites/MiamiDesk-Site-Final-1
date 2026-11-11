@@ -59,7 +59,12 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
       }
     }, { threshold: 0.4 });
     observer.observe(el);
-    return () => observer.disconnect();
+    // The card sits above the fold; if the observer never reports (throttled or embedded views), light it anyway.
+    const fallback = globalThis.setTimeout(startReach, 2500);
+    return () => {
+      observer.disconnect();
+      globalThis.clearTimeout(fallback);
+    };
   }, []);
 
   function initQuickPlaces() {

@@ -29,7 +29,12 @@ export function HeroVideoBackdrop({ name, position = "center" }: { name: HeroVid
   useEffect(() => {
     if (typeof window === "undefined" || typeof document === "undefined") return;
     setHasDocument(true);
-    if (typeof window.matchMedia === "function") setIsMobile(window.matchMedia(MOBILE_QUERY).matches);
+    if (typeof window.matchMedia !== "function") return;
+    const query = window.matchMedia(MOBILE_QUERY);
+    setIsMobile(query.matches);
+    const onChange = (event: MediaQueryListEvent) => setIsMobile(event.matches);
+    query.addEventListener?.("change", onChange);
+    return () => query.removeEventListener?.("change", onChange);
   }, []);
 
   const poster = isMobile ? `/images/hero/${name}-mobile.webp` : `/images/hero/${name}.webp`;
