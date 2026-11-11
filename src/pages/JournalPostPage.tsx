@@ -9,6 +9,7 @@ import { JournalSellerCTA } from '../components/JournalSellerCTA';
 import { AuthorBio } from '../components/AuthorBio';
 import { getPostBySlug, getAllPosts, loadPostHtml, getCachedPostHtml } from '../lib/markdown';
 import { JOURNAL_FAQS } from '../content/journal-faqs';
+import journalSchemas from '../data/journalSchemas.json';
 import { pushEvent } from '../lib/analytics';
 import { getAttribution } from '../lib/attribution';
 import { CONTACT } from '../constants';
@@ -207,7 +208,7 @@ export default function JournalPostPage() {
         <meta name="twitter:image" content={ogImage} />
         <meta name="twitter:image:alt" content={post.title} />
       </Helmet>
-      <JsonLd id={`journal-${post.slug}-article`} data={articleSchema} />
+      <JsonLd id={`journal-${post.slug}-article`} data={(journalSchemas as Record<string, unknown>)[post.slug] ?? articleSchema} />
       <JsonLd id={`journal-${post.slug}-breadcrumb`} data={breadcrumbSchema} />
       {faqSchema && <JsonLd id={`journal-${post.slug}-faq`} data={faqSchema} />}
 
