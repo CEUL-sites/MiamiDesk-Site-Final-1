@@ -10,6 +10,14 @@ import "./hero-conversion.css";
 const HERO_ADDRESS_PLACEHOLDER = "Enter your South Florida property address";
 
 /** Distribution layers revealed in the hero card. Every value is read from figures.json. */
+/** Phone-width stat strip: the same figures as the reach card, readable at a glance. */
+const HERO_STATS = [
+  { value: "90,000+", label: "South Florida agents work from this MLS daily" },
+  { value: figures.usMls.value, label: "U.S. MLSs" },
+  { value: figures.globalWebsites.value, label: "global portals" },
+  { value: figures.languages.value, label: "languages" },
+];
+
 const REACH_LAYERS = [
   { value: "Miami MLS", label: "The MLS ecosystem 90,000+ South Florida agents work from daily" },
   { value: `${figures.usMls.value} U.S. MLSs`, label: `Syndicated ${figures.usMls.sublabel}` },
@@ -135,11 +143,20 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
           <div className="seller-hero-primary">
             <p className="seller-hero-eyebrow">Carlos Uzcategui <span aria-hidden="true">/</span> South Florida</p>
             <h1 id="seller-hero-heading" className="seller-hero-heading">
-              Your property, placed inside the world's largest local REALTOR® association.
+              Your property, placed inside{" "}
+              <span className="seller-hero-heading-accent">the world's largest local REALTOR® association.</span>
             </h1>
             <p className="seller-hero-summary">
-              Twenty-five years of Florida practice. Your listing enters the MLS ecosystem 90,000+ South Florida agents work from daily, then syndicates to {figures.usMls.value} U.S. MLSs and {figures.globalWebsites.value} global portals in {figures.languages.value} languages. Carlos leads your pricing strategy and negotiation.
+              Twenty-five years of Florida practice. Carlos leads your pricing strategy and negotiation.
             </p>
+            <ul className="seller-hero-stats" aria-label="Where your listing is seen">
+              {HERO_STATS.map((stat) => (
+                <li key={stat.label}>
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </li>
+              ))}
+            </ul>
             <div className="seller-hero-links">
               <a href="#list-here" className="seller-hero-primary-cta" onClick={startInquiry}>
                 Request a Private Seller Strategy <ArrowRight size={17} aria-hidden="true" />

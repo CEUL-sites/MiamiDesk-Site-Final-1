@@ -119,11 +119,8 @@ export default function EsHomePage() {
                 className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
                 style={{ fontSize: "1.05rem" }}
               >
-                Veinticinco años de experiencia en Florida. Su listado entra en el
-                ecosistema MLS en el que más de 90,000 agentes del Sur de Florida
-                trabajan a diario, y se sindica a 260+ MLS de EE. UU. y 200+
-                portales globales en 19 idiomas. Carlos dirige su estrategia de
-                precio y la negociación.
+                Veinticinco años de experiencia en Florida. Carlos dirige su
+                estrategia de precio y la negociación.
               </motion.p>
 
               {/* Primary seller lead capture */}
