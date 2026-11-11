@@ -176,7 +176,8 @@ Every form submits down **two** paths on purpose, because either one can silentl
 drop a lead:
 
 1. **Netlify Forms** → fires `netlify/functions/submission-created.ts`
-   asynchronously → Google Sheets webhook + Resend email + CallMeBot WhatsApp
+   asynchronously → Google Sheets webhook + Resend email (the CallMeBot WhatsApp
+   alert is sent later by `hubspot-inquiry-sync.ts`, after the CRM save)
    alert. Netlify only fires this for "verified" submissions, so spam-filing
    loses leads.
 2. **Direct backup** → `src/lib/leadNotify.ts` POSTs to
@@ -239,7 +240,8 @@ Forms: `SellerIntakeForm`, `BuyerMandateForm`, `AgencyPartnerForm`,
 
 | Function | Purpose | Bridge API? |
 |---|---|---|
-| `submission-created.ts` | Netlify Forms webhook → Sheets + email + WhatsApp + nurture enqueue | no |
+| `submission-created.ts` | Netlify Forms webhook → Sheets + email + nurture enqueue | no |
+| `hubspot-inquiry-sync.ts` | CRM sync worker → HubSpot note + task, then the owner WhatsApp alert | no |
 | `lead-notify.ts` | Direct backup lead alert from the browser | no |
 | `lead-acknowledgment.ts` | Auto-reply to the lead | no |
 | `seller-nurture.ts` | Scheduled `@daily` Resend drip from the Blobs queue | no |

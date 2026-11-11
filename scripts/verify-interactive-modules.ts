@@ -295,36 +295,27 @@ assert.match(
   "the eligibility terms must remain on the page verbatim",
 );
 
-// Homepage placement, and the bundle discipline that protects the LCP budget.
-for (const section of ["<MarketingReel3D />", "<SellerPathfinder />"]) {
-  assert.ok(home.includes(section), `the homepage must render ${section}`);
-}
+// Homepage placement. The English homepage dropped the reel and the pathfinder
+// in the 2026-11-02 editorial redesign (commit 9b25928: five-section seller
+// advisory layout); they stay on /es below. What still matters on / is the LCP
+// budget: neither heavy module may come back as an eager import.
 for (const mod of ["MarketingReel3D", "SellerPathfinder"]) {
-  assert.match(
+  assert.doesNotMatch(
     home,
-    new RegExp(`const ${mod} = lazy\\(`),
-    `${mod} must be lazily imported — only the hero belongs in the homepage's initial bundle`,
+    new RegExp(`import \\{[^}]*\\b${mod}\\b[^}]*\\} from`),
+    `${mod} must never be eagerly imported into the homepage bundle`,
   );
 }
-assert.ok(
-  home.indexOf("<Proof />") < home.indexOf("<MarketingReel3D />"),
-  "the reel follows the review section",
-);
-assert.ok(
-  home.indexOf("<MarketPulse />") < home.indexOf("<SellerPathfinder />"),
-  "the pathfinder catches visitors who reached the end of the page",
-);
 
 /* ── EN/ES parity ────────────────────────────────────────────────────────── */
 
-// Adding these two modules to the English homepage and not the Spanish one
-// leaves /es materially worse than /, which is the gap this asserts shut.
+// The Spanish homepage keeps both modules, in Spanish and lazily loaded.
 const esHome = await readFile("src/pages/es/EsHomePage.tsx", "utf8");
 for (const mod of ["MarketingReel3D", "SellerPathfinder"]) {
   assert.match(
     esHome,
     new RegExp(`<${mod} lang="es"`),
-    `the Spanish homepage must render ${mod} in Spanish — the English homepage has it`,
+    `the Spanish homepage must render ${mod} in Spanish`,
   );
   assert.match(
     esHome,
