@@ -156,3 +156,19 @@
   .seller-hero-reach .hero-reach-label { display: none; }
   .seller-hero-reach .hero-reach-dot { width: 9px; height: 9px; margin-top: 5px; }
 }
+
+/* Scannable hero: gold headline accent, one-line summary, figures as a stat strip on phones
+   (the reach card carries them on desktop, so the strip is phone-only and the card list hides there). */
+.seller-hero-heading-accent { color: #d7bc8b; font-style: italic; }
+.seller-hero-stats { display: none; list-style: none; margin: 0; padding: 0; }
+@media (max-width: 767px) {
+  .seller-hero-summary { font-size: 15px; }
+  .seller-hero-stats { display: grid; grid-template-columns: 1.55fr 1fr 1fr 0.9fr; margin-top: 14px; border-top: 1px solid rgba(215, 188, 139, 0.35); border-bottom: 1px solid rgba(215, 188, 139, 0.35); }
+  .seller-hero-stats li { padding: 10px 8px 10px 10px; border-left: 1px solid rgba(215, 188, 139, 0.22); }
+  .seller-hero-stats li:first-child { padding-left: 0; border-left: 0; }
+  .seller-hero-stats strong { display: block; font-family: var(--font-serif); font-weight: 400; font-size: 23px; line-height: 1.1; color: #d7bc8b; }
+  .seller-hero-stats span { display: block; margin-top: 4px; font-size: 10.5px; line-height: 1.35; letter-spacing: .02em; color: #dfe6eb; }
+  .seller-hero-card .seller-hero-reach .hero-panel-kicker,
+  .seller-hero-card .seller-hero-reach .hero-reach-list { display: none; }
+  .seller-hero-card .seller-hero-reach .hero-video-sources { margin-top: 0; }
+}
