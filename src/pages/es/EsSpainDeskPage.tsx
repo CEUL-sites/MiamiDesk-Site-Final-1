@@ -867,7 +867,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-24" id="enviar-listing">
           <div className="mx-auto max-w-3xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Mesa España · Consulta de Agencia</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Global Desk · Consulta de Agencia</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Envíe un listing o consulta de agencia.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
                 Para agencias españolas, promotores y profesionales del listing. Todas las solicitudes son confidenciales.
