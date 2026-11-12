@@ -65,7 +65,7 @@ export function ReferralIntakeForm({language = "en", initialPurpose = "agent_reg
       notifyLeadDirect({name: form.licenseeName, email: form.email, phone: form.phone,
         city: form.country, timeline: form.referralType,
         message: `${form.registrationPurpose} · ${form.brokerageName} · ${form.clientSummary}`,
-        sourcePage: formName, formName: "referral-intake", leadSource: getLeadSource(),
+        sourcePage: formName, formName, leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current)});
       if (!es) fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST", headers: {"Content-Type": "application/json"},

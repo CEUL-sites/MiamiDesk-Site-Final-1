@@ -21,8 +21,8 @@
 [context.production.environment]
   NODE_VERSION = "22"
 
-# Routing lives in generated public/_redirects; static routes precede SPA fallback.
-# Source: scripts/route-redirects.json. Unknown journal URLs remain true 404s.
+# Routing lives in generated public/_redirects; explicit route rewrites precede a 404 fallback.
+# Source: scripts/route-redirects.json. Unknown URLs (journal included) return a real 404.
 
 # ── HTTP Security Headers ───────────────────────────────────────────────────
 [[headers]]

@@ -105,7 +105,7 @@ export interface HeroAddressTransfer {
   seq: number;
 }
 
-export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false, valuation = false, consultation = false, initialAddress = "", addressTransfer = null, sourcePage = `hero-${lang}` }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean; valuation?: boolean; consultation?: boolean; initialAddress?: string; addressTransfer?: HeroAddressTransfer | null; sourcePage?: string }) {
+export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compact = false, valuation = false, consultation = false, initialAddress = "", addressTransfer = null, sourcePage = `hero-${lang}`, defaultMarket = 0 }: { lang?: Lang; progressiveDesktop?: boolean; compact?: boolean; valuation?: boolean; consultation?: boolean; initialAddress?: string; addressTransfer?: HeroAddressTransfer | null; sourcePage?: string; /** Index into the county list preselected for this page (0 Broward, 1 Miami-Dade). */ defaultMarket?: number }) {
   const valuationSubmit = lang === "es" ? "Solicitar revisión del valor de mi casa" : "Request My Home Value Review";
   const t = valuation ? {
     ...COPY[lang],
@@ -125,7 +125,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
   const initial = {
     name: "", phone: "", email: "",
     propertyAddress: (addressTransfer?.address ?? initialAddress).trim(),
-    city: valuation ? "" : t.markets[0],
+    city: valuation ? "" : (t.markets[defaultMarket] ?? t.markets[0]),
     timeline: t.timelines[0],
     messagingConsent: "no",
   };
@@ -357,7 +357,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             onChange={update("propertyAddress")}
             onFocus={initPlaces}
             enterKeyHint="next"
-            placeholder={compact ? t.compactAddressPlaceholder : progressiveDesktop ? "Property address" : t.address}
+            placeholder={compact ? t.compactAddressPlaceholder : progressiveDesktop ? (lang === "es" ? "Dirección de la propiedad" : "Property address") : t.address}
             autoComplete="street-address"
             style={{ paddingLeft: "2.75rem" }}
             className={`w-full rounded-md border border-gold/45 px-4 py-3 font-sans text-base outline-none transition-all duration-200 focus:border-gold focus:ring-2 focus:ring-gold/25 ${progressiveDesktop ? "bg-white text-navy-deep placeholder:text-slate-600" : "bg-white/[0.055] text-white placeholder:text-white/70 focus:bg-white/[0.09]"}`}
@@ -502,7 +502,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         )}
 
         <p className={`mt-2 text-center font-sans text-[11px] leading-5 text-white/70 ${compact ? "seller-form-microcopy" : ""}`}>
-          {compact ? t.compactPromise : "Personal reply from Carlos · No listing commitment"}
+          {compact ? t.compactPromise : lang === "es" ? "Respuesta personal de Carlos · Sin compromiso de venta" : "Personal reply from Carlos · No listing commitment"}
         </p>
         <a
           href={CONTACT.whatsappUS}
@@ -519,7 +519,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
       {/* Move 1 & 3: Dedicated international bridge caption beneath hero form */}
       {!compact && <div className="mt-3 text-center px-2">
         <p className="font-sans text-[12px] leading-relaxed text-white/70">
-          {progressiveDesktop ? "Spain or LATAM property?" : t.bridgeText}{" "}
+          {progressiveDesktop ? (lang === "es" ? "¿Propiedad en España o LATAM?" : "Spain or LATAM property?") : t.bridgeText}{" "}
           <a
             href={t.bridgeHref}
             className="inline-flex items-center gap-1 font-medium text-gold hover:underline"

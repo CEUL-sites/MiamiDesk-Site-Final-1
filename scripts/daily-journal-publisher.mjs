@@ -676,6 +676,13 @@ function buildPost(topic, overrides = {}) {
   const ctaUrl = `${ctaPath}?utm_source=journal&utm_medium=seo&utm_campaign=${slug}`;
   const reviewName = angle.audience === 'buyer' ? 'South Florida Buyer Strategy Review' : 'Private Seller Strategy Review';
 
+  // Secondary internal link to the market's seller page. Skipped for /contact and
+  // /sell hubs (not city pages) and when it is already the primary CTA target.
+  const sellerLinkLine =
+    market.sellerPage.startsWith('/sell-') && market.sellerPage !== ctaPath
+      ? `\n\nOwners considering a sale can also read about [selling a home in ${market.name}](${market.sellerPage}).`
+      : '';
+
   const body = angle
     .sections(market)
     .map(([heading, text]) => `## ${heading}\n\n${text}`)
@@ -735,7 +742,7 @@ ${cycle(bioVariants(), m + a * 2)}
 
 Request a ${reviewName} before making a public decision.
 
-[Start the strategy review](${ctaUrl})
+[Start the strategy review](${ctaUrl})${sellerLinkLine}
 
 USA WhatsApp: +1 954-865-6622
 
