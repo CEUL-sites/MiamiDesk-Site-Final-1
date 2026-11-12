@@ -552,7 +552,7 @@ export default function GlobalDeskPage() {
         <section id="carlos" data-sticky-cta-guard data-global-principal className="border-y border-bone bg-white-soft px-6 py-14 text-navy-deep md:py-20">
           <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-12">
             <figure className="mx-auto w-full max-w-[260px] lg:max-w-xs">
-              <img src="/images/carlos-headshot.jpg" alt={lang === "es" ? "Carlos Uzcategui, Realtor con licencia de Florida SL705771, United Realty Group" : "Carlos Uzcategui, Florida Licensed Realtor SL705771, United Realty Group"} width={800} height={817} loading="lazy" decoding="async" className="aspect-[4/5] w-full rounded-xl object-cover object-top shadow-md" />
+              <img src="/images/carlos-headshot-20261112.jpg" alt={lang === "es" ? "Carlos Uzcategui, Realtor con licencia de Florida SL705771, United Realty Group" : "Carlos Uzcategui, Florida Licensed Realtor SL705771, United Realty Group"} width={596} height={608} loading="lazy" decoding="async" className="aspect-[4/5] w-full rounded-xl object-cover object-top shadow-md" />
             </figure>
             <div className="min-w-0">
               <p className="story-eyebrow text-gold-ink">{t.trustKicker}</p>
