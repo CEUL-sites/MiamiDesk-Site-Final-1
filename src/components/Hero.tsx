@@ -231,7 +231,7 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
                   </button>
                 </form>
                 <p id="hero-quick-address-next" className="seller-hero-address-next mt-3 font-sans text-xs leading-relaxed text-white/85">
-                  Next: share your contact details. Carlos reviews your property and contacts you to arrange a private strategy call.
+                  Next: share your contact details. Our team reviews your property and contacts you to arrange a private strategy call.
                 </p>
                 <p className="seller-hero-address-reassurance mt-1.5 font-sans text-[11px] text-white/65">
                   Confidential · No obligation

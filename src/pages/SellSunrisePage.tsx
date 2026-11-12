@@ -31,11 +31,11 @@ const SUNRISE_FAQS = [
   },
   {
     q: "Which Sunrise communities generate the most buyer activity?",
-    a: "Communities with newer construction, controlled access, and proximity to the Sawgrass Expressway and top-rated Broward schools consistently generate strong buyer interest in Sunrise. HOA financial health, build quality, and school zone assignment all affect positioning strategy — Carlos reviews these factors as part of the seller strategy review.",
+    a: "Communities with newer construction, controlled access, and proximity to the Sawgrass Expressway and top-rated Broward schools consistently generate strong buyer interest in Sunrise. HOA financial health, build quality, and school zone assignment all affect positioning strategy — our team reviews these factors as part of the seller strategy review.",
   },
   {
     q: "What is the seller strategy review?",
-    a: "A free, confidential session where Carlos reviews your property, its MLS positioning potential, current market comparables, and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
+    a: "A free, confidential session where our team reviews your property, its MLS positioning potential, current market comparables, and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
   },
 ];
 
@@ -272,7 +272,7 @@ export default function SellSunrisePage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Sunrise Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every Sunrise submission personally before responding.
+                No listing commitment required. Our team reviews every Sunrise submission before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-sunrise" />

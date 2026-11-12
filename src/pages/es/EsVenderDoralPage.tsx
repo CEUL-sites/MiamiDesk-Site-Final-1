@@ -50,7 +50,7 @@ const DORAL_FAQS_ES = [
     // TODO: native Madrid editor review
     q: "¿Qué es la revisión de estrategia para vendedores?",
     // TODO: native Madrid editor review
-    a: "Una sesión gratuita y confidencial en la que Carlos revisa su propiedad, su potencial de posicionamiento en el MLS, los comparables actuales del mercado y la estrategia de distribución — sin compromiso de listado. Envíe el formulario a continuación o contacte a Carlos directamente por WhatsApp.",
+    a: "Una sesión gratuita y confidencial en la que nuestro equipo revisa su propiedad, su potencial de posicionamiento en el MLS, los comparables actuales del mercado y la estrategia de distribución — sin compromiso de listado. Envíe el formulario a continuación o contacte a Carlos directamente por WhatsApp.",
   },
 ];
 
@@ -336,7 +336,7 @@ export default function EsVenderDoralPage() {
             <h2 className="font-serif text-3xl text-navy-deep">¿Listo para posicionar su propiedad en Doral?</h2>
             {/* TODO: native Madrid editor review */}
             <p className="mt-4 font-sans text-sm leading-relaxed text-navy-deep/70">
-              No se requiere compromiso de listado. Carlos revisa personalmente cada solicitud de Doral antes de responder.
+              No se requiere compromiso de listado. Nuestro equipo revisa cada solicitud de Doral antes de responder.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="/contact" className="group inline-flex items-center gap-2 bg-navy-deep px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-85">

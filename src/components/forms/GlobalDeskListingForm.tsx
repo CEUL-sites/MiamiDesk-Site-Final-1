@@ -107,7 +107,7 @@ const L = {
     submit: "Enviar solicitud",
     submitting: "Enviando…",
     success:
-      "Recibido. Carlos revisará la oportunidad y responderá con el encaje y la ruta profesional recomendada.",
+      "Recibido. Nuestro equipo revisará la oportunidad y responderá con el encaje y la ruta profesional recomendada.",
     errAuth: "Debe confirmar la autorización y el consentimiento para continuar.",
     errImages: "Añada al menos una imagen de la propiedad.",
     errGeneric: "No se pudo enviar. Escriba por WhatsApp o correo.",
@@ -204,7 +204,7 @@ const L = {
     submit: "Submit request",
     submitting: "Submitting…",
     success:
-      "Received. Carlos will review the opportunity and respond with the recommended fit and professional route.",
+      "Received. Our team will review the opportunity and respond with the recommended fit and professional route.",
     errAuth: "Please confirm the authorization and consent to proceed.",
     errImages: "Please add at least one property image.",
     errGeneric: "Could not submit. Please try WhatsApp or email.",

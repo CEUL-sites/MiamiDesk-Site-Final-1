@@ -19,12 +19,12 @@ const DESK_CONTEXT: Record<string, { eyebrow: string; heading: string; intro: st
   "spain-developer": {
     eyebrow: "Miami Global Listing Desk · Developer Brief",
     heading: "Request a Developer Activation Brief",
-    intro: "For Spanish developers evaluating South Florida buyer-agent activation for selected new-build or prime units through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, and United Realty Group. Share the development, market, and unit count — Carlos reviews every submission personally.",
+    intro: "For Spanish developers evaluating South Florida buyer-agent activation for selected new-build or prime units through Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, and United Realty Group. Share the development, market, and unit count — our team reviews every submission.",
   },
   "spain-agency": {
     eyebrow: "Miami Global Listing Desk · Agency Cooperation Proposal",
     heading: "Request an Agency Cooperation Proposal",
-    intro: "For established Spanish agencies seeking South Florida-facing buyer-agent activation while keeping the local mandate. Written cooperation is subject to brokerage, platform, and compliance requirements. Carlos reviews every submission personally.",
+    intro: "For established Spanish agencies seeking South Florida-facing buyer-agent activation while keeping the local mandate. Written cooperation is subject to brokerage, platform, and compliance requirements. Our team reviews every submission.",
   },
   global: {
     eyebrow: "Global Desk · Distribution Assessment",

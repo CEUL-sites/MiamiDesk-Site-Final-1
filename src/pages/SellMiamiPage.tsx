@@ -34,7 +34,7 @@ const MIAMI_FAQS = [
   },
   {
     q: "What is the seller strategy review?",
-    a: "A free, confidential session where Carlos reviews your property, its MLS positioning potential, current market comparables, and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
+    a: "A free, confidential session where our team reviews your property, its MLS positioning potential, current market comparables, and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
   },
 ];
 
@@ -270,7 +270,7 @@ export default function SellMiamiPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Miami Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every Miami submission personally before responding.
+                No listing commitment required. Our team reviews every Miami submission before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-miami" />

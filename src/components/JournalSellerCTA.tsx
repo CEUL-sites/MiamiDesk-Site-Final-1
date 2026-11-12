@@ -26,7 +26,7 @@ interface JournalOffer {
 const DEFAULT_OFFER: JournalOffer = {
   eyebrow: 'Private Seller Desk · South Florida',
   heading: "Request a property-level seller strategy review",
-  body: 'Carlos will review the property, its immediate competition, preparation priorities, and launch position before recommending a listing strategy.',
+  body: 'Our team will review the property, its immediate competition, preparation priorities, and launch position before recommending a listing strategy.',
   ctaLabel: 'Request a Seller Strategy Review',
   ctaType: 'seller_strategy_review',
   topic: 'seller-strategy',
@@ -49,7 +49,7 @@ const OFFERS_BY_SLUG: Record<string, JournalOffer> = {
   'international-luxury-properties-miami-buyer-agents-global-desk': {
     eyebrow: 'Miami Global Desk · International Property',
     heading: 'Request a private Global Desk property review',
-    body: 'Carlos will review the property, mandate structure, South Florida buyer-agent fit, and professional cooperation terms before recommending activation.',
+    body: 'Our team will review the property, mandate structure, South Florida buyer-agent fit, and professional cooperation terms before recommending activation.',
     ctaLabel: 'Request a Global Desk Review',
     ctaType: 'global_desk_review',
     topic: 'global-desk',
@@ -71,7 +71,7 @@ const OFFERS_BY_SLUG: Record<string, JournalOffer> = {
   'seller-closing-costs-south-florida-2026': {
     eyebrow: 'Seller Net Proceeds · South Florida',
     heading: 'Request a seller net proceeds review',
-    body: 'Carlos will model property-specific sale-price scenarios, transaction costs, loan payoff, and estimated net proceeds for an informed listing decision.',
+    body: 'Our team will model property-specific sale-price scenarios, transaction costs, loan payoff, and estimated net proceeds for an informed listing decision.',
     ctaLabel: 'Request a Seller Net Proceeds Review',
     ctaType: 'seller_net_proceeds_review',
     topic: 'net-proceeds',
@@ -80,7 +80,7 @@ const OFFERS_BY_SLUG: Record<string, JournalOffer> = {
   'hoa-impact-home-sale-south-florida-2026': {
     eyebrow: 'Pre-Listing HOA Review · South Florida',
     heading: 'Request a pre-listing HOA risk review',
-    body: 'Carlos will identify the association documents, financing concerns, assessments, and buyer-diligence issues that may affect your property’s position.',
+    body: 'Our team will identify the association documents, financing concerns, assessments, and buyer-diligence issues that may affect your property’s position.',
     ctaLabel: 'Request a Pre-Listing HOA Risk Review',
     ctaType: 'prelisting_hoa_risk_review',
     topic: 'hoa-risk',
@@ -89,7 +89,7 @@ const OFFERS_BY_SLUG: Record<string, JournalOffer> = {
   'south-florida-may-2026-market-report-home-sellers': {
     eyebrow: 'Current-Market Review · South Florida',
     heading: 'Request a current-market property position review',
-    body: 'Carlos will translate the regional data into the relevant submarket, competing inventory, buyer profile, and launch position for your property.',
+    body: 'Our team will translate the regional data into the relevant submarket, competing inventory, buyer profile, and launch position for your property.',
     ctaLabel: 'Request a Current-Market Property Position Review',
     ctaType: 'current_market_position_review',
     topic: 'current-market-position',
@@ -189,7 +189,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
                 ? `Thinking about selling in ${post.market}?`
                 : offer.heading}
             </span>{' '}
-            Carlos reviews every request personally.
+            Our team reviews every request.
           </p>
           <Link
             to={sellHref}

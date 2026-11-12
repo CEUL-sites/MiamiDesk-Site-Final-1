@@ -247,9 +247,9 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
           <CheckCircle2 size={30} />
         </div>
         <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Strategy Review Requested</p>
-        <h3 className="mt-3 font-serif text-2xl text-navy">Carlos will review your property details personally.</h3>
+        <h3 className="mt-3 font-serif text-2xl text-navy">Our team will review your property details.</h3>
         <p className="mt-4 font-sans text-sm leading-relaxed text-navy/70 max-w-md mx-auto">
-          Carlos reviews your property and selling priorities, then contacts you to arrange the strategy conversation. No listing commitment.
+          Our team reviews your property and selling priorities, then contacts you to arrange the strategy conversation. No listing commitment.
         </p>
         <p className="mt-6 font-sans text-sm text-navy/70">
           For immediate questions:{" "}
@@ -270,8 +270,8 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         </h3>
         <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
           {step === 1
-            ? "Start with your property address, then share your contact details. Carlos reviews the property and contacts you to arrange your private seller strategy review."
-            : "Complete your request. Carlos reviews your property and selling priorities, then contacts you to arrange the conversation."}
+            ? "Start with your property address, then share your contact details. Our team reviews the property and contacts you to arrange your private seller strategy review."
+            : "Complete your request. Our team reviews your property and selling priorities, then contacts you to arrange the conversation."}
         </p>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
@@ -368,7 +368,7 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
               <p className="mt-4 font-sans text-xs leading-relaxed text-navy/70">
                 {snapshotSeg.period} {snapshotSeg.name} closed sales reported for {snapshot.dataCity}, per
                 MIAMI REALTORS® + RWorld, based on MLS data compiled by Florida Realtors®.
-                Your full analysis — comparables, absorption, and positioning — is prepared personally by Carlos. Complete the details below to receive it.
+                Your full analysis — comparables, absorption, and positioning — is prepared by our team. Complete the details below to receive it.
               </p>
             </div>
           )}

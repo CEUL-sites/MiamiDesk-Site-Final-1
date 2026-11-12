@@ -675,7 +675,7 @@ test("Hero -> HomepageConsultation -> HeroSellerForm interactive address transfe
   const fullText = h.textOf(
     h.findAll((n) => n.props?.id === "list-here")[0],
   );
-  assert.match(fullText, /Carlos will personally review your property\./);
+  assert.match(fullText, /Our team will review your property\./);
   assert.match(fullText, /Download the Seller's Net Sheet/);
 
   // ── Case 8: Click/microconversion events remain distinct from actual lead events and contain NO personal data

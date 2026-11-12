@@ -51,7 +51,7 @@ const COPY = {
     rowPayoff: "Mortgage payoff",
     netLabel: "Estimated net proceeds",
     successOnItsWay: "On its way",
-    successBody: "Carlos will follow up with your written breakdown. Meanwhile, the full 2026 net sheet is ready now:",
+    successBody: "Our team will follow up with your written breakdown. Meanwhile, the full 2026 net sheet is ready now:",
     downloadLabel: "Download the Net Sheet",
     formIntro:
       "Get this breakdown in writing — plus the line items this quick model can't show (prorations, HOA estoppel, your county's exact rates):",
@@ -106,7 +106,7 @@ const COPY = {
     // TODO: native Madrid editor review
     successOnItsWay: "En camino",
     // TODO: native Madrid editor review
-    successBody: "Carlos se pondrá en contacto con su desglose por escrito. Mientras tanto, la hoja de ganancias completa de 2026 ya está disponible:",
+    successBody: "Nuestro equipo se pondrá en contacto con su desglose por escrito. Mientras tanto, la hoja de ganancias completa de 2026 ya está disponible:",
     // TODO: native Madrid editor review
     downloadLabel: "Descargar la Hoja de Ganancias",
     // TODO: native Madrid editor review

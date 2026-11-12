@@ -107,7 +107,7 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
             <CheckCircle2 size={34} />
           </div>
           <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Request Received</div>
-          <Heading className="font-serif text-2xl text-navy md:text-3xl">Carlos will personally review your inquiry.</Heading>
+          <Heading className="font-serif text-2xl text-navy md:text-3xl">Our team will review your inquiry.</Heading>
           <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/70">
             Your request has been routed through HomesProfessional.com. For urgent timing, use WhatsApp at {CONTACT.phoneUS}.
           </p>

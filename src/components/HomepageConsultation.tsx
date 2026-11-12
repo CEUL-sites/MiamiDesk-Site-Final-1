@@ -8,7 +8,7 @@ const PROCESS_STEPS = [
   {
     step: "01",
     label: "Comp & Market Read",
-    summary: "Carlos personally reviews your property address, closed comparable sales, and active competition.",
+    summary: "Our team reviews your property address, closed comparable sales, and active competition.",
   },
   {
     step: "02",

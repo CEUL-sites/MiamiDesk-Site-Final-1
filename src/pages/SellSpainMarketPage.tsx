@@ -41,7 +41,7 @@ const NETWORK_FIGURES: { value: string; label: string }[] = [
 const HOW_IT_WORKS: { title: string; text: string }[] = [
   {
     title: "Envíe la propiedad",
-    text: "Una sola propiedad o una cartera. Sin compromiso — Carlos revisa cada solicitud personalmente.",
+    text: "Una sola propiedad o una cartera. Sin compromiso — nuestro equipo revisa cada solicitud.",
   },
   {
     title: "Propuesta por escrito",
@@ -295,7 +295,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
                 Solicite una valoración de encaje para su propiedad en {market.name}.
               </h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Sin compromiso. Carlos revisa cada consulta personalmente antes de responder.
+                Sin compromiso. Nuestro equipo revisa cada consulta antes de responder.
               </p>
             </div>
             <div className="mx-auto max-w-xl">

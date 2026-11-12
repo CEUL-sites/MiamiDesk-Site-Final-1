@@ -110,7 +110,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
       },
       {
         q: "¿Qué tipo de propiedad de Marbella encaja?",
-        a: "Encaja mejor la propiedad que soporta el escrutinio de un comprador extranjero: titularidad clara, licencias en regla, superficies verificables y comunidad con cuentas ordenadas. El formato —villa, ático, obra nueva— importa menos que la calidad de la documentación. Carlos revisa cada solicitud y responde con una valoración de encaje franca, incluida la respuesta negativa cuando la propiedad no tiene recorrido con este comprador.",
+        a: "Encaja mejor la propiedad que soporta el escrutinio de un comprador extranjero: titularidad clara, licencias en regla, superficies verificables y comunidad con cuentas ordenadas. El formato —villa, ático, obra nueva— importa menos que la calidad de la documentación. Nuestro equipo revisa cada solicitud y responde con una valoración de encaje franca, incluida la respuesta negativa cuando la propiedad no tiene recorrido con este comprador.",
       },
       {
         q: "¿Se publica mi propiedad en el MLS de Miami?",
@@ -236,7 +236,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     faqs: [
       {
         q: "Mi propiedad no es de lujo extremo. ¿Encaja igualmente?",
-        a: "Puede encajar. El criterio no es el precio sino la claridad: titularidad sin cargas ocultas, licencias en regla, superficies verificables y comunidad ordenada. Una villa correctamente documentada en un rango medio compite mejor por la atención de un agente comprador que una propiedad cara con documentación confusa. Carlos responde con una valoración de encaje franca en ambos sentidos.",
+        a: "Puede encajar. El criterio no es el precio sino la claridad: titularidad sin cargas ocultas, licencias en regla, superficies verificables y comunidad ordenada. Una villa correctamente documentada en un rango medio compite mejor por la atención de un agente comprador que una propiedad cara con documentación confusa. Nuestro equipo responde con una valoración de encaje franca en ambos sentidos.",
       },
       {
         q: "Ya trabajo con varias agencias en la zona. ¿Hay conflicto?",
@@ -313,7 +313,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
       },
       {
         q: "¿Qué pasa si no encaja?",
-        a: "Se lo dirá. Carlos revisa cada solicitud personalmente y responde con una valoración de encaje franca, incluida la negativa. Una propiedad sin recorrido con este comprador no mejora por entrar en un programa de activación, y decírselo cuesta menos que descubrirlo seis meses después.",
+        a: "Se lo dirá. Nuestro equipo revisa cada solicitud y responde con una valoración de encaje franca, incluida la negativa. Una propiedad sin recorrido con este comprador no mejora por entrar en un programa de activación, y decírselo cuesta menos que descubrirlo seis meses después.",
       },
     ],
   },
@@ -431,7 +431,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
     faqs: [
       {
         q: "Valencia no es un mercado de lujo. ¿Tiene sentido esta vía?",
-        a: "Tiene sentido cuando la propiedad está bien documentada y el argumento de traslado es real. El agente comprador estadounidense que trabaja relocalización valora previsibilidad y claridad por encima del precio. Dicho esto, no todo encaja: Carlos responde con una valoración franca, y en un mercado con menor reconocimiento previo la respuesta negativa es más frecuente que en Marbella o Madrid.",
+        a: "Tiene sentido cuando la propiedad está bien documentada y el argumento de traslado es real. El agente comprador estadounidense que trabaja relocalización valora previsibilidad y claridad por encima del precio. Dicho esto, no todo encaja: nuestro equipo responde con una valoración franca, y en un mercado con menor reconocimiento previo la respuesta negativa es más frecuente que en Marbella o Madrid.",
       },
       {
         q: "¿Qué hace que una propiedad de Valencia destaque en este canal?",
@@ -443,7 +443,7 @@ export const SPAIN_MARKETS: SpainMarket[] = [
       },
       {
         q: "¿Cómo empiezo?",
-        a: "Con el formulario de esta página: ubicación, nombre y un teléfono de contacto. Carlos revisa cada consulta personalmente y responde con una valoración de encaje. Si tiene recorrido, la propuesta escrita detalla la vía —exclusiva o plan de activación— con alcance y términos en privado.",
+        a: "Con el formulario de esta página: ubicación, nombre y un teléfono de contacto. Nuestro equipo revisa cada consulta y responde con una valoración de encaje. Si tiene recorrido, la propuesta escrita detalla la vía —exclusiva o plan de activación— con alcance y términos en privado.",
       },
     ],
   },

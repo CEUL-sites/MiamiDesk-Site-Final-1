@@ -58,7 +58,7 @@ The right listing agent is rarely the one who promises the highest price or the 
 
 Carlos Uzcategui (Florida Licensed Realtor® SL705771, United Realty Group) offers a confidential seller strategy review for South Florida and select international owners — pricing analysis, positioning, and a distribution plan for your specific property. It is free, and there is no obligation to list.
 
-To start, share your property details at the link below. Carlos reviews every request personally and responds within one business day.
+To start, share your property details at the link below. Our team reviews every request.
 
 ---
 

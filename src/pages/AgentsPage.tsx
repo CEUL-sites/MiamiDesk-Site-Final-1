@@ -76,7 +76,7 @@ const PROCESS_STEPS = [
   {
     number: "01",
     title: "Submit Listing or Referral",
-    body: "Submit property details, portfolio overview, or client referral using the intake desk below. Carlos reviews every submission personally.",
+    body: "Submit property details, portfolio overview, or client referral using the intake desk below. Our team reviews every submission.",
   },
   {
     number: "02",
@@ -280,7 +280,7 @@ export default function AgentsPage() {
               </h1>
               <p className="agent-partner-summary">
                 Refer a client, discuss selected international inventory, or explore a career with United Realty Group.
-                Carlos coordinates the next step personally.
+                Our team coordinates the next step.
               </p>
               <div className="agent-partner-actions" data-sticky-cta-guard>
                 <a href="#choose-path" className="agent-partner-primary">
@@ -638,7 +638,7 @@ export default function AgentsPage() {
               <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">Partner &amp; Referral Intake Desk</h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-white/60">
                 Select your path below to register a client referral or submit an international listing for review.
-                Carlos evaluates each inquiry personally under strict confidentiality.
+                Our team evaluates each inquiry under strict confidentiality.
               </p>
             </div>
 
@@ -708,7 +708,7 @@ export default function AgentsPage() {
                 <h3 className="font-serif text-2xl text-white">Miami Desk · Listing &amp; Agency Inquiry</h3>
                 <p className="mx-auto mt-2 max-w-lg font-sans text-xs leading-relaxed text-white/60">
                   Submit a property, portfolio, or agency profile for South Florida exposure review.
-                  Carlos personally evaluates market fit, buyer profile alignment, and cooperation structure.
+                  Our team evaluates market fit, buyer profile alignment, and cooperation structure.
                 </p>
               </div>
               <AgencyPartnerForm />

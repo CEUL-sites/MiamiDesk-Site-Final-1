@@ -49,4 +49,4 @@ United Realty Group — a full-service Florida brokerage with 3,500+ agents acro
 
 A strategy review for a Coral Gables seller covers price positioning, pre-listing condition priorities, timeline mapping, and a clear-eyed assessment of the current competitive set. It is not a listing presentation. It is a working conversation about what the data shows and what the options are. There is no obligation that comes from that conversation.
 
-Carlos will respond personally within one business day from his Weston, Florida office.
+Our team responds from the Weston, Florida office.

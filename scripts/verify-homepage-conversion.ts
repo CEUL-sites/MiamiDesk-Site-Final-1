@@ -133,7 +133,7 @@ assert.match(hero, /the world's largest local REALTOR® association\./);
 assert.match(hero, /Start with your property address/);
 assert.match(hero, /Enter your South Florida property address/);
 assert.match(hero, /Continue With My Property/);
-assert.match(hero, /Next: share your contact details\. Carlos reviews your property and contacts you to arrange a private strategy call\./);
+assert.match(hero, /Next: share your contact details\. Our team reviews your property and contacts you to arrange a private strategy call\./);
 assert.match(hero, /Licensed since 2001 · CLHMS · United Realty Group · English \/ Español/);
 assert.doesNotMatch(hero, /inputEl\.value\s*=/);
 assert.doesNotMatch(hero, /Tilt3D/);

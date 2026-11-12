@@ -59,7 +59,7 @@ The sellers who realize maximum value in the current South Florida market are th
 
 Carlos Uzcategui (Florida Licensed Realtor® SL705771, United Realty Group) prepares property-specific CMAs using current Miami and South Florida REALTORS® MLS data. The analysis is confidential, free, and carries no obligation to list.
 
-To request a valuation for your South Florida property, submit your address and contact details at the link below. Carlos reviews every request personally and responds within one business day.
+To request a valuation for your South Florida property, submit your address and contact details at the link below. Our team reviews every request.
 
 ---
 
