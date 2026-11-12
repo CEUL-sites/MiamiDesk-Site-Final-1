@@ -48,11 +48,6 @@
     "force": true
   },
   {
-    "from": "/sell",
-    "to": "/index.html",
-    "status": 200
-  },
-  {
     "from": "/madrid",
     "to": "/markets",
     "status": 301,
