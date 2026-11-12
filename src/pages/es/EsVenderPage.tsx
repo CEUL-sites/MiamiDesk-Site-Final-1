@@ -184,8 +184,8 @@ export default function EsVenderPage() {
                 className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/80"
               >
                 {/* TODO: native Madrid editor review */}
-                Precio, marketing y negociación con agentes compradores,
-                dirigidos por un equipo con 25 años en el Sur de Florida.
+                Precio, mercadeo y negociación con agentes de compradores: un
+                solo plan, dirigido por profesionales con 25 años en el Sur de Florida.
               </motion.p>
 
               <motion.div
