@@ -283,29 +283,17 @@ export default function MarketsPage() {
           <HeroVideoBackdrop name="markets" position="center 40%" />
           <div className="advisory-hero-inner">
             <div>
-              <p className="advisory-eyebrow">South Florida · Regional Market Intelligence</p>
+              <p className="advisory-eyebrow">South Florida markets · Miami-Dade · Broward · Palm Beach</p>
               <h1 id="markets-hero-heading">
-                South Florida, read through the data.
+                Know your market <span className="advisory-accent">before you set your price.</span>
               </h1>
               <p className="advisory-summary">
-                Choose a county to see how its submarkets behave, then turn the local evidence into a pricing and timing decision for your property.
+                Three counties, dozens of distinct submarkets. Find yours, then get a valuation built on its recent sales.
               </p>
               <div className="advisory-actions">
                 <a
-                  href="#county-intelligence"
-                  className="advisory-primary"
-                  onClick={() =>
-                    trackMicroConversion("hp_cta_click", {
-                      type: "explore_market",
-                      location: "markets_hero",
-                    })
-                  }
-                >
-                  Explore County Submarkets
-                </a>
-                <a
                   href="/home-value"
-                  className="advisory-secondary"
+                  className="advisory-primary"
                   onClick={() =>
                     trackMicroConversion("hp_cta_click", {
                       type: "property_market_review",
@@ -313,7 +301,19 @@ export default function MarketsPage() {
                     })
                   }
                 >
-                  Request a Property-Specific CMA
+                  Get My Home's Market Value
+                </a>
+                <a
+                  href="#county-intelligence"
+                  className="advisory-secondary"
+                  onClick={() =>
+                    trackMicroConversion("hp_cta_click", {
+                      type: "explore_market",
+                      location: "markets_hero",
+                    })
+                  }
+                >
+                  Compare the Three Counties
                 </a>
               </div>
               <p className="advisory-note">
