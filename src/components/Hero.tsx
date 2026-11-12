@@ -147,7 +147,7 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
               <span className="seller-hero-heading-accent">the world's largest local REALTOR® association.</span>
             </h1>
             <p className="seller-hero-summary">
-              Twenty-five years of Florida practice. Carlos leads your pricing strategy and negotiation.
+              Twenty-five years of Florida practice. Our team leads your marketing strategy and negotiations.
             </p>
             <ul className="seller-hero-stats" aria-label="Where your listing is seen">
               {HERO_STATS.map((stat) => (

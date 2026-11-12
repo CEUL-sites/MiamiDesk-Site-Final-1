@@ -119,8 +119,8 @@ export default function EsHomePage() {
                 className="mx-auto mt-6 font-sans font-light text-white/68 leading-[1.85] max-w-[520px]"
                 style={{ fontSize: "1.05rem" }}
               >
-                Veinticinco años de experiencia en Florida. Carlos dirige su
-                estrategia de precio y la negociación.
+                Veinticinco años de experiencia en Florida. Nuestro equipo dirige su
+                estrategia de marketing y las negociaciones.
               </motion.p>
 
               {/* Primary seller lead capture */}

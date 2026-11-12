@@ -30,7 +30,7 @@ assert.doesNotMatch(hero, /Tilt3D/);
 assert.match(hero, /Licensed Since 2001/i);
 assert.match(hero, /MLS ecosystem 90,000\+ South Florida agents work from daily/);
 assert.match(hero, /seller-hero-stats/, "hero figures render as a scannable stat strip, not a paragraph");
-assert.match(hero, /Twenty-five years of Florida practice\. Carlos leads your pricing strategy and negotiation\./);
+assert.match(hero, /Twenty-five years of Florida practice\. Our team leads your marketing strategy and negotiations\./);
 assert.match(hero, /HeroVideoBackdrop name="home"/, "the homepage hero uses the deferred video backdrop");
 assert.match(hero, /Sources: Miami and South Florida REALTORS®/, "hero figures carry a displayed source line");
 assert.match(hero, /Request a Private Seller Strategy/);
