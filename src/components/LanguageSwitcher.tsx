@@ -5,7 +5,7 @@
  */
 
 // Canonical EN ↔ ES route pairs. Keys must be the live canonical paths (not
-// legacy redirect routes like /sell or /spain-desk), so the toggle lands on
+// legacy redirect routes like /sell-south-florida or /spain-desk), so the toggle lands on
 // the real page in one hop and matches the reciprocal hreflang clusters.
 const ES_TO_EN: Record<string, string> = {
   "/es": "/",
@@ -22,7 +22,6 @@ const ES_TO_EN: Record<string, string> = {
 const EN_TO_ES: Record<string, string> = {
   "/": "/es",
   "/sell": "/es/vender",
-  "/sell-south-florida": "/es/vender",
   "/buy": "/es/comprar",
   "/agents": "/es/agentes",
   "/global-desk": "/es/spain-desk",

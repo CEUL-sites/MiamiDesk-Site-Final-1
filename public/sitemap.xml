@@ -277,6 +277,8 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es"/>
   </url>
 <url>
@@ -284,7 +286,7 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-south-florida"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender"/>
   </url>
 <url>

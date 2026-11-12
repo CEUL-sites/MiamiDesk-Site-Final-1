@@ -216,10 +216,10 @@ export default function MarketsPage() {
   return (
     <>
       <Helmet>
-        <title>Markets Served: South Florida &amp; Bilateral Global Desk | Carlos Uzcategui</title>
+        <title>South Florida Seller Market Strategy | Carlos Uzcategui</title>
         <meta
           name="description"
-          content={`South Florida real estate markets across Miami-Dade, Broward, and Palm Beach plus bilateral international distribution through ${ASSOCIATION_STATS.associationName}: ${MEMBER_COUNT} members, ${GLOBAL_PORTALS} portals.`}
+          content="South Florida seller market strategy across Miami-Dade, Broward, and Palm Beach. Find your submarket, then get a valuation built on its recent sales."
         />
         <link rel="canonical" href="https://homesprofessional.com/markets" />
         <meta

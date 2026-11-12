@@ -9,6 +9,7 @@ import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
 import { ExitIntentModal } from "../components/ExitIntentModal";
 import { LazyVideo } from "../components/LazyVideo";
 import { SellerIntakeForm } from "../components/forms/SellerIntakeForm";
+import { HeroSellerForm } from "../components/HeroSellerForm";
 import { NeighborhoodMarketStats } from "../components/NeighborhoodMarketStats";
 import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
@@ -113,15 +114,14 @@ export default function SellDowntownMiamiPage() {
               ))}
             </ul>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
-                Get My Downtown Miami Home Value &amp; Strategy
-                <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-              </a>
-              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
-                WhatsApp Carlos
-              </a>
+            {/* Address-first seller form above the fold; the full intake remains at #contact. */}
+            <div className="mx-auto mt-8 max-w-xl">
+              <HeroSellerForm progressiveDesktop defaultMarket={1} sourcePage="sell-downtown-miami-hero" />
             </div>
+            <p className="mt-4 font-sans text-[13px] text-white/60">
+              Want the pricing analysis first?{" "}
+              <a href="/home-value" className="text-gold underline underline-offset-4 hover:text-white">Request a home value review</a>
+            </p>
 
             <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
               <span className="flex gap-0.5" aria-hidden="true">

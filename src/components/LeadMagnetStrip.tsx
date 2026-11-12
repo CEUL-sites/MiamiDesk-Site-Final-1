@@ -174,7 +174,7 @@ export function LeadMagnetStrip() {
         <input name="email" type="email" />
         <input name="guide" type="hidden" />
         <input name="language" type="hidden" />
-        <p hidden><label>Do not fill: <input name="bot-field" /></label></p>
+        <p hidden aria-hidden="true"><label>Do not fill: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label></p>
       </form>
 
       <div className="mx-auto max-w-5xl px-6">

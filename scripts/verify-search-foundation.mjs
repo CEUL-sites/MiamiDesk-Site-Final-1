@@ -17,7 +17,9 @@ for (const post of posts) {
   assert(fs.existsSync(path.join('dist', route, 'index.html')), `${route} missing from built output`);
 }
 assert.match(config, /\/journal\/\* \/404.html 404/);
-assert.match(config, /\/\* \/index.html 200/);
+assert.match(config, /^\/\* \/404.html 404$/m, 'Unknown URLs must return a real 404');
+assert.doesNotMatch(config, /^\/\* \/index.html 200/m, 'A catch-all 200 rewrite makes every unknown URL a soft 404');
+assert(fs.existsSync(path.join('dist', '404.html')), '404.html missing from built output');
 const routes = ['/', '/sell', '/sell-weston', '/home-value', '/about', '/contact', '/global-desk', '/es', '/es/vender', `/journal/${posts[0].slug}`];
 for (const route of routes) {
   const html = fs.readFileSync(path.join('dist', route === '/' ? '' : route, 'index.html'), 'utf8').replace(/<!--[\s\S]*?-->/g, '');

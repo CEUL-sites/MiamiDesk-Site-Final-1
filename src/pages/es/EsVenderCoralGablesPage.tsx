@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { JsonLd } from "../../components/SEO/JsonLd";
 import { BadgeCheck, ChevronRight, Download, MessageSquare } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
+import { HeroSellerForm } from "../../components/HeroSellerForm";
 import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { DesktopStickyCTA } from "../../components/DesktopStickyCTA";
@@ -349,21 +350,19 @@ export default function EsVenderCoralGablesPage() {
             <p className="mt-4 font-sans text-sm leading-relaxed text-navy-deep/70">
               No se requiere compromiso de listado. Nuestro equipo revisa cada solicitud.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a href="/contact" className="group inline-flex items-center gap-2 bg-navy-deep px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-85">
-                {/* TODO: native Madrid editor review */}
-                Solicitar Revisión de Estrategia
-                <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-              </a>
+            <div className="mx-auto mt-8 max-w-xl">
+              <HeroSellerForm lang="es" progressiveDesktop defaultMarket={1} sourcePage="es-vender-coral-gables" />
+            </div>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5">
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
                 WhatsApp EE.UU.
               </a>
-              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5">
+              <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5">
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
-                WhatsApp USA
+                WhatsApp España
               </a>
             </div>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep/50">
