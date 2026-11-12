@@ -35,9 +35,9 @@ const STEPS = [
   {
     number: "05",
     name: "Negotiate",
-    headline: "Every offer reviewed personally. No hand-offs.",
-    body: "Carlos reviews every offer directly — terms, contingencies, inspection strategy, and closing timeline. You are never passed to a junior associate or a team member you haven't met. The same person who priced your property and launched your listing manages every decision from the first offer conversation to keys at the closing table.",
-    benefit: "One contact throughout. Every decision made personally. No surprises at closing.",
+    headline: "Every offer reviewed with you. No hand-offs.",
+    body: "Our team reviews every offer with you — terms, contingencies, inspection strategy, and closing timeline. The same team that priced your property and launched your listing manages every decision, from the first offer conversation to keys at the closing table.",
+    benefit: "One team from listing to closing. Every offer reviewed with you. No surprises at closing.",
   },
 ];
 

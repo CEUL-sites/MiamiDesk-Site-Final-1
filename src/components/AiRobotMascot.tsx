@@ -18,7 +18,7 @@ export function AiRobotMascot() {
       onBlur={() => setHovered(false)}
       tabIndex={0}
       role="img"
-      aria-label="AI Desk — Powered by Gemini. This conversation is handled by AI. Carlos Uzcategui responds personally to qualified inquiries."
+      aria-label="AI Desk — Powered by Gemini. This conversation is handled by AI. Our licensed team responds to qualified inquiries."
     >
       <style>{`
         @keyframes robot-blink {
@@ -131,8 +131,8 @@ export function AiRobotMascot() {
             />
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold mb-1.5">AI Disclosure</p>
             <p className="font-sans text-[11px] leading-relaxed text-white/70">
-              This conversation is handled by AI (Gemini). Carlos Uzcategui reviews
-              every qualified inquiry personally and responds directly.
+              This conversation is handled by AI (Gemini). Our licensed team reviews
+              every qualified inquiry and responds directly.
             </p>
             <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-gold/50">
               Powered by Google Gemini · FL SL705771

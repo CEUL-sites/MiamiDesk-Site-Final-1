@@ -10,7 +10,7 @@ const CAPABILITIES = [
   { icon: MapPin,    text: "South Florida market conditions and pricing by neighborhood" },
   { icon: Globe2,    text: "Bilingual intake in English, Spanish, and Portuguese" },
   { icon: UserCheck, text: "Identifies seller, buyer, investor, or agency profile" },
-  { icon: FileText,  text: "Prepares structured context before our licensed team responds personally" },
+  { icon: FileText,  text: "Prepares structured context before our licensed team responds" },
 ];
 
 const PROMPTS = [
@@ -48,7 +48,7 @@ function HandoffPanel({ history }: { history: Message[] }) {
         <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">Inquiry routed to Carlos</span>
       </div>
       <p className="font-sans text-sm leading-relaxed text-white/75 mb-5">
-        Your conversation has been organised and sent to Carlos. He reviews every AI Desk conversation personally and responds directly. For the fastest reply, continue on WhatsApp now.
+        Your conversation has been organised and sent to our team. We review every AI Desk conversation and respond directly. For the fastest reply, continue on WhatsApp now.
       </p>
       <div className="flex flex-col gap-3 sm:flex-row">
         <a
@@ -245,7 +245,7 @@ function AiPanel() {
           </div>
 
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 text-center">
-            AI intake · Carlos responds personally
+            AI intake · Our licensed team responds
           </p>
 
           {/* Suggestion chips — only before first message */}

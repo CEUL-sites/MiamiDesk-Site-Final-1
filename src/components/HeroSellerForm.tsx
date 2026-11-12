@@ -111,7 +111,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
     ...COPY[lang],
     compactSubmit: valuationSubmit,
     submit: valuationSubmit,
-    compactPromise: lang === "es" ? "Nuestro equipo prepara la revisión con ventas comparables y la competencia actual. Sin compromiso de venta." : "Carlos prepares your review personally using comparable sales and current competition. No listing commitment.",
+    compactPromise: lang === "es" ? "Nuestro equipo prepara la revisión con ventas comparables y la competencia actual. Sin compromiso de venta." : "Our team prepares your review using comparable sales and current competition. No listing commitment.",
     successTag: lang === "es" ? "Solicitud de valoración recibida" : "Home Value Review Requested",
     successTitle: lang === "es" ? "Nuestro equipo revisará el valor de su propiedad." : "Our team will review your property's value.",
     successBody: lang === "es" ? "Nuestro equipo revisará su propiedad y se pondrá en contacto para hablar sobre su valoración y sus próximos pasos." : "Our team will review your property and contact you to discuss its pricing and your next steps.",

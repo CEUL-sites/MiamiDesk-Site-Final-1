@@ -36,7 +36,7 @@ export function Distribution({ lang = "en" }: { lang?: "en" | "es" }) {
           {es ? "Posicionada para captar interés." : "Positioned for buyer discovery."}
         </h2>
         <p className="mt-5 max-w-lg text-base leading-relaxed text-white/85">{es ? "Coordinamos presentación, canales de distribución elegibles y contacto con agentes compradores relevantes para su propiedad." : "We coordinate property presentation, eligible distribution channels and relevant buyer-agent outreach around your home."}</p>
-        <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/75">{es ? "Carlos dirige la estrategia y la coordinación profesional a través de United Realty Group." : "Carlos leads the strategy and professional coordination through United Realty Group."}</p>
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/75">{es ? "Carlos y nuestro equipo dirigen la estrategia y la coordinación profesional a través de United Realty Group." : "Carlos and our team lead the strategy and professional coordination through United Realty Group."}</p>
       </header>
       <div className="distribution-visual mt-8 min-w-0 lg:mt-0" data-sticky-cta-guard>
         <div className="flex items-center gap-4 rounded-md border border-gold-soft/50 px-4 py-4 md:px-5 md:py-5">
