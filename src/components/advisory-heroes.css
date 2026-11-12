@@ -94,3 +94,19 @@
 .advisory-hero--video { position:relative; isolation:isolate; overflow:hidden; background:#06111f; min-height:640px; display:flex; align-items:center; }
 .advisory-hero--video .advisory-hero-inner { width:100%; }
 .advisory-hero--video .county-explorer { background:rgba(7,23,34,.86); backdrop-filter:blur(6px); }
+
+/* Markets hero: gold accent line in the headline. */
+.advisory-accent { color:#d7bc8b; font-style:italic; }
+/* Phones: the two-column map + list squeezed the map to nothing. Show the county
+   buttons as a full-width row and drop the decorative map; the detail drawer stays. */
+@media (max-width:767px) {
+ .county-explorer { grid-template-columns:1fr; }
+ .county-explorer > div:first-child { display:none; }
+ .county-options { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+ .county-options > p:first-child,.county-options > .advisory-note { grid-column:1/-1; }
+ .county-options button { padding:10px 8px; }
+ .county-options button > span:first-child,
+ .county-options button > .font-sans,
+ .county-options button .font-serif > span:last-child { display:none; }
+ .county-options button .font-serif { font-size:15px; line-height:1.2; }
+}
