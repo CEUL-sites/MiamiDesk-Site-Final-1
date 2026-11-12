@@ -203,12 +203,9 @@ export default function EsComprarPage() {
                 variants={itemVariants}
                 className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/80"
               >
-                Acceso completo al MLS en Miami-Dade, Broward y Palm Beach, con
-                representación bilingüe en inglés y español en todas las etapas.
-                25 años de experiencia respaldados por United Realty Group — una
-                firma con {CONTACT.stats.urgAgents} agentes y una red de oficinas en
-                Florida que respalda la coordinación en Broward, Miami-Dade y
-                Palm Beach.
+                25 años acompañando a compradores en el Sur de Florida, con el respaldo
+                de {CONTACT.stats.urgAgents} agentes de United Realty Group en {CONTACT.stats.urgFloridaOfficeCount} ubicaciones
+                de oficinas en Florida.
               </motion.p>
 
               {/* Escala — la fortaleza en cuatro cifras */}

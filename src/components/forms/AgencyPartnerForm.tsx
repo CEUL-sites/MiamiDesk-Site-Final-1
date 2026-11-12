@@ -41,7 +41,7 @@ export function AgencyPartnerForm({
   markets,
   eyebrow = "Miami Desk · International Listing Review",
   heading = "Submit a listing or agency inquiry",
-  intro = "For agents, agencies, and developers outside South Florida. All submissions are treated as confidential. Carlos reviews every inquiry personally before responding.",
+  intro = "For agents, agencies, and developers outside South Florida. All submissions are treated as confidential. Our team reviews every inquiry before responding.",
   source = "agency-partner-intake",
 }: {
   markets?: string[];

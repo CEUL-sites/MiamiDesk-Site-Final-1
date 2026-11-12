@@ -106,7 +106,7 @@ export function MarketPulse() {
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </a>
           <p className="font-sans text-sm text-ink-primary/70">
-            Free, confidential MLS-based valuation — prepared personally, not by an algorithm.
+            Free, confidential MLS-based valuation — prepared by our team, not by an algorithm.
           </p>
         </div>
       </div>

@@ -256,10 +256,10 @@ export default function BuyersPage() {
             <div>
               <p className="advisory-eyebrow">South Florida · Buyer representation</p>
               <h1 id="buyer-hero-heading">
-                Every South Florida MLS listing. One advisor negotiating for you.
+                Every South Florida MLS listing. One team negotiating for you.
               </h1>
               <p className="advisory-summary">
-                Search the live MLS feed, then let Carlos shortlist, tour and negotiate across Miami-Dade, Broward and Palm Beach. Twenty-five years of local pricing knowledge on your side of the table, in English or Spanish.
+                Twenty-five years guiding buyers across South Florida, backed by {CONTACT.stats.urgAgents} United Realty Group agents in {CONTACT.stats.urgFloridaOfficeCount} Florida office locations.
               </p>
               <div className="advisory-actions">
                 <a
@@ -599,7 +599,7 @@ export default function BuyersPage() {
                 Define Your South Florida Acquisition Brief
               </h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-navy/70">
-                Share your target neighborhoods, budget, and timeline. Carlos reviews every mandate personally from his Weston office.
+                Share your target neighborhoods, budget, and timeline. Our team reviews every mandate from the Weston office.
               </p>
             </div>
 

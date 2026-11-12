@@ -290,7 +290,7 @@ export default function GlobalDeskPage() {
                 <span>{lang === "es" ? "Propiedad internacional." : "International Property."}</span>{" "}
                 <span>{lang === "es" ? "Conexiones con agentes en Miami." : "Miami Agent Connections."}</span>
               </h1>
-              <p className="global-desk-hero-summary">{lang === "es" ? "Para propietarios, agencias y promotores: presentamos propiedades internacionales seleccionadas a agentes de compradores del sur de Florida." : "For property owners, agencies and developers: introduce selected international inventory to relevant South Florida buyer agents."}</p>
+              <p className="global-desk-hero-summary">{lang === "es" ? "Propiedades internacionales seleccionadas, presentadas a agentes de compradores del sur de Florida." : "Selected international property, introduced to relevant South Florida buyer agents."}</p>
               <div className="global-desk-hero-actions">
                 <a href="#listing-request" className="global-desk-hero-primary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "private_discussion",cta_location: "hero",language: lang})}>{lang === "es" ? "Consultar su propiedad" : "Discuss Your Listing"}<ArrowRight size={18} aria-hidden="true" /></a>
                 <a href="#gilmar-global-desk" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_gilmar_spain",cta_location: "hero",language: lang})}>{lang === "es" ? "Ver Portal GILMAR España" : "GILMAR Spain Showcase"}</a>
@@ -567,7 +567,7 @@ export default function GlobalDeskPage() {
               </div>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "principal_review", cta_location: "principal", language: lang })} className="story-cta">{t.closeCta}<ArrowRight size={18} aria-hidden="true" /></a>
-                <p className="text-xs leading-relaxed text-navy/75 max-w-sm">{lang === "es" ? "Comparta los detalles de la propiedad y del mandato. Carlos revisa la elegibilidad antes de proponer una vía de cooperación." : "Share the property and mandate details. Carlos reviews eligibility before proposing a cooperation route."}</p>
+                <p className="text-xs leading-relaxed text-navy/75 max-w-sm">{lang === "es" ? "Comparta los detalles de la propiedad y del mandato. Nuestro equipo revisa la elegibilidad antes de proponer una vía de cooperación." : "Share the property and mandate details. Our team reviews eligibility before proposing a cooperation route."}</p>
               </div>
             </div>
           </div>

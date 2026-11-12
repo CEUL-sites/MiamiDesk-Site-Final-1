@@ -22,7 +22,7 @@ const NORTH_MIAMI_FAQS = [
   },
   {
     q: "How does North Miami pricing compare to coastal markets?",
-    a: "North Miami generally offers more competitive entry points than adjacent coastal markets such as North Miami Beach, Aventura, and Bal Harbour. This value positioning attracts buyers who want proximity to coastal amenities without coastal pricing. Market comparables vary by street, neighborhood, and property type — Carlos reviews these specifically for each property rather than applying a blanket area average.",
+    a: "North Miami generally offers more competitive entry points than adjacent coastal markets such as North Miami Beach, Aventura, and Bal Harbour. This value positioning attracts buyers who want proximity to coastal amenities without coastal pricing. Market comparables vary by street, neighborhood, and property type — our team reviews these specifically for each property rather than applying a blanket area average.",
   },
   {
     q: "What buyer profiles are most active in North Miami?",
@@ -34,7 +34,7 @@ const NORTH_MIAMI_FAQS = [
   },
   {
     q: "What does the seller strategy review cover?",
-    a: "A free, confidential session where Carlos reviews your property, its MLS positioning potential, current market comparables specific to the North Miami submarket, and your distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
+    a: "A free, confidential session where our team reviews your property, its MLS positioning potential, current market comparables specific to the North Miami submarket, and your distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
   },
 ];
 
@@ -271,7 +271,7 @@ export default function SellNorthMiamiPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">North Miami Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every North Miami submission personally before responding.
+                No listing commitment required. Our team reviews every North Miami submission before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-north-miami" />

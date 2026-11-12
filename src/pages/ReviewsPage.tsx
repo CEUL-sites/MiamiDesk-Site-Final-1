@@ -214,7 +214,7 @@ export default function ReviewsPage() {
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Ready to Work Together?</p>
           <h2 className="mt-4 font-serif text-3xl text-white">Request a private seller strategy review.</h2>
           <p className="mx-auto mt-4 max-w-lg font-sans text-sm leading-relaxed text-white/60">
-            No listing commitment required. Carlos reviews every inquiry personally.
+            No listing commitment required. Our team reviews every inquiry.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href="/home-value" className="bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">

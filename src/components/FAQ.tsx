@@ -25,7 +25,7 @@ export const SELLER_FAQS = [
   },
   {
     "q": "What happens after I request a private seller strategy review?",
-    "a": "Share your property address, contact details, timing and priorities through the seller form or WhatsApp. Carlos reviews the information and contacts you to arrange the conversation. The review covers comparable properties, pricing, preparation, relevant buyer reach and estimated proceeds. There is no fee for the review and no listing commitment."
+    "a": "Share your property address, contact details, timing and priorities through the seller form or WhatsApp. Our team reviews the information and contacts you to arrange the conversation. The review covers comparable properties, pricing, preparation, relevant buyer reach and estimated proceeds. There is no fee for the review and no listing commitment."
   }
 ];
 

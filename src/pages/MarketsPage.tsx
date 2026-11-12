@@ -706,7 +706,7 @@ export default function MarketsPage() {
                 Review your property's submarket data before making a move.
               </h3>
               <p className="mx-auto mt-2 max-w-xl font-sans text-sm leading-relaxed text-ink-primary/70">
-                Carlos reviews active competition, closed comparables, and absorption trends for your neighborhood with no obligation.
+                Our team reviews active competition, closed comparables, and absorption trends for your neighborhood with no obligation.
               </p>
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a

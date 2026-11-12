@@ -27,7 +27,7 @@ const BRICKELL_FAQS = [
   },
   {
     q: "What should I know about short-term rental restrictions in Brickell?",
-    a: "Short-term rental eligibility (Airbnb, VRBO, etc.) varies significantly by building in Brickell — and affects buyer pool depth. Some buildings explicitly allow short-term rentals, some restrict them, and HOA rules can override condo documents. Carlos reviews your specific building's rental eligibility as part of the listing strategy to ensure accurate representation to buyers.",
+    a: "Short-term rental eligibility (Airbnb, VRBO, etc.) varies significantly by building in Brickell — and affects buyer pool depth. Some buildings explicitly allow short-term rentals, some restrict them, and HOA rules can override condo documents. Our team reviews your specific building's rental eligibility as part of the listing strategy to ensure accurate representation to buyers.",
   },
   {
     q: "What are FIRPTA considerations for foreign sellers in Brickell?",
@@ -35,7 +35,7 @@ const BRICKELL_FAQS = [
   },
   {
     q: "What is the seller strategy review?",
-    a: "A free, confidential session where Carlos reviews your property, its MLS positioning potential, current market comparables, and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
+    a: "A free, confidential session where our team reviews your property, its MLS positioning potential, current market comparables, and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
   },
 ];
 
@@ -275,7 +275,7 @@ export default function SellBrickellPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Brickell Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every Brickell submission personally before responding.
+                No listing commitment required. Our team reviews every Brickell submission before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-brickell" />

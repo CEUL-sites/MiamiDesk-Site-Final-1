@@ -38,7 +38,7 @@ export function SellersReachHero() {
               The final price depends <span>on who sees the listing.</span>
             </h1>
             <p className="seller-reach-subtitle">
-              Pricing, presentation and buyer-agent outreach, run as one plan. Carlos leads the strategy and the negotiation personally, with 25 years of South Florida experience behind each decision.
+              Pricing, marketing and buyer-agent negotiation, led by a team with 25 years in South Florida.
             </p>
             <div className="seller-reach-actions" data-sticky-cta-guard>
               <a
@@ -55,7 +55,7 @@ export function SellersReachHero() {
                 onClick={() => trackFunnelEvent("seller_strategy_cta", { source: "sellers_hero_system" })}
               >Explore the Selling System</a>
             </div>
-            <p className="seller-reach-reassurance">Carlos reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
+            <p className="seller-reach-reassurance">Our team reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
           </div>
           <div className="seller-reach-panel hero-panel" data-sticky-cta-guard>
             <p className="hero-panel-kicker">How your listing is run</p>

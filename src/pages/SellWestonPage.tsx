@@ -29,7 +29,7 @@ const WESTON_FAQS = [
   },
   {
     q: "What is the current median home price in Weston, FL?",
-    a: `The median closed sale price for Weston single-family homes was ${westonMedian} in ${westonPeriod}, according to the MIAMI REALTORS® city report based on MLS data compiled by Florida Realtors®. This city median is not a valuation of your home. Carlos reviews competing properties, condition and terms specific to your community.`,
+    a: `The median closed sale price for Weston single-family homes was ${westonMedian} in ${westonPeriod}, according to the MIAMI REALTORS® city report based on MLS data compiled by Florida Realtors®. This city median is not a valuation of your home. Our team reviews competing properties, condition and terms specific to your community.`,
   },
   {
     q: "How long does it take to sell a home in Weston?",
@@ -45,7 +45,7 @@ const WESTON_FAQS = [
   },
   {
     q: "What happens after I request a Weston seller strategy review?",
-    a: "Share your address, contact details, timing and priorities. Carlos reviews your property and contacts you to arrange a private conversation about comparable homes, preparation, pricing, buyer reach and estimated proceeds. The review is free and carries no listing commitment.",
+    a: "Share your address, contact details, timing and priorities. Our team reviews your property and contacts you to arrange a private conversation about comparable homes, preparation, pricing, buyer reach and estimated proceeds. The review is free and carries no listing commitment.",
   },
 ];
 
@@ -298,7 +298,7 @@ export default function SellWestonPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Weston Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Find out what your Weston home would compete against-and what you could keep.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                Carlos reviews relevant sales and competing listings, your timing and the terms that affect proceeds. No listing commitment required.
+                Our team reviews relevant sales and competing listings, your timing and the terms that affect proceeds. No listing commitment required.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-weston" />

@@ -22,7 +22,7 @@ const HALLANDALE_BEACH_FAQS = [
   },
   {
     q: "How does the condo-heavy inventory affect pricing and days on market?",
-    a: "Hallandale Beach's inventory is dominated by condominiums, which means pricing and days on market are sensitive to building-specific factors: floor, unit type, view, building financials, special assessments, and HOA reserves. Two identical-sized units in different buildings — or on different floors of the same building — can carry meaningfully different values. Per Miami and South Florida REALTORS® MLS data, building-level comparables are the correct analytical unit for pricing. Carlos reviews these specifics for every seller.",
+    a: "Hallandale Beach's inventory is dominated by condominiums, which means pricing and days on market are sensitive to building-specific factors: floor, unit type, view, building financials, special assessments, and HOA reserves. Two identical-sized units in different buildings — or on different floors of the same building — can carry meaningfully different values. Per Miami and South Florida REALTORS® MLS data, building-level comparables are the correct analytical unit for pricing. Our team reviews these specifics for every seller.",
   },
   {
     q: "How do international buyers approach Hallandale Beach specifically?",
@@ -34,7 +34,7 @@ const HALLANDALE_BEACH_FAQS = [
   },
   {
     q: "What does the seller strategy review cover?",
-    a: "A free, confidential session where Carlos reviews your building, floor, unit type, view, and current building financial status — alongside MLS comparables and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
+    a: "A free, confidential session where our team reviews your building, floor, unit type, view, and current building financial status — alongside MLS comparables and distribution strategy — with no listing commitment required. Submit the form below or contact Carlos directly via WhatsApp.",
   },
 ];
 
@@ -272,7 +272,7 @@ export default function SellHallandaleBeachPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Hallandale Beach Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every Hallandale Beach submission personally before responding.
+                No listing commitment required. Our team reviews every Hallandale Beach submission before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-hallandale-beach" />

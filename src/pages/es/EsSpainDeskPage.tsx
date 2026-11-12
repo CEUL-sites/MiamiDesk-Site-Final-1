@@ -68,7 +68,7 @@ const PROCESS_STEPS = [
   {
     num: "01",
     title: "Consulta de Agencia",
-    body: "Envíe su inmueble o perfil de agencia a través del formulario. Carlos revisa cada solicitud personalmente en un plazo de 48 horas hábiles. Sin respuestas automáticas.",
+    body: "Envíe su inmueble o perfil de agencia a través del formulario. Nuestro equipo revisa cada solicitud. Sin respuestas automáticas.",
   },
   {
     num: "02",
@@ -866,7 +866,7 @@ export default function EsSpainDeskPage() {
               <h2 className="mt-3 font-serif text-3xl text-white">Envíe un listing o consulta de agencia.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
                 Para agencias españolas, promotores y profesionales del listing. Todas las solicitudes son confidenciales.
-                Carlos revisa cada consulta personalmente antes de responder.
+                Nuestro equipo revisa cada consulta antes de responder.
               </p>
             </div>
             <AgencyPartnerForm />

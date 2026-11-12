@@ -17,7 +17,7 @@ const HOW_IT_WORKS = [
     icon: Target,
     title: "Submit Your Property",
     shortLabel: "01 · Address Intake",
-    body: "Enter your street address and city. Carlos reviews every submission personally—no automated reports or call-center scripts.",
+    body: "Enter your street address and city. Our team reviews every submission—no automated reports or call-center scripts.",
   },
   {
     id: "step-2",
@@ -84,7 +84,7 @@ const HOME_VALUE_FAQS = [
   },
   {
     q: "Does requesting a home valuation mean I have to list with Carlos?",
-    a: "No. Carlos provides the confidential review at no cost, with no obligation to list. Share your address, contact details and timing. Carlos reviews the information and contacts you to arrange the conversation.",
+    a: "No. Carlos provides the confidential review at no cost, with no obligation to list. Share your address, contact details and timing. Our team reviews the information and contacts you to arrange the conversation.",
   },
   {
     q: "Do you review homes in Broward and Palm Beach as well as Miami-Dade?",
@@ -207,7 +207,7 @@ export default function HomeValuePage() {
                 <em className="font-normal italic text-gold">Property Worth Today?</em>
               </h1>
               <p className="mt-5 max-w-xl font-sans text-base leading-relaxed text-white/75 sm:text-lg">
-                Receive a private MLS-based valuation, submarket absorption analysis, and preliminary net-proceeds review prepared personally by Carlos Uzcategui.
+                Receive a private MLS-based valuation, submarket absorption analysis, and preliminary net-proceeds review prepared by our team.
               </p>
 
               {/* Interactive 3-Step Executive Process Selector */}
@@ -401,7 +401,7 @@ export default function HomeValuePage() {
                   What Your Review Includes
                 </p>
                 <h3 className="mt-3 font-serif text-2xl text-navy-deep">
-                  Prepared personally from live MLS data.
+                  Prepared by our team from live MLS data.
                 </h3>
                 <ul className="mt-6 space-y-3.5">
                   {WHAT_YOU_GET.map((item) => (

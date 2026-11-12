@@ -33,7 +33,7 @@ const COPY = {
     badge: "Privada · Sin compromiso",
     title: "¿Su propiedad puede interesar a un comprador de Miami?",
     intro:
-      "Tres datos para empezar. Carlos revisa cada consulta personalmente y responde con una valoración de encaje — si su propiedad tiene o no recorrido con agentes compradores del área de Miami, dicho con franqueza.",
+      "Tres datos para empezar. Nuestro equipo revisa cada consulta y responde con una valoración de encaje — si su propiedad tiene o no recorrido con agentes compradores del área de Miami, dicho con franqueza.",
     location: "Ubicación de la propiedad (ciudad y zona)",
     name: "Nombre completo",
     phone: "WhatsApp / teléfono (con código de país)",
@@ -57,7 +57,7 @@ const COPY = {
     prefer: "¿Prefiere WhatsApp?",
     preferLink: "Escriba a Carlos directamente",
     successTag: "Consulta recibida",
-    successTitle: "Carlos revisará su propiedad personalmente.",
+    successTitle: "Nuestro equipo revisará su propiedad.",
     successBody:
       "Recibirá una valoración de encaje: si su propiedad tiene recorrido con agentes compradores del área de Miami, cómo se prepararía y qué vía de cooperación correspondería. Sin compromiso.",
     briefIntro: "Mientras tanto, el informe metodológico de activación explica el marco completo:",
@@ -72,7 +72,7 @@ const COPY = {
     badge: "Private · No commitment",
     title: "Could your property interest a Miami buyer?",
     intro:
-      "Three details to start. Carlos reviews every enquiry personally and replies with a fit assessment — whether your property has real traction with Miami-area buyer agents, said plainly.",
+      "Three details to start. Our team reviews every enquiry and replies with a fit assessment — whether your property has real traction with Miami-area buyer agents, said plainly.",
     location: "Property location (city and area)",
     name: "Full name",
     phone: "WhatsApp / phone (with country code)",
@@ -96,7 +96,7 @@ const COPY = {
     prefer: "Prefer WhatsApp?",
     preferLink: "Message Carlos directly",
     successTag: "Enquiry received",
-    successTitle: "Carlos will personally review your property.",
+    successTitle: "Our team will review your property.",
     successBody:
       "You will receive a fit assessment: whether your property has traction with Miami-area buyer agents, how it would be prepared, and which cooperation path would apply. No commitment.",
     briefIntro: "In the meantime, the activation methodology brief explains the full framework:",

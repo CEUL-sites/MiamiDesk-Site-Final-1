@@ -38,7 +38,7 @@ test("Global Desk article uses its approved CTA copy and not seller copy", () =>
   assert.match(html, /Request a private Global Desk property review/);
   assert.match(
     html,
-    /Carlos will review the property, mandate structure, South Florida buyer-agent fit, and professional cooperation terms before recommending activation\./,
+    /Our team will review the property, mandate structure, South Florida buyer-agent fit, and professional cooperation terms before recommending activation\./,
   );
   assert.match(html, /Request a Global Desk Review/);
   assert.doesNotMatch(html, /Private Seller Desk|No listing commitment is required/);

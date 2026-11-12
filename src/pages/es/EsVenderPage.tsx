@@ -184,10 +184,8 @@ export default function EsVenderPage() {
                 className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/80"
               >
                 {/* TODO: native Madrid editor review */}
-                Precio, presentación y contacto con los agentes compradores,
-                en un solo plan. Carlos dirige personalmente la estrategia y la
-                negociación, con 25 años de experiencia en el Sur de Florida
-                detrás de cada decisión.
+                Precio, mercadeo y negociación con agentes de compradores: un
+                solo plan, dirigido por profesionales con 25 años en el Sur de Florida.
               </motion.p>
 
               <motion.div

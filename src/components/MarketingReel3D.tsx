@@ -126,7 +126,7 @@ export function MarketingReel3D({ lang = "en", ctaHref = "#list-here" }: { lang?
         <p className="mt-7 border-t border-white/25 pt-5 text-sm leading-relaxed text-white/85">{t.note}</p>
         <div className="mt-7 grid gap-4 lg:grid-cols-2 lg:items-center">
           <a href={ctaHref} className="story-cta">{es ? "Solicitar una llamada privada de estrategia" : "Request a Private Property Strategy Call"}<ArrowRight size={18} aria-hidden="true" /></a>
-          <p className="text-sm leading-relaxed text-white/85">{es ? "Carlos revisa su propiedad y se pone en contacto para coordinar la conversación." : "Carlos reviews the property and contacts you to arrange the conversation."}</p>
+          <p className="text-sm leading-relaxed text-white/85">{es ? "Nuestro equipo revisa su propiedad y se pone en contacto para coordinar la conversación." : "Our team reviews the property and contacts you to arrange the conversation."}</p>
         </div>
         <p className="mt-6 text-sm leading-relaxed text-white/85">Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.</p>
       </div>

@@ -65,13 +65,13 @@ const INTENTS: Intent[] = [
     en: {
       choice: "Selling a South Florida property",
       headline: "A private read on your property, before any listing decision.",
-      body: "Carlos reviews the comparable set, the competitive position and the likely buyer profile for your property, then sends the read back to you.",
+      body: "Our team reviews the comparable set, the competitive position and the likely buyer profile for your property, then sends the read back to you.",
       ctaLabel: "Request my property strategy",
     },
     es: {
       choice: "Vender una propiedad en el Sur de Florida",
       headline: "Una lectura privada de su propiedad, antes de cualquier decisión de venta.",
-      body: "Carlos revisa los comparables, la posición competitiva y el perfil probable de comprador de su propiedad, y le devuelve esa lectura.",
+      body: "Nuestro equipo revisa los comparables, la posición competitiva y el perfil probable de comprador de su propiedad, y le devuelve esa lectura.",
       ctaLabel: "Solicitar mi estrategia de venta",
     },
   },
@@ -166,7 +166,7 @@ const SHELL = {
     q2: "Where are you in it?",
     result: "Your route",
     whatsapp: "Ask Carlos directly",
-    footnote: "No listing commitment · Carlos responds personally",
+    footnote: "No listing commitment · Our team responds",
   },
   es: {
     eyebrow: "Dos preguntas",
@@ -176,7 +176,7 @@ const SHELL = {
     q2: "¿En qué punto está?",
     result: "Su vía",
     whatsapp: "Preguntar a Carlos directamente",
-    footnote: "Sin compromiso de listado · Carlos responde personalmente",
+    footnote: "Sin compromiso de listado · Nuestro equipo responde",
   },
 } as const;
 

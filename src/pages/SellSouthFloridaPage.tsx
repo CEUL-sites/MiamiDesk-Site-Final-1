@@ -262,7 +262,7 @@ export default function SellSouthFloridaPage() {
                 Request Your Private Seller Strategy Review.
               </h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-white/70 md:text-base">
-                Carlos reviews your property details, pricing comps, and next-move priorities, then contacts you to arrange a strategy conversation. No listing commitment.
+                Our team reviews your property details, pricing comps, and next-move priorities, then contacts you to arrange a strategy conversation. No listing commitment.
               </p>
             </div>
 

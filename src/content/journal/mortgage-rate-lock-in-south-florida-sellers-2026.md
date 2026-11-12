@@ -73,7 +73,7 @@ The distribution infrastructure has distinct layers:
 
 Exposure, data access and referral relationships are different tools. We select the relevant channels for the property, subject to MLS rules, brokerage approval and partner availability. They do not guarantee price, inquiries or a sale.
 
-**[Request a Private Seller Strategy Review](/sell#contact)** or [connect on WhatsApp](https://wa.me/19548656622). Share the address, current use and intended timing. Carlos reviews your objectives and available property information, then contacts you to arrange the strategy conversation. No listing commitment is required.
+**[Request a Private Seller Strategy Review](/sell#contact)** or [connect on WhatsApp](https://wa.me/19548656622). Share the address, current use and intended timing. Our team reviews your objectives and available property information, then contacts you to arrange the strategy conversation. No listing commitment is required.
 
 ## Questions owners ask
 
@@ -87,6 +87,6 @@ No. A long-run house-price index does not measure current rate sensitivity or es
 
 ### What happens after a Private Seller Strategy Review request?
 
-Share the property address, current use and intended timing. Carlos reviews your objectives and available property information, then contacts you to arrange the strategy conversation. No listing commitment is required.
+Share the property address, current use and intended timing. Our team reviews your objectives and available property information, then contacts you to arrange the strategy conversation. No listing commitment is required.
 
 *Prepared November 11, 2026. The commentary distinguishes sourced observations from our property-review framework. It is general information, not legal, tax, lending or investment advice.*

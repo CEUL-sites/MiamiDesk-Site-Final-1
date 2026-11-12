@@ -347,7 +347,7 @@ export default function EsVenderCoralGablesPage() {
             <h2 className="font-serif text-3xl text-navy-deep">¿Listo para posicionar su propiedad en Coral Gables?</h2>
             {/* TODO: native Madrid editor review */}
             <p className="mt-4 font-sans text-sm leading-relaxed text-navy-deep/70">
-              No se requiere compromiso de listado. Carlos revisa personalmente cada solicitud.
+              No se requiere compromiso de listado. Nuestro equipo revisa cada solicitud.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a href="/contact" className="group inline-flex items-center gap-2 bg-navy-deep px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-85">

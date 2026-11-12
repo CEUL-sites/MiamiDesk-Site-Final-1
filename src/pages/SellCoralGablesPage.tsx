@@ -269,7 +269,7 @@ export default function SellCoralGablesPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Coral Gables Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
               <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
-                No listing commitment required. Carlos reviews every submission personally.
+                No listing commitment required. Our team reviews every submission.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-coral-gables" />
