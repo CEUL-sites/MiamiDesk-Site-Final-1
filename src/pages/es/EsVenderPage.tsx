@@ -184,8 +184,8 @@ export default function EsVenderPage() {
                 className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/80"
               >
                 {/* TODO: native Madrid editor review */}
-                Precio, presentación y contacto con agentes compradores,
-                en un solo plan dirigido por nuestro equipo.
+                Precio, marketing y negociación con agentes compradores,
+                dirigidos por un equipo con 25 años en el Sur de Florida.
               </motion.p>
 
               <motion.div

@@ -38,7 +38,7 @@ export function SellersReachHero() {
               The final price depends <span>on who sees the listing.</span>
             </h1>
             <p className="seller-reach-subtitle">
-              Pricing, presentation and buyer-agent outreach, run as one plan by our team.
+              Pricing, marketing and buyer-agent negotiation, led by a team with 25 years in South Florida.
             </p>
             <div className="seller-reach-actions" data-sticky-cta-guard>
               <a

@@ -259,7 +259,7 @@ export default function BuyersPage() {
                 Every South Florida MLS listing. One team negotiating for you.
               </h1>
               <p className="advisory-summary">
-                Search the live MLS feed. Our team shortlists, tours and negotiates for you, in English or Spanish.
+                Twenty-five years guiding buyers across South Florida, backed by {CONTACT.stats.urgAgents} United Realty Group agents in {CONTACT.stats.urgFloridaOfficeCount} Florida office locations.
               </p>
               <div className="advisory-actions">
                 <a
