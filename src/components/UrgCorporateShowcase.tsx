@@ -266,7 +266,7 @@ const VARIANT_COPY: Record<
     eyebrow: "United Realty Group · Institutional Brokerage & Closing Ecosystem",
     heading: "Personal Representation Backed by Plantation HQ, 19 Florida Office Locations & Affiliated Closing Partners",
     subheading:
-      "Every listing is directed personally by Carlos Uzcategui from the Weston branch while drawing on United Realty Group's Plantation Corporate Headquarters, 3,500+ Florida agents, and affiliated mortgage and title settlement providers.",
+      "Every listing is led by Carlos Uzcategui and our team from the Weston branch, drawing on United Realty Group's Plantation Corporate Headquarters, 3,500+ Florida agents, and affiliated mortgage and title settlement providers.",
     chlRole:
       "Pre-qualifies prospective buyers across Conventional, Jumbo, FHA, and VA loan programs so seller mandates evaluate verified purchasing power before signing a contract.",
     sftaRole:

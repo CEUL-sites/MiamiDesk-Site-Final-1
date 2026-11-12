@@ -74,7 +74,7 @@ const INTENT_BRIEFINGS: Record<
 const CONTACT_FAQS: readonly FaqItem[] = [
   {
     q: "Who reviews my inquiry when I submit this form?",
-    a: "Every submission is reviewed personally by Carlos Uzcategui, REALTOR® (Florida License SL705771). Inquiries are never routed to an unlicensed call center, automated chatbot queue, or junior intake team.",
+    a: "Every submission is reviewed by our licensed team, led by Carlos Uzcategui, REALTOR® (Florida License SL705771). Inquiries are never routed to an unlicensed call center or automated chatbot queue.",
   },
   {
     q: "What should I include when requesting a Private Seller Strategy Review?",
@@ -250,7 +250,7 @@ export default function ContactPage() {
               <div className="flex items-start gap-2.5 border-t border-white/10 pt-3 text-xs leading-relaxed text-white/70">
                 <ShieldCheck size={15} className="mt-0.5 shrink-0 text-gold" />
                 <span>
-                  Every inquiry is reviewed directly by Carlos Uzcategui as Florida principal of record — never routed to an intake call center.
+                  Every inquiry is reviewed by our licensed team, led by Carlos Uzcategui — never routed to an intake call center.
                 </span>
               </div>
             </div>

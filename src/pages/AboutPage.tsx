@@ -30,8 +30,8 @@ const ABOUT_FAQS: readonly FaqItem[] = [
     a: "Carlos Uzcategui is a Florida Licensed REALTOR® (License SL705771, licensed since 2001) with 25 years of continuous South Florida transaction experience. He holds the Certified Luxury Home Marketing Specialist (CLHMS) and Certified Seller Representative designations and is an Associate in United Realty Group.",
   },
   {
-    q: "Does Carlos personally manage client assignments or delegate to junior agents?",
-    a: "Every mandate is directed personally by Carlos as Florida principal of record. From initial valuation modeling and pricing strategy to MLS positioning, showings coordination, contract negotiation, post-occupancy structuring, and escrow defense, clients work directly with Carlos.",
+    q: "Who manages my assignment from start to closing?",
+    a: "Every mandate is led by Carlos Uzcategui, Florida Realtor® SL705771, and our team. From initial valuation modeling and pricing strategy to MLS positioning, showings coordination, contract negotiation, post-occupancy structuring, and escrow defense, clients work with the same team throughout.",
   },
   {
     q: "What is Carlos Uzcategui's relationship with United Realty Group and Miami REALTORS®?",
@@ -354,7 +354,7 @@ export default function AboutPage() {
                 </h2>
               </div>
               <p className="max-w-md font-sans text-sm leading-relaxed text-navy/70">
-                Select a corridor below to inspect how every mandate is managed personally by Carlos as Florida principal of record.
+                Select a corridor below to inspect how every mandate is managed by Carlos Uzcategui and our team.
               </p>
             </div>
 
@@ -562,7 +562,7 @@ export default function AboutPage() {
                   <div className="flex items-start gap-2.5 border-t border-white/10 pt-3 text-xs leading-relaxed text-white/70">
                     <ShieldCheck size={15} className="mt-0.5 shrink-0 text-gold" />
                     <span>
-                      Every inquiry is reviewed directly by Carlos Uzcategui as Florida principal of record—never routed to an
+                      Every inquiry is reviewed by our licensed team, led by Carlos Uzcategui—never routed to an
                       intake call center.
                     </span>
                   </div>

@@ -426,7 +426,7 @@ export function HomepageListingApproach() {
                   <div className="mt-6 flex flex-col justify-between gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center">
                     <div className="flex items-center gap-2 text-xs text-white/75">
                       <Icon size={15} className="text-gold shrink-0" aria-hidden="true" />
-                      <span>Led personally by Carlos Uzcategui · FL SL705771</span>
+                      <span>Led by Carlos Uzcategui and team · FL SL705771</span>
                     </div>
                     <a
                       href="#list-here"

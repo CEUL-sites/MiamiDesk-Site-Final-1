@@ -29,8 +29,8 @@ const PRINCIPAL_LENSES = [
     label: "03 · Direct Principal Accountability",
     icon: ShieldCheck,
     stat: "FL SL705771",
-    headline: "Every Mandate Led Personally by Carlos as Principal of Record",
-    body: "Every assignment is managed directly by Carlos as principal of record—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.",
+    headline: "Every Mandate Led by Carlos Uzcategui and Our Team",
+    body: "Every assignment is led by Carlos Uzcategui, Florida Realtor® SL705771, and our team—from pricing strategy and MLS positioning to contract negotiation. Selected international opportunities are coordinated through documented bilateral agreements, subject to brokerage and compliance requirements.",
   },
 ] as const;
 
@@ -213,7 +213,7 @@ export function AboutContact({
               />
               <h3 className="mt-5 font-serif text-2xl leading-tight text-white md:text-4xl">Your strategy is personal. The infrastructure behind it is institutional.</h3>
               <p className="mt-5 font-sans text-sm leading-relaxed text-white/70 md:text-base">
-                Carlos leads the pricing, positioning, negotiation, and communication personally. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations.
+                Carlos and our team lead the pricing, positioning, negotiation, and communication. United Realty Group provides the Florida brokerage platform behind the assignment: 3,500+ agents and {URG_FLORIDA_OFFICE_COUNT} Florida office locations.
               </p>
               <div className="mt-6 grid grid-cols-2 border-y border-white/15 py-4">
                 <div>
