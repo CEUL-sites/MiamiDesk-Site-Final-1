@@ -114,7 +114,7 @@ The recurring pattern with non-resident sellers is not that the rules are unmana
 
 If you own South Florida property from abroad and are considering a sale, a private strategy review is the right place to map the sequence, coordinate with your tax adviser, and prepare the file before the property goes public.
 
-[Request a Private Seller Strategy Review](/sell-south-florida?utm_source=journal&utm_medium=seo&utm_campaign=firpta-withholding-foreign-seller-south-florida-2026)
+[Request a Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=seo&utm_campaign=firpta-withholding-foreign-seller-south-florida-2026)
 
 ## Source and Compliance Notes
 
