@@ -1,9 +1,9 @@
 name: Daily Journal Publisher
 
 on:
-  schedule:
-    # 8:35 AM America/New_York during daylight saving time.
-    - cron: '35 12 * * *'
+  # Daily schedule paused 2026-11-12: the market x angle matrix produced near-duplicate
+  # posts, which were consolidated into single guides with 301s. Re-enable only with
+  # a publisher that produces distinct, query-led posts. Manual runs remain available.
   workflow_dispatch:
 
 permissions:

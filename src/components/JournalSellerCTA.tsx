@@ -59,7 +59,7 @@ const OFFERS_BY_SLUG: Record<string, JournalOffer> = {
     bottomNote: '',
     appendBrokerageToEyebrow: false,
   },
-  'seller-positioning-south-florida-2026-august': {
+  'south-florida-market-by-market-what-buyers-verify-2026': {
     eyebrow: 'Private Position Analysis · South Florida',
     heading: 'Request a private property position analysis',
     body: 'Receive a property-level view of the likely buyer, competing inventory, preparation sequence, and defensible pricing range before you list.',
