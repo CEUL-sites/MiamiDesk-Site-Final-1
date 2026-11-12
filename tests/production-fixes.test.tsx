@@ -38,11 +38,12 @@ test('market pulse labels each segment period and provides pricing advice', () =
 test('homepage distribution exposes the complete approved infrastructure in both languages', () => {
  for (const lang of ['en', 'es'] as const) {
   const html = renderToStaticMarkup(<Distribution lang={lang} />);
-  for (const metric of ['93,000', '200+', '260+', '437+', '3,500+', '$69 Billion']) {
+  for (const metric of ['93,000', '200+', '260+', '437+', '3,500+']) {
    assert(html.includes(metric), `${lang}: missing visible distribution figure ${metric}`);
   }
   assert(html.includes(lang === 'en' ? '19 Florida office locations' : '19 ubicaciones en Florida'));
-  assert(html.includes(lang === 'en' ? 'combined association' : 'asociación combinada'));
+  // Compliance rule 1: the association's volume figure is not displayed.
+  assert(!/\$69|69 Billion|69 mil millones/.test(html), `${lang}: association volume figure must not be displayed`);
  }
 });
 
