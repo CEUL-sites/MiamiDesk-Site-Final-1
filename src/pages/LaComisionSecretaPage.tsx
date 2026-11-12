@@ -201,7 +201,7 @@ export default function LaComisionSecretaPage() {
                     <div className="mt-10 border-t border-white/10 pt-6">
                       <div className="flex items-center gap-3">
                         <img
-                          src="/images/carlos-headshot.jpg"
+                          src="/images/carlos-headshot-20261112.jpg"
                           alt="Carlos Uzcategui"
                           width="36"
                           height="36"
@@ -371,7 +371,7 @@ export default function LaComisionSecretaPage() {
             <div className="grid gap-10 sm:grid-cols-[auto_1fr] sm:items-start">
               <div className="relative">
                 <img
-                  src="/images/carlos-headshot.jpg"
+                  src="/images/carlos-headshot-20261112.jpg"
                   alt="Carlos Uzcategui — FL SL705771"
                   width="112"
                   height="112"
