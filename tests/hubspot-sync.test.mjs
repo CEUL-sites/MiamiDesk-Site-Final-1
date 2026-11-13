@@ -310,6 +310,47 @@ test('WhatsApp alert runs only after the contact, note, and task were saved in H
  assert.deepEqual(counts,{contact:1,note:1,task:1,alert:2},'Completed submission must never be resent');
 });
 
+test('an owner alert channel that is not set up completes the inquiry at once; a failing one is released after the retry limit',async()=>{
+ const {drainInquiries,enqueueSubmission,MAX_ALERT_ATTEMPTS}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const api={findContact:async()=>null,createContact:async()=>({id:'777'}),updateContact:async()=>{},createNote:async()=>({id:'n'}),createTask:async()=>({id:'t'})};
+ const off=memoryStore();
+ await enqueueSubmission({id:'alert-off',form_name:'buyer-mandate',data:{name:'No Channel',email:'no-channel@example.invalid'}},off);
+ let calls=0;
+ await drainInquiries(off,api,'owner',async()=>{calls++;return{ok:false,configured:false,detail:'not configured'}});
+ assert.equal([...off.data.keys()].some(k=>k.startsWith('pending/')),false,'An unconfigured channel must not hold the job');
+ assert.equal([...off.data.entries()].find(([k])=>k.startsWith('done/'))[1].ownerAlert,'not_configured');
+ assert.equal(calls,1);
+ const down=memoryStore();
+ await enqueueSubmission({id:'alert-down',form_name:'buyer-mandate',data:{name:'Channel Down',email:'channel-down@example.invalid'}},down);
+ let attempts=0;const notify=async()=>{attempts++;return{ok:false,configured:true,detail:'outage'}};
+ for(let i=0;i<MAX_ALERT_ATTEMPTS+2;i++){
+  const key=[...down.data.keys()].find(k=>k.startsWith('pending/'));
+  if(key){const j=down.data.get(key);j.nextAttemptAt=0;await down.setJSON(key,j);}
+  await drainInquiries(down,api,'owner',notify);
+ }
+ assert.equal(attempts,MAX_ALERT_ATTEMPTS);
+ assert.equal([...down.data.keys()].some(k=>k.startsWith('pending/')),false);
+ assert.equal([...down.data.entries()].find(([k])=>k.startsWith('done/'))[1].ownerAlert,'failed');
+});
+
+test('WhatsApp Cloud sender: silent when not configured, sends the approved template when configured, never leaks the token',async()=>{
+ const {sendWhatsAppAlert,templateText}=await import('../netlify/functions/_shared/whatsapp.ts');
+ const alert={type:'Buyer',name:'Test\nName',contact:'+1 954 555 0100',location:'',link:'https://app.hubspot.com/contacts/1/contact/2'};
+ const none=await sendWhatsAppAlert(alert,{},async()=>{throw new Error('must not call')});
+ assert.deepEqual([none.ok,none.configured],[false,false]);
+ let seen;
+ const env={WHATSAPP_CLOUD_TOKEN:'secret-token',WHATSAPP_PHONE_NUMBER_ID:'1234567890'};
+ const sent=await sendWhatsAppAlert(alert,env,async(url,init)=>{seen={url,init};return new Response(JSON.stringify({messages:[{id:'wamid.1'}]}),{status:200})});
+ assert.deepEqual([sent.ok,sent.configured],[true,true]);
+ assert.match(seen.url,/^https:\/\/graph\.facebook\.com\/v[\d.]+\/1234567890\/messages$/);
+ const body=JSON.parse(seen.init.body);
+ assert.equal(body.to,'19548656622');assert.equal(body.type,'template');assert.equal(body.template.name,'website_lead_alert');
+ assert.deepEqual(body.template.components[0].parameters.map(p=>p.text),['Buyer','Test Name','+1 954 555 0100','—','https://app.hubspot.com/contacts/1/contact/2']);
+ const bad=await sendWhatsAppAlert(alert,env,async()=>new Response(JSON.stringify({error:{code:132001,message:'Template name does not exist'}}),{status:404}));
+ assert.deepEqual([bad.ok,bad.configured],[false,true]);assert.match(bad.detail,/132001/);assert.doesNotMatch(bad.detail,/secret-token/);
+ assert.equal(templateText('a\n\n  b     c'),'a b c');
+});
+
 test('address-only valuation step is not queued for a WhatsApp alert',async()=>{
  const {drainInquiries,enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
  const store=memoryStore();

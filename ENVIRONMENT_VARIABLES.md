@@ -12,27 +12,32 @@ RESEND_API_KEY
   Used by: netlify/functions/submission-created.ts
   How to get: resend.com → API Keys → Create API Key → verify homesprofessional.com domain
 
-CALLMEBOT_APIKEY
-  What it does: Sends an instant WhatsApp alert to Carlos on every lead.
-  Used by: netlify/functions/submission-created.ts and lead-notify.ts
+WHATSAPP_CLOUD_TOKEN
+  What it does: Sends the owner WhatsApp alert through Meta's official WhatsApp
+                Cloud API after an inquiry is saved in HubSpot. Replaces
+                CallMeBot, which returned 403 to Netlify's servers.
+                OPTIONAL: without it the alert is skipped silently; the
+                HubSpot task reminder and the Resend email still alert Carlos.
+  Used by: netlify/functions/hubspot-inquiry-sync.ts
            (via netlify/functions/_shared/whatsapp.ts)
-  How to get (one-time activation, tied to the RECIPIENT number):
-    1. From Carlos's WhatsApp, add the CallMeBot number +34 644 51 95 23 to contacts
-    2. Send this exact message to it: "I allow callmebot to send me messages"
-    3. The bot replies with an API key — that value is CALLMEBOT_APIKEY
-    4. Reference: https://www.callmebot.com/blog/free-api-whatsapp-messages/
-  IMPORTANT: The key is bound to the phone number that activated it. If the
-             notify number changes, re-activate AND update CALLMEBOT_PHONE.
-  Diagnosing: CallMeBot returns HTTP 200 even on errors; the functions log the
-              real reason (Netlify → Functions → logs) as "CallMeBot: <reason>"
-              when a send is rejected (bad key, number not registered, etc.).
+  How to get (one-time, in Meta — business.facebook.com / developers.facebook.com):
+    1. Create a Meta app with the WhatsApp product and a WhatsApp Business Account.
+    2. Add a sending phone number (a number NOT already used in the WhatsApp app).
+    3. Create a utility template named "website_lead_alert" (language: English) with
+       this body and wait for approval:
+         New website inquiry: {{1}}. Name: {{2}}. Contact: {{3}}. Location: {{4}}. HubSpot: {{5}}
+    4. Business settings → System users → generate a permanent token with
+       whatsapp_business_messaging. That value is WHATSAPP_CLOUD_TOKEN.
+  IMPORTANT: server-side only. Never prefix with VITE_.
 
-CALLMEBOT_PHONE
-  What it does: The WhatsApp number that receives lead alerts. Optional —
-                defaults to +19548656622 (Carlos). Must include the country
-                code with a leading "+".
-  Used by: netlify/functions/_shared/whatsapp.ts
-  Note: Must be the same number that activated CALLMEBOT_APIKEY above.
+WHATSAPP_PHONE_NUMBER_ID
+  What it does: The sending number's ID (WhatsApp → API Setup in the Meta app).
+                Required together with WHATSAPP_CLOUD_TOKEN.
+
+WHATSAPP_ALERT_TEMPLATE / WHATSAPP_ALERT_TEMPLATE_LANG / WHATSAPP_ALERT_TO / WHATSAPP_API_VERSION
+  What they do: Optional overrides. Defaults: "website_lead_alert", "en",
+                +19548656622 (Carlos), and the Graph API version pinned in
+                _shared/whatsapp.ts.
 
 VITE_GOOGLE_MAPS_KEY
   What it does: Powers the address autocomplete + map-pin preview on the seller
