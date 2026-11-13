@@ -1,4 +1,5 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
+import { connectBlobs } from "./_shared/connectBlobs";
 import { dedupKey, markAlerted } from "./_shared/leadDedup";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { corsHeaders as buildCorsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
@@ -87,6 +88,7 @@ function normalize(p: LeadPayload): NormalizedLead {
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
+  connectBlobs(event);
   const corsHeaders = buildCorsHeaders(event);
 
   if (event.httpMethod === "OPTIONS") {

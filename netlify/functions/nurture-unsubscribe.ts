@@ -1,4 +1,5 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
+import { connectBlobs } from "./_shared/connectBlobs";
 import { getStore } from "@netlify/blobs";
 import { NURTURE_STORE, nurtureToken, type NurtureLead } from "./_shared/nurture";
 
@@ -22,6 +23,7 @@ function page(title: string, body: string): string {
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
+  connectBlobs(event);
   if (event.httpMethod !== "GET") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }

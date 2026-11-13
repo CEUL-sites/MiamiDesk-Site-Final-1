@@ -1,4 +1,5 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
+import { connectBlobs } from "./_shared/connectBlobs";
 import { getStore } from "@netlify/blobs";
 import { resolveMlsCity, MIN_SAMPLE, IDX_DISCLAIMER, MLS_SOURCE_LABEL, median } from "./_shared/mlsCity";
 
@@ -71,6 +72,7 @@ async function fetchCityStats(city: string): Promise<CityStats> {
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
+  connectBlobs(event);
   if (event.httpMethod !== "GET") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }

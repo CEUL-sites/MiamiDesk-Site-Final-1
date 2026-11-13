@@ -101,7 +101,7 @@ const COUNTY_DETAILS: readonly CountyDetail[] = [
     ],
     links: [
       ["Boca Raton Seller Guide", "/journal/selling-boca-raton-home-2026"],
-      ["Boca Raton Net Proceeds", "/journal/net-proceeds-boca-raton-2026-july"],
+      ["Seller Net Proceeds Guide", "/journal/seller-closing-costs-south-florida-2026"],
       ["Palm Beach CMA Review", "/home-value"],
       ["Private Seller Consultation", "/contact?intent=seller&market=palm-beach"],
     ],

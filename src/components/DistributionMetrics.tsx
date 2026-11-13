@@ -10,7 +10,7 @@ export function DistributionMetrics({ lang = 'en', dark = false }: { lang?: 'en'
     [fig('usMls'), es ? 'MLS de EE. UU. a través de RPR' : 'US MLSs through RPR', `${fig('mlsDataExchanges')} ${es ? 'intercambios de datos MLS' : 'MLS data exchanges'}`],
     [fig('internationalAgreements'), es ? 'Acuerdos internacionales' : 'International agreements', 'MIAMI Global Council'],
     [fig('urgAgents'), es ? 'Agentes de United Realty Group' : 'United Realty Group agents', `${fig('urgOfficeNetwork')} ${es ? 'ubicaciones en Florida*' : 'Florida office locations*'}`],
-    [fig('association2025Volume'), es ? 'Volumen combinado de la asociación en 2025' : 'Association combined 2025 market volume', 'MIAMI REALTORS® + RWorld'],
+    [fig('memberComparison'), es ? 'Más del doble que la siguiente asociación local de EE. UU.' : 'More than double the next-largest U.S. local association', es ? 'MIAMI REALTORS® + RWorld · anuncio de abril de 2026' : 'MIAMI REALTORS® + RWorld · April 2026 announcement'],
   ];
 
   const nodeTiers = [
@@ -19,7 +19,7 @@ export function DistributionMetrics({ lang = 'en', dark = false }: { lang?: 'en'
     es ? 'NODO 03 · NACIONAL' : 'NODE 03 · NATIONAL RECIPROCITY',
     es ? 'NODO 04 · BILATERAL' : 'NODE 04 · GLOBAL COUNCIL',
     es ? 'NODO 05 · CORREDURÍA' : 'NODE 05 · BROKERAGE FOOTPRINT',
-    es ? 'NODO 06 · VOLUMEN' : 'NODE 06 · NETWORK SCALE',
+    es ? 'NODO 06 · ESCALA' : 'NODE 06 · NETWORK SCALE',
   ];
 
   return <div className={dark ? 'text-white' : 'text-navy-deep'}>
@@ -66,7 +66,7 @@ export function DistributionMetrics({ lang = 'en', dark = false }: { lang?: 'en'
       <a className="underline hover:text-gold" href="https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" target="_blank" rel="noopener noreferrer">MIAMI merger announcement (April 2026)</a>;{' '}
       <a className="underline hover:text-gold" href="https://www.miamirealtors.com/global/" target="_blank" rel="noopener noreferrer">MIAMI distribution and Global Council</a>;{' '}
       <a className="underline hover:text-gold" href="https://www.urgfl.com/office-locations/" target="_blank" rel="noopener noreferrer">United Realty Group</a>.
-      {' '}{es ? '*El directorio incluye Pembroke Pines, marcado como próxima apertura. Los $69 mil millones corresponden a la asociación combinada, no a Carlos ni a URG. La distribución depende de elegibilidad, normas MLS y participación; no garantiza contactos, precio ni venta.' : '*Directory includes Pembroke Pines, marked opening soon. The $69 billion is the combined association’s volume, not Carlos’s or URG’s production. Distribution depends on eligibility, MLS rules and participation; no placement, leads, price or sale is guaranteed.'}
+      {' '}{es ? '*El directorio incluye Pembroke Pines, marcado como próxima apertura. La distribución depende de elegibilidad, normas MLS y participación; no garantiza contactos, precio ni venta.' : '*Directory includes Pembroke Pines, marked opening soon. Distribution depends on eligibility, MLS rules and participation; no placement, leads, price or sale is guaranteed.'}
     </p>
   </div>;
 }

@@ -1,4 +1,5 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
+import { connectBlobs } from "./_shared/connectBlobs";
 import { getStore } from "@netlify/blobs";
 
 const BRIDGE_TOKEN = process.env.BRIDGE_API_TOKEN ?? "";
@@ -75,6 +76,7 @@ async function fetchFeed(config: FeedConfig): Promise<{
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
+  connectBlobs(event);
   // ── 503 if Bridge token not configured ─────────────────────────────────────
   if (!BRIDGE_TOKEN) {
     return {

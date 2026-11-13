@@ -48,11 +48,6 @@
     "force": true
   },
   {
-    "from": "/sell",
-    "to": "/index.html",
-    "status": 200
-  },
-  {
     "from": "/madrid",
     "to": "/markets",
     "status": 301,
@@ -265,6 +260,870 @@
   {
     "from": "/sell-in-hallandale-beach/",
     "to": "/sell-hallandale-beach",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-aventura-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-aventura-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-boca-raton-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-boca-raton-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-brickell-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-brickell-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-coral-gables-2026-july",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-coral-gables-2026-july/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-doral-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-doral-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-fort-lauderdale-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-fort-lauderdale-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-kendall-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-kendall-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-plantation-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-plantation-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-pompano-beach-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-pompano-beach-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-south-florida-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-south-florida-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-sunny-isles-beach-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-sunny-isles-beach-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-weston-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/buyer-discipline-weston-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-aventura-2026-september",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-aventura-2026-september/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-boca-raton-2026-july",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-boca-raton-2026-july/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-brickell-2026-september",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-brickell-2026-september/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-coral-gables-2026-september",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-coral-gables-2026-september/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-doral-2026-september",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-doral-2026-september/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-fort-lauderdale-2026-september",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-fort-lauderdale-2026-september/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-kendall-2026-july",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-kendall-2026-july/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-plantation-2026-june",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-plantation-2026-june/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-pompano-beach-2026-july",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-pompano-beach-2026-july/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-south-florida-2026-july",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-south-florida-2026-july/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-sunny-isles-beach-2026-july",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-sunny-isles-beach-2026-july/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-weston-2026-september",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/downsizing-sequence-weston-2026-september/",
+    "to": "/journal/downsizing-lower-housing-costs-south-florida-homestead-playbook-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-aventura-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-aventura-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-boca-raton-2026-september",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-boca-raton-2026-september/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-brickell-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-brickell-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-coral-gables-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-coral-gables-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-doral-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-doral-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-fort-lauderdale-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-fort-lauderdale-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-kendall-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-kendall-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-plantation-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-plantation-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-pompano-beach-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-pompano-beach-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-south-florida-2026-september",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-south-florida-2026-september/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-sunny-isles-beach-2026-september",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-sunny-isles-beach-2026-september/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-weston-2026-august",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/international-owner-weston-2026-august/",
+    "to": "/journal/international-owners-south-florida-mls-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-aventura-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-aventura-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-boca-raton-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-boca-raton-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-brickell-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-brickell-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-coral-gables-2026-september",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-coral-gables-2026-september/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-doral-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-doral-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-fort-lauderdale-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-fort-lauderdale-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-kendall-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-kendall-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-plantation-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-plantation-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-pompano-beach-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-pompano-beach-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-south-florida-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-south-florida-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-sunny-isles-beach-2026-july",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-sunny-isles-beach-2026-july/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-weston-2026-september",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/net-proceeds-weston-2026-september/",
+    "to": "/journal/seller-closing-costs-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-aventura-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-aventura-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-boca-raton-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-boca-raton-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-brickell-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-brickell-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-coral-gables-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-coral-gables-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-doral-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-doral-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-fort-lauderdale-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-fort-lauderdale-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-kendall-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-kendall-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-plantation-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-plantation-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-pompano-beach-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-pompano-beach-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-south-florida-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-south-florida-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-sunny-isles-beach-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-sunny-isles-beach-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-weston-2026-september",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/post-occupancy-weston-2026-september/",
+    "to": "/journal/post-occupancy-agreement-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-aventura-2026-august",
+    "to": "/journal/selling-aventura-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-aventura-2026-august/",
+    "to": "/journal/selling-aventura-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-boca-raton-2026-august",
+    "to": "/journal/selling-boca-raton-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-boca-raton-2026-august/",
+    "to": "/journal/selling-boca-raton-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-brickell-2026-august",
+    "to": "/journal/selling-brickell-condo-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-brickell-2026-august/",
+    "to": "/journal/selling-brickell-condo-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-coral-gables-2026-july",
+    "to": "/journal/selling-coral-gables-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-coral-gables-2026-july/",
+    "to": "/journal/selling-coral-gables-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-doral-2026-august",
+    "to": "/journal/selling-doral-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-doral-2026-august/",
+    "to": "/journal/selling-doral-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-fort-lauderdale-2026-august",
+    "to": "/journal/selling-fort-lauderdale-waterfront-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-fort-lauderdale-2026-august/",
+    "to": "/journal/selling-fort-lauderdale-waterfront-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-kendall-2026-august",
+    "to": "/journal/selling-kendall-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-kendall-2026-august/",
+    "to": "/journal/selling-kendall-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-pompano-beach-2026-august",
+    "to": "/journal/selling-pompano-beach-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-pompano-beach-2026-august/",
+    "to": "/journal/selling-pompano-beach-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-south-florida-2026-august",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-south-florida-2026-august/",
+    "to": "/journal/south-florida-market-by-market-what-buyers-verify-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-sunny-isles-beach-2026-august",
+    "to": "/journal/selling-sunny-isles-beach-condo-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-sunny-isles-beach-2026-august/",
+    "to": "/journal/selling-sunny-isles-beach-condo-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-weston-2026-july",
+    "to": "/journal/selling-weston-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-weston-2026-july/",
+    "to": "/journal/selling-weston-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-plantation-2026-october",
+    "to": "/journal/selling-plantation-home-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/seller-positioning-plantation-2026-october/",
+    "to": "/journal/selling-plantation-home-2026",
     "status": 301,
     "force": true
   }

@@ -279,9 +279,10 @@ assert.match(
 // Distribution now uses static, code-native proof instead of the retired
 // ReachFlow3D diagram. Keep the figures exact and retain the eligibility note.
 const distributionMetrics = await readFile("src/components/DistributionMetrics.tsx", "utf8");
-for (const proof of ['members', 'globalWebsites', 'languages', 'usMls', 'mlsDataExchanges', 'internationalAgreements', 'urgAgents', 'urgOfficeNetwork', 'association2025Volume']) {
+for (const proof of ['members', 'globalWebsites', 'languages', 'usMls', 'mlsDataExchanges', 'internationalAgreements', 'urgAgents', 'urgOfficeNetwork', 'memberComparison']) {
   assert.ok(distributionMetrics.includes(`fig('${proof}')`), `Distribution grid must render verified figure: ${proof}`);
 }
+assert.doesNotMatch(distributionMetrics, /association2025Volume|\$69/, 'the association volume figure is not displayed (compliance rule 1)');
 assert.match(distribution, /data-distribution-scene=/);
 assert.doesNotMatch(deck, /setInterval/, "execution stages stay under reader control");
 assert.match(
