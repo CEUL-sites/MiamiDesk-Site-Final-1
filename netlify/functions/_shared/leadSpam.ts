@@ -75,12 +75,32 @@ const leadingOnset = (word: string): string => {
   return word.slice(0, i);
 };
 
-/** True for a name token no human name produces (Cmqxi, Drqvwbww, Avrtvwgj). */
+// Three-plus-letter onsets that real surnames start with across the
+// languages this site serves (English, Spanish, Polish, German, Slavic,
+// Southern African). Two-letter onsets are never flagged on names.
+const NAME_ONSETS = new Set([
+  ...ALLOWED_ONSETS,
+  "brz", "prz", "krz", "trz", "drz", "grz", "strz", "szcz", "szcz", "chrz",
+  "tsch", "schw", "schl", "schm", "schn", "schr", "spr", "shch", "tsh", "hrv",
+  "zdr", "zgr", "skr", "skl", "sht", "phl", "chl", "chw", "vls", "mst", "pss",
+]);
+
+/**
+ * True for a name token no human name produces (Cmqxi, Drqvwbww, Avrtvwgj).
+ * Deliberately strict: ordinary names with long consonant runs (Armstrong,
+ * Goldstein, Bergstrom, Strzelecki, McDonald) must pass, because this signal
+ * alone is enough to hold a lead.
+ */
 export function isGibberishNameToken(raw: string): boolean {
-  const w = lettersOnly(raw);
+  // "Mc"/"Mac" prefixes (McDonald, McGregor) are not part of the onset.
+  const w = lettersOnly(raw).replace(/^ma?c(?=[^aeiouy])/, "");
   if (w.length < 4) return false;
   if (vowelRatio(w) === 0) return true;
-  return longestConsonantRun(w.replace(COMMON_CLUSTERS, "a")) >= 4;
+  const onset = leadingOnset(w);
+  // Onsets opening with m/n are prenasalised clusters in Southern African and
+  // other names (Ndlovu, Mbhele, Nkwanyana) — never flag those on the onset.
+  if (onset.length >= 3 && !NAME_ONSETS.has(onset) && !/^[mn]/.test(onset)) return true;
+  return longestConsonantRun(w.replace(COMMON_CLUSTERS, "a")) >= 6;
 }
 
 /** True for a place/address token that is not a word (Vrjak, Upshg). */

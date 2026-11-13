@@ -29,6 +29,12 @@ const realNames = [
   "Thanh Nguyen", "Kathleen Fitzgerald", "Agnieszka Kowalczyk", "Xiomara Llanos",
   "Ángel Muñoz", "Mohammed Al-Rashid", "Siobhan O'Brien", "Yvonne Wright",
   "Dmitri Ivanov", "Andrzej Brzezinski", "Bertrand Albrecht", "Ng Wei",
+  // Long consonant runs that are ordinary surnames (Codex review, PR #210)
+  "Neil Armstrong", "Ruth Goldstein", "Oliver Goldsmith", "Erik Bergstrom",
+  "Lars Lindqvist", "Anna Strzelecka", "Piotr Szczepanski", "Karl Engelbrecht",
+  "Thabo Tshabalala", "Sipho Ndlovu", "Thabo Mbeki", "Zanele Mbhele", "Lindiwe Nkwanyana", "Zbigniew Hrvoje",
+  "Ian McDonald", "Ewan McGregor", "Kirk Kirkpatrick", "Hans Hirschsprung",
+  "Mark Rothschild", "Greta Schwarzkopf", "Lauren Knightley", "Mike Holtzclaw",
 ];
 for (const n of realNames) {
   for (const t of n.split(/\s+/)) assert.equal(isGibberishNameToken(t), false, `real name flagged: ${n} (${t})`);
@@ -57,6 +63,19 @@ const realLeads = [
 for (const l of realLeads) {
   const r = assessLeadSpam({ ...l, ...human });
   assert.equal(r.verdict, "ok", `real lead blocked: ${l.name} → ${JSON.stringify(r)}`);
+}
+
+// ── Acknowledgment payloads carry the screening fields ────────────────────
+for (const f of ["SpainSellerForm", "GlobalDeskListingForm", "AgencyPartnerForm", "BuyerMandateForm", "ReferralIntakeForm", "SellerIntakeForm"]) {
+  const src = readFileSync(new URL(`../src/components/forms/${f}.tsx`, import.meta.url), "utf8");
+  const ack = src.slice(src.indexOf("lead-acknowledgment"), src.indexOf("lead-acknowledgment") + 600);
+  assert.match(ack, /formRenderedAt/, `${f} must send formRenderedAt to lead-acknowledgment`);
+  assert.match(ack, /phone/, `${f} must send phone to lead-acknowledgment`);
+}
+for (const f of ["SpainSellerForm", "GlobalDeskListingForm"]) {
+  const src = readFileSync(new URL(`../src/components/forms/${f}.tsx`, import.meta.url), "utf8");
+  const ack = src.slice(src.indexOf("lead-acknowledgment"), src.indexOf("lead-acknowledgment") + 600);
+  assert.match(ack, /propertyAddress: form\.location/, `${f} must send its location to lead-acknowledgment`);
 }
 
 // ── Hard fails ────────────────────────────────────────────────────────────

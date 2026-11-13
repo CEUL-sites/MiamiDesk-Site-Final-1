@@ -202,6 +202,9 @@ export function SpainSellerForm({
           name: form.name,
           email: form.email,
           phone: form.phone,
+          propertyAddress: form.location,
+          botField: "",
+          formRenderedAt: String(renderedAt.current),
           language: lang,
         }),
       }).catch(() => {});
