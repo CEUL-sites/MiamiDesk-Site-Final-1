@@ -96,10 +96,16 @@ a marked live submission and an independent HubSpot contact/note/task read-back.
 
 ## Owner WhatsApp notifications
 
-New completed, contactable inquiries generate one WhatsApp notification to Carlos's
-USA number **+1 954-865-6622**, using the existing `CALLMEBOT_APIKEY`
-configured in Netlify Functions and the server-side CallMeBot adapter. No HubSpot
-workflow, credits, marketing enrollment, or Make.com automation is required.
+Every synced inquiry alerts Carlos through HubSpot itself: the follow-up task
+carries a reminder, so HubSpot notifies the owner by email, desktop and mobile app.
+The Resend email to contact@carlosre.com is the second standing alert.
+
+WhatsApp is an optional third channel through Meta's WhatsApp Cloud API
+(`WHATSAPP_CLOUD_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID`, approved template
+`website_lead_alert`), sent to **+1 954-865-6622**. CallMeBot was retired on
+2026-11-13: it answered Netlify's servers with 403. When the Cloud API is not
+configured the alert is skipped and the inquiry completes; when it fails it is
+retried five times and then released.
 
 **Delivery gate:** `hubspot-inquiry-sync` only sends after successful HubSpot
 contact create/match/update, complete inquiry note, and assigned follow-up task.
@@ -107,14 +113,12 @@ The message contains category, name, email, phone, location, form, referral-clie
 name if submitted, source, and an authenticated HubSpot contact URL. Email and
 Google Sheets are independent backups and may be sent before CRM synchronization.
 
-One submission ID produces one queue job and one WhatsApp send checkpoint. If
-CallMeBot rejects a message, is unconfigured, or times out, the CRM job remains
-queued for exponential-backoff notification retries **without recreating** the
+One submission ID produces one queue job and one WhatsApp send checkpoint. A
+failed send is retried with exponential backoff **without recreating** the
 contact, note or task. Delivery acceptance is not the same as confirmation that
 the phone displayed the notification. Rare duplicate alerts remain possible if
-the remote provider accepts a message immediately before a worker crash and
-the local checkpoint has not yet been saved. CallMeBot is a third-party
-unofficial WhatsApp bridge; use the CRM record for full details.
+the provider accepts a message immediately before a worker crash and the local
+checkpoint has not yet been saved. Use the CRM record for full details.
 
 Excluded: incomplete address-only `seller-valuation-step1`, unknown forms,
 and non-contactable submissions. Every new submission is evaluated independently,

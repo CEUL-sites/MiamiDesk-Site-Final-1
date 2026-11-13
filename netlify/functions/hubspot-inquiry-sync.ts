@@ -3,8 +3,8 @@ import { CATEGORIES } from './_shared/hubspotSync.mjs';
 import { sendWhatsAppAlert } from './_shared/whatsapp';
 
 // Called only after HubSpot has confirmed the contact, complete inquiry note,
-// and assigned follow-up task. Send minimal details via the existing WhatsApp
-// bridge; the full inquiry remains available inside the secured CRM record.
+// and assigned follow-up task. Sends minimal details through the WhatsApp Cloud
+// API when it is configured; the full inquiry stays inside the secured CRM record.
 async function notifySyncedInquiry(job: {
   category: string;
   form: string;
@@ -14,22 +14,16 @@ async function notifySyncedInquiry(job: {
   const f = job.fields;
   const safe = (v?: string) => (v || '').replace(/\s+/g, ' ').trim().slice(0, 160) || '—';
   const crmId = job.contactId || '';
-  if (!/^\d+$/.test(crmId)) return { ok: false, detail: 'HubSpot contact ID missing' };
+  if (!/^\d+$/.test(crmId)) return { ok: false, configured: true, detail: 'HubSpot contact ID missing' };
 
   const category = CATEGORIES[job.category] || job.category;
-  const lines = [
-    '🔔 New website inquiry saved to HubSpot',
-    'Type: ' + safe(category),
-    'Name: ' + safe(f.name || f.licenseeName || f.agentName),
-    'Email: ' + safe(f.email),
-    'Phone: ' + safe(f.phone || f.whatsapp),
-    'Location: ' + safe(f.propertyAddress || f.city || f.location || f.country),
-    'Form: ' + safe(job.form),
-    'Source: ' + safe(f.utm_source || f.sourcePage || f.pagePath || 'homesprofessional.com'),
-  ];
-  if (f.clientName) lines.push('Referred client: ' + safe(f.clientName));
-  lines.push('Open in HubSpot: https://app.hubspot.com/contacts/149513532/contact/' + crmId + '?utm_source=homesprofessional&utm_medium=whatsapp_notification');
-  return sendWhatsAppAlert(lines.join('\n'), process.env.CALLMEBOT_APIKEY || '');
+  return sendWhatsAppAlert({
+    type: safe(category) + (f.clientName ? ' · referred client ' + safe(f.clientName) : ''),
+    name: safe(f.name || f.licenseeName || f.agentName),
+    contact: [f.phone || f.whatsapp, f.email].filter(Boolean).map(safe).join(' · '),
+    location: safe(f.propertyAddress || f.city || f.location || f.country),
+    link: 'https://app.hubspot.com/contacts/149513532/contact/' + crmId,
+  });
 }
 
 // Netlify's schedule configuration blocks direct URL invocation.

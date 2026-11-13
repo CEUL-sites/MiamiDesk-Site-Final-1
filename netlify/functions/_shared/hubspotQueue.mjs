@@ -3,6 +3,7 @@ import { makeJob, HubSpotClient, syncJob } from './hubspotSync.mjs';
 export const HUBSPOT_STORE = 'hubspot-inquiries';
 const env = key => typeof Netlify!=='undefined'?Netlify.env.get(key):process.env[key];
 export const syncConfigured = () => env('HUBSPOT_SYNC_ENABLED')==='true' && !!env('HUBSPOT_PRIVATE_APP_TOKEN') && !!env('HUBSPOT_OWNER_ID');
+export const MAX_ALERT_ATTEMPTS = 5;
 export const inquiryStore = () => getStore({name:HUBSPOT_STORE,consistency:'strong'});
 export async function enqueueSubmission(payload,store=inquiryStore()) {
  const f=payload.data||{};
@@ -32,18 +33,27 @@ export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT
    const save=j=>store.setJSON(blob.key,j);
    try{
     await syncJob(job,api,save,owner);
-    // WhatsApp is intentionally gated on a completed HubSpot contact, note, and task.
-    // Persist its delivery checkpoint before marking the CRM job done so a retry
-    // cannot re-create CRM activities or normally re-send the notification.
-    if(notifySynced && !job.whatsappSentAt){
+    // The WhatsApp alert is gated on a completed HubSpot contact, note, and task, and
+    // its checkpoint is saved before the CRM job is marked done so a retry cannot
+    // re-create CRM activities or re-send it. It is an optional extra channel: the
+    // HubSpot task reminder and the email are the standing owner alerts. So a
+    // channel that is not set up completes at once, and a failing one is retried
+    // MAX_ALERT_ATTEMPTS times and then released instead of looping forever.
+    if(notifySynced && !job.whatsappSentAt && !job.ownerAlert){
       let delivery;
       try{delivery=await notifySynced(job);}
       catch(e){delivery={ok:false,detail:e instanceof Error?e.message:'unknown error'};}
-      if(!delivery?.ok){
-        const e=new Error('WhatsApp delivery not confirmed: '+String(delivery?.detail||'unknown').slice(0,160));
-        e.notificationFailure=true;throw e;
+      if(delivery?.ok){job.whatsappSentAt=new Date().toISOString();job.ownerAlert='sent';}
+      else if(delivery?.configured===false){job.ownerAlert='not_configured';}
+      else{
+        job.alertAttempts=(job.alertAttempts||0)+1;
+        if(job.alertAttempts<MAX_ALERT_ATTEMPTS){
+          const e=new Error('WhatsApp delivery not confirmed: '+String(delivery?.detail||'unknown').slice(0,160));
+          e.notificationFailure=true;throw e;
+        }
+        job.ownerAlert='failed';
+        console.error('WhatsApp notification abandoned after retries',{key:job.key,error:String(delivery?.detail||'unknown').slice(0,160)});
       }
-      job.whatsappSentAt=new Date().toISOString();
       await save(job);
     }
     await store.setJSON('done/'+job.key,job);await store.delete(blob.key);
