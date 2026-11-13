@@ -68,6 +68,8 @@ test('client referral creates two distinct contacts and links its note and task 
  assert.deepEqual(state.tasks[0].associations.map(a=>a.to.id),['100','101']);
  assert.match(state.notes[0].properties.hs_note_body,/Referring agent/);
  assert.match(state.tasks[0].properties.hs_task_subject,/Casey Client/);
+ const reminder=Number(state.tasks[0].properties.hs_task_reminders);
+ assert.ok(reminder>Date.now(),'every website task carries a future reminder so HubSpot notifies the owner');
  assert.equal(job.status,'synced');
 });
 
