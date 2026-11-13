@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'florida-flood-disclosure-home-sellers-2026': [
+    {
+      q: 'Do you have to disclose flooding when selling a house in Florida?',
+      a: 'Yes. Section 689.302 of the Florida Statutes requires a seller of residential real property to complete and provide a flood disclosure to the purchaser at or before the time the sales contract is executed. The statutory form asks whether the seller knows of flooding that damaged the property during the seller\'s ownership, whether the seller filed a flood insurance claim, and whether the seller received assistance for flood damage. Questions about how the law applies to a specific property belong with a Florida real estate attorney.',
+    },
+    {
+      q: 'What does the Florida flood disclosure form ask a seller?',
+      a: 'The form opens with a statement that homeowners\' insurance policies do not include coverage for damage resulting from floods. The seller then checks boxes stating whether they have knowledge of flooding that damaged the property during their ownership, whether they filed a flood damage claim with an insurance provider, including the National Flood Insurance Program, and whether they received assistance for flood damage, including from the Federal Emergency Management Agency. The form also defines flooding for the purpose of those answers.',
+    },
+    {
+      q: 'When must a Florida seller give the buyer the flood disclosure?',
+      a: 'The statute requires the disclosure at or before the time the sales contract is executed. In practice, sellers prepare it with the listing file so a buyer reads it before making an offer. A buyer who reads the answers early prices them into the offer, while information that surfaces after a contract is signed tends to reopen the negotiation. The exact sequence for a given sale is worth confirming with the closing attorney or title agent.',
+    },
+    {
+      q: 'Does homeowners insurance cover flood damage in Florida?',
+      a: 'The statutory flood disclosure form states that homeowners\' insurance policies do not include coverage for damage resulting from floods, and it encourages the buyer to discuss separate flood insurance with the buyer\'s own insurance agent. Whether a particular property has flood coverage, and what it costs, depends on the policy in force and the insurer. Sellers should keep the declarations page of any current flood policy in the listing file, because buyers and their insurers routinely ask for it.',
+    },
+  ],
   'international-investor-south-florida-income-property-2026': [
     {
       q: 'How does an international investor find good South Florida investment property?',
