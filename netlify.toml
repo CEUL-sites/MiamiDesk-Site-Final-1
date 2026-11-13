@@ -11,6 +11,10 @@
 [functions."seller-nurture"]
   schedule = "@daily"
 
+# ── Daily digest of leads held by the spam screen (_shared/leadSpam.ts) ───
+[functions."lead-quarantine-digest"]
+  schedule = "@daily"
+
 [functions."hubspot-inquiry-sync"]
   schedule = "* * * * *"
 
