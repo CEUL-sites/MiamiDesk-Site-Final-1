@@ -1,103 +1,79 @@
 /**
  * HomesProfessional.com — Google Sheets Lead Webhook
  *
- * SETUP INSTRUCTIONS:
- * 1. Open your Google Sheet (the one connected to AppSheet).
- * 2. Click Extensions → Apps Script.
- * 3. Delete any existing code in the editor.
- * 4. Paste this entire file.
- * 5. Click Save (disk icon).
- * 6. Click Deploy → New deployment.
- * 7. Type: Web app
- * 8. Execute as: Me
- * 9. Who has access: Anyone
- * 10. Click Deploy → copy the /exec URL.
- * 11. In Netlify → Site configuration → Environment variables,
- *     add: GOOGLE_SHEETS_WEBHOOK_URL = <paste the URL here>
- * 12. Redeploy the Netlify site (or it picks up on the next deploy).
+ * A backup log of every website inquiry. HubSpot is the system of record;
+ * this sheet keeps a plain row per lead in case the CRM sync is ever down.
  *
- * COLUMNS WRITTEN (auto-created on first submission):
- * Timestamp | Source Form | Name | Email | Phone |
- * Property Address | City | Timeline | Message
+ * SETUP (current deployment: sheet "HomesProfessional Website Leads", 2026-11-13):
+ * 1. Open the Google Sheet → Extensions → Apps Script.
+ * 2. Replace the editor contents with this file and Save.
+ * 3. Deploy → New deployment → type "Web app".
+ *    Execute as: Me · Who has access: Anyone → Deploy, authorize, copy the /exec URL.
+ * 4. Netlify → Project configuration → Environment variables:
+ *    GOOGLE_SHEETS_WEBHOOK_URL = <the /exec URL>, then redeploy.
+ *
+ * If you edit this script later, use Deploy → Manage deployments → edit the
+ * existing deployment → "New version". That keeps the same /exec URL. A brand-new
+ * deployment gets a new URL and Netlify must be updated (the 2026-11 outage was a
+ * deleted deployment returning 404).
  */
 
-var SHEET_NAME = "Leads"; // Change to match your sheet tab name (or leave as "Leads" and rename the tab)
+var SHEET_NAME = "Leads";
+var HEADERS = [
+  "Timestamp", "Tier", "Score", "Form", "Name", "Email", "Phone",
+  "Property / Area", "City / Country", "Timeline", "Message",
+  "Lead Source", "Landing Page", "All Fields",
+];
 
 function doPost(e) {
   try {
-    var sheet = getOrCreateSheet();
     var data = JSON.parse(e.postData.contents);
-
+    var sheet = getOrCreateSheet();
     sheet.appendRow([
-      data.timestamp  || new Date().toISOString(),
-      data.sourcePage || "",
-      data.name       || "",
-      data.email      || "",
-      data.phone      || "",
+      data.timestamp || new Date().toISOString(),
+      data.tier || "",
+      data.score === undefined ? "" : data.score,
+      data.formType || data.sourcePage || "",
+      data.name || "",
+      data.email || "",
+      // Leading apostrophe keeps "+1 954…" from being parsed as a formula/number.
+      data.phone ? "'" + data.phone : "",
       data.propertyAddress || "",
-      data.city       || "",
-      data.timeline   || "",
-      data.message    || "",
+      data.city || "",
+      data.timeline || "",
+      data.message || "",
+      data.leadSource || "",
+      data.landingPage || "",
+      data.details || "",
     ]);
-
-    return ContentService
-      .createTextOutput(JSON.stringify({ success: true }))
-      .setMimeType(ContentService.MimeType.JSON);
-
+    return json({ success: true });
   } catch (err) {
     console.error("Webhook error:", err);
-    return ContentService
-      .createTextOutput(JSON.stringify({ error: err.toString() }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return json({ error: String(err) });
   }
+}
+
+function json(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 function getOrCreateSheet() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(SHEET_NAME);
-
-  if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
-  }
-
-  // Write header row if the sheet is empty
+  var sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow([
-      "Timestamp",
-      "Source Form",
-      "Name",
-      "Email",
-      "Phone",
-      "Property Address",
-      "City",
-      "Timeline",
-      "Message",
-    ]);
-    // Bold + freeze the header
-    sheet.getRange(1, 1, 1, 9).setFontWeight("bold");
+    sheet.appendRow(HEADERS);
+    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
     sheet.setFrozenRows(1);
   }
-
   return sheet;
 }
 
-// Quick test — run this manually from Apps Script to verify it works
+// Run manually from the Apps Script editor to verify the sheet is writable.
 function testWebhook() {
-  var mockEvent = {
-    postData: {
-      contents: JSON.stringify({
-        timestamp:       new Date().toISOString(),
-        sourcePage:      "seller-intake",
-        name:            "Test Lead",
-        email:           "test@example.com",
-        phone:           "+1 954-555-0000",
-        propertyAddress: "123 Test St",
-        city:            "Coral Gables",
-        timeline:        "3-6 months",
-        message:         "Test submission from Apps Script",
-      })
-    }
-  };
-  var result = doPost(mockEvent);
+  var result = doPost({ postData: { contents: JSON.stringify({
+    tier: "P3", score: 0, formType: "manual-test", name: "Apps Script Test",
+    email: "test@example.invalid", message: "Manual test from the Apps Script editor",
+  }) } });
   Logger.log(result.getContent());
 }
