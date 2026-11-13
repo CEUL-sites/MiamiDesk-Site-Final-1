@@ -185,6 +185,8 @@ async function upsertContact(job,api,owner,excludedId) {
   await api.updateContact(found.id,buildContactProperties(job,found.properties,owner));return found.id;
  }
 }
+// HubSpot only fires a reminder set in the future; two minutes after the sync lands.
+export const taskReminderAt = (now=Date.now()) => String(now+2*60*1000);
 export async function syncJob(job,api,save,owner) {
  if(job.status==='synced')return;
  if(job.creatingActivity){const e=new Error('Prior activity outcome needs review');e.review=true;throw e;}
@@ -215,6 +217,9 @@ export async function syncJob(job,api,save,owner) {
    hs_task_subject:(clientJob?`Website: Client referral — ${job.fields.clientName} / ${job.fields.name}`:
     `Website: ${REGISTRATION_PURPOSES[job.fields.registrationPurpose]||CATEGORIES[job.category]} — ${job.fields.name||job.fields.email||job.fields.phone}`).slice(0,240),
    hs_task_body:inquiryNote(job),hs_task_status:'NOT_STARTED',hs_task_type:'TODO',
+   // A task without a reminder is silent in HubSpot. The reminder makes HubSpot itself
+   // alert the owner (email, desktop and mobile app), independent of WhatsApp/Resend.
+   hs_task_reminders:taskReminderAt(),
    hs_task_priority:job.category==='south_florida_seller'||clientJob?.category==='south_florida_seller'?'HIGH':'MEDIUM',...owned},job.contactId,job.referredContactId)).id;}
   catch(e){if(!e.review){delete job.creatingActivity;await save(job);}throw e;}
   if(!job.taskId){const e=new Error('Missing task ID');e.review=true;throw e;}delete job.creatingActivity;await save(job);
