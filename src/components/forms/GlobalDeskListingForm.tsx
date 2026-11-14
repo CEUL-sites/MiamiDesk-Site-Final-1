@@ -310,6 +310,10 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
           formName: FORM_NAME,
           name: form.name || "",
           email: form.email || "",
+          phone: form.phone || "",
+          propertyAddress: form.location || "",
+          botField: "",
+          formRenderedAt: String(renderedAt.current),
           language: lang,
         }),
       }).catch(() => {});

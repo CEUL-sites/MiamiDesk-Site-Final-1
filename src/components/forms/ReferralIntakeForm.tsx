@@ -69,7 +69,7 @@ export function ReferralIntakeForm({language = "en", initialPurpose = "agent_reg
         botField: "", formRenderedAt: String(renderedAt.current)});
       if (!es) fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST", headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({formName, name: form.licenseeName, email: form.email, phone: form.phone, brokerage: form.brokerageName}),
+        body: JSON.stringify({formName, name: form.licenseeName, email: form.email, phone: form.phone, brokerage: form.brokerageName, botField: "", formRenderedAt: String(renderedAt.current)}),
       }).catch(() => {});
       trackLead("agent", {form: formName});
       navigateAfterTracking(es ? "/es/gracias/agente" : "/thanks/agent");

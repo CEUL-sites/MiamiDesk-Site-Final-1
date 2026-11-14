@@ -5,6 +5,7 @@ import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
 import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { scoreLead, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
+import { assessLeadSpam, storeQuarantine } from "./_shared/leadSpam";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 
 // Seller forms whose leads enter the automated nurture sequence
@@ -30,18 +31,28 @@ export default async (request: Request) => {
     const formName = payload.form_name || fields["form-name"] || "unknown";
     const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
 
-    // ── Spam hardening: honeypot + submit-time heuristic ─────────────────
-    // Netlify drops honeypot-filled submissions before this event fires, but
-    // we re-check defensively. The timestamp heuristic rejects bot posts that
-    // arrive within ~1.5s of the form rendering (a human cannot complete a
-    // multi-field lead form that fast). Submissions without formRenderedAt are
-    // allowed through unchanged for backward compatibility.
-    const honeypot = (fields["bot-field"] || "").trim();
-    const renderedAt = Number(fields.formRenderedAt || 0);
-    const elapsedMs = renderedAt > 0 ? Date.now() - renderedAt : null;
-    const tooFast = elapsedMs !== null && elapsedMs >= 0 && elapsedMs < 1500;
-    if (honeypot !== "" || tooFast) {
-      console.log("submission-created: rejected as spam", { honeypotFilled: honeypot !== "", elapsedMs });
+    // ── Spam screening (shared with lead-notify — see _shared/leadSpam.ts) ──
+    // Hard fails (honeypot, sub-1.5s submit) are dropped. Content signals
+    // (machine-generated name, non-existent place, invalid phone, Gmail dot
+    // trick) quarantine the lead BEFORE it reaches HubSpot, Sheets, the alert
+    // email or the nurture drip, so bot-entered victims are never contacted.
+    // Quarantined leads are kept in Blobs and listed in the daily digest.
+    const spam = assessLeadSpam({
+      name: fields.name || fields.licenseeName || fields.agentName || "",
+      email: fields.email || "",
+      phone: fields.phone || fields.whatsapp || "",
+      propertyAddress: fields.propertyAddress || fields.location || "",
+      botField: fields["bot-field"] || "",
+      formRenderedAt: fields.formRenderedAt || "",
+      timestampExpected: true,
+    });
+    if (spam.verdict === "drop") {
+      console.log("submission-created: dropped as spam", { formName, reasons: spam.reasons });
+      return new Response("OK", { status: 200 });
+    }
+    if (spam.verdict === "quarantine") {
+      console.log("submission-created: quarantined", { formName, reasons: spam.reasons });
+      await storeQuarantine("submission-created", { formName, ...fields }, spam);
       return new Response("OK", { status: 200 });
     }
 

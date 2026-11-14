@@ -3,6 +3,7 @@ import { connectBlobs } from "./_shared/connectBlobs";
 import { dedupKey, markAlerted } from "./_shared/leadDedup";
 import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { corsHeaders as buildCorsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
+import { assessLeadSpam, storeQuarantine } from "./_shared/leadSpam";
 import { scoreLead, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 
@@ -123,11 +124,24 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: "Invalid JSON" }) };
   }
 
-  const honeypot = (raw.botField || "").trim();
-  const renderedAt = Number(raw.formRenderedAt || 0);
-  const tooFast = renderedAt > 0 && Date.now() - renderedAt < 1500;
-  if (honeypot !== "" || !renderedAt || tooFast) {
-    console.log("lead-notify: rejected as spam", { honeypotFilled: honeypot !== "", hasTimestamp: !!renderedAt, tooFast });
+  // Same assessment as submission-created, so both racing paths agree.
+  // lead-notify is only called by the site's own forms, which always send
+  // formRenderedAt — a missing one is a hard fail here, as before.
+  const spam = assessLeadSpam({
+    name: raw.name || raw.licenseeName || raw.agentName || "",
+    email: raw.email || "",
+    phone: raw.phone || raw.whatsapp || "",
+    propertyAddress: raw.propertyAddress || "",
+    botField: raw.botField || "",
+    formRenderedAt: raw.formRenderedAt || "",
+  });
+  if (spam.verdict === "drop" || !Number(raw.formRenderedAt || 0)) {
+    console.log("lead-notify: rejected as spam", { reasons: spam.reasons, hasTimestamp: !!raw.formRenderedAt });
+    return { statusCode: 200, headers: corsHeaders, body: JSON.stringify({ success: true }) };
+  }
+  if (spam.verdict === "quarantine") {
+    console.log("lead-notify: quarantined", { reasons: spam.reasons });
+    await storeQuarantine("lead-notify", { ...raw }, spam);
     return { statusCode: 200, headers: corsHeaders, body: JSON.stringify({ success: true }) };
   }
 

@@ -215,10 +215,20 @@ country can't be determined the links are omitted rather than guessed.
 `npm run verify:lead-score` covers the model and asserts both handlers still
 use the shared formatters.
 
-Anti-spam on both paths: a hidden `bot-field` honeypot plus a `formRenderedAt`
-timestamp; submissions arriving under 1.5s are dropped. Submissions without
-`formRenderedAt` are allowed through for backward compatibility. The honeypot
-must stay both visually hidden **and** `aria-hidden`.
+Anti-spam on both paths runs through `_shared/leadSpam.ts` (`assessLeadSpam`),
+so the racing paths reach the same verdict. Hard fails — the hidden `bot-field`
+honeypot, or a submit under 1.5s after `formRenderedAt` — are dropped. Content
+signals (machine-generated name, a letters-only location that is not a real
+place, an invalid phone, the Gmail dot trick, a missing timestamp on the Forms
+path) are weighted; at weight 2 the lead is **quarantined** in the
+`lead-quarantine` Blobs store before it reaches HubSpot, Sheets, the alert
+email, the auto-reply or the nurture drip — bots enter real victims' contact
+details, so those must never be contacted. Nothing is deleted:
+`lead-quarantine-digest.ts` (`@daily`) emails Carlos the held list. One weak
+signal never blocks a lead. `lead-acknowledgment.ts` is origin-locked,
+rate-limited and screened too, because it emails any address it is given.
+`npm run verify:lead-spam` replays the production bot leads and a set of real
+names/places. The honeypot must stay both visually hidden **and** `aria-hidden`.
 
 First-touch attribution (`utm_*`, `landing_page`, referrer) is captured in
 `src/lib/attribution.ts` on landing and attached to every submission.

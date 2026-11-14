@@ -84,7 +84,7 @@ export function BuyerMandateForm() {
       fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formName: "buyer-mandate", name: form.name, email: form.email, phone: form.phone, country: form.country }),
+        body: JSON.stringify({ formName: "buyer-mandate", name: form.name, email: form.email, phone: form.phone, country: form.country, botField: "", formRenderedAt: String(renderedAt.current) }),
       }).catch(() => {});
       trackLead("buyer", { form: "buyer-mandate" });
       navigateAfterTracking("/thanks/buyer");

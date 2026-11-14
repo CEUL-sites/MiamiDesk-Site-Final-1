@@ -110,7 +110,10 @@ export function AgencyPartnerForm({
           formName: "agency-partner-intake",
           name: form.agentName,
           email: form.email,
+          phone: form.whatsapp,
           brokerage: form.agency,
+          botField: "",
+          formRenderedAt: String(renderedAt.current),
         }),
       }).catch(() => {});
       pushEvent("form_submit_agency_partner", { source });

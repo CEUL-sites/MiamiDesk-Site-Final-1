@@ -1,4 +1,6 @@
 import type { Handler, HandlerEvent } from "@netlify/functions";
+import { isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
+import { assessLeadSpam } from "./_shared/leadSpam";
 
 // Auto-reply acknowledgment via Resend.
 // Carlos must set RESEND_API_KEY in Netlify environment variables.
@@ -252,7 +254,17 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "no_key" }) };
   }
 
-  let body: { formName?: string; name?: string; email?: string; country?: string; brokerage?: string; guide?: string; language?: string };
+  // This endpoint emails whatever address it is given, so it is the piece a
+  // bot can turn against third parties. Lock it to the site's own origin,
+  // throttle it, and never auto-reply to a lead the spam model would hold.
+  if (isForbiddenOrigin(event)) {
+    return { statusCode: 403, body: JSON.stringify({ error: "Forbidden origin." }) };
+  }
+  if (rateLimit(event, "lead-acknowledgment", 3, 10 * 60_000) !== null) {
+    return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "rate_limited" }) };
+  }
+
+  let body: { formName?: string; name?: string; email?: string; phone?: string; propertyAddress?: string; botField?: string; formRenderedAt?: string; country?: string; brokerage?: string; guide?: string; language?: string };
   try {
     body = JSON.parse(event.body ?? "{}");
   } catch {
@@ -260,6 +272,15 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   const { formName = "", name = "", email = "", country = "", guide = "", language = "" } = body;
+
+  const spam = assessLeadSpam({
+    name, email, phone: body.phone || "", propertyAddress: body.propertyAddress || "",
+    botField: body.botField || "", formRenderedAt: body.formRenderedAt || "",
+  });
+  if (spam.verdict !== "ok") {
+    console.log("lead-acknowledgment: auto-reply withheld", { formName, reasons: spam.reasons });
+    return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "screened" }) };
+  }
 
   if (!email || !email.includes("@")) {
     // No valid email — skip silently (referral form doesn't always have one)
