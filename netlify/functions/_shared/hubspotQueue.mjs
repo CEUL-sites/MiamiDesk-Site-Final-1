@@ -87,7 +87,10 @@ export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT
  if(!lock.modified)return {status:'busy',processed:0};
  let processed=0,review=0,failed=0;
  try{
-  await recoverAwaitingOwnerAlerts(store,notifySynced,deadline);
+  // Notification recovery is ancillary. A transient alert-store error must
+  // never block a newly submitted lead from reaching HubSpot.
+  try { await recoverAwaitingOwnerAlerts(store,notifySynced,deadline); }
+  catch (e) { console.error('Owner alert recovery unavailable; CRM sync continues',{error:e instanceof Error?e.name:'unknown'}); }
   const listing=await store.list({prefix:'pending/'});
   for(const blob of listing.blobs){
    if(processed>=10||Date.now()>deadline-3000)break;
