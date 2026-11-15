@@ -31,6 +31,28 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'Yes. The Miami MLS seller authorization form for office exclusive listings states that the seller may, at any time, instruct the listing broker to enter the listing into the MLS. While a property is held as an office exclusive, days on market do not accrue under the MLS rules. Owners should agree in advance, in writing, on the point at which the property moves to full distribution if the private period does not produce an acceptable offer. Contract questions belong with a Florida real estate attorney.',
     },
   ],
+  'florida-amendment-3-home-sellers-homestead-portability-2026': [
+    {
+      q: 'Does Amendment 3 change Save Our Homes or portability in Florida?',
+      a: 'County property appraisers say it does not. The Volusia County and Leon County offices both state that Amendment 3 does not eliminate or replace Save Our Homes and does not change Florida\'s portability provisions. Annual increases in a homestead\'s assessment remain limited to the lower of 3% or the change in the Consumer Price Index, and portability still allows up to $500,000 of the Save Our Homes difference to move to a new homestead established inside the three-year window. Ask your county property appraiser how the rules apply to your parcel.',
+    },
+    {
+      q: 'If I sell my Florida home and buy another, which homestead exemption applies under Amendment 3?',
+      a: 'The amendment\'s smaller, newcomer tier is written for a person who had not maintained a permanent residence in Florida as of December 31, 2026. County appraisers say permanent Florida residents as of that date are eligible for the larger amounts, including residents who buy later and apply for homestead. The text has no sentence addressing an owner who sells one homestead and establishes another, and implementing legislation is still required. Confirm your situation with the property appraiser in the county of the next home before you close.',
+    },
+    {
+      q: 'Will I need to wait five years for the larger homestead exemption?',
+      a: 'The five-year rule is aimed at newcomers. Under the text, a person who had not maintained a permanent residence in Florida as of December 31, 2026 is exempt up to $50,000 for non-school levies and reaches the larger amount beginning with the fifth year of exemption. County appraisers describe this as four years of homestead exemption, with eligibility on January 1 of the fifth year. Owners who were permanent Florida residents by that date are described by the same offices as eligible for the larger amounts beginning in 2027.',
+    },
+    {
+      q: 'Do I need to do anything to qualify for the Amendment 3 exemption in 2027?',
+      a: 'It depends on your situation, and guidance is still developing. The Leon County Property Appraiser says additional guidance may be necessary to determine whether owners will need to provide documentation or take other steps for the increased exemption. A newly purchased home always needs its own homestead application; the Broward County Property Appraiser lists March 1, 2027 as the end of the timely filing period for a 2027 homestead exemption. Check your own county property appraiser\'s site for current instructions.',
+    },
+    {
+      q: 'When does Amendment 3 show up on a Florida property tax bill?',
+      a: 'Not on the 2026 bill. Amendment 3 takes effect on January 1, 2027. The Leon County Property Appraiser states that it does not affect 2026 property tax bills and that the changes will first be reflected on the August 2027 notices of proposed property taxes and the tax bills mailed in November 2027. The non-school homestead exemption is up to $150,000 of assessed value for 2027 and up to $250,000 beginning in 2028, while the school-levy exemption stays at up to $25,000.',
+    },
+  ],
   'florida-flood-disclosure-home-sellers-2026': [
     {
       q: 'Do you have to disclose flooding when selling a house in Florida?',
