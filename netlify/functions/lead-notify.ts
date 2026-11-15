@@ -33,6 +33,9 @@ interface LeadPayload {
   city?: string;
   timeline?: string;
   message?: string;
+  clientSummary?: string;
+  registrationPurpose?: string;
+  language?: string;
   sourcePage?: string;
   leadSource?: string;
   desk?: string;
@@ -55,6 +58,8 @@ interface NormalizedLead {
   city: string;
   timeline: string;
   message: string;
+  registrationPurpose: string;
+  language: string;
   sourcePage: string;
   leadSource: string;
   desk: string;
@@ -73,7 +78,9 @@ function normalize(p: LeadPayload): NormalizedLead {
     propertyAddress: p.propertyAddress || "",
     city: p.city || "",
     timeline: p.timeline || "",
-    message: p.message || "",
+    message: p.message || p.clientSummary || "",
+    registrationPurpose: p.registrationPurpose || "",
+    language: p.language || "",
     sourcePage: p.sourcePage || "homesprofessional.com",
     leadSource: p.leadSource || "",
     desk: p.desk || "",
@@ -242,3 +249,4 @@ export const handler: Handler = async (event: HandlerEvent) => {
     body: JSON.stringify({ success: true, alerted, tier: scored.tier, score: scored.score, results }),
   };
 };
+

@@ -124,6 +124,8 @@ export default async (request: Request) => {
       placeId: fields.placeId || "",
       messagingConsent: fields.messagingConsent || "",
       desk: fields.desk || "",
+      registrationPurpose: fields.registrationPurpose || "",
+      language: fields.language || "",
     };
     const scored = scoreLead(scorable);
 
@@ -290,3 +292,4 @@ export default async (request: Request) => {
     return new Response("Submission processing failed", { status: 500 });
   }
 };
+

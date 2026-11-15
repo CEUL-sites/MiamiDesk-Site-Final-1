@@ -370,6 +370,8 @@ export function normalizePhone(raw?: string, marketHint?: string): NormalizedPho
 export interface AlertLead extends ScorableLead {
   message?: string;
   sourcePage?: string;
+  registrationPurpose?: string;
+  language?: string;
 }
 
 /**
@@ -509,7 +511,29 @@ export function formatLeadWhatsApp(
 }
 
 /** Subject line — the tier leads so the inbox is triageable without opening anything. */
+// Professional client intake is not a seller lead. Keep its service-request
+// context in the alert without implying a seller nurture enrollment or priority.
+function agentRegistrationContext(lead: AlertLead) {
+  if (lead.formName !== "referral-intake" || lead.registrationPurpose !== "professional_inquiry") return null;
+  const lines = (lead.message ?? "").split(/\r?\n/);
+  const field = (label: string) => lines.find(line => line.startsWith(label + ":"))?.slice(label.length + 1).trim() || "Not specified";
+  const cooperation = field("Cooperation mode").replace(/\s*\((buyer_agency|referral)\)\s*$/, "");
+  const development = field("Development");
+  const commission = field("Commission");
+  // The relay's canonical summary comes first; later free-text requirements
+  // cannot replace the first labelled development/cooperation/commission line.
+  return {development, cooperation, commission};
+}
+
+const emailHeaderText = (value: string) => value.replace(/[\r\n\u0000-\u001f\u007f]+/g, " ").replace(/\s+/g, " ").trim();
+
 export function formatLeadEmailSubject(lead: AlertLead, scored: LeadScore): string {
+  const registration = agentRegistrationContext(lead);
+  if (registration) {
+    const rate = registration.commission.match(/^\d+(?:[.,]\d+)?%/)?.[0];
+    const fee = rate ? `${rate} ${registration.cooperation === "Referral" ? "referral fee" : "buyer agency"}` : "commission agreed in writing";
+    return emailHeaderText(`Agent client registration | ${registration.development} | ${registration.cooperation} | ${fee}`);
+  }
   const who = lead.name || lead.email || "New lead";
   return `[${scored.tier}] ${who} — ${lead.sourcePage || lead.formName || "HomesProfessional.com"}`;
 }
@@ -529,6 +553,16 @@ export function formatLeadEmail(
 ): string {
   const marketHint = `${lead.city ?? ""} ${lead.desk ?? ""} ${lead.propertyAddress ?? ""}`;
   const phone = normalizePhone(lead.phone, marketHint);
+  const registration = agentRegistrationContext(lead);
+  if (registration) return joinBlocks([
+    ["Agent client registration", `Development: ${registration.development}`, `Cooperation type: ${registration.cooperation}`, `Commission: ${registration.commission}`],
+    ["Review the professional introduction and coordinate GILMAR's written acceptance identifying the agent and brokerage. Receipt alone does not confirm registration or payment."],
+    [`Professional name: ${lead.name || "—"}`, `Email: ${lead.email || "—"}`, `Phone: ${phone.display}`, phone.e164 ? `Call: tel:${phone.e164}` : "", phone.waLink ? `WhatsApp: ${phone.waLink}` : ""],
+    [lead.message || ""],
+    [`Form: ${lead.formName || "—"}`, `Page: ${lead.sourcePage || "—"}`, extras.timestamp ? `Received: ${extras.timestamp} ET` : "", `Lead Source: ${lead.leadSource || "direct"}`, extras.via ? `Delivered via: ${extras.via}` : ""],
+    extras.fullDetails ? ["All fields:", extras.fullDetails] : [],
+    ["---", "Carlos Uzcategui · FL SL705771 · United Realty Group", "HomesProfessional.com"],
+  ]);
 
   return joinBlocks([
     [
@@ -565,3 +599,4 @@ export function formatLeadEmail(
     ["---", "Carlos Uzcategui · FL SL705771 · United Realty Group", "HomesProfessional.com"],
   ]);
 }
+
