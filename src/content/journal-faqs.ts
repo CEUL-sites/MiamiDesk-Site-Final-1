@@ -9,6 +9,28 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'private-listing-vs-mls-south-florida-sellers-2026': [
+    {
+      q: 'What is a pocket listing or private listing in South Florida?',
+      a: 'A pocket listing or private listing is a property marketed without full exposure on the MLS. In South Florida, the Miami MLS rules call the formal version an office exclusive: the owner, advised in writing of the benefits of the MLS, instructs the listing broker in writing not to distribute the listing publicly or to other MLS participants. The listing is still filed with the MLS, showings are permitted, and the seller signs an authorization form acknowledging the exposure being waived.',
+    },
+    {
+      q: 'Should I sell my house off-market or list it on the MLS?',
+      a: 'It depends on the objective. Limited exposure can fit an owner with a security, privacy or access concern, or a property that is not ready to show. When the objective is price, the Miami MLS seller form for office exclusive listings is direct: restricting marketing limits broad access to information and may affect the sale price, and it may reduce the number of potential buyers. Ask the listing agent which status is proposed and read the form first. This is general information, not legal or financial advice.',
+    },
+    {
+      q: 'Does a private listing sell for more or less than an MLS listing?',
+      a: 'Published studies disagree. A national brokerage\'s own study found privately pre-marketed homes sold for more, while a listing portal\'s study released in May 2026 and an MLS-sponsored analysis found off-MLS sales brought less. An academic study of Dallas–Fort Worth sales found a premium in older data that was no longer statistically significant after the Clear Cooperation Policy took effect. None of these measures a specific South Florida property, and none predicts the outcome of a sale. A pricing analysis of current comparables is the relevant evidence.',
+    },
+    {
+      q: 'Can I keep my home off public websites and still have it in the MLS?',
+      a: 'Under the Miami MLS, yes. The association\'s seller form describes an option labeled Active – Internet N, in which information about the property is not publicly displayed or distributed on the internet or third-party websites but is still shared with other MLS participants and subscribers, who can share it with their own customers. An owner may also ask in the listing agreement that the address be withheld from online publication to third parties. Confirm the current rule with the listing agent before signing.',
+    },
+    {
+      q: 'Can I switch from an office exclusive to a full MLS listing later?',
+      a: 'Yes. The Miami MLS seller authorization form for office exclusive listings states that the seller may, at any time, instruct the listing broker to enter the listing into the MLS. While a property is held as an office exclusive, days on market do not accrue under the MLS rules. Owners should agree in advance, in writing, on the point at which the property moves to full distribution if the private period does not produce an acceptable offer. Contract questions belong with a Florida real estate attorney.',
+    },
+  ],
   'florida-flood-disclosure-home-sellers-2026': [
     {
       q: 'Do you have to disclose flooding when selling a house in Florida?',
