@@ -4,6 +4,69 @@ export const HUBSPOT_STORE = 'hubspot-inquiries';
 const env = key => typeof Netlify!=='undefined'?Netlify.env.get(key):process.env[key];
 export const syncConfigured = () => env('HUBSPOT_SYNC_ENABLED')==='true' && !!env('HUBSPOT_PRIVATE_APP_TOKEN') && !!env('HUBSPOT_OWNER_ID');
 export const MAX_ALERT_ATTEMPTS = 5;
+
+/**
+ * Keep a short-lived recovery record when WhatsApp was not configured at the
+ * time of an otherwise-successful HubSpot sync. The CRM job still completes;
+ * once a sender is connected, later scheduled runs replay recent alerts.
+ *
+ * This is intentionally capped: old inquiries must not suddenly flood Carlos's
+ * private WhatsApp after a delayed setup, and bad tokens must not retry forever.
+ */
+export const OWNER_ALERT_RECOVERY_WINDOW_MS = 24 * 60 * 60 * 1000;
+const ALERT_AWAITING_PREFIX = 'owner-alert-awaiting/';
+const ALERT_DELIVERED_PREFIX = 'owner-alert-delivered/';
+async function recoverAwaitingOwnerAlerts(store, notifySynced, deadline) {
+ if (!notifySynced) return;
+ const waiting = await store.list({prefix:ALERT_AWAITING_PREFIX});
+ let checked = 0;
+ for (const entry of waiting.blobs) {
+  if (checked >= 2 || Date.now() > deadline - 15_000) break;
+  const job = await store.get(entry.key,{type:'json'});
+  if (!job) continue;
+  const age = Date.now() - Date.parse(job.at);
+  if (!Number.isFinite(age) || age > OWNER_ALERT_RECOVERY_WINDOW_MS) {
+   await store.delete(entry.key);
+   continue;
+  }
+  if (job.alertRetryAt && job.alertRetryAt > Date.now()) continue;
+  if (await store.get(ALERT_DELIVERED_PREFIX+job.key,{type:'json'})) {
+   await store.delete(entry.key);
+   continue;
+  }
+  checked++;
+  let response;
+  try { response = await notifySynced(job); }
+  catch (e) { response = {ok:false,configured:true,detail:e instanceof Error?e.name:'unknown'}; }
+  if (response?.ok) {
+   const sentAt = new Date().toISOString();
+   await store.setJSON(ALERT_DELIVERED_PREFIX+job.key,{sentAt},{onlyIfNew:true});
+   const done = await store.get('done/'+job.key,{type:'json'});
+   if (done) {
+    done.ownerAlert = 'sent';
+    done.whatsappSentAt = sentAt;
+    await store.setJSON('done/'+job.key,done);
+   }
+   await store.delete(entry.key);
+   console.log('Recovered an owner WhatsApp alert',{key:job.key});
+  } else if (response?.configured === false) {
+   // No sender: keep recent alerts queued, not a retry storm.
+   break;
+  } else {
+   job.alertRecoveryAttempts = (job.alertRecoveryAttempts||0)+1;
+   if (job.alertRecoveryAttempts >= MAX_ALERT_ATTEMPTS) {
+    const done = await store.get('done/'+job.key,{type:'json'});
+    if (done) { done.ownerAlert = 'failed'; await store.setJSON('done/'+job.key,done); }
+    await store.delete(entry.key);
+    console.error('Owner WhatsApp alert recovery exhausted',{key:job.key});
+   } else {
+    job.alertRetryAt = Date.now()+Math.min(60*60*1000,60_000*2**job.alertRecoveryAttempts);
+    await store.setJSON(entry.key,job);
+    console.error('Owner WhatsApp alert recovery will retry',{key:job.key});
+   }
+  }
+ }
+}
 export const inquiryStore = () => getStore({name:HUBSPOT_STORE,consistency:'strong'});
 export async function enqueueSubmission(payload,store=inquiryStore()) {
  const f=payload.data||{};
@@ -24,6 +87,7 @@ export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT
  if(!lock.modified)return {status:'busy',processed:0};
  let processed=0,review=0,failed=0;
  try{
+  await recoverAwaitingOwnerAlerts(store,notifySynced,deadline);
   const listing=await store.list({prefix:'pending/'});
   for(const blob of listing.blobs){
    if(processed>=10||Date.now()>deadline-3000)break;
@@ -44,7 +108,11 @@ export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT
       try{delivery=await notifySynced(job);}
       catch(e){delivery={ok:false,detail:e instanceof Error?e.message:'unknown error'};}
       if(delivery?.ok){job.whatsappSentAt=new Date().toISOString();job.ownerAlert='sent';}
-      else if(delivery?.configured===false){job.ownerAlert='not_configured';}
+      else if(delivery?.configured===false){
+        job.ownerAlert='not_configured';
+        await store.setJSON(ALERT_AWAITING_PREFIX+job.key,job,{onlyIfNew:true});
+        console.warn('Owner WhatsApp sender not configured; recent alert held for recovery',{key:job.key});
+      }
       else{
         job.alertAttempts=(job.alertAttempts||0)+1;
         if(job.alertAttempts<MAX_ALERT_ATTEMPTS){
