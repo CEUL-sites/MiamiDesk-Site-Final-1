@@ -22,7 +22,11 @@ WHATSAPP_CLOUD_TOKEN
            (via netlify/functions/_shared/whatsapp.ts)
   How to get (one-time, in Meta — business.facebook.com / developers.facebook.com):
     1. Create a Meta app with the WhatsApp product and a WhatsApp Business Account.
-    2. Add a sending phone number (a number NOT already used in the WhatsApp app).
+    2. Register an authorized Cloud API sending number. Prefer a separate dedicated
+       sender; do not move the Spanish WhatsApp Business app number merely to
+       send website lead alerts to Carlos's U.S. WhatsApp. If the same Spanish
+       number is required, verify Meta Coexistence eligibility and explicitly
+       preserve the WhatsApp Business mobile app before onboarding.
     3. Create a utility template named "website_lead_alert" (language: English) with
        this body and wait for approval:
          New website inquiry: {{1}}. Name: {{2}}. Contact: {{3}}. Location: {{4}}. HubSpot: {{5}}

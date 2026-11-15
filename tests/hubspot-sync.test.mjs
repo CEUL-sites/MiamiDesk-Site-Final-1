@@ -361,3 +361,36 @@ test('address-only valuation step is not queued for a WhatsApp alert',async()=>{
  assert.equal(alerts,0);
  assert.equal([...store.data.keys()].filter(k=>k.startsWith('done/')||k.startsWith('pending/')).length,0);
 });
+
+
+test('recent WhatsApp alerts can recover after credentials are added, without repeating CRM writes',async()=>{
+ const {drainInquiries,enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore();
+ const api={findContact:async()=>null,createContact:async()=>({id:'777'}),updateContact:async()=>{},
+  createNote:async()=>({id:'n'}),createTask:async()=>({id:'t'})};
+ await enqueueSubmission({id:'awaiting-whatsapp',form_name:'seller-hero',data:{name:'Example',email:'example@example.invalid'}},store);
+ let attempts=0;
+ await drainInquiries(store,api,'owner',async()=>{attempts++;return{ok:false,configured:false}});
+ assert.equal(attempts,1);
+ assert.equal([...store.data.keys()].filter(k=>k.startsWith('pending/')).length,0);
+ assert.equal([...store.data.keys()].filter(k=>k.startsWith('owner-alert-awaiting/')).length,1);
+ assert.equal([...store.data.entries()].find(([k])=>k.startsWith('done/'))[1].ownerAlert,'not_configured');
+ await drainInquiries(store,api,'owner',async()=>{attempts++;return{ok:true,configured:true}});
+ assert.equal(attempts,2);
+ assert.equal([...store.data.keys()].filter(k=>k.startsWith('owner-alert-awaiting/')).length,0);
+ assert.equal([...store.data.entries()].find(([k])=>k.startsWith('done/'))[1].ownerAlert,'sent');
+ await drainInquiries(store,api,'owner',async()=>{attempts++;return{ok:true}});
+ assert.equal(attempts,2,'replayed alert must be delivered only once');
+});
+
+test('recovery discards alerts older than one day, rather than flooding personal WhatsApp',async()=>{
+ const {drainInquiries,OWNER_ALERT_RECOVERY_WINDOW_MS}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore();
+ const job={key:'expired',at:new Date(Date.now()-OWNER_ALERT_RECOVERY_WINDOW_MS-60_000).toISOString(),contactId:'777',fields:{}};
+ await store.setJSON('owner-alert-awaiting/expired',job);
+ let calls=0;
+ const api={findContact:async()=>{throw new Error('CRM must not be touched')}};
+ await drainInquiries(store,api,'owner',async()=>{calls++;return{ok:true}});
+ assert.equal(calls,0);
+ assert.equal(store.data.has('owner-alert-awaiting/expired'),false);
+});
