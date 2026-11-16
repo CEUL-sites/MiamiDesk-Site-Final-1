@@ -2,6 +2,25 @@
 Set all values in Netlify → Site Settings → Environment Variables.
 Never commit real values to the repository.
 
+CALLMEBOT_APIKEY
+  What it does: Optional personal WhatsApp relay to Carlos's US number
+                for minimal "new website inquiry" alerts.
+  Scope: Server-side Netlify Functions ONLY. No client JavaScript/VITE_.
+  Recipient: WHATSAPP_ALERT_TO = +19548656622 (never change US Florida CTAs).
+  The relay sends only a lead category and an authenticated HubSpot link;
+  client identity and property details are not sent to CallMeBot.
+  Sender: https://api.callmebot.com/whatsapp.php, uses the existing key.
+  Reauthorization if HTTP 403: The official 2026 migration instructions at
+  https://www.callmebot.com/move/ say to add +34 623 78 64 49 on Carlos's
+  *US personal WhatsApp*, then send the phrase:
+    I allow callmebot to send me messages
+  Wait for API Activated. Existing APIKEY is retained. Do NOT send the key to
+  AI agents or put it in a URL in chat.
+  Important: CallMeBot documents its free API for PERSONAL USE ONLY; this
+  business-lead notification use may not be permitted without provider consent.
+  The service has been unstable / HTTP 403 previously. Never claim delivery
+  until a real message is received; preserve CRM and email notifications.
+
 GOOGLE_SHEETS_WEBHOOK_URL
   What it does: Posts every lead submission to Google Sheets
   Used by: netlify/functions/submission-created.ts
