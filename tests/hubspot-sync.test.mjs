@@ -351,6 +351,42 @@ test('WhatsApp Cloud sender: silent when not configured, sends the approved temp
  assert.equal(templateText('a\n\n  b     c'),'a b c');
 });
 
+test('CallMeBot relays only private owner alert metadata and rejects invalid responses',async()=>{
+ const {sendWhatsAppAlert,whatsappConfigured}=await import('../netlify/functions/_shared/whatsapp.ts');
+ const env={CALLMEBOT_APIKEY:'mock-personal-key',WHATSAPP_ALERT_TO:'+19548656622'};
+ const lead={type:'South Florida Seller · referred client Sample Person',name:'Jane Sensitive',
+  contact:'private@example.invalid · +1 555 555 0100',location:'123 Confidential Road',
+  link:'https://app.hubspot.com/contacts/149513532/contact/123456'};
+ assert.equal(whatsappConfigured(env),true);
+ let request;
+ const ok=await sendWhatsAppAlert(lead,env,async(url,init)=>{
+  request={url,init};
+  return new Response('<p><b>Message queued.</b>',{status:200});
+ });
+ assert.equal(ok.ok,true);
+ assert.equal(ok.configured,true);
+ const u=new URL(request.url);
+ assert.equal(u.hostname,'api.callmebot.com');
+ assert.equal(u.pathname,'/whatsapp.php');
+ assert.equal(u.searchParams.get('phone'),'+19548656622');
+ assert.equal(u.searchParams.get('apikey'),'mock-personal-key');
+ assert.match(u.searchParams.get('text'),/South Florida Seller/);
+ assert.match(u.searchParams.get('text'),/app.hubspot.com\/contacts\/149513532\/contact\/123456/);
+ for (const privateValue of ['Jane Sensitive','private@example.invalid','Confidential Road','Sample Person','555 555']) {
+  assert.doesNotMatch(decodeURIComponent(u.search),new RegExp(privateValue));
+ }
+ assert.equal(request.init.method,'GET');
+ assert.doesNotMatch(JSON.stringify(ok),/mock-personal-key/);
+ const forbidden=await sendWhatsAppAlert(lead,env,async()=>new Response('Forbidden',{status:403}));
+ assert.equal(forbidden.ok,false);
+ assert.match(forbidden.detail,/403/);
+ assert.doesNotMatch(forbidden.detail,/mock-personal-key/);
+ const falseOk=await sendWhatsAppAlert(lead,env,async()=>new Response('Invalid APIKEY',{status:200}));
+ assert.equal(falseOk.ok,false);
+ const wrong=await sendWhatsAppAlert(lead,{...env,WHATSAPP_ALERT_TO:'+34646853078'},async()=>{throw Error('must not call')});
+ assert.equal(wrong.ok,false);
+});
+
 test('address-only valuation step is not queued for a WhatsApp alert',async()=>{
  const {drainInquiries,enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
  const store=memoryStore();
