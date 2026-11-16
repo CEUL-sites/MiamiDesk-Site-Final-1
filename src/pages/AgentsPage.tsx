@@ -288,7 +288,7 @@ export default function AgentsPage() {
                   <ChevronRight size={16} aria-hidden="true" />
                 </a>
                 <a href="#gilmar-global-desk" className="agent-partner-secondary">
-                  GILMAR Spain 4% Desk
+                  GILMAR Spain Desk
                 </a>
                 <a
                   href={CONTACT.whatsappBroker}
@@ -627,7 +627,7 @@ export default function AgentsPage() {
           </div>
         </section>
 
-        {/* ── GILMAR × United Realty Group 4% Buyer-Agent Co-Brokering Showcase ── */}
+        {/* ── GILMAR × United Realty Group cooperation showcase — compensation terms are gated, never published ── */}
         <GilmarGlobalDeskSection variant="agents" />
 
         {/* ── SECTION 4: Unified Partner & Referral Intake Desk ─────── */}
