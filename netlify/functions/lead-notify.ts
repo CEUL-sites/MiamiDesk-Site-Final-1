@@ -48,6 +48,15 @@ interface LeadPayload {
   occupancy?: string;
   placeId?: string;
   messagingConsent?: string;
+  development?: string;
+  cooperationMode?: string;
+  referralType?: string;
+  gdReference?: string;
+  unit?: string;
+  closingDate?: string;
+  finalSalePrice?: string;
+  payingBrokerageContact?: string;
+  closingStatementFileName?: string;
 }
 
 interface NormalizedLead {
@@ -68,16 +77,25 @@ interface NormalizedLead {
   occupancy: string;
   placeId: string;
   messagingConsent: string;
+  development: string;
+  cooperationMode: string;
+  referralType: string;
+  gdReference: string;
+  unit: string;
+  closingDate: string;
+  finalSalePrice: string;
+  payingBrokerageContact: string;
+  closingStatementFileName: string;
 }
 
 function normalize(p: LeadPayload): NormalizedLead {
   return {
-    name: p.name || p.licenseeName || p.agentName || "",
+    name: p.name || p.licenseeName || p.agentName || p.payingBrokerageContact || "",
     email: (p.email || "").trim(),
     phone: p.phone || p.whatsapp || "",
     propertyAddress: p.propertyAddress || "",
     city: p.city || "",
-    timeline: p.timeline || "",
+    timeline: p.timeline || p.referralType || "",
     message: p.message || p.clientSummary || "",
     registrationPurpose: p.registrationPurpose || "",
     language: p.language || "",
@@ -92,6 +110,15 @@ function normalize(p: LeadPayload): NormalizedLead {
     occupancy: p.occupancy || "",
     placeId: p.placeId || "",
     messagingConsent: p.messagingConsent || "",
+    development: p.development || "",
+    cooperationMode: p.cooperationMode || "",
+    referralType: p.referralType || "",
+    gdReference: p.gdReference || "",
+    unit: p.unit || "",
+    closingDate: p.closingDate || "",
+    finalSalePrice: p.finalSalePrice || "",
+    payingBrokerageContact: p.payingBrokerageContact || "",
+    closingStatementFileName: p.closingStatementFileName || "",
   };
 }
 
@@ -135,7 +162,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   // lead-notify is only called by the site's own forms, which always send
   // formRenderedAt — a missing one is a hard fail here, as before.
   const spam = assessLeadSpam({
-    name: raw.name || raw.licenseeName || raw.agentName || "",
+    name: raw.name || raw.licenseeName || raw.agentName || raw.payingBrokerageContact || "",
     email: raw.email || "",
     phone: raw.phone || raw.whatsapp || "",
     propertyAddress: raw.propertyAddress || "",
@@ -154,8 +181,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
 
   const lead = normalize(raw);
 
-  // Need at least one way to reach the lead, otherwise there's nothing to alert.
-  if (!lead.email.includes("@") && !lead.phone) {
+  // Need at least one way to reach the lead, otherwise there's nothing to alert
+  // (payment requests carry a Global Desk reference even if phone/email are inside contact text).
+  if (!lead.email.includes("@") && !lead.phone && !(lead.registrationPurpose === "payment_request" && lead.gdReference)) {
     return { statusCode: 400, headers: corsHeaders, body: JSON.stringify({ error: "Missing email and phone" }) };
   }
 
@@ -166,7 +194,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const marketContext = shouldFetchMarketContext(scored.tier) ? await getLeadMarketContext(lead) : null;
   const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
   const results: Record<string, string> = {};
-  const alertKey = dedupKey(lead.email, lead.phone);
+  const alertKey = dedupKey(lead.email || (lead.registrationPurpose === "payment_request" ? lead.gdReference : ""), lead.phone);
   let alerted = false; // true only when Resend accepts an email to Carlos
 
   // ── 1. Google Sheets via Apps Script webhook ────────────────────────────

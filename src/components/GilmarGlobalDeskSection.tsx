@@ -44,7 +44,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     address: "Urbanización Castillo 3, Fase P, número 1 · Caleta de Fuste, Fuerteventura, Canary Islands, Spain",
     complianceNote:
       "GILMAR identifies Block M, Floor 3B, Unit 69. Current availability, delivery, unit plan, and whether the quoted price includes IGIC require written confirmation.",
-    image: "/images/global-desk-panorama-desktop.webp",
+    image: "/images/gilmar/elysian.jpg",
   },
   {
     id: "balcon-estepona",
@@ -66,7 +66,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     address: "Urbanización Balcón del Mediterráneo, Calle El Burgo, s/n · 29680 Estepona, Málaga, Spain",
     complianceNote:
       "Exact block, staircase, unit code, plan, and delivery are awaiting confirmation. The price excludes VAT and other purchase costs; request a current written quotation.",
-    image: "/images/global-desk-hero-madrid-v2.webp",
+    image: "/images/gilmar/balcon-residence.jpg",
   },
   {
     id: "be-grand-malaga",
@@ -88,7 +88,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     address: "Calle Ramal de Monte Sancha, 28 · El Limonar, Málaga, Spain",
     complianceNote:
       "Confirm the fifth-floor designation, private outdoor layout, exact plan, area definitions, delivery, and availability in writing.",
-    image: "/images/madrid-gran-via-editorial.webp",
+    image: "/images/gilmar/be-grand-development.webp",
   },
 ];
 

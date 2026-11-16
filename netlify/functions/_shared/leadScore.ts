@@ -27,6 +27,7 @@
 // scripts/verify-lead-score.ts keeps testing it without a network call.
 
 import type { LeadMarketContext } from "./leadMarketContext";
+import { resolveGilmarCommission } from "./gilmarRates.ts";
 
 export type LeadTier = "P1" | "P2" | "P3";
 
@@ -372,6 +373,15 @@ export interface AlertLead extends ScorableLead {
   sourcePage?: string;
   registrationPurpose?: string;
   language?: string;
+  development?: string;
+  cooperationMode?: string;
+  referralType?: string;
+  gdReference?: string;
+  unit?: string;
+  closingDate?: string;
+  finalSalePrice?: string;
+  payingBrokerageContact?: string;
+  closingStatementFileName?: string;
 }
 
 /**
@@ -516,18 +526,96 @@ export function formatLeadWhatsApp(
 function agentRegistrationContext(lead: AlertLead) {
   if (lead.formName !== "referral-intake" || lead.registrationPurpose !== "professional_inquiry") return null;
   const lines = (lead.message ?? "").split(/\r?\n/);
-  const field = (label: string) => lines.find(line => line.startsWith(label + ":"))?.slice(label.length + 1).trim() || "Not specified";
-  const cooperation = field("Cooperation mode").replace(/\s*\((buyer_agency|referral)\)\s*$/, "");
-  const development = field("Development");
-  const commission = field("Commission");
+  const field = (label: string) =>
+    lines.find((line) => line.startsWith(label + ":"))?.slice(label.length + 1).trim() || "";
+
+  const rawDevelopment = field("Development") || (lead.development ?? "").trim() || "Not specified";
+  const rawCooperation =
+    field("Cooperation mode") ||
+    (lead.cooperationMode ?? "").trim() ||
+    (lead.referralType ?? "").trim() ||
+    "";
+  const rawCommission = field("Commission");
+
+  const resolved = resolveGilmarCommission({
+    development: rawDevelopment,
+    cooperationMode: rawCooperation,
+    language: lead.language,
+  });
+
+  const cooperation =
+    resolved.mode !== null
+      ? resolved.cooperationLabel
+      : rawCooperation.replace(/\s*\((buyer_agency|referral)\)\s*$/, "").trim() || "Not specified";
+
+  const development =
+    rawDevelopment && rawDevelopment !== "Not specified" ? resolved.developmentName : "Not specified";
+
+  // Server-only rate table resolves commission when client omits Commission:.
+  const commission =
+    rawCommission && rawCommission !== "Not specified" ? rawCommission : resolved.commission;
+
   // The relay's canonical summary comes first; later free-text requirements
   // cannot replace the first labelled development/cooperation/commission line.
-  return {development, cooperation, commission};
+  return { development, cooperation, commission };
+}
+
+function paymentRequestContext(lead: AlertLead) {
+  const rawMessage = (lead.message ?? "").trim();
+  const isPaymentRequest =
+    lead.registrationPurpose === "payment_request" ||
+    /^Commission payment request\b/i.test(rawMessage);
+  if (!isPaymentRequest) return null;
+
+  const lines = rawMessage.split(/\r?\n/);
+  const field = (label: string) =>
+    lines
+      .find((line) => line.toLowerCase().startsWith(label.toLowerCase() + ":"))
+      ?.slice(label.length + 1)
+      .trim() || "";
+
+  const gdReference =
+    field("Global Desk reference") ||
+    field("GD reference") ||
+    (lead.gdReference ?? "").trim() ||
+    (rawMessage.match(/\bGD-[A-Z0-9-]+\b/i)?.[0] ?? "") ||
+    "Not specified";
+
+  const development = field("Development") || (lead.development ?? "").trim() || "";
+  const unit = field("Unit") || (lead.unit ?? "").trim() || "";
+  const developmentAndUnit =
+    [development, unit].filter(Boolean).join(" — ") ||
+    (lead.propertyAddress ?? "").trim() ||
+    "Not specified";
+
+  const closingDate = field("Closing date") || (lead.closingDate ?? "").trim() || "Not specified";
+  const finalSalePrice = field("Final sale price") || (lead.finalSalePrice ?? "").trim() || "Not specified";
+  const payingBrokerageContact =
+    field("Paying brokerage contact") ||
+    (lead.payingBrokerageContact ?? "").trim() ||
+    "Not specified";
+  const closingStatementFileName =
+    field("Closing statement") || (lead.closingStatementFileName ?? "").trim() || "";
+
+  return {
+    gdReference,
+    developmentAndUnit,
+    closingDate,
+    finalSalePrice,
+    payingBrokerageContact,
+    closingStatementFileName,
+  };
 }
 
 const emailHeaderText = (value: string) => value.replace(/[\r\n\u0000-\u001f\u007f]+/g, " ").replace(/\s+/g, " ").trim();
 
 export function formatLeadEmailSubject(lead: AlertLead, scored: LeadScore): string {
+  const payment = paymentRequestContext(lead);
+  if (payment) {
+    return emailHeaderText(
+      `Commission payment request | ${payment.gdReference} | ${payment.developmentAndUnit}`,
+    );
+  }
   const registration = agentRegistrationContext(lead);
   if (registration) {
     const rate = registration.commission.match(/^\d+(?:[.,]\d+)?%/)?.[0];
@@ -553,6 +641,25 @@ export function formatLeadEmail(
 ): string {
   const marketHint = `${lead.city ?? ""} ${lead.desk ?? ""} ${lead.propertyAddress ?? ""}`;
   const phone = normalizePhone(lead.phone, marketHint);
+  const payment = paymentRequestContext(lead);
+  if (payment) return joinBlocks([
+    [
+      "Commission payment request",
+      `Global Desk reference: ${payment.gdReference}`,
+      `Development / unit: ${payment.developmentAndUnit}`,
+      `Closing date: ${payment.closingDate}`,
+      `Final sale price: ${payment.finalSalePrice}`,
+      `Paying brokerage contact: ${payment.payingBrokerageContact}`,
+      payment.closingStatementFileName ? `Closing statement: ${payment.closingStatementFileName}` : "",
+    ],
+    ["Review the payment request against the signed cooperation agreement and coordinate broker-to-broker disbursement through United Realty Group."],
+    [`Submitted by: ${lead.name || "—"}`, `Email: ${lead.email || "—"}`, `Phone: ${phone.display}`, phone.e164 ? `Call: tel:${phone.e164}` : "", phone.waLink ? `WhatsApp: ${phone.waLink}` : ""],
+    [lead.message || ""],
+    [`Form: ${lead.formName || "—"}`, `Page: ${lead.sourcePage || "—"}`, extras.timestamp ? `Received: ${extras.timestamp} ET` : "", `Lead Source: ${lead.leadSource || "direct"}`, extras.via ? `Delivered via: ${extras.via}` : ""],
+    extras.fullDetails ? ["All fields:", extras.fullDetails] : [],
+    ["---", "Carlos Uzcategui · FL SL705771 · United Realty Group", "HomesProfessional.com"],
+  ]);
+
   const registration = agentRegistrationContext(lead);
   if (registration) return joinBlocks([
     ["Agent client registration", `Development: ${registration.development}`, `Cooperation type: ${registration.cooperation}`, `Commission: ${registration.commission}`],

@@ -38,7 +38,7 @@ export default async (request: Request) => {
     // email or the nurture drip, so bot-entered victims are never contacted.
     // Quarantined leads are kept in Blobs and listed in the daily digest.
     const spam = assessLeadSpam({
-      name: fields.name || fields.licenseeName || fields.agentName || "",
+      name: fields.name || fields.licenseeName || fields.agentName || fields.payingBrokerageContact || "",
       email: fields.email || "",
       phone: fields.phone || fields.whatsapp || "",
       propertyAddress: fields.propertyAddress || fields.location || "",
@@ -61,7 +61,7 @@ export default async (request: Request) => {
     await enqueueSubmission(payload);
 
     // ── Normalised fields (shared across all forms) ──────────────────────
-    const name    = fields.name || fields.licenseeName || fields.agentName || "";
+    const name    = fields.name || fields.licenseeName || fields.agentName || fields.payingBrokerageContact || "";
     const email   = fields.email || "";
     const phone   = fields.phone || fields.whatsapp || "";
     // propertyAddress covers seller/LeadForm; targetNeighborhoods covers buyer
@@ -126,6 +126,15 @@ export default async (request: Request) => {
       desk: fields.desk || "",
       registrationPurpose: fields.registrationPurpose || "",
       language: fields.language || "",
+      development: fields.development || "",
+      cooperationMode: fields.cooperationMode || "",
+      referralType: fields.referralType || "",
+      gdReference: fields.gdReference || "",
+      unit: fields.unit || "",
+      closingDate: fields.closingDate || "",
+      finalSalePrice: fields.finalSalePrice || "",
+      payingBrokerageContact: fields.payingBrokerageContact || "",
+      closingStatementFileName: fields.closingStatementFileName || "",
     };
     const scored = scoreLead(scorable);
 
@@ -133,7 +142,10 @@ export default async (request: Request) => {
     // some of these channels. Each channel is deduped independently so that, for
     // example, a backup run that logged to Sheets but failed to email Carlos
     // doesn't block the email here (and never produces a duplicate Sheets row).
-    const alertKey = dedupKey(email, phone);
+    const alertKey = dedupKey(
+      email || (fields.registrationPurpose === "payment_request" ? fields.gdReference || "" : ""),
+      phone,
+    );
     let sheetsOk = false;   // true once a Sheets row exists for this lead (this run or the backup)
     let alerted = false;    // true once the email notification was delivered
 
