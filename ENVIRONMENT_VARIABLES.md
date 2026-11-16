@@ -32,11 +32,11 @@ RESEND_API_KEY
   How to get: resend.com → API Keys → Create API Key → verify homesprofessional.com domain
 
 WHATSAPP_CLOUD_TOKEN
-  What it does: Sends the owner WhatsApp alert through Meta's official WhatsApp
-                Cloud API after an inquiry is saved in HubSpot. Replaces
-                CallMeBot, which returned 403 to Netlify's servers.
-                OPTIONAL: without it the alert is skipped silently; the
-                HubSpot task reminder and the Resend email still alert Carlos.
+  What it does: OPTIONAL alternative owner-alert sender through Meta's
+                WhatsApp Cloud API after HubSpot sync. The live configuration
+                prefers CALLMEBOT_APIKEY when present; Meta is not required
+                for that route. When neither provider is configured, WhatsApp
+                is unavailable but HubSpot task and Resend alerts remain.
   Used by: netlify/functions/hubspot-inquiry-sync.ts
            (via netlify/functions/_shared/whatsapp.ts)
   How to get (one-time, in Meta — business.facebook.com / developers.facebook.com):
