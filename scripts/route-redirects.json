@@ -72,6 +72,18 @@
     "force": true
   },
   {
+    "from": "/seller-advisory",
+    "to": "/home-value",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/seller-advisory/",
+    "to": "/home-value",
+    "status": 301,
+    "force": true
+  },
+  {
     "from": "/sell-in-weston",
     "to": "/sell-weston",
     "status": 301,

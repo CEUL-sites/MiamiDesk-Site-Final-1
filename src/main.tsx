@@ -82,6 +82,7 @@ if (rootElement) {
               <Routes>
                 <Route path="/"                              element={<HomePage />} />
                 {/* Primary navigation routes */}
+                <Route path="/seller-advisory" element={<Navigate to="/home-value" replace />} />
                 <Route path="/sell-in-weston" element={<Navigate to="/sell-weston" replace />} />
                 <Route path="/sell-in-coral-gables" element={<Navigate to="/sell-coral-gables" replace />} />
                 <Route path="/sell-in-aventura" element={<Navigate to="/sell-aventura" replace />} />

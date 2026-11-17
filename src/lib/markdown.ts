@@ -78,8 +78,27 @@ function inline(text: string): string {
 
 // ---------------------------------------------------------------------------
 // Block-level Markdown → HTML converter
-// Supports: ##, ###, -, *, 1., >, ---, ![img](), paragraphs
+// Supports: ##, ###, -, *, 1., >, ---, ![img](), | tables |, paragraphs
 // ---------------------------------------------------------------------------
+const TABLE_ROW = /^\|.*\|$/;
+const TABLE_SEPARATOR = /^\|(\s*:?-{3,}:?\s*\|)+$/;
+
+function tableCells(row: string): string[] {
+  return row.slice(1, -1).split('|').map((cell) => cell.trim());
+}
+
+// A GitHub-style pipe table: header row, separator row, then body rows.
+function tableToHtml(rows: string[]): string {
+  const [head, , ...body] = rows;
+  const th = tableCells(head)
+    .map((c) => `<th scope="col" class="text-left font-semibold text-navy px-4 py-3 border-b border-gold/40">${inline(c)}</th>`)
+    .join('');
+  const tr = body
+    .map((r) => `<tr class="border-b border-bone">${tableCells(r).map((c) => `<td class="px-4 py-3 align-top">${inline(c)}</td>`).join('')}</tr>`)
+    .join('');
+  return `<div class="overflow-x-auto my-9"><table class="w-full text-sm text-navy/85 border-collapse"><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`;
+}
+
 function markdownToHtml(md: string): string {
   const lines = md.split(/\r?\n/);
   const html: string[] = [];
@@ -95,11 +114,24 @@ function markdownToHtml(md: string): string {
     state = 'none';
   };
 
-  for (const line of lines) {
-    const t = line.trim();
+  for (let i = 0; i < lines.length; i += 1) {
+    const t = lines[i].trim();
 
     // Blank line — close current block
     if (t === '') { close(); continue; }
+
+    // Pipe table: a row, then a separator row, then any further rows
+    if (TABLE_ROW.test(t) && TABLE_SEPARATOR.test((lines[i + 1] ?? '').trim())) {
+      close();
+      const rows: string[] = [];
+      while (i < lines.length && TABLE_ROW.test(lines[i].trim())) {
+        rows.push(lines[i].trim());
+        i += 1;
+      }
+      i -= 1;
+      html.push(tableToHtml(rows));
+      continue;
+    }
 
     // Horizontal rule (--- or ***) — must check before list detection
     if (/^[-*]{3,}$/.test(t)) {

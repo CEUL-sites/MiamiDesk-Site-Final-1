@@ -9,6 +9,42 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'selling-florida-condo-special-assessment-2026': [
+    {
+      q: 'Who pays the special assessment when you sell a condo in Florida?',
+      a: 'Florida law settles who the association can collect from, not how the seller and buyer split the cost. Under section 718.116 of the Florida Statutes, a new owner is jointly and severally liable with the previous owner for unpaid assessments that came due up to the transfer of title. How an approved assessment that is not yet due is divided is negotiated in the purchase contract: the seller may pay it at closing, the buyer may assume the remaining installments, or the parties may agree on a credit or a price adjustment. Have a Florida real estate attorney review that contract language.',
+    },
+    {
+      q: 'Can I sell my Florida condo if there is a special assessment?',
+      a: 'Yes. Nothing in the Florida condominium statute prevents an owner from selling a unit while a special assessment is pending or being paid in installments. The assessment will appear in the association\'s estoppel certificate, which must itemize special assessments owed and those scheduled to come due, and the association holds a lien on the unit to secure payment. The practical work is documenting the assessment early, deciding how it will be allocated, and pricing the unit against comparable sales in the same building.',
+    },
+    {
+      q: 'What does a condo estoppel certificate show about special assessments?',
+      a: 'Under section 718.116, the estoppel certificate must give an itemized list of all assessments, special assessments and other moneys owed on the date it is issued, and an itemized list of additional assessments and special assessments scheduled to become due during its effective period. The association must issue it within 10 business days after a written or electronic request. A certificate delivered by hand or electronically has a 30-day effective period, and one sent by regular mail has a 35-day effective period.',
+    },
+    {
+      q: 'What documents must a Florida condo seller give the buyer?',
+      a: 'Under section 718.503, as published in the 2025 Florida Statutes, a buyer from an owner who is not the developer is entitled, at the seller\'s expense, to current copies of the declaration, articles, bylaws and rules, the annual financial statement and budget, the milestone inspection summary where applicable, the latest structural integrity reserve study or a statement that none has been completed, the turnover inspection report where applicable, and the Frequently Asked Questions document, plus a governance form. If they are not delivered in time, the buyer may void the contract during a 7-day period, excluding weekends and legal holidays.',
+    },
+  ],
+  'selling-house-vs-condo-south-florida-2026': [
+    {
+      q: 'Why are South Florida single-family homes holding value better than condos in late 2026?',
+      a: 'Supply is the main reason. In October 2026, Miami-Dade single-family homes had 5.4 months of supply and Broward 4.4 months, which the association\'s reports describe as seller\'s markets, while condos had 12.7 months in Miami-Dade and 10.6 months in Broward, described as buyer\'s markets. The Miami-Dade single-family median rose 3.52% to $706,000, while the Broward condo median fell 7.22%. Higher association costs, reserve requirements and narrower conventional financing weigh on many condo buildings.',
+    },
+    {
+      q: 'How do Florida milestone inspections and SIRS reserves affect selling a condo?',
+      a: 'Florida requires a milestone structural inspection for condominium buildings three habitable stories or more by December 31 of the year the building reaches 30 years of age, and every 10 years after that, and a structural integrity reserve study at least every 10 years. Buildings that need critical repairs, failed a mandatory inspection or face certain litigation can be ineligible for Fannie Mae financing, which removes many financed buyers. Sellers in those buildings should expect more cash buyers and should prepare the association\'s documents before pricing.',
+    },
+    {
+      q: 'What preparation helps South Florida single-family homeowners avoid price cuts?',
+      a: 'Obtain a current four-point inspection and a wind-mitigation report before listing, so buyers can secure insurance quotes early, and set the asking price from recent comparable sales and current neighborhood absorption rather than from the highest past sale. With 30-year mortgage rates averaging 7.11% in mid-November 2026, financed buyers are price-sensitive, and listings priced above the evidence tend to sit.',
+    },
+    {
+      q: 'Should I sell my South Florida home now?',
+      a: 'It depends on the property type and your plans. Single-family owners are selling into short supply, so the main risk is overpricing. Condo owners in buildings with completed inspections and funded reserves can compete on documentation, while owners in buildings with work still ahead should understand those costs before pricing. Tax position, the next purchase and personal timing matter as much as the market; discuss those with a tax adviser and attorney, and use a pricing analysis built on your own street or building.',
+    },
+  ],
   'private-listing-vs-mls-south-florida-sellers-2026': [
     {
       q: 'What is a pocket listing or private listing in South Florida?',
