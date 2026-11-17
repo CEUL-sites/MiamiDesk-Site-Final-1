@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'selling-house-vs-condo-south-florida-2026': [
+    {
+      q: 'Why are South Florida single-family homes holding value better than condos in late 2026?',
+      a: 'Supply is the main reason. In October 2026, Miami-Dade single-family homes had 5.4 months of supply and Broward 4.4 months, which the association\'s reports describe as seller\'s markets, while condos had 12.7 months in Miami-Dade and 10.6 months in Broward, described as buyer\'s markets. The Miami-Dade single-family median rose 3.52% to $706,000, while the Broward condo median fell 7.22%. Higher association costs, reserve requirements and narrower conventional financing weigh on many condo buildings.',
+    },
+    {
+      q: 'How do Florida milestone inspections and SIRS reserves affect selling a condo?',
+      a: 'Florida requires a milestone structural inspection for condominium buildings three habitable stories or more by December 31 of the year the building reaches 30 years of age, and every 10 years after that, and a structural integrity reserve study at least every 10 years. Buildings that need critical repairs, failed a mandatory inspection or face certain litigation can be ineligible for Fannie Mae financing, which removes many financed buyers. Sellers in those buildings should expect more cash buyers and should prepare the association\'s documents before pricing.',
+    },
+    {
+      q: 'What preparation helps South Florida single-family homeowners avoid price cuts?',
+      a: 'Obtain a current four-point inspection and a wind-mitigation report before listing, so buyers can secure insurance quotes early, and set the asking price from recent comparable sales and current neighborhood absorption rather than from the highest past sale. With 30-year mortgage rates averaging 7.11% in mid-November 2026, financed buyers are price-sensitive, and listings priced above the evidence tend to sit.',
+    },
+    {
+      q: 'Should I sell my South Florida home now?',
+      a: 'It depends on the property type and your plans. Single-family owners are selling into short supply, so the main risk is overpricing. Condo owners in buildings with completed inspections and funded reserves can compete on documentation, while owners in buildings with work still ahead should understand those costs before pricing. Tax position, the next purchase and personal timing matter as much as the market; discuss those with a tax adviser and attorney, and use a pricing analysis built on your own street or building.',
+    },
+  ],
   'private-listing-vs-mls-south-florida-sellers-2026': [
     {
       q: 'What is a pocket listing or private listing in South Florida?',
