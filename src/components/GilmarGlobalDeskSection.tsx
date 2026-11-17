@@ -109,25 +109,25 @@ type GilmarVariant = "global-desk" | "agents" | "buyers";
 const AGENT_TERMS = {
   badge: { en: "Agent terms on registration", es: "Condiciones al registrar cliente" },
   note: {
-    en: "Cooperating compensation is determined per transaction and level of service. The rate, calculation basis, currency, and payment timing are issued in writing to the registering professional after license and client registration and brokerage approval.",
-    es: "Los honorarios de cooperación se determinan por operación y nivel de servicio. El porcentaje, la base de cálculo, la moneda y el calendario de pago se emiten por escrito al profesional que registra su licencia y cliente, una vez aprobado por su agencia.",
+    en: "Cooperating compensation varies by asset class (new developments, resale residential, investment real estate, or commercial) and level of service. Each case carries its own negotiated referral fee, respected in writing once approved by GILMAR Spain and paid at closing through United Realty Group directly to your brokerage.",
+    es: "La compensación de cooperación varía según el producto (obra nueva, segunda mano, inversión o comercial) y el nivel de servicio. Cada caso cuenta con su propio honorario negociado, respetado por escrito tras la aprobación de GILMAR España y abonado al cierre a través de United Realty Group directamente a su brokerage.",
   },
   steps: {
-    eyebrow: { en: "HOW COOPERATING COMPENSATION WORKS", es: "CÓMO FUNCIONAN LOS HONORARIOS DE COOPERACIÓN" },
-    heading: { en: "Register first. Terms follow in writing.", es: "Primero el registro. Las condiciones llegan por escrito." },
-    payoff: { en: "Your client stays your client.", es: "Su cliente sigue siendo su cliente." },
+    eyebrow: { en: "HOW NEGOTIATED REFERRALS WORK", es: "CÓMO FUNCIONA CADA REFERENCIA NEGOCIADA" },
+    heading: { en: "Negotiated referral fees by asset class — protected in writing.", es: "Honorarios negociados por tipo de activo — protegidos por escrito." },
+    payoff: { en: "Paid through United Realty Group to your brokerage.", es: "Pago a través de United Realty Group a su brokerage." },
     items: [
       {
-        en: ["Register your license and client", "Identify yourself, your brokerage, and your client before any introduction to GILMAR. Our team confirms the registration in writing."],
-        es: ["Registre su licencia y cliente", "Identifíquese, indique su agencia y su cliente antes de cualquier presentación a GILMAR. Nuestro equipo confirma el registro por escrito."],
+        en: ["Register your license and client", "Identify yourself, your brokerage, and your client’s target product (new development, resale, investment, or commercial) prior to any introduction to GILMAR."],
+        es: ["Registre su licencia y cliente", "Identifíquese, indique su brokerage y el tipo de activo (obra nueva, segunda mano, inversión o comercial) antes de cualquier presentación a GILMAR."],
       },
       {
-        en: ["Receive transaction-specific written terms", "Each referral has its own written brokerage-to-brokerage agreement. Compensation is determined per transaction and level of service—never published openly."],
-        es: ["Reciba las condiciones por escrito", "Cada referencia cuenta con su propio acuerdo entre agencias. La compensación se determina por operación y nivel de servicio, sin publicarse en abierto."],
+        en: ["Negotiated fee approved by GILMAR Spain", "Each referral receives its own negotiated fee based on the property category and level of service—respected in writing once approved by GILMAR Spain."],
+        es: ["Honorario negociado y aprobado por GILMAR España", "Cada referencia cuenta con su propio honorario negociado según el producto y alcance de servicio, respetado por escrito tras la aprobación de GILMAR España."],
       },
       {
-        en: ["Request payment at closing", "When the purchase closes in Spain, you submit the payment request against your registration. Compensation is paid broker to broker through United Realty Group."],
-        es: ["Solicite el pago al cierre", "Cuando la compra se cierra en España, usted presenta la solicitud de pago con su registro. Los honorarios se pagan de agencia a agencia a través de United Realty Group."],
+        en: ["Paid via United Realty Group at closing", "GILMAR executes locally in Spain. At closing, United Realty Group disburses the agreed referral fee directly to your brokerage."],
+        es: ["Pago vía United Realty Group al cierre", "GILMAR gestiona la operación en España y, al cierre, United Realty Group abona el honorario acordado directamente a su brokerage."],
       },
     ],
   },
