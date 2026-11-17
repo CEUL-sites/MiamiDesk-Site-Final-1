@@ -141,6 +141,12 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
 <url>
+    <loc>https://homesprofessional.com/gilmar-spain</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>
+<url>
     <loc>https://homesprofessional.com/spain-mls-listing</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>

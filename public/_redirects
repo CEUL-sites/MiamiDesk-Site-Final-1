@@ -11,6 +11,8 @@ https://www.homesprofessional.com/* https://homesprofessional.com/:splat 301!
 /market/* /markets 301!
 /market /markets 301!
 /404.html / 301!
+/seller-advisory /home-value 301!
+/seller-advisory/ /home-value 301!
 /sell-in-weston /sell-weston 301!
 /sell-in-weston/ /sell-weston 301!
 /sell-in-coral-gables /sell-coral-gables 301!
@@ -223,6 +225,8 @@ https://www.homesprofessional.com/* https://homesprofessional.com/:splat 301!
 /sell-hallandale-beach/ /sell-hallandale-beach 301!
 /global-desk /global-desk/index.html 200!
 /global-desk/ /global-desk 301!
+/gilmar-spain /gilmar-spain/index.html 200!
+/gilmar-spain/ /gilmar-spain 301!
 /spain-mls-listing /spain-mls-listing/index.html 200!
 /spain-mls-listing/ /spain-mls-listing 301!
 /vender-marbella /vender-marbella/index.html 200!
@@ -291,6 +295,16 @@ https://www.homesprofessional.com/* https://homesprofessional.com/:splat 301!
 /es/vender-brickell/ /es/vender-brickell 301!
 /es/vender-coral-gables /es/vender-coral-gables/index.html 200!
 /es/vender-coral-gables/ /es/vender-coral-gables 301!
+/journal/selling-house-vs-condo-south-florida-2026 /journal/selling-house-vs-condo-south-florida-2026/index.html 200!
+/journal/selling-house-vs-condo-south-florida-2026/ /journal/selling-house-vs-condo-south-florida-2026 301!
+/journal/selling-florida-condo-special-assessment-2026 /journal/selling-florida-condo-special-assessment-2026/index.html 200!
+/journal/selling-florida-condo-special-assessment-2026/ /journal/selling-florida-condo-special-assessment-2026 301!
+/journal/private-listing-vs-mls-south-florida-sellers-2026 /journal/private-listing-vs-mls-south-florida-sellers-2026/index.html 200!
+/journal/private-listing-vs-mls-south-florida-sellers-2026/ /journal/private-listing-vs-mls-south-florida-sellers-2026 301!
+/journal/florida-amendment-3-home-sellers-homestead-portability-2026 /journal/florida-amendment-3-home-sellers-homestead-portability-2026/index.html 200!
+/journal/florida-amendment-3-home-sellers-homestead-portability-2026/ /journal/florida-amendment-3-home-sellers-homestead-portability-2026 301!
+/journal/florida-flood-disclosure-home-sellers-2026 /journal/florida-flood-disclosure-home-sellers-2026/index.html 200!
+/journal/florida-flood-disclosure-home-sellers-2026/ /journal/florida-flood-disclosure-home-sellers-2026 301!
 /journal/south-florida-market-by-market-what-buyers-verify-2026 /journal/south-florida-market-by-market-what-buyers-verify-2026/index.html 200!
 /journal/south-florida-market-by-market-what-buyers-verify-2026/ /journal/south-florida-market-by-market-what-buyers-verify-2026 301!
 /journal/firpta-withholding-foreign-seller-south-florida-2026 /journal/firpta-withholding-foreign-seller-south-florida-2026/index.html 200!

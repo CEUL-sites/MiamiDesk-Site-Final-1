@@ -33,6 +33,7 @@ const SellPompanoBeachPage           = lazy(() => import('./pages/SellPompanoBea
 const SellHallandaleBeachPage        = lazy(() => import('./pages/SellHallandaleBeachPage'));
 const HomeValuePage                  = lazy(() => import('./pages/HomeValuePage'));
 const GlobalDeskPage                 = lazy(() => import('./pages/GlobalDeskPage'));
+const GilmarSpainPage                = lazy(() => import('./pages/GilmarSpainPage'));
 const SpainMlsListingPage            = lazy(() => import('./pages/SpainMlsListingPage'));
 const SellSpainMarketPage            = lazy(() => import('./pages/SellSpainMarketPage'));
 const BuyersPage         = lazy(() => import('./pages/BuyersPage'));
@@ -118,6 +119,7 @@ if (rootElement) {
                 <Route path="/sell-pompano-beach"            element={<SellPompanoBeachPage />} />
                 <Route path="/sell-hallandale-beach"         element={<SellHallandaleBeachPage />} />
                 <Route path="/global-desk"                   element={<GlobalDeskPage />} />
+                <Route path="/gilmar-spain"                  element={<GilmarSpainPage />} />
                 <Route path="/madrid-miami"                  element={<Navigate to="/global-desk" replace />} />
                 <Route path="/spain-mls-listing"             element={<SpainMlsListingPage />} />
                 {/* Spain-side counterpart to the /sell-<city> pages */}

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Building2, CheckCircle2, ExternalLink, Globe2, Lock, ShieldCheck, X } from "lucide-react";
+import { ArrowRight, Building2, CheckCircle2, Globe2, Lock, ShieldCheck, X } from "lucide-react";
 import { Tilt3D } from "./Tilt3D";
 import { CONTACT } from "../constants";
 
-export const GILMAR_PORTAL_URL = "https://gilmar-urg-global-desk.ucarlos.chatgpt.site";
+export const GILMAR_PORTAL_URL = "/gilmar-spain";
 
 export interface GilmarResidence {
   id: string;
@@ -46,7 +46,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     address: "Urbanización Castillo 3, Fase P, número 1 · Caleta de Fuste, Fuerteventura, Canary Islands, Spain",
     complianceNote:
       "GILMAR identifies Block M, Floor 3B, Unit 69. Current availability, delivery, unit plan, and whether the quoted price includes IGIC require written confirmation.",
-    image: "/images/global-desk-panorama-desktop.webp",
+    image: "/images/gilmar/elysian.jpg",
   },
   {
     id: "balcon-estepona",
@@ -69,7 +69,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     address: "Urbanización Balcón del Mediterráneo, Calle El Burgo, s/n · 29680 Estepona, Málaga, Spain",
     complianceNote:
       "Exact block, staircase, unit code, plan, and delivery are awaiting confirmation. The price excludes VAT and other purchase costs; request a current written quotation.",
-    image: "/images/global-desk-hero-madrid-v2.webp",
+    image: "/images/gilmar/balcon-residence.jpg",
   },
   {
     id: "be-grand-malaga",
@@ -92,7 +92,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     address: "Calle Ramal de Monte Sancha, 28 · El Limonar, Málaga, Spain",
     complianceNote:
       "Confirm the fifth-floor designation, private outdoor layout, exact plan, area definitions, delivery, and availability in writing.",
-    image: "/images/madrid-gran-via-editorial.webp",
+    image: "/images/gilmar/be-grand-muelle-uno-c-garden.webp",
   },
 ];
 
@@ -300,13 +300,11 @@ function GilmarResidenceModal({
               <ArrowRight size={13} />
             </a>
             <a
-              href={GILMAR_PORTAL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={es ? `${GILMAR_PORTAL_URL}?lang=es` : GILMAR_PORTAL_URL}
               className="inline-flex items-center justify-center gap-2 border border-white/25 px-5 py-3.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-colors hover:border-gold hover:text-gold"
             >
               {es ? "Ver en el portal GILMAR × URG" : "View in the GILMAR × URG portal"}
-              <ExternalLink size={13} />
+              <ArrowRight size={13} />
             </a>
           </div>
         </div>
@@ -596,12 +594,11 @@ export function GilmarGlobalDeskSection({
 
           <div className="flex flex-wrap items-center gap-3 lg:col-span-5 lg:justify-end">
             <a
-              href={GILMAR_PORTAL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={es ? `${GILMAR_PORTAL_URL}?lang=es` : GILMAR_PORTAL_URL}
               className="inline-flex items-center justify-center gap-2 bg-gold px-6 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy-deep shadow-lg transition-colors hover:bg-gold-soft"
             >
-              {copy.primaryCta}
+              {copy.primaryCta.replace(" ↗", "")}
+              <ArrowRight size={13} />
             </a>
             <a
               href={copy.secondaryHref}

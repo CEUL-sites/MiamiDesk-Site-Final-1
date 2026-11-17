@@ -60,6 +60,7 @@ export const isSpainMarketRoute = (path: string): boolean => {
       // developer in São Paulo or Dubai. Path-based routing cannot read the
       // page's EN/ES toggle, so the section-level link is what carries it.
       "/spain-mls-listing",
+      "/gilmar-spain",
       "/vender-marbella",
       "/vender-madrid",
       "/vender-costa-blanca",

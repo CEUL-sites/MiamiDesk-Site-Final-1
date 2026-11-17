@@ -138,7 +138,7 @@ test("phase 11 mounts primary Bridge IDX browser on Home and Buyers, interactive
   assert.match(listings, /pb-28 lg:pb-0/);
   assert.match(listings, /id="listings-faq"/);
   assert.doesNotMatch(listings, /at no additional cost to you/i);
-  assert.match(gilmar, /https:\/\/gilmar-urg-global-desk\.ucarlos\.chatgpt\.site/);
+  assert.match(gilmar, /\/gilmar-spain/);
   // Compensation gating: no rate or amount is published; terms follow client registration.
   assert.doesNotMatch(gilmar, /\d\s?%/);
   assert.doesNotMatch(gilmar, /buyer-agent commission/i);
