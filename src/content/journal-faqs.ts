@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'selling-florida-condo-special-assessment-2026': [
+    {
+      q: 'Who pays the special assessment when you sell a condo in Florida?',
+      a: 'Florida law settles who the association can collect from, not how the seller and buyer split the cost. Under section 718.116 of the Florida Statutes, a new owner is jointly and severally liable with the previous owner for unpaid assessments that came due up to the transfer of title. How an approved assessment that is not yet due is divided is negotiated in the purchase contract: the seller may pay it at closing, the buyer may assume the remaining installments, or the parties may agree on a credit or a price adjustment. Have a Florida real estate attorney review that contract language.',
+    },
+    {
+      q: 'Can I sell my Florida condo if there is a special assessment?',
+      a: 'Yes. Nothing in the Florida condominium statute prevents an owner from selling a unit while a special assessment is pending or being paid in installments. The assessment will appear in the association\'s estoppel certificate, which must itemize special assessments owed and those scheduled to come due, and the association holds a lien on the unit to secure payment. The practical work is documenting the assessment early, deciding how it will be allocated, and pricing the unit against comparable sales in the same building.',
+    },
+    {
+      q: 'What does a condo estoppel certificate show about special assessments?',
+      a: 'Under section 718.116, the estoppel certificate must give an itemized list of all assessments, special assessments and other moneys owed on the date it is issued, and an itemized list of additional assessments and special assessments scheduled to become due during its effective period. The association must issue it within 10 business days after a written or electronic request. A certificate delivered by hand or electronically has a 30-day effective period, and one sent by regular mail has a 35-day effective period.',
+    },
+    {
+      q: 'What documents must a Florida condo seller give the buyer?',
+      a: 'Under section 718.503, as published in the 2025 Florida Statutes, a buyer from an owner who is not the developer is entitled, at the seller\'s expense, to current copies of the declaration, articles, bylaws and rules, the annual financial statement and budget, the milestone inspection summary where applicable, the latest structural integrity reserve study or a statement that none has been completed, the turnover inspection report where applicable, and the Frequently Asked Questions document, plus a governance form. If they are not delivered in time, the buyer may void the contract during a 7-day period, excluding weekends and legal holidays.',
+    },
+  ],
   'selling-house-vs-condo-south-florida-2026': [
     {
       q: 'Why are South Florida single-family homes holding value better than condos in late 2026?',
