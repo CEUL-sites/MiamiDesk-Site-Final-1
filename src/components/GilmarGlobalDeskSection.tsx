@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, CheckCircle2, ExternalLink, Globe2, ShieldCheck, X } from "lucide-react";
+import { ArrowRight, Building2, CheckCircle2, ExternalLink, Globe2, Lock, ShieldCheck, X } from "lucide-react";
 import { Tilt3D } from "./Tilt3D";
 import { CONTACT } from "../constants";
 
@@ -16,6 +16,7 @@ export interface GilmarResidence {
   priceNote: string;
   specs: string;
   terraceSpec: string;
+  badgeLabel: string;
   summary: string;
   highlights: string[];
   address: string;
@@ -35,6 +36,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     priceNote: "Selected-unit price · Tax treatment to confirm",
     specs: "3 Bedrooms · 2 Bathrooms · 134 m² Built",
     terraceSpec: "105.75 m² interior living + 63.30 m² across two terraces",
+    badgeLabel: "New Development · Canary Islands",
     summary:
       "An elevated three-bedroom residence with two terraces, views toward the Atlantic and Caleta de Fuste, and an open living, dining, and kitchen area with an island.",
     highlights: [
@@ -57,6 +59,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     priceNote: "GILMAR quoted price · Purchase costs additional",
     specs: "3 En-Suite Bedrooms + Guest WC · 205.09 m² Built",
     terraceSpec: "27.55 m² private terrace · 2 underground parking spaces",
+    badgeLabel: "Costa del Sol · New Golden Mile",
     summary:
       "A first-floor residence in Selwo on Estepona’s New Golden Mile. Three en-suite bedrooms and a separate guest toilet accompany generous living and dining areas and a private terrace.",
     highlights: [
@@ -79,6 +82,7 @@ export const GILMAR_RESIDENCES: readonly GilmarResidence[] = [
     priceNote: "GILMAR quoted price · Purchase costs additional",
     specs: "2 Bedrooms · 2 Bathrooms · 120.30 m² Reported Built",
     terraceSpec: "186.55 m² reported outdoor area · Private pool",
+    badgeLabel: "Málaga Capital · Prime Coastal",
     summary:
       "A two-bedroom residence in El Limonar with an open living, dining, and kitchen area. GILMAR reports private outdoor space and a private pool, with Porcelanosa finishes and Siemens kitchen appliances.",
     highlights: [
@@ -97,15 +101,16 @@ type GilmarVariant = "global-desk" | "agents" | "buyers";
 /**
  * Compensation gating — deliberate, do not undo.
  * No commission rate, percentage, or amount is published in this component.
- * Terms are issued in writing to the registering professional after client
- * registration and brokerage approval. Buyers never see agent-compensation
- * language. tests/seller-page-layout.test.ts asserts no "%" appears here.
+ * Terms are determined per transaction and level of service and issued in
+ * writing to the registering professional after client registration and
+ * brokerage approval. Buyers never see agent-compensation language.
+ * tests/seller-page-layout.test.ts asserts no "%" appears here.
  */
 const AGENT_TERMS = {
   badge: { en: "Agent terms on registration", es: "Condiciones al registrar cliente" },
   note: {
-    en: "Cooperating compensation is offered on this residence. The rate, calculation basis, currency, and payment timing are issued in writing to the registering professional after client registration and brokerage approval.",
-    es: "Esta residencia ofrece honorarios de cooperación. El porcentaje, la base de cálculo, la moneda y el calendario de pago se emiten por escrito al profesional que registra al cliente, una vez registrado y aprobado por su agencia.",
+    en: "Cooperating compensation is determined per transaction and level of service. The rate, calculation basis, currency, and payment timing are issued in writing to the registering professional after license and client registration and brokerage approval.",
+    es: "Los honorarios de cooperación se determinan por operación y nivel de servicio. El porcentaje, la base de cálculo, la moneda y el calendario de pago se emiten por escrito al profesional que registra su licencia y cliente, una vez aprobado por su agencia.",
   },
   steps: {
     eyebrow: { en: "HOW COOPERATING COMPENSATION WORKS", es: "CÓMO FUNCIONAN LOS HONORARIOS DE COOPERACIÓN" },
@@ -113,12 +118,12 @@ const AGENT_TERMS = {
     payoff: { en: "Your client stays your client.", es: "Su cliente sigue siendo su cliente." },
     items: [
       {
-        en: ["Register your client", "Identify yourself, your brokerage, and the client before any introduction to GILMAR. Our team confirms the registration in writing."],
-        es: ["Registre a su cliente", "Identifíquese, indique su agencia y su cliente antes de cualquier presentación a GILMAR. Nuestro equipo confirma el registro por escrito."],
+        en: ["Register your license and client", "Identify yourself, your brokerage, and your client before any introduction to GILMAR. Our team confirms the registration in writing."],
+        es: ["Registre su licencia y cliente", "Identifíquese, indique su agencia y su cliente antes de cualquier presentación a GILMAR. Nuestro equipo confirma el registro por escrito."],
       },
       {
-        en: ["Receive the written terms", "For the registered residence you receive the compensation terms for both paths, buyer agency through closing or referral only, in a brokerage-to-brokerage agreement."],
-        es: ["Reciba las condiciones por escrito", "Para la residencia registrada recibe las condiciones de honorarios de ambas modalidades, representación del comprador hasta el cierre o solo referencia, en un acuerdo entre agencias."],
+        en: ["Receive transaction-specific written terms", "Each referral has its own written brokerage-to-brokerage agreement. Compensation is determined per transaction and level of service—never published openly."],
+        es: ["Reciba las condiciones por escrito", "Cada referencia cuenta con su propio acuerdo entre agencias. La compensación se determina por operación y nivel de servicio, sin publicarse en abierto."],
       },
       {
         en: ["Request payment at closing", "When the purchase closes in Spain, you submit the payment request against your registration. Compensation is paid broker to broker through United Realty Group."],
@@ -127,6 +132,41 @@ const AGENT_TERMS = {
     ],
   },
 } as const;
+
+const ADVISORY_PILLARS = [
+  {
+    titleEn: "Legal & Tax Advisory",
+    titleEs: "Asesoramiento Jurídico y Fiscal",
+    bodyEn:
+      "Registry title verification, charge checks, purchase contract review, notary coordination, and transaction tax guidance.",
+    bodyEs:
+      "Verificación registral, revisión de cargas y contratos, coordinación notarial y orientación fiscal en cada operación.",
+  },
+  {
+    titleEn: "Financing & Centro Hipotecario",
+    titleEs: "Centro Hipotecario y Financiación",
+    bodyEn:
+      "Dedicated mortgage intermediation comparing Spanish banking structures for resident and international buyers.",
+    bodyEs:
+      "Intermediación hipotecaria propia comparando soluciones bancarias para compradores residentes e internacionales.",
+  },
+  {
+    titleEn: "Official Valuations (THIRSA)",
+    titleEs: "Tasaciones Oficiales (THIRSA)",
+    bodyEn:
+      "Independent market studies and official property appraisals through THIRSA, homologated by the Bank of Spain.",
+    bodyEs:
+      "Estudios de mercado y tasaciones oficiales a través de THIRSA, sociedad homologada por el Banco de España.",
+  },
+  {
+    titleEn: "Renovations, Interior Design & After-Sales",
+    titleEs: "Reformas, Interiorismo y Posventa",
+    bodyEn:
+      "Turnkey architectural remodeling via Soluciones Constructivas, home staging, utility setup, insurance, and Capital Markets advisory.",
+    bodyEs:
+      "Reformas integrales con Soluciones Constructivas, interiorismo, gestión posventa de suministros y Capital Markets.",
+  },
+] as const;
 
 function registerTarget(variant: GilmarVariant, es: boolean) {
   if (variant === "agents") return "#south-florida-referral";
@@ -193,11 +233,9 @@ function GilmarResidenceModal({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#071526] via-[#071526]/40 to-transparent" />
           <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-            {showAgentTerms && (
-              <span className="bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep">
-                {AGENT_TERMS.badge[lang]}
-              </span>
-            )}
+            <span className="bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep">
+              {showAgentTerms ? AGENT_TERMS.badge[lang] : residence.badgeLabel}
+            </span>
             <span className="border border-white/20 bg-navy-deep/85 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/90">
               {residence.code}
             </span>
@@ -294,31 +332,31 @@ export function GilmarGlobalDeskSection({
         ? "ESPAÑA ↔ FLORIDA · MIAMI GLOBAL LISTINGS SERVICE · GILMAR × UNITED REALTY GROUP"
         : "SPAIN ↔ FLORIDA · MIAMI GLOBAL LISTINGS SERVICE · GILMAR × UNITED REALTY GROUP",
       heading: es
-        ? "Sus clientes. Las propiedades de España. La experiencia de GILMAR."
-        : "Your clients. Spain’s properties. GILMAR’s expertise.",
+        ? "Sus clientes. Más de 2.000 propiedades en España. La experiencia de GILMAR."
+        : "Your clients. 2,000+ Spanish properties. GILMAR’s expertise.",
       subtitle: es
-        ? "Cooperación documentada entre GILMAR Real Estate (establecida en 1983 · 36 equipos comerciales en España · 10 idiomas) y United Realty Group (Florida · 3.500+ agentes). Explore tres residencias seleccionadas en Fuerteventura, Estepona y Málaga o solicite una selección personalizada en Madrid y Costa del Sol."
-        : "Documented cooperation between GILMAR Real Estate (established 1983 · 36 commercial teams across Spain · 10 service languages) and United Realty Group (Florida · 3,500+ agents). Explore three selected residences across Fuerteventura, Estepona, and Málaga—or request a tailored GILMAR shortlist in Madrid and Costa del Sol.",
+        ? "Cooperación documentada entre GILMAR Consulting Inmobiliario (establecida en 1983 · 36 equipos comerciales en España · 10 idiomas) y United Realty Group (Florida · 3.500+ agentes). Regístrese para explorar el catálogo IDX de más de 2.000 propiedades en España o solicite una selección personalizada."
+        : "Documented cooperation between GILMAR Consulting Inmobiliario (established 1983 · 36 commercial teams across Spain · 10 service languages) and United Realty Group (Florida · 3,500+ agents). Register to unlock guided browsing across 2,000+ active Spanish listings or request a tailored shortlist.",
       primaryCta: es ? "Abrir el portal GILMAR × URG ↗" : "Open the GILMAR × URG portal ↗",
       secondaryCta: es ? "Registrar un cliente para España" : "Register a client for Spain",
       secondaryHref: registerTarget("global-desk", es),
     },
     agents: {
-      eyebrow: "SPAIN CO-BROKERING & REFERRAL DESK · GILMAR × UNITED REALTY GROUP",
+      eyebrow: "SPAIN CO-BROKERING & IDX ACCESS DESK · GILMAR × UNITED REALTY GROUP",
       heading: "Have a client exploring Spain? Register them before the introduction.",
       subtitle:
-        "You bring the client relationship. GILMAR (established 1983 · 36 commercial teams across Spain) handles viewings, negotiation, and closing in Spain. Our team at United Realty Group documents the cooperation brokerage to brokerage, so your name and your brokerage stay identified on the file. Compensation terms are issued in writing once your client is registered.",
+        "You bring the client relationship. GILMAR (established 1983 · 36 commercial teams across Spain) handles viewings, negotiation, and closing in Spain. Our team at United Realty Group documents the cooperation brokerage to brokerage, so your name and your brokerage stay identified on the file. Compensation is determined per transaction and level of service and issued in writing once your license and client are registered.",
       primaryCta: "Open the GILMAR × URG portal ↗",
       secondaryCta: "Register a client for Spain",
       secondaryHref: "#south-florida-referral",
     },
     buyers: {
       eyebrow: "EXPLORING SPAIN? · GILMAR × UNITED REALTY GROUP BILATERAL DESK",
-      heading: "A second home, an investment, or a relocation residence in Spain.",
+      heading: "Guided access to 2,000+ residences across Spain with full advisory support.",
       subtitle:
-        "Through our bilateral cooperation with GILMAR Real Estate (established 1983, with 36 commercial teams across Spain), we coordinate curated Spanish property shortlists and private introductions from our Florida desk.",
+        "Through our bilateral cooperation with GILMAR Consulting Inmobiliario (established 1983, with 36 commercial teams across Madrid, Marbella, Estepona, Málaga, Seville, Cádiz, and the Canary Islands), registered clients gain guided access to 2,000+ active properties plus legal, tax, mortgage, valuation, and after-sales support.",
       primaryCta: "View the GILMAR × URG Spain selection ↗",
-      secondaryCta: "Request a tailored Spain shortlist",
+      secondaryCta: "Register to browse Spain inventory",
       secondaryHref: "#buyer-mandate",
     },
   }[variant];
@@ -356,19 +394,19 @@ export function GilmarGlobalDeskSection({
             <div>
               <p className="font-serif text-2xl font-semibold text-gold md:text-3xl">1983</p>
               <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/65">
-                GILMAR Founded
+                {es ? "Fundación GILMAR" : "GILMAR Founded"}
               </p>
             </div>
             <div className="border-l border-white/10 pl-3">
               <p className="font-serif text-2xl font-semibold text-gold md:text-3xl">36</p>
               <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/65">
-                Teams in Spain
+                {es ? "Equipos España" : "Teams in Spain"}
               </p>
             </div>
             <div className="border-l border-white/10 pl-3">
-              <p className="font-serif text-2xl font-semibold text-gold md:text-3xl">10</p>
+              <p className="font-serif text-2xl font-semibold text-gold md:text-3xl">2,000+</p>
               <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/65">
-                Service Languages
+                {es ? "Propiedades IDX" : "Spain Listings"}
               </p>
             </div>
           </div>
@@ -393,11 +431,9 @@ export function GilmarGlobalDeskSection({
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/30 to-transparent" />
-                  {showAgentTerms && (
-                    <div className="absolute left-3 top-3 bg-gold px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-navy-deep">
-                      {AGENT_TERMS.badge[lang]}
-                    </div>
-                  )}
+                  <div className="absolute left-3 top-3 bg-gold px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-navy-deep">
+                    {showAgentTerms ? AGENT_TERMS.badge[lang] : res.badgeLabel}
+                  </div>
                   <div className="absolute right-3 top-3 border border-white/20 bg-navy-deep/85 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/90">
                     {res.code}
                   </div>
@@ -406,7 +442,7 @@ export function GilmarGlobalDeskSection({
                       {res.location}
                     </span>
                     <span className="border border-gold/40 bg-navy-deep/90 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-gold opacity-0 transition-opacity group-hover:opacity-100">
-                      Inspect Brief →
+                      {es ? "Ver ficha →" : "Inspect Brief →"}
                     </span>
                   </div>
                 </div>
@@ -414,7 +450,7 @@ export function GilmarGlobalDeskSection({
                 <div className="flex flex-1 flex-col justify-between p-6">
                   <div>
                     <div className="flex items-baseline justify-between gap-2">
-                      <h3 className="font-serif text-2xl text-white group-hover:text-gold transition-colors">
+                      <h3 className="font-serif text-2xl text-white transition-colors group-hover:text-gold">
                         {res.name}
                       </h3>
                     </div>
@@ -477,8 +513,64 @@ export function GilmarGlobalDeskSection({
           </div>
         )}
 
+        {/* Registration-Gated 2,000+ Spain IDX Portfolio */}
+        <div className="mt-8 border border-gold/30 bg-white/[0.04] p-6 sm:p-8">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+              <Lock size={14} />
+              <span>
+                {es
+                  ? "CATÁLOGO IDX PRIVADO · MÁS DE 2.000 PROPIEDADES EN ESPAÑA"
+                  : "REGISTERED PORTFOLIO ACCESS · 2,000+ ACTIVE SPAIN LISTINGS"}
+              </span>
+            </div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">
+              {es ? "Acceso habilitado previo registro" : "Registration required to browse"}
+            </span>
+          </div>
+          <h3 className="mt-3 font-serif text-2xl text-white">
+            {es
+              ? "Explore más de 2.000 propiedades en España tras su registro"
+              : "Register Once to Browse GILMAR’s 2,000+ Property IDX Feed"}
+          </h3>
+          <p className="mt-2 max-w-4xl font-sans text-sm leading-relaxed text-white/75">
+            {es
+              ? "La cartera de GILMAR supera las 2.000 viviendas activas en España (1.061 en Madrid, 737 en Costa del Sol, 201 en Islas Canarias y 23 en Cádiz, además de Sevilla y Obra Nueva) entre pisos, áticos, chalets y promociones exclusivas. El acceso completo al buscador IDX se habilita tras el registro."
+              : "GILMAR’s active inventory exceeds 2,000 residential listings across Spain (1,061 in Madrid, 737 in Costa del Sol, 201 in the Canary Islands, and 23 in Cádiz, plus Seville and New Developments) spanning apartments, penthouses, villas, and Obra Nueva. Complete IDX browsing and private dossiers unlock upon registration."}
+          </p>
+        </div>
+
+        {/* GILMAR Integral Advisory Pillars (from gilmar.es/servicios/asesoramiento/) */}
+        <div className="mt-6 border border-white/10 bg-navy/60 p-6 sm:p-8">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+              <Building2 size={14} />
+              <span>
+                {es
+                  ? "SERVICIOS INTEGRALES GILMAR · MADRID · COSTA DEL SOL · SEVILLA · CANARIAS"
+                  : "GILMAR INTEGRAL BUYER ADVISORY · 36 TEAMS · 10 LANGUAGES"}
+              </span>
+            </div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/55">
+              {es ? "Respaldo integral en origen y destino" : "End-to-end execution across Spain"}
+            </span>
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {ADVISORY_PILLARS.map((pillar) => (
+              <div key={pillar.titleEn} className="border border-white/10 bg-white/[0.02] p-4">
+                <h4 className="font-serif text-base text-gold">
+                  {es ? pillar.titleEs : pillar.titleEn}
+                </h4>
+                <p className="mt-2 font-sans text-xs leading-relaxed text-white/70">
+                  {es ? pillar.bodyEs : pillar.bodyEn}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Beyond the 3 Developments: Tailored Shortlist & Portal Launch Bar */}
-        <div className="mt-10 grid gap-6 border border-gold/30 bg-white/[0.04] p-6 sm:p-8 lg:grid-cols-12 lg:items-center">
+        <div className="mt-8 grid gap-6 border border-gold/30 bg-white/[0.04] p-6 sm:p-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
               <Globe2 size={15} />
@@ -530,8 +622,8 @@ export function GilmarGlobalDeskSection({
               : "Selected units based on GILMAR information (reviewed Nov 2026). Availability, prices, taxes, and delivery require current written confirmation. Images are illustrative and do not depict the specific residences."}
             {showAgentTerms &&
               (es
-                ? " Los honorarios de cooperación son negociables, no se publican en esta página y se documentan fuera del MLS: las condiciones se emiten por escrito tras el registro del cliente y requieren un acuerdo firmado y la aprobación de United Realty Group. El registro no garantiza aceptación ni pago."
-                : " Cooperating compensation is negotiable, is not published on this page, and is documented outside the MLS: terms are issued in writing after client registration and require a signed agreement and United Realty Group approval. Registration does not guarantee acceptance or payment.")}{" "}
+                ? " Los honorarios de cooperación son negociables, se determinan por operación y nivel de servicio, no se publican en esta página y se documentan fuera del MLS: las condiciones se emiten por escrito tras el registro del cliente y requieren un acuerdo firmado y la aprobación de United Realty Group. El registro no garantiza aceptación ni pago."
+                : " Cooperating compensation is negotiable, determined per transaction and level of service, is not published on this page, and is documented outside the MLS: terms are issued in writing after client registration and require a signed agreement and United Realty Group approval. Registration does not guarantee acceptance or payment.")}{" "}
             {CONTACT.licenseDisplay} · {CONTACT.brokerage}.
           </p>
         </div>
