@@ -86,6 +86,13 @@ async function launchBrowser() {
 // repair a post that published without a card.
 function linkFrontmatter(postPath, slug) {
   const raw = fs.readFileSync(postPath, 'utf8');
+  const field = `image: "/images/journal/og/${slug}.jpg"`;
+  // An empty `image: ""` is the same as no image: the post ships without an
+  // og:image. Fill it in place rather than treating the key's presence as done.
+  if (/^image:\s*(""|'')?\s*$/m.test(raw)) {
+    fs.writeFileSync(postPath, raw.replace(/^image:\s*(""|'')?\s*$/m, field));
+    return true;
+  }
   if (/^image:/m.test(raw)) return false;
   if (!/^category:/m.test(raw)) return false;
   fs.writeFileSync(
@@ -138,6 +145,16 @@ const pending = posts.filter((file) => {
   const slug = frontmatter(fs.readFileSync(path.join(contentDir, file), 'utf8')).slug || file.replace(/\.md$/, '');
   return force || !fs.existsSync(path.join(outDir, `${slug}.jpg`));
 });
+
+// A card can exist on disk while the post's image: field is still empty (a
+// card rendered by hand, or a run that died between render and link). Link
+// those without launching a browser — otherwise the backfill reports success
+// while the post keeps shipping with no og:image.
+for (const file of posts) {
+  const slug = frontmatter(fs.readFileSync(path.join(contentDir, file), 'utf8')).slug || file.replace(/\.md$/, '');
+  if (pending.includes(file) || !fs.existsSync(path.join(outDir, `${slug}.jpg`))) continue;
+  if (linkFrontmatter(path.join(contentDir, file), slug)) console.log('linked existing card', `${slug}.jpg`);
+}
 
 if (pending.length === 0) {
   console.log(`done — 0 card(s) rendered, ${posts.length} skipped`);
