@@ -96,7 +96,7 @@ Our team works in English and Spanish, with buyers and cooperating agents from N
 
 Book a Private Seller Strategy Review. Carlos Uzcategui and our team review your property type and segment, current comparables, insurance readiness and, for condos, the association's reserve and inspection documents, then outline a pricing and distribution plan. There is no listing commitment.
 
-[Book a Private Seller Strategy Review](/seller-advisory?utm_source=journal&utm_medium=organic&utm_campaign=selling-house-vs-condo-south-florida-2026)
+[Book a Private Seller Strategy Review](/home-value?utm_source=journal&utm_medium=organic&utm_campaign=selling-house-vs-condo-south-florida-2026)
 
 Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing approaches can also start with our [South Florida seller strategy page](/sell) or the [current market data](/market-data).
 
