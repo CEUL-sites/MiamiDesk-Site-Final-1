@@ -18,7 +18,10 @@ export function MobileStickyCTA({ lang }: { lang?: "en" | "es" } = {}) {
   const spanishLabels = lang ? lang === "es" : isSpanishLangRoute(pathname);
   const spainLine = globalDeskRoute ? spanishLabels : isSpainMarketRoute(pathname);
   const buyerRoute = normalizedPathname === "/buy" || normalizedPathname === "/es/comprar";
-  const defaultActionHref = globalDeskRoute ? "#listing-request" : buyerRoute
+  // The GILMAR desk converts agents and Spain-portfolio buyers, not sellers:
+  // the action must open its own registration desk, never the Miami /sell form.
+  const gilmarRoute = normalizedPathname === "/gilmar-spain";
+  const defaultActionHref = gilmarRoute ? "#register-desk" : globalDeskRoute ? "#listing-request" : buyerRoute
     ? normalizedPathname === "/buy"
       ? "#buyer-mandate"
       : "/contact"
@@ -37,7 +40,8 @@ export function MobileStickyCTA({ lang }: { lang?: "en" | "es" } = {}) {
   useEffect(() => {
     const el = buyerRoute
       ? document.getElementById("buyer-mandate") ?? document.getElementById("contact")
-      : document.getElementById("list-here") ??
+      : document.getElementById("register-desk") ??
+        document.getElementById("list-here") ??
         document.getElementById("listing-request") ??
         document.getElementById("contact");
     setActionHref(el ? `#${el.id}` : defaultActionHref);
@@ -115,7 +119,7 @@ export function MobileStickyCTA({ lang }: { lang?: "en" | "es" } = {}) {
   if (!shouldRenderMobileSticky({ formVisible: hidden, consentPending, guardVisible })) return null;
 
   const whatsappHref = spainLine ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
-  const actionLabel = globalDeskRoute ? (spanishLabels ? "Consultar" : "Discuss property") : buyerRoute
+  const actionLabel = gilmarRoute ? (spanishLabels ? "Registrarse" : "Register") : globalDeskRoute ? (spanishLabels ? "Consultar" : "Discuss property") : buyerRoute
     ? spanishLabels
       ? "Iniciar búsqueda"
       : "Start My Search"

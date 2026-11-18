@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyInquiry, buildContactProperties, makeJob, syncJob, HubSpotClient, PROPERTY_DEFINITIONS, inquiryNote } from '../netlify/functions/_shared/hubspotSync.mjs';
+import { classifyInquiry, buildContactProperties, makeJob, syncJob, HubSpotClient, PROPERTY_DEFINITIONS, inquiryNote, programTag } from '../netlify/functions/_shared/hubspotSync.mjs';
 
 test('professional submissions expose brokerage, market and referral fields without replacing identity',()=>{
  const job=makeJob('referral-intake',{licenseeName:'Ana Agent',email:'agent@example.invalid',phone:'+19545550101',brokerageName:'Example Brokerage',country:'Spain',registrationPurpose:'agent_registration',referralType:'Buyer mandate',clientName:'Separate Client'},'agent-profile');
@@ -429,4 +429,19 @@ test('recovery discards alerts older than one day, rather than flooding personal
  await drainInquiries(store,api,'owner',async()=>{calls++;return{ok:true}});
  assert.equal(calls,0);
  assert.equal(store.data.has('owner-alert-awaiting/expired'),false);
+});
+
+test('GILMAR Spain desk leads are labelled in the note and task while Miami leads are not',async()=>{
+ const gilmar=makeJob('buyer-mandate',{name:'Ana Ruiz',email:'ana@example.invalid',phone:'+34600111222',country:'Spain',source:'gilmar-spain',sourcePage:'gilmar-spain-buyer'},'gilmar-buyer');
+ assert.equal(gilmar.category,'buyer');assert.equal(programTag(gilmar.fields),'GILMAR Spain');
+ assert.match(inquiryNote(gilmar),/GILMAR Spain/);
+ const referral=makeJob('referral-intake',{licenseeName:'Luis Agent',email:'luis@example.invalid',sourcePage:'gilmar-spain-referral'},'gilmar-agent');
+ assert.equal(programTag(referral.fields),'GILMAR Spain');
+ const miami=makeJob('buyer-mandate',{name:'Bo Buyer',email:'bo@example.invalid',source:'buyer-mandate',sourcePage:'buyer-mandate'},'miami-buyer');
+ assert.equal(programTag(miami.fields),'');assert.doesNotMatch(inquiryNote(miami),/GILMAR/);
+ const created=[];
+ const api={findContact:async()=>null,createContact:async()=>({id:'1'}),updateContact:async()=>({}),associateContacts:async()=>({}),
+  createNote:async()=>({id:'n'}),createTask:async p=>{created.push(p);return {id:'t'};}};
+ await syncJob(gilmar,api,async()=>{},'owner');
+ assert.match(created[0].hs_task_subject,/· GILMAR Spain$/);
 });

@@ -243,6 +243,37 @@ function buildEmailES(formName: string, name: string): { subject: string; html: 
   };
 }
 
+// GILMAR Spain Desk buyers use the standard buyer-mandate form; the Miami buyer
+// brief copy does not apply to them. Local viewings and negotiation in Spain are
+// handled by GILMAR's Spanish teams; Carlos operates under his Florida license only.
+function buildGilmarBuyerEmail(es: boolean, name: string): { subject: string; html: string } {
+  const P = "font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.7; color: rgba(11,30,63,0.7);";
+  const headline = es ? "Solicitud de acceso al catálogo GILMAR España recibida." : "Your GILMAR Spain portfolio access request has been received.";
+  const body = es
+    ? "Nuestro equipo revisará su zona, tipo de activo y presupuesto, y coordinará el acceso guiado a la cartera de GILMAR en España. Las visitas, la negociación local y la cualificación en España las gestionan los equipos locales de GILMAR."
+    : "Our team will review your target region, asset type and budget, and coordinate guided access to GILMAR’s Spain portfolio. Viewings, local negotiation and qualification in Spain are handled by GILMAR’s local Spanish teams.";
+  return {
+    subject: es ? "Acceso al Catálogo GILMAR España — Solicitud Confirmada" : "GILMAR Spain Portfolio Access — Request Confirmed",
+    html: `
+      <div style="font-family: Georgia, serif; max-width: 560px; margin: 0 auto; color: #0B1E3F;">
+        <div style="border-bottom: 2px solid #B08D57; padding-bottom: 16px; margin-bottom: 24px;">
+          <p style="font-family: monospace; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: #B08D57; margin: 0;">HomesProfessional.com · GILMAR Spain Desk</p>
+        </div>
+        <h1 style="font-size: 24px; font-weight: 400; line-height: 1.2; margin: 0 0 16px;">${headline}</h1>
+        <p style="${P}">${es ? `Estimado/a ${name || "cliente"},` : `Dear ${name || "there"},`}<br><br>${body}</p>
+        <p style="${P}">${es
+          ? `Para preguntas inmediatas, escriba a Carlos por WhatsApp al <strong>${WHATSAPP_ES}</strong> o responda a este correo en <a href="mailto:${CARLOS_EMAIL}" style="color: #B08D57;">${CARLOS_EMAIL}</a>.`
+          : `For immediate questions, WhatsApp Carlos at <strong>${WHATSAPP_ES}</strong> or reply to this email at <a href="mailto:${CARLOS_EMAIL}" style="color: #B08D57;">${CARLOS_EMAIL}</a>.`}</p>
+        <div style="border-top: 1px solid #e8e3da; margin-top: 32px; padding-top: 16px;">
+          <p style="font-family: monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(11,30,63,0.35); margin: 0;">
+            Carlos Uzcategui · Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
+          </p>
+        </div>
+      </div>
+    `,
+  };
+}
+
 export const handler: Handler = async (event: HandlerEvent) => {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
@@ -264,14 +295,15 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "rate_limited" }) };
   }
 
-  let body: { formName?: string; name?: string; email?: string; phone?: string; propertyAddress?: string; botField?: string; formRenderedAt?: string; country?: string; brokerage?: string; guide?: string; language?: string };
+  let body: { formName?: string; name?: string; email?: string; phone?: string; propertyAddress?: string; botField?: string; formRenderedAt?: string; country?: string; brokerage?: string; guide?: string; language?: string; desk?: string };
   try {
     body = JSON.parse(event.body ?? "{}");
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: "Invalid JSON" }) };
   }
 
-  const { formName = "", name = "", email = "", country = "", guide = "", language = "" } = body;
+  const { formName = "", name = "", email = "", country = "", guide = "", language = "", desk = "" } = body;
+  const gilmarBuyer = formName === "buyer-mandate" && desk === "gilmar-spain";
 
   const spam = assessLeadSpam({
     name, email, phone: body.phone || "", propertyAddress: body.propertyAddress || "",
@@ -292,10 +324,12 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const useSpanish =
     // Both Global Desk forms carry an explicit on-page language choice —
     // trust it rather than guessing from name/country heuristics.
-    formName === "global-desk-listing" || formName === "spain-seller"
+    formName === "global-desk-listing" || formName === "spain-seller" || gilmarBuyer
       ? language === "es"
       : isSpanishContext(country, name);
-  const { subject, html } = formName === "global-desk-listing"
+  const { subject, html } = gilmarBuyer
+    ? buildGilmarBuyerEmail(useSpanish, name)
+    : formName === "global-desk-listing"
     ? buildGlobalDeskEmail(useSpanish)
     : formName === "lead-magnet-download"
     ? buildLeadMagnetEmail(guide, name, useSpanish)

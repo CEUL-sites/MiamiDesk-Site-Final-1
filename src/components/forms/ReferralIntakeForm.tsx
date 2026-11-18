@@ -13,12 +13,15 @@ const INITIAL: Record<string, string> = {
   clientTimeline: "", clientLocation: "", clientPropertyAddress: "", clientSharingConsent: "",
 };
 
-export function ReferralIntakeForm({language = "en", initialPurpose = "agent_registration"}: {
+export function ReferralIntakeForm({language = "en", initialPurpose = "agent_registration", sourcePage}: {
   language?: "en" | "es"; initialPurpose?: Purpose;
+  /** Page/program tag carried into HubSpot (e.g. "gilmar-spain-referral"). Never changes the Netlify form-name. */
+  sourcePage?: string;
 } = {}) {
   const es = language === "es";
   const t = (en: string, spanish: string) => es ? spanish : en;
   const formName = es ? "referral-intake-es" : "referral-intake";
+  const page = sourcePage || formName;
   const [form, setForm] = useState({...INITIAL, registrationPurpose: initialPurpose});
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [err, setErr] = useState("");
@@ -58,14 +61,14 @@ export function ReferralIntakeForm({language = "en", initialPurpose = "agent_reg
       const res = await fetch("/", {
         method: "POST", headers: {"Content-Type": "application/x-www-form-urlencoded"}, signal: controller.signal,
         body: new URLSearchParams({"form-name": formName, "bot-field": "", ...submitted,
-          source: es ? "es-agentes" : formName, sourcePage: formName, ...getAttribution(),
+          source: sourcePage || (es ? "es-agentes" : formName), sourcePage: page, ...getAttribution(),
           language, registrationVersion: "2", formRenderedAt: String(renderedAt.current)}).toString(),
       });
       if (!res.ok) throw new Error("submission_failed");
       notifyLeadDirect({name: form.licenseeName, email: form.email, phone: form.phone,
         city: form.country, timeline: form.referralType,
         message: `${form.registrationPurpose} · ${form.brokerageName} · ${form.clientSummary}`,
-        sourcePage: formName, formName, leadSource: getLeadSource(),
+        sourcePage: page, formName, leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current)});
       if (!es) fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST", headers: {"Content-Type": "application/json"},
