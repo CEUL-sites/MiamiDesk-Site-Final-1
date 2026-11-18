@@ -220,64 +220,6 @@ export default function JournalListPage() {
           </div>
         </section>
 
-        {/* ── SECTION 2: Three Foundational Seller Guides ───────────── */}
-        <section className="border-b border-hairline bg-ivory py-10" aria-labelledby="owner-guides-title">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink font-semibold">
-                  Foundational Seller Briefings
-                </p>
-                <h2 id="owner-guides-title" className="mt-2 font-serif text-3xl text-navy-deep">
-                  Three decisions to make before you list.
-                </h2>
-              </div>
-              <a
-                href="/sell#contact"
-                className="inline-flex min-h-11 items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline underline-offset-4 hover:text-gold-ink"
-              >
-                Request Your Private Seller Strategy Review →
-              </a>
-            </div>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {[
-                {
-                  step: '01 · Market Activation',
-                  title: 'Position the property',
-                  slug: 'listing-online-vs-activating-the-market-south-florida-2026',
-                  detail: 'Understand professional MLS visibility and cooperating buyer-agent discovery across 93,000 members.',
-                },
-                {
-                  step: '02 · Net Sheet Clarity',
-                  title: 'Estimate what you keep',
-                  slug: 'seller-closing-costs-south-florida-2026',
-                  detail: 'Review documentary stamp taxes, title charges, municipal liens, and payoff factors before pricing.',
-                },
-                {
-                  step: '03 · Transition Timing',
-                  title: 'Plan the next move',
-                  slug: 'relocating-out-of-south-florida-sequence-the-sale-2026',
-                  detail: 'Coordinate sale contingencies, post-occupancy terms, and relocation timelines without double moves.',
-                },
-              ].map((guide) => (
-                <article key={guide.slug} className="rounded-lg border border-hairline bg-white p-6 shadow-2xs">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink font-semibold">
-                    {guide.step}
-                  </p>
-                  <h3 className="mt-2 font-serif text-xl text-navy-deep">{guide.title}</h3>
-                  <p className="mt-2.5 font-sans text-sm leading-relaxed text-navy/75">{guide.detail}</p>
-                  <Link
-                    to={`/journal/${guide.slug}`}
-                    className="mt-4 inline-flex min-h-10 items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gold-ink hover:text-gold"
-                  >
-                    Read the guide <ArrowRight size={14} />
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ── SECTION 3: Search, Filter & Paginated Intelligence Feed ─ */}
         <section className="border-b border-hairline bg-white py-6 shadow-xs sticky top-16 z-30 backdrop-blur-md bg-white/95">
           <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-4">
