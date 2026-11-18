@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'how-to-price-single-family-home-broward-county-2026': [
+    {
+      q: 'What is the median single-family home price in Broward County in late 2026?',
+      a: 'The most recent figure is October 2026. MIAMI REALTORS® + RWorld reported a Broward County single-family median sale price of $610,000, compared with $611,250 in October 2025, a decrease of 0.20%. A county median blends very different neighborhoods and property sizes, so it shows the direction of the market rather than the value of any one home. A pricing analysis for a specific property should rely on recent closed sales in the same subdivision or immediate area.',
+    },
+    {
+      q: 'How many months of single-family housing supply does Broward County have right now?',
+      a: 'Broward County had 4.4 months of single-family supply in October 2026, which the association\'s report describes as a seller\'s market. The same report describes a balanced market as six to nine months of supply. Single-family active listings fell 16.72% from a year earlier, to 4,467 from 5,364. Supply varies by price band and neighborhood, so an owner should also count the listings that would compete directly with their home.',
+    },
+    {
+      q: 'Are Broward County home sellers still getting near asking price at 7% mortgage rates?',
+      a: 'Broward single-family sellers received a median 96% of their original list price in October 2026, and the median home went under contract in 41 days, down from 55 days a year earlier. Mortgage rates remain elevated: the Freddie Mac 30-year fixed average was 7.11% on November 12, 2026, against 6.24% a year earlier. Homes priced in line with recent comparable sales are the ones closing near list; overpriced homes tend to need reductions.',
+    },
+    {
+      q: 'How should I set the list price for a Broward single-family home?',
+      a: 'Start from recent closed sales in the same subdivision, weighting the newest most heavily, because the county median has been flat and the FHFA repeat-sales index for the Fort Lauderdale metropolitan division rose only 0.77% in the year to Q2 2026. Adjust for size, condition, roof age and insurance readiness, then check the active listings in your price band. Agree before launch on the showing and feedback level that would confirm the price. A licensed agent can prepare the comparable-sales analysis; tax questions belong with an accountant.',
+    },
+  ],
   'selling-florida-condo-special-assessment-2026': [
     {
       q: 'Who pays the special assessment when you sell a condo in Florida?',
