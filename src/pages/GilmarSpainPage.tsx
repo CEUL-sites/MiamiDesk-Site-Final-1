@@ -32,6 +32,8 @@ interface PropertyDetail {
   locationEs: string;
   regionEn: string;
   regionEs: string;
+  taxBadgeEn: string;
+  taxBadgeEs: string;
   unitLabelEn: string;
   unitLabelEs: string;
   priceEur: number;
@@ -39,6 +41,10 @@ interface PropertyDetail {
   priceSuffixEs: string;
   priceNoteEn: string;
   priceNoteEs: string;
+  builtSqm: number;
+  builtSqft: number;
+  outdoorSqm: number;
+  outdoorSqft: number;
   specsEn: string;
   specsEs: string;
   sizeSummaryEn: string;
@@ -82,6 +88,8 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
     locationEs: "Caleta de Fuste · Fuerteventura",
     regionEn: "Canary Islands · Spain",
     regionEs: "Islas Canarias · España",
+    taxBadgeEn: "IGIC Canary Islands (to confirm)",
+    taxBadgeEs: "IGIC Canarias (por confirmar)",
     unitLabelEn: "Block M · Floor 3B · Unit 69",
     unitLabelEs: "Bloque M · Planta 3B · Unidad 69",
     priceEur: 366000,
@@ -89,6 +97,10 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
     priceSuffixEs: "",
     priceNoteEn: "Selected-unit price · IGIC tax treatment to confirm",
     priceNoteEs: "Precio de unidad seleccionada · Tratamiento fiscal IGIC por confirmar",
+    builtSqm: 134,
+    builtSqft: 1442,
+    outdoorSqm: 63.3,
+    outdoorSqft: 681,
     specsEn: "3 Bedrooms · 2 Bathrooms · 134 m² Built",
     specsEs: "3 Dormitorios · 2 Baños · 134 m² construidos",
     sizeSummaryEn: "105.75 m² interior + 63.30 m² across two terraces",
@@ -144,6 +156,8 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
     locationEs: "Selwo · Estepona",
     regionEn: "Costa del Sol · Spain",
     regionEs: "Costa del Sol · España",
+    taxBadgeEn: "IVA Mainland (+ VAT)",
+    taxBadgeEs: "IVA Península (+ IVA)",
     unitLabelEn: "First-Floor Residence · 3 En-Suite Bedrooms",
     unitLabelEs: "Vivienda en Primera Planta · 3 Dormitorios en Suite",
     priceEur: 1442000,
@@ -151,6 +165,10 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
     priceSuffixEs: "+ IVA",
     priceNoteEn: "GILMAR quoted price · Purchase taxes & costs additional",
     priceNoteEs: "Precio comunicado por GILMAR · Impuestos y gastos adicionales",
+    builtSqm: 205.09,
+    builtSqft: 2208,
+    outdoorSqm: 27.55,
+    outdoorSqft: 297,
     specsEn: "3 En-Suite Bedrooms + Guest WC · 205.09 m² Built",
     specsEs: "3 Dormitorios en Suite + Aseo · 205,09 m² construidos",
     sizeSummaryEn: "27.55 m² private terrace · 2 underground parking spaces",
@@ -206,6 +224,8 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
     locationEs: "Muelle Uno · El Limonar",
     regionEn: "Málaga · Spain",
     regionEs: "Málaga · España",
+    taxBadgeEn: "IVA Mainland (+ VAT)",
+    taxBadgeEs: "IVA Península (+ IVA)",
     unitLabelEn: "Fifth Floor · Unit C · Private Pool",
     unitLabelEs: "Quinta Planta · Unidad C · Piscina Privada",
     priceEur: 1950000,
@@ -213,6 +233,10 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
     priceSuffixEs: "+ IVA",
     priceNoteEn: "GILMAR quoted price · Purchase taxes & costs additional",
     priceNoteEs: "Precio comunicado por GILMAR · Impuestos y gastos adicionales",
+    builtSqm: 120.3,
+    builtSqft: 1295,
+    outdoorSqm: 186.55,
+    outdoorSqft: 2008,
     specsEn: "2 Bedrooms · 2 Bathrooms · 120.30 m² Built",
     specsEs: "2 Dormitorios · 2 Baños · 120,30 m² construidos",
     sizeSummaryEn: "186.55 m² reported outdoor area · Private pool",
@@ -583,11 +607,67 @@ export default function GilmarSpainPage() {
     }
   });
   const [viewMode, setViewMode] = useState<"cards" | "compare">("cards");
+  const [currencyMode, setCurrencyMode] = useState<"eur" | "usd">("eur");
+  const [areaMode, setAreaMode] = useState<"sqm" | "sqft">("sqm");
+  const [activeMarketKey, setActiveMarketKey] = useState<string>("madrid");
+  const [pipelineMode, setPipelineMode] = useState<"buyer_agency" | "referral">("buyer_agency");
+  const [activePipelineNode, setActivePipelineNode] = useState<number>(0);
   const [intakeTab, setIntakeTab] = useState<"agent" | "buyer">("agent");
   const [selectedProperty, setSelectedProperty] = useState<PropertyDetail | null>(null);
 
   const es = lang === "es";
   const faqs = getFaqs(lang);
+  const selectedMarket = IDX_MARKETS.find((m) => m.key === activeMarketKey) ?? IDX_MARKETS[0];
+
+  const pipelineNodes = [
+    {
+      step: "01",
+      titleEn: "Florida Agent Registration (GD-Ref)",
+      titleEs: "Registro en Florida (GD-Ref)",
+      buyerAgencyEn: "Submit your Florida license, brokerage details, and client initials to issue your GD-Ref prior to introduction.",
+      buyerAgencyEs: "Envíe licencia de Florida, brokerage e iniciales para emitir su GD-Ref antes de la presentación.",
+      referralEn: "Register license and buyer criteria prior to any introduction to protect your client relationship.",
+      referralEs: "Registre licencia y criterios del comprador antes de presentar al cliente para proteger la relación.",
+    },
+    {
+      step: "02",
+      titleEn: "Written Fee Agreement & GILMAR Approval",
+      titleEs: "Acuerdo Escrito y Aprobación GILMAR",
+      buyerAgencyEn: "Receive case-by-case written buyer-agency cooperation terms approved by GILMAR Spain and your brokerage.",
+      buyerAgencyEs: "Reciba condiciones escritas de agencia de comprador aprobadas por GILMAR España y su brokerage.",
+      referralEn: "Each referral receives an asset-specific negotiated fee documented in writing upon GILMAR Spain approval.",
+      referralEs: "Cada referido recibe un honorario negociado por activo documentado por escrito tras aprobación de GILMAR.",
+    },
+    {
+      step: "03",
+      titleEn: "GILMAR Local Execution (36 Teams)",
+      titleEs: "Ejecución Local GILMAR (36 Equipos)",
+      buyerAgencyEn: "GILMAR runs showings, Centro Hipotecario financing, legal, and tax coordination while you represent the buyer.",
+      buyerAgencyEs: "GILMAR gestiona visitas, Centro Hipotecario y asesoría jurídica/fiscal mientras usted representa al comprador.",
+      referralEn: "United Realty Group and GILMAR manage local viewings, advisory, and negotiation in 10 languages.",
+      referralEs: "United Realty Group y GILMAR gestionan visitas, asesoría y negociación en 10 idiomas.",
+    },
+    {
+      step: "04",
+      titleEn: "Spanish Notary & Closing",
+      titleEs: "Notaría y Cierre en España",
+      buyerAgencyEn: "Deed execution before a Spanish notary supported by registry checks and post-closing administration.",
+      buyerAgencyEs: "Escritura pública ante notario en España con verificación registral y administración posventa.",
+      referralEn: "Closing supervised through deed signing with full registry and tax compliance verification.",
+      referralEs: "Cierre supervisado hasta escritura pública con verificación registral y fiscal.",
+    },
+    {
+      step: "05",
+      titleEn: "Broker Payout via United Realty Group",
+      titleEs: "Pago vía United Realty Group",
+      buyerAgencyEn: "At closing, GILMAR remits to United Realty Group and URG pays broker to broker to your brokerage.",
+      buyerAgencyEs: "Al cierre, GILMAR liquida a United Realty Group y URG abona de brokerage a brokerage a su agencia.",
+      referralEn: "At closing, United Realty Group disburses the agreed referral commission directly to your brokerage.",
+      referralEs: "Al cierre, United Realty Group abona el honorario de referencia directamente a su brokerage.",
+    },
+  ] as const;
+
+  const activeNode = pipelineNodes[activePipelineNode] ?? pipelineNodes[0];
 
   const toggleLanguage = (next: Lang) => {
     setLang(next);
@@ -842,26 +922,28 @@ export default function GilmarSpainPage() {
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {ADVISORY_PILLARS.map((pillar) => (
-                <div key={pillar.titleEn} className="border border-bone bg-white p-6 shadow-sm">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                    {es ? "División Especializada" : "Specialized Division"}
-                  </p>
-                  <h3 className="mt-3 font-serif text-xl text-navy-deep">
-                    {es ? pillar.titleEs : pillar.titleEn}
-                  </h3>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/75">
-                    {es ? pillar.bodyEs : pillar.bodyEn}
-                  </p>
-                </div>
+                <Tilt3D key={pillar.titleEn} maxTilt={4} className="h-full">
+                  <div className="h-full border border-bone bg-white p-6 shadow-sm transition-shadow hover:border-gold/50 hover:shadow-md">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                      {es ? "División Especializada" : "Specialized Division"}
+                    </p>
+                    <h3 className="mt-3 font-serif text-xl text-navy-deep">
+                      {es ? pillar.titleEs : pillar.titleEn}
+                    </h3>
+                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/75">
+                      {es ? pillar.bodyEs : pillar.bodyEn}
+                    </p>
+                  </div>
+                </Tilt3D>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── 3. Featured GILMAR Developments (Cards / Compare) ────── */}
+        {/* ── 3. Featured GILMAR Developments (3D Cards + Telemetry Compare) ── */}
         <section id="featured-residences" className="bg-white py-16 md:py-24" aria-labelledby="residences-heading">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink">
                   {es ? "PROMOCIONES SELECCIONADAS DE GILMAR" : "SELECTED GILMAR DEVELOPMENTS"}
@@ -875,27 +957,65 @@ export default function GilmarSpainPage() {
                     : "Each residence shown is one selected example; you may register client interest on any available unit in the development."}
                 </p>
               </div>
-              <div className="inline-flex shrink-0 border border-bone bg-ivory p-1" role="group" aria-label="View mode">
-                <button
-                  type="button"
-                  aria-pressed={viewMode === "cards"}
-                  onClick={() => setViewMode("cards")}
-                  className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] ${
-                    viewMode === "cards" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"
-                  }`}
-                >
-                  {es ? "Tarjetas" : "Cards"}
-                </button>
-                <button
-                  type="button"
-                  aria-pressed={viewMode === "compare"}
-                  onClick={() => setViewMode("compare")}
-                  className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] ${
-                    viewMode === "compare" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"
-                  }`}
-                >
-                  {es ? "Comparar las tres" : "Compare Three"}
-                </button>
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="inline-flex border border-bone bg-ivory p-1" role="group" aria-label={es ? "Divisa" : "Currency"}>
+                  <button
+                    type="button"
+                    aria-pressed={currencyMode === "eur"}
+                    onClick={() => setCurrencyMode("eur")}
+                    className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] ${currencyMode === "eur" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"}`}
+                  >
+                    EUR (€)
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={currencyMode === "usd"}
+                    onClick={() => setCurrencyMode("usd")}
+                    className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] ${currencyMode === "usd" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"}`}
+                  >
+                    {es ? "USD ($ · BCE)" : "USD ($ · ECB)"}
+                  </button>
+                </div>
+                <div className="inline-flex border border-bone bg-ivory p-1" role="group" aria-label={es ? "Superficie" : "Area"}>
+                  <button
+                    type="button"
+                    aria-pressed={areaMode === "sqm"}
+                    onClick={() => setAreaMode("sqm")}
+                    className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] ${areaMode === "sqm" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"}`}
+                  >
+                    m²
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={areaMode === "sqft"}
+                    onClick={() => setAreaMode("sqft")}
+                    className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] ${areaMode === "sqft" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"}`}
+                  >
+                    ft²
+                  </button>
+                </div>
+                <div className="inline-flex shrink-0 border border-bone bg-ivory p-1" role="group" aria-label="View mode">
+                  <button
+                    type="button"
+                    aria-pressed={viewMode === "cards"}
+                    onClick={() => setViewMode("cards")}
+                    className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] ${
+                      viewMode === "cards" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"
+                    }`}
+                  >
+                    {es ? "Tarjetas" : "Cards"}
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={viewMode === "compare"}
+                    onClick={() => setViewMode("compare")}
+                    className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] ${
+                      viewMode === "compare" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"
+                    }`}
+                  >
+                    {es ? "Comparar las tres" : "Compare Three"}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -905,10 +1025,14 @@ export default function GilmarSpainPage() {
                   const primaryPhoto = prop.gallery[0];
                   const priceEur = `${formatEur(prop.priceEur, lang)} ${es ? prop.priceSuffixEs : prop.priceSuffixEn}`.trim();
                   const priceUsd = formatUsd(prop.priceEur, lang);
+                  const primaryPrice = currencyMode === "usd" ? `${priceUsd} (${es ? "aprox." : "approx."})` : priceEur;
+                  const secondaryPrice = currencyMode === "usd" ? priceEur : `${es ? "Aprox." : "Approx."} ${priceUsd}`;
+                  const builtVal = areaMode === "sqft" ? `${prop.builtSqft.toLocaleString()} ft²` : `${prop.builtSqm} m²`;
+                  const outVal = areaMode === "sqft" ? `${prop.outdoorSqft.toLocaleString()} ft²` : `${prop.outdoorSqm} m²`;
 
                   return (
-                    <Tilt3D key={prop.slug} maxTilt={3} className="h-full">
-                      <div className="flex h-full flex-col overflow-hidden border border-bone bg-ivory shadow-sm transition-shadow hover:shadow-md">
+                    <Tilt3D key={prop.slug} maxTilt={5} className="h-full">
+                      <div className="flex h-full flex-col overflow-hidden border border-bone bg-ivory shadow-sm transition-shadow hover:border-gold/50 hover:shadow-md">
                         <button
                           type="button"
                           onClick={() => setSelectedProperty(prop)}
@@ -922,6 +1046,9 @@ export default function GilmarSpainPage() {
                           <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/85 via-transparent to-transparent" />
                           <span className="absolute left-3 top-3 bg-gold px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-navy-deep">
                             {es ? prop.regionEs : prop.regionEn}
+                          </span>
+                          <span className="absolute right-3 top-3 border border-white/25 bg-navy-deep/85 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-white">
+                            {es ? prop.taxBadgeEs : prop.taxBadgeEn}
                           </span>
                           <span className="absolute bottom-3 left-4 right-4 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
                             {es ? prop.locationEs : prop.locationEn}
@@ -937,10 +1064,24 @@ export default function GilmarSpainPage() {
                             <p className="mt-0.5 font-sans text-xs text-ink-primary/70">
                               {es ? prop.unitLabelEs : prop.unitLabelEn}
                             </p>
-                            <p className="mt-3 font-serif text-2xl font-semibold text-navy-deep">{priceEur}</p>
+                            <p className="mt-3 font-serif text-2xl font-semibold text-navy-deep">{primaryPrice}</p>
                             <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-primary/60">
-                              {es ? "Aprox." : "Approx."} {priceUsd} · {es ? prop.priceNoteEs : prop.priceNoteEn}
+                              {secondaryPrice} · {es ? prop.priceNoteEs : prop.priceNoteEn}
                             </p>
+                            <div className="mt-3 grid grid-cols-2 gap-2 border border-bone bg-white p-2.5">
+                              <div>
+                                <span className="block font-mono text-[9px] uppercase tracking-[0.12em] text-ink-primary/60">
+                                  {es ? "Construidos" : "Built"}
+                                </span>
+                                <span className="font-serif text-sm font-semibold text-navy-deep">{builtVal}</span>
+                              </div>
+                              <div className="border-l border-bone pl-2">
+                                <span className="block font-mono text-[9px] uppercase tracking-[0.12em] text-ink-primary/60">
+                                  {es ? "Exterior" : "Outdoor"}
+                                </span>
+                                <span className="font-serif text-sm font-semibold text-navy-deep">{outVal}</span>
+                              </div>
+                            </div>
                             <p className="mt-3 font-sans text-xs leading-relaxed text-ink-primary/75">
                               {es ? prop.summaryEs : prop.summaryEn}
                             </p>
@@ -974,129 +1115,248 @@ export default function GilmarSpainPage() {
                 })}
               </div>
             ) : (
-              <div className="mt-10 overflow-x-auto border border-bone bg-white">
-                <table className="w-full min-w-[720px] border-collapse text-left text-sm">
-                  <thead className="bg-navy-deep font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
-                    <tr>
-                      <th className="p-4">{es ? "Promoción" : "Development"}</th>
-                      <th className="p-4">{es ? "Ubicación" : "Location"}</th>
-                      <th className="p-4">{es ? "Precio" : "Quoted Price"}</th>
-                      <th className="p-4">{es ? "Especificaciones" : "Specifications"}</th>
-                      <th className="p-4">{es ? "Acción" : "Action"}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-bone">
-                    {DEVELOPMENTS.map((prop) => {
-                      const priceEur = `${formatEur(prop.priceEur, lang)} ${es ? prop.priceSuffixEs : prop.priceSuffixEn}`.trim();
-                      const priceUsd = formatUsd(prop.priceEur, lang);
-                      return (
-                        <tr key={prop.slug} className="hover:bg-ivory">
-                          <td className="p-4">
-                            <p className="font-serif text-lg font-semibold text-navy-deep">{prop.name}</p>
-                            <p className="text-xs text-ink-primary/65">{es ? prop.unitLabelEs : prop.unitLabelEn}</p>
-                          </td>
-                          <td className="p-4 text-xs text-ink-primary/80">
-                            {es ? prop.locationEs : prop.locationEn}
-                          </td>
-                          <td className="p-4">
-                            <p className="font-semibold text-navy-deep">{priceEur}</p>
-                            <p className="text-xs text-ink-primary/60">
-                              {es ? "Aprox." : "Approx."} {priceUsd}
+              <div className="mt-10 space-y-6">
+                {/* Interactive Visual Telemetry Bar Matrix */}
+                <div className="grid gap-4 md:grid-cols-3">
+                  {DEVELOPMENTS.map((prop) => {
+                    const priceRatio = Math.min(1, prop.priceEur / 2100000);
+                    const areaRatio = Math.min(1, prop.builtSqm / 220);
+                    const outRatio = Math.min(1, prop.outdoorSqm / 200);
+                    const priceDisp =
+                      currencyMode === "usd"
+                        ? formatUsd(prop.priceEur, lang)
+                        : `${formatEur(prop.priceEur, lang)} ${es ? prop.priceSuffixEs : prop.priceSuffixEn}`.trim();
+                    const builtDisp = areaMode === "sqft" ? `${prop.builtSqft.toLocaleString()} ft²` : `${prop.builtSqm} m²`;
+                    const outDisp = areaMode === "sqft" ? `${prop.outdoorSqft.toLocaleString()} ft²` : `${prop.outdoorSqm} m²`;
+
+                    return (
+                      <div key={prop.slug} className="border border-bone bg-ivory p-5">
+                        <div className="flex items-start justify-between gap-2">
+                          <div>
+                            <h3 className="font-serif text-xl text-navy-deep">{prop.name}</h3>
+                            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-primary/65">
+                              {es ? prop.locationEs : prop.locationEn}
                             </p>
-                          </td>
-                          <td className="p-4 text-xs text-ink-primary/80">
-                            <p>{es ? prop.specsEs : prop.specsEn}</p>
-                            <p className="text-ink-primary/60">{es ? prop.sizeSummaryEs : prop.sizeSummaryEn}</p>
-                          </td>
-                          <td className="p-4">
-                            <div className="flex gap-2">
-                              <button
-                                type="button"
-                                onClick={() => setSelectedProperty(prop)}
-                                className="border border-navy-deep px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-deep"
-                              >
-                                {es ? "Ver" : "View"}
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => jumpToRegister("agent")}
-                                className="bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-navy-deep"
-                              >
-                                {es ? "Registrar" : "Register"}
-                              </button>
+                          </div>
+                          <span className="border border-bone bg-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-navy-deep">
+                            {es ? prop.taxBadgeEs : prop.taxBadgeEn}
+                          </span>
+                        </div>
+                        <div className="mt-4 space-y-3 text-xs">
+                          <div>
+                            <div className="flex justify-between font-semibold text-navy-deep">
+                              <span>{es ? "Precio" : "Price"}</span>
+                              <span>{priceDisp}</span>
                             </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+                            <div className="mt-1 h-2 bg-bone">
+                              <div className="h-full origin-left bg-gold" style={{ transform: `scaleX(${priceRatio.toFixed(2)})` }} />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="flex justify-between font-semibold text-navy-deep">
+                              <span>{es ? "Superficie construida" : "Built Area"}</span>
+                              <span>{builtDisp}</span>
+                            </div>
+                            <div className="mt-1 h-2 bg-bone">
+                              <div className="h-full origin-left bg-navy-deep" style={{ transform: `scaleX(${areaRatio.toFixed(2)})` }} />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="flex justify-between font-semibold text-navy-deep">
+                              <span>{es ? "Exterior / Terraza" : "Outdoor Area"}</span>
+                              <span>{outDisp}</span>
+                            </div>
+                            <div className="mt-1 h-2 bg-bone">
+                              <div className="h-full origin-left bg-gold-ink" style={{ transform: `scaleX(${outRatio.toFixed(2)})` }} />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mt-4 flex gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setSelectedProperty(prop)}
+                            className="flex-1 border border-navy-deep px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-deep"
+                          >
+                            {es ? "Dossier" : "Brief"}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => jumpToRegister("agent")}
+                            className="flex-1 bg-gold px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-navy-deep"
+                          >
+                            {es ? "Registrar" : "Register"}
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="overflow-x-auto border border-bone bg-white">
+                  <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+                    <thead className="bg-navy-deep font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+                      <tr>
+                        <th className="p-4">{es ? "Promoción" : "Development"}</th>
+                        <th className="p-4">{es ? "Ubicación" : "Location"}</th>
+                        <th className="p-4">{es ? "Precio" : "Quoted Price"}</th>
+                        <th className="p-4">{es ? "Especificaciones" : "Specifications"}</th>
+                        <th className="p-4">{es ? "Acción" : "Action"}</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-bone">
+                      {DEVELOPMENTS.map((prop) => {
+                        const priceEur = `${formatEur(prop.priceEur, lang)} ${es ? prop.priceSuffixEs : prop.priceSuffixEn}`.trim();
+                        const priceUsd = formatUsd(prop.priceEur, lang);
+                        return (
+                          <tr key={prop.slug} className="hover:bg-ivory">
+                            <td className="p-4">
+                              <p className="font-serif text-lg font-semibold text-navy-deep">{prop.name}</p>
+                              <p className="text-xs text-ink-primary/65">{es ? prop.unitLabelEs : prop.unitLabelEn}</p>
+                            </td>
+                            <td className="p-4 text-xs text-ink-primary/80">
+                              {es ? prop.locationEs : prop.locationEn}
+                            </td>
+                            <td className="p-4">
+                              <p className="font-semibold text-navy-deep">{priceEur}</p>
+                              <p className="text-xs text-ink-primary/60">
+                                {es ? "Aprox." : "Approx."} {priceUsd}
+                              </p>
+                            </td>
+                            <td className="p-4 text-xs text-ink-primary/80">
+                              <p>{es ? prop.specsEs : prop.specsEn}</p>
+                              <p className="text-ink-primary/60">{es ? prop.sizeSummaryEs : prop.sizeSummaryEn}</p>
+                            </td>
+                            <td className="p-4">
+                              <div className="flex gap-2">
+                                <button
+                                  type="button"
+                                  onClick={() => setSelectedProperty(prop)}
+                                  className="border border-navy-deep px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-deep"
+                                >
+                                  {es ? "Ver" : "View"}
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => jumpToRegister("agent")}
+                                  className="bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-navy-deep"
+                                >
+                                  {es ? "Registrar" : "Register"}
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             )}
 
-            <p className="mt-6 font-sans text-[11px] leading-relaxed text-ink-primary/60">
-              {es
-                ? "Fuente de unidades: GILMAR (noviembre de 2026). Disponibilidad, precios, impuestos, entregas y planos requieren confirmación escrita vigente. Conversión aproximada a tipo de referencia BCE (1 EUR = 1,1052 USD, 13 nov. 2026). No se representa ninguna publicación MLS activa."
-                : "Unit source: GILMAR (reviewed Nov 2026). Availability, prices, taxes, delivery, and exact plans require current written confirmation. USD conversion approximate at ECB reference rate (1 EUR = 1.1052 USD, Nov 13, 2026). No active MLS listing is represented."}
-            </p>
+            <details className="mt-6 border border-bone bg-ivory px-4 py-3 font-sans text-[11px] leading-relaxed text-ink-primary/70">
+              <summary className="cursor-pointer font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep">
+                {es ? "Fuente de unidades y notas de conversión BCE" : "Unit source & ECB FX reference disclosures"}
+              </summary>
+              <p className="mt-2">
+                {es
+                  ? "Fuente de unidades: GILMAR (noviembre de 2026). Disponibilidad, precios, impuestos, entregas y planos requieren confirmación escrita vigente. Conversión aproximada a tipo de referencia BCE (1 EUR = 1,1052 USD, 13 nov. 2026). No se representa ninguna publicación MLS activa."
+                  : "Unit source: GILMAR (reviewed Nov 2026). Availability, prices, taxes, delivery, and exact plans require current written confirmation. USD conversion approximate at ECB reference rate (1 EUR = 1.1052 USD, Nov 13, 2026). No active MLS listing is represented."}
+              </p>
+            </details>
           </div>
         </section>
 
-        {/* ── 4. Registration-Gated 2,000+ Spain IDX Portfolio ─────── */}
+        {/* ── 4. Registration-Gated 2,000+ Spain IDX Regional Node Selector ── */}
         <section id="spain-idx" className="scroll-mt-24 bg-navy-deep py-16 text-white md:py-24" aria-labelledby="idx-heading">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-gold">
-                <Lock size={14} />
-                <span>
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+              <div className="lg:col-span-7">
+                <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-gold">
+                  <Lock size={14} />
+                  <span>
+                    {es
+                      ? "CATÁLOGO IDX PRIVADO · MÁS DE 2.000 PROPIEDADES EN ESPAÑA"
+                      : "REGISTERED IDX ACCESS · 2,000+ ACTIVE PROPERTIES IN SPAIN"}
+                  </span>
+                </div>
+                <h2 id="idx-heading" className="mt-3 font-serif text-3xl text-white md:text-4xl">
                   {es
-                    ? "CATÁLOGO IDX PRIVADO · MÁS DE 2.000 PROPIEDADES EN ESPAÑA"
-                    : "REGISTERED IDX ACCESS · 2,000+ ACTIVE PROPERTIES IN SPAIN"}
-                </span>
+                    ? "Explore más de 2.000 propiedades en España mediante registro."
+                    : "Browse 2,000+ properties across Spain through registration."}
+                </h2>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {IDX_MARKETS.map((m) => (
+                    <button
+                      key={m.key}
+                      type="button"
+                      onClick={() => setActiveMarketKey(m.key)}
+                      aria-pressed={m.key === activeMarketKey}
+                      className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors ${
+                        m.key === activeMarketKey
+                          ? "border-gold bg-gold font-bold text-navy-deep"
+                          : "border-white/20 bg-white/[0.04] text-white/80 hover:border-gold/50"
+                      }`}
+                    >
+                      {es ? m.regionEs : m.regionEn} · {m.count}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <h2 id="idx-heading" className="mt-3 font-serif text-3xl text-white md:text-4xl">
-                {es
-                  ? "Explore más de 2.000 propiedades en España mediante registro."
-                  : "Browse 2,000+ properties across Spain through registration."}
-              </h2>
-              <p className="mt-4 font-sans text-base leading-relaxed text-white/75">
-                {es
-                  ? "La cartera residencial activa de GILMAR supera las 2.000 propiedades (1.061 en Madrid, 737 en Costa del Sol, 201 en Islas Canarias y 23 en Cádiz, además de Sevilla y Obra Nueva) entre viviendas, áticos, chalets, inversión y activo comercial. Regístrese abajo para habilitar acceso guiado."
-                  : "GILMAR’s active residential portfolio exceeds 2,000 listings across its primary Spanish markets (1,061 in Madrid, 737 in Costa del Sol, 201 in the Canary Islands, and 23 in Cádiz, plus Seville and Obra Nueva) spanning homes, penthouses, villas, investment properties, and commercial assets. Register below for guided IDX access."}
-              </p>
+
+              <div className="border border-gold/35 bg-white/[0.04] p-5 lg:col-span-5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                  {es ? selectedMarket.regionEs : selectedMarket.regionEn}
+                </p>
+                <p className="mt-1 font-serif text-3xl font-semibold text-white">{selectedMarket.count}</p>
+                <p className="mt-1 font-sans text-xs text-white/75">
+                  {es ? selectedMarket.areasEs : selectedMarket.areasEn}
+                </p>
+              </div>
             </div>
 
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {IDX_MARKETS.map((market) => (
-                <div key={market.key} className="flex flex-col overflow-hidden border border-gold/25 bg-navy/80">
-                  <div className="h-44 w-full overflow-hidden bg-navy">
-                    <img
-                      src={market.image}
-                      alt={es ? market.altEs : market.altEn}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col justify-between p-5">
-                    <div>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                        {es ? market.regionEs : market.regionEn}
-                      </p>
-                      <p className="mt-1 font-serif text-3xl font-semibold text-white">{market.count}</p>
-                      <p className="mt-2 font-sans text-xs leading-relaxed text-white/70">
-                        {es ? market.areasEs : market.areasEn}
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => jumpToRegister("agent")}
-                      className="mt-4 inline-flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-gold hover:text-white"
+              {IDX_MARKETS.map((market) => {
+                const isSelected = market.key === activeMarketKey;
+                return (
+                  <Tilt3D key={market.key} maxTilt={4} className="h-full">
+                    <div
+                      onMouseEnter={() => setActiveMarketKey(market.key)}
+                      className={`flex h-full flex-col overflow-hidden border transition-all ${
+                        isSelected
+                          ? "border-gold bg-navy shadow-[0_12px_32px_rgba(201,168,76,0.2)]"
+                          : "border-gold/25 bg-navy/80"
+                      }`}
                     >
-                      {es ? "Registrar para ver IDX" : "Register to browse"}
-                      <ArrowRight size={12} />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                      <div className="h-44 w-full overflow-hidden bg-navy">
+                        <img
+                          src={market.image}
+                          alt={es ? market.altEs : market.altEn}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                      <div className="flex flex-1 flex-col justify-between p-5">
+                        <div>
+                          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                            {es ? market.regionEs : market.regionEn}
+                          </p>
+                          <p className="mt-1 font-serif text-3xl font-semibold text-white">{market.count}</p>
+                          <p className="mt-2 font-sans text-xs leading-relaxed text-white/70">
+                            {es ? market.areasEs : market.areasEn}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => jumpToRegister("agent")}
+                          className="mt-4 inline-flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-gold hover:text-white"
+                        >
+                          {es ? "Registrar para ver IDX" : "Register to browse"}
+                          <ArrowRight size={12} />
+                        </button>
+                      </div>
+                    </div>
+                  </Tilt3D>
+                );
+              })}
             </div>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -1119,67 +1379,97 @@ export default function GilmarSpainPage() {
           </div>
         </section>
 
-        {/* ── 5. Negotiated Referral Fees by Asset Class ───────────── */}
+        {/* ── 5. Interactive 5-Stage Deal-Flow Pipeline ───────────── */}
         <section className="bg-white py-16 md:py-24" aria-labelledby="coop-heading">
           <div className="mx-auto max-w-7xl px-6">
-            <div className="max-w-3xl">
-              <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink">
-                {es
-                  ? "COOPERACIÓN ENTRE BROKERAGES · ACUERDOS POR OPERACIÓN"
-                  : "BROKERAGE-TO-BROKERAGE COOPERATION · WRITTEN REFERRAL AGREEMENTS"}
-              </p>
-              <h2 id="coop-heading" className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
-                {es
-                  ? "Honorarios negociados por tipo de activo — protegidos por escrito."
-                  : "Negotiated referral fees by asset class — protected in writing."}
-              </h2>
-              <p className="mt-4 font-sans text-base leading-relaxed text-ink-primary/75">
-                {es
-                  ? "Refiera a su cliente a los equipos de GILMAR en España y genere una comisión de referencia por operación. La estructura de honorarios depende del producto (obra nueva, segunda mano, inversión o comercial) y del nivel de servicio; cada caso cuenta con su propio honorario negociado, respetado por escrito tras aprobación de GILMAR España y pagado a su brokerage a través de United Realty Group."
-                  : "Refer your client to GILMAR Spain’s professional teams and earn a transaction-specific referral commission. Because compensation varies by product category (new developments, resale residential, investment real estate, or commercial) and level of service, each case carries its own negotiated fee—respected in writing once approved by GILMAR Spain and paid at closing through United Realty Group directly to your brokerage."}
-              </p>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div className="max-w-3xl">
+                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink">
+                  {es
+                    ? "COOPERACIÓN ENTRE BROKERAGES · ACUERDOS POR OPERACIÓN"
+                    : "BROKERAGE-TO-BROKERAGE COOPERATION · WRITTEN REFERRAL AGREEMENTS"}
+                </p>
+                <h2 id="coop-heading" className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
+                  {es
+                    ? "Honorarios negociados por tipo de activo — protegidos por escrito."
+                    : "Negotiated referral fees by asset class — protected in writing."}
+                </h2>
+              </div>
+
+              <div className="inline-flex border border-bone bg-ivory p-1" role="group" aria-label={es ? "Modalidad de cooperación" : "Cooperation mode"}>
+                <button
+                  type="button"
+                  aria-pressed={pipelineMode === "buyer_agency"}
+                  onClick={() => setPipelineMode("buyer_agency")}
+                  className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.14em] ${
+                    pipelineMode === "buyer_agency" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/75"
+                  }`}
+                >
+                  {es ? "Agencia de comprador" : "Buyer Agency"}
+                </button>
+                <button
+                  type="button"
+                  aria-pressed={pipelineMode === "referral"}
+                  onClick={() => setPipelineMode("referral")}
+                  className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.14em] ${
+                    pipelineMode === "referral" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/75"
+                  }`}
+                >
+                  {es ? "Solo referencia" : "Referral Only"}
+                </button>
+              </div>
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              <div className="border border-gold/50 bg-ivory p-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                  {es ? "01 · REGISTRO DE LICENCIA Y ACTIVO" : "01 · LICENSE & ASSET REGISTRATION"}
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" role="tablist">
+              {pipelineNodes.map((node, idx) => {
+                const selected = activePipelineNode === idx;
+                return (
+                  <button
+                    key={node.step}
+                    type="button"
+                    role="tab"
+                    aria-selected={selected}
+                    onClick={() => setActivePipelineNode(idx)}
+                    className={`flex flex-col border p-4 text-left transition-all ${
+                      selected
+                        ? "border-gold bg-navy-deep text-white shadow-md"
+                        : "border-bone bg-ivory text-navy-deep hover:border-gold/55"
+                    }`}
+                  >
+                    <span className={`font-mono text-[10px] font-bold uppercase tracking-[0.18em] ${selected ? "text-gold" : "text-gold-ink"}`}>
+                      {node.step}
+                    </span>
+                    <span className="mt-1.5 font-serif text-base font-semibold">
+                      {es ? node.titleEs : node.titleEn}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border border-gold/50 bg-ivory p-6">
+              <div className="max-w-2xl">
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">
+                  {es ? `Etapa ${activeNode.step}` : `Stage ${activeNode.step}`} ·{" "}
+                  {pipelineMode === "buyer_agency"
+                    ? es ? "Agencia de comprador hasta el cierre" : "Buyer Agency Through Closing"
+                    : es ? "Solo referencia" : "Referral Only"}
                 </p>
-                <h3 className="mt-2 font-serif text-2xl text-navy-deep">
-                  {es ? "Registre antes de presentar al cliente" : "Register prior to client introduction"}
-                </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/75">
-                  {es
-                    ? "Envíe su licencia, datos de brokerage y criterios del comprador (obra nueva, residencial, inversión o comercial) para proteger su relación desde el inicio."
-                    : "Submit your real estate license, brokerage information, and client criteria (new development, resale, investment, or commercial) prior to any introduction."}
+                <p className="mt-1.5 font-sans text-sm leading-relaxed text-navy-deep">
+                  {pipelineMode === "buyer_agency"
+                    ? es ? activeNode.buyerAgencyEs : activeNode.buyerAgencyEn
+                    : es ? activeNode.referralEs : activeNode.referralEn}
                 </p>
               </div>
-              <div className="border border-bone bg-ivory p-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                  {es ? "02 · ACUERDO NEGOCIADO Y APROBACIÓN" : "02 · NEGOTIATED FEE & APPROVAL"}
-                </p>
-                <h3 className="mt-2 font-serif text-2xl text-navy-deep">
-                  {es ? "Aprobación escrita de GILMAR España" : "Respected in writing by GILMAR Spain"}
-                </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/75">
-                  {es
-                    ? "Cada referido recibe su propio honorario negociado según el tipo de activo y nivel de servicio, documentado por escrito tras la aprobación de GILMAR España."
-                    : "Each referral receives its own negotiated fee based on asset class and level of service—documented and respected in writing upon GILMAR Spain approval."}
-                </p>
-              </div>
-              <div className="border border-bone bg-ivory p-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                  {es ? "03 · PAGO VÍA UNITED REALTY GROUP" : "03 · CLOSING BROKERAGE PAYOUT"}
-                </p>
-                <h3 className="mt-2 font-serif text-2xl text-navy-deep">
-                  {es ? "Pago directo a su brokerage al cierre" : "Paid via United Realty Group"}
-                </h3>
-                <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/75">
-                  {es
-                    ? "Los equipos locales de GILMAR gestionan visitas, asesoría y cierre en España; al cierre, United Realty Group abona el honorario directamente a su brokerage."
-                    : "GILMAR’s local teams handle viewings, advisory, and closing in Spain; at closing, United Realty Group disburses the referral fee directly to your brokerage."}
-                </p>
-              </div>
+
+              <button
+                type="button"
+                onClick={() => jumpToRegister("agent")}
+                className="inline-flex items-center gap-2 bg-gold px-6 py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep hover:bg-gold-soft"
+              >
+                {es ? "Registrar cliente y recibir condiciones" : "Register a client and receive terms"}
+                <ArrowRight size={13} />
+              </button>
             </div>
           </div>
         </section>

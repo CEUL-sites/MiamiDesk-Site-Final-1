@@ -320,12 +320,12 @@ export default function MarketDataPage() {
 
   // Kept under ~160 characters so it is not truncated in search results, while
   // still carrying the source attribution the compliance checklist requires.
-  const metaDesc = `South Florida market data, August 2026. Miami-Dade single-family median ${formatPrice(sfhMedianMD)}, Broward ${formatPrice(sfhMedianBroward)}, Palm Beach ${formatPrice(sfhMedianPB)}. Source: Miami Realtors Association.`;
+  const metaDesc = `South Florida market data, October 2026. Miami-Dade single-family median ${formatPrice(sfhMedianMD)}, Broward ${formatPrice(sfhMedianBroward)}, Palm Beach ${formatPrice(sfhMedianPB)}. Source: Miami Realtors Association.`;
 
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    name: "South Florida Real Estate Market Statistics — August 2026 counties and Q2 2026 cities",
+    name: "South Florida Real Estate Market Statistics — October 2026 counties and Q2 2026 cities",
     description: metaDesc,
     url: "https://homesprofessional.com/market-data",
     creator: {
@@ -333,7 +333,7 @@ export default function MarketDataPage() {
       name: "Miami and South Florida REALTORS®",
       url: "https://www.miamirealtors.com",
     },
-    temporalCoverage: "2026-04-01/2026-08-31",
+    temporalCoverage: "2026-04-01/2026-10-31",
     spatialCoverage: {
       "@type": "Place",
       name: "South Florida (Miami-Dade, Broward, Palm Beach Counties)",
@@ -351,12 +351,12 @@ export default function MarketDataPage() {
   return (
     <>
       <Helmet>
-        <title>South Florida Real Estate Market Data | August 2026</title>
+        <title>South Florida Real Estate Market Data | October 2026</title>
         <meta name="description" content={metaDesc} />
         <link rel="canonical" href="https://homesprofessional.com/market-data" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/market-data" />
-        <meta property="og:title" content="South Florida Real Estate Market Data | August 2026" />
+        <meta property="og:title" content="South Florida Real Estate Market Data | October 2026" />
         <meta property="og:description" content={metaDesc} />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -371,14 +371,14 @@ export default function MarketDataPage() {
       <section className="bg-navy-deep pt-28 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-            MIAMI REALTORS® · August 2026 counties · Q2 2026 cities
+            MIAMI REALTORS® · October 2026 counties · Q2 2026 cities
           </p>
           <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight">
             What the South Florida Market<br className="hidden md:block" /> Is Doing Right Now
           </h1>
           <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Official closed-sale and inventory data for Miami-Dade, Broward and Palm Beach.
-            County figures cover August 2026; city figures cover Q2 2026. Each city row shows its report period.
+            County figures cover October 2026; city figures cover Q2 2026. Each city row shows its report period.
           </p>
           <div className="pt-2">
             <a
@@ -399,7 +399,7 @@ export default function MarketDataPage() {
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="text-center space-y-2">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">County Overview</p>
-            <h2 className="font-serif text-2xl md:text-3xl text-ink-primary">Three-County Snapshot — August 2026</h2>
+            <h2 className="font-serif text-2xl md:text-3xl text-ink-primary">Three-County Snapshot — October 2026</h2>
             <p className="text-sm text-gray-500 max-w-xl mx-auto">
               Monthly figures from Miami Realtors Association. Months supply below 3 = seller's market, 3–6 = balanced, above 6 = buyer's market.
             </p>
@@ -456,12 +456,12 @@ export default function MarketDataPage() {
         <div className="max-w-6xl mx-auto space-y-3">
           <p className="text-xs text-gray-500 leading-relaxed">
             <span className="font-semibold">Data source:</span> Miami and South Florida REALTORS® Monthly Market
-            Statistics Reports, August 2026, and Florida REALTORS® Local Residential Market Metrics city reports.
-            County-level figures reflect August 2026 monthly data; city-level figures reflect Q2 2026 closed sales and each row shows its actual report period.
+            Statistics Reports, October 2026, and Florida REALTORS® Local Residential Market Metrics city reports.
+            County-level figures reflect October 2026 monthly data; city-level figures reflect Q2 2026 closed sales and each row shows its actual report period.
             Days on market at the county level reflects median time to sale/contract. Months supply
             and median price data are provided directly as published; no estimates or interpolations have been made.{" "}
             <a
-              href="https://www.miamirealtors.com/news/south-florida-market-stats/south-florida-market-stats-august-2026/"
+              href="https://www.miamirealtors.com/news/south-florida-market-stats/south-florida-market-stats-october-2026/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold hover:underline inline-flex items-center gap-0.5"
