@@ -2,9 +2,14 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { BadgeCheck, Download } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 
 export default function BuyerThanksPage() {
+  const [params] = useSearchParams();
+  // GILMAR Spain Desk buyers share this conversion URL (GA4 lead event fires here)
+  // but must not be told they requested a Miami buyer brief.
+  if (params.get("desk") === "gilmar-spain") return <GilmarBuyerThanks es={params.get("lang") === "es"} />;
   return (
     <>
       <Helmet>
@@ -54,6 +59,60 @@ export default function BuyerThanksPage() {
                 className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 Browse Active Listings
+              </a>
+            </div>
+            <div className="mt-12 border-t border-white/10 pt-8">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
+                {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
+              </p>
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </main>
+    </>
+  );
+}
+
+function GilmarBuyerThanks({ es }: { es: boolean }) {
+  return (
+    <>
+      <Helmet>
+        <title>{es ? "Solicitud Recibida | GILMAR España" : "Request Received | GILMAR Spain Desk"}</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      <main id="main-content" className="min-h-screen bg-white-soft grain-overlay">
+        <Navbar />
+        <section className="flex min-h-[75vh] items-center justify-center bg-navy-deep py-24">
+          <div className="mx-auto max-w-2xl px-6 text-center">
+            <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center bg-gold/15">
+              <BadgeCheck size={34} className="text-gold" />
+            </div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              {es ? "Confirmado · GILMAR España" : "Confirmed · GILMAR Spain Desk"}
+            </p>
+            <h1 className="mt-4 font-serif text-4xl text-white">
+              {es ? "Solicitud de acceso recibida." : "Portfolio access requested."}
+            </h1>
+            <p className="mx-auto mt-6 max-w-lg font-sans text-base leading-relaxed text-white/70">
+              {es
+                ? "Nuestro equipo revisará su zona, tipo de activo y presupuesto, y coordinará el acceso guiado a la cartera de GILMAR en España. Recibirá una confirmación por correo."
+                : "Our team will review your target region, asset type and budget, and coordinate guided access to GILMAR’s Spain portfolio. A confirmation is on its way to your email."}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href={CONTACT.whatsappSpain}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90"
+              >
+                {es ? "WhatsApp España +34" : "WhatsApp Spain line +34"}
+              </a>
+              <a
+                href="/gilmar-spain#spain-idx"
+                className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+              >
+                {es ? "Volver al catálogo España" : "Back to the Spain portfolio"}
               </a>
             </div>
             <div className="mt-12 border-t border-white/10 pt-8">

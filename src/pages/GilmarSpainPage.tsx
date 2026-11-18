@@ -15,8 +15,6 @@ import {
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
-import { DesktopStickyCTA } from "../components/DesktopStickyCTA";
-import { ExitIntentModal } from "../components/ExitIntentModal";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { JsonLd } from "../components/SEO/JsonLd";
 import { Tilt3D } from "../components/Tilt3D";
@@ -1232,21 +1230,9 @@ export default function GilmarSpainPage() {
 
             <div className="mt-8">
               {intakeTab === "agent" ? (
-                <ReferralIntakeForm language={lang} initialPurpose="client_referral" />
+                <ReferralIntakeForm language={lang} initialPurpose="client_referral" sourcePage="gilmar-spain-referral" />
               ) : (
-                <div className="border border-bone bg-white p-6 text-navy sm:p-8">
-                  <div className="mb-6 border-b border-bone pb-4">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink">
-                      {es ? "ACCESO COMPRADORES · ESPAÑA" : "BUYER IDX ACCESS · SPAIN"}
-                    </p>
-                    <h3 className="mt-2 font-serif text-2xl text-navy-deep">
-                      {es
-                        ? "Solicitar acceso guiado al catálogo de 2.000+ propiedades"
-                        : "Request guided access to GILMAR’s 2,000+ property feed"}
-                    </h3>
-                  </div>
-                  <BuyerMandateForm />
-                </div>
+                <BuyerMandateForm variant="gilmar-spain" language={lang} />
               )}
             </div>
 
@@ -1269,7 +1255,7 @@ export default function GilmarSpainPage() {
               </h2>
             </div>
             <div className="mt-10">
-              <FaqAccordion faqs={faqs} />
+              <FaqAccordion faqs={faqs} tone="light" />
             </div>
           </div>
         </section>
@@ -1277,9 +1263,11 @@ export default function GilmarSpainPage() {
         <Footer />
       </main>
 
-      <MobileStickyCTA />
-      <DesktopStickyCTA />
-      <ExitIntentModal />
+      {/* Only the mobile pill: it opens #register-desk. The desktop bar ("What's your
+          South Florida home worth?") and the exit-intent seller net sheet are Miami
+          seller offers — off-message here, and the net sheet would file Spain agents
+          and buyers in HubSpot as Miami seller-guide requests. */}
+      <MobileStickyCTA lang={lang} />
 
       {selectedProperty && (
         <PropertyDetailModal

@@ -39,6 +39,9 @@ const parsedPhone = (v,region='US') => {
  return parsed?.isPossible()?parsed:null;
 };
 export const phoneKey = (v,region='US') => parsedPhone(v,region)?.number.slice(1)||'';
+// Program desks share the standard forms; the tag rides in sourcePage/source so the
+// Netlify form-name (and its static registration) never changes per program.
+export const programTag = f => [f.sourcePage,f.source].some(v=>/^gilmar/i.test(text(v)))?'GILMAR Spain':'';
 const professionalInquiry = job => ['referral_partner','agency_developer'].includes(job.category);
 const publicUrl = value => {
  try { const url=new URL(value);return ['https:','http:'].includes(url.protocol)&&!url.username&&!url.password?value:''; }
@@ -108,7 +111,8 @@ export function inquiryNote(job) {
  const f=job.fields;
  const professional=professionalInquiry(job)?`<p><strong>Agent / agency details</strong><br>Name: ${escapeHtml(f.name)}<br>Brokerage: ${escapeHtml(f.brokerageName||f.agency||f.company)}<br>Country / market: ${escapeHtml(f.country||f.jurisdiction)}<br>Referral type: ${escapeHtml(f.referralType)}</p>`:'';
  const relationship=job.referredContactId?`<p><strong>Referring agent</strong>: ${escapeHtml(f.name)} (CRM contact ${escapeHtml(job.contactId)})<br><strong>Referred client</strong>: ${escapeHtml(f.clientName)} (CRM contact ${escapeHtml(job.referredContactId)})<br>Client sharing authorization: recorded in submission.</p>`:'';
- return `<p><strong>${escapeHtml(CATEGORIES[job.category])}</strong> · ${escapeHtml(job.form)}</p>${professional}${relationship}<p>Submission: ${job.key}</p><pre>${escapeHtml(JSON.stringify(safe,null,2))}</pre>`;
+ const program=programTag(f);
+ return `<p><strong>${escapeHtml(CATEGORIES[job.category])}</strong> · ${escapeHtml(job.form)}${program?` · <strong>${escapeHtml(program)}</strong>`:''}</p>${professional}${relationship}<p>Submission: ${job.key}</p><pre>${escapeHtml(JSON.stringify(safe,null,2))}</pre>`;
 }
 export class HubSpotClient {
  constructor(token,fetcher=fetch,sleep=ms=>new Promise(r=>setTimeout(r,ms)),deadline=Infinity){this.token=token;this.fetcher=fetcher;this.sleep=sleep;this.deadline=deadline;}
@@ -215,7 +219,8 @@ export async function syncJob(job,api,save,owner) {
   job.creatingActivity='task';await save(job);
   try{job.taskId=(await api.createTask({hs_timestamp:new Date(Date.parse(job.at)+60*60*1000).toISOString(),
    hs_task_subject:(clientJob?`Website: Client referral — ${job.fields.clientName} / ${job.fields.name}`:
-    `Website: ${REGISTRATION_PURPOSES[job.fields.registrationPurpose]||CATEGORIES[job.category]} — ${job.fields.name||job.fields.email||job.fields.phone}`).slice(0,240),
+    `Website: ${REGISTRATION_PURPOSES[job.fields.registrationPurpose]||CATEGORIES[job.category]} — ${job.fields.name||job.fields.email||job.fields.phone}`)
+    .concat(programTag(job.fields)?` · ${programTag(job.fields)}`:'').slice(0,240),
    hs_task_body:inquiryNote(job),hs_task_status:'NOT_STARTED',hs_task_type:'TODO',
    // A task without a reminder is silent in HubSpot. The reminder makes HubSpot itself
    // alert the owner (email, desktop and mobile app), independent of WhatsApp/Resend.
