@@ -60,7 +60,7 @@ export function HouseBotHero({
   const fine = tone === "dark" ? "text-white/65" : "text-navy-deep/70";
 
   return (
-    <div data-housebot-hero className={`mt-6 flex items-center gap-3 md:gap-4 ${className}`}>
+    <div data-housebot-hero className={`mt-5 flex items-center gap-2.5 md:mt-6 md:gap-4 ${className}`}>
       <div
         role="button"
         tabIndex={0}
@@ -71,13 +71,13 @@ export function HouseBotHero({
       >
         <HouseBotStage mode="hero" size={size} onUnavailable={() => setUnavailable(true)} />
       </div>
-      <div className={`relative max-w-sm rounded-xl border px-4 py-3 text-left shadow-xl backdrop-blur-sm ${bubble}`}>
+      <div className={`relative max-w-sm rounded-xl border px-3 py-2.5 text-left shadow-xl backdrop-blur-sm md:px-4 md:py-3 ${bubble}`}>
         <span
           aria-hidden="true"
           className={`absolute -left-[7px] top-1/2 h-3 w-3 -translate-y-1/2 rotate-45 border-b border-l ${bubble}`}
         />
-        <p className="relative font-sans text-sm leading-snug">{line}</p>
-        <p className={`relative mt-2 font-mono text-[9.5px] uppercase leading-snug tracking-[0.08em] ${fine}`}>
+        <p className="relative font-sans text-[13px] leading-snug md:text-sm">{line}</p>
+        <p className={`relative mt-1.5 font-sans text-[10px] leading-snug md:mt-2 md:font-mono md:text-[9.5px] md:uppercase md:tracking-[0.08em] ${fine}`}>
           {ui.aiDisclosure} {COMPLIANCE_FOOTER}
         </p>
       </div>

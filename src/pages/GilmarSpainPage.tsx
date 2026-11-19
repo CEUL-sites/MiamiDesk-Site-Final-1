@@ -21,6 +21,7 @@ import { Tilt3D } from "../components/Tilt3D";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { CONTACT, PUBLIC_COMPLIANCE } from "../constants";
+import { HouseBotHero } from "../components/housebot/HouseBotHero";
 
 type Lang = "en" | "es";
 
@@ -845,6 +846,7 @@ export default function GilmarSpainPage() {
                   {es ? "Explorar 2.000+ propiedades IDX" : "Browse 2,000+ Spain IDX"}
                 </a>
               </div>
+              <HouseBotHero variant="globalDesk" lang={lang} />
 
               <div className="mt-8 grid gap-3 border-t border-white/15 pt-6 text-xs text-white/80 sm:grid-cols-3">
                 <div className="flex items-center gap-2">
