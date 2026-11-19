@@ -213,40 +213,43 @@ export const handler: Handler = async (event: HandlerEvent) => {
       parts: [{ text: message.content }],
     }));
 
-    // Try each model in order; only a retired/unknown model falls through.
+    // Try each model in order: retry a transient/upstream failure once on the
+    // first model, and fall through on per-model quota, unavailability, or transient spikes.
     let result: Awaited<ReturnType<typeof ai.models.generateContent>> | null = null;
     let lastError: unknown = null;
-    // A transient Google error (overloaded / 5xx) is retried once on the same
-    // model, then the next model is tried.
-    const attempts = GEMINI_MODELS.flatMap((m, i) => (i === 0 ? [m, m] : [m]));
     const startedAt = Date.now();
-    for (const [attempt, model] of attempts.entries()) {
-      // Never let retries outlast the platform's request timeout.
-      if (attempt > 0 && Date.now() - startedAt > 12_000) break;
-      try {
-        console.log(`[ai-desk] Gemini request sent (${model})`);
-        result = await ai.models.generateContent({
-          model,
-          contents,
-          config: {
-            systemInstruction,
-            maxOutputTokens: 900,
-            temperature: 0.3,
-            thinkingConfig: { thinkingBudget: 0 },
-          },
-        });
-        break;
-      } catch (err) {
-        lastError = err;
-        const code = classifyGeminiError(err instanceof Error ? err.message : String(err));
-        console.error(`[ai-desk] Gemini error (${model}): ${code}`);
-        // Unknown failures are retried too: only key / quota errors are certain to repeat.
-        if (code === "transient" || code === "upstream") {
-          if (attempt === 0) await new Promise((r) => setTimeout(r, 400));
-          continue;
+    for (let i = 0; i < GEMINI_MODELS.length; i++) {
+      // Never let retries/fallbacks outlast the platform's request timeout.
+      if (i > 0 && Date.now() - startedAt > 12_000) break;
+      const model = GEMINI_MODELS[i];
+      const supportsThinkingBudget = model !== "gemini-flash-lite-latest";
+      for (let retry = 0; retry < (i === 0 ? 2 : 1); retry++) {
+        try {
+          console.log(`[ai-desk] Gemini request sent (${model})`);
+          result = await ai.models.generateContent({
+            model,
+            contents,
+            config: {
+              systemInstruction,
+              maxOutputTokens: 900,
+              temperature: 0.3,
+              ...(supportsThinkingBudget ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
+            },
+          });
+          break;
+        } catch (err) {
+          lastError = err;
+          const code = classifyGeminiError(err instanceof Error ? err.message : String(err));
+          console.error(`[ai-desk] Gemini error (${model}): ${code}`);
+          if (code === "key_invalid" || code === "key_restricted") throw err;
+          if ((code === "transient" || code === "upstream") && i === 0 && retry === 0) {
+            await new Promise((r) => setTimeout(r, 400));
+            continue;
+          }
+          break;
         }
-        if (code !== "model_unavailable") throw err;
       }
+      if (result) break;
     }
     if (!result) throw lastError ?? new Error("no model available");
     console.log("[ai-desk] Gemini response received");
