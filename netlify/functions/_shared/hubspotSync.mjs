@@ -57,6 +57,8 @@ export function classifyInquiry(form, f) {
  if(form==='global-desk-listing')return /agent|agency|broker|developer|professional/i.test(text(f.submitterType))?'agency_developer':'international_owner';
  if(form==='spain-seller')return /agent|agency|broker|developer|agencia|promotor/i.test(text(f.role))?'agency_developer':'international_owner';
  if(form==='lead-magnet-download')return 'guide_request';
+ // Miami Desk chat registration: route by the interest the visitor picked.
+ if(form==='ai-desk-registration')return f.interest==='referral'?'referral_partner':['buying','investing'].includes(text(f.interest))?'buyer':'south_florida_seller';
  return null;
 }
 export function makeJob(form, original, submissionId) {

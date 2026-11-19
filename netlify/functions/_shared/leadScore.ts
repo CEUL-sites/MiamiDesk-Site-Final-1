@@ -222,6 +222,7 @@ const FORM_INTENT: Record<string, number> = {
   "spain-seller": 11,
   "global-desk-listing": 10,
   "buyer-mandate": 8,
+  "ai-desk-registration": 8,
   "referral-intake": 7,
   "agency-partner-intake": 7,
   "seller-valuation-step1": 5,

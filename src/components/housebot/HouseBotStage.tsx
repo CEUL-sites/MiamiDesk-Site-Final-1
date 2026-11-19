@@ -14,6 +14,7 @@ import {
   HOUSEBOT_ASSETS,
   canLookAgain,
   lookDirectionFor,
+  shouldAnimate2D,
   shouldRender3D,
   type LookDirection,
 } from "./houseBotModel";
@@ -93,9 +94,22 @@ export interface HouseBotStageProps {
   size: number;
   /** Fired when the poster image fails (assets missing) — the caller hides the bot. */
   onUnavailable?: () => void;
+  /** Increment to play the Greet wave (3D clip or rendered image). */
+  greetSignal?: number;
+  /** Increment to play Present — the lean toward a section or CTA. */
+  presentSignal?: number;
 }
 
-export function HouseBotStage({ mode, size, onUnavailable }: HouseBotStageProps) {
+// The Greet image is fetched once and replayed from a fresh blob URL each
+// time: a new URL restarts the animation from frame 0 without re-downloading.
+let greetBuffer: Promise<Blob | null> | null = null;
+const loadGreet = () =>
+  (greetBuffer ??= fetch(HOUSEBOT_ASSETS.greet2D)
+    .then((r) => (r.ok ? r.blob() : null))
+    .catch(() => null));
+const GREET_MS = 2000;
+
+export function HouseBotStage({ mode, size, onUnavailable, greetSignal = 0, presentSignal = 0 }: HouseBotStageProps) {
   const ref = useRef<HTMLDivElement>(null);
   const desktop = useMedia(`(min-width: ${DESKTOP_MIN_WIDTH}px)`);
   const reducedMotion = useMedia("(prefers-reduced-motion: reduce)", true);
@@ -109,17 +123,46 @@ export function HouseBotStage({ mode, size, onUnavailable }: HouseBotStageProps)
   const [nodSignal, setNodSignal] = useState(0);
   const [look, setLook] = useState<{ dir: LookDirection; n: number } | null>(null);
   const lastLookAt = useRef<number | null>(null);
+  const [animate2D, setAnimate2D] = useState(false);
+  const [src2D, setSrc2D] = useState<string>(HOUSEBOT_ASSETS.poster);
 
   useEffect(() => {
-    setAllow3D(
-      shouldRender3D({
-        desktop,
-        reducedMotion,
-        automated: typeof navigator !== "undefined" && navigator.webdriver === true,
-        webgl: detectWebGL(),
-      }),
-    );
+    const env = {
+      desktop,
+      reducedMotion,
+      automated: typeof navigator !== "undefined" && navigator.webdriver === true,
+      webgl: detectWebGL(),
+    };
+    setAllow3D(shouldRender3D(env));
+    setAnimate2D(shouldAnimate2D(env));
   }, [desktop, reducedMotion]);
+
+  // Phones / no-WebGL: swap the poster for the rendered Idle loop once the
+  // page has painted and the bot is on screen.
+  useEffect(() => {
+    if (animate2D && painted && inView && src2D === HOUSEBOT_ASSETS.poster) setSrc2D(HOUSEBOT_ASSETS.idle2D);
+    if (!animate2D && src2D !== HOUSEBOT_ASSETS.poster) setSrc2D(HOUSEBOT_ASSETS.poster);
+  }, [animate2D, painted, inView, src2D]);
+
+  // Greet / Present on the rendered-image path both play the wave.
+  const gesture2D = greetSignal + presentSignal;
+  useEffect(() => {
+    if (!gesture2D || !animate2D) return;
+    let url: string | null = null;
+    let timer = 0;
+    let cancelled = false;
+    void loadGreet().then((blob) => {
+      if (cancelled || !blob) return;
+      url = URL.createObjectURL(blob);
+      setSrc2D(url);
+      timer = window.setTimeout(() => setSrc2D(HOUSEBOT_ASSETS.idle2D), GREET_MS);
+    });
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+      if (url) window.setTimeout(() => URL.revokeObjectURL(url as string), GREET_MS);
+    };
+  }, [gesture2D, animate2D]);
 
   useEffect(() => afterFirstPaint(() => setPainted(true)), []);
 
@@ -181,14 +224,14 @@ export function HouseBotStage({ mode, size, onUnavailable }: HouseBotStageProps)
       onMouseEnter={() => show3D && setNodSignal((n) => n + 1)}
     >
       <img
-        src={HOUSEBOT_ASSETS.poster}
+        src={src2D}
         alt=""
         width={size}
         height={size}
         loading="lazy"
         decoding="async"
         draggable={false}
-        onError={() => onUnavailable?.()}
+        onError={() => (src2D === HOUSEBOT_ASSETS.poster ? onUnavailable?.() : setSrc2D(HOUSEBOT_ASSETS.poster))}
         className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ${
           show3D && ready ? "opacity-0" : "opacity-100"
         }`}
@@ -201,6 +244,9 @@ export function HouseBotStage({ mode, size, onUnavailable }: HouseBotStageProps)
                 mode={mode}
                 active={inView && tabVisible}
                 nodSignal={nodSignal}
+                // The hero canvas runs its own Greet → Present intro.
+                greetSignal={mode === "dock" ? greetSignal : 0}
+                presentSignal={mode === "dock" ? presentSignal : 0}
                 look={look}
                 onReady={() => setReady(true)}
               />

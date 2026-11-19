@@ -24,6 +24,10 @@ export interface HouseBotCanvasProps {
   active: boolean;
   /** Incremented on each hover start → Nod. */
   nodSignal: number;
+  /** Incremented to replay Greet (e.g. when the docked bot pops in). */
+  greetSignal?: number;
+  /** Incremented to play Present toward a section. */
+  presentSignal?: number;
   /** Incremented look request (already throttled by the stage). */
   look: { dir: LookDirection; n: number } | null;
   onReady: () => void;
@@ -32,7 +36,7 @@ export interface HouseBotCanvasProps {
 /** Normalised model height in scene units; camera is framed for this. */
 const MODEL_HEIGHT = 1.3;
 
-function Bot({ mode, nodSignal, look, onReady }: Omit<HouseBotCanvasProps, "active">) {
+function Bot({ mode, nodSignal, greetSignal = 0, presentSignal = 0, look, onReady }: Omit<HouseBotCanvasProps, "active">) {
   const { scene, animations } = useGLTF(HOUSEBOT_ASSETS.glb, HOUSEBOT_ASSETS.draco);
   // Each canvas (hero + dock) needs its own skeleton/mixer.
   const model = useMemo(() => cloneSkinned(scene), [scene]);
@@ -110,6 +114,16 @@ function Bot({ mode, nodSignal, look, onReady }: Omit<HouseBotCanvasProps, "acti
     if (nodSignal > 0) playOnce(CLIPS.nod);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodSignal]);
+
+  useEffect(() => {
+    if (greetSignal > 0) playOnce(CLIPS.greet);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [greetSignal]);
+
+  useEffect(() => {
+    if (presentSignal > 0) playOnce(CLIPS.present);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [presentSignal]);
 
   useEffect(() => {
     if (look) playOnce(clipForLook(look.dir));

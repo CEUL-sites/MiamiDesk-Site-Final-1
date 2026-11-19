@@ -12,7 +12,8 @@ const AiPanel = lazy(() => import("../IntelligenceDesk").then((m) => ({ default:
 
 export function MiamiDeskChatDialog() {
   const { pathname } = useLocation();
-  const ui = UI_COPY[langForPath(pathname)];
+  const lang = langForPath(pathname);
+  const ui = UI_COPY[lang];
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const returnFocus = useRef<HTMLElement | null>(null);
@@ -79,7 +80,7 @@ export function MiamiDeskChatDialog() {
       </div>
       <div className="overflow-y-auto p-5">
         <Suspense fallback={<div className="h-40" aria-busy="true" />}>
-          <AiPanel />
+          <AiPanel lang={lang} />
         </Suspense>
       </div>
     </div>

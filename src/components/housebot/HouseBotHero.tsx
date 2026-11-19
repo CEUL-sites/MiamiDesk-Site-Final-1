@@ -46,6 +46,20 @@ export function HouseBotHero({
     return () => mq.removeEventListener("change", on);
   }, []);
 
+  // Rendered-image path (phones): wave hello once the page has loaded.
+  const [greet, setGreet] = useState(0);
+  useEffect(() => {
+    if (typeof document === "undefined" || typeof window.addEventListener !== "function") return;
+    let t = 0;
+    const go = () => (t = window.setTimeout(() => setGreet(1), 600));
+    if (document.readyState === "complete") go();
+    else window.addEventListener("load", go, { once: true });
+    return () => {
+      window.removeEventListener("load", go);
+      window.clearTimeout(t);
+    };
+  }, []);
+
   if (!line || unavailable) return null;
 
   const open = () => {
@@ -69,7 +83,9 @@ export function HouseBotHero({
         onKeyDown={(e) => activateOnKey(e, open)}
         className="shrink-0 cursor-pointer rounded-full outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep"
       >
-        <HouseBotStage mode="hero" size={size} onUnavailable={() => setUnavailable(true)} />
+        <div className="housebot-float">
+          <HouseBotStage mode="hero" size={size} greetSignal={greet} onUnavailable={() => setUnavailable(true)} />
+        </div>
       </div>
       <div className={`relative max-w-sm rounded-xl border px-3 py-2.5 text-left shadow-xl backdrop-blur-sm md:px-4 md:py-3 ${bubble}`}>
         <span

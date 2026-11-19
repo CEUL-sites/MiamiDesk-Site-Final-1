@@ -3,6 +3,12 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   BUBBLE_COPY,
+  MAX_TIPS_PER_PAGE,
+  TIP_COPY,
+  TIP_LABEL,
+  shouldAnimate2D,
+  tipTargetsFor,
+  travelLift,
   COMPLIANCE_FOOTER,
   UI_COPY,
   bubbleLine,
@@ -22,6 +28,9 @@ const allCopy = [
   ...Object.values(BUBBLE_COPY.es),
   ...Object.values(UI_COPY.en),
   ...Object.values(UI_COPY.es),
+  ...Object.values(TIP_COPY.en),
+  ...Object.values(TIP_COPY.es),
+  ...Object.values(TIP_LABEL),
 ] as string[];
 const banned = /\b(dream|passionate|best|stunning|amazing|world-class|excited)\b|rare gem|!|\$69|69 billion|#1|largest|within 24|same day|guarantee|broker\b|Realtor\(R\)/i;
 for (const line of allCopy) assert.ok(!banned.test(line), `banned wording in: ${line}`);
@@ -47,6 +56,23 @@ assert.ok(!shouldRender3D({ ...ok, desktop: false }));
 assert.ok(!shouldRender3D({ ...ok, reducedMotion: true }));
 assert.ok(!shouldRender3D({ ...ok, automated: true }));
 assert.ok(!shouldRender3D({ ...ok, webgl: false }));
+
+// Section guide: bounded, never a numeric claim, targets exist per route.
+assert.ok(MAX_TIPS_PER_PAGE <= 3, "the guide must not nag");
+for (const line of [...Object.values(TIP_COPY.en), ...Object.values(TIP_COPY.es)]) assert.ok(!/\d/.test(line), `tip carries a figure: ${line}`);
+assert.ok(tipTargetsFor("/").length >= 3);
+assert.deepEqual(tipTargetsFor("/thanks/seller"), []);
+// Phones aim below the headline; desktop level with it; never under the header.
+assert.equal(travelLift(700, 100, 844, 72, true), 700 - 124);
+assert.equal(travelLift(700, 100, 844, 72, false), 700 - Math.min(844 - 72 - 200, 100 + Math.round(844 * 0.4)));
+assert.equal(travelLift(700, -500, 844, 72, true), 700 - 88);
+// Phones animate with the rendered image; reduced motion and prerender stay still.
+assert.ok(shouldAnimate2D({ desktop: false, reducedMotion: false, automated: false, webgl: true }));
+assert.ok(!shouldAnimate2D({ desktop: false, reducedMotion: true, automated: false, webgl: true }));
+assert.ok(!shouldAnimate2D({ desktop: false, reducedMotion: false, automated: true, webgl: true }));
+assert.ok(!shouldAnimate2D({ desktop: true, reducedMotion: false, automated: false, webgl: true }));
+const css = readFileSync("src/index.css", "utf8");
+assert.match(css, /prefers-reduced-motion: reduce\)\s*\{\s*\.housebot-float, \.housebot-pop, \.housebot-tip-in \{ animation: none; \}/);
 
 // Look gesture: far-left/right only, throttled to once per 4s.
 assert.equal(lookDirectionFor(100, 800, 900), "left");
