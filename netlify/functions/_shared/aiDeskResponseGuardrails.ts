@@ -37,6 +37,12 @@ const RESTRICTED_PATTERNS: Array<{ pattern: RegExp; replacement: string }> = [
     replacement: "the association network's scale",
   },
   {
+    // Carlos's license number is fixed. The model has been seen to alter a
+    // digit ("SL705571"); any SL-number that is not SL705771 is corrected.
+    pattern: /\bSL\s?-?\s?(?!705771\b)\d{6,7}\b/gi,
+    replacement: "SL705771",
+  },
+  {
     pattern: /\bRealtor\s?\(R\)/gi,
     replacement: "Realtor®",
   },

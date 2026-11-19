@@ -219,7 +219,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // A transient Google error (overloaded / 5xx) is retried once on the same
     // model, then the next model is tried.
     const attempts = GEMINI_MODELS.flatMap((m, i) => (i === 0 ? [m, m] : [m]));
+    const startedAt = Date.now();
     for (const [attempt, model] of attempts.entries()) {
+      // Never let retries outlast the platform's request timeout.
+      if (attempt > 0 && Date.now() - startedAt > 12_000) break;
       try {
         console.log(`[ai-desk] Gemini request sent (${model})`);
         result = await ai.models.generateContent({
