@@ -11,6 +11,7 @@ import { AboutContact } from "../components/AboutContact";
 import { LeadForm, type ContactIntent } from "../components/LeadForm";
 import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
 import { CONTACT } from "../constants";
+import { HouseBotHero } from "../components/housebot/HouseBotHero";
 
 // Contextual framing for Global Desk arrivals. The ?desk= param carried by the
 // Global Desk CTAs is read here so the request lands pre-segmented rather than
@@ -175,6 +176,7 @@ export default function ContactPage() {
                 <span>Florida licensed since 2001 · SL705771<br />United Realty Group · English / Spanish</span>
               </p>
             </div>
+            <HouseBotHero variant="contact" />
 
             {/* Dynamic Intent Briefing Card (updates live with form selection) */}
             <div className="mt-5 border border-gold/35 bg-white/[0.04] p-4">

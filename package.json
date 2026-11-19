@@ -28,7 +28,8 @@
     "verify:mobile-hero": "node scripts/verify-mobile-hero.mjs",
     "verify:urg-offices": "node scripts/verify-urg-office-positioning.mjs",
     "verify:search": "node scripts/verify-search-foundation.mjs",
-    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-spam && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims && npm run verify:interactive && npm run verify:mobile-hero && npm run verify:urg-offices",
+    "verify:housebot": "node --import tsx scripts/verify-housebot.ts",
+    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-spam && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims && npm run verify:interactive && npm run verify:mobile-hero && npm run verify:urg-offices && npm run verify:housebot",
     "test:hubspot": "node --test tests/hubspot-sync.test.mjs"
   },
   "reactSnap": {
@@ -160,6 +161,8 @@
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
     "@tailwindcss/vite": "^4.3.0",
     "@types/d3-scale": "^4.0.9",
     "@types/d3-shape": "^3.2.0",
@@ -178,6 +181,7 @@
     "react-i18next": "^17.0.8",
     "react-router-dom": "^7.15.1",
     "tailwindcss": "^4.3.0",
+    "three": "^0.180.0",
     "vite": "^6.4.2"
   },
   "devDependencies": {
@@ -186,6 +190,7 @@
     "@types/express": "^4.17.21",
     "@types/google.maps": "^3.65.0",
     "@types/node": "^22.14.0",
+    "@types/three": "^0.180.0",
     "autoprefixer": "^10.5.0",
     "react-snap": "^1.23.0",
     "tailwindcss": "^4.3.0",

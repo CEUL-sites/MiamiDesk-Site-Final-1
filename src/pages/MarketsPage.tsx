@@ -25,6 +25,7 @@ import { FaqAccordion } from "../components/FaqAccordion";
 import { CountUp } from "../components/CountUp";
 import { UrgCorporateShowcase } from "../components/UrgCorporateShowcase";
 import { ASSOCIATION_STATS, CONTACT, URG_CITIES } from "../constants";
+import { HouseBotHero } from "../components/housebot/HouseBotHero";
 
 const MIAMI_DADE = URG_CITIES.filter((c) => c.region === "Miami-Dade County").map((c) => c.city);
 const BROWARD = URG_CITIES.filter((c) => c.region === "Broward County").map((c) => c.city);
@@ -319,6 +320,7 @@ export default function MarketsPage() {
               <p className="advisory-note">
                 {CONTACT.licenseDisplay} · United Realty Group · 25 Years South Florida Experience
               </p>
+              <HouseBotHero variant="markets" />
             </div>
             <CountyExplorer selected={activeCounty} onSelect={setActiveCounty} />
           </div>

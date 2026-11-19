@@ -6,6 +6,7 @@ import { restoreManualAddressEntry } from "./heroSellerFormModel";
 import { HeroVideoBackdrop } from "./heroes/HeroVideoBackdrop";
 import figures from "../data/figures.json";
 import "./hero-conversion.css";
+import { HouseBotHero } from "./housebot/HouseBotHero";
 
 const HERO_ADDRESS_PLACEHOLDER = "Enter your South Florida property address";
 
@@ -171,6 +172,7 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
             <p className="seller-hero-credentials">
               Licensed since 2001 · CLHMS · United Realty Group · English / Español
             </p>
+            <HouseBotHero variant="home" />
           </div>
 
           {/* Right Column: Architectural Showcase & Primary Address Intake (static card, no 3D tilt during typing) */}

@@ -5,6 +5,7 @@ import { trackFunnelEvent } from "../lib/analytics";
 import { HeroVideoBackdrop } from "./heroes/HeroVideoBackdrop";
 import figures from "../data/figures.json";
 import "./sellers-reach-hero.css";
+import { HouseBotHero } from "./housebot/HouseBotHero";
 
 const STAGES = [
   {
@@ -56,6 +57,7 @@ export function SellersReachHero() {
               >Explore the Selling System</a>
             </div>
             <p className="seller-reach-reassurance">Our team reviews your property, then contacts you to arrange the call. Confidential · No listing commitment</p>
+            <HouseBotHero variant="sellers" />
           </div>
           <div className="seller-reach-panel hero-panel" data-sticky-cta-guard>
             <p className="hero-panel-kicker">How your listing is run</p>

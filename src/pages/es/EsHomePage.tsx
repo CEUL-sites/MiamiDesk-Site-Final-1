@@ -15,6 +15,7 @@ import { EsDistribution } from "../../components/es/EsDistribution";
 import { SellerExecutionSystem } from "../../components/SellerExecutionSystem";
 import { CONTACT } from "../../constants";
 import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
+import { HouseBotHero } from "../../components/housebot/HouseBotHero";
 
 const MarketingReel3D = lazy(() => import("../../components/MarketingReel3D").then((m) => ({ default: m.MarketingReel3D })));
 const SellerPathfinder = lazy(() => import("../../components/SellerPathfinder").then((m) => ({ default: m.SellerPathfinder })));
@@ -131,6 +132,7 @@ export default function EsHomePage() {
               >
                 <HeroSellerForm lang="es" />
               </motion.div>
+              <HouseBotHero variant="home" className="justify-center" />
               <AssociationFilms lang="es" location="es_home_hero" />
 
               {/* Trust bar — luxury glass cards */}

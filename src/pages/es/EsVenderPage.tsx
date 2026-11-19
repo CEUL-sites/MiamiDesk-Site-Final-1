@@ -14,6 +14,7 @@ import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT } from "../../constants";
 import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
+import { HouseBotHero } from "../../components/housebot/HouseBotHero";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -222,6 +223,7 @@ export default function EsVenderPage() {
               >
                 United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
               </motion.p>
+              <HouseBotHero variant="sellers" className="justify-center" />
               <AssociationFilms lang="es" initialFilm="broward" location="es_sellers_hero" />
             </motion.div>
           </div>

@@ -28,6 +28,7 @@ import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
 import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
 import { Tilt3D } from "../components/Tilt3D";
 import { CONTACT } from "../constants";
+import { HouseBotHero } from "../components/housebot/HouseBotHero";
 
 const SERVICES = [
   {
@@ -303,6 +304,7 @@ export default function AgentsPage() {
               <p className="agent-partner-credentials">
                 Carlos Uzcategui · Licensed since 2001 · United Realty Group · English / Español
               </p>
+              <HouseBotHero variant="agents" />
             </div>
             <div className="agent-partner-film" data-sticky-cta-guard>
               <AssociationFilms location="agents_hero" variant="feature" />
