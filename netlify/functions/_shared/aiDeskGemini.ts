@@ -10,7 +10,14 @@
 export type GeminiErrorCode = "key_invalid" | "key_restricted" | "quota" | "model_unavailable" | "transient" | "upstream";
 
 export function geminiModels(env: Record<string, string | undefined>): string[] {
-  const list = [(env.GEMINI_MODEL ?? "").trim(), "gemini-2.5-flash", "gemini-flash-latest"].filter(Boolean);
+  const list = [
+    (env.GEMINI_MODEL ?? "").trim(),
+    "gemini-2.5-flash",
+    "gemini-flash-latest",
+    "gemini-3-flash-preview",
+    "gemini-3.1-flash-lite",
+    "gemini-flash-lite-latest",
+  ].filter(Boolean);
   return [...new Set(list)];
 }
 

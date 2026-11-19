@@ -67,13 +67,21 @@ assert.match(reg, /verdict === "quarantine"[\s\S]*unlocked: false/);
 
 // Gemini fallback + safe error categories.
 const { classifyGeminiError, geminiModels } = await import("../netlify/functions/_shared/aiDeskGemini.ts");
-assert.deepEqual(geminiModels({}), ["gemini-2.5-flash", "gemini-flash-latest"]);
-assert.deepEqual(geminiModels({ GEMINI_MODEL: "gemini-x" }), ["gemini-x", "gemini-2.5-flash", "gemini-flash-latest"]);
+const defaultModels = [
+  "gemini-2.5-flash",
+  "gemini-flash-latest",
+  "gemini-3-flash-preview",
+  "gemini-3.1-flash-lite",
+  "gemini-flash-lite-latest",
+];
+assert.deepEqual(geminiModels({}), defaultModels);
+assert.deepEqual(geminiModels({ GEMINI_MODEL: "gemini-x" }), ["gemini-x", ...defaultModels]);
 assert.equal(classifyGeminiError('{"error":{"code":400,"message":"API key not valid. Please pass a valid API key.","status":"INVALID_ARGUMENT"}}'), "key_invalid");
 assert.equal(classifyGeminiError("Requests from referer <empty> are blocked. PERMISSION_DENIED"), "key_restricted");
 assert.equal(classifyGeminiError("429 RESOURCE_EXHAUSTED quota exceeded"), "quota");
 assert.equal(classifyGeminiError("models/gemini-2.5-flash is not found for API version v1beta"), "model_unavailable");
 assert.ok(!/detail: message/.test(desk) && /errorCode,/.test(readFileSync("netlify/functions/ai-desk.ts", "utf8")));
+assert.match(desk, /if \(code === "key_invalid" \|\| code === "key_restricted"\) throw err;/);
 
 assert.equal(classifyGeminiError("503 Service Unavailable: The model is overloaded."), "transient");
 const { detectLanguage } = await import("../netlify/functions/_shared/aiDeskIntentRouter.ts");
