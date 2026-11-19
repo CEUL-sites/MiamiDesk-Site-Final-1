@@ -193,6 +193,13 @@ export function AiPanel({ lang = "en", pagePath }: { lang?: ChatLang; pagePath?:
       }
 
       if (!res.ok || data.error) {
+        // Google usage limit reached: offer WhatsApp / contact form instead of "try again".
+        if (data.errorCode === "quota") {
+          setHistory((h) => h.slice(0, -1));
+          setInput(q);
+          setGate("global_daily");
+          return;
+        }
         if (data.verification) turnstile.reset();
         setError(data.verification ? t.verifyError : data.error ?? t.networkError);
         setHistory((h) => h.slice(0, -1));

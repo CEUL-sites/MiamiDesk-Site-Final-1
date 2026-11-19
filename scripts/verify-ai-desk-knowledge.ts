@@ -66,6 +66,9 @@ assert.notEqual(westonIntent.mlsNeed, "none");
 const mediaIntent = classifyAiDeskIntent([{ role: "user", content: "Hello, I am from the media with an advertising proposal" }]);
 assert.equal(mediaIntent.visitorType, "press_vendor_unrelated");
 
+assert.equal(guardAiDeskResponse("Florida license FL SL705571, United Realty Group."), "Florida license FL SL705771, United Realty Group.");
+assert.equal(guardAiDeskResponse("License SL705771."), "License SL705771.");
+
 // Wiring: the function sends the knowledge with every request; UI passes pagePath; postbuild regenerates it.
 assert.match(readFileSync("netlify/functions/ai-desk.ts", "utf8"), /buildKnowledgeContext\(messages, intent\.language, pagePath\)/);
 assert.match(readFileSync("netlify/functions/ai-desk.ts", "utf8"), /classifyAiDeskIntent\(messages,\s*pagePath\)/);

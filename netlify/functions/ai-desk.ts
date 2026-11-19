@@ -217,7 +217,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // first model, and fall through on per-model quota, unavailability, or transient spikes.
     let result: Awaited<ReturnType<typeof ai.models.generateContent>> | null = null;
     let lastError: unknown = null;
+    const startedAt = Date.now();
     for (let i = 0; i < GEMINI_MODELS.length; i++) {
+      // Never let retries/fallbacks outlast the platform's request timeout.
+      if (i > 0 && Date.now() - startedAt > 12_000) break;
       const model = GEMINI_MODELS[i];
       const supportsThinkingBudget = model !== "gemini-flash-lite-latest";
       for (let retry = 0; retry < (i === 0 ? 2 : 1); retry++) {
