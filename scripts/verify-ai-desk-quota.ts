@@ -65,8 +65,8 @@ const reg = readFileSync("netlify/functions/ai-desk-register.ts", "utf8");
 assert.match(reg, /assessLeadSpam\(/);
 assert.match(reg, /verdict === "quarantine"[\s\S]*unlocked: false/);
 
-// Gemini fallback + safe error categories.
-const { classifyGeminiError, geminiModels } = await import("../netlify/functions/_shared/aiDeskGemini.ts");
+// Gemini fallback + Vertex AI config + safe error categories.
+const { classifyGeminiError, geminiModels, resolveVertexAiConfig, supportsThinkingBudget, vertexModels } = await import("../netlify/functions/_shared/aiDeskGemini.ts");
 const defaultModels = [
   "gemini-2.5-flash",
   "gemini-flash-latest",
@@ -76,7 +76,35 @@ const defaultModels = [
 ];
 assert.deepEqual(geminiModels({}), defaultModels);
 assert.deepEqual(geminiModels({ GEMINI_MODEL: "gemini-x" }), ["gemini-x", ...defaultModels]);
+const defaultVertexModels = [
+  "gemini-3.5-flash",
+  "gemini-3.5-flash-lite",
+  "gemini-3.1-flash-lite",
+  "gemini-3.8-flash",
+  "gemini-3-flash-preview",
+];
+assert.deepEqual(vertexModels({}), defaultVertexModels);
+assert.deepEqual(vertexModels({ VERTEX_MODEL: "gemini-3.5-flash" }), defaultVertexModels);
+assert.deepEqual(vertexModels({ VERTEX_MODEL: "gemini-custom", GEMINI_MODEL: "gemini-ignored" }), ["gemini-custom", ...defaultVertexModels]);
+assert.equal(resolveVertexAiConfig({}), null);
+assert.equal(resolveVertexAiConfig({ GCP_VERTEX_PROJECT: "p", GCP_VERTEX_CLIENT_EMAIL: "e" }), null);
+assert.deepEqual(
+  resolveVertexAiConfig({
+    GCP_VERTEX_PROJECT: " gen-lang-client-123 ",
+    GCP_VERTEX_CLIENT_EMAIL: " sa@proj.iam.gserviceaccount.com ",
+    GCP_VERTEX_PRIVATE_KEY: "-----BEGIN PRIVATE KEY-----\\nABC\\n-----END PRIVATE KEY-----\\n",
+  }),
+  {
+    project: "gen-lang-client-123",
+    location: "global",
+    clientEmail: "sa@proj.iam.gserviceaccount.com",
+    privateKey: "-----BEGIN PRIVATE KEY-----\nABC\n-----END PRIVATE KEY-----",
+  },
+);
+assert.equal(supportsThinkingBudget("gemini-3.5-flash"), true);
+assert.equal(supportsThinkingBudget("gemini-flash-lite-latest"), false);
 assert.equal(classifyGeminiError('{"error":{"code":400,"message":"API key not valid. Please pass a valid API key.","status":"INVALID_ARGUMENT"}}'), "key_invalid");
+assert.equal(classifyGeminiError("invalid_grant: Invalid JWT Signature"), "key_invalid");
 assert.equal(classifyGeminiError("Requests from referer <empty> are blocked. PERMISSION_DENIED"), "key_restricted");
 assert.equal(classifyGeminiError("429 RESOURCE_EXHAUSTED quota exceeded"), "quota");
 assert.equal(classifyGeminiError("models/gemini-2.5-flash is not found for API version v1beta"), "model_unavailable");

@@ -6,7 +6,14 @@ import { buildAiDeskSystemInstruction, HANDOFF_SIGNAL } from "./_shared/aiDeskSy
 import { formatLeadCaptureSummary } from "./_shared/leadCaptureFormatter";
 import { guardAiDeskResponse } from "./_shared/aiDeskResponseGuardrails";
 import { buildKnowledgeContext } from "./_shared/aiDeskKnowledge";
-import { classifyGeminiError, geminiModels, type GeminiErrorCode } from "./_shared/aiDeskGemini";
+import {
+  classifyGeminiError,
+  geminiModels,
+  resolveVertexAiConfig,
+  supportsThinkingBudget,
+  vertexModels,
+  type GeminiErrorCode,
+} from "./_shared/aiDeskGemini";
 import { corsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
 import { connectBlobs } from "./_shared/connectBlobs";
 import {
@@ -67,7 +74,8 @@ async function postLeadToSheets(
 }
 
 const GEMINI_API_KEY = (process.env.GEMINI_API_KEY ?? process.env.Gemini_API_Key ?? "").trim();
-const GEMINI_MODELS = geminiModels(process.env);
+const VERTEX_CONFIG = resolveVertexAiConfig(process.env);
+const ACTIVE_MODELS = VERTEX_CONFIG ? vertexModels(process.env) : geminiModels(process.env);
 
 /** A quota gate: no model call; the browser renders the matching panel. */
 function gateResponse(
@@ -113,8 +121,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
     };
   }
 
-  if (!GEMINI_API_KEY) {
-    console.error("[ai-desk] Gemini API key is not configured");
+  if (!VERTEX_CONFIG && !GEMINI_API_KEY) {
+    console.error("[ai-desk] Gemini/Vertex credentials are not configured");
     return {
       statusCode: 500,
       headers: jsonHeaders,
@@ -206,7 +214,19 @@ export const handler: Handler = async (event: HandlerEvent) => {
   ].join("\n\n");
 
   try {
-    const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+    const ai = VERTEX_CONFIG
+      ? new GoogleGenAI({
+          vertexai: true,
+          project: VERTEX_CONFIG.project,
+          location: VERTEX_CONFIG.location,
+          googleAuthOptions: {
+            credentials: {
+              client_email: VERTEX_CONFIG.clientEmail,
+              private_key: VERTEX_CONFIG.privateKey,
+            },
+          },
+        })
+      : new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
     const contents = messages.map((message) => ({
       role: message.role === "user" ? "user" : "model",
@@ -218,14 +238,15 @@ export const handler: Handler = async (event: HandlerEvent) => {
     let result: Awaited<ReturnType<typeof ai.models.generateContent>> | null = null;
     let lastError: unknown = null;
     const startedAt = Date.now();
-    for (let i = 0; i < GEMINI_MODELS.length; i++) {
+    const provider = VERTEX_CONFIG ? "vertex" : "aistudio";
+    for (let i = 0; i < ACTIVE_MODELS.length; i++) {
       // Never let retries/fallbacks outlast the platform's request timeout.
       if (i > 0 && Date.now() - startedAt > 12_000) break;
-      const model = GEMINI_MODELS[i];
-      const supportsThinkingBudget = model !== "gemini-flash-lite-latest";
+      const model = ACTIVE_MODELS[i];
+      const useThinkingBudget = supportsThinkingBudget(model);
       for (let retry = 0; retry < (i === 0 ? 2 : 1); retry++) {
         try {
-          console.log(`[ai-desk] Gemini request sent (${model})`);
+          console.log(`[ai-desk] Gemini request sent (${provider}:${model})`);
           result = await ai.models.generateContent({
             model,
             contents,
@@ -233,14 +254,14 @@ export const handler: Handler = async (event: HandlerEvent) => {
               systemInstruction,
               maxOutputTokens: 900,
               temperature: 0.3,
-              ...(supportsThinkingBudget ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
+              ...(useThinkingBudget ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
             },
           });
           break;
         } catch (err) {
           lastError = err;
           const code = classifyGeminiError(err instanceof Error ? err.message : String(err));
-          console.error(`[ai-desk] Gemini error (${model}): ${code}`);
+          console.error(`[ai-desk] Gemini error (${provider}:${model}): ${code}`);
           if (code === "key_invalid" || code === "key_restricted") throw err;
           if ((code === "transient" || code === "upstream") && i === 0 && retry === 0) {
             await new Promise((r) => setTimeout(r, 400));
