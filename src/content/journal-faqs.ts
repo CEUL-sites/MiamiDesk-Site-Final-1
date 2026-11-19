@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'sell-and-buy-house-same-time-florida-2026': [
+    {
+      q: 'What Florida taxes apply to a bridge loan or a HELOC?',
+      a: 'Two state taxes apply when a mortgage is recorded in Florida. Documentary stamp tax under section 201.08 is 35 cents on each $100 of the debt, and the nonrecurring intangible tax under section 199.133 is 2 mills per dollar. On a $500,000 closed-end bridge loan that is $1,750 plus $1,000, or $2,750, before lender fees. A line of credit is handled differently: intangible tax is paid on the maximum line at recording, while documentary stamp tax is paid on the initial debt and then on each advance. Your lender\'s closing disclosure shows the exact charges.',
+    },
+    {
+      q: 'Does a bridge loan count against my debt-to-income ratio when I buy before selling?',
+      a: 'Under the Fannie Mae Selling Guide, a bridge or swing loan used to buy a new principal residence before the current one is sold is a contingent liability that must be included in the debt-to-income ratio. Fannie Mae waives that requirement only when the lender has a fully executed sales contract for the current residence and confirmation that its financing contingencies have been cleared. Other loan programs and lenders apply their own rules, so the answer for a specific purchase should come from your lender.',
+    },
+    {
+      q: 'Is an extended closing safer than a post-closing occupancy agreement for Florida sellers?',
+      a: 'They protect different things. With an extended closing, the seller keeps ownership, insurance and risk until the later closing date, but the buyer must agree to wait and the longer contract period leaves more time for a financing or appraisal problem. With a post-closing occupancy, the sale closes on schedule and the seller stays under a separate written agreement, so occupancy terms, insurance and any escrowed funds must be settled before closing. Both should be drafted or reviewed by a Florida real estate attorney.',
+    },
+    {
+      q: 'What is the cheapest way to buy and sell a house at the same time in Florida without moving twice?',
+      a: 'Selling first usually adds the least cost, because it requires no new financing and so no interest or recording taxes on gap borrowing. The seller then negotiates an extended closing or a post-closing occupancy to stay in the home until the next purchase closes. Whether that is available depends on demand for the current home and the buyer\'s flexibility. Buying first with a bridge loan or a HELOC adds interest and Florida\'s taxes on the new mortgage, which on a $500,000 closed-end bridge loan total $2,750 before lender fees.',
+    },
+  ],
   'how-to-price-single-family-home-broward-county-2026': [
     {
       q: 'What is the median single-family home price in Broward County in late 2026?',
