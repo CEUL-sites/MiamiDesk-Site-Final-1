@@ -37,6 +37,8 @@ assert.equal(guardAiDeskResponse("I'm excited and passionate about the best way.
 assert.equal(guardAiDeskResponse("La casa de sus sueños es la mejor opción, increíble."), "La casa es la más adecuada opción.");
 assert.equal(guardAiDeskResponse("Listed at $1,250,000."), "Listed at $1,250,000.");
 
+assert.equal(guardAiDeskResponse("Your dreams, best practices."), "Your best practices.");
+
 // Wiring: the function sends the knowledge with every request; postbuild regenerates it.
 assert.match(readFileSync("netlify/functions/ai-desk.ts", "utf8"), /buildKnowledgeContext\(messages, intent\.language\)/);
 assert.match(JSON.parse(readFileSync("package.json", "utf8")).scripts.postbuild, /build-ai-desk-knowledge\.ts/);

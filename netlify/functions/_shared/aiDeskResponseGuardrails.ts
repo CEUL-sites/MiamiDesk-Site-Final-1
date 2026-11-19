@@ -43,7 +43,7 @@ const RESTRICTED_PATTERNS: Array<{ pattern: RegExp; replacement: string }> = [
   {
     // Banned vocabulary (CLAUDE.md rule 5), EN + ES. Removed rather than swapped
     // so no new claim is introduced; whitespace is collapsed afterwards.
-    pattern: /\b(?:stunning|amazing|world-class|rare gem|dream)\s*|\s*\bde (?:sus|tus) sueños\b|\b(?:increíble|increíbles|soñada|soñado)\s*/gi,
+    pattern: /\b(?:stunning|amazing|world-class|rare gem|dream(?:s|y)?)\s*|\s*\bde (?:sus|tus) sueños\b|\b(?:increíble|increíbles|soñada|soñado)\s*/gi,
     replacement: "",
   },
   {
@@ -55,7 +55,7 @@ const RESTRICTED_PATTERNS: Array<{ pattern: RegExp; replacement: string }> = [
     replacement: "glad",
   },
   {
-    pattern: /\bbest\b/gi,
+    pattern: /\bbest\b(?! practices?)/gi,
     replacement: "most suitable",
   },
   // Spanish "mejor" as a superlative, matched as a phrase to keep gender/number.
