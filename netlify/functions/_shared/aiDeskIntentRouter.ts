@@ -66,6 +66,8 @@ const SOUTH_FLORIDA_CITIES = [
 ];
 
 const hasAny = (text: string, terms: string[]) => terms.some((term) => text.includes(term));
+const hasWord = (text: string, terms: string[]) =>
+  terms.some((term) => new RegExp(`(?:^|[^\\p{L}\\p{N}])${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?:$|[^\\p{L}\\p{N}])`, "iu").test(text));
 
 const normalizeText = (messages: DeskMessage[]) =>
   messages
@@ -122,14 +124,15 @@ const detectPropertyType = (text: string) => {
   return undefined;
 };
 
-export const classifyAiDeskIntent = (messages: DeskMessage[]): AiDeskIntent => {
+export const classifyAiDeskIntent = (messages: DeskMessage[], pagePath?: string): AiDeskIntent => {
   const allText = normalizeText(messages);
-  const city = detectCity(allText);
+  const pageHint = typeof pagePath === "string" ? pagePath.split(/[?#]/)[0].replace(/[-/_]+/g, " ") : "";
+  const city = detectCity(allText) ?? (pageHint ? detectCity(pageHint) : undefined);
   const budget = parseBudget(allText);
   const language = detectLanguage(allText);
   const propertyType = detectPropertyType(allText);
 
-  if (hasAny(allText, ["press", "media", "vendor", "seo", "advertising", "solicitation", "partnership proposal"])) {
+  if (hasWord(allText, ["press", "media", "vendor", "seo", "advertising", "solicitation", "partnership proposal"])) {
     return { visitorType: "press_vendor_unrelated", mlsNeed: "none", language, city, propertyType, ...budget, confidence: "medium" };
   }
 

@@ -189,7 +189,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   await Promise.all([saveSession(sid, session), saveIpDay(ipDay.key, ipDay.rec), saveGlobalDay(globalDay.key, globalDay.rec)]);
   const turnCount = session.turns;
 
-  const intent = classifyAiDeskIntent(messages);
+  const intent = classifyAiDeskIntent(messages, pagePath);
   console.log(`[ai-desk] Visitor type detected: ${intent.visitorType}`);
   console.log(`[ai-desk] MLS need detected: ${intent.mlsNeed}`);
   console.log(`[ai-desk] Turn count: ${turnCount}`);
@@ -224,8 +224,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
           contents,
           config: {
             systemInstruction,
-            maxOutputTokens: 650,
+            maxOutputTokens: 900,
             temperature: 0.3,
+            thinkingConfig: { thinkingBudget: 0 },
           },
         });
         break;

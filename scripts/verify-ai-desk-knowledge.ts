@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import pack from "../netlify/functions/_shared/aiDeskKnowledge.generated.json" with { type: "json" };
 import { buildKnowledgeContext, citiesIn, normalizePagePath, rankDocs } from "../netlify/functions/_shared/aiDeskKnowledge.ts";
+import { classifyAiDeskIntent } from "../netlify/functions/_shared/aiDeskIntentRouter.ts";
 import { guardAiDeskResponse } from "../netlify/functions/_shared/aiDeskResponseGuardrails.ts";
 
 const p = pack as { docs: { kind: string; lang: string; url: string; title: string; text: string }[]; market: unknown[]; journal: unknown[]; marketPeriod: string };
@@ -54,8 +55,21 @@ const unknownPageCtx = buildKnowledgeContext([{ role: "user", content: "zzqx" }]
 assert.match(unknownPageCtx, /no published page matched/);
 assert.ok(!unknownPageCtx.includes("nonexistent-route-test"), "unknown/untrusted route must not be echoed into prompt");
 
+// Intent router word-boundary + pagePath city fallback.
+const westonIntent = classifyAiDeskIntent(
+  [{ role: "user", content: "What is the median single-family price on this page and how does Carlos market homes here?" }],
+  "/sell-weston",
+);
+assert.notEqual(westonIntent.visitorType, "press_vendor_unrelated", "'median' must not trigger 'media'");
+assert.equal(westonIntent.city, "Weston");
+assert.notEqual(westonIntent.mlsNeed, "none");
+const mediaIntent = classifyAiDeskIntent([{ role: "user", content: "Hello, I am from the media with an advertising proposal" }]);
+assert.equal(mediaIntent.visitorType, "press_vendor_unrelated");
+
 // Wiring: the function sends the knowledge with every request; UI passes pagePath; postbuild regenerates it.
 assert.match(readFileSync("netlify/functions/ai-desk.ts", "utf8"), /buildKnowledgeContext\(messages, intent\.language, pagePath\)/);
+assert.match(readFileSync("netlify/functions/ai-desk.ts", "utf8"), /classifyAiDeskIntent\(messages,\s*pagePath\)/);
+assert.match(readFileSync("netlify/functions/ai-desk.ts", "utf8"), /thinkingBudget:\s*0/);
 assert.match(readFileSync("src/components/IntelligenceDesk.tsx", "utf8"), /pagePath:\s*currentPagePath/);
 assert.match(readFileSync("src/components/housebot/MiamiDeskChatDialog.tsx", "utf8"), /<AiPanel\b[^>]*pagePath=\{pathname\}/);
 assert.match(JSON.parse(readFileSync("package.json", "utf8")).scripts.postbuild, /build-ai-desk-knowledge\.ts/);
