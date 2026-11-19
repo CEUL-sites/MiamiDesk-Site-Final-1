@@ -81,7 +81,24 @@ function collectPages(): Doc[] {
     const title = decode(html.match(/<title[^>]*>([^<]+)<\/title>/i)?.[1] ?? "");
     const descTag = [...html.matchAll(/<meta\b[^>]*>/gi)].map((t) => t[0]).find((t) => /\bname="description"/i.test(t)) ?? "";
     const desc = decode(descTag.match(/\bcontent="([^"]*)"/i)?.[1] ?? "");
-    if (title && desc) docs.push({ kind: "page", lang, url, title, text: desc });
+    const mainHtml = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] ?? "";
+    const headings = [...mainHtml.matchAll(/<h[12]\b[^>]*>([\s\S]*?)<\/h[12]>/gi)]
+      .map((m) => decode(m[1]))
+      .filter((h) => h.length >= 6 && h.length <= 120 && !/\$\s?69\s?(b|bn|billion)\b|69 billion|Realtor\(R\)/i.test(h))
+      .filter((h, i, arr) => arr.findIndex((x) => x.toLowerCase() === h.toLowerCase()) === i)
+      .filter((h) => !title.toLowerCase().includes(h.toLowerCase()) && !desc.toLowerCase().includes(h.toLowerCase()))
+      .slice(0, 5);
+    let pageText = desc;
+    if (pageText && headings.length) {
+      const kept: string[] = [];
+      for (const h of headings) {
+        const candidate = `${desc} Key sections: ${[...kept, h].join(" · ")}`;
+        if (candidate.length > 600) break;
+        kept.push(h);
+      }
+      if (kept.length) pageText = `${desc} Key sections: ${kept.join(" · ")}`;
+    }
+    if (title && pageText) docs.push({ kind: "page", lang, url, title, text: pageText });
 
     for (const m of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)) {
       let data: unknown;

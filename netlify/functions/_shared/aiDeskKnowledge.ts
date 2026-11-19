@@ -128,20 +128,67 @@ function formatSegment(label: string, s: Segment | undefined): string {
   return `${label}: median sale price ${usd(s.medianSalePrice)}, ${s.monthsSupply} months of supply, ${s.medianDaysToContract} median days to contract (${s.period})`;
 }
 
+const SITE = "https://homesprofessional.com";
+
+export function normalizePagePath(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const cleaned = raw.trim().split(/[?#]/)[0].toLowerCase().replace(/\/+$/, "") || "/";
+  return /^\/[a-z0-9/_-]{0,180}$/.test(cleaned) ? cleaned : null;
+}
+
+export function docsForPage(pagePath: unknown): { url: string; page?: Doc; related: Doc[]; post?: Post } | null {
+  const normalized = normalizePagePath(pagePath);
+  if (!normalized) return null;
+  const canonicalUrl = SITE + (normalized === "/" ? "/" : normalized);
+  const exact = P.docs.filter((d) => d.url === canonicalUrl);
+  const page = exact.find((d) => d.kind === "page");
+  const related = exact.filter((d) => d.kind !== "page").slice(0, 2);
+  const post = P.journal.find((p) => p.url === canonicalUrl);
+  if (!page && !related.length && !post) return null;
+  return { url: canonicalUrl, page, related, post };
+}
+
+function formatDocLine(d: Doc, includeUrl = true): string {
+  const head = d.kind === "faq" ? `Q: ${d.title}` : d.kind === "service" ? `Service: ${d.title}` : `Page: ${d.title}`;
+  const body = `${d.kind === "faq" ? "A: " : ""}${clip(d.text)}`;
+  return includeUrl ? `- ${head}\n  ${body}\n  Source page: ${d.url}` : `- ${head}\n  ${body}`;
+}
+
 /**
  * The knowledge section appended to the system instruction for one request.
- * Uses the latest visitor message, plus the two before it for context.
+ * Uses the latest visitor message, plus the two before it for context,
+ * and prioritizes published content for the visitor's current page when valid.
  */
-export function buildKnowledgeContext(messages: { role: string; content: string }[], language: string): string {
+export function buildKnowledgeContext(
+  messages: { role: string; content: string }[],
+  language: string,
+  pagePath?: string | null,
+): string {
   const users = messages.filter((m) => m.role === "user").map((m) => m.content);
   const latest = users[users.length - 1] ?? "";
   const recent = users.slice(-3).join(" ");
   const lang: Lang = language === "spanish" ? "es" : "en";
 
-  const docs = rankDocs(`${latest} ${latest} ${recent}`, lang);
-  const cities = citiesIn(recent).slice(0, 3);
-  const posts = rankPosts(`${latest} ${recent}`);
-  if (!docs.length && !cities.length && !posts.length) {
+  const currentPage = docsForPage(pagePath);
+  const seen = new Set<string>(
+    [currentPage?.page, ...(currentPage?.related ?? [])]
+      .filter((d): d is Doc => Boolean(d))
+      .map((d) => `${d.kind}|${d.url}|${d.title}`),
+  );
+  const currentDocCount = currentPage ? (currentPage.page ? 1 : 0) + currentPage.related.length : 0;
+  const remainingSlots = Math.max(2, MAX_DOCS - currentDocCount);
+
+  const docs = rankDocs(`${latest} ${latest} ${recent}`, lang, MAX_DOCS)
+    .filter((d) => !seen.has(`${d.kind}|${d.url}|${d.title}`))
+    .slice(0, remainingSlots);
+
+  const pageCityHint = currentPage
+    ? `${currentPage.page?.title ?? ""} ${currentPage.post?.title ?? ""} ${currentPage.url.replace(SITE, "").replace(/[-/]+/g, " ")}`
+    : "";
+  const cities = citiesIn(`${recent} ${pageCityHint}`).slice(0, 3);
+  const posts = rankPosts(`${latest} ${recent}`).filter((p) => p.url !== currentPage?.url);
+
+  if (!currentPage && !docs.length && !cities.length && !posts.length) {
     return "Website knowledge: no published page matched this question. Do not improvise facts about Carlos's services or the market; ask a clarifying question or offer Carlos's direct review.";
   }
 
@@ -150,9 +197,19 @@ export function buildKnowledgeContext(messages: { role: string; content: string 
     "Use it in preference to general knowledge and keep its meaning. Do not add numbers that are not in it or in the verified figures.",
     "When it helps, give the visitor the page URL to read more. Market figures must always carry the city, property segment, report period and source exactly as given below.",
   ];
+  if (currentPage) {
+    lines.push(`Current page the visitor is viewing on HomesProfessional.com: ${currentPage.url}`);
+    if (currentPage.page) {
+      lines.push(formatDocLine(currentPage.page, false));
+    } else if (currentPage.post) {
+      lines.push(`- Journal article: ${currentPage.post.title}\n  ${clip(currentPage.post.excerpt)}`);
+    }
+    for (const d of currentPage.related) {
+      lines.push(formatDocLine(d, false));
+    }
+  }
   for (const d of docs) {
-    const head = d.kind === "faq" ? `Q: ${d.title}` : d.kind === "service" ? `Service: ${d.title}` : `Page: ${d.title}`;
-    lines.push(`- ${head}\n  ${d.kind === "faq" ? "A: " : ""}${clip(d.text)}\n  Source page: ${d.url}`);
+    lines.push(formatDocLine(d));
   }
   if (cities.length) {
     lines.push(`Market figures (source: ${P.marketSource}):`);

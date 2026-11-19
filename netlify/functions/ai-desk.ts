@@ -130,6 +130,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   let messages: DeskMessage[];
   let sessionToken: unknown;
   let turnstileToken: unknown;
+  let pagePath: string | undefined;
   try {
     const parsed = JSON.parse(event.body || "{}");
     // Cost cap: refuse oversized conversations rather than forwarding them to Gemini.
@@ -138,6 +139,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     messages = parsed.messages as DeskMessage[];
     sessionToken = parsed.sessionToken;
     turnstileToken = parsed.turnstileToken;
+    pagePath = typeof parsed.pagePath === "string" ? parsed.pagePath : undefined;
   } catch {
     return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: "Message too long or invalid." }) };
   }
@@ -200,7 +202,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const leadSummary = formatLeadCaptureSummary(intent, mlsContext);
   const systemInstruction = [
     buildAiDeskSystemInstruction(intent, mlsContext, leadSummary, turnCount),
-    buildKnowledgeContext(messages, intent.language),
+    buildKnowledgeContext(messages, intent.language, pagePath),
   ].join("\n\n");
 
   try {
