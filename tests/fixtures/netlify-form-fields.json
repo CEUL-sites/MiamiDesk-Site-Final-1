@@ -383,6 +383,22 @@
         "utm_term",
         "valueBand"
       ]
+    },
+    {
+      "name": "ai-desk-registration",
+      "fields": [
+        "form-name",
+        "formRenderedAt",
+        "bot-field",
+        "name",
+        "email",
+        "phone",
+        "interest",
+        "messagingConsent",
+        "message",
+        "sourcePage",
+        "language"
+      ]
     }
   ],
   "capturedDate": "2026-10-12"

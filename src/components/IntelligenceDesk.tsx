@@ -1,8 +1,11 @@
 import { BadgeCheck, Bot, ChevronRight, FileText, Globe2, Loader2, MapPin, MessageCircle, PhoneCall, Send, UserCheck } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "motion/react";
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { CONTACT } from "../constants";
 import { AiRobotMascot } from "./AiRobotMascot";
+import { ChatRegistrationPanel } from "./housebot/ChatRegistrationPanel";
+import { CHAT_COPY, type ChatLang } from "./housebot/miamiDeskChatCopy";
+import { turnstileConfigured, useTurnstile } from "../lib/turnstile";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -75,43 +78,123 @@ function HandoffPanel({ history }: { history: Message[] }) {
   );
 }
 
-export function AiPanel() {
+const SESSION_KEY = "ai-desk-session";
+
+function readStoredSession(): string | null {
+  try {
+    return sessionStorage.getItem(SESSION_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function storeSession(token: string | null) {
+  try {
+    if (token) sessionStorage.setItem(SESSION_KEY, token);
+  } catch {
+    /* storage blocked: the conversation still works for this page view */
+  }
+}
+
+/** Shown when the per-visitor or site-wide daily question ceiling is reached. */
+function LimitPanel({ lang }: { lang: ChatLang }) {
+  const t = CHAT_COPY[lang];
+  return (
+    <div role="status" className="border border-gold/35 bg-gold/[0.06] p-5">
+      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{t.dailyTitle}</p>
+      <p className="mt-2 font-sans text-sm leading-relaxed text-white/80">{t.dailyBody}</p>
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={`https://wa.me/${CONTACT.phoneUS.replace(/\D/g, "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 bg-gold px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep hover:opacity-90"
+        >
+          <MessageCircle size={13} aria-hidden="true" /> WhatsApp
+        </a>
+        <a
+          href="/contact"
+          className="inline-flex items-center justify-center gap-2 border border-white/20 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80 hover:border-white/40 hover:text-white"
+        >
+          {t.contactForm}
+        </a>
+      </div>
+    </div>
+  );
+}
+
+type DeskGate = "register" | "handoff" | "ip_daily" | "global_daily";
+
+export function AiPanel({ lang = "en" }: { lang?: ChatLang }) {
+  const t = CHAT_COPY[lang];
   const [input, setInput]           = useState("");
   const [loading, setLoading]       = useState(false);
   const [history, setHistory]       = useState<Message[]>([]);
-  const [lastQuery, setLastQuery]   = useState("");
   const [error, setError]           = useState("");
   const [handoffDone, setHandoff]   = useState(false);
-  const [turnCount, setTurnCount]   = useState(0);
+  const [gate, setGate]             = useState<DeskGate | null>(null);
+  const [notice, setNotice]         = useState("");
+  const [sessionToken, setSessionToken] = useState<string | null>(() => readStoredSession());
+  const [turnsLeft, setTurnsLeft]   = useState<number | null>(null);
+  const [registered, setRegistered] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Invisible Turnstile check, only while no server session exists yet.
+  const turnstile = useTurnstile(turnstileConfigured() && !sessionToken);
+
+  function adoptToken(token: unknown) {
+    if (typeof token === "string" && token) {
+      setSessionToken(token);
+      storeSession(token);
+    }
+  }
 
   async function submit(query: string) {
     const q = query.trim();
-    if (!q || loading || handoffDone) return;
+    if (!q || loading || handoffDone || gate) return;
+    if (q.length > 600) {
+      setError(t.tooLong);
+      return;
+    }
 
     setInput("");
     setLoading(true);
     setError("");
-    setLastQuery(q);
+    setNotice("");
 
     const newHistory: Message[] = [...history, { role: "user", content: q }];
     setHistory(newHistory);
-    const newTurn = turnCount + 1;
-    setTurnCount(newTurn);
 
     try {
       const res = await fetch("/.netlify/functions/ai-desk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: newHistory, turnCount: newTurn }),
+        body: JSON.stringify({
+          messages: newHistory,
+          sessionToken,
+          turnstileToken: sessionToken ? undefined : turnstile.token ?? undefined,
+        }),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
+      adoptToken(data.sessionToken);
+      if (typeof data.turnsLeft === "number") setTurnsLeft(data.turnsLeft);
+      if (typeof data.registered === "boolean") setRegistered(data.registered);
+
+      if (data.gate) {
+        // Not answered: keep the question so it can be sent after registering.
+        setHistory((h) => h.slice(0, -1));
+        setInput(q);
+        if (data.gate === "handoff") setHandoff(true);
+        else setGate(data.gate as DeskGate);
+        return;
+      }
 
       if (!res.ok || data.error) {
-        setError(data.error ?? "The AI desk is temporarily unavailable.");
+        if (data.verification) turnstile.reset();
+        setError(data.verification ? t.verifyError : data.error ?? t.networkError);
         setHistory((h) => h.slice(0, -1));
+        setInput(q);
         return;
       }
 
@@ -122,8 +205,9 @@ export function AiPanel() {
         setTimeout(() => setHandoff(true), 1200);
       }
     } catch {
-      setError("Network error. Please try again or contact us directly.");
+      setError(t.networkError);
       setHistory((h) => h.slice(0, -1));
+      setInput(q);
     } finally {
       setLoading(false);
       inputRef.current?.focus();
@@ -135,29 +219,33 @@ export function AiPanel() {
     if (e.key === "Enter") submit(input);
   }
 
-  const lastAssistantMsg = [...history].reverse().find((m) => m.role === "assistant");
+  const summary = history
+    .filter((m) => m.role === "user")
+    .slice(-5)
+    .map((m) => `Q: ${m.content}`)
+    .join("\n");
 
-  const HANDOFF_THRESHOLD = 10;
-  const progressPct = Math.min(100, (turnCount / HANDOFF_THRESHOLD) * 100);
+  // Bring the registration form into view (it can start below the fold on phones).
+  useEffect(() => {
+    if (gate !== "register") return;
+    const t = window.setTimeout(() => {
+      document.getElementById("ai-desk-reg-title")?.closest("form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+    return () => window.clearTimeout(t);
+  }, [gate]);
+
+  const progressLabel =
+    turnsLeft === null ? null : registered ? t.regLeft(turnsLeft) : t.freeLeft(turnsLeft);
 
   return (
     <div className="flex flex-col gap-4">
+      <div ref={turnstile.ref} />
 
-      {/* Turn progress bar — visible after first message */}
-      {turnCount > 0 && !handoffDone && (
-        <div className="flex items-center gap-2">
-          <div className="h-0.5 flex-1 bg-white/10 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gold/60 rounded-full transition-all duration-500"
-              style={{ width: `${progressPct}%` }}
-            />
-          </div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 whitespace-nowrap">
-            {turnCount < HANDOFF_THRESHOLD
-              ? `${HANDOFF_THRESHOLD - turnCount} questions to team review`
-              : "Routing to Carlos"}
-          </span>
-        </div>
+      {/* Questions remaining — the server's count, not the browser's */}
+      {progressLabel && !handoffDone && !gate && (
+        <p className="text-right font-mono text-[10px] uppercase tracking-[0.18em] text-white/70" aria-live="polite">
+          {progressLabel}
+        </p>
       )}
 
       {/* Opening message — shown before first user message */}
@@ -167,14 +255,14 @@ export function AiPanel() {
             <Bot size={12} className="text-gold" />
           </div>
           <div className="max-w-[90%] rounded-2xl rounded-bl-none bg-white/[0.08] px-4 py-2.5 font-sans text-sm leading-relaxed text-white/85">
-            Welcome. Tell me what brings you here — a South Florida sale, a purchase, a cross-border inquiry, or an agent referral — and I'll gather the right details so Carlos can respond with strategy, not a questionnaire.
+            {t.opening}
           </div>
         </div>
       )}
 
       {/* Chat history */}
       {history.length > 0 && (
-        <div ref={scrollRef} className="space-y-3 max-h-72 overflow-y-auto pr-1 scroll-smooth">
+        <div ref={scrollRef} className="space-y-3 max-h-72 overflow-y-auto pr-1 scroll-smooth" aria-live="polite">
           {history.map((msg, i) => (
             <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
               {msg.role === "assistant" && (
@@ -206,14 +294,34 @@ export function AiPanel() {
         </div>
       )}
 
-      {/* Handoff panel — replaces input after routing */}
+      {notice && <p role="status" className="font-sans text-xs text-gold">{notice}</p>}
+
       {handoffDone ? (
         <HandoffPanel history={history} />
+      ) : gate === "register" ? (
+        <ChatRegistrationPanel
+          lang={lang}
+          sessionToken={sessionToken}
+          summary={summary}
+          onUnlocked={(left) => {
+            setGate(null);
+            setRegistered(true);
+            setTurnsLeft(left);
+            setNotice(t.unlocked);
+            setTimeout(() => inputRef.current?.focus(), 50);
+          }}
+          onHandoff={() => {
+            setGate(null);
+            setHandoff(true);
+          }}
+        />
+      ) : gate === "ip_daily" || gate === "global_daily" ? (
+        <LimitPanel lang={lang} />
       ) : (
         <>
           {/* Error state */}
           {error && (
-            <p className="font-mono text-[10px] text-red-400/80">{error}</p>
+            <p role="alert" className="font-mono text-[10px] text-red-300">{error}</p>
           )}
 
           {/* Input bar */}
@@ -224,17 +332,17 @@ export function AiPanel() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder={history.length === 0 ? "Ask anything about South Florida…" : "Continue the conversation…"}
-              maxLength={500}
+              placeholder={history.length === 0 ? t.placeholderFirst : t.placeholderNext}
+              maxLength={600}
               className="flex-1 bg-transparent font-sans text-base sm:text-sm text-white/80 placeholder:text-white/70 outline-none"
-              aria-label="Ask the AI desk a question"
+              aria-label={t.inputLabel}
               disabled={loading}
             />
             <button
               type="button"
               onClick={() => submit(input)}
               disabled={loading || !input.trim()}
-              aria-label="Send question"
+              aria-label={t.send}
               className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/20 hover:bg-gold/40 transition-colors disabled:opacity-40"
             >
               {loading
@@ -245,11 +353,11 @@ export function AiPanel() {
           </div>
 
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 text-center">
-            AI intake · Our licensed team responds
+            {t.footer}
           </p>
 
-          {/* Suggestion chips — only before first message */}
-          {history.length === 0 && (
+          {/* Suggestion chips — only before first message (English page copy) */}
+          {history.length === 0 && lang === "en" && (
             <div className="flex flex-wrap gap-2">
               {PROMPTS.map((prompt) => (
                 <button

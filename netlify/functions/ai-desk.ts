@@ -6,6 +6,30 @@ import { buildAiDeskSystemInstruction, HANDOFF_SIGNAL } from "./_shared/aiDeskSy
 import { formatLeadCaptureSummary } from "./_shared/leadCaptureFormatter";
 import { guardAiDeskResponse } from "./_shared/aiDeskResponseGuardrails";
 import { corsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
+import { connectBlobs } from "./_shared/connectBlobs";
+import {
+  clientIp,
+  loadGlobalDay,
+  loadIpDay,
+  loadSession,
+  saveGlobalDay,
+  saveIpDay,
+  saveSession,
+  turnstileEnabled,
+  verifyTurnstile,
+} from "./_shared/aiDeskQuota";
+import {
+  IP_DAILY_SESSIONS,
+  decideTurn,
+  messagesWithinLimits,
+  newSessionId,
+  parseGlobalCap,
+  sessionSecret,
+  signSession,
+  turnsLeft,
+  verifySession,
+  type SessionRecord,
+} from "./_shared/aiDeskQuotaModel";
 
 const GOOGLE_SHEETS_WEBHOOK_URL = (process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "").trim();
 
@@ -43,6 +67,25 @@ async function postLeadToSheets(
 const GEMINI_API_KEY = (process.env.GEMINI_API_KEY ?? process.env.Gemini_API_Key ?? "").trim();
 const GEMINI_MODEL = "gemini-2.5-flash";
 
+/** A quota gate: no model call; the browser renders the matching panel. */
+function gateResponse(
+  headers: Record<string, string>,
+  gate: string,
+  sessionToken: string | null,
+  session: SessionRecord | null,
+) {
+  return {
+    statusCode: 200,
+    headers,
+    body: JSON.stringify({
+      gate,
+      sessionToken,
+      turnsLeft: session ? turnsLeft(session) : 0,
+      registered: session?.registered ?? false,
+    }),
+  };
+}
+
 export const handler: Handler = async (event: HandlerEvent) => {
   console.log("[ai-desk] Function invoked");
   const jsonHeaders = corsHeaders(event);
@@ -77,20 +120,70 @@ export const handler: Handler = async (event: HandlerEvent) => {
     };
   }
 
+  const secret = sessionSecret(process.env);
+  if (!secret) {
+    return { statusCode: 500, headers: jsonHeaders, body: JSON.stringify({ error: "AI desk is not configured." }) };
+  }
+
   let messages: DeskMessage[];
-  let turnCount = 0;
+  let sessionToken: unknown;
+  let turnstileToken: unknown;
   try {
     const parsed = JSON.parse(event.body || "{}");
-    messages = parsed.messages;
-    turnCount = typeof parsed.turnCount === "number" ? parsed.turnCount : 0;
-    if (!Array.isArray(messages) || messages.length === 0) throw new Error("empty");
     // Cost cap: refuse oversized conversations rather than forwarding them to Gemini.
-    if (messages.length > 40 || messages.some((m) => typeof m?.content !== "string" || m.content.length > 4000)) {
-      throw new Error("oversized");
-    }
+    if (!messagesWithinLimits(parsed.messages)) throw new Error("oversized");
+    if (parsed.messages[parsed.messages.length - 1].role !== "user") throw new Error("no question");
+    messages = parsed.messages as DeskMessage[];
+    sessionToken = parsed.sessionToken;
+    turnstileToken = parsed.turnstileToken;
   } catch {
-    return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: "No messages provided." }) };
+    return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: "Message too long or invalid." }) };
   }
+
+  // ── Server-enforced quota (see _shared/aiDeskQuotaModel.ts) ─────────────
+  connectBlobs(event);
+  const ip = clientIp(event);
+  const ipDay = await loadIpDay(secret, ip);
+  const now = Date.now();
+  let sid: string;
+  let session: SessionRecord | null = null;
+  const verified = verifySession(secret, sessionToken, now);
+  if (verified) {
+    sid = verified.sid;
+    session = await loadSession(sid);
+  } else {
+    sid = newSessionId();
+  }
+  if (!session) {
+    // New conversation: bounded per IP per day, and Turnstile-checked when enabled.
+    if (ipDay.rec.sessions >= IP_DAILY_SESSIONS) {
+      return gateResponse(jsonHeaders, "ip_daily", null, null);
+    }
+    if (turnstileEnabled() && !(await verifyTurnstile(turnstileToken, ip))) {
+      return { statusCode: 403, headers: jsonHeaders, body: JSON.stringify({ error: "Verification failed. Please reload the page and try again.", verification: true }) };
+    }
+    session = { turns: 0, registered: false, createdAt: now };
+    ipDay.rec.sessions += 1;
+  }
+  const token = signSession(secret, sid, verified?.iat ?? now);
+  const globalDay = await loadGlobalDay(now);
+  const decision = decideTurn({
+    session,
+    ipTurnsToday: ipDay.rec.turns,
+    globalTurnsToday: globalDay.rec.turns,
+    globalCap: parseGlobalCap(process.env.AI_DESK_DAILY_CAP),
+  });
+  if ("gate" in decision) {
+    await Promise.all([saveSession(sid, session), saveIpDay(ipDay.key, ipDay.rec)]);
+    return gateResponse(jsonHeaders, decision.gate, token, session);
+  }
+  // Count the question before calling the model, so a failed or aborted
+  // request still spends quota (a bot cannot retry its way past the cap).
+  session.turns += 1;
+  ipDay.rec.turns += 1;
+  globalDay.rec.turns += 1;
+  await Promise.all([saveSession(sid, session), saveIpDay(ipDay.key, ipDay.rec), saveGlobalDay(globalDay.key, globalDay.rec)]);
+  const turnCount = session.turns;
 
   const intent = classifyAiDeskIntent(messages);
   console.log(`[ai-desk] Visitor type detected: ${intent.visitorType}`);
@@ -147,6 +240,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
         visitorType: intent.visitorType,
         mlsContextUsed: mlsContext.used,
         handoffReady,
+        sessionToken: token,
+        turnsLeft: turnsLeft(session),
+        registered: session.registered,
       }),
     };
   } catch (err: unknown) {
@@ -157,7 +253,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       headers: jsonHeaders,
       body: JSON.stringify({
         error: "The AI desk is temporarily unavailable. Please try again or reach Carlos directly on WhatsApp.",
-        detail: message,
+        sessionToken: token,
       }),
     };
   }

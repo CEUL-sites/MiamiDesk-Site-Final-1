@@ -86,6 +86,31 @@ GEMINI_API_KEY
   Used by: netlify/functions/ai-desk.ts server-side only
   How to get: aistudio.google.com → Get API key
 
+AI_DESK_DAILY_CAP (optional)
+  What it does: Site-wide ceiling on Miami Desk AI questions per UTC day.
+    Past it, the chat stops calling the AI and offers WhatsApp / the
+    contact form instead. Bounds the worst-case Gemini bill.
+  Used by: netlify/functions/ai-desk.ts
+  Default: 300
+
+AI_DESK_SESSION_SECRET (optional)
+  What it does: Signs Miami Desk chat session tokens so the per-visitor
+    question limit (5 free, 15 after registering) cannot be reset by the
+    browser. If unset, a secret is derived from GEMINI_API_KEY.
+  Used by: netlify/functions/ai-desk.ts, ai-desk-register.ts (server only)
+  How to get: any long random string, e.g. `openssl rand -hex 32`
+
+TURNSTILE_SECRET_KEY + VITE_TURNSTILE_SITE_KEY (optional, set both)
+  What it does: Cloudflare Turnstile — an invisible human check run once
+    when a visitor starts a Miami Desk conversation. Blocks scripted
+    traffic before it reaches the AI. Off until both keys are set.
+  Used by: netlify/functions/_shared/aiDeskQuota.ts (secret, server only);
+    src/lib/turnstile.ts (site key, public by design)
+  How to get: dash.cloudflare.com → Turnstile → Add widget →
+    hostnames homesprofessional.com and miamidesk.netlify.app →
+    Widget mode "Invisible". Copy the Site Key and Secret Key.
+    Changing VITE_TURNSTILE_SITE_KEY needs a redeploy (build-time value).
+
 BRIDGE_API_TOKEN
   What it does: Fetches live MLS listings from the Bridge Data Output API
   Used by: netlify/functions/bridge-listings.ts (server-side only)
