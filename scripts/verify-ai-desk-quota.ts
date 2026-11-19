@@ -75,4 +75,14 @@ assert.equal(classifyGeminiError("429 RESOURCE_EXHAUSTED quota exceeded"), "quot
 assert.equal(classifyGeminiError("models/gemini-2.5-flash is not found for API version v1beta"), "model_unavailable");
 assert.ok(!/detail: message/.test(desk) && /errorCode,/.test(readFileSync("netlify/functions/ai-desk.ts", "utf8")));
 
+assert.equal(classifyGeminiError("503 Service Unavailable: The model is overloaded."), "transient");
+const { detectLanguage } = await import("../netlify/functions/_shared/aiDeskIntentRouter.ts");
+assert.equal(detectLanguage("Is Carlos licensed in Spain, and can my Madrid flat go on the Miami MLS?"), "english");
+assert.equal(detectLanguage("¿Cómo funciona el Global Desk para mi propiedad en Madrid?"), "spanish");
+assert.equal(detectLanguage("Quiero vender mi casa en Doral"), "spanish");
+assert.equal(detectLanguage("What is the median price in Coral Gables?"), "english");
+const prompt = readFileSync("netlify/functions/_shared/aiDeskSystemPrompt.ts", "utf8");
+assert.match(prompt, /Never say a property can be placed, listed or entered "directly" on the Miami MLS/);
+assert.match(prompt, /language of the visitor's latest message/);
+
 console.log("verify:ai-desk-quota ✓ server-side session quota, registration gate, daily caps, token integrity");

@@ -216,7 +216,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
     // Try each model in order; only a retired/unknown model falls through.
     let result: Awaited<ReturnType<typeof ai.models.generateContent>> | null = null;
     let lastError: unknown = null;
-    for (const model of GEMINI_MODELS) {
+    // A transient Google error (overloaded / 5xx) is retried once on the same
+    // model, then the next model is tried.
+    const attempts = GEMINI_MODELS.flatMap((m, i) => (i === 0 ? [m, m] : [m]));
+    for (const [attempt, model] of attempts.entries()) {
       try {
         console.log(`[ai-desk] Gemini request sent (${model})`);
         result = await ai.models.generateContent({
@@ -234,6 +237,11 @@ export const handler: Handler = async (event: HandlerEvent) => {
         lastError = err;
         const code = classifyGeminiError(err instanceof Error ? err.message : String(err));
         console.error(`[ai-desk] Gemini error (${model}): ${code}`);
+        // Unknown failures are retried too: only key / quota errors are certain to repeat.
+        if (code === "transient" || code === "upstream") {
+          if (attempt === 0) await new Promise((r) => setTimeout(r, 400));
+          continue;
+        }
         if (code !== "model_unavailable") throw err;
       }
     }

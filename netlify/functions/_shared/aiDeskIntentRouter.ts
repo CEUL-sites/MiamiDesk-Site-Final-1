@@ -75,12 +75,18 @@ const normalizeText = (messages: DeskMessage[]) =>
     .join(" ")
     .toLowerCase();
 
-const detectLanguage = (text: string): AiDeskIntent["language"] => {
-  if (/[¿¡áéíóúñü]/i.test(text)) return "spanish";
-  if (hasAny(text.toLowerCase(), ["quiero", "vender", "comprar", "inmobiliaria", "propiedad", "referido", "españa", "madrid"])) {
-    return "spanish";
-  }
-  return text.trim() ? "english" : "unknown";
+// Language of a message, judged from its grammar — never from place names
+// ("Madrid", "España", "Coral Gables" appear in English questions too).
+const ES_WORDS = ["el", "la", "los", "las", "de", "del", "que", "en", "mi", "mis", "para", "por", "con", "una", "un", "es", "son", "como", "quiero", "tengo", "puedo", "propiedad", "vender", "comprar", "piso", "casa", "precio", "usted", "cuánto", "cuanto", "dónde", "donde", "hola", "gracias"];
+const EN_WORDS = ["the", "is", "are", "my", "and", "can", "what", "how", "for", "of", "to", "in", "a", "an", "do", "does", "you", "i", "it", "with", "home", "house", "sell", "buy", "price", "hello", "thanks"];
+export const detectLanguage = (text: string): AiDeskIntent["language"] => {
+  const t = text.toLowerCase();
+  if (!t.trim()) return "unknown";
+  if (/[¿¡ñ]/.test(t)) return "spanish";
+  const words = t.normalize("NFC").split(/[^\p{L}]+/u).filter(Boolean);
+  const es = words.filter((w) => ES_WORDS.includes(w)).length + (/[áéíóú]/.test(t) ? 1 : 0);
+  const en = words.filter((w) => EN_WORDS.includes(w)).length;
+  return es > en ? "spanish" : "english";
 };
 
 const detectCity = (text: string) =>
@@ -129,7 +135,9 @@ export const classifyAiDeskIntent = (messages: DeskMessage[], pagePath?: string)
   const pageHint = typeof pagePath === "string" ? pagePath.split(/[?#]/)[0].replace(/[-/_]+/g, " ") : "";
   const city = detectCity(allText) ?? (pageHint ? detectCity(pageHint) : undefined);
   const budget = parseBudget(allText);
-  const language = detectLanguage(allText);
+  // Reply language follows the visitor's LATEST message, not the whole thread or the page.
+  const latestUser = [...messages].reverse().find((m) => m.role === "user")?.content ?? allText;
+  const language = detectLanguage(latestUser);
   const propertyType = detectPropertyType(allText);
 
   if (hasWord(allText, ["press", "media", "vendor", "seo", "advertising", "solicitation", "partnership proposal"])) {

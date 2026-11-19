@@ -7,7 +7,7 @@
 //   browser response and logs (never the key, never Google's raw text), so a
 //   misconfigured key can be diagnosed from the outside.
 
-export type GeminiErrorCode = "key_invalid" | "key_restricted" | "quota" | "model_unavailable" | "upstream";
+export type GeminiErrorCode = "key_invalid" | "key_restricted" | "quota" | "model_unavailable" | "transient" | "upstream";
 
 export function geminiModels(env: Record<string, string | undefined>): string[] {
   const list = [(env.GEMINI_MODEL ?? "").trim(), "gemini-2.5-flash", "gemini-flash-latest"].filter(Boolean);
@@ -20,5 +20,6 @@ export function classifyGeminiError(message: string): GeminiErrorCode {
   if (/referer|referrer|ip address|permission_denied|permission denied|has not been used in project|is disabled|forbidden|403/.test(m)) return "key_restricted";
   if (/resource_exhausted|quota|rate limit|429/.test(m)) return "quota";
   if (/not found|not_found|404|is not supported|no longer available|deprecated/.test(m)) return "model_unavailable";
+  if (/unavailable|overloaded|503|500|internal error|deadline|timed? ?out|econnreset|fetch failed|socket hang up/.test(m)) return "transient";
   return "upstream";
 }
