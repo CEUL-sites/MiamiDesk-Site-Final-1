@@ -24,7 +24,8 @@ export function resolveVertexAiConfig(env: Record<string, string | undefined>): 
   const project = (env.GCP_VERTEX_PROJECT ?? env.GOOGLE_CLOUD_PROJECT ?? "").trim();
   const location = (env.GCP_VERTEX_LOCATION ?? env.GOOGLE_CLOUD_LOCATION ?? "global").trim() || "global";
   const clientEmail = (env.GCP_VERTEX_CLIENT_EMAIL ?? "").trim();
-  const privateKey = (env.GCP_VERTEX_PRIVATE_KEY ?? "").trim().replace(/\\n/g, "\n").trim();
+  const rawPrivateKey = (env.GCP_VERTEX_PRIVATE_KEY ?? "").trim().replace(/^["']|["']$/g, "");
+  const privateKey = rawPrivateKey.replace(/\\+n/g, "\n").trim();
   if (!project || !clientEmail || !privateKey) return null;
   return { project, location, clientEmail, privateKey };
 }

@@ -101,6 +101,14 @@ assert.deepEqual(
     privateKey: "-----BEGIN PRIVATE KEY-----\nABC\n-----END PRIVATE KEY-----",
   },
 );
+assert.equal(
+  resolveVertexAiConfig({
+    GCP_VERTEX_PROJECT: "gen-lang-client-123",
+    GCP_VERTEX_CLIENT_EMAIL: "sa@proj.iam.gserviceaccount.com",
+    GCP_VERTEX_PRIVATE_KEY: "\"-----BEGIN PRIVATE KEY-----\\\\nABC\\\\n-----END PRIVATE KEY-----\\\\n\"",
+  })?.privateKey,
+  "-----BEGIN PRIVATE KEY-----\nABC\n-----END PRIVATE KEY-----",
+);
 assert.equal(supportsThinkingBudget("gemini-3.5-flash"), true);
 assert.equal(supportsThinkingBudget("gemini-flash-lite-latest"), false);
 assert.equal(classifyGeminiError('{"error":{"code":400,"message":"API key not valid. Please pass a valid API key.","status":"INVALID_ARGUMENT"}}'), "key_invalid");
