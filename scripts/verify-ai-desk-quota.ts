@@ -65,4 +65,14 @@ const reg = readFileSync("netlify/functions/ai-desk-register.ts", "utf8");
 assert.match(reg, /assessLeadSpam\(/);
 assert.match(reg, /verdict === "quarantine"[\s\S]*unlocked: false/);
 
+// Gemini fallback + safe error categories.
+const { classifyGeminiError, geminiModels } = await import("../netlify/functions/_shared/aiDeskGemini.ts");
+assert.deepEqual(geminiModels({}), ["gemini-2.5-flash", "gemini-flash-latest"]);
+assert.deepEqual(geminiModels({ GEMINI_MODEL: "gemini-x" }), ["gemini-x", "gemini-2.5-flash", "gemini-flash-latest"]);
+assert.equal(classifyGeminiError('{"error":{"code":400,"message":"API key not valid. Please pass a valid API key.","status":"INVALID_ARGUMENT"}}'), "key_invalid");
+assert.equal(classifyGeminiError("Requests from referer <empty> are blocked. PERMISSION_DENIED"), "key_restricted");
+assert.equal(classifyGeminiError("429 RESOURCE_EXHAUSTED quota exceeded"), "quota");
+assert.equal(classifyGeminiError("models/gemini-2.5-flash is not found for API version v1beta"), "model_unavailable");
+assert.ok(!/detail: message/.test(desk) && /errorCode,/.test(readFileSync("netlify/functions/ai-desk.ts", "utf8")));
+
 console.log("verify:ai-desk-quota ✓ server-side session quota, registration gate, daily caps, token integrity");

@@ -125,7 +125,7 @@ function LimitPanel({ lang }: { lang: ChatLang }) {
 
 type DeskGate = "register" | "handoff" | "ip_daily" | "global_daily";
 
-export function AiPanel({ lang = "en" }: { lang?: ChatLang }) {
+export function AiPanel({ lang = "en", pagePath }: { lang?: ChatLang; pagePath?: string }) {
   const t = CHAT_COPY[lang];
   const [input, setInput]           = useState("");
   const [loading, setLoading]       = useState(false);
@@ -166,6 +166,7 @@ export function AiPanel({ lang = "en" }: { lang?: ChatLang }) {
     setHistory(newHistory);
 
     try {
+      const currentPagePath = pagePath ?? (typeof window !== "undefined" ? window.location.pathname : "/");
       const res = await fetch("/.netlify/functions/ai-desk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -173,6 +174,7 @@ export function AiPanel({ lang = "en" }: { lang?: ChatLang }) {
           messages: newHistory,
           sessionToken,
           turnstileToken: sessionToken ? undefined : turnstile.token ?? undefined,
+          pagePath: currentPagePath,
         }),
       });
 

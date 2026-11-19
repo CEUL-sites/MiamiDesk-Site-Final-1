@@ -5,6 +5,8 @@ import { getBridgeMlsContextForAi } from "./_shared/bridgeMlsForAi";
 import { buildAiDeskSystemInstruction, HANDOFF_SIGNAL } from "./_shared/aiDeskSystemPrompt";
 import { formatLeadCaptureSummary } from "./_shared/leadCaptureFormatter";
 import { guardAiDeskResponse } from "./_shared/aiDeskResponseGuardrails";
+import { buildKnowledgeContext } from "./_shared/aiDeskKnowledge";
+import { classifyGeminiError, geminiModels, type GeminiErrorCode } from "./_shared/aiDeskGemini";
 import { corsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
 import { connectBlobs } from "./_shared/connectBlobs";
 import {
@@ -65,7 +67,7 @@ async function postLeadToSheets(
 }
 
 const GEMINI_API_KEY = (process.env.GEMINI_API_KEY ?? process.env.Gemini_API_Key ?? "").trim();
-const GEMINI_MODEL = "gemini-2.5-flash";
+const GEMINI_MODELS = geminiModels(process.env);
 
 /** A quota gate: no model call; the browser renders the matching panel. */
 function gateResponse(
@@ -128,6 +130,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   let messages: DeskMessage[];
   let sessionToken: unknown;
   let turnstileToken: unknown;
+  let pagePath: string | undefined;
   try {
     const parsed = JSON.parse(event.body || "{}");
     // Cost cap: refuse oversized conversations rather than forwarding them to Gemini.
@@ -136,6 +139,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     messages = parsed.messages as DeskMessage[];
     sessionToken = parsed.sessionToken;
     turnstileToken = parsed.turnstileToken;
+    pagePath = typeof parsed.pagePath === "string" ? parsed.pagePath : undefined;
   } catch {
     return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: "Message too long or invalid." }) };
   }
@@ -196,7 +200,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   const leadSummary = formatLeadCaptureSummary(intent, mlsContext);
-  const systemInstruction = buildAiDeskSystemInstruction(intent, mlsContext, leadSummary, turnCount);
+  const systemInstruction = [
+    buildAiDeskSystemInstruction(intent, mlsContext, leadSummary, turnCount),
+    buildKnowledgeContext(messages, intent.language, pagePath),
+  ].join("\n\n");
 
   try {
     const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
@@ -206,16 +213,30 @@ export const handler: Handler = async (event: HandlerEvent) => {
       parts: [{ text: message.content }],
     }));
 
-    console.log("[ai-desk] Gemini request sent");
-    const result = await ai.models.generateContent({
-      model: GEMINI_MODEL,
-      contents,
-      config: {
-        systemInstruction,
-        maxOutputTokens: 650,
-        temperature: 0.3,
-      },
-    });
+    // Try each model in order; only a retired/unknown model falls through.
+    let result: Awaited<ReturnType<typeof ai.models.generateContent>> | null = null;
+    let lastError: unknown = null;
+    for (const model of GEMINI_MODELS) {
+      try {
+        console.log(`[ai-desk] Gemini request sent (${model})`);
+        result = await ai.models.generateContent({
+          model,
+          contents,
+          config: {
+            systemInstruction,
+            maxOutputTokens: 650,
+            temperature: 0.3,
+          },
+        });
+        break;
+      } catch (err) {
+        lastError = err;
+        const code = classifyGeminiError(err instanceof Error ? err.message : String(err));
+        console.error(`[ai-desk] Gemini error (${model}): ${code}`);
+        if (code !== "model_unavailable") throw err;
+      }
+    }
+    if (!result) throw lastError ?? new Error("no model available");
     console.log("[ai-desk] Gemini response received");
 
     const rawText =
@@ -247,12 +268,15 @@ export const handler: Handler = async (event: HandlerEvent) => {
     };
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
-    console.error("[ai-desk] Gemini error:", message);
+    const errorCode: GeminiErrorCode = classifyGeminiError(message);
+    console.error(`[ai-desk] Gemini error: ${errorCode} — ${message}`);
     return {
       statusCode: 500,
       headers: jsonHeaders,
       body: JSON.stringify({
         error: "The AI desk is temporarily unavailable. Please try again or reach Carlos directly on WhatsApp.",
+        // Safe diagnostic category only (no key, no provider text).
+        errorCode,
         sessionToken: token,
       }),
     };

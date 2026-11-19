@@ -8,7 +8,7 @@
     "dev": "vite --port=3000 --host=0.0.0.0",
     "prebuild": "node scripts/generate-journal-index.mjs && node scripts/generate-route-assets.mjs && node scripts/generate-rss.mjs",
     "build": "vite build",
-    "postbuild": "react-snap && node scripts/fix-prerender-motion.mjs && node scripts/verify-prerender-routes.mjs",
+    "postbuild": "react-snap && node scripts/fix-prerender-motion.mjs && node scripts/verify-prerender-routes.mjs && node --import tsx scripts/build-ai-desk-knowledge.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
@@ -30,7 +30,8 @@
     "verify:search": "node scripts/verify-search-foundation.mjs",
     "verify:housebot": "node --import tsx scripts/verify-housebot.ts",
     "verify:ai-desk-quota": "node --import tsx scripts/verify-ai-desk-quota.ts",
-    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-spam && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims && npm run verify:interactive && npm run verify:mobile-hero && npm run verify:urg-offices && npm run verify:housebot && npm run verify:ai-desk-quota",
+    "verify:ai-desk-knowledge": "node --import tsx scripts/verify-ai-desk-knowledge.ts",
+    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-spam && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims && npm run verify:interactive && npm run verify:mobile-hero && npm run verify:urg-offices && npm run verify:housebot && npm run verify:ai-desk-quota && npm run verify:ai-desk-knowledge",
     "test:hubspot": "node --test tests/hubspot-sync.test.mjs"
   },
   "reactSnap": {

@@ -80,7 +80,7 @@ export function MiamiDeskChatDialog() {
       </div>
       <div className="overflow-y-auto p-5">
         <Suspense fallback={<div className="h-40" aria-busy="true" />}>
-          <AiPanel lang={lang} />
+          <AiPanel lang={lang} pagePath={pathname} />
         </Suspense>
       </div>
     </div>

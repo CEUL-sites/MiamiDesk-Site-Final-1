@@ -58,7 +58,7 @@ function journalConversionSource(defaultSource: string): string {
 
 export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?: string } = {}) {
   const [effectiveSourcePage] = useState(() => journalConversionSource(sourcePage));
-  const [form, setForm] = useState({ ...INITIAL, source: effectiveSourcePage });
+  const [form, setForm] = useState<Record<string, string>>({ ...INITIAL, source: effectiveSourcePage });
   const [step, setStep] = useState<1 | 2>(1);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
