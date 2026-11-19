@@ -317,7 +317,7 @@ export default function EsSpainDeskPage() {
                 Descargar: Metodología de Activación MLS — PDF
               </a>
             </motion.div>
-            <HouseBotHero variant="globalDesk" className="justify-center" />
+            <HouseBotHero variant="globalDesk" lang="es" className="justify-center" />
             <AssociationFilms lang="es" location="es_global_desk_hero" />
 
             {/* Network ticker — same scrolling marquee as the homepage hero */}

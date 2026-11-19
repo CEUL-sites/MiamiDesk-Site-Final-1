@@ -157,7 +157,7 @@ export default function EsAgentesPage() {
                   WhatsApp USA +1 954-865-6622
                 </a>
               </motion.div>
-              <HouseBotHero variant="agents" className="justify-center" />
+              <HouseBotHero variant="agents" lang="es" className="justify-center" />
               <AssociationFilms lang="es" location="es_agents_hero" />
             </motion.div>
           </div>

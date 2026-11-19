@@ -1,3 +1,6 @@
+// No router hooks here: tests/hero-address-transfer.test.ts renders Hero
+// through a minimal hook dispatcher without context support.
+//
 // In-flow House Bot for a page hero: figure + one-line speech bubble.
 //
 // It sits in normal document flow below the hero CTAs (never absolutely
@@ -6,11 +9,10 @@
 // has scrolled past the hero.
 
 import { useEffect, useState, type KeyboardEvent } from "react";
-import { useLocation } from "react-router-dom";
 import { openMiamiDeskChat } from "../../lib/miamiDeskChat";
 import { trackMicroConversion } from "../../lib/analytics";
 import { HouseBotStage } from "./HouseBotStage";
-import { COMPLIANCE_FOOTER, DESKTOP_MIN_WIDTH, UI_COPY, bubbleLine, langForPath, type HouseBotLang, type HouseBotVariant } from "./houseBotModel";
+import { COMPLIANCE_FOOTER, DESKTOP_MIN_WIDTH, UI_COPY, bubbleLine, type HouseBotLang, type HouseBotVariant } from "./houseBotModel";
 
 export function activateOnKey(e: KeyboardEvent<HTMLElement>, fn: () => void) {
   if (e.key === "Enter" || e.key === " ") {
@@ -21,18 +23,16 @@ export function activateOnKey(e: KeyboardEvent<HTMLElement>, fn: () => void) {
 
 export function HouseBotHero({
   variant,
-  lang: langOverride,
+  lang = "en",
   tone = "dark",
   className = "",
 }: {
   variant: HouseBotVariant;
-  /** For pages with an in-page EN/ES toggle (Global Desk); otherwise from the URL. */
+  /** Page language. Spanish pages pass "es"; Global Desk passes its in-page toggle. */
   lang?: HouseBotLang;
   tone?: "dark" | "light";
   className?: string;
 }) {
-  const { pathname } = useLocation();
-  const lang = langOverride ?? langForPath(pathname);
   const line = bubbleLine(variant, lang);
   const ui = UI_COPY[lang];
   const [unavailable, setUnavailable] = useState(false);

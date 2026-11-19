@@ -261,7 +261,7 @@ export default function EsComprarPage() {
               >
                 United Realty Group · FL SL705771 · Miami-Dade · Broward · Palm Beach
               </motion.p>
-              <HouseBotHero variant="buyers" className="justify-center" />
+              <HouseBotHero variant="buyers" lang="es" className="justify-center" />
             </motion.div>
           </div>
         </section>

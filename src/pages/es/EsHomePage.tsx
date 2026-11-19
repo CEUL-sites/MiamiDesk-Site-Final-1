@@ -132,7 +132,7 @@ export default function EsHomePage() {
               >
                 <HeroSellerForm lang="es" />
               </motion.div>
-              <HouseBotHero variant="home" className="justify-center" />
+              <HouseBotHero variant="home" lang="es" className="justify-center" />
               <AssociationFilms lang="es" location="es_home_hero" />
 
               {/* Trust bar — luxury glass cards */}

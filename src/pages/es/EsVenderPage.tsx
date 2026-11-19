@@ -223,7 +223,7 @@ export default function EsVenderPage() {
               >
                 United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
               </motion.p>
-              <HouseBotHero variant="sellers" className="justify-center" />
+              <HouseBotHero variant="sellers" lang="es" className="justify-center" />
               <AssociationFilms lang="es" initialFilm="broward" location="es_sellers_hero" />
             </motion.div>
           </div>

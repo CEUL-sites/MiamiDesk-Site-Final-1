@@ -36,7 +36,13 @@ class CanvasErrorBoundary extends Component<BoundaryProps, { failed: boolean }> 
   }
 }
 
+/** False under the Node test harness (mock window, no document) and very old browsers. */
+function hasDom(): boolean {
+  return typeof document !== "undefined" && typeof window.addEventListener === "function";
+}
+
 function detectWebGL(): boolean {
+  if (!hasDom()) return false;
   try {
     const c = document.createElement("canvas");
     return !!(c.getContext("webgl2") || c.getContext("webgl"));
@@ -47,6 +53,7 @@ function detectWebGL(): boolean {
 
 /** Resolves after first paint: the load event, then an idle slot. */
 function afterFirstPaint(cb: () => void): () => void {
+  if (!hasDom()) return () => {};
   let cancelled = false;
   let idleId: number | undefined;
   const run = () => {
@@ -118,13 +125,14 @@ export function HouseBotStage({ mode, size, onUnavailable }: HouseBotStageProps)
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin: "100px" });
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
   useEffect(() => {
+    if (!hasDom()) return;
     const on = () => setTabVisible(document.visibilityState === "visible");
     document.addEventListener("visibilitychange", on);
     return () => document.removeEventListener("visibilitychange", on);
@@ -138,7 +146,7 @@ export function HouseBotStage({ mode, size, onUnavailable }: HouseBotStageProps)
 
   // Look_Left / Look_Right when the cursor is far to one side (hero only).
   useEffect(() => {
-    if (!mounted3D || mode !== "hero") return;
+    if (!mounted3D || mode !== "hero" || !hasDom()) return;
     let raf = 0;
     const onMove = (e: MouseEvent) => {
       if (raf) return;
