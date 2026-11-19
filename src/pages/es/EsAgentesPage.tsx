@@ -10,6 +10,7 @@ import { Footer } from "../../components/Footer";
 import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT, LEAD_MAGNETS, ASSOCIATION_STATS } from "../../constants";
+import { HouseBotHero } from "../../components/housebot/HouseBotHero";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -156,6 +157,7 @@ export default function EsAgentesPage() {
                   WhatsApp USA +1 954-865-6622
                 </a>
               </motion.div>
+              <HouseBotHero variant="agents" lang="es" className="justify-center" />
               <AssociationFilms lang="es" location="es_agents_hero" />
             </motion.div>
           </div>

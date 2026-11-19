@@ -12,6 +12,7 @@ import { GlobalPartnerNetwork } from "../../components/GlobalPartnerNetwork";
 import { AgencyPartnerForm } from "../../components/forms/AgencyPartnerForm";
 import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
+import { HouseBotHero } from "../../components/housebot/HouseBotHero";
 
 // Hero stagger — mirrors the homepage / English Global Desk hero so all three
 // heros animate in identically.
@@ -316,6 +317,7 @@ export default function EsSpainDeskPage() {
                 Descargar: Metodología de Activación MLS — PDF
               </a>
             </motion.div>
+            <HouseBotHero variant="globalDesk" lang="es" className="justify-center" />
             <AssociationFilms lang="es" location="es_global_desk_hero" />
 
             {/* Network ticker — same scrolling marquee as the homepage hero */}

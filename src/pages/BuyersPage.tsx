@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import { CONTACT } from "../constants";
 import { FloridaBuyerJourney } from "../components/FloridaBuyerJourney";
+import { HouseBotHero } from "../components/housebot/HouseBotHero";
 
 // Condensed from "Top 20 Reasons to Buy & Live in Miami" — Miami and South
 // Florida REALTORS® (MiamiRealtors.com). Keep claims attributed; no guarantees.
@@ -302,6 +303,7 @@ export default function BuyersPage() {
               <p className="advisory-note">
                 Florida licensed since 2001 · United Realty Group · English / Spanish
               </p>
+              <HouseBotHero variant="buyers" />
             </div>
             <BuyerSearchPanel />
           </div>

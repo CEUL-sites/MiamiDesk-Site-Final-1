@@ -75,7 +75,7 @@ function HandoffPanel({ history }: { history: Message[] }) {
   );
 }
 
-function AiPanel() {
+export function AiPanel() {
   const [input, setInput]           = useState("");
   const [loading, setLoading]       = useState(false);
   const [history, setHistory]       = useState<Message[]>([]);

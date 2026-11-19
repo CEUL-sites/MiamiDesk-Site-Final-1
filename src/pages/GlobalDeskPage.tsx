@@ -17,6 +17,7 @@ import { JsonLd } from "../components/SEO/JsonLd";
 import { GlobalDeskListingForm } from "../components/forms/GlobalDeskListingForm";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { pushEvent } from "../lib/analytics";
+import { HouseBotHero } from "../components/housebot/HouseBotHero";
 
 type Lang = "en" | "es";
 
@@ -297,6 +298,7 @@ export default function GlobalDeskPage() {
                 <a href="#how-it-works" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_activation",cta_location: "hero",language: lang})}>{lang === "es" ? "Cómo funciona" : "How It Works"}</a>
               </div>
               <p className="global-desk-hero-signature">Carlos Uzcategui <span aria-hidden="true">·</span> United Realty Group</p>
+              <HouseBotHero variant="globalDesk" lang={lang} />
               <AssociationFilms lang={lang} location="global_desk_hero" />
             </div>
             <div className="global-desk-hero-footer">

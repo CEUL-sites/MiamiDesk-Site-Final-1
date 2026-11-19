@@ -19,6 +19,7 @@ import { MobileStickyCTA } from "../../components/MobileStickyCTA";
 import { RealtorAssociationVideoHub } from "../../components/RealtorAssociationVideoHub";
 import { CONTACT } from "../../constants";
 import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
+import { HouseBotHero } from "../../components/housebot/HouseBotHero";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -260,6 +261,7 @@ export default function EsComprarPage() {
               >
                 United Realty Group · FL SL705771 · Miami-Dade · Broward · Palm Beach
               </motion.p>
+              <HouseBotHero variant="buyers" lang="es" className="justify-center" />
             </motion.div>
           </div>
         </section>

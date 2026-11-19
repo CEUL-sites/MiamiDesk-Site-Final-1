@@ -8,6 +8,8 @@ import { HtmlLang } from './components/SEO/HtmlLang';
 import { CookieBanner } from './components/CookieBanner';
 import { Analytics } from './components/Analytics';
 import { WhatsAppFloat } from './components/WhatsAppFloat';
+import { HouseBotDock } from './components/housebot/HouseBotDock';
+import { MiamiDeskChatDialog } from './components/housebot/MiamiDeskChatDialog';
 import './index.css';
 
 // Eager — homepage is the entry point, must be in the initial bundle
@@ -172,6 +174,8 @@ if (rootElement) {
             </Suspense>
             <Analytics />
             <WhatsAppFloat />
+            <HouseBotDock />
+            <MiamiDeskChatDialog />
             <CookieBanner />
           </BrowserRouter>
         </>
