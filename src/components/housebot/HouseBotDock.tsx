@@ -38,6 +38,8 @@ export function HouseBotDock() {
   const [chatOpen, setChatOpen] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
   const [size, setSize] = useState(96);
+  // Mount the figure (and its WebGL context) only once the dock is first shown.
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => setDismissed(readDismissed()), []);
   useEffect(() => subscribeMiamiDeskChat(setChatOpen), []);
@@ -77,6 +79,10 @@ export function HouseBotDock() {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    if (pastHero) setRevealed(true);
+  }, [pastHero]);
+
   if (dismissed || unavailable || isDockSuppressedRoute(pathname)) return null;
 
   const visible = pastHero && !chatOpen;
@@ -110,7 +116,11 @@ export function HouseBotDock() {
         onKeyDown={(e) => activateOnKey(e, open)}
         className="cursor-pointer overflow-hidden rounded-full border border-gold/30 bg-navy-deep/80 shadow-2xl shadow-black/40 backdrop-blur-md outline-none transition-colors hover:border-gold focus-visible:ring-2 focus-visible:ring-gold"
       >
-        <HouseBotStage mode="dock" size={size} onUnavailable={() => setUnavailable(true)} />
+        {revealed ? (
+          <HouseBotStage mode="dock" size={size} onUnavailable={() => setUnavailable(true)} />
+        ) : (
+          <div style={{ width: size, height: size }} />
+        )}
       </div>
       <button
         type="button"

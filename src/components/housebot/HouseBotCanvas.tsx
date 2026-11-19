@@ -30,7 +30,7 @@ export interface HouseBotCanvasProps {
 }
 
 /** Normalised model height in scene units; camera is framed for this. */
-const MODEL_HEIGHT = 1.6;
+const MODEL_HEIGHT = 1.3;
 
 function Bot({ mode, nodSignal, look, onReady }: Omit<HouseBotCanvasProps, "active">) {
   const { scene, animations } = useGLTF(HOUSEBOT_ASSETS.glb, HOUSEBOT_ASSETS.draco);
@@ -130,15 +130,17 @@ export default function HouseBotCanvas({ active, ...botProps }: HouseBotCanvasPr
       flat
       dpr={[1, DPR_CAP]}
       frameloop={active ? "always" : "never"}
-      camera={{ position: [0, 0.15, 3.6], fov: 32 }}
+      camera={{ position: [0, 0.1, 3.6], fov: 32 }}
       gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
       aria-hidden="true"
     >
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[2.5, 3, 2]} intensity={0.9} />
+      <ambientLight intensity={0.9} />
+      <directionalLight position={[2.5, 3, 3]} intensity={1.6} />
+      <directionalLight position={[-3, 1.5, 2]} intensity={0.5} />
       {/* Procedural studio environment (no HDR download from a third-party CDN). */}
-      <Environment resolution={64} environmentIntensity={0.55}>
-        <Lightformer form="rect" intensity={2} position={[0, 3, 2]} scale={[6, 2, 1]} />
+      <Environment resolution={64} environmentIntensity={1.6}>
+        <Lightformer form="rect" intensity={3} position={[0, 3, 2]} scale={[6, 2, 1]} />
+        <Lightformer form="rect" intensity={1.5} position={[0, 0.5, 4]} scale={[5, 3, 1]} />
         <Lightformer form="rect" intensity={1} position={[-4, 1, 1]} rotation-y={Math.PI / 2} scale={[4, 2, 1]} />
         <Lightformer form="rect" intensity={1} position={[4, 1, 1]} rotation-y={-Math.PI / 2} scale={[4, 2, 1]} />
       </Environment>
