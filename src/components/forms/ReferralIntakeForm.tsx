@@ -22,7 +22,7 @@ export function ReferralIntakeForm({language = "en", initialPurpose = "agent_reg
   const t = (en: string, spanish: string) => es ? spanish : en;
   const formName = es ? "referral-intake-es" : "referral-intake";
   const page = sourcePage || formName;
-  const [form, setForm] = useState({...INITIAL, registrationPurpose: initialPurpose});
+  const [form, setForm] = useState<Record<string, string>>({...INITIAL, registrationPurpose: initialPurpose});
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [err, setErr] = useState("");
   const renderedAt = useRef(Date.now());

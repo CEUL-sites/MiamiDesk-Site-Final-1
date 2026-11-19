@@ -123,7 +123,7 @@ function encodeForm(data: Record<string, string>) {
 
 export function BuyerMandateForm({ variant = "miami", language = "en" }: { variant?: Variant; language?: Lang } = {}) {
   const c = copyFor(variant, language);
-  const [form, setForm] = useState({ ...INITIAL, source: c.source });
+  const [form, setForm] = useState<Record<string, string>>({ ...INITIAL, source: c.source });
   const [neighborhoodSel, setNeighborhoodSel] = useState<string[]>([]);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [err, setErr] = useState("");
