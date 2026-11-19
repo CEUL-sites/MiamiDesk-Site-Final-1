@@ -20,7 +20,10 @@ import {
 
 const HouseBotCanvas = lazy(() => import("./HouseBotCanvas"));
 
-class CanvasErrorBoundary extends Component<{ children: ReactNode; onError: () => void }, { failed: boolean }> {
+type BoundaryProps = { children: ReactNode; onError: () => void };
+
+class CanvasErrorBoundary extends Component<BoundaryProps, { failed: boolean }> {
+  declare readonly props: BoundaryProps;
   state = { failed: false };
   static getDerivedStateFromError() {
     return { failed: true };

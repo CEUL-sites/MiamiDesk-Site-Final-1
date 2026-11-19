@@ -132,7 +132,6 @@ export default function HouseBotCanvas({ active, ...botProps }: HouseBotCanvasPr
       frameloop={active ? "always" : "never"}
       camera={{ position: [0, 0.15, 3.6], fov: 32 }}
       gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
-      style={{ background: "transparent" }}
       aria-hidden="true"
     >
       <ambientLight intensity={0.35} />
