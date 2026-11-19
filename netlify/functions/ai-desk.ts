@@ -5,6 +5,7 @@ import { getBridgeMlsContextForAi } from "./_shared/bridgeMlsForAi";
 import { buildAiDeskSystemInstruction, HANDOFF_SIGNAL } from "./_shared/aiDeskSystemPrompt";
 import { formatLeadCaptureSummary } from "./_shared/leadCaptureFormatter";
 import { guardAiDeskResponse } from "./_shared/aiDeskResponseGuardrails";
+import { buildKnowledgeContext } from "./_shared/aiDeskKnowledge";
 import { corsHeaders, isForbiddenOrigin, rateLimit } from "./_shared/requestGuard";
 import { connectBlobs } from "./_shared/connectBlobs";
 import {
@@ -196,7 +197,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   const leadSummary = formatLeadCaptureSummary(intent, mlsContext);
-  const systemInstruction = buildAiDeskSystemInstruction(intent, mlsContext, leadSummary, turnCount);
+  const systemInstruction = [
+    buildAiDeskSystemInstruction(intent, mlsContext, leadSummary, turnCount),
+    buildKnowledgeContext(messages, intent.language),
+  ].join("\n\n");
 
   try {
     const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
