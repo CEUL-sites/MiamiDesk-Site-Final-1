@@ -129,4 +129,9 @@ const prompt = readFileSync("netlify/functions/_shared/aiDeskSystemPrompt.ts", "
 assert.match(prompt, /Never say a property can be placed, listed or entered "directly" on the Miami MLS/);
 assert.match(prompt, /language of the visitor's latest message/);
 
+assert.equal(classifyGeminiError("This operation was aborted"), "transient");
+assert.match(readFileSync("netlify/functions/ai-desk.ts", "utf8"), /abortSignal: AbortSignal\.timeout\(/, "each Gemini call has a hard time limit");
+
+assert.match(readFileSync("netlify/functions/_shared/aiDeskSystemPrompt.ts", "utf8"), /not every property appears on every website or app/, "200+ portals figure must carry its caveat");
+
 console.log("verify:ai-desk-quota ✓ server-side session quota, registration gate, daily caps, token integrity");

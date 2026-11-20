@@ -65,6 +65,6 @@ export function classifyGeminiError(message: string): GeminiErrorCode {
   if (/referer|referrer|ip address|permission_denied|permission denied|has not been used in project|is disabled|forbidden|403/.test(m)) return "key_restricted";
   if (/resource_exhausted|quota|rate limit|429/.test(m)) return "quota";
   if (/not found|not_found|404|is not supported|no longer available|deprecated/.test(m)) return "model_unavailable";
-  if (/unavailable|overloaded|503|500|internal error|deadline|timed? ?out|econnreset|fetch failed|socket hang up/.test(m)) return "transient";
+  if (/unavailable|overloaded|503|500|internal error|deadline|timed? ?out|aborted|aborterror|econnreset|fetch failed|socket hang up/.test(m)) return "transient";
   return "upstream";
 }

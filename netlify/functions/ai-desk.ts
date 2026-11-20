@@ -76,6 +76,9 @@ async function postLeadToSheets(
 const GEMINI_API_KEY = (process.env.GEMINI_API_KEY ?? process.env.Gemini_API_Key ?? "").trim();
 const VERTEX_CONFIG = resolveVertexAiConfig(process.env);
 const ACTIVE_MODELS = VERTEX_CONFIG ? vertexModels(process.env) : geminiModels(process.env);
+/** Time limits for the model call(s), kept well under the 30s gateway timeout. */
+const PER_CALL_MS = 9_000;
+const TOTAL_BUDGET_MS = 18_000;
 
 /** A quota gate: no model call; the browser renders the matching panel. */
 function gateResponse(
@@ -241,7 +244,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     const provider = VERTEX_CONFIG ? "vertex" : "aistudio";
     for (let i = 0; i < ACTIVE_MODELS.length; i++) {
       // Never let retries/fallbacks outlast the platform's request timeout.
-      if (i > 0 && Date.now() - startedAt > 12_000) break;
+      if (i > 0 && Date.now() - startedAt > TOTAL_BUDGET_MS - 2_000) break;
       const model = ACTIVE_MODELS[i];
       const useThinkingBudget = supportsThinkingBudget(model);
       for (let retry = 0; retry < (i === 0 ? 2 : 1); retry++) {
@@ -251,6 +254,11 @@ export const handler: Handler = async (event: HandlerEvent) => {
             model,
             contents,
             config: {
+              // Hard per-call limit: a stalled call must not hold the visitor
+              // until the platform's 30s gateway timeout.
+              abortSignal: AbortSignal.timeout(
+                Math.max(2_000, Math.min(PER_CALL_MS, TOTAL_BUDGET_MS - (Date.now() - startedAt))),
+              ),
               systemInstruction,
               maxOutputTokens: 900,
               temperature: 0.3,
