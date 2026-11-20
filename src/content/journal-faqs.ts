@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'florida-listing-agreement-what-sellers-sign-2026': [
+    {
+      q: 'What must a Florida listing agreement include?',
+      a: 'Section 475.25(1)(r) of the Florida Statutes requires a written listing agreement to include a definite expiration date, a description of the property, the price and terms, the fee or commission, and the proper signature of each owner. The owner must receive a legible, signed copy, and the agreement may not require the owner to notify the broker of an intention to cancel after the expiration date. The commercial terms beyond those minimums are negotiated between the owner and the brokerage.',
+    },
+    {
+      q: 'Can a Florida listing agreement renew automatically?',
+      a: 'The statute says a written listing agreement may contain no provision requiring the owner to notify the broker of an intention to cancel the listing after its definite expiration date. In practice, that rules out a clause that keeps the listing alive unless the owner objects in writing. An owner who wants to continue after expiration can sign an extension; one who does not simply lets the date pass. Specific contract questions belong with a Florida real estate attorney.',
+    },
+    {
+      q: 'Is my listing agreement with the agent or with the brokerage?',
+      a: 'With the brokerage. Under section 475.42(1)(d) of the Florida Statutes, a sales associate may not collect a commission, deposit or other money in a brokerage transaction except in the name of the employing broker and with the broker\'s express consent. The agreement therefore names the brokerage, and the brokerage\'s supervision and escrow practices stand behind the sale, even though the owner usually works day to day with an individual agent.',
+    },
+    {
+      q: 'What is the difference between a transaction broker and a single agent in Florida?',
+      a: 'Under section 475.278, a transaction broker provides limited, nonfiduciary representation and may assist the buyer, the seller or both, with duties such as honest dealing, accounting for funds and limited confidentiality. A single agent represents only one party as a fiduciary and adds loyalty, full confidentiality, obedience and full disclosure. Florida presumes transaction brokerage unless a single agent relationship is established in writing, and dual agency is prohibited.',
+    },
+  ],
   'sell-and-buy-house-same-time-florida-2026': [
     {
       q: 'What Florida taxes apply to a bridge loan or a HELOC?',
