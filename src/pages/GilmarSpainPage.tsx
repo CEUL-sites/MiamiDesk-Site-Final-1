@@ -1476,6 +1476,64 @@ export default function GilmarSpainPage() {
           </div>
         </section>
 
+        {/* ── 5b. Beyond the selected developments + disclosures ─────── */}
+        <section className="border-t border-bone bg-ivory py-12 md:py-16" aria-labelledby="beyond-developments-heading">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid gap-6 border border-gold/40 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-12 lg:items-center">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">
+                  <Globe2 size={15} aria-hidden="true" />
+                  <span>
+                    {es
+                      ? "MÁS ALLÁ DE LAS PROMOCIONES · MADRID · MARBELLA · ESTEPONA · MÁLAGA · SOTOGRANDE · CANARIAS"
+                      : "BEYOND THE DEVELOPMENTS · MADRID · MARBELLA · ESTEPONA · MÁLAGA · SOTOGRANDE · CANARY ISLANDS"}
+                  </span>
+                </div>
+                <h2 id="beyond-developments-heading" className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">
+                  {es
+                    ? "¿Busca otra zona o presupuesto en España (€500K a €5M+)?"
+                    : "Looking for a different Spanish market or budget band (€500K to €5M+)?"}
+                </h2>
+              </div>
+              <div className="flex flex-wrap items-center gap-3 lg:col-span-5 lg:justify-end">
+                <button
+                  type="button"
+                  onClick={() => jumpToRegister("buyer")}
+                  className="inline-flex items-center justify-center gap-2 bg-gold px-6 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy-deep shadow-lg transition-colors hover:bg-gold-soft"
+                >
+                  {es ? "Enviar criterios de búsqueda" : "Send the search brief"}
+                  <ArrowRight size={13} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => jumpToRegister("agent")}
+                  className="inline-flex items-center justify-center gap-2 border border-navy-deep/25 px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-colors hover:border-gold hover:text-gold-ink"
+                >
+                  {es ? "Registrar un cliente para España" : "Register a client for Spain"}
+                  <ArrowRight size={13} />
+                </button>
+              </div>
+            </div>
+
+            <details className="mt-5 border border-bone bg-white px-4 py-3 text-[11px] leading-relaxed text-ink-primary/70">
+              <summary className="flex cursor-pointer items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">
+                <ShieldCheck size={14} className="shrink-0" aria-hidden="true" />
+                <span>
+                  {es
+                    ? "Divulgaciones regulatorias, fuente de unidades y cooperación fuera del MLS"
+                    : "Regulatory disclosures, unit source & non-MLS cooperation caveats"}
+                </span>
+              </summary>
+              <p className="mt-3">
+                {es
+                  ? "Unidades seleccionadas según información de GILMAR (revisada en noviembre de 2026). Disponibilidad, precios, impuestos y entrega requieren confirmación escrita vigente. Las imágenes son ilustrativas y no muestran las residencias concretas. Los honorarios de cooperación son negociables, se determinan por operación y nivel de servicio, no se publican en esta página y se documentan fuera del MLS: las condiciones se emiten por escrito tras el registro del cliente y requieren un acuerdo firmado y la aprobación de United Realty Group. El registro no garantiza aceptación ni pago."
+                  : "Selected units based on GILMAR information (reviewed Nov 2026). Availability, prices, taxes, and delivery require current written confirmation. Images are illustrative and do not depict the specific residences. Cooperating compensation is negotiable, determined per transaction and level of service, is not published on this page, and is documented outside the MLS: terms are issued in writing after client registration and require a signed agreement and United Realty Group approval. Registration does not guarantee acceptance or payment."}{" "}
+                {CONTACT.licenseDisplay} · {CONTACT.brokerage}.
+              </p>
+            </details>
+          </div>
+        </section>
+
         {/* ── 6. Native Registration Desk (HubSpot + WhatsApp + Netlify) ── */}
         <section id="register-desk" className="scroll-mt-24 bg-navy-deep py-16 text-white md:py-24" aria-labelledby="register-desk-heading">
           <div className="mx-auto max-w-4xl px-6">

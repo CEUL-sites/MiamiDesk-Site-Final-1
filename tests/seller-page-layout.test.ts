@@ -129,7 +129,10 @@ test("phase 11 mounts primary Bridge IDX browser on Home and Buyers, interactive
   assert.match(home, /<ListingsBrowser compact \/>/);
   assert.match(buyers, /<ListingsBrowser[\s\S]*compact/);
   assert.match(buyers, /<GilmarGlobalDeskSection variant="buyers" \/>/);
-  assert.match(globalDesk, /<GilmarGlobalDeskSection variant="global-desk" lang=\{lang\} \/>/);
+  // Global Desk carries only the compact partner gateway; the full GILMAR
+  // showcase (residences, IDX, pipeline, advisory) lives on /gilmar-spain.
+  assert.match(globalDesk, /<SpainPartnerPortal lang=\{lang\} \/>/);
+  assert.doesNotMatch(globalDesk, /<GilmarGlobalDeskSection/);
   assert.match(agents, /<GilmarGlobalDeskSection variant="agents" \/>/);
   assert.match(reviews, /<ReviewMarquee/);
   assert.match(reviews, /<ReviewModal/);
