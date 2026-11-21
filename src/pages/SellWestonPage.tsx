@@ -17,6 +17,8 @@ import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 import { getCityMarketStats, segmentPeriod } from "../data/cityMarketStats";
+import { WestonMarketReport } from "../components/WestonMarketReport";
+import { WESTON_REPORT_UPDATED } from "../data/westonReport";
 
 const weston = getCityMarketStats("Weston")!;
 const westonSingleFamily = weston.stats.singleFamily!;
@@ -61,11 +63,13 @@ export default function SellWestonPage() {
         <meta property="og:url" content="https://homesprofessional.com/sell-weston" />
         <meta property="og:title" content="Weston FL Listing Agent | Carlos Uzcategui" />
         <meta property="og:description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community-specific pricing, buyer-agent outreach and a private seller strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta property="og:image" content="https://homesprofessional.com/images/reports/weston-2026-11-og.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Weston FL Listing Agent | Carlos Uzcategui" />
         <meta name="twitter:description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community-specific pricing, buyer-agent outreach and a private seller strategy review." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta name="twitter:image" content="https://homesprofessional.com/images/reports/weston-2026-11-og.jpg" />
       </Helmet>
       <JsonLd id="sell-weston-breadcrumb" data={{
           "@context": "https://schema.org",
@@ -93,6 +97,29 @@ export default function SellWestonPage() {
           "areaServed": { "@type": "City", "name": "Weston", "addressRegion": "FL", "addressCountry": "US" },
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "url": "https://homesprofessional.com/sell-weston"
+        }} />
+      <JsonLd id="sell-weston-report-video" data={{
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "name": "Weston 4-bedroom market report, November 2026",
+          "description": "44-second briefing on Weston, FL 4-bedroom home prices, closed sales and current listings, 2020 to November 2026, from Miami MLS data.",
+          "thumbnailUrl": "https://homesprofessional.com/images/reports/weston-2026-11-poster.jpg",
+          "contentUrl": "https://homesprofessional.com/videos/weston-market-report-2026-11-en.mp4",
+          "uploadDate": WESTON_REPORT_UPDATED,
+          "duration": "PT44S",
+          "inLanguage": "en"
+        }} />
+      <JsonLd id="sell-weston-report-dataset" data={{
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Weston, FL 4-bedroom home sales 2020-2026 (Miami MLS)",
+          "description": "Closed sales, median and average sale price, median price per square foot, median days on market and sale-to-list ratio for 4-bedroom homes in Weston, Broward County, by year from 2020 through November 20, 2026, plus active listings as of November 20, 2026.",
+          "url": "https://homesprofessional.com/sell-weston#weston-market-report",
+          "temporalCoverage": "2020-01-01/2026-11-20",
+          "spatialCoverage": { "@type": "Place", "name": "Weston, Florida" },
+          "dateModified": WESTON_REPORT_UPDATED,
+          "publisher": { "@id": "https://homesprofessional.com/#agent" },
+          "isBasedOn": "Miami MLS (SEFMLS)"
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
@@ -171,6 +198,8 @@ export default function SellWestonPage() {
             <HeroReachBar />
           </div>
         </section>
+
+        <WestonMarketReport />
 
         {/* Market positioning */}
         <section className="bg-ivory py-14 md:py-20">
