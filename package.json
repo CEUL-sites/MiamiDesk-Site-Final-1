@@ -8,7 +8,7 @@
     "dev": "vite --port=3000 --host=0.0.0.0",
     "prebuild": "node scripts/generate-journal-index.mjs && node scripts/generate-route-assets.mjs && node scripts/generate-rss.mjs",
     "build": "vite build",
-    "postbuild": "react-snap && node scripts/fix-prerender-motion.mjs && node scripts/verify-prerender-routes.mjs && node --import tsx scripts/build-ai-desk-knowledge.ts",
+    "postbuild": "react-snap && node scripts/fix-prerender-motion.mjs && node scripts/generate-llms-journal.mjs && node scripts/verify-prerender-routes.mjs && node --import tsx scripts/build-ai-desk-knowledge.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
