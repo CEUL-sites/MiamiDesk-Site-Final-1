@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'selling-house-with-tenants-florida-2026': [
+    {
+      q: 'What happens to the security deposit when a rented house is sold in Florida?',
+      a: 'Under section 83.49(7) of the Florida Statutes, all security deposits and advance rents held for the tenants must be transferred to the new owner at the sale, together with any earned interest and an accurate accounting for each tenant. Once the funds and records are transferred and the new owner gives a written receipt, the seller is released from the obligation to hold that money. Showing the transfer as a credit on the settlement statement keeps the record clear.',
+    },
+    {
+      q: 'Does the lease end when a Florida rental property is sold?',
+      a: 'A sale does not, by itself, end an existing residential lease. The buyer generally takes the property subject to the lease and becomes the landlord. Whether the lease can end earlier depends on its own wording, and section 83.575 limits notice clauses in fixed-term leases to between 30 and 60 days. A Florida real estate attorney should read the lease before an owner relies on any early-termination clause.',
+    },
+    {
+      q: 'How much notice is needed to end a month-to-month tenancy in Florida before selling?',
+      a: 'Section 83.57 of the Florida Statutes requires written notice of not less than 30 days before the end of a monthly period to end a month-to-month tenancy. Year-to-year tenancies need 60 days before the end of the annual period, quarter-to-quarter 30 days, and week-to-week 7 days. The notice must be given in the manner the statute references, so owners should have the form and delivery checked.',
+    },
+    {
+      q: 'Can a Florida tenant refuse to let buyers see the house?',
+      a: 'Under section 83.53, a tenant may not unreasonably withhold consent for the landlord to enter to show the home to prospective or actual purchasers. For that purpose the landlord may enter with the tenant\'s consent, in an emergency, when consent is unreasonably withheld, or when the tenant has been absent for half a rental period. The landlord may not abuse the right of access or use it to harass the tenant, so an agreed showing schedule usually works better than relying on the statute alone.',
+    },
+  ],
   'florida-listing-agreement-what-sellers-sign-2026': [
     {
       q: 'What must a Florida listing agreement include?',
