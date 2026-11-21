@@ -32,7 +32,7 @@ The requirements sit in the licensing chapter rather than in contract law. [Sect
 | A legible, signed, true and correct copy to the owner | You receive your own signed copy promptly, within the time the statute sets |
 | No notice required to cancel after expiration | The agreement may not require you to notify the broker of an intention to cancel after the expiration date |
 
-The last line matters most in practice. A listing that renews itself unless the owner objects in writing is the clause the statute rules out. When the expiration date passes, the listing ends.
+The last line matters most in practice. A listing that renews itself unless the owner objects in writing is the clause the statute rules out: once the expiration date passes, the owner does not have to give notice to end it. Continuing the listing after that date takes a new, signed extension.
 
 ## Who You Are Contracting With: The Brokerage, Not Only the Agent
 
@@ -74,7 +74,7 @@ The statute sets the minimum. The commercial terms are for the owner and the bro
 3. **What is the fee, and how is the buyer's side handled?** The agreement should state your fee and how any compensation offered to a buyer's brokerage will be decided and documented.
 4. **What marketing is committed in writing?** Photography, MLS entry, the portals and the agent outreach you are paying for should be described, not assumed.
 5. **Is there a protection period after expiration?** Some agreements keep the fee payable if the property sells after expiration to a buyer introduced during the term. Know how long that period runs and how the buyers are identified.
-6. **How can the agreement end early?** Florida law requires a definite end date, not an early exit. Read the termination clause and know what a withdrawal costs before you need it.
+6. **How can the agreement end early?** The statute requires a definite end date; it does not create a right to end the agreement before that date. Read the termination clause and know what a withdrawal costs before you need it.
 7. **Which representation form applies?** Confirm transaction broker or single agent, and keep the signed disclosure.
 
 ## What a Listing Agreement Does Not Change
@@ -83,7 +83,7 @@ Signing a listing agreement does not shift the owner's own obligations. Disclosu
 
 ## Where Distribution Fits
 
-The listing agreement is where an owner decides how the property will reach the market. Listing on the Miami MLS places the property inside the daily working ecosystem of 93,000 Miami and South Florida REALTORS® members, who can find it and present it to their own buyers. Association listings are featured on 200+ global portals in 19 languages, subject to each portal's rules, and are shared with 260+ U.S. MLSs through RPR; the association also reports 437+ international agreements with partner associations and 11 MLS data exchanges. That reach is what an exclusive right of sale agreement should buy, and the agreement should describe it. Distribution does not guarantee a price or a timeline. It determines how many qualified agents and buyers are in a position to compete for the property.
+The listing agreement is where an owner decides how the property will reach the market. Listing on the Miami MLS places the property inside the daily working ecosystem of 93,000 Miami and South Florida REALTORS® members, who can find it and present it to their own buyers. According to Miami and South Florida REALTORS®, association listings are featured on 200+ global portals in 19 languages, although not every property appears on every website or app and the sites may change, and they are shared with 260+ U.S. MLSs through RPR; the association also reports 437+ international agreements with partner associations and 11 MLS data exchanges. That reach is what an exclusive right of sale agreement should buy, and the agreement should describe it. Distribution does not guarantee a price or a timeline. It determines how many qualified agents and buyers are in a position to compete for the property.
 
 ## Why Carlos Uzcategui
 
