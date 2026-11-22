@@ -24,7 +24,7 @@ import { LazyVideo } from "../components/LazyVideo";
 import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
 import { AgencyPartnerForm } from "../components/forms/AgencyPartnerForm";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
-import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
+import { SpainPartnerPortal } from "../components/SpainPartnerPortal";
 import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
 import { Tilt3D } from "../components/Tilt3D";
 import { CONTACT } from "../constants";
@@ -630,7 +630,7 @@ export default function AgentsPage() {
         </section>
 
         {/* ── GILMAR × United Realty Group cooperation showcase — compensation terms are gated, never published ── */}
-        <GilmarGlobalDeskSection variant="agents" />
+        <SpainPartnerPortal variant="agents" />
 
         {/* ── SECTION 4: Unified Partner & Referral Intake Desk ─────── */}
         <section className="bg-navy-deep py-12 md:py-18 text-white">

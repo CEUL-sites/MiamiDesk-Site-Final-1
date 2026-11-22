@@ -10,7 +10,7 @@ import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { ListingsBrowser } from "../components/listings/ListingsBrowser";
-import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
+import { SpainPartnerPortal } from "../components/SpainPartnerPortal";
 import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
 import { UrgCorporateShowcase } from "../components/UrgCorporateShowcase";
 import { Tilt3D } from "../components/Tilt3D";
@@ -521,7 +521,7 @@ export default function BuyersPage() {
         <UrgCorporateShowcase variant="buyers" />
 
         {/* GILMAR × United Realty Group Spain Acquisition Desk */}
-        <GilmarGlobalDeskSection variant="buyers" />
+        <SpainPartnerPortal variant="buyers" />
 
         {/* Section 4: Interactive 3-Lens Regional Fundamentals Explorer (Replaces 9-Card Wall) */}
         <section className="relative overflow-hidden bg-navy-deep py-16 md:py-24">
