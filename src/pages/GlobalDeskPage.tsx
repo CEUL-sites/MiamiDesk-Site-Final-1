@@ -2,7 +2,7 @@ import "../components/global-desk-hero.css";
 import { AssociationFilms } from "../components/AssociationFilms";
 import { GlobalResearchLinks } from "../components/GlobalResearchLinks";
 import { DistributionMetrics } from "../components/DistributionMetrics";
-import { GilmarGlobalDeskSection } from "../components/GilmarGlobalDeskSection";
+import { SpainPartnerPortal } from "../components/SpainPartnerPortal";
 import { RealtorAssociationVideoHub } from "../components/RealtorAssociationVideoHub";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -294,7 +294,7 @@ export default function GlobalDeskPage() {
               <p className="global-desk-hero-summary">{lang === "es" ? "Propiedades internacionales seleccionadas, presentadas a agentes de compradores del sur de Florida." : "Selected international property, introduced to relevant South Florida buyer agents."}</p>
               <div className="global-desk-hero-actions">
                 <a href="#listing-request" className="global-desk-hero-primary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "private_discussion",cta_location: "hero",language: lang})}>{lang === "es" ? "Consultar su propiedad" : "Discuss Your Listing"}<ArrowRight size={18} aria-hidden="true" /></a>
-                <a href="#gilmar-global-desk" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_gilmar_spain",cta_location: "hero",language: lang})}>{lang === "es" ? "Ver Portal GILMAR España" : "GILMAR Spain Showcase"}</a>
+                <a href="#gilmar-global-desk" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_gilmar_spain",cta_location: "hero",language: lang})}>{lang === "es" ? "Portal de socios en España" : "Spain Partner Portal"}</a>
                 <a href="#how-it-works" className="global-desk-hero-secondary" onClick={() => pushEvent("global_desk_cta_click", {cta_type: "explore_activation",cta_location: "hero",language: lang})}>{lang === "es" ? "Cómo funciona" : "How It Works"}</a>
               </div>
               <p className="global-desk-hero-signature">Carlos Uzcategui <span aria-hidden="true">·</span> United Realty Group</p>
@@ -316,8 +316,8 @@ export default function GlobalDeskPage() {
           </div>
         </section>
 
-        {/* GILMAR × United Realty Group Active Bilateral Showcase */}
-        <GilmarGlobalDeskSection variant="global-desk" lang={lang} />
+        {/* Spain Partner Portal — compact gateway; the GILMAR showcase lives on /gilmar-spain */}
+        <SpainPartnerPortal lang={lang} />
 
         {/* MIAMI REALTORS® + RWorld Video Hub (Only a REALTOR® · Global Ecosystem) */}
         <RealtorAssociationVideoHub variant="global-desk" lang={lang} />
