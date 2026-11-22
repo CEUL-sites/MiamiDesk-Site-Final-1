@@ -123,17 +123,17 @@ test("phase 11 mounts primary Bridge IDX browser on Home and Buyers, interactive
     readFile("src/pages/ReviewsPage.tsx", "utf8"),
     readFile("src/pages/ListingsPage.tsx", "utf8"),
     readFile("src/components/Proof.tsx", "utf8"),
-    readFile("src/components/GilmarGlobalDeskSection.tsx", "utf8"),
+    readFile("src/components/SpainPartnerPortal.tsx", "utf8"),
   ]);
 
   assert.match(home, /<ListingsBrowser compact \/>/);
   assert.match(buyers, /<ListingsBrowser[\s\S]*compact/);
-  assert.match(buyers, /<GilmarGlobalDeskSection variant="buyers" \/>/);
-  // Global Desk carries only the compact partner gateway; the full GILMAR
-  // showcase (residences, IDX, pipeline, advisory) lives on /gilmar-spain.
+  assert.match(buyers, /<SpainPartnerPortal variant="buyers" \/>/);
+  // Global Desk, Agents and Buyers carry only the compact partner gateway; the
+  // full GILMAR showcase (residences, IDX, pipeline, advisory) lives on /gilmar-spain.
   assert.match(globalDesk, /<SpainPartnerPortal lang=\{lang\} \/>/);
   assert.doesNotMatch(globalDesk, /<GilmarGlobalDeskSection/);
-  assert.match(agents, /<GilmarGlobalDeskSection variant="agents" \/>/);
+  assert.match(agents, /<SpainPartnerPortal variant="agents" \/>/);
   assert.match(reviews, /<ReviewMarquee/);
   assert.match(reviews, /<ReviewModal/);
   assert.match(reviews, /pb-28 lg:pb-0/);

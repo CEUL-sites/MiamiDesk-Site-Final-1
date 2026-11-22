@@ -1,6 +1,5 @@
 import { ArrowRight, BadgeCheck, Building2, Landmark, Lock, Scale, ShieldCheck } from "lucide-react";
 import { CONTACT } from "../constants";
-import { GILMAR_PORTAL_URL } from "./GilmarGlobalDeskSection";
 
 /**
  * Global Desk → Spain Partner Portal.
@@ -14,10 +13,14 @@ import { GILMAR_PORTAL_URL } from "./GilmarGlobalDeskSection";
  * a Spanish agency without a signed cooperation agreement on file. Add a
  * partner here only once that agreement exists.
  *
- * Compensation gating: no rate, percentage or amount appears here.
+ * Compensation gating: no rate, percentage or amount appears here, and the
+ * "buyers" variant carries no agent-compensation language at all.
  */
 
 type Lang = "en" | "es";
+export type SpainPartnerPortalVariant = "global-desk" | "agents" | "buyers";
+
+export const GILMAR_PORTAL_URL = "/gilmar-spain";
 
 const GILMAR_STATS = [
   { value: "1983", en: "Founded", es: "Fundación" },
@@ -49,6 +52,12 @@ const GILMAR_SAFEGUARDS = [
   },
 ] as const;
 
+const BUYER_SAFEGUARD = {
+  icon: ShieldCheck,
+  en: "Spanish notary closing with registry checks and after-sales coordination",
+  es: "Cierre ante notario español con verificación registral y coordinación posventa",
+} as const;
+
 const PARTNER_SLOTS = [
   {
     en: ["New-development partners", "Spanish developers admitted by signed cooperation agreement."],
@@ -60,10 +69,47 @@ const PARTNER_SLOTS = [
   },
 ] as const;
 
-export function SpainPartnerPortal({ lang = "en" }: { lang?: Lang }) {
+export function SpainPartnerPortal({
+  variant = "global-desk",
+  lang = "en",
+}: {
+  variant?: SpainPartnerPortalVariant;
+  lang?: Lang;
+}) {
   const es = lang === "es";
+  const forBuyers = variant === "buyers";
   const gilmarHref = es ? `${GILMAR_PORTAL_URL}?lang=es` : GILMAR_PORTAL_URL;
-  const registerHref = es ? "/es/agentes#referral-form" : "/agents#south-florida-referral";
+  const registerHref =
+    variant === "agents"
+      ? "#south-florida-referral"
+      : variant === "buyers"
+        ? "#buyer-mandate"
+        : es
+          ? "/es/agentes#referral-form"
+          : "/agents#south-florida-referral";
+  const safeguards = forBuyers
+    ? [...GILMAR_SAFEGUARDS.slice(0, 3), BUYER_SAFEGUARD]
+    : GILMAR_SAFEGUARDS;
+
+  const intro = forBuyers
+    ? es
+      ? "Cada promotora y agencia del portal opera bajo un acuerdo de cooperación firmado con United Realty Group. Usted recibe ejecución local en España y un único punto de contacto en Florida, en inglés o en español."
+      : "Every developer and agency in the portal works under a signed cooperation agreement with United Realty Group. You get local execution in Spain and one point of contact in Florida, in English or Spanish."
+    : es
+      ? "Cada promotora y agencia del portal opera bajo un acuerdo de cooperación firmado con United Realty Group. Su comprador recibe ejecución local en España; su relación y su honorario quedan documentados antes de la primera presentación."
+      : "Every developer and agency in the portal works under a signed cooperation agreement with United Realty Group. Your buyer gets local execution in Spain; your relationship and your fee are documented before the first introduction.";
+
+  const registerLabel = forBuyers
+    ? es ? "Enviar su búsqueda en España" : "Send your Spain search brief"
+    : es ? "Registrar un cliente y recibir las condiciones" : "Register a client and receive the written terms";
+
+  const disclosure = forBuyers
+    ? es
+      ? "Los socios del portal se incorporan solo tras un acuerdo de cooperación firmado y la aprobación de United Realty Group. Disponibilidad, precios e impuestos en España requieren confirmación escrita vigente. No se garantiza disponibilidad, precio ni resultado de compra. "
+      : "Portal partners are added only after a signed cooperation agreement and United Realty Group approval. Spanish availability, pricing and taxes require current written confirmation. No availability, price or purchase outcome is guaranteed. "
+    : es
+      ? "Los socios del portal se incorporan solo tras un acuerdo de cooperación firmado y la aprobación de United Realty Group. Disponibilidad, precios e impuestos en España requieren confirmación escrita vigente. Las condiciones de cooperación se emiten por escrito tras el registro del cliente, se documentan fuera del MLS y no garantizan aceptación, venta ni pago. "
+      : "Portal partners are added only after a signed cooperation agreement and United Realty Group approval. Spanish availability, pricing and taxes require current written confirmation. Cooperation terms are issued in writing after client registration, are documented outside the MLS, and do not guarantee acceptance, a sale or payment. ";
 
   return (
     <section
@@ -86,9 +132,7 @@ export function SpainPartnerPortal({ lang = "en" }: { lang?: Lang }) {
               : "Spain, through partners who answer in writing."}
           </h2>
           <p className="mt-5 font-sans text-base leading-relaxed text-white/75 md:text-lg">
-            {es
-              ? "Cada promotora y agencia del portal opera bajo un acuerdo de cooperación firmado con United Realty Group. Su comprador recibe ejecución local en España; su relación y su honorario quedan documentados antes de la primera presentación."
-              : "Every developer and agency in the portal works under a signed cooperation agreement with United Realty Group. Your buyer gets local execution in Spain; your relationship and your fee are documented before the first introduction."}
+            {intro}
           </p>
         </div>
 
@@ -161,7 +205,7 @@ export function SpainPartnerPortal({ lang = "en" }: { lang?: Lang }) {
 
             <div className="flex flex-col justify-between gap-6 lg:col-span-5">
               <ul className="space-y-3.5">
-                {GILMAR_SAFEGUARDS.map(({ icon: Icon, en, es: esText }) => (
+                {safeguards.map(({ icon: Icon, en, es: esText }) => (
                   <li key={en} className="flex items-start gap-3 font-sans text-sm leading-relaxed text-white/80">
                     <Icon size={16} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
                     <span>{es ? esText : en}</span>
@@ -181,7 +225,7 @@ export function SpainPartnerPortal({ lang = "en" }: { lang?: Lang }) {
                   href={registerHref}
                   className="inline-flex items-center justify-between gap-3 border border-white/25 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.16em] text-white transition-colors hover:border-gold hover:text-gold"
                 >
-                  {es ? "Registrar un cliente para España" : "Register a client for Spain"}
+                  {registerLabel}
                   <ArrowRight size={15} aria-hidden="true" />
                 </a>
               </div>
@@ -209,9 +253,7 @@ export function SpainPartnerPortal({ lang = "en" }: { lang?: Lang }) {
         </div>
 
         <p className="mt-6 max-w-4xl font-sans text-[11px] leading-relaxed text-white/50">
-          {es
-            ? "Los socios del portal se incorporan solo tras un acuerdo de cooperación firmado y la aprobación de United Realty Group. Disponibilidad, precios e impuestos en España requieren confirmación escrita vigente. Las condiciones de cooperación se emiten por escrito tras el registro del cliente, se documentan fuera del MLS y no garantizan aceptación, venta ni pago. "
-            : "Portal partners are added only after a signed cooperation agreement and United Realty Group approval. Spanish availability, pricing and taxes require current written confirmation. Cooperation terms are issued in writing after client registration, are documented outside the MLS, and do not guarantee acceptance, a sale or payment. "}
+          {disclosure}
           {CONTACT.licenseDisplay} · {CONTACT.brokerage}.
         </p>
       </div>
