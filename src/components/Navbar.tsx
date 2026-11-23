@@ -23,12 +23,18 @@ const NAV_ITEMS: NavItem[] = [
 export function Navbar() {
   const [isOpen, setIsOpen]     = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname.replace(/\/+$/, "") || "/";
-  const hasInlineLanguageSelector = currentPath === "/global-desk";
+  const isGilmarSpain = currentPath === "/gilmar-spain";
+  const hasInlineLanguageSelector = currentPath === "/global-desk" || isGilmarSpain;
+  const hideNavbarLogo = isGilmarSpain && !pastHero;
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 80);
+    const fn = () => {
+      setScrolled(window.scrollY > 80);
+      setPastHero(window.scrollY > 420);
+    };
     fn();
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
@@ -74,7 +80,11 @@ export function Navbar() {
             matches what's on screen at every breakpoint. */}
         <a
           href="/"
-          className={`flex shrink-0 items-center gap-3 transition-colors duration-300 ${onLight ? "text-navy" : "text-white"}`}
+          aria-hidden={hideNavbarLogo ? true : undefined}
+          tabIndex={hideNavbarLogo ? -1 : undefined}
+          className={`flex shrink-0 items-center gap-3 transition-all duration-300 ${
+            onLight ? "text-navy" : "text-white"
+          } ${hideNavbarLogo ? "pointer-events-none opacity-0" : "opacity-100"}`}
         >
           <UrgLogo className="h-8 w-auto sm:h-9" inverted={!onLight} />
           <span className="hidden flex-col leading-none border-l border-current/20 pl-3 2xl:flex">

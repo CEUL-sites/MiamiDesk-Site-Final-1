@@ -1,0 +1,294 @@
+/* Scoped editorial visual system for /gilmar-spain
+ * Inspired by GILMAR Spain's sunlit Mediterranean editorial language:
+ * pure #ffffff canvas, warm #f2f0e1 cream lead band, #817360 taupe/bronze accents,
+ * #c6b296 sand hairlines, #2d2d2d charcoal anchors, high-contrast serif display
+ * typography, and Jost geometric sans body/UI.
+ *
+ * Strictly scoped under .gilmar-editorial so no other route on homesprofessional.com
+ * is affected.
+ */
+
+.gilmar-editorial {
+  --g-canvas: #ffffff;
+  --g-cream: #f2f0e1;
+  --g-cream-soft: #f8f7f1;
+  --g-taupe: #817360;
+  --g-taupe-dark: #695c4b;
+  --g-sand: #c6b296;
+  --g-charcoal: #2d2d2d;
+  --g-ink: #282828;
+  --g-slate: #5b5b5f;
+  --g-muted: #87868a;
+  --g-hairline: #ddd8cc;
+  --g-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --g-sans: "Jost", "Raleway", system-ui, -apple-system, sans-serif;
+
+  background-color: var(--g-canvas);
+  color: var(--g-ink);
+  font-family: var(--g-sans);
+}
+
+.gilmar-editorial .g-serif {
+  font-family: var(--g-serif);
+  letter-spacing: -0.01em;
+}
+
+.gilmar-editorial .g-sans {
+  font-family: var(--g-sans);
+}
+
+.gilmar-editorial .g-eyebrow {
+  font-family: var(--g-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--g-taupe);
+}
+
+.gilmar-editorial .g-num {
+  font-family: var(--g-serif);
+  font-weight: 500;
+  color: var(--g-taupe);
+}
+
+/* Signature Gilmar translucent hero ghost button */
+.gilmar-editorial .g-btn-hero-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 52px;
+  padding: 0.875rem 2.125rem;
+  background: rgba(45, 45, 45, 0.44);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: var(--g-sans);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.gilmar-editorial .g-btn-hero-ghost:hover {
+  background: var(--g-taupe);
+  border-color: var(--g-taupe);
+}
+
+/* Signature Gilmar solid taupe CTA (matches header Registro button) */
+.gilmar-editorial .g-btn-taupe {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0.75rem 1.75rem;
+  background: var(--g-taupe);
+  border: 1px solid var(--g-taupe);
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: var(--g-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.gilmar-editorial .g-btn-taupe:hover {
+  background: var(--g-taupe-dark);
+  border-color: var(--g-taupe-dark);
+}
+
+/* Signature Gilmar solid charcoal CTA (matches ENVIAR button) */
+.gilmar-editorial .g-btn-charcoal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0.75rem 1.75rem;
+  background: var(--g-charcoal);
+  border: 1px solid var(--g-charcoal);
+  border-radius: 0;
+  color: #ffffff;
+  font-family: var(--g-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.gilmar-editorial .g-btn-charcoal:hover {
+  background: var(--g-taupe);
+  border-color: var(--g-taupe);
+}
+
+/* Crisp hairline outline button */
+.gilmar-editorial .g-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--g-slate);
+  border-radius: 0;
+  color: var(--g-ink);
+  font-family: var(--g-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.gilmar-editorial .g-btn-outline:hover {
+  background: var(--g-charcoal);
+  border-color: var(--g-charcoal);
+  color: #ffffff;
+}
+
+/* Framed editorial statement (top & bottom 1px charcoal rules) */
+.gilmar-editorial .g-editorial-frame {
+  border-top: 1px solid var(--g-ink);
+  border-bottom: 1px solid var(--g-ink);
+  padding: 2rem 0;
+}
+
+/* Hairline vertical divider used in desktop two-column editorial splits */
+@media (min-width: 768px) {
+  .gilmar-editorial .g-split-divider {
+    border-left: 1px solid #333333;
+    padding-left: 2.5rem;
+  }
+}
+
+/* Scoped Gilmar Form Restyling over ReferralIntakeForm & BuyerMandateForm.
+ * Preserves every functional field, hidden Netlify input, honeypot, and
+ * validation rule while matching gilmar.es/vender/'s crisp #F2F0E1 + #FFFFFF
+ * hairline-input aesthetic and #2D2D2D submit bar.
+ */
+.gilmar-editorial .gilmar-form-shell > div {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--g-ink) !important;
+}
+
+/* Soften the embedded form's dark header strip into Gilmar's refined editorial heading */
+.gilmar-editorial .gilmar-form-shell > div > div:first-child {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--g-sand) !important;
+  padding: 0 0 1.5rem 0 !important;
+  text-align: center;
+}
+
+.gilmar-editorial .gilmar-form-shell > div > div:first-child p:first-child {
+  font-family: var(--g-sans) !important;
+  color: var(--g-taupe) !important;
+  letter-spacing: 0.18em !important;
+  font-size: 0.72rem !important;
+}
+
+.gilmar-editorial .gilmar-form-shell > div > div:first-child h3 {
+  font-family: var(--g-serif) !important;
+  color: var(--g-ink) !important;
+  font-size: 1.85rem !important;
+  font-weight: 600 !important;
+}
+
+.gilmar-editorial .gilmar-form-shell > div > div:first-child p:last-child {
+  color: var(--g-slate) !important;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gilmar-editorial .gilmar-form-shell form {
+  padding: 1.75rem 0 0 0 !important;
+}
+
+.gilmar-editorial .gilmar-form-shell fieldset {
+  background-color: #ffffff;
+  border: 1px solid var(--g-hairline);
+  padding: 1.5rem !important;
+}
+
+.gilmar-editorial .gilmar-form-shell legend {
+  float: left;
+  width: 100%;
+  font-family: var(--g-serif) !important;
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  color: var(--g-taupe) !important;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--g-sand);
+  margin-bottom: 1.25rem !important;
+}
+
+.gilmar-editorial .gilmar-form-shell legend + * {
+  clear: both;
+}
+
+.gilmar-editorial .gilmar-form-shell .input-label,
+.gilmar-editorial .gilmar-form-shell label > span,
+.gilmar-editorial .gilmar-form-shell label {
+  font-family: var(--g-sans) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  color: var(--g-slate) !important;
+}
+
+.gilmar-editorial .gilmar-form-shell .form-input,
+.gilmar-editorial .gilmar-form-shell input[type="text"],
+.gilmar-editorial .gilmar-form-shell input[type="email"],
+.gilmar-editorial .gilmar-form-shell input[type="tel"],
+.gilmar-editorial .gilmar-form-shell input[type="url"],
+.gilmar-editorial .gilmar-form-shell select,
+.gilmar-editorial .gilmar-form-shell textarea {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(91, 91, 95, 0.55) !important;
+  border-radius: 0 !important;
+  color: var(--g-ink) !important;
+  font-family: var(--g-sans) !important;
+  font-size: 0.9375rem !important;
+  padding: 0.65rem 0.875rem !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gilmar-editorial .gilmar-form-shell .form-input:focus,
+.gilmar-editorial .gilmar-form-shell input:focus,
+.gilmar-editorial .gilmar-form-shell select:focus,
+.gilmar-editorial .gilmar-form-shell textarea:focus {
+  border-color: var(--g-taupe) !important;
+  box-shadow: 0 0 0 2px rgba(129, 115, 96, 0.16) !important;
+  outline: none !important;
+}
+
+.gilmar-editorial .gilmar-form-shell button[type="submit"] {
+  background: var(--g-charcoal) !important;
+  border: 1px solid var(--g-charcoal) !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  font-family: var(--g-sans) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.gilmar-editorial .gilmar-form-shell button[type="submit"]:hover {
+  background: var(--g-taupe) !important;
+  border-color: var(--g-taupe) !important;
+}
