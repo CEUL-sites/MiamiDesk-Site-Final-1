@@ -1,4 +1,120 @@
 {
+  "sell-south-florida-home-now-or-wait-until-2027": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        "@id": "https://homesprofessional.com/journal/sell-south-florida-home-now-or-wait-until-2027#article",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://homesprofessional.com/#website",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com"
+        },
+        "headline": "Should You Sell Your South Florida Home Now or Wait Until 2027?",
+        "datePublished": "2026-11-22T07:00:00-05:00",
+        "dateModified": "2026-11-22T07:00:00-05:00",
+        "image": "https://homesprofessional.com/images/journal/og/sell-south-florida-home-now-or-wait-until-2027.jpg",
+        "author": {
+          "@type": "Person",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": "Carlos Uzcategui",
+          "jobTitle": "Florida Licensed Realtor®",
+          "identifier": "SL705771",
+          "url": "https://homesprofessional.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://homesprofessional.com/images/urg-logo-original.webp"
+          }
+        },
+        "description": "Data-driven timing analysis for South Florida single-family and condominium sellers comparing winter 2026 listing execution against waiting for 2027 across Miami-Dade, Broward, and Palm Beach.",
+        "mainEntityOfPage": "https://homesprofessional.com/journal/sell-south-florida-home-now-or-wait-until-2027"
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://homesprofessional.com/#agent",
+        "name": "Carlos Uzcategui - United Realty Group",
+        "license": "SL705771",
+        "telephone": "+1-954-865-6622",
+        "email": "contact@carlosre.com",
+        "url": "https://homesprofessional.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2691 E Oakland Park Blvd",
+          "addressLocality": "Plantation",
+          "addressRegion": "FL",
+          "postalCode": "33324",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "South Florida Seller Timing Strategy",
+          "Miami-Dade Broward and Palm Beach Real Estate",
+          "Weston Coral Gables Fort Lauderdale Brickell Aventura",
+          "Certified Luxury Home Marketing Specialist",
+          "Bilateral Spain-Miami MLS Distribution",
+          "FHFA Repeat-Sales Valuation"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://homesprofessional.com/journal/sell-south-florida-home-now-or-wait-until-2027#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Should a South Florida homeowner sell in late 2026 or wait until spring 2027?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If your property is single-family or a reserve-compliant condo, listing during the late-2026 winter arrival window captures cash and relocation buyers before spring inventory rises further and while 7.28% mortgage rates sideline competing leveraged listings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why are condo prices softening while single-family medians hold firm?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Miami-Dade condo supply sits at 12.7 months versus 5.4 months for single-family homes, driven by stricter agency lending reviews and December 31, 2026 SIRS reserve deadlines that shift leverage toward cash buyers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do lower Citizens insurance rates help home sellers right now?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Approved 2026 Citizens rate reductions (-8.7% HO-3 and -10.4% HO-6) alongside private-market depopulation reduce buyer carrying-cost friction when paired with current wind-mitigation documentation."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://homesprofessional.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Journal",
+            "item": "https://homesprofessional.com/journal/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Sell South Florida Home Now or Wait Until 2027",
+            "item": "https://homesprofessional.com/journal/sell-south-florida-home-now-or-wait-until-2027"
+          }
+        ]
+      }
+    ]
+  },
   "mortgage-rate-lock-in-south-florida-sellers-2026": {
     "@context": "https://schema.org",
     "@graph": [

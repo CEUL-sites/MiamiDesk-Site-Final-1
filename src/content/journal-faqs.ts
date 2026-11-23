@@ -9,6 +9,20 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'sell-south-florida-home-now-or-wait-until-2027': [
+    {
+      q: 'Should a South Florida homeowner sell in late 2026 or wait until spring 2027?',
+      a: 'If your property is single-family or a reserve-compliant condo, listing during the late-2026 winter arrival window captures cash and relocation buyers before spring inventory rises further and while 7.28% mortgage rates sideline competing leveraged listings.',
+    },
+    {
+      q: 'Why are condo prices softening while single-family medians hold firm?',
+      a: 'Miami-Dade condo supply sits at 12.7 months versus 5.4 months for single-family homes, driven by stricter agency lending reviews and December 31, 2026 SIRS reserve deadlines that shift leverage toward cash buyers.',
+    },
+    {
+      q: 'Do lower Citizens insurance rates help home sellers right now?',
+      a: 'Yes. Approved 2026 Citizens rate reductions (-8.7% HO-3 and -10.4% HO-6) alongside private-market depopulation reduce buyer carrying-cost friction when paired with current wind-mitigation documentation.',
+    },
+  ],
   'florida-listing-agreement-what-sellers-sign-2026': [
     {
       q: 'What must a Florida listing agreement include?',

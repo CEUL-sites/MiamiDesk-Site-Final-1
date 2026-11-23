@@ -42,6 +42,7 @@ We discuss the seller's next purchase, relocation and possible occupancy arrange
 - [Dated market data and sources](https://homesprofessional.com/market-data): Use the displayed reporting period; city medians are not property valuations.
 - [Client reviews](https://homesprofessional.com/reviews): Client-reported experiences; individual terms and results vary.
 - [Seller research and transaction guides](https://homesprofessional.com/journal): Dated guides on pricing, net proceeds, homestead portability, 1031 exchanges, FIRPTA and post-closing occupancy.
+- [Should You Sell Your South Florida Home Now or Wait Until 2027?](https://homesprofessional.com/journal/sell-south-florida-home-now-or-wait-until-2027) (2026-11-22 · Carlos Uzcategui · Florida Licensed Realtor® SL705771): October 2026 tri-county medians (Miami-Dade $706K SFH / $397.5K condo at 12.7 mos supply, Broward $610K SFH / $240.3K condo with 1.2% distressed share, Palm Beach $682.5K SFH with >20% MoM winter inventory jump), 7.28% 30-year fixed rates, 2026 Citizens rate decreases (-8.7% HO-3, -10.4% HO-6), and 50-year FHFA repeat-sales baseline (18.07x Greater Miami vs. 11.55x U.S.).
 - [Journal RSS feed](https://homesprofessional.com/rss.xml)
 
 ## Brokerage and association context
