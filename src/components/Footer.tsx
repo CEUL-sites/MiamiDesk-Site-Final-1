@@ -47,12 +47,9 @@ export function Footer() {
           <p className="font-mono mt-1 text-[11px] uppercase tracking-[0.22em] text-gold font-medium">
             REALTOR® · Florida License SL705771
           </p>
-          <ul className="mt-3 space-y-1.5 font-sans text-xs font-light text-white/75">
-            <li>Licensed in Florida Since 2001 (25 Years Experience)</li>
-            <li>Certified Luxury Home Marketing Specialist (CLHMS)</li>
-            <li>Certified Seller Representative</li>
-            <li>United Realty Group Associate</li>
-          </ul>
+          <p className="mt-3 max-w-xs font-sans text-xs font-light leading-relaxed text-white/75">
+            Florida licensed since 2001. With United Realty Group, Carlos works with local teams in South Florida, Spain and Latin America.
+          </p>
 
           <div className="mt-5 border-t border-white/10 pt-4">
             <div className="flex items-center gap-3">

@@ -23,11 +23,12 @@ import { UrgCorporateShowcase } from "../components/UrgCorporateShowcase";
 import { LeadForm } from "../components/LeadForm";
 import { FaqAccordion, type FaqItem } from "../components/FaqAccordion";
 import { CONTACT } from "../constants";
+import { CARLOS_CREDENTIALS, CARLOS_PROFILE } from "../content/carlosProfile";
 
 const ABOUT_FAQS: readonly FaqItem[] = [
   {
     q: "Who is Carlos Uzcategui and what are his professional credentials?",
-    a: "Carlos Uzcategui is a Florida Licensed REALTOR® (License SL705771, licensed since 2001) with 25 years of continuous South Florida transaction experience. He holds the Certified Luxury Home Marketing Specialist (CLHMS) and Certified Seller Representative designations and is an Associate in United Realty Group.",
+    a: `Carlos Uzcategui is a Florida-licensed REALTOR® (SL705771) with United Realty Group. ${CARLOS_CREDENTIALS}`,
   },
   {
     q: "Who manages my assignment from start to closing?",
@@ -276,29 +277,8 @@ export default function AboutPage() {
                   License SL705771 · United Realty Group · Weston Advisory Branch
                 </p>
                 <p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/75 md:text-lg">
-                  Twenty-five years of direct representation across South Florida residential, luxury, and commercial
-                  transactions—from valuation and MLS positioning through contract execution and escrow defense.
+                  {CARLOS_PROFILE.en}
                 </p>
-
-                {/* Executive At-a-Glance Metrics Strip */}
-                <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                  {[
-                    { k: "25 Yrs", v: "Licensed Since 2001" },
-                    { k: "CLHMS", v: "Luxury Specialist" },
-                    { k: "93,000", v: "Miami REALTORS®" },
-                    { k: "3,500+", v: "URG FL Agents" },
-                  ].map((stat) => (
-                    <div
-                      key={stat.k}
-                      className="border border-gold/35 bg-white/[0.04] px-3.5 py-2.5"
-                    >
-                      <p className="font-serif text-xl text-gold">{stat.k}</p>
-                      <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.15em] text-white/65">
-                        {stat.v}
-                      </p>
-                    </div>
-                  ))}
-                </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a

@@ -1,4 +1,5 @@
 import "../components/global-desk-hero.css";
+import { CARLOS_PROFILE } from "../content/carlosProfile";
 import { AssociationFilms } from "../components/AssociationFilms";
 import { GlobalResearchLinks } from "../components/GlobalResearchLinks";
 import { DistributionMetrics } from "../components/DistributionMetrics";
@@ -62,9 +63,6 @@ const COPY = {
     mandatePoints: ["You retain the listing mandate and control of the local transaction.", "We prepare selected property for professional visibility within the Greater Miami agent network.", "Qualified buyer interest can be introduced directly back to your team."],
     trustKicker: "South Florida principal",
     trustTitle: "Carlos Uzcategui",
-    trustSub: "South Florida real estate since 2001",
-    trustBody: "A Florida-licensed principal coordinating bilingual property review, U.S. activation, and structured introductions through United Realty Group.",
-    credentials: ["Florida licensed since 2001", "CLHMS · Certified Luxury Home Marketing Specialist · Certified Seller Representative", "English & Spanish · South Florida, Spain and LATAM coordination", "United Realty Group · Florida office network"],
     closeTitle: "Ready to expand your property’s professional reach in the U.S.?",
     closeBody: "Present one qualified property or request a private discussion about an agency, developer, or portfolio activation route.",
     closeCta: "Request a Private Global Desk Discussion",
@@ -120,9 +118,6 @@ const COPY = {
     mandatePoints: ["Usted conserva el mandato y el control de la operación local.", "Preparamos propiedades seleccionadas para visibilidad profesional dentro de la red de agentes de Greater Miami.", "El interés comprador cualificado puede regresar directamente a su equipo."],
     trustKicker: "Principal en el sur de Florida",
     trustTitle: "Carlos Uzcategui",
-    trustSub: "Sector inmobiliario del sur de Florida desde 2001",
-    trustBody: "Un principal con licencia de Florida que coordina revisión bilingüe, activación en EE. UU. e introducciones estructuradas a través de United Realty Group.",
-    credentials: ["Licenciado en Florida desde 2001", "CLHMS · Certified Luxury Home Marketing Specialist · Certified Seller Representative", "Inglés y español · Coordinación sur de Florida, España y LATAM", "United Realty Group · Red de oficinas en Florida"],
     closeTitle: "¿Listo para ampliar el alcance profesional de su propiedad en EE. UU.?",
     closeBody: "Presente una propiedad cualificada o solicite una conversación privada sobre una ruta de activación para agencia, promotora o portafolio.",
     closeCta: "Solicitar conversación privada Global Desk",
@@ -559,14 +554,9 @@ export default function GlobalDeskPage() {
             <div className="min-w-0">
               <p className="story-eyebrow text-gold-ink">{t.trustKicker}</p>
               <h2 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">{t.trustTitle}</h2>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                {t.credentials.map((credential) => (
-                  <div key={credential} className="flex items-start gap-2.5 rounded-lg border border-bone bg-white p-3.5 text-sm leading-snug text-navy shadow-sm">
-                    <Check size={17} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-ink" />
-                    <span>{credential}</span>
-                  </div>
-                ))}
-              </div>
+              <p className="mt-5 max-w-prose text-base leading-relaxed text-navy/90">
+                {CARLOS_PROFILE[lang]}
+              </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a href="#listing-request" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "principal_review", cta_location: "principal", language: lang })} className="story-cta">{t.closeCta}<ArrowRight size={18} aria-hidden="true" /></a>
                 <p className="text-xs leading-relaxed text-navy/75 max-w-sm">{lang === "es" ? "Comparta los detalles de la propiedad y del mandato. Nuestro equipo revisa la elegibilidad antes de proponer una vía de cooperación." : "Share the property and mandate details. Our team reviews eligibility before proposing a cooperation route."}</p>
