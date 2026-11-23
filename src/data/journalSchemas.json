@@ -1,4 +1,128 @@
 {
+  "south-florida-condo-warrantability-fannie-mae-full-review-2026": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        "@id": "https://homesprofessional.com/journal/south-florida-condo-warrantability-fannie-mae-full-review-2026#article",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://homesprofessional.com/#website",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com"
+        },
+        "headline": "South Florida Condo Warrantability & Fannie Mae Full Review (2026)",
+        "datePublished": "2026-11-23T16:30:00-05:00",
+        "dateModified": "2026-11-23T16:30:00-05:00",
+        "image": "https://homesprofessional.com/images/journal/og/south-florida-condo-warrantability-fannie-mae-full-review-2026.jpg",
+        "author": {
+          "@type": "Person",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": "Carlos Uzcategui",
+          "jobTitle": "Florida Licensed Realtor®",
+          "identifier": "SL705771",
+          "url": "https://homesprofessional.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://homesprofessional.com/images/urg-logo-original.webp"
+          }
+        },
+        "description": "Navigate Fannie Mae Full Review, 0.9% FHA condo eligibility, and Florida's Dec 31, 2026 SIRS cutoff across Miami-Dade, Broward, and Palm Beach.",
+        "mainEntityOfPage": "https://homesprofessional.com/journal/south-florida-condo-warrantability-fannie-mae-full-review-2026"
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://homesprofessional.com/#agent",
+        "name": "Carlos Uzcategui - United Realty Group",
+        "license": "SL705771",
+        "telephone": "+1-954-865-6622",
+        "email": "contact@carlosre.com",
+        "url": "https://homesprofessional.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2691 E Oakland Park Blvd",
+          "addressLocality": "Plantation",
+          "addressRegion": "FL",
+          "postalCode": "33324",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "South Florida Condo Warrantability",
+          "Fannie Mae Full Review Underwriting",
+          "Florida SIRS and Milestone Inspections",
+          "Miami-Dade Broward and Palm Beach Condominiums",
+          "Certified Luxury Home Marketing Specialist",
+          "Bilateral Spain-Miami MLS Distribution"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://homesprofessional.com/journal/south-florida-condo-warrantability-fannie-mae-full-review-2026#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why do so few South Florida condos qualify for FHA or conventional loans in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "According to MIAMI REALTORS® and HUD data, only 21 of 2,397 condo buildings (0.9%) across Miami-Dade, Broward, and Palm Beach hold active FHA approval. For conventional loans, Fannie Mae retired Limited Review on most projects over 10 units, requiring a Full Review of reserves, master insurance, HOA delinquencies, litigation, and critical repairs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the December 31, 2026 Florida condo SIRS deadline under HB 913?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Associations with three or more habitable stories that coordinate their Structural Integrity Reserve Study (SIRS) with a required Milestone Inspection must complete the SIRS no later than December 31, 2026. HB 913 raised the structural reserve-item cost threshold to $25,000 and allows a temporary reserve-contribution pause of up to two consecutive annual budgets by majority owner vote following a milestone inspection to prioritize urgent repairs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can a condo seller close cleanly if a building is non-warrantable?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sellers in non-warrantable buildings should disclose Milestone Inspection, SIRS, and assessment status upfront, price accurately against competing cash-closing inventory, and leverage global MLS syndication to reach all-cash domestic and international buyers—who already account for nearly half of Miami-Dade condo closings and 82% at $1 million and above."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What documents should a South Florida condo buyer review before waiving contingencies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Buyers should obtain the completed Phase 1 and Phase 2 Milestone Inspection reports, the current SIRS study, adopted annual budget, reserve balances, master insurance declaration page, recent board meeting minutes, and a pre-offer lender check against Fannie Mae Form 1076 requirements. Legal review of association documents belongs with a Florida real estate attorney."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://homesprofessional.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Journal",
+            "item": "https://homesprofessional.com/journal/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "South Florida Condo Warrantability & Fannie Mae Full Review (2026)",
+            "item": "https://homesprofessional.com/journal/south-florida-condo-warrantability-fannie-mae-full-review-2026"
+          }
+        ]
+      }
+    ]
+  },
   "sell-south-florida-home-now-or-wait-until-2027": {
     "@context": "https://schema.org",
     "@graph": [

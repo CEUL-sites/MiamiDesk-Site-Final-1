@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'south-florida-condo-warrantability-fannie-mae-full-review-2026': [
+    {
+      q: 'Why do so few South Florida condos qualify for FHA or conventional loans in 2026?',
+      a: 'According to MIAMI REALTORS® and HUD data, only 21 of 2,397 condo buildings (0.9%) across Miami-Dade, Broward, and Palm Beach hold active FHA approval. For conventional loans, Fannie Mae retired Limited Review on most projects over 10 units, requiring a Full Review of reserves, master insurance, HOA delinquencies, litigation, and critical repairs.',
+    },
+    {
+      q: 'What is the December 31, 2026 Florida condo SIRS deadline under HB 913?',
+      a: 'Associations with three or more habitable stories that coordinate their Structural Integrity Reserve Study (SIRS) with a required Milestone Inspection must complete the SIRS no later than December 31, 2026. HB 913 raised the structural reserve-item cost threshold to $25,000 and allows a temporary reserve-contribution pause of up to two consecutive annual budgets by majority owner vote following a milestone inspection to prioritize urgent repairs.',
+    },
+    {
+      q: 'How can a condo seller close cleanly if a building is non-warrantable?',
+      a: 'Sellers in non-warrantable buildings should disclose Milestone Inspection, SIRS, and assessment status upfront, price accurately against competing cash-closing inventory, and leverage global MLS syndication to reach all-cash domestic and international buyers—who already account for nearly half of Miami-Dade condo closings and 82% at $1 million and above.',
+    },
+    {
+      q: 'What documents should a South Florida condo buyer review before waiving contingencies?',
+      a: 'Buyers should obtain the completed Phase 1 and Phase 2 Milestone Inspection reports, the current SIRS study, adopted annual budget, reserve balances, master insurance declaration page, recent board meeting minutes, and a pre-offer lender check against Fannie Mae Form 1076 requirements. Legal review of association documents belongs with a Florida real estate attorney.',
+    },
+  ],
   'sell-south-florida-home-now-or-wait-until-2027': [
     {
       q: 'Should a South Florida homeowner sell in late 2026 or wait until spring 2027?',
