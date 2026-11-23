@@ -335,9 +335,10 @@ const IDX_MARKETS = [
     count: "23+",
     areasEn: "Seville capital, Aljarafe, Sotogrande & Costa de la Luz",
     areasEs: "Sevilla capital, Aljarafe, Sotogrande y Costa de la Luz",
-    image: "/images/segovia-aqueduct-editorial.webp",
-    altEn: "Spanish heritage architecture — GILMAR portfolio across Andalusia",
-    altEs: "Arquitectura española — Cartera de GILMAR en Andalucía",
+    image: "/images/gilmar/seville-plaza-de-espana.jpg",
+    altEn: "Plaza de España, Seville — GILMAR portfolio across Seville and Cádiz",
+    altEs: "Plaza de España, Sevilla — Cartera de GILMAR en Sevilla y Cádiz",
+    credit: "Photo: Ludovic Delot · CC BY-SA 4.0",
   },
 ] as const;
 
@@ -1466,12 +1467,18 @@ export default function GilmarSpainPage() {
                         : "border-[#ddd8cc] hover:border-[#c6b296]"
                     }`}
                   >
-                    <div className="h-48 w-full overflow-hidden bg-[#f2f0e1]">
+                    <div className="relative h-48 w-full overflow-hidden bg-[#f2f0e1]">
                       <img
                         src={market.image}
                         alt={es ? market.altEs : market.altEn}
+                        loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                       />
+                      {"credit" in market && (
+                        <span className="pointer-events-none absolute right-1.5 bottom-1 text-[9px] tracking-wide text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
+                          {market.credit}
+                        </span>
+                      )}
                     </div>
                     <div className="flex flex-1 flex-col justify-between p-5">
                       <div>
