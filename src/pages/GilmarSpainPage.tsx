@@ -4,9 +4,9 @@ import {
   ArrowRight,
   BadgeCheck,
   Building2,
+  Check,
   CheckCircle2,
   Globe2,
-  Languages,
   Lock,
   Scale,
   ShieldCheck,
@@ -17,11 +17,11 @@ import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { JsonLd } from "../components/SEO/JsonLd";
-import { Tilt3D } from "../components/Tilt3D";
 import { ReferralIntakeForm } from "../components/forms/ReferralIntakeForm";
 import { BuyerMandateForm } from "../components/forms/BuyerMandateForm";
 import { CONTACT, PUBLIC_COMPLIANCE } from "../constants";
 import { HouseBotHero } from "../components/housebot/HouseBotHero";
+import "./gilmar-spain.css";
 
 type Lang = "en" | "es";
 
@@ -83,7 +83,7 @@ function formatUsd(amountEur: number, lang: Lang): string {
 const DEVELOPMENTS: readonly PropertyDetail[] = [
   {
     slug: "elysian-69",
-    code: "01 / SELECTED RESIDENCE",
+    code: "01",
     name: "The Elysian Collection",
     locationEn: "Caleta de Fuste · Fuerteventura",
     locationEs: "Caleta de Fuste · Fuerteventura",
@@ -151,7 +151,7 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
   },
   {
     slug: "balcon-first-floor",
-    code: "02 / SELECTED RESIDENCE",
+    code: "02",
     name: "Balcón del Mediterráneo",
     locationEn: "Selwo · Estepona",
     locationEs: "Selwo · Estepona",
@@ -219,7 +219,7 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
   },
   {
     slug: "be-grand-208803",
-    code: "03 / SELECTED RESIDENCE",
+    code: "03",
     name: "Be Grand El Limonar",
     locationEn: "Muelle Uno · El Limonar",
     locationEs: "Muelle Uno · El Limonar",
@@ -297,8 +297,8 @@ const DEVELOPMENTS: readonly PropertyDetail[] = [
 const IDX_MARKETS = [
   {
     key: "madrid",
-    regionEn: "MADRID",
-    regionEs: "MADRID",
+    regionEn: "Madrid",
+    regionEs: "Madrid",
     count: "1,061",
     areasEn: "Salamanca, Chamberí, La Moraleja, Pozuelo & Obra Nueva",
     areasEs: "Salamanca, Chamberí, La Moraleja, Pozuelo y Obra Nueva",
@@ -308,8 +308,8 @@ const IDX_MARKETS = [
   },
   {
     key: "costa-del-sol",
-    regionEn: "COSTA DEL SOL",
-    regionEs: "COSTA DEL SOL",
+    regionEn: "Costa del Sol",
+    regionEs: "Costa del Sol",
     count: "737",
     areasEn: "Marbella, Puerto Banús, Estepona, Benahavís & Málaga",
     areasEs: "Marbella, Puerto Banús, Estepona, Benahavís y Málaga",
@@ -319,8 +319,8 @@ const IDX_MARKETS = [
   },
   {
     key: "canary-islands",
-    regionEn: "CANARY ISLANDS",
-    regionEs: "ISLAS CANARIAS",
+    regionEn: "Canary Islands",
+    regionEs: "Islas Canarias",
     count: "201",
     areasEn: "Tenerife, Gran Canaria, Lanzarote & Fuerteventura",
     areasEs: "Tenerife, Gran Canaria, Lanzarote y Fuerteventura",
@@ -330,8 +330,8 @@ const IDX_MARKETS = [
   },
   {
     key: "seville-cadiz",
-    regionEn: "SEVILLE & CÁDIZ",
-    regionEs: "SEVILLA Y CÁDIZ",
+    regionEn: "Seville & Cádiz",
+    regionEs: "Sevilla y Cádiz",
     count: "23+",
     areasEn: "Seville capital, Aljarafe, Sotogrande & Costa de la Luz",
     areasEs: "Sevilla capital, Aljarafe, Sotogrande y Costa de la Luz",
@@ -343,36 +343,80 @@ const IDX_MARKETS = [
 
 const ADVISORY_PILLARS = [
   {
+    num: "1.",
     titleEn: "Legal, Tax & Valuation Advisory",
-    titleEs: "Asesoría Jurídica, Fiscal y Valoración Gratuita",
+    titleEs: "Asesoría Jurídica, Fiscal y Valoración",
     bodyEn:
       "In-house legal and tax department handling registry charge checks, contract review, notary coordination, tax guidance, and complimentary market valuations.",
     bodyEs:
-      "Departamento jurídico y fiscal propio para verificación de cargas, contratos, coordinación notarial, orientación tributaria y valoración gratuita sin compromiso.",
+      "Departamento jurídico y fiscal propio para verificación de cargas, contratos, coordinación notarial, orientación tributaria y valoración de mercado sin compromiso.",
+    pointsEn: [
+      "Registry title and lien verification",
+      "Purchase contract review & notary coordination",
+      "Non-resident tax & acquisition cost guidance",
+    ],
+    pointsEs: [
+      "Verificación registral y de cargas",
+      "Revisión contractual y coordinación notarial",
+      "Orientación tributaria para no residentes",
+    ],
   },
   {
+    num: "2.",
     titleEn: "Mortgage Center · THIRSA · Capital Markets",
     titleEs: "Centro Hipotecario · THIRSA · Capital Markets",
     bodyEn:
       "Dedicated Centro Hipotecario comparing Spanish banks for resident and international buyers, official THIRSA appraisals (Bank of Spain–homologated), and Capital Markets advisory.",
     bodyEs:
       "Intermediación bancaria mediante Centro Hipotecario, tasaciones oficiales THIRSA (homologada por el Banco de España) y división Capital Markets para inversión.",
+    pointsEn: [
+      "Non-resident Spanish mortgage structuring",
+      "Bank of Spain–homologated THIRSA appraisals",
+      "Institutional & family-office Capital Markets desk",
+    ],
+    pointsEs: [
+      "Hipotecas en España para compradores internacionales",
+      "Tasaciones oficiales THIRSA homologadas por Banco de España",
+      "División Capital Markets para patrimonio e inversión",
+    ],
   },
   {
+    num: "3.",
     titleEn: "Renovations & Interior Design",
     titleEs: "Reformas e Interiorismo · Soluciones Constructivas",
     bodyEn:
       "Comprehensive 360 service via Gilmar Soluciones Constructivas covering feasibility studies, licensing, architectural remodeling, interior design, and home staging.",
     bodyEs:
       "Servicio integral 360 mediante Gilmar Soluciones Constructivas: estudios técnicos, licencias, ejecución de reformas, interiorismo y home staging.",
+    pointsEn: [
+      "Technical feasibility studies & municipal licensing",
+      "Turnkey architectural remodeling & interior design",
+      "Asset positioning and editorial home staging",
+    ],
+    pointsEs: [
+      "Estudios técnicos y tramitación de licencias",
+      "Ejecución llave en mano de reformas e interiorismo",
+      "Puesta en valor y home staging residencial",
+    ],
   },
   {
+    num: "4.",
     titleEn: "After-Sales & Closing Support",
     titleEs: "Servicio Posventa y Entrega en España",
     bodyEn:
       "Support before, during, and after deed signing including utility transfers, energy certificates, insurance, relocation logistics, and ongoing asset care.",
     bodyEs:
       "Acompañamiento antes, durante y después de la escritura: cambio de suministros, certificado energético, mudanzas, seguros y gestión patrimonial.",
+    pointsEn: [
+      "Utility activation, insurance & energy certificates",
+      "Relocation logistics & keyholder coordination",
+      "Continuity for international owners post-deed",
+    ],
+    pointsEs: [
+      "Suministros, seguros y certificado energético",
+      "Logística de mudanza y entrega de llaves",
+      "Acompañamiento continuado tras la escritura",
+    ],
   },
 ] as const;
 
@@ -448,14 +492,14 @@ function PropertyDetailModal({
 
   return (
     <div
-      className="fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-navy-deep/85 p-4 backdrop-blur-md"
+      className="gilmar-editorial fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto bg-[#282828]/80 px-4 py-8 backdrop-blur-sm sm:py-12"
       role="dialog"
       aria-modal="true"
       aria-label={property.name}
       onClick={onClose}
     >
       <div
-        className="relative my-8 w-full max-w-3xl border border-gold/40 bg-[#071526] text-white shadow-2xl"
+        className="relative w-full max-w-3xl border border-[#ddd8cc] bg-white text-[#282828] shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -463,26 +507,26 @@ function PropertyDetailModal({
           type="button"
           onClick={onClose}
           aria-label={es ? "Cerrar" : "Close"}
-          className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center border border-white/15 bg-navy/85 text-white/80 transition-colors hover:border-gold hover:text-gold"
+          className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center border border-white/40 bg-[#2d2d2d]/85 text-white transition-colors hover:bg-[#817360]"
         >
           <X size={18} />
         </button>
 
-        <div className="relative h-64 w-full overflow-hidden bg-navy sm:h-80">
+        <div className="relative h-64 w-full overflow-hidden bg-[#2d2d2d] sm:h-80">
           <img
             src={currentPhoto.src}
             alt={es ? currentPhoto.altEs : currentPhoto.altEn}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071526] via-[#071526]/30 to-transparent" />
-          <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-            <span className="border border-white/20 bg-navy-deep/90 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#282828]/80 via-[#282828]/20 to-transparent" />
+          <div className="absolute left-4 top-4 flex flex-wrap gap-2 pr-12">
+            <span className="bg-white/95 px-3 py-1 text-xs font-medium tracking-wider text-[#282828] uppercase">
               {es ? property.regionEs : property.regionEn}
             </span>
             <button
               type="button"
               onClick={() => setUnbrandedView((v) => !v)}
-              className="border border-gold/40 bg-navy-deep/90 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-white hover:border-gold hover:text-gold"
+              className="border border-white/70 bg-[#2d2d2d]/85 px-3 py-1 text-xs font-medium tracking-wide text-white transition-colors hover:bg-[#817360]"
             >
               {unbrandedView
                 ? es
@@ -493,23 +537,23 @@ function PropertyDetailModal({
                   : "Unbranded Client View"}
             </button>
           </div>
-          <div className="absolute bottom-3 left-6 right-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+          <div className="absolute bottom-4 left-6 right-6">
+            <p className="text-xs font-medium tracking-wider text-white/90 uppercase">
               {es ? property.locationEs : property.locationEn} · {es ? currentPhoto.captionEs : currentPhoto.captionEn}
             </p>
-            <h3 className="mt-1 font-serif text-2xl text-white sm:text-3xl">{property.name}</h3>
+            <h3 className="g-serif mt-1 text-2xl font-medium text-white sm:text-3xl">{property.name}</h3>
           </div>
         </div>
 
         {property.gallery.length > 1 && (
-          <div className="flex gap-2 overflow-x-auto border-b border-white/10 bg-navy-deep px-6 py-3">
+          <div className="flex gap-2 overflow-x-auto border-b border-[#ddd8cc] bg-[#f8f7f1] px-6 py-3">
             {property.gallery.map((photo, idx) => (
               <button
                 key={photo.src}
                 type="button"
                 onClick={() => setActivePhoto(idx)}
                 className={`h-14 w-24 shrink-0 overflow-hidden border transition-all ${
-                  idx === activePhoto ? "border-gold ring-1 ring-gold" : "border-white/15 opacity-70 hover:opacity-100"
+                  idx === activePhoto ? "border-[#817360] ring-2 ring-[#817360]/40" : "border-[#ddd8cc] opacity-75 hover:opacity-100"
                 }`}
               >
                 <img
@@ -523,46 +567,46 @@ function PropertyDetailModal({
         )}
 
         <div className="p-6 sm:p-8">
-          <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-white/10 pb-4">
+          <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-[#ddd8cc] pb-5">
             <div>
-              <p className="font-serif text-3xl font-semibold text-gold">{priceEurStr}</p>
-              <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/65">
+              <p className="g-serif text-3xl font-semibold text-[#282828]">{priceEurStr}</p>
+              <p className="mt-1 text-xs text-[#5b5b5f]">
                 {es ? "Aprox." : "Approx."} {priceUsdStr} · {es ? property.priceNoteEs : property.priceNoteEn}
               </p>
             </div>
-            <div className="text-right">
-              <p className="font-sans text-xs font-semibold text-white">
+            <div className="text-left sm:text-right">
+              <p className="text-sm font-medium text-[#282828]">
                 {es ? property.unitLabelEs : property.unitLabelEn}
               </p>
-              <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gold/80">
+              <p className="mt-0.5 text-xs font-medium text-[#817360]">
                 {es ? property.specsEs : property.specsEn}
               </p>
             </div>
           </div>
 
-          <p className="mt-5 font-sans text-sm leading-relaxed text-white/85">
+          <p className="mt-5 text-sm leading-relaxed text-[#5b5b5f]">
             {es ? property.summaryEs : property.summaryEn}
           </p>
 
-          <ul className="mt-5 space-y-2">
+          <ul className="mt-5 space-y-2.5">
             {(es ? property.highlightsEs : property.highlightsEn).map((item) => (
-              <li key={item} className="flex items-start gap-2.5 text-xs leading-relaxed text-white/80">
-                <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-gold" />
+              <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-[#282828]">
+                <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-[#817360]" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-5 border border-white/10 bg-white/[0.03] p-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+          <div className="mt-6 border border-[#ddd8cc] bg-[#f2f0e1]/65 p-4">
+            <p className="text-xs font-medium tracking-wider text-[#817360] uppercase">
               {es ? "Ubicación y verificación" : "Location & confirmation status"}
             </p>
-            <p className="mt-1 font-sans text-xs text-white/75">{property.address}</p>
-            <p className="mt-2 font-sans text-[11px] leading-relaxed text-white/60">
+            <p className="mt-1 text-xs font-medium text-[#282828]">{property.address}</p>
+            <p className="mt-2 text-xs leading-relaxed text-[#5b5b5f]">
               {es ? property.complianceEs : property.complianceEn}
             </p>
             {!unbrandedView && (
-              <p className="mt-2 font-sans text-[11px] leading-relaxed text-gold/90">
+              <p className="mt-2 border-t border-[#c6b296]/60 pt-2 text-xs leading-relaxed text-[#282828]">
                 {es
                   ? "Honorario de referencia negociado según activo y nivel de servicio, respetado por escrito tras aprobación de GILMAR España y pagado a su brokerage vía United Realty Group."
                   : "Negotiated referral fee varies by asset class and level of service, respected in writing upon GILMAR Spain approval, and paid through United Realty Group to your brokerage."}
@@ -577,7 +621,7 @@ function PropertyDetailModal({
                 onClose();
                 onRegister();
               }}
-              className="inline-flex flex-1 items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:bg-gold-soft"
+              className="g-btn-charcoal flex-1"
             >
               {unbrandedView
                 ? es
@@ -586,7 +630,7 @@ function PropertyDetailModal({
                 : es
                   ? "Registrar cliente para esta propiedad"
                   : "Register a client for this residence"}
-              <ArrowRight size={13} />
+              <ArrowRight size={14} />
             </button>
           </div>
         </div>
@@ -622,7 +666,8 @@ export default function GilmarSpainPage() {
 
   const pipelineNodes = [
     {
-      step: "01",
+      step: "1.",
+      code: "01",
       titleEn: "Florida Agent Registration (GD-Ref)",
       titleEs: "Registro en Florida (GD-Ref)",
       buyerAgencyEn: "Submit your Florida license, brokerage details, and client initials to issue your GD-Ref prior to introduction.",
@@ -631,7 +676,8 @@ export default function GilmarSpainPage() {
       referralEs: "Registre licencia y criterios del comprador antes de presentar al cliente para proteger la relación.",
     },
     {
-      step: "02",
+      step: "2.",
+      code: "02",
       titleEn: "Written Fee Agreement & GILMAR Approval",
       titleEs: "Acuerdo Escrito y Aprobación GILMAR",
       buyerAgencyEn: "Receive case-by-case written buyer-agency cooperation terms approved by GILMAR Spain and your brokerage.",
@@ -640,7 +686,8 @@ export default function GilmarSpainPage() {
       referralEs: "Cada referido recibe un honorario negociado por activo documentado por escrito tras aprobación de GILMAR.",
     },
     {
-      step: "03",
+      step: "3.",
+      code: "03",
       titleEn: "GILMAR Local Execution (36 Teams)",
       titleEs: "Ejecución Local GILMAR (36 Equipos)",
       buyerAgencyEn: "GILMAR runs showings, Centro Hipotecario financing, legal, and tax coordination while you represent the buyer.",
@@ -649,7 +696,8 @@ export default function GilmarSpainPage() {
       referralEs: "United Realty Group y GILMAR gestionan visitas, asesoría y negociación en 10 idiomas.",
     },
     {
-      step: "04",
+      step: "4.",
+      code: "04",
       titleEn: "Spanish Notary & Closing",
       titleEs: "Notaría y Cierre en España",
       buyerAgencyEn: "Deed execution before a Spanish notary supported by registry checks and post-closing administration.",
@@ -658,7 +706,8 @@ export default function GilmarSpainPage() {
       referralEs: "Cierre supervisado hasta escritura pública con verificación registral y fiscal.",
     },
     {
-      step: "05",
+      step: "5.",
+      code: "05",
       titleEn: "Broker Payout via United Realty Group",
       titleEs: "Pago vía United Realty Group",
       buyerAgencyEn: "At closing, GILMAR remits to United Realty Group and URG pays broker to broker to your brokerage.",
@@ -701,6 +750,10 @@ export default function GilmarSpainPage() {
               : "Browse 2,000+ properties across Spain with GILMAR Consulting Inmobiliario through registration, backed by written negotiated referral agreements via United Realty Group."
           }
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        />
         <link rel="canonical" href="https://homesprofessional.com/gilmar-spain" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/gilmar-spain" />
@@ -714,12 +767,12 @@ export default function GilmarSpainPage() {
         />
         <meta
           property="og:image"
-          content="https://homesprofessional.com/images/gilmar/balcon-terrace.jpg"
+          content="https://homesprofessional.com/images/gilmar/balcon-residence.jpg"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:image"
-          content="https://homesprofessional.com/images/gilmar/balcon-terrace.jpg"
+          content="https://homesprofessional.com/images/gilmar/balcon-residence.jpg"
         />
       </Helmet>
 
@@ -749,47 +802,49 @@ export default function GilmarSpainPage() {
         }}
       />
 
-      <main id="main-content" className="min-h-screen bg-white-soft pb-28 lg:pb-0">
+      <main id="main-content" className="gilmar-editorial min-h-screen pb-28 lg:pb-0">
         <Navbar />
 
-        {/* ── 1. Hero Band ─────────────────────────────────────────── */}
+        {/* ── 1. Full-Bleed Sunlit Architectural Hero (gilmar.es/vender/ cadence) ── */}
         <section
           data-sticky-cta-guard
-          className="relative overflow-hidden bg-navy-deep py-16 text-white md:py-24"
+          className="relative flex min-h-[92vh] flex-col justify-between overflow-hidden bg-[#2d2d2d] pt-24 pb-10 text-white md:min-h-screen md:pt-28 md:pb-12"
           aria-labelledby="gilmar-spain-h1"
         >
           <img
-            src="/images/gilmar/balcon-terrace.jpg"
-            alt={es ? "Balcón del Mediterráneo — Terraza en España" : "Balcón del Mediterráneo — Terrace in Spain"}
-            width="1159"
-            height="820"
+            src="/images/gilmar/balcon-residence.jpg"
+            alt={es ? "Balcón del Mediterráneo — Salón con vistas al mar en España" : "Balcón del Mediterráneo — Sunlit Mediterranean interior in Spain"}
+            width="1920"
+            height="1080"
             fetchPriority="high"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#06111F] via-[#06111F]/90 to-[#06111F]/65" />
+          {/* Balanced neutral charcoal veil — keeps the interior luminous while ensuring crisp white headline contrast */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#2d2d2d]/72 via-[#2d2d2d]/42 to-[#2d2d2d]/68" />
 
-          <div className="relative z-10 mx-auto max-w-7xl px-6">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/15 pb-6">
-              <div className="inline-flex items-center gap-4 bg-white px-4 py-2 shadow-sm">
+          {/* Top Co-Branding & Single Language Switcher Bar (zero white box — transparent pro lockup) */}
+          <div className="relative z-10 mx-auto w-full max-w-[1170px] px-6">
+            <div className="flex flex-wrap items-center justify-between gap-5 border-b border-white/30 pb-5">
+              <div className="inline-flex items-center gap-5 sm:gap-7">
                 <img
-                  src="/images/gilmar/gilmar-consulting-horizontal.png"
+                  src="/images/gilmar/gilmar-logo-trimmed.png"
                   alt="GILMAR Consulting Inmobiliario"
-                  width="120"
-                  height="43"
-                  className="h-8 w-auto object-contain"
+                  width="2367"
+                  height="644"
+                  className="h-8 w-auto object-contain brightness-0 invert drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:h-10"
                 />
-                <span className="font-serif text-lg text-navy-deep" aria-hidden="true">×</span>
+                <span className="h-7 w-[1px] bg-white/45 sm:h-8" aria-hidden="true" />
                 <img
-                  src="/images/urg-logo-original.webp"
+                  src="/images/gilmar/urg-logo-pro.png"
                   alt="United Realty Group"
-                  width="110"
-                  height="35"
-                  className="h-7 w-auto object-contain"
+                  width="1024"
+                  height="331"
+                  className="h-8 w-auto object-contain brightness-0 invert drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:h-10"
                 />
               </div>
 
               <div
-                className="inline-flex border border-white/20 bg-navy-deep/80"
+                className="inline-flex items-center gap-1 rounded-[3px] border border-white/40 bg-[#2d2d2d]/55 p-1 backdrop-blur-sm"
                 role="group"
                 aria-label={es ? "Idioma de la página" : "Page language"}
               >
@@ -799,8 +854,10 @@ export default function GilmarSpainPage() {
                     type="button"
                     onClick={() => toggleLanguage(option)}
                     aria-pressed={lang === option}
-                    className={`px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] transition-colors ${
-                      lang === option ? "bg-gold text-navy-deep" : "text-white/75 hover:text-white"
+                    className={`rounded-[2px] px-3.5 py-1.5 text-xs font-medium tracking-wider uppercase transition-colors ${
+                      lang === option
+                        ? "bg-[#817360] text-white"
+                        : "text-white/85 hover:text-white"
                     }`}
                   >
                     {option.toUpperCase()}
@@ -808,164 +865,225 @@ export default function GilmarSpainPage() {
                 ))}
               </div>
             </div>
+          </div>
 
-            <div className="mt-10 max-w-4xl">
-              <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">
-                {es
-                  ? "GILMAR ESPAÑA × UNITED REALTY GROUP · DESK BILATERAL"
-                  : "GILMAR SPAIN × UNITED REALTY GROUP · BILATERAL DESK"}
-              </p>
-              <h1
-                id="gilmar-spain-h1"
-                className="mt-4 font-serif text-4xl leading-tight text-white md:text-5xl lg:text-6xl"
+          {/* Centered Editorial Hero Headline & Restrained CTAs */}
+          <div className="relative z-10 mx-auto my-auto w-full max-w-[920px] px-6 py-12 text-center md:py-16">
+            <p className="text-xs font-medium tracking-[0.22em] text-white/90 uppercase">
+              {es
+                ? "GILMAR ESPAÑA × UNITED REALTY GROUP · DESK BILATERAL"
+                : "GILMAR SPAIN × UNITED REALTY GROUP · BILATERAL DESK"}
+            </p>
+            <h1
+              id="gilmar-spain-h1"
+              className="g-serif mt-4 text-4xl font-medium leading-[1.12] text-white drop-shadow-sm sm:text-5xl md:text-6xl"
+            >
+              {es
+                ? "Su comprador quiere España. Conserve la relación y el honorario."
+                : "Your buyer wants Spain. Keep the relationship and the commission."}
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base font-normal leading-relaxed text-white/95 md:text-lg">
+              {es
+                ? "La tranquilidad y seguridad de acompañar a su cliente en más de 2.000 propiedades activas en España, con honorarios negociados por escrito y respaldo local de GILMAR desde 1983."
+                : "Established in 1983 with 36 commercial teams and service in 10 languages, GILMAR connects your clients to 2,000+ active properties across Spain under written brokerage cooperation."}
+            </p>
+
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+              <button
+                type="button"
+                onClick={() => jumpToRegister("agent")}
+                className="g-btn-hero-ghost"
               >
+                {es ? "Registrar licencia y cliente" : "Register License & Client"}
+                <ArrowRight size={15} />
+              </button>
+              <a
+                href="#spain-idx"
+                className="g-btn-taupe"
+              >
+                <Lock size={14} />
+                {es ? "Explorar 2.000+ propiedades IDX" : "Browse 2,000+ Spain IDX"}
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom Hairline Trust Strip */}
+          <div className="relative z-10 mx-auto w-full max-w-[1170px] px-6">
+            <div className="grid gap-3 border-t border-white/30 pt-5 text-xs text-white/90 sm:grid-cols-3">
+              <div className="flex items-center justify-center gap-2 sm:justify-start">
+                <Scale size={15} className="shrink-0 text-[#f2f0e1]" />
+                <span>
+                  {es
+                    ? "Honorarios negociados por tipo de activo"
+                    : "Negotiated referral fees by asset class"}
+                </span>
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                <ShieldCheck size={15} className="shrink-0 text-[#f2f0e1]" />
+                <span>
+                  {es
+                    ? "Aprobación y acuerdo escrito de GILMAR España"
+                    : "Written agreement approved by GILMAR Spain"}
+                </span>
+              </div>
+              <div className="flex items-center justify-center gap-2 sm:justify-end">
+                <Building2 size={15} className="shrink-0 text-[#f2f0e1]" />
+                <span>
+                  {es
+                    ? "Pago vía United Realty Group a su brokerage"
+                    : "Paid via United Realty Group to your brokerage"}
+                </span>
+              </div>
+            </div>
+            <p className="mt-3 text-right text-[11px] text-white/65">
+              {es
+                ? "Visualización de promoción · Balcón del Mediterráneo, Estepona"
+                : "Project visualization · Balcón del Mediterráneo, Estepona"}
+            </p>
+          </div>
+        </section>
+
+        {/* ── 2. Editorial Intro & Heritage Split (gilmar.es/vender/ Section 5 rhythm) ── */}
+        <section className="bg-white py-16 md:py-24" aria-labelledby="heritage-heading">
+          <div className="mx-auto max-w-[1140px] px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="g-eyebrow">
                 {es
-                  ? "Su comprador quiere España. Conserve la relación y el honorario."
-                  : "Your buyer wants Spain. Keep the relationship and the commission."}
-              </h1>
-              <p className="mt-5 max-w-3xl font-sans text-base leading-relaxed text-white/80 md:text-lg">
-                {es
-                  ? "Fundada en 1983, con 36 equipos comerciales y atención en 10 idiomas, GILMAR conecta a sus clientes con más de 2.000 propiedades activas en España. Cada referido cuenta con su propio honorario negociado según el producto (obra nueva, segunda mano, inversión o comercial), respetado por escrito tras la aprobación de GILMAR España."
-                  : "Established in 1983 with 36 commercial teams and service in 10 languages, GILMAR connects your clients to 2,000+ active properties across Spain. Each referral carries its own negotiated fee based on asset class (new developments, resale residential, investment, or commercial), protected in writing once approved by GILMAR Spain."}
+                  ? "GILMAR CONSULTING INMOBILIARIO · DESDE 1983"
+                  : "GILMAR CONSULTING INMOBILIARIO · SINCE 1983"}
               </p>
+              <h2 id="heritage-heading" className="g-serif mt-3 text-3xl font-medium text-[#282828] md:text-5xl">
+                {es
+                  ? "¿Por qué acompañar a su cliente en España con GILMAR?"
+                  : "Why serve your Spain-bound buyer through GILMAR?"}
+              </h2>
+              <div className="mx-auto mt-5 h-[1px] w-16 bg-[#c6b296]" />
+            </div>
 
-              <div className="mt-8 flex flex-wrap gap-4">
-                <button
-                  type="button"
-                  onClick={() => jumpToRegister("agent")}
-                  className="inline-flex items-center gap-2 bg-gold px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep shadow-lg transition-colors hover:bg-gold-soft"
-                >
-                  {es ? "Registrar licencia y cliente" : "Register License & Client"}
-                  <ArrowRight size={14} />
-                </button>
-                <a
-                  href="#spain-idx"
-                  className="inline-flex items-center gap-2 border border-white/25 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white transition-colors hover:border-gold hover:text-gold"
-                >
-                  <Lock size={14} />
-                  {es ? "Explorar 2.000+ propiedades IDX" : "Browse 2,000+ Spain IDX"}
-                </a>
+            {/* Two-column editorial narrative with Gilmar's signature vertical hairline divider */}
+            <div className="mt-12 grid gap-8 md:grid-cols-2 md:items-center">
+              <div className="space-y-4 text-[15px] leading-7 text-[#5b5b5f]">
+                <p>
+                  {es
+                    ? "GILMAR lidera la consultoría inmobiliaria residencial en las principales zonas de Madrid, Costa del Sol, costa de Cádiz, Sevilla e Islas Canarias, con 36 equipos comerciales especializados y atención en 10 idiomas."
+                    : "GILMAR operates across Spain’s prime residential markets—Madrid, Costa del Sol, Málaga, Seville, Cádiz, and the Canary Islands—through 36 specialized commercial teams serving clients in 10 languages."}
+                </p>
+                <p>
+                  {es
+                    ? "A través del escritorio bilateral con United Realty Group en Florida, cada agente conserva su relación profesional con el comprador mientras los equipos locales en España ejecutan visitas, verificación registral y firma ante notario."
+                    : "Through the bilateral desk with United Realty Group in Florida, originating professionals retain their client relationship while GILMAR’s local Spanish teams execute tours, legal review, financing, and closing."}
+                </p>
               </div>
-              <HouseBotHero variant="globalDesk" lang={lang} />
+              <div className="g-split-divider space-y-6">
+                <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 md:grid-cols-2">
+                  <div>
+                    <p className="g-serif text-4xl font-medium text-[#282828]">1983</p>
+                    <p className="mt-1 text-xs tracking-wider text-[#817360] uppercase">
+                      {es ? "Año de fundación" : "Year Founded"}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="g-serif text-4xl font-medium text-[#282828]">36</p>
+                    <p className="mt-1 text-xs tracking-wider text-[#817360] uppercase">
+                      {es ? "Equipos comerciales" : "Commercial Teams"}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="g-serif text-4xl font-medium text-[#282828]">10</p>
+                    <p className="mt-1 text-xs tracking-wider text-[#817360] uppercase">
+                      {es ? "Idiomas de atención" : "Languages Served"}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="g-serif text-4xl font-medium text-[#282828]">2,000+</p>
+                    <p className="mt-1 text-xs tracking-wider text-[#817360] uppercase">
+                      {es ? "Propiedades activas" : "Active Listings"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-              <div className="mt-8 grid gap-3 border-t border-white/15 pt-6 text-xs text-white/80 sm:grid-cols-3">
-                <div className="flex items-center gap-2">
-                  <Scale size={15} className="shrink-0 text-gold" />
-                  <span>
-                    {es
-                      ? "Honorarios negociados por tipo de activo"
-                      : "Negotiated referral fees by asset class"}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <ShieldCheck size={15} className="shrink-0 text-gold" />
-                  <span>
-                    {es
-                      ? "Aprobación y acuerdo escrito de GILMAR España"
-                      : "Written agreement approved by GILMAR Spain"}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Building2 size={15} className="shrink-0 text-gold" />
-                  <span>
-                    {es
-                      ? "Pago vía United Realty Group a su brokerage"
-                      : "Paid via United Realty Group to your brokerage"}
-                  </span>
-                </div>
-              </div>
+            {/* Clean inline placement for the Miami Desk AI concierge on light canvas */}
+            <div className="mt-10 border-t border-[#e8e3da] pt-6">
+              <HouseBotHero variant="globalDesk" lang={lang} tone="light" className="justify-center" />
             </div>
           </div>
         </section>
 
-        {/* ── 2. GILMAR Integral Advisory Ecosystem ─────────────────── */}
-        <section className="bg-ivory py-16 md:py-24" aria-labelledby="advisory-heading">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-              <div className="max-w-3xl">
-                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink">
-                  {es
-                    ? "GILMAR CONSULTING INMOBILIARIO · SERVICIOS INTEGRALES"
-                    : "GILMAR CONSULTING INMOBILIARIO · INTEGRAL ADVISORY"}
-                </p>
-                <h2 id="advisory-heading" className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
-                  {es
-                    ? "Una operación completa en España, con respaldo 360."
-                    : "A complete purchase in Spain, supported end to end."}
-                </h2>
-              </div>
-              <div className="grid grid-cols-4 gap-4 border border-bone bg-white px-5 py-4 text-center">
-                <div>
-                  <p className="font-serif text-2xl font-semibold text-navy-deep">1983</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-ink-primary/65">
-                    {es ? "Fundación" : "Founded"}
-                  </p>
-                </div>
-                <div className="border-l border-bone pl-4">
-                  <p className="font-serif text-2xl font-semibold text-navy-deep">36</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-ink-primary/65">
-                    {es ? "Equipos" : "Teams"}
-                  </p>
-                </div>
-                <div className="border-l border-bone pl-4">
-                  <p className="font-serif text-2xl font-semibold text-navy-deep">10</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-ink-primary/65">
-                    {es ? "Idiomas" : "Languages"}
-                  </p>
-                </div>
-                <div className="border-l border-bone pl-4">
-                  <p className="font-serif text-2xl font-semibold text-navy-deep">2,000+</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-ink-primary/65">
-                    {es ? "Propiedades" : "Listings"}
-                  </p>
-                </div>
-              </div>
+        {/* ── 3. Numbered 1.–4. Integral Advisory Spread (gilmar.es/vender/ numbered editorial rows) ── */}
+        <section className="border-t border-[#ece7dc] bg-white py-16 md:py-24" aria-labelledby="advisory-heading">
+          <div className="mx-auto max-w-[1140px] px-6">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="g-eyebrow">
+                {es ? "SERVICIOS INTEGRALES 360" : "INTEGRAL 360 ADVISORY"}
+              </p>
+              <h2 id="advisory-heading" className="g-serif mt-3 text-3xl font-medium text-[#282828] md:text-5xl">
+                {es
+                  ? "Una operación completa en España, paso a paso."
+                  : "A complete purchase in Spain, supported end to end."}
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-[#5b5b5f]">
+                {es
+                  ? "Cuatro divisiones especializadas dentro de GILMAR cubren cada etapa técnica, financiera y jurídica de la compra para su cliente."
+                  : "Four specialized in-house divisions within GILMAR handle every legal, financing, renovation, and closing detail for your buyer."}
+              </p>
             </div>
 
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 grid gap-x-12 gap-y-12 md:grid-cols-2">
               {ADVISORY_PILLARS.map((pillar) => (
-                <Tilt3D key={pillar.titleEn} maxTilt={4} className="h-full">
-                  <div className="h-full border border-bone bg-white p-6 shadow-sm transition-shadow hover:border-gold/50 hover:shadow-md">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
-                      {es ? "División Especializada" : "Specialized Division"}
-                    </p>
-                    <h3 className="mt-3 font-serif text-xl text-navy-deep">
-                      {es ? pillar.titleEs : pillar.titleEn}
-                    </h3>
-                    <p className="mt-3 font-sans text-sm leading-relaxed text-ink-primary/75">
-                      {es ? pillar.bodyEs : pillar.bodyEn}
-                    </p>
-                  </div>
-                </Tilt3D>
+                <article
+                  key={pillar.titleEn}
+                  className="border-t border-[#c6b296] pt-7"
+                >
+                  <h3 className="g-serif text-2xl font-medium text-[#282828] sm:text-3xl">
+                    <span className="g-num mr-2">{pillar.num}</span>
+                    {es ? pillar.titleEs : pillar.titleEn}
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-[#5b5b5f]">
+                    {es ? pillar.bodyEs : pillar.bodyEn}
+                  </p>
+                  <ul className="mt-5 space-y-2.5">
+                    {(es ? pillar.pointsEs : pillar.pointsEn).map((point) => (
+                      <li key={point} className="g-serif flex items-start gap-3 text-[17px] leading-snug text-[#282828]">
+                        <Check size={16} className="mt-1 shrink-0 text-[#817360]" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── 3. Featured GILMAR Developments (3D Cards + Telemetry Compare) ── */}
-        <section id="featured-residences" className="bg-white py-16 md:py-24" aria-labelledby="residences-heading">
-          <div className="mx-auto max-w-7xl px-6">
+        {/* ── 4. Three Selected Residences (Warm #F2F0E1 Gilmar Cream Canvas) ── */}
+        <section id="featured-residences" className="bg-[#f2f0e1] py-16 md:py-24" aria-labelledby="residences-heading">
+          <div className="mx-auto max-w-[1170px] px-6">
             <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink">
+              <div className="max-w-2xl">
+                <p className="g-eyebrow">
                   {es ? "PROMOCIONES SELECCIONADAS DE GILMAR" : "SELECTED GILMAR DEVELOPMENTS"}
                 </p>
-                <h2 id="residences-heading" className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
+                <h2 id="residences-heading" className="g-serif mt-3 text-3xl font-medium text-[#282828] md:text-5xl">
                   {es ? "Tres residencias representativas para iniciar." : "Three selected residences to begin the conversation."}
                 </h2>
-                <p className="mt-2 max-w-2xl font-sans text-sm text-ink-primary/70">
+                <p className="mt-3 text-[15px] leading-relaxed text-[#5b5b5f]">
                   {es
                     ? "Cada vivienda mostrada representa una selección en promociones activas; puede registrar interés en cualquier unidad disponible."
                     : "Each residence shown is one selected example; you may register client interest on any available unit in the development."}
                 </p>
               </div>
-              <div className="flex flex-wrap items-center gap-3">
-                <div className="inline-flex border border-bone bg-ivory p-1" role="group" aria-label={es ? "Divisa" : "Currency"}>
+
+              <div className="flex flex-wrap items-center gap-2.5">
+                <div className="inline-flex border border-[#c6b296] bg-white p-0.5" role="group" aria-label={es ? "Divisa" : "Currency"}>
                   <button
                     type="button"
                     aria-pressed={currencyMode === "eur"}
                     onClick={() => setCurrencyMode("eur")}
-                    className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] ${currencyMode === "eur" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"}`}
+                    className={`px-3.5 py-1.5 text-xs font-medium tracking-wider uppercase transition-colors ${
+                      currencyMode === "eur" ? "bg-[#2d2d2d] text-white" : "text-[#5b5b5f] hover:text-[#282828]"
+                    }`}
                   >
                     EUR (€)
                   </button>
@@ -973,17 +1091,22 @@ export default function GilmarSpainPage() {
                     type="button"
                     aria-pressed={currencyMode === "usd"}
                     onClick={() => setCurrencyMode("usd")}
-                    className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] ${currencyMode === "usd" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"}`}
+                    className={`px-3.5 py-1.5 text-xs font-medium tracking-wider uppercase transition-colors ${
+                      currencyMode === "usd" ? "bg-[#2d2d2d] text-white" : "text-[#5b5b5f] hover:text-[#282828]"
+                    }`}
                   >
                     {es ? "USD ($ · BCE)" : "USD ($ · ECB)"}
                   </button>
                 </div>
-                <div className="inline-flex border border-bone bg-ivory p-1" role="group" aria-label={es ? "Superficie" : "Area"}>
+
+                <div className="inline-flex border border-[#c6b296] bg-white p-0.5" role="group" aria-label={es ? "Superficie" : "Area"}>
                   <button
                     type="button"
                     aria-pressed={areaMode === "sqm"}
                     onClick={() => setAreaMode("sqm")}
-                    className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] ${areaMode === "sqm" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"}`}
+                    className={`px-3 py-1.5 text-xs font-medium tracking-wider transition-colors ${
+                      areaMode === "sqm" ? "bg-[#2d2d2d] text-white" : "text-[#5b5b5f] hover:text-[#282828]"
+                    }`}
                   >
                     m²
                   </button>
@@ -991,18 +1114,21 @@ export default function GilmarSpainPage() {
                     type="button"
                     aria-pressed={areaMode === "sqft"}
                     onClick={() => setAreaMode("sqft")}
-                    className={`px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] ${areaMode === "sqft" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"}`}
+                    className={`px-3 py-1.5 text-xs font-medium tracking-wider transition-colors ${
+                      areaMode === "sqft" ? "bg-[#2d2d2d] text-white" : "text-[#5b5b5f] hover:text-[#282828]"
+                    }`}
                   >
                     ft²
                   </button>
                 </div>
-                <div className="inline-flex shrink-0 border border-bone bg-ivory p-1" role="group" aria-label="View mode">
+
+                <div className="inline-flex shrink-0 border border-[#c6b296] bg-white p-0.5" role="group" aria-label="View mode">
                   <button
                     type="button"
                     aria-pressed={viewMode === "cards"}
                     onClick={() => setViewMode("cards")}
-                    className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] ${
-                      viewMode === "cards" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"
+                    className={`px-4 py-1.5 text-xs font-medium tracking-wider uppercase transition-colors ${
+                      viewMode === "cards" ? "bg-[#817360] text-white" : "text-[#5b5b5f] hover:text-[#282828]"
                     }`}
                   >
                     {es ? "Tarjetas" : "Cards"}
@@ -1011,8 +1137,8 @@ export default function GilmarSpainPage() {
                     type="button"
                     aria-pressed={viewMode === "compare"}
                     onClick={() => setViewMode("compare")}
-                    className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] ${
-                      viewMode === "compare" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/70"
+                    className={`px-4 py-1.5 text-xs font-medium tracking-wider uppercase transition-colors ${
+                      viewMode === "compare" ? "bg-[#817360] text-white" : "text-[#5b5b5f] hover:text-[#282828]"
                     }`}
                   >
                     {es ? "Comparar las tres" : "Compare Three"}
@@ -1022,7 +1148,7 @@ export default function GilmarSpainPage() {
             </div>
 
             {viewMode === "cards" ? (
-              <div className="mt-10 grid gap-6 md:grid-cols-3">
+              <div className="mt-10 grid gap-7 md:grid-cols-3">
                 {DEVELOPMENTS.map((prop) => {
                   const primaryPhoto = prop.gallery[0];
                   const priceEur = `${formatEur(prop.priceEur, lang)} ${es ? prop.priceSuffixEs : prop.priceSuffixEn}`.trim();
@@ -1033,93 +1159,97 @@ export default function GilmarSpainPage() {
                   const outVal = areaMode === "sqft" ? `${prop.outdoorSqft.toLocaleString()} ft²` : `${prop.outdoorSqm} m²`;
 
                   return (
-                    <Tilt3D key={prop.slug} maxTilt={5} className="h-full">
-                      <div className="flex h-full flex-col overflow-hidden border border-bone bg-ivory shadow-sm transition-shadow hover:border-gold/50 hover:shadow-md">
-                        <button
-                          type="button"
-                          onClick={() => setSelectedProperty(prop)}
-                          className="group relative h-56 w-full overflow-hidden bg-navy-deep text-left"
-                        >
-                          <img
-                            src={primaryPhoto.src}
-                            alt={es ? primaryPhoto.altEs : primaryPhoto.altEn}
-                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/85 via-transparent to-transparent" />
-                          <span className="absolute left-3 top-3 bg-gold px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-navy-deep">
-                            {es ? prop.regionEs : prop.regionEn}
-                          </span>
-                          <span className="absolute right-3 top-3 border border-white/25 bg-navy-deep/85 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-white">
-                            {es ? prop.taxBadgeEs : prop.taxBadgeEn}
-                          </span>
-                          <span className="absolute bottom-3 left-4 right-4 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
-                            {es ? prop.locationEs : prop.locationEn}
-                          </span>
-                        </button>
+                    <article
+                      key={prop.slug}
+                      className="flex h-full flex-col overflow-hidden border border-[#ddd8cc] bg-white transition-shadow duration-300 hover:shadow-lg"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProperty(prop)}
+                        className="group relative h-60 w-full overflow-hidden bg-[#2d2d2d] text-left"
+                      >
+                        <img
+                          src={primaryPhoto.src}
+                          alt={es ? primaryPhoto.altEs : primaryPhoto.altEn}
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#282828]/70 via-transparent to-transparent" />
+                        <span className="absolute bottom-3 left-4 right-4 text-xs font-medium tracking-[0.14em] text-white uppercase">
+                          {es ? prop.locationEs : prop.locationEn}
+                        </span>
+                      </button>
 
-                        <div className="flex flex-1 flex-col justify-between p-6">
-                          <div>
-                            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/60">
-                              {prop.code}
-                            </p>
-                            <h3 className="mt-1 font-serif text-2xl text-navy-deep">{prop.name}</h3>
-                            <p className="mt-0.5 font-sans text-xs text-ink-primary/70">
-                              {es ? prop.unitLabelEs : prop.unitLabelEn}
-                            </p>
-                            <p className="mt-3 font-serif text-2xl font-semibold text-navy-deep">{primaryPrice}</p>
-                            <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-primary/60">
-                              {secondaryPrice} · {es ? prop.priceNoteEs : prop.priceNoteEn}
-                            </p>
-                            <div className="mt-3 grid grid-cols-2 gap-2 border border-bone bg-white p-2.5">
-                              <div>
-                                <span className="block font-mono text-[9px] uppercase tracking-[0.12em] text-ink-primary/60">
-                                  {es ? "Construidos" : "Built"}
-                                </span>
-                                <span className="font-serif text-sm font-semibold text-navy-deep">{builtVal}</span>
-                              </div>
-                              <div className="border-l border-bone pl-2">
-                                <span className="block font-mono text-[9px] uppercase tracking-[0.12em] text-ink-primary/60">
-                                  {es ? "Exterior" : "Outdoor"}
-                                </span>
-                                <span className="font-serif text-sm font-semibold text-navy-deep">{outVal}</span>
-                              </div>
-                            </div>
-                            <p className="mt-3 font-sans text-xs leading-relaxed text-ink-primary/75">
-                              {es ? prop.summaryEs : prop.summaryEn}
-                            </p>
+                      <div className="flex flex-1 flex-col justify-between p-6">
+                        <div>
+                          {/* Non-overlapping structured region + tax metadata row */}
+                          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#ece7dc] pb-3">
+                            <span className="text-[11px] font-medium tracking-[0.14em] text-[#817360] uppercase">
+                              {prop.code} · {es ? prop.regionEs : prop.regionEn}
+                            </span>
+                            <span className="bg-[#f2f0e1] px-2 py-0.5 text-[11px] font-medium text-[#5b5b5f]">
+                              {es ? prop.taxBadgeEs : prop.taxBadgeEn}
+                            </span>
                           </div>
 
-                          <div className="mt-5 space-y-2 border-t border-bone pt-4">
-                            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-navy-deep">
-                              {es ? prop.specsEs : prop.specsEn}
-                            </p>
-                            <div className="flex gap-2 pt-2">
-                              <button
-                                type="button"
-                                onClick={() => setSelectedProperty(prop)}
-                                className="flex-1 border border-navy-deep px-3 py-2.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep transition-colors hover:bg-navy-deep hover:text-white"
-                              >
-                                {es ? "Galería y Dossier" : "Gallery & Brief"}
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => jumpToRegister("agent")}
-                                className="flex-1 bg-gold px-3 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-navy-deep transition-colors hover:bg-gold-soft"
-                              >
-                                {es ? "Registrar Cliente" : "Register Client"}
-                              </button>
+                          <h3 className="g-serif mt-4 text-2xl font-medium text-[#282828]">{prop.name}</h3>
+                          <p className="mt-1 text-xs text-[#5b5b5f]">
+                            {es ? prop.unitLabelEs : prop.unitLabelEn}
+                          </p>
+
+                          <p className="g-serif mt-4 text-3xl font-semibold text-[#282828]">{primaryPrice}</p>
+                          <p className="mt-0.5 text-xs text-[#87868a]">
+                            {secondaryPrice} · {es ? prop.priceNoteEs : prop.priceNoteEn}
+                          </p>
+
+                          <div className="mt-4 grid grid-cols-2 gap-3 border-y border-[#ece7dc] py-3">
+                            <div>
+                              <span className="block text-[11px] tracking-wider text-[#87868a] uppercase">
+                                {es ? "Construidos" : "Built"}
+                              </span>
+                              <span className="g-serif text-lg font-medium text-[#282828]">{builtVal}</span>
                             </div>
+                            <div className="border-l border-[#ece7dc] pl-3">
+                              <span className="block text-[11px] tracking-wider text-[#87868a] uppercase">
+                                {es ? "Exterior" : "Outdoor"}
+                              </span>
+                              <span className="g-serif text-lg font-medium text-[#282828]">{outVal}</span>
+                            </div>
+                          </div>
+
+                          <p className="mt-4 text-sm leading-relaxed text-[#5b5b5f]">
+                            {es ? prop.summaryEs : prop.summaryEn}
+                          </p>
+                        </div>
+
+                        <div className="mt-6 space-y-3 border-t border-[#ece7dc] pt-4">
+                          <p className="text-xs font-medium text-[#282828]">
+                            {es ? prop.specsEs : prop.specsEn}
+                          </p>
+                          <div className="flex flex-col gap-2.5 xl:flex-row">
+                            <button
+                              type="button"
+                              onClick={() => setSelectedProperty(prop)}
+                              className="g-btn-outline min-w-0 flex-1 px-3 py-2.5 text-center text-xs"
+                            >
+                              {es ? "Galería y Dossier" : "Gallery & Brief"}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => jumpToRegister("agent")}
+                              className="g-btn-taupe min-w-0 flex-1 px-3 py-2.5 text-center text-xs"
+                            >
+                              {es ? "Registrar Cliente" : "Register Client"}
+                            </button>
                           </div>
                         </div>
                       </div>
-                    </Tilt3D>
+                    </article>
                   );
                 })}
               </div>
             ) : (
               <div className="mt-10 space-y-6">
-                {/* Interactive Visual Telemetry Bar Matrix */}
-                <div className="grid gap-4 md:grid-cols-3">
+                <div className="grid gap-5 md:grid-cols-3">
                   {DEVELOPMENTS.map((prop) => {
                     const priceRatio = Math.min(1, prop.priceEur / 2100000);
                     const areaRatio = Math.min(1, prop.builtSqm / 220);
@@ -1132,59 +1262,61 @@ export default function GilmarSpainPage() {
                     const outDisp = areaMode === "sqft" ? `${prop.outdoorSqft.toLocaleString()} ft²` : `${prop.outdoorSqm} m²`;
 
                     return (
-                      <div key={prop.slug} className="border border-bone bg-ivory p-5">
-                        <div className="flex items-start justify-between gap-2">
+                      <div key={prop.slug} className="border border-[#ddd8cc] bg-white p-6">
+                        <div className="flex flex-wrap items-start justify-between gap-2">
                           <div>
-                            <h3 className="font-serif text-xl text-navy-deep">{prop.name}</h3>
-                            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-primary/65">
+                            <h3 className="g-serif text-2xl font-medium text-[#282828]">{prop.name}</h3>
+                            <p className="text-xs tracking-wider text-[#817360] uppercase">
                               {es ? prop.locationEs : prop.locationEn}
                             </p>
                           </div>
-                          <span className="border border-bone bg-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-navy-deep">
+                          <span className="bg-[#f2f0e1] px-2.5 py-0.5 text-[11px] text-[#5b5b5f]">
                             {es ? prop.taxBadgeEs : prop.taxBadgeEn}
                           </span>
                         </div>
-                        <div className="mt-4 space-y-3 text-xs">
+
+                        <div className="mt-5 space-y-3.5 text-xs">
                           <div>
-                            <div className="flex justify-between font-semibold text-navy-deep">
+                            <div className="flex justify-between font-medium text-[#282828]">
                               <span>{es ? "Precio" : "Price"}</span>
                               <span>{priceDisp}</span>
                             </div>
-                            <div className="mt-1 h-2 bg-bone">
-                              <div className="h-full origin-left bg-gold" style={{ transform: `scaleX(${priceRatio.toFixed(2)})` }} />
+                            <div className="mt-1.5 h-1.5 bg-[#ece7dc]">
+                              <div className="h-full origin-left bg-[#817360]" style={{ transform: `scaleX(${priceRatio.toFixed(2)})` }} />
                             </div>
                           </div>
                           <div>
-                            <div className="flex justify-between font-semibold text-navy-deep">
+                            <div className="flex justify-between font-medium text-[#282828]">
                               <span>{es ? "Superficie construida" : "Built Area"}</span>
                               <span>{builtDisp}</span>
                             </div>
-                            <div className="mt-1 h-2 bg-bone">
-                              <div className="h-full origin-left bg-navy-deep" style={{ transform: `scaleX(${areaRatio.toFixed(2)})` }} />
+                            <div className="mt-1.5 h-1.5 bg-[#ece7dc]">
+                              <div className="h-full origin-left bg-[#2d2d2d]" style={{ transform: `scaleX(${areaRatio.toFixed(2)})` }} />
                             </div>
                           </div>
                           <div>
-                            <div className="flex justify-between font-semibold text-navy-deep">
+                            <div className="flex justify-between font-medium text-[#282828]">
                               <span>{es ? "Exterior / Terraza" : "Outdoor Area"}</span>
                               <span>{outDisp}</span>
                             </div>
-                            <div className="mt-1 h-2 bg-bone">
-                              <div className="h-full origin-left bg-gold-ink" style={{ transform: `scaleX(${outRatio.toFixed(2)})` }} />
+                            <div className="mt-1.5 h-1.5 bg-[#ece7dc]">
+                              <div className="h-full origin-left bg-[#c6b296]" style={{ transform: `scaleX(${outRatio.toFixed(2)})` }} />
                             </div>
                           </div>
                         </div>
-                        <div className="mt-4 flex gap-2">
+
+                        <div className="mt-5 flex gap-2">
                           <button
                             type="button"
                             onClick={() => setSelectedProperty(prop)}
-                            className="flex-1 border border-navy-deep px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-deep"
+                            className="g-btn-outline flex-1 px-3 py-2 text-xs"
                           >
                             {es ? "Dossier" : "Brief"}
                           </button>
                           <button
                             type="button"
                             onClick={() => jumpToRegister("agent")}
-                            className="flex-1 bg-gold px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-navy-deep"
+                            className="g-btn-taupe flex-1 px-3 py-2 text-xs"
                           >
                             {es ? "Registrar" : "Register"}
                           </button>
@@ -1194,9 +1326,9 @@ export default function GilmarSpainPage() {
                   })}
                 </div>
 
-                <div className="overflow-x-auto border border-bone bg-white">
+                <div className="overflow-x-auto border border-[#ddd8cc] bg-white">
                   <table className="w-full min-w-[720px] border-collapse text-left text-sm">
-                    <thead className="bg-navy-deep font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+                    <thead className="bg-[#2d2d2d] text-xs font-medium tracking-wider text-white uppercase">
                       <tr>
                         <th className="p-4">{es ? "Promoción" : "Development"}</th>
                         <th className="p-4">{es ? "Ubicación" : "Location"}</th>
@@ -1205,42 +1337,46 @@ export default function GilmarSpainPage() {
                         <th className="p-4">{es ? "Acción" : "Action"}</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-bone">
+                    <tbody className="divide-y divide-[#ece7dc]">
                       {DEVELOPMENTS.map((prop) => {
                         const priceEur = `${formatEur(prop.priceEur, lang)} ${es ? prop.priceSuffixEs : prop.priceSuffixEn}`.trim();
                         const priceUsd = formatUsd(prop.priceEur, lang);
+                        const primaryPrice = currencyMode === "usd" ? `${priceUsd} (${es ? "aprox." : "approx."})` : priceEur;
+                        const secondaryPrice = currencyMode === "usd" ? priceEur : `${es ? "Aprox." : "Approx."} ${priceUsd}`;
+                        const builtDisp = areaMode === "sqft" ? `${prop.builtSqft.toLocaleString()} ft²` : `${prop.builtSqm} m²`;
+                        const outDisp = areaMode === "sqft" ? `${prop.outdoorSqft.toLocaleString()} ft²` : `${prop.outdoorSqm} m²`;
                         return (
-                          <tr key={prop.slug} className="hover:bg-ivory">
+                          <tr key={prop.slug} className="hover:bg-[#f8f7f1]">
                             <td className="p-4">
-                              <p className="font-serif text-lg font-semibold text-navy-deep">{prop.name}</p>
-                              <p className="text-xs text-ink-primary/65">{es ? prop.unitLabelEs : prop.unitLabelEn}</p>
+                              <p className="g-serif text-xl font-medium text-[#282828]">{prop.name}</p>
+                              <p className="text-xs text-[#5b5b5f]">{es ? prop.unitLabelEs : prop.unitLabelEn}</p>
                             </td>
-                            <td className="p-4 text-xs text-ink-primary/80">
+                            <td className="p-4 text-xs text-[#5b5b5f]">
                               {es ? prop.locationEs : prop.locationEn}
                             </td>
                             <td className="p-4">
-                              <p className="font-semibold text-navy-deep">{priceEur}</p>
-                              <p className="text-xs text-ink-primary/60">
-                                {es ? "Aprox." : "Approx."} {priceUsd}
-                              </p>
+                              <p className="font-medium text-[#282828]">{primaryPrice}</p>
+                              <p className="text-xs text-[#87868a]">{secondaryPrice}</p>
                             </td>
-                            <td className="p-4 text-xs text-ink-primary/80">
-                              <p>{es ? prop.specsEs : prop.specsEn}</p>
-                              <p className="text-ink-primary/60">{es ? prop.sizeSummaryEs : prop.sizeSummaryEn}</p>
+                            <td className="p-4 text-xs text-[#5b5b5f]">
+                              <p className="text-[#282828]">
+                                {es ? "Construidos" : "Built"}: {builtDisp} · {es ? "Exterior" : "Outdoor"}: {outDisp}
+                              </p>
+                              <p className="mt-0.5">{es ? prop.specsEs : prop.specsEn}</p>
                             </td>
                             <td className="p-4">
                               <div className="flex gap-2">
                                 <button
                                   type="button"
                                   onClick={() => setSelectedProperty(prop)}
-                                  className="border border-navy-deep px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-deep"
+                                  className="g-btn-outline px-3 py-1.5 text-xs"
                                 >
                                   {es ? "Ver" : "View"}
                                 </button>
                                 <button
                                   type="button"
                                   onClick={() => jumpToRegister("agent")}
-                                  className="bg-gold px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-navy-deep"
+                                  className="g-btn-taupe px-3 py-1.5 text-xs"
                                 >
                                   {es ? "Registrar" : "Register"}
                                 </button>
@@ -1255,11 +1391,11 @@ export default function GilmarSpainPage() {
               </div>
             )}
 
-            <details className="mt-6 border border-bone bg-ivory px-4 py-3 font-sans text-[11px] leading-relaxed text-ink-primary/70">
-              <summary className="cursor-pointer font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep">
+            <details className="mt-7 border border-[#ddd8cc] bg-white px-5 py-3.5 text-xs leading-relaxed text-[#5b5b5f]">
+              <summary className="cursor-pointer font-medium tracking-wider text-[#282828] uppercase">
                 {es ? "Fuente de unidades y notas de conversión BCE" : "Unit source & ECB FX reference disclosures"}
               </summary>
-              <p className="mt-2">
+              <p className="mt-2.5">
                 {es
                   ? "Fuente de unidades: GILMAR (noviembre de 2026). Disponibilidad, precios, impuestos, entregas y planos requieren confirmación escrita vigente. Conversión aproximada a tipo de referencia BCE (1 EUR = 1,1052 USD, 13 nov. 2026). No se representa ninguna publicación MLS activa."
                   : "Unit source: GILMAR (reviewed Nov 2026). Availability, prices, taxes, delivery, and exact plans require current written confirmation. USD conversion approximate at ECB reference rate (1 EUR = 1.1052 USD, Nov 13, 2026). No active MLS listing is represented."}
@@ -1268,35 +1404,36 @@ export default function GilmarSpainPage() {
           </div>
         </section>
 
-        {/* ── 4. Registration-Gated 2,000+ Spain IDX Regional Node Selector ── */}
-        <section id="spain-idx" className="scroll-mt-24 bg-navy-deep py-16 text-white md:py-24" aria-labelledby="idx-heading">
-          <div className="mx-auto max-w-7xl px-6">
+        {/* ── 5. Registration-Gated 2,000+ Spain IDX Portfolio (Clean White Editorial Canvas) ── */}
+        <section id="spain-idx" className="scroll-mt-24 bg-white py-16 md:py-24" aria-labelledby="idx-heading">
+          <div className="mx-auto max-w-[1170px] px-6">
             <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
               <div className="lg:col-span-7">
-                <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-gold">
-                  <Lock size={14} />
+                <div className="g-eyebrow inline-flex items-center gap-2">
+                  <Lock size={13} />
                   <span>
                     {es
                       ? "CATÁLOGO IDX PRIVADO · MÁS DE 2.000 PROPIEDADES EN ESPAÑA"
                       : "REGISTERED IDX ACCESS · 2,000+ ACTIVE PROPERTIES IN SPAIN"}
                   </span>
                 </div>
-                <h2 id="idx-heading" className="mt-3 font-serif text-3xl text-white md:text-4xl">
+                <h2 id="idx-heading" className="g-serif mt-3 text-3xl font-medium text-[#282828] md:text-5xl">
                   {es
                     ? "Explore más de 2.000 propiedades en España mediante registro."
                     : "Browse 2,000+ properties across Spain through registration."}
                 </h2>
-                <div className="mt-4 flex flex-wrap gap-2">
+
+                <div className="mt-6 flex flex-wrap gap-2">
                   {IDX_MARKETS.map((m) => (
                     <button
                       key={m.key}
                       type="button"
                       onClick={() => setActiveMarketKey(m.key)}
                       aria-pressed={m.key === activeMarketKey}
-                      className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors ${
+                      className={`border px-4 py-2 text-xs font-medium tracking-wider uppercase transition-colors ${
                         m.key === activeMarketKey
-                          ? "border-gold bg-gold font-bold text-navy-deep"
-                          : "border-white/20 bg-white/[0.04] text-white/80 hover:border-gold/50"
+                          ? "border-[#817360] bg-[#817360] text-white"
+                          : "border-[#ddd8cc] bg-white text-[#5b5b5f] hover:border-[#817360] hover:text-[#282828]"
                       }`}
                     >
                       {es ? m.regionEs : m.regionEn} · {m.count}
@@ -1305,12 +1442,12 @@ export default function GilmarSpainPage() {
                 </div>
               </div>
 
-              <div className="border border-gold/35 bg-white/[0.04] p-5 lg:col-span-5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+              <div className="border-l-2 border-[#817360] bg-[#f2f0e1] p-6 lg:col-span-5">
+                <p className="text-xs font-medium tracking-[0.16em] text-[#817360] uppercase">
                   {es ? selectedMarket.regionEs : selectedMarket.regionEn}
                 </p>
-                <p className="mt-1 font-serif text-3xl font-semibold text-white">{selectedMarket.count}</p>
-                <p className="mt-1 font-sans text-xs text-white/75">
+                <p className="g-serif mt-1 text-4xl font-medium text-[#282828]">{selectedMarket.count}</p>
+                <p className="mt-1.5 text-sm text-[#5b5b5f]">
                   {es ? selectedMarket.areasEs : selectedMarket.areasEn}
                 </p>
               </div>
@@ -1320,52 +1457,51 @@ export default function GilmarSpainPage() {
               {IDX_MARKETS.map((market) => {
                 const isSelected = market.key === activeMarketKey;
                 return (
-                  <Tilt3D key={market.key} maxTilt={4} className="h-full">
-                    <div
-                      onMouseEnter={() => setActiveMarketKey(market.key)}
-                      className={`flex h-full flex-col overflow-hidden border transition-all ${
-                        isSelected
-                          ? "border-gold bg-navy shadow-[0_12px_32px_rgba(201,168,76,0.2)]"
-                          : "border-gold/25 bg-navy/80"
-                      }`}
-                    >
-                      <div className="h-44 w-full overflow-hidden bg-navy">
-                        <img
-                          src={market.image}
-                          alt={es ? market.altEs : market.altEn}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                      <div className="flex flex-1 flex-col justify-between p-5">
-                        <div>
-                          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                            {es ? market.regionEs : market.regionEn}
-                          </p>
-                          <p className="mt-1 font-serif text-3xl font-semibold text-white">{market.count}</p>
-                          <p className="mt-2 font-sans text-xs leading-relaxed text-white/70">
-                            {es ? market.areasEs : market.areasEn}
-                          </p>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => jumpToRegister("agent")}
-                          className="mt-4 inline-flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-gold hover:text-white"
-                        >
-                          {es ? "Registrar para ver IDX" : "Register to browse"}
-                          <ArrowRight size={12} />
-                        </button>
-                      </div>
+                  <div
+                    key={market.key}
+                    onMouseEnter={() => setActiveMarketKey(market.key)}
+                    className={`flex h-full flex-col overflow-hidden border bg-white transition-all duration-300 ${
+                      isSelected
+                        ? "border-[#817360] shadow-md"
+                        : "border-[#ddd8cc] hover:border-[#c6b296]"
+                    }`}
+                  >
+                    <div className="h-48 w-full overflow-hidden bg-[#f2f0e1]">
+                      <img
+                        src={market.image}
+                        alt={es ? market.altEs : market.altEn}
+                        className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                      />
                     </div>
-                  </Tilt3D>
+                    <div className="flex flex-1 flex-col justify-between p-5">
+                      <div>
+                        <p className="text-[11px] font-medium tracking-[0.16em] text-[#817360] uppercase">
+                          {es ? market.regionEs : market.regionEn}
+                        </p>
+                        <p className="g-serif mt-1 text-3xl font-medium text-[#282828]">{market.count}</p>
+                        <p className="mt-2 text-xs leading-relaxed text-[#5b5b5f]">
+                          {es ? market.areasEs : market.areasEn}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => jumpToRegister("agent")}
+                        className="mt-5 inline-flex items-center gap-1.5 border-t border-[#ece7dc] pt-3 text-xs font-medium tracking-wider text-[#282828] uppercase transition-colors hover:text-[#817360]"
+                      >
+                        {es ? "Registrar para ver IDX" : "Register to browse"}
+                        <ArrowRight size={13} />
+                      </button>
+                    </div>
+                  </div>
                 );
               })}
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <button
                 type="button"
                 onClick={() => jumpToRegister("agent")}
-                className="inline-flex items-center gap-2 bg-gold px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep hover:bg-gold-soft"
+                className="g-btn-charcoal"
               >
                 {es ? "Registro de Agente (Licencia)" : "Agent Registration (License Required)"}
                 <ArrowRight size={14} />
@@ -1373,7 +1509,7 @@ export default function GilmarSpainPage() {
               <button
                 type="button"
                 onClick={() => jumpToRegister("buyer")}
-                className="inline-flex items-center gap-2 border border-white/25 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white hover:border-gold hover:text-gold"
+                className="g-btn-outline"
               >
                 {es ? "Registro de Comprador para IDX" : "Buyer IDX Registration"}
               </button>
@@ -1381,30 +1517,30 @@ export default function GilmarSpainPage() {
           </div>
         </section>
 
-        {/* ── 5. Interactive 5-Stage Deal-Flow Pipeline ───────────── */}
-        <section className="bg-white py-16 md:py-24" aria-labelledby="coop-heading">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <div className="max-w-3xl">
-                <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink">
+        {/* ── 6. Interactive 5-Stage Cooperation Protocol (Numbered Editorial Rhythm) ── */}
+        <section className="border-t border-[#ece7dc] bg-[#f8f7f1] py-16 md:py-24" aria-labelledby="coop-heading">
+          <div className="mx-auto max-w-[1170px] px-6">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div className="max-w-2xl">
+                <p className="g-eyebrow">
                   {es
                     ? "COOPERACIÓN ENTRE BROKERAGES · ACUERDOS POR OPERACIÓN"
                     : "BROKERAGE-TO-BROKERAGE COOPERATION · WRITTEN REFERRAL AGREEMENTS"}
                 </p>
-                <h2 id="coop-heading" className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
+                <h2 id="coop-heading" className="g-serif mt-3 text-3xl font-medium text-[#282828] md:text-5xl">
                   {es
                     ? "Honorarios negociados por tipo de activo — protegidos por escrito."
                     : "Negotiated referral fees by asset class — protected in writing."}
                 </h2>
               </div>
 
-              <div className="inline-flex border border-bone bg-ivory p-1" role="group" aria-label={es ? "Modalidad de cooperación" : "Cooperation mode"}>
+              <div className="inline-flex border border-[#c6b296] bg-white p-0.5" role="group" aria-label={es ? "Modalidad de cooperación" : "Cooperation mode"}>
                 <button
                   type="button"
                   aria-pressed={pipelineMode === "buyer_agency"}
                   onClick={() => setPipelineMode("buyer_agency")}
-                  className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.14em] ${
-                    pipelineMode === "buyer_agency" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/75"
+                  className={`px-4 py-2 text-xs font-medium tracking-wider uppercase transition-colors ${
+                    pipelineMode === "buyer_agency" ? "bg-[#2d2d2d] text-white" : "text-[#5b5b5f] hover:text-[#282828]"
                   }`}
                 >
                   {es ? "Agencia de comprador" : "Buyer Agency"}
@@ -1413,8 +1549,8 @@ export default function GilmarSpainPage() {
                   type="button"
                   aria-pressed={pipelineMode === "referral"}
                   onClick={() => setPipelineMode("referral")}
-                  className={`px-4 py-2 font-mono text-[10px] uppercase tracking-[0.14em] ${
-                    pipelineMode === "referral" ? "bg-navy-deep font-bold text-gold" : "text-navy-deep/75"
+                  className={`px-4 py-2 text-xs font-medium tracking-wider uppercase transition-colors ${
+                    pipelineMode === "referral" ? "bg-[#2d2d2d] text-white" : "text-[#5b5b5f] hover:text-[#282828]"
                   }`}
                 >
                   {es ? "Solo referencia" : "Referral Only"}
@@ -1422,26 +1558,26 @@ export default function GilmarSpainPage() {
               </div>
             </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" role="tablist">
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" role="tablist">
               {pipelineNodes.map((node, idx) => {
                 const selected = activePipelineNode === idx;
                 return (
                   <button
-                    key={node.step}
+                    key={node.code}
                     type="button"
                     role="tab"
                     aria-selected={selected}
                     onClick={() => setActivePipelineNode(idx)}
-                    className={`flex flex-col border p-4 text-left transition-all ${
+                    className={`flex flex-col border p-5 text-left transition-all ${
                       selected
-                        ? "border-gold bg-navy-deep text-white shadow-md"
-                        : "border-bone bg-ivory text-navy-deep hover:border-gold/55"
+                        ? "border-[#2d2d2d] bg-[#2d2d2d] text-white shadow-sm"
+                        : "border-[#ddd8cc] bg-white text-[#282828] hover:border-[#817360]"
                     }`}
                   >
-                    <span className={`font-mono text-[10px] font-bold uppercase tracking-[0.18em] ${selected ? "text-gold" : "text-gold-ink"}`}>
+                    <span className={`g-serif text-2xl font-medium ${selected ? "text-[#c6b296]" : "text-[#817360]"}`}>
                       {node.step}
                     </span>
-                    <span className="mt-1.5 font-serif text-base font-semibold">
+                    <span className="g-serif mt-2 text-lg font-medium leading-snug">
                       {es ? node.titleEs : node.titleEn}
                     </span>
                   </button>
@@ -1449,15 +1585,15 @@ export default function GilmarSpainPage() {
               })}
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border border-gold/50 bg-ivory p-6">
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-6 border border-[#c6b296] bg-white p-6 md:p-8">
               <div className="max-w-2xl">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">
-                  {es ? `Etapa ${activeNode.step}` : `Stage ${activeNode.step}`} ·{" "}
+                <p className="text-xs font-medium tracking-[0.16em] text-[#817360] uppercase">
+                  {es ? `Etapa ${activeNode.code}` : `Stage ${activeNode.code}`} ·{" "}
                   {pipelineMode === "buyer_agency"
                     ? es ? "Agencia de comprador hasta el cierre" : "Buyer Agency Through Closing"
                     : es ? "Solo referencia" : "Referral Only"}
                 </p>
-                <p className="mt-1.5 font-sans text-sm leading-relaxed text-navy-deep">
+                <p className="mt-2 text-[15px] leading-relaxed text-[#282828]">
                   {pipelineMode === "buyer_agency"
                     ? es ? activeNode.buyerAgencyEs : activeNode.buyerAgencyEn
                     : es ? activeNode.referralEs : activeNode.referralEn}
@@ -1467,57 +1603,88 @@ export default function GilmarSpainPage() {
               <button
                 type="button"
                 onClick={() => jumpToRegister("agent")}
-                className="inline-flex items-center gap-2 bg-gold px-6 py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep hover:bg-gold-soft"
+                className="g-btn-taupe"
               >
                 {es ? "Registrar cliente y recibir condiciones" : "Register a client and receive terms"}
-                <ArrowRight size={13} />
+                <ArrowRight size={14} />
               </button>
             </div>
           </div>
         </section>
 
-        {/* ── 5b. Beyond the selected developments + disclosures ─────── */}
-        <section className="border-t border-bone bg-ivory py-12 md:py-16" aria-labelledby="beyond-developments-heading">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="grid gap-6 border border-gold/40 bg-white p-6 shadow-sm sm:p-8 lg:grid-cols-12 lg:items-center">
-              <div className="lg:col-span-7">
-                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">
-                  <Globe2 size={15} aria-hidden="true" />
-                  <span>
-                    {es
-                      ? "MÁS ALLÁ DE LAS PROMOCIONES · MADRID · MARBELLA · ESTEPONA · MÁLAGA · SOTOGRANDE · CANARIAS"
-                      : "BEYOND THE DEVELOPMENTS · MADRID · MARBELLA · ESTEPONA · MÁLAGA · SOTOGRANDE · CANARY ISLANDS"}
-                  </span>
+        {/* ── 6b. Team & Custom Search Callout (gilmar.es/vender/ "Nuestro equipo, tu ventaja" framing) ── */}
+        <section className="bg-white py-16 md:py-24" aria-labelledby="beyond-developments-heading">
+          <div className="mx-auto max-w-[1140px] px-6">
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+              <div className="grid grid-cols-12 items-end gap-3 lg:col-span-5">
+                <div className="col-span-7 overflow-hidden border border-[#ece7dc]">
+                  <img
+                    src="/images/gilmar/balcon-terrace.jpg"
+                    alt={es ? "Terraza residencial en Costa del Sol — visualización" : "Costa del Sol residential terrace visualization"}
+                    className="h-52 w-full object-cover"
+                  />
                 </div>
-                <h2 id="beyond-developments-heading" className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">
-                  {es
-                    ? "¿Busca otra zona o presupuesto en España (€500K a €5M+)?"
-                    : "Looking for a different Spanish market or budget band (€500K to €5M+)?"}
-                </h2>
+                <div className="col-span-5 overflow-hidden border border-[#ece7dc]">
+                  <img
+                    src="/images/gilmar/be-grand-shared-rooftop-sea.webp"
+                    alt={es ? "Azotea con vistas al mar en Málaga — zona común" : "Sea-view shared rooftop in Málaga"}
+                    className="h-44 w-full object-cover"
+                  />
+                </div>
+                <div className="col-span-12 overflow-hidden border border-[#ece7dc]">
+                  <img
+                    src="/images/gilmar/balcon-spa.webp"
+                    alt={es ? "Zona común de bienestar — visualización" : "Shared wellness lounge visualization"}
+                    className="h-40 w-full object-cover"
+                  />
+                </div>
               </div>
-              <div className="flex flex-wrap items-center gap-3 lg:col-span-5 lg:justify-end">
-                <button
-                  type="button"
-                  onClick={() => jumpToRegister("buyer")}
-                  className="inline-flex items-center justify-center gap-2 bg-gold px-6 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy-deep shadow-lg transition-colors hover:bg-gold-soft"
-                >
-                  {es ? "Enviar criterios de búsqueda" : "Send the search brief"}
-                  <ArrowRight size={13} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => jumpToRegister("agent")}
-                  className="inline-flex items-center justify-center gap-2 border border-navy-deep/25 px-5 py-4 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-colors hover:border-gold hover:text-gold-ink"
-                >
-                  {es ? "Registrar un cliente para España" : "Register a client for Spain"}
-                  <ArrowRight size={13} />
-                </button>
+
+              <div className="lg:col-span-7 lg:pl-6">
+                <div className="g-editorial-frame">
+                  <div className="g-eyebrow inline-flex items-center gap-2">
+                    <Globe2 size={14} aria-hidden="true" />
+                    <span>
+                      {es
+                        ? "MÁS ALLÁ DE LAS PROMOCIONES · MADRID · MARBELLA · ESTEPONA · MÁLAGA · SOTOGRANDE · CANARIAS"
+                        : "BEYOND THE DEVELOPMENTS · MADRID · MARBELLA · ESTEPONA · MÁLAGA · SOTOGRANDE · CANARY ISLANDS"}
+                    </span>
+                  </div>
+                  <h2 id="beyond-developments-heading" className="g-serif mt-4 text-3xl font-medium leading-tight text-[#282828] md:text-4xl">
+                    {es
+                      ? "¿Busca otra zona o presupuesto en España (€500K a €5M+)?"
+                      : "Looking for a different Spanish market or budget band (€500K to €5M+)?"}
+                  </h2>
+                  <p className="mt-4 text-[15px] leading-relaxed text-[#5b5b5f]">
+                    {es
+                      ? "Nuestros equipos coordinan búsquedas a medida en obra nueva, segunda mano, inversión y activo comercial en toda España, con la misma protección escrita para su agencia."
+                      : "Our teams coordinate tailored searches across new developments, prime resale, investment assets, and commercial property throughout Spain under the same written brokerage protection."}
+                  </p>
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      onClick={() => jumpToRegister("buyer")}
+                      className="g-btn-charcoal"
+                    >
+                      {es ? "Enviar criterios de búsqueda" : "Send the search brief"}
+                      <ArrowRight size={14} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => jumpToRegister("agent")}
+                      className="g-btn-outline"
+                    >
+                      {es ? "Registrar un cliente para España" : "Register a client for Spain"}
+                      <ArrowRight size={14} />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <details className="mt-5 border border-bone bg-white px-4 py-3 text-[11px] leading-relaxed text-ink-primary/70">
-              <summary className="flex cursor-pointer items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">
-                <ShieldCheck size={14} className="shrink-0" aria-hidden="true" />
+            <details className="mt-10 border border-[#ddd8cc] bg-[#f8f7f1] px-5 py-3.5 text-xs leading-relaxed text-[#5b5b5f]">
+              <summary className="flex cursor-pointer items-center gap-2 font-medium tracking-wider text-[#282828] uppercase">
+                <ShieldCheck size={14} className="shrink-0 text-[#817360]" aria-hidden="true" />
                 <span>
                   {es
                     ? "Divulgaciones regulatorias, fuente de unidades y cooperación fuera del MLS"
@@ -1534,33 +1701,33 @@ export default function GilmarSpainPage() {
           </div>
         </section>
 
-        {/* ── 6. Native Registration Desk (HubSpot + WhatsApp + Netlify) ── */}
-        <section id="register-desk" className="scroll-mt-24 bg-navy-deep py-16 text-white md:py-24" aria-labelledby="register-desk-heading">
+        {/* ── 7. Bilateral Registration Desk (gilmar.es/vender/ #F2F0E1 warm cream lead band) ── */}
+        <section id="register-desk" className="scroll-mt-24 bg-[#f2f0e1] py-16 md:py-24" aria-labelledby="register-desk-heading">
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
+              <p className="g-eyebrow">
                 {es ? "MESA DE REGISTRO BILATERAL" : "BILATERAL REGISTRATION DESK"}
               </p>
-              <h2 id="register-desk-heading" className="mt-3 font-serif text-3xl text-white md:text-4xl">
+              <h2 id="register-desk-heading" className="g-serif mt-3 text-3xl font-medium text-[#282828] md:text-5xl">
                 {es
-                  ? "Regístrese para desbloquear el catálogo IDX y las condiciones por escrito."
+                  ? "Regístrese para acceder al catálogo IDX y recibir condiciones por escrito."
                   : "Register to unlock the 2,000+ IDX portfolio and written referral terms."}
               </h2>
-              <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-white/70">
+              <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-[#5b5b5f]">
                 {es
-                  ? "Seleccione su perfil: registro profesional de agente (con licencia) o solicitud directa de comprador."
+                  ? "Seleccione su perfil: registro profesional de agente con licencia o solicitud directa de comprador."
                   : "Choose your registration path below: licensed agent referral registration or direct buyer IDX inquiry."}
               </p>
             </div>
 
-            <div className="mt-8 flex justify-center border-b border-white/15">
+            <div className="mt-9 flex justify-center border-b border-[#c6b296]">
               <button
                 type="button"
                 onClick={() => setIntakeTab("agent")}
-                className={`border-b-2 px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                className={`border-b-2 px-6 py-3.5 text-xs font-medium tracking-[0.14em] uppercase transition-colors ${
                   intakeTab === "agent"
-                    ? "border-gold bg-white/5 font-bold text-gold"
-                    : "border-transparent text-white/65 hover:text-white"
+                    ? "border-[#2d2d2d] text-[#282828]"
+                    : "border-transparent text-[#87868a] hover:text-[#282828]"
                 }`}
               >
                 {es ? "01 · Registro de Agente y Referido" : "01 · Agent & Referral Registration"}
@@ -1568,17 +1735,17 @@ export default function GilmarSpainPage() {
               <button
                 type="button"
                 onClick={() => setIntakeTab("buyer")}
-                className={`border-b-2 px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                className={`border-b-2 px-6 py-3.5 text-xs font-medium tracking-[0.14em] uppercase transition-colors ${
                   intakeTab === "buyer"
-                    ? "border-gold bg-white/5 font-bold text-gold"
-                    : "border-transparent text-white/65 hover:text-white"
+                    ? "border-[#2d2d2d] text-[#282828]"
+                    : "border-transparent text-[#87868a] hover:text-[#282828]"
                 }`}
               >
                 {es ? "02 · Registro de Comprador IDX" : "02 · Buyer IDX Registration"}
               </button>
             </div>
 
-            <div className="mt-8">
+            <div className="gilmar-form-shell mt-8">
               {intakeTab === "agent" ? (
                 <ReferralIntakeForm language={lang} initialPurpose="client_referral" sourcePage="gilmar-spain-referral" />
               ) : (
@@ -1586,21 +1753,40 @@ export default function GilmarSpainPage() {
               )}
             </div>
 
-            <div className="mt-6 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
-              <BadgeCheck size={14} className="text-gold" />
-              <span>{PUBLIC_COMPLIANCE}</span>
+            <div className="mt-10 border-t border-[#c6b296]/70 pt-7">
+              <div className="mb-4 flex flex-wrap items-center justify-center gap-5 sm:gap-8">
+                <img
+                  src="/images/gilmar/gilmar-logo-trimmed.png"
+                  alt="GILMAR Consulting Inmobiliario"
+                  width="2367"
+                  height="644"
+                  className="h-7 w-auto object-contain sm:h-8"
+                />
+                <span className="h-6 w-[1px] bg-[#c6b296]" aria-hidden="true" />
+                <img
+                  src="/images/gilmar/urg-logo-pro.png"
+                  alt="United Realty Group"
+                  width="1024"
+                  height="331"
+                  className="h-7 w-auto object-contain sm:h-8"
+                />
+              </div>
+              <div className="flex items-center justify-center gap-2 text-xs text-[#5b5b5f]">
+                <BadgeCheck size={15} className="shrink-0 text-[#817360]" />
+                <span>{PUBLIC_COMPLIANCE}</span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── 7. FAQ ──────────────────────────────────────────────── */}
-        <section className="bg-ivory py-16 md:py-24" aria-labelledby="gilmar-faq-heading">
+        {/* ── 8. FAQ (Clean White Editorial Band) ── */}
+        <section className="bg-white py-16 md:py-24" aria-labelledby="gilmar-faq-heading">
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink">
+              <p className="g-eyebrow">
                 {es ? "PREGUNTAS FRECUENTES" : "FREQUENTLY ASKED QUESTIONS"}
               </p>
-              <h2 id="gilmar-faq-heading" className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
+              <h2 id="gilmar-faq-heading" className="g-serif mt-3 text-3xl font-medium text-[#282828] md:text-5xl">
                 {es ? "Protocolo de cooperación e inventario en España." : "Cooperation protocol & Spain portfolio access."}
               </h2>
             </div>
