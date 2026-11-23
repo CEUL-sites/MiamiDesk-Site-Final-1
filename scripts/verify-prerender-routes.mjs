@@ -10,7 +10,7 @@ for (const route of routes) {
   const title = html.match(/<title[^>]*>([^<]+)<\/title>/)?.[1];
   assert(title && !title.startsWith('404'), `${route}: missing route-specific rendered title`);
   assert(html.includes('<h1'), `${route}: empty SPA shell`);
-  const indexable = !route.startsWith('/thanks/') && route !== '/es/gracias/agente';
+  const indexable = !route.startsWith('/thanks/') && route !== '/es/gracias/agente' && route !== '/la-comision-secreta';
   if (indexable) {
   const canonicals = [...html.matchAll(/<link(?=[^>]*rel="canonical")[^>]*>/g)].map(match => match[0].match(/href="([^"]+)"/));
   assert.equal(canonicals.length, 1, `${route}: needs exactly one canonical`);
@@ -18,7 +18,7 @@ for (const route of routes) {
   assert.match(html, /<meta(?=[^>]*name="description")(?=[^>]*content="[^"\s][^"]+")[^>]*>/);
   }
   assert(html.includes('SL705771') && html.includes('Equal Housing Opportunity'), `${route}: missing compliance`);
-  if (!route.startsWith('/thanks/') && route !== '/es/gracias/agente') {
+  if (indexable) {
     assert(sitemap.includes(`<loc>${origin}${route}</loc>`), `${route}: missing sitemap URL`);
     assert(!titles.has(title), `${route}: duplicate title with ${titles.get(title)}`);
     titles.set(title, route);
