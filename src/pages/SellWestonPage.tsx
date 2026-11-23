@@ -57,18 +57,18 @@ export default function SellWestonPage() {
     <>
       <Helmet>
         <title>Weston FL Listing Agent | Carlos Uzcategui</title>
-        <meta name="description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community-specific pricing, buyer-agent outreach and a private seller strategy review." />
+        <meta name="description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community pricing, MLS distribution, and a Private Seller Strategy Review." />
         <link rel="canonical" href="https://homesprofessional.com/sell-weston" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-weston" />
         <meta property="og:title" content="Weston FL Listing Agent | Carlos Uzcategui" />
-        <meta property="og:description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community-specific pricing, buyer-agent outreach and a private seller strategy review." />
+        <meta property="og:description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community pricing, MLS distribution, and a Private Seller Strategy Review." />
         <meta property="og:image" content="https://homesprofessional.com/images/reports/weston-2026-11-og.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Weston FL Listing Agent | Carlos Uzcategui" />
-        <meta name="twitter:description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community-specific pricing, buyer-agent outreach and a private seller strategy review." />
+        <meta name="twitter:description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community pricing, MLS distribution, and a Private Seller Strategy Review." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/reports/weston-2026-11-og.jpg" />
       </Helmet>
       <JsonLd id="sell-weston-breadcrumb" data={{

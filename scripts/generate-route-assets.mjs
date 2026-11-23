@@ -6,7 +6,7 @@ const router = fs.readFileSync('src/main.tsx', 'utf8');
 const routes = [...router.matchAll(/<Route\s+path="([^"*:]+)"\s+element=\{(?!<Navigate)([^\n]+)\}/g)].map(match => match[1]);
 const posts = JSON.parse(fs.readFileSync('src/data/journalIndex.json', 'utf8'));
 const all = [...new Set([...routes, ...posts.map(post => `/journal/${post.slug}`)])];
-const noindex = route => route.startsWith('/thanks/') || route === '/es/gracias/agente';
+const noindex = route => route.startsWith('/thanks/') || route === '/es/gracias/agente' || route === '/la-comision-secreta';
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 pkg.reactSnap.include = all;
 fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');

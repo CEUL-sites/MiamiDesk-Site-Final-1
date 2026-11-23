@@ -58,6 +58,48 @@ const SELLER_GUIDES = [
     title: "The 1031 Exchange — Deferring Capital Gains on South Florida Investment Sales",
     takeaway: "45-day identification and 180-day closing rules for replacement assets.",
   },
+  {
+    href: "/journal/sell-and-buy-house-same-time-florida-2026",
+    category: "market",
+    tag: "Transition Strategy",
+    title: "How to Sell and Buy a House at the Same Time in Florida",
+    takeaway: "Sequencing contingencies, post-occupancy terms, and Homestead portability without double-moving.",
+  },
+  {
+    href: "/journal/private-listing-vs-mls-south-florida-sellers-2026",
+    category: "market",
+    tag: "MLS Distribution",
+    title: "Private Listing vs. Full MLS Exposure in South Florida",
+    takeaway: "Why cooperating buyer-agent discovery drives competitive offers and verified pricing.",
+  },
+  {
+    href: "/journal/selling-florida-condo-special-assessment-2026",
+    category: "market",
+    tag: "Condo & HOA Advisory",
+    title: "Selling a Florida Condo With a Special Assessment",
+    takeaway: "Structuring payoff credits, reserve disclosures, and lender-ready association documents.",
+  },
+  {
+    href: "/journal/firpta-withholding-foreign-seller-south-florida-2026",
+    category: "tax",
+    tag: "International Sellers",
+    title: "FIRPTA Withholding for Foreign Sellers in South Florida",
+    takeaway: "15% withholding rules, ITIN preparation, and Form 8288-B certificate timelines.",
+  },
+  {
+    href: "/journal/florida-flood-disclosure-home-sellers-2026",
+    category: "tax",
+    tag: "Disclosure & Compliance",
+    title: "Florida Flood Disclosure Requirements for Home Sellers",
+    takeaway: "Statutory flood-history forms, insurance claims verification, and contract risk control.",
+  },
+  {
+    href: "/journal/how-to-price-single-family-home-broward-county-2026",
+    category: "market",
+    tag: "Pricing Strategy",
+    title: "How to Price a Single-Family Home in Broward County",
+    takeaway: "Reading closed comparables, active competition bands, and insurability before launch.",
+  },
 ] as const;
 
 export default function SellSouthFloridaPage() {
@@ -69,7 +111,7 @@ export default function SellSouthFloridaPage() {
         <title>South Florida Seller Representation | Carlos Uzcategui</title>
         <meta
           name="description"
-          content="Selling a home in South Florida? Strategic MLS positioning, cooperating buyer-agent relations, contract defense, and estimated proceeds with Carlos Uzcategui. No listing commitment."
+          content="Selling in South Florida? Strategic MLS positioning, buyer-agent cooperation, contract defense, and net proceeds modeling with Carlos Uzcategui."
         />
         <link rel="canonical" href="https://homesprofessional.com/sell" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell" />
@@ -80,14 +122,14 @@ export default function SellSouthFloridaPage() {
         <meta property="og:title" content="South Florida Seller Representation | Carlos Uzcategui" />
         <meta
           property="og:description"
-          content="Selling a home in South Florida? Strategic MLS positioning, cooperating buyer-agent relations, contract defense, and estimated proceeds with Carlos Uzcategui. No listing commitment."
+          content="Selling in South Florida? Strategic MLS positioning, buyer-agent cooperation, contract defense, and net proceeds modeling with Carlos Uzcategui."
         />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="South Florida Seller Representation | Carlos Uzcategui" />
         <meta
           name="twitter:description"
-          content="Selling a home in South Florida? Strategic MLS positioning, cooperating buyer-agent relations, contract defense, and estimated proceeds with Carlos Uzcategui. No listing commitment."
+          content="Selling in South Florida? Strategic MLS positioning, buyer-agent cooperation, contract defense, and net proceeds modeling with Carlos Uzcategui."
         />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
       </Helmet>

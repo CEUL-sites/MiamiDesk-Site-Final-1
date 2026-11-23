@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { ASSOCIATION_STATS, CONTACT, isSpainMarketRoute } from "../../constants";
-import { AGGREGATE_RATING, VERIFIED_REVIEWS, buildReviewSchema } from "../../data/reviews";
 import { JsonLd } from "./JsonLd";
 
 type JsonLdSchema = Record<string, unknown> & {
@@ -28,6 +27,10 @@ const sitewideSchema: JsonLdSchema[] = [
     "@id": `${SITE_URL}/#organization`,
     name: CONTACT.brokerage,
     url: "https://www.urgfl.com/",
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/images/urg-logo-original.webp`,
+    },
     description:
       "United Realty Group brokerage infrastructure supporting South Florida residential, luxury, and referral transactions.",
     address: {
@@ -122,6 +125,11 @@ const sitewideSchema: JsonLdSchema[] = [
       postalCode: "33331",
       addressCountry: "US",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 26.1003,
+      longitude: -80.3998,
+    },
     // areaServed states where this agent serves, and search engines and AI
     // answer engines lift it verbatim. It must not exceed the licence this same
     // node advertises (Florida, SL705771) - naming Spanish or Latin American
@@ -190,69 +198,46 @@ const sitewideSchema: JsonLdSchema[] = [
       "https://reviews.birdeye.com/carlos-uzcategui-pa-171703249888930",
       "https://www.facebook.com/sfloridahome/",
     ],
-    aggregateRating: AGGREGATE_RATING,
-    review: buildReviewSchema(VERIFIED_REVIEWS.slice(0, 3)),
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${SITE_URL}/#weston-office`,
-    name: "Carlos Uzcategui, REALTOR® - United Realty Group Weston Office",
-    telephone: CONTACT.phoneUS,
-    email: CONTACT.email,
-    image: `${SITE_URL}${CONTACT.headshot}`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "15951 SW 41 St #700",
-      addressLocality: "Weston",
-      addressRegion: "FL",
-      postalCode: "33331",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 26.1003,
-      longitude: -80.3998,
-    },
-    openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
-    parentOrganization: { "@id": `${SITE_URL}/#organization` },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/sell#service`,
-    name: "South Florida Seller Representation",
-    provider: { "@id": `${SITE_URL}/#agent` },
-    serviceType: "Real Estate Listing and Seller Representation",
-    areaServed: "South Florida",
-    url: `${SITE_URL}/sell`,
-    description: `Listing preparation, pricing strategy, cooperating buyer-agent positioning, offer negotiation and closing coordination for South Florida sellers through United Realty Group. MLS visibility through ${ASSOCIATION_STATS.associationName} and eligible syndication are subject to property eligibility, applicable rules, brokerage approval and partner participation.`,
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/global-desk#service`,
-    name: "Miami Global Listing Desk - International Property Positioning for South Florida",
-    provider: { "@id": `${SITE_URL}/#agent` },
-    serviceType: "International Property Positioning and Professional Cooperation",
-    areaServed: "South Florida",
-    url: `${SITE_URL}/global-desk`,
-    availableLanguage: ["English", "Spanish"],
-    description:
-      "Miami Global Listing Desk works with agents, agencies, developers, and qualified local real estate professionals to prepare selected international properties for differentiated positioning and cooperation in the South Florida market, with relevance to U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. The service is operated by Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, through United Realty Group. The originating professional retains the client relationship and local representation. Every property and activity remains subject to eligibility, brokerage approval, platform participation, MLS, association, legal, and compliance requirements.",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/agents#service`,
-    name: "Agent-to-Agent Referral Network",
-    provider: { "@id": `${SITE_URL}/#agent` },
-    serviceType: "Real Estate Agent Referral",
-    url: `${SITE_URL}/agents`,
-    description:
-      "Confidential buyer and seller referral coordination for licensed agents with South Florida, Spain, and LATAM client needs.",
   },
 ];
+
+const sellerServiceSchema: JsonLdSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}/sell#service`,
+  name: "South Florida Seller Representation",
+  provider: { "@id": `${SITE_URL}/#agent` },
+  serviceType: "Real Estate Listing and Seller Representation",
+  areaServed: "South Florida",
+  url: `${SITE_URL}/sell`,
+  description: `Listing preparation, pricing strategy, cooperating buyer-agent positioning, offer negotiation and closing coordination for South Florida sellers through United Realty Group. MLS visibility through ${ASSOCIATION_STATS.associationName} and eligible syndication are subject to property eligibility, applicable rules, brokerage approval and partner participation.`,
+};
+
+const globalDeskServiceSchema: JsonLdSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}/global-desk#service`,
+  name: "Miami Global Listing Desk - International Property Positioning for South Florida",
+  provider: { "@id": `${SITE_URL}/#agent` },
+  serviceType: "International Property Positioning and Professional Cooperation",
+  areaServed: "South Florida",
+  url: `${SITE_URL}/global-desk`,
+  availableLanguage: ["English", "Spanish"],
+  description:
+    "Miami Global Listing Desk works with agents, agencies, developers, and qualified local real estate professionals to prepare selected international properties for differentiated positioning and cooperation in the South Florida market, with relevance to U.S., Latin American, and international buyer and investor demand, including high-net-worth segments. The service is operated by Carlos Uzcategui, REALTOR® and Florida real estate licensee SL705771, through United Realty Group. The originating professional retains the client relationship and local representation. Every property and activity remains subject to eligibility, brokerage approval, platform participation, MLS, association, legal, and compliance requirements.",
+};
+
+const agentsServiceSchema: JsonLdSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}/agents#service`,
+  name: "Agent-to-Agent Referral Network",
+  provider: { "@id": `${SITE_URL}/#agent` },
+  serviceType: "Real Estate Agent Referral",
+  url: `${SITE_URL}/agents`,
+  description:
+    "Confidential buyer and seller referral coordination for licensed agents with South Florida, Spain, and LATAM client needs.",
+};
 
 // Derives a stable, descriptive JsonLd id from each schema's @id URL fragment
 // e.g. "https://homesprofessional.com/global-desk#service" -> "sitewide-global-desk-service"
@@ -269,8 +254,36 @@ function schemaIdSlug(schema: JsonLdSchema): string {
 
 export function SchemaOrg() {
   const { pathname } = useLocation();
-  const allowSpain = pathname.replace(/\/+$/, "") === "/global-desk" || isSpainMarketRoute(pathname);
-  const schemas = sitewideSchema.map(schema => schema.contactPoint ? { ...schema, contactPoint: (schema.contactPoint as { areaServed: string }[]).filter(point => allowSpain || point.areaServed !== "ES") } : schema);
+  const normPath = pathname.replace(/\/+$/, "") || "/";
+  const allowSpain = normPath === "/global-desk" || isSpainMarketRoute(normPath);
+
+  const routeServices: JsonLdSchema[] = [];
+  if (
+    normPath === "/sell" ||
+    normPath.startsWith("/sell-") ||
+    normPath === "/es/vender" ||
+    normPath.startsWith("/es/vender-") ||
+    normPath === "/home-value"
+  ) {
+    routeServices.push(sellerServiceSchema);
+  }
+  if (allowSpain) {
+    routeServices.push(globalDeskServiceSchema);
+  }
+  if (normPath === "/agents" || normPath === "/es/agentes") {
+    routeServices.push(agentsServiceSchema);
+  }
+
+  const schemas = [...sitewideSchema, ...routeServices].map((schema) =>
+    schema.contactPoint
+      ? {
+          ...schema,
+          contactPoint: (schema.contactPoint as { areaServed: string }[]).filter(
+            (point) => allowSpain || point.areaServed !== "ES",
+          ),
+        }
+      : schema,
+  );
   return (
     <>
       {schemas.map((schema) => (

@@ -111,7 +111,7 @@ For a Broward single-family sale, our team builds the list price from current cl
 
 Book a Private Seller Strategy Review. Carlos Uzcategui and our team review your home's closed comparables, the competition in your price band, and your insurance and inspection readiness, then propose a list price and a distribution plan. There is no listing commitment.
 
-[Book a Private Seller Strategy Review](/seller-advisory?utm_source=journal&utm_medium=organic&utm_campaign=how-to-price-single-family-home-broward-county-2026)
+[Book a Private Seller Strategy Review](/home-value?utm_source=journal&utm_medium=organic&utm_campaign=how-to-price-single-family-home-broward-county-2026)
 
 Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com.
 

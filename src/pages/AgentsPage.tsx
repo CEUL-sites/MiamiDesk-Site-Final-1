@@ -183,10 +183,10 @@ export default function AgentsPage() {
   return (
     <>
       <Helmet>
-        <title>For Real Estate Agents | Referrals, Miami Exposure &amp; Careers</title>
+        <title>For Real Estate Agents | Referrals, Exposure &amp; Careers</title>
         <meta
           name="description"
-          content="Three ways agents work with Carlos: refer a buyer or seller for a fee at closing, add Miami-facing exposure to a listing, or join URG with 25-year mentorship."
+          content="Three ways agents work with Carlos Uzcategui: buyer/seller referrals at closing, Miami-facing listing exposure, or URG mentorship with 25 years."
         />
         <link rel="canonical" href="https://homesprofessional.com/agents" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/agents" />

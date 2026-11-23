@@ -171,7 +171,7 @@ export default function SpainMlsListingPage() {
     <>
       <Helmet>
         <title>South Florida Distribution for Spanish Luxury Property</title>
-        <meta name="description" content="Professional South Florida distribution and buyer-agent cooperation for selected Spanish prime inventory through United Realty Group, subject to eligibility review." />
+        <meta name="description" content="South Florida distribution and buyer-agent cooperation for selected Spanish prime inventory via United Realty Group, subject to eligibility." />
         <link rel="canonical" href="https://homesprofessional.com/spain-mls-listing" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/spain-mls-listing" />

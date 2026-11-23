@@ -36,7 +36,7 @@ export default function LeaveReviewPage() {
         <title>Leave a Review — Carlos Uzcategui, South Florida REALTOR®</title>
         <meta
           name="description"
-          content="Worked with Carlos Uzcategui, FL SL705771? Share your experience on Realtor.com® or Google in under a minute. Your review helps other South Florida families."
+          content="Worked with Carlos Uzcategui, FL SL705771? Share your experience on Realtor.com® or Google to help fellow South Florida homeowners decide."
         />
         <link rel="canonical" href="https://homesprofessional.com/leave-a-review" />
         <meta property="og:title" content="Leave a Review — Carlos Uzcategui, South Florida REALTOR®" />

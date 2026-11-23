@@ -141,7 +141,7 @@ export default function EsSpainDeskPage() {
   return (
     <>
       <Helmet>
-        <title>Global Desk — Gane Más Mandatos de Venta con Exposición hacia Sur de Florida | Carlos Uzcategui</title>
+        <title>Global Desk — Exposición en Miami | Carlos Uzcategui</title>
         <meta name="description" content="Servicio B2B de exposición y referral para agencias y promotores en Sur de Florida. Usted mantiene el mandato local. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/es/spain-desk" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/global-desk" />

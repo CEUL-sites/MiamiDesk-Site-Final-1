@@ -126,7 +126,7 @@ export default function JournalPostPage() {
       '@type': 'Organization',
       '@id': 'https://homesprofessional.com/#organization',
       name: 'United Realty Group',
-      url: 'https://homesprofessional.com',
+      url: 'https://www.urgfl.com/',
       logo: {
         '@type': 'ImageObject',
         url: 'https://homesprofessional.com/images/urg-logo-original.webp',

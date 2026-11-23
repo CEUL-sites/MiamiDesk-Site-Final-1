@@ -109,7 +109,7 @@ Book a 20-minute pricing and distribution review. Carlos Uzcategui and our team 
 
 [Book a 20-minute pricing and distribution review](/home-value?utm_source=journal&utm_medium=seo&utm_campaign=selling-florida-condo-special-assessment-2026)
 
-Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing approaches can also start with our [South Florida seller strategy page](/sell-south-florida).
+Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing approaches can also start with our [South Florida seller strategy page](/sell).
 
 ## Source and Compliance Notes
 
