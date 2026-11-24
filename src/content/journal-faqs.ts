@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'south-florida-new-construction-vs-resale-rate-buydowns-2026': [
+    {
+      q: 'Is a seller-funded 2-1 mortgage rate buydown more effective than a price cut in South Florida?',
+      a: 'On an illustrative $700,000 home with 20% down ($560,000 loan at 7.28%), a $20,000 asking price cut lowers monthly principal and interest by $109. A seller-funded 2-1 buydown costing roughly $13,218 (1.89%) lowers Year 1 payments by $729 per month and Year 2 by $373 per month while costing the seller $6,782 less and preserving comparable sales.',
+    },
+    {
+      q: 'How much can a Florida home seller contribute toward a rate buydown under Fannie Mae and FHA rules?',
+      a: 'Under Fannie Mae Selling Guide B3-4.1-02 for primary residences and second homes, seller concessions (including temporary buydowns) are capped at 3% above 90% LTV, 6% from 75.01% to 90% LTV, and 9% at 75% LTV or less, with a 2% cap on investment properties. FHA loans allow a flat 6% seller or builder concession cap. Concessions cannot fund down payments.',
+    },
+    {
+      q: 'What should South Florida buyers verify before accepting a builder rate buydown?',
+      a: 'Buyers should compare the builder\'s captive-lender Loan Estimate against an independent lender quote to check origination fees and base pricing, confirm ongoing CDD and HOA fees, budget for full improved-value property tax reassessment, and verify whether closing occurs before December 31, 2026 for Florida Amendment 3 homestead residency timing.',
+    },
+    {
+      q: 'Do buyers still need to qualify at the full mortgage note rate on a 2-1 buydown?',
+      a: 'Yes. Conventional and FHA underwriting requires borrowers to qualify at the full permanent note rate rather than the reduced Year 1 promotional payment. Consult a licensed mortgage loan officer to verify exact program eligibility and payment schedules.',
+    },
+  ],
   'south-florida-condo-warrantability-fannie-mae-full-review-2026': [
     {
       q: 'Why do so few South Florida condos qualify for FHA or conventional loans in 2026?',

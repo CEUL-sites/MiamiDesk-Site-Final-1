@@ -6,6 +6,10 @@ coverage/
 *.log
 .env*
 !.env.example
+*.pem
+*.key
+*service-account*.json
+gen-lang-client-*.json
 package-lock.json
 
 # Local Netlify folder
