@@ -84,10 +84,26 @@ assert.equal(assessLeadSpam({ ...realLeads[0], formRenderedAt: NOW - 500, now: N
 // Missing timestamp is a weak signal, never a block on its own.
 assert.equal(assessLeadSpam({ ...realLeads[0], now: NOW, timestampExpected: true }).verdict, "ok");
 
+// ── Malformed browser signature (production bot, 2026-11) ─────────────────
+// The bot's typed details are plausible, so only the quoted User-Agent gives it away.
+const botUa = '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"';
+const realUas = [
+  botUa.replace(/"/g, ""), // the same string without quotes is an ordinary browser
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Instagram 350.0.0 (iPhone15,2; \"en_US\")",
+  "",
+];
+assert.equal(assessLeadSpam({ ...realLeads[0], ...human, userAgent: botUa }).verdict, "quarantine");
+for (const userAgent of realUas) {
+  assert.equal(assessLeadSpam({ ...realLeads[0], ...human, userAgent }).verdict, "ok", `real browser blocked: ${userAgent}`);
+}
+
 // ── Every lead-handling entry point runs the assessment ───────────────────
 for (const f of ["submission-created.ts", "lead-notify.ts", "lead-acknowledgment.ts"]) {
   const src = readFileSync(new URL(`../netlify/functions/${f}`, import.meta.url), "utf8");
   assert.match(src, /assessLeadSpam\(/, `${f} must run assessLeadSpam`);
+  assert.match(src, /userAgent:/, `${f} must screen the browser signature`);
 }
 
 console.log("verify:lead-spam — all assertions passed");

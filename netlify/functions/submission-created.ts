@@ -44,6 +44,7 @@ export default async (request: Request) => {
       propertyAddress: fields.propertyAddress || fields.location || "",
       botField: fields["bot-field"] || "",
       formRenderedAt: fields.formRenderedAt || "",
+      userAgent: fields.user_agent || "",
       timestampExpected: true,
     });
     if (spam.verdict === "drop") {

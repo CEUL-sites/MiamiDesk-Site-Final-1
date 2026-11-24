@@ -69,6 +69,7 @@ export function ReferralIntakeForm({language = "en", initialPurpose = "agent_reg
         city: form.country, timeline: form.referralType,
         message: `${form.registrationPurpose} · ${form.brokerageName} · ${form.clientSummary}`,
         sourcePage: page, formName, leadSource: getLeadSource(),
+        crmFields: {...submitted, language, registrationVersion: "2"},
         botField: "", formRenderedAt: String(renderedAt.current)});
       if (!es) fetch("/.netlify/functions/lead-acknowledgment", {
         method: "POST", headers: {"Content-Type": "application/json"},

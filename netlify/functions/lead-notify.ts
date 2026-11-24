@@ -6,6 +6,7 @@ import { corsHeaders as buildCorsHeaders, isForbiddenOrigin, rateLimit } from ".
 import { assessLeadSpam, storeQuarantine } from "./_shared/leadSpam";
 import { scoreLead, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
+import { enqueueBackupLead } from "./_shared/hubspotQueue.mjs";
 
 // Synchronous backup notifier. The forms call this directly (keepalive) at the
 // same time they POST to Netlify Forms, so a lead is delivered even if Netlify
@@ -48,6 +49,8 @@ interface LeadPayload {
   occupancy?: string;
   placeId?: string;
   messagingConsent?: string;
+  /** Structured answers used only by the HubSpot copy — see enqueueBackupLead. */
+  crmFields?: Record<string, string>;
 }
 
 interface NormalizedLead {
@@ -141,6 +144,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
     propertyAddress: raw.propertyAddress || "",
     botField: raw.botField || "",
     formRenderedAt: raw.formRenderedAt || "",
+    userAgent: event.headers["user-agent"] || "",
   });
   if (spam.verdict === "drop" || !Number(raw.formRenderedAt || 0)) {
     console.log("lead-notify: rejected as spam", { reasons: spam.reasons, hasTimestamp: !!raw.formRenderedAt });
@@ -167,6 +171,18 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const timestamp = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
   const results: Record<string, string> = {};
   const alertKey = dedupKey(lead.email, lead.phone);
+
+  // ── 0. HubSpot queue ────────────────────────────────────────────────────
+  // Netlify fires submission-created only for submissions it does not spam-file,
+  // and that was the only route to HubSpot. Queue a delayed copy here; the sync
+  // discards it when the full submission also arrived. Never blocks the alert.
+  try {
+    results.hubspot = (await enqueueBackupLead(raw)).status;
+  } catch (err) {
+    results.hubspot = "failed";
+    console.error("lead-notify: HubSpot backup queue failed:", err instanceof Error ? err.name : "unknown");
+  }
+
   let alerted = false; // true only when Resend accepts an email to Carlos
 
   // ── 1. Google Sheets via Apps Script webhook ────────────────────────────

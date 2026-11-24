@@ -29,6 +29,8 @@ export interface SpamInput {
   propertyAddress?: string;
   botField?: string;
   formRenderedAt?: string | number;
+  /** Request User-Agent (header on the direct paths, `user_agent` on Netlify Forms). */
+  userAgent?: string;
   /** When false, a missing formRenderedAt adds a weak signal instead of nothing. */
   timestampExpected?: boolean;
   now?: number;
@@ -159,6 +161,12 @@ export function assessLeadSpam(input: SpamInput): SpamAssessment {
   if ((domain === "gmail.com" || domain === "googlemail.com") && (local.match(/\./g) || []).length >= 3) {
     add(1, "Gmail dot-pattern address used by form bots");
   }
+
+  // A browser never wraps its User-Agent in quotes. The form bot seen since
+  // November 2026 does (126 of 127 lead-notify calls in one week, from rotating
+  // countries), and its typed-in contact details pass every content check.
+  const userAgent = (input.userAgent || "").trim();
+  if (/^["']|["']$/.test(userAgent)) add(2, "browser signature is malformed");
 
   if (!renderedAt && input.timestampExpected) add(1, "posted without the form's render timestamp");
 

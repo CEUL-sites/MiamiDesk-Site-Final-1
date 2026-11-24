@@ -184,6 +184,12 @@ drop a lead:
    `netlify/functions/lead-notify.ts` with `keepalive` (the form redirects to a
    `/thanks/*` page immediately after submit).
 
+Both paths reach HubSpot. `submission-created` queues the full submission;
+`lead-notify` queues a copy that waits 10 minutes and is discarded if that same
+submission (form, contact and `formRenderedAt`) also arrived by the first path.
+Forms pass the answers the CRM needs in `crmFields`. Inquiries the sync holds for
+review never retry, so `lead-quarantine-digest` lists them every day.
+
 The two paths de-duplicate server-side in `_shared/leadDedup.ts`, so Carlos is
 alerted once when both succeed. **Do not remove either path** as "duplicate
 work" — the redundancy is the design. Failures land in `_shared/leadDeadLetter.ts`.

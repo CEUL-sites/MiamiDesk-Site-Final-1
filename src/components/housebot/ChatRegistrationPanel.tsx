@@ -101,6 +101,7 @@ export function ChatRegistrationPanel({ lang, sessionToken, summary, onUnlocked,
         formName: "ai-desk-registration",
         leadSource: getLeadSource(),
         messagingConsent: form.messagingConsent,
+        crmFields: { interest: form.interest, language: lang },
         botField: "",
         formRenderedAt: String(renderedAt.current),
       });
