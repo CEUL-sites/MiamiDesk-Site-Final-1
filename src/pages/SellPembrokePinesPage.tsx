@@ -16,6 +16,14 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { PembrokePinesMarketReport } from "../components/PembrokePinesMarketReport";
+import { pembrokePinesReport } from "../data/pembrokePinesReport";
+
+// Publication date of the November 2026 market report (videos + dataset).
+const REPORT_PUBLISHED = "2026-11-24";
+const REPORT_OG = "https://homesprofessional.com/images/reports/pembroke-pines-2026-11-og.jpg";
+const PAGE_TITLE = "Pembroke Pines FL Listing Agent | Carlos Uzcategui";
+const PAGE_DESCRIPTION = "Sell your Pembroke Pines, FL home with Carlos Uzcategui at United Realty Group. Nov 2026 4-bedroom MLS market report and a private seller review.";
 
 const PEMBROKE_PINES_FAQS = [
   {
@@ -44,18 +52,20 @@ export default function SellPembrokePinesPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Pembroke Pines, FL | MLS Positioning</title>
-        <meta name="description" content="Pembroke Pines listing agent — MLS positioning, buyer-agent activation, Latin American buyer access. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <title>{PAGE_TITLE}</title>
+        <meta name="description" content={PAGE_DESCRIPTION} />
         <link rel="canonical" href="https://homesprofessional.com/sell-pembroke-pines" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-pembroke-pines" />
-        <meta property="og:title" content="Sell Your Pembroke Pines, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
-        <meta property="og:description" content="Professional seller representation in Pembroke Pines, FL — MLS activation, Latin American buyer-agent network access, and global distribution. Free confidential strategy review." />
-        <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:description" content={PAGE_DESCRIPTION} />
+        <meta property="og:image" content={REPORT_OG} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Sell Your Pembroke Pines, FL Home | Carlos Uzcategui, FL SL705771" />
-        <meta name="twitter:description" content="Professional MLS positioning and buyer-agent activation for Pembroke Pines, FL home sellers. Free strategy review — no listing commitment." />
-        <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
+        <meta name="twitter:title" content={PAGE_TITLE} />
+        <meta name="twitter:description" content={PAGE_DESCRIPTION} />
+        <meta name="twitter:image" content={REPORT_OG} />
       </Helmet>
       <JsonLd id="sell-pembroke-pines-breadcrumb" data={{
           "@context": "https://schema.org",
@@ -83,6 +93,34 @@ export default function SellPembrokePinesPage() {
           "areaServed": { "@type": "City", "name": "Pembroke Pines", "addressRegion": "FL", "addressCountry": "US" },
           "provider": { "@id": "https://homesprofessional.com/#agent" },
           "url": "https://homesprofessional.com/sell-pembroke-pines"
+        }} />
+      {([
+        { lang: "en", name: "Pembroke Pines 4-bedroom market report, November 2026", description: "43-second briefing on Pembroke Pines, FL 4-bedroom single-family home prices, closed sales, days on market and sale-to-list results, 2020 to November 2026, from Miami MLS data." },
+        { lang: "es", name: "Informe de mercado de viviendas de 4 habitaciones en Pembroke Pines, noviembre 2026", description: "Resumen de 43 segundos sobre precios, ventas cerradas, días en el mercado y relación venta/lista de viviendas unifamiliares de 4 habitaciones en Pembroke Pines, FL, de 2020 a noviembre de 2026, con datos del Miami MLS." },
+      ] as const).map((v) => (
+        <JsonLd key={v.lang} id={`sell-pembroke-pines-report-video-${v.lang}`} data={{
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "name": v.name,
+          "description": v.description,
+          "thumbnailUrl": `https://homesprofessional.com/images/reports/pembroke-pines-2026-11-poster-${v.lang}.jpg`,
+          "contentUrl": `https://homesprofessional.com/videos/pembroke-pines-market-report-2026-11-${v.lang}.mp4`,
+          "uploadDate": REPORT_PUBLISHED,
+          "duration": "PT43S",
+          "inLanguage": v.lang
+        }} />
+      ))}
+      <JsonLd id="sell-pembroke-pines-report-dataset" data={{
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Pembroke Pines, FL 4-bedroom single-family home sales 2020-2026 (Miami MLS)",
+          "description": "Closed sales, median and average sale price, median price per square foot, median days on market, median sale-to-list ratio and sales above, at and below final list price for 4-bedroom single-family detached homes in Pembroke Pines, Broward County, by year from 2020 through November 23, 2026, plus median sale price by subdivision.",
+          "url": "https://homesprofessional.com/sell-pembroke-pines#pembroke-pines-market-report",
+          "temporalCoverage": `2020-01-01/${pembrokePinesReport.dataThrough}`,
+          "spatialCoverage": { "@type": "Place", "name": "Pembroke Pines, Florida" },
+          "dateModified": REPORT_PUBLISHED,
+          "publisher": { "@id": "https://homesprofessional.com/#agent" },
+          "isBasedOn": "Miami MLS (SEFMLS)"
         }} />
       <main id="main-content" className="min-h-screen bg-white-soft grain-overlay pb-20 lg:pb-0">
         <Navbar />
@@ -154,6 +192,8 @@ export default function SellPembrokePinesPage() {
             <HeroReachBar />
           </div>
         </section>
+
+        <PembrokePinesMarketReport />
 
         {/* Market positioning */}
         <section className="bg-ivory py-14 md:py-20">
