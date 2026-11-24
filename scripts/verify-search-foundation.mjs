@@ -51,4 +51,8 @@ for (const name of ['llms.txt', 'llms-full.txt']) {
   assert(!/[\uFFFD\x00-\x08\x0B\x0C\x0E-\x1F]/.test(text), `${name} contains damaged text`);
   assert(text.includes('Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.'));
 }
+const llms = fs.readFileSync(path.join('dist', 'llms.txt'), 'utf8');
+for (const post of posts) {
+  assert(llms.includes(`${origin}/journal/${post.slug})`), `llms.txt is missing journal guide /journal/${post.slug}`);
+}
 console.log(`Search foundation verified: ${routes.length} key pages, ${posts.length} journal routes, sitemap coverage, JSON-LD identity, text encoding and unknown-journal routing.`);
