@@ -1,9 +1,22 @@
+import { createHash } from 'node:crypto';
 import { getStore } from '@netlify/blobs';
 import { makeJob, HubSpotClient, syncJob } from './hubspotSync.mjs';
 export const HUBSPOT_STORE = 'hubspot-inquiries';
 const env = key => typeof Netlify!=='undefined'?Netlify.env.get(key):process.env[key];
 export const syncConfigured = () => env('HUBSPOT_SYNC_ENABLED')==='true' && !!env('HUBSPOT_PRIVATE_APP_TOKEN') && !!env('HUBSPOT_OWNER_ID');
 export const MAX_ALERT_ATTEMPTS = 5;
+
+// lead-notify queues a copy of every screened lead, because Netlify fires
+// submission-created only for submissions it does not spam-file. The copy waits
+// BACKUP_DELAY_MS so the fuller submission can arrive, then is discarded when the
+// same form and contact reached the primary path within BACKUP_MATCH_MS.
+export const BACKUP_DELAY_MS = 10 * 60 * 1000;
+export const BACKUP_MATCH_MS = 30 * 60 * 1000;
+const PRIMARY_PREFIX = 'primary-seen/';
+/** Hash of form + contact; holds no readable contact data. */
+export const leadIdentity = job => createHash('sha256').update([job.form,job.fields.email||job.fields.phone.replace(/\D/g,'')].join('|')).digest('hex');
+// These forms send the visitor's country in lead-notify's `city` field.
+const COUNTRY_IN_CITY = new Set(['buyer-mandate','referral-intake','referral-intake-es','agency-partner-intake']);
 
 /**
  * Keep a short-lived recovery record when WhatsApp was not configured at the
@@ -75,7 +88,31 @@ export async function enqueueSubmission(payload,store=inquiryStore()) {
  if(!job)return {status:'skipped'};
  if(await store.get('done/'+job.key,{type:'json'}))return {status:'synced'};
  await store.setJSON('pending/'+job.key,job,{onlyIfNew:true});
+ // Only after the lead is safely queued: this marker discards its backup copy.
+ try { await store.setJSON(PRIMARY_PREFIX+leadIdentity(job),{at:new Date().toISOString()}); }
+ catch (e) { console.error('Primary lead marker not saved',{error:e instanceof Error?e.name:'unknown'}); }
  return {status:'queued',key:job.key};
+}
+/** Delayed HubSpot copy of a lead received by lead-notify. Lambda-style callers use eventual reads. */
+export async function enqueueBackupLead(raw,store=getStore(HUBSPOT_STORE),now=Date.now()) {
+ const {botField,formRenderedAt,...fields}=raw||{};
+ const form=fields.formName||'';
+ if(COUNTRY_IN_CITY.has(form)&&!fields.country){fields.country=fields.city||'';fields.city='';}
+ fields.received_via='backup notifier (lead-notify)';
+ const probe=makeJob(form,fields,'probe');
+ if(!probe)return {status:'skipped'};
+ const identity=leadIdentity(probe);
+ const job=makeJob(form,fields,'backup|'+identity+'|'+(formRenderedAt||''));
+ Object.assign(job,{backup:true,identity,at:new Date(now).toISOString(),nextAttemptAt:now+BACKUP_DELAY_MS});
+ if(await store.get('done/'+job.key,{type:'json'}))return {status:'synced'};
+ await store.setJSON('pending/'+job.key,job,{onlyIfNew:true});
+ return {status:'queued',key:job.key};
+}
+/** Inquiries the sync will not retry on its own, for the daily digest. */
+export async function listReviewInquiries(store=getStore(HUBSPOT_STORE)) {
+ const {blobs}=await store.list({prefix:'pending/'});
+ const jobs=await Promise.all(blobs.map(b=>store.get(b.key,{type:'json'})));
+ return jobs.filter(j=>j?.status==='review');
 }
 export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT_OWNER_ID'),notifySynced) {
  if(!api&&!syncConfigured())return {status:'not_configured',processed:0};
@@ -97,6 +134,10 @@ export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT
    const job=await store.get(blob.key,{type:'json'});
    if(!job||job.nextAttemptAt>Date.now())continue;
    if(job.status==='review'){review++;continue;}
+   if(job.backup&&!job.contactId){
+    const primary=await store.get(PRIMARY_PREFIX+job.identity,{type:'json'});
+    if(primary&&Math.abs(Date.parse(primary.at)-Date.parse(job.at))<=BACKUP_MATCH_MS){await store.delete(blob.key);continue;}
+   }
    const save=j=>store.setJSON(blob.key,j);
    try{
     await syncJob(job,api,save,owner);

@@ -308,6 +308,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   const spam = assessLeadSpam({
     name, email, phone: body.phone || "", propertyAddress: body.propertyAddress || "",
     botField: body.botField || "", formRenderedAt: body.formRenderedAt || "",
+    userAgent: event.headers["user-agent"] || "",
   });
   if (spam.verdict !== "ok") {
     console.log("lead-acknowledgment: auto-reply withheld", { formName, reasons: spam.reasons });
