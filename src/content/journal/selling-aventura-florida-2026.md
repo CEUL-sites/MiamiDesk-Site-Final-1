@@ -12,7 +12,7 @@ funnel_stage: "consideration"
 content_goal: "seller_lead"
 ---
 
-Aventura is one of South Florida's most internationally active real estate markets — a high-density, high-value corridor where many buyers come from other states and from abroad: investors, families establishing a U.S. residence, and second-home buyers diversifying into U.S. assets.
+Aventura is a high-density, high-value corridor where many buyers come from other states and from abroad: investors, families establishing a U.S. residence, and second-home buyers diversifying into U.S. assets.
 
 Selling here is not the same as selling anywhere else in South Florida. Here is what actually determines outcome.
 

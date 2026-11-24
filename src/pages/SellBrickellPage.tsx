@@ -24,7 +24,7 @@ const BRICKELL_FAQS = [
   },
   {
     q: "Are Brickell condominiums attractive to international investors?",
-    a: "Yes — Brickell has been one of the most consistent targets for domestic and international capital in South Florida. The financial district location, walkable urban core, and proximity to Miami Beach and the airport make Brickell a primary destination for investors seeking U.S. real estate exposure in a globally recognized urban market.",
+    a: "Yes — Brickell draws domestic and international capital. The financial district location, walkable urban core, and proximity to Miami Beach and the airport make Brickell a primary destination for investors seeking U.S. real estate exposure in a globally recognized urban market.",
   },
   {
     q: "What should I know about short-term rental restrictions in Brickell?",
@@ -167,8 +167,8 @@ export default function SellBrickellPage() {
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Brickell's urban walkability, luxury tower inventory, and positioning at the intersection of
-              domestic and international capital flows make it one of the most reliably
-              internationalized real estate markets in South Florida.
+              domestic and international capital flows give it a strong investor and international buyer
+              presence in South Florida.
               The presence of major financial institutions, direct airport access, and proximity to Miami Beach
               sustain investor demand across economic cycles.
             </p>

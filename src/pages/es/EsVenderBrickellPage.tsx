@@ -33,7 +33,7 @@ const BRICKELL_FAQS_ES = [
     // TODO: native Madrid editor review
     q: "¿Son los condominios de Brickell atractivos para inversionistas internacionales?",
     // TODO: native Madrid editor review
-    a: "Sí — Brickell ha sido uno de los destinos más constantes para el capital nacional e internacional en el Sur de Florida. Su ubicación en el distrito financiero, su núcleo urbano transitable a pie y la cercanía a Miami Beach y al aeropuerto convierten a Brickell en un destino principal para inversionistas que buscan exposición inmobiliaria en Estados Unidos dentro de un mercado urbano reconocido a nivel mundial.",
+    a: "Sí — Brickell atrae capital nacional e internacional. Su ubicación en el distrito financiero, su núcleo urbano transitable a pie y la cercanía a Miami Beach y al aeropuerto convierten a Brickell en un destino principal para inversionistas que buscan exposición inmobiliaria en Estados Unidos dentro de un mercado urbano reconocido a nivel mundial.",
   },
   {
     // TODO: native Madrid editor review
@@ -241,8 +241,8 @@ export default function EsVenderBrickellPage() {
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               {/* TODO: native Madrid editor review */}
               La posibilidad de caminar por el área urbana de Brickell, su inventario de torres de lujo, y su
-              posición en la intersección de los flujos de capital nacional e internacional lo
-              convierten en uno de los mercados inmobiliarios más internacionalizados del Sur de Florida. La
+              posición en la intersección de los flujos de capital nacional e internacional le
+              dan una fuerte presencia de inversionistas y compradores internacionales en el Sur de Florida. La
               presencia de grandes instituciones financieras, el acceso directo al aeropuerto y la cercanía a
               Miami Beach sostienen la demanda de inversionistas a través de los ciclos económicos.
             </p>

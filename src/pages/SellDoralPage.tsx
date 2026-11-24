@@ -24,7 +24,7 @@ const DORAL_FAQS = [
   },
   {
     q: "How long does it take to sell a home in Doral?",
-    a: "Doral homes in communities with strong HOA management, good schools, and competitive pricing have moved efficiently in recent cycles — particularly particularly correctly priced homes with complete HOA documentation. Timeline varies by price range and community. This is not a guarantee of outcome; Carlos provides a property-specific estimate during the strategy review.",
+    a: "Doral homes in communities with strong HOA management, good schools, and competitive pricing tend to draw more buyer-agent interest, particularly correctly priced homes with complete HOA documentation. Timeline varies by price range and community. This is not a guarantee of outcome; Carlos provides a property-specific estimate during the strategy review.",
   },
   {
     q: "Do you work with sellers and buyers' agents in English and Spanish?",

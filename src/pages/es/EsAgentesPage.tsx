@@ -244,9 +244,9 @@ export default function EsAgentesPage() {
                 </p>
                 <p className="mt-4 font-sans text-sm leading-relaxed text-white/70">
                   {/* TODO: native Madrid editor review */}
-                  Compradores latinoamericanos que desean adquirir en Miami —
-                  familias venezolanas, compradores colombianos, argentinos en
-                  reubicación, inversores. Representación completa de comprador
+                  Compradores internacionales que desean adquirir en Miami —
+                  familias en reubicación, profesionales e
+                  inversores. Representación completa de comprador
                   en Florida.
                 </p>
                 <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">

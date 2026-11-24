@@ -46,7 +46,7 @@ A seller should not stop at *"What is my home worth?"* That question has an inco
 
 1. **Who will actually see it?** Not how many portals it appears on — how many *qualified* buyers and buyer agents will become aware of it during the launch window.
 2. **How will it be positioned?** What is the one-sentence reason a buyer agent presents this property before the next alternative on the same street?
-3. **Which buyers and agents will be activated?** Local move-up buyers, relocation buyers, Latin American and Spanish capital, the agent already tracking inventory for a waiting client — each requires a different channel.
+3. **Which buyers and agents will be activated?** Local move-up buyers, relocation buyers, international buyers, the agent already tracking inventory for a waiting client — each requires a different channel.
 4. **What market data supports the price?** Active competition, sold comparables, pending sales, and expired listings — the four data sets that separate a defensible price from a hopeful one.
 5. **What is your next move after the sale?** Downsizing, relocating, a 1031 exchange, or porting a homestead benefit — the after-plan should shape the timing and terms, not be improvised at the closing table.
 

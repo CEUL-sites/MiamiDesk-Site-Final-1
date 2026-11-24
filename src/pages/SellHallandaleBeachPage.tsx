@@ -19,7 +19,7 @@ import { AGGREGATE_RATING } from "../data/reviews";
 const HALLANDALE_BEACH_FAQS = [
   {
     q: "Who buys in Hallandale Beach?",
-    a: "Hallandale Beach has one of the highest concentrations of international buyer activity in South Broward — particularly out-of-state and international buyers who seek condo-style living with beach and amenity access. Seasonal buyers from the Northeast and Midwest are also consistently active in the market. The city's position between Miami-Dade and core Broward County gives it broad appeal across multiple buyer profiles. Carlos's international referral network directly reaches these buyer pools through 437+ agreements in 75+ countries.",
+    a: "Hallandale Beach draws international and seasonal buyers who seek condo-style living with beach and amenity access. Seasonal buyers from the Northeast and Midwest are also consistently active in the market. The city's position between Miami-Dade and core Broward County gives it broad appeal across multiple buyer profiles. Carlos's international referral network directly reaches these buyer pools through 437+ agreements in 75+ countries.",
   },
   {
     q: "How does the condo-heavy inventory affect pricing and days on market?",

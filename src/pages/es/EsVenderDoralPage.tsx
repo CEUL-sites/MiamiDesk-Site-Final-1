@@ -33,7 +33,7 @@ const DORAL_FAQS_ES = [
     // TODO: native Madrid editor review
     q: "¿Cuánto tiempo toma vender una casa en Doral?",
     // TODO: native Madrid editor review
-    a: "Las casas en Doral ubicadas en comunidades con una administración de HOA sólida, buenas escuelas y un precio competitivo se han movido de forma eficiente en ciclos recientes — particularmente las casas con un precio correcto y la documentación de HOA completa. El plazo varía según el rango de precio y la comunidad. Esto no constituye una garantía de resultado; Carlos ofrece una estimación específica de la propiedad durante la revisión de estrategia.",
+    a: "Las casas en Doral ubicadas en comunidades con una administración de HOA sólida, buenas escuelas y un precio competitivo suelen atraer más interés de los agentes compradores, en particular las casas con un precio correcto y la documentación de HOA completa. El plazo varía según el rango de precio y la comunidad. Esto no constituye una garantía de resultado; Carlos ofrece una estimación específica de la propiedad durante la revisión de estrategia.",
   },
   {
     // TODO: native Madrid editor review

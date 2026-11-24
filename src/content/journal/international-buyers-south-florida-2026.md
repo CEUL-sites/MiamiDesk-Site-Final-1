@@ -1,8 +1,7 @@
 ---
 title: "International and Out-of-State Buyers in South Florida 2026 — What Sellers Should Know"
 seoTitle: "International and Out-of-State Buyers in South Florida"
-date: "2026-04-15"
-updated: "2026-11-24"
+date: "2026-11-24"
 slug: "international-buyers-south-florida-2026"
 excerpt: "Buyers relocating from other states and from abroad shop differently. What they need from a listing, and how a South Florida seller reaches their agents."
 category: "International"
@@ -15,7 +14,7 @@ content_goal: "international_listing"
 
 ## Who the long-distance buyer is
 
-A meaningful share of South Florida buyers do not live here when they start their search. Some are relocating for work or family from another state. Some are buying a second home. Some live abroad and are buying a residence, a base for children at university, or an investment. What they have in common is distance: they shop from far away, visit on short trips, and depend heavily on their agent.
+Some South Florida buyers do not live here when they start their search. Some are relocating for work or family from another state. Some are buying a second home. Some live abroad and are buying a residence, a base for children at university, or an investment. What they have in common is distance: they shop from far away, visit on short trips, and depend heavily on their agent.
 
 For a seller, the useful question is not where these buyers come from. It is what a buyer who cannot drop by on a Saturday needs before making an offer, and how the listing reaches the agents who represent them.
 
@@ -42,7 +41,7 @@ Sources: Miami and South Florida REALTORS®, post-merger May 11, 2026 (93,000 me
 
 ## A note for owners who live abroad
 
-South Florida also has many owners who live outside the United States and are now evaluating a sale. FIRPTA (the Foreign Investment in Real Property Tax Act) generally requires withholding on sales by non-U.S. persons, with the rate depending on the price and on how the buyer will use the property. Our [FIRPTA note for foreign sellers](/journal/firpta-withholding-foreign-seller-south-florida-2026) explains the basics. Consult a qualified U.S. tax attorney or CPA before listing; that is outside what a real estate agent can advise on.
+Some South Florida owners live outside the United States and are now evaluating a sale. FIRPTA (the Foreign Investment in Real Property Tax Act) generally requires withholding on sales by non-U.S. persons, with the rate depending on the price and on how the buyer will use the property. Our [FIRPTA note for foreign sellers](/journal/firpta-withholding-foreign-seller-south-florida-2026) explains the basics. Consult a qualified U.S. tax attorney or CPA before listing; that is outside what a real estate agent can advise on.
 
 ---
 

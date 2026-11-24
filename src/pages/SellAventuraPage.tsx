@@ -28,7 +28,7 @@ const AVENTURA_FAQS = [
   },
   {
     q: "Do international buyers purchase property in Aventura?",
-    a: "Yes — Aventura has one of the highest concentrations of international buyer activity in Miami-Dade County. Aventura Mall, Intracoastal and ocean access, and tower amenities draw buyers from other states and abroad. Carlos's international referral network and global portal syndication extend each listing's reach to the agents who represent them.",
+    a: "Yes. Aventura Mall, Intracoastal and ocean access, and tower amenities draw buyers from other states and abroad. Carlos's international referral network and global portal syndication extend each listing's reach to the agents who represent them.",
   },
   {
     q: "What is the difference between selling a condo and a single-family home in Aventura?",

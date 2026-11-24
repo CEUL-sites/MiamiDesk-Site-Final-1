@@ -46,7 +46,7 @@ Miami Beach has some of the most restrictive short-term rental regulations in So
 
 ## The International Buyer in Miami Beach
 
-Miami Beach draws a large share of buyers from other states and from abroad. What those buyers look for is consistent, wherever they come from:
+Miami Beach draws buyers from other states and from abroad. What those buyers look for is consistent, wherever they come from:
 
 - **Turnkey, ocean-fronting units** in well-managed buildings, especially for buyers purchasing from a distance
 - **Primary or seasonal residence** in the South Beach and Mid-Beach condo market

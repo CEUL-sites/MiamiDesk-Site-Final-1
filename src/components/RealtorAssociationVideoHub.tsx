@@ -257,7 +257,7 @@ const CHANNELS: readonly ChannelItem[] = [
     titleEn: "#1 U.S. Destination for International Capital & 437+ Partner Associations.",
     titleEs: "Mercado nº 1 en EE. UU. para capital internacional y más de 437 asociaciones socias.",
     summaryEn:
-      "Backed by 93,000 MIAMI REALTORS® members, 200+ global portals in 19 languages, and 437+ international partner associations, South Florida connects domestic wealth migration with European and Latin American buyers.",
+      "Backed by 93,000 MIAMI REALTORS® members, 200+ global portals in 19 languages, and 437+ international partner associations, South Florida connects domestic wealth migration with international buyers.",
     summaryEs:
       "Respaldado por 93,000 miembros de MIAMI REALTORS®, más de 200 portales globales en 19 idiomas y más de 437 asociaciones internacionales, el sur de Florida conecta la migración patrimonial con compradores globales.",
     spots: [

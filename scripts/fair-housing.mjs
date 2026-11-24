@@ -14,23 +14,23 @@
 // are therefore outside the scan scope in verify-fair-housing.mjs.
 
 const ORIGIN_EN = [
-  'latin american', 'latam', 'latino', 'latina', 'hispanic', 'south american', 'central american',
+  'latin american', 'latin', 'latam', 'latino', 'latina', 'hispanic', 'spanish-speaking', 'portuguese-speaking', 'south american', 'central american',
   'venezuelan', 'colombian', 'brazilian', 'argentine', 'argentinian', 'cuban', 'mexican', 'peruvian',
   'dominican', 'haitian', 'haitian-american', 'caribbean', 'caribbean-american', 'european', 'eastern european',
   'asian', 'chinese', 'russian', 'israeli', 'canadian', 'british', 'french', 'german',
-  'jewish', 'muslim', 'christian', 'catholic', 'orthodox', 'black', 'white',
+  'jewish', 'muslim', 'christian', 'catholic', 'orthodox',
 ];
 const PEOPLE_EN = [
   'buyers?', 'buyer pool', 'buyer demand', 'buyer community', 'famil(?:y|ies)', 'communit(?:y|ies)',
   'demand', 'purchasers?', 'residents?', 'population', 'diaspora', 'neighborhoods?', 'enclaves?',
-  'relocators?', 'professional families', 'capital flows?', 'investors?',
+  'relocators?', 'professional families', 'capital', 'capital flows?', 'investors?',
 ];
 const ORIGIN_ES = [
   'latinoamerican[oa]s?', 'latin[oa]s?', 'hispan[oa]s?', 'hispanohablantes?', 'sudamerican[oa]s?',
   'venezolan[oa]s?', 'colombian[oa]s?', 'brasileñ[oa]s?', 'argentin[oa]s?', 'cuban[oa]s?', 'mexican[oa]s?',
   'peruan[oa]s?', 'dominican[oa]s?', 'haitian[oa]s?', 'europe[oa]s?', 'asiátic[oa]s?', 'judí[oa]s?',
 ];
-const PEOPLE_ES = ['compradores?', 'familias?', 'comunidad(?:es)?', 'demanda', 'inversionistas?', 'residentes?', 'población'];
+const PEOPLE_ES = ['compradores?', 'familias?', 'comunidad(?:es)?', 'demanda', 'inversionistas?', 'residentes?', 'población', 'capital'];
 
 const RULES = [
   {
@@ -43,7 +43,7 @@ const RULES = [
   },
   {
     id: 'origin-of-buyers-en',
-    re: /\bbuyers?\s+(?:from|out of)\s+(?:venezuela|colombia|brazil|argentina|cuba|mexico|peru|haiti|latin america|south america|europe|israel|russia|china)\b/gi,
+    re: /\bbuyers?\s+(?:from|out of)\s+(?:venezuela|colombia|brazil|argentina|cuba|mexico|peru|haiti|latin america|south america|central america|the caribbean|europe|spain|portugal|italy|germany|france|the uk|the united kingdom|canada|israel|russia|china|india)\b/gi,
   },
   {
     id: 'demographic-framing',
