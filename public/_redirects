@@ -11,6 +11,8 @@ https://www.homesprofessional.com/* https://homesprofessional.com/:splat 301!
 /market/* /markets 301!
 /market /markets 301!
 /404.html / 301!
+/contact-us /contact 301!
+/contact-us/ /contact 301!
 /seller-advisory /home-value 301!
 /seller-advisory/ /home-value 301!
 /sell-in-weston /sell-weston 301!
@@ -297,6 +299,8 @@ https://www.homesprofessional.com/* https://homesprofessional.com/:splat 301!
 /es/vender-brickell/ /es/vender-brickell 301!
 /es/vender-coral-gables /es/vender-coral-gables/index.html 200!
 /es/vender-coral-gables/ /es/vender-coral-gables 301!
+/es/vender-weston /es/vender-weston/index.html 200!
+/es/vender-weston/ /es/vender-weston 301!
 /journal/international-buyers-south-florida-2026 /journal/international-buyers-south-florida-2026/index.html 200!
 /journal/international-buyers-south-florida-2026/ /journal/international-buyers-south-florida-2026 301!
 /journal/south-florida-new-construction-vs-resale-rate-buydowns-2026 /journal/south-florida-new-construction-vs-resale-rate-buydowns-2026/index.html 200!

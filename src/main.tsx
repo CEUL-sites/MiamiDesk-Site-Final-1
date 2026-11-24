@@ -61,6 +61,7 @@ const EsSpainDeskPage    = lazy(() => import('./pages/es/EsSpainDeskPage'));
 const EsVenderDoralPage       = lazy(() => import('./pages/es/EsVenderDoralPage'));
 const EsVenderBrickellPage    = lazy(() => import('./pages/es/EsVenderBrickellPage'));
 const EsVenderCoralGablesPage = lazy(() => import('./pages/es/EsVenderCoralGablesPage'));
+const EsVenderWestonPage      = lazy(() => import('./pages/es/EsVenderWestonPage'));
 const ReviewsPage              = lazy(() => import('./pages/ReviewsPage'));
 const LeaveReviewPage          = lazy(() => import('./pages/LeaveReviewPage'));
 const LaComisionSecretaPage    = lazy(() => import('./pages/LaComisionSecretaPage'));
@@ -168,6 +169,7 @@ if (rootElement) {
                 <Route path="/es/vender-doral"        element={<EsVenderDoralPage />} />
                 <Route path="/es/vender-brickell"     element={<EsVenderBrickellPage />} />
                 <Route path="/es/vender-coral-gables" element={<EsVenderCoralGablesPage />} />
+                <Route path="/es/vender-weston"       element={<EsVenderWestonPage />} />
                 <Route path="/es/madrid"          element={<Navigate to="/markets" replace />} />
 <Route path="*"                   element={<NotFoundPage />} />
               </Routes>

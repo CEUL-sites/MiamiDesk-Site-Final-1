@@ -12,6 +12,7 @@ import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { HomeValueEntry } from "../../components/HomeValueEntry";
 import { EsProof } from "../../components/es/EsProof";
 import { EsDistribution } from "../../components/es/EsDistribution";
+import { EsCityLinks } from "../../components/es/EsCityLinks";
 import { SellerExecutionSystem } from "../../components/SellerExecutionSystem";
 import { CONTACT } from "../../constants";
 import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
@@ -252,6 +253,7 @@ export default function EsHomePage() {
         </Suspense>
 
         <EsDistribution />
+        <EsCityLinks />
         <HomeValueEntry lang="es" />
 
         <Footer />

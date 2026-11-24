@@ -22,6 +22,7 @@ const HREFLANG_PAIRS = [
   { en: '/sell-doral', es: '/es/vender-doral' },
   { en: '/sell-brickell', es: '/es/vender-brickell' },
   { en: '/sell-coral-gables', es: '/es/vender-coral-gables' },
+  { en: '/sell-weston', es: '/es/vender-weston' },
 ];
 const pairByRoute = new Map();
 for (const pair of HREFLANG_PAIRS) {
@@ -34,9 +35,9 @@ function formatSitemapBlock(route, existing) {
   const journalDate = postLastmod.get(route);
   let block = existing;
   if (!block) {
-    const lastmodLine = journalDate ? `\n    <lastmod>${journalDate}</lastmod>` : '';
-    const extra = journalDate ? `\n    <changefreq>monthly</changefreq>\n    <priority>0.70</priority>` : '';
-    block = `<url>\n    <loc>${loc}</loc>${lastmodLine}${extra}\n  </url>`;
+    const lastmod = journalDate || '2026-11-24';
+    const priority = journalDate ? '0.70' : '0.80';
+    block = `<url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
   } else {
     block = block.replace(/\s*<xhtml:link\b[^>]*\/>/g, '');
     if (journalDate) {

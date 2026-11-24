@@ -71,6 +71,9 @@ export default function SellWestonPage() {
         <meta name="twitter:title" content="Weston FL Listing Agent | Carlos Uzcategui" />
         <meta name="twitter:description" content="Sell your Weston, FL home with Carlos Uzcategui at United Realty Group. Community pricing, MLS distribution, and a Private Seller Strategy Review." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/reports/weston-2026-11-og.jpg" />
+        <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell-weston" />
+        <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell-weston" />
+        <link rel="alternate" hrefLang="es" href="https://homesprofessional.com/es/vender-weston" />
       </Helmet>
       <JsonLd id="sell-weston-breadcrumb" data={{
           "@context": "https://schema.org",

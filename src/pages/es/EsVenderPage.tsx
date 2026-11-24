@@ -15,6 +15,7 @@ import { MiamiRealtorsBadge } from "../../components/MiamiRealtorsBadge";
 import { CONTACT } from "../../constants";
 import { HeroVideoBackdrop } from "../../components/heroes/HeroVideoBackdrop";
 import { HouseBotHero } from "../../components/housebot/HouseBotHero";
+import { EsCityLinks } from "../../components/es/EsCityLinks";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -330,6 +331,8 @@ export default function EsVenderPage() {
             </div>
           </div>
         </section>
+
+        <EsCityLinks />
 
         <SellerNetCalculator sourcePage="es-vender" lang="es" />
 

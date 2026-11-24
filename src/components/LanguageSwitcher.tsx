@@ -17,6 +17,7 @@ const ES_TO_EN: Record<string, string> = {
   "/es/vender-doral": "/sell-doral",
   "/es/vender-brickell": "/sell-brickell",
   "/es/vender-coral-gables": "/sell-coral-gables",
+  "/es/vender-weston": "/sell-weston",
 };
 
 const EN_TO_ES: Record<string, string> = {
@@ -29,6 +30,7 @@ const EN_TO_ES: Record<string, string> = {
   "/sell-doral": "/es/vender-doral",
   "/sell-brickell": "/es/vender-brickell",
   "/sell-coral-gables": "/es/vender-coral-gables",
+  "/sell-weston": "/es/vender-weston",
 };
 
 export function LanguageSwitcher({ onLight = false }: { onLight?: boolean }) {

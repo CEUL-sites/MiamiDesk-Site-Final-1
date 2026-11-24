@@ -72,6 +72,18 @@
     "force": true
   },
   {
+    "from": "/contact-us",
+    "to": "/contact",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/contact-us/",
+    "to": "/contact",
+    "status": 301,
+    "force": true
+  },
+  {
     "from": "/seller-advisory",
     "to": "/home-value",
     "status": 301,
