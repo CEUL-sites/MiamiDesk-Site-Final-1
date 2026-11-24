@@ -135,18 +135,23 @@ export default function SellPembrokePinesPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pembroke Pines, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-5xl font-serif text-white" style={{ lineHeight: 1.08, letterSpacing: "-0.01em" }}>
-              <span className="block text-balance" style={{ fontSize: "clamp(1.95rem, 5.2vw, 4rem)" }}>
-                Sell your <span className="whitespace-nowrap">Pembroke Pines home.</span>
+            {/* Headline: original wording, set as two controlled lines (white statement + gold italic
+                payoff). Phrase locks keep "Pembroke Pines", "with the reach" and "REALTOR® association."
+                together, so no single word is ever orphaned on its own line. */}
+            <h1 className="mx-auto mt-6 max-w-6xl font-serif text-white" style={{ lineHeight: 1.1, letterSpacing: "-0.01em" }}>
+              <span className="block text-balance" style={{ fontSize: "clamp(1.7rem, 3.7vw, 3.15rem)" }}>
+                Sell your <span className="whitespace-nowrap">Pembroke Pines</span> home{" "}
+                <span className="whitespace-nowrap">with the reach</span>
               </span>
-              <em className="mt-2 block text-balance italic text-gold" style={{ fontSize: "clamp(1.3rem, 3.4vw, 2.6rem)" }}>
-                <span className="inline-block">Priced on evidence.</span>{" "}
-                <span className="inline-block">Placed where buyer agents work.</span>
+              <em className="mt-2 block text-balance italic text-gold" style={{ fontSize: "clamp(1.35rem, 3.1vw, 2.65rem)" }}>
+                of the world's largest local{" "}
+                <span className="whitespace-nowrap">REALTOR<span className="not-italic" style={{ fontSize: "0.5em", verticalAlign: "0.85em", marginLeft: "0.04em", marginRight: "-0.1em" }}>®</span> association.</span>
               </em>
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-balance font-sans text-base leading-relaxed text-white/65">
-              Community-level pricing, complete documentation and professional placement in the Miami MLS,
-              led by Carlos Uzcategui through United Realty Group.
+            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
+              Pembroke Pines' master-planned communities, schools and established neighborhoods call for pricing built on
+              community-level evidence and wide professional exposure.
+              Professional MLS positioning. Buyer-agent outreach. International distribution.
             </p>
             <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
               {[
