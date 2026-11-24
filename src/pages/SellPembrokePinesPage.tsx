@@ -135,9 +135,18 @@ export default function SellPembrokePinesPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pembroke Pines, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Pembroke Pines home with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
+            {/* Headline: original wording, set as two controlled lines (white statement + gold italic
+                payoff). Phrase locks keep "Pembroke Pines", "with the reach" and "REALTOR® association."
+                together, so no single word is ever orphaned on its own line. */}
+            <h1 className="mx-auto mt-6 max-w-6xl font-serif text-white" style={{ lineHeight: 1.1, letterSpacing: "-0.01em" }}>
+              <span className="block text-balance" style={{ fontSize: "clamp(1.7rem, 3.7vw, 3.15rem)" }}>
+                Sell your <span className="whitespace-nowrap">Pembroke Pines</span> home{" "}
+                <span className="whitespace-nowrap">with the reach</span>
+              </span>
+              <em className="mt-2 block text-balance italic text-gold" style={{ fontSize: "clamp(1.35rem, 3.1vw, 2.65rem)" }}>
+                of the world's largest local{" "}
+                <span className="whitespace-nowrap">REALTOR<span className="not-italic" style={{ fontSize: "0.5em", verticalAlign: "0.85em", marginLeft: "0.04em", marginRight: "-0.1em" }}>®</span> association.</span>
+              </em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Pembroke Pines' master-planned communities, schools and established neighborhoods call for pricing built on
