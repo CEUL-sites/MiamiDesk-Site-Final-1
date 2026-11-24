@@ -135,14 +135,18 @@ export default function SellPembrokePinesPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pembroke Pines, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Pembroke Pines home with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
+            <h1 className="mx-auto mt-6 max-w-5xl font-serif text-white" style={{ lineHeight: 1.08, letterSpacing: "-0.01em" }}>
+              <span className="block text-balance" style={{ fontSize: "clamp(1.95rem, 5.2vw, 4rem)" }}>
+                Sell your <span className="whitespace-nowrap">Pembroke Pines home.</span>
+              </span>
+              <em className="mt-2 block text-balance italic text-gold" style={{ fontSize: "clamp(1.3rem, 3.4vw, 2.6rem)" }}>
+                <span className="inline-block">Priced on evidence.</span>{" "}
+                <span className="inline-block">Placed where buyer agents work.</span>
+              </em>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Pembroke Pines' master-planned communities, schools and established neighborhoods call for pricing built on
-              community-level evidence and wide professional exposure.
-              Professional MLS positioning. Buyer-agent outreach. International distribution.
+            <p className="mx-auto mt-6 max-w-xl text-balance font-sans text-base leading-relaxed text-white/65">
+              Community-level pricing, complete documentation and professional placement in the Miami MLS,
+              led by Carlos Uzcategui through United Realty Group.
             </p>
             <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
               {[
