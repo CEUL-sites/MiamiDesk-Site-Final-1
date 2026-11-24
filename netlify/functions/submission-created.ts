@@ -7,6 +7,7 @@ import { storeDeadLetter } from "./_shared/leadDeadLetter";
 import { scoreLead, formatLeadEmail, formatLeadEmailSubject } from "./_shared/leadScore";
 import { assessLeadSpam, storeQuarantine } from "./_shared/leadSpam";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
+import { sendServerLeadToGA4 } from "./_shared/ga4Measurement";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
@@ -15,6 +16,8 @@ const NURTURE_FORMS = new Set(["seller-intake", "seller-hero", "seller-consultat
 // Env var names — set these in Netlify → Site settings → Environment variables.
 // GOOGLE_SHEETS_WEBHOOK_URL  — Google Apps Script web app URL (doPost webhook)
 // RESEND_API_KEY             — Resend API key for email notifications
+// GA4_MEASUREMENT_ID         — GA4 Web Stream Measurement ID (G-XXXXXXXXXX)
+// GA4_API_SECRET             — GA4 Measurement Protocol API secret for verified leads
 const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL ?? "";
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
 const TO_EMAIL = "contact@carlosre.com";
@@ -244,6 +247,41 @@ export default async (request: Request) => {
         timeline,
         message,
       });
+    }
+
+    // ── 3. Server-side GA4 Measurement Protocol (verified, spam-screened) ─
+    try {
+      if (await wasAlerted(alertKey, "ga4")) {
+        console.log("submission-created: GA4 MP already sent — skipping", alertKey);
+      } else {
+        const sourcePage = fields.sourcePage || formName;
+        const detectedLanguage =
+          fields.language ||
+          (/(?:^|-)es(?:-|$)/i.test(sourcePage) ||
+          sourcePage.toLowerCase().startsWith("es") ||
+          sourcePage.toLowerCase().startsWith("/es")
+            ? "es"
+            : "en");
+
+        const ga4Result = await sendServerLeadToGA4({
+          alertKey,
+          formName,
+          leadTier: scored.tier,
+          leadScore: scored.score,
+          inquiryDivision: classifyInquiry(formName, fields),
+          language: detectedLanguage,
+          sourcePage,
+          utmSource,
+          utmMedium,
+          utmCampaign,
+          landingPage,
+        });
+        if (ga4Result.sent) {
+          await markAlerted(alertKey, "ga4");
+        }
+      }
+    } catch (ga4Err) {
+      console.error("submission-created: GA4 MP error:", ga4Err);
     }
 
     // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────

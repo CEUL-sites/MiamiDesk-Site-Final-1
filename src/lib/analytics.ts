@@ -3,6 +3,89 @@ import { isTrackingAllowed } from "./consent";
 
 export type EventPayload = Record<string, unknown>;
 
+export type PageLanguage = "en" | "es";
+export type BusinessDivision =
+  | "sfl_seller"
+  | "spain_global_desk"
+  | "seo_journal"
+  | "buyer_desk"
+  | "agents_recruiting"
+  | "listings_markets"
+  | "brand_core";
+
+/**
+ * Classify a site pathname into institutional language and business division
+ * dimensions for GA4 reporting across Carlos's operating lines.
+ */
+export function classifyRouteContext(pathname: string): {
+  page_language: PageLanguage;
+  business_division: BusinessDivision;
+} {
+  const clean = (pathname || "/")
+    .split(/[?#]/)[0]
+    .toLowerCase()
+    .replace(/\/+$/, "") || "/";
+
+  const page_language: PageLanguage =
+    clean === "/es" ||
+    clean.startsWith("/es/") ||
+    clean.startsWith("/vender-") ||
+    clean === "/la-comision-secreta"
+      ? "es"
+      : "en";
+
+  let business_division: BusinessDivision = "brand_core";
+  if (
+    clean === "/global-desk" ||
+    clean === "/gilmar-spain" ||
+    clean === "/spain-mls-listing" ||
+    clean === "/es/spain-desk" ||
+    clean.startsWith("/vender-")
+  ) {
+    business_division = "spain_global_desk";
+  } else if (clean === "/journal" || clean.startsWith("/journal/")) {
+    business_division = "seo_journal";
+  } else if (
+    clean === "/sell" ||
+    clean.startsWith("/sell-") ||
+    clean === "/es/vender" ||
+    clean.startsWith("/es/vender-") ||
+    clean === "/home-value" ||
+    clean === "/thanks/seller"
+  ) {
+    business_division = "sfl_seller";
+  } else if (
+    clean === "/buy" ||
+    clean === "/es/comprar" ||
+    clean === "/new-construction" ||
+    clean === "/thanks/buyer"
+  ) {
+    business_division = "buyer_desk";
+  } else if (
+    clean === "/agents" ||
+    clean === "/es/agentes" ||
+    clean === "/la-comision-secreta" ||
+    clean === "/thanks/agent" ||
+    clean === "/es/gracias/agente"
+  ) {
+    business_division = "agents_recruiting";
+  } else if (clean === "/listings" || clean === "/markets" || clean === "/market-data") {
+    business_division = "listings_markets";
+  }
+
+  return { page_language, business_division };
+}
+
+function currentRouteContext(): Partial<{
+  page_language: PageLanguage;
+  business_division: BusinessDivision;
+}> {
+  if (typeof window === "undefined" || !window.location?.pathname) {
+    return {};
+  }
+  return classifyRouteContext(window.location.pathname);
+}
+
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
@@ -123,7 +206,12 @@ export type ContactMethod = "phone" | "whatsapp";
  */
 export function trackContact(method: ContactMethod, location: string): void {
   const attribution = getAttribution();
-  const detail: EventPayload = { contact_method: method, location, ...attribution };
+  const detail: EventPayload = {
+    ...currentRouteContext(),
+    contact_method: method,
+    location,
+    ...attribution,
+  };
 
   // GTM / GA4 dataLayer
   pushEvent("contact_click", detail);
@@ -145,7 +233,12 @@ export function trackContact(method: ContactMethod, location: string): void {
  */
 export function trackLead(type: LeadType, payload?: EventPayload): void {
   const attribution = getAttribution();
-  const detail = { lead_type: type, ...attribution, ...payload };
+  const detail = {
+    ...currentRouteContext(),
+    lead_type: type,
+    ...attribution,
+    ...payload,
+  };
 
   // GTM / GA4 — generic conversion + keep the legacy granular event.
   pushEvent("generate_lead", detail);

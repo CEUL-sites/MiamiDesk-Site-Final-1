@@ -14,11 +14,12 @@ import { getStore } from "@netlify/blobs";
 export const DEDUP_STORE = "lead-alert-dedup";
 
 // Deliveries are deduplicated per channel: "alert" covers email/WhatsApp to
-// Carlos; "sheets" covers the Google Sheets row. Tracked separately so that a
-// lead-notify run that reached Sheets but failed to alert (e.g. Resend
-// misconfigured) doesn't cause submission-created to write a duplicate Sheets
-// row — and vice versa.
-export type DedupChannel = "alert" | "sheets";
+// Carlos; "sheets" covers the Google Sheets row; "ga4" covers server-side
+// GA4 Measurement Protocol delivery. Tracked separately so that a lead-notify
+// run that reached Sheets but failed to alert (e.g. Resend misconfigured)
+// doesn't cause submission-created to write a duplicate Sheets row — and vice
+// versa.
+export type DedupChannel = "alert" | "sheets" | "ga4";
 
 // How long two alerts for the same contact are treated as the same lead.
 // A genuine new inquiry from the same person later still alerts.

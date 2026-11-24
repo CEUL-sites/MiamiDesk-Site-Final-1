@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { pushEvent } from "../lib/analytics";
+import { classifyRouteContext, pushEvent } from "../lib/analytics";
 import { captureAttribution } from "../lib/attribution";
 import { isTrackingAllowed } from "../lib/consent";
 
@@ -20,24 +20,25 @@ function handleGlobalClick(e: MouseEvent) {
 
   const href = target.getAttribute("href") ?? "";
   const form_location = typeof window !== "undefined" ? window.location.pathname : "";
+  const routeCtx = classifyRouteContext(form_location);
 
   if (href.includes("wa.me/1954")) {
     pushEvent("whatsapp_click_us", { destination: href });
-    pushEvent("contact_whatsapp", { line: "us", destination: href, form_location });
+    pushEvent("contact_whatsapp", { line: "us", destination: href, form_location, ...routeCtx });
   } else if (href.includes("wa.me/346") || href.includes("wa.me/34")) {
     pushEvent("whatsapp_click_madrid", { destination: href });
-    pushEvent("contact_whatsapp", { line: "es", destination: href, form_location });
+    pushEvent("contact_whatsapp", { line: "es", destination: href, form_location, ...routeCtx });
   }
 
   if (href.startsWith("tel:")) {
-    pushEvent("contact_call", { destination: href, form_location });
+    pushEvent("contact_call", { destination: href, form_location, ...routeCtx });
   }
 
   if (target.hasAttribute("download")) {
     const url = target.getAttribute("href") ?? "";
     const filename = url.split("/").pop() ?? url;
     pushEvent("lead_magnet_download", { file: filename, url });
-    pushEvent("download_guide", { guide: filename, form_location });
+    pushEvent("download_guide", { guide: filename, form_location, ...routeCtx });
   }
 }
 
@@ -65,6 +66,7 @@ export function Analytics() {
       page_path: path,
       page_location: window.location.href,
       page_title: document.title,
+      ...classifyRouteContext(location.pathname),
     });
 
     if (typeof window.fbq === "function") {
