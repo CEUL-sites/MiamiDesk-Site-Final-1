@@ -8,13 +8,14 @@ export const MAX_ALERT_ATTEMPTS = 5;
 
 // lead-notify queues a copy of every screened lead, because Netlify fires
 // submission-created only for submissions it does not spam-file. The copy waits
-// BACKUP_DELAY_MS so the fuller submission can arrive, then is discarded when the
-// same form and contact reached the primary path within BACKUP_MATCH_MS.
+// BACKUP_DELAY_MS so the fuller submission can arrive, then is discarded when that
+// same submission reached the primary path. formRenderedAt is sent on both paths
+// and identifies the submission: a second inquiry from the same contact is kept.
 export const BACKUP_DELAY_MS = 10 * 60 * 1000;
 export const BACKUP_MATCH_MS = 30 * 60 * 1000;
 const PRIMARY_PREFIX = 'primary-seen/';
-/** Hash of form + contact; holds no readable contact data. */
-export const leadIdentity = job => createHash('sha256').update([job.form,job.fields.email||job.fields.phone.replace(/\D/g,'')].join('|')).digest('hex');
+/** Hash of form + contact + submission; holds no readable contact data. Empty when the submission cannot be identified. */
+export const leadIdentity = (job,formRenderedAt) => formRenderedAt?createHash('sha256').update([job.form,job.fields.email||job.fields.phone.replace(/\D/g,''),String(formRenderedAt)].join('|')).digest('hex'):'';
 // These forms send the visitor's country in lead-notify's `city` field.
 const COUNTRY_IN_CITY = new Set(['buyer-mandate','referral-intake','referral-intake-es','agency-partner-intake']);
 
@@ -89,20 +90,31 @@ export async function enqueueSubmission(payload,store=inquiryStore()) {
  if(await store.get('done/'+job.key,{type:'json'}))return {status:'synced'};
  await store.setJSON('pending/'+job.key,job,{onlyIfNew:true});
  // Only after the lead is safely queued: this marker discards its backup copy.
- try { await store.setJSON(PRIMARY_PREFIX+leadIdentity(job),{at:new Date().toISOString()}); }
+ const identity=leadIdentity(job,f.formRenderedAt);
+ try { if(identity)await store.setJSON(PRIMARY_PREFIX+identity,{at:new Date().toISOString()}); }
  catch (e) { console.error('Primary lead marker not saved',{error:e instanceof Error?e.name:'unknown'}); }
  return {status:'queued',key:job.key};
 }
+// Public endpoint: keep strings only, bounded in count and size.
+function structuredFields(input) {
+ if(!input||typeof input!=='object'||Array.isArray(input))return {};
+ return Object.fromEntries(Object.entries(input).filter(([k,v])=>typeof v==='string'&&v&&/^[A-Za-z]{1,40}$/.test(k)&&!['botField','formName','formRenderedAt'].includes(k)).slice(0,40).map(([k,v])=>[k,v.slice(0,4000)]));
+}
 /** Delayed HubSpot copy of a lead received by lead-notify. Lambda-style callers use eventual reads. */
 export async function enqueueBackupLead(raw,store=getStore(HUBSPOT_STORE),now=Date.now()) {
- const {botField,formRenderedAt,...fields}=raw||{};
- const form=fields.formName||'';
- if(COUNTRY_IN_CITY.has(form)&&!fields.country){fields.country=fields.city||'';fields.city='';}
+ const {botField,formRenderedAt,crmFields,...base}=raw||{};
+ const form=base.formName||'';
+ // crmFields adds the structured answers the sync needs. The screened contact
+ // identity always comes from the top level and cannot be replaced by it.
+ const {name='',email='',phone=''}=base;
+ const fields={...base,...structuredFields(crmFields),name,email,phone};
+ if(COUNTRY_IN_CITY.has(form)){fields.country=structuredFields(crmFields).country||fields.city||'';fields.city='';}
+ if(form==='agency-partner-intake')fields.propertyAddress='';
  fields.received_via='backup notifier (lead-notify)';
  const probe=makeJob(form,fields,'probe');
  if(!probe)return {status:'skipped'};
- const identity=leadIdentity(probe);
- const job=makeJob(form,fields,'backup|'+identity+'|'+(formRenderedAt||''));
+ const identity=leadIdentity(probe,formRenderedAt);
+ const job=makeJob(form,fields,'backup|'+(identity||probe.key+'|'+now));
  Object.assign(job,{backup:true,identity,at:new Date(now).toISOString(),nextAttemptAt:now+BACKUP_DELAY_MS});
  if(await store.get('done/'+job.key,{type:'json'}))return {status:'synced'};
  await store.setJSON('pending/'+job.key,job,{onlyIfNew:true});
@@ -134,7 +146,7 @@ export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT
    const job=await store.get(blob.key,{type:'json'});
    if(!job||job.nextAttemptAt>Date.now())continue;
    if(job.status==='review'){review++;continue;}
-   if(job.backup&&!job.contactId){
+   if(job.backup&&job.identity&&!job.contactId){
     const primary=await store.get(PRIMARY_PREFIX+job.identity,{type:'json'});
     if(primary&&Math.abs(Date.parse(primary.at)-Date.parse(job.at))<=BACKUP_MATCH_MS){await store.delete(blob.key);continue;}
    }

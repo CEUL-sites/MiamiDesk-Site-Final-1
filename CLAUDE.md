@@ -185,8 +185,9 @@ drop a lead:
    `/thanks/*` page immediately after submit).
 
 Both paths reach HubSpot. `submission-created` queues the full submission;
-`lead-notify` queues a copy that waits 10 minutes and is discarded if the same
-form and contact also arrived by the first path. Inquiries the sync holds for
+`lead-notify` queues a copy that waits 10 minutes and is discarded if that same
+submission (form, contact and `formRenderedAt`) also arrived by the first path.
+Forms pass the answers the CRM needs in `crmFields`. Inquiries the sync holds for
 review never retry, so `lead-quarantine-digest` lists them every day.
 
 The two paths de-duplicate server-side in `_shared/leadDedup.ts`, so Carlos is

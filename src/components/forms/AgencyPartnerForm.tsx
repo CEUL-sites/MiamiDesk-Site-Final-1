@@ -101,6 +101,7 @@ export function AgencyPartnerForm({
         message: `${form.role ? form.role + " · " : ""}${form.inventoryType ? form.inventoryType + " · " : ""}${form.message}`,
         sourcePage: "agency-partner-intake",
         formName: "agency-partner-intake",
+        crmFields: { ...form },
         botField: "", formRenderedAt: String(renderedAt.current),
       });
       fetch("/.netlify/functions/lead-acknowledgment", {

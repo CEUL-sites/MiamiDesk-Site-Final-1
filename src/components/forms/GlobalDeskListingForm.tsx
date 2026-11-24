@@ -299,6 +299,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
           `${images.length} image(s), ${documents.length} doc(s)`,
         sourcePage: FORM_NAME,
         formName: FORM_NAME,
+        crmFields: { ...form, submitterType, listPath, language: lang },
         botField: "", formRenderedAt: String(renderedAt.current),
       });
 

@@ -49,6 +49,8 @@ interface LeadPayload {
   occupancy?: string;
   placeId?: string;
   messagingConsent?: string;
+  /** Structured answers used only by the HubSpot copy — see enqueueBackupLead. */
+  crmFields?: Record<string, string>;
 }
 
 interface NormalizedLead {
@@ -175,7 +177,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
   // and that was the only route to HubSpot. Queue a delayed copy here; the sync
   // discards it when the full submission also arrived. Never blocks the alert.
   try {
-    results.hubspot = (await enqueueBackupLead(raw as Record<string, string>)).status;
+    results.hubspot = (await enqueueBackupLead(raw)).status;
   } catch (err) {
     results.hubspot = "failed";
     console.error("lead-notify: HubSpot backup queue failed:", err instanceof Error ? err.name : "unknown");

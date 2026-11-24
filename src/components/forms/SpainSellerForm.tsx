@@ -190,6 +190,7 @@ export function SpainSellerForm({
         messagingConsent: form.messagingConsent,
         leadSource: getLeadSource(),
         desk: "spain",
+        crmFields: { ...form, language: lang },
         botField: "",
         formRenderedAt: String(renderedAt.current),
       });

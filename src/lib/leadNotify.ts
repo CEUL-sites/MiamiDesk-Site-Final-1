@@ -42,6 +42,12 @@ export interface DirectLead {
   placeId?: string;
   /** "yes" when the lead opted into WhatsApp/SMS follow-up. */
   messagingConsent?: string;
+  /**
+   * Structured answers the HubSpot sync needs when Netlify spam-files the full
+   * submission (client referral details, who is submitting, inventory). Not used
+   * in alerts. Send only what the Netlify Forms path also sends.
+   */
+  crmFields?: Record<string, string>;
   /** Honeypot value + form-render timestamp — see requestGuard spam check in lead-notify.ts. */
   botField?: string;
   formRenderedAt?: string;

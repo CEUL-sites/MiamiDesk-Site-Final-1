@@ -466,7 +466,7 @@ test('backup lead is discarded when the same submission also arrived by the prim
  const {drainInquiries,enqueueBackupLead,enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
  for(const order of ['primary-first','backup-first']){
   const store=memoryStore(),api=okApi();
-  const primary=()=>enqueueSubmission({id:'p1',form_name:'seller-hero',data:{name:'Pat Owner',email:'pat@example.com',phone:'+19545550101'}},store);
+  const primary=()=>enqueueSubmission({id:'p1',form_name:'seller-hero',data:{name:'Pat Owner',email:'pat@example.com',phone:'+19545550101',formRenderedAt:backupLead.formRenderedAt}},store);
   if(order==='primary-first')await primary();
   await enqueueBackupLead(backupLead,store);
   if(order==='backup-first')await primary();
@@ -480,7 +480,7 @@ test('backup lead is discarded when the same submission also arrived by the prim
 test('an older primary submission does not swallow a new backup lead',async()=>{
  const {drainInquiries,enqueueBackupLead,enqueueSubmission,BACKUP_MATCH_MS}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
  const store=memoryStore(),api=okApi();
- await enqueueSubmission({id:'old',form_name:'seller-hero',data:{email:'pat@example.com'}},store);
+ await enqueueSubmission({id:'old',form_name:'seller-hero',data:{email:'pat@example.com',formRenderedAt:backupLead.formRenderedAt}},store);
  await drainInquiries(store,api,'owner');
  await enqueueBackupLead(backupLead,store,Date.now()+BACKUP_MATCH_MS+60_000);
  for(const [k,j] of [...store.data.entries()])if(j.backup)await store.setJSON(k,{...j,nextAttemptAt:0});
@@ -501,18 +501,69 @@ test('backup lead keeps country context and ignores unregistered or unreachable 
 
 test('primary marker holds no contact data and its failure never blocks the lead',async()=>{
  const {enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
- const store=memoryStore();await enqueueSubmission({id:'m',form_name:'seller-hero',data:{email:'pat@example.com'}},store);
+ const store=memoryStore();await enqueueSubmission({id:'m',form_name:'seller-hero',data:{email:'pat@example.com',formRenderedAt:'1'}},store);
  const [k,v]=[...store.data.entries()].find(([key])=>key.startsWith('primary-seen/'));
  assert.ok(!(k+JSON.stringify(v)).includes('pat'));
  const broken=memoryStore(),set=broken.setJSON;broken.setJSON=async(key,...a)=>{if(key.startsWith('primary-seen/'))throw new Error('down');return set(key,...a);};
- assert.equal((await enqueueSubmission({id:'m2',form_name:'seller-hero',data:{email:'b@example.com'}},broken)).status,'queued');
+ assert.equal((await enqueueSubmission({id:'m2',form_name:'seller-hero',data:{email:'b@example.com',formRenderedAt:'1'}},broken)).status,'queued');
 });
 
 test('a lead that could not be queued leaves no marker, so its backup copy survives',async()=>{
  const {enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
  const store=memoryStore(),set=store.setJSON;store.setJSON=async(key,...a)=>{if(key.startsWith('pending/'))throw new Error('down');return set(key,...a);};
- await assert.rejects(()=>enqueueSubmission({id:'x',form_name:'seller-hero',data:{email:'a@example.com'}},store));
+ await assert.rejects(()=>enqueueSubmission({id:'x',form_name:'seller-hero',data:{email:'a@example.com',formRenderedAt:'1'}},store));
  assert.equal([...store.data.keys()].length,0);
+});
+
+const referral=over=>({formName:'referral-intake',name:'Ana Agent',email:'agent@example.invalid',phone:'+19545550101',city:'Spain',formRenderedAt:'100',crmFields:{licenseeName:'Ana Agent',brokerageName:'Example',country:'Spain',registrationVersion:'2',registrationPurpose:'client_referral',clientName:'Casey Client',clientEmail:'client@example.invalid',clientPhone:'+19545550102',clientCountry:'United States',clientNeed:'buyer',clientLocation:'Weston',clientSharingConsent:'yes'},...over});
+const ready=async store=>{for(const [k,j] of [...store.data.entries()])if(k.startsWith('pending/'))await store.setJSON(k,{...j,nextAttemptAt:0});};
+
+test('a second submission from the same contact keeps its own backup copy',async()=>{
+ const {drainInquiries,enqueueBackupLead,enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore(),api=okApi();
+ await enqueueSubmission({id:'r1',form_name:'referral-intake',data:{licenseeName:'Ana Agent',email:'agent@example.invalid',formRenderedAt:'100'}},store);
+ await enqueueBackupLead(referral({crmFields:{}}),store);
+ await enqueueBackupLead(referral({formRenderedAt:'200',crmFields:{}}),store);
+ await ready(store);await drainInquiries(store,api,'owner');
+ assert.equal(api.counts().notes,2);
+});
+
+test('a lead without a submission timestamp is never discarded as a duplicate',async()=>{
+ const {drainInquiries,enqueueBackupLead,enqueueSubmission}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore(),api=okApi();
+ await enqueueSubmission({id:'n',form_name:'seller-hero',data:{email:'pat@example.com'}},store);
+ await enqueueBackupLead({...backupLead,formRenderedAt:''},store);
+ await ready(store);await drainInquiries(store,api,'owner');assert.equal(api.counts().notes,2);
+});
+
+test('a client referral that only reached the backup path registers and links the client',async()=>{
+ const {drainInquiries,enqueueBackupLead}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore(),api=okApi(),links=[];api.associateContacts=async(a,b)=>{links.push([a,b]);};
+ await enqueueBackupLead(referral(),store);await ready(store);await drainInquiries(store,api,'owner');
+ assert.equal(api.counts().contacts,2);assert.deepEqual(links,[['1','2']]);
+ const held=memoryStore();await enqueueBackupLead(referral({crmFields:{...referral().crmFields,clientSharingConsent:''}}),held);
+ await ready(held);await drainInquiries(held,okApi(),'owner');
+ assert.equal([...held.data.values()].find(j=>j.status==='review').lastError,'Client sharing authorization needs review');
+});
+
+test('structured fields cannot replace the screened identity and are bounded',async()=>{
+ const {enqueueBackupLead}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore();
+ const crmFields={email:'victim@example.invalid',phone:'+19545550199',name:'Other',formName:'buyer-mandate','bad key':'x',nested:{a:1},message:'m'.repeat(9000)};
+ for(let i=0;i<100;i++)crmFields['extra'+String.fromCharCode(97+i%26)+'x'.repeat(i%5)+'y'.repeat(Math.floor(i/26))]='v';
+ await enqueueBackupLead({...backupLead,crmFields},store);
+ const job=[...store.data.values()][0];
+ assert.equal(job.form,'seller-hero');assert.equal(job.fields.email,'pat@example.com');assert.equal(job.fields.phone,'+19545550101');assert.equal(job.fields.name,'Pat Owner');
+ assert.equal(job.fields['bad key'],undefined);assert.equal(job.fields.nested,undefined);assert.ok(job.fields.message.length<=4000);assert.ok(Object.keys(job.fields).length<60);
+});
+
+test('submitter and interest answers keep backup leads in the right category',async()=>{
+ const {enqueueBackupLead}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ for(const [raw,category] of [
+  [{formName:'global-desk-listing',email:'a@example.invalid',crmFields:{submitterType:'developer'}},'agency_developer'],
+  [{formName:'spain-seller',email:'a@example.invalid',crmFields:{role:'agency'}},'agency_developer'],
+  [{formName:'ai-desk-registration',email:'a@example.invalid',crmFields:{interest:'buying'}},'buyer'],
+ ]){const store=memoryStore();await enqueueBackupLead({...raw,formRenderedAt:'1'},store);assert.equal([...store.data.values()][0].category,category);}
 });
 
 test('review inquiries are listed for the daily digest',async()=>{
