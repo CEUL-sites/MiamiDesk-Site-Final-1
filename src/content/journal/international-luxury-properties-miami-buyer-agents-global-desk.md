@@ -4,7 +4,7 @@ seoTitle: "Miami Global Desk | Reach Miami Buyer Agents Beyond Portals"
 date: "2026-09-07"
 updated: "2026-09-15"
 slug: "international-luxury-properties-miami-buyer-agents-global-desk"
-excerpt: "How Miami Global Desk combines professional representation, distribution, buyer-agent activation and transaction execution for selected international properties."
+excerpt: "How Miami Global Desk aligns representation, MLS distribution, buyer-agent activation, and execution for selected international listings."
 category: "International"
 image: "/images/journal/og/international-luxury-properties-miami-buyer-agents-global-desk.jpg"
 created_by: "manual"
@@ -181,6 +181,6 @@ If you represent an international luxury property, development or portfolio and 
 
 **Your Mandate. Our U.S. Activation.**
 
-Learn more about the [Miami Global Desk](/global-desk?utm_source=journal&utm_medium=post&utm_campaign=global-desk-international-luxury&market=global&funnel_stage=consideration) or [contact Carlos directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=global-desk-international-luxury&market=global&funnel_stage=consideration).
+Learn more about the [Miami Global Desk](/global-desk) or [contact Carlos directly](/contact).
 
 Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.

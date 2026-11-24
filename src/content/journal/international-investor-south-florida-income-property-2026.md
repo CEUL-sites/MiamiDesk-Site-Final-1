@@ -51,7 +51,7 @@ The professional standard here is simple: an experienced agent coordinates the t
 
 ## The Global Desk: Capital and Property, Both Directions
 
-Capital and property move both ways across the network. An investor in Madrid, Bogotá, São Paulo, Mexico City, or Buenos Aires can acquire South Florida income property through professional representation — and an investor already holding South Florida assets can reach international buyers and opportunities through the same cooperation network. That two-sided reach is what the [Global Desk](/global-desk?utm_source=journal&utm_medium=post&utm_campaign=global-investor-desk&market=global&funnel_stage=consideration) is built to coordinate: one bilingual point of contact for cross-border acquisition and disposition, in the investor's language.
+Capital and property move both ways across the network. An investor in Madrid, Bogotá, São Paulo, Mexico City, or Buenos Aires can acquire South Florida income property through professional representation — and an investor already holding South Florida assets can reach international buyers and opportunities through the same cooperation network. That two-sided reach is what the [Global Desk](/global-desk) is built to coordinate: one bilingual point of contact for cross-border acquisition and disposition, in the investor's language.
 
 ## Twenty-Five Years of South Florida Transactions
 
@@ -59,7 +59,7 @@ Experience is what turns access into a sound acquisition. Carlos Uzcategui has b
 
 ## Start With a Conversation, Not a Portal
 
-If you are an international investor evaluating South Florida income or investment property, begin with a defined mandate and professional representation rather than a portal alert. Start a confidential conversation through the [Global Desk](/global-desk?utm_source=journal&utm_medium=post&utm_campaign=global-investor-desk&market=global&funnel_stage=consideration), outline what you are looking for on the [buyer representation page](/buy?utm_source=journal&utm_medium=post&utm_campaign=global-investor-desk&market=global&funnel_stage=consideration), or [reach Carlos directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=global-investor-desk&market=global&funnel_stage=consideration).
+If you are an international investor evaluating South Florida income or investment property, begin with a defined mandate and professional representation rather than a portal alert. Start a confidential conversation through the [Global Desk](/global-desk), outline what you are looking for on the [buyer representation page](/buy), or [reach Carlos directly](/contact).
 
 ## Source and Compliance Notes
 

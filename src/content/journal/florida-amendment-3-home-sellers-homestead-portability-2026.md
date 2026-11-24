@@ -122,7 +122,7 @@ Our team works in English and Spanish. We do not give tax or legal advice. We pr
 
 Book a 20-minute pricing and distribution review. Carlos Uzcategui and our team review the property, its current assessment record and a pricing range from current MLS comparables, then outline the launch plan and the questions to take to the county property appraiser. There is no listing commitment.
 
-[Book a 20-minute pricing and distribution review](/home-value?utm_source=journal&utm_medium=seo&utm_campaign=florida-amendment-3-home-sellers-homestead-portability-2026)
+[Book a 20-minute pricing and distribution review](/home-value)
 
 Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing markets can also start with our [South Florida seller strategy page](/sell).
 

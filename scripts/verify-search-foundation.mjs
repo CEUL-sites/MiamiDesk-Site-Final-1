@@ -14,7 +14,13 @@ for (const post of posts) {
   const route = `/journal/${post.slug}`;
   assert(include.includes(route), `${route} missing from react-snap include`);
   assert(urls.has(origin + route), `${route} missing from sitemap`);
-  assert(fs.existsSync(path.join('dist', route, 'index.html')), `${route} missing from built output`);
+  const builtPath = path.join('dist', route, 'index.html');
+  assert(fs.existsSync(builtPath), `${route} missing from built output`);
+  const postHtml = fs.readFileSync(builtPath, 'utf8');
+  const articleMatch = postHtml.match(/<article\b[^>]*>([\s\S]*?)<\/article>/i);
+  assert(articleMatch, `${route} missing rendered <article> element`);
+  const articleText = articleMatch[1].replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  assert(articleText.length > 400, `${route} prerendered <article> body looks empty (${articleText.length} chars)`);
 }
 assert.match(config, /\/journal\/\* \/404.html 404/);
 assert.match(config, /^\/\* \/404.html 404$/m, 'Unknown URLs must return a real 404');

@@ -71,4 +71,4 @@ Allow: /
 
 # Discoverability
 Sitemap: https://homesprofessional.com/sitemap.xml
-LLMs-Txt: https://homesprofessional.com/llms.txt
+# LLMs-Txt: https://homesprofessional.com/llms.txt

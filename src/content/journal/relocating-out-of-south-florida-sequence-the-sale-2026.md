@@ -42,7 +42,7 @@ Two points matter for relocating sellers specifically. First, **documented capit
 2. **Buy first, then sell.** You secure the new home and move once, but you may carry both properties briefly. Suited to cases where your equity and reserves comfortably cover the overlap and the destination market is competitive.
 3. **Coordinate concurrent closings.** The ideal on paper — sale and purchase close in step — but it requires disciplined timing on both ends and contingency planning, because two transactions in two markets rarely move at the same pace.
 
-The right path is a function of *your* numbers. Model what the Florida sale nets first with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration) — that figure anchors every sequencing decision.
+The right path is a function of *your* numbers. Model what the Florida sale nets first with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf) — that figure anchors every sequencing decision.
 
 ## Don't Let the Move Compress Your Sale Price
 
@@ -56,7 +56,7 @@ When the sale closes before the new home is ready, a **post-closing occupancy ag
 
 ## A Relocation Sale Checklist
 
-- Get a property-specific [home value review](/home-value?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration) and a net-proceeds estimate before committing to a move date
+- Get a property-specific [home value review](/home-value) and a net-proceeds estimate before committing to a move date
 - Decide your sequence — sell first, buy first, or concurrent — based on those numbers
 - Gather capital-improvement records for your CPA and confirm Section 121 eligibility
 - Plan the interim: short-term rental or a post-closing occupancy agreement
@@ -64,7 +64,7 @@ When the sale closes before the new home is ready, a **post-closing occupancy ag
 
 ## Your Next Step
 
-If a move out of South Florida is on the horizon, the time to plan the sale is *before* the moving date is fixed. Request a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration) and our team will help you map the sale, the net proceeds, and the sequence as one coordinated plan. You can also [request a review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=relocating-sale&market=south-florida&funnel_stage=consideration).
+If a move out of South Florida is on the horizon, the time to plan the sale is *before* the moving date is fixed. Request a [Private Seller Strategy Review](/sell) and our team will help you map the sale, the net proceeds, and the sequence as one coordinated plan. You can also [request a review directly](/contact).
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, and a seat at United Realty Group. He reviews every seller request personally.
 

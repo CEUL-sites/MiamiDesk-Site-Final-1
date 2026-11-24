@@ -109,7 +109,7 @@ Our team works in English and Spanish. When an owner is selling and buying at on
 
 Book a Private Seller Strategy Review. Carlos Uzcategui and our team review your current home's pricing and demand, the timing of your next purchase, and which of the three structures fits, then outline a sale plan that keeps the two transactions in step. There is no listing commitment.
 
-[Book a Private Seller Strategy Review](/home-value?utm_source=journal&utm_medium=organic&utm_campaign=sell-and-buy-house-same-time-florida-2026)
+[Book a Private Seller Strategy Review](/home-value)
 
 Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing approaches can also start with our [South Florida seller strategy page](/sell) or the [current market data](/market-data).
 

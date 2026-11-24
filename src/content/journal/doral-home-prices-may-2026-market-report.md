@@ -3,7 +3,7 @@ title: "Selling a Doral Home in 2026: Price, Buyer Profile, and Distribution Bef
 seoTitle: "Selling a Doral Home in 2026"
 date: "2026-06-30"
 slug: "doral-home-prices-may-2026-market-report"
-excerpt: "A source-safe seller strategy brief for Doral homeowners: how to read citywide market signals, avoid overreliance on headline medians, and prepare a stronger launch."
+excerpt: "Doral seller strategy brief: how to interpret local market signals, look past headline medians, and prepare a stronger property launch."
 category: "Market Analysis"
 image: "/images/journal/og/doral-home-prices-may-2026-market-report.jpg"
 created_by: "claude"
@@ -55,9 +55,9 @@ United Realty Group adds 3,500+ agents across 19 Florida office locations. Carlo
 
 ## Recommended Next Step
 
-If you own a Doral single-family home and are considering a sale, start with a property-specific read, not a citywide headline. Request a [confidential home value review](/home-value?utm_source=journal&utm_medium=post&utm_campaign=doral-2026&market=doral&funnel_stage=consideration), then book a [Private Seller Strategy Review](/sell-doral?utm_source=journal&utm_medium=post&utm_campaign=doral-2026&market=doral&funnel_stage=consideration) to position pricing and distribution before launch.
+If you own a Doral single-family home and are considering a sale, start with a property-specific read, not a citywide headline. Request a [confidential home value review](/home-value), then book a [Private Seller Strategy Review](/sell-doral) to position pricing and distribution before launch.
 
-You can also model your estimated sale proceeds with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=doral-2026&market=doral&funnel_stage=consideration) or [request a review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=doral-2026&market=doral&funnel_stage=consideration). For an evergreen overview, see [Selling a Doral Home](/journal/selling-doral-home-2026).
+You can also model your estimated sale proceeds with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf) or [request a review directly](/contact). For an evergreen overview, see [Selling a Doral Home](/journal/selling-doral-home-2026).
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, Certified Seller Representative training, bilingual English-Spanish capability, and affiliation with United Realty Group.
 

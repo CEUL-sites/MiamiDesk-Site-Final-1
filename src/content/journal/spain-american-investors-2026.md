@@ -131,7 +131,7 @@ If you are evaluating a specific Spanish property, send the address, the asking 
 
 If a South Florida sale is funding the purchase, send that property address as well and the disposition timeline will be built into the same model.
 
-[Request a Global Desk acquisition review](https://homesprofessional.com/contact?utm_source=journal&utm_medium=seo&utm_campaign=spain-american-investors-2026)
+[Request a Global Desk acquisition review](https://homesprofessional.com/contact)
 
 **Carlos Uzcategui** — Florida Licensed Realtor® SL705771, United Realty Group.
 

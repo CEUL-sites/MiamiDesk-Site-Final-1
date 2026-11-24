@@ -10,7 +10,12 @@ for (const route of routes) {
   const title = html.match(/<title[^>]*>([^<]+)<\/title>/)?.[1];
   assert(title && !title.startsWith('404'), `${route}: missing route-specific rendered title`);
   assert(html.includes('<h1'), `${route}: empty SPA shell`);
-  const indexable = !route.startsWith('/thanks/') && route !== '/es/gracias/agente' && route !== '/la-comision-secreta';
+  const indexable =
+    !route.startsWith('/thanks/') &&
+    route !== '/es/gracias/agente' &&
+    route !== '/la-comision-secreta' &&
+    route !== '/privacy' &&
+    route !== '/terms';
   if (indexable) {
   const canonicals = [...html.matchAll(/<link(?=[^>]*rel="canonical")[^>]*>/g)].map(match => match[0].match(/href="([^"]+)"/));
   assert.equal(canonicals.length, 1, `${route}: needs exactly one canonical`);

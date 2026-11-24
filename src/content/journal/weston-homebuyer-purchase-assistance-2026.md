@@ -1,10 +1,10 @@
 ---
 title: "Weston Housing Assistance: Options for Buyers and Homeowners"
-seoTitle: "Weston Housing Assistance 2026 | Buying, Repairs & Accessibility"
+seoTitle: "Weston FL Housing Assistance 2026 | Buying & Repairs"
 date: "2026-09-28"
 updated: "2026-09-28"
 slug: "weston-homebuyer-purchase-assistance-2026"
-excerpt: "A practical guide to Weston's purchase assistance, home repair and hurricane upgrades, and accessibility programs, with the right questions to ask before applying."
+excerpt: "Practical guide to Weston purchase assistance, hurricane repair, and accessibility programs, plus key questions to ask before applying."
 category: "Buyer Guide"
 image: "/images/journal/og/weston-homebuyer-purchase-assistance-2026.jpg"
 created_by: "manual"

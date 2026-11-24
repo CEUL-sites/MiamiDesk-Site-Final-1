@@ -55,11 +55,11 @@ Lower cost is not automatic — it is a series of deliberate choices. High HOA d
 
 ## How the Sale Funds the Whole Plan
 
-Every benefit above starts with one number: what your current home actually nets at sale. A rushed, under-positioned listing gives back the very equity that's supposed to fund your lower-cost future. Distribution protects that number — *features describe a property; distribution determines its price* (more in [Listing a Home Online vs. Activating the Market](/journal/listing-online-vs-activating-the-market-south-florida-2026)). Model your net first with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=downsizing-playbook&market=south-florida&funnel_stage=consideration).
+Every benefit above starts with one number: what your current home actually nets at sale. A rushed, under-positioned listing gives back the very equity that's supposed to fund your lower-cost future. Distribution protects that number — *features describe a property; distribution determines its price* (more in [Listing a Home Online vs. Activating the Market](/journal/listing-online-vs-activating-the-market-south-florida-2026)). Model your net first with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf).
 
 ## Your Next Step
 
-If lowering your monthly cost of living is the goal, the place to start is a clear read on what your current home is worth and what it would net. Request a [confidential home value review](/home-value?utm_source=journal&utm_medium=post&utm_campaign=downsizing-playbook&market=south-florida&funnel_stage=consideration), then book a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=downsizing-playbook&market=south-florida&funnel_stage=consideration) and our team will help you map the sale, the proceeds, and the right-sized move as one plan. You can also [request a review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=downsizing-playbook&market=south-florida&funnel_stage=consideration).
+If lowering your monthly cost of living is the goal, the place to start is a clear read on what your current home is worth and what it would net. Request a [confidential home value review](/home-value), then book a [Private Seller Strategy Review](/sell) and our team will help you map the sale, the proceeds, and the right-sized move as one plan. You can also [request a review directly](/contact).
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, and a seat at United Realty Group. He reviews every seller request personally.
 

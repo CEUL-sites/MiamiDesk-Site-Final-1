@@ -6,14 +6,15 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/"/>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://homesprofessional.com/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://homesprofessional.com/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.97</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender"/>
   </url>
@@ -22,13 +23,13 @@
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-weston"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-coral-gables</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-coral-gables"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-gables"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-coral-gables"/>
   </url>
@@ -37,13 +38,13 @@
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-aventura"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-doral</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-doral"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-doral"/>
   </url>
@@ -52,6 +53,7 @@
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-brickell"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-brickell"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-brickell"/>
   </url>
@@ -60,83 +62,73 @@
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-springs"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-pembroke-pines</loc>
     <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-pembroke-pines"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-fort-lauderdale</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-fort-lauderdale"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-plantation</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-plantation"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-sunrise</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-sunrise"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-miami</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-miami"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-kendall</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-kendall"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-downtown-miami</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-downtown-miami"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-north-miami</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-north-miami"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-pompano-beach</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-pompano-beach"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/sell-hallandale-beach</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-hallandale-beach"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/global-desk</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
@@ -193,13 +185,13 @@
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.96</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/home-value"/>
   </url>
 <url>
     <loc>https://homesprofessional.com/agents</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.87</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/agents"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/agents"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/agentes"/>
   </url>
@@ -208,6 +200,7 @@
     <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/buy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/buy"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/comprar"/>
   </url>
@@ -260,18 +253,6 @@
     <priority>0.80</priority>
   </url>
 <url>
-    <loc>https://homesprofessional.com/privacy</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.40</priority>
-  </url>
-<url>
-    <loc>https://homesprofessional.com/terms</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.40</priority>
-  </url>
-<url>
     <loc>https://homesprofessional.com/journal</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -291,6 +272,7 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender"/>
   </url>
@@ -299,6 +281,7 @@
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/buy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/buy"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/comprar"/>
   </url>
@@ -316,6 +299,7 @@
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/global-desk"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/spain-desk"/>
   </url>
@@ -324,6 +308,7 @@
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-doral"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-doral"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-doral"/>
   </url>
@@ -332,6 +317,7 @@
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-brickell"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-brickell"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-brickell"/>
   </url>
@@ -340,6 +326,7 @@
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://homesprofessional.com/sell-coral-gables"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-gables"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-coral-gables"/>
   </url>
@@ -349,8 +336,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
   </url>
-<url><loc>https://homesprofessional.com/journal/south-florida-new-construction-vs-resale-rate-buydowns-2026</loc></url>
-<url><loc>https://homesprofessional.com/journal/south-florida-condo-warrantability-fannie-mae-full-review-2026</loc></url>
+<url><loc>https://homesprofessional.com/journal/south-florida-new-construction-vs-resale-rate-buydowns-2026</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority></url>
+<url><loc>https://homesprofessional.com/journal/south-florida-condo-warrantability-fannie-mae-full-review-2026</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority></url>
 <url>
     <loc>https://homesprofessional.com/journal/sell-south-florida-home-now-or-wait-until-2027</loc>
     <lastmod>2026-11-22</lastmod>
@@ -405,15 +398,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
-<url><loc>https://homesprofessional.com/journal/south-florida-market-by-market-what-buyers-verify-2026</loc></url>
+<url><loc>https://homesprofessional.com/journal/south-florida-market-by-market-what-buyers-verify-2026</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority></url>
 <url>
     <loc>https://homesprofessional.com/journal/firpta-withholding-foreign-seller-south-florida-2026</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
-<url><loc>https://homesprofessional.com/journal/mortgage-rate-lock-in-south-florida-sellers-2026</loc></url>
-<url><loc>https://homesprofessional.com/journal/florida-amendment-3-property-tax-investors-landlords-2027</loc></url>
+<url><loc>https://homesprofessional.com/journal/mortgage-rate-lock-in-south-florida-sellers-2026</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority></url>
+<url><loc>https://homesprofessional.com/journal/florida-amendment-3-property-tax-investors-landlords-2027</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority></url>
 <url>
     <loc>https://homesprofessional.com/journal/weston-downsizing-equity-post-occupancy-homestead-portability</loc>
     <lastmod>2026-10-21</lastmod>
@@ -506,7 +508,7 @@
   </url>
 <url>
     <loc>https://homesprofessional.com/journal/south-florida-may-2026-market-report-home-sellers</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
@@ -602,7 +604,7 @@
   </url>
 <url>
     <loc>https://homesprofessional.com/journal/seller-closing-costs-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.84</priority>
   </url>
@@ -614,7 +616,7 @@
   </url>
 <url>
     <loc>https://homesprofessional.com/journal/hoa-impact-home-sale-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.84</priority>
   </url>

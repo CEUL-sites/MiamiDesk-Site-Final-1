@@ -107,7 +107,7 @@ Our team works in English and Spanish. When an owner needs discretion, we set ou
 
 Book a 20-minute pricing and distribution review. Carlos Uzcategui and our team review the property, the level of privacy the owner requires, and a pricing range from current MLS comparables, then outline which listing status fits and why. There is no listing commitment.
 
-[Book a 20-minute pricing and distribution review](/home-value?utm_source=journal&utm_medium=seo&utm_campaign=private-listing-vs-mls-south-florida-sellers-2026)
+[Book a 20-minute pricing and distribution review](/home-value)
 
 Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing approaches can also start with our [South Florida seller strategy page](/sell).
 

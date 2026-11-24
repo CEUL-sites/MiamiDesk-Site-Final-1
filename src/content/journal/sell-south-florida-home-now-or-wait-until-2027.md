@@ -1,5 +1,6 @@
 ---
 title: "Should You Sell Your South Florida Home Now or Wait Until 2027?"
+seoTitle: "Sell South Florida Home Now or Wait Until 2027?"
 date: "2026-11-22"
 slug: "sell-south-florida-home-now-or-wait-until-2027"
 excerpt: "Compare late-2026 South Florida selling timing vs. 2027 using October 2026 Miami-Dade ($706K), Broward ($610K), and Palm Beach ($682.5K) data plus 7.28% rates."
@@ -76,9 +77,9 @@ Distribution does not guarantee a sale price, buyer inquiry, or closing timeline
 
 Before deciding whether to list this winter or hold into 2027, schedule a confidential **Private Seller Strategy Review** to benchmark county and enclave absorption, review insurance and SIRS positioning, and map global MLS distribution.
 
-[Request a Private Seller Strategy Review](/home-value?utm_source=journal&utm_medium=organic&utm_campaign=sell-south-florida-home-now-or-wait-until-2027)
+[Request a Private Seller Strategy Review](/home-value)
 
-You can also review our [South Florida seller representation approach](/sell-south-florida?utm_source=journal&utm_medium=organic&utm_campaign=sell-south-florida-home-now-or-wait-until-2027), message Carlos directly on [WhatsApp (+1 954-865-6622)](https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20read%20your%20HomesProfessional%20Journal%20analysis%20and%20would%20like%20to%20schedule%20a%20Private%20Seller%20Strategy%20Review.), call [+1 954-865-6622](tel:+19548656622), or email [contact@carlosre.com](mailto:contact@carlosre.com).
+You can also review our [South Florida seller representation approach](/sell), message Carlos directly on [WhatsApp (+1 954-865-6622)](https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20read%20your%20HomesProfessional%20Journal%20analysis%20and%20would%20like%20to%20schedule%20a%20Private%20Seller%20Strategy%20Review.), call [+1 954-865-6622](tel:+19548656622), or email [contact@carlosre.com](mailto:contact@carlosre.com).
 
 ## Source and Compliance Notes
 

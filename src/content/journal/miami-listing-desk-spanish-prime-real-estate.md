@@ -343,7 +343,7 @@ The Desk connects selected Spanish prime real estate with the South Florida prof
 
 Spanish agencies, developers, and prime-property advisors can request a Miami Listing Desk strategy conversation to determine whether their inventory is suitable for South Florida professional activation, what documentation is required, and how buyer-agent cooperation would be structured.
 
-[Request a Miami Listing Desk strategy conversation](https://homesprofessional.com/contact?utm_source=journal&utm_medium=seo&utm_campaign=miami-listing-desk-spanish-prime-real-estate)
+[Request a Miami Listing Desk strategy conversation](https://homesprofessional.com/contact)
 
 Carlos Uzcategui  
 Florida Licensed Realtor® SL705771  

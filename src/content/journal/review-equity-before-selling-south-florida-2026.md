@@ -22,7 +22,7 @@ Whether you are considering downsizing, relocating, or simply testing the market
 - How does that fund my next chapter — a smaller home, a move, or reinvestment?
 - Is my timing working for me or against me?
 
-You can model the first question yourself. The [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=review-equity&funnel_stage=bottom_funnel) shows what sellers keep across Miami-Dade, Broward, and Palm Beach.
+You can model the first question yourself. The [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf) shows what sellers keep across Miami-Dade, Broward, and Palm Beach.
 
 ## Then Ask the Second Question
 
@@ -34,13 +34,13 @@ An online estimate tells you a number. It does not tell you who will see your ho
 
 ## A Three-Point Check Before You List
 
-1. **Equity** — Know your net, not just your list price. Model it with the [net sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=review-equity&funnel_stage=bottom_funnel).
-2. **Value** — Get a property-specific read from current MLS data, not an algorithm. Request a [confidential home value review](/home-value?utm_source=journal&utm_medium=post&utm_campaign=review-equity&funnel_stage=bottom_funnel).
+1. **Equity** — Know your net, not just your list price. Model it with the [net sheet](/south-florida-sellers-net-sheet-2026.pdf).
+2. **Value** — Get a property-specific read from current MLS data, not an algorithm. Request a [confidential home value review](/home-value).
 3. **Distribution** — Understand how the property will be exposed and positioned before it goes public.
 
 ## Your Next Step
 
-If you are within a year of a possible sale, the smartest first move is information, not a listing. Request a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=review-equity&funnel_stage=bottom_funnel) with Carlos Uzcategui — Florida Licensed Realtor® since 2001, 25 years in South Florida, Certified Luxury Home Marketing Specialist, United Realty Group. It is confidential, carries no obligation, and our team reviews every request.
+If you are within a year of a possible sale, the smartest first move is information, not a listing. Request a [Private Seller Strategy Review](/sell) with Carlos Uzcategui — Florida Licensed Realtor® since 2001, 25 years in South Florida, Certified Luxury Home Marketing Specialist, United Realty Group. It is confidential, carries no obligation, and our team reviews every request.
 
 ## Source and Compliance Notes
 

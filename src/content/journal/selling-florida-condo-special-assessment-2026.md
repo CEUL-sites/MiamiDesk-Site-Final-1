@@ -107,7 +107,7 @@ Our team works in English and Spanish. With an assessed unit, we assemble the as
 
 Book a 20-minute pricing and distribution review. Carlos Uzcategui and our team review the unit, the assessment documents you already have and current MLS comparables from your building, then outline how the assessment is likely to affect price and which allocation structure fits. There is no listing commitment.
 
-[Book a 20-minute pricing and distribution review](/home-value?utm_source=journal&utm_medium=seo&utm_campaign=selling-florida-condo-special-assessment-2026)
+[Book a 20-minute pricing and distribution review](/home-value)
 
 Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing approaches can also start with our [South Florida seller strategy page](/sell).
 

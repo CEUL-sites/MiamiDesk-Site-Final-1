@@ -44,7 +44,7 @@ Under Fannie Mae B3-4.1-02, temporary interest rate buydowns count inside these 
 
 ## Four Hidden Variables Buyers Must Audit Before Choosing New Construction
 
-Builders across Palm Beach, western Broward, and suburban Miami-Dade are heavily promoting rate buydowns and flex-cash packages—especially on quick move-in (spec) inventory—while elevated construction-material costs (~10% higher year-over-year) and labor costs tighten builder margins. Buyers comparing [South Florida new construction](/new-construction?utm_source=journal&utm_medium=organic&utm_campaign=south-florida-new-construction-vs-resale-rate-buydowns-2026) against resale homes should verify four critical factors before signing a builder contract:
+Builders across Palm Beach, western Broward, and suburban Miami-Dade are heavily promoting rate buydowns and flex-cash packages—especially on quick move-in (spec) inventory—while elevated construction-material costs (~10% higher year-over-year) and labor costs tighten builder margins. Buyers comparing [South Florida new construction](/new-construction) against resale homes should verify four critical factors before signing a builder contract:
 
 1. **Captive-Lender Fee Trade-Offs:** Aggressive builder rate buydowns almost always require using the builder's affiliated mortgage company. Obtain a parallel Loan Estimate from an independent lender to confirm higher origination points or base prices are not quietly absorbing the advertised rate discount.
 2. **CDD Assessments, HOA Dues & Improved-Value Tax Resets:** Many master-planned communities in Broward and Palm Beach carry Community Development District (CDD) bond assessments alongside HOA fees. Furthermore, first-year closing tax estimates based on unimproved land jump sharply once the county Property Appraiser assesses the finished home.
@@ -82,8 +82,8 @@ Distribution does not guarantee a sale price, buyer inquiry, or closing timeline
 
 ### 3. Next Step: Private Seller Strategy Review or New-Construction Buyer Advisory
 
-- **Resale Homeowners:** [Request a Private Seller Strategy Review](/home-value?utm_source=journal&utm_medium=organic&utm_campaign=south-florida-new-construction-vs-resale-rate-buydowns-2026) or review our [South Florida seller representation approach](/sell-south-florida?utm_source=journal&utm_medium=organic&utm_campaign=south-florida-new-construction-vs-resale-rate-buydowns-2026) to model targeted rate-buydown concessions vs. asking price positioning before listing.
-- **Buyers & New-Construction Shoppers:** Explore our [South Florida new construction advisory](/new-construction?utm_source=journal&utm_medium=organic&utm_campaign=south-florida-new-construction-vs-resale-rate-buydowns-2026) or start a [South Florida buyer consultation](/buy?utm_source=journal&utm_medium=organic&utm_campaign=south-florida-new-construction-vs-resale-rate-buydowns-2026) before visiting builder sales offices so your independent representation is registered on first visit.
+- **Resale Homeowners:** [Request a Private Seller Strategy Review](/home-value) or review our [South Florida seller representation approach](/sell) to model targeted rate-buydown concessions vs. asking price positioning before listing.
+- **Buyers & New-Construction Shoppers:** Explore our [South Florida new construction advisory](/new-construction) or start a [South Florida buyer consultation](/buy) before visiting builder sales offices so your independent representation is registered on first visit.
 
 Message Carlos directly on [WhatsApp (+1 954-865-6622)](https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20read%20your%20HomesProfessional%20Journal%20rate%20buydown%20and%20new%20construction%20analysis%20and%20would%20like%20to%20schedule%20a%20consultation.), call [+1 954-865-6622](tel:+19548656622), or email [contact@carlosre.com](mailto:contact@carlosre.com).
 

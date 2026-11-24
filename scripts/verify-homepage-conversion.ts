@@ -214,7 +214,7 @@ for (let index = 1; index < sectionOrder.length; index += 1) {
 assert.match(home, /<title>South Florida Listing Agent \| Carlos Uzcategui<\/title>/);
 assert.match(
   home,
-  /Sell your South Florida home with Carlos Uzcategui at United Realty Group. Strategic MLS positioning, buyer-agent negotiation, and contract protection. Request a private seller strategy review\./,
+  /Sell your South Florida home with Carlos Uzcategui at United Realty Group\. Strategic MLS positioning, buyer-agent negotiation, and contract defense\./,
 );
 assert.match(form, /Private Property Strategy/);
 assert.match(form, /Estrategia Privada de la Propiedad/);

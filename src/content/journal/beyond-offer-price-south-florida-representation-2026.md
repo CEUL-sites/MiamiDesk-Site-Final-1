@@ -134,7 +134,7 @@ The client should never feel that the transaction is merely happening around the
 
 If you are considering selling, buying, relocating, or exchanging real estate in South Florida, begin before the property is listed or the offer is written. Early planning creates more options — and better options create greater negotiating strength.
 
-[Request a Private Property Strategy Call](/contact?utm_source=journal&utm_medium=seo&utm_campaign=beyond-offer-price-south-florida-representation-2026)
+[Request a Private Property Strategy Call](/contact)
 
 USA WhatsApp: +1 954-865-6622
 

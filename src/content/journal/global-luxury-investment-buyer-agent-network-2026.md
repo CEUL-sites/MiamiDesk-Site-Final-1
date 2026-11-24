@@ -62,7 +62,7 @@ The reach works both ways, and that is the point of the **Global Desk**.
 
 A capable buyer for a residence on the Spanish coast may already be working with a trusted advisor in Miami, New York, Mexico City, Bogotá, Buenos Aires, or São Paulo. A buyer for a Miami waterfront residence may be sitting in Madrid or Marbella. The same cooperation network that carries a South Florida listing to international buyer agents carries a Spanish listing to the agents whose clients are moving capital into it — and connects Spanish and Latin American buyer representatives to Miami inventory.
 
-For the seller, the benefit is one relationship instead of many: a single point of contact that plugs prime or investment property — wherever it sits — into a worldwide professional network, in the buyer's language. The cross-border model for Spanish prime inventory is detailed in [The Miami Listing Desk for Spanish Prime Real Estate](/journal/miami-listing-desk-spanish-prime-real-estate) and at the [Global Desk](/global-desk?utm_source=journal&utm_medium=post&utm_campaign=global-luxury-desk&market=global&funnel_stage=consideration).
+For the seller, the benefit is one relationship instead of many: a single point of contact that plugs prime or investment property — wherever it sits — into a worldwide professional network, in the buyer's language. The cross-border model for Spanish prime inventory is detailed in [The Miami Listing Desk for Spanish Prime Real Estate](/journal/miami-listing-desk-spanish-prime-real-estate) and at the [Global Desk](/global-desk).
 
 ## Twenty-Five Years Turning Reach Into Results
 
@@ -70,7 +70,7 @@ Reach opens the door; experience closes it. Carlos Uzcategui has been a Florida 
 
 ## One Desk. A Worldwide Network.
 
-If you own a luxury residence or an investment property — in South Florida, in Spain, or anywhere your buyer's agent may be — start with a confidential conversation, not a public listing. Connect with the [Global Desk](/global-desk?utm_source=journal&utm_medium=post&utm_campaign=global-luxury-desk&market=global&funnel_stage=consideration) to position your property inside the worldwide buyer-agent network, request a [confidential property review](/home-value?utm_source=journal&utm_medium=post&utm_campaign=global-luxury-desk&market=global&funnel_stage=consideration) against the relevant market, or [reach Carlos directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=global-luxury-desk&market=global&funnel_stage=consideration). South Florida owners can also begin a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=global-luxury-desk&market=global&funnel_stage=consideration); owners of Spanish prime inventory can start at the [Spain listing desk](/spain-mls-listing?utm_source=journal&utm_medium=post&utm_campaign=global-luxury-desk&market=global&funnel_stage=consideration).
+If you own a luxury residence or an investment property — in South Florida, in Spain, or anywhere your buyer's agent may be — start with a confidential conversation, not a public listing. Connect with the [Global Desk](/global-desk) to position your property inside the worldwide buyer-agent network, request a [confidential property review](/home-value) against the relevant market, or [reach Carlos directly](/contact). South Florida owners can also begin a [Private Seller Strategy Review](/sell); owners of Spanish prime inventory can start at the [Spain listing desk](/spain-mls-listing).
 
 ## Source and Compliance Notes
 

@@ -97,7 +97,7 @@ The objective is a move that leaves you in a suitable home, with a manageable mo
 
 Start with your property address, approximate mortgage balance, current monthly housing costs, preferred communities and intended moving date. We will review those priorities with you and develop a preliminary proceeds estimate, replacement-home budget and possession timeline, with tax and legal questions identified for the appropriate professionals.
 
-**[Request a Private Downsizing Strategy Review](/sell-weston?journal_cta=bottom&journal_offer=seller-strategy&journal_origin=weston-downsizing-equity-post-occupancy-homestead-portability&utm_campaign=weston-downsizing-equity-post-occupancy-homestead-portability&utm_content=bottom&utm_medium=internal&utm_source=journal#contact)**
+**[Request a Private Downsizing Strategy Review](/sell-weston#contact)**
 
 WhatsApp / Text: [+1 954-865-6622](https://wa.me/19548656622) · Email: [contact@carlosre.com](mailto:contact@carlosre.com)
 

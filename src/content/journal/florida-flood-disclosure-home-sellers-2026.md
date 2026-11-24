@@ -109,7 +109,7 @@ Our team works in English and Spanish and prepares the listing file before the p
 
 Book a 20-minute pricing and distribution review. Carlos Uzcategui and our team review the property, the documents behind its disclosures, and a pricing range from current MLS comparables, then outline the launch plan. There is no listing commitment.
 
-[Book a 20-minute pricing and distribution review](/home-value?utm_source=journal&utm_medium=seo&utm_campaign=florida-flood-disclosure-home-sellers-2026)
+[Book a 20-minute pricing and distribution review](/home-value)
 
 Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing markets can also start with our [South Florida seller strategy page](/sell).
 

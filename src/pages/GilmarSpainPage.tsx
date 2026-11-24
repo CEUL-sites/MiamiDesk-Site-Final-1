@@ -661,6 +661,17 @@ export default function GilmarSpainPage() {
   const [intakeTab, setIntakeTab] = useState<"agent" | "buyer">("agent");
   const [selectedProperty, setSelectedProperty] = useState<PropertyDetail | null>(null);
 
+  useEffect(() => {
+    if (typeof document === "undefined" || navigator.webdriver) return;
+    if (document.getElementById("gilmar-fonts-css")) return;
+    const link = document.createElement("link");
+    link.id = "gilmar-fonts-css";
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap";
+    document.head.appendChild(link);
+  }, []);
+
   const es = lang === "es";
   const faqs = getFaqs(lang);
   const selectedMarket = IDX_MARKETS.find((m) => m.key === activeMarketKey) ?? IDX_MARKETS[0];
@@ -750,10 +761,6 @@ export default function GilmarSpainPage() {
               ? "Cartera de más de 2.000 propiedades en España con GILMAR Consulting Inmobiliario y honorarios de referencia negociados por escrito vía United Realty Group."
               : "Browse 2,000+ properties across Spain with GILMAR Consulting Inmobiliario through registration, backed by written negotiated referral agreements via United Realty Group."
           }
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap"
         />
         <link rel="canonical" href="https://homesprofessional.com/gilmar-spain" />
         <meta property="og:type" content="website" />

@@ -239,7 +239,7 @@ The distribution side follows the preparation. A listing enters the MLS ecosyste
 
 Request a private seller strategy review. Carlos Uzcategui and the team review the property against its market's diligence list, set a pricing range from current MLS comparables, and outline the launch plan. There is no listing commitment.
 
-[Request a home value review](/home-value?utm_source=journal&utm_medium=seo&utm_campaign=south-florida-market-by-market-what-buyers-verify-2026)
+[Request a home value review](/home-value)
 
 ## FAQ
 

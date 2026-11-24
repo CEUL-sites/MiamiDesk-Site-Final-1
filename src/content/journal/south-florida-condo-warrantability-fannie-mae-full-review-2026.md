@@ -91,8 +91,8 @@ Distribution does not guarantee a sale price, buyer inquiry, or closing timeline
 
 ### 3. Next Step: Private Seller Strategy Review or Buyer Building Consultation
 
-- **Condominium Sellers:** [Request a Private Seller Strategy Review](/home-value?utm_source=journal&utm_medium=organic&utm_campaign=south-florida-condo-warrantability-fannie-mae-full-review-2026) or explore our [South Florida seller representation approach](/sell-south-florida?utm_source=journal&utm_medium=organic&utm_campaign=south-florida-condo-warrantability-fannie-mae-full-review-2026) to benchmark building warrantability, competing supply, and global cash-buyer distribution.
-- **Condominium Buyers:** [Start a South Florida Buyer Building Review](/buy?utm_source=journal&utm_medium=organic&utm_campaign=south-florida-condo-warrantability-fannie-mae-full-review-2026) to vet Milestone Inspections, SIRS compliance, and financing options before committing to a contract.
+- **Condominium Sellers:** [Request a Private Seller Strategy Review](/home-value) or explore our [South Florida seller representation approach](/sell) to benchmark building warrantability, competing supply, and global cash-buyer distribution.
+- **Condominium Buyers:** [Start a South Florida Buyer Building Review](/buy) to vet Milestone Inspections, SIRS compliance, and financing options before committing to a contract.
 
 Message Carlos directly on [WhatsApp (+1 954-865-6622)](https://wa.me/19548656622?text=Hello%20Carlos%2C%20I%20read%20your%20HomesProfessional%20Journal%20condo%20warrantability%20analysis%20and%20would%20like%20to%20schedule%20a%20consultation.), call [+1 954-865-6622](tel:+19548656622), or email [contact@carlosre.com](mailto:contact@carlosre.com).
 

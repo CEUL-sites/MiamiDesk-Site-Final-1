@@ -674,7 +674,7 @@ function buildPost(topic, overrides = {}) {
   assertSeoTitle(seoTitle);
   const excerpt = angle.excerpt(market);
   const ctaPath = angle.audience === 'buyer' ? '/buy' : market.sellerPage;
-  const ctaUrl = `${ctaPath}?utm_source=journal&utm_medium=seo&utm_campaign=${slug}`;
+  const ctaUrl = ctaPath;
   const reviewName = angle.audience === 'buyer' ? 'South Florida Buyer Strategy Review' : 'Private Seller Strategy Review';
 
   // Secondary internal link to the market's seller page. Skipped for /contact and

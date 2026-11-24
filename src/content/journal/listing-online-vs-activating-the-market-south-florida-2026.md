@@ -64,11 +64,11 @@ None of this guarantees a result — no honest agent can promise a price or a ti
 
 The owners with the most to gain from disciplined distribution are often those who have held South Florida property for years and are now considering downsizing or relocating. Their equity is real, but it is not realized until the sale closes — and the gap between a passively listed price and an actively positioned one is frequently the difference between funding the next chapter comfortably and settling for less.
 
-Before deciding what your home is worth, it is worth understanding what its distribution strategy could be. Run the numbers on what you would actually keep with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=listing-vs-activating&funnel_stage=consideration), then see where your property sits in today's market with a [confidential home value review](/home-value?utm_source=journal&utm_medium=post&utm_campaign=listing-vs-activating&funnel_stage=consideration).
+Before deciding what your home is worth, it is worth understanding what its distribution strategy could be. Run the numbers on what you would actually keep with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf), then see where your property sits in today's market with a [confidential home value review](/home-value).
 
 ## Your Next Step
 
-If you are weighing a sale in Miami-Dade, Broward, or Palm Beach, the right starting point is a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=listing-vs-activating&funnel_stage=consideration). It is a confidential conversation about positioning, pricing, timing, and distribution — before your listing becomes public and the first impression is set. You can also [request a strategy review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=listing-vs-activating&funnel_stage=consideration).
+If you are weighing a sale in Miami-Dade, Broward, or Palm Beach, the right starting point is a [Private Seller Strategy Review](/sell). It is a confidential conversation about positioning, pricing, timing, and distribution — before your listing becomes public and the first impression is set. You can also [request a strategy review directly](/contact).
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, a Certified Luxury Home Marketing Specialist designation, and a seat at United Realty Group. He reviews every seller request personally.
 

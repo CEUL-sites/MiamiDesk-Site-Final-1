@@ -37,7 +37,7 @@ Sale price is not what you keep. Start with the proceeds:
 - Less remaining mortgage payoff (about **$300,000** after 15 years of payments on the original $450,000 loan): **−$300,000**
 - **Net cash proceeds: ≈ $734,000**
 
-That $734,000 is the number that funds the next chapter — not the $1.1M headline. You can model your own version with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf?utm_source=journal&utm_medium=post&utm_campaign=downsizing-example&market=south-florida&funnel_stage=consideration).
+That $734,000 is the number that funds the next chapter — not the $1.1M headline. You can model your own version with the [South Florida Seller's Net Sheet](/south-florida-sellers-net-sheet-2026.pdf).
 
 ## Step 2 — The Capital Gains Question
 
@@ -114,7 +114,7 @@ When the goal is downsizing, the sale and the next purchase are one coordinated 
 
 ## Your Next Step
 
-If you are weighing a downsize anywhere in Miami-Dade or Broward, start with a [Private Seller Strategy Review](/sell?utm_source=journal&utm_medium=post&utm_campaign=downsizing-example&market=south-florida&funnel_stage=consideration). Our team will help you map the sale, the net proceeds, and the next move as one plan. You can also [see what your current home could sell for today](/home-value?utm_source=journal&utm_medium=post&utm_campaign=downsizing-example&market=south-florida&funnel_stage=consideration), or [request a review directly](/contact?utm_source=journal&utm_medium=post&utm_campaign=downsizing-example&market=south-florida&funnel_stage=consideration).
+If you are weighing a downsize anywhere in Miami-Dade or Broward, start with a [Private Seller Strategy Review](/sell). Our team will help you map the sale, the net proceeds, and the next move as one plan. You can also [see what your current home could sell for today](/home-value), or [request a review directly](/contact).
 
 Carlos Uzcategui has been a Florida Licensed Realtor® since 2001, with 25 years of South Florida experience, the Certified Luxury Home Marketing Specialist designation, and a seat at United Realty Group. He reviews every seller request personally.
 

@@ -95,7 +95,7 @@ Our team works in English and Spanish. Before any owner signs, we walk through t
 
 Book a Private Seller Strategy Review. Carlos Uzcategui and our team review your property, current comparable sales and the listing terms that fit your plan, and walk you through the agreement before anything is signed. There is no listing commitment.
 
-[Book a Private Seller Strategy Review](/home-value?utm_source=journal&utm_medium=organic&utm_campaign=florida-listing-agreement-what-sellers-sign-2026)
+[Book a Private Seller Strategy Review](/home-value)
 
 Prefer a direct conversation? WhatsApp +1 954-865-6622 (United States), WhatsApp +34 646 85 30 78 (Spain), or email contact@carlosre.com. Owners comparing approaches can also start with our [South Florida seller strategy page](/sell).
 
