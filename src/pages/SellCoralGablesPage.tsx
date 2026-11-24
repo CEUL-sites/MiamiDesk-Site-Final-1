@@ -16,6 +16,7 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const CORAL_GABLES_FAQS = [
   {
@@ -100,13 +101,11 @@ export default function SellCoralGablesPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-navy-deep/30 to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Coral Gables, FL · Luxury Seller Advisory</p>
-            <h1
-              className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
-              style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
-            >
-              Sell your Coral Gables property with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Coral Gables property with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Coral Gables"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               The Coral Gables luxury buyer pool is international by nature. Mediterranean architecture, Miracle Mile,
               and Brickell adjacency create consistent demand — from domestic executives to out-of-state and

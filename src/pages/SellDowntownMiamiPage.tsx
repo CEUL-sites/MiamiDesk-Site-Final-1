@@ -15,6 +15,7 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const DOWNTOWN_MIAMI_FAQS = [
   {
@@ -92,10 +93,11 @@ export default function SellDowntownMiamiPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Downtown Miami, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Downtown Miami condo with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Downtown Miami condo with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Downtown Miami"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Downtown Miami's high-rise condo market demands specialist positioning — building-level documentation,
               investor buyer activation, and international distribution to the global buyer pool

@@ -13,6 +13,7 @@ import { NeighborhoodMarketStats } from "../../components/NeighborhoodMarketStat
 import { FaqAccordion } from "../../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 import { AGGREGATE_RATING } from "../../data/reviews";
+import { HeroTitle } from "../../components/HeroTitle";
 
 // Spanish equivalent of src/pages/SellCoralGablesPage.tsx — same claims,
 // market figures (src/data/cityMarketStats.ts), and compliance ceiling,
@@ -155,14 +156,13 @@ export default function EsVenderCoralGablesPage() {
           <div className="relative">
             {/* TODO: native Madrid editor review */}
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Coral Gables, FL · Asesoría de Lujo para Vendedores</p>
-            <h1
-              className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
-              style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
-            >
-              {/* TODO: native Madrid editor review */}
-              Venda su propiedad en Coral Gables con el alcance<br />
-              <em className="italic text-gold">de la asociación local de REALTORS® más grande del mundo.</em>
-            </h1>
+            {/* TODO: native Madrid editor review */}
+            <HeroTitle
+              lead="Venda su propiedad en Coral Gables con el alcance"
+              payoff="de la asociación local de REALTORS® más grande del mundo."
+              keep={["Coral Gables"]}
+              tailWords={{ payoff: 5 }}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               {/* TODO: native Madrid editor review */}
               El grupo de compradores de lujo de Coral Gables es internacional por naturaleza. La arquitectura

@@ -19,6 +19,7 @@ import { CONTACT, LEAD_MAGNETS } from "../constants";
 import { getCityMarketStats, segmentPeriod } from "../data/cityMarketStats";
 import { WestonMarketReport } from "../components/WestonMarketReport";
 import { WESTON_REPORT_UPDATED } from "../data/westonReport";
+import { HeroTitle } from "../components/HeroTitle";
 
 const weston = getCityMarketStats("Weston")!;
 const westonSingleFamily = weston.stats.singleFamily!;
@@ -134,13 +135,11 @@ export default function SellWestonPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Weston, FL · Listing Agent &amp; Seller Representation</p>
-            <h1
-              className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
-              style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
-            >
-              What would your Weston home compete against today?<br />
-              <em className="italic text-gold">Build the sale around price, proceeds and your next move.</em>
-            </h1>
+            <HeroTitle
+              lead="What would your Weston home compete against today?"
+              payoff="Build the sale around price, proceeds and your next move."
+              keep={["Weston"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               We review your community's competing homes, position the listing for relevant buyers and their agents,
               and plan the offer terms and timing around your next move. Carlos leads the strategy through United Realty Group.
