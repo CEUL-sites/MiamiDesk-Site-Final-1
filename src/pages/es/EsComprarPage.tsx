@@ -70,7 +70,7 @@ const BUYER_PROFILES = [
     title: "Comprador de Reubicación",
     // TODO: native Madrid editor review
     description:
-      "Familias y profesionales que trasladan su residencia principal desde España o Latinoamérica a Sur de Florida. Asesoramiento sobre zonas escolares, acceso a servicios y conectividad con la comunidad hispanohablante.",
+      "Familias y profesionales que trasladan su residencia principal desde España o Latinoamérica a Sur de Florida. Asesoramiento sobre zonas escolares, acceso a servicios, transporte y tiempos de traslado.",
   },
   {
     // TODO: native Madrid editor review
@@ -111,7 +111,7 @@ const NEIGHBORHOODS = [
     name: "Aventura",
     // TODO: native Madrid editor review
     description:
-      "Comunidad planificada con concentración significativa de compradores latinoamericanos y europeos, acceso al metro y alta oferta de servicios.",
+      "Ciudad de torres residenciales junto al Intracoastal, con Aventura Mall y alta oferta de servicios.",
   },
   {
     name: "Weston",
@@ -123,7 +123,7 @@ const NEIGHBORHOODS = [
     name: "Doral",
     // TODO: native Madrid editor review
     description:
-      "Zona de crecimiento acelerado con fuerte comunidad hispanohablante, buen acceso al aeropuerto de Miami y amplia oferta de nueva construcción.",
+      "Zona de crecimiento acelerado con comunidades planificadas, buen acceso al aeropuerto de Miami y amplia oferta de nueva construcción.",
   },
   {
     name: "Coconut Grove",

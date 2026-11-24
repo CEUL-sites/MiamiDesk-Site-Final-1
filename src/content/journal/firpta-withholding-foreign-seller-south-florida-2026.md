@@ -84,7 +84,7 @@ The tax framework is federal and applies identically in Coral Gables and in Sunn
 
 A listing here enters the MLS ecosystem that 90,000+ South Florida agents work from daily, with syndication to 200+ global portals in 19 languages and 437+ international partner agreements across 75+ countries, alongside United Realty Group's 3,500+ agents and Florida office network. That is exposure, not a promise of price or timing — but for a seller whose most likely buyer is reading in Spanish or Portuguese, the difference between a listing that syndicates internationally and one that does not is a real one.
 
-Our notes on [how international owners should think about MLS exposure](/journal/international-owners-south-florida-mls-2026) and on the [Latin American buyer segment](/journal/latin-american-buyers-south-florida-2026) cover that side in more depth, and the [Global Desk](/global-desk) exists for owners running this in two languages and two time zones.
+Our notes on [how international owners should think about MLS exposure](/journal/international-owners-south-florida-mls-2026) and on [international and out-of-state buyers](/journal/international-buyers-south-florida-2026) cover that side in more depth, and the [Global Desk](/global-desk) exists for owners running this in two languages and two time zones.
 
 ## FAQ
 

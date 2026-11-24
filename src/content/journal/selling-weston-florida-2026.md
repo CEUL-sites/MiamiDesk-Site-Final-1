@@ -49,7 +49,7 @@ For sellers evaluating a [Weston estate sale](/sell-weston), the absorption data
 
 The Weston buyer in 2026 is not a single profile. The active market includes several distinct buyer segments:
 
-> **LATAM professional families** — primarily from Colombia, Venezuela, Brazil, and Argentina — purchasing for education and quality of life. This segment represents consistent demand in the $800K–$2M range and is particularly active in communities adjacent to the top-rated schools.
+> **International relocation families** — professionals moving from abroad and purchasing for education and quality of life, with school access a primary filter.
 
 > **Domestic relocation buyers** from the Northeast, California, and other Florida markets who are purchasing for the HOA environment and school access. This buyer typically finances and has a defined timeline driven by employment or family transitions.
 
@@ -75,7 +75,7 @@ Weston buyers at $1.5M and above bring professional inspectors and often structu
 
 ### 3. Activating the Right Professional Distribution
 
-Listing through the Miami and South Florida REALTORS® MLS connects your property to 93,000 member agents across the region. The buyer for your Weston estate may be represented by a Miami agent with a LATAM client. It may be an international buyer introduced through a referral partner in Colombia or Spain. Distribution through a licensed Florida professional with the right network activates demand beyond the local Broward buyer pool.
+Listing through the Miami and South Florida REALTORS® MLS connects your property to the daily working ecosystem of 93,000 association members across the region. The buyer for your Weston estate may be represented by a Miami agent with a relocating client. It may be an international buyer introduced through a referral partner abroad. Distribution through a licensed Florida professional with the right network activates demand beyond the local Broward buyer pool.
 
 ## Requesting a Weston Property Valuation
 

@@ -44,7 +44,7 @@ export default function SellMiamiPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Miami, FL</title>
-        <meta name="description" content="Miami, FL listing agent — MLS positioning, Latin American and European buyer activation. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <meta name="description" content="Miami, FL listing agent — MLS positioning, buyer-agent outreach, international distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/sell-miami" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-miami" />
@@ -163,14 +163,14 @@ export default function SellMiamiPage() {
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               The City of Miami spans a remarkable range of residential contexts — from waterfront estates in Coconut
               Grove to urban condos in Edgewater, mixed residential blocks in Little Havana, and the creative-corridor
-              properties of Wynwood and Midtown. Latin American and European buyers represent a consistent and
-              significant share of buyer activity across price points and property types, making international
-              distribution a core component of any effective listing strategy.
+              properties of Wynwood and Midtown. Buyers from across South Florida, other states and abroad are active
+              across price points and property types, which makes wide professional and international distribution
+              a core component of the listing strategy.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
                 { label: "Submarket Range", value: "Diverse & Distinct", sub: "From historic single-family neighborhoods to urban mixed-use corridors across a single city" },
-                { label: "Buyer Profile", value: "International Demand", sub: "Latin American and European buyers are active across Miami's property types and price points" },
+                { label: "Buyer Profile", value: "International Demand", sub: "Local, out-of-state and international buyers are active across Miami's property types and price points" },
                 { label: "Investment Activity", value: "Historic + Modern", sub: "Established neighborhoods with ongoing development interest and value repositioning" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
@@ -201,7 +201,7 @@ export default function SellMiamiPage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct Latin American and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
@@ -244,9 +244,9 @@ export default function SellMiamiPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Miami Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+              <a href="/journal/international-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers in South Florida 2026 — Where They're Looking and What They're Buying</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">International and Out-of-State Buyers in South Florida 2026 — What Sellers Should Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
               <a href="/sell" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">

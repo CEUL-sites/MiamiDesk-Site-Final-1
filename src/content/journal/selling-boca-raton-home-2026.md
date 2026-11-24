@@ -36,7 +36,7 @@ The dominant buyer segment in Boca Raton remains domestic relocation — specifi
 
 A secondary segment consists of existing Boca Raton residents moving within the market — downsizing from a larger estate to a club villa, or upgrading from a non-gated community into a country club environment.
 
-International buyer activity exists in Boca Raton but is more concentrated at the waterfront estate and ultra-luxury tier than in the interior residential market. The intracoastal and ocean-facing inventory attracts Brazilian, Venezuelan, and Israeli buyers at a rate similar to South Florida broadly.
+International buyer activity exists in Boca Raton but is more concentrated at the waterfront estate and ultra-luxury tier than in the interior residential market. The intracoastal and ocean-facing inventory attracts out-of-state and international buyers at a rate similar to South Florida broadly.
 
 Market data for Palm Beach County residential closings is reported by the Broward, Palm Beaches & St. Lucie Realtors® based on MLS data compiled by Florida Realtors®. A listing agent with current Boca Raton transaction experience can provide building-specific or neighborhood-specific comparable data rather than county-level averages.
 

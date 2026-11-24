@@ -32,7 +32,7 @@ const CORAL_SPRINGS_FAQS = [
   },
   {
     q: "What types of buyers are most active in Coral Springs?",
-    a: "Coral Springs attracts primarily family-oriented buyers — domestic relocators, South Florida move-up buyers, and Latin American families seeking established suburban infrastructure. The city's bilingual service environment and school quality make it a consistent destination for Venezuelan, Colombian, and Brazilian families relocating within South Florida.",
+    a: "Coral Springs attracts primarily family-oriented buyers — domestic relocators, South Florida move-up buyers, and relocating families seeking established suburban infrastructure. The city's schools, parks and Sawgrass Expressway access make it a consistent destination for families relocating within South Florida and from out of state.",
   },
   {
     q: "What is the seller strategy review?",
@@ -165,13 +165,13 @@ export default function SellCoralSpringsPage() {
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Coral Springs was purpose-planned as a family community and that character has sustained its demand through multiple market cycles.
               The city's A-rated Broward County schools, gated and non-gated community variety, and excellent Sawgrass Expressway access
-              draw both domestic move-up buyers and Latin American families specifically seeking established suburban infrastructure.
+              draw both domestic move-up buyers and relocating families specifically seeking established suburban infrastructure.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "Family-Oriented", sub: "Domestic move-up + LATAM families prioritizing school access" },
+                { label: "Buyer Profile", value: "Family-Oriented", sub: "Move-up and relocating families prioritizing school access" },
                 { label: "School District", value: "A-Rated Schools", sub: "Broward County — consistent academic performance" },
-                { label: "Community Type", value: "Planned & Gated", sub: "Diverse options from established to master-planned sections" },
+                { label: "Community Type", value: "Planned & Gated", sub: "A range of options from established to master-planned sections" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
@@ -201,7 +201,7 @@ export default function SellCoralSpringsPage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
@@ -215,7 +215,7 @@ export default function SellCoralSpringsPage() {
                 {[
                   { label: "Strategy", text: "Pricing analysis + CMA specific to your Coral Springs neighborhood and school zone" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
-                  { label: "Distribution", text: "Family buyer-agent outreach + LATAM referral network" },
+                  { label: "Distribution", text: "Buyer-agent outreach + international referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">

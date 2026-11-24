@@ -20,9 +20,9 @@ In most of the United States, spring — specifically March through May — prod
 
 South Florida operates on a different calendar. The market's primary buyer segment is not local families buying their first home. It is:
 
-- Latin American capital flowing in at multiple points in the year
+- International capital flowing in at multiple points in the year
 - Northeast and Midwest relocation buyers who want to close before South Florida summer heat
-- International buyers from Europe and the Caribbean evaluating property on their own schedules
+- International buyers evaluating property on their own schedules
 - Retirees and second-home purchasers who are not tied to school enrollment
 
 The practical effect is that South Florida's active buying periods are less seasonal and more continuous than in northern U.S. markets. Fall and winter — specifically October through January — are often strong transaction periods because northern buyers are actively looking to escape cold weather and make decisions.
@@ -31,7 +31,7 @@ The practical effect is that South Florida's active buying periods are less seas
 
 Per Miami and South Florida REALTORS® MLS data, South Florida markets have historically shown:
 
-- **October–January**: Strong showing activity from domestic relocation buyers, particularly from the Northeast. International buyer inquiries also increase as European and Latin American buyers plan their South Florida visits.
+- **October–January**: Strong showing activity from domestic relocation buyers, particularly from the Northeast. International buyer inquiries also increase as buyers abroad plan their South Florida visits.
 - **February–May**: The traditional peak for new listings hitting the market. Competition among sellers increases; buyers have more inventory to evaluate.
 - **June–September**: Activity moderates slightly as heat and hurricane season affect showing traffic. Motivated sellers with correctly priced properties still close. Buyer competition is lower, which can work in favor of a seller with a quality asset.
 

@@ -18,7 +18,7 @@ Every seller wants the same outcome: the highest price the market will honestly 
 
 And that buyer almost always has an agent.
 
-The most capable buyers in South Florida — the move-up family, the relocating executive, the international and Latin American purchaser, the cash buyer trading up — are rarely scrolling portals alone at midnight. They are working with a professional who already knows their budget, their timeline, and exactly what they are looking for. If your property never reaches that agent, it never reaches that buyer. The offer that would have set your price simply never gets written.
+The most capable buyers in South Florida — the move-up family, the relocating executive, the international purchaser, the cash buyer trading up — are rarely scrolling portals alone at midnight. They are working with a professional who already knows their budget, their timeline, and exactly what they are looking for. If your property never reaches that agent, it never reaches that buyer. The offer that would have set your price simply never gets written.
 
 So the real question for a seller is not only *"What is my home worth?"* It is: **"How do I make sure the agent who represents my highest-price buyer knows my home exists — and is motivated to present it first?"**
 
@@ -55,7 +55,7 @@ This is not a mailing list. It is the professional environment where buyer agent
 The buyers who pay the strongest prices are frequently the hardest to reach through a passive listing, because they are not searching passively. They are:
 
 - **Move-up and relocation buyers** whose agents are already tracking inventory for them.
-- **International and Latin American purchasers** who begin with a trusted advisor, often in another country or language.
+- **International purchasers** who begin with a trusted advisor, often in another country or language.
 - **Investors and cash buyers** who move quickly when the right introduction reaches their representative.
 
 Each of those buyers is reached through a *different* channel — a different agent, a different association partner, a different language, a different country. A network with **200+ portals in 19 languages** and **cooperation agreements across 75+ countries** exists precisely to carry a single South Florida listing to all of those channels at once. That cross-border reach is the same infrastructure behind the [Global Desk](/global-desk), which connects international owners and buyers to the South Florida professional ecosystem.

@@ -210,11 +210,11 @@ export default function SellWestonPage() {
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Weston combines master-planned suburban infrastructure with one of the highest concentrations of internationally connected buyers in South Florida.
-              The city's A-rated Broward County schools, gated communities, and proximity to the airport create sustained demand - particularly from Latin American and European buyers who have made Weston a primary destination for family relocation.
+              The city's A-rated Broward County schools, gated communities, and proximity to the airport create sustained demand - including from families relocating from other states and abroad.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "International + Local", sub: "Highest LATAM buyer concentration in Broward" },
+                { label: "Buyer Profile", value: "International + Local", sub: "Local move-up, out-of-state and international buyers" },
                 { label: "School District", value: "A-Rated Schools", sub: "Broward County - consistent academic ranking" },
                 { label: "Community Types", value: "Gated & Master-Planned", sub: "20+ distinct communities - HOA-governed" },
               ].map((stat) => (
@@ -246,7 +246,7 @@ export default function SellWestonPage() {
                     "Miami and South Florida REALTORS® MLS - 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group - 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">

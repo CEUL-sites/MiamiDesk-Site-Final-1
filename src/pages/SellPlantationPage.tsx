@@ -170,7 +170,7 @@ export default function SellPlantationPage() {
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Neighborhood Character", value: "Established & Mature", sub: "Tree canopy, maintained HOAs, and diverse lot sizes" },
+                { label: "Neighborhood Character", value: "Established & Mature", sub: "Tree canopy, maintained HOAs, and varied lot sizes" },
                 { label: "Location", value: "Central Broward", sub: "Between Miami and Fort Lauderdale — expressway access" },
                 { label: "Buyer Profile", value: "Family + Professional", sub: "Domestic move-up and relocation buyers across segments" },
               ].map((stat) => (
@@ -202,7 +202,7 @@ export default function SellPlantationPage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">

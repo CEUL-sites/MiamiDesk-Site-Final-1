@@ -33,7 +33,7 @@ A defensible Doral pricing review should compare:
 
 ## Why Doral Demand Deserves a Specific Strategy
 
-Doral has a strong international and bilingual buyer profile, particularly among Latin American families, corporate relocation buyers, and investors seeking access to Miami International Airport, newer communities, schools, logistics corridors, and west Miami-Dade amenities.
+Doral draws local move-up, corporate relocation, out-of-state and international buyers, and investors seeking access to Miami International Airport, newer communities, schools, logistics corridors, and west Miami-Dade amenities.
 
 That demand is real, but it is not automatic. The strongest Doral buyer may come through a buyer's agent, a relocation relationship, or an international referral channel rather than a casual portal view. That makes distribution and buyer-agent activation central to the listing strategy.
 
@@ -51,7 +51,7 @@ This is where positioning matters more than a headline number. Features describe
 
 When a Doral home is listed with Carlos Uzcategui, it is positioned through the Miami and South Florida REALTORS(R) infrastructure: 93,000 member agents, 200+ global portals publishing in 19 languages, 260+ U.S. MLSs syndicated via RPR, 437+ international agreements, 11 MLS data exchanges.
 
-United Realty Group adds 3,500+ agents across 19 Florida office locations. For Doral's Latin American buyer profile in particular, Carlos coordinates a bilingual cross-border referral model. None of this guarantees a price or timeline. It widens the pool of qualified buyers and agents who see the property at launch.
+United Realty Group adds 3,500+ agents across 19 Florida office locations. Carlos also works in English and Spanish and coordinates an international referral model. None of this guarantees a price or timeline. It widens the pool of qualified buyers and agents who see the property at launch.
 
 ## Recommended Next Step
 

@@ -30,7 +30,7 @@ const COUNTY_DETAILS: readonly CountyDetail[] = [
     pinY: 266,
     citiesCount: "19 Municipalities",
     urgBranches: "Aventura · Hialeah · Kendall",
-    text: "Urban condominiums, historic single-family enclaves, and bayfront estates across Coral Gables, Brickell, Aventura, Doral, Miami Beach, and Pinecrest—connecting domestic relocation with Latin American and European buyers.",
+    text: "Urban condominiums, historic single-family enclaves, and bayfront estates across Coral Gables, Brickell, Aventura, Doral, Miami Beach, and Pinecrest—connecting domestic relocation with out-of-state and international buyers.",
     submarkets: [
       "Coral Gables",
       "Brickell",

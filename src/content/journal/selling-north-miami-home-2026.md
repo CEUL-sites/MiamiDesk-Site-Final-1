@@ -11,7 +11,7 @@ funnel_stage: "consideration"
 content_goal: "seller_lead"
 ---
 
-North Miami occupies a distinct position in the Miami-Dade residential market. It is neither the premium coastal corridor of Miami Beach nor the established suburban enclave of Coral Gables — it is a mid-market municipality with a genuinely mixed housing stock, an active and diverse buyer population, and a location that gives it access to some of the county's most important employment and education nodes.
+North Miami occupies a distinct position in the Miami-Dade residential market. It is neither the premium coastal corridor of Miami Beach nor the established suburban enclave of Coral Gables — it is a mid-market municipality with a genuinely mixed housing stock, an active and broad buyer pool, and a location that gives it access to some of the county's most important employment and education nodes.
 
 For sellers, that position means opportunity and precision in equal measure. The buyers active in this market are sophisticated about value, and the listings that perform well are the ones that understand what actually drives pricing in North Miami specifically.
 
@@ -46,8 +46,6 @@ Per Miami and South Florida REALTORS® MLS data, the North Miami market has seen
 > **Investor buyers** looking at rental income potential, who evaluate North Miami on cap rate potential and occupancy. The proximity to FIU, the hospital district, and the corridor employment base provides consistent demand for quality rental housing.
 
 > **Domestic relocation buyers** from high-cost states who are purchasing with full or substantial equity from a prior home sale, and who are drawn to the value-per-square-foot available in North Miami relative to the coastal sub-markets they have previewed.
-
-> **Haitian-American and Caribbean-American community buyers** for whom North Miami's established community infrastructure, cultural institutions, and service networks represent a specifically valued context — not just a price point.
 
 Understanding which buyer profile is most active in your sub-area of North Miami directly affects how a listing should be positioned and in which channels it should be marketed.
 

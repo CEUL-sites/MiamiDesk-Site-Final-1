@@ -40,7 +40,7 @@ const CORAL_GABLES_FAQS_ES = [
     // TODO: native Madrid editor review
     q: "¿Quién compra en Coral Gables?",
     // TODO: native Madrid editor review
-    a: "Coral Gables atrae un perfil de comprador sofisticado: ejecutivos nacionales que se reubican en Miami, familias latinoamericanas de alto patrimonio que se establecen de forma permanente o buscan una segunda residencia, compradores europeos que diversifican hacia bienes raíces en Estados Unidos, y compradores atraídos por la arquitectura mediterránea, la posibilidad de caminar y la cercanía a Brickell y Downtown. La red de referidos internacionales de Carlos llega directamente a estos segmentos.",
+    a: "Coral Gables atrae un perfil de comprador sofisticado: ejecutivos nacionales que se reubican en Miami, compradores de otros estados y del extranjero que se establecen de forma permanente o buscan una segunda residencia, y compradores atraídos por la arquitectura mediterránea, la posibilidad de caminar y la cercanía a Brickell y Downtown. La red de referidos internacionales de Carlos llega directamente a estos segmentos.",
   },
   {
     // TODO: native Madrid editor review
@@ -167,7 +167,7 @@ export default function EsVenderCoralGablesPage() {
               {/* TODO: native Madrid editor review */}
               El grupo de compradores de lujo de Coral Gables es internacional por naturaleza. La arquitectura
               mediterránea, Miracle Mile y la cercanía con Brickell generan una demanda constante — desde ejecutivos
-              nacionales hasta familias latinoamericanas de alto patrimonio e inversionistas europeos. Venda con el
+              nacionales hasta compradores de otros estados y del extranjero. Venda con el
               alcance que corresponde a ese público.
             </p>
             <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
@@ -271,7 +271,7 @@ export default function EsVenderCoralGablesPage() {
               {[
                 // TODO: native Madrid editor review
                 { label: "Arquitectura", value: "Estilo Mediterráneo", sub: "Preservación del carácter histórico + renovaciones modernas" },
-                { label: "Perfil de Comprador", value: "Ejecutivo e Internacional", sub: "Grupo de compradores nacionales + LATAM + europeos" },
+                { label: "Perfil de Comprador", value: "Ejecutivo e Internacional", sub: "Compradores locales, de otros estados e internacionales" },
                 { label: "Ubicación", value: "Cercano a Brickell", sub: "Minutos del centro financiero de Miami + campus de la UM" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
@@ -309,7 +309,7 @@ export default function EsVenderCoralGablesPage() {
                   { label: "Precio", text: "CMA elaborado con datos actuales del MLS de Miami — comparables vendidos, competencia activa, listados vencidos, días en el mercado por rango de precio" },
                   { label: "Presentación", text: "Orientación de fotografía profesional, narrativa del MLS y paquete de documentación para agentes compradores" },
                   { label: "Distribución", text: "Activación en el MLS de Miami → 93.000 agentes → distribución elegible → 200+ portales globales en 19 idiomas" },
-                  { label: "Canal de compradores", text: "Canales directos de compradores LATAM y europeos mediante la red de referidos internacionales y asociaciones socias en 75+ países" },
+                  { label: "Canal de compradores", text: "Red de referidos internacionales y asociaciones socias en 75+ países, con representación bilingüe en inglés y español" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 w-28 flex-shrink-0 pt-0.5">{step.label}</span>

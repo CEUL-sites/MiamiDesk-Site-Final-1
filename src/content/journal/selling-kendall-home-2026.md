@@ -31,7 +31,7 @@ Kendall draws a primarily domestic buyer pool with strong representation from:
 
 > **Local move-up buyers** — households transitioning from apartments or smaller homes elsewhere in Miami-Dade, often equity-constrained and dependent on mortgage financing, for whom the combination of relative value, family infrastructure, and school access makes Kendall a primary search area.
 
-> **Latin American families** — particularly from Venezuela, Colombia, Argentina, and Cuba — for whom Kendall's established Latin community, Spanish-speaking service infrastructure, and proximity to established cultural and commercial nodes carries real weight. This buyer frequently knows the neighborhoods personally and evaluates them with specificity.
+> **Relocating families** — moving within Miami-Dade, from other states or from abroad — for whom Kendall's schools, parks, Turnpike access and established commercial corridors carry real weight. This buyer frequently knows the neighborhoods personally and evaluates them with specificity.
 
 > **Professional buyers** associated with the Jackson Health System complex, Baptist Health facilities, and the University of Miami and FIU campuses to the east and northeast, for whom commute proximity to those employment centers is a pricing variable.
 

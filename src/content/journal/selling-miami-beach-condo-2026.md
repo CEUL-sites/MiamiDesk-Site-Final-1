@@ -46,12 +46,12 @@ Miami Beach has some of the most restrictive short-term rental regulations in So
 
 ## The International Buyer in Miami Beach
 
-Miami Beach has one of the highest concentrations of international buyer activity in the United States. The buyer profile in 2026 includes consistent demand from:
+Miami Beach draws a large share of buyers from other states and from abroad. What those buyers look for is consistent, wherever they come from:
 
-- **Brazilian buyers** in the Surfside-to-Bal Harbour corridor, with a strong preference for turnkey, ocean-fronting units in well-managed buildings
-- **Argentine buyers** in the South Beach and Mid-Beach condo market, often for primary or seasonal residence
-- **European buyers** — particularly from Spain, Germany, and France — increasingly active in the $2M–$8M range, drawn to Miami Beach for tax environment, lifestyle, and international access
-- **Venezuelan and Colombian capital** — concentrated in the Brickell-to-Edgewater corridor but active in Miami Beach for both residence and investment
+- **Turnkey, ocean-fronting units** in well-managed buildings, especially for buyers purchasing from a distance
+- **Primary or seasonal residence** in the South Beach and Mid-Beach condo market
+- **Lifestyle, tax environment and international access** as stated reasons for buying a Miami Beach residence
+- **Residence and investment** purchases side by side, often in the same buildings
 
 An effective marketing strategy for a Miami Beach condo accounts for international buyer demand and activates the referral channels that connect your property to buyer agents representing this audience — not just the local MLS.
 
@@ -63,7 +63,7 @@ Three practices separate well-executed Miami Beach condo sales from the ones tha
 
 1. **Building due diligence upfront** — Have your HOA financial package, structural inspection status, and special assessment history ready before the first showing. Buyers at this price point request it immediately.
 2. **Accurate floor/view/line pricing** — Use actual sold data from your specific building in the last 180 days, not average price per square foot for the ZIP code or the building over the last three years.
-3. **International buyer activation** — List through a licensed Florida professional who can connect your unit to the LATAM and European buyer pipelines that represent consistent Miami Beach demand.
+3. **International buyer activation** — List through a licensed Florida professional who can connect your unit to the international referral network and the buyer agents who represent out-of-state and international buyers.
 
 ## Requesting a Miami Beach Condo Valuation
 

@@ -28,7 +28,7 @@ const AVENTURA_FAQS = [
   },
   {
     q: "Do international buyers purchase property in Aventura?",
-    a: "Yes — Aventura has one of the highest concentrations of international buyer activity in Miami-Dade County. Latin American buyers (particularly Venezuelan, Colombian, Brazilian, and Argentine) have historically made Aventura a primary destination. European and North American buyers also represent meaningful demand. Carlos's international network directly activates these buyer profiles.",
+    a: "Yes — Aventura has one of the highest concentrations of international buyer activity in Miami-Dade County. Aventura Mall, Intracoastal and ocean access, and tower amenities draw buyers from other states and abroad. Carlos's international referral network and global portal syndication extend each listing's reach to the agents who represent them.",
   },
   {
     q: "What is the difference between selling a condo and a single-family home in Aventura?",
@@ -165,13 +165,12 @@ export default function SellAventuraPage() {
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Aventura's combination of luxury towers, Intracoastal and ocean access, and proximity to Aventura Mall
               creates a sustained international buyer pool unlike most other Miami-Dade markets.
-              Latin American buyers — particularly Venezuelan, Colombian, and Brazilian — have made Aventura a primary
-              destination for capital preservation and lifestyle purchases, complemented by European and North American
-              investment demand.
+              Out-of-state and international buyers make Aventura a destination for lifestyle and second-home purchases,
+              alongside local and investment demand.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "International + LATAM", sub: "One of Miami-Dade's highest concentrations of cross-border buyers" },
+                { label: "Buyer Profile", value: "Local + International", sub: "Lifestyle, second-home and investment buyers" },
                 { label: "Property Type", value: "Luxury Condominiums", sub: "High-rise towers, Intracoastal, and ocean-access properties" },
                 { label: "Market Access", value: "Waterfront & Amenity", sub: "Building-level amenity profile directly affects buyer pool depth" },
               ].map((stat) => (
@@ -203,7 +202,7 @@ export default function SellAventuraPage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">

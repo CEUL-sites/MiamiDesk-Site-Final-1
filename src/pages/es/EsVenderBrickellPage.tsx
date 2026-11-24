@@ -33,7 +33,7 @@ const BRICKELL_FAQS_ES = [
     // TODO: native Madrid editor review
     q: "¿Son los condominios de Brickell atractivos para inversionistas internacionales?",
     // TODO: native Madrid editor review
-    a: "Sí — Brickell ha sido uno de los destinos más constantes para el capital institucional latinoamericano, europeo y norteamericano en el Sur de Florida. Su ubicación en el distrito financiero, su núcleo urbano transitable a pie y la cercanía a Miami Beach y al aeropuerto convierten a Brickell en un destino principal para inversionistas que buscan exposición inmobiliaria en Estados Unidos dentro de un mercado urbano reconocido a nivel mundial.",
+    a: "Sí — Brickell ha sido uno de los destinos más constantes para el capital nacional e internacional en el Sur de Florida. Su ubicación en el distrito financiero, su núcleo urbano transitable a pie y la cercanía a Miami Beach y al aeropuerto convierten a Brickell en un destino principal para inversionistas que buscan exposición inmobiliaria en Estados Unidos dentro de un mercado urbano reconocido a nivel mundial.",
   },
   {
     // TODO: native Madrid editor review
@@ -241,7 +241,7 @@ export default function EsVenderBrickellPage() {
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               {/* TODO: native Madrid editor review */}
               La posibilidad de caminar por el área urbana de Brickell, su inventario de torres de lujo, y su
-              posición en la intersección de los flujos de capital latinoamericano, europeo y norteamericano lo
+              posición en la intersección de los flujos de capital nacional e internacional lo
               convierten en uno de los mercados inmobiliarios más internacionalizados del Sur de Florida. La
               presencia de grandes instituciones financieras, el acceso directo al aeropuerto y la cercanía a
               Miami Beach sostienen la demanda de inversionistas a través de los ciclos económicos.
@@ -249,7 +249,7 @@ export default function EsVenderBrickellPage() {
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
                 // TODO: native Madrid editor review
-                { label: "Perfil de Comprador", value: "Internacional + Inversionista", sub: "Flujos de capital latinoamericano, europeo y norteamericano" },
+                { label: "Perfil de Comprador", value: "Internacional + Inversionista", sub: "Flujos de capital nacional e internacional" },
                 { label: "Tipo de Propiedad", value: "Torre Urbana de Lujo", sub: "Torres del distrito financiero, núcleo urbano transitable a pie" },
                 { label: "Motor de Mercado", value: "Preservación de Capital", sub: "Inversionistas globales que buscan exposición inmobiliaria en EE. UU." },
               ].map((stat) => (
@@ -285,7 +285,7 @@ export default function EsVenderBrickellPage() {
                     "MLS de Miami y el Sur de Florida REALTORS® — 93.000 agentes miembros",
                     "Distribución elegible a 200+ portales globales en 19 idiomas",
                     "United Realty Group — 3.500+ agentes en 19 ubicaciones de oficinas en Florida",
-                    "Canal directo de compradores LATAM y europeos",
+                    "Representación bilingüe en inglés y español",
                     "437+ acuerdos internacionales en 75+ países",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">

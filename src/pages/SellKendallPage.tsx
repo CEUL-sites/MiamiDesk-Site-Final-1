@@ -19,7 +19,7 @@ import { CONTACT, LEAD_MAGNETS } from "../constants";
 const KENDALL_FAQS = [
   {
     q: "What are the current market conditions for homes in Kendall, FL?",
-    a: "Kendall's residential market is dominated by established single-family neighborhoods and townhome communities across SW Miami-Dade. Per Miami and South Florida REALTORS® MLS data, pricing varies by subdivision, build year, lot size, school zone, and proximity to the Turnpike and major expressways. The buyer pool is predominantly owner-occupant and family-oriented, with meaningful Latin American demand from buyers prioritizing schools and community stability. Carlos provides a neighborhood-specific pricing analysis as part of every seller strategy review.",
+    a: "Kendall's residential market is dominated by established single-family neighborhoods and townhome communities across SW Miami-Dade. Per Miami and South Florida REALTORS® MLS data, pricing varies by subdivision, build year, lot size, school zone, and proximity to the Turnpike and major expressways. The buyer pool is predominantly owner-occupant and family-oriented, with buyers prioritizing schools and community stability. Carlos provides a neighborhood-specific pricing analysis as part of every seller strategy review.",
   },
   {
     q: "How does HOA community positioning differ when selling in Kendall?",
@@ -27,11 +27,11 @@ const KENDALL_FAQS = [
   },
   {
     q: "What buyer profiles are most active in Kendall?",
-    a: "Kendall's buyer pool is primarily owner-occupant families — many with children in Miami-Dade public and private school systems — and Latin American buyers prioritizing suburban stability, community infrastructure, and Turnpike access for commuting. Investor activity exists at the entry-level price tier, though Kendall is not a predominantly investor-driven market. Carlos tailors the positioning and distribution strategy to match the active buyer profile for your specific property type and price range.",
+    a: "Kendall's buyer pool is primarily owner-occupant families — many with children in Miami-Dade public and private school systems — and relocating buyers prioritizing suburban stability, community infrastructure, and Turnpike access for commuting. Investor activity exists at the entry-level price tier, though Kendall is not a predominantly investor-driven market. Carlos tailors the positioning and distribution strategy to match the active buyer profile for your specific property type and price range.",
   },
   {
     q: "How does listing timing affect Kendall home sales?",
-    a: "Kendall's family-oriented buyer pool follows school-year rhythms — demand for move-in ready family homes typically concentrates in the spring and early summer months ahead of the school year transition. However, Kendall's proximity to major employment corridors and its Latin American relocation demand create buyer activity year-round. Carlos evaluates current inventory levels, pending sales, and days-on-market trends to recommend timing that aligns with your specific property's optimal window.",
+    a: "Kendall's family-oriented buyer pool follows school-year rhythms — demand for move-in ready family homes typically concentrates in the spring and early summer months ahead of the school year transition. However, Kendall's proximity to major employment corridors and relocation demand create buyer activity year-round. Carlos evaluates current inventory levels, pending sales, and days-on-market trends to recommend timing that aligns with your specific property's optimal window.",
   },
   {
     q: "What does the seller strategy review cover?",
@@ -44,12 +44,12 @@ export default function SellKendallPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Kendall, FL</title>
-        <meta name="description" content="Kendall, FL listing agent — MLS positioning, family buyer activation, Latin American buyer network. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <meta name="description" content="Kendall, FL listing agent — MLS positioning, family buyer outreach, international distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/sell-kendall" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-kendall" />
         <meta property="og:title" content="Sell Your Kendall, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
-        <meta property="og:description" content="Professional seller representation in Kendall, FL — MLS activation, family and Latin American buyer-agent network access. Free confidential strategy review." />
+        <meta property="og:description" content="Professional seller representation in Kendall, FL — MLS placement and buyer-agent outreach. Free confidential strategy review." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Kendall, FL Home | Carlos Uzcategui, FL SL705771" />
@@ -98,7 +98,7 @@ export default function SellKendallPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Kendall's established single-family neighborhoods and family-oriented buyer pool demand a listing agent
-              who understands suburban Miami-Dade positioning, HOA community dynamics, and the Latin American buyer
+              who understands suburban Miami-Dade positioning, HOA community dynamics, and the relocation
               demand that consistently drives this market. Professional MLS positioning. Buyer-agent activation.
               International distribution.
             </p>
@@ -164,13 +164,13 @@ export default function SellKendallPage() {
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Kendall is SW Miami-Dade's largest established residential market — built around well-maintained subdivisions,
               strong school zones, and proximity to the Florida Turnpike and major expressways. The buyer pool is
-              predominantly owner-occupant families and Latin American buyers prioritizing suburban stability and
+              predominantly owner-occupant families and relocating buyers prioritizing suburban stability and
               community infrastructure, creating consistent demand for correctly positioned single-family inventory.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
                 { label: "Neighborhood Type", value: "Established & Suburban", sub: "Master-planned subdivisions and HOA communities with strong school zone access" },
-                { label: "Buyer Profile", value: "Family + LATAM", sub: "Owner-occupant families and Latin American buyers prioritizing schools and community stability" },
+                { label: "Buyer Profile", value: "Owner-Occupant", sub: "Families and relocating buyers prioritizing schools and community stability" },
                 { label: "Access", value: "Turnpike Corridor", sub: "Proximity to Florida Turnpike, SW 8th Street, and Kendall Drive expressway network" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
@@ -201,7 +201,7 @@ export default function SellKendallPage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct Latin American buyer pipeline for relocation demand",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
@@ -215,7 +215,7 @@ export default function SellKendallPage() {
                 {[
                   { label: "Strategy", text: "Pricing analysis + CMA specific to your Kendall subdivision, school zone, and build year" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group with HOA documentation preparation" },
-                  { label: "Distribution", text: "Buyer-agent outreach targeting family relocations and Latin American buyer network" },
+                  { label: "Distribution", text: "Buyer-agent outreach + international referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
@@ -244,9 +244,9 @@ export default function SellKendallPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Kendall Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+              <a href="/journal/international-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers in South Florida 2026 — Where They're Looking and What They're Buying</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">International and Out-of-State Buyers in South Florida 2026 — What Sellers Should Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
               <a href="/sell" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">

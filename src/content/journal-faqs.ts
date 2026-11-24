@@ -557,10 +557,10 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'Not necessarily. Many international sellers close remotely using powers of attorney, mail-away packages, and wire transfers coordinated by the title company. Requirements depend on your situation and should be arranged early in the process.',
     },
   ],
-  'latin-american-buyers-south-florida-2026': [
+  'international-buyers-south-florida-2026': [
     {
-      q: 'Why are Latin American buyers active in South Florida real estate?',
-      a: 'South Florida has long attracted Latin American buyers for its location, connectivity, established communities, and the depth of the Miami and South Florida REALTORS® MLS, which distributes listings across a large network of agents and international portals.',
+      q: 'Why do buyers from other states and abroad shop in South Florida?',
+      a: 'South Florida draws relocating, second-home and international buyers for its location, connectivity, established communities, and the depth of the Miami and South Florida REALTORS® MLS, which distributes listings across a large network of agents and international portals.',
     },
     {
       q: 'How do I market my home to international buyers?',

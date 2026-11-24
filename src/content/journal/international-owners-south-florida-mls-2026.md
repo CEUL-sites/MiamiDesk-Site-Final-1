@@ -12,7 +12,7 @@ funnel_stage: "awareness"
 content_goal: "international_listing"
 ---
 
-A significant share of prime South Florida real estate is owned by people who do not live in the United States — Latin American families, European investors, and international buyers who acquired during earlier cycles. When it comes time to sell, many of these owners face the same problem: they hold a strong asset but have no direct line into the professional network through which South Florida transactions are actually executed.
+A significant share of prime South Florida real estate is owned by people who do not live in the United States — families and investors abroad who acquired during earlier cycles. When it comes time to sell, many of these owners face the same problem: they hold a strong asset but have no direct line into the professional network through which South Florida transactions are actually executed.
 
 This guide explains how that access works, and what an international owner should expect from a properly run listing.
 
@@ -52,7 +52,7 @@ International sellers of U.S. real estate are subject to specific federal tax wi
 1. A pricing analysis built on current MLS comparables — not portal estimates or tax assessments
 2. Documentation assembled and presented for buyer-agent review
 3. Professional MLS activation through United Realty Group, with buyer-agent-facing remarks
-4. Active outreach into the Latin American and European buyer-agent network
+4. Active outreach through the international referral network
 5. Remote closing coordination and clear communication across time zones
 
 The [Global Desk page](https://homesprofessional.com/global-desk) sets out how this is structured for owners outside the United States.

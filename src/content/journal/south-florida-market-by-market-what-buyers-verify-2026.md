@@ -80,7 +80,7 @@ The setting is high-rise buildings where the association governs most of what a 
 
 Doral inventory repeats itself. The same models list again and again, which makes small differences decisive.
 
-The setting is newer construction where much of the inventory shares a small set of builder floor plans. The most active buyers are LATAM, corporate relocation, and family buyers.
+The setting is newer construction where much of the inventory shares a small set of builder floor plans. The most active buyers are corporate relocation, family and international buyers.
 
 **What gets verified first**
 

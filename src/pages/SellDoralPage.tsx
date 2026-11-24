@@ -24,11 +24,11 @@ const DORAL_FAQS = [
   },
   {
     q: "How long does it take to sell a home in Doral?",
-    a: "Doral homes in communities with strong HOA management, good schools, and competitive pricing have moved efficiently in recent cycles — particularly properties targeting the Latin American buyer pool that drives much of the local demand. Timeline varies by price range and community. This is not a guarantee of outcome; Carlos provides a property-specific estimate during the strategy review.",
+    a: "Doral homes in communities with strong HOA management, good schools, and competitive pricing have moved efficiently in recent cycles — particularly particularly correctly priced homes with complete HOA documentation. Timeline varies by price range and community. This is not a guarantee of outcome; Carlos provides a property-specific estimate during the strategy review.",
   },
   {
-    q: "Is Doral a strong market for Latin American buyers?",
-    a: "Yes — Doral has one of the highest concentrations of Venezuelan and Colombian buyer demand in Miami-Dade County. The city's strong Latin American community infrastructure, bilingual environment, proximity to international schools, and airport access make it a consistent relocation destination for buyers from Venezuela, Colombia, and across Latin America. Carlos's network directly reaches these buyer profiles.",
+    q: "Do you work with sellers and buyers' agents in English and Spanish?",
+    a: "Yes. Carlos and our team work in English and Spanish, with local sellers and with owners who live outside Florida. Every Doral listing is offered to all qualified buyers through the Miami MLS and its syndication channels, in line with fair housing law.",
   },
   {
     q: "What community types are most in demand in Doral?",
@@ -45,12 +45,12 @@ export default function SellDoralPage() {
     <>
       <Helmet>
         <title>Sell Your Home in Doral, FL</title>
-        <meta name="description" content="Doral, FL listing agent — MLS positioning, Latin American buyer activation, buyer-agent network. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <meta name="description" content="Doral, FL listing agent — MLS positioning, buyer-agent outreach, international distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/sell-doral" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-doral" />
         <meta property="og:title" content="Sell Your Doral, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
-        <meta property="og:description" content="Professional seller representation in Doral, FL — MLS activation, Latin American buyer-agent network access, and international distribution. Free confidential strategy review." />
+        <meta property="og:description" content="Professional seller representation in Doral, FL — MLS placement, buyer-agent outreach, and international distribution. Free confidential strategy review." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Doral, FL Home | Carlos Uzcategui, FL SL705771" />
@@ -101,8 +101,8 @@ export default function SellDoralPage() {
               <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Doral's master-planned communities and one of the highest Latin American buyer concentrations in Miami-Dade
-              demand a listing agent who understands both the local market and the international demand that drives it.
+              Doral's master-planned communities, newer construction and airport proximity call for a listing agent
+              who prices on community-level evidence and gives the home wide professional exposure.
               Professional MLS positioning. Buyer-agent activation. International distribution.
             </p>
             <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
@@ -140,10 +140,6 @@ export default function SellDoralPage() {
               </span>
             </div>
 
-            <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
-              <p className="font-sans text-sm italic leading-relaxed text-white/55">"As a Venezuelan family selling in Doral, we needed someone who truly understood our buyer community. Carlos built his practice in this market — it shows."</p>
-              <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/50">— Luis C., Doral, FL</footer>
-            </blockquote>
 
             <div className="mt-5 flex items-center justify-center gap-2">
               <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
@@ -163,17 +159,16 @@ export default function SellDoralPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Doral</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              A master-planned community with one of South Florida's deepest Latin American buyer pools.
+              A master-planned market built around newer construction and airport access.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              Doral combines newer construction, gated communities, strong bilingual infrastructure, and exceptional
-              airport proximity into one of Miami-Dade's most consistent demand markets. Venezuelan, Colombian, and
-              broader Latin American buyers have made Doral a primary relocation and investment destination —
-              drawn by the community's schools, safety, and cultural familiarity.
+              Doral combines newer construction, gated communities, schools, and proximity to Miami International Airport
+              and major expressways. Buyers relocating from elsewhere in South Florida, out of state and abroad weigh those
+              community features, HOA documentation and commute access when they compare Doral homes.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "LATAM + International", sub: "Among the highest Venezuelan and Colombian buyer concentrations in Miami-Dade" },
+                { label: "Housing Mix", value: "Newer Construction", sub: "Single-family homes, townhomes and condos across gated communities" },
                 { label: "Community Type", value: "Master-Planned & Gated", sub: "Newer construction with strong HOA management" },
                 { label: "Access", value: "Airport + Corridors", sub: "Proximity to MIA and major expressways drives relocation demand" },
               ].map((stat) => (
@@ -205,7 +200,7 @@ export default function SellDoralPage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
@@ -219,7 +214,7 @@ export default function SellDoralPage() {
                 {[
                   { label: "Strategy", text: "Pricing analysis + CMA specific to your Doral community and build year" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
-                  { label: "Distribution", text: "Buyer-agent outreach + LATAM referral network" },
+                  { label: "Distribution", text: "Buyer-agent outreach + international referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
@@ -250,7 +245,7 @@ export default function SellDoralPage() {
             <div className="grid gap-4 sm:grid-cols-2">
               <a href="/journal/selling-doral-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Doral Home — What the Latin American Buyer Pool Actually Means for Price and Timeline</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Doral Home — How Pricing, HOA Documentation and Buyer-Agent Reach Shape the Result</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
               <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">

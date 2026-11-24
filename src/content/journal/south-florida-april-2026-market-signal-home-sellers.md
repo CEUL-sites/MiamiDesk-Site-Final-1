@@ -49,7 +49,7 @@ For high-value owners, this matters. Price is not created by a headline. Price i
 
 Carlos Uzcategui has been licensed in Florida since 2001 and brings 25 years of South Florida market experience to the seller side of the transaction. He is a Florida Licensed Realtor® SL705771, a Certified Luxury Home Marketing Specialist, a Certified Seller Representative, and an associate with United Realty Group.
 
-For sellers with Spain or LATAM buyer profiles, Carlos also works across a bilingual English-Spanish referral model. South Florida owners can benefit from coordination with affiliated Madrid agencies reaching buyers relocating or investing from Spain and LATAM. Spanish and LATAM property owners can evaluate Miami MLS exposure through a licensed U.S. principal-of-record structure, with local professional agencies supporting buyer-side representation, showings, negotiation, and buyer qualification.
+For listings with international buyer potential, including Spain and Latin America, Carlos also works across a bilingual English-Spanish referral model. South Florida owners can benefit from coordination with affiliated Madrid agencies reaching buyers relocating or investing from Spain and LATAM. Spanish and LATAM property owners can evaluate Miami MLS exposure through a licensed U.S. principal-of-record structure, with local professional agencies supporting buyer-side representation, showings, negotiation, and buyer qualification.
 
 The objective is not more noise. The objective is more qualified exposure, better positioning, and a clearer path to a signed listing strategy.
 
