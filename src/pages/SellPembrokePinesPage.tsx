@@ -16,8 +16,12 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import figures from "../data/figures.json";
 import { PembrokePinesMarketReport } from "../components/PembrokePinesMarketReport";
 import { pembrokePinesReport } from "../data/pembrokePinesReport";
+
+const ppLatest = pembrokePinesReport.years[pembrokePinesReport.years.length - 1];
+const ppThrough = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(`${pembrokePinesReport.dataThrough}T00:00:00Z`));
 
 // Publication date of the November 2026 market report (videos + dataset).
 const REPORT_PUBLISHED = "2026-11-24";
@@ -32,15 +36,15 @@ const PEMBROKE_PINES_FAQS = [
   },
   {
     q: "How long does it take to sell a home in Pembroke Pines?",
-    a: "Pembroke Pines homes in well-maintained master-planned sections with strong schools and competitive pricing have moved efficiently in recent market cycles. Properties in higher price ranges or with fewer recent comparable sales may carry longer timelines. Carlos provides a neighborhood-specific estimate — this is not a guarantee of outcome.",
+    a: `Timing depends on the community, condition, price position and competing inventory. For 4-bedroom single-family homes, the median time on market in 2026 year to date was ${ppLatest.medianDaysOnMarket} days (Miami MLS, closed sales through ${ppThrough}). That is a city median, not a forecast for your home. Carlos provides a property-specific review; it is not a guarantee of outcome.`,
   },
   {
-    q: "Is Pembroke Pines a strong market for Latin American buyers?",
-    a: "Yes — Pembroke Pines has a substantial Latin American buyer community, with meaningful Venezuelan, Colombian, and broader South American demand. The city's bilingual infrastructure, Broward school quality, and value positioning relative to Weston make it a consistent destination for families relocating from South America. Carlos's network directly reaches these buyer profiles.",
+    q: "Do you work with sellers and buyers' agents in English and Spanish?",
+    a: "Yes. Carlos and our team work in English and Spanish, with local sellers and with owners who live outside Florida. Every Pembroke Pines listing is offered to all qualified buyers through the Miami MLS and its syndication channels, in line with fair housing law.",
   },
   {
     q: "What are the most in-demand communities in Pembroke Pines?",
-    a: "Master-planned communities with on-site amenities, security, and proximity to well-rated schools consistently attract the deepest buyer pools in Pembroke Pines. Silver Lakes, Pembroke Falls, and Chapel Trail are among the established names that generate consistent buyer activity. Community health — financials, deferred maintenance, pending assessments — directly affects positioning strategy.",
+    a: "Master-planned communities with on-site amenities, security and proximity to schools attract steady buyer interest in Pembroke Pines. Silver Lakes, Pembroke Falls, and Chapel Trail are among the established names buyers ask about. Community health — financials, deferred maintenance, pending assessments — directly affects positioning strategy.",
   },
   {
     q: "What is the seller strategy review?",
@@ -136,9 +140,9 @@ export default function SellPembrokePinesPage() {
               <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Pembroke Pines' master-planned communities, strong schools, and active Latin American buyer market
-              demand a listing agent who understands community-level demand and the international connections that drive local pricing.
-              Professional MLS positioning. Buyer-agent activation. International distribution.
+              Pembroke Pines' master-planned communities, schools and established neighborhoods call for pricing built on
+              community-level evidence and wide professional exposure.
+              Professional MLS positioning. Buyer-agent outreach. International distribution.
             </p>
             <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
               {[
@@ -200,19 +204,18 @@ export default function SellPembrokePinesPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Pembroke Pines</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              One of Broward's most diverse and consistently active residential markets.
+              A Broward residential market defined by its range of communities and price points.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              Pembroke Pines combines master-planned community infrastructure with a broad, diverse buyer pool — including
-              a substantial Latin American community that makes it one of the most bilingual markets in South Florida.
-              The city's range of price points, strong school access, and suburban character attract both first-time buyers
-              and established move-up families from across the region.
+              Pembroke Pines combines master-planned communities with everyday convenience: Pembroke Lakes Mall, C.B. Smith Park,
+              Memorial Hospital West and direct access to I-75 and Florida's Turnpike. The city's range of price points, schools
+              and suburban character draw first-time buyers and move-up families from across the region.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "Diverse + LATAM", sub: "Broad buyer pool with strong Venezuelan and Colombian demand" },
+                { label: "Price Range", value: "Broad Mid-Market", sub: "Townhomes to large single-family homes across established sections" },
                 { label: "Community Type", value: "Master-Planned Sections", sub: "Silver Lakes, Pembroke Falls, Chapel Trail and more" },
-                { label: "Value Position", value: "Broward Mid-Market", sub: "Relative value compared to Weston drives move-up demand" },
+                { label: "Value Position", value: "Relative to Weston", sub: "Comparable community amenities at a different price point" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
@@ -231,18 +234,18 @@ export default function SellPembrokePinesPage() {
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Network Advantage</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
-                  Your Pembroke Pines listing reaches every buyer,<br />
-                  <em className="italic text-gold">everywhere they're looking.</em>
+                  Your Pembroke Pines listing, placed where<br />
+                  <em className="italic text-gold">professional buyer agents work every day.</em>
                 </h2>
                 <p className="mt-6 font-sans text-base leading-relaxed text-white/65">
-                  Professional MLS activation through United Realty Group means your property enters the network of a Florida brokerage with 3,500+ agents across the Florida office network — not a portal, but a coordinated professional infrastructure.
+                  Professional MLS placement through United Realty Group means your property enters the network of a Florida brokerage with 3,500+ agents across the Florida office network — not a portal, but a coordinated professional infrastructure.
                 </p>
                 <ul className="mt-8 space-y-3">
                   {[
-                    "Miami and South Florida REALTORS® MLS — 93,000 member agents",
+                    "Miami and South Florida REALTORS® MLS — 93,000 association members",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
@@ -251,12 +254,13 @@ export default function SellPembrokePinesPage() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-4 font-sans text-[11px] leading-relaxed text-white/45">Sources: {figures.members.source} · {figures.globalWebsites.source} · {figures.languages.source} · {figures.partnerAssociations.source} · {figures.countries.source} · {figures.urgAgents.source}.</p>
               </div>
               <div className="space-y-px border border-white/10">
                 {[
                   { label: "Strategy", text: "Pricing analysis + CMA specific to your Pembroke Pines community" },
-                  { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
-                  { label: "Distribution", text: "Buyer-agent outreach + LATAM referral network" },
+                  { label: "Positioning", text: "Professional MLS placement through United Realty Group" },
+                  { label: "Distribution", text: "Buyer-agent outreach + international referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
