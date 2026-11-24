@@ -140,7 +140,6 @@ export default function SellDoralPage() {
               </span>
             </div>
 
-
             <div className="mt-5 flex items-center justify-center gap-2">
               <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
