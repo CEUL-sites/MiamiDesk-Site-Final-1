@@ -46,7 +46,7 @@ A seller should not stop at *"What is my home worth?"* That question has an inco
 
 1. **Who will actually see it?** Not how many portals it appears on — how many *qualified* buyers and buyer agents will become aware of it during the launch window.
 2. **How will it be positioned?** What is the one-sentence reason a buyer agent presents this property before the next alternative on the same street?
-3. **Which buyers and agents will be activated?** Local move-up buyers, relocation buyers, Latin American and Spanish capital, the agent already tracking inventory for a waiting client — each requires a different channel.
+3. **Which buyers and agents will be activated?** Local move-up buyers, relocation buyers, international buyers, the agent already tracking inventory for a waiting client — each requires a different channel.
 4. **What market data supports the price?** Active competition, sold comparables, pending sales, and expired listings — the four data sets that separate a defensible price from a hopeful one.
 5. **What is your next move after the sale?** Downsizing, relocating, a 1031 exchange, or porting a homestead benefit — the after-plan should shape the timing and terms, not be improvised at the closing table.
 
@@ -56,7 +56,7 @@ A seller who can answer those five questions enters the market with leverage. A 
 
 When a property is listed with Carlos Uzcategui, it does not simply appear online. It is positioned through the distribution infrastructure of the **Miami and South Florida REALTORS®** — the world's largest local REALTOR® association, with roughly **93,000 member agents**, **200+ global property portals** publishing in **19 languages**, **437+ international cooperation agreements**, and syndication across **260+ U.S. MLSs** through **11 MLS data exchanges**.
 
-It is also carried by **United Realty Group**, a Florida brokerage with **3,500+ agents across 19 Florida office locations**. For owners with Spanish or Latin American buyer profiles, Carlos coordinates a bilingual cross-border referral model that reaches buyers relocating or investing into South Florida.
+It is also carried by **United Realty Group**, a Florida brokerage with **3,500+ agents across 19 Florida office locations**. For listings with international buyer potential, including Spain and Latin America, Carlos coordinates a bilingual cross-border referral model that reaches buyers relocating or investing into South Florida.
 
 None of this guarantees a result — no honest agent can promise a price or a timeline. What it creates is a *structural advantage*: more qualified exposure, clearer positioning, and a better chance of putting competitive pressure on the property at the right moment.
 

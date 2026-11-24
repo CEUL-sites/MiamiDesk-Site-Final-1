@@ -16,6 +16,7 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const CORAL_GABLES_FAQS = [
   {
@@ -28,7 +29,7 @@ const CORAL_GABLES_FAQS = [
   },
   {
     q: "Who buys in Coral Gables?",
-    a: "Coral Gables attracts a sophisticated buyer profile: domestic executives relocating to Miami, Latin American HNW families relocating permanently or establishing a second home, European buyers diversifying into U.S. real estate, and buyers attracted to the Mediterranean architecture, walkability, and proximity to Brickell and Downtown. Carlos's international referral network directly reaches these segments.",
+    a: "Coral Gables attracts a sophisticated buyer profile: domestic executives relocating to Miami, out-of-state and international buyers relocating permanently or establishing a second home, and buyers attracted to the Mediterranean architecture, walkability, and proximity to Brickell and Downtown. Carlos's international referral network directly reaches these segments.",
   },
   {
     q: "Is the neighborhood fully walkable and close to Brickell?",
@@ -100,17 +101,15 @@ export default function SellCoralGablesPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-navy-deep/30 to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Coral Gables, FL · Luxury Seller Advisory</p>
-            <h1
-              className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
-              style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
-            >
-              Sell your Coral Gables property with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Coral Gables property with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Coral Gables"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               The Coral Gables luxury buyer pool is international by nature. Mediterranean architecture, Miracle Mile,
-              and Brickell adjacency create consistent demand — from domestic executives to Latin American HNW families
-              and European investors. Sell with the reach that matches that audience.
+              and Brickell adjacency create consistent demand — from domestic executives to out-of-state and
+              international buyers. Sell with the reach that matches that audience.
             </p>
             <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
               {[
@@ -181,7 +180,7 @@ export default function SellCoralGablesPage() {
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
                 { label: "Architecture", value: "Mediterranean Revival", sub: "Historic character preservation + modern renovations" },
-                { label: "Buyer Profile", value: "Executive & International", sub: "Domestic + LATAM + European buyer pool" },
+                { label: "Buyer Profile", value: "Executive & International", sub: "Local, out-of-state and international buyer pool" },
                 { label: "Location", value: "Brickell Adjacent", sub: "Minutes to Miami's financial center + UM campus" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
@@ -213,7 +212,7 @@ export default function SellCoralGablesPage() {
                   { label: "Pricing", text: "CMA built on current Miami MLS data — sold comps, active competition, expired listings, days on market by price band" },
                   { label: "Presentation", text: "Professional photography guidance, MLS narrative, and documentation package for buyer agents" },
                   { label: "Distribution", text: "Miami MLS activation → 93,000 agents → eligible syndication → 200+ global portals in 19 languages" },
-                  { label: "Buyer pipeline", text: "Direct LATAM and European buyer channels via international referral network and partner associations in 75+ countries" },
+                  { label: "Buyer pipeline", text: "International referral network and partner associations in 75+ countries, plus bilingual English and Spanish representation" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
                     <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 w-28 flex-shrink-0 pt-0.5">{step.label}</span>

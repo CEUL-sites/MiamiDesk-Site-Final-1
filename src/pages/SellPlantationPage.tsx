@@ -16,6 +16,7 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const PLANTATION_FAQS = [
   {
@@ -93,10 +94,11 @@ export default function SellPlantationPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Plantation, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Plantation home with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Plantation home with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Plantation"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Plantation's established neighborhoods, central Broward location, and family buyer demand require
               a listing agent who understands neighborhood-level value drivers and can activate the full buyer-agent network.
@@ -170,7 +172,7 @@ export default function SellPlantationPage() {
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Neighborhood Character", value: "Established & Mature", sub: "Tree canopy, maintained HOAs, and diverse lot sizes" },
+                { label: "Neighborhood Character", value: "Established & Mature", sub: "Tree canopy, maintained HOAs, and varied lot sizes" },
                 { label: "Location", value: "Central Broward", sub: "Between Miami and Fort Lauderdale — expressway access" },
                 { label: "Buyer Profile", value: "Family + Professional", sub: "Domestic move-up and relocation buyers across segments" },
               ].map((stat) => (
@@ -202,7 +204,7 @@ export default function SellPlantationPage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">

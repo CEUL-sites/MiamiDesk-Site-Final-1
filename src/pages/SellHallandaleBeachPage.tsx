@@ -15,11 +15,12 @@ import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
 import { AGGREGATE_RATING } from "../data/reviews";
+import { HeroTitle } from "../components/HeroTitle";
 
 const HALLANDALE_BEACH_FAQS = [
   {
     q: "Who buys in Hallandale Beach?",
-    a: "Hallandale Beach has one of the highest concentrations of international buyer activity in South Broward — particularly buyers from South America and Europe who seek condo-style living with beach and amenity access. Seasonal buyers from the Northeast and Midwest are also consistently active in the market. The city's position between Miami-Dade and core Broward County gives it broad appeal across multiple buyer profiles. Carlos's international referral network directly reaches these buyer pools through 437+ agreements in 75+ countries.",
+    a: "Hallandale Beach draws international and seasonal buyers who seek condo-style living with beach and amenity access. Seasonal buyers from the Northeast and Midwest are also consistently active in the market. The city's position between Miami-Dade and core Broward County gives it broad appeal across multiple buyer profiles. Carlos's international referral network directly reaches these buyer pools through 437+ agreements in 75+ countries.",
   },
   {
     q: "How does the condo-heavy inventory affect pricing and days on market?",
@@ -27,7 +28,7 @@ const HALLANDALE_BEACH_FAQS = [
   },
   {
     q: "How do international buyers approach Hallandale Beach specifically?",
-    a: "International buyers — particularly from Venezuela, Colombia, Brazil, Argentina, and Western Europe — view Hallandale Beach as a gateway market: coastal access, established amenity infrastructure, and positioning between two major metro areas at price points that can be more accessible than Miami Beach or Fort Lauderdale Beach. The condo format suits buyers seeking a turnkey South Florida base. Carlos's network includes direct referral pipelines from South American and European buyer markets through the association's 200+ global portals and 19-language syndication.",
+    a: "Out-of-state and international buyers often view Hallandale Beach as a gateway market: coastal access, established amenity infrastructure, and positioning between two major metro areas at price points that can be more accessible than Miami Beach or Fort Lauderdale Beach. The condo format suits buyers seeking a turnkey South Florida base. Carlos's network includes the association's international referral relationships, 200+ global portals and 19-language syndication.",
   },
   {
     q: "What seasonal patterns affect Hallandale Beach sales?",
@@ -92,10 +93,11 @@ export default function SellHallandaleBeachPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Hallandale Beach, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Hallandale Beach home with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Hallandale Beach home with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Hallandale Beach"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Hallandale Beach's international buyer concentration, condo-heavy market, and position between
               Miami-Dade and core Broward County require a listing agent with direct access to the international
@@ -164,14 +166,13 @@ export default function SellHallandaleBeachPage() {
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Hallandale Beach occupies a strategically distinct position in South Broward — within reach of both
               Miami-Dade and core Broward amenities, with a beach address and a condo-dominated inventory that
-              draws a concentrated international buyer pool. South American buyers from Venezuela, Colombia, Brazil,
-              and Argentina, alongside European buyers, have established Hallandale Beach as a consistent
-              international acquisition target. The market's condo-heavy structure means building-level factors —
+              draws seasonal, out-of-state and international buyers alongside local demand. Gulfstream Park and
+              the beach keep it on the shortlist of buyers comparing coastal condo markets. The market's condo-heavy structure means building-level factors —
               floor, view, unit type, HOA financials — are central to every pricing and positioning decision.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "International + Seasonal", sub: "South American and European buyer presence alongside seasonal Northeast/Midwest demand" },
+                { label: "Buyer Profile", value: "International + Seasonal", sub: "International buyer presence alongside seasonal Northeast/Midwest demand" },
                 { label: "Location", value: "South Broward / Both-County Access", sub: "Positioned between Miami-Dade and core Broward — accessible to both county markets" },
                 { label: "Market Type", value: "Condo-Heavy / Amenity-Rich Communities", sub: "Building-specific factors drive pricing — floor, view, unit type, and HOA financials matter" },
               ].map((stat) => (
@@ -246,9 +247,9 @@ export default function SellHallandaleBeachPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Hallandale Beach Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+              <a href="/journal/international-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers in South Florida 2026 — Where They're Looking and What They're Buying</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">International and Out-of-State Buyers in South Florida 2026 — What Sellers Should Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
               <a href="/sell" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">

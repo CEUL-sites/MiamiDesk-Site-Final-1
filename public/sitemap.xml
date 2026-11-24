@@ -343,6 +343,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://homesprofessional.com/sell-coral-gables"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://homesprofessional.com/es/vender-coral-gables"/>
   </url>
+<url>
+    <loc>https://homesprofessional.com/journal/international-buyers-south-florida-2026</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
 <url><loc>https://homesprofessional.com/journal/south-florida-new-construction-vs-resale-rate-buydowns-2026</loc></url>
 <url><loc>https://homesprofessional.com/journal/south-florida-condo-warrantability-fannie-mae-full-review-2026</loc></url>
 <url>
@@ -707,11 +713,5 @@
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
-  </url>
-<url>
-    <loc>https://homesprofessional.com/journal/latin-american-buyers-south-florida-2026</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.78</priority>
   </url>
 </urlset>

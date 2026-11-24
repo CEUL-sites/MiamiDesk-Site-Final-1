@@ -428,7 +428,7 @@ export function SpainMiamiJourney() {
             <em className="italic text-gold">already in Miami.</em>
           </h2>
           <p className="font-sans text-white/70 text-base leading-relaxed max-w-md mx-auto mb-8">
-            How LatAm capital moves from Caracas to Coral Gables — and why your listing needs to be visible in that pipeline.
+            How international capital moves through Miami — and why your listing needs to be visible in that pipeline.
           </p>
           <div className="smj-divider">
             <div className="smj-divider-line" />

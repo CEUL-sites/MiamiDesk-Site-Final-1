@@ -16,6 +16,7 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const SUNRISE_FAQS = [
   {
@@ -27,8 +28,8 @@ const SUNRISE_FAQS = [
     a: "Sunrise offers competitive value pricing relative to adjacent Weston, which can expand the buyer pool — particularly for buyers priced out of Weston's gated community market. Properties in Sunrise's Sawgrass corridor and well-maintained communities attract buyers who prioritize expressway access and school quality alongside affordability. Carlos provides a comparative market analysis covering both markets as needed.",
   },
   {
-    q: "Is there strong Latin American buyer demand in Sunrise?",
-    a: "Yes — Sunrise has meaningful Venezuelan, Colombian, and broader Latin American buyer demand, driven by the city's proximity to Weston's established LATAM community infrastructure and its accessible price points. Carlos's bilingual professional network and LATAM buyer pipeline directly serve this demand profile.",
+    q: "Do you work with sellers and buyers' agents in English and Spanish?",
+    a: "Yes. Carlos and our team work in English and Spanish, with local sellers and with owners who live outside Florida. Every Sunrise listing is offered to all qualified buyers through the Miami MLS and its syndication channels, in line with fair housing law.",
   },
   {
     q: "Which Sunrise communities generate the most buyer activity?",
@@ -45,12 +46,12 @@ export default function SellSunrisePage() {
     <>
       <Helmet>
         <title>Sell Your Home in Sunrise, FL</title>
-        <meta name="description" content="Sunrise, FL listing agent — MLS positioning, buyer-agent activation, Latin American buyer access. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <meta name="description" content="Sunrise, FL listing agent — MLS positioning, buyer-agent outreach, international distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/sell-sunrise" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-sunrise" />
         <meta property="og:title" content="Sell Your Sunrise, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
-        <meta property="og:description" content="Professional seller representation in Sunrise, FL — MLS activation, Latin American buyer-agent network access, and global distribution. Free confidential strategy review." />
+        <meta property="og:description" content="Professional seller representation in Sunrise, FL — MLS placement, buyer-agent outreach, and global distribution. Free confidential strategy review." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your Sunrise, FL Home | Carlos Uzcategui, FL SL705771" />
@@ -93,12 +94,13 @@ export default function SellSunrisePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Sunrise, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Sunrise home with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Sunrise home with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Sunrise"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              Sunrise's diverse communities, Sawgrass corridor access, and Latin American buyer demand require
+              Sunrise's range of communities, Sawgrass corridor access, and pricing relative to Weston require
               a listing agent who understands competitive positioning relative to adjacent markets and can activate the full international buyer network.
               Professional MLS positioning. Buyer-agent activation. International distribution.
             </p>
@@ -160,18 +162,17 @@ export default function SellSunrisePage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Sunrise</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
-              A diverse Broward market with strong Latin American demand and Sawgrass corridor access.
+              A Broward market with a wide range of communities and Sawgrass corridor access.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
-              Sunrise combines accessible pricing relative to adjacent Weston with strong Latin American community
-              infrastructure and direct Sawgrass Expressway access. The city's diverse housing inventory —
-              from established single-family communities to newer townhome developments — attracts a broad
-              buyer pool including families relocating from Venezuela, Colombia, and across South America who
-              are drawn by the Sawgrass corridor's bilingual services and school access.
+              Sunrise combines accessible pricing relative to adjacent Weston with direct Sawgrass Expressway access,
+              Sawgrass Mills and the Amerant Bank Arena. The city's housing inventory — from established single-family
+              communities to newer townhome developments — draws first-time buyers, move-up families and relocating
+              households who weigh schools, commute access and price.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "Diverse + LATAM", sub: "Strong Venezuelan and Colombian demand; Weston-adjacent pricing" },
+                { label: "Housing Mix", value: "Single-Family + Townhome", sub: "Established communities and newer developments; Weston-adjacent pricing" },
                 { label: "Access", value: "Sawgrass Corridor", sub: "Direct expressway access and proximity to Weston infrastructure" },
                 { label: "Value Position", value: "Competitive Entry", sub: "Accessible pricing relative to Weston expands buyer pool" },
               ].map((stat) => (
@@ -203,7 +204,7 @@ export default function SellSunrisePage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
@@ -217,7 +218,7 @@ export default function SellSunrisePage() {
                 {[
                   { label: "Strategy", text: "Pricing analysis + CMA with competitive positioning vs. Weston and Coral Springs" },
                   { label: "Positioning", text: "Professional MLS activation through United Realty Group" },
-                  { label: "Distribution", text: "Buyer-agent outreach + LATAM referral network" },
+                  { label: "Distribution", text: "Buyer-agent outreach + international referral network" },
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">

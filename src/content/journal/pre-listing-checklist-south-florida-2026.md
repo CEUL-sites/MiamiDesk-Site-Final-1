@@ -38,7 +38,7 @@ This checklist covers the twelve items worth resolving before a South Florida pr
 
 ## Strategy Before Launch
 
-**9. Define the buyer profile.** A Brickell investor condo, a Coral Springs family home, and a Fort Lauderdale waterfront property attract different buyers through different channels — some of them international. The likely buyer should shape the media plan, the listing copy, and where marketing dollars go. Properties with Spain or Latin American buyer potential warrant [international distribution planning](/global-desk) from day one.
+**9. Define the buyer profile.** A Brickell investor condo, a Coral Springs family home, and a Fort Lauderdale waterfront property attract different buyers through different channels — some of them international. The likely buyer should shape the media plan, the listing copy, and where marketing dollars go. Properties with international buyer potential, including Spain and Latin America, warrant [international distribution planning](/global-desk) from day one.
 
 **10. Price from evidence, not aspiration.** Pricing should come from closed comparables, current competing inventory, and condition adjustments — reviewed together, in writing. Overpricing does not create room to negotiate; it removes the property from the searches of the buyers most likely to pay full value. Our [home valuation breakdown](/journal/what-is-my-home-worth-south-florida-2026) covers the method in detail.
 

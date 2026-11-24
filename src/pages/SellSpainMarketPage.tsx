@@ -9,6 +9,7 @@ import { SpainSellerForm } from "../components/forms/SpainSellerForm";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT } from "../constants";
 import { getSpainMarket, SPAIN_MARKETS, SPAIN_STRUCTURE } from "../data/spainMarkets";
+import { HeroTitle } from "../components/HeroTitle";
 
 // ──────────────────────────────────────────────────────────────────────────
 // Spanish-language /vender-<market> landing pages — the Spain-side
@@ -148,14 +149,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
               {market.name} · {market.region}
             </p>
-            <h1
-              className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white"
-              style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}
-            >
-              Presente su propiedad de {market.name}
-              <br />
-              <em className="italic text-gold">{market.heroTitle}</em>
-            </h1>
+            <HeroTitle lead={`Presente su propiedad de ${market.name}`} payoff={market.heroTitle} keep={[market.name]} />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">{market.heroSub}</p>
             <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
               Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group

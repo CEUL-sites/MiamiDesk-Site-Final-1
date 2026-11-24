@@ -15,7 +15,7 @@ Coral Gables does not behave like the rest of Miami-Dade. It is a municipality w
 
 ## The Buyer Profile Has Changed
 
-The Coral Gables buyer pool shifted materially after 2021. Remote-work migration, accelerated repatriation from Latin America, and the relocation of regional headquarters from the Northeast produced a different composition of buyers than the city had seen in prior cycles. Today, the active buyer profile spans corporate executives relocating with relocation packages, diplomatic and consular personnel seeking established residential neighborhoods, and **multi-generational LATAM families** acquiring a primary US anchor property — often after already owning secondary or investment property elsewhere in Miami-Dade.
+The Coral Gables buyer pool shifted materially after 2021. Remote-work migration, international relocation, and the relocation of regional headquarters from the Northeast produced a different composition of buyers than the city had seen in prior cycles. Today, the active buyer profile spans corporate executives relocating with relocation packages, diplomatic and consular personnel seeking established residential neighborhoods, and **multi-generational families relocating from abroad** acquiring a primary US anchor property — often after already owning secondary or investment property elsewhere in Miami-Dade.
 
 This matters for sellers because these buyer profiles share a common characteristic: they arrive represented by experienced buyer's agents, often with specific criteria and limited tolerance for properties that require interpretive effort. A listing that does not communicate its value clearly — through condition, presentation, and accurate positioning — does not get a second look. The qualification bar is high on both ends of the transaction.
 
@@ -39,9 +39,9 @@ Coral Gables contains three distinct architectural cohorts that price and market
 
 ## Getting to the Right Buyer
 
-The Coral Gables buyer — particularly the LATAM multi-generational buyer and the executive relocation buyer — does not always enter the market through the same channels as a domestic move-up purchaser. Reaching them requires deliberate access to international networks.
+The Coral Gables buyer — particularly the international multi-generational buyer and the executive relocation buyer — does not always enter the market through the same channels as a domestic move-up purchaser. Reaching them requires deliberate access to international networks.
 
-A listing entered through the **Miami and South Florida REALTORS® MLS** connects to the National Association of REALTORS® infrastructure: 93,000 REALTORS® with access to 260+ U.S. MLSs via RPR, 200+ global portals publishing in 19 languages, and 437+ formal international agreements that create direct referral pathways from producing agents in Mexico, Colombia, Venezuela, Brazil, and the broader LATAM corridor. United Realty Group's network of 3,500+ agents across 19 Florida office locations provides additional distribution depth within the state — relevant when buyers are also evaluating properties elsewhere in South Florida before committing.
+A listing entered through the **Miami and South Florida REALTORS® MLS** connects to the National Association of REALTORS® infrastructure: 93,000 REALTORS® with access to 260+ U.S. MLSs via RPR, 200+ global portals publishing in 19 languages, and 437+ formal international agreements that create direct referral pathways from producing agents in partner markets in 75+ countries. United Realty Group's network of 3,500+ agents across 19 Florida office locations provides additional distribution depth within the state — relevant when buyers are also evaluating properties elsewhere in South Florida before committing.
 
 United Realty Group — a full-service Florida brokerage with 3,500+ agents across 19 Florida office locations — operates within this professional network. The buyers responsible for Miami-Dade's market activity are in the system. A listing that is positioned correctly and entered with full professional infrastructure behind it is placed in front of that buyer pool through the MLS.
 

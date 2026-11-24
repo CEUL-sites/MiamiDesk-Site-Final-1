@@ -23,6 +23,7 @@
     "verify:lead-market": "node --import tsx scripts/verify-lead-market.ts",
     "verify:lead-tracking": "node scripts/verify-lead-tracking.mjs",
     "verify:claims": "node scripts/verify-claims.mjs",
+    "verify:fair-housing": "node scripts/verify-fair-housing.mjs",
     "indexnow": "node scripts/indexnow-submit.mjs",
     "verify:interactive": "node --import tsx scripts/verify-interactive-modules.ts",
     "verify:mobile-hero": "node scripts/verify-mobile-hero.mjs",
@@ -31,7 +32,7 @@
     "verify:housebot": "node --import tsx scripts/verify-housebot.ts",
     "verify:ai-desk-quota": "node --import tsx scripts/verify-ai-desk-quota.ts",
     "verify:ai-desk-knowledge": "node --import tsx scripts/verify-ai-desk-knowledge.ts",
-    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-spam && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims && npm run verify:interactive && npm run verify:mobile-hero && npm run verify:urg-offices && npm run verify:housebot && npm run verify:ai-desk-quota && npm run verify:ai-desk-knowledge",
+    "verify": "npm run verify:journal && npm run verify:homepage-conversion && npm run verify:review-spotlight && npm run verify:global-desk && npm run verify:visitor-tracking && npm run verify:lead-score && npm run verify:lead-spam && npm run verify:lead-market && npm run verify:lead-tracking && npm run verify:claims && npm run verify:fair-housing && npm run verify:interactive && npm run verify:mobile-hero && npm run verify:urg-offices && npm run verify:housebot && npm run verify:ai-desk-quota && npm run verify:ai-desk-knowledge",
     "test:hubspot": "node --test tests/hubspot-sync.test.mjs"
   },
   "reactSnap": {
@@ -98,6 +99,7 @@
       "/es/vender-doral",
       "/es/vender-brickell",
       "/es/vender-coral-gables",
+      "/journal/international-buyers-south-florida-2026",
       "/journal/south-florida-new-construction-vs-resale-rate-buydowns-2026",
       "/journal/south-florida-condo-warrantability-fannie-mae-full-review-2026",
       "/journal/sell-south-florida-home-now-or-wait-until-2027",
@@ -162,8 +164,7 @@
       "/journal/what-is-my-home-worth-south-florida-2026",
       "/journal/selling-sunrise-home-2026",
       "/journal/selling-weston-florida-2026",
-      "/journal/selling-miami-beach-condo-2026",
-      "/journal/latin-american-buyers-south-florida-2026"
+      "/journal/selling-miami-beach-condo-2026"
     ]
   },
   "dependencies": {

@@ -16,6 +16,7 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const BRICKELL_FAQS = [
   {
@@ -24,7 +25,7 @@ const BRICKELL_FAQS = [
   },
   {
     q: "Are Brickell condominiums attractive to international investors?",
-    a: "Yes — Brickell has been one of the most consistent targets for Latin American, European, and North American institutional capital in South Florida. The financial district location, walkable urban core, and proximity to Miami Beach and the airport make Brickell a primary destination for investors seeking U.S. real estate exposure in a globally recognized urban market.",
+    a: "Yes — Brickell draws domestic and international capital. The financial district location, walkable urban core, and proximity to Miami Beach and the airport make Brickell a primary destination for investors seeking U.S. real estate exposure in a globally recognized urban market.",
   },
   {
     q: "What should I know about short-term rental restrictions in Brickell?",
@@ -96,10 +97,11 @@ export default function SellBrickellPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Brickell, Miami · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Brickell condo with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Brickell condo with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Brickell"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Brickell's urban luxury market and high international investor demand require a listing agent
               who activates both the local professional network and the global capital flow that defines Miami's financial district.
@@ -167,14 +169,14 @@ export default function SellBrickellPage() {
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Brickell's urban walkability, luxury tower inventory, and positioning at the intersection of
-              Latin American, European, and North American capital flows make it one of the most reliably
-              internationalized real estate markets in South Florida.
+              domestic and international capital flows give it a strong investor and international buyer
+              presence in South Florida.
               The presence of major financial institutions, direct airport access, and proximity to Miami Beach
               sustain investor demand across economic cycles.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "International + Investor", sub: "Latin American, European, and North American capital flows" },
+                { label: "Buyer Profile", value: "International + Investor", sub: "Domestic and international capital flows" },
                 { label: "Property Type", value: "Urban Luxury High-Rise", sub: "Financial district towers, walkable urban core" },
                 { label: "Market Driver", value: "Capital Preservation", sub: "Global investors seeking U.S. real estate exposure" },
               ].map((stat) => (
@@ -206,7 +208,7 @@ export default function SellBrickellPage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">

@@ -189,6 +189,8 @@ https://www.homesprofessional.com/* https://homesprofessional.com/:splat 301!
 /journal/seller-positioning-weston-2026-july/ /journal/selling-weston-florida-2026 301!
 /journal/seller-positioning-plantation-2026-october /journal/selling-plantation-home-2026 301!
 /journal/seller-positioning-plantation-2026-october/ /journal/selling-plantation-home-2026 301!
+/journal/latin-american-buyers-south-florida-2026 /journal/international-buyers-south-florida-2026 301!
+/journal/latin-american-buyers-south-florida-2026/ /journal/international-buyers-south-florida-2026 301!
 /sell /sell/index.html 200!
 /sell/ /sell 301!
 /sell-weston /sell-weston/index.html 200!
@@ -295,6 +297,8 @@ https://www.homesprofessional.com/* https://homesprofessional.com/:splat 301!
 /es/vender-brickell/ /es/vender-brickell 301!
 /es/vender-coral-gables /es/vender-coral-gables/index.html 200!
 /es/vender-coral-gables/ /es/vender-coral-gables 301!
+/journal/international-buyers-south-florida-2026 /journal/international-buyers-south-florida-2026/index.html 200!
+/journal/international-buyers-south-florida-2026/ /journal/international-buyers-south-florida-2026 301!
 /journal/south-florida-new-construction-vs-resale-rate-buydowns-2026 /journal/south-florida-new-construction-vs-resale-rate-buydowns-2026/index.html 200!
 /journal/south-florida-new-construction-vs-resale-rate-buydowns-2026/ /journal/south-florida-new-construction-vs-resale-rate-buydowns-2026 301!
 /journal/south-florida-condo-warrantability-fannie-mae-full-review-2026 /journal/south-florida-condo-warrantability-fannie-mae-full-review-2026/index.html 200!
@@ -425,8 +429,6 @@ https://www.homesprofessional.com/* https://homesprofessional.com/:splat 301!
 /journal/selling-weston-florida-2026/ /journal/selling-weston-florida-2026 301!
 /journal/selling-miami-beach-condo-2026 /journal/selling-miami-beach-condo-2026/index.html 200!
 /journal/selling-miami-beach-condo-2026/ /journal/selling-miami-beach-condo-2026 301!
-/journal/latin-american-buyers-south-florida-2026 /journal/latin-american-buyers-south-florida-2026/index.html 200!
-/journal/latin-american-buyers-south-florida-2026/ /journal/latin-american-buyers-south-florida-2026 301!
 /journal/* /404.html 404
 /assets/* /404.html 404
 /images/* /404.html 404

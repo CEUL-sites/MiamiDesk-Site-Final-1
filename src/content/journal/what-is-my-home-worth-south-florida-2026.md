@@ -39,7 +39,7 @@ South Florida is not one market. It is dozens of submarkets, each with different
 
 **Coral Gables** functions differently from the rest of Miami-Dade. It has its own zoning authority, architectural review standards, and a protected tree canopy that constrains land supply. Properties there are evaluated street by street, block by block, and by specific architectural era — not by ZIP code.
 
-**Brickell and Edgewater** are condo-dominated markets where floor number, view, and unit line matter significantly. Absorption in these submarkets is driven partly by LATAM and European buyer demand, which can shift seasonally and in response to currency dynamics.
+**Brickell and Edgewater** are condo-dominated markets where floor number, view, and unit line matter significantly. Absorption in these submarkets is driven partly by international buyer demand, which can shift seasonally and in response to currency dynamics.
 
 **Weston and Plantation** in Broward serve a primarily family-oriented buyer base anchored to school districts. The HOA community a property sits in — Windmill Ranch, The Ridges, Sector 7 — affects value materially. Lot type (golf course, lake, preserve frontage) creates premiums that require submarket-specific knowledge to quantify.
 

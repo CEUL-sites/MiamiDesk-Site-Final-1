@@ -1138,5 +1138,17 @@
     "to": "/journal/selling-plantation-home-2026",
     "status": 301,
     "force": true
+  },
+  {
+    "from": "/journal/latin-american-buyers-south-florida-2026",
+    "to": "/journal/international-buyers-south-florida-2026",
+    "status": 301,
+    "force": true
+  },
+  {
+    "from": "/journal/latin-american-buyers-south-florida-2026/",
+    "to": "/journal/international-buyers-south-florida-2026",
+    "status": 301,
+    "force": true
   }
 ]

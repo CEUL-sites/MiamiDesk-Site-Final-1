@@ -37,7 +37,7 @@ Pricing correctly requires knowing which category your property falls in and usi
 
 > **Investors and vacation rental buyers** who are drawn by Pompano Beach's relative value compared to Fort Lauderdale and Boca Raton, and by the city's improving amenity profile. This buyer evaluates rental income potential alongside appreciation and is specific about proximity to the beach and walkability to dining.
 
-> **Latin American buyers**, particularly from Colombia and Venezuela, who are familiar with the Broward waterfront corridor and who are purchasing for primary residence, second home, or investment purposes. The price-to-access ratio in Pompano Beach compares favorably to what the same buyer would pay in Aventura, Fort Lauderdale, or Boca Raton.
+> **International buyers** who are familiar with the Broward waterfront corridor and who are purchasing for primary residence, second home, or investment purposes. The price-to-access ratio in Pompano Beach compares favorably to what the same buyer would pay in Aventura, Fort Lauderdale, or Boca Raton.
 
 ## The Beachfront Redevelopment Context
 

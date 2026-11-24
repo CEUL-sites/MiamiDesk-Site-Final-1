@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { findFairHousingIssues } from './fair-housing.mjs';
 
 const ROOT = process.cwd();
 const JOURNAL_DIR = path.join(ROOT, 'src', 'content', 'journal');
@@ -102,7 +103,7 @@ const markets = [
     risk: 'competing directly against an identical model listed the same week at a lower number',
     type: 'single-family home',
     sellerPage: '/sell-doral',
-    buyers: 'LATAM, corporate relocation, and family buyers',
+    buyers: 'corporate relocation, family and international buyers',
     setting: 'newer construction where much of the inventory shares a small set of builder floor plans',
     diligence: [
       'association documents and any community development district assessment that applies',
@@ -287,7 +288,7 @@ const markets = [
     risk: 'a strategy built on county-level averages rather than the specific competing inventory',
     type: 'property',
     sellerPage: '/sell',
-    buyers: 'local, national, Spain, and LATAM buyer channels',
+    buyers: 'local, national and international buyer channels',
     setting: 'markets that change block by block across Miami-Dade, Broward, and Palm Beach',
     diligence: [
       'association documents where the property sits under one',
@@ -373,13 +374,13 @@ const angles = [
     key: 'international-owner',
     audience: 'seller',
     category: 'International Seller Strategy',
-    title: (m) => `${m.name} Owners With Spain or LATAM Buyer Profiles: The Exposure Question`,
-    seoTitle: (m) => `${m.name} Owners: The Spain and LATAM Buyer Question`,
+    title: (m) => `${m.name} Owners and International Buyers: The Exposure Question`,
+    seoTitle: (m) => `${m.name} Owners: The International Buyer Question`,
     excerpt: (m) => `Selling ${article(m.name)} ${m.name} ${m.type} to buyers abroad: ${m.focus}, settled before the listing goes live.`,
     sections: (m) => [
       [
         'Decide the Buyer Channel Before the Launch',
-        `International exposure is usually treated as decoration added after a listing is already public. For a ${m.name} ${m.type} that is backwards. ${m.hook} If Spain, LATAM, relocation, or investor buyers form part of the likely demand pool, the buyer narrative and the distribution plan should exist before the property goes live.`
+        `International exposure is usually treated as decoration added after a listing is already public. For a ${m.name} ${m.type} that is backwards. ${m.hook} If out-of-state, international, relocation or investor buyers form part of the likely demand pool, the buyer narrative and the distribution plan should exist before the property goes live.`
       ],
       [
         `What a Cross-Border Buyer Verifies in ${m.name}`,
@@ -540,7 +541,7 @@ function bioVariants() {
     'Carlos Uzcategui has been a Florida Licensed Realtor®, SL705771, since 2001 — 25 years in this market — working through United Realty Group. He is a Certified Luxury Home Marketing Specialist and a Certified Seller Representative, and works in English and Spanish with owners and buyers connected to Spain and LATAM.',
     'Carlos Uzcategui is a Florida Licensed Realtor®, SL705771, licensed since 2001 and affiliated with United Realty Group. The relevant background here is 25 years of South Florida transactions, Certified Luxury Home Marketing Specialist and Certified Seller Representative credentials, and bilingual English-Spanish representation for cross-border owners and buyers.',
     'Florida Licensed Realtor® SL705771, licensed since 2001, affiliated with United Realty Group, Certified Luxury Home Marketing Specialist and Certified Seller Representative. Carlos Uzcategui works in English and Spanish across South Florida with established Spain and LATAM referral channels, and has 25 years in this market.',
-    'Carlos Uzcategui works South Florida as a Florida Licensed Realtor®, SL705771, licensed since 2001 and affiliated with United Realty Group. Beyond the 25 years and the Certified Luxury Home Marketing Specialist and Certified Seller Representative credentials, the practical difference is a bilingual process that treats Spain and LATAM buyers as a channel rather than an afterthought.',
+    'Carlos Uzcategui works South Florida as a Florida Licensed Realtor®, SL705771, licensed since 2001 and affiliated with United Realty Group. Beyond the 25 years and the Certified Luxury Home Marketing Specialist and Certified Seller Representative credentials, the practical difference is a bilingual process that treats international buyers, including those in Spain and Latin America, as a channel rather than an afterthought.',
     'A Florida Licensed Realtor® since 2001 under license SL705771, Carlos Uzcategui practices through United Realty Group and holds the Certified Luxury Home Marketing Specialist and Certified Seller Representative designations. What 25 years in this market buys an owner is not marketing volume but a sequence: position, prepare, launch, activate, negotiate.'
   ];
 }
@@ -822,6 +823,11 @@ function assertQuality(content, meta) {
   }
 
   assertVerifiedFigures(content);
+
+  const fairHousing = findFairHousingIssues(content);
+  if (fairHousing.length) {
+    throw new Error(`Quality gate failed: fair housing language detected (${fairHousing.map((i) => `"${i.match}"`).join(', ')}). Describe the property and the place, not the people.`);
+  }
 }
 
 function shingles(text) {

@@ -29,7 +29,7 @@ const STEPS = [
     number: "04",
     name: "Activate",
     headline: "Relevant buyer agents receive targeted outreach.",
-    body: "Beyond MLS visibility, we identify and contact agents whose buyers fit your property, working alongside the United Realty Group brokerage. LATAM and European buyer pipelines are engaged through international referral channels. For properties with cross-border appeal, the Spain and Madrid desk coordinates inquiries directly.",
+    body: "Beyond MLS visibility, we identify and contact agents whose buyers fit your property, working alongside the United Realty Group brokerage. International buyer agents are reached through the referral network. For properties with cross-border appeal, the Spain and Madrid desk coordinates inquiries directly.",
     benefit: "Your listing reaches working buyer agents — not just search portals waiting for clicks.",
   },
   {

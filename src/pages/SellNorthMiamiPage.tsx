@@ -15,11 +15,12 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const NORTH_MIAMI_FAQS = [
   {
     q: "What are current market conditions in North Miami?",
-    a: "North Miami is a growing submarket within Miami-Dade that benefits from coastal adjacency and accessible price points relative to neighboring Aventura and North Miami Beach. Per Miami and South Florida REALTORS® MLS data, demand is supported by a diverse local buyer pool and increasing attention from buyers priced out of directly coastal markets. Carlos provides a submarket-specific pricing analysis as part of every seller strategy review.",
+    a: "North Miami is a growing submarket within Miami-Dade that benefits from coastal adjacency and accessible price points relative to neighboring Aventura and North Miami Beach. Per Miami and South Florida REALTORS® MLS data, demand is supported by a broad local buyer pool and increasing attention from buyers priced out of directly coastal markets. Carlos provides a submarket-specific pricing analysis as part of every seller strategy review.",
   },
   {
     q: "How does North Miami pricing compare to coastal markets?",
@@ -27,7 +28,7 @@ const NORTH_MIAMI_FAQS = [
   },
   {
     q: "What buyer profiles are most active in North Miami?",
-    a: "North Miami draws a genuinely diverse buyer pool — local move-up buyers, first-time buyers from within Miami-Dade, domestic relocators, and a growing share of international buyers who find value positioning relative to Aventura and the beaches. Carlos's network spans the Miami and South Florida REALTORS® association of 93,000 member agents and an international referral pipeline reaching buyers in 75+ countries.",
+    a: "North Miami draws a broad buyer pool — local move-up buyers, first-time buyers from within Miami-Dade, domestic relocators, and a growing share of international buyers who find value positioning relative to Aventura and the beaches. Carlos's network spans the Miami and South Florida REALTORS® association of 93,000 members and an international referral network spanning 75+ countries.",
   },
   {
     q: "How does proximity to Aventura and the beaches affect demand?",
@@ -44,12 +45,12 @@ export default function SellNorthMiamiPage() {
     <>
       <Helmet>
         <title>Sell Your Home in North Miami, FL</title>
-        <meta name="description" content="North Miami, FL listing agent — MLS positioning, diverse buyer activation, buyer-agent network. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <meta name="description" content="North Miami, FL listing agent — MLS positioning, buyer-agent outreach, international distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/sell-north-miami" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-north-miami" />
         <meta property="og:title" content="Sell Your North Miami, FL Home | Professional MLS Positioning | Carlos Uzcategui" />
-        <meta property="og:description" content="Professional seller representation in North Miami, FL — MLS activation, diverse buyer-agent network access, and international distribution. Free confidential strategy review." />
+        <meta property="og:description" content="Professional seller representation in North Miami, FL — MLS placement, buyer-agent outreach, and international distribution. Free confidential strategy review." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sell Your North Miami, FL Home | Carlos Uzcategui, FL SL705771" />
@@ -92,12 +93,13 @@ export default function SellNorthMiamiPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">North Miami, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your North Miami home with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your North Miami home with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["North Miami"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
-              North Miami's growing submarket, coastal adjacency, and diverse buyer pool require a listing agent who
+              North Miami's growing submarket, coastal adjacency, and broad buyer pool require a listing agent who
               understands both the local demand landscape and the international network capable of reaching every
               qualified buyer. Professional MLS positioning. Buyer-agent activation. International distribution.
             </p>
@@ -164,13 +166,13 @@ export default function SellNorthMiamiPage() {
               North Miami sits in the northeast quadrant of Miami-Dade County, bordered by North Miami Beach and the
               Aventura corridor — markets that command a significant coastal premium. That proximity gives North Miami
               sellers a structural advantage: buyers seeking coastal access and community infrastructure at accessible
-              price points consistently look here. The submarket draws a genuinely diverse buyer pool, from local
+              price points consistently look here. The submarket draws a broad buyer pool, from local
               move-up buyers to domestic relocators and international buyers who prioritize value relative to the
               directly coastal alternatives.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Buyer Profile", value: "Diverse / Local + International", sub: "Move-up buyers, domestic relocators, and international buyers valuing coastal adjacency" },
+                { label: "Buyer Profile", value: "Local + International", sub: "Move-up buyers, domestic relocators, and international buyers valuing coastal adjacency" },
                 { label: "Location", value: "NE Miami-Dade / Aventura Corridor", sub: "Positioned between coastal markets with strong access to beaches and amenities" },
                 { label: "Market Type", value: "Value-Positioned / Coastal Adjacent", sub: "Accessible price points relative to Aventura, North Miami Beach, and Bal Harbour" },
               ].map((stat) => (
@@ -245,9 +247,9 @@ export default function SellNorthMiamiPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">North Miami Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+              <a href="/journal/international-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers in South Florida 2026 — Where They're Looking and What They're Buying</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">International and Out-of-State Buyers in South Florida 2026 — What Sellers Should Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
               <a href="/sell" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">

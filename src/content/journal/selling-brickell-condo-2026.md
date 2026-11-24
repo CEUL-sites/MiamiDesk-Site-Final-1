@@ -18,7 +18,7 @@ Selling a unit here is not the same as listing a single-family home in the subur
 
 ## The Brickell buyer is often represented and often international
 
-A large share of serious Brickell buyers are working with a buyer agent, and a meaningful share originate outside the United States — Latin American investors, families establishing a U.S. base, and European buyers diversifying into dollar-denominated assets.
+A large share of serious Brickell buyers are working with a buyer agent, and a meaningful share originate outside the United States — investors, families establishing a U.S. base, and buyers diversifying into dollar-denominated assets.
 
 That has a direct consequence: demand is created online, but transactions are executed through professional buyer-agent relationships. A listing that is positioned only for portal browsers misses the channel through which most Brickell offers actually arrive. Activating buyer-agent relationships — with clear, accurate broker-facing remarks — is part of the work, not an afterthought.
 
@@ -58,7 +58,7 @@ For a Brickell unit aimed at an international buyer, that professional infrastru
 1. A pricing analysis built on current MLS comparables — specific to your line and floor, not a building average
 2. HOA financials and structural certification status assembled for buyer-agent review
 3. Professional MLS activation through United Realty Group with buyer-agent-facing broker remarks
-4. Active outreach into the Latin American and European buyer-agent network
+4. Active outreach through the international referral network
 5. Offer and timeline management calibrated to an international buyer's decision process
 
 If you are weighing a sale, the [Brickell seller page](https://homesprofessional.com/sell-brickell) outlines how that positioning works in practice.

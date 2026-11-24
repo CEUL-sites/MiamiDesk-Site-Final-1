@@ -43,7 +43,7 @@ const COUNTIES = [
     stat: `${MIAMI_DADE.length} cities covered`,
     tagline: "Urban core, international gateway, waterfront condominiums, and single-family estates.",
     character:
-      "Urban core and international gateway. Brickell, Coral Gables, Aventura, Doral, Miami Beach, and Coconut Grove form the primary entry point for Latin American, European, and domestic capital into South Florida—combining waterfront condominiums and established single-family estates.",
+      "Urban core and international gateway. Brickell, Coral Gables, Aventura, Doral, Miami Beach, and Coconut Grove form the primary entry point for domestic and international capital into South Florida—combining waterfront condominiums and established single-family estates.",
     highlights: [
       "Condominium underwriting: reserve studies, milestone inspections & floor height",
       "Single-family corridors (Coral Gables, Pinecrest, Doral): school districts & lot scale",
@@ -123,7 +123,7 @@ const SOUTH_FL_DRIVERS = [
     icon: Plane,
     label: "02 · Global Gateway",
     title: "The U.S. gateway to the Americas & Europe",
-    body: "Miami International Airport, Fort Lauderdale-Hollywood International, and PortMiami make South Florida the primary landing point for Latin American and European capital.",
+    body: "Miami International Airport, Fort Lauderdale-Hollywood International, and PortMiami make South Florida a primary landing point for international capital.",
   },
   {
     icon: Building2,

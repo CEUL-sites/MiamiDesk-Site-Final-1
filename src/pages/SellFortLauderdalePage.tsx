@@ -16,6 +16,7 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const FORT_LAUDERDALE_FAQS = [
   {
@@ -24,7 +25,7 @@ const FORT_LAUDERDALE_FAQS = [
   },
   {
     q: "Do international buyers purchase property in Fort Lauderdale?",
-    a: "Yes — Fort Lauderdale attracts meaningful international demand, particularly European buyers (British, French, and German) who value the direct transatlantic flight access and waterfront lifestyle, alongside Latin American buyers drawn by the city's proximity to Miami and established infrastructure. Carlos's international network and global portal distribution directly activates these buyer profiles.",
+    a: "Yes. Fort Lauderdale draws buyers from other states and abroad, attracted by its waterways, the Las Olas corridor and direct international flight access through Fort Lauderdale-Hollywood International Airport. Carlos's international referral network and global portal syndication extend each listing's reach to agents representing those buyers.",
   },
   {
     q: "What is the difference between Las Olas Isles and other Fort Lauderdale waterfront areas?",
@@ -93,10 +94,11 @@ export default function SellFortLauderdalePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Fort Lauderdale, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Fort Lauderdale property with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Fort Lauderdale property with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Fort Lauderdale"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Fort Lauderdale's waterfront market, diverse neighborhoods, and international buyer profile demand
               a listing agent who activates both local buyer-agent networks and the global investor pipeline.
@@ -164,15 +166,14 @@ export default function SellFortLauderdalePage() {
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Fort Lauderdale's waterway infrastructure, Las Olas corridor, and international airport access create
-              a layered real estate market with genuine global demand. European buyers — attracted by direct
-              transatlantic access — combine with Latin American and North American buyers to sustain waterfront
-              pricing across economic cycles. The city's diverse inventory from urban condos to deep-water estate
+              a layered real estate market with local, out-of-state and international demand. Direct international flight
+              access and the waterfront lifestyle draw buyers to waterfront and Las Olas inventory alike. The city's diverse inventory from urban condos to deep-water estate
               homes serves a buyer pool few other Broward markets can match.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
                 { label: "Market Character", value: "Waterfront Premium", sub: "165+ miles of navigable waterways — dock type drives valuation" },
-                { label: "Buyer Profile", value: "International + Local", sub: "European, LATAM, and North American demand across segments" },
+                { label: "Buyer Profile", value: "International + Local", sub: "Local, out-of-state and international demand across segments" },
                 { label: "Key Corridors", value: "Las Olas + Intracoastal", sub: "Distinct neighborhoods serve distinct buyer pools" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
@@ -203,7 +204,7 @@ export default function SellFortLauderdalePage() {
                     "Miami and South Florida REALTORS® MLS — 93,000 member agents",
                     "Eligible syndication across 200+ global portals in 19 languages",
                     "United Realty Group — 3,500+ agents across the Florida office network",
-                    "Direct LATAM and European buyer pipeline",
+                    "Bilingual English and Spanish representation",
                     "437+ international agreements across 75+ countries",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">

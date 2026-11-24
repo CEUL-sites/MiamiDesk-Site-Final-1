@@ -15,6 +15,7 @@ import { CityListingsSample } from "../components/CityListingsSample";
 import { NearbyMarkets } from "../components/NearbyMarkets";
 import { FaqAccordion } from "../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../constants";
+import { HeroTitle } from "../components/HeroTitle";
 
 const POMPANO_BEACH_FAQS = [
   {
@@ -27,7 +28,7 @@ const POMPANO_BEACH_FAQS = [
   },
   {
     q: "What buyer profiles target Pompano Beach?",
-    a: "Pompano Beach attracts a diverse mix: seasonal buyers from the Northeast and Midwest, national investors seeking Broward County rental income, and international buyers — particularly from Latin America and Canada — who value the beach access and price points relative to Fort Lauderdale and Boca Raton. Carlos's network reaches all of these buyer types through the Miami and South Florida REALTORS® MLS, 200+ global portals in 19 languages, and a direct international referral pipeline.",
+    a: "Pompano Beach attracts a broad mix: seasonal buyers from the Northeast and Midwest, national investors seeking Broward County rental income, and international buyers who value the beach access and price points relative to Fort Lauderdale and Boca Raton. Carlos's network reaches all of these buyer types through the Miami and South Florida REALTORS® MLS, 200+ global portals in 19 languages, and a direct international referral pipeline.",
   },
   {
     q: "How does new development affect pricing of existing homes?",
@@ -92,10 +93,11 @@ export default function SellPompanoBeachPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pompano Beach, FL · Seller Advisory</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              Sell your Pompano Beach home with the reach<br />
-              <em className="italic text-gold">of the world's largest local REALTOR® association.</em>
-            </h1>
+            <HeroTitle
+              lead="Sell your Pompano Beach home with the reach"
+              payoff="of the world's largest local REALTOR® association."
+              keep={["Pompano Beach"]}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               Pompano Beach's coastal access, active development corridor, and mix of beach, intracoastal, and inland
               property types attract seasonal and investor buyers from across the country and internationally.
@@ -163,14 +165,14 @@ export default function SellPompanoBeachPage() {
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               Pompano Beach spans a range of property types — beachfront and Intracoastal condos and single-family
               homes, inland residential neighborhoods, and an expanding new construction corridor. This breadth
-              produces a correspondingly diverse buyer pool: seasonal buyers from the Northeast and Midwest who
+              produces a correspondingly broad buyer pool: seasonal buyers from the Northeast and Midwest who
               return consistently, investor buyers targeting Broward County income properties, and international
               buyers attracted by beach access at price points more accessible than Fort Lauderdale or Boca Raton.
               Each property type and price point requires a distinct positioning approach.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
-                { label: "Property Mix", value: "Beach · Intracoastal · Single-Family", sub: "Diverse property types across price points — each with its own buyer profile and positioning strategy" },
+                { label: "Property Mix", value: "Beach · Intracoastal · Single-Family", sub: "Varied property types across price points — each with its own buyer profile and positioning strategy" },
                 { label: "Buyer Profile", value: "Seasonal + Investor", sub: "National and international buyers — seasonal Northeast/Midwest demand and income-property investor interest" },
                 { label: "Corridor", value: "Active Development", sub: "New construction expanding existing inventory — a relevant competitive factor for resale positioning" },
               ].map((stat) => (
@@ -245,9 +247,9 @@ export default function SellPompanoBeachPage() {
           <div className="mx-auto max-w-5xl px-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Pompano Beach Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
-              <a href="/journal/latin-american-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
+              <a href="/journal/international-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
-                <h3 className="font-serif text-lg text-navy-deep leading-snug">Latin American Buyers in South Florida 2026 — Where They're Looking and What They're Buying</h3>
+                <h3 className="font-serif text-lg text-navy-deep leading-snug">International and Out-of-State Buyers in South Florida 2026 — What Sellers Should Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
               <a href="/sell" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">

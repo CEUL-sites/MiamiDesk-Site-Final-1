@@ -13,6 +13,7 @@ import { NeighborhoodMarketStats } from "../../components/NeighborhoodMarketStat
 import { FaqAccordion } from "../../components/FaqAccordion";
 import { CONTACT, LEAD_MAGNETS } from "../../constants";
 import { AGGREGATE_RATING } from "../../data/reviews";
+import { HeroTitle } from "../../components/HeroTitle";
 
 // Spanish equivalent of src/pages/SellDoralPage.tsx — same claims, market
 // figures (src/data/cityMarketStats.ts), and compliance ceiling, localized.
@@ -33,13 +34,13 @@ const DORAL_FAQS_ES = [
     // TODO: native Madrid editor review
     q: "¿Cuánto tiempo toma vender una casa en Doral?",
     // TODO: native Madrid editor review
-    a: "Las casas en Doral ubicadas en comunidades con una administración de HOA sólida, buenas escuelas y un precio competitivo se han movido de forma eficiente en ciclos recientes — particularmente las propiedades dirigidas al grupo de compradores latinoamericanos que impulsa gran parte de la demanda local. El plazo varía según el rango de precio y la comunidad. Esto no constituye una garantía de resultado; Carlos ofrece una estimación específica de la propiedad durante la revisión de estrategia.",
+    a: "Las casas en Doral ubicadas en comunidades con una administración de HOA sólida, buenas escuelas y un precio competitivo suelen atraer más interés de los agentes compradores, en particular las casas con un precio correcto y la documentación de HOA completa. El plazo varía según el rango de precio y la comunidad. Esto no constituye una garantía de resultado; Carlos ofrece una estimación específica de la propiedad durante la revisión de estrategia.",
   },
   {
     // TODO: native Madrid editor review
-    q: "¿Es Doral un mercado fuerte para compradores latinoamericanos?",
+    q: "¿Trabajan con vendedores y agentes de compradores en inglés y en español?",
     // TODO: native Madrid editor review
-    a: "Sí — Doral tiene una de las concentraciones más altas de demanda de compradores venezolanos y colombianos en el condado de Miami-Dade. La sólida infraestructura comunitaria latinoamericana de la ciudad, su entorno bilingüe, la cercanía a escuelas internacionales y el acceso al aeropuerto la convierten en un destino constante de reubicación para compradores de Venezuela, Colombia y el resto de Latinoamérica. La red de Carlos llega directamente a estos perfiles de comprador.",
+    a: "Sí. Carlos y nuestro equipo trabajan en inglés y en español, con vendedores locales y con propietarios que viven fuera de Florida. Cada casa en Doral se ofrece a todos los compradores calificados a través del Miami MLS y sus canales de sindicación, conforme a la ley de vivienda justa.",
   },
   {
     // TODO: native Madrid editor review
@@ -73,14 +74,14 @@ export default function EsVenderDoralPage() {
         {/* TODO: native Madrid editor review */}
         <title>Vender su Casa en Doral, FL</title>
         {/* TODO: native Madrid editor review */}
-        <meta name="description" content="Agente listador en Doral, FL — MLS, compradores LATAM y red de agentes. Revisión de estrategia gratuita. Carlos Uzcategui, FL SL705771." />
+        <meta name="description" content="Agente listador en Doral, FL — MLS, red de agentes compradores y distribución internacional. Revisión de estrategia gratuita. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/es/vender-doral" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/es/vender-doral" />
         {/* TODO: native Madrid editor review */}
         <meta property="og:title" content="Vender su Casa en Doral, FL | Posicionamiento Profesional en el MLS | Carlos Uzcategui" />
         {/* TODO: native Madrid editor review */}
-        <meta property="og:description" content="Representación profesional de vendedores en Doral, FL — activación en el MLS, alcance a compradores latinoamericanos y distribución internacional. Revisión de estrategia gratuita y confidencial." />
+        <meta property="og:description" content="Representación profesional de vendedores en Doral, FL — colocación en el MLS, alcance a agentes compradores y distribución internacional. Revisión de estrategia gratuita y confidencial." />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         {/* TODO: native Madrid editor review */}
@@ -137,16 +138,18 @@ export default function EsVenderDoralPage() {
           <div className="relative">
             {/* TODO: native Madrid editor review */}
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Doral, FL · Asesoría para Vendedores</p>
-            <h1 className="mx-auto mt-6 max-w-4xl font-serif leading-tight text-white" style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.2rem)" }}>
-              {/* TODO: native Madrid editor review */}
-              Venda su casa en Doral con el alcance<br />
-              <em className="italic text-gold">de la asociación local de REALTORS® más grande del mundo.</em>
-            </h1>
+            {/* TODO: native Madrid editor review */}
+            <HeroTitle
+              lead="Venda su casa en Doral con el alcance"
+              payoff="de la asociación local de REALTORS® más grande del mundo."
+              keep={["Doral"]}
+              tailWords={{ payoff: 5 }}
+            />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">
               {/* TODO: native Madrid editor review */}
-              Las comunidades planificadas de Doral y una de las mayores concentraciones de compradores latinoamericanos
-              en Miami-Dade exigen un agente listador que entienda tanto el mercado local como la demanda internacional
-              que lo impulsa. Posicionamiento profesional en el MLS. Activación de agentes compradores. Distribución internacional.
+              Las comunidades planificadas de Doral, su construcción más nueva y su cercanía al aeropuerto exigen un
+              agente listador que fije el precio con evidencia de cada comunidad y dé a la casa una amplia exposición
+              profesional. Posicionamiento profesional en el MLS. Activación de agentes compradores. Distribución internacional.
             </p>
             <ul className="mx-auto mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
               {[
@@ -191,12 +194,6 @@ export default function EsVenderDoralPage() {
               </span>
             </div>
 
-            <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
-              {/* TODO: native Madrid editor review */}
-              <p className="font-sans text-sm italic leading-relaxed text-white/55">"Como familia venezolana vendiendo en Doral, necesitábamos a alguien que realmente entendiera nuestra comunidad de compradores. Carlos construyó su práctica en este mercado — se nota."</p>
-              <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/50">— Luis C., Doral, FL</footer>
-            </blockquote>
-
             <div className="mt-5 flex items-center justify-center gap-2">
               <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
@@ -235,20 +232,19 @@ export default function EsVenderDoralPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Por Qué Doral</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               {/* TODO: native Madrid editor review */}
-              Una comunidad planificada con uno de los grupos de compradores latinoamericanos más profundos del Sur de Florida.
+              Un mercado planificado construido alrededor de la construcción nueva y el acceso al aeropuerto.
             </h2>
             <p className="mt-6 max-w-3xl font-sans text-base leading-relaxed text-ink-primary/65">
               {/* TODO: native Madrid editor review */}
-              Doral combina construcciones más nuevas, comunidades cerradas, una sólida infraestructura bilingüe y una
-              cercanía excepcional al aeropuerto, formando uno de los mercados de demanda más constantes de Miami-Dade.
-              Compradores venezolanos, colombianos y de toda Latinoamérica han convertido a Doral en un destino
-              principal de reubicación e inversión — atraídos por las escuelas, la seguridad y la familiaridad cultural
-              de la comunidad.
+              Doral combina construcciones más nuevas, comunidades cerradas, escuelas y cercanía al Aeropuerto
+              Internacional de Miami y a las principales autopistas. Los compradores que se mudan desde otras zonas
+              del Sur de Florida, de otros estados o del extranjero comparan esas características, la documentación
+              de HOA y el acceso al trabajo cuando evalúan casas en Doral.
             </p>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {[
                 // TODO: native Madrid editor review
-                { label: "Perfil de Comprador", value: "LATAM + Internacional", sub: "Entre las mayores concentraciones de compradores venezolanos y colombianos en Miami-Dade" },
+                { label: "Tipo de vivienda", value: "Construcción nueva", sub: "Casas unifamiliares, townhomes y condominios en comunidades cerradas" },
                 { label: "Tipo de Comunidad", value: "Planificada y Cerrada", sub: "Construcciones más nuevas con administración de HOA sólida" },
                 { label: "Acceso", value: "Aeropuerto + Corredores", sub: "La cercanía a MIA y a las vías rápidas principales impulsa la demanda de reubicación" },
               ].map((stat) => (
@@ -284,7 +280,7 @@ export default function EsVenderDoralPage() {
                     "MLS de Miami y el Sur de Florida REALTORS® — 93.000 agentes miembros",
                     "Distribución elegible a 200+ portales globales en 19 idiomas",
                     "United Realty Group — 3.500+ agentes en 19 ubicaciones de oficinas en Florida",
-                    "Canal directo de compradores LATAM y europeos",
+                    "Representación bilingüe en inglés y español",
                     "437+ acuerdos internacionales en 75+ países",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 font-sans text-sm text-white/70">
@@ -299,7 +295,7 @@ export default function EsVenderDoralPage() {
                   // TODO: native Madrid editor review
                   { label: "Estrategia", text: "Análisis de precios + CMA específico para su comunidad y año de construcción en Doral" },
                   { label: "Posicionamiento", text: "Activación profesional en el MLS a través de United Realty Group" },
-                  { label: "Distribución", text: "Alcance a agentes compradores + red de referidos LATAM" },
+                  { label: "Distribución", text: "Alcance a agentes compradores + red de referidos internacional" },
                   { label: "Negociación", text: "Revisión de ofertas, estrategia de condiciones y coordinación del cierre" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
