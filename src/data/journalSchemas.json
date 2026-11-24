@@ -1,4 +1,128 @@
 {
+  "south-florida-new-construction-vs-resale-rate-buydowns-2026": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        "@id": "https://homesprofessional.com/journal/south-florida-new-construction-vs-resale-rate-buydowns-2026#article",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://homesprofessional.com/#website",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com"
+        },
+        "headline": "South Florida New Construction vs. Resale: Rate Buydowns and Seller Concessions (2026)",
+        "datePublished": "2026-11-24T04:00:00-05:00",
+        "dateModified": "2026-11-24T04:00:00-05:00",
+        "image": "https://homesprofessional.com/images/journal/og/south-florida-new-construction-vs-resale-rate-buydowns-2026.jpg",
+        "author": {
+          "@type": "Person",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": "Carlos Uzcategui",
+          "jobTitle": "Florida Licensed Realtor®",
+          "identifier": "SL705771",
+          "url": "https://homesprofessional.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://homesprofessional.com/images/urg-logo-original.webp"
+          }
+        },
+        "description": "Compare South Florida builder 2-1 rate buydowns vs. resale seller concessions at 7.28% rates under Fannie Mae B3-4.1-02 and FHA 6% limits.",
+        "mainEntityOfPage": "https://homesprofessional.com/journal/south-florida-new-construction-vs-resale-rate-buydowns-2026"
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://homesprofessional.com/#agent",
+        "name": "Carlos Uzcategui - United Realty Group",
+        "license": "SL705771",
+        "telephone": "+1-954-865-6622",
+        "email": "contact@carlosre.com",
+        "url": "https://homesprofessional.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2691 E Oakland Park Blvd",
+          "addressLocality": "Plantation",
+          "addressRegion": "FL",
+          "postalCode": "33324",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "South Florida New Construction Advisory",
+          "Mortgage Rate Buydown Seller Concessions",
+          "Fannie Mae Interested Party Contributions",
+          "Miami-Dade Broward and Palm Beach Real Estate",
+          "Certified Luxury Home Marketing Specialist",
+          "Bilateral Spain-Miami MLS Distribution"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://homesprofessional.com/journal/south-florida-new-construction-vs-resale-rate-buydowns-2026#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is a seller-funded 2-1 mortgage rate buydown more effective than a price cut in South Florida?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On an illustrative $700,000 home with 20% down ($560,000 loan at 7.28%), a $20,000 asking price cut lowers monthly principal and interest by $109. A seller-funded 2-1 buydown costing roughly $13,218 (1.89%) lowers Year 1 payments by $729 per month and Year 2 by $373 per month while costing the seller $6,782 less and preserving comparable sales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much can a Florida home seller contribute toward a rate buydown under Fannie Mae and FHA rules?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under Fannie Mae Selling Guide B3-4.1-02 for primary residences and second homes, seller concessions (including temporary buydowns) are capped at 3% above 90% LTV, 6% from 75.01% to 90% LTV, and 9% at 75% LTV or less, with a 2% cap on investment properties. FHA loans allow a flat 6% seller or builder concession cap. Concessions cannot fund down payments."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should South Florida buyers verify before accepting a builder rate buydown?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Buyers should compare the builder's captive-lender Loan Estimate against an independent lender quote to check origination fees and base pricing, confirm ongoing CDD and HOA fees, budget for full improved-value property tax reassessment, and verify whether closing occurs before December 31, 2026 for Florida Amendment 3 homestead residency timing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do buyers still need to qualify at the full mortgage note rate on a 2-1 buydown?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Conventional and FHA underwriting requires borrowers to qualify at the full permanent note rate rather than the reduced Year 1 promotional payment. Consult a licensed mortgage loan officer to verify exact program eligibility and payment schedules."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://homesprofessional.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Journal",
+            "item": "https://homesprofessional.com/journal/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "South Florida New Construction vs. Resale: Rate Buydowns and Seller Concessions (2026)",
+            "item": "https://homesprofessional.com/journal/south-florida-new-construction-vs-resale-rate-buydowns-2026"
+          }
+        ]
+      }
+    ]
+  },
   "south-florida-condo-warrantability-fannie-mae-full-review-2026": {
     "@context": "https://schema.org",
     "@graph": [
