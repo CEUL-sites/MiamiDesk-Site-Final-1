@@ -116,7 +116,7 @@ export function HeroPropertyAnimation() {
       <p
         id={captionId}
         role="note"
-        className="absolute top-3 left-3 z-10 lg:top-auto lg:bottom-4 lg:left-4 max-w-[calc(100%-5rem)] rounded-sm bg-[#060D18]/75 px-2 py-1 font-sans text-[10px] leading-4 text-white/85 backdrop-blur-sm"
+        className="absolute top-3 left-3 z-10 lg:top-auto lg:bottom-4 lg:left-4 max-w-[calc(100%-5rem)] rounded-sm bg-[#060D18]/75 px-2 py-1 font-sans text-xs leading-4 text-white/85 backdrop-blur-sm"
       >
         Property → Miami agent network → coordinated buyer & investor introductions.
       </p>

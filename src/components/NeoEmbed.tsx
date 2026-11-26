@@ -45,7 +45,7 @@ export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
   if (status === "error") {
     return (
       <div className="rounded border border-navy/20 bg-navy-deep/95 px-8 py-14 text-center">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
           New Pre-Construction Developments
         </p>
         <p className="mx-auto mt-4 max-w-md font-sans text-base leading-relaxed text-white/70">
@@ -57,18 +57,18 @@ export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
             href="https://wa.me/19548656622?text=I%20would%20like%20information%20on%20pre-construction%20developments%20in%20South%20Florida."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
           >
             WhatsApp · Request Inventory List
           </a>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 border border-white/25 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/50 hover:text-white"
+            className="inline-flex items-center gap-2 border border-white/25 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/50 hover:text-white"
           >
             Contact Form
           </a>
         </div>
-        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+        <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
           FL SL705771 · United Realty Group
         </p>
       </div>
@@ -79,7 +79,7 @@ export function NeoEmbed({ lang = "en" }: { lang?: "en" | "es" }) {
     <>
       {status === "loading" && (
         <div className="flex min-h-[40vh] items-center justify-center">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-primary/70">
+          <span className="font-mono text-xs uppercase tracking-[0.12em] text-ink-primary/70">
             Loading inventory…
           </span>
         </div>

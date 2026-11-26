@@ -16,14 +16,14 @@ export function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
           <div className="flex items-center gap-2.5">
             <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden="true" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/80">
+            <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/80">
               25 Years Florida Licensed Real Estate Advisory
             </span>
           </div>
-          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold font-medium">
+          <div className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-medium">
             MIAMI &amp; SOUTH FLORIDA REALTORS® · 93,000 ASSOCIATION MEMBERS
           </div>
-          <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+          <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             United Realty Group · 3,500+ Agents · 19 Florida Office Locations
           </div>
         </div>
@@ -44,7 +44,7 @@ export function Footer() {
             style={{ filter: "brightness(0) invert(1)" }}
           />
           <h3 className="font-serif text-2xl text-white tracking-tight">Carlos Uzcategui</h3>
-          <p className="font-mono mt-1 text-[11px] uppercase tracking-[0.22em] text-gold font-medium">
+          <p className="font-mono mt-1 text-xs uppercase tracking-[0.12em] text-gold font-medium">
             REALTOR® · Florida License SL705771
           </p>
           <p className="mt-3 max-w-xs font-sans text-xs font-light leading-relaxed text-white/75">
@@ -69,7 +69,7 @@ export function Footer() {
               </svg>
               <span className="font-sans text-xs text-white/75 font-light">Equal Housing Opportunity</span>
             </div>
-            <p className="mt-2.5 font-sans text-[11px] font-light leading-relaxed text-white/60">
+            <p className="mt-2.5 font-sans text-xs font-light leading-relaxed text-white/60">
               United Realty Group is a proud member of Miami and South Florida REALTORS® — the largest local Realtor® association in the U.S.
             </p>
           </div>
@@ -77,7 +77,7 @@ export function Footer() {
 
         {/* Column 2: Client Advisory Services */}
         <div>
-          <h4 className="font-mono mb-4 text-[10px] uppercase tracking-[0.28em] text-gold font-semibold">
+          <h4 className="font-mono mb-4 text-xs uppercase tracking-[0.12em] text-gold font-semibold">
             Advisory Services
           </h4>
           <div className="space-y-2.5 font-sans text-sm">
@@ -85,18 +85,18 @@ export function Footer() {
               <a
                 key={item.name}
                 href={item.href}
-                className="block text-white/75 transition-colors hover:text-gold"
+                className="block py-1 text-white/75 transition-colors hover:text-gold"
               >
                 {item.name}
               </a>
             ))}
-            <a href="/market-data" className="block text-white/75 transition-colors hover:text-gold">
+            <a href="/market-data" className="block py-1 text-white/75 transition-colors hover:text-gold">
               Market Data &amp; MLS Freshness
             </a>
-            <a href="/reviews" className="block text-white/75 transition-colors hover:text-gold">
+            <a href="/reviews" className="block py-1 text-white/75 transition-colors hover:text-gold">
               Client Reviews &amp; Track Record
             </a>
-            <a href="/about" className="block text-white/75 transition-colors hover:text-gold">
+            <a href="/about" className="block py-1 text-white/75 transition-colors hover:text-gold">
               About Carlos Uzcategui
             </a>
           </div>
@@ -104,10 +104,10 @@ export function Footer() {
 
         {/* Column 3: Direct Advisory Channels */}
         <div>
-          <h4 className="font-mono mb-1 text-[10px] uppercase tracking-[0.28em] text-gold font-semibold">
+          <h4 className="font-mono mb-1 text-xs uppercase tracking-[0.12em] text-gold font-semibold">
             Direct Advisory
           </h4>
-          <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.12em] text-white/60">
             United Realty Group
           </p>
           <div className="space-y-3 font-sans text-sm text-white/75">
@@ -151,13 +151,13 @@ export function Footer() {
                 href={CONTACT.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:text-gold-soft transition-colors"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold hover:text-gold-soft transition-colors"
               >
                 LinkedIn Professional Profile →
               </a>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 hover:text-gold transition-colors"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 hover:text-gold transition-colors"
               >
                 Private Consultation Request →
               </a>
@@ -167,19 +167,19 @@ export function Footer() {
 
         {/* Column 4: Bilateral Reach & Prime Markets */}
         <div>
-          <h4 className="font-mono mb-4 text-[10px] uppercase tracking-[0.28em] text-gold font-semibold">
+          <h4 className="font-mono mb-4 text-xs uppercase tracking-[0.12em] text-gold font-semibold">
             Bilateral Desk &amp; Prime Markets
           </h4>
           <p className="font-sans text-xs text-white/70 leading-relaxed mb-3">
             Direct Miami MLS representation for eligible international properties, coordinated with licensed on-the-ground advisory teams in Spain.
           </p>
           <div className="space-y-2 font-sans text-sm">
-            <a href="/vender-madrid" className="block text-white/75 transition-colors hover:text-gold">Vender en Madrid</a>
-            <a href="/vender-marbella" className="block text-white/75 transition-colors hover:text-gold">Vender en Marbella</a>
-            <a href="/vender-costa-blanca" className="block text-white/75 transition-colors hover:text-gold">Vender en Costa Blanca</a>
-            <a href="/vender-ibiza" className="block text-white/75 transition-colors hover:text-gold">Vender en Ibiza</a>
-            <a href="/vender-barcelona" className="block text-white/75 transition-colors hover:text-gold">Vender en Barcelona</a>
-            <a href="/vender-valencia" className="block text-white/75 transition-colors hover:text-gold">Vender en Valencia</a>
+            <a href="/vender-madrid" className="block py-1 text-white/75 transition-colors hover:text-gold">Vender en Madrid</a>
+            <a href="/vender-marbella" className="block py-1 text-white/75 transition-colors hover:text-gold">Vender en Marbella</a>
+            <a href="/vender-costa-blanca" className="block py-1 text-white/75 transition-colors hover:text-gold">Vender en Costa Blanca</a>
+            <a href="/vender-ibiza" className="block py-1 text-white/75 transition-colors hover:text-gold">Vender en Ibiza</a>
+            <a href="/vender-barcelona" className="block py-1 text-white/75 transition-colors hover:text-gold">Vender en Barcelona</a>
+            <a href="/vender-valencia" className="block py-1 text-white/75 transition-colors hover:text-gold">Vender en Valencia</a>
             <a href="/spain-mls-listing" className="block text-gold underline underline-offset-2 transition-colors hover:text-gold-soft text-xs pt-1">
               Spain → Miami MLS Listing Framework →
             </a>
@@ -192,7 +192,7 @@ export function Footer() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-5 border-b border-white/5">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold font-semibold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-semibold">
                 South Florida Seller Market Directory
               </p>
               <p className="mt-1 font-sans text-xs text-white/70">
@@ -201,7 +201,7 @@ export function Footer() {
             </div>
             <a
               href="/markets"
-              className="inline-flex items-center font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:text-gold-soft transition-colors whitespace-nowrap"
+              className="inline-flex items-center font-mono text-xs uppercase tracking-[0.12em] text-gold hover:text-gold-soft transition-colors whitespace-nowrap"
             >
               All Regional Market Intelligence →
             </a>
@@ -209,10 +209,10 @@ export function Footer() {
 
           <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/80 mb-2.5 font-medium">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/80 mb-2.5 font-medium">
                 Miami-Dade Coastal &amp; Urban
               </p>
-              <div className="space-y-1.5 font-sans text-xs text-white/70">
+              <div className="space-y-1 font-sans text-sm text-white/75">
                 <a href="/sell-brickell" className="block hover:text-gold transition-colors">Sell in Brickell</a>
                 <a href="/sell-coral-gables" className="block hover:text-gold transition-colors">Sell in Coral Gables</a>
                 <a href="/sell-downtown-miami" className="block hover:text-gold transition-colors">Sell in Downtown Miami</a>
@@ -221,10 +221,10 @@ export function Footer() {
             </div>
 
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/80 mb-2.5 font-medium">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/80 mb-2.5 font-medium">
                 Miami-Dade Communities
               </p>
-              <div className="space-y-1.5 font-sans text-xs text-white/70">
+              <div className="space-y-1 font-sans text-sm text-white/75">
                 <a href="/sell-miami" className="block hover:text-gold transition-colors">Sell in Miami</a>
                 <a href="/sell-doral" className="block hover:text-gold transition-colors">Sell in Doral</a>
                 <a href="/sell-kendall" className="block hover:text-gold transition-colors">Sell in Kendall</a>
@@ -233,10 +233,10 @@ export function Footer() {
             </div>
 
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/80 mb-2.5 font-medium">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/80 mb-2.5 font-medium">
                 Broward Prime Residential
               </p>
-              <div className="space-y-1.5 font-sans text-xs text-white/70">
+              <div className="space-y-1 font-sans text-sm text-white/75">
                 <a href="/sell-weston" className="block hover:text-gold transition-colors">Sell in Weston</a>
                 <a href="/sell-fort-lauderdale" className="block hover:text-gold transition-colors">Sell in Fort Lauderdale</a>
                 <a href="/sell-plantation" className="block hover:text-gold transition-colors">Sell in Plantation</a>
@@ -245,10 +245,10 @@ export function Footer() {
             </div>
 
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold/80 mb-2.5 font-medium">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/80 mb-2.5 font-medium">
                 Broward Coastal &amp; Suburban
               </p>
-              <div className="space-y-1.5 font-sans text-xs text-white/70">
+              <div className="space-y-1 font-sans text-sm text-white/75">
                 <a href="/sell-pembroke-pines" className="block hover:text-gold transition-colors">Sell in Pembroke Pines</a>
                 <a href="/sell-coral-springs" className="block hover:text-gold transition-colors">Sell in Coral Springs</a>
                 <a href="/sell-pompano-beach" className="block hover:text-gold transition-colors">Sell in Pompano Beach</a>
@@ -262,7 +262,7 @@ export function Footer() {
       {/* Tier 4: Regulatory Disclosures, Copyright & Legal Protection */}
       <div className="relative z-10 border-t border-white/10 px-6 py-6 md:py-8">
         <div className="mx-auto max-w-7xl space-y-4 md:space-y-6">
-          <div className="max-w-5xl space-y-2.5 font-sans text-[10px] font-light leading-relaxed text-white/70 md:space-y-3 md:leading-loose" data-nosnippet>
+          <div className="max-w-5xl space-y-2.5 font-sans text-xs font-light leading-relaxed text-white/70 md:space-y-3 md:leading-loose" data-nosnippet>
             <p className="font-semibold text-white/90">{PUBLIC_COMPLIANCE}</p>
             <p>
               Carlos Uzcategui is a REALTOR® and a Florida real estate licensee (SL705771) affiliated with United Realty Group. International and Spain-related services are provided through referral relationships, local professional partners, and applicable written agreements where available. Listing exposure, syndication, referral compensation, and platform distribution are subject to MLS rules, brokerage approval, property eligibility, and partner availability.
@@ -279,10 +279,10 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-4 md:flex-row md:gap-5">
-            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/60">
+            <div className="font-mono text-xs uppercase tracking-[0.12em] text-white/60">
               © {new Date().getFullYear()} HomesProfessional.com — All Rights Reserved
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-widest text-white/70">
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-widest text-white/70">
               <a href="/sell" className="transition-colors hover:text-gold">Sell in South Florida</a>
               <a href="/home-value" className="transition-colors hover:text-gold">Free Home Valuation</a>
               <a href="/buy" className="transition-colors hover:text-gold">Buy in South Florida</a>

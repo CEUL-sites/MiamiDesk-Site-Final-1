@@ -49,11 +49,11 @@ const WHAT_YOU_GET = [
 const METHODOLOGY_LENSES = [
   {
     id: "variance",
-    label: "01 · 15%–30% Property Variance",
+    label: "01 · Property-Specific Variance",
     icon: Layers,
-    stat: "15%–30% Spread",
-    headline: "Why Neighboring South Florida Addresses Trade 15% to 30% Apart",
-    body: "Online algorithms offer a broad starting point, but they cannot inspect interior condition, impact-glass upgrades, roof age, waterfront exposure, condo floor height, or special-assessment reserves. In South Florida luxury and residential submarkets, those property-specific factors routinely separate two neighboring addresses by 15% to 30%.",
+    stat: "Condition & Features",
+    headline: "Why Neighboring South Florida Addresses Trade at Different Prices",
+    body: "Online algorithms offer a broad starting point, but they cannot inspect interior condition, impact-glass upgrades, roof age, waterfront exposure, condo floor height, or special-assessment reserves. In South Florida luxury and residential submarkets, those property-specific factors can separate the value of two neighboring addresses in ways an automated estimate does not capture.",
   },
   {
     id: "cma",
@@ -65,11 +65,11 @@ const METHODOLOGY_LENSES = [
   },
   {
     id: "execution",
-    label: "03 · >90% Agent Activation",
+    label: "03 · Buyer-Agent Activation",
     icon: ShieldCheck,
-    stat: "93,000 Agents",
+    stat: "93,000 Members",
     headline: "From Pricing Precision to Cooperating Buyer-Agent Execution",
-    body: "Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects directly with structured presentation on the Miami and South Florida REALTORS® MLS—where over 90% of residential sales close through cooperating buyer agents—supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation.",
+    body: "Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects with structured presentation on the Miami and South Florida REALTORS® MLS, supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation. Nationally, nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers).",
   },
 ] as const;
 
@@ -93,7 +93,6 @@ const HOME_VALUE_FAQS = [
 ];
 
 export default function HomeValuePage() {
-  const [activeStepIndex, setActiveStepIndex] = useState(0);
   const [activeLensIndex, setActiveLensIndex] = useState(0);
 
   return (
@@ -196,7 +195,7 @@ export default function HomeValuePage() {
           <div className="relative mx-auto max-w-7xl px-6 lg:grid lg:grid-cols-12 lg:items-start lg:gap-12">
             {/* Left Column: Editorial Positioning & Interactive 3-Step Process */}
             <div className="lg:col-span-6 lg:pr-4">
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold">
                 Confidential · MLS Comparative Analysis · South Florida
               </p>
               <h1
@@ -210,86 +209,40 @@ export default function HomeValuePage() {
                 Receive a private MLS-based valuation, submarket absorption analysis, and preliminary net-proceeds review prepared by our team.
               </p>
 
-              {/* Interactive 3-Step Executive Process Selector */}
-              <div className="mt-8 border-t border-white/10 pt-6">
-                <div
-                  role="tablist"
-                  aria-label="Three-Step Valuation Process"
-                  className="grid grid-cols-3 gap-2"
-                >
-                  {HOW_IT_WORKS.map((step, i) => {
-                    const isSelected = activeStepIndex === i;
-                    return (
-                      <button
-                        key={step.id}
-                        type="button"
-                        role="tab"
-                        id={`hv-step-tab-${step.id}`}
-                        aria-selected={isSelected}
-                        aria-controls={`hv-step-panel-${step.id}`}
-                        onClick={() => setActiveStepIndex(i)}
-                        className={`border px-3 py-2.5 text-left transition-all ${
-                          isSelected
-                            ? "border-gold bg-gold/[0.12] text-white"
-                            : "border-white/15 bg-white/[0.03] text-white/65 hover:border-white/35 hover:text-white"
-                        }`}
-                      >
-                        <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
-                          {step.shortLabel}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {HOW_IT_WORKS.map((step, i) => {
-                  const Icon = step.icon;
-                  const isSelected = activeStepIndex === i;
-                  return (
-                    <div
-                      key={step.id}
-                      id={`hv-step-panel-${step.id}`}
-                      role="tabpanel"
-                      aria-labelledby={`hv-step-tab-${step.id}`}
-                      hidden={!isSelected}
-                      className="mt-3 border border-white/15 bg-white/[0.04] p-5"
-                    >
-                      <div className="flex items-center justify-between gap-3">
-                        <div className="flex items-center gap-2.5">
-                          <span className="flex h-6 w-6 items-center justify-center border border-gold/40 bg-gold/10 font-mono text-[10px] text-gold">
-                            {step.num}
-                          </span>
-                          <h2 className="font-serif text-lg text-white">{step.title}</h2>
-                        </div>
-                        <Icon size={16} className="text-gold" aria-hidden="true" />
-                      </div>
-                      <p className="mt-2.5 font-sans text-sm leading-relaxed text-white/75">
-                        {step.body}
-                      </p>
+              {/* What happens after you submit — a plain list, not a second control beside the form */}
+              <ol className="mt-8 space-y-4 border-t border-white/10 pt-6" aria-label="What happens after you submit">
+                {HOW_IT_WORKS.map((step) => (
+                  <li key={step.id} className="flex gap-4">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-gold/40 bg-gold/10 font-mono text-xs text-gold">
+                      {step.num}
+                    </span>
+                    <div>
+                      <h2 className="font-serif text-lg leading-snug text-white">{step.title}</h2>
+                      <p className="mt-1 font-sans text-sm leading-relaxed text-white/75">{step.body}</p>
                     </div>
-                  );
-                })}
-              </div>
+                  </li>
+                ))}
+              </ol>
 
               {/* Secondary Navigation to Net Calculator & Seller System */}
               <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6">
                 <a
                   href="#net-calculator"
-                  className="inline-flex min-h-11 items-center gap-2 border border-white/20 bg-white/[0.03] px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:border-gold hover:text-gold"
+                  className="inline-flex min-h-11 items-center gap-2 border border-white/20 bg-white/[0.03] px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:border-gold hover:text-gold"
                 >
                   Calculate Estimated Net Proceeds
                   <ArrowDown size={14} className="text-gold" />
                 </a>
                 <a
                   href="/sell"
-                  className="inline-flex min-h-11 items-center gap-2 px-2 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/90 transition-colors hover:text-white"
+                  className="inline-flex min-h-11 items-center gap-2 px-2 py-3 font-mono text-xs uppercase tracking-[0.12em] text-gold/90 transition-colors hover:text-white"
                 >
                   Explore Seller Representation
                   <ArrowRight size={14} />
                 </a>
               </div>
 
-              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">
+              <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                 {CONTACT.licenseDisplay} · United Realty Group · 25 Years South Florida Experience
               </p>
             </div>
@@ -299,7 +252,7 @@ export default function HomeValuePage() {
               <div id="contact" className="shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
                 <SellerIntakeForm sourcePage="home-value" />
               </div>
-              <div className="mt-4 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/65">
+              <div className="mt-4 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/65">
                 <BadgeCheck size={14} className="text-gold" />
                 Confidential Review · No Commitment Required · Equal Housing Opportunity
               </div>
@@ -313,7 +266,7 @@ export default function HomeValuePage() {
             <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
               {/* Left Column: Interactive 3-Lens Valuation Comparator */}
               <div className="lg:col-span-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                   Valuation Methodology
                 </p>
                 <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep sm:text-4xl">
@@ -346,7 +299,7 @@ export default function HomeValuePage() {
                         }`}
                       >
                         <span
-                          className={`block font-mono text-[10px] uppercase tracking-[0.15em] ${
+                          className={`block font-mono text-xs uppercase tracking-[0.12em] ${
                             isSelected ? "text-gold" : "text-gold-ink"
                           }`}
                         >
@@ -372,7 +325,7 @@ export default function HomeValuePage() {
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <div className="inline-flex items-center gap-2">
                           <Icon size={16} className="text-gold-ink" />
-                          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                          <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                             {lens.stat}
                           </span>
                         </div>
@@ -385,7 +338,7 @@ export default function HomeValuePage() {
                       </p>
                       <a
                         href="/sell"
-                        className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
+                        className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-navy-deep underline decoration-gold underline-offset-4 transition-colors hover:text-gold-ink"
                       >
                         See how the South Florida selling system works
                         <ArrowRight size={13} />
@@ -397,7 +350,7 @@ export default function HomeValuePage() {
 
               {/* Right Column: What Carlos Provides Card */}
               <div className="border border-bone bg-ivory p-8 md:p-10 lg:col-span-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                   What Your Review Includes
                 </p>
                 <h3 className="mt-3 font-serif text-2xl text-navy-deep">
@@ -413,7 +366,7 @@ export default function HomeValuePage() {
                 </ul>
 
                 <div className="mt-8 border-t border-bone pt-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                     Tri-County Coverage · Miami-Dade · Broward · Palm Beach
                   </p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-navy/65">
@@ -422,12 +375,12 @@ export default function HomeValuePage() {
                 </div>
 
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-bone pt-5">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70">
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
                     No listing commitment · No obligation
                   </span>
                   <a
                     href="#valuation-form"
-                    className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-navy-deep"
+                    className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold-ink transition-colors hover:text-navy-deep"
                   >
                     Start Address Review ↑
                   </a>
@@ -444,7 +397,7 @@ export default function HomeValuePage() {
         <section className="border-t border-bone bg-ivory py-20 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                 Common Questions
               </p>
               <h2 className="mt-4 font-serif text-3xl text-navy-deep">
@@ -460,7 +413,7 @@ export default function HomeValuePage() {
             <div className="mt-16 border-t border-bone pt-12">
               <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                     Seller Advisory Research
                   </p>
                   <h3 className="mt-2 font-serif text-2xl text-navy-deep">
@@ -469,7 +422,7 @@ export default function HomeValuePage() {
                 </div>
                 <a
                   href="/journal"
-                  className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink hover:text-navy-deep transition-colors"
+                  className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink hover:text-navy-deep transition-colors"
                 >
                   View All Articles →
                 </a>
@@ -480,13 +433,13 @@ export default function HomeValuePage() {
                   href="/journal/what-is-my-home-worth-south-florida-2026"
                   className="group block border border-bone bg-white p-6 transition-all hover:border-gold/50 hover:shadow-sm"
                 >
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-3">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink mb-3">
                     Valuation Methodology
                   </p>
                   <h4 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
                     What Is My South Florida Home Worth? A Seller's Pricing Guide for 2026
                   </h4>
-                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70 group-hover:text-navy-deep">
+                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-navy/70 group-hover:text-navy-deep">
                     Read the valuation guide
                     <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
                   </p>
@@ -496,13 +449,13 @@ export default function HomeValuePage() {
                   href="/journal/when-to-list-south-florida-home-2026"
                   className="group block border border-bone bg-white p-6 transition-all hover:border-gold/50 hover:shadow-sm"
                 >
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink mb-3">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink mb-3">
                     Market Timing
                   </p>
                   <h4 className="font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
                     When to List Your South Florida Home - Timing, Pricing, and the Cost of Waiting
                   </h4>
-                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy/70 group-hover:text-navy-deep">
+                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-navy/70 group-hover:text-navy-deep">
                     Read the timing guide
                     <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
                   </p>

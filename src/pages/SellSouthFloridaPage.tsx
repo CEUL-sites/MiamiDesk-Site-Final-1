@@ -153,7 +153,7 @@ export default function SellSouthFloridaPage() {
           "@type": "HowTo",
           name: "How to Sell Your South Florida Property",
           description:
-            "A structured 4-stage process to position, prepare, distribute on the MLS, and negotiate your South Florida property with professional visibility and contract protection.",
+            "A structured three-stage method to position, distribute, and activate your South Florida listing with professional visibility and contract protection.",
           tool: [
             { "@type": "HowToTool", name: "Miami and South Florida REALTORS® MLS" },
             { "@type": "HowToTool", name: "Eligible approved syndication channels" },
@@ -164,24 +164,18 @@ export default function SellSouthFloridaPage() {
               "@type": "HowToStep",
               position: 1,
               name: "Position",
-              text: "Pricing analysis, timing strategy, buyer profile identification, and property narrative development.",
+              text: "Pricing analysis, timing strategy, buyer profile, property narrative, presentation guidance, professional photography and HOA estoppel packages.",
             },
             {
               "@type": "HowToStep",
               position: 2,
-              name: "Prepare",
-              text: "Presentation guidance, professional photography, HOA estoppel packages, and launch sequencing.",
-            },
-            {
-              "@type": "HowToStep",
-              position: 3,
               name: "Distribute",
               text: "Professional MLS activation through United Realty Group with eligible syndication across approved distribution channels.",
             },
             {
               "@type": "HowToStep",
-              position: 4,
-              name: "Negotiate",
+              position: 3,
+              name: "Activate",
               text: "Cooperating buyer-agent relations, MLS reverse prospecting, contract term strategy, and closing coordination.",
             },
           ],
@@ -209,7 +203,7 @@ export default function SellSouthFloridaPage() {
         {/* Section 1: Executive Seller Hero */}
         <SellersReachHero />
 
-        {/* Section 2 & 3: Interactive 4-Stage Selling System & Cooperating Market Comparator */}
+        {/* Section 2 & 3: Listing method & Cooperating Market Comparator */}
         <SellerSellingSystem />
 
         {/* Section 4: Interactive Net Proceeds Calculator */}
@@ -229,7 +223,7 @@ export default function SellSouthFloridaPage() {
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex flex-col justify-between gap-4 mb-8 md:flex-row md:items-end">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                   Seller Research &amp; Advisory
                 </p>
                 <h2 id="research-library-heading" className="mt-2 font-serif text-2xl text-navy-deep sm:text-3xl md:text-4xl">
@@ -247,7 +241,7 @@ export default function SellSouthFloridaPage() {
                     key={tab.id}
                     type="button"
                     onClick={() => setGuideFilter(tab.id as "all" | "tax" | "market")}
-                    className={`rounded-md px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                    className={`rounded-md px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.14em] transition-all ${
                       guideFilter === tab.id
                         ? "bg-navy-deep text-gold font-bold"
                         : "text-navy/70 hover:text-navy-deep"
@@ -271,10 +265,10 @@ export default function SellSouthFloridaPage() {
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2">
-                        <span className="rounded bg-ivory px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink font-semibold">
+                        <span className="rounded bg-ivory px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                           {guide.tag}
                         </span>
-                        <ArrowUpRight size={15} className="text-navy/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold-ink" />
+                        <ArrowUpRight size={15} className="text-navy/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold-ink" />
                       </div>
                       <h3 className="mt-3 font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
                         {guide.title}
@@ -283,7 +277,7 @@ export default function SellSouthFloridaPage() {
                         {guide.takeaway}
                       </p>
                     </div>
-                    <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-semibold">
+                    <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-navy font-semibold">
                       Open Briefing →
                     </p>
                   </a>
@@ -297,7 +291,7 @@ export default function SellSouthFloridaPage() {
         <section className="bg-navy-deep py-16 md:py-24 text-white" id="contact" aria-labelledby="seller-intake-heading">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center md:mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-semibold">
                 Private Advisory Desk
               </p>
               <h2 id="seller-intake-heading" className="mt-2 font-serif text-3xl text-white sm:text-4xl">
@@ -310,7 +304,7 @@ export default function SellSouthFloridaPage() {
 
             <SellerIntakeForm sourcePage="sell-south-florida" />
 
-            <div className="mt-6 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <div className="mt-6 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
             </div>

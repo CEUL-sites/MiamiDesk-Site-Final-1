@@ -113,14 +113,14 @@ function buildQuery(filters: Filters, page: number): string {
 }
 
 function selectClass() {
-  return "w-full appearance-none border border-white/15 bg-navy/60 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white/80 focus:border-gold focus:outline-none";
+  return "w-full appearance-none border border-white/15 bg-navy/60 px-3 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-white/80 focus:border-gold focus:outline-none";
 }
 
 // ── Detail modal with photo gallery ────────────────────────────────────────
 function DetailRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-baseline justify-between gap-4 border-b border-white/10 py-2.5">
-      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{label}</span>
+      <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">{label}</span>
       <span className="text-right font-sans text-sm text-white/85">{value}</span>
     </div>
   );
@@ -197,7 +197,7 @@ function DetailModal({ listing, onClose }: { listing: BridgeListing; onClose: ()
                 >
                   <ChevronRight size={18} />
                 </button>
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-navy/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-navy/70 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                   {idx + 1} / {photos.length}
                 </div>
               </>
@@ -210,10 +210,10 @@ function DetailModal({ listing, onClose }: { listing: BridgeListing; onClose: ()
             <p className="font-serif text-3xl font-semibold text-white">
               {listing.ListPrice != null ? formatPrice(listing.ListPrice) : "Price on request"}
             </p>
-            {psf && <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">{psf}</p>}
+            {psf && <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{psf}</p>}
           </div>
           <p className="mt-2 font-sans text-sm text-white/80">{listing.UnparsedAddress ?? "Address on request"}</p>
-          {locality && <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">{locality}</p>}
+          {locality && <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold">{locality}</p>}
 
           <div className="mt-6">
             {listing.PropertyType && <DetailRow label="Type" value={listing.PropertyType} />}
@@ -233,11 +233,11 @@ function DetailModal({ listing, onClose }: { listing: BridgeListing; onClose: ()
             href={CONTACT.whatsappUS}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-7 inline-flex w-full items-center justify-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90"
+            className="mt-7 inline-flex w-full items-center justify-center gap-2 bg-gold px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy transition-opacity hover:opacity-90"
           >
             Ask Carlos About This Property
           </a>
-          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] leading-relaxed text-white/70">
+          <p className="mt-3 font-mono text-xs uppercase tracking-[0.14em] leading-relaxed text-white/70">
             {listing.ListOfficeName && !/united realty/i.test(listing.ListOfficeName)
               ? "Listed by a cooperating brokerage and displayed via IDX. "
               : ""}
@@ -334,7 +334,7 @@ export function ListingsBrowser({
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 border border-gold/30 bg-gold/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-gold">
+            <div className="inline-flex items-center gap-2 border border-gold/30 bg-gold/10 px-3 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold">
               <Sparkles size={12} />
               {eyebrow}
             </div>
@@ -351,7 +351,7 @@ export function ListingsBrowser({
             <button
               type="button"
               onClick={() => setFilters((f) => ({ ...f, zone: "" }))}
-              className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors ${
+              className={`border px-3 py-1.5 font-mono text-xs uppercase tracking-[0.12em] transition-colors ${
                 filters.zone === ""
                   ? "border-gold bg-gold text-navy-deep font-bold"
                   : "border-white/15 bg-navy/60 text-white/75 hover:border-gold/50 hover:text-white"
@@ -364,7 +364,7 @@ export function ListingsBrowser({
                 key={z}
                 type="button"
                 onClick={() => setFilters((f) => ({ ...f, zone: f.zone === z ? "" : z }))}
-                className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors ${
+                className={`border px-3 py-1.5 font-mono text-xs uppercase tracking-[0.12em] transition-colors ${
                   filters.zone === z
                     ? "border-gold bg-gold text-navy-deep font-bold"
                     : "border-white/15 bg-navy/60 text-white/75 hover:border-gold/50 hover:text-white"
@@ -393,7 +393,7 @@ export function ListingsBrowser({
           {/* Filter bar */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
             <label className="block">
-              <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Area</span>
+              <span className="mb-1 block font-mono text-xs uppercase tracking-[0.12em] text-gold">Area</span>
               <select value={filters.zone} onChange={set("zone")} className={selectClass()}>
                 <option value="">All areas</option>
                 {ZONES.map((z) => (
@@ -403,7 +403,7 @@ export function ListingsBrowser({
             </label>
 
             <label className="block">
-              <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Type</span>
+              <span className="mb-1 block font-mono text-xs uppercase tracking-[0.12em] text-gold">Type</span>
               <select value={filters.type} onChange={set("type")} className={selectClass()}>
                 {TYPES.map((t) => (
                   <option key={t.value} value={t.value}>{t.label}</option>
@@ -412,7 +412,7 @@ export function ListingsBrowser({
             </label>
 
             <label className="block">
-              <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Status</span>
+              <span className="mb-1 block font-mono text-xs uppercase tracking-[0.12em] text-gold">Status</span>
               <select value={filters.status} onChange={set("status")} className={selectClass()}>
                 {STATUSES.map((s) => (
                   <option key={s.value} value={s.value}>{s.label}</option>
@@ -421,7 +421,7 @@ export function ListingsBrowser({
             </label>
 
             <label className="block">
-              <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Min price</span>
+              <span className="mb-1 block font-mono text-xs uppercase tracking-[0.12em] text-gold">Min price</span>
               <select value={filters.minPrice} onChange={set("minPrice")} className={selectClass()}>
                 {PRICE_STEPS.map((p) => (
                   <option key={p.value} value={p.value}>{p.label}</option>
@@ -430,7 +430,7 @@ export function ListingsBrowser({
             </label>
 
             <label className="block">
-              <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Max price</span>
+              <span className="mb-1 block font-mono text-xs uppercase tracking-[0.12em] text-gold">Max price</span>
               <select value={filters.maxPrice} onChange={set("maxPrice")} className={selectClass()}>
                 <option value="">No max</option>
                 {PRICE_STEPS.slice(1).map((p) => (
@@ -440,7 +440,7 @@ export function ListingsBrowser({
             </label>
 
             <label className="block">
-              <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Beds</span>
+              <span className="mb-1 block font-mono text-xs uppercase tracking-[0.12em] text-gold">Beds</span>
               <select value={filters.beds} onChange={set("beds")} className={selectClass()}>
                 {BEDS.map((b) => (
                   <option key={b.value} value={b.value}>{b.label}</option>
@@ -449,7 +449,7 @@ export function ListingsBrowser({
             </label>
 
             <label className="block col-span-2 sm:col-span-1">
-              <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Sort</span>
+              <span className="mb-1 block font-mono text-xs uppercase tracking-[0.12em] text-gold">Sort</span>
               <select value={filters.sort} onChange={set("sort")} className={selectClass()}>
                 {SORTS.map((s) => (
                   <option key={s.value} value={s.value}>{s.label}</option>
@@ -461,7 +461,7 @@ export function ListingsBrowser({
 
         {/* Result header */}
         <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/75">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/75">
             {status === "loading" && "Searching live MLS…"}
             {(status === "ready" || status === "loadingMore") &&
               `${total.toLocaleString()} listing${total === 1 ? "" : "s"} matched${filters.zone ? ` in ${filters.zone}` : " across South Florida"}`}
@@ -476,7 +476,7 @@ export function ListingsBrowser({
               <button
                 type="button"
                 onClick={() => setFilters({ ...DEFAULTS })}
-                className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-opacity hover:opacity-75"
+                className="font-mono text-xs uppercase tracking-[0.12em] text-gold transition-opacity hover:opacity-75"
               >
                 Reset filters
               </button>
@@ -484,7 +484,7 @@ export function ListingsBrowser({
             {compact && (
               <a
                 href="/listings#search"
-                className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline decoration-gold/50 underline-offset-4 hover:text-white"
+                className="font-mono text-xs uppercase tracking-[0.12em] text-gold underline decoration-gold/50 underline-offset-4 hover:text-white"
               >
                 Full MLS Search Desk →
               </a>
@@ -524,7 +524,7 @@ export function ListingsBrowser({
                       run(filters, page + 1, true);
                     }
                   }}
-                  className="inline-flex items-center gap-2 border border-gold/40 bg-gold/10 px-8 py-3.5 font-mono text-[10px] uppercase tracking-[0.22em] text-gold transition-colors hover:border-gold hover:bg-gold hover:text-navy-deep disabled:opacity-50"
+                  className="inline-flex items-center gap-2 border border-gold/40 bg-gold/10 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors hover:border-gold hover:bg-gold hover:text-navy-deep disabled:opacity-50"
                 >
                   {status === "loadingMore" && <Loader2 size={14} className="animate-spin" />}
                   {status === "loadingMore"
@@ -536,7 +536,7 @@ export function ListingsBrowser({
                 {compact && (
                   <a
                     href="/listings#search"
-                    className="inline-flex items-center gap-2 border border-white/20 px-6 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/85 transition-colors hover:border-gold hover:text-gold"
+                    className="inline-flex items-center gap-2 border border-white/20 px-6 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/85 transition-colors hover:border-gold hover:text-gold"
                   >
                     Open Dedicated Search Page →
                   </a>
@@ -556,14 +556,14 @@ export function ListingsBrowser({
                 <button
                   type="button"
                   onClick={() => setFilters({ ...DEFAULTS })}
-                  className="border border-gold/40 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-gold transition-colors hover:border-gold"
+                  className="border border-gold/40 px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors hover:border-gold"
                 >
                   Clear filters
                 </button>
               )}
               <a
                 href="/buy#buyer-mandate"
-                className="bg-gold px-6 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:bg-gold-soft"
+                className="bg-gold px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-gold-soft"
               >
                 Request Custom MLS Property Brief →
               </a>
@@ -580,18 +580,18 @@ export function ListingsBrowser({
               href={CONTACT.whatsappUS}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 bg-gold px-6 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90"
+              className="mt-5 inline-flex items-center gap-2 bg-gold px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy transition-opacity hover:opacity-90"
             >
               WhatsApp Carlos
             </a>
           </div>
         )}
 
-        <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.14em] leading-relaxed text-white/70">
+        <p className="mt-8 font-mono text-xs uppercase tracking-[0.14em] leading-relaxed text-white/70">
           {IDX_DISCLAIMER}
           {lastUpdated && ` · Data current as of ${lastUpdated}.`}
         </p>
-        <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+        <p className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
           {CONTACT.licenseDisplay} · {CONTACT.brokerage} · Equal Housing Opportunity · REALTOR®
         </p>
       </div>

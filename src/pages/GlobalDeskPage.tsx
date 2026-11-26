@@ -320,7 +320,7 @@ export default function GlobalDeskPage() {
         <section id="how-it-works" className="scroll-mt-20 bg-ivory px-6 py-16 md:py-24">
           <div className="mx-auto max-w-6xl">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.26em] text-gold-ink">{t.workflowKicker}</p>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold-ink">{t.workflowKicker}</p>
               <h2 className="mt-4 text-balance font-serif text-4xl leading-tight text-navy-deep md:text-5xl">{t.workflowTitle}</h2>
               <p className="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-navy/80 md:text-lg">{t.workflowBody}</p>
             </div>
@@ -331,7 +331,7 @@ export default function GlobalDeskPage() {
             <div id="local-network" className="scroll-mt-24 mt-12 lg:mt-16">
               <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
                 <div className="max-w-3xl">
-                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-ink">{t.networkKicker}</p>
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold-ink">{t.networkKicker}</p>
                   <h3 className="mt-3 text-balance font-serif text-3xl leading-[1.08] text-navy-deep md:text-5xl">{t.networkTitle}</h3>
                 </div>
                 <p className="max-w-md font-sans text-sm leading-relaxed text-navy/75">{t.networkBody}</p>
@@ -362,7 +362,7 @@ export default function GlobalDeskPage() {
                       {t.teamVideoTitle}
                     </a>
                   </div>
-                  <figcaption className="flex min-h-14 flex-wrap items-center justify-between gap-2 bg-navy-deep px-5 py-4 font-mono text-[9px] font-semibold uppercase tracking-[0.19em] text-gold sm:px-6 sm:text-[10px]">
+                  <figcaption className="flex min-h-14 flex-wrap items-center justify-between gap-2 bg-navy-deep px-5 py-4 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold sm:px-6 sm:text-xs">
                     <span>{t.teamVideoLabel} · Plantation HQ &amp; 19 FL Office Locations</span>
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="text-white/60">3,500+ FL Agents</span>
@@ -370,7 +370,7 @@ export default function GlobalDeskPage() {
                         href="https://www.urgfl.com/office-locations/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border border-white/20 px-2.5 py-1 text-[9px] text-white/80 transition-colors hover:border-gold hover:text-gold"
+                        className="border border-white/20 px-2.5 py-1 text-xs text-white/80 transition-colors hover:border-gold hover:text-gold"
                       >
                         {lang === "es" ? "19 Oficinas en FL ↗" : "19 FL Office Locations ↗"}
                       </a>
@@ -378,7 +378,7 @@ export default function GlobalDeskPage() {
                         href="https://www.youtube.com/watch?v=M8Hx5D5ghag"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border border-gold/40 px-2.5 py-1 text-[9px] text-gold transition-colors hover:border-gold hover:text-white"
+                        className="border border-gold/40 px-2.5 py-1 text-xs text-gold transition-colors hover:border-gold hover:text-white"
                       >
                         {lang === "es" ? "Ver en YouTube ↗" : "Watch on YouTube ↗"}
                       </a>
@@ -415,7 +415,7 @@ export default function GlobalDeskPage() {
                             <StepIcon size={18} strokeWidth={1.6} aria-hidden="true" />
                           </div>
                           <div className="min-w-0">
-                            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-gold">
+                            <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-gold">
                               0{index + 1} · {lang === "es" ? "Paso" : "Step"}
                             </p>
                             <h4 className="mt-0.5 font-serif text-lg leading-tight text-white">{title}</h4>
@@ -430,7 +430,7 @@ export default function GlobalDeskPage() {
                     <a
                       href="#listing-request"
                       onClick={() => pushEvent("global_desk_cta_click", { cta_type: "network_activation", cta_location: "local_network", language: lang })}
-                      className="inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy-deep transition-colors hover:bg-white"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-white"
                     >
                       {t.networkCta}
                       <ArrowRight size={14} />
@@ -481,7 +481,7 @@ export default function GlobalDeskPage() {
                         }`}
                       >
                         <Icon size={16} className={selected ? "text-gold shrink-0" : "text-gold-ink shrink-0"} aria-hidden="true" />
-                        <span className="truncate font-mono text-[10px] font-semibold uppercase tracking-[0.12em]">
+                        <span className="truncate font-mono text-xs font-semibold uppercase tracking-[0.12em]">
                           {tab.label}
                         </span>
                       </button>
@@ -493,11 +493,11 @@ export default function GlobalDeskPage() {
                 <article className="mt-3 rounded-xl border border-gold/35 bg-navy-deep p-6 text-white shadow-lg">
                   <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
                     <h3 className="font-serif text-xl text-white">{currentRole.title}</h3>
-                    <span className="rounded-full border border-gold/30 bg-gold/10 px-3 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
+                    <span className="rounded-full border border-gold/30 bg-gold/10 px-3 py-0.5 font-mono text-xs uppercase tracking-[0.14em] text-gold">
                       {currentRole.badge}
                     </span>
                   </div>
-                  <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-gold">
+                  <p className="mt-3 font-mono text-xs uppercase tracking-[0.14em] text-gold">
                     {currentRole.summary}
                   </p>
                   <ul className="mt-4 space-y-2">
@@ -585,7 +585,7 @@ export default function GlobalDeskPage() {
 
         <section id="listing-request" className="scroll-mt-20 bg-navy-deep px-6 py-16 text-white md:py-24">
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-10 border-b border-white/12 pb-14 lg:grid-cols-[1fr_auto] lg:items-end"><div className="max-w-3xl"><h2 className="text-balance font-serif text-4xl leading-tight text-white md:text-5xl">{t.closeTitle}</h2><p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">{t.closeBody}</p></div><div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><a href={`${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "whatsapp_private_discussion", cta_location: "close", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 bg-gold px-7 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy-deep transition-colors hover:bg-white"><MessageCircle size={15} />{t.closeCta}</a><a href="mailto:contact@carlosre.com" className="inline-flex min-h-11 items-center justify-center gap-2 border border-white/20 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.15em] text-white/80 transition-colors hover:border-gold hover:text-gold"><Mail size={14} />contact@carlosre.com</a></div></div>
+            <div className="grid gap-10 border-b border-white/12 pb-14 lg:grid-cols-[1fr_auto] lg:items-end"><div className="max-w-3xl"><h2 className="text-balance font-serif text-4xl leading-tight text-white md:text-5xl">{t.closeTitle}</h2><p className="mt-5 max-w-2xl font-sans text-base leading-relaxed text-white/70 md:text-lg">{t.closeBody}</p></div><div className="flex flex-col gap-3 sm:flex-row lg:flex-col"><a href={`${whatsapp}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" onClick={() => pushEvent("global_desk_cta_click", { cta_type: "whatsapp_private_discussion", cta_location: "close", language: lang })} className="inline-flex min-h-12 items-center justify-center gap-3 bg-gold px-7 py-4 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-white"><MessageCircle size={15} />{t.closeCta}</a><a href="mailto:contact@carlosre.com" className="inline-flex min-h-11 items-center justify-center gap-2 border border-white/20 px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-gold hover:text-gold"><Mail size={14} />contact@carlosre.com</a></div></div>
             <div className="mx-auto mt-14 max-w-3xl">
               {/* Move 7: Bifurcated Global Desk Inbound Tabs */}
               <div className="mb-8 flex justify-center">
@@ -596,7 +596,7 @@ export default function GlobalDeskPage() {
                       setIntakeTab("developer");
                       pushEvent("global_desk_tab_switch", { tab: "developer", language: lang });
                     }}
-                    className={`rounded-md px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] transition-all sm:px-6 ${
+                    className={`rounded-md px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] transition-all sm:px-6 ${
                       intakeTab === "developer"
                         ? "bg-gold text-navy-deep shadow-md font-bold"
                         : "text-white/70 hover:text-white"
@@ -610,7 +610,7 @@ export default function GlobalDeskPage() {
                       setIntakeTab("cooperation");
                       pushEvent("global_desk_tab_switch", { tab: "cooperation", language: lang });
                     }}
-                    className={`rounded-md px-4 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] transition-all sm:px-6 ${
+                    className={`rounded-md px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] transition-all sm:px-6 ${
                       intakeTab === "cooperation"
                         ? "bg-gold text-navy-deep shadow-md font-bold"
                         : "text-white/70 hover:text-white"
@@ -623,7 +623,7 @@ export default function GlobalDeskPage() {
 
               <div className={intakeTab === "developer" ? "block" : "hidden"}>
                 <div className="mb-8 text-center">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.formIntro}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.formIntro}</p>
                   <p className="mx-auto mt-3 max-w-2xl font-sans text-sm leading-relaxed text-white/70">{t.formBody}</p>
                 </div>
                 <GlobalDeskListingForm lang={lang} />
@@ -638,7 +638,7 @@ export default function GlobalDeskPage() {
                 />
               </div>
             </div>
-            <div className="mt-12 border-t border-white/10 pt-8 text-center"><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/80">{t.compliance}</p><div className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-3 font-mono text-[10px] uppercase tracking-[0.12em] text-white/55"><a href={WA_US} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp USA +1 954-865-6622</a><a href={WA_ES} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp Spain +34 646 85 30 78</a><a href="tel:+19544502000" className="hover:text-gold">Office 1-954-450-2000</a></div></div>
+            <div className="mt-12 border-t border-white/10 pt-8 text-center"><p className="font-mono text-xs uppercase tracking-[0.12em] text-white/80">{t.compliance}</p><div className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-3 font-mono text-xs uppercase tracking-[0.12em] text-white/55"><a href={WA_US} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp USA +1 954-865-6622</a><a href={WA_ES} target="_blank" rel="noopener noreferrer" className="hover:text-gold">WhatsApp Spain +34 646 85 30 78</a><a href="tel:+19544502000" className="hover:text-gold">Office 1-954-450-2000</a></div></div>
           </div>
         </section>
 

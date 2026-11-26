@@ -56,7 +56,7 @@ export default function LeaveReviewPage() {
 
         {/* Hero */}
         <section className="bg-navy-deep px-6 pt-24 pb-16 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Thank You</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Thank You</p>
           <h1
             className="mx-auto mt-5 max-w-3xl font-serif text-white"
             style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)" }}
@@ -73,7 +73,7 @@ export default function LeaveReviewPage() {
                 <Star key={i} size={15} className="fill-gold text-gold" />
               ))}
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+            <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               {RATING_VALUE} · {REVIEW_COUNT} verified reviews
             </span>
           </div>
@@ -90,12 +90,12 @@ export default function LeaveReviewPage() {
                 rel="noopener noreferrer"
                 className="group flex flex-col border border-hairline bg-white p-8 transition-colors hover:border-gold"
               >
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{d.label}</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{d.label}</p>
                 <h2 className="mt-2 font-serif text-2xl text-navy-deep">{d.name}</h2>
                 <p className="mt-3 flex-1 font-sans text-sm leading-relaxed text-ink-primary/70">
                   {d.description}
                 </p>
-                <span className="mt-6 inline-flex items-center gap-2 self-start border border-gold/40 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors group-hover:bg-gold/10">
+                <span className="mt-6 inline-flex items-center gap-2 self-start border border-gold/40 px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors group-hover:bg-gold/10">
                   {d.cta}
                   <ExternalLink size={13} />
                 </span>
@@ -123,7 +123,7 @@ export default function LeaveReviewPage() {
 
         {/* Compliance footer band */}
         <section className="bg-navy-deep py-12 text-center px-6">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             {CONTACT.name} · {CONTACT.shortLicense} · {CONTACT.brokerage} · Equal Housing Opportunity
           </p>
         </section>

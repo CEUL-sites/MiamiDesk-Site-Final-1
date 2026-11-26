@@ -43,7 +43,7 @@ export function ReviewMarquee({
       `}</style>
 
       <div className="mx-auto mb-3 flex max-w-7xl items-center justify-between px-6">
-        <span className={`inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] ${dark ? "text-gold" : "text-gold-ink"}`}>
+        <span className={`inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] ${dark ? "text-gold" : "text-gold-ink"}`}>
           <Sparkles size={12} />
           {es
             ? "Haga clic en cualquier tarjeta para abrir la reseña completa verificada"
@@ -71,7 +71,7 @@ export function ReviewMarquee({
                   ))}
                 </div>
                 {r.verified && (
-                  <span className="inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
+                  <span className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.14em] text-gold">
                     <BadgeCheck size={12} />
                     {es ? "Verificada" : "Verified"}
                   </span>
@@ -88,12 +88,12 @@ export function ReviewMarquee({
                 <p className={`font-sans text-xs font-semibold ${dark ? "text-white" : "text-navy-deep"}`}>
                   {r.name}
                 </p>
-                <p className={`font-mono text-[9px] uppercase tracking-[0.14em] ${dark ? "text-white/60" : "text-navy/60"}`}>
+                <p className={`font-mono text-xs uppercase tracking-[0.14em] ${dark ? "text-white/60" : "text-navy/60"}`}>
                   {r.location ?? "South Florida"}
                   {r.date ? ` · ${formatReviewDateShort(r.date)}` : ""}
                 </p>
               </div>
-              <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold group-hover:underline">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold group-hover:underline">
                 {es ? "Leer más →" : "Full Story →"}
               </span>
             </div>

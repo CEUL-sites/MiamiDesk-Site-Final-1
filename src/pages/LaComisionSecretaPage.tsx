@@ -131,7 +131,7 @@ export default function LaComisionSecretaPage() {
               <div>
                 <div className="mb-6 inline-flex items-center gap-2 border border-gold/25 px-3 py-1.5">
                   <Lock size={10} className="text-gold" />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     Spanish · 248 Pages · Career Guide
                   </span>
                 </div>
@@ -142,7 +142,7 @@ export default function LaComisionSecretaPage() {
                   La Comisión<br />
                   <em className="italic text-gold">Secreta</em>
                 </h1>
-                <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white/70">
+                <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                   How to Build a Real Estate Career in South Florida
                 </p>
                 <p className="mt-8 max-w-lg font-sans text-base leading-relaxed text-white/65">
@@ -150,7 +150,7 @@ export default function LaComisionSecretaPage() {
                   desde la licencia hasta el pipeline, desde la selección de correduría hasta
                   la mecánica de las comisiones que la mayoría de los agentes aprende demasiado tarde.
                 </p>
-                <p className="mt-4 max-w-lg font-sans text-sm leading-relaxed text-white/45">
+                <p className="mt-4 max-w-lg font-sans text-sm leading-relaxed text-white/60">
                   Written in Spanish for the South Florida market.
                   Covers Florida licensing (DBPR/FREC), the Latin American buyer profile,
                   MLS positioning, and career strategy from a REALTOR® with 25 years in this market.
@@ -161,16 +161,16 @@ export default function LaComisionSecretaPage() {
                     href={whatsappBooklet}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                    className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
                   >
                     <BookOpen size={14} />
                     Get Notified at Launch
                   </a>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                     No commitment · First access
                   </span>
                 </div>
-                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+                <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                   By {CONTACT.licenseDisplay} · United Realty Group
                 </p>
               </div>
@@ -186,7 +186,7 @@ export default function LaComisionSecretaPage() {
                           <Star key={i} size={10} className="fill-gold text-gold" />
                         ))}
                       </div>
-                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold/60">
+                      <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/60">
                         Career Guide · South Florida
                       </p>
                     </div>
@@ -195,7 +195,7 @@ export default function LaComisionSecretaPage() {
                       La Comisión<br />
                       <span className="text-gold italic">Secreta</span>
                     </h2>
-                    <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                    <p className="mt-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                       How to Build a Real Estate Career<br />in South Florida
                     </p>
                     <div className="mt-10 border-t border-white/10 pt-6">
@@ -209,15 +209,15 @@ export default function LaComisionSecretaPage() {
                         />
                         <div>
                           <p className="font-serif text-sm text-white">Carlos Uzcategui</p>
-                          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+                          <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                             FL SL705771 · 25 Years
                           </p>
                         </div>
                       </div>
                     </div>
                     <div className="mt-6 flex items-center justify-between">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">248 páginas</span>
-                      <span className="bg-gold/15 border border-gold/25 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                      <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/70">248 páginas</span>
+                      <span className="bg-gold/15 border border-gold/25 px-2 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold">
                         Coming Soon
                       </span>
                     </div>
@@ -233,7 +233,7 @@ export default function LaComisionSecretaPage() {
         {/* Who it's for */}
         <section className="bg-ivory border-t border-bone py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="text-center font-mono text-xs uppercase tracking-[0.12em] text-gold">
               Para quién es este libro
             </p>
             <h2 className="mx-auto mt-5 max-w-3xl text-center font-serif text-2xl leading-tight text-navy-deep">
@@ -279,13 +279,13 @@ export default function LaComisionSecretaPage() {
         {/* Chapter previews */}
         <section className="bg-navy-deep py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="text-center font-mono text-xs uppercase tracking-[0.12em] text-gold">
               Contenido del libro
             </p>
             <h2 className="mx-auto mt-5 max-w-2xl text-center font-serif text-3xl leading-tight text-white">
               Ocho capítulos. Un sistema completo.
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-center font-sans text-sm leading-relaxed text-white/45">
+            <p className="mx-auto mt-5 max-w-xl text-center font-sans text-sm leading-relaxed text-white/60">
               248 páginas organizadas en una secuencia lógica — desde la licencia hasta la construcción de un negocio de largo plazo en uno de los mercados más competitivos de los Estados Unidos.
             </p>
             <div className="mt-14 space-y-px border border-white/8 bg-white/8">
@@ -295,22 +295,22 @@ export default function LaComisionSecretaPage() {
                   className="group relative bg-navy-deep/80 px-8 py-7 transition-colors hover:bg-white/[0.04]"
                 >
                   <div className="flex items-start gap-6">
-                    <span className="flex-shrink-0 font-mono text-[11px] tracking-[0.1em] text-gold/40 mt-0.5">
+                    <span className="flex-shrink-0 font-mono text-xs tracking-[0.1em] text-gold/40 mt-0.5">
                       {chapter.number}
                     </span>
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-baseline gap-3">
                         <h3 className="font-serif text-xl text-white">{chapter.title}</h3>
-                        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                           {chapter.subtitle}
                         </span>
                       </div>
-                      <p className="mt-3 font-sans text-sm leading-relaxed text-white/50">
+                      <p className="mt-3 font-sans text-sm leading-relaxed text-white/60">
                         {chapter.preview}
                       </p>
                     </div>
                     {i === 3 && (
-                      <span className="flex-shrink-0 border border-gold/30 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                      <span className="flex-shrink-0 border border-gold/30 px-2 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold">
                         Title Chapter
                       </span>
                     )}
@@ -326,7 +326,7 @@ export default function LaComisionSecretaPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Lo que cubre el libro
                 </p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep">
@@ -346,7 +346,7 @@ export default function LaComisionSecretaPage() {
               </div>
 
               <div className="border border-bone bg-ivory p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-6">
                   Incluye
                 </p>
                 <ul className="space-y-3.5">
@@ -357,7 +357,7 @@ export default function LaComisionSecretaPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 border-t border-bone pt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
+                <p className="mt-6 border-t border-bone pt-5 font-mono text-xs uppercase tracking-[0.14em] text-navy/70">
                   248 páginas · Español · South Florida market
                 </p>
               </div>
@@ -382,9 +382,9 @@ export default function LaComisionSecretaPage() {
                 </div>
               </div>
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">El Autor</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">El Autor</p>
                 <h2 className="mt-2 font-serif text-2xl text-navy-deep">Carlos Uzcategui</h2>
-                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-navy/70 mt-1">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70 mt-1">
                   Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · 25 Years
                 </p>
                 <p className="mt-5 font-sans text-sm leading-relaxed text-navy/65">
@@ -407,13 +407,13 @@ export default function LaComisionSecretaPage() {
         {/* CTA section */}
         <section className="bg-navy-deep py-16 md:py-24">
           <div className="mx-auto max-w-2xl px-6 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               Próximo lanzamiento
             </p>
             <h2 className="mt-5 font-serif text-3xl leading-tight text-white">
               Recibe acceso anticipado
             </h2>
-            <p className="mx-auto mt-5 max-w-lg font-sans text-sm leading-relaxed text-white/50">
+            <p className="mx-auto mt-5 max-w-lg font-sans text-sm leading-relaxed text-white/60">
               La Comisión Secreta launches soon. Send a WhatsApp message to Carlos directly to be
               notified when it becomes available — and to receive early-access pricing before the
               public launch.
@@ -422,12 +422,12 @@ export default function LaComisionSecretaPage() {
               href={whatsappBooklet}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 bg-gold px-10 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+              className="mt-8 inline-flex items-center gap-2 bg-gold px-10 py-4 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
             >
               <BookOpen size={14} />
               Notify Me at Launch
             </a>
-            <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
+            <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
             </p>
           </div>

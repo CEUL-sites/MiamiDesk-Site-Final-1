@@ -23,13 +23,13 @@ export function Testimonials() {
       <div className="mx-auto mb-7 max-w-7xl px-6 md:mb-12">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
+            <p className="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-gold">
               Client Reviews
             </p>
             <h2 className="font-serif text-3xl text-white">What My Clients Say</h2>
             <div className="mt-3 flex items-center gap-2.5">
               <StarRow />
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 {RATING_VALUE} average &middot; Verified Realtor.com{"\u00AE"} reviews
               </span>
             </div>
@@ -38,7 +38,7 @@ export function Testimonials() {
             href={REALTOR_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-2 self-start border border-gold/40 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10 sm:self-auto"
+            className="inline-flex shrink-0 items-center gap-2 self-start border border-gold/40 px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors hover:bg-gold/10 sm:self-auto"
           >
             Reviews verified on Realtor.com{"\u00AE"} &rarr;
           </a>
@@ -50,7 +50,7 @@ export function Testimonials() {
       </div>
 
       <div className="mx-auto mt-6 max-w-7xl px-6 md:mt-10">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
           Reviews sourced from Carlos's{" "}
           <a href={REALTOR_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="text-white/55 underline hover:text-gold">
             verified Realtor.com{"\u00AE"} profile

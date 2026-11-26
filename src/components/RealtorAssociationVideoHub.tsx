@@ -51,9 +51,9 @@ const CHANNELS: readonly ChannelItem[] = [
     titleEn: "Perfect Strangers Become Coordinated Closings Through the 93,000-Agent Network.",
     titleEs: "Desconocidos se convierten en cierres coordinados a través de la red de 93,000 agentes.",
     summaryEn:
-      "In South Florida, over 90% of residential transactions close through cooperating buyer and seller agents working inside the MLS ecosystem—connecting two sides who never met before.",
+      "Nearly 9 of 10 U.S. buyers purchase through an agent or broker (NAR 2025 Profile)—cooperating agents inside the MLS ecosystem connect two sides who never met before.",
     summaryEs:
-      "En el sur de Florida, más del 90% de las operaciones residenciales se cierran mediante agentes colaboradores dentro del ecosistema MLS—conectando a compradores y vendedores con seguridad contractual.",
+      "Casi 9 de cada 10 compradores en EE. UU. compran a través de un agente (NAR, perfil 2025)—los agentes colaboradores dentro del ecosistema MLS conectan a compradores y vendedores con coordinación contractual.",
     spots: [
       {
         id: "perfect-strangers-spot",
@@ -84,7 +84,7 @@ const CHANNELS: readonly ChannelItem[] = [
     ],
     metrics: [
       { value: "93,000", labelEn: "MIAMI REALTORS® Members", labelEs: "Miembros MIAMI REALTORS®" },
-      { value: ">90%", labelEn: "Cooperating Agent Closings", labelEs: "Cierres entre Agentes" },
+      { value: "9/10", labelEn: "Buyers Purchase Through an Agent · NAR 2025", labelEs: "Compradores con agente · NAR 2025" },
       { value: "25 Yrs", labelEn: "Licensed FL Principal", labelEs: "Licencia FL desde 2001" },
     ],
     externalLinks: [
@@ -426,7 +426,7 @@ export function RealtorAssociationVideoHub({
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 border border-gold/35 bg-gold/10 px-3 py-1">
               <Film size={13} className="text-gold" />
-              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-gold">
+              <span className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold">
                 {es ? header.eyebrowEs : header.eyebrowEn}
               </span>
             </div>
@@ -462,7 +462,7 @@ export function RealtorAssociationVideoHub({
                     : "border-white/15 bg-white/[0.04] text-white/80 hover:border-gold/60 hover:text-white"
                 }`}
               >
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em]">
+                <span className="font-mono text-xs uppercase tracking-[0.12em]">
                   {es ? ch.tabLabelEs : ch.tabLabelEn}
                 </span>
                 <Tv size={14} className={isSelected ? "text-[#060F1E]" : "text-gold"} />
@@ -482,7 +482,7 @@ export function RealtorAssociationVideoHub({
           <div className="lg:col-span-7">
             {/* Sub-spot selector bar when a channel has multiple official films */}
             <div className="mb-3 flex flex-wrap items-center justify-between gap-2 border border-white/12 bg-black/35 px-3 py-2">
-              <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold">
+              <span className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 <Volume2 size={12} className="text-gold" />
                 {es ? "Seleccionar Spot Oficial:" : "Select Official Spot:"}
               </span>
@@ -494,7 +494,7 @@ export function RealtorAssociationVideoHub({
                       key={spot.id}
                       type="button"
                       onClick={() => handleSelectSpot(sIdx)}
-                      className={`px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] transition-colors cursor-pointer ${
+                      className={`px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] transition-colors cursor-pointer ${
                         active
                           ? "bg-gold text-[#060F1E] font-semibold"
                           : "border border-white/15 bg-white/[0.04] text-white/75 hover:border-gold/50 hover:text-white"
@@ -549,7 +549,7 @@ export function RealtorAssociationVideoHub({
                         currentSpot.youtubeId &&
                         setEngagedYoutubeId(currentSpot.youtubeId)
                       }
-                      className="group inline-flex items-center gap-3 border border-gold bg-[#060F1E]/90 px-6 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-white shadow-2xl transition-all hover:bg-gold hover:text-[#060F1E] cursor-pointer"
+                      className="group inline-flex items-center gap-3 border border-gold bg-[#060F1E]/90 px-6 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-2xl transition-all hover:bg-gold hover:text-[#060F1E] cursor-pointer"
                     >
                       <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gold text-[#060F1E] transition-transform group-hover:scale-105">
                         <Play size={14} fill="currentColor" />
@@ -572,7 +572,7 @@ export function RealtorAssociationVideoHub({
                 <p className="font-serif text-sm text-white">
                   {es ? currentSpot.titleEs : currentSpot.titleEn}
                 </p>
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   {es ? currentSpot.sourceLabelEs : currentSpot.sourceLabelEn} ·{" "}
                   {currentSpot.duration}
                 </p>
@@ -584,7 +584,7 @@ export function RealtorAssociationVideoHub({
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-mono text-[10px] text-white/80 underline decoration-gold/60 underline-offset-4 transition-colors hover:text-gold"
+                    className="inline-flex items-center gap-1 font-mono text-xs text-white/80 underline decoration-gold/60 underline-offset-4 transition-colors hover:text-gold"
                   >
                     {es ? link.labelEs : link.labelEn}
                     <ExternalLink size={11} aria-hidden="true" />
@@ -597,7 +597,7 @@ export function RealtorAssociationVideoHub({
           {/* Right 5 Cols: Executive Takeaway, Metrics & Direct Action */}
           <div className="flex flex-col justify-between lg:col-span-5">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {es ? currentChannel.badgeEs : currentChannel.badgeEn}
               </p>
               <h3 className="mt-2.5 font-serif text-2xl leading-snug text-white">
@@ -612,7 +612,7 @@ export function RealtorAssociationVideoHub({
                 {currentChannel.metrics.map((m) => (
                   <div key={m.labelEn} className="bg-white/[0.03] px-2.5 py-2 text-center">
                     <p className="font-serif text-xl text-gold">{m.value}</p>
-                    <p className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.14em] text-white/65">
+                    <p className="mt-0.5 font-mono text-xs uppercase tracking-[0.14em] text-white/65">
                       {es ? m.labelEs : m.labelEn}
                     </p>
                   </div>
@@ -623,12 +623,12 @@ export function RealtorAssociationVideoHub({
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <a
                 href={header.ctaHref}
-                className="inline-flex min-h-11 items-center justify-center gap-2 bg-gold px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#060F1E] transition-colors hover:bg-gold-light"
+                className="inline-flex min-h-11 items-center justify-center gap-2 bg-gold px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-[#060F1E] transition-colors hover:bg-gold-light"
               >
                 {es ? header.ctaLabelEs : header.ctaLabelEn}
                 <ArrowRight size={13} />
               </a>
-              <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/60">
+              <span className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                 <BadgeCheck size={13} className="text-gold" />
                 FL SL705771 · United Realty Group
               </span>

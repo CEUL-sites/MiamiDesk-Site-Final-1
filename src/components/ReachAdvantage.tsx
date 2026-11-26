@@ -42,7 +42,7 @@ function AnimatedNumber({ display, prefix = "", suffix }: { display: string; pre
   return (
     <div ref={ref} className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
       <span className="font-serif" style={{ lineHeight: 1 }}>
-        {prefix && <span className="text-white/50">{prefix}</span>}
+        {prefix && <span className="text-white/60">{prefix}</span>}
         {display}
         {suffix && <span className="text-gold/80">{suffix}</span>}
       </span>
@@ -71,7 +71,7 @@ function StatCard({ stat, index, delay = 0 }: { stat: typeof TOP_STATS[0]; index
       {/* Labels */}
       <div className="mt-3 md:mt-5">
         <p className="font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white">{stat.label}</p>
-        <p className="font-mono mt-1 text-[10px] uppercase tracking-[0.2em] text-gold/60">{stat.sublabel}</p>
+        <p className="font-mono mt-1 text-xs uppercase tracking-[0.12em] text-gold/60">{stat.sublabel}</p>
       </div>
 
       {/* Description — reveals on hover, visible always on mobile */}
@@ -103,7 +103,7 @@ export const ReachAdvantage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+          className="font-mono text-xs uppercase tracking-[0.12em] text-gold"
         >
           The Reach Advantage · United Realty Group
         </motion.p>
@@ -145,7 +145,7 @@ export const ReachAdvantage = () => {
             className="h-9 w-auto opacity-85"
             style={{ filter: "brightness(0) invert(1)" }}
           />
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             Powered by membership in the Miami and South Florida REALTORS®
           </p>
         </motion.div>
@@ -161,7 +161,7 @@ export const ReachAdvantage = () => {
       {/* The propagation story as one figure rather than another paragraph:
           listing → agents → portals → countries, shown as depth. */}
       <div className="relative px-6 py-10 md:py-14">
-        <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+        <p className="text-center font-mono text-xs uppercase tracking-[0.12em] text-gold">
           How reach compounds
         </p>
         <ReachFlow3D className="mt-8" />

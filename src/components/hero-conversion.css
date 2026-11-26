@@ -6,7 +6,7 @@
 .seller-hero-scene::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #071722f5 0%, #071722d6 28%, #07172285 52%, #07172226 80%), linear-gradient(0deg, #071722c8 0%, transparent 32%); }
 .seller-hero-layout { max-width: 1440px; margin: auto; padding: 44px clamp(28px, 4vw, 64px) 48px; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.85fr); gap: clamp(32px, 5vw, 64px); align-items: center; min-height: 560px; }
 .seller-hero-primary { min-width: 0; }
-.seller-hero-eyebrow { color: var(--hero-gold); font-size: 11px; line-height: 1.5; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 14px; font-weight: 600; }
+.seller-hero-eyebrow { color: var(--hero-gold); font-size: 0.75rem; line-height: 1.5; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 14px; font-weight: 600; }
 .seller-hero-eyebrow span { margin: 0 6px; }
 .seller-hero-heading { font-size: clamp(40px, 4.5vw, 64px); line-height: 1.07; font-weight: 400; letter-spacing: -.032em; text-wrap: balance; color: #fff; }
 .seller-hero-heading > span { display: inline; color: var(--hero-gold); }
@@ -14,9 +14,9 @@
 .seller-hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 24px; }
 .seller-hero-primary-cta, .seller-hero-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; font-size: 14px; line-height: 1.3; font-weight: 600; transition: background-color .2s, color .2s, border-color .2s; }
 /* Secondary visual emphasis so the address button ("Continue With My Property") holds sole primary gold fill */
-.seller-hero-primary-cta { background: rgba(215, 188, 139, 0.12); color: #fff; border: 1px solid var(--hero-gold); padding: 12px 20px; border-radius: 4px; }
+.seller-hero-primary-cta { background: transparent; color: #fff; border: 0; border-bottom: 1px solid var(--hero-gold); padding: 10px 0; border-radius: 0; }
 .seller-hero-primary-cta svg { color: var(--hero-gold); }
-.seller-hero-primary-cta:hover { background: rgba(215, 188, 139, 0.22); color: var(--hero-gold); }
+.seller-hero-primary-cta:hover { color: var(--hero-gold); }
 .seller-hero-whatsapp { border-bottom: 1px solid var(--hero-gold); color: #fff; padding: 10px 0; }
 .seller-hero-whatsapp svg { color: var(--hero-gold); }
 .seller-hero-whatsapp:hover { color: var(--hero-gold); }
@@ -29,7 +29,7 @@
 .seller-hero-action { min-width: 0; padding: 24px; margin-top: 0; color: #112733; background: var(--hero-ivory); border: 1px solid #d7bc8b60; border-radius: 2px; box-shadow: 0 16px 50px #0003; scroll-margin-top: 100px; }
 .seller-hero-action h2 { font-size: 26px; line-height: 1.2; font-weight: 400; margin-bottom: 14px; text-wrap: balance; }
 .seller-priority-tabs { display: grid; grid-template-columns: 1.15fr 1fr .9fr; border-bottom: 1px solid #c9cecb; margin-top: 17px; }
-.seller-priority-tabs button { position: relative; min-width: 0; min-height: 46px; border-bottom: 3px solid transparent; margin-bottom: -1px; padding: 8px 4px 11px; color: #52626c; font-family: var(--font-sans); font-size: 11px; line-height: 1.35; font-weight: 600; cursor: pointer; transition: color .2s, border-color .2s; }
+.seller-priority-tabs button { position: relative; min-width: 0; min-height: 46px; border-bottom: 3px solid transparent; margin-bottom: -1px; padding: 8px 4px 11px; color: #52626c; font-family: var(--font-sans); font-size: 0.75rem; line-height: 1.35; font-weight: 600; cursor: pointer; transition: color .2s, border-color .2s; }
 .seller-priority-tabs button:hover { color: #071722; background: #07172206; }
 .seller-priority-tabs button[aria-selected=true] { color: #071722; border-bottom-color: #b89558; }
 .seller-priority-disclosure { border-top: 1px solid #c9cecb; margin-top: 12px; padding-top: 10px; }
@@ -43,18 +43,18 @@
 /* Shared compact seller-hero-form rules (used by HomeValueEntry on light cards and HomepageConsultation on dark cards) */
 .seller-hero .seller-hero-form { background: transparent; border: 0; border-radius: 0; padding: 0; box-shadow: none; }
 .seller-hero-form .seller-form-address-label { display: block; color: #344853; font-size: 12px; font-weight: 500; line-height: 1.5; letter-spacing: .04em; margin-bottom: 7px; }
-.seller-hero-form .seller-form-progress { color: #344853; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.seller-hero-form .seller-form-progress { color: #344853; font-size: 0.75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
 .seller-hero-form .seller-form-field { display: block; min-width: 0; }
-.seller-hero-form .seller-form-field > span { display: block; color: #344853; font-size: 11px; font-weight: 600; line-height: 1.4; margin-bottom: 4px; }
+.seller-hero-form .seller-form-field > span { display: block; color: #344853; font-size: 0.75rem; font-weight: 600; line-height: 1.4; margin-bottom: 4px; }
 .seller-hero-form .hero-cta-main { min-height: 52px; font-size: 13px; background: var(--hero-gold, #d7bc8b); color: #071722; border-radius: 3px; box-shadow: none; cursor: pointer; }
 .seller-hero-form .hero-cta-main:hover { background: #cbaa70; transform: none; box-shadow: none; }
 .seller-hero-form input:not([type=checkbox]), .seller-hero-form select { color: #112733; background: #fff; border-color: #b5bfc3; border-radius: 3px; font-size: 16px; min-height: 48px; }
 .seller-hero-form input::placeholder { color: #56656e; }
 .seller-hero-form select option { background: #fff; color: #112733; }
-.seller-hero-form label > span { color: #52616b; font-size: 11px; line-height: 1.5; }
+.seller-hero-form label > span { color: #52616b; font-size: 0.75rem; line-height: 1.5; }
 .seller-hero-form .seller-form-microcopy { color: #52616b; font-size: 12px; line-height: 1.65; margin-top: 12px; text-align: left; }
 .seller-hero-form .seller-form-whatsapp { color: #344853; font-size: 12px; min-height: 44px; display: flex; align-items: center; justify-content: center; width: fit-content; margin: 4px auto 0; }
-.seller-hero-form .seller-form-privacy { text-align: center; font-size: 11px; color: #52616b; }
+.seller-hero-form .seller-form-privacy { text-align: center; font-size: 0.75rem; color: #52616b; }
 .seller-hero-form [role=alert] { color: #b42318; }
 .seller-hero-form .seller-form-address-summary { background: #e9e7df; color: #344853; border-color: #c7cdcf; }
 .seller-hero-form .seller-form-address-summary span, .seller-hero-form .seller-form-address-summary button { color: #344853; min-height: 36px; display: inline-flex; align-items: center; }
@@ -70,17 +70,17 @@
 #list-here .seller-hero-form .seller-form-address-summary { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.18); color: #f5f2eb; }
 #list-here .seller-hero-form .seller-form-address-summary span { color: #fff; }
 #list-here .seller-hero-form .seller-form-address-summary button { color: #d7bc8b; }
-.seller-hero-image-caption { position: absolute; right: 20px; bottom: 10px; color: #e0e5e9; font-size: 11px; }
+.seller-hero-image-caption { position: absolute; right: 20px; bottom: 10px; color: #e0e5e9; font-size: 0.75rem; }
 .seller-hero-support { border-top: 1px solid #29404c; border-bottom: 1px solid #29404c; }
 .seller-hero-proof { max-width: 1520px; margin: auto; padding: 28px; display: grid; grid-template-columns: 1fr 1.3fr 1.3fr; gap: 28px; }
 .seller-hero-proof > p + p { border-left: 1px solid #47606c; padding-left: 32px; }
 .seller-hero-proof strong { display: block; color: var(--hero-gold); font-family: var(--font-serif); font-size: clamp(20px, 2vw, 29px); line-height: 1.3; font-weight: 400; }
-.seller-hero-proof span { display: block; color: #c0ccd3; margin-top: 8px; font-size: 10px; line-height: 1.6; letter-spacing: .07em; text-transform: uppercase; }
+.seller-hero-proof span { display: block; color: #c0ccd3; margin-top: 8px; font-size: 0.75rem; line-height: 1.6; letter-spacing: .07em; text-transform: uppercase; }
 .seller-hero-foot { max-width: 1440px; margin: auto; padding: 12px clamp(28px, 4vw, 64px) 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
 .seller-hero-foot > p:first-child { font-size: 12px; line-height: 1.6; color: #d3dde6; }
 .seller-hero-foot a { color: var(--hero-gold); display: inline-flex; align-items: center; gap: 5px; text-underline-offset: 4px; min-height: 36px; }
 .seller-hero-foot a:hover { text-decoration: underline; }
-.seller-hero-compliance { font-size: 11px; line-height: 1.6; color: #aebbc3; margin-top: 4px; max-width: 1100px; }
+.seller-hero-compliance { font-size: 0.75rem; line-height: 1.6; color: #aebbc3; margin-top: 4px; max-width: 1100px; }
 .seller-hero :is(a, button, input, select, [role=tabpanel]):focus-visible,
 #list-here :is(a, button, input, select):focus-visible { outline: 2px solid #d7bc8b; outline-offset: 3px; }
 @keyframes seller-panel-reveal { from { opacity: .5; transform: translateY(4px); } to { opacity: 1; transform: none; } }
@@ -93,15 +93,15 @@
   .seller-hero-action { max-width: 640px; width: 100%; margin-top: 0; padding: 22px; }
   .seller-hero-background { height: 100%; object-position: 65% center; }
   .seller-hero-scene::before { background: linear-gradient(180deg, #071722eb 0%, #071722d9 55%, #071722fa 100%); }
-  .seller-hero-eyebrow { font-size: 10px; margin-bottom: 8px; }
+  .seller-hero-eyebrow { font-size: 0.75rem; margin-bottom: 8px; }
   .seller-hero-heading { font-size: clamp(30px, 5.8vw, 46px); line-height: 1.08; }
   .seller-hero-summary { font-size: 15px; line-height: 1.52; margin-top: 10px; max-width: 560px; }
   .seller-hero-links { margin-top: 14px; gap: 8px 18px; }
   .seller-hero-primary-cta, .seller-hero-whatsapp { font-size: 13px; min-height: 44px; }
-  .seller-hero-primary-cta { padding: 10px 16px; }
+  .seller-hero-primary-cta { padding: 8px 0; }
   .seller-hero-whatsapp { padding: 8px 0; }
-  .seller-hero-credentials { font-size: 11.5px; line-height: 1.5; margin-top: 10px; }
-  .seller-hero-image-caption { position: static; padding: 0 20px 10px; font-size: 10px; max-width: 680px; margin: auto; }
+  .seller-hero-credentials { font-size: 0.75rem; line-height: 1.5; margin-top: 10px; }
+  .seller-hero-image-caption { position: static; padding: 0 20px 10px; font-size: 0.75rem; max-width: 680px; margin: auto; }
   .seller-hero-foot { padding: 10px 20px 14px; max-width: 680px; }
   .seller-hero-foot a { min-height: 44px; }
 }
@@ -114,7 +114,7 @@
   .seller-hero-links { margin-top: 10px; gap: 6px 16px; }
   .seller-hero-primary-cta { width: 100%; padding: 10px 14px; min-height: 44px; }
   .seller-hero-whatsapp { min-height: 44px; padding: 6px 0; font-size: 13px; }
-  .seller-hero-credentials { font-size: 11px; line-height: 1.45; margin-top: 6px; }
+  .seller-hero-credentials { font-size: 0.75rem; line-height: 1.45; margin-top: 6px; }
   /* Compact architectural crop on phones so the address entry appears substantially earlier in the opening viewport */
   .seller-hero-showcase-media { aspect-ratio: auto; height: 92px; }
   .seller-hero-showcase-media img { object-position: center 56%; }
@@ -167,7 +167,7 @@
   .seller-hero-stats li { padding: 10px 8px 10px 10px; border-left: 1px solid rgba(215, 188, 139, 0.22); }
   .seller-hero-stats li:first-child { padding-left: 0; border-left: 0; }
   .seller-hero-stats strong { display: block; font-family: var(--font-serif); font-weight: 400; font-size: 23px; line-height: 1.1; color: #d7bc8b; }
-  .seller-hero-stats span { display: block; margin-top: 4px; font-size: 10.5px; line-height: 1.35; letter-spacing: .02em; color: #dfe6eb; }
+  .seller-hero-stats span { display: block; margin-top: 4px; font-size: 0.75rem; line-height: 1.35; letter-spacing: .02em; color: #dfe6eb; }
   .seller-hero-card .seller-hero-reach .hero-panel-kicker,
   .seller-hero-card .seller-hero-reach .hero-reach-list { display: none; }
   .seller-hero-card .seller-hero-reach .hero-video-sources { margin-top: 0; }

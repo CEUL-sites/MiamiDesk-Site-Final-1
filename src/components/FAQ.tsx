@@ -47,7 +47,7 @@ export function FAQ() {
       <AuroraBackground variant="subtle" />
       <div className="relative z-10 mx-auto max-w-4xl px-6">
         <div className="mb-6 text-center md:mb-12">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Common Questions</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Common Questions</p>
           <h2 className="mt-3 font-serif text-2xl leading-tight text-white md:mt-4 md:text-4xl lg:text-5xl">
             Selling a home in South Florida: your questions.
           </h2>

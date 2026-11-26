@@ -277,7 +277,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 text-gold">
           <CheckCircle2 size={26} />
         </div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-2">{t.successTag}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-2">{t.successTag}</p>
         <h3 className="font-serif text-2xl text-white">{t.successTitle}</h3>
         <p className="mx-auto mt-3 max-w-sm font-sans text-sm leading-relaxed text-white/70">{t.successBody}</p>
 
@@ -288,7 +288,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             href={LEAD_MAGNETS.sellerNetSheet.url}
             download
             onClick={() => trackFunnelEvent("net_sheet_download", { source: "hero-success", lang })}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
           >
             <Download size={14} />
             {t.netSheetCta}
@@ -305,7 +305,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
               location: "hero_form_success",
             });
           }}
-          className="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/80 hover:text-gold transition-colors"
+          className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/80 hover:text-gold transition-colors"
         >
           {t.successCta}
         </a>
@@ -338,7 +338,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         {!compact && <div className="mb-3.5">
           <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
             <span className="font-serif text-xl text-gold sm:text-[1.35rem]">{t.eyebrow}</span>
-            <span className="font-sans text-[11px] text-white/70">{t.badge}</span>
+            <span className="font-sans text-xs text-white/70">{t.badge}</span>
           </div>
         </div>}
 
@@ -399,7 +399,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
             <button
               type="button"
               onClick={() => { setStep(1); requestAnimationFrame(() => addressRef.current?.focus({ preventScroll: true })); }}
-              className="text-gold underline hover:text-gold-soft ml-2 flex-shrink-0 font-mono text-[11px]"
+              className="text-gold underline hover:text-gold-soft ml-2 flex-shrink-0 font-mono text-xs"
             >
               {t.editAddress}
             </button>
@@ -482,7 +482,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
               onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
               className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
             />
-            <span className="font-sans text-[10px] leading-[1.45] text-white/70">{t.consent}</span>
+            <span className="font-sans text-xs leading-[1.45] text-white/70">{t.consent}</span>
           </label>
 
           {/* Final submit button */}
@@ -501,7 +501,7 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
           <p role="alert" className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>
         )}
 
-        <p className={`mt-2 text-center font-sans text-[11px] leading-5 text-white/70 ${compact ? "seller-form-microcopy" : ""}`}>
+        <p className={`mt-2 text-center font-sans text-xs leading-5 text-white/70 ${compact ? "seller-form-microcopy" : ""}`}>
           {compact ? t.compactPromise : lang === "es" ? "Respuesta personal de Carlos · Sin compromiso de venta" : "Personal reply from Carlos · No listing commitment"}
         </p>
         <a

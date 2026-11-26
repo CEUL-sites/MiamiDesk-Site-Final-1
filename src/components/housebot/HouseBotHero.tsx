@@ -93,7 +93,7 @@ export function HouseBotHero({
           className={`absolute -left-[7px] top-1/2 h-3 w-3 -translate-y-1/2 rotate-45 border-b border-l ${bubble}`}
         />
         <p className="relative font-sans text-[13px] leading-snug md:text-sm">{line}</p>
-        <p className={`relative mt-1.5 font-sans text-[10px] leading-snug md:mt-2 md:font-mono md:text-[9.5px] md:uppercase md:tracking-[0.08em] ${fine}`}>
+        <p className={`relative mt-1.5 font-sans text-xs leading-snug md:mt-2 md:font-mono md:text-xs md:uppercase md:tracking-[0.08em] ${fine}`}>
           {ui.aiDisclosure} {COMPLIANCE_FOOTER}
         </p>
       </div>

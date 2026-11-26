@@ -22,12 +22,12 @@ const CAMPAIGNS = [
 export function SelectedMandateExecution() {
   return <section aria-labelledby="mandate-execution-heading" className="bg-ivory px-6 py-12 md:py-20">
     <div className="mx-auto max-w-6xl">
-      <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink">South Florida · Campaign evidence</p>
+      <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">South Florida · Campaign evidence</p>
       <h2 id="mandate-execution-heading" className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">Selected Mandate Execution</h2>
       <p className="mt-4 max-w-2xl font-sans text-sm leading-relaxed text-navy/75">The property story, the actions taken, and the result the record supports.</p>
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         {CAMPAIGNS.map(campaign => <article key={campaign.address} className="rounded-xl border border-bone bg-white p-6 md:p-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">{campaign.focus}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">{campaign.focus}</p>
           <h3 className="mt-3 font-serif text-2xl text-navy-deep">{campaign.address}</h3>
           <dl className="mt-6 space-y-5 font-sans text-sm leading-relaxed text-navy/80">
             {(['Strategy', 'Execution', 'Verified Outcome'] as const).map((label, i) => <div key={label}>

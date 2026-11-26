@@ -21,7 +21,7 @@ export function HowCarlosWorks() {
       <div className="mx-auto max-w-6xl px-6">
 
         <div className="mb-5 max-w-3xl md:mb-12">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             How I Work
           </p>
           <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:mt-5 md:text-4xl">
@@ -83,7 +83,7 @@ export function HowCarlosWorks() {
             "My job is not to hold a listing. It is to put it in front of every agent who might
             represent the right buyer — here in South Florida and abroad."
           </p>
-          <footer className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-gold md:mt-4">
+          <footer className="mt-3 font-mono text-xs uppercase tracking-[0.12em] text-gold md:mt-4">
             Carlos Uzcategui · United Realty Group
           </footer>
         </motion.blockquote>
@@ -93,7 +93,7 @@ export function HowCarlosWorks() {
           {CREDENTIALS.map((c) => (
             <span
               key={c}
-              className="inline-flex items-center gap-2 border border-gold/25 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70"
+              className="inline-flex items-center gap-2 border border-gold/25 px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70"
             >
               <BadgeCheck size={13} className="flex-shrink-0 text-gold" />
               {c}
@@ -105,11 +105,11 @@ export function HowCarlosWorks() {
         <div className="mt-6 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between md:mt-10 md:gap-5 md:pt-8">
           <a
             href="/sell#contact"
-            className="inline-flex items-center justify-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            className="inline-flex items-center justify-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
           >
             Request a seller strategy review →
           </a>
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             {CONTACT.shortLicense} · United Realty Group · Equal Housing Opportunity
           </p>
         </div>

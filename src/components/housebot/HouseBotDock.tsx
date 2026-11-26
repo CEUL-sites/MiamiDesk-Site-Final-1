@@ -4,7 +4,7 @@
 // - Floats gently in its corner. When a key section of the page comes into
 //   view and the visitor pauses scrolling, it travels up the screen edge to
 //   sit beside that section, leans toward it (Present) and shows one short
-//   tip. After a few seconds — or as soon as the visitor scrolls on — it
+//   tip (desktop only; on phones it stays docked). After a few seconds — or as soon as the visitor scrolls on — it
 //   returns to the corner.
 // - At most MAX_TIPS_PER_PAGE tips per page and each tip once per session,
 //   so it guides without nagging. prefers-reduced-motion keeps it still.
@@ -184,6 +184,9 @@ export function HouseBotDock() {
     const tryShow = () => {
       const s = state.current;
       if (!s.visible || s.chatOpen || s.tipActive || s.shown >= MAX_TIPS_PER_PAGE) return;
+      // On phones the tip bubble would cover the content it points at, on top
+      // of the sticky CTA bar. The bot stays docked; tips are desktop-only.
+      if (window.innerWidth < DESKTOP_MIN_WIDTH) return;
       const seen = readSeen();
       const el = [...keyOf.keys()].find((e) => (ratios.get(e) ?? 0) >= 0.35 && !seen.has(keyOf.get(e) as string));
       const traveler = travelerRef.current;
@@ -328,7 +331,7 @@ export function HouseBotDock() {
               }`}
             >
               <span aria-hidden="true" className="absolute -right-[7px] top-1/2 h-3 w-3 -translate-y-1/2 rotate-45 border-r border-t border-gold/40 bg-navy-deep/95" />
-              <p className="pr-5 font-mono text-[9px] uppercase tracking-[0.18em] text-gold">{TIP_LABEL[tip.lang]}</p>
+              <p className="pr-5 font-mono text-xs uppercase tracking-[0.12em] text-gold">{TIP_LABEL[tip.lang]}</p>
               <button type="button" onClick={open(`tip_${tip.key}`)} className="mt-1 block text-left font-sans text-[13px] leading-snug text-white/90 hover:text-white">
                 {TIP_COPY[tip.lang][tip.key]}
               </button>

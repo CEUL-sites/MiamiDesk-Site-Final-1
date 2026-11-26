@@ -194,7 +194,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
           <Link
             to={sellHref}
             onClick={() => track(offer.ctaType, 'post_top', post, offer)}
-            className="shrink-0 inline-block border border-navy px-5 py-2 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-navy transition-colors hover:border-gold hover:text-gold"
+            className="shrink-0 inline-block border border-navy px-5 py-2 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-navy transition-colors hover:border-gold hover:text-gold"
           >
             {offer.ctaLabel} →
           </Link>
@@ -207,7 +207,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
     return (
       <section className="mx-auto max-w-3xl px-5 py-8 lg:px-8">
         <div className="border-l-4 border-gold/60 bg-ivory px-7 py-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{offer.eyebrow}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{offer.eyebrow}</p>
           <h3 className="mt-3 font-serif text-xl text-navy leading-snug">
             {offer.heading}
           </h3>
@@ -216,7 +216,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
             <Link
               to={sellHref}
               onClick={() => track(offer.ctaType, 'post_mid', post, offer)}
-              className="inline-block border border-navy bg-navy px-6 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-gold hover:border-gold"
+              className="inline-block border border-navy bg-navy px-6 py-3 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-gold hover:border-gold"
             >
               {offer.ctaLabel}
             </Link>
@@ -225,7 +225,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track('whatsapp_us', 'post_mid', post, offer)}
-              className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+              className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 hover:text-gold transition-colors"
             >
               Or WhatsApp →
             </a>
@@ -238,7 +238,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
   return (
     <section className="mx-auto max-w-3xl px-5 py-14 lg:px-8">
       <div className="border border-bone bg-ivory p-8 md:p-10">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
           {bottomEyebrow}
         </p>
         <h2 className="mt-4 font-serif text-2xl leading-snug text-navy">
@@ -251,7 +251,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
           <Link
             to={sellHref}
             onClick={() => track(offer.ctaType, 'post_bottom', post, offer)}
-            className="inline-block border border-navy bg-navy px-7 py-4 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:border-gold"
+            className="inline-block border border-navy bg-navy px-7 py-4 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-gold hover:border-gold"
           >
             {offer.ctaLabel}
           </Link>
@@ -260,7 +260,7 @@ export function JournalSellerCTA({ post, variant }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track('whatsapp_us', 'post_bottom', post, offer)}
-            className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 hover:text-gold transition-colors"
+            className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 hover:text-gold transition-colors"
           >
             Or message on WhatsApp →
           </a>

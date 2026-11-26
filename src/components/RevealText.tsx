@@ -71,7 +71,7 @@ export function RevealText({
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          className="mt-2 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.16em] opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+          className="mt-2 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.12em] opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
         >
           {open ? lessLabel : moreLabel}
           <ChevronDown

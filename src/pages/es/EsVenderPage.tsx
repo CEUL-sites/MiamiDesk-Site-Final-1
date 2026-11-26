@@ -163,7 +163,7 @@ export default function EsVenderPage() {
             >
               <motion.p
                 variants={itemVariants}
-                className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+                className="font-mono text-xs uppercase tracking-[0.12em] text-gold"
               >
                 {/* TODO: native Madrid editor review */}
                 Estrategia de Venta · Sur de Florida · United Realty Group
@@ -197,7 +197,7 @@ export default function EsVenderPage() {
               >
                 <a
                   href="/contact"
-                  className="group inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                  className="group inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
                 >
                   {/* TODO: native Madrid editor review */}
                   Solicitar una Revisión Privada de Estrategia de Venta
@@ -210,7 +210,7 @@ export default function EsVenderPage() {
                   href={CONTACT.whatsappUS}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                  className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
                 >
                   <MessageSquare size={14} />
                   {/* TODO: native Madrid editor review */}
@@ -220,7 +220,7 @@ export default function EsVenderPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70"
+                className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70"
               >
                 United Realty Group · CLHMS · Certified Seller Rep · FL SL705771
               </motion.p>
@@ -234,7 +234,7 @@ export default function EsVenderPage() {
         <section className="bg-white py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Proceso de Venta
               </p>
@@ -247,7 +247,7 @@ export default function EsVenderPage() {
             <div className="grid gap-8 md:grid-cols-5">
               {STEPS.map((step) => (
                 <div key={step.number} className="flex flex-col gap-3">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                  <div className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     {step.number}
                   </div>
                   <div className="font-serif text-xl text-navy-deep">
@@ -265,7 +265,7 @@ export default function EsVenderPage() {
         {/* ─── Distribution Proof Strip ─────────────────────────── */}
         <section className="bg-navy-deep py-16">
           <div className="mx-auto max-w-4xl px-6">
-            <p className="mb-10 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="mb-10 text-center font-mono text-xs uppercase tracking-[0.12em] text-gold">
               {/* TODO: native Madrid editor review */}
               Alcance de Distribución Verificado
             </p>
@@ -275,13 +275,13 @@ export default function EsVenderPage() {
                   <div className="font-serif text-4xl text-white">
                     {stat.value}
                   </div>
-                  <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/65">
+                  <div className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-gold/65">
                     {stat.label}
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-8 text-center font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               {/* TODO: native Madrid editor review */}
               Cifras correspondientes a la Asociación de REALTORS® de Miami y Sur de Florida · United Realty Group · 2025
             </p>
@@ -294,7 +294,7 @@ export default function EsVenderPage() {
           <div className="mx-auto max-w-4xl px-6">
             <div className="grid gap-12 md:grid-cols-2">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   {/* TODO: native Madrid editor review */}
                   Red de Distribución
                 </p>
@@ -313,7 +313,7 @@ export default function EsVenderPage() {
                 </p>
               </div>
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   {/* TODO: native Madrid editor review */}
                   Presencia Institucional
                 </p>
@@ -360,7 +360,7 @@ export default function EsVenderPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
+                className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
               >
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
@@ -370,16 +370,16 @@ export default function EsVenderPage() {
                 href={CONTACT.whatsappSpain}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
+                className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
               >
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
                 WhatsApp España
               </a>
             </div>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep/50">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep/70">
               <div className="flex items-center gap-2">
-                <BadgeCheck size={14} className="text-navy-deep/50" />
+                <BadgeCheck size={14} className="text-navy-deep/70" />
                 <span>Confidencial · Profesionales con Licencia · Igualdad de Acceso a la Vivienda</span>
               </div>
               <a href={`mailto:${CONTACT.email}`} className="text-navy-deep/60 underline hover:text-navy-deep">

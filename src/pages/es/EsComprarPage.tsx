@@ -181,7 +181,7 @@ export default function EsComprarPage() {
             >
               <motion.p
                 variants={itemVariants}
-                className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+                className="font-mono text-xs uppercase tracking-[0.12em] text-gold"
               >
                 {/* TODO: native Madrid editor review */}
                 Compradores · Sur de Florida · Consultoría Bilingüe
@@ -223,7 +223,7 @@ export default function EsComprarPage() {
                 ].map((s) => (
                   <div key={s.label} className="bg-navy-deep/80 px-4 py-4">
                     <p className="font-serif text-2xl text-gold">{s.value}</p>
-                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{s.label}</p>
+                    <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-white/70">{s.label}</p>
                   </div>
                 ))}
               </motion.div>
@@ -234,7 +234,7 @@ export default function EsComprarPage() {
               >
                 <a
                   href="/contact"
-                  className="group inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                  className="group inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
                 >
                   {/* TODO: native Madrid editor review */}
                   Solicitar una consulta de comprador privada
@@ -247,7 +247,7 @@ export default function EsComprarPage() {
                   href={CONTACT.whatsappUS}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                  className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
                 >
                   <MessageSquare size={14} />
                   {/* TODO: native Madrid editor review */}
@@ -257,7 +257,7 @@ export default function EsComprarPage() {
 
               <motion.p
                 variants={itemVariants}
-                className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70"
+                className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70"
               >
                 United Realty Group · FL SL705771 · Miami-Dade · Broward · Palm Beach
               </motion.p>
@@ -270,7 +270,7 @@ export default function EsComprarPage() {
         <section className="bg-white py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Perfiles de Comprador
               </p>
@@ -313,7 +313,7 @@ export default function EsComprarPage() {
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   {/* TODO: native Madrid editor review */}
                   La Red Detrás de Cada Compra
                 </p>
@@ -363,8 +363,8 @@ export default function EsComprarPage() {
                   />
                 </div>
                 <div className="bg-navy-deep px-5 py-4">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · El Equipo</p>
-                  <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">United Realty Group · El Equipo</p>
+                  <p className="font-mono mt-0.5 text-xs uppercase tracking-[0.12em] text-white/70">
                     {CONTACT.stats.urgAgents} agentes · 19 ubicaciones de oficinas en Florida · Sede corporativa en Plantation
                   </p>
                 </div>
@@ -377,7 +377,7 @@ export default function EsComprarPage() {
         <section className="bg-navy-deep/4 py-20">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Proceso de Compra
               </p>
@@ -419,7 +419,7 @@ export default function EsComprarPage() {
                 },
               ].map((step) => (
                 <div key={step.number} className="flex flex-col gap-3">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                  <div className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     {step.number}
                   </div>
                   <div className="font-serif text-lg text-navy-deep">
@@ -438,7 +438,7 @@ export default function EsComprarPage() {
         <section className="bg-navy-deep py-20">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-10 max-w-2xl">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Mudarse a Florida
               </p>
@@ -493,7 +493,7 @@ export default function EsComprarPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               Fuente: Miami and South Florida REALTORS® — «Top 20 Reasons to Buy &amp; Live in Miami» (MiamiRealtors.com)
             </p>
           </div>
@@ -503,7 +503,7 @@ export default function EsComprarPage() {
         <section className="bg-white py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Zonas Principales
               </p>
@@ -540,7 +540,7 @@ export default function EsComprarPage() {
         {/* ─── ¿Compra en España? — servicio aparte ─────────────── */}
         <section className="bg-navy-deep/4 py-14 border-t border-navy-deep/10">
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               {/* TODO: native Madrid editor review */}
               Servicio Aparte · Comprar en España
             </p>
@@ -557,7 +557,7 @@ export default function EsComprarPage() {
             </p>
             <a
               href="/es/spain-desk"
-              className="mt-6 inline-flex items-center gap-2 border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-colors hover:text-gold"
+              className="mt-6 inline-flex items-center gap-2 border-b border-gold pb-1 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:text-gold"
             >
               {/* TODO: native Madrid editor review */}
               Conocer el Spain Desk →
@@ -581,7 +581,7 @@ export default function EsComprarPage() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="/contact"
-                className="group inline-flex items-center gap-2 bg-navy-deep px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-85"
+                className="group inline-flex items-center gap-2 bg-navy-deep px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-85"
               >
                 {/* TODO: native Madrid editor review */}
                 Solicitar una consulta de comprador privada
@@ -594,7 +594,7 @@ export default function EsComprarPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
+                className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
               >
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
@@ -602,8 +602,8 @@ export default function EsComprarPage() {
               </a>
             </div>
             <div className="mt-6 flex items-center justify-center gap-2">
-              <BadgeCheck size={14} className="text-navy-deep/50" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep/50">
+              <BadgeCheck size={14} className="text-navy-deep/70" />
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-navy-deep/70">
                 {/* TODO: native Madrid editor review */}
                 Confidencial · Profesionales con Licencia · Igualdad de Acceso a la Vivienda
               </span>

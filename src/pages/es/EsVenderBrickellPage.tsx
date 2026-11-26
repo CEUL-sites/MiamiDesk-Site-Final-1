@@ -120,7 +120,7 @@ export default function EsVenderBrickellPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
             {/* TODO: native Madrid editor review */}
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Brickell, Miami · Asesoría para Vendedores</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Brickell, Miami · Asesoría para Vendedores</p>
             {/* TODO: native Madrid editor review */}
             <HeroTitle
               lead="Venda su condominio en Brickell con el alcance"
@@ -152,12 +152,12 @@ export default function EsVenderBrickellPage() {
             </ul>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
+              <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90">
                 {/* TODO: native Madrid editor review */}
                 Ver el Valor de Mi Condominio en Brickell
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
+              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
                 WhatsApp a Carlos
@@ -173,7 +173,7 @@ export default function EsVenderBrickellPage() {
                 ))}
               </span>
               {/* TODO: native Madrid editor review */}
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 5.0 · Gratis y confidencial · Sin compromiso de listado · Respuesta personal de Carlos
               </span>
             </div>
@@ -181,18 +181,18 @@ export default function EsVenderBrickellPage() {
             <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
               {/* TODO: native Madrid editor review */}
               <p className="font-sans text-sm italic leading-relaxed text-white/55">"Vender en Brickell requiere a alguien que conozca al comprador inversionista. El consejo de posicionamiento y la estrategia de distribución de Carlos reflejaron esa experiencia desde la primera conversación."</p>
-              <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/50">— J. Padrón, Brickell, FL</footer>
+              <footer className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-gold/50">— J. Padrón, Brickell, FL</footer>
             </blockquote>
 
             <div className="mt-5 flex items-center justify-center gap-2">
-              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
+              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
                 {/* TODO: native Madrid editor review */}
                 O descargue la Hoja de Ganancias del Vendedor 2026
               </a>
             </div>
             {/* TODO: native Madrid editor review */}
-            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               United Realty Group · CLHMS · FL SL705771 · 25 Años Licenciado en Florida · Oficina: Weston, FL 33331
             </p>
 
@@ -208,7 +208,7 @@ export default function EsVenderBrickellPage() {
               ].map((f) => (
                 <div key={f.label} role="listitem" className="min-w-[5rem] text-center">
                   <div className="font-serif text-xl leading-none text-gold md:text-2xl">{f.value}</div>
-                  <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 md:text-[10px]">{f.label}</div>
+                  <div className="mt-1.5 font-mono text-xs uppercase tracking-[0.14em] text-white/70 md:text-xs">{f.label}</div>
                 </div>
               ))}
             </div>
@@ -219,7 +219,7 @@ export default function EsVenderBrickellPage() {
         <section className="bg-ivory py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             {/* TODO: native Madrid editor review */}
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Por Qué Brickell</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Por Qué Brickell</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               {/* TODO: native Madrid editor review */}
               El distrito financiero de Miami — un destino constante para capital nacional e internacional.
@@ -240,7 +240,7 @@ export default function EsVenderBrickellPage() {
                 { label: "Motor de Mercado", value: "Preservación de Capital", sub: "Inversionistas globales que buscan exposición inmobiliaria en EE. UU." },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{stat.label}</p>
                   <p className="mt-3 font-serif text-2xl text-navy-deep">{stat.value}</p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{stat.sub}</p>
                 </div>
@@ -255,7 +255,7 @@ export default function EsVenderBrickellPage() {
             <div className="grid gap-12 md:grid-cols-2 md:items-center">
               <div>
                 {/* TODO: native Madrid editor review */}
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">La Ventaja de la Red</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">La Ventaja de la Red</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
                   {/* TODO: native Madrid editor review */}
                   Su exclusiva en Brickell llega a cada comprador,<br />
@@ -290,7 +290,7 @@ export default function EsVenderBrickellPage() {
                   { label: "Negociación", text: "Revisión de ofertas, estrategia de condiciones y coordinación del cierre" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
                     <p className="font-sans text-sm text-white/65">{step.text}</p>
                   </div>
                 ))}
@@ -304,7 +304,7 @@ export default function EsVenderBrickellPage() {
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
               {/* TODO: native Madrid editor review */}
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Preguntas de Vendedores en Brickell</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Preguntas de Vendedores en Brickell</p>
               {/* TODO: native Madrid editor review */}
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Preguntas frecuentes.</h2>
             </div>
@@ -330,20 +330,20 @@ export default function EsVenderBrickellPage() {
               <HeroSellerForm lang="es" progressiveDesktop defaultMarket={1} sourcePage="es-vender-brickell" />
             </div>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5">
+              <a href={CONTACT.whatsappUS} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5">
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
                 WhatsApp EE.UU.
               </a>
-              <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5">
+              <a href={CONTACT.whatsappSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5">
                 <MessageSquare size={14} />
                 {/* TODO: native Madrid editor review */}
                 WhatsApp España
               </a>
             </div>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep/50">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep/70">
               <div className="flex items-center gap-2">
-                <BadgeCheck size={14} className="text-navy-deep/50" />
+                <BadgeCheck size={14} className="text-navy-deep/70" />
                 {/* TODO: native Madrid editor review */}
                 <span>Confidencial · Profesionales con Licencia · Igualdad de Acceso a la Vivienda</span>
               </div>

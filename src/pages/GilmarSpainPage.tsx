@@ -943,7 +943,7 @@ export default function GilmarSpainPage() {
                 </span>
               </div>
             </div>
-            <p className="mt-3 text-right text-[11px] text-white/65">
+            <p className="mt-3 text-right text-xs text-white/65">
               {es
                 ? "Visualización de promoción · Balcón del Mediterráneo, Estepona"
                 : "Project visualization · Balcón del Mediterráneo, Estepona"}
@@ -1191,10 +1191,10 @@ export default function GilmarSpainPage() {
                         <div>
                           {/* Non-overlapping structured region + tax metadata row */}
                           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#ece7dc] pb-3">
-                            <span className="text-[11px] font-medium tracking-[0.14em] text-[#817360] uppercase">
+                            <span className="text-xs font-medium tracking-[0.14em] text-[#817360] uppercase">
                               {prop.code} · {es ? prop.regionEs : prop.regionEn}
                             </span>
-                            <span className="bg-[#f2f0e1] px-2 py-0.5 text-[11px] font-medium text-[#5b5b5f]">
+                            <span className="bg-[#f2f0e1] px-2 py-0.5 text-xs font-medium text-[#5b5b5f]">
                               {es ? prop.taxBadgeEs : prop.taxBadgeEn}
                             </span>
                           </div>
@@ -1211,13 +1211,13 @@ export default function GilmarSpainPage() {
 
                           <div className="mt-4 grid grid-cols-2 gap-3 border-y border-[#ece7dc] py-3">
                             <div>
-                              <span className="block text-[11px] tracking-wider text-[#87868a] uppercase">
+                              <span className="block text-xs tracking-wider text-[#87868a] uppercase">
                                 {es ? "Construidos" : "Built"}
                               </span>
                               <span className="g-serif text-lg font-medium text-[#282828]">{builtVal}</span>
                             </div>
                             <div className="border-l border-[#ece7dc] pl-3">
-                              <span className="block text-[11px] tracking-wider text-[#87868a] uppercase">
+                              <span className="block text-xs tracking-wider text-[#87868a] uppercase">
                                 {es ? "Exterior" : "Outdoor"}
                               </span>
                               <span className="g-serif text-lg font-medium text-[#282828]">{outVal}</span>
@@ -1278,7 +1278,7 @@ export default function GilmarSpainPage() {
                               {es ? prop.locationEs : prop.locationEn}
                             </p>
                           </div>
-                          <span className="bg-[#f2f0e1] px-2.5 py-0.5 text-[11px] text-[#5b5b5f]">
+                          <span className="bg-[#f2f0e1] px-2.5 py-0.5 text-xs text-[#5b5b5f]">
                             {es ? prop.taxBadgeEs : prop.taxBadgeEn}
                           </span>
                         </div>
@@ -1482,14 +1482,14 @@ export default function GilmarSpainPage() {
                         className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                       />
                       {"credit" in market && (
-                        <span className="pointer-events-none absolute right-1.5 bottom-1 text-[9px] tracking-wide text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
+                        <span className="pointer-events-none absolute right-1.5 bottom-1 text-xs tracking-wide text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
                           {market.credit}
                         </span>
                       )}
                     </div>
                     <div className="flex flex-1 flex-col justify-between p-5">
                       <div>
-                        <p className="text-[11px] font-medium tracking-[0.16em] text-[#817360] uppercase">
+                        <p className="text-xs font-medium tracking-[0.12em] text-[#817360] uppercase">
                           {es ? market.regionEs : market.regionEn}
                         </p>
                         <p className="g-serif mt-1 text-3xl font-medium text-[#282828]">{market.count}</p>

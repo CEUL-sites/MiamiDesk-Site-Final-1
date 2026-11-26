@@ -148,7 +148,7 @@ export function FloridaBuyerJourney() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
           <div className="max-w-3xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Service One · Buying in Florida</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">Service One · Buying in Florida</p>
             <h2 id="florida-buyer-service-heading" className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-5xl">
               A six-stage acquisition mandate—<br className="hidden sm:block" />
               <span className="font-light italic text-gold-ink">from brief to keys.</span>
@@ -158,7 +158,7 @@ export function FloridaBuyerJourney() {
             </p>
           </div>
           <div className="border-l-2 border-gold/60 pl-5">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">The operating standard</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">The operating standard</p>
             <p className="mt-2 font-serif text-xl leading-snug text-navy-deep">
               Every stage ends with a decision or a documented deliverable.
             </p>
@@ -229,7 +229,7 @@ export function FloridaBuyerJourney() {
                     >
                       {stage.number}
                     </span>
-                    <span className={`mt-3 block font-mono text-[10px] font-bold uppercase tracking-[0.18em] ${selected ? "text-gold-ink" : "text-navy/55"}`}>
+                    <span className={`mt-3 block font-mono text-xs font-bold uppercase tracking-[0.12em] ${selected ? "text-gold-ink" : "text-navy/55"}`}>
                       {stage.verb}
                     </span>
                     <span className={`mt-1 block font-serif text-[15px] leading-tight ${selected ? "text-navy-deep" : "text-navy/60"}`}>
@@ -262,7 +262,7 @@ export function FloridaBuyerJourney() {
               >
                 <span className={`font-serif text-xl tabular-nums ${selected ? "text-gold" : "text-gold-ink"}`}>{stage.number}</span>
                 <span>
-                  <span className={`block font-mono text-[9px] font-bold uppercase tracking-[0.2em] ${selected ? "text-gold" : "text-navy/45"}`}>{stage.verb}</span>
+                  <span className={`block font-mono text-xs font-bold uppercase tracking-[0.12em] ${selected ? "text-gold" : "text-navy/70"}`}>{stage.verb}</span>
                   <span className="mt-0.5 block font-serif text-lg leading-none">{stage.title}</span>
                 </span>
               </button>
@@ -290,7 +290,7 @@ export function FloridaBuyerJourney() {
                       <span className="flex h-10 w-10 items-center justify-center border border-gold/30 bg-gold/10">
                         <stage.icon size={18} className="text-gold" aria-hidden="true" />
                       </span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Stage {stage.number} · {stage.verb}</span>
+                      <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Stage {stage.number} · {stage.verb}</span>
                     </div>
                     <h3 className="relative mt-6 font-serif text-3xl leading-tight text-white">{stage.title}</h3>
                     <p className="relative mt-4 font-sans text-[15px] leading-relaxed text-white/70">{stage.summary}</p>
@@ -299,12 +299,12 @@ export function FloridaBuyerJourney() {
                   <div className="grid gap-px bg-navy/10 sm:grid-cols-2">
                     <div className="bg-white p-7 md:p-9">
                       <BadgeCheck size={19} className="text-gold-ink" aria-hidden="true" />
-                      <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">What you receive</p>
+                      <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">What you receive</p>
                       <p className="mt-3 font-serif text-xl leading-snug text-navy-deep">{stage.deliverable}</p>
                     </div>
                     <div className="bg-white p-7 md:p-9">
                       <ShieldCheck size={19} className="text-gold-ink" aria-hidden="true" />
-                      <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">What this controls</p>
+                      <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">What this controls</p>
                       <p className="mt-3 font-serif text-xl leading-snug text-navy-deep">{stage.protection}</p>
                     </div>
                   </div>
@@ -320,7 +320,7 @@ export function FloridaBuyerJourney() {
           </p>
           <a
             href="#buyer-mandate"
-            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 bg-navy-deep px-6 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 bg-navy-deep px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
           >
             Define your buyer mandate
             <ArrowRight size={14} aria-hidden="true" />

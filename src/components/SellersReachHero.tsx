@@ -100,8 +100,8 @@ export function SellersReachHero() {
       <section id="selling-system" className="seller-reach-authority" aria-label="Your advisor and professional network" data-sticky-cta-guard>
         <div className="seller-reach-authority-grid">
           <div><p>Position</p><span>Pricing analysis, preparation and property narrative</span></div>
-          <div><p>Activate</p><span>Cooperating buyer-agent relations &amp; MLS reverse prospecting</span></div>
-          <div><p>Negotiate</p><span>Contract terms, escrow defense and post-occupancy transition</span></div>
+          <div><p>Distribute</p><span>Miami MLS ecosystem, U.S. MLS syndication and global portals</span></div>
+          <div><p>Activate</p><span>Buyer-agent outreach, contract terms and escrow defense</span></div>
         </div>
         <p className="seller-reach-compliance">Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.</p>
       </section>

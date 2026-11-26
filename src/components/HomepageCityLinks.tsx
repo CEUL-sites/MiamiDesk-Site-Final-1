@@ -37,7 +37,7 @@ export function HomepageCityLinks() {
       className="border-t border-hairline bg-ivory py-12 md:py-16"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-ink font-semibold">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
           Seller Guides by Market
         </p>
         <h2
@@ -53,7 +53,7 @@ export function HomepageCityLinks() {
         <div className="mt-6 grid gap-8 md:grid-cols-2">
           {COUNTIES.map((county) => (
             <div key={county.name}>
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/60 font-semibold">
+              <h3 className="font-mono text-xs uppercase tracking-[0.12em] text-navy/60 font-semibold">
                 {county.name}
               </h3>
               <ul className="mt-3 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
@@ -72,7 +72,7 @@ export function HomepageCityLinks() {
           ))}
         </div>
 
-        <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.12em] text-navy-deep">
+        <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep">
           <Link to="/home-value" className="underline decoration-gold/50 underline-offset-4 hover:text-gold-ink">
             Request a home valuation
           </Link>

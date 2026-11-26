@@ -9,7 +9,6 @@ import {
   Map,
   Plane,
   Radio,
-  Sparkles,
 } from "lucide-react";
 import { fig } from "../data/figures";
 import { CountUp } from "./CountUp";
@@ -20,7 +19,7 @@ const PILLARS = [
     label: "Position",
     icon: Crosshair,
     title: "Price & Story Before Launch",
-    tagline: "Data-grounded pricing and architectural media prepared before day one.",
+    tagline: "Data-grounded pricing and architectural media prepared before launch.",
     copy: "We review closed comparable sales, active competition, and net proceeds scenarios, then prepare architectural photography, cinematic film, and property narrative before going live.",
     highlights: [
       "Closed-sale & active competition read",
@@ -51,9 +50,9 @@ const PILLARS = [
     icon: Radio,
     title: "Buyer-Agent Relations & Reverse Prospecting",
     tagline: "Direct outreach to cooperating agents representing matched, qualified buyers.",
-    copy: "More than 90% of buyers are brought by cooperating agents. With 25 years of South Florida contract negotiation and peer relationships, we leverage MLS reverse prospecting and professional coordination to engage agents with matched, qualified buyers.",
+    copy: "Nationally, nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). With 25 years of South Florida contract negotiation and peer relationships, we leverage MLS reverse prospecting and professional coordination to engage agents with matched, qualified buyers.",
     highlights: [
-      ">90% of MLS sales involve cooperating agents",
+      "Nationally, nearly 9 of 10 buyers use an agent (NAR 2025)",
       "Targeted MLS reverse prospecting",
       "Inspection, appraisal & escrow defense",
     ],
@@ -69,7 +68,7 @@ const MEDIA_MODES = [
     icon: Film,
     clip: "/videos/luxury_home_walkthrough.mp4",
     poster: "/images/posters/luxury_home_walkthrough-20261012.jpg",
-    caption: "Paced to how a qualified buyer experiences the residence.",
+    caption: "Paced to how a qualified buyer experiences a residence.",
   },
   {
     id: "aerial",
@@ -131,7 +130,6 @@ const INFRA_METRICS = [
 export function HomepageListingApproach() {
   const [activeStage, setActiveStage] = useState(0);
   const [activeMedia, setActiveMedia] = useState(0);
-  const [activeMetric, setActiveMetric] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -164,7 +162,7 @@ export function HomepageListingApproach() {
         {/* Compact Executive Header */}
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-ink font-semibold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
               Why Our Listing Approach
             </p>
             <h2
@@ -219,7 +217,7 @@ export function HomepageListingApproach() {
                         {step}
                       </span>
                       <span
-                        className={`font-mono text-[10px] uppercase tracking-[0.22em] font-semibold ${
+                        className={`font-mono text-xs uppercase tracking-[0.12em] font-semibold ${
                           isSelected ? "text-gold" : "text-navy/60"
                         }`}
                       >
@@ -253,7 +251,7 @@ export function HomepageListingApproach() {
                   </p>
 
                   <div
-                    className={`mt-3 flex items-center justify-between border-t pt-2.5 font-mono text-[9px] uppercase tracking-[0.14em] ${
+                    className={`mt-3 flex items-center justify-between border-t pt-2.5 font-mono text-xs uppercase tracking-[0.14em] ${
                       isSelected
                         ? "border-white/15 text-gold"
                         : "border-hairline text-navy/60"
@@ -292,14 +290,14 @@ export function HomepageListingApproach() {
                     {/* Stage Top Bar */}
                     <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
                       <div className="flex items-center gap-2.5">
-                        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gold text-navy-deep font-mono text-[11px] font-bold">
+                        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gold text-navy-deep font-mono text-xs font-bold">
                           {pillar.step}
                         </span>
-                        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold font-semibold">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-semibold">
                           Stage {pillar.step} · {pillar.label}
                         </span>
                       </div>
-                      <span className="rounded-full border border-gold/30 bg-gold/10 px-3 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-gold">
+                      <span className="rounded-full border border-gold/30 bg-gold/10 px-3 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold">
                         {pillar.outcome}
                       </span>
                     </div>
@@ -316,7 +314,7 @@ export function HomepageListingApproach() {
                                 key={mode.id}
                                 type="button"
                                 onClick={() => setActiveMedia(mIdx)}
-                                className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                                className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 font-mono text-xs uppercase tracking-[0.14em] transition-all ${
                                   active
                                     ? "border-gold bg-gold text-navy-deep font-bold"
                                     : "border-white/15 bg-white/[0.04] text-white/80 hover:border-gold/50 hover:text-white"
@@ -341,18 +339,19 @@ export function HomepageListingApproach() {
                               className="h-full w-full object-cover"
                             />
                           </div>
-                          <div className="flex items-center justify-between gap-3 bg-[#071321] px-4 py-2.5">
-                            <p className="font-sans text-xs text-white/85">{currentMedia.caption}</p>
-                            <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
-                              Click Play to Preview
-                            </span>
+                          <div className="bg-[#071321] px-4 py-2.5">
+                            <p className="font-sans text-sm text-white/85">{currentMedia.caption}</p>
+                            <p className="mt-1 font-sans text-xs text-white/70">
+                              Conceptual AI-generated imagery · Not a property listing
+                            </p>
                           </div>
                         </div>
                       </div>
                     )}
 
                     {pillar.visualType === "network" && (
-                      <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-2">
+                      <div className="mt-5">
+                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-2">
                         {INFRA_METRICS.map((m) => (
                           <div
                             key={m.id}
@@ -361,44 +360,53 @@ export function HomepageListingApproach() {
                             <p className="font-serif text-2xl text-gold sm:text-3xl">
                               <CountUp value={m.value} />
                             </p>
-                            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-white font-semibold">
+                            <p className="mt-1 font-mono text-xs uppercase tracking-[0.14em] text-white font-semibold">
                               {m.label}
                             </p>
-                            <p className="mt-1 font-sans text-[11px] leading-snug text-white/70">
+                            <p className="mt-1 font-sans text-xs leading-snug text-white/70">
                               {m.detail}
                             </p>
                           </div>
                         ))}
+                      </div>
+                        <details className="group mt-3 text-xs text-white/70">
+                        <summary className="cursor-pointer font-mono text-xs uppercase tracking-[0.12em] text-white/70 hover:text-gold">
+                        Eligibility &amp; Platform Terms ↓
+                        </summary>
+                        <p className="mt-2 max-w-2xl font-sans text-xs leading-relaxed text-white/60">
+                        Miami and South Florida REALTORS® ecosystem and United Realty Group Florida office network available to eligible listings. Infrastructure figures reflect published MIAMI REALTORS® and United Realty Group records. Distribution is subject to property eligibility, MLS rules, brokerage approval, and platform participation.
+                        </p>
+                        </details>
                       </div>
                     )}
 
                     {pillar.visualType === "activation" && (
                       <div className="mt-5 rounded-lg border border-gold/25 bg-white/[0.03] p-5">
                         <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                            Cooperating Buyer-Agent Reality
+                          <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
+                            U.S. buyers using an agent · NAR 2025
                           </span>
-                          <span className="font-serif text-2xl text-gold">&gt;90%</span>
+                          <span className="font-serif text-xl text-gold">9 of 10</span>
                         </div>
                         <div className="mt-4 grid gap-3 sm:grid-cols-3">
                           <div className="rounded border border-white/10 bg-navy/50 p-3">
-                            <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold">Step A</p>
+                            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Step A</p>
                             <p className="mt-1 font-serif text-sm text-white">Reverse Prospecting</p>
-                            <p className="mt-1 font-sans text-[11px] text-white/70">
+                            <p className="mt-1 font-sans text-xs text-white/70">
                               Identify agents with active buyer searches matching your home.
                             </p>
                           </div>
                           <div className="rounded border border-white/10 bg-navy/50 p-3">
-                            <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold">Step B</p>
+                            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Step B</p>
                             <p className="mt-1 font-serif text-sm text-white">Pre-Packaged Comps</p>
-                            <p className="mt-1 font-sans text-[11px] text-white/70">
+                            <p className="mt-1 font-sans text-xs text-white/70">
                               HOA disclosures, survey, and upgrades ready before showing.
                             </p>
                           </div>
                           <div className="rounded border border-white/10 bg-navy/50 p-3">
-                            <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold">Step C</p>
+                            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Step C</p>
                             <p className="mt-1 font-serif text-sm text-white">Contract Defense</p>
-                            <p className="mt-1 font-sans text-[11px] text-white/70">
+                            <p className="mt-1 font-sans text-xs text-white/70">
                               Protect net proceeds through inspection, appraisal, and closing.
                             </p>
                           </div>
@@ -430,7 +438,7 @@ export function HomepageListingApproach() {
                     </div>
                     <a
                       href="#list-here"
-                      className="inline-flex items-center justify-center gap-2 rounded bg-gold px-5 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-navy-deep transition-colors hover:bg-gold-soft"
+                      className="inline-flex items-center justify-center gap-2 rounded bg-gold px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-gold-soft"
                     >
                       Request Strategy Review <ArrowRight size={13} aria-hidden="true" />
                     </a>
@@ -441,64 +449,6 @@ export function HomepageListingApproach() {
           </div>
         </div>
 
-        {/* Interactive Verified Infrastructure Strip (Click-to-Inspect Metrics + Clean Disclosure) */}
-        <div className="mt-8 rounded-xl border border-gold/30 bg-navy-deep p-5 text-white sm:p-7">
-          <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
-            <div className="flex items-center gap-2.5">
-              <Sparkles size={15} className="text-gold shrink-0" aria-hidden="true" />
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold font-semibold">
-                Professional Distribution Infrastructure · Tap Any Metric to Inspect
-              </p>
-            </div>
-            <details className="group text-xs text-white/65">
-              <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 hover:text-gold">
-                Eligibility &amp; Platform Terms ↓
-              </summary>
-              <p className="mt-2 max-w-2xl font-sans text-[11px] leading-relaxed text-white/60">
-                Miami and South Florida REALTORS® ecosystem and United Realty Group Florida office network available to eligible listings. Infrastructure figures reflect published MIAMI REALTORS® and United Realty Group records. Distribution is subject to property eligibility, MLS rules, brokerage approval, and platform participation.
-              </p>
-            </details>
-          </div>
-
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {INFRA_METRICS.map((m, idx) => {
-              const selected = activeMetric === idx;
-              return (
-                <button
-                  key={m.id}
-                  type="button"
-                  onClick={() => setActiveMetric(idx)}
-                  aria-pressed={selected}
-                  className={`rounded-lg border p-3.5 text-left transition-all ${
-                    selected
-                      ? "border-gold bg-white/[0.08] shadow-md"
-                      : "border-white/10 bg-white/[0.02] hover:border-gold/40"
-                  }`}
-                >
-                  <p className="font-serif text-2xl text-gold sm:text-3xl font-normal">
-                    <CountUp value={m.value} />
-                  </p>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-white/85">
-                    {m.label}
-                  </p>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="mt-3 flex flex-col justify-between gap-2 rounded-lg bg-white/[0.04] px-4 py-2.5 sm:flex-row sm:items-center">
-            <p className="font-sans text-xs text-white/85">
-              <strong className="text-gold">{INFRA_METRICS[activeMetric].sub}:</strong>{" "}
-              {INFRA_METRICS[activeMetric].detail}
-            </p>
-            <a
-              href="#list-here"
-              className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:underline"
-            >
-              Request Strategy Review <ArrowRight size={12} aria-hidden="true" />
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

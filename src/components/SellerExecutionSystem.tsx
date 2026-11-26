@@ -35,7 +35,7 @@ export function SellerExecutionSystem({ lang = "en" }: { lang?: "en" | "es" }) {
   return <section id="seller-execution" data-sticky-cta-guard className="bg-white-soft px-6 py-14 text-navy-deep md:py-20">
     <div className="mx-auto max-w-7xl">
       <p className="story-eyebrow text-gold-ink">{es ? "Ejecución del encargo" : "Listing execution"}</p>
-      <h2 className="mt-4 max-w-4xl font-serif text-3xl leading-tight md:text-5xl">{es ? "Qué hace Carlos después del lanzamiento." : "What Carlos Does After the Listing Goes Live"}</h2>
+      <h2 className="mt-4 max-w-4xl font-serif text-3xl leading-tight md:text-5xl">{es ? "Qué hace nuestro equipo después del lanzamiento." : "What Our Team Does After the Listing Goes Live"}</h2>
       <p className="mt-5 max-w-3xl text-base leading-relaxed text-navy">{es ? "El alcance crea oportunidades. El posicionamiento, seguimiento y evidencia guían las decisiones durante la campaña." : "Distribution creates the opportunity. Positioning, follow-up and evidence guide the decisions during the campaign."}</p>
       <div className="mt-8 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
         <figure className="lg:order-2"><img src="/images/carlos-media-team-editorial-20261012.jpg" alt={es ? "Carlos Uzcategui con el equipo de fotografía y video de la propiedad" : "Carlos Uzcategui with the property media team preparing photography and video at a waterfront home"} width={1600} height={901} loading="lazy" decoding="async" className="aspect-video w-full rounded-md object-cover" /><figcaption className="mt-3 text-sm leading-relaxed text-navy">{es ? "Carlos con el equipo de medios · Preparación antes de la presentación." : "Carlos with the property media team · Preparation before presentation."}</figcaption></figure>

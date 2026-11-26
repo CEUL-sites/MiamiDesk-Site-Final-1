@@ -147,7 +147,7 @@ const SOUTH_FL_DRIVERS = [
     icon: TrendingUp,
     label: "06 · Agent Network",
     title: "Cooperating buyer-agent ecosystem",
-    body: "Over 90% of residential transactions in the MLS close through cooperating buyer agents—making accurate pricing, reverse prospecting, and agent-to-agent negotiation decisive.",
+    body: "Nationally, nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers)—making accurate pricing, reverse prospecting, and agent-to-agent negotiation decisive.",
   },
 ];
 
@@ -331,7 +331,7 @@ export default function MarketsPage() {
           <div className="mx-auto max-w-6xl px-6">
             <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
               <div className="max-w-2xl">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                   South Florida Tri-County Coverage
                 </p>
                 <h2 className="mt-3 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -343,7 +343,7 @@ export default function MarketsPage() {
               </div>
               <a
                 href="/market-data"
-                className="inline-flex items-center gap-2 rounded-lg border border-bone bg-ivory px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep transition-colors hover:border-gold hover:text-gold-ink"
+                className="inline-flex items-center gap-2 rounded-lg border border-bone bg-ivory px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-gold hover:text-gold-ink"
               >
                 View Live MLS Market Statistics
                 <ArrowRight size={13} />
@@ -379,7 +379,7 @@ export default function MarketsPage() {
                     }`}
                   >
                     <span
-                      className={`block font-mono text-[9px] uppercase tracking-[0.18em] ${
+                      className={`block font-mono text-xs uppercase tracking-[0.12em] ${
                         isSelected ? "text-gold" : "text-gold-ink"
                       }`}
                     >
@@ -389,7 +389,7 @@ export default function MarketsPage() {
                       {county.name}
                     </span>
                     <span
-                      className={`mt-1 block font-mono text-[10px] uppercase tracking-[0.16em] ${
+                      className={`mt-1 block font-mono text-xs uppercase tracking-[0.12em] ${
                         isSelected ? "text-white/75" : "text-navy/65"
                       }`}
                     >
@@ -406,7 +406,7 @@ export default function MarketsPage() {
                 <div className="lg:col-span-7">
                   <div className="flex items-center gap-2">
                     <MapPin size={14} className="text-gold shrink-0" />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink">
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                       {COUNTIES[activeCounty].stat} · MLS Regional Profile
                     </span>
                   </div>
@@ -432,7 +432,7 @@ export default function MarketsPage() {
 
                 {/* Right Column: Linked Submarket Guides + Collapsible Municipalities */}
                 <div className="rounded-xl border border-bone bg-ivory p-6 lg:col-span-5">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink font-semibold">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                     Dedicated Submarket Seller Guides
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
@@ -440,7 +440,7 @@ export default function MarketsPage() {
                       <a
                         key={link.href}
                         href={link.href}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-bone bg-white px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-navy-deep transition-colors hover:border-gold hover:text-gold-ink"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-bone bg-white px-3 py-2 font-mono text-xs uppercase tracking-[0.14em] text-navy-deep transition-colors hover:border-gold hover:text-gold-ink"
                       >
                         {link.label}
                         <ArrowRight size={11} className="text-gold" />
@@ -449,7 +449,7 @@ export default function MarketsPage() {
                   </div>
 
                   <details className="mt-5 border-t border-bone pt-4">
-                    <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.16em] text-navy/75 hover:text-gold-ink">
+                    <summary className="cursor-pointer font-mono text-xs uppercase tracking-[0.12em] text-navy/75 hover:text-gold-ink">
                       All {COUNTIES[activeCounty].name} Municipalities Served ({COUNTIES[activeCounty].cities.length}) ↓
                     </summary>
                     <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/65">
@@ -468,14 +468,14 @@ export default function MarketsPage() {
             {/* Upper 2-Column: URG Brokerage Stat Grid + Weston Office */}
             <div className="grid gap-10 border-b border-white/10 pb-14 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Brokerage &amp; MLS Infrastructure
                 </p>
                 <h2 className="mt-3 font-serif text-3xl leading-tight text-white md:text-4xl">
                   Local execution across 19 Florida office locations.
                 </h2>
                 <p className="mt-3 font-sans text-sm leading-relaxed text-white/80">
-                  Over 90% of residential sales in the MLS close through cooperating buyer agents. Carlos pairs submarket pricing with MLS reverse prospecting through United Realty Group.
+                  Nationally, nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). Our team pairs submarket pricing with MLS reverse prospecting through United Realty Group.
                 </p>
 
                 <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -489,7 +489,7 @@ export default function MarketsPage() {
                       <p className="font-serif text-2xl text-gold">
                         <CountUp value={s.value} />
                       </p>
-                      <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-white/80">
+                      <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-white/80">
                         {s.label}
                       </p>
                     </div>
@@ -513,10 +513,10 @@ export default function MarketsPage() {
                     />
                   </div>
                   <figcaption className="border-t border-white/10 px-5 py-3.5">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                       United Realty Group · Plantation HQ &amp; Weston Office
                     </p>
-                    <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">
+                    <p className="mt-0.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                       {CONTACT.stats.urgAgents} Agents · 19 Florida Office Locations · {CONTACT.licenseDisplay}
                     </p>
                   </figcaption>
@@ -530,7 +530,7 @@ export default function MarketsPage() {
                 <div>
                   <div className="flex items-center gap-2">
                     <TrendingUp size={14} className="text-gold shrink-0" />
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                       South Florida Demand Fundamentals
                     </p>
                   </div>
@@ -538,7 +538,7 @@ export default function MarketsPage() {
                     Why capital and households keep moving to South Florida.
                   </h3>
                 </div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                   Tap any driver to inspect
                 </p>
               </div>
@@ -561,7 +561,7 @@ export default function MarketsPage() {
                       }`}
                     >
                       <Icon size={16} className={selected ? "text-navy-deep" : "text-gold"} />
-                      <span className={`mt-2.5 block font-mono text-[9px] uppercase tracking-[0.14em] ${selected ? "text-navy-deep font-bold" : "text-white/80"}`}>
+                      <span className={`mt-2.5 block font-mono text-xs uppercase tracking-[0.14em] ${selected ? "text-navy-deep font-bold" : "text-white/80"}`}>
                         {d.label}
                       </span>
                     </button>
@@ -592,7 +592,7 @@ export default function MarketsPage() {
               {/* Left Column: Interactive 4-Corridor Selector (7 cols) */}
               <div className="flex flex-col justify-between lg:col-span-7">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                     Cross-Border Feeder Markets
                   </p>
                   <h2 className="mt-3 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -618,7 +618,7 @@ export default function MarketsPage() {
                               : "border-bone bg-ivory/60 text-navy-deep hover:border-gold/60"
                           }`}
                         >
-                          <span className={`block font-mono text-[9px] uppercase tracking-[0.14em] ${selected ? "text-gold" : "text-gold-ink"}`}>
+                          <span className={`block font-mono text-xs uppercase tracking-[0.14em] ${selected ? "text-gold" : "text-gold-ink"}`}>
                             {m.tag}
                           </span>
                           <span className="mt-1 block font-serif text-base">{m.region}</span>
@@ -628,7 +628,7 @@ export default function MarketsPage() {
                   </div>
 
                   <div className="mt-4 rounded-xl border border-bone bg-ivory p-6">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink font-semibold">
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                       Key Origin Cities: {currentCorridor.hubs}
                     </p>
                     <h3 className="mt-2 font-serif text-xl text-navy-deep">{currentCorridor.region}</h3>
@@ -644,7 +644,7 @@ export default function MarketsPage() {
                 <div>
                   <div className="flex items-center gap-2 text-gold">
                     <Globe size={15} />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.26em]">
+                    <span className="font-mono text-xs uppercase tracking-[0.12em]">
                       Bilateral Spain · Miami Desk
                     </span>
                   </div>
@@ -670,7 +670,7 @@ export default function MarketsPage() {
                 <div className="mt-6">
                   <a
                     href="/global-desk"
-                    className="group inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-6 py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:bg-white"
+                    className="group inline-flex w-full items-center justify-center gap-2 rounded bg-gold px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-white"
                   >
                     Explore the Miami Global Listing Desk
                     <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -687,7 +687,7 @@ export default function MarketsPage() {
         <section className="border-t border-bone bg-ivory py-16 md:py-24">
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                 Markets &amp; Coverage FAQ
               </p>
               <h2 className="mt-3 font-serif text-3xl text-navy-deep">
@@ -701,7 +701,7 @@ export default function MarketsPage() {
 
             {/* Executive Consultation CTA Card */}
             <div className="mt-12 rounded-xl border border-bone bg-white p-8 text-center shadow-sm md:p-10">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                 Private Strategy Consultation
               </p>
               <h3 className="mt-2 font-serif text-2xl text-navy-deep md:text-3xl">
@@ -713,19 +713,19 @@ export default function MarketsPage() {
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
                   href="/home-value"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded bg-navy-deep px-8 py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded bg-navy-deep px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
                 >
                   Request a Property Valuation (CMA)
                   <ChevronRight size={14} />
                 </a>
                 <a
                   href="/contact?intent=seller"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-navy/25 px-7 py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy hover:bg-navy hover:text-white"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-navy/25 px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-navy hover:bg-navy hover:text-white"
                 >
                   Schedule a Private Strategy Review
                 </a>
               </div>
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/65">
+              <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-ink-primary/65">
                 {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
               </p>
             </div>

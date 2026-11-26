@@ -220,8 +220,8 @@ export default function SpainMlsListingPage() {
           <div className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[760px] -translate-x-1/2 rounded-full bg-gold/[0.05] blur-[120px]" />
           <div className="relative mx-auto max-w-4xl">
             <div className="flex items-center justify-between gap-4">
-              <p className="font-mono text-[10px] sm:text-[10px] uppercase tracking-[0.26em] text-gold">{t.eyebrow}</p>
-              <div className="flex flex-shrink-0 items-center border border-white/15 font-mono text-[10px] uppercase">
+              <p className="font-mono text-xs sm:text-xs uppercase tracking-[0.12em] text-gold">{t.eyebrow}</p>
+              <div className="flex flex-shrink-0 items-center border border-white/15 font-mono text-xs uppercase">
                 {(["en", "es"] as const).map((l) => (
                   <button
                     key={l}
@@ -241,19 +241,19 @@ export default function SpainMlsListingPage() {
             </h1>
             <p className="mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">{t.heroSub}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
+              <a href="#contact" className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90">
                 {t.ctaPrimary}
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a href={CONTACT.whatsappBrokerSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
+              <a href={CONTACT.whatsappBrokerSpain} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white">
                 {t.ctaWhatsApp}
               </a>
             </div>
-            <a href={LEAD_MAGNETS.spainActivation.url} download className="mt-6 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
+            <a href={LEAD_MAGNETS.spainActivation.url} download className="mt-6 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
               <Download size={11} />
               {t.ctaBrief}
             </a>
-            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               {CONTACT.licenseDisplay} · United Realty Group · Madrid Desk +34 646 853 078
             </p>
           </div>
@@ -262,7 +262,7 @@ export default function SpainMlsListingPage() {
         {/* ── Two-sided value ── */}
         <section className="bg-ivory py-14 md:py-20 px-6">
           <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.twoSidedEyebrow}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.twoSidedEyebrow}</p>
             <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.twoSidedH2}</h2>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline md:grid-cols-2">
               <div className="bg-white p-8">
@@ -282,7 +282,7 @@ export default function SpainMlsListingPage() {
         {/* ── Why Miami stats ── */}
         <section className="bg-navy-deep py-14 md:py-20 px-6 text-white">
           <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.whyEyebrow}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.whyEyebrow}</p>
             <h2 className="mt-4 max-w-3xl font-serif text-3xl leading-tight md:text-4xl">{t.whyH2}</h2>
             <div className="mt-10 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
               {t.stats.map((s) => (
@@ -292,7 +292,7 @@ export default function SpainMlsListingPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               Source: Miami and South Florida REALTORS® · Eligible syndication subject to MLS rules and platform participation
             </p>
           </div>
@@ -301,7 +301,7 @@ export default function SpainMlsListingPage() {
         {/* ── How it works ── */}
         <section className="bg-white py-14 md:py-20 px-6">
           <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.howEyebrow}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.howEyebrow}</p>
             <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.howH2}</h2>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
               {t.steps.map((s, i) => (
@@ -318,7 +318,7 @@ export default function SpainMlsListingPage() {
         {/* ── Who this is for ── */}
         <section className="bg-ivory py-14 md:py-20 px-6">
           <div className="mx-auto max-w-5xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.whoEyebrow}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.whoEyebrow}</p>
             <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.whoH2}</h2>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline md:grid-cols-3">
               {t.who.map(({ icon: Icon, ...w }) => (
@@ -335,7 +335,7 @@ export default function SpainMlsListingPage() {
         {/* ── Commercial structure ── */}
         <section className="bg-navy py-14 md:py-18 px-6 text-white">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.commercialEyebrow}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.commercialEyebrow}</p>
             <h2 className="mt-4 font-serif text-2xl leading-tight md:text-3xl">{t.commercialH2}</h2>
             <p className="mx-auto mt-5 max-w-2xl font-sans text-sm leading-relaxed text-white/60">{t.commercialBody}</p>
           </div>
@@ -344,7 +344,7 @@ export default function SpainMlsListingPage() {
         {/* ── FAQ ── */}
         <section className="bg-white py-14 md:py-20 px-6">
           <div className="mx-auto max-w-4xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.faqEyebrow}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.faqEyebrow}</p>
             <h2 className="mt-4 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">{t.faqH2}</h2>
             <div className="mt-8 divide-y divide-hairline">
               {faqs.map((f) => (
@@ -361,16 +361,16 @@ export default function SpainMlsListingPage() {
         <section className="bg-navy-deep py-16 md:py-24 px-6" id="contact">
           <div className="mx-auto max-w-5xl">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.contactEyebrow}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.contactEyebrow}</p>
               <h2 className="mt-3 font-serif text-3xl text-white">{t.contactH2}</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">{t.contactSub}</p>
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em]">
+              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/60">{t.contactSub}</p>
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-[0.12em]">
                 <a href={CONTACT.whatsappBrokerSpain} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors">WhatsApp ES +34 646 85 30 78</a>
                 <a href={CONTACT.calendly} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-gold hover:text-white transition-colors">{t.calendly} <ArrowRight size={11} /></a>
               </div>
             </div>
             <AgencyPartnerForm />
-            <div className="mt-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <div className="mt-6 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
             </div>

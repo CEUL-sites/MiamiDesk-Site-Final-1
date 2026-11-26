@@ -97,7 +97,7 @@ export default function EsHomePage() {
               <motion.p
                 variants={itemVariants}
                 className="font-mono mb-4 text-gold uppercase tracking-[0.22em]"
-                style={{ fontSize: "0.6875rem" }}
+                style={{ fontSize: "0.75rem" }}
               >
                 UNITED REALTY GROUP · CARLOS UZCATEGUI · FL REALTOR® SL705771
               </motion.p>
@@ -155,13 +155,13 @@ export default function EsHomePage() {
                     <div className="mt-3 font-serif text-2xl text-white tracking-tight sm:text-3xl">
                       {s.value}
                     </div>
-                    <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/75 leading-tight">
+                    <div className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-white/75 leading-tight">
                       {s.label}
                     </div>
                   </div>
                 ))}
               </motion.div>
-              <p className="mx-auto mt-4 max-w-3xl font-sans text-[11px] leading-relaxed text-white/60">
+              <p className="mx-auto mt-4 max-w-3xl font-sans text-xs leading-relaxed text-white/60">
                 Fuentes: anuncio de fusión de Miami and South Florida REALTORS® (abril de 2026); intercambio nacional de datos MLS de RPR; Global Council de MIAMI REALTORS®. La distribución depende de la elegibilidad de la propiedad, las normas del MLS y la participación de los socios.
               </p>
 
@@ -177,7 +177,7 @@ export default function EsHomePage() {
                 ].map(({ text }) => (
                   <span
                     key={text}
-                    className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm transition-colors hover:border-gold/40"
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm transition-colors hover:border-gold/40"
                   >
                     <BadgeCheck size={13} className="text-gold flex-shrink-0" />
                     {text}
@@ -190,7 +190,7 @@ export default function EsHomePage() {
                 variants={itemVariants}
                 className="mt-7 flex flex-wrap items-center justify-center gap-2"
               >
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/70">
+                <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                   Soy:
                 </span>
                 {[
@@ -210,7 +210,7 @@ export default function EsHomePage() {
                   <a
                     key={label}
                     href={href}
-                    className="border border-white/15 px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 transition-all duration-200 hover:border-gold hover:text-gold"
+                    className="border border-white/15 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-all duration-200 hover:border-gold hover:text-gold"
                   >
                     {label}
                   </a>
@@ -226,7 +226,7 @@ export default function EsHomePage() {
             transition={{ delay: 2.8, duration: 0.5 }}
             className="pointer-events-none absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
           >
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/70">
+            <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               Desplazar
             </span>
             <span className="h-10 w-px overflow-hidden bg-white/10">

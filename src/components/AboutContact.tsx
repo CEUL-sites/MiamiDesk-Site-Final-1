@@ -59,13 +59,13 @@ export function AboutContact({
               </div>
             )}
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{eyebrow}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">{eyebrow}</p>
               <h2 className="mt-3 font-serif text-3xl leading-tight text-navy md:mt-4 md:text-4xl lg:text-5xl">{title}</h2>
-              <p className="font-mono mt-3 text-[10px] uppercase tracking-[0.22em] text-navy/70">REALTOR® · Florida License SL705771 · Since 2001</p>
+              <p className="font-mono mt-3 text-xs uppercase tracking-[0.12em] text-navy/70">REALTOR® · Florida License SL705771 · Since 2001</p>
 
               <div className="mt-5 flex flex-wrap gap-3 md:mt-6">
                 {["CLHMS", "Certified Seller Rep", "Licensed Since 2001"].map((badge) => (
-                  <span key={badge} className="border border-gold/45 bg-white/70 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">{badge}</span>
+                  <span key={badge} className="border border-gold/45 bg-white/70 px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">{badge}</span>
                 ))}
               </div>
             </div>
@@ -97,7 +97,7 @@ export function AboutContact({
                     }`}
                   >
                     <span
-                      className={`font-mono text-[10px] uppercase tracking-[0.16em] ${
+                      className={`font-mono text-xs uppercase tracking-[0.12em] ${
                         isSelected ? "text-gold" : "text-navy"
                       }`}
                     >
@@ -122,7 +122,7 @@ export function AboutContact({
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h3 className="font-serif text-xl text-navy">{lens.headline}</h3>
-                    <span className="border border-gold/40 bg-ivory px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">
+                    <span className="border border-gold/40 bg-ivory px-3 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                       {lens.stat}
                     </span>
                   </div>
@@ -150,7 +150,7 @@ export function AboutContact({
                       key={tab.id}
                       type="button"
                       onClick={() => setBrokerageMediaMode(tab.id)}
-                      className={`px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.15em] transition-all ${
+                      className={`px-2.5 py-1.5 font-mono text-xs uppercase tracking-[0.12em] transition-all ${
                         selected
                           ? "bg-gold text-navy-deep font-bold"
                           : "border border-white/15 bg-white/[0.04] text-white/80 hover:border-gold/50 hover:text-white"
@@ -195,7 +195,7 @@ export function AboutContact({
               </div>
 
               <div className="relative z-10 border-t border-white/10 bg-navy-deep/95 px-5 py-3">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   {brokerageMediaMode === "weston"
                     ? "Weston office · 15951 SW 41st St, Suite 700"
                     : "Plantation Corporate HQ · 1200 S. Pine Island Rd, Suite 600"}
@@ -218,17 +218,17 @@ export function AboutContact({
               <div className="mt-6 grid grid-cols-2 border-y border-white/15 py-4">
                 <div>
                   <p className="font-serif text-3xl text-gold">3,500+</p>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">URG agents</p>
+                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-white/60">URG agents</p>
                 </div>
                 <div className="border-l border-white/15 pl-6">
                   <p className="font-serif text-3xl text-gold">{URG_FLORIDA_OFFICE_COUNT}</p>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] text-white/60">Florida office locations</p>
+                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-white/60">Florida office locations</p>
                 </div>
               </div>
 
               {/* Affiliated Transaction & Settlement Service Providers */}
               <div className="mt-5 border-b border-white/15 pb-5">
-                <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Affiliated Transaction &amp; Closing Partners
                 </p>
                 <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
@@ -251,7 +251,7 @@ export function AboutContact({
                         <span className="block truncate font-serif text-xs text-white group-hover:text-gold">
                           South Florida Title
                         </span>
-                        <span className="block font-mono text-[8px] uppercase tracking-[0.12em] text-white/60">
+                        <span className="block font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                           Title &amp; Escrow · sftafl.com
                         </span>
                       </div>
@@ -278,7 +278,7 @@ export function AboutContact({
                         <span className="block truncate font-serif text-xs text-white group-hover:text-gold">
                           Certified Home Loans
                         </span>
-                        <span className="block font-mono text-[8px] uppercase tracking-[0.12em] text-white/60">
+                        <span className="block font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                           Mortgage · CHL
                         </span>
                       </div>
@@ -289,7 +289,7 @@ export function AboutContact({
               </div>
 
               <details className="group mt-4 pt-1">
-                <summary className="cursor-pointer list-none font-mono text-[10px] uppercase tracking-[0.16em] text-gold transition-colors hover:text-white">
+                <summary className="cursor-pointer list-none font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors hover:text-white">
                   View the Florida office network
                 </summary>
                 <ul className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2 font-sans text-xs leading-relaxed text-white/70 sm:grid-cols-3">
@@ -302,12 +302,12 @@ export function AboutContact({
                   href="https://www.urgfl.com/office-locations/"
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 inline-block font-mono text-[9px] uppercase tracking-[0.14em] text-white/55 transition-colors hover:text-gold"
+                  className="mt-4 inline-block font-mono text-xs uppercase tracking-[0.14em] text-white/55 transition-colors hover:text-gold"
                 >
                   United Realty Group office directory
                 </a>
               </details>
-              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/60">
+              <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                 Carlos Uzcategui · United Realty Group · FL SL705771 · HQ: 1200 S Pine Island Rd, Suite 600, Plantation, FL 33324
               </p>
             </div>
@@ -325,43 +325,43 @@ export function AboutContact({
                 </div>
               </div>
               <div className="bg-navy-deep px-5 py-3 md:py-4 border-t border-white/10">
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">United Realty Group · 3,500+ agents</p>
-                <p className="font-mono mt-0.5 text-[10px] uppercase tracking-[0.15em] text-white/70">19 Florida office locations · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">United Realty Group · 3,500+ agents</p>
+                <p className="font-mono mt-0.5 text-xs uppercase tracking-[0.12em] text-white/70">19 Florida office locations · Carlos Uzcategui, REALTOR® · Florida License SL705771</p>
                 <div className="mt-1.5 flex flex-wrap items-center gap-4">
-                  <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noreferrer" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
+                  <a href="https://www.urgfl.com/office-locations/" target="_blank" rel="noreferrer" className="font-mono text-xs uppercase tracking-[0.12em] text-gold hover:text-white">
                     View official branch locations ↗
                   </a>
-                  <a href="https://sftafl.com/" target="_blank" rel="noreferrer" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
+                  <a href="https://sftafl.com/" target="_blank" rel="noreferrer" className="font-mono text-xs uppercase tracking-[0.12em] text-gold hover:text-white">
                     South Florida Title Associates ↗
                   </a>
-                  <a href="https://certifiedhomeloans.com/" target="_blank" rel="noreferrer" className="font-mono text-[10px] uppercase tracking-[0.12em] text-gold hover:text-white">
+                  <a href="https://certifiedhomeloans.com/" target="_blank" rel="noreferrer" className="font-mono text-xs uppercase tracking-[0.12em] text-gold hover:text-white">
                     Certified Home Loans ↗
                   </a>
                 </div>
-                <p className="font-mono mt-1 text-[10px] uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
+                <p className="font-mono mt-1 text-xs uppercase tracking-[0.12em] text-white/70">HQ: 1200 S Pine Island Rd, Suite 600 · Plantation, FL 33324</p>
               </div>
             </div>
           )}
 
           <div className="mt-4 border-t border-bone pt-4 space-y-1.5 md:mt-6 md:pt-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">{CONTACT.licenseDisplay}</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Member: Miami and South Florida REALTORS®</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">{CONTACT.licenseDisplay}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">Associate in {CONTACT.brokerage} · Headquarters: Plantation, FL</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">Member: Miami and South Florida REALTORS®</p>
           </div>
 
           {!compact && (
             <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-12 md:gap-5">
               <a href={CONTACT.whatsappUS} className="flex items-start gap-3 border border-bone bg-white p-4 transition-colors hover:border-gold sm:p-5">
                 <Phone className="shrink-0 text-gold" size={20} />
-                <div className="min-w-0"><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
+                <div className="min-w-0"><div className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">Direct</div><div className="mt-1 font-sans text-sm text-navy">{CONTACT.phoneUS}</div></div>
               </a>
               <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 border border-bone bg-white p-4 transition-colors hover:border-gold sm:p-5">
                 <Mail className="shrink-0 text-gold" size={20} />
-                <div className="min-w-0"><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Email</div><div className="mt-1 break-all font-sans text-sm text-navy">{CONTACT.email}</div></div>
+                <div className="min-w-0"><div className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">Email</div><div className="mt-1 break-all font-sans text-sm text-navy">{CONTACT.email}</div></div>
               </a>
               <div className="flex items-start gap-3 border border-bone bg-white p-4 sm:p-5">
                 <MapPin className="shrink-0 text-gold" size={20} />
-                <div className="min-w-0"><div className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
+                <div className="min-w-0"><div className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">Office</div><div className="mt-1 font-sans text-sm text-navy">Weston, Florida</div></div>
               </div>
             </div>
           )}
@@ -370,7 +370,7 @@ export function AboutContact({
         {showForm && (
           <div className="lg:sticky lg:top-24 lg:self-start">
             <LeadForm />
-            <div className="mt-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
+            <div className="mt-5 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
               <BadgeCheck size={14} className="text-gold" />
               {PUBLIC_COMPLIANCE}
             </div>

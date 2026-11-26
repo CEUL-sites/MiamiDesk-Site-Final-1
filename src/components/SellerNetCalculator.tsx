@@ -16,7 +16,9 @@ import { notifyLeadDirect } from "../lib/leadNotify";
 
 const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
-const COMMISSION_OPTIONS = [4.5, 5, 5.5, 6];
+// No preset commission: rates are negotiated per listing and are never
+// suggested in public copy. The seller types the rate they want to model.
+const COMMISSION_MAX = 10;
 
 // Florida documentary stamp tax on the deed — $0.70 per $100 statewide
 // ($0.60 in Miami-Dade for single-family; we use the conservative statewide
@@ -45,7 +47,9 @@ const COPY = {
     commissionLabel: "Total commission — fully negotiable, set at listing",
     breakdownHeading: "Estimated breakdown",
     rowSalePrice: "Sale price",
-    rowCommission: (commission: number) => `Commission (${commission}%)`,
+    rowCommission: (commission: number | null) => (commission === null ? "Commission (enter your rate)" : `Commission (${commission}%)`),
+    commissionPlaceholder: "Your rate %",
+    commissionMissing: "Before commission. Enter a rate above to include it.",
     rowDocStamps: "Documentary stamps (est.)",
     rowTitleClosing: "Title & closing costs (est.)",
     rowPayoff: "Mortgage payoff",
@@ -94,7 +98,9 @@ const COPY = {
     // TODO: native Madrid editor review
     rowSalePrice: "Precio de venta",
     // TODO: native Madrid editor review
-    rowCommission: (commission: number) => `Comisión (${commission}%)`,
+    rowCommission: (commission: number | null) => (commission === null ? "Comisión (indique su tasa)" : `Comisión (${commission}%)`),
+    commissionPlaceholder: "Su tasa %",
+    commissionMissing: "Antes de comisión. Indique una tasa arriba para incluirla.",
     // TODO: native Madrid editor review
     rowDocStamps: "Timbres documentales (est.)",
     // TODO: native Madrid editor review
@@ -146,7 +152,10 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
   const t = COPY[lang];
   const [price, setPrice] = useState(750_000);
   const [payoff, setPayoff] = useState(0);
-  const [commission, setCommission] = useState(5);
+  const [commissionInput, setCommissionInput] = useState("");
+  const parsedCommission = Number.parseFloat(commissionInput.replace(",", "."));
+  const commission: number | null =
+    Number.isFinite(parsedCommission) && parsedCommission >= 0 && parsedCommission <= COMMISSION_MAX ? parsedCommission : null;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -154,7 +163,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
   const renderedAt = useRef(Date.now());
 
   const rows = useMemo(() => {
-    const commissionAmt = price * (commission / 100);
+    const commissionAmt = price * ((commission ?? 0) / 100);
     const docStamps = price * DOC_STAMP_RATE;
     const titleClosing = price * TITLE_CLOSING_RATE;
     const net = price - commissionAmt - docStamps - titleClosing - payoff;
@@ -167,7 +176,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
     setStatus("submitting");
     const summary =
       `Net sheet request — est. value ${usd.format(price)}, payoff ${usd.format(payoff)}, ` +
-      `commission ${commission}%, est. net ${usd.format(rows.net)}`;
+      `commission ${commission === null ? "not entered" : `${commission}%`}, est. net ${usd.format(rows.net)}`;
     try {
       const res = await fetch("/", {
         method: "POST",
@@ -197,14 +206,14 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
   }
 
   const inputCls =
-    "w-full border border-hairline bg-ivory px-4 py-3 font-sans text-base text-navy outline-none transition-colors placeholder:text-navy/35 focus:border-gold/50";
+    "w-full border border-hairline bg-ivory px-4 py-3 font-sans text-base text-navy outline-none transition-colors placeholder:text-navy/70 focus:border-gold/50";
 
   return (
     <section className="bg-white border-t border-hairline py-10 md:py-24" id="net-calculator">
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex items-center gap-2">
           <Calculator size={14} className="text-gold" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{t.eyebrow}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">{t.eyebrow}</p>
         </div>
         <h2 className="mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:mt-5 md:text-4xl">
           {t.headline}
@@ -218,7 +227,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
           <div className="space-y-5 md:space-y-7">
             <div>
               <div className="flex items-baseline justify-between">
-                <label htmlFor="calc-price" className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
+                <label htmlFor="calc-price" className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
                   {t.priceLabel}
                 </label>
                 <span className="font-serif text-2xl text-navy-deep">{usd.format(price)}</span>
@@ -228,14 +237,14 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
                 value={price} onChange={(e) => setPrice(Number(e.target.value))}
                 className="mt-3 w-full accent-[#B08D57]"
               />
-              <div className="mt-1 flex justify-between font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
+              <div className="mt-1 flex justify-between font-mono text-xs uppercase tracking-[0.14em] text-navy/70">
                 <span>{t.priceMin}</span><span>{t.priceMax}</span>
               </div>
             </div>
 
             <div>
               <div className="flex items-baseline justify-between">
-                <label htmlFor="calc-payoff" className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
+                <label htmlFor="calc-payoff" className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
                   {t.payoffLabel}
                 </label>
                 <span className="font-serif text-2xl text-navy-deep">{usd.format(payoff)}</span>
@@ -245,36 +254,34 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
                 value={payoff} onChange={(e) => setPayoff(Number(e.target.value))}
                 className="mt-3 w-full accent-[#B08D57]"
               />
-              <div className="mt-1 flex justify-between font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
+              <div className="mt-1 flex justify-between font-mono text-xs uppercase tracking-[0.14em] text-navy/70">
                 <span>{t.payoffMin}</span><span>{t.payoffMax}</span>
               </div>
             </div>
 
             <div>
-              <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
+              <label htmlFor="net-commission-rate" className="font-mono text-xs uppercase tracking-[0.12em] text-navy/75">
                 {t.commissionLabel}
               </label>
-              <div className="mt-3 flex gap-2">
-                {COMMISSION_OPTIONS.map((c) => (
-                  <button
-                    key={c} type="button" onClick={() => setCommission(c)}
-                    className={`flex-1 border px-3 py-2.5 font-mono text-[11px] tracking-[0.08em] transition-colors ${
-                      commission === c
-                        ? "border-gold bg-gold/10 text-navy-deep font-bold"
-                        : "border-hairline bg-white text-navy/70 hover:border-gold/40"
-                    }`}
-                    aria-pressed={commission === c}
-                  >
-                    {c}%
-                  </button>
-                ))}
+              <div className="mt-3 flex max-w-[12rem] items-center border border-hairline bg-white focus-within:border-gold">
+                <input
+                  id="net-commission-rate"
+                  type="text"
+                  inputMode="decimal"
+                  value={commissionInput}
+                  onChange={(e) => setCommissionInput(e.target.value)}
+                  placeholder={t.commissionPlaceholder}
+                  aria-label={t.commissionLabel}
+                  className="min-h-[44px] w-full bg-transparent px-3 font-sans text-base text-navy-deep outline-none placeholder:text-navy/70"
+                />
+                <span className="pr-3 font-sans text-base text-navy/70" aria-hidden="true">%</span>
               </div>
             </div>
           </div>
 
           {/* Live breakdown */}
           <div className="border border-hairline bg-ivory p-5 md:p-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink">{t.breakdownHeading}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">{t.breakdownHeading}</p>
             <dl className="mt-4 space-y-2 font-sans text-sm md:mt-5 md:space-y-3">
               {[
                 [t.rowSalePrice, usd.format(price), false],
@@ -290,14 +297,17 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
               ))}
             </dl>
             <div className="mt-4 border-t border-gold/30 pt-3 flex items-baseline justify-between gap-4 md:mt-5 md:pt-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">{t.netLabel}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">{t.netLabel}</p>
               <p className="font-serif text-3xl text-navy-deep">{usd.format(Math.max(0, rows.net))}</p>
             </div>
+            {commission === null && (
+              <p className="mt-2 font-sans text-sm text-gold-ink">{t.commissionMissing}</p>
+            )}
 
             {/* Email gate */}
             {status === "success" ? (
               <div className="mt-4 border border-gold/30 bg-white p-4 md:mt-6 md:p-5">
-                <p className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink">
+                <p className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                   <CheckCircle2 size={13} /> {t.successOnItsWay}
                 </p>
                 <p className="mt-2 font-sans text-sm leading-relaxed text-navy/65">
@@ -306,7 +316,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
                 <a
                   href={LEAD_MAGNETS.sellerNetSheet.url}
                   download
-                  className="mt-3 inline-flex items-center gap-2 bg-navy-deep px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-90"
+                  className="mt-3 inline-flex items-center gap-2 bg-navy-deep px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-90"
                 >
                   {t.downloadLabel} <ArrowRight size={13} />
                 </a>
@@ -338,13 +348,13 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
                 )}
                 <button
                   type="submit" disabled={status === "submitting"}
-                  className="mt-3 flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 disabled:opacity-60"
+                  className="mt-3 flex w-full items-center justify-center gap-2 bg-gold px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90 disabled:opacity-60"
                 >
                   {status === "submitting"
                     ? <><Loader2 size={14} className="animate-spin" /> {t.submittingLabel}</>
                     : <>{t.submitLabel} <ArrowRight size={14} /></>}
                 </button>
-                <p className="mt-2.5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70">
+                <p className="mt-2.5 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.14em] text-navy/70">
                   <Lock size={9} className="text-gold-ink" /> {t.confidentialLine}
                 </p>
               </form>
@@ -352,7 +362,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
           </div>
         </div>
 
-        <p className="mt-4 max-w-3xl font-sans text-[11px] leading-relaxed text-ink-primary/70 md:mt-6">
+        <p className="mt-4 max-w-3xl font-sans text-xs leading-relaxed text-ink-primary/70 md:mt-6">
           {t.disclaimer}
         </p>
       </div>

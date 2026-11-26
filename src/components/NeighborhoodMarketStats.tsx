@@ -55,7 +55,7 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex items-center gap-2">
           <TrendingUp size={14} className="text-gold" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{label} · Market Snapshot</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{label} · Market Snapshot</p>
         </div>
         <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
           What the market looks like right now.
@@ -64,13 +64,13 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
         <div className={`mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-2 ${tiles.length >= 4 ? "lg:grid-cols-4" : tiles.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}>
           {tiles.map((t) => (
             <div key={t.label} className="bg-white p-7">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{t.label}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.label}</p>
               <p className="mt-3 font-serif text-2xl text-navy-deep">{t.value}</p>
               <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{t.sub}</p>
             </div>
           ))}
         </div>
-        <p className="mt-4 font-sans text-[11px] leading-relaxed text-ink-primary/70">
+        <p className="mt-4 font-sans text-xs leading-relaxed text-ink-primary/70">
           Source: {sourceCitation}, based on MLS sales
           data compiled by Florida Realtors®. Figures reflect closed residential sales reported for{" "}
           {isParentCityData ? `the City of ${dataCity}, which includes ${label}` : dataCity}.
@@ -80,7 +80,7 @@ export function NeighborhoodMarketStats({ city, areaLabel }: { city: string; are
         <div className="mt-8 flex flex-wrap items-center gap-5">
           <a
             href="/home-value"
-            className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
           >
             Get the Number for Your Home
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />

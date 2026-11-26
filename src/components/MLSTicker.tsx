@@ -41,19 +41,19 @@ function OpportunityCard({ listing }: { listing: OpportunityListing }) {
     <article className="flex min-w-0 flex-col border border-white/10 bg-[#111F38] p-4 sm:p-5">
       <div className="flex items-start justify-between gap-3">
         <p className="font-serif text-xl font-semibold text-gold">{formatPrice(listing.ListPrice)}</p>
-        <span className="bg-emerald-500/15 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-emerald-300">Active</span>
+        <span className="bg-emerald-500/15 px-2 py-1 font-mono text-xs uppercase tracking-wider text-emerald-300">Active</span>
       </div>
       <p className="mt-3 font-sans text-sm font-medium leading-snug text-white">{listing.UnparsedAddress}</p>
-      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+      <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
         {listing.City}, FL {listing.PostalCode}
       </p>
-      <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 border-t border-white/10 pt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-white/70">
+      <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 border-t border-white/10 pt-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
         {listing.BedroomsTotal != null && <span>{listing.BedroomsTotal} bd</span>}
         {listing.BathroomsTotalDecimal != null && <span>{listing.BathroomsTotalDecimal} ba</span>}
         {listing.LivingArea != null && <span>{listing.LivingArea.toLocaleString()} sf</span>}
         <span>{type}</span>
       </div>
-      <p className="mt-3 font-mono text-[10px] leading-relaxed text-white/60">
+      <p className="mt-3 font-mono text-xs leading-relaxed text-white/60">
         MLS #{listing.ListingId || listing.ListingKey}
         {listing.ListOfficeName ? ` · Listed by ${listing.ListOfficeName}` : " · Listing brokerage available on request"}
       </p>
@@ -71,13 +71,13 @@ export function CurrentOpportunitiesView({ status, listings, dataFreshness }: {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">Residential IDX sample</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Residential IDX sample</p>
             <h2 id="current-opportunities-title" className="mt-2 font-serif text-2xl text-white sm:text-3xl">Current South Florida Opportunities</h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/70">
               A concise sample of active single-family, condominium and townhome opportunities across Miami-Dade, Broward and Palm Beach.
             </p>
           </div>
-          <a href="/listings" className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 hover:text-white">
+          <a href="/listings" className="font-mono text-xs uppercase tracking-[0.12em] text-gold underline underline-offset-4 hover:text-white">
             Search all South Florida listings →
           </a>
         </div>
@@ -94,7 +94,7 @@ export function CurrentOpportunitiesView({ status, listings, dataFreshness }: {
               ))}
             </div>
             {dataFreshness && (
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
+              <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-white/70">
                 Most recent MLS record modification: {formatFreshness(dataFreshness)}
               </p>
             )}
@@ -105,12 +105,12 @@ export function CurrentOpportunitiesView({ status, listings, dataFreshness }: {
             <p className="max-w-2xl text-sm leading-relaxed text-white/70">
               Current MLS inventory is temporarily unavailable. No sample addresses or prices are being displayed.
             </p>
-            <a href="/contact" className="mt-5 inline-flex bg-gold px-5 py-3 font-mono text-[10px] uppercase tracking-[0.17em] text-navy sm:mt-0">
+            <a href="/contact" className="mt-5 inline-flex bg-gold px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy sm:mt-0">
               Request a Private South Florida Property Search
             </a>
           </div>
         )}
-        <p className="mt-6 border-t border-white/10 pt-4 font-mono text-[10px] uppercase tracking-[0.1em] leading-relaxed text-white/60">
+        <p className="mt-6 border-t border-white/10 pt-4 font-mono text-xs uppercase tracking-[0.1em] leading-relaxed text-white/60">
           {IDX_DISCLAIMER} {CONTACT.licenseDisplay} · {CONTACT.brokerage} · Equal Housing Opportunity.
         </p>
       </div>

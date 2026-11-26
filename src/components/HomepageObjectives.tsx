@@ -151,7 +151,7 @@ export function HomepageObjectives() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-ink font-semibold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
               Choose Your Property Objective
             </p>
             <h2
@@ -170,7 +170,7 @@ export function HomepageObjectives() {
         <div
           role="tablist"
           aria-label="Property objectives"
-          className="mt-8 grid grid-cols-2 gap-2.5 lg:grid-cols-4"
+          className="mt-8 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-4"
         >
           {OBJECTIVES.map((obj, idx) => {
             const Icon = obj.icon;
@@ -201,13 +201,13 @@ export function HomepageObjectives() {
                 </span>
                 <div className="min-w-0">
                   <p
-                    className={`font-mono text-[9px] uppercase tracking-[0.16em] ${
-                      selected ? "text-gold" : "text-navy/60"
+                    className={`font-mono text-xs uppercase tracking-[0.12em] ${
+                      selected ? "text-gold" : "text-navy/70"
                     }`}
                   >
                     0{idx + 1} · {obj.eyebrow}
                   </p>
-                  <p className="mt-0.5 truncate font-serif text-base font-normal">
+                  <p className="mt-0.5 font-serif text-base font-normal leading-snug">
                     {obj.tabLabel}
                   </p>
                 </div>
@@ -243,7 +243,7 @@ export function HomepageObjectives() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-navy-deep/90" />
-                    <span className="absolute left-4 top-4 rounded bg-gold px-3 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-navy-deep font-bold">
+                    <span className="absolute left-4 top-4 rounded bg-gold px-3 py-1 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep font-bold">
                       {obj.badge}
                     </span>
                   </div>
@@ -253,7 +253,7 @@ export function HomepageObjectives() {
                     <div>
                       <div className="flex items-center gap-2 text-gold">
                         <Icon size={17} aria-hidden="true" />
-                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] font-semibold">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em] font-semibold">
                           {obj.eyebrow}
                         </span>
                       </div>
@@ -274,7 +274,7 @@ export function HomepageObjectives() {
                             className="flex items-center gap-2 rounded-lg border border-white/12 bg-white/[0.04] px-3 py-2"
                           >
                             <Check size={13} className="shrink-0 text-gold" aria-hidden="true" />
-                            <span className="font-mono text-[10px] tracking-[0.06em] text-white/90">
+                            <span className="font-mono text-xs tracking-[0.06em] text-white/90">
                               {pill}
                             </span>
                           </div>
@@ -284,7 +284,7 @@ export function HomepageObjectives() {
                       {/* Interactive Timeline Selector */}
                       <div className="mt-5 rounded-lg border border-white/10 bg-white/[0.03] p-3.5">
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold">
+                          <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                             Select Your Stage:
                           </span>
                           <div className="flex flex-wrap gap-1.5">
@@ -293,7 +293,7 @@ export function HomepageObjectives() {
                                 key={tl.id}
                                 type="button"
                                 onClick={() => setActiveTimeline(tIdx)}
-                                className={`rounded px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors ${
+                                className={`rounded px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] transition-colors ${
                                   activeTimeline === tIdx
                                     ? "bg-gold text-navy-deep font-bold"
                                     : "bg-white/[0.06] text-white/75 hover:text-white"
@@ -317,20 +317,20 @@ export function HomepageObjectives() {
                       {obj.primaryCta.isAnchor ? (
                         <a
                           href={obj.primaryCta.href}
-                          className="inline-flex items-center justify-center gap-2 rounded bg-gold px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-navy-deep transition-colors hover:bg-gold-soft"
+                          className="inline-flex items-center justify-center gap-2 rounded bg-gold px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-gold-soft"
                         >
                           {obj.primaryCta.label} <ArrowRight size={14} aria-hidden="true" />
                         </a>
                       ) : (
                         <Link
                           to={obj.primaryCta.href}
-                          className="inline-flex items-center justify-center gap-2 rounded bg-gold px-5 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-navy-deep transition-colors hover:bg-gold-soft"
+                          className="inline-flex items-center justify-center gap-2 rounded bg-gold px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-gold-soft"
                         >
                           {obj.primaryCta.label} <ArrowRight size={14} aria-hidden="true" />
                         </Link>
                       )}
 
-                      <div className="flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white/70">
+                      <div className="flex flex-wrap gap-x-4 gap-y-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                         {obj.quickLinks.map((link) => (
                           <Link
                             key={link.to}

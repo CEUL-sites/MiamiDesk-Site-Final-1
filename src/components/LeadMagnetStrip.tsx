@@ -76,7 +76,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
   const isPrimary = variant === "primary";
   const cardBorder = isPrimary ? "border-gold/35" : "border-hairline";
   const iconWrap = isPrimary ? "border-gold/30 bg-gold/8" : "border-navy/15 bg-navy/5";
-  const iconColor = isPrimary ? "text-gold" : "text-navy/50";
+  const iconColor = isPrimary ? "text-gold" : "text-navy/70";
   const eyebrowColor = isPrimary ? "text-gold-ink" : "text-ink-primary/70";
   const submitBtn = isPrimary
     ? "bg-navy-deep text-white hover:opacity-90"
@@ -92,7 +92,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
           <FileText size={18} className={iconColor} />
         </div>
         <div className="flex-1 min-w-0">
-          <p className={`font-mono text-[10px] uppercase tracking-[0.2em] ${eyebrowColor}`}>{eyebrow}</p>
+          <p className={`font-mono text-xs uppercase tracking-[0.12em] ${eyebrowColor}`}>{eyebrow}</p>
           <h3 className="mt-1 font-serif text-xl leading-snug text-navy-deep">{title}</h3>
           <p className="mt-2 font-sans text-sm leading-relaxed text-ink-primary/60">{description}</p>
         </div>
@@ -101,13 +101,13 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
       <div className="mt-4 flex-1 flex flex-col justify-end md:mt-6">
         {status === "success" ? (
           <div className="flex flex-col items-start gap-3" role="status" aria-live="polite">
-            <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">
+            <span className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
               <CheckCircle2 size={13} /> Ready to download
             </span>
             <a
               href={downloadUrl}
               download
-              className={`inline-flex items-center gap-2 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors ${downloadBtn}`}
+              className={`inline-flex items-center gap-2 px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] transition-colors ${downloadBtn}`}
             >
               <Download size={13} />
               Download guide
@@ -121,7 +121,7 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-            <label htmlFor={emailId} className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/70">
+            <label htmlFor={emailId} className="font-mono text-xs uppercase tracking-[0.12em] text-ink-primary/70">
               Email address
             </label>
             <input
@@ -145,16 +145,16 @@ function MagnetGate({ guide, language, downloadUrl, title, description, eyebrow,
             <button
               type="submit"
               disabled={status === "submitting"}
-              className={`flex items-center justify-center gap-2 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] transition-opacity disabled:opacity-60 ${submitBtn}`}
+              className={`flex items-center justify-center gap-2 px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] transition-opacity disabled:opacity-60 ${submitBtn}`}
             >
               {status === "submitting"
                 ? <><Loader2 size={13} className="animate-spin" /> Sending…</>
                 : <><Download size={13} /> Get the free guide <ArrowRight size={13} /></>}
             </button>
-            <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-primary/70">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-ink-primary/70">
               One email. No subscription. No listing commitment.
             </p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-primary/70">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-ink-primary/70">
               Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group · Equal Housing Opportunity
             </p>
           </form>
@@ -178,7 +178,7 @@ export function LeadMagnetStrip() {
       </form>
 
       <div className="mx-auto max-w-5xl px-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink mb-2">Free Resources</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink mb-2">Free Resources</p>
         <h2 className="font-serif text-3xl leading-tight text-navy-deep md:text-4xl max-w-2xl">
           Know your numbers before you list.
         </h2>

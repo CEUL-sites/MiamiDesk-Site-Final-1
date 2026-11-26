@@ -62,10 +62,10 @@ export function MiamiDeskChatDialog() {
     >
       <div className="flex items-start justify-between gap-3 border-b border-white/10 bg-navy/60 px-5 py-3.5">
         <div>
-          <p id="miami-desk-dialog-title" className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold">
+          <p id="miami-desk-dialog-title" className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             {ui.chatTitle}
           </p>
-          <p className="mt-1 font-mono text-[9.5px] uppercase leading-snug tracking-[0.08em] text-white/65">
+          <p className="mt-1 font-mono text-xs uppercase leading-snug tracking-[0.08em] text-white/65">
             {ui.aiDisclosure} {COMPLIANCE_FOOTER}
           </p>
         </div>

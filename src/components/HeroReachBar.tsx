@@ -25,7 +25,7 @@ export function HeroReachBar({ className = "" }: { className?: string }) {
         {REACH_FIGURES.map((f) => (
           <div key={f.label} role="listitem" className="min-w-[5rem] text-center">
             <div className="font-serif text-xl leading-none text-gold md:text-2xl">{f.value}</div>
-            <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 md:text-[10px]">
+            <div className="mt-1.5 font-mono text-xs uppercase tracking-[0.14em] text-white/70 md:text-xs">
               {f.label}
             </div>
           </div>

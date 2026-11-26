@@ -197,7 +197,7 @@ export function BuyerMandateForm({ variant = "miami", language = "en" }: { varia
         <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center bg-gold/10 text-gold">
           <CheckCircle2 size={30} />
         </div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">{c.successEyebrow}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">{c.successEyebrow}</p>
         <h3 className="mt-3 font-serif text-2xl text-navy">{c.successTitle}</h3>
         <p className="mt-4 font-sans text-sm leading-relaxed text-navy/70 max-w-md mx-auto">
           {c.successBody}
@@ -212,7 +212,7 @@ export function BuyerMandateForm({ variant = "miami", language = "en" }: { varia
   return (
     <div className="border border-bone bg-white">
       <div className="border-b border-bone bg-navy-deep px-8 py-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{c.eyebrow}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{c.eyebrow}</p>
         <h3 className="mt-2 font-serif text-2xl text-white">{c.title}</h3>
         <p className="mt-2 font-sans text-sm text-white/70">{c.intro}</p>
       </div>
@@ -266,7 +266,7 @@ export function BuyerMandateForm({ variant = "miami", language = "en" }: { varia
                 key={n}
                 type="button"
                 onClick={() => toggleNeighborhood(n)}
-                className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] transition-colors ${
+                className={`border px-3 py-1.5 font-mono text-xs uppercase tracking-[0.12em] transition-colors ${
                   neighborhoodSel.includes(n)
                     ? "border-gold bg-gold/10 text-gold"
                     : "border-bone text-navy/70 hover:border-gold/40"
@@ -309,12 +309,12 @@ export function BuyerMandateForm({ variant = "miami", language = "en" }: { varia
           <p className="font-sans text-sm text-red-600">{err}</p>
         )}
 
-        <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-all hover:bg-gold disabled:opacity-60">
+        <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-4 font-mono text-xs uppercase tracking-[0.12em] text-white transition-all hover:bg-gold disabled:opacity-60">
           {status === "submitting" ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
           {status === "submitting" ? c.sending : c.submit}
         </button>
 
-        <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-navy/70">
+        <p className="text-center font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
           {PUBLIC_COMPLIANCE}
         </p>
       </form>
@@ -327,7 +327,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   // programmatic label (implicit association) without needing per-field ids.
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">{label}</span>
+      <span className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">{label}</span>
       {children}
     </label>
   );

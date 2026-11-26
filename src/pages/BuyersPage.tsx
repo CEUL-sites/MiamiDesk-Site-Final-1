@@ -328,7 +328,7 @@ export default function BuyersPage() {
             <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
               {/* Left Column: Interactive 3-Pillar Buyer Underwriting Deck (7 cols) */}
               <div className="lg:col-span-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                   The Network Behind Your Purchase
                 </p>
                 <h2 className="mt-3 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -359,7 +359,7 @@ export default function BuyersPage() {
                             : "border-bone bg-ivory/70 text-navy-deep hover:border-gold/60"
                         }`}
                       >
-                        <span className={`block font-mono text-[9px] uppercase tracking-[0.16em] ${selected ? "text-gold" : "text-gold-ink"}`}>
+                        <span className={`block font-mono text-xs uppercase tracking-[0.12em] ${selected ? "text-gold" : "text-gold-ink"}`}>
                           {pillar.label}
                         </span>
                         <span className="mt-1 block font-serif text-sm leading-snug">
@@ -403,13 +403,13 @@ export default function BuyersPage() {
                       />
                     </div>
                     <figcaption className="border-t border-white/10 bg-navy-deep px-6 py-5">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                      <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                         {CONTACT.licenseDisplay}
                       </p>
                       <p className="mt-1 font-serif text-lg text-white">
                         25 Years of South Florida Acquisition &amp; Contract Negotiation
                       </p>
-                      <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/65">
+                      <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-white/65">
                         United Realty Group · {CONTACT.stats.urgAgents} Agents · 19 Florida Office Locations
                       </p>
                     </figcaption>
@@ -422,7 +422,7 @@ export default function BuyersPage() {
             <div className="mt-14 border-t border-hairline pt-12">
               <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                     Specialized Buyer Desks
                   </p>
                   <h3 className="mt-1.5 font-serif text-2xl text-navy-deep md:text-3xl">
@@ -431,7 +431,7 @@ export default function BuyersPage() {
                 </div>
                 <a
                   href="/listings"
-                  className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-ink transition-colors hover:text-navy-deep"
+                  className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink transition-colors hover:text-navy-deep"
                 >
                   Browse Active MLS Opportunities →
                 </a>
@@ -443,7 +443,7 @@ export default function BuyersPage() {
                     <div>
                       <div className="flex items-center gap-2 text-gold-ink">
                         <Building2 size={17} />
-                        <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em]">
                           Pre-Construction · NEO Portal
                         </span>
                       </div>
@@ -456,7 +456,7 @@ export default function BuyersPage() {
                     </div>
                     <a
                       href="/new-construction"
-                      className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 hover:text-gold-ink"
+                      className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-navy-deep underline decoration-gold underline-offset-4 hover:text-gold-ink"
                     >
                       Open Pre-Construction Feed <ArrowRight size={13} />
                     </a>
@@ -468,7 +468,7 @@ export default function BuyersPage() {
                     <div>
                       <div className="flex items-center gap-2 text-gold-ink">
                         <Globe2 size={17} />
-                        <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em]">
                           Cross-Border &amp; Spain Desk
                         </span>
                       </div>
@@ -481,7 +481,7 @@ export default function BuyersPage() {
                     </div>
                     <a
                       href="#gilmar-global-desk"
-                      className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 hover:text-gold-ink"
+                      className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-navy-deep underline decoration-gold underline-offset-4 hover:text-gold-ink"
                     >
                       Explore GILMAR Portfolio <ArrowRight size={13} />
                     </a>
@@ -493,7 +493,7 @@ export default function BuyersPage() {
                     <div>
                       <div className="flex items-center gap-2 text-gold-ink">
                         <Home size={17} />
-                        <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em]">
                           Weston Buyer Resource
                         </span>
                       </div>
@@ -506,7 +506,7 @@ export default function BuyersPage() {
                     </div>
                     <a
                       href="/journal/weston-homebuyer-purchase-assistance-2026"
-                      className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-navy-deep underline decoration-gold underline-offset-4 hover:text-gold-ink"
+                      className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-navy-deep underline decoration-gold underline-offset-4 hover:text-gold-ink"
                     >
                       Read Weston Housing Guide <ArrowRight size={13} />
                     </a>
@@ -529,7 +529,7 @@ export default function BuyersPage() {
           <div className="relative z-10 mx-auto max-w-6xl px-6">
             <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end mb-10">
               <div className="max-w-xl">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Market Fundamentals · Moving to Florida
                 </p>
                 <h2 className="mt-3 font-serif text-3xl leading-tight text-white md:text-4xl">
@@ -552,7 +552,7 @@ export default function BuyersPage() {
                       role="tab"
                       aria-selected={selected}
                       onClick={() => setDriverCategory(tab.id as "wealth" | "connectivity" | "lifestyle")}
-                      className={`rounded-lg px-4 py-2 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                      className={`rounded-lg px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition-all ${
                         selected
                           ? "bg-gold text-navy-deep font-bold shadow"
                           : "text-white/75 hover:text-white"
@@ -584,7 +584,7 @@ export default function BuyersPage() {
               })}
             </div>
 
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.18em] text-white/65">
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-white/65">
               Source: Miami and South Florida REALTORS® — "Top 20 Reasons to Buy &amp; Live in Miami" (MiamiRealtors.com)
             </p>
           </div>
@@ -594,7 +594,7 @@ export default function BuyersPage() {
         <section id="buyer-mandate" className="scroll-mt-24 bg-ivory py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                 Confidential Buyer Desk
               </p>
               <h2 className="mt-3 font-serif text-3xl text-navy-deep md:text-4xl">
@@ -609,7 +609,7 @@ export default function BuyersPage() {
               <BuyerMandateForm />
             </div>
 
-            <div className="mt-5 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
+            <div className="mt-5 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · {CONTACT.licenseDisplay} · United Realty Group · Equal Housing Opportunity
             </div>
@@ -617,7 +617,7 @@ export default function BuyersPage() {
             {/* Visible Buyer FAQ Accordion (100% Parity with FAQPage JSON-LD) */}
             <div className="mt-20 border-t border-bone pt-16">
               <div className="text-center">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                   Buyer Representation FAQ
                 </p>
                 <h3 className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">

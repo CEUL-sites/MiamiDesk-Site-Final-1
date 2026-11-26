@@ -416,7 +416,7 @@ export function SpainMiamiJourney() {
       <div className="smj-wrap">
         {/* Header */}
         <div className={`smj-header${headerVisible ? " smj-visible" : ""}`}>
-          <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-gold mb-5">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-5">
             The Miami Desk · Carlos Uzcategui · CLHMS
           </p>
           <h2
@@ -456,7 +456,7 @@ export function SpainMiamiJourney() {
           className={`smj-footer${footerVisible ? " smj-visible" : ""}`}
           ref={footerRef}
         >
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-gold mb-8">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-8">
             The Infrastructure Behind Every Transaction
           </p>
           <div className="smj-footer-stats">
@@ -483,18 +483,18 @@ export function SpainMiamiJourney() {
               href={CONTACT.whatsappSpain}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+              className="inline-flex items-center bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
             >
               WhatsApp · Activate Your Listing
             </a>
             <a
               href={`mailto:${CONTACT.email}`}
-              className="inline-flex items-center border border-gold/40 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-gold transition-colors hover:border-gold hover:bg-gold/5"
+              className="inline-flex items-center border border-gold/40 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors hover:border-gold hover:bg-gold/5"
             >
               {CONTACT.email}
             </a>
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-white/70 leading-loose">
+          <p className="font-mono text-xs uppercase tracking-[0.1em] text-white/70 leading-loose">
             {CONTACT.licenseDisplay} · {CONTACT.brokerage}<br />
             Miami and South Florida REALTORS® Member · Equal Housing Opportunity
           </p>

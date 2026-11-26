@@ -181,7 +181,7 @@ function PhoneBubblePlayer() {
 
                 {/* Overlay badge */}
                 <div className="absolute bottom-6 left-0 right-0 flex justify-center">
-                  <span className="rounded-full bg-black/60 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold backdrop-blur-sm">
+                  <span className="rounded-full bg-black/60 px-3 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold backdrop-blur-sm">
                     {current.badge}
                   </span>
                 </div>
@@ -217,7 +217,7 @@ export function SellerSection() {
         {/* ── Header: headline left, phone right ── */}
         <div className="flex flex-col items-center gap-8 mb-10 lg:flex-row lg:items-start lg:gap-16 lg:mb-20">
           <div className="flex-1 max-w-2xl">
-            <p className="font-mono mb-3 text-[10px] uppercase tracking-[0.3em] text-gold md:mb-4">Seller Strategy</p>
+            <p className="font-mono mb-3 text-xs uppercase tracking-[0.12em] text-gold md:mb-4">Seller Strategy</p>
             <h2 className="font-serif leading-[1.05] text-white" style={{ fontSize: "clamp(1.9rem, 4.5vw, 3.8rem)" }}>
               The MLS Reaches 93,000 Agents.<br />
               <em className="italic text-gold">Strategy Gets Your Home Shown.</em>
@@ -226,10 +226,10 @@ export function SellerSection() {
               Every seller enters the same MLS. Carlos pairs institutional distribution across 93,000 agents with sophisticated contract structuring—including post-occupancy leaseback outcomes and homestead equity protection.
             </p>
             <div className="mt-5 flex gap-3 flex-wrap md:mt-8 md:gap-4">
-              <a href="/contact" className="inline-flex items-center bg-gold px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90">
+              <a href="/contact" className="inline-flex items-center bg-gold px-7 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90">
                 Request a Seller Strategy Review
               </a>
-              <a href={CONTACT.whatsappUS} className="inline-flex items-center border border-white/20 px-7 py-3.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-gold/60 hover:text-white">
+              <a href={CONTACT.whatsappUS} className="inline-flex items-center border border-white/20 px-7 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-gold/60 hover:text-white">
                 Discuss Your Property on WhatsApp
               </a>
             </div>
@@ -276,7 +276,7 @@ export function SellerSection() {
               WhatsApp Carlos
             </a>
           </div>
-          <p className="font-mono mx-auto mt-4 max-w-2xl text-[10px] uppercase tracking-[0.2em] text-white/70 md:mt-6">
+          <p className="font-mono mx-auto mt-4 max-w-2xl text-xs uppercase tracking-[0.12em] text-white/70 md:mt-6">
             {CONTACT.licenseDisplay} · {CONTACT.brokerage}
           </p>
         </div>
