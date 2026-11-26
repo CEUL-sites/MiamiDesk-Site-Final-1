@@ -573,3 +573,16 @@ test('review inquiries are listed for the daily digest',async()=>{
  await drainInquiries(store,{findContact:async()=>{throw Object.assign(new Error('Ambiguous phone identity'),{review:true})}},'owner');
  const held=await listReviewInquiries(store);assert.equal(held.length,1);assert.equal(held[0].lastError,'Ambiguous phone identity');
 });
+
+test('resolveReviewInquiry archives a stuck review inquiry and removes it from the daily digest',async()=>{
+ const {enqueueSubmission,drainInquiries,listReviewInquiries,resolveReviewInquiry}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore();await enqueueSubmission({id:'test-sub',form_name:'seller-hero',data:{email:'test@example.invalid',phone:'34646503078'}},store);
+ await drainInquiries(store,{findContact:async()=>{throw Object.assign(new Error('Phone country or format needs review'),{review:true})}},'owner');
+ const held=await listReviewInquiries(store);assert.equal(held.length,1);
+ const res=await resolveReviewInquiry('pending/'+held[0].key,'internal test submission',store);
+ assert.equal(res.status,'resolved');
+ assert.equal((await listReviewInquiries(store)).length,0);
+ const archived=await store.get('resolved/'+held[0].key,{type:'json'});
+ assert.equal(archived.status,'resolved');assert.equal(archived.resolutionReason,'internal test submission');
+ assert.equal((await resolveReviewInquiry(held[0].key,'again',store)).status,'not_found');
+});

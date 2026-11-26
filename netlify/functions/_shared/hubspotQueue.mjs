@@ -126,6 +126,19 @@ export async function listReviewInquiries(store=getStore(HUBSPOT_STORE)) {
  const jobs=await Promise.all(blobs.map(b=>store.get(b.key,{type:'json'})));
  return jobs.filter(j=>j?.status==='review');
 }
+/** Archive a manually handled or test review inquiry so it stops alerting in the daily digest. */
+export async function resolveReviewInquiry(key,reason='resolved_manually',store=inquiryStore()) {
+ const cleanKey=String(key||'').replace(/^pending\//,'').trim();
+ if(!cleanKey)return {status:'invalid_key'};
+ const pendingKey='pending/'+cleanKey;
+ const job=await store.get(pendingKey,{type:'json'});
+ if(!job)return {status:'not_found',key:cleanKey};
+ if(job.status!=='review')return {status:'not_in_review',key:cleanKey,currentStatus:job.status};
+ const resolved={...job,status:'resolved',resolvedAt:new Date().toISOString(),resolutionReason:String(reason||'resolved_manually').slice(0,200)};
+ await store.setJSON('resolved/'+cleanKey,resolved);
+ await store.delete(pendingKey);
+ return {status:'resolved',key:cleanKey,resolvedAt:resolved.resolvedAt};
+}
 export async function drainInquiries(store=inquiryStore(),api,owner=env('HUBSPOT_OWNER_ID'),notifySynced) {
  if(!api&&!syncConfigured())return {status:'not_configured',processed:0};
  const deadline=Date.now()+20_000;
