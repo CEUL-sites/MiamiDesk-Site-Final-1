@@ -1,4 +1,129 @@
 {
+  "florida-2027-online-listing-property-tax-estimate-law-south-florida": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        "@id": "https://homesprofessional.com/journal/florida-2027-online-listing-property-tax-estimate-law-south-florida#article",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://homesprofessional.com/#website",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com"
+        },
+        "headline": "Florida 2027 Online Listing Property Tax Law: South Florida Guide",
+        "datePublished": "2026-11-26T11:00:00-05:00",
+        "dateModified": "2026-11-26T11:00:00-05:00",
+        "image": "https://homesprofessional.com/images/journal/og/florida-2027-online-listing-property-tax-estimate-law-south-florida.jpg",
+        "author": {
+          "@type": "Person",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": "Carlos Uzcategui",
+          "jobTitle": "Florida Licensed Realtor®",
+          "identifier": "SL705771",
+          "url": "https://homesprofessional.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://homesprofessional.com/images/urg-logo-original.webp"
+          }
+        },
+        "description": "Starting Feb 1, 2027, Florida bars portals from using sellers' capped property taxes. Compare South Florida reassessment rules, 7.21% rates, and seller steps.",
+        "mainEntityOfPage": "https://homesprofessional.com/journal/florida-2027-online-listing-property-tax-estimate-law-south-florida"
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://homesprofessional.com/#agent",
+        "name": "Carlos Uzcategui - United Realty Group",
+        "license": "SL705771",
+        "telephone": "+1-954-865-6622",
+        "email": "contact@carlosre.com",
+        "url": "https://homesprofessional.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2691 E Oakland Park Blvd",
+          "addressLocality": "Plantation",
+          "addressRegion": "FL",
+          "postalCode": "33324",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "South Florida Home Seller Representation",
+          "Florida Property Tax Disclosure and Reassessment Strategy",
+          "Miami-Dade Broward and Palm Beach Real Estate",
+          "Save Our Homes Portability and Amendment 3 Planning",
+          "Certified Luxury Home Marketing Specialist",
+          "MLS Institutional Syndication Strategy"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://homesprofessional.com/journal/florida-2027-online-listing-property-tax-estimate-law-south-florida#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does Florida's February 1, 2027 online listing property tax law require?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Effective February 1, 2027, under amended Florida Statutes § 689.261 (HB 7031E), online residential listing platforms that display estimated property taxes or payment calculators cannot use the current seller's historical, Save Our Homes-capped tax bill. Platforms must estimate prospective taxes from the listing price and Florida Department of Revenue or county aggregate millage data, or omit the estimate and link to the County Property Appraiser's estimator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do Florida property taxes often jump after a South Florida home purchase?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Florida's Save Our Homes cap restricts annual homestead assessment increases to 3% or CPI for existing owners. When a property changes ownership, the County Property Appraiser removes the prior owner's cap and reassesses the home at market value on the next January 1, which can substantially raise the buyer's subsequent tax bill."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Florida Amendment 3 interact with 2027 buyer property tax estimates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under Florida Amendment 3, homeowners who establish permanent Florida residency by December 31, 2026 qualify for the expanded up to $150,000 non-school homestead exemption in 2027 (rising to $250,000 in 2028). Buyers establishing residency on or after January 1, 2027 receive the baseline $50,000 non-school exemption during their first four years, while school taxes retain the $25,000 exemption."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How should South Florida sellers prepare for higher portal tax estimates in 2027?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sellers should run an official County Property Appraiser tax estimate before launch, pair it with current 4-Point and wind-mitigation insurance documentation, and price accurately against local single-family or condo inventory so financed buyers underwrite true monthly carrying costs upfront without mid-contract renegotiation."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://homesprofessional.com/journal/florida-2027-online-listing-property-tax-estimate-law-south-florida#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://homesprofessional.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Journal",
+            "item": "https://homesprofessional.com/journal"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Florida 2027 Online Listing Property Tax Law: South Florida Guide",
+            "item": "https://homesprofessional.com/journal/florida-2027-online-listing-property-tax-estimate-law-south-florida"
+          }
+        ]
+      }
+    ]
+  },
   "florida-citizens-2027-flood-insurance-mandate-south-florida-sellers": {
     "@context": "https://schema.org",
     "@graph": [

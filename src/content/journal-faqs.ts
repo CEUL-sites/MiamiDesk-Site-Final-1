@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'florida-2027-online-listing-property-tax-estimate-law-south-florida': [
+    {
+      q: "What does Florida's February 1, 2027 online listing property tax law require?",
+      a: "Effective February 1, 2027, under amended Florida Statutes § 689.261 (HB 7031E), online residential listing platforms that display estimated property taxes or payment calculators cannot use the current seller's historical, Save Our Homes-capped tax bill. Platforms must estimate prospective taxes from the listing price and Florida Department of Revenue or county aggregate millage data, or omit the estimate and link to the County Property Appraiser's estimator.",
+    },
+    {
+      q: 'Why do Florida property taxes often jump after a South Florida home purchase?',
+      a: "Florida's Save Our Homes cap restricts annual homestead assessment increases to 3% or CPI for existing owners. When a property changes ownership, the County Property Appraiser removes the prior owner's cap and reassesses the home at market value on the next January 1, which can substantially raise the buyer's subsequent tax bill.",
+    },
+    {
+      q: 'How does Florida Amendment 3 interact with 2027 buyer property tax estimates?',
+      a: 'Under Florida Amendment 3, homeowners who establish permanent Florida residency by December 31, 2026 qualify for the expanded up to $150,000 non-school homestead exemption in 2027 (rising to $250,000 in 2028). Buyers establishing residency on or after January 1, 2027 receive the baseline $50,000 non-school exemption during their first four years, while school taxes retain the $25,000 exemption.',
+    },
+    {
+      q: 'How should South Florida sellers prepare for higher portal tax estimates in 2027?',
+      a: 'Sellers should run an official County Property Appraiser tax estimate before launch, pair it with current 4-Point and wind-mitigation insurance documentation, and price accurately against local single-family or condo inventory so financed buyers underwrite true monthly carrying costs upfront without mid-contract renegotiation.',
+    },
+  ],
   'florida-citizens-2027-flood-insurance-mandate-south-florida-sellers': [
     {
       q: 'Who is affected by the January 1, 2027 Florida Citizens flood insurance requirement?',
