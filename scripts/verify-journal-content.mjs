@@ -117,6 +117,26 @@ for (const file of files) {
     slugs.set(meta.slug, label);
   }
 
+  // SEO length limits (commit fa877b9): keep titles <= 60 chars and excerpts <= 160 chars
+  // so Google SERPs do not truncate them.
+  const effectiveTitle = meta.seoTitle || meta.title || '';
+  if (effectiveTitle.length > 60) {
+    errors.push(`${label}: seoTitle/title is ${effectiveTitle.length} chars (must be <= 60).`);
+  }
+  if (meta.excerpt && meta.excerpt.length > 160) {
+    errors.push(`${label}: excerpt is ${meta.excerpt.length} chars (must be <= 160).`);
+  }
+
+  // Link hygiene (commit fa877b9): internal links must not carry UTM query params
+  // (pollutes GA4 attribution) or point at the legacy /sell-south-florida redirect.
+  const internalUtm = body.match(/\]\((\/|https:\/\/homesprofessional\.com\/)[^)]*utm_/gi);
+  if (internalUtm) {
+    errors.push(`${label}: contains ${internalUtm.length} internal link(s) with UTM query params — strip UTMs from internal links.`);
+  }
+  if (/\]\(\/sell-south-florida\b/i.test(body)) {
+    errors.push(`${label}: links to /sell-south-florida (redirect) — use canonical /sell or /sell-<city>.`);
+  }
+
   // A post pointing at a card that isn't there ships a broken og:image to every
   // scraper that reads the page.
   if (meta.image?.startsWith('/') && !fs.existsSync(path.join(root, 'public', meta.image))) {

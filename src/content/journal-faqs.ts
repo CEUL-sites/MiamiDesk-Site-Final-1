@@ -9,6 +9,42 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'florida-citizens-2027-flood-insurance-mandate-south-florida-sellers': [
+    {
+      q: 'Who is affected by the January 1, 2027 Florida Citizens flood insurance requirement?',
+      a: 'Effective January 1, 2027, under Florida Statutes § 627.351(6), all remaining Citizens Property Insurance personal residential policyholders with wind coverage must carry separate flood insurance, regardless of FEMA flood zone (including Zone X) or Coverage A dwelling value.',
+    },
+    {
+      q: 'Are Florida condominium unit owners exempt from the Citizens 2027 flood mandate?',
+      a: 'Yes. Personal HO-6 condominium unit-owner policies, HO-4 tenant contents policies, and policies excluding windstorm coverage are exempt from the personal Citizens flood mandate, though condo associations remain subject to master insurance and lender warrantability standards.',
+    },
+    {
+      q: 'How much did Citizens HO-3 insurance rates drop in South Florida in 2026?',
+      a: 'Under Florida OIR-approved 2026 filings effective on renewals on or after July 1, 2026, Citizens HO-3 average renewal rates declined roughly 13.0% in Miami-Dade, 12.6% in Broward, and 11.7% in Palm Beach, though individual premiums vary by roof age, wind mitigation, and territory.',
+    },
+    {
+      q: 'How does the 20% Citizens takeout rule affect South Florida home sellers and buyers?',
+      a: 'If an approved private insurer offers comparable coverage within 20% of the Citizens premium, the homeowner or buyer is generally ineligible for Citizens. Because private carriers do not require flood insurance in low-risk Zone X, a private policy with strong wind-mitigation credits can sometimes lower a buyer\'s total monthly escrow.',
+    },
+  ],
+  'south-florida-2027-conforming-loan-limits-855400-guide': [
+    {
+      q: 'What is the 2027 conforming loan limit in Miami-Dade, Broward, and Palm Beach?',
+      a: 'On November 24, 2026, FHFA set the 2027 baseline conforming loan limit for Miami-Dade, Broward, and Palm Beach counties at $855,400 for 1-unit properties, $1,095,250 for 2-unit duplexes, $1,323,900 for 3-unit triplexes, and $1,645,350 for 4-unit fourplexes, effective January 1, 2027.',
+    },
+    {
+      q: 'How expensive a home can you buy in South Florida before needing a jumbo loan in 2027?',
+      a: 'Because the $855,400 limit applies to the loan balance rather than the sale price, a 1-unit buyer can purchase up to $900,421 with 5% down, $950,444 with 10% down, $1,006,353 with 15% down, $1,069,250 with 20% down, or $1,140,533 with 25% down before crossing into jumbo territory.',
+    },
+    {
+      q: 'Do South Florida condominiums qualify for the $855,400 2027 conforming loan limit?',
+      a: 'Yes, eligible warrantable condominiums and townhomes share the $855,400 1-unit limit, provided the association clears Fannie Mae Full Review or Freddie Mac project standards covering insurance, reserves, and Florida Milestone Inspection and SIRS compliance. Non-warrantable buildings still require cash or portfolio loans.',
+    },
+    {
+      q: 'How should South Florida sellers priced between $900,000 and $1,140,000 use the 2027 loan limit?',
+      a: 'Sellers in Weston, Doral, Fort Lauderdale, Miami, Plantation, and Boca Raton can align asking prices or targeted closing-cost credits so 10% to 20% down buyers keep their loan at or below $855,400, avoiding jumbo reserve requirements and expanding qualified financed demand.',
+    },
+  ],
   'south-florida-new-construction-vs-resale-rate-buydowns-2026': [
     {
       q: 'Is a seller-funded 2-1 mortgage rate buydown more effective than a price cut in South Florida?',
