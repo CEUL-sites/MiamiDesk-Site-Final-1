@@ -51,9 +51,9 @@ const CHANNELS: readonly ChannelItem[] = [
     titleEn: "Perfect Strangers Become Coordinated Closings Through the 93,000-Agent Network.",
     titleEs: "Desconocidos se convierten en cierres coordinados a través de la red de 93,000 agentes.",
     summaryEn:
-      "In South Florida, over 90% of residential transactions close through cooperating buyer and seller agents working inside the MLS ecosystem—connecting two sides who never met before.",
+      "Nearly 9 of 10 U.S. buyers purchase through an agent or broker (NAR 2025 Profile)—cooperating agents inside the MLS ecosystem connect two sides who never met before.",
     summaryEs:
-      "En el sur de Florida, más del 90% de las operaciones residenciales se cierran mediante agentes colaboradores dentro del ecosistema MLS—conectando a compradores y vendedores con seguridad contractual.",
+      "Casi 9 de cada 10 compradores en EE. UU. compran a través de un agente (NAR, perfil 2025)—los agentes colaboradores dentro del ecosistema MLS conectan a compradores y vendedores con seguridad contractual.",
     spots: [
       {
         id: "perfect-strangers-spot",
@@ -84,7 +84,7 @@ const CHANNELS: readonly ChannelItem[] = [
     ],
     metrics: [
       { value: "93,000", labelEn: "MIAMI REALTORS® Members", labelEs: "Miembros MIAMI REALTORS®" },
-      { value: ">90%", labelEn: "Cooperating Agent Closings", labelEs: "Cierres entre Agentes" },
+      { value: "9/10", labelEn: "Buyers Purchase Through an Agent · NAR 2025", labelEs: "Compradores con agente · NAR 2025" },
       { value: "25 Yrs", labelEn: "Licensed FL Principal", labelEs: "Licencia FL desde 2001" },
     ],
     externalLinks: [

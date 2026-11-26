@@ -20,7 +20,7 @@ import { CountUp } from "./CountUp";
 const EXECUTION_STAGES = [
   {
     step: "01",
-    label: "Position",
+    label: "Position · Price",
     icon: Crosshair,
     title: "Pricing Strategy & Net Math",
     tagline: "Verifiable comparable sales, active competition, and net-proceeds clarity before launch.",
@@ -35,10 +35,10 @@ const EXECUTION_STAGES = [
   },
   {
     step: "02",
-    label: "Present",
+    label: "Position · Present",
     icon: FileCheck2,
     title: "Asset Preparation & Disclosure",
-    tagline: "Architectural media and pre-packaged HOA/property disclosures ready on day one.",
+    tagline: "Architectural media and pre-packaged HOA/property disclosures ready before launch.",
     copy: "Architectural photography, cinematic tour, HOA estoppel packages, and disclosure documentation prepared in advance so cooperating buyer agents have immediate answers.",
     bullets: [
       "Architectural photo, drone & walkthrough film",
@@ -65,10 +65,10 @@ const EXECUTION_STAGES = [
   },
   {
     step: "04",
-    label: "Negotiate",
+    label: "Activate",
     icon: Scale,
-    title: "Contract Terms & Escrow Defense",
-    tagline: "25 years of South Florida contract negotiation protecting your timing and net proceeds.",
+    title: "Buyer-Agent Activation & Contract Defense",
+    tagline: "Cooperating-agent outreach, then 25 years of South Florida contract negotiation protecting your timing and net proceeds.",
     copy: "With 25 years of local contract acumen, we protect your deposit timelines, negotiate complex inspection responses, and secure transition terms like post-occupancy leasebacks.",
     bullets: [
       "Proof-of-funds & lender vetting",
@@ -210,16 +210,16 @@ export function SellerSellingSystem() {
 
   return (
     <div className="border-t border-hairline bg-white">
-      {/* ── Section 2: Interactive 4-Stage Selling System ───────────────────── */}
+      {/* ── Section 2: Listing method, step by step ───────────────────── */}
       <section id="selling-system-details" className="py-16 md:py-24" aria-labelledby="selling-system-heading">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div className="max-w-2xl">
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-ink font-semibold">
-                The 4-Stage Listing Architecture
+                The Listing Method, Step by Step
               </p>
               <h2 id="selling-system-heading" className="mt-3 font-serif text-3xl text-navy-deep sm:text-4xl md:text-5xl tracking-tight">
-                Position. Present. Distribute. Negotiate.
+                Position. Distribute. Activate.
               </h2>
             </div>
             <p className="max-w-md font-sans text-sm leading-relaxed text-navy/75">
@@ -227,10 +227,10 @@ export function SellerSellingSystem() {
             </p>
           </div>
 
-          {/* Interactive 4-Stage Selector Bar */}
+          {/* Listing method step selector */}
           <div
             role="tablist"
-            aria-label="4-stage selling system"
+            aria-label="Listing method steps"
             onKeyDown={handleStageKey}
             className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-4"
           >
@@ -415,11 +415,11 @@ export function SellerSellingSystem() {
                                 className="h-full w-full object-cover"
                               />
                             </div>
-                            <div className="flex items-center justify-between bg-[#071321] px-4 py-2 text-xs text-white/80">
-                              <span>{currentMedia.caption}</span>
-                              <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
-                                Preview
-                              </span>
+                            <div className="bg-[#071321] px-4 py-2.5">
+                              <p className="font-sans text-sm text-white/85">{currentMedia.caption}</p>
+                              <p className="mt-1 font-sans text-xs text-white/70">
+                                Conceptual AI-generated imagery · Not a property listing
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -525,7 +525,7 @@ export function SellerSellingSystem() {
         </div>
       </section>
 
-      {/* ── Section 3: Interactive Cooperating Market Comparator (>90% of Deals) ── */}
+      {/* ── Section 3: Interactive Cooperating Market Comparator (buyer-agent share) ── */}
       <section className="relative overflow-hidden bg-navy-deep py-16 md:py-24 text-white" aria-labelledby="cooperating-market-heading">
         <AuroraBackground variant="subtle" />
         <div className="relative z-10 mx-auto max-w-7xl px-6">
@@ -538,7 +538,7 @@ export function SellerSellingSystem() {
                 </p>
               </div>
               <h2 id="cooperating-market-heading" className="mt-3 font-serif text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
-                More than 90% of buyers come through cooperating agents.<br />
+                Nearly 9 of 10 buyers purchase through an agent.<br />
                 <span className="text-gold">Peer relationships and negotiation decide the outcome.</span>
               </h2>
             </div>

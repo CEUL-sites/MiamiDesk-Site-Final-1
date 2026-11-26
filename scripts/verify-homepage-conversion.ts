@@ -173,7 +173,7 @@ assert.match(heroAnimation, /fetchPriority="high"/);
 assert.match(authority, /REALTOR® · FL SL705771/);
 assert.match(authority, /CLHMS Luxury Specialist/);
 assert.match(authority, /Verified Realtor\.com® reviews/);
-assert.match(execution, /What Carlos Does After the Listing Goes Live/);
+assert.match(execution, /What Our Team Does After the Listing Goes Live/);
 for (const [label, copy] of [
   ["POSITION", "Price strategy, presentation, buyer profile, property narrative and launch timing."],
   ["ACTIVATE", "Identify and reach agents working with relevant buyers by location, property type and price range."],

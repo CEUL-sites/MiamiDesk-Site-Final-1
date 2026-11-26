@@ -153,7 +153,7 @@ export default function SellSouthFloridaPage() {
           "@type": "HowTo",
           name: "How to Sell Your South Florida Property",
           description:
-            "A structured 4-stage process to position, prepare, distribute on the MLS, and negotiate your South Florida property with professional visibility and contract protection.",
+            "A structured three-stage method to position, distribute, and activate your South Florida listing with professional visibility and contract protection.",
           tool: [
             { "@type": "HowToTool", name: "Miami and South Florida REALTORS® MLS" },
             { "@type": "HowToTool", name: "Eligible approved syndication channels" },
@@ -164,24 +164,18 @@ export default function SellSouthFloridaPage() {
               "@type": "HowToStep",
               position: 1,
               name: "Position",
-              text: "Pricing analysis, timing strategy, buyer profile identification, and property narrative development.",
+              text: "Pricing analysis, timing strategy, buyer profile, property narrative, presentation guidance, professional photography and HOA estoppel packages.",
             },
             {
               "@type": "HowToStep",
               position: 2,
-              name: "Prepare",
-              text: "Presentation guidance, professional photography, HOA estoppel packages, and launch sequencing.",
-            },
-            {
-              "@type": "HowToStep",
-              position: 3,
               name: "Distribute",
               text: "Professional MLS activation through United Realty Group with eligible syndication across approved distribution channels.",
             },
             {
               "@type": "HowToStep",
-              position: 4,
-              name: "Negotiate",
+              position: 3,
+              name: "Activate",
               text: "Cooperating buyer-agent relations, MLS reverse prospecting, contract term strategy, and closing coordination.",
             },
           ],
@@ -209,7 +203,7 @@ export default function SellSouthFloridaPage() {
         {/* Section 1: Executive Seller Hero */}
         <SellersReachHero />
 
-        {/* Section 2 & 3: Interactive 4-Stage Selling System & Cooperating Market Comparator */}
+        {/* Section 2 & 3: Listing method & Cooperating Market Comparator */}
         <SellerSellingSystem />
 
         {/* Section 4: Interactive Net Proceeds Calculator */}

@@ -147,7 +147,7 @@ const SOUTH_FL_DRIVERS = [
     icon: TrendingUp,
     label: "06 · Agent Network",
     title: "Cooperating buyer-agent ecosystem",
-    body: "Over 90% of residential transactions in the MLS close through cooperating buyer agents—making accurate pricing, reverse prospecting, and agent-to-agent negotiation decisive.",
+    body: "Nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers)—making accurate pricing, reverse prospecting, and agent-to-agent negotiation decisive.",
   },
 ];
 
@@ -475,7 +475,7 @@ export default function MarketsPage() {
                   Local execution across 19 Florida office locations.
                 </h2>
                 <p className="mt-3 font-sans text-sm leading-relaxed text-white/80">
-                  Over 90% of residential sales in the MLS close through cooperating buyer agents. Carlos pairs submarket pricing with MLS reverse prospecting through United Realty Group.
+                  Nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). Our team pairs submarket pricing with MLS reverse prospecting through United Realty Group.
                 </p>
 
                 <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">

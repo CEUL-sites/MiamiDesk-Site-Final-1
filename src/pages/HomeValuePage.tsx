@@ -49,11 +49,11 @@ const WHAT_YOU_GET = [
 const METHODOLOGY_LENSES = [
   {
     id: "variance",
-    label: "01 · 15%–30% Property Variance",
+    label: "01 · Property-Specific Variance",
     icon: Layers,
-    stat: "15%–30% Spread",
-    headline: "Why Neighboring South Florida Addresses Trade 15% to 30% Apart",
-    body: "Online algorithms offer a broad starting point, but they cannot inspect interior condition, impact-glass upgrades, roof age, waterfront exposure, condo floor height, or special-assessment reserves. In South Florida luxury and residential submarkets, those property-specific factors routinely separate two neighboring addresses by 15% to 30%.",
+    stat: "Condition & Features",
+    headline: "Why Neighboring South Florida Addresses Trade at Different Prices",
+    body: "Online algorithms offer a broad starting point, but they cannot inspect interior condition, impact-glass upgrades, roof age, waterfront exposure, condo floor height, or special-assessment reserves. In South Florida luxury and residential submarkets, those property-specific factors can separate the value of two neighboring addresses in ways an automated estimate does not capture.",
   },
   {
     id: "cma",
@@ -65,11 +65,11 @@ const METHODOLOGY_LENSES = [
   },
   {
     id: "execution",
-    label: "03 · >90% Agent Activation",
+    label: "03 · Buyer-Agent Activation",
     icon: ShieldCheck,
-    stat: "93,000 Agents",
+    stat: "93,000 Members",
     headline: "From Pricing Precision to Cooperating Buyer-Agent Execution",
-    body: "Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects directly with structured presentation on the Miami and South Florida REALTORS® MLS—where over 90% of residential sales close through cooperating buyer agents—supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation.",
+    body: "Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects directly with structured presentation on the Miami and South Florida REALTORS® MLS—where nearly 9 of 10 buyers arrive through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers)—supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation.",
   },
 ] as const;
 

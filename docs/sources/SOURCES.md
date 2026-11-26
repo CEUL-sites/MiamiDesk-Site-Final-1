@@ -62,3 +62,14 @@ Verified facts:
 - `src/data/urgOffices.json` is the canonical current dataset. Carlos's South
   Florida service areas and Spain/LATAM referral markets are stored separately
   and are not physical office claims.
+
+## 4. NAR 2025 Profile of Home Buyers and Sellers — buyer use of agents
+
+- Source: National Association of REALTORS®, 2025 Profile of Home Buyers and
+  Sellers (transactions July 2024 – June 2025).
+  https://www.nar.realtor/newsroom/first-time-home-buyer-share-falls-to-historic-low-of-21-median-age-rises-to-40
+- Printed figure: **88%** of home buyers purchased through an agent or broker.
+- Approved public phrasing: **"nearly 9 of 10 buyers purchase through an agent
+  or broker"** (`figures.buyerAgentShare`). It is a national figure; never
+  restate it as "more than 90%" or as a share of South Florida MLS sales.
+  `npm run verify:banned-figures` fails on the retired ">90%" wording.

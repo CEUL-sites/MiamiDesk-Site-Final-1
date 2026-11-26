@@ -16,7 +16,9 @@ import { notifyLeadDirect } from "../lib/leadNotify";
 
 const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
-const COMMISSION_OPTIONS = [4.5, 5, 5.5, 6];
+// No preset commission: rates are negotiated per listing and are never
+// suggested in public copy. The seller types the rate they want to model.
+const COMMISSION_MAX = 10;
 
 // Florida documentary stamp tax on the deed — $0.70 per $100 statewide
 // ($0.60 in Miami-Dade for single-family; we use the conservative statewide
@@ -45,7 +47,8 @@ const COPY = {
     commissionLabel: "Total commission — fully negotiable, set at listing",
     breakdownHeading: "Estimated breakdown",
     rowSalePrice: "Sale price",
-    rowCommission: (commission: number) => `Commission (${commission}%)`,
+    rowCommission: (commission: number | null) => (commission === null ? "Commission (enter your rate)" : `Commission (${commission}%)`),
+    commissionPlaceholder: "Your rate %",
     rowDocStamps: "Documentary stamps (est.)",
     rowTitleClosing: "Title & closing costs (est.)",
     rowPayoff: "Mortgage payoff",
@@ -94,7 +97,8 @@ const COPY = {
     // TODO: native Madrid editor review
     rowSalePrice: "Precio de venta",
     // TODO: native Madrid editor review
-    rowCommission: (commission: number) => `Comisión (${commission}%)`,
+    rowCommission: (commission: number | null) => (commission === null ? "Comisión (indique su tasa)" : `Comisión (${commission}%)`),
+    commissionPlaceholder: "Su tasa %",
     // TODO: native Madrid editor review
     rowDocStamps: "Timbres documentales (est.)",
     // TODO: native Madrid editor review
@@ -146,7 +150,10 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
   const t = COPY[lang];
   const [price, setPrice] = useState(750_000);
   const [payoff, setPayoff] = useState(0);
-  const [commission, setCommission] = useState(5);
+  const [commissionInput, setCommissionInput] = useState("");
+  const parsedCommission = Number.parseFloat(commissionInput.replace(",", "."));
+  const commission: number | null =
+    Number.isFinite(parsedCommission) && parsedCommission >= 0 && parsedCommission <= COMMISSION_MAX ? parsedCommission : null;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -154,7 +161,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
   const renderedAt = useRef(Date.now());
 
   const rows = useMemo(() => {
-    const commissionAmt = price * (commission / 100);
+    const commissionAmt = price * ((commission ?? 0) / 100);
     const docStamps = price * DOC_STAMP_RATE;
     const titleClosing = price * TITLE_CLOSING_RATE;
     const net = price - commissionAmt - docStamps - titleClosing - payoff;
@@ -167,7 +174,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
     setStatus("submitting");
     const summary =
       `Net sheet request — est. value ${usd.format(price)}, payoff ${usd.format(payoff)}, ` +
-      `commission ${commission}%, est. net ${usd.format(rows.net)}`;
+      `commission ${commission === null ? "not entered" : `${commission}%`}, est. net ${usd.format(rows.net)}`;
     try {
       const res = await fetch("/", {
         method: "POST",
@@ -251,23 +258,21 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
             </div>
 
             <div>
-              <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70">
+              <label htmlFor="net-commission-rate" className="font-mono text-xs uppercase tracking-[0.12em] text-navy/75">
                 {t.commissionLabel}
               </label>
-              <div className="mt-3 flex gap-2">
-                {COMMISSION_OPTIONS.map((c) => (
-                  <button
-                    key={c} type="button" onClick={() => setCommission(c)}
-                    className={`flex-1 border px-3 py-2.5 font-mono text-[11px] tracking-[0.08em] transition-colors ${
-                      commission === c
-                        ? "border-gold bg-gold/10 text-navy-deep font-bold"
-                        : "border-hairline bg-white text-navy/70 hover:border-gold/40"
-                    }`}
-                    aria-pressed={commission === c}
-                  >
-                    {c}%
-                  </button>
-                ))}
+              <div className="mt-3 flex max-w-[12rem] items-center border border-hairline bg-white focus-within:border-gold">
+                <input
+                  id="net-commission-rate"
+                  type="text"
+                  inputMode="decimal"
+                  value={commissionInput}
+                  onChange={(e) => setCommissionInput(e.target.value)}
+                  placeholder={t.commissionPlaceholder}
+                  aria-label={t.commissionLabel}
+                  className="min-h-[44px] w-full bg-transparent px-3 font-sans text-base text-navy-deep outline-none placeholder:text-navy/50"
+                />
+                <span className="pr-3 font-sans text-base text-navy/70" aria-hidden="true">%</span>
               </div>
             </div>
           </div>

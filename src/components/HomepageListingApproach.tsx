@@ -51,9 +51,9 @@ const PILLARS = [
     icon: Radio,
     title: "Buyer-Agent Relations & Reverse Prospecting",
     tagline: "Direct outreach to cooperating agents representing matched, qualified buyers.",
-    copy: "More than 90% of buyers are brought by cooperating agents. With 25 years of South Florida contract negotiation and peer relationships, we leverage MLS reverse prospecting and professional coordination to engage agents with matched, qualified buyers.",
+    copy: "Nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). With 25 years of South Florida contract negotiation and peer relationships, we leverage MLS reverse prospecting and professional coordination to engage agents with matched, qualified buyers.",
     highlights: [
-      ">90% of MLS sales involve cooperating agents",
+      "Nearly 9 of 10 buyers purchase through an agent",
       "Targeted MLS reverse prospecting",
       "Inspection, appraisal & escrow defense",
     ],
@@ -69,7 +69,7 @@ const MEDIA_MODES = [
     icon: Film,
     clip: "/videos/luxury_home_walkthrough.mp4",
     poster: "/images/posters/luxury_home_walkthrough-20261012.jpg",
-    caption: "Paced to how a qualified buyer experiences the residence.",
+    caption: "Paced to how a qualified buyer experiences a residence.",
   },
   {
     id: "aerial",
@@ -341,11 +341,11 @@ export function HomepageListingApproach() {
                               className="h-full w-full object-cover"
                             />
                           </div>
-                          <div className="flex items-center justify-between gap-3 bg-[#071321] px-4 py-2.5">
-                            <p className="font-sans text-xs text-white/85">{currentMedia.caption}</p>
-                            <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
-                              Click Play to Preview
-                            </span>
+                          <div className="bg-[#071321] px-4 py-2.5">
+                            <p className="font-sans text-sm text-white/85">{currentMedia.caption}</p>
+                            <p className="mt-1 font-sans text-xs text-white/70">
+                              Conceptual AI-generated imagery · Not a property listing
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -378,7 +378,7 @@ export function HomepageListingApproach() {
                           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
                             Cooperating Buyer-Agent Reality
                           </span>
-                          <span className="font-serif text-2xl text-gold">&gt;90%</span>
+                          <span className="font-serif text-xl text-gold">9 of 10</span>
                         </div>
                         <div className="mt-4 grid gap-3 sm:grid-cols-3">
                           <div className="rounded border border-white/10 bg-navy/50 p-3">
