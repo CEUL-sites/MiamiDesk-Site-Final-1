@@ -50,9 +50,9 @@ const PILLARS = [
     icon: Radio,
     title: "Buyer-Agent Relations & Reverse Prospecting",
     tagline: "Direct outreach to cooperating agents representing matched, qualified buyers.",
-    copy: "Nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). With 25 years of South Florida contract negotiation and peer relationships, we leverage MLS reverse prospecting and professional coordination to engage agents with matched, qualified buyers.",
+    copy: "Nationally, nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). With 25 years of South Florida contract negotiation and peer relationships, we leverage MLS reverse prospecting and professional coordination to engage agents with matched, qualified buyers.",
     highlights: [
-      "Nearly 9 of 10 buyers purchase through an agent",
+      "Nationally, nearly 9 of 10 buyers use an agent (NAR 2025)",
       "Targeted MLS reverse prospecting",
       "Inspection, appraisal & escrow defense",
     ],
@@ -384,7 +384,7 @@ export function HomepageListingApproach() {
                       <div className="mt-5 rounded-lg border border-gold/25 bg-white/[0.03] p-5">
                         <div className="flex items-center justify-between border-b border-white/10 pb-3">
                           <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
-                            Cooperating Buyer-Agent Reality
+                            U.S. buyers using an agent · NAR 2025
                           </span>
                           <span className="font-serif text-xl text-gold">9 of 10</span>
                         </div>

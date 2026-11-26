@@ -107,7 +107,7 @@ export function Navbar() {
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
             <span className="font-mono uppercase leading-none opacity-80 mt-1" style={{ fontSize: "0.75rem", letterSpacing: "0.08em" }}>
               <span className="min-[1680px]:hidden">FL SL705771</span>
-              <span className="hidden min-[1680px]:inline">REALTOR® · FL SL705771 · Since 2001</span>
+              <span className="hidden min-[1680px]:inline">REALTOR® · FL SL705771 · {es ? "Desde 2001" : "Since 2001"}</span>
             </span>
           </span>
         </a>
@@ -188,7 +188,7 @@ export function Navbar() {
                 <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
                   <UrgLogo className="h-9 w-auto" inverted />
                   <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
-                    Carlos Uzcategui, REALTOR® · FL SL705771 · Since 2001
+                    Carlos Uzcategui, REALTOR® · FL SL705771 · {es ? "Desde 2001" : "Since 2001"}
                   </span>
                 </a>
                 <button
@@ -249,7 +249,7 @@ export function Navbar() {
               <div className="mt-auto space-y-4 border-t border-gold/20 pt-8">
                 <LanguageSwitcher />
                 <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70 leading-loose">
-                  United Realty Group · FL SL705771 · Equal Housing Opportunity
+                  United Realty Group · FL SL705771 · {es ? "Igualdad de Acceso a la Vivienda" : "Equal Housing Opportunity"}
                 </p>
               </div>
             </div>

@@ -135,7 +135,7 @@ export function CookieBanner() {
       {/* Phones: one slim row (≈56px) so the banner never covers the hero address field. */}
       <p className="hidden font-mono text-xs uppercase tracking-[0.12em] text-gold md:block">Cookie Notice</p>
       <p className="min-w-0 flex-1 font-sans text-xs leading-snug text-white/75 md:mt-1 md:leading-relaxed">
-        <span className="md:hidden">Analytics cookies only. </span>
+        <span className="md:hidden">We use analytics cookies. </span>
         <span className="hidden md:inline">We use analytics cookies to understand site usage. Declining does not affect core functionality. </span>
         <a href="/privacy" className="underline hover:text-gold">Privacy Policy</a>
       </p>

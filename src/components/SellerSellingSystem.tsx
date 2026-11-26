@@ -538,9 +538,10 @@ export function SellerSellingSystem() {
                 </p>
               </div>
               <h2 id="cooperating-market-heading" className="mt-3 font-serif text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
-                Nearly 9 of 10 buyers purchase through an agent.<br />
+                Nearly 9 of 10 U.S. buyers purchase through an agent or broker.<br />
                 <span className="text-gold">Peer relationships and negotiation decide the outcome.</span>
               </h2>
+              <p className="mt-3 font-mono text-xs uppercase tracking-[0.12em] text-white/60">Source: NAR 2025 Profile of Home Buyers and Sellers</p>
             </div>
             <p className="max-w-sm font-sans text-sm leading-relaxed text-white/75">
               Tap each deal lever below to see how equipping the buyer’s agent directly protects your net proceeds.

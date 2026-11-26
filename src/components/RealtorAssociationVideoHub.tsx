@@ -53,7 +53,7 @@ const CHANNELS: readonly ChannelItem[] = [
     summaryEn:
       "Nearly 9 of 10 U.S. buyers purchase through an agent or broker (NAR 2025 Profile)—cooperating agents inside the MLS ecosystem connect two sides who never met before.",
     summaryEs:
-      "Casi 9 de cada 10 compradores en EE. UU. compran a través de un agente (NAR, perfil 2025)—los agentes colaboradores dentro del ecosistema MLS conectan a compradores y vendedores con seguridad contractual.",
+      "Casi 9 de cada 10 compradores en EE. UU. compran a través de un agente (NAR, perfil 2025)—los agentes colaboradores dentro del ecosistema MLS conectan a compradores y vendedores con coordinación contractual.",
     spots: [
       {
         id: "perfect-strangers-spot",

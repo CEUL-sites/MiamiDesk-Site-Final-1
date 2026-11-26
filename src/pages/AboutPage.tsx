@@ -76,7 +76,7 @@ const ADVISORY_PILLARS = [
     title: "Structural MLS Distribution Engine",
     headline: "Built for the Cooperating Buyer-Agent Reality",
     description:
-      "Nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). The listing enters the MLS ecosystem of 93,000 association members, with syndication to 260+ U.S. MLSs via RPR, 200+ global portals in 19 languages, and 437+ international agreements.",
+      "Nationally, nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). The listing enters the MLS ecosystem of 93,000 association members, with syndication to 260+ U.S. MLSs via RPR, 200+ global portals in 19 languages, and 437+ international agreements.",
     badge: "93,000 MLS Network",
     metrics: [
       { value: "93,000", label: "Member Agents" },

@@ -69,7 +69,7 @@ const METHODOLOGY_LENSES = [
     icon: ShieldCheck,
     stat: "93,000 Members",
     headline: "From Pricing Precision to Cooperating Buyer-Agent Execution",
-    body: "Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects directly with structured presentation on the Miami and South Florida REALTORS® MLS—where nearly 9 of 10 buyers arrive through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers)—supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation.",
+    body: "Accurate pricing is the foundation of listing performance. When you decide to sell, your price position connects with structured presentation on the Miami and South Florida REALTORS® MLS, supported by MLS reverse prospecting for matched buyer searches and 25 years of South Florida contract and escrow negotiation. Nationally, nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers).",
   },
 ] as const;
 
