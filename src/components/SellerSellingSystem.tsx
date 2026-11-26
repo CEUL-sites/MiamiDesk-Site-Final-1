@@ -60,7 +60,7 @@ const EXECUTION_STAGES = [
       "260+ U.S. MLSs syndicated via RPR",
       "200+ global portals in 19 languages",
     ],
-    outcome: "Maximum cooperating agent & cross-border visibility",
+    outcome: "Cooperating-agent & cross-border visibility",
     visual: "distribute" as const,
   },
   {
@@ -75,7 +75,7 @@ const EXECUTION_STAGES = [
       "Inspection & appraisal comp defense",
       "Post-occupancy & closing timeline protection",
     ],
-    outcome: "Deal certainty & escrow protection",
+    outcome: "Contract-term and escrow coordination",
     visual: "negotiate" as const,
   },
 ] as const;
@@ -132,7 +132,7 @@ const VERIFIED_INFRASTRUCTURE = [
     value: "260+",
     label: "U.S. MLSs via RPR",
     sublabel: "Professional Data Exchange",
-    desc: "Direct property visibility across major domestic relocation corridors.",
+    desc: "Property visibility across domestic relocation corridors through MLS data exchange.",
   },
   {
     value: "19",
@@ -177,7 +177,7 @@ const COOPERATING_LEVERS = [
     agentNeedTitle: "Professional peer coordination",
     agentNeedCopy: "25 years of mutual respect and established reputation with South Florida agents.",
     sellerOutcomeTitle: "Strict timeline enforcement",
-    sellerOutcomeCopy: "Active escrow tracking and contingency monitoring to eliminate closing surprises.",
+    sellerOutcomeCopy: "Active escrow tracking and contingency monitoring to flag closing risks early.",
   },
 ] as const;
 

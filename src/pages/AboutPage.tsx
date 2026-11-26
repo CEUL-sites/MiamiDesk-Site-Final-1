@@ -56,7 +56,7 @@ const ADVISORY_PILLARS = [
       "Precision comparative market analysis, target absorption modeling, contract structuring, post-occupancy leaseback negotiation, and escrow defense across South Florida prime corridors.",
     badge: "Seller Representation",
     metrics: [
-      { value: "25 Yrs", label: "Licensed FL Principal" },
+      { value: "25 Yrs", label: "Licensed FL Sales Associate" },
       { value: "CLHMS", label: "Luxury Specialist" },
       { value: "Direct", label: "Zero Junior Delegation" },
     ],
@@ -72,14 +72,14 @@ const ADVISORY_PILLARS = [
     id: "mls-engine",
     num: "02",
     icon: TrendingUp,
-    shortLabel: "02 · 93,000 MLS Engine",
+    shortLabel: "02 · 93,000-Member MLS Ecosystem",
     title: "Structural MLS Distribution Engine",
     headline: "Built for the Cooperating Buyer-Agent Reality",
     description:
       "Nationally, nearly 9 of 10 buyers purchase through an agent or broker (NAR 2025 Profile of Home Buyers and Sellers). The listing enters the MLS ecosystem of 93,000 association members, with syndication to 260+ U.S. MLSs via RPR, 200+ global portals in 19 languages, and 437+ international agreements.",
-    badge: "93,000 MLS Network",
+    badge: "93,000-Member MLS Ecosystem",
     metrics: [
-      { value: "93,000", label: "Member Agents" },
+      { value: "93,000", label: "Association Members" },
       { value: "260+", label: "U.S. MLSs via RPR" },
       { value: "200+", label: "Global Portals (19 Langs)" },
     ],
@@ -268,7 +268,7 @@ export default function AboutPage() {
             <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div>
                 <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
-                  Principal &amp; Florida Licensed REALTOR® · Since 2001
+                  Sales Associate &amp; Florida Licensed REALTOR® · Since 2001
                 </p>
                 <h1 className="mt-4 font-serif text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
                   Carlos Uzcategui

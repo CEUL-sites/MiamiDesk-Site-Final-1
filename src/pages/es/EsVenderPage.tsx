@@ -127,20 +127,20 @@ export default function EsVenderPage() {
         {/* TODO: native Madrid editor review */}
         <meta
           name="description"
-          content="Representación de vendedores en Sur de Florida. Activación en el MLS de Miami, 93.000 agentes, 200+ portales. Carlos Uzcategui, FL SL705771."
+          content="Representación de vendedores en Sur de Florida. Su listado entra en el ecosistema del MLS en el que trabajan a diario más de 90.000 agentes del Sur de Florida, con 200+ portales. Carlos Uzcategui, FL SL705771."
         />
         <link
           rel="canonical"
           href="https://homesprofessional.com/es/vender"
         />
         <meta property="og:title" content="Vender en Sur de Florida | Estrategia de Venta | Carlos Uzcategui" />
-        <meta property="og:description" content="Representación de vendedores en Sur de Florida. Activación en el MLS de Miami, 93.000 agentes miembros, 200+ portales globales. Carlos Uzcategui, REALTOR® FL SL705771." />
+        <meta property="og:description" content="Representación de vendedores en Sur de Florida. Ecosistema MLS de la Asociación de REALTORS® de Miami y Sur de Florida (93.000 miembros), 200+ portales globales. Carlos Uzcategui, REALTOR® FL SL705771." />
         <meta property="og:url" content="https://homesprofessional.com/es/vender" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Vender en Sur de Florida | Estrategia de Venta | Carlos Uzcategui" />
-        <meta name="twitter:description" content="Activación en el MLS de Miami, 93.000 agentes miembros, 200+ portales globales. United Realty Group · FL SL705771." />
+        <meta name="twitter:description" content="Ecosistema MLS de la Asociación de REALTORS® de Miami y Sur de Florida (93.000 miembros), 200+ portales globales. United Realty Group · FL SL705771." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/sell" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/sell" />
@@ -283,7 +283,7 @@ export default function EsVenderPage() {
             </div>
             <p className="mt-8 text-center font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               {/* TODO: native Madrid editor review */}
-              Cifras correspondientes a la Asociación de REALTORS® de Miami y Sur de Florida · United Realty Group · 2025
+              Fuentes: Miami and South Florida REALTORS® (anuncio de fusión, abril de 2026) · RPR · United Realty Group (urgfl.com)
             </p>
             <MiamiRealtorsBadge lang="es" variant="dark" className="mt-10" />
           </div>
@@ -306,8 +306,8 @@ export default function EsVenderPage() {
                   {/* TODO: native Madrid editor review */}
                   A través de United Realty Group y la red de la Asociación de
                   REALTORS® de Miami y Sur de Florida, cada exclusiva entra en
-                  el ecosistema del MLS del que forman parte 93.000 agentes
-                  miembros. Los 437+ acuerdos internacionales y los 11
+                  el ecosistema del MLS en el que trabajan a diario más de
+                  90.000 agentes del Sur de Florida. Los 437+ acuerdos internacionales y los 11
                   intercambios de MLS amplifican ese alcance a compradores de
                   Europa, Latinoamérica y Asia.
                 </p>
@@ -324,8 +324,8 @@ export default function EsVenderPage() {
                 <p className="mt-4 font-sans text-sm leading-relaxed text-navy-deep/60">
                   Licencia FL SL705771 activa desde hace 25 años. United Realty
                   Group opera 19 ubicaciones de oficinas en Florida con más de 3.500 agentes.
-                  Esa profundidad de red se traduce directamente en mayor acceso
-                  a compradores calificados para su propiedad.
+                  Esa red respalda la cooperación con agentes de compradores en
+                  todo el estado.
                 </p>
               </div>
             </div>
