@@ -134,7 +134,7 @@ export default function SellPembrokePinesPage() {
           <LazyVideo idle src="/videos/luxury_listing_showcase.mp4" className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pembroke Pines, FL · Seller Advisory</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Pembroke Pines, FL · Seller Advisory</p>
             {/* Headline: original wording, set as two controlled lines (white statement + gold italic
                 payoff). Phrase locks keep "Pembroke Pines", "with the reach" and "REALTOR® association."
                 together, so no single word is ever orphaned on its own line. */}
@@ -183,23 +183,23 @@ export default function SellPembrokePinesPage() {
                   </svg>
                 ))}
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
               </span>
             </div>
 
             <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
               <p className="font-sans text-sm italic leading-relaxed text-white/55">"Professional, responsive, and knowledgeable about the Pembroke Pines market. The strategy review was detailed and genuinely useful from the start."</p>
-              <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/50">— Patricia M., Pembroke Pines, FL</footer>
+              <footer className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-gold/50">— Patricia M., Pembroke Pines, FL</footer>
             </blockquote>
 
             <div className="mt-5 flex items-center justify-center gap-2">
-              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
+              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
                 Or download the Seller's Net Sheet 2026
               </a>
             </div>
-            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Office: Weston, FL 33331
             </p>
             <HeroReachBar />
@@ -211,7 +211,7 @@ export default function SellPembrokePinesPage() {
         {/* Market positioning */}
         <section className="bg-ivory py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Pembroke Pines</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Why Pembroke Pines</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               A Broward residential market defined by its range of communities and price points.
             </h2>
@@ -227,7 +227,7 @@ export default function SellPembrokePinesPage() {
                 { label: "Value Position", value: "Relative to Weston", sub: "Comparable community amenities at a different price point" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{stat.label}</p>
                   <p className="mt-3 font-serif text-2xl text-navy-deep">{stat.value}</p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{stat.sub}</p>
                 </div>
@@ -241,7 +241,7 @@ export default function SellPembrokePinesPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-12 md:grid-cols-2 md:items-center">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Network Advantage</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">The Network Advantage</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
                   Your Pembroke Pines listing, placed where<br />
                   <em className="italic text-gold">professional buyer agents work every day.</em>
@@ -263,7 +263,7 @@ export default function SellPembrokePinesPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 font-sans text-[11px] leading-relaxed text-white/45">Sources: {figures.members.source} · {figures.globalWebsites.source} · {figures.languages.source} · {figures.partnerAssociations.source} · {figures.countries.source} · {figures.urgAgents.source}.</p>
+                <p className="mt-4 font-sans text-xs leading-relaxed text-white/60">Sources: {figures.members.source} · {figures.globalWebsites.source} · {figures.languages.source} · {figures.partnerAssociations.source} · {figures.countries.source} · {figures.urgAgents.source}.</p>
               </div>
               <div className="space-y-px border border-white/10">
                 {[
@@ -273,7 +273,7 @@ export default function SellPembrokePinesPage() {
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
                     <p className="font-sans text-sm text-white/65">{step.text}</p>
                   </div>
                 ))}
@@ -286,7 +286,7 @@ export default function SellPembrokePinesPage() {
         <section className="border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pembroke Pines Sellers Ask</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Pembroke Pines Sellers Ask</p>
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Common questions.</h2>
             </div>
             <FaqAccordion faqs={PEMBROKE_PINES_FAQS} />
@@ -296,15 +296,15 @@ export default function SellPembrokePinesPage() {
         {/* Journal crosslinks */}
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Pembroke Pines Market Research</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-6">Pembroke Pines Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
               <a href="/journal/selling-pembroke-pines-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling a Home in Pembroke Pines — Community Choice and Buyer Pool Depth</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
               <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What Pembroke Pines Sellers Need to Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
               </a>
@@ -321,14 +321,14 @@ export default function SellPembrokePinesPage() {
         <section className="bg-navy-deep py-16 md:py-24" id="contact">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pembroke Pines Seller Review</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Pembroke Pines Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/60">
                 No listing commitment required. Our team reviews every Pembroke Pines submission before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-pembroke-pines" />
-            <div className="mt-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <div className="mt-6 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professional · Equal Housing Opportunity
             </div>

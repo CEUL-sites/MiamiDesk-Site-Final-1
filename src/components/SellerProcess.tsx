@@ -53,7 +53,7 @@ export function SellerProcess() {
 
         {/* Header */}
         <div className="mb-12 md:mb-16">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             How a Listing Works
           </p>
           <div className="mt-5 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
@@ -61,7 +61,7 @@ export function SellerProcess() {
               <h2 className="max-w-xl font-serif text-3xl leading-tight text-white md:text-4xl">
                 Five stages. One point of contact throughout.
               </h2>
-              <p className="mt-4 max-w-lg font-sans text-sm leading-relaxed text-white/45">
+              <p className="mt-4 max-w-lg font-sans text-sm leading-relaxed text-white/60">
                 Every South Florida listing Carlos handles follows a consistent five-stage process —
                 from the first pricing conversation to the closing table.
               </p>
@@ -112,7 +112,7 @@ export function SellerProcess() {
                   {/* Number */}
                   <span
                     className={`font-mono text-2xl font-bold leading-none flex-shrink-0 w-10 transition-colors duration-200 ${
-                      isActive ? "text-gold" : "text-white/30"
+                      isActive ? "text-gold" : "text-white/60"
                     }`}
                   >
                     {step.number}
@@ -121,7 +121,7 @@ export function SellerProcess() {
                   {/* Name + headline */}
                   <div className="flex-1 min-w-0">
                     <span
-                      className={`font-mono text-[10px] uppercase tracking-[0.26em] transition-colors duration-200 ${
+                      className={`font-mono text-xs uppercase tracking-[0.12em] transition-colors duration-200 ${
                         isActive ? "text-gold" : "text-white/70"
                       }`}
                     >
@@ -141,7 +141,7 @@ export function SellerProcess() {
                     className={`flex-shrink-0 h-7 w-7 rounded-full flex items-center justify-center border transition-all duration-200 ${
                       isActive
                         ? "border-gold bg-gold/15 text-gold"
-                        : "border-white/15 text-white/30"
+                        : "border-white/15 text-white/60"
                     }`}
                   >
                     {isActive ? <Minus size={12} /> : <Plus size={12} />}
@@ -164,7 +164,7 @@ export function SellerProcess() {
                         </p>
                         <div className="mt-5 inline-flex items-start gap-3 border border-gold/20 bg-gold/[0.06] px-4 py-3">
                           <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                          <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold/80 leading-relaxed">
+                          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/80 leading-relaxed">
                             {step.benefit}
                           </p>
                         </div>
@@ -181,19 +181,19 @@ export function SellerProcess() {
         <div className="mt-12 flex flex-wrap gap-4">
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
           >
             Request a Confidential Property Review
           </a>
           <a
             href="/home-value"
-            className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-gold hover:text-gold"
+            className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-gold hover:text-gold"
           >
             Free Home Valuation
           </a>
         </div>
 
-        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-white/70">
+        <p className="mt-6 font-mono text-xs uppercase tracking-[0.14em] text-white/70">
           United Realty Group · FL SL705771 · Equal Housing Opportunity · Eligible distribution subject to MLS rules and syndication partner availability
         </p>
       </div>

@@ -146,19 +146,19 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               {market.name} · {market.region}
             </p>
             <HeroTitle lead={`Presente su propiedad de ${market.name}`} payoff={market.heroTitle} keep={[market.name]} />
             <p className="mx-auto mt-6 max-w-2xl font-sans text-base leading-relaxed text-white/60">{market.heroSub}</p>
-            <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#consulta"
-                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 Solicitar valoración de encaje
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -167,7 +167,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
                 href={CONTACT.whatsappSpain}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 <MessageSquare size={14} />
                 WhatsApp España
@@ -179,7 +179,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
         {/* Why this market */}
         <section className="bg-ivory py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               {market.name} · {market.region}
             </p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -189,7 +189,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
               {market.cards.map((card) => (
                 <div key={card.label} className="bg-white p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{card.label}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{card.label}</p>
                   <p className="mt-3 font-serif text-2xl text-navy-deep">{card.value}</p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{card.sub}</p>
                 </div>
@@ -201,7 +201,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
         {/* Submarkets */}
         <section className="bg-ivory pb-14 md:pb-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cobertura local</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Cobertura local</p>
             <h3 className="mt-3 font-serif text-xl text-navy-deep md:text-2xl">
               Zonas de {market.name} que preparamos
             </h3>
@@ -209,7 +209,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
               {market.submarkets.map((sub) => (
                 <span
                   key={sub}
-                  className="border border-hairline px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-primary/60"
+                  className="border border-hairline px-3 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-ink-primary/60"
                 >
                   {sub}
                 </span>
@@ -221,7 +221,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
         {/* Miami link */}
         <section className="bg-navy-deep py-14 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">La conexión con Miami</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">La conexión con Miami</p>
             <blockquote className="mt-6 max-w-3xl border-l-2 border-gold/30 pl-6">
               <p className="font-serif text-2xl leading-snug text-white md:text-3xl">{market.miamiLink}</p>
             </blockquote>
@@ -229,7 +229,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
               {NETWORK_FIGURES.map((f) => (
                 <div key={f.label}>
                   <p className="font-serif text-2xl text-gold md:text-3xl">{f.value}</p>
-                  <p className="mt-2 font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-white/60">
+                  <p className="mt-2 font-mono text-xs uppercase leading-relaxed tracking-[0.14em] text-white/60">
                     {f.label}
                   </p>
                 </div>
@@ -241,14 +241,14 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
         {/* Cómo funciona */}
         <section className="bg-white-soft py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Cómo funciona</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Cómo funciona</p>
             <h2 className="mt-5 font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               El proceso, en cuatro pasos.
             </h2>
             <div className="mt-10 grid gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
               {HOW_IT_WORKS.map((step, i) => (
                 <div key={step.title} className="bg-white p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Paso {i + 1}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Paso {i + 1}</p>
                   <p className="mt-3 font-serif text-lg text-navy-deep">{step.title}</p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{step.text}</p>
                 </div>
@@ -261,7 +261,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
         <section className="bg-ivory py-12 md:py-16 border-y border-hairline">
           <div className="mx-auto max-w-4xl px-6">
             <div className="border border-gold/30 bg-white p-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">Estructura y cumplimiento</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Estructura y cumplimiento</p>
               <p className="mt-4 font-sans text-sm leading-relaxed text-ink-primary/70">{SPAIN_STRUCTURE}</p>
             </div>
           </div>
@@ -271,7 +271,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
         <section className="border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 Preguntas de propietarios en {market.name}
               </p>
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Preguntas frecuentes.</h2>
@@ -284,11 +284,11 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
         <section id="consulta" className="bg-navy-deep py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Consulta confidencial</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Consulta confidencial</p>
               <h2 className="mt-3 font-serif text-3xl text-white">
                 Solicite una valoración de encaje para su propiedad en {market.name}.
               </h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/60">
                 Sin compromiso. Nuestro equipo revisa cada consulta antes de responder.
               </p>
             </div>
@@ -301,7 +301,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
         {/* Cross-links */}
         <section className="bg-ivory py-10 md:py-14 border-t border-hairline">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-4">Más recursos</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-4">Más recursos</p>
             <a href="/global-desk" className="inline-flex items-center gap-1.5 font-serif text-lg text-navy-deep hover:text-gold">
               Miami Global Listing Desk — el marco completo
               <ChevronRight size={16} />
@@ -312,7 +312,7 @@ export default function SellSpainMarketPage({ slug }: { slug: string }) {
                   <a
                     key={m.slug}
                     href={`/${m.slug}`}
-                    className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-primary/60 hover:text-gold"
+                    className="font-mono text-xs uppercase tracking-[0.14em] text-ink-primary/60 hover:text-gold"
                   >
                     {m.name}
                   </a>

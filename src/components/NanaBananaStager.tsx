@@ -53,16 +53,16 @@ export function NanaBananaStager() {
             className={`flex-1 min-w-[140px] px-4 py-4 text-left transition-all duration-150 ${
               activeScene === s.key
                 ? "bg-navy-deep text-white"
-                : "bg-white text-navy/50 hover:bg-ivory hover:text-navy"
+                : "bg-white text-navy/70 hover:bg-ivory hover:text-navy"
             }`}
           >
-            <span className={`font-mono text-[10px] uppercase tracking-[0.18em] block font-semibold ${
+            <span className={`font-mono text-xs uppercase tracking-[0.12em] block font-semibold ${
               activeScene === s.key ? "text-white" : ""
             }`}>
               {s.label}
             </span>
-            <span className={`font-mono text-[10px] uppercase tracking-[0.13em] mt-1 block ${
-              activeScene === s.key ? "text-gold" : "text-navy/30"
+            <span className={`font-mono text-xs uppercase tracking-[0.13em] mt-1 block ${
+              activeScene === s.key ? "text-gold" : "text-navy/70"
             }`}>
               {s.sub}
             </span>
@@ -84,7 +84,7 @@ export function NanaBananaStager() {
               <div className="h-10 w-10 border border-gold/30 rounded-full animate-spin border-t-gold" />
               <Sparkles size={16} className="text-gold absolute inset-0 m-auto" />
             </div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 animate-pulse">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 animate-pulse">
               Nano Banana generating…
             </p>
           </div>
@@ -96,7 +96,7 @@ export function NanaBananaStager() {
         ) : (
           <div className="flex flex-col items-center gap-4 max-w-xs text-center px-6">
             <Sparkles size={24} className="text-gold/50" strokeWidth={1.25} />
-            <p className="font-sans text-sm text-white/50">
+            <p className="font-sans text-sm text-white/60">
               Select a scene above and generate an AI property visualization.
             </p>
           </div>
@@ -105,7 +105,7 @@ export function NanaBananaStager() {
         {/* Watermark overlay when image shown */}
         {imageData && (
           <div className="absolute bottom-3 right-3 bg-navy-deep/70 backdrop-blur-sm px-3 py-1.5">
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               AI visualization · Nano Banana · Not an actual property photo
             </p>
           </div>
@@ -115,17 +115,17 @@ export function NanaBananaStager() {
       {/* Controls */}
       <div className="flex items-center justify-between gap-4 border-t border-hairline px-5 py-4">
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
             Powered by Nano Banana · Google Gemini image generation
           </p>
-          <p className="font-sans text-[10px] text-navy/70 mt-0.5">
+          <p className="font-sans text-xs text-navy/70 mt-0.5">
             AI-generated visualizations for illustrative purposes only.
           </p>
         </div>
         <button
           onClick={generate}
           disabled={loading}
-          className="inline-flex items-center gap-2 bg-navy-deep px-6 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-all hover:bg-gold hover:text-navy-deep disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
+          className="inline-flex items-center gap-2 bg-navy-deep px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white transition-all hover:bg-gold hover:text-navy-deep disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
         >
           {loading ? (
             <RefreshCw size={12} className="animate-spin" />

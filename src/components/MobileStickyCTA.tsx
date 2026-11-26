@@ -143,7 +143,7 @@ export function MobileStickyCTA({ lang }: { lang?: "en" | "es" } = {}) {
               location: "mobile_sticky",
             });
           }}
-          className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-white/85 transition-all duration-100 active:scale-95"
+          className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-3 font-sans text-xs font-bold uppercase tracking-[0.14em] text-white/85 transition-all duration-100 active:scale-95"
         >
           <MessageSquare size={13} className="text-gold" />
           WhatsApp
@@ -156,7 +156,7 @@ export function MobileStickyCTA({ lang }: { lang?: "en" | "es" } = {}) {
               location: "mobile_sticky",
             });
           }}
-          className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 font-sans text-[11px] font-bold uppercase tracking-[0.05em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
+          className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gold px-4 py-3 font-sans text-xs font-bold uppercase tracking-[0.05em] text-navy transition-all duration-100 hover:bg-gold-soft active:scale-95"
         >
           {actionLabel}
         </a>

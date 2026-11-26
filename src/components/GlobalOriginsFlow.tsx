@@ -66,13 +66,13 @@ export function GlobalOriginsFlow({ copy }: { copy: OriginsFlowCopy }) {
 
       <div className="relative mx-auto max-w-6xl">
         <div className="max-w-3xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{copy.eyebrow}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{copy.eyebrow}</p>
           <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">{copy.title}</h2>
           <p className="mt-5 font-sans text-base leading-[1.85] text-white/70 md:text-lg">{copy.lead}</p>
         </div>
 
         <div className="mt-10 md:mt-12">
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             {copy.originsLabel}
           </p>
           <div
@@ -92,7 +92,7 @@ export function GlobalOriginsFlow({ copy }: { copy: OriginsFlowCopy }) {
                   aria-controls="origin-route"
                   tabIndex={on ? 0 : -1}
                   onClick={() => setOrigin(i)}
-                  className={`origin-chip rounded-full border px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${
+                  className={`origin-chip rounded-full border px-5 py-2.5 font-mono text-xs uppercase tracking-[0.12em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${
                     on
                       ? "border-gold/60 bg-gold/15 text-gold"
                       : "border-white/15 text-white/70 hover:border-white/35 hover:text-white/80"
@@ -132,7 +132,7 @@ export function GlobalOriginsFlow({ copy }: { copy: OriginsFlowCopy }) {
                     <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-gold/30 bg-gold/10">
                       <Icon size={14} className="text-gold" aria-hidden="true" />
                     </span>
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold">
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>

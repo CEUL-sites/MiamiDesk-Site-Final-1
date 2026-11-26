@@ -31,7 +31,7 @@ export function MiamiRealtorsBadge({
         className="h-8 w-auto opacity-85"
         style={dark ? { filter: "brightness(0) invert(1)" } : undefined}
       />
-      <p className={`font-mono text-[10px] uppercase tracking-[0.22em] ${dark ? "text-white/70" : "text-navy/70"}`}>
+      <p className={`font-mono text-xs uppercase tracking-[0.12em] ${dark ? "text-white/70" : "text-navy/70"}`}>
         {text}
       </p>
     </div>

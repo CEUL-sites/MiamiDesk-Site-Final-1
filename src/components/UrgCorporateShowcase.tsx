@@ -339,7 +339,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2.5 border border-gold/35 bg-white/[0.04] px-3.5 py-1.5">
               <Building2 size={14} className="text-gold" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {copy.eyebrow}
               </span>
             </div>
@@ -360,7 +360,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
               loading="lazy"
               className="h-auto w-44 object-contain brightness-0 invert md:w-52"
             />
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/65">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/65">
               HQ: 1200 S. Pine Island Rd, Suite 600 · Plantation, FL 33324
             </p>
           </div>
@@ -419,7 +419,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
               >
                 <div className="flex items-center justify-between gap-2">
                   <span
-                    className={`font-mono text-[10px] font-bold uppercase tracking-[0.18em] ${
+                    className={`font-mono text-xs font-bold uppercase tracking-[0.12em] ${
                       selected ? "text-navy-deep" : "text-gold"
                     }`}
                   >
@@ -428,7 +428,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                   <Icon size={15} className={selected ? "text-navy-deep" : "text-gold"} />
                 </div>
                 <span
-                  className={`mt-1.5 block font-mono text-[10px] uppercase tracking-[0.12em] ${
+                  className={`mt-1.5 block font-mono text-xs uppercase tracking-[0.12em] ${
                     selected ? "text-navy-deep/80" : "text-white/65"
                   }`}
                 >
@@ -460,7 +460,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                 type="button"
                 onClick={toggleMute}
                 aria-label={isMuted ? "Unmute corporate office video" : "Mute corporate office video"}
-                className="absolute right-3 top-3 z-10 inline-flex items-center gap-1.5 rounded border border-gold/50 bg-navy-deep/85 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold backdrop-blur-sm transition-colors hover:bg-gold hover:text-navy-deep"
+                className="absolute right-3 top-3 z-10 inline-flex items-center gap-1.5 rounded border border-gold/50 bg-navy-deep/85 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold backdrop-blur-sm transition-colors hover:bg-gold hover:text-navy-deep"
               >
                 {isMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}
                 {isMuted ? "Unmute Audio" : "Audio On"}
@@ -469,7 +469,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
 
             <div className="flex flex-col justify-between p-6 lg:col-span-4 lg:p-8">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Corporate Headquarters · Plantation, FL
                 </p>
                 <h3 className="mt-2 font-serif text-2xl leading-snug text-white">
@@ -499,11 +499,11 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                   href="https://www.urgfl.com/office-locations/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:text-white"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold hover:text-white"
                 >
                   Official URG Office Directory <ArrowUpRight size={13} />
                 </a>
-                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/60">
+                <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                   (954) 450-2000 · HQ
                 </span>
               </div>
@@ -525,7 +525,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                   />
                 </div>
                 <figcaption className="px-4 py-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     Waterfront Corporate Campus · Plantation
                   </p>
                   <p className="mt-0.5 font-sans text-xs text-white/75">
@@ -546,7 +546,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                   />
                 </div>
                 <figcaption className="px-4 py-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     1200 Building Main Entrance · Suite 600
                   </p>
                   <p className="mt-0.5 font-sans text-xs text-white/75">
@@ -557,7 +557,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
             </div>
 
             <div className="flex flex-col justify-center lg:col-span-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 Central Broward Hub
               </p>
               <h3 className="mt-2 font-serif text-2xl text-white">
@@ -569,13 +569,13 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
               <div className="mt-5 grid grid-cols-2 gap-3 border-t border-white/12 pt-4">
                 <div>
                   <p className="font-serif text-2xl text-gold">{CONTACT.stats.urgAgents}</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/70">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                     Licensed FL Agents
                   </p>
                 </div>
                 <div>
                   <p className="font-serif text-2xl text-gold">{URG_FLORIDA_OFFICE_COUNT}</p>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/70">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                     FL Office Locations
                   </p>
                 </div>
@@ -598,7 +598,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                   />
                 </div>
                 <figcaption className="px-4 py-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     Weston Office Reception &amp; Lounge
                   </p>
                   <p className="mt-0.5 font-sans text-xs text-white/75">
@@ -619,7 +619,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                   />
                 </div>
                 <figcaption className="px-4 py-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     Weston Branch Exterior · Suite 700
                   </p>
                   <p className="mt-0.5 font-sans text-xs text-white/75">
@@ -630,7 +630,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
             </div>
 
             <div className="flex flex-col justify-center lg:col-span-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 Primary Advisory Desk · Weston, FL
               </p>
               <h3 className="mt-2 font-serif text-2xl text-white">
@@ -639,7 +639,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
               <p className="mt-3 font-sans text-sm leading-relaxed text-white/80">
                 Carlos Uzcategui conducts private seller valuation reviews, buyer underwriting briefings, and international co-listing consultations from the Weston branch at 15951 SW 41st Street, Suite 700.
               </p>
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+              <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 Direct &amp; WhatsApp: {CONTACT.phoneUS}
               </p>
             </div>
@@ -649,7 +649,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
           <div hidden={activeTab !== "branches"} className="p-6 lg:p-8">
             <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Official Branch Directory · {URG_FLORIDA_OFFICE_COUNT} Florida Office Locations
                 </p>
                 <h3 className="mt-1 font-serif text-2xl text-white">
@@ -672,7 +672,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                       key={f.id}
                       type="button"
                       onClick={() => setBranchFilter(f.id)}
-                      className={`rounded-md px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.14em] transition-all ${
+                      className={`rounded-md px-3 py-1.5 font-mono text-xs uppercase tracking-[0.14em] transition-all ${
                         active
                           ? "bg-gold text-navy-deep font-bold"
                           : "border border-white/15 bg-white/[0.04] text-white/75 hover:border-gold/50 hover:text-white"
@@ -714,7 +714,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         {branch.badge && (
-                          <span className="absolute left-2.5 top-2.5 rounded border border-gold/50 bg-navy-deep/90 px-2.5 py-0.5 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-gold backdrop-blur-sm">
+                          <span className="absolute left-2.5 top-2.5 rounded border border-gold/50 bg-navy-deep/90 px-2.5 py-0.5 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold backdrop-blur-sm">
                             {branch.badge}
                           </span>
                         )}
@@ -724,7 +724,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                           <span className="font-serif text-base text-white group-hover:text-gold transition-colors">
                             {branch.name}
                           </span>
-                          <span className="rounded border border-white/15 bg-white/[0.05] px-2 py-0.5 font-mono text-[8px] uppercase tracking-[0.14em] text-gold">
+                          <span className="rounded border border-white/15 bg-white/[0.05] px-2 py-0.5 font-mono text-xs uppercase tracking-[0.14em] text-gold">
                             {branch.region}
                           </span>
                         </div>
@@ -734,7 +734,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-white/10 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.14em] text-white/60">
+                    <div className="flex items-center justify-between border-t border-white/10 px-4 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                       <span className="inline-flex items-center gap-1">
                         <Phone size={10} className="text-gold" /> {branch.phone}
                       </span>
@@ -749,7 +749,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/[0.02] p-4">
               <p className="font-sans text-xs leading-relaxed text-white/75">
-                <strong className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+                <strong className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   {URG_FLORIDA_OFFICE_COUNT} Florida Office Locations:{" "}
                 </strong>
                 {URG_FLORIDA_OFFICE_NAMES.join(" · ")}.
@@ -758,7 +758,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                 href="https://www.urgfl.com/office-locations/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:text-white"
+                className="inline-flex shrink-0 items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold hover:text-white"
               >
                 URGFL.com/office-locations <ArrowUpRight size={12} />
               </a>
@@ -784,7 +784,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                     />
                   </div>
                   <div>
-                    <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-gold">
+                    <span className="block font-mono text-xs uppercase tracking-[0.12em] text-gold">
                       Affiliated Title &amp; Escrow Partner
                     </span>
                     <h3 className="font-serif text-xl text-white">
@@ -815,14 +815,14 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/12 pt-4">
-              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/60">
+              <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 Plantation · Davie · Pembroke Pines · Statewide FL
               </span>
               <a
                 href="https://sftafl.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded border border-gold/45 bg-gold/10 px-3.5 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-navy-deep"
+                className="inline-flex items-center gap-1.5 rounded border border-gold/45 bg-gold/10 px-3.5 py-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold transition-colors hover:bg-gold hover:text-navy-deep"
               >
                 Visit SFTAFL.com <ArrowUpRight size={13} />
               </a>
@@ -845,7 +845,7 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
                     />
                   </div>
                   <div>
-                    <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-gold">
+                    <span className="block font-mono text-xs uppercase tracking-[0.12em] text-gold">
                       Affiliated Mortgage &amp; Lending Partner
                     </span>
                     <h3 className="font-serif text-xl text-white">
@@ -876,14 +876,14 @@ function countBranches(predicate: (branch: OfficialBranchCard) => boolean): numb
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/12 pt-4">
-              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/60">
+              <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 Pre-Qualification · Underwriting · Closing Execution
               </span>
               <a
                 href="https://certifiedhomeloans.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded border border-gold/45 bg-gold/10 px-3.5 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-navy-deep"
+                className="inline-flex items-center gap-1.5 rounded border border-gold/45 bg-gold/10 px-3.5 py-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gold transition-colors hover:bg-gold hover:text-navy-deep"
               >
                 Visit CertifiedHomeLoans.com <ArrowUpRight size={13} />
               </a>

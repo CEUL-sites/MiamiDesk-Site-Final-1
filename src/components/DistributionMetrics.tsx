@@ -36,10 +36,10 @@ export function DistributionMetrics({ lang = 'en', dark = false }: { lang?: 'en'
             >
               <div>
                 <div className={`flex items-center justify-between border-b pb-3 ${dark ? 'border-gold/15' : 'border-bone'}`}>
-                  <span className={`font-mono text-[10px] font-bold uppercase tracking-[0.25em] ${dark ? 'text-gold' : 'text-navy-light'}`}>
+                  <span className={`font-mono text-xs font-bold uppercase tracking-[0.12em] ${dark ? 'text-gold' : 'text-navy-light'}`}>
                     {nodeTiers[idx]}
                   </span>
-                  <span className={`inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-wider ${dark ? 'text-white/60' : 'text-navy/60'}`}>
+                  <span className={`inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider ${dark ? 'text-white/60' : 'text-navy/60'}`}>
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                     {es ? 'Conectado' : 'Connected'}
                   </span>

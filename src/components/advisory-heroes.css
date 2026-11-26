@@ -2,7 +2,7 @@
 .advisory-hero,.advisory-contact { --advisory-navy:#0b1e3f; --advisory-gold:#d7bc8b; --advisory-ivory:#f9f7f2; background:var(--advisory-navy); color:var(--advisory-ivory); }
 .advisory-hero { padding:140px 5vw 56px; }
 .advisory-hero-inner { display:grid; grid-template-columns:1.05fr 1fr; align-items:center; gap:60px; max-width:1320px; margin:auto; }
-.advisory-eyebrow { color:#d7bc8b; text-transform:uppercase; letter-spacing:.17em; font-size:10px; font-weight:600; margin-bottom:20px; }
+.advisory-eyebrow { color:#d7bc8b; text-transform:uppercase; letter-spacing:.17em; font-size: 0.75rem; font-weight:600; margin-bottom:20px; }
 .advisory-hero h1,.advisory-contact h1 { font-family:var(--font-serif); font-size:clamp(36px,4.2vw,60px); line-height:1.12; letter-spacing:-.03em; text-wrap:balance; font-weight:400; }
 .advisory-summary { font-size:17px; line-height:1.75; color:#d4dbe3; margin-top:22px; max-width:620px; }
 .advisory-actions { display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px; margin-top:28px; }
@@ -10,10 +10,10 @@
 .advisory-primary { background:#d7bc8b; color:#0b1e3f; padding:14px 22px; }
 .advisory-primary:hover { background:#e5cda5; }
 .advisory-secondary { color:#f9f7f2; text-decoration:underline; text-underline-offset:5px; }
-.advisory-note { font-size:11px; line-height:1.7; color:#c4ced8; margin-top:20px; }
+.advisory-note { font-size: 0.75rem; line-height:1.7; color:#c4ced8; margin-top:20px; }
 .advisory-photo { margin:0; }
 .advisory-photo img { width:100%; height:420px; object-fit:cover; }
-.advisory-photo figcaption { font-size:9px; color:#c4ced8; padding-top:10px; }
+.advisory-photo figcaption { font-size: 0.75rem; color:#c4ced8; padding-top:10px; }
 .advisory-hero a:focus-visible,.advisory-hero button:focus-visible,.advisory-contact a:focus-visible { outline:3px solid #d7bc8b; outline-offset:5px; }
 .county-explorer { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center; border:1px solid #ffffff26; padding:24px; background:#071722; }
 .county-explorer svg { width:100%; max-height:350px; overflow:visible; }
@@ -43,9 +43,9 @@
 .principal-signature { display:flex; align-items:center; gap:18px; margin-top:28px; padding-bottom:24px; border-bottom:1px solid #ffffff1f; }
 .principal-signature img { width:72px; height:72px; object-fit:cover; border-radius:50%; border:1px solid #d7bc8b66; }
 .principal-signature strong { font-size:14px; font-weight:600; }
-.principal-signature span { display:block; font-size:11px; line-height:1.7; color:#c4ced8; margin-top:4px; }
+.principal-signature span { display:block; font-size: 0.75rem; line-height:1.7; color:#c4ced8; margin-top:4px; }
 .inquiry-intents { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-bottom:20px; }
-.inquiry-intents legend { grid-column:1/-1; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.18em; font-size:10px; color:#d7bc8b; margin-bottom:10px; }
+.inquiry-intents legend { grid-column:1/-1; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.18em; font-size: 0.75rem; color:#d7bc8b; margin-bottom:10px; }
 .inquiry-intents label { display:flex; align-items:center; gap:8px; min-height:44px; padding:10px 12px; border:1px solid #ffffff29; background:#ffffff08; font-size:12px; cursor:pointer; transition:border-color .2s,background-color .2s; }
 .inquiry-intents label:hover { border-color:#d7bc8b80; background:#ffffff12; }
 .inquiry-intents label:has(input:checked) { border-color:#d7bc8b; background:#d7bc8b1f; color:#ffffff; font-weight:600; }
@@ -82,7 +82,7 @@
  .advisory-contact .advisory-eyebrow { margin-bottom:14px; }
  .advisory-contact .principal-signature { margin-top:16px; padding-bottom:18px; gap:12px; }
  .advisory-contact .principal-signature img { width:52px; height:52px; }
- .advisory-contact .principal-signature span { font-size:10px; line-height:1.5; }
+ .advisory-contact .principal-signature span { font-size: 0.75rem; line-height:1.5; }
  .inquiry-intents { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px; }
  .inquiry-intents legend { margin-bottom:6px; }
  .contact-form-heading > p,.contact-form-heading > div { display:none; }

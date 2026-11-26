@@ -349,7 +349,7 @@ function StatTiles({ items, tone = "deep" }: { items: readonly (readonly [string
 }
 
 function SourceLine({ children }: { children: string }) {
-  return <p className="mt-4 font-sans text-[11px] leading-relaxed text-white/45">{children}</p>;
+  return <p className="mt-4 font-sans text-xs leading-relaxed text-white/60">{children}</p>;
 }
 
 export function PembrokePinesMarketReport() {
@@ -379,11 +379,11 @@ export function PembrokePinesMarketReport() {
     <section id="pembroke-pines-market-report" lang={lang} className="bg-navy-deep py-14 text-white md:py-20" aria-labelledby="pembroke-pines-report-title">
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
-          <p className="max-w-xl font-mono text-[10px] uppercase leading-relaxed tracking-[0.3em] text-gold">{t.kicker}</p>
+          <p className="max-w-xl font-mono text-xs uppercase leading-relaxed tracking-[0.12em] text-gold">{t.kicker}</p>
           <div className="flex gap-1.5" role="group" aria-label={t.langGroup}>
             {(["en", "es"] as const).map((l) => (
               <button key={l} type="button" onClick={() => pickLang(l)} aria-pressed={lang === l}
-                className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] ${lang === l ? "border-gold bg-gold text-navy-deep" : "border-white/20 text-white/70 hover:border-gold/60"}`}>
+                className={`border px-3 py-1.5 font-mono text-xs uppercase tracking-[0.12em] ${lang === l ? "border-gold bg-gold text-navy-deep" : "border-white/20 text-white/70 hover:border-gold/60"}`}>
                 {l === "en" ? "English" : "Español"}
               </button>
             ))}
@@ -406,7 +406,7 @@ export function PembrokePinesMarketReport() {
             >
               <source src={VIDEO[lang].src} type="video/mp4" />
             </video>
-            <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-white/50">{t.briefing}</p>
+            <p className="mt-2 text-center font-mono text-xs uppercase tracking-[0.12em] text-white/60">{t.briefing}</p>
           </div>
 
           <div>
@@ -457,19 +457,19 @@ export function PembrokePinesMarketReport() {
               [t.readout[5], `${y.medianSaleToListPct}%`],
             ] as const).map(([k, v], i) => (
               <div key={k}>
-                <dt className="font-sans text-[11px] text-white/50">{k}</dt>
+                <dt className="font-sans text-xs text-white/60">{k}</dt>
                 <dd className={`mt-0.5 font-serif text-xl ${i === 1 && yoy !== null && yoy < 0 ? "text-[#D96C5F]" : "text-white"}`}>{v}</dd>
               </div>
             ))}
           </dl>
 
           <details className="mt-5 border-t border-white/10 pt-4">
-            <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.2em] text-gold">{t.tableToggle}</summary>
+            <summary className="cursor-pointer font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.tableToggle}</summary>
             <div className="mt-3 overflow-x-auto">
               <table className="w-full min-w-[620px] font-sans text-sm">
                 <caption className="sr-only">{t.tableCaption}</caption>
                 <thead>
-                  <tr className="text-left font-mono text-[10px] uppercase tracking-[0.12em] text-white/50">
+                  <tr className="text-left font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                     {t.tableHead.map((h, i) => <th key={h} className={`py-2 ${i ? "text-right" : ""}`}>{h}</th>)}
                   </tr>
                 </thead>
@@ -495,14 +495,14 @@ export function PembrokePinesMarketReport() {
         {/* d. 3D bars */}
         <div className="mt-14 grid gap-8 md:grid-cols-2 md:items-center">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.velK}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.velK}</p>
             <h3 className="mt-4 font-serif text-3xl leading-tight">{t.velT}</h3>
             <p className="mt-4 font-sans text-base leading-relaxed text-white/65">{t.velNote}</p>
           </div>
           <figure>
             <img src="/images/reports/pembroke-pines-2026-11-bars3d.webp" alt={t.velAlt}
               width={1400} height={860} loading="lazy" decoding="async" className="h-auto w-full rounded-sm" />
-            <figcaption className="mt-2 font-sans text-[11px] leading-relaxed text-white/45">{t.velCaption}</figcaption>
+            <figcaption className="mt-2 font-sans text-xs leading-relaxed text-white/60">{t.velCaption}</figcaption>
           </figure>
         </div>
         <StatTiles items={t.velStats} tone="navy" />
@@ -510,7 +510,7 @@ export function PembrokePinesMarketReport() {
 
         {/* e. List price became a ceiling */}
         <div className="mt-14 border border-white/10 bg-navy p-5 md:p-7">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.lpK}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.lpK}</p>
           <h3 className="mt-3 font-serif text-2xl md:text-3xl">{t.lpT}</h3>
           <div className="mt-4 flex flex-wrap gap-x-5 gap-y-1 font-sans text-xs text-white/60">
             {t.lpLegend.map((l, i) => (
@@ -521,18 +521,18 @@ export function PembrokePinesMarketReport() {
           <StatTiles items={t.lpStats} />
           <p className="mt-5 max-w-3xl font-sans text-sm leading-relaxed text-white/65">{t.lpNote}</p>
           <SourceLine>{src}</SourceLine>
-          <p className="mt-1 font-sans text-[11px] leading-relaxed text-white/45">{t.lpSource}</p>
+          <p className="mt-1 font-sans text-xs leading-relaxed text-white/60">{t.lpSource}</p>
         </div>
 
         {/* f. Subdivisions */}
         <div className="mt-14 border border-white/10 bg-navy p-5 md:p-7">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.subK}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.subK}</p>
           <h3 className="mt-3 font-serif text-2xl md:text-3xl">{t.subT}</h3>
           <div className="mt-5 overflow-x-auto">
             <table className="w-full min-w-[600px] font-sans text-sm">
               <caption className="sr-only">{t.subCaption}</caption>
               <thead>
-                <tr className="text-left font-mono text-[10px] uppercase tracking-[0.12em] text-white/50">
+                <tr className="text-left font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                   {t.subHead.map((h, i) => <th key={h} className={`py-2 ${i ? "text-right" : ""}`}>{h}</th>)}
                 </tr>
               </thead>
@@ -541,8 +541,8 @@ export function PembrokePinesMarketReport() {
                   <tr key={s.name} className="border-t border-white/10 text-white/80">
                     <td className="py-2 pr-3">{s.name}</td>
                     <td className="py-2 text-right">{s.sales2020to2026}</td>
-                    <td className="whitespace-nowrap py-2 text-right">{usd.format(s.median2020)} <span className="text-[11px] text-white/40">n {s.n2020}</span></td>
-                    <td className="whitespace-nowrap py-2 text-right">{usd.format(s.medianLatest)} <span className="text-[11px] text-white/40">{s.latestYear === 2026 ? `2026 ${t.ytd}` : s.latestYear} · n {s.nLatest}</span></td>
+                    <td className="whitespace-nowrap py-2 text-right">{usd.format(s.median2020)} <span className="text-xs text-white/60">n {s.n2020}</span></td>
+                    <td className="whitespace-nowrap py-2 text-right">{usd.format(s.medianLatest)} <span className="text-xs text-white/60">{s.latestYear === 2026 ? `2026 ${t.ytd}` : s.latestYear} · n {s.nLatest}</span></td>
                     <td className={`whitespace-nowrap py-2 text-right ${s.changePct >= 0 ? "text-gold" : "text-[#D96C5F]"}`}>{s.changePct >= 0 ? "▲" : "▼"} {signed(s.changePct)}</td>
                   </tr>
                 ))}
@@ -551,7 +551,7 @@ export function PembrokePinesMarketReport() {
           </div>
           <p className="mt-5 max-w-3xl font-sans text-sm leading-relaxed text-white/65">{t.subNote}</p>
           <SourceLine>{src}</SourceLine>
-          <p className="mt-1 font-sans text-[11px] leading-relaxed text-white/45">{t.subSource}</p>
+          <p className="mt-1 font-sans text-xs leading-relaxed text-white/60">{t.subSource}</p>
         </div>
 
         {/* g. Closing read + network */}
@@ -559,11 +559,11 @@ export function PembrokePinesMarketReport() {
           <p className="mx-auto max-w-3xl font-serif text-2xl leading-snug md:text-3xl">
             {t.read[0]}<span className="text-gold">{t.read[1]}</span>{t.read[2]}<span className="text-gold">{t.read[3]}</span>{t.read[4]}
           </p>
-          <p className="mx-auto mt-4 max-w-3xl font-sans text-[11px] leading-relaxed text-white/45">{src}</p>
+          <p className="mx-auto mt-4 max-w-3xl font-sans text-xs leading-relaxed text-white/60">{src}</p>
         </div>
 
         <div className="mt-14">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.netK}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.netK}</p>
           <h3 className="mt-4 font-serif text-3xl leading-tight md:text-4xl">{t.netT}</h3>
           <p className="mt-4 max-w-3xl font-sans text-base leading-relaxed text-white/65">{t.netP}</p>
           <div className="mt-6 grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-4">
@@ -591,7 +591,7 @@ export function PembrokePinesMarketReport() {
               <MessageCircle size={16} className="text-gold" /> WhatsApp +1 954-865-6622
             </a>
           </div>
-          <p className="mt-4 font-sans text-xs text-white/50">{t.fine}</p>
+          <p className="mt-4 font-sans text-xs text-white/60">{t.fine}</p>
         </div>
       </div>
     </section>

@@ -72,7 +72,7 @@ const DURATIONS   = ["7s", "9s", "11s", "8s", "10s"] as const;
 const TIER_CLASSES: Record<1 | 2 | 3, string> = {
   1: "px-5 py-2.5 text-[15px] font-semibold md:px-7 md:py-4",
   2: "px-4 py-2 text-[13px] font-medium md:px-5 md:py-3",
-  3: "px-3 py-1.5 text-[11px] font-normal uppercase tracking-wider md:px-4 md:py-2",
+  3: "px-3 py-1.5 text-xs font-normal uppercase tracking-wider md:px-4 md:py-2",
 };
 
 const BOTTOM_STATS = [
@@ -102,7 +102,7 @@ export const ExposureSyndication = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+          className="font-mono text-xs uppercase tracking-[0.12em] text-gold"
         >
           Miami and South Florida REALTORS® · Verified Syndication
         </motion.p>
@@ -164,7 +164,7 @@ export const ExposureSyndication = () => {
             <div key={stat.label} className="flex items-center gap-10">
               <div className="text-center">
                 <div className="font-serif text-4xl text-gold">{stat.value}</div>
-                <div className="font-mono mt-1.5 text-[10px] uppercase tracking-[0.22em] text-white/70">
+                <div className="font-mono mt-1.5 text-xs uppercase tracking-[0.12em] text-white/70">
                   {stat.label}
                 </div>
               </div>
@@ -175,7 +175,7 @@ export const ExposureSyndication = () => {
           ))}
         </div>
         <div className="h-px w-full bg-gold/25" />
-        <p className="font-mono text-center text-[10px] uppercase tracking-[0.22em] text-white/70 mt-3 md:mt-5">
+        <p className="font-mono text-center text-xs uppercase tracking-[0.12em] text-white/70 mt-3 md:mt-5">
           Source: Miami and South Florida REALTORS® · Verified syndication data
         </p>
       </div>

@@ -160,7 +160,7 @@ export default function ContactPage() {
         <section className="advisory-contact">
           <div className="advisory-contact-intro">
             <nav aria-label="Breadcrumb" className="mb-5">
-              <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">
+              <ol className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                 <li><Link to="/" className="hover:text-gold transition-colors">Home</Link></li>
                 <li aria-hidden="true">/</li>
                 <li className="text-gold">Contact</li>
@@ -180,7 +180,7 @@ export default function ContactPage() {
 
             {/* Dynamic Intent Briefing Card (updates live with form selection) */}
             <div className="mt-5 border border-gold/35 bg-white/[0.04] p-4">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {activeBrief.badge}
               </p>
               <p className="mt-1.5 font-serif text-lg text-white">
@@ -198,7 +198,7 @@ export default function ContactPage() {
 
             {/* Direct Advisory Channels Ledger */}
             <div className="mt-5 space-y-3 border border-white/15 bg-white/[0.03] p-5">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 Direct Advisory Channels
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
@@ -210,7 +210,7 @@ export default function ContactPage() {
                 >
                   <Phone size={16} className="mt-0.5 shrink-0 text-gold" />
                   <div className="min-w-0">
-                    <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
+                    <span className="block font-mono text-xs uppercase tracking-[0.12em] text-white/55">
                       Direct &amp; WhatsApp (U.S.)
                     </span>
                     <span className="mt-1 block font-sans text-sm font-medium text-white">
@@ -224,7 +224,7 @@ export default function ContactPage() {
                 >
                   <Mail size={16} className="mt-0.5 shrink-0 text-gold" />
                   <div className="min-w-0">
-                    <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
+                    <span className="block font-mono text-xs uppercase tracking-[0.12em] text-white/55">
                       Direct Email
                     </span>
                     <span className="mt-1 block break-all font-sans text-sm font-medium text-white">
@@ -271,7 +271,7 @@ export default function ContactPage() {
         {/* Private Consultation & Engagement FAQ */}
         <section className="border-t border-bone bg-navy-deep px-6 py-14 md:py-20">
           <div className="mx-auto max-w-4xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               Consultation Protocol · FAQ
             </p>
             <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">

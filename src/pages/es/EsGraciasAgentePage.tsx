@@ -21,7 +21,7 @@ export default function EsGraciasAgentePage() {
             <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center bg-gold/15">
               <BadgeCheck size={34} className="text-gold" />
             </div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               {/* TODO: native Madrid editor review */}
               CONFIRMADO
             </p>
@@ -38,7 +38,7 @@ export default function EsGraciasAgentePage() {
             </p>
 
             <div className="mx-auto mt-8 max-w-md border border-gold/25 bg-gold/5 p-6 text-left">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Documento de referencia
               </p>
@@ -48,7 +48,7 @@ export default function EsGraciasAgentePage() {
               <a
                 href={LEAD_MAGNETS.spainActivation.url}
                 download
-                className="mt-4 inline-flex items-center gap-2 border border-gold/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10"
+                className="mt-4 inline-flex items-center gap-2 border border-gold/40 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors hover:bg-gold/10"
               >
                 <Download size={13} />
                 {/* TODO: native Madrid editor review */}
@@ -61,14 +61,14 @@ export default function EsGraciasAgentePage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy transition-opacity hover:opacity-90"
+                className="bg-gold px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy transition-opacity hover:opacity-90"
               >
                 {/* TODO: native Madrid editor review */}
                 WhatsApp USA +1 954-865-6622
               </a>
               <a
                 href="/es/agentes"
-                className="border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                className="border border-white/20 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 {/* TODO: native Madrid editor review */}
                 Volver a la página de agentes
@@ -76,7 +76,7 @@ export default function EsGraciasAgentePage() {
             </div>
 
             <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 {/* TODO: native Madrid editor review */}
                 Confidencial · Solo profesionales licenciados · Acuerdos
                 escritos · SL705771 · United Realty Group · Equal Housing

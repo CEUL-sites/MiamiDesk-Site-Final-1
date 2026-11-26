@@ -102,14 +102,14 @@ export function CityListingsSample({
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Live MLS · {city}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Live MLS · {city}</p>
             <h2 className="mt-3 font-serif leading-tight text-white" style={{ fontSize: "clamp(1.7rem, 3.2vw, 2.5rem)" }}>
               {sellerContext ? `Active properties for sale in ${city}` : `Active listings in ${city} right now`}
             </h2>
           </div>
           <a
             href="/listings"
-            className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 transition-colors hover:text-white"
+            className="font-mono text-xs uppercase tracking-[0.12em] text-gold underline underline-offset-4 transition-colors hover:text-white"
           >
             Search all listings →
           </a>
@@ -141,7 +141,7 @@ export function CityListingsSample({
           </p>
         )}
 
-        <p className="mt-6 border-t border-white/10 pt-5 font-mono text-[10px] uppercase tracking-[0.12em] leading-relaxed text-white/70">
+        <p className="mt-6 border-t border-white/10 pt-5 font-mono text-xs uppercase tracking-[0.12em] leading-relaxed text-white/70">
           {IDX_DISCLAIMER}
           {lastUpdated ? ` Last updated: ${formatListingDate(lastUpdated)}.` : ""}{" "}
           {CONTACT.licenseDisplay} · Equal Housing Opportunity · REALTOR®

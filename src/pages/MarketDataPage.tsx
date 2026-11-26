@@ -103,13 +103,13 @@ function CountyCard({ county }: { county: string }) {
   return (
     <div className="bg-white border border-hairline rounded-xl p-6 flex flex-col gap-5">
       <div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-1">{county} County</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-1">{county} County</p>
         <h3 className="font-serif text-xl text-ink-primary">{county} County — {sfh?.period ?? condo?.period ?? stats.metadata.period}</h3>
       </div>
 
       {/* SFH row */}
       <div className="space-y-1">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gray-400">Single Family</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gray-400">Single Family</p>
         <div className="flex flex-wrap gap-3 items-center">
           <span className="text-2xl font-semibold text-ink-primary">{formatPrice(sfh?.medianPrice ?? null)}</span>
           {sfhBadge && (
@@ -127,7 +127,7 @@ function CountyCard({ county }: { county: string }) {
 
       {/* Condo row */}
       <div className="space-y-1">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gray-400">Condo &amp; Townhouse</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gray-400">Condo &amp; Townhouse</p>
         <div className="flex flex-wrap gap-3 items-center">
           <span className="text-2xl font-semibold text-ink-primary">{formatPrice(condo?.medianPrice ?? null)}</span>
           {condoBadge && (
@@ -184,7 +184,7 @@ function CityTable() {
     return sortAsc ? <ChevronUp className="inline w-3 h-3" /> : <ChevronDown className="inline w-3 h-3" />;
   }
 
-  const thCls = "text-left text-[10px] font-mono uppercase tracking-[0.2em] text-gray-400 py-2 pr-4 cursor-pointer select-none whitespace-nowrap hover:text-gold transition-colors";
+  const thCls = "text-left text-xs font-mono uppercase tracking-[0.12em] text-gray-400 py-2 pr-4 cursor-pointer select-none whitespace-nowrap hover:text-gold transition-colors";
 
   return (
     <div className="space-y-4">
@@ -254,9 +254,9 @@ function CityTable() {
                 <tr key={i} className="hover:bg-ivory/60 transition-colors">
                   <td className="py-3 pr-4 font-medium text-ink-primary whitespace-nowrap">
                     {r.area}
-                    <span className="mt-1 block font-mono text-[10px] font-normal text-gray-500">{r.period}</span>
+                    <span className="mt-1 block font-mono text-xs font-normal text-gray-500">{r.period}</span>
                     {r.flagged && (
-                      <span className="ml-1 text-[10px] font-mono text-amber-500 align-super">*</span>
+                      <span className="ml-1 text-xs font-mono text-amber-500 align-super">*</span>
                     )}
                   </td>
                   <td className="py-3 pr-4 text-right font-mono tabular-nums text-ink-primary">
@@ -370,7 +370,7 @@ export default function MarketDataPage() {
       {/* Hero */}
       <section className="bg-navy-deep pt-28 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             MIAMI REALTORS® · October 2026 counties · Q2 2026 cities
           </p>
           <h1 className="font-serif text-3xl md:text-5xl text-white leading-tight">
@@ -398,7 +398,7 @@ export default function MarketDataPage() {
       <section className="bg-ivory py-14 px-4">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">County Overview</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">County Overview</p>
             <h2 className="font-serif text-2xl md:text-3xl text-ink-primary">Three-County Snapshot — October 2026</h2>
             <p className="text-sm text-gray-500 max-w-xl mx-auto">
               Monthly figures from Miami Realtors Association. Months supply below 3 = seller's market, 3–6 = balanced, above 6 = buyer's market.
@@ -416,7 +416,7 @@ export default function MarketDataPage() {
       <section className="bg-white py-14 px-4">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="space-y-2">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">City-Level Data</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">City-Level Data</p>
             <h2 className="font-serif text-2xl md:text-3xl text-ink-primary">Market Conditions by City</h2>
             <p className="text-sm text-gray-500 max-w-2xl">
               Municipal and city-level breakdowns from Miami Realtors Association and Florida Realtors reports. Thin-volume
@@ -430,7 +430,7 @@ export default function MarketDataPage() {
       {/* CTA block */}
       <section className="bg-navy-deep py-16 px-4">
         <div className="max-w-2xl mx-auto text-center space-y-5">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Talk to Carlos</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Talk to Carlos</p>
           <h2 className="font-serif text-2xl md:text-3xl text-white">
             What do these numbers mean for your property?
           </h2>

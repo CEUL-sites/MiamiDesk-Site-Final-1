@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { CONTACT } from "../constants";
+import { CONTACT, isSpanishLangRoute } from "../constants";
 import { trackContact, trackMicroConversion } from "../lib/analytics";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { UrgLogo } from "./UrgLogo";
@@ -20,6 +20,18 @@ const NAV_ITEMS: NavItem[] = [
   { name: "Contact",     href: "/contact" },
 ];
 
+// Spanish chrome for /es routes. Links go to the Spanish page where one exists.
+const NAV_ITEMS_ES: NavItem[] = [
+  { name: "Vender",      href: "/es/vender" },
+  { name: "Valoración",  href: "/home-value" },
+  { name: "Comprar",     href: "/es/comprar" },
+  { name: "Mercados",    href: "/markets" },
+  { name: "Agentes",     href: "/es/agentes" },
+  { name: "Global Desk", href: "/global-desk" },
+  { name: "Journal",     href: "/journal" },
+  { name: "Contacto",    href: "/contact" },
+];
+
 export function Navbar() {
   const [isOpen, setIsOpen]     = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -29,6 +41,10 @@ export function Navbar() {
   const isGilmarSpain = currentPath === "/gilmar-spain";
   const hasInlineLanguageSelector = currentPath === "/global-desk" || isGilmarSpain;
   const hideNavbarLogo = isGilmarSpain && !pastHero;
+  const es = isSpanishLangRoute(currentPath);
+  const navItems = es ? NAV_ITEMS_ES : NAV_ITEMS;
+  const sellLabel = es ? "Vender mi casa" : "Sell My Home";
+  const sellHref = es ? "/es#list-here" : "/#list-here";
 
   useEffect(() => {
     const fn = () => {
@@ -42,7 +58,7 @@ export function Navbar() {
 
   useEffect(() => { setIsOpen(false); }, [location.pathname]);
 
-  const onLight  = scrolled || currentPath === "/global-desk";
+  const onLight  = scrolled;
   const navText  = onLight ? "text-navy/75 hover:text-gold" : "text-white/70 hover:text-white";
 
   return (
@@ -63,7 +79,7 @@ export function Navbar() {
         }}
         className="skip-link"
       >
-        Skip to content
+        {es ? "Saltar al contenido" : "Skip to content"}
       </a>
       <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -87,23 +103,24 @@ export function Navbar() {
           } ${hideNavbarLogo ? "pointer-events-none opacity-0" : "opacity-100"}`}
         >
           <UrgLogo className="h-8 w-auto sm:h-9" inverted={!onLight} />
-          <span className="hidden flex-col leading-none border-l border-current/20 pl-3 2xl:flex">
+          <span className="hidden flex-col leading-none border-l border-current/20 pl-3 xl:flex">
             <span className="font-serif text-[0.88rem] leading-none tracking-wide">Carlos Uzcategui</span>
-            <span className="font-mono uppercase leading-none opacity-70 mt-1" style={{ fontSize: "0.6875rem", letterSpacing: "0.2em" }}>
-              REALTOR® · FL SL705771 · Since 2001
+            <span className="font-mono uppercase leading-none opacity-80 mt-1" style={{ fontSize: "0.75rem", letterSpacing: "0.08em" }}>
+              <span className="min-[1680px]:hidden">FL SL705771</span>
+              <span className="hidden min-[1680px]:inline">REALTOR® · FL SL705771 · Since 2001</span>
             </span>
           </span>
         </a>
 
         {/* ── Desktop nav ───────────────────────────────────── */}
         <div className="hidden flex-1 items-center justify-center gap-1 xl:flex">
-          {NAV_ITEMS.map((item) => {
+          {navItems.map((item) => {
             const active = currentPath === item.href;
             return (
               <a
                 key={item.name}
                 href={item.href}
-                className={`px-2 py-2.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors duration-200 whitespace-nowrap ${
+                className={`px-1.5 py-2.5 font-mono text-xs uppercase tracking-[0.06em] 2xl:px-2 2xl:tracking-[0.08em] transition-colors duration-200 whitespace-nowrap ${
                   active ? "text-gold" : navText
                 }`}
               >
@@ -123,7 +140,7 @@ export function Navbar() {
               trackContact("phone", "navbar");
               trackMicroConversion("hp_cta_click", { type: "phone_call", location: "navbar" });
             }}
-            className={`hidden items-center gap-1.5 font-mono text-[10px] tracking-[0.12em] transition-colors duration-200 2xl:flex ${
+            className={`hidden items-center gap-1.5 font-mono text-xs tracking-[0.12em] transition-colors duration-200 min-[1680px]:flex ${
               onLight ? "text-navy/70 hover:text-gold" : "text-white/65 hover:text-white"
             }`}
           >
@@ -132,21 +149,21 @@ export function Navbar() {
           </a>
 
           <a
-            href="/#list-here"
-            className={`inline-flex items-center whitespace-nowrap px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] transition-all duration-300 ${
+            href={sellHref}
+            className={`inline-flex min-h-[44px] items-center whitespace-nowrap px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] transition-all duration-300 ${
               onLight
                 ? "bg-navy text-white hover:bg-gold hover:text-navy"
                 : "border border-gold/60 text-white hover:bg-gold hover:text-navy"
             }`}
           >
-            Sell My Home
+            {sellLabel}
           </a>
         </div>
 
         {/* ── Hamburger ─────────────────────────────────────── */}
         <button
           type="button"
-          aria-label="Open navigation menu"
+          aria-label={es ? "Abrir menú de navegación" : "Open navigation menu"}
           onClick={() => setIsOpen(true)}
           className={`-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center transition-colors xl:hidden ${onLight ? "text-navy" : "text-white"}`}
         >
@@ -170,23 +187,45 @@ export function Navbar() {
               <div className="flex items-start justify-between">
                 <a href="/" onClick={() => setIsOpen(false)} className="flex flex-col gap-2 text-white">
                   <UrgLogo className="h-9 w-auto" inverted />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                     Carlos Uzcategui, REALTOR® · FL SL705771 · Since 2001
                   </span>
                 </a>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  aria-label="Close navigation menu"
+                  aria-label={es ? "Cerrar menú de navegación" : "Close navigation menu"}
                   className="-mr-2 -mt-2 inline-flex h-11 w-11 shrink-0 items-center justify-center text-white/60 transition-colors hover:text-gold"
                 >
                   <X size={24} />
                 </button>
               </div>
 
+              {/* Primary actions first, so they are visible without scrolling the menu */}
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <a
+                  href={CONTACT.phoneUSLink}
+                  onClick={() => {
+                    trackContact("phone", "navbar_mobile");
+                    trackMicroConversion("hp_cta_click", { type: "phone_call", location: "navbar_mobile" });
+                  }}
+                  className="flex w-full items-center justify-center gap-2 border border-white/20 px-3 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white transition-colors hover:border-gold hover:text-gold"
+                >
+                  <Phone size={14} className="text-gold" />
+                  {CONTACT.phoneUSDisplay}
+                </a>
+                <a
+                  href={sellHref}
+                  onClick={() => setIsOpen(false)}
+                  className="flex w-full items-center justify-center bg-gold px-3 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy font-semibold"
+                >
+                  {sellLabel}
+                </a>
+              </div>
+
               {/* Nav links */}
-              <div className="mt-10 flex flex-col gap-0.5">
-                {NAV_ITEMS.map((item, index) => {
+              <div className="mt-6 flex flex-col gap-0.5">
+                {navItems.map((item, index) => {
                   const active = currentPath === item.href;
                   return (
                     <motion.a
@@ -196,7 +235,7 @@ export function Navbar() {
                       initial={{ opacity: 0, x: 16 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.04 }}
-                      className={`border-b border-white/8 py-4 font-serif text-2xl transition-colors hover:text-gold ${
+                      className={`border-b border-white/8 py-3 font-serif text-2xl transition-colors hover:text-gold ${
                         active ? "text-gold" : "text-white"
                       }`}
                     >
@@ -209,27 +248,9 @@ export function Navbar() {
               {/* Drawer footer */}
               <div className="mt-auto space-y-4 border-t border-gold/20 pt-8">
                 <LanguageSwitcher />
-                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70 leading-loose">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70 leading-loose">
                   United Realty Group · FL SL705771 · Equal Housing Opportunity
                 </p>
-                <a
-                  href={CONTACT.phoneUSLink}
-                  onClick={() => {
-                    trackContact("phone", "navbar_mobile");
-                    trackMicroConversion("hp_cta_click", { type: "phone_call", location: "navbar_mobile" });
-                  }}
-                  className="flex w-full items-center justify-center gap-2.5 border border-white/20 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white transition-colors hover:border-gold hover:text-gold"
-                >
-                  <Phone size={14} className="text-gold" />
-                  {CONTACT.phoneUSDisplay}
-                </a>
-                <a
-                  href="/#list-here"
-                  onClick={() => setIsOpen(false)}
-                  className="flex w-full items-center justify-center bg-gold px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-navy font-semibold"
-                >
-                  Sell My Home
-                </a>
               </div>
             </div>
           </motion.div>

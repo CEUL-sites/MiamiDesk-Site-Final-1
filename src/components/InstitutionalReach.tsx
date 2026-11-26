@@ -50,7 +50,7 @@ export function InstitutionalReach() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+            className="font-mono text-xs uppercase tracking-[0.12em] text-gold"
           >
             Institutional Distribution · Structural MLS Advantage
           </motion.p>
@@ -94,7 +94,7 @@ export function InstitutionalReach() {
                 <h3 className="mt-3 font-sans text-sm font-semibold uppercase tracking-[0.14em] text-white">
                   {metric.label}
                 </h3>
-                <p className="font-mono mt-1 text-[10px] uppercase tracking-[0.18em] text-gold/70">
+                <p className="font-mono mt-1 text-xs uppercase tracking-[0.12em] text-gold/70">
                   {metric.sublabel}
                 </p>
               </div>
@@ -107,7 +107,7 @@ export function InstitutionalReach() {
 
         {/* Association Attribution */}
         <div className="mt-12 border-t border-white/10 pt-8 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             Powered by membership in the Miami and South Florida REALTORS® · United Realty Group
           </p>
           <p className="mx-auto mt-3 max-w-3xl font-sans text-xs leading-relaxed text-white/75">
@@ -115,7 +115,7 @@ export function InstitutionalReach() {
             <a className="underline" href="https://www.miamirealtors.com/2026/04/20/miami-realtors-and-rworld-announce-merger-creating-the-worlds-largest-local-realtor-association/" target="_blank" rel="noopener noreferrer">April 2026 cooperation agreements</a>{" · "}
             MIAMI listing distribution flyer (2021/2022). Historical channel counts are not a placement commitment for your property.
           </p>
-          <p className="mx-auto mt-2 max-w-3xl font-sans text-[11px] leading-relaxed text-white/55">
+          <p className="mx-auto mt-2 max-w-3xl font-sans text-xs leading-relaxed text-white/55">
             Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity. Distribution channels, portal coverage, and partner exchanges are subject to platform availability and MLS rules.
           </p>
         </div>

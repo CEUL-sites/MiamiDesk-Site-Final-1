@@ -128,7 +128,7 @@ export default function EsVenderWestonPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               Weston, FL · Agente Listador y Representación de Vendedores
             </p>
             <HeroTitle
@@ -157,7 +157,7 @@ export default function EsVenderWestonPage() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 Solicitar Revisión en Weston
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -166,7 +166,7 @@ export default function EsVenderWestonPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/75 transition-colors hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/75 transition-colors hover:border-white/40 hover:text-white"
               >
                 <MessageSquare size={14} />
                 WhatsApp a Carlos
@@ -181,7 +181,7 @@ export default function EsVenderWestonPage() {
                   </svg>
                 ))}
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 5.0 · Gratis y confidencial · Sin compromiso de listado · Respuesta personal de Carlos
               </span>
             </div>
@@ -190,13 +190,13 @@ export default function EsVenderWestonPage() {
               <a
                 href={LEAD_MAGNETS.sellerNetSheet.url}
                 download
-                className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/75 underline-offset-2 hover:text-gold hover:underline"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/75 underline-offset-2 hover:text-gold hover:underline"
               >
                 <Download size={11} />
                 O descargue la Hoja de Ganancias del Vendedor 2026
               </a>
             </div>
-            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               United Realty Group · CLHMS · FL SL705771 · 25 Años Licenciado en Florida
             </p>
 
@@ -215,7 +215,7 @@ export default function EsVenderWestonPage() {
               ].map((f) => (
                 <div key={f.label} role="listitem" className="min-w-[5rem] text-center">
                   <div className="font-serif text-xl leading-none text-gold md:text-2xl">{f.value}</div>
-                  <div className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
+                  <div className="mt-1.5 font-mono text-xs uppercase tracking-[0.14em] text-white/70">
                     {f.label}
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function EsVenderWestonPage() {
         {/* Market context */}
         <section className="bg-ivory py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">El Mercado de Weston</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">El Mercado de Weston</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               Comunidades planificadas en el oeste de Broward con alta disciplina de precios.
             </h2>
@@ -256,7 +256,7 @@ export default function EsVenderWestonPage() {
                 },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{stat.label}</p>
                   <p className="mt-3 font-serif text-2xl text-navy-deep">{stat.value}</p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/60">{stat.sub}</p>
                 </div>
@@ -270,7 +270,7 @@ export default function EsVenderWestonPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-12 md:grid-cols-2 md:items-center">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Estrategia de Venta en Weston
                 </p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
@@ -303,7 +303,7 @@ export default function EsVenderWestonPage() {
                   },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/75 w-28 flex-shrink-0 pt-0.5">
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold/75 w-28 flex-shrink-0 pt-0.5">
                       {step.label}
                     </span>
                     <p className="font-sans text-sm text-white/70">{step.text}</p>
@@ -318,7 +318,7 @@ export default function EsVenderWestonPage() {
         <section className="border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 Preguntas de Vendedores en Weston
               </p>
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">
@@ -351,13 +351,13 @@ export default function EsVenderWestonPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
+                className="inline-flex items-center gap-2 border border-navy-deep/30 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-navy-deep hover:bg-navy-deep/5"
               >
                 <MessageSquare size={14} />
                 WhatsApp EE.UU. (+1 954-865-6622)
               </a>
             </div>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep/60">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep/60">
               <div className="flex items-center gap-2">
                 <BadgeCheck size={14} className="text-navy-deep/60" />
                 <span>Confidencial · Profesionales con Licencia · Igualdad de Acceso a la Vivienda</span>

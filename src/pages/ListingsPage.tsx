@@ -88,7 +88,7 @@ export default function ListingsPage() {
 
         {/* ── Page header ───────────────────────────────────────── */}
         <section className="bg-navy-deep px-6 pt-28 pb-10 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             Property Search · United Realty Group
           </p>
           <h1
@@ -104,14 +104,14 @@ export default function ListingsPage() {
           <div className="mt-8">
             <a
               href="#search"
-              className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
             >
               Search Active Listings
             </a>
           </div>
           <div className="mt-7 inline-flex items-center gap-2 border border-gold/20 bg-white/4 px-4 py-2.5 backdrop-blur-sm">
             <BadgeCheck size={14} className="flex-shrink-0 text-gold" />
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
+            <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               {CONTACT.licenseDisplay} · Equal Housing Opportunity
             </span>
           </div>
@@ -131,14 +131,14 @@ export default function ListingsPage() {
           <div className="border-b border-gold/20 bg-navy-deep px-6 py-5">
             <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   New Pre-Construction Developments
                 </p>
                 <p className="mt-1 font-sans text-xs text-white/70">
                   Miami Realtor Association · Powered by New Estate Only
                 </p>
               </div>
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 FL SL705771 · {CONTACT.brokerage}
               </span>
             </div>
@@ -151,7 +151,7 @@ export default function ListingsPage() {
         <section className="border-t border-white/10 bg-navy-deep px-6 py-16">
           <div className="mx-auto max-w-4xl">
             <div className="mb-8 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 MLS Search &amp; Representation FAQ
               </p>
               <h2 className="mt-3 font-serif text-2xl text-white md:text-3xl">
@@ -166,7 +166,7 @@ export default function ListingsPage() {
 
         {/* ── Buyer CTA ─────────────────────────────────────────── */}
         <section className="border-t border-white/10 bg-navy-deep px-6 py-12 text-center md:py-16">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             Buyer Representation
           </p>
           <h2 className="mx-auto mt-4 max-w-xl font-serif text-3xl text-white">
@@ -178,7 +178,7 @@ export default function ListingsPage() {
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
               href="/buy"
-              className="inline-flex items-center bg-gold px-8 py-3.5 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-navy transition-colors hover:bg-gold-soft"
+              className="inline-flex items-center bg-gold px-8 py-3.5 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-navy transition-colors hover:bg-gold-soft"
             >
               Start Buyer Process
             </a>
@@ -186,12 +186,12 @@ export default function ListingsPage() {
               href={CONTACT.whatsappUS}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center border border-white/25 px-8 py-3.5 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold"
+              className="inline-flex items-center border border-white/25 px-8 py-3.5 font-sans text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:border-gold hover:text-gold"
             >
               WhatsApp Our Team
             </a>
           </div>
-          <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
+          <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
           </p>
         </section>

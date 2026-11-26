@@ -20,12 +20,12 @@ function ReviewMeta({ review, lang = "en" }: { review: Review; lang?: "en" | "es
     <div className="mt-5 flex items-end justify-between gap-3 border-t border-white/10 pt-4">
       <div>
         <p className="font-sans text-xs font-semibold text-white">{review.name}</p>
-        <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-white/70">
+        <p className="mt-0.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
           {review.location}{review.date ? ` · ${formatReviewDateShort(review.date)}` : ""}
         </p>
       </div>
       {review.verified && (
-        <span className="flex shrink-0 items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] text-gold">
+        <span className="flex shrink-0 items-center gap-1 font-mono text-xs uppercase tracking-[0.12em] text-gold">
           <BadgeCheck size={13} aria-hidden="true" />
           {lang === "es" ? "Verificada" : "Verified"}
         </span>

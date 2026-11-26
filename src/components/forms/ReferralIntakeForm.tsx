@@ -87,7 +87,7 @@ export function ReferralIntakeForm({language = "en", initialPurpose = "agent_reg
   return (
     <div className="border border-bone bg-white text-navy">
       <div className="border-b border-bone bg-navy-deep px-8 py-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{t("Agent & Agency Partner Desk", "Mesa de agentes y agencias")}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t("Agent & Agency Partner Desk", "Mesa de agentes y agencias")}</p>
         <h3 className="mt-2 font-serif text-2xl text-white">{t("Register as an agent or refer a client", "Regístrese como agente o refiera un cliente")}</h3>
         <p className="mt-2 font-sans text-sm text-white/70">{t("Your professional profile and your client's details are kept separate. Cooperation terms are agreed in writing before client engagement.", "Su perfil profesional y los datos de su cliente se mantienen separados. Las condiciones de colaboración se acuerdan por escrito antes de atender al cliente.")}</p>
       </div>
@@ -165,15 +165,15 @@ export function ReferralIntakeForm({language = "en", initialPurpose = "agent_reg
           <textarea id={id("clientSummary")} name="clientSummary" required={clientReferral} rows={4} className="form-input" value={form.clientSummary} onChange={set("clientSummary")} />
         </Field>
         {status === "error" && <p role="alert" className="font-sans text-sm text-red-600">{err}</p>}
-        <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-gold disabled:opacity-60">
+        <button type="submit" disabled={status === "submitting"} className="group flex w-full items-center justify-center gap-3 bg-navy py-4 font-mono text-xs uppercase tracking-[0.12em] text-white transition-all hover:bg-gold disabled:opacity-60">
           {status === "submitting" ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
           {status === "submitting" ? t("Sending…", "Enviando…") : clientReferral ? t("Register client referral", "Registrar cliente referido") : t("Submit professional registration", "Enviar registro profesional")}
         </button>
-        <p className="text-center font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">{t("Confidential · Professional review · Written agreements", "Confidencial · Revisión profesional · Acuerdos escritos")} · {CONTACT.shortLicense}</p>
+        <p className="text-center font-mono text-xs uppercase tracking-[0.12em] text-navy/70">{t("Confidential · Professional review · Written agreements", "Confidencial · Revisión profesional · Acuerdos escritos")} · {CONTACT.shortLicense}</p>
       </form>
     </div>
   );
 }
 function Field({id, label, children}: {id: string; label: string; children: React.ReactNode}) {
-  return <div className="flex flex-col gap-1.5"><label htmlFor={id} className="font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">{label}</label>{children}</div>;
+  return <div className="flex flex-col gap-1.5"><label htmlFor={id} className="font-mono text-xs uppercase tracking-[0.12em] text-navy/70">{label}</label>{children}</div>;
 }

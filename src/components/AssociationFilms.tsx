@@ -130,7 +130,7 @@ export function AssociationFilms({
         <div className="overflow-hidden border border-[#e8d1a760] bg-[#071722f2] shadow-2xl backdrop-blur-md">
           {/* Top 4-Channel Selector Bar */}
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/15 bg-black/30 px-3.5 py-2.5">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#e8d1a7]">
+            <span className="font-mono text-xs uppercase tracking-[0.12em] text-[#e8d1a7]">
               {t.featureTitle}
             </span>
             <div className="flex flex-wrap gap-1.5" role="tablist" aria-label={t.heading}>
@@ -143,7 +143,7 @@ export function AssociationFilms({
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => select(key)}
-                    className={`px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors cursor-pointer ${
+                    className={`px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] transition-colors cursor-pointer ${
                       isSelected
                         ? "bg-[#d7bc8b] text-[#071722] font-semibold"
                         : "border border-white/20 bg-white/[0.04] text-white/75 hover:border-[#d7bc8b] hover:text-white"
@@ -177,11 +177,11 @@ export function AssociationFilms({
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/10 px-4 py-3">
             <div>
               <p className="font-serif text-base text-white">{film.title}</p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#e8d1a7]">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-[#e8d1a7]">
                 {lang === "es" ? film.subtitleEs : film.subtitleEn}
               </p>
             </div>
-            <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white/55">
+            <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/55">
               {t.source}
             </span>
           </div>
@@ -218,7 +218,7 @@ export function AssociationFilms({
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => select(key)}
-                    className={`px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors cursor-pointer ${
+                    className={`px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] transition-colors cursor-pointer ${
                       isSelected
                         ? "bg-[#d7bc8b] text-[#071722] font-semibold"
                         : "border border-white/20 bg-white/[0.04] text-white/75 hover:border-[#d7bc8b] hover:text-white"
@@ -247,7 +247,7 @@ export function AssociationFilms({
           </div>
           <div className="px-3.5 py-2.5">
             <p className="font-serif text-sm text-white">{film.title}</p>
-            <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-[#e8d1a7]">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-[#e8d1a7]">
               {lang === "es" ? film.subtitleEs : film.subtitleEn}
             </p>
           </div>

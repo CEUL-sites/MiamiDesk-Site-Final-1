@@ -106,7 +106,7 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
           <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold md:mb-6">
             <CheckCircle2 size={34} />
           </div>
-          <div className="font-mono mb-3 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Request Received</div>
+          <div className="font-mono mb-3 text-xs uppercase tracking-[0.12em] text-gold-ink">Request Received</div>
           <Heading className="font-serif text-2xl text-navy md:text-3xl">Our team will review your inquiry.</Heading>
           <p className="mx-auto mt-4 max-w-md font-sans text-sm leading-relaxed text-navy/70">
             Your request has been routed through HomesProfessional.com. For urgent timing, use WhatsApp at {CONTACT.phoneUS}.
@@ -125,7 +125,7 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
       <div className="absolute right-0 top-0 h-32 w-32 -translate-y-16 translate-x-16 -rotate-45 bg-ivory" />
       <div className="relative z-10">
         <div className={`${compactHeading ? "contact-form-heading " : ""}mb-5 md:mb-8`}>
-          <div className="font-mono mb-2 text-[10px] uppercase tracking-[0.35em] text-gold-ink">Private Access · Carlos Uzcategui</div>
+          <div className="font-mono mb-2 text-xs uppercase tracking-[0.12em] text-gold-ink">Private Access · Carlos Uzcategui</div>
           <Heading className="font-serif text-2xl text-navy md:text-3xl">{contactMode ? intentLabel : "Request a Seller Strategy Review"}</Heading>
           <p className="mt-3 font-sans text-[13px] font-light leading-relaxed text-navy/70">
             {contactMode ? "Share your objectives and how Carlos can reach you. Property details are optional for buyers, partners and referrals." : "Share your property address, timing and objectives so Carlos can prepare for your conversation."}
@@ -194,7 +194,7 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
             )}
           </p>
 
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-navy/70">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
             <span className="text-navy/70">Prefer to talk now?</span>
             <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-gold-ink underline hover:text-gold-deep">
               WhatsApp US +1 954-865-6622
@@ -208,7 +208,7 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
             {status === "submitting" ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />}
             {status === "submitting" ? "Sending…" : "Request a Private Conversation"}
           </button>
-          <p className="font-mono text-center text-[11px] uppercase tracking-[0.2em] text-navy/70">
+          <p className="font-mono text-center text-xs uppercase tracking-[0.12em] text-navy/70">
             {PUBLIC_COMPLIANCE}
           </p>
         </form>

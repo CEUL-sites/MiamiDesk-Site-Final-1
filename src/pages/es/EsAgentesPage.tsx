@@ -106,7 +106,7 @@ export default function EsAgentesPage() {
             >
               <motion.p
                 variants={itemVariants}
-                className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+                className="font-mono text-xs uppercase tracking-[0.12em] text-gold"
               >
                 {/* TODO: native Madrid editor review */}
                 CARLOS UZCATEGUI · REALTOR® LICENCIADO EN FLORIDA · SL705771
@@ -141,7 +141,7 @@ export default function EsAgentesPage() {
               >
                 <a
                   href="#referral-form"
-                  className="group inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                  className="group inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
                 >
                   {/* TODO: native Madrid editor review */}
                   Enviar una referencia de colaboración
@@ -150,7 +150,7 @@ export default function EsAgentesPage() {
                   href={CONTACT.whatsappUS}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                  className="inline-flex items-center gap-2 border border-white/20 px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
                 >
                   <ExternalLink size={13} />
                   {/* TODO: native Madrid editor review */}
@@ -167,7 +167,7 @@ export default function EsAgentesPage() {
         <section className="bg-white py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 EL MODELO DE COLABORACIÓN
               </p>
@@ -195,7 +195,7 @@ export default function EsAgentesPage() {
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {/* Track A */}
               <div className="rounded-none border border-gold/20 bg-navy-deep p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   {/* TODO: native Madrid editor review */}
                   TRACK A — REFERENCIAS DE VENDEDORES PARA MIAMI
                 </p>
@@ -205,7 +205,7 @@ export default function EsAgentesPage() {
                   clientes que desean listar en Florida. El acuerdo de referral
                   se firma antes de presentar al cliente.
                 </p>
-                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Track A está diseñado para
                 </p>
@@ -238,7 +238,7 @@ export default function EsAgentesPage() {
 
               {/* Track B */}
               <div className="border border-gold/10 bg-navy/80 p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   {/* TODO: native Madrid editor review */}
                   TRACK B — REFERENCIAS DE COMPRADORES E INVERSORES
                 </p>
@@ -249,7 +249,7 @@ export default function EsAgentesPage() {
                   inversores. Representación completa de comprador
                   en Florida.
                 </p>
-                <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                <p className="mt-5 font-mono text-xs uppercase tracking-[0.12em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Track B está diseñado para
                 </p>
@@ -291,7 +291,7 @@ export default function EsAgentesPage() {
         <section className="bg-bone/40 py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 LA INFRAESTRUCTURA DE DISTRIBUCIÓN
               </p>
@@ -316,14 +316,14 @@ export default function EsAgentesPage() {
                 <div className="font-serif text-3xl text-navy-deep">
                   {ASSOCIATION_STATS.memberCount.toLocaleString("es-ES")}
                 </div>
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Agentes miembro
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
                 <div className="font-serif text-3xl text-navy-deep">200+</div>
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Portales globales · 19 idiomas
                 </div>
@@ -332,7 +332,7 @@ export default function EsAgentesPage() {
                 <div className="font-serif text-3xl text-navy-deep">
                   {ASSOCIATION_STATS.usMls}
                 </div>
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   MLSs en EE.UU. vía RPR
                 </div>
@@ -341,13 +341,13 @@ export default function EsAgentesPage() {
                 <div className="font-serif text-3xl text-navy-deep">
                   3.500+
                 </div>
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold/70">
                   Agentes URG · 19 sedes en Florida
                 </div>
               </div>
               <div className="bg-white p-6 text-center">
                 <div className="font-serif text-3xl text-navy-deep">437+</div>
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Acuerdos internacionales
                 </div>
@@ -356,7 +356,7 @@ export default function EsAgentesPage() {
                 <div className="font-serif text-3xl text-navy-deep">
                   {ASSOCIATION_STATS.mlsDataExchanges}
                 </div>
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70">
+                <div className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold/70">
                   {/* TODO: native Madrid editor review */}
                   Intercambios de datos MLS
                 </div>
@@ -378,7 +378,7 @@ export default function EsAgentesPage() {
         <section className="bg-navy-deep py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 TRACK ESPAÑA
               </p>
@@ -445,7 +445,7 @@ export default function EsAgentesPage() {
                   key={step.number}
                   className="border-l-2 border-gold/30 pl-6"
                 >
-                  <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                  <div className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     {step.number} · {step.title}
                   </div>
                   <p className="mt-2 font-sans text-sm leading-relaxed text-white/60">
@@ -460,7 +460,7 @@ export default function EsAgentesPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 bg-gold px-8 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 <ExternalLink size={13} />
                 {/* TODO: native Madrid editor review */}
@@ -474,7 +474,7 @@ export default function EsAgentesPage() {
         <section className="bg-white py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 TÉRMINOS Y TRANSPARENCIA
               </p>
@@ -509,7 +509,7 @@ export default function EsAgentesPage() {
                 },
               ].map((item) => (
                 <div key={item.number} className="flex gap-5">
-                  <div className="flex-shrink-0 font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                  <div className="flex-shrink-0 font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     {item.number}
                   </div>
                   <p className="font-sans text-base leading-relaxed text-navy-deep/70">
@@ -519,7 +519,7 @@ export default function EsAgentesPage() {
               ))}
             </div>
 
-            <p className="mx-auto mt-10 max-w-3xl font-sans text-sm leading-relaxed text-navy-deep/50">
+            <p className="mx-auto mt-10 max-w-3xl font-sans text-sm leading-relaxed text-navy-deep/70">
               {/* TODO: native Madrid editor review */}
               Honorarios a agentes no licenciados en EE.UU. están sujetos a
               Florida Statute §475 y normas de RESPA. El acuerdo especificará la
@@ -527,7 +527,7 @@ export default function EsAgentesPage() {
             </p>
 
             <div className="mx-auto mt-10 max-w-3xl border-l-4 border-gold bg-navy-deep p-8">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-white">
+              <h3 className="font-mono text-xs uppercase tracking-[0.12em] text-white">
                 {/* TODO: native Madrid editor review */}
                 LO QUE ESTE DESPACHO NO HACE
               </h3>
@@ -564,7 +564,7 @@ export default function EsAgentesPage() {
         <section className="bg-bone/40 py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 EL PRINCIPAL
               </p>
@@ -608,7 +608,7 @@ export default function EsAgentesPage() {
                   className="flex items-center gap-3 border border-gold/30 px-5 py-4"
                 >
                   <BadgeCheck size={14} className="flex-shrink-0 text-gold" />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep/70">
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-navy-deep/70">
                     {badge}
                   </span>
                 </div>
@@ -621,7 +621,7 @@ export default function EsAgentesPage() {
         <section className="bg-white py-20">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 PREGUNTAS FRECUENTES
               </p>
@@ -688,7 +688,7 @@ export default function EsAgentesPage() {
         <section id="referral-form" className="bg-navy-deep py-14 md:py-20">
           <div className="mx-auto max-w-3xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 MESA DE AGENTES · COLABORACIÓN BILATERAL
               </p>
@@ -714,7 +714,7 @@ export default function EsAgentesPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-gold/40 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10"
+                className="inline-flex items-center gap-2 border border-gold/40 px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors hover:bg-gold/10"
               >
                 <ExternalLink size={13} />
                 {/* TODO: native Madrid editor review */}
@@ -724,7 +724,7 @@ export default function EsAgentesPage() {
                 href={CONTACT.whatsappUS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-6 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2 border border-white/20 px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 <ExternalLink size={13} />
                 {/* TODO: native Madrid editor review */}
@@ -734,7 +734,7 @@ export default function EsAgentesPage() {
 
             {/* Spain activation PDF download */}
             <div className="mt-8 border border-gold/25 bg-gold/5 p-6">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {/* TODO: native Madrid editor review */}
                 Documento de referencia
               </p>
@@ -744,7 +744,7 @@ export default function EsAgentesPage() {
               <a
                 href={LEAD_MAGNETS.spainActivation.url}
                 download
-                className="mt-4 inline-flex items-center gap-2 border border-gold/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold transition-colors hover:bg-gold/10"
+                className="mt-4 inline-flex items-center gap-2 border border-gold/40 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors hover:bg-gold/10"
               >
                 <Download size={13} />
                 {/* TODO: native Madrid editor review */}
@@ -757,7 +757,7 @@ export default function EsAgentesPage() {
         {/* ─── Footer Disclaimer ────────────────────────────────── */}
         <div className="bg-navy-deep border-t border-white/5 py-8">
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               {/* TODO: native Madrid editor review */}
               Carlos Uzcategui, REALTOR® · Licencia de Florida SL705771 · Afiliado a
               United Realty Group · Miembro de Miami and South Florida

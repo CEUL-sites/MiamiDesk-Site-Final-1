@@ -258,7 +258,7 @@ export default function AboutPage() {
         <section className="border-b border-bone/20 bg-navy-deep px-6 pt-32 pb-16 sm:px-10 lg:pt-36 lg:pb-20">
           <div className="mx-auto max-w-6xl">
             <nav aria-label="Breadcrumb" className="mb-6">
-              <ol className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">
+              <ol className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                 <li><Link to="/" className="hover:text-gold transition-colors">Home</Link></li>
                 <li aria-hidden="true">/</li>
                 <li className="text-gold">About</li>
@@ -267,7 +267,7 @@ export default function AboutPage() {
 
             <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Principal &amp; Florida Licensed REALTOR® · Since 2001
                 </p>
                 <h1 className="mt-4 font-serif text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
@@ -308,10 +308,10 @@ export default function AboutPage() {
                     height="384"
                   />
                   <div className="border-t border-gold/30 bg-navy-deep px-4 py-3 text-center">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                       Carlos Uzcategui · SL705771
                     </p>
-                    <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-white/60">
+                    <p className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                       United Realty Group · Bilingual EN / ES
                     </p>
                   </div>
@@ -326,7 +326,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl">
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold-ink">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                   Institutional Practice · Scope of Representation
                 </p>
                 <h2 className="mt-3 font-serif text-3xl text-navy md:text-4xl lg:text-5xl">
@@ -364,7 +364,7 @@ export default function AboutPage() {
                   >
                     <div className="flex items-center justify-between gap-2">
                       <span
-                        className={`font-mono text-[10px] uppercase tracking-[0.2em] ${
+                        className={`font-mono text-xs uppercase tracking-[0.12em] ${
                           isSelected ? "text-gold" : "text-gold-ink"
                         }`}
                       >
@@ -402,14 +402,14 @@ export default function AboutPage() {
                       <div>
                         <div className="inline-flex items-center gap-2.5 border border-gold/40 bg-white px-3.5 py-1.5">
                           <Icon size={15} className="text-gold-ink" />
-                          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+                          <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                             {pillar.badge}
                           </span>
                         </div>
                         <h3 className="mt-4 font-serif text-2xl text-navy md:text-3xl">
                           {pillar.title}
                         </h3>
-                        <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-ink">
+                        <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                           {pillar.headline}
                         </p>
                         <p className="mt-4 font-sans text-sm leading-relaxed text-navy/75 md:text-base">
@@ -428,7 +428,7 @@ export default function AboutPage() {
                         <div className="mt-6">
                           <Link
                             to={pillar.ctaHref}
-                            className="inline-flex items-center gap-2 bg-navy-deep px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy"
+                            className="inline-flex items-center gap-2 bg-navy-deep px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-gold hover:text-navy"
                           >
                             {pillar.ctaLabel}
                             <ArrowRight size={13} />
@@ -443,7 +443,7 @@ export default function AboutPage() {
                             key={m.label}
                             className="flex items-center justify-between border border-bone bg-white px-5 py-4"
                           >
-                            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-navy/65">
+                            <span className="font-mono text-xs uppercase tracking-[0.12em] text-navy/65">
                               {m.label}
                             </span>
                             <span className="font-serif text-2xl text-navy-deep">
@@ -476,7 +476,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                   Direct Access · Private Review
                 </p>
                 <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">
@@ -488,7 +488,7 @@ export default function AboutPage() {
 
                 {/* Direct Channels Ledger */}
                 <div className="mt-8 space-y-3.5 border border-white/15 bg-white/[0.03] p-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     Direct Advisory Channels
                   </p>
                   <div className="grid gap-3 sm:grid-cols-2">
@@ -500,7 +500,7 @@ export default function AboutPage() {
                     >
                       <Phone size={16} className="mt-0.5 shrink-0 text-gold" />
                       <div className="min-w-0">
-                        <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
+                        <span className="block font-mono text-xs uppercase tracking-[0.12em] text-white/55">
                           Direct &amp; WhatsApp (U.S.)
                         </span>
                         <span className="mt-1 block font-sans text-sm font-medium text-white">
@@ -514,7 +514,7 @@ export default function AboutPage() {
                     >
                       <Mail size={16} className="mt-0.5 shrink-0 text-gold" />
                       <div className="min-w-0">
-                        <span className="block font-mono text-[9px] uppercase tracking-[0.18em] text-white/55">
+                        <span className="block font-mono text-xs uppercase tracking-[0.12em] text-white/55">
                           Direct Email
                         </span>
                         <span className="mt-1 block break-all font-sans text-sm font-medium text-white">
@@ -559,7 +559,7 @@ export default function AboutPage() {
         {/* Section 5: Principal Advisory FAQ */}
         <section className="border-t border-bone bg-ivory px-6 py-16 md:py-20">
           <div className="mx-auto max-w-4xl">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold-ink">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
               Principal Governance · FAQ
             </p>
             <h2 className="mt-3 font-serif text-3xl text-navy md:text-4xl">

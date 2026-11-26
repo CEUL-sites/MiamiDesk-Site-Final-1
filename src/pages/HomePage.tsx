@@ -6,7 +6,6 @@ import { ListingsBrowser } from "../components/listings/ListingsBrowser";
 import { HomepageListingApproach } from "../components/HomepageListingApproach";
 import { Proof } from "../components/Proof";
 import { HomepageObjectives } from "../components/HomepageObjectives";
-import { HomepageCityLinks } from "../components/HomepageCityLinks";
 import { HomepageConsultation } from "../components/HomepageConsultation";
 import { Footer } from "../components/Footer";
 import { MobileStickyCTA } from "../components/MobileStickyCTA";
@@ -56,8 +55,7 @@ export default function HomePage() {
         <Proof />
         {/* Section D: Choose Your Property Objective */}
         <HomepageObjectives />
-        {/* Section D2: City seller guides (internal links) */}
-        <HomepageCityLinks />
+        {/* City seller guides live in the footer market directory (same links, one list). */}
         {/* Section E: Meet Carlos / Private Consultation */}
         <HomepageConsultation
           initialAddress={addressTransfer?.address ?? ""}

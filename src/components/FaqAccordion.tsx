@@ -95,7 +95,7 @@ export function FaqAccordion({
               >
                 <span
                   aria-hidden="true"
-                  className={`mt-1 shrink-0 font-mono text-[10px] tabular-nums tracking-[0.18em] ${index}`}
+                  className={`mt-1 shrink-0 font-mono text-xs tabular-nums tracking-[0.12em] ${index}`}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>

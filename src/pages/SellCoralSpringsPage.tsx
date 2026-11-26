@@ -93,7 +93,7 @@ export default function SellCoralSpringsPage() {
           <LazyVideo idle src="/videos/matterport_tour_global.mp4" className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Coral Springs, FL · Seller Advisory</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Coral Springs, FL · Seller Advisory</p>
             <HeroTitle
               lead="Sell your Coral Springs home with the reach"
               payoff="of the world's largest local REALTOR® association."
@@ -134,23 +134,23 @@ export default function SellCoralSpringsPage() {
                   </svg>
                 ))}
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
               </span>
             </div>
 
             <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
               <p className="font-sans text-sm italic leading-relaxed text-white/55">"School zone positioning made all the difference. Carlos knew exactly which buyers were active in our section of Coral Springs and how to reach them."</p>
-              <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/50">— Sandra V., Coral Springs, FL</footer>
+              <footer className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-gold/50">— Sandra V., Coral Springs, FL</footer>
             </blockquote>
 
             <div className="mt-5 flex items-center justify-center gap-2">
-              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
+              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
                 Or download the Seller's Net Sheet 2026
               </a>
             </div>
-            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               United Realty Group · CLHMS · FL SL705771 · 25 Years Licensed in Florida · Office: Weston, FL 33331
             </p>
             <HeroReachBar />
@@ -160,7 +160,7 @@ export default function SellCoralSpringsPage() {
         {/* Market positioning */}
         <section className="bg-ivory py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why Coral Springs</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Why Coral Springs</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               A master-planned Broward community with consistent school-driven family buyer demand.
             </h2>
@@ -176,7 +176,7 @@ export default function SellCoralSpringsPage() {
                 { label: "Community Type", value: "Planned & Gated", sub: "A range of options from established to master-planned sections" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{stat.label}</p>
                   <p className="mt-3 font-serif text-2xl text-navy-deep">{stat.value}</p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{stat.sub}</p>
                 </div>
@@ -190,7 +190,7 @@ export default function SellCoralSpringsPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-12 md:grid-cols-2 md:items-center">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Network Advantage</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">The Network Advantage</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
                   Your Coral Springs listing reaches every buyer,<br />
                   <em className="italic text-gold">everywhere they're looking.</em>
@@ -221,7 +221,7 @@ export default function SellCoralSpringsPage() {
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
                     <p className="font-sans text-sm text-white/65">{step.text}</p>
                   </div>
                 ))}
@@ -234,7 +234,7 @@ export default function SellCoralSpringsPage() {
         <section className="border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Coral Springs Sellers Ask</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Coral Springs Sellers Ask</p>
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Common questions.</h2>
             </div>
             <FaqAccordion faqs={CORAL_SPRINGS_FAQS} />
@@ -244,15 +244,15 @@ export default function SellCoralSpringsPage() {
         {/* Journal crosslinks */}
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">Coral Springs Market Research</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-6">Coral Springs Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
               <a href="/journal/selling-coral-springs-home-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">Selling Your Coral Springs Home — How School-Zone Positioning Drives Buyer Demand</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the seller guide →</p>
               </a>
               <a href="/journal/hoa-impact-home-sale-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Strategy</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 mb-3">Seller Strategy</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">HOA Financials and Your Home's Sale Price — What Coral Springs Sellers Need to Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the HOA guide →</p>
               </a>
@@ -269,14 +269,14 @@ export default function SellCoralSpringsPage() {
         <section className="bg-navy-deep py-16 md:py-24" id="contact">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Coral Springs Seller Review</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Coral Springs Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/60">
                 No listing commitment required. Our team reviews every Coral Springs submission before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-coral-springs" />
-            <div className="mt-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <div className="mt-6 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professional · Equal Housing Opportunity
             </div>

@@ -29,7 +29,7 @@ export function AdvisorBrand() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="font-mono text-[10px] uppercase tracking-[0.32em] text-gold"
+                className="font-mono text-xs uppercase tracking-[0.12em] text-gold"
               >
                 Carlos Uzcategui · FL SL705771 · Since 2001
               </motion.p>
@@ -67,7 +67,7 @@ export function AdvisorBrand() {
                 {["CLHMS", "Certified Seller Rep", "United Realty Group", "Licensed Since 2001"].map((badge) => (
                   <span
                     key={badge}
-                    className="border border-gold/35 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/80"
+                    className="border border-gold/35 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/80"
                   >
                     {badge}
                   </span>
@@ -83,7 +83,7 @@ export function AdvisorBrand() {
               >
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-gold px-7 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
+                  className="inline-flex items-center gap-2 bg-gold px-7 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy transition-opacity hover:opacity-90"
                 >
                   Private Strategy Review →
                 </a>
@@ -91,7 +91,7 @@ export function AdvisorBrand() {
                   href={CONTACT.whatsappUS}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/25 px-7 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/75 transition-colors hover:border-gold hover:text-gold"
+                  className="inline-flex items-center gap-2 border border-white/25 px-7 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/75 transition-colors hover:border-gold hover:text-gold"
                 >
                   WhatsApp Carlos
                 </a>

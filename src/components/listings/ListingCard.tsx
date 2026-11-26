@@ -14,10 +14,10 @@ function StatusBadge({ status }: { status: string | undefined }) {
     ? "bg-amber-500/20 text-amber-300 border-amber-500/30"
     : isActive
     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/30"
-    : "bg-white/10 text-white/50 border-white/15";
+    : "bg-white/10 text-white/60 border-white/15";
 
   return (
-    <span className={`inline-block border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.2em] ${colorClass}`}>
+    <span className={`inline-block border px-2 py-0.5 font-mono text-xs uppercase tracking-[0.12em] ${colorClass}`}>
       {label}
     </span>
   );
@@ -55,19 +55,19 @@ export function ListingCard({
             />
           ) : (
             <div className="flex h-full items-center justify-center bg-navy/30">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 Photo unavailable
               </span>
             </div>
           )}
           <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-navy-deep via-navy-deep/40 to-transparent" />
           {listing.PropertyType && (
-            <div className="absolute left-3 top-3 bg-gold px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-navy-deep shadow">
+            <div className="absolute left-3 top-3 bg-gold px-2.5 py-1 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-navy-deep shadow">
               {listing.PropertyType}
             </div>
           )}
           {interactive && (
-            <div className="absolute bottom-3 right-3 border border-gold/40 bg-navy-deep/85 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-gold opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
+            <div className="absolute bottom-3 right-3 border border-gold/40 bg-navy-deep/85 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
               Interactive Gallery →
             </div>
           )}
@@ -87,7 +87,7 @@ export function ListingCard({
               {listing.UnparsedAddress ?? "Address on request"}
             </p>
             {locality && (
-              <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
+              <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 {locality}
               </p>
             )}
@@ -95,16 +95,16 @@ export function ListingCard({
 
           <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-white/10 pt-3">
             {listing.BedroomsTotal != null && (
-              <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/75">{listing.BedroomsTotal} bd</span>
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/75">{listing.BedroomsTotal} bd</span>
             )}
             {listing.BathroomsTotalDecimal != null && (
-              <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/75">{listing.BathroomsTotalDecimal} ba</span>
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/75">{listing.BathroomsTotalDecimal} ba</span>
             )}
             {listing.LivingArea != null && listing.LivingArea > 0 && (
-              <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/75">{listing.LivingArea.toLocaleString()} sqft</span>
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/75">{listing.LivingArea.toLocaleString()} sqft</span>
             )}
             {interactive && (
-              <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.15em] text-gold transition-colors group-hover:text-white">
+              <span className="ml-auto font-mono text-xs uppercase tracking-[0.12em] text-gold transition-colors group-hover:text-white">
                 Inspect →
               </span>
             )}

@@ -48,12 +48,12 @@ export function LanguageSwitcher({ onLight = false }: { onLight?: boolean }) {
     : (EN_TO_ES[path] ?? "/es");
 
   const baseClass =
-    "inline-flex min-h-11 min-w-11 items-center justify-center font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-200 xl:min-h-0 xl:min-w-0 xl:px-2 xl:py-1";
+    "inline-flex min-h-11 min-w-11 items-center justify-center font-mono text-xs uppercase tracking-[0.12em] transition-colors duration-200 xl:min-h-0 xl:min-w-0 xl:px-2 xl:py-1";
   const activeClass = "text-gold font-semibold";
   const inactiveClass = onLight
-    ? "text-navy/45 hover:text-gold"
-    : "text-white/45 hover:text-gold";
-  const dividerClass = onLight ? "text-navy/70 text-[10px]" : "text-white/70 text-[10px]";
+    ? "text-navy/70 hover:text-gold"
+    : "text-white/60 hover:text-gold";
+  const dividerClass = onLight ? "text-navy/70 text-xs" : "text-white/70 text-xs";
 
   return (
     <div className="flex items-center gap-1" aria-label="Language selector">

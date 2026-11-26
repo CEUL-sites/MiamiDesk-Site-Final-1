@@ -223,7 +223,7 @@ export default function SellSouthFloridaPage() {
           <div className="mx-auto max-w-7xl px-6">
             <div className="flex flex-col justify-between gap-4 mb-8 md:flex-row md:items-end">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                   Seller Research &amp; Advisory
                 </p>
                 <h2 id="research-library-heading" className="mt-2 font-serif text-2xl text-navy-deep sm:text-3xl md:text-4xl">
@@ -241,7 +241,7 @@ export default function SellSouthFloridaPage() {
                     key={tab.id}
                     type="button"
                     onClick={() => setGuideFilter(tab.id as "all" | "tax" | "market")}
-                    className={`rounded-md px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                    className={`rounded-md px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.14em] transition-all ${
                       guideFilter === tab.id
                         ? "bg-navy-deep text-gold font-bold"
                         : "text-navy/70 hover:text-navy-deep"
@@ -265,10 +265,10 @@ export default function SellSouthFloridaPage() {
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2">
-                        <span className="rounded bg-ivory px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-gold-ink font-semibold">
+                        <span className="rounded bg-ivory px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                           {guide.tag}
                         </span>
-                        <ArrowUpRight size={15} className="text-navy/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold-ink" />
+                        <ArrowUpRight size={15} className="text-navy/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold-ink" />
                       </div>
                       <h3 className="mt-3 font-serif text-lg leading-snug text-navy-deep group-hover:text-gold-ink transition-colors">
                         {guide.title}
@@ -277,7 +277,7 @@ export default function SellSouthFloridaPage() {
                         {guide.takeaway}
                       </p>
                     </div>
-                    <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-navy font-semibold">
+                    <p className="mt-4 font-mono text-xs uppercase tracking-[0.14em] text-navy font-semibold">
                       Open Briefing →
                     </p>
                   </a>
@@ -291,7 +291,7 @@ export default function SellSouthFloridaPage() {
         <section className="bg-navy-deep py-16 md:py-24 text-white" id="contact" aria-labelledby="seller-intake-heading">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-8 text-center md:mb-12">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-semibold">
                 Private Advisory Desk
               </p>
               <h2 id="seller-intake-heading" className="mt-2 font-serif text-3xl text-white sm:text-4xl">
@@ -304,7 +304,7 @@ export default function SellSouthFloridaPage() {
 
             <SellerIntakeForm sourcePage="sell-south-florida" />
 
-            <div className="mt-6 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <div className="mt-6 flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity
             </div>

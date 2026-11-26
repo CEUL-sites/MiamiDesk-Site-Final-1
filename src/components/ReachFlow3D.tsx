@@ -101,7 +101,7 @@ export function ReachFlow3D({ className = "" }: { className?: string }) {
                 >
                   {s.value}
                 </div>
-                <div className="font-mono text-[9px] uppercase leading-snug tracking-[0.14em] text-white/65">
+                <div className="font-mono text-xs uppercase leading-snug tracking-[0.14em] text-white/65">
                   {s.label}
                 </div>
               </div>
@@ -126,7 +126,7 @@ export function ReachFlow3D({ className = "" }: { className?: string }) {
         ))}
       </div>
 
-      <p className="mt-5 text-center font-mono text-[9px] uppercase leading-relaxed tracking-[0.12em] text-gold/60">
+      <p className="mt-5 text-center font-mono text-xs uppercase leading-relaxed tracking-[0.12em] text-gold/60">
         {FIGURE_SOURCES}
       </p>
     </div>

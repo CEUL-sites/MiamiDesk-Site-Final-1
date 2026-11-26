@@ -171,7 +171,7 @@ export function GlobalActivationFlow({ stages, ariaLabel, selectedLabel }: Props
         aria-live="polite"
         className="mx-auto -mt-4 max-w-3xl border-t border-bone pt-5 text-center md:-mt-7"
       >
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-ink">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
           {selectedLabel} {selected + 1} / {stages.length}
         </p>
         <p className="mt-2 font-sans text-sm leading-relaxed text-navy/75 md:text-base">

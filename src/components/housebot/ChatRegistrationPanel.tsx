@@ -114,13 +114,13 @@ export function ChatRegistrationPanel({ lang, sessionToken, summary, onUnlocked,
   }
 
   const field =
-    "w-full rounded-lg bg-white/5 px-3 py-2.5 font-sans text-base text-white placeholder:text-white/50 outline-none ring-1 ring-white/15 focus:ring-gold/50 sm:text-sm";
+    "w-full rounded-lg bg-white/5 px-3 py-2.5 font-sans text-base text-white placeholder:text-white/60 outline-none ring-1 ring-white/15 focus:ring-gold/50 sm:text-sm";
 
   return (
     <form onSubmit={submit} noValidate className="border border-gold/35 bg-gold/[0.06] p-4" aria-labelledby="ai-desk-reg-title">
       <div className="mb-2 flex items-center gap-2">
         <ShieldCheck size={15} className="shrink-0 text-gold" aria-hidden="true" />
-        <p id="ai-desk-reg-title" className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{t.regTitle}</p>
+        <p id="ai-desk-reg-title" className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.regTitle}</p>
       </div>
       <p className="mb-4 font-sans text-sm leading-relaxed text-white/80">{t.regBody}</p>
 
@@ -145,9 +145,9 @@ export function ChatRegistrationPanel({ lang, sessionToken, summary, onUnlocked,
           <span className="sr-only">{t.phone}</span>
           <input className={field} type="tel" placeholder={t.phone} autoComplete="tel" maxLength={40} value={form.phone} onChange={(e) => set("phone")(e.target.value)} />
         </label>
-        <p className="font-sans text-[11px] text-white/60">{t.contactHint}</p>
+        <p className="font-sans text-xs text-white/60">{t.contactHint}</p>
         <label className="block">
-          <span className="mb-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">{t.interest}</span>
+          <span className="mb-1 block font-mono text-xs uppercase tracking-[0.12em] text-white/70">{t.interest}</span>
           <select className={field} value={form.interest} onChange={(e) => set("interest")(e.target.value)}>
             {t.interests.map(([v, label]) => (
               <option key={v} value={v} className="bg-navy-deep">{label}</option>
@@ -161,7 +161,7 @@ export function ChatRegistrationPanel({ lang, sessionToken, summary, onUnlocked,
             checked={form.messagingConsent === "yes"}
             onChange={(e) => set("messagingConsent")(e.target.checked ? "yes" : "no")}
           />
-          <span className="font-sans text-[10px] leading-[1.45] text-white/70">{t.consent}</span>
+          <span className="font-sans text-xs leading-[1.45] text-white/70">{t.consent}</span>
         </label>
       </div>
 
@@ -170,11 +170,11 @@ export function ChatRegistrationPanel({ lang, sessionToken, summary, onUnlocked,
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-4 inline-flex w-full items-center justify-center gap-2 bg-gold px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="mt-4 inline-flex w-full items-center justify-center gap-2 bg-gold px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90 disabled:opacity-60"
       >
         {status === "submitting" ? <><Loader2 size={13} className="animate-spin" aria-hidden="true" /> {t.submitting}</> : t.submit}
       </button>
-      <p className="mt-3 font-sans text-[10px] text-white/60">
+      <p className="mt-3 font-sans text-xs text-white/60">
         {t.privacy}{" "}
         <a href="/privacy" className="underline hover:text-gold">{t.privacyLink}</a>
       </p>

@@ -117,7 +117,7 @@ export function Proof({ lang = "en" }: { lang?: "en" | "es" } = {}) {
                     className={selected ? "text-gold shrink-0" : "text-gold-ink shrink-0"}
                     aria-hidden="true"
                   />
-                  <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] leading-tight">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-[0.12em] leading-tight">
                     {mode.label}
                   </span>
                 </button>
@@ -140,7 +140,7 @@ export function Proof({ lang = "en" }: { lang?: "en" | "es" } = {}) {
             </a>
 
             <details className="text-xs text-navy/65">
-              <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.14em] text-navy/70 hover:text-gold-ink">
+              <summary className="cursor-pointer font-mono text-xs uppercase tracking-[0.14em] text-navy/70 hover:text-gold-ink">
                 {es ? "Condiciones y notas ↓" : "Transition & Proceeds Note ↓"}
               </summary>
               <p className="mt-2 max-w-md text-xs leading-relaxed text-navy/75">
@@ -162,7 +162,7 @@ export function Proof({ lang = "en" }: { lang?: "en" | "es" } = {}) {
               <p className="story-eyebrow text-gold-soft">
                 {es ? "Experiencias de clientes" : "Client experiences"}
               </p>
-              <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white/60">
+              <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 {es ? "Verificado en Realtor.com®" : "Verified Realtor.com®"}
               </span>
             </div>

@@ -60,7 +60,7 @@ export function NearbyMarkets({ current }: { current: string }) {
   return (
     <section className="bg-white border-t border-hairline py-10">
       <div className="mx-auto max-w-5xl px-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold mb-5">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-5">
           Nearby Markets
         </p>
         <div className="flex flex-wrap gap-3">
@@ -68,14 +68,14 @@ export function NearbyMarkets({ current }: { current: string }) {
             <Link
               key={n.slug}
               to={`/${n.slug}`}
-              className="border border-hairline px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-primary/60 hover:border-gold/50 hover:text-gold transition-colors"
+              className="border border-hairline px-5 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-ink-primary/60 hover:border-gold/50 hover:text-gold transition-colors"
             >
               Sell in {n.label} →
             </Link>
           ))}
           <Link
             to="/sell"
-            className="border border-gold/40 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:bg-gold/5 transition-colors"
+            className="border border-gold/40 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-gold hover:bg-gold/5 transition-colors"
           >
             All South Florida →
           </Link>

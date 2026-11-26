@@ -48,7 +48,7 @@ export function InternationalBridge() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold"
+            className="font-mono text-xs uppercase tracking-[0.12em] text-gold"
           >
             Miami Global Listing Desk
           </motion.p>
@@ -82,7 +82,7 @@ export function InternationalBridge() {
             {["Miami · FL", "Madrid · España", "LATAM Network"].map((tag) => (
               <span key={tag} className="flex items-center gap-2 border border-gold/30 bg-white/5 px-4 py-2 backdrop-blur-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/80">{tag}</span>
+                <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold/80">{tag}</span>
               </span>
             ))}
           </motion.div>
@@ -106,11 +106,11 @@ export function InternationalBridge() {
 
         <div className="mt-16 border-y border-gold/20">
           <div className="bg-white/[0.04] p-8 backdrop-blur-sm lg:p-10">
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">For Spain · Agencies · Developers</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">For Spain · Agencies · Developers</p>
             <p className="mt-4 max-w-4xl font-sans text-base leading-relaxed text-white/80">{SPAIN_COPY}</p>
           </div>
           <div className="border-t border-gold/20 bg-white/[0.04] p-8 backdrop-blur-sm lg:p-10">
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold">For South Florida Owners</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">For South Florida Owners</p>
             <p className="mt-4 max-w-4xl font-sans text-base leading-relaxed text-white/80">{OWNER_COPY}</p>
           </div>
         </div>
@@ -132,7 +132,7 @@ export function InternationalBridge() {
               Connect With Carlos
             </a>
           </div>
-          <p className="font-mono mt-6 text-[10px] uppercase tracking-[0.22em] text-gold/70">{CONTACT.email} · USA WhatsApp {CONTACT.phoneUS} · Spain WhatsApp {CONTACT.phoneSpain}</p>
+          <p className="font-mono mt-6 text-xs uppercase tracking-[0.12em] text-gold/70">{CONTACT.email} · USA WhatsApp {CONTACT.phoneUS} · Spain WhatsApp {CONTACT.phoneSpain}</p>
           <p className="mx-auto mt-5 max-w-3xl font-sans text-xs leading-relaxed text-white/55">
             Carlos Uzcategui operates as the licensed Florida-side principal of record (Realtor® SL705771 · United Realty Group). He does not hold a real estate broker or agency license in Spain. MLS, portal, brokerage, and cooperation activity is subject to applicable brokerage, platform, MLS, association, legal, and compliance requirements. No endorsement by MIAMI REALTORS® and no buyer, lead, commission, placement, or sale is guaranteed.
           </p>

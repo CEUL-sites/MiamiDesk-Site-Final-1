@@ -135,7 +135,7 @@ export function CountyExplorer({
     <div id="market-explorer" className="county-explorer">
       {/* Left Column: Geographic SVG Map with On-Map Labels & Compass */}
       <div className="relative flex flex-col items-center">
-        <div className="mb-2 flex w-full items-center justify-between border-b border-white/15 pb-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-[#d7bc8b]">
+        <div className="mb-2 flex w-full items-center justify-between border-b border-white/15 pb-1.5 font-mono text-xs uppercase tracking-[0.12em] text-[#d7bc8b]">
           <span>↑ North · Gold Coast</span>
           <span>Tri-County MLS</span>
         </div>
@@ -174,7 +174,7 @@ export function CountyExplorer({
                   pointerEvents="none"
                   style={{
                     fontFamily: "var(--font-mono)",
-                    fontSize: "10px",
+                    fontSize: "12px",
                     fontWeight: 700,
                     letterSpacing: "0.14em",
                     fill: isSelected ? "#071722" : "#f9f7f2",
@@ -200,7 +200,7 @@ export function CountyExplorer({
 
       {/* Right Column: North-to-South Aligned County Selector Buttons */}
       <div className="county-options">
-        <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#d7bc8b]">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-[#d7bc8b]">
           Select County (North → South)
         </p>
         {NORTH_TO_SOUTH_INDICES.map((countyIndex) => {
@@ -215,16 +215,16 @@ export function CountyExplorer({
               onClick={() => select(countyIndex)}
               className="group transition-all"
             >
-              <span className="block font-mono text-[9px] uppercase tracking-[0.16em] opacity-75">
+              <span className="block font-mono text-xs uppercase tracking-[0.12em] opacity-75">
                 {detail.directionLabel}
               </span>
               <span className="mt-0.5 flex items-center justify-between font-serif text-base">
                 <span>{county.name}</span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.12em]">
+                <span className="font-mono text-xs uppercase tracking-[0.12em]">
                   {detail.citiesCount}
                 </span>
               </span>
-              <span className="mt-0.5 block font-sans text-[11px] opacity-80">
+              <span className="mt-0.5 block font-sans text-xs opacity-80">
                 {detail.mapSubLabel}
               </span>
             </button>
@@ -239,12 +239,12 @@ export function CountyExplorer({
       <div className="county-detail" aria-live="polite">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#d7bc8b]">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-[#d7bc8b]">
               {activeDetail.corridorTag}
             </p>
             <h2>{activeCounty.name}</h2>
           </div>
-          <span className="border border-[#d7bc8b]/40 bg-[#d7bc8b]/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-[#d7bc8b]">
+          <span className="border border-[#d7bc8b]/40 bg-[#d7bc8b]/10 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-[#d7bc8b]">
             URG Offices: {activeDetail.urgBranches}
           </span>
         </div>
@@ -256,7 +256,7 @@ export function CountyExplorer({
           {activeDetail.submarkets.map((city) => (
             <span
               key={city}
-              className="border border-white/15 bg-white/[0.04] px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-white/85"
+              className="border border-white/15 bg-white/[0.04] px-2 py-0.5 font-mono text-xs uppercase tracking-[0.12em] text-white/85"
             >
               {city}
             </span>

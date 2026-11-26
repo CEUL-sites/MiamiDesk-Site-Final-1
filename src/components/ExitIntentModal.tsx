@@ -205,13 +205,13 @@ export function ExitIntentModal({ lang = "en" }: { lang?: Lang } = {}) {
           type="button"
           onClick={() => setOpen(false)}
           aria-label={t.closeLabel}
-          className="absolute right-3 top-3 p-1.5 text-navy/35 transition-colors hover:text-navy"
+          className="absolute right-3 top-3 p-1.5 text-navy/70 transition-colors hover:text-navy"
         >
           <X size={16} />
         </button>
 
         <div className="border-b border-bone bg-navy-deep px-8 py-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{t.eyebrow}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.eyebrow}</p>
           <h3 className="mt-2 font-serif text-2xl leading-snug text-white">
             {t.headline}
           </h3>
@@ -220,13 +220,13 @@ export function ExitIntentModal({ lang = "en" }: { lang?: Lang } = {}) {
         <div className="p-8">
           {status === "success" ? (
             <div className="flex flex-col items-start gap-4">
-              <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-ink">
+              <span className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">
                 <CheckCircle2 size={13} /> {t.successReadyLabel}
               </span>
               <a
                 href={LEAD_MAGNETS.sellerNetSheet.url}
                 download
-                className="inline-flex items-center gap-2 bg-gold px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 bg-gold px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 <Download size={13} />
                 {t.downloadLabel}
@@ -259,7 +259,7 @@ export function ExitIntentModal({ lang = "en" }: { lang?: Lang } = {}) {
                   placeholder={t.emailPlaceholder}
                   autoComplete="email"
                   inputMode="email"
-                  className="w-full border border-hairline bg-ivory px-4 py-3 font-sans text-base text-navy outline-none transition-colors placeholder:text-navy/35 focus:border-gold/50"
+                  className="w-full border border-hairline bg-ivory px-4 py-3 font-sans text-base text-navy outline-none transition-colors placeholder:text-navy/70 focus:border-gold/50"
                   aria-label={t.emailAriaLabel}
                 />
                 {status === "error" && (
@@ -268,14 +268,14 @@ export function ExitIntentModal({ lang = "en" }: { lang?: Lang } = {}) {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="flex items-center justify-center gap-2 bg-navy-deep px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+                  className="flex items-center justify-center gap-2 bg-navy-deep px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-90 disabled:opacity-60"
                 >
                   {status === "submitting"
                     ? <><Loader2 size={13} className="animate-spin" /> {t.submittingLabel}</>
                     : <><Download size={13} /> {t.submitLabel}</>}
                 </button>
               </form>
-              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.12em] text-navy/70">
+              <p className="mt-3 font-mono text-xs uppercase tracking-[0.12em] text-navy/70">
                 {t.footnote}
               </p>
               <a href={t.altLinkHref} className="mt-4 inline-block font-sans text-xs text-gold-ink underline underline-offset-2 hover:text-navy">

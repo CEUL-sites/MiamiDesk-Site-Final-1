@@ -17,7 +17,7 @@ export function SellerAuthorityStrip() {
             <Icon size={17} className="mt-0.5 shrink-0 text-gold-ink" aria-hidden="true" />
             <div>
               <p className="font-serif text-base text-navy-deep">{title}</p>
-              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] leading-relaxed text-navy/70">
+              <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] leading-relaxed text-navy/70">
                 {detail}
               </p>
             </div>

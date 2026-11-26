@@ -36,7 +36,7 @@ export default function NewConstructionPage() {
         <section className="relative overflow-hidden bg-navy-deep py-20 md:py-28 text-center">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_15%_20%,rgba(11,30,63,0.95),rgba(6,17,31,1))]" />
           <div className="relative mx-auto max-w-4xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Pre-Construction · South Florida</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Pre-Construction · South Florida</p>
             <h1 className="mx-auto mt-6 max-w-3xl font-serif leading-[1.1] text-white" style={{ fontSize: "clamp(2.1rem, 5vw, 3.4rem)" }}>
               Florida pre-construction inventory,<br />
               <em className="italic text-gold">professionally accessed.</em>
@@ -55,10 +55,10 @@ export default function NewConstructionPage() {
             <div className="w-full overflow-hidden">
               <NeoEmbed lang="en" />
             </div>
-            <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-ink-primary/70">
+            <p className="mt-4 text-center font-mono text-xs uppercase tracking-[0.12em] text-ink-primary/70">
               Live pre-construction inventory via NEO · newestateonly.com
             </p>
-            <p className="mt-3 text-center font-sans text-[10px] leading-relaxed text-ink-primary/70 max-w-3xl mx-auto">
+            <p className="mt-3 text-center font-sans text-xs leading-relaxed text-ink-primary/70 max-w-3xl mx-auto">
               Inventory availability, pricing, compensation, project details, and broker participation are subject to change without notice. Information presented is provided by third-party sources and is deemed reliable but not guaranteed. Consult with a licensed professional before making any purchase decision.
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function NewConstructionPage() {
         {/* ── Carlos commentary ────────────────────────────────── */}
         <section className="bg-navy-deep py-20 md:py-28 text-white">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Advisory positioning</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Advisory positioning</p>
             <h2 className="mt-5 font-serif text-3xl leading-tight text-white md:text-4xl">
               For developers and international buyers.
             </h2>
@@ -86,12 +86,12 @@ export default function NewConstructionPage() {
             <div className="mt-10">
               <a
                 href="/contact"
-                className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                className="group inline-flex items-center gap-2 bg-gold px-8 py-4 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 Request a Pre-Construction Consultation
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+              <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 Direct / WhatsApp: {CONTACT.phoneUSDisplay}
               </p>
             </div>

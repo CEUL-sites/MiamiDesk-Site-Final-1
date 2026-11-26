@@ -25,9 +25,9 @@ export default function PrivacyPage() {
       <main id="main-content" className="min-h-screen bg-white pb-20">
         <Navbar />
         <div className="mx-auto max-w-3xl px-6 py-20">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Legal</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Legal</p>
           <h1 className="mt-4 font-serif text-4xl text-navy">Privacy Policy</h1>
-          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-navy/70">Effective: {EFFECTIVE_DATE} · HomesProfessional.com</p>
+          <p className="mt-3 font-mono text-xs uppercase tracking-[0.12em] text-navy/70">Effective: {EFFECTIVE_DATE} · HomesProfessional.com</p>
 
           <div className="mt-10 space-y-10 font-sans text-base leading-relaxed text-navy/75">
 

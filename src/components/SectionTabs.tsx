@@ -51,7 +51,7 @@ export function SectionTabs({
       {(eyebrow || heading) && (
         <div className="bg-ivory px-6 pt-10 text-center md:pt-14">
           {eyebrow && (
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{eyebrow}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{eyebrow}</p>
           )}
           {heading && (
             <h2 className="mx-auto mt-4 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:text-3xl">
@@ -84,8 +84,8 @@ export function SectionTabs({
               aria-controls={`${baseId}-panel-${t.id}`}
               tabIndex={i === active ? 0 : -1}
               onClick={() => setActive(i)}
-              className={`relative whitespace-nowrap px-4 py-3.5 font-mono text-[10px] uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 md:text-[11px] ${
-                i === active ? "text-navy-deep" : "text-navy/45 hover:text-navy/75"
+              className={`relative whitespace-nowrap px-4 py-3.5 font-mono text-xs uppercase tracking-[0.12em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 md:text-xs ${
+                i === active ? "text-navy-deep" : "text-navy/70 hover:text-navy/75"
               }`}
             >
               {t.label}

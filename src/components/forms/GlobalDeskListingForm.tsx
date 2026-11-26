@@ -344,7 +344,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
   return (
     <div className="border border-white/10 bg-white/[0.02]">
       <div className="border-b border-white/10 bg-white/[0.03] px-6 py-6 md:px-8">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{t.kicker}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.kicker}</p>
         <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{isOwner ? t.ownerTitle : t.title}</h3>
         <p className="mt-2 font-sans text-sm leading-relaxed text-white/55">{isOwner ? t.ownerIntro : t.intro}</p>
       </div>
@@ -366,7 +366,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
         {/* Q1 — Submitter type (routes the rest) */}
         <fieldset>
-          <legend className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+          <legend className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             {t.q1} *
           </legend>
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
@@ -399,7 +399,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
         {/* Q2 — Engagement path */}
         <fieldset>
-          <legend className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+          <legend className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             {t.q2} *
           </legend>
           <div className="mt-4 space-y-2">
@@ -429,7 +429,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
 
         {/* Submitter block */}
         <div className="border-t border-white/10 pt-7">
-          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+          <p className="mb-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             {t.submitterBlock}
           </p>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -502,7 +502,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
         {/* Property details are requested only for an actual mandate activation. */}
         {needsPropertyDetails && (
           <div className="border-t border-white/10 pt-7">
-          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+          <p className="mb-5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
             {t.propertyBlock}
           </p>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -602,7 +602,7 @@ export function GlobalDeskListingForm({ lang }: { lang: Lang }) {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="group flex w-full items-center justify-center gap-3 bg-gold py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-navy-deep transition-all hover:opacity-90 disabled:opacity-60"
+          className="group flex w-full items-center justify-center gap-3 bg-gold py-4 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-all hover:opacity-90 disabled:opacity-60"
         >
           {status === "submitting" ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
           {status === "submitting" ? t.submitting : t.submit}
@@ -619,9 +619,9 @@ function Field({
   // programmatic label (implicit association) without needing per-field ids.
   return (
     <label className={`flex flex-col gap-1.5 ${full ? "sm:col-span-2" : ""}`}>
-      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{label}</span>
+      <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">{label}</span>
       {children}
-      {hint && <p className="font-sans text-[11px] leading-snug text-white/70">{hint}</p>}
+      {hint && <p className="font-sans text-xs leading-snug text-white/70">{hint}</p>}
     </label>
   );
 }
@@ -658,13 +658,13 @@ function FileField({
         <button
           type="button"
           onClick={() => ref.current?.click()}
-          className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70 transition-colors hover:border-gold/60 hover:text-white"
+          className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-gold/60 hover:text-white"
         >
           <Upload size={13} />
           {chooseLabel}
         </button>
         {files.length > 0 && (
-          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">
+          <span className="font-mono text-xs uppercase tracking-[0.14em] text-gold">
             {countLabel(files.length)}
           </span>
         )}

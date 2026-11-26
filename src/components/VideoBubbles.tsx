@@ -62,7 +62,7 @@ function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => voi
           type="button"
           onClick={onClose}
           aria-label="Close video"
-          className="absolute -top-11 right-0 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:text-gold"
+          className="absolute -top-11 right-0 flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:text-gold"
         >
           Close <X size={15} />
         </button>
@@ -80,7 +80,7 @@ function Lightbox({ bubble, onClose }: { bubble: VideoBubble; onClose: () => voi
             <source src={bubble.src} type="video/mp4" />
           </video>
         </div>
-        <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+        <p className="mt-3 text-center font-mono text-xs uppercase tracking-[0.12em] text-gold">
           {bubble.caption}
         </p>
       </div>
@@ -316,7 +316,7 @@ export function VideoBubbles({ bubbles = VIDEO_BUBBLES }: { bubbles?: VideoBubbl
       {/* ── Caption (cross-fades on change) ─────────────────────────────── */}
       <p
         key={activeIdx}
-        className="vb-caption mt-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-navy/70 text-center"
+        className="vb-caption mt-2.5 font-mono text-xs uppercase tracking-[0.12em] text-navy/70 text-center"
       >
         {bubbles[activeIdx].caption}
       </p>

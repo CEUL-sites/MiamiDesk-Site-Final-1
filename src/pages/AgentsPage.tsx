@@ -325,7 +325,7 @@ export default function AgentsPage() {
               <div key={s.label} className="flex flex-col items-center px-4 py-5 text-center md:py-7">
                 <s.icon size={18} className="text-gold" strokeWidth={1.5} />
                 <span className="mt-3 font-serif text-2xl text-navy-deep md:text-3xl">{s.value}</span>
-                <span className="mt-1.5 font-mono text-[10px] uppercase leading-snug tracking-[0.16em] text-navy/70">
+                <span className="mt-1.5 font-mono text-xs uppercase leading-snug tracking-[0.12em] text-navy/70">
                   {s.label}
                 </span>
               </div>
@@ -337,7 +337,7 @@ export default function AgentsPage() {
         <section className="scroll-mt-24 bg-white py-12 md:py-16" id="choose-path">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-8 text-center md:mb-10">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">How Agents Work With Carlos</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">How Agents Work With Carlos</p>
               <h2 className="mx-auto mt-3 max-w-3xl font-serif text-2xl leading-tight text-navy-deep md:text-4xl">
                 One desk. Three ways to win.
               </h2>
@@ -394,7 +394,7 @@ export default function AgentsPage() {
                   <div className="flex h-full flex-col justify-between rounded-xl border border-hairline bg-white p-6 transition-all duration-300 hover:border-gold hover:shadow-lg">
                     <div>
                       <div className="flex items-center justify-between">
-                        <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink font-semibold">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                           {p.tag}
                         </span>
                         <p.icon size={20} className="text-gold" strokeWidth={1.5} />
@@ -413,7 +413,7 @@ export default function AgentsPage() {
                     <a
                       href={p.href}
                       onClick={p.onClick}
-                      className="group mt-6 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep transition-colors hover:text-gold"
+                      className="group mt-6 inline-flex items-center gap-1.5 self-start border-b border-gold pb-1 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:text-gold"
                     >
                       {p.cta}
                       <ChevronRight size={13} className="transition-transform group-hover:translate-x-0.5" />
@@ -433,7 +433,7 @@ export default function AgentsPage() {
           <div className="mx-auto max-w-6xl px-6">
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end mb-8">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                   Bilateral Architecture · Cross-Border Protocol
                 </p>
                 <h2 className="mt-2 font-serif text-2xl leading-tight text-navy-deep md:text-4xl">
@@ -466,7 +466,7 @@ export default function AgentsPage() {
                               : "border-bone bg-ivory/60 text-navy-deep hover:border-gold/60"
                           }`}
                         >
-                          <span className={`block font-mono text-[9px] uppercase tracking-[0.14em] ${selected ? "text-gold" : "text-gold-ink"}`}>
+                          <span className={`block font-mono text-xs uppercase tracking-[0.14em] ${selected ? "text-gold" : "text-gold-ink"}`}>
                             0{idx + 1}
                           </span>
                           <span className="mt-0.5 block truncate font-serif text-sm">
@@ -480,12 +480,12 @@ export default function AgentsPage() {
                   <div className="mt-5 rounded-xl bg-navy-deep p-5 text-white">
                     <div className="flex items-center justify-between border-b border-white/10 pb-3">
                       <div>
-                        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gold">
+                        <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                           {currentRole.tag}
                         </span>
                         <h3 className="mt-0.5 font-serif text-xl text-white">{currentRole.title}</h3>
                       </div>
-                      <span className="rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
+                      <span className="rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.14em] text-gold">
                         {currentRole.subtitle}
                       </span>
                     </div>
@@ -505,10 +505,10 @@ export default function AgentsPage() {
               <div className="flex flex-col justify-between rounded-xl border border-bone bg-white p-6 shadow-sm lg:col-span-6">
                 <div>
                   <div className="flex items-center justify-between">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold-ink font-semibold">
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                       Four Steps · No Ambiguity
                     </p>
-                    <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-navy/60">
+                    <span className="font-mono text-xs uppercase tracking-[0.14em] text-navy/60">
                       Step {currentStep.number} of 04
                     </span>
                   </div>
@@ -530,7 +530,7 @@ export default function AgentsPage() {
                           }`}
                         >
                           <span className="block font-mono text-xs">{s.number}</span>
-                          <span className="mt-0.5 block truncate font-sans text-[10px]">
+                          <span className="mt-0.5 block truncate font-sans text-xs">
                             {s.title.split(" ")[0]}
                           </span>
                         </button>
@@ -539,7 +539,7 @@ export default function AgentsPage() {
                   </div>
 
                   <div className="mt-5 rounded-xl border border-gold/30 bg-ivory p-5">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-ink">
+                    <span className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-gold-ink">
                       Step {currentStep.number}
                     </span>
                     <h4 className="mt-1 font-serif text-xl text-navy-deep">{currentStep.title}</h4>
@@ -550,12 +550,12 @@ export default function AgentsPage() {
                 </div>
 
                 <div className="mt-4 flex items-center justify-between border-t border-hairline pt-3">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-navy/65">
+                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-navy/65">
                     Written terms before client contact
                   </span>
                   <a
                     href="#south-florida-referral"
-                    className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-gold-ink hover:underline"
+                    className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-gold-ink hover:underline"
                   >
                     Open Intake Desk ↓
                   </a>
@@ -567,7 +567,7 @@ export default function AgentsPage() {
             <div className="mb-10">
               <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold-ink font-semibold">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                     Core Deliverables
                   </p>
                   <h3 className="mt-1 font-serif text-2xl text-navy-deep">What the Miami Desk Provides</h3>
@@ -585,7 +585,7 @@ export default function AgentsPage() {
                         role="tab"
                         aria-selected={selected}
                         onClick={() => setServiceGroup(tab.id as "exposure" | "protection")}
-                        className={`rounded-md px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                        className={`rounded-md px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.14em] transition-all ${
                           selected
                             ? "bg-navy-deep text-gold font-bold"
                             : "text-navy/70 hover:text-navy-deep"
@@ -622,7 +622,7 @@ export default function AgentsPage() {
                 &ldquo;The internet creates visibility. <span className="text-gold">Agent networks create movement.</span> A
                 listing is not fully marketed until buyer agents know how to present it.&rdquo;
               </blockquote>
-              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-white/70">
+              <p className="mt-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 Carlos Uzcategui, REALTOR® · Florida License SL705771 · United Realty Group
               </p>
             </div>
@@ -636,7 +636,7 @@ export default function AgentsPage() {
         <section className="bg-navy-deep py-12 md:py-18 text-white">
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center mb-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Professional Collaboration</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Professional Collaboration</p>
               <h2 className="mt-3 font-serif text-3xl text-white md:text-4xl">Partner &amp; Referral Intake Desk</h2>
               <p className="mx-auto mt-3 max-w-xl font-sans text-sm leading-relaxed text-white/60">
                 Select your path below to register a client referral or submit an international listing for review.
@@ -656,7 +656,7 @@ export default function AgentsPage() {
                   setActiveTab("referral");
                   window.history.replaceState(null, "", "#south-florida-referral");
                 }}
-                className={`px-5 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-all border-b-2 -mb-px ${
+                className={`px-5 py-3.5 font-mono text-xs uppercase tracking-[0.12em] transition-all border-b-2 -mb-px ${
                   activeTab === "referral"
                     ? "border-gold text-gold font-bold bg-white/5"
                     : "border-transparent text-white/60 hover:text-white"
@@ -670,7 +670,7 @@ export default function AgentsPage() {
                   setActiveTab("listing");
                   window.history.replaceState(null, "", "#submit-listing");
                 }}
-                className={`px-5 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] transition-all border-b-2 -mb-px ${
+                className={`px-5 py-3.5 font-mono text-xs uppercase tracking-[0.12em] transition-all border-b-2 -mb-px ${
                   activeTab === "listing"
                     ? "border-gold text-gold font-bold bg-white/5"
                     : "border-transparent text-white/60 hover:text-white"
@@ -691,11 +691,11 @@ export default function AgentsPage() {
               </div>
               <ReferralIntakeForm />
               <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
-                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                   <BadgeCheck size={14} className="text-gold" />
                   Licensed Professionals Only · Formal Written Agreements · Equal Housing Opportunity
                 </div>
-                <p className="font-sans text-[11px] leading-relaxed text-white/70">
+                <p className="font-sans text-xs leading-relaxed text-white/70">
                   Referral fee compensation is subject to a written referral agreement executed prior to client engagement.
                   Florida real estate brokerage services are provided through United Realty Group. International referral
                   opportunities may be handled through formal broker-to-broker agreements depending on jurisdiction and
@@ -715,11 +715,11 @@ export default function AgentsPage() {
               </div>
               <AgencyPartnerForm />
               <div className="mt-6 space-y-2 border-t border-white/10 pt-4">
-                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+                <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                   <BadgeCheck size={14} className="text-gold" />
                   Confidential · No Obligation · Professional Review · Equal Housing Opportunity
                 </div>
-                <p className="font-sans text-[11px] leading-relaxed text-white/70">
+                <p className="font-sans text-xs leading-relaxed text-white/70">
                   Exposure, marketing, and referral coordination do not guarantee a buyer, offer, sale, or closing. All
                   collaborations are subject to professional review, property suitability, local law, broker compliance,
                   MLS/platform rules where applicable, and written agreement. Florida real estate brokerage services are
@@ -731,7 +731,7 @@ export default function AgentsPage() {
             {/* Direct Contact Bar */}
             <div className="mt-12 border border-gold/20 bg-white/5 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">Direct Broker Communication</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Direct Broker Communication</p>
                 <h4 className="mt-1 font-serif text-xl text-white">Prefer to speak directly?</h4>
                 <p className="mt-1 font-sans text-xs text-white/60 max-w-md">
                   For agency directors, brokerages, and developer sales teams exploring ongoing collaboration.
@@ -743,7 +743,7 @@ export default function AgentsPage() {
                   href={CONTACT.whatsappBroker}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gold px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-navy-deep font-bold transition-opacity hover:opacity-90"
+                  className="inline-flex items-center gap-2 bg-gold px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep font-bold transition-opacity hover:opacity-90"
                 >
                   <MessageSquare size={13} />
                   WhatsApp Carlos
@@ -752,7 +752,7 @@ export default function AgentsPage() {
                   href={CONTACT.calendly}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white transition-colors hover:border-gold hover:text-gold"
+                  className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-white transition-colors hover:border-gold hover:text-gold"
                 >
                   Schedule Call
                 </a>
@@ -767,7 +767,7 @@ export default function AgentsPage() {
             {/* Header + Interactive Track Toggle */}
             <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink font-semibold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                   Career Opportunity · South Florida
                 </p>
                 <h2 className="mt-2 max-w-2xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
@@ -789,7 +789,7 @@ export default function AgentsPage() {
                       role="tab"
                       aria-selected={selected}
                       onClick={() => setCareerTrack(tab.id as "new" | "experienced")}
-                      className={`rounded-md px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.14em] transition-all ${
+                      className={`rounded-md px-3.5 py-2 font-mono text-xs uppercase tracking-[0.14em] transition-all ${
                         selected
                           ? "bg-navy-deep text-gold font-bold"
                           : "text-navy/70 hover:text-navy-deep"
@@ -818,7 +818,7 @@ export default function AgentsPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/15 to-navy-deep/20 pointer-events-none" />
                 <div className="absolute left-4 top-4 pointer-events-none">
-                  <span className="inline-flex items-center gap-2 border border-gold/40 bg-navy-deep/75 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gold backdrop-blur-sm">
+                  <span className="inline-flex items-center gap-2 border border-gold/40 bg-navy-deep/75 px-3 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold backdrop-blur-sm">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
                     United Realty Group · Plantation Corporate HQ
                   </span>
@@ -827,7 +827,7 @@ export default function AgentsPage() {
                   <p className="font-serif text-xl leading-snug text-white">
                     Inside Corporate Headquarters · 1200 S. Pine Island Rd, Suite 600, Plantation
                   </p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/75">
+                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-white/75">
                     {CONTACT.stats.urgAgents} agents · {CONTACT.stats.urgOfficeNetwork}
                   </p>
                 </div>
@@ -835,7 +835,7 @@ export default function AgentsPage() {
 
               <div className="flex flex-col justify-between md:col-span-6">
                 <div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     {careerTrack === "new" ? "Track 01 · Newly Licensed Agents" : "Track 02 · Experienced Producers"}
                   </span>
                   <h3 className="mt-2 font-serif text-2xl text-white">
@@ -865,10 +865,10 @@ export default function AgentsPage() {
 
                   {/* Affiliated Transaction Partners for Cooperating & URG Agents */}
                   <div className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded-lg border border-white/12 bg-white/[0.03] px-3.5 py-2.5">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold">
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                       Affiliated Closing &amp; Lending Desk:
                     </span>
-                    <div className="flex flex-wrap items-center gap-3 font-mono text-[9px] uppercase tracking-[0.14em]">
+                    <div className="flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.14em]">
                       <a
                         href="https://sftafl.com/"
                         target="_blank"
@@ -894,7 +894,7 @@ export default function AgentsPage() {
                     href={WA_CAREERS}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded bg-gold px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
+                    className="inline-flex items-center gap-2 rounded bg-gold px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
                   >
                     <UserPlus size={14} />
                     Ask About Joining URG
@@ -904,13 +904,13 @@ export default function AgentsPage() {
                       href="https://www.urgfl.com/office-locations/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/75 hover:text-gold"
+                      className="font-mono text-xs uppercase tracking-[0.12em] text-white/75 hover:text-gold"
                     >
                       19 FL Office Locations ↗
                     </a>
                     <a
                       href="/la-comision-secreta"
-                      className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-gold hover:underline"
+                      className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold hover:underline"
                     >
                       <BookOpen size={14} />
                       Preview Career Guide Book →
@@ -923,7 +923,7 @@ export default function AgentsPage() {
             {/* Visible FAQ Section matching FAQPage Schema */}
             <div className="border-t border-hairline pt-12 md:pt-14">
               <div className="mb-8 text-center">
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold-ink">Frequently Asked Questions</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink">Frequently Asked Questions</p>
                 <h3 className="mt-2 font-serif text-2xl text-navy-deep md:text-3xl">
                   Questions for Real Estate Professionals
                 </h3>

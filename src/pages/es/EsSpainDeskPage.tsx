@@ -243,7 +243,7 @@ export default function EsSpainDeskPage() {
             <motion.div variants={heroItem}>
               <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/40 bg-[#06111F]/80 px-3 py-1.5 sm:px-4 backdrop-blur-md shadow-md">
                 <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                <span className="font-mono text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.2em] text-gold font-semibold">
+                <span className="font-mono text-xs uppercase tracking-[0.12em] sm:tracking-[0.12em] text-gold font-semibold">
                   <span className="sm:hidden">Global Desk · United Realty Group</span>
                   <span className="hidden sm:inline">Global Desk · Partnership de Agencias · United Realty Group</span>
                 </span>
@@ -291,7 +291,7 @@ export default function EsSpainDeskPage() {
             >
               <a
                 href="#enviar-listing"
-                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
+                className="group inline-flex items-center gap-2 bg-gold px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep shadow-lg shadow-gold/25 transition-opacity hover:opacity-90"
               >
                 Solicitar Términos de Partnership
                 <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
@@ -300,7 +300,7 @@ export default function EsSpainDeskPage() {
                 href={CONTACT.whatsappSpain}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2 border border-white/20 px-8 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 <MessageSquare size={14} />
                 WhatsApp: Agencia a Agencia
@@ -311,7 +311,7 @@ export default function EsSpainDeskPage() {
               <a
                 href={LEAD_MAGNETS.spainActivation.url}
                 download
-                className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/70 underline-offset-2 hover:text-gold hover:underline"
               >
                 <Download size={11} />
                 Descargar: Metodología de Activación MLS — PDF
@@ -329,7 +329,7 @@ export default function EsSpainDeskPage() {
               <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 bg-gradient-to-l from-[#060D18] to-transparent" />
               <div className="gd-exposure-track">
                 {[0, 1].map((copy) => (
-                  <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-[11px] uppercase tracking-[0.16em] whitespace-nowrap text-white/70">
+                  <span key={copy} className="flex shrink-0 items-center gap-2 pl-6 pr-12 py-2.5 font-mono text-xs uppercase tracking-[0.12em] whitespace-nowrap text-white/70">
                     <span className="text-gold/75">Red</span>{" "}·{" "}
                     <span className="text-white/85">93.000</span> Agentes Miembro{" "}·{" "}
                     <span className="text-white/85">200+</span> Portales Globales{" "}·{" "}
@@ -353,7 +353,7 @@ export default function EsSpainDeskPage() {
                 { icon: BadgeCheck, text: "Usted Mantiene el Mandato" },
                 { icon: Globe,      text: "Alcance a 93.000 Agentes" },
               ].map(({ icon: Icon, text }) => (
-                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-white/70">
+                <span key={text} className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                   <Icon size={12} className="text-gold flex-shrink-0" />
                   {text}
                 </span>
@@ -363,7 +363,7 @@ export default function EsSpainDeskPage() {
             {/* Tira de credibilidad institucional — solo afiliaciones verificadas (§9). */}
             <motion.div
               variants={heroItem}
-              className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-white/70"
+              className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70"
             >
               <span className="text-gold">CLHMS</span>
               <span className="text-gold/40">·</span>
@@ -376,7 +376,7 @@ export default function EsSpainDeskPage() {
 
             <motion.p
               variants={heroItem}
-              className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70"
+              className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-white/70"
             >
               Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
             </motion.p>
@@ -390,7 +390,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Cómo Funciona el Partnership</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Cómo Funciona el Partnership</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Un modelo B2B claro.<br />
                 <em className="italic text-gold">Documentado antes de empezar.</em>
@@ -406,14 +406,14 @@ export default function EsSpainDeskPage() {
               <div className="bg-navy-deep p-8 md:p-10 flex flex-col gap-5">
                 <div className="flex items-center gap-3">
                   <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
-                    <span className="font-mono text-[11px] font-bold text-gold">A</span>
+                    <span className="font-mono text-xs font-bold text-gold">A</span>
                   </span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold/70">Principal · Por Listing · Mensual</span>
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70">Principal · Por Listing · Mensual</span>
                 </div>
 
                 <div>
                   <h3 className="font-serif text-2xl text-white">Servicios Mensuales de Marketing</h3>
-                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">Abonado por la agencia española o el propietario</p>
+                  <p className="mt-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">Abonado por la agencia española o el propietario</p>
                 </div>
 
                 <div className="h-px w-10 bg-gold/30" />
@@ -440,7 +440,7 @@ export default function EsSpainDeskPage() {
                 </ul>
 
                 <div className="border-t border-white/[0.08] pt-5 mt-auto">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">Precio</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">Precio</p>
                   <p className="mt-1.5 font-sans text-sm text-white/60">Tarifa mensual por listing según nivel de servicio. Ver niveles de servicio abajo o solicitar detalle.</p>
                 </div>
               </div>
@@ -449,14 +449,14 @@ export default function EsSpainDeskPage() {
               <div className="bg-navy p-8 md:p-10 flex flex-col gap-5">
                 <div className="flex items-center gap-3">
                   <span className="h-7 w-7 rounded-full bg-gold/15 flex items-center justify-center flex-shrink-0">
-                    <span className="font-mono text-[11px] font-bold text-gold">B</span>
+                    <span className="font-mono text-xs font-bold text-gold">B</span>
                   </span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold/70">Ventaja Secundaria · Solo en el Cierre</span>
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70">Ventaja Secundaria · Solo en el Cierre</span>
                 </div>
 
                 <div>
                   <h3 className="font-serif text-2xl text-white">Comisión de Referral al Cierre</h3>
-                  <p className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">Abonada a través de United Realty Group · Broker licenciado en Florida</p>
+                  <p className="mt-1.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70">Abonada a través de United Realty Group · Broker licenciado en Florida</p>
                 </div>
 
                 <div className="h-px w-10 bg-gold/30" />
@@ -483,13 +483,13 @@ export default function EsSpainDeskPage() {
                 </ul>
 
                 <div className="border-t border-white/[0.08] pt-5 mt-auto">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">Mecanismo</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">Mecanismo</p>
                   <p className="mt-1.5 font-sans text-sm text-white/60">Documentado mediante acuerdo de referral formal con United Realty Group antes de cualquier presentación de comprador o activación en el MLS.</p>
                 </div>
               </div>
             </div>
 
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.15em] text-white/70">
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               Ambos flujos de ingresos se formalizan por escrito antes de iniciar cualquier acción de marketing. Sin acuerdos informales.
             </p>
           </div>
@@ -499,7 +499,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy pt-14 pb-16 md:pt-20 md:pb-24 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Arquitectura de Compliance</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Arquitectura de Compliance</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 El mecanismo legal,<br />
                 <em className="italic text-gold">explicado con claridad.</em>
@@ -530,7 +530,7 @@ export default function EsSpainDeskPage() {
                 },
               ].map(({ step, label, body }) => (
                 <div key={step} className="bg-navy-deep p-7 flex flex-col gap-4">
-                  <span className="font-mono text-[11px] font-semibold text-gold/60 tracking-[0.22em]">{step}</span>
+                  <span className="font-mono text-xs font-semibold text-gold/60 tracking-[0.12em]">{step}</span>
                   <h3 className="font-serif text-lg text-white leading-snug">{label}</h3>
                   <div className="h-px w-8 bg-gold/25" />
                   <p className="font-sans text-xs leading-relaxed text-white/55 flex-1">{body}</p>
@@ -540,7 +540,7 @@ export default function EsSpainDeskPage() {
 
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               <div className="border border-white/10 bg-white/[0.02] p-6">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold/60 mb-4">Infraestructura de Red</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/60 mb-4">Infraestructura de Red</p>
                 <div className="grid grid-cols-2 gap-y-5 gap-x-4">
                   {[
                     { value: "93.000", label: "Agentes miembro MLS" },
@@ -550,14 +550,14 @@ export default function EsSpainDeskPage() {
                   ].map(({ value, label }) => (
                     <div key={label}>
                       <div className="font-serif text-2xl text-white">{value}</div>
-                      <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/70 mt-0.5">{label}</div>
+                      <div className="font-mono text-xs uppercase tracking-[0.14em] text-white/70 mt-0.5">{label}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="border border-white/10 bg-white/[0.02] p-6">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold/60 mb-4">Notas de Compliance</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/60 mb-4">Notas de Compliance</p>
                 <ul className="space-y-3">
                   {[
                     "Carlos Uzcategui tiene licencia solo en Florida (FL SL705771)",
@@ -580,12 +580,12 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Estructura de Servicio</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Estructura de Servicio</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Tres niveles de alcance.<br />
                 <em className="italic text-gold">Precio por listing, por mes.</em>
               </h2>
-              <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+              <p className="mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/60">
                 Cada nivel da a la propiedad premium el alcance de la red internacional del MIAMI International MLS (RWorld) — los agentes y brokers que representan a los compradores — activado a través de URG como broker de registro en Florida.
                 La diferencia es la profundidad del marketing activo, el outreach a agentes compradores y el soporte estratégico.
                 La tarifa mensual es independiente de la comisión de referral al cierre.
@@ -601,17 +601,17 @@ export default function EsSpainDeskPage() {
                   {tier.popular && (
                     <>
                       <div className="absolute top-0 inset-x-0 h-px bg-gold/50" />
-                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold px-3 py-0.5 font-mono text-[11px] uppercase tracking-[0.18em] text-navy-deep whitespace-nowrap">
+                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold px-3 py-0.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep whitespace-nowrap">
                         Más Seleccionado
                       </span>
                     </>
                   )}
 
-                  <span className="font-mono text-[11px] font-semibold text-gold/55 tracking-[0.22em]">{tier.tier}</span>
+                  <span className="font-mono text-xs font-semibold text-gold/55 tracking-[0.12em]">{tier.tier}</span>
 
                   <div>
                     <h3 className="font-serif text-xl text-white">{tier.name}</h3>
-                    <p className="mt-2 font-sans text-xs leading-relaxed text-white/50">{tier.description}</p>
+                    <p className="mt-2 font-sans text-xs leading-relaxed text-white/60">{tier.description}</p>
                   </div>
 
                   <div className="h-px w-8 bg-gold/25" />
@@ -627,7 +627,7 @@ export default function EsSpainDeskPage() {
 
                   <a
                     href="#enviar-listing"
-                    className="mt-2 flex items-center justify-center gap-2 border border-gold/35 py-3 font-mono text-[11px] uppercase tracking-[0.2em] text-gold/75 transition-colors hover:border-gold hover:text-gold"
+                    className="mt-2 flex items-center justify-center gap-2 border border-gold/35 py-3 font-mono text-xs uppercase tracking-[0.12em] text-gold/75 transition-colors hover:border-gold hover:text-gold"
                   >
                     Solicitar Precio
                     <ChevronRight size={12} />
@@ -636,7 +636,7 @@ export default function EsSpainDeskPage() {
               ))}
             </div>
 
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.15em] text-white/70">
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               Todos los niveles incluyen acuerdo de referral escrito y activación en el MLS con URG como broker de registro.
               La tarifa mensual no incluye la comisión de referral — ese es un pago contingente y separado, abonado al cierre.
             </p>
@@ -647,7 +647,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy pt-14 pb-16 md:pt-20 md:pb-24 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Cómo Trabajar Juntos</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Cómo Trabajar Juntos</p>
               <h2 className="mt-4 font-serif text-3xl leading-tight text-white md:text-4xl">
                 Cuatro pasos desde la consulta<br />
                 <em className="italic text-gold">hasta la activación de la exposición.</em>
@@ -671,7 +671,7 @@ export default function EsSpainDeskPage() {
                 href={CONTACT.calendly}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 Agendar Llamada de Agencia
                 <ChevronRight size={13} />
@@ -680,13 +680,13 @@ export default function EsSpainDeskPage() {
                 href={CONTACT.whatsappSpain}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+                className="inline-flex items-center gap-2 border border-white/20 px-7 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
               >
                 <MessageSquare size={14} />
                 WhatsApp España
               </a>
             </div>
-            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               ¿Agencia o promotora? Proceso completo de alta:{" "}
               <a href="/spain-mls-listing" className="text-gold underline underline-offset-2 hover:text-white">Inmueble en España → listado en el Miami MLS</a>
             </p>
@@ -696,7 +696,7 @@ export default function EsSpainDeskPage() {
         {/* ── Para Quién Es ──────────────────────────────────────────── */}
         <section className="bg-navy-deep py-14 md:py-18 text-white">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold mb-6">Perfil Ideal</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-6">Perfil Ideal</p>
             <div className="flex flex-wrap gap-2.5 mb-10">
               {[
                 "Agencias de Lujo en Madrid",
@@ -710,7 +710,7 @@ export default function EsSpainDeskPage() {
                 "Carteras Multi-Inmueble",
                 "Proyectos de Nueva Promoción",
               ].map((tag) => (
-                <span key={tag} className="rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-white/70">
+                <span key={tag} className="rounded-full border border-white/15 bg-white/[0.04] px-4 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-white/70">
                   {tag}
                 </span>
               ))}
@@ -719,19 +719,19 @@ export default function EsSpainDeskPage() {
             <div className="grid grid-cols-3 divide-x divide-bone rounded-none bg-bone/40">
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">93.000</div>
-                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold/65">
+                <div className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-gold/65">
                   Agentes miembro
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">200+</div>
-                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold/65">
+                <div className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-gold/65">
                   Portales globales · 19 idiomas
                 </div>
               </div>
               <div className="px-8 py-10 text-center">
                 <div className="font-serif text-4xl text-navy-deep">260+</div>
-                <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-gold/65">
+                <div className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-gold/65">
                   MLS de EE.UU. vía RPR
                 </div>
               </div>
@@ -744,7 +744,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-bone/40 py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 PARA QUIÉN ES ESTA ASESORÍA
               </p>
               <h2 className="mt-3 font-serif text-3xl text-navy-deep">
@@ -778,7 +778,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-20">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                 EL PROCESO
               </p>
               <h2 className="mt-3 font-serif text-3xl text-white">
@@ -810,7 +810,7 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy py-14 md:py-20 text-white">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-10">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Marco Profesional</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Marco Profesional</p>
               <h2 className="mt-4 font-serif text-3xl text-white leading-tight md:text-4xl">
                 Qué queda documentado.<br />
                 <em className="italic text-gold">Qué queda protegido.</em>
@@ -827,7 +827,7 @@ export default function EsSpainDeskPage() {
             </div>
 
               <div className="mt-10">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/70 mb-5">Lo Que Conserva su Agencia</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70 mb-5">Lo Que Conserva su Agencia</p>
                 <ul className="space-y-5">
                   {[
                     {
@@ -851,7 +851,7 @@ export default function EsSpainDeskPage() {
                       <Shield size={14} className="mt-0.5 flex-shrink-0 text-gold/55" />
                       <div>
                         <p className="font-sans text-sm font-medium text-white">{label}</p>
-                        <p className="mt-0.5 font-sans text-xs text-white/45 leading-relaxed">{detail}</p>
+                        <p className="mt-0.5 font-sans text-xs text-white/60 leading-relaxed">{detail}</p>
                       </div>
                     </li>
                   ))}
@@ -864,9 +864,9 @@ export default function EsSpainDeskPage() {
         <section className="bg-navy-deep py-16 md:py-24" id="enviar-listing">
           <div className="mx-auto max-w-3xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold">Global Desk · Consulta de Agencia</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Global Desk · Consulta de Agencia</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Envíe un listing o consulta de agencia.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/60">
                 Para agencias españolas, promotores y profesionales del listing. Todas las solicitudes son confidenciales.
                 Nuestro equipo revisa cada consulta antes de responder.
               </p>
@@ -878,7 +878,7 @@ export default function EsSpainDeskPage() {
         {/* ── FAQ ───────────────────────────────────────────────────── */}
         <section className="bg-navy py-16 md:py-20 text-white">
           <div className="mx-auto max-w-3xl px-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-gold mb-8">Preguntas Frecuentes</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-8">Preguntas Frecuentes</p>
             <div className="divide-y divide-white/[0.08]">
               {FAQ_ITEMS.map(({ q, a }) => (
                 <div key={q} className="py-6">
@@ -893,14 +893,14 @@ export default function EsSpainDeskPage() {
                 href={CONTACT.whatsappSpain}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
               >
                 <MessageSquare size={14} />
                 WhatsApp España
               </a>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70 underline-offset-2 hover:text-white hover:underline"
+                className="font-mono text-xs uppercase tracking-[0.12em] text-white/70 underline-offset-2 hover:text-white hover:underline"
               >
                 {CONTACT.email}
               </a>
@@ -909,9 +909,9 @@ export default function EsSpainDeskPage() {
             <div className="mt-8 border-t border-white/[0.08] pt-6">
               <div className="flex items-center gap-2 mb-3">
                 <BadgeCheck size={14} className="text-gold flex-shrink-0" />
-                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">Licenciado · Compliant · Confidencial</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">Licenciado · Compliant · Confidencial</p>
               </div>
-              <p className="font-sans text-[11px] leading-relaxed text-white/70">
+              <p className="font-sans text-xs leading-relaxed text-white/70">
                 Los servicios de corretaje inmobiliario en Florida son proporcionados a través de United Realty Group (URG).
                 Carlos Uzcategui es REALTOR® y titular de la licencia de Florida SL705771, afiliado a United Realty Group. No está licenciado como broker inmobiliario en España.
                 Las oportunidades en España e internacionales se gestionan mediante acuerdos de referral, marketing, cooperating broker o asesoría, según jurisdicción, tipo de inmueble y normativa aplicable.

@@ -10,24 +10,23 @@ import { trackContact, trackMicroConversion } from "../lib/analytics";
 
 export function WhatsAppFloat() {
   const { pathname } = useLocation();
-  const [heroVisible, setHeroVisible] = useState(pathname === "/");
+  const [heroVisible, setHeroVisible] = useState(true);
   const spanish = isSpainMarketRoute(pathname);
   const href = spanish ? CONTACT.whatsappSpain : CONTACT.whatsappUS;
   const label = spanish ? "WhatsApp España" : "WhatsApp Carlos";
 
+  // Every page opens with a hero that carries its own WhatsApp/contact path,
+  // and the float overlapped hero panels at 1024–1440px. Show it only once
+  // the visitor has scrolled most of the first screen.
   useEffect(() => {
-    const hero = document.querySelector(".hero-root");
-    if (!hero || pathname !== "/") {
-      setHeroVisible(false);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setHeroVisible(entry.isIntersecting),
-      { threshold: 0.01 },
-    );
-    observer.observe(hero);
-    return () => observer.disconnect();
+    const update = () => setHeroVisible(window.scrollY < window.innerHeight * 0.6);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, [pathname]);
 
   return (
@@ -48,7 +47,7 @@ export function WhatsAppFloat() {
       }`}
     >
       <MessageSquare size={16} className="text-gold" />
-      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/85 group-hover:text-white">
+      <span className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white/85 group-hover:text-white">
         {label}
       </span>
     </a>

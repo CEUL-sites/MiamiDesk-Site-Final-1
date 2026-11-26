@@ -231,7 +231,7 @@ export function SpainSellerForm({
         <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/15 text-gold">
           <CheckCircle2 size={26} />
         </div>
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-gold">{t.successTag}</p>
+        <p className="mb-2 font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.successTag}</p>
         <h3 className="font-serif text-2xl text-white">{t.successTitle}</h3>
         <p className="mx-auto mt-3 max-w-sm font-sans text-sm leading-relaxed text-white/60">{t.successBody}</p>
 
@@ -241,7 +241,7 @@ export function SpainSellerForm({
             href={LEAD_MAGNETS.spainActivation.url}
             download
             onClick={() => trackFunnelEvent("activation_brief_download", { source: sourcePage, lang })}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
           >
             <Download size={14} />
             {t.briefCta}
@@ -252,7 +252,7 @@ export function SpainSellerForm({
           href={CONTACT.whatsappSpain}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/80 transition-colors hover:text-gold"
+          className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/80 transition-colors hover:text-gold"
         >
           {t.successCta}
         </a>
@@ -262,7 +262,7 @@ export function SpainSellerForm({
 
   // text-base (16px) prevents iOS Safari from auto-zooming on input focus
   const inputCls =
-    "w-full rounded-lg border border-white/12 bg-white/[0.05] px-4 py-3 font-sans text-base text-white outline-none transition-colors placeholder:text-white/30 focus:border-gold/50 focus:bg-white/[0.08]";
+    "w-full rounded-lg border border-white/12 bg-white/[0.05] px-4 py-3 font-sans text-base text-white outline-none transition-colors placeholder:text-white/60 focus:border-gold/50 focus:bg-white/[0.08]";
   const selectCls = inputCls + " cursor-pointer appearance-none pr-9";
 
   return (
@@ -283,8 +283,8 @@ export function SpainSellerForm({
       </p>
 
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-        <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-gold">{t.eyebrow}</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">{t.badge}</span>
+        <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.eyebrow}</span>
+        <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">{t.badge}</span>
       </div>
 
       <h3 className="font-serif text-2xl leading-snug text-white">{t.title}</h3>
@@ -301,7 +301,7 @@ export function SpainSellerForm({
           onChange={update("location")}
           placeholder={t.location}
           style={{ paddingLeft: "2.75rem" }}
-          className="w-full rounded-lg border border-gold/25 bg-white/[0.08] px-4 py-4 font-sans text-base text-white outline-none transition-all placeholder:text-white/30 focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
+          className="w-full rounded-lg border border-gold/25 bg-white/[0.08] px-4 py-4 font-sans text-base text-white outline-none transition-all placeholder:text-white/60 focus:border-gold/60 focus:bg-white/[0.11] focus:ring-2 focus:ring-gold/15"
           aria-label={t.location}
         />
       </div>
@@ -398,7 +398,7 @@ export function SpainSellerForm({
           onChange={(e) => setForm((f) => ({ ...f, messagingConsent: e.target.checked ? "yes" : "no" }))}
           className="mt-0.5 h-4 w-4 flex-shrink-0 accent-[#B08D57]"
         />
-        <span className="font-sans text-[11px] leading-relaxed text-white/70">{t.consent}</span>
+        <span className="font-sans text-xs leading-relaxed text-white/70">{t.consent}</span>
       </label>
 
       {status === "error" && <p className="mt-3 font-sans text-[13px] text-red-400/90">{error}</p>}
@@ -406,7 +406,7 @@ export function SpainSellerForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-5 flex w-full items-center justify-center gap-2.5 rounded-lg bg-gold px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="mt-5 flex w-full items-center justify-center gap-2.5 rounded-lg bg-gold px-6 py-4 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90 disabled:opacity-60"
       >
         {status === "submitting" ? (
           <>
@@ -421,11 +421,11 @@ export function SpainSellerForm({
         )}
       </button>
 
-      <p className="mt-4 text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-white/60">
+      <p className="mt-4 text-center font-mono text-xs uppercase leading-relaxed tracking-[0.14em] text-white/60">
         {t.trust}
       </p>
 
-      <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
+      <p className="mt-3 text-center font-mono text-xs uppercase tracking-[0.14em] text-white/70">
         {t.prefer}{" "}
         <a
           href={CONTACT.whatsappSpain}

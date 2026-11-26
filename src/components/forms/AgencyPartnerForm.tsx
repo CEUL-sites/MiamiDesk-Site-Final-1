@@ -139,7 +139,7 @@ export function AgencyPartnerForm({
   return (
     <div className="border border-white/10">
       <div className="border-b border-white/10 bg-white/[0.03] px-8 py-6">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-gold">{eyebrow}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{eyebrow}</p>
         <h3 className="mt-2 font-serif text-2xl text-white">{heading}</h3>
         <p className="mt-2 font-sans text-sm text-white/55">{intro}</p>
       </div>
@@ -211,7 +211,7 @@ export function AgencyPartnerForm({
 
         {/* Inventory */}
         <div className="border-t border-white/10 pt-6">
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/70 mb-5">Inventory Details</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/70 mb-5">Inventory Details</p>
           <div className="grid gap-5 sm:grid-cols-2">
             <Field label="Type of Inventory *">
               <select required name="inventoryType" className="form-input-dark w-full" value={form.inventoryType} onChange={set("inventoryType")}>
@@ -270,7 +270,7 @@ export function AgencyPartnerForm({
             checked={!!form.consent}
             onChange={(e) => setForm((f) => ({ ...f, consent: e.target.checked ? "yes" : "" }))}
           />
-          <label htmlFor="consent" className="font-sans text-xs leading-relaxed text-white/45">
+          <label htmlFor="consent" className="font-sans text-xs leading-relaxed text-white/60">
             I confirm that I am a real estate professional or developer and I authorize Carlos Uzcategui
             (HomesProfessional.com) to contact me regarding the submitted inquiry. I understand that this
             submission does not create a binding agreement and that all collaborations are subject to
@@ -285,7 +285,7 @@ export function AgencyPartnerForm({
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="group flex w-full items-center justify-center gap-3 bg-gold py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-navy-deep transition-all hover:opacity-90 disabled:opacity-60"
+          className="group flex w-full items-center justify-center gap-3 bg-gold py-4 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-all hover:opacity-90 disabled:opacity-60"
         >
           {status === "submitting" ? (
             <Loader2 size={16} className="animate-spin" />
@@ -295,7 +295,7 @@ export function AgencyPartnerForm({
           {status === "submitting" ? "Sending…" : "Submit Listing for Review"}
         </button>
 
-        <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+        <p className="text-center font-mono text-xs uppercase tracking-[0.12em] text-white/70">
           Confidential · No obligation · {PUBLIC_COMPLIANCE}
         </p>
       </form>
@@ -306,7 +306,7 @@ export function AgencyPartnerForm({
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{label}</label>
+      <label className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">{label}</label>
       {children}
     </div>
   );

@@ -49,7 +49,7 @@ export function HomepageConsultation({
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 items-start">
           {/* Left Column: Executive Profile & Interactive Process Strip (7 cols) */}
           <div className="lg:col-span-7">
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold font-semibold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-semibold">
               Meet Carlos · Private Consultation
             </p>
             <h2
@@ -71,17 +71,17 @@ export function HomepageConsultation({
                 />
                 <div>
                   <h3 className="font-serif text-2xl text-white font-normal">Carlos Uzcategui</h3>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-gold mt-1">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mt-1">
                     Florida Licensed Realtor® SL705771 · Since 2001
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2 text-white/85">
-                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
+                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em]">
                       <BadgeCheck size={12} className="text-gold" /> Certified Seller Rep
                     </span>
-                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
+                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em]">
                       <Building2 size={12} className="text-gold" /> United Realty Group
                     </span>
-                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]">
+                    <span className="inline-flex items-center gap-1 rounded bg-white/[0.06] border border-white/10 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em]">
                       <Languages size={12} className="text-gold" /> English &amp; Español
                     </span>
                   </div>
@@ -96,7 +96,7 @@ export function HomepageConsultation({
                     className="rounded-lg border border-white/10 bg-[#071321]/70 px-3 py-2.5"
                   >
                     <p className="font-serif text-xl text-gold">{stat.value}</p>
-                    <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-white/75">
+                    <p className="mt-0.5 font-mono text-xs uppercase tracking-[0.12em] text-white/75">
                       {stat.label}
                     </p>
                   </div>
@@ -107,10 +107,10 @@ export function HomepageConsultation({
             {/* Interactive 3-Step Next Actions Selector */}
             <div className="mt-5 rounded-xl border border-white/15 bg-white/[0.03] p-5 backdrop-blur-sm sm:p-6">
               <div className="flex items-center justify-between gap-2">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold font-semibold">
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-semibold">
                   What Happens After You Submit
                 </p>
-                <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-white/55">
+                <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/55">
                   Tap step to inspect
                 </span>
               </div>
@@ -132,7 +132,7 @@ export function HomepageConsultation({
                       }`}
                     >
                       <span
-                        className={`font-mono text-[10px] font-bold uppercase tracking-[0.16em] ${
+                        className={`font-mono text-xs font-bold uppercase tracking-[0.12em] ${
                           selected ? "text-navy-deep" : "text-gold"
                         }`}
                       >
@@ -169,7 +169,7 @@ export function HomepageConsultation({
           <div id="list-here" className="scroll-mt-24 lg:col-span-5">
             <div className="rounded-xl border border-gold/40 bg-[#071321] p-6 shadow-2xl shadow-black/60 sm:p-8">
               <div className="mb-4">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold font-semibold">
+                <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-semibold">
                   Confidential Property Intake
                 </span>
                 <h3 className="mt-1 font-serif text-2xl text-white font-normal">
@@ -198,14 +198,14 @@ export function HomepageConsultation({
                   href={CONTACT.whatsappUS}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-gold hover:text-gold-soft transition-colors"
+                  className="mt-2 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-gold hover:text-gold-soft transition-colors"
                 >
                   <MessageCircle size={15} aria-hidden="true" />
                   WhatsApp Carlos (+1 954-865-6622) ↗
                 </a>
               </div>
 
-              <p className="mt-5 text-center font-sans text-[10px] leading-relaxed text-white/50">
+              <p className="mt-5 text-center font-sans text-xs leading-relaxed text-white/60">
                 Florida Licensed Realtor® SL705771 · United Realty Group · Equal Housing Opportunity.
               </p>
             </div>

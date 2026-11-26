@@ -197,7 +197,7 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
               </div>
               <div className="seller-hero-intake p-5 sm:p-6">
                 <form onSubmit={handleQuickAddress} noValidate className="space-y-3">
-                  <label htmlFor="hero-quick-address" className="seller-hero-address-label block font-mono text-[11px] uppercase tracking-[0.14em] text-gold font-semibold">
+                  <label htmlFor="hero-quick-address" className="seller-hero-address-label block font-mono text-xs uppercase tracking-[0.14em] text-gold font-semibold">
                     Start with your property address
                   </label>
                   <div className="relative">
@@ -235,7 +235,7 @@ export function Hero({ onAddressSubmit }: { onAddressSubmit?: (address: string) 
                 <p id="hero-quick-address-next" className="seller-hero-address-next mt-3 font-sans text-xs leading-relaxed text-white/85">
                   Next: share your contact details. Our team reviews your property and contacts you to arrange a private strategy call.
                 </p>
-                <p className="seller-hero-address-reassurance mt-1.5 font-sans text-[11px] text-white/65">
+                <p className="seller-hero-address-reassurance mt-1.5 font-sans text-xs text-white/65">
                   Confidential · No obligation
                 </p>
               </div>

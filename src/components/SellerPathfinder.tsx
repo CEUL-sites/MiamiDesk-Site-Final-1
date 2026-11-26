@@ -239,7 +239,7 @@ export function SellerPathfinder({
 
       <div className="relative mx-auto max-w-4xl px-6">
         <div className="text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">{t.eyebrow}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.eyebrow}</p>
           <h2
             id="pathfinder-heading"
             className="mx-auto mt-4 max-w-2xl font-serif text-2xl leading-tight text-white md:text-4xl"
@@ -260,14 +260,14 @@ export function SellerPathfinder({
                 key={i}
                 type="button"
                 onClick={chip.onClick}
-                className="inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+                className="inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
               >
                 {chip.label}
                 <RotateCcw size={11} aria-hidden="true" />
               </button>
             ) : null,
           )}
-          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/70">
+          <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/70">
             {t.step(step)}
           </span>
         </div>
@@ -275,7 +275,7 @@ export function SellerPathfinder({
         <div className="pf-stage mt-7 rounded-xl border border-white/12 bg-white/[0.035] p-6 md:mt-9 md:p-9">
           {step === 1 && (
             <div className="pf-fade">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">{t.q1}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/55">{t.q1}</p>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {INTENTS.map((option) => (
                   <button
@@ -298,7 +298,7 @@ export function SellerPathfinder({
 
           {step === 2 && (
             <div className="pf-fade">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">{t.q2}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-white/55">{t.q2}</p>
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 {STAGES.map((option) => (
                   <button
@@ -316,7 +316,7 @@ export function SellerPathfinder({
 
           {step === 3 && intent && stage && (
             <div className="pf-fade" role="status">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{t.result}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{t.result}</p>
               <p className="mt-4 font-serif text-2xl leading-snug text-white md:text-3xl">
                 {intent[lang].headline}
               </p>
@@ -328,7 +328,7 @@ export function SellerPathfinder({
                 <a
                   href={href}
                   onClick={() => fire("pathfinder_cta", { intent: intent.id, stage: stage.id, lang })}
-                  className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-gold px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-navy-deep transition-opacity hover:opacity-90"
+                  className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg bg-gold px-7 py-4 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
                 >
                   {intent[lang].ctaLabel}
                   <ArrowRight size={15} aria-hidden="true" />
@@ -338,14 +338,14 @@ export function SellerPathfinder({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackContact("whatsapp", `pathfinder_${intent.id}`)}
-                  className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg border border-white/20 px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-white transition-colors hover:border-gold/60 hover:text-gold"
+                  className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-lg border border-white/20 px-7 py-4 font-mono text-xs font-bold uppercase tracking-[0.14em] text-white transition-colors hover:border-gold/60 hover:text-gold"
                 >
                   <MessageSquare size={15} aria-hidden="true" />
                   {t.whatsapp}
                 </a>
               </div>
 
-              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/45">
+              <p className="mt-5 font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 {t.footnote}
               </p>
             </div>

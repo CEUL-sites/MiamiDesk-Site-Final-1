@@ -120,7 +120,7 @@ export function SpainPartnerPortal({
       <div className="mx-auto max-w-6xl px-6">
         {/* Portal header */}
         <div className="max-w-3xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-gold">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
             {es ? "PORTAL DE SOCIOS EN ESPAÑA · ESPAÑA ↔ FLORIDA" : "SPAIN PARTNER PORTAL · SPAIN ↔ FLORIDA"}
           </p>
           <h2
@@ -152,11 +152,11 @@ export function SpainPartnerPortal({
           <div className="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-12 lg:gap-10 lg:p-10">
             <div className="lg:col-span-7">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 bg-gold px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep">
+                <span className="inline-flex items-center gap-1.5 bg-gold px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep">
                   <BadgeCheck size={12} aria-hidden="true" />
                   {es ? "Socio fundador" : "Founding partner"}
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">
+                <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                   Madrid · Costa del Sol · {es ? "Sevilla" : "Seville"} · {es ? "Canarias" : "Canary Islands"}
                 </span>
               </div>
@@ -192,13 +192,13 @@ export function SpainPartnerPortal({
                   <div key={stat.value} className="bg-[#071526]/90 px-4 py-3">
                     <dt className="sr-only">{es ? stat.es : stat.en}</dt>
                     <dd className="font-serif text-2xl font-semibold text-gold md:text-3xl">{stat.value}</dd>
-                    <dd className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-white/60" aria-hidden="true">
+                    <dd className="mt-0.5 font-mono text-xs uppercase tracking-[0.14em] text-white/60" aria-hidden="true">
                       {es ? stat.es : stat.en}
                     </dd>
                   </div>
                 ))}
               </dl>
-              <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.14em] text-white/45">
+              <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                 {es ? "Fuente: información de GILMAR, revisada nov. 2026" : "Source: GILMAR information, reviewed Nov 2026"}
               </p>
             </div>
@@ -216,14 +216,14 @@ export function SpainPartnerPortal({
               <div className="flex flex-col gap-3">
                 <a
                   href={gilmarHref}
-                  className="inline-flex items-center justify-between gap-3 bg-gold px-6 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-navy-deep shadow-lg transition-colors hover:bg-gold-soft"
+                  className="inline-flex items-center justify-between gap-3 bg-gold px-6 py-4 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep shadow-lg transition-colors hover:bg-gold-soft"
                 >
                   {es ? "Ver residencias y catálogo GILMAR" : "View GILMAR residences & portfolio"}
                   <ArrowRight size={15} aria-hidden="true" />
                 </a>
                 <a
                   href={registerHref}
-                  className="inline-flex items-center justify-between gap-3 border border-white/25 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.16em] text-white transition-colors hover:border-gold hover:text-gold"
+                  className="inline-flex items-center justify-between gap-3 border border-white/25 px-6 py-4 font-mono text-xs uppercase tracking-[0.12em] text-white transition-colors hover:border-gold hover:text-gold"
                 >
                   {registerLabel}
                   <ArrowRight size={15} aria-hidden="true" />
@@ -241,7 +241,7 @@ export function SpainPartnerPortal({
               <div key={slot.en[0]} className="flex items-start gap-4 border border-dashed border-white/20 bg-white/[0.02] p-5">
                 <Lock size={16} className="mt-1 shrink-0 text-gold/70" aria-hidden="true" />
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/80">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/80">
                     {es ? "Admisión por acuerdo escrito" : "Admitted by written agreement"}
                   </p>
                   <p className="mt-1.5 font-serif text-lg text-white">{title}</p>
@@ -252,7 +252,7 @@ export function SpainPartnerPortal({
           })}
         </div>
 
-        <p className="mt-6 max-w-4xl font-sans text-[11px] leading-relaxed text-white/50">
+        <p className="mt-6 max-w-4xl font-sans text-xs leading-relaxed text-white/60">
           {disclosure}
           {CONTACT.licenseDisplay} · {CONTACT.brokerage}.
         </p>

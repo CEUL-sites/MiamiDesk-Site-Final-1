@@ -28,7 +28,7 @@
 }
 .global-desk-hero-inner { max-width: 1320px; margin: auto; }
 .global-desk-hero-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
-.global-desk-hero-eyebrow { margin: 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .2em; color: #d7bc8b; }
+.global-desk-hero-eyebrow { margin: 0; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .2em; color: #d7bc8b; }
 .global-desk-hero-language { display: flex; gap: 2px; padding-inline: 4px; background: #081b30e8; border: 1px solid #ffffff24; }
 .global-desk-hero-language button { min-width: 44px; min-height: 44px; font-size: 12px; color: #e3e7ec; border-bottom: 1px solid transparent; }
 .global-desk-hero-language button[aria-pressed=true] { color: #e8ce9f; border-color: #d7bc8b; }
@@ -51,8 +51,8 @@
 .global-desk-hero-footer { display: flex; align-items: center; gap: 32px; border-top: 1px solid #ffffff30; padding-top: 22px; }
 .global-desk-hero-geography { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; flex-shrink: 0; font-size: 12px; letter-spacing: .08em; line-height: 1.8; }
 .global-desk-hero-terms { margin: 0; padding-left: 32px; border-left: 1px solid #ffffff30; font-size: 12px; line-height: 1.65; color: #e0e6ed; }
-.global-desk-hero-terms span { display: block; font-size: 11px; color: #c5d0dc; }
-.global-desk-hero-caption { margin: 16px 0 0; text-align: right; font-size: 11px; line-height: 1.6; color: #d3dde6; }
+.global-desk-hero-terms span { display: block; font-size: 0.75rem; color: #c5d0dc; }
+.global-desk-hero-caption { margin: 16px 0 0; text-align: right; font-size: 0.75rem; line-height: 1.6; color: #d3dde6; }
 @media (min-width: 1600px) {
   .global-desk-hero { padding-top: 120px; }
   .global-desk-hero-copy { padding-top: 16px; padding-bottom: 48px; }
@@ -70,7 +70,7 @@
   .global-desk-hero-art img { object-position: 58% top; }
   .global-desk-hero-art::after { background: linear-gradient(0deg, #081b30 0%, #081b30e8 22%, #081b30b0 60%, #081b3040 100%); }
   .global-desk-hero-topline { margin-bottom: 20px; gap: 6px; }
-  .global-desk-hero-eyebrow { font-size: 10px; letter-spacing: .14em; }
+  .global-desk-hero-eyebrow { font-size: 0.75rem; letter-spacing: .14em; }
   .global-desk-hero-language { gap: 0; }
   .global-desk-hero h1 { font-size: clamp(32px, 9.6vw, 44px); line-height: 1.07; }
   .global-desk-hero-copy { padding-bottom: 24px; }
@@ -82,12 +82,12 @@
   .global-desk-hero-footer { display: block; padding-top: 16px; }
   .global-desk-hero-geography { font-size: 12px; gap: 8px; margin: 0 0 10px; }
   .global-desk-hero-terms { padding: 0; border: 0; font-size: 12px; line-height: 1.65; }
-  .global-desk-hero-terms span { font-size: 11px; margin-top: 4px; }
-  .global-desk-hero-caption { font-size: 11px; margin-top: 12px; text-align: left; }
+  .global-desk-hero-terms span { font-size: 0.75rem; margin-top: 4px; }
+  .global-desk-hero-caption { font-size: 0.75rem; margin-top: 12px; text-align: left; }
 }
 @media (max-width: 359px) {
   .global-desk-hero { padding-inline: 20px; }
-  .global-desk-hero-eyebrow { letter-spacing: .08em; font-size: 9px; }
+  .global-desk-hero-eyebrow { letter-spacing: .08em; font-size: 0.75rem; }
   .global-desk-hero-topline { margin-bottom: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {

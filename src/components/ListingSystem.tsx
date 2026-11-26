@@ -40,7 +40,7 @@ export function ListingSystem() {
   return (
     <section className="bg-navy-deep py-10 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Listing System</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">The Listing System</p>
         <div className="mt-4 flex flex-wrap items-end justify-between gap-4 md:mt-5 md:gap-6">
           <h2 className="max-w-2xl font-serif text-2xl leading-tight text-white md:text-4xl">
             What actually happens when your home lists with Carlos.
@@ -68,14 +68,14 @@ export function ListingSystem() {
         <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-10 md:gap-5">
           <a
             href="/sell#contact"
-            className="group inline-flex items-center gap-2.5 bg-gold px-8 py-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-opacity hover:opacity-90 md:py-4"
+            className="group inline-flex items-center gap-2.5 bg-gold px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90 md:py-4"
           >
             Request a Listing Consultation
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="/home-value"
-            className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold underline underline-offset-4 transition-colors hover:text-gold-soft"
+            className="font-mono text-xs uppercase tracking-[0.12em] text-gold underline underline-offset-4 transition-colors hover:text-gold-soft"
           >
             Or start with your home's value →
           </a>

@@ -162,7 +162,7 @@ export function WestonMarketReport() {
   return (
     <section id="weston-market-report" className="bg-navy-deep py-14 text-white md:py-20" aria-labelledby="weston-report-title">
       <div className="mx-auto max-w-5xl px-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Weston Market Report · 4-Bedroom Homes · Miami MLS · {WESTON_REPORT_AS_OF}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Weston Market Report · 4-Bedroom Homes · Miami MLS · {WESTON_REPORT_AS_OF}</p>
         <h2 id="weston-report-title" className="mt-5 max-w-3xl font-serif text-3xl leading-tight md:text-4xl">
           Weston 4-bedroom median sale price is up {priceChange.toFixed(1)}% from 2020 to 2026 year to date.{" "}
           <em className="italic text-gold">Fewer homes trade than in 2021, and most 2026 sales closed below list.</em>
@@ -184,7 +184,7 @@ export function WestonMarketReport() {
             <div className="mt-3 flex gap-2" role="group" aria-label="Video language">
               {(["en", "es"] as const).map((l) => (
                 <button key={l} type="button" onClick={() => setVideoLang(l)}
-                  className={`flex-1 border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] ${videoLang === l ? "border-gold bg-gold text-navy-deep" : "border-white/20 text-white/70 hover:border-gold/60"}`}>
+                  className={`flex-1 border px-3 py-2 font-mono text-xs uppercase tracking-[0.12em] ${videoLang === l ? "border-gold bg-gold text-navy-deep" : "border-white/20 text-white/70 hover:border-gold/60"}`}>
                   {l === "en" ? "English" : "Español"}
                 </button>
               ))}
@@ -192,7 +192,7 @@ export function WestonMarketReport() {
           </div>
 
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">The 44-second briefing</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">The 44-second briefing</p>
             <p className="mt-3 font-sans text-base leading-relaxed text-white/70">
               The median sale price for Weston 4-bedroom homes went from {usd.format(first.medianSale)} in 2020 to {usd.format(last.medianSale)} in 2026 to date,
               after a peak of {usd.format(peak.medianSale)} in {peak.year}. From 2021 to 2025, closed sales fell from {y2021.closed} to {y2025.closed},
@@ -211,7 +211,7 @@ export function WestonMarketReport() {
                 </div>
               ))}
             </div>
-            <p className="mt-3 font-sans text-[11px] leading-relaxed text-white/45">{WESTON_REPORT_SOURCE}</p>
+            <p className="mt-3 font-sans text-xs leading-relaxed text-white/60">{WESTON_REPORT_SOURCE}</p>
             <a href="#contact" className="mt-6 inline-flex items-center gap-2 bg-gold px-5 py-3 font-sans text-sm font-semibold text-navy-deep hover:bg-gold-soft">
               Request a confidential home value and net proceeds review <ArrowRight size={16} />
             </a>
@@ -248,19 +248,19 @@ export function WestonMarketReport() {
               ["Sale / list", `${y.saleToList}%`],
             ].map(([k, v]) => (
               <div key={k}>
-                <dt className="font-sans text-[11px] text-white/50">{k}</dt>
+                <dt className="font-sans text-xs text-white/60">{k}</dt>
                 <dd className={`mt-0.5 font-serif text-xl ${k === "Year over year" && yoy !== null && yoy < 0 ? "text-[#D96C5F]" : "text-white"}`}>{v}</dd>
               </div>
             ))}
           </dl>
 
           <details className="mt-5 border-t border-white/10 pt-4">
-            <summary className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.2em] text-gold">Year-by-year data table</summary>
+            <summary className="cursor-pointer font-mono text-xs uppercase tracking-[0.12em] text-gold">Year-by-year data table</summary>
             <div className="mt-3 overflow-x-auto">
               <table className="w-full min-w-[620px] font-sans text-sm">
                 <caption className="sr-only">Weston 4-bedroom closed sales by year, Miami MLS</caption>
                 <thead>
-                  <tr className="text-left font-mono text-[10px] uppercase tracking-[0.12em] text-white/50">
+                  <tr className="text-left font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                     <th className="py-2">Year</th><th className="py-2 text-right">Closed</th><th className="py-2 text-right">Median price</th>
                     <th className="py-2 text-right">Avg price</th><th className="py-2 text-right">Median $/sq ft</th><th className="py-2 text-right">Median DOM</th><th className="py-2 text-right">Sale / list</th>
                   </tr>
@@ -281,13 +281,13 @@ export function WestonMarketReport() {
               </table>
             </div>
           </details>
-          <p className="mt-4 font-sans text-[11px] leading-relaxed text-white/45">{WESTON_REPORT_SOURCE}</p>
+          <p className="mt-4 font-sans text-xs leading-relaxed text-white/60">{WESTON_REPORT_SOURCE}</p>
         </div>
 
         {/* 3D sales chart */}
         <div className="mt-14 grid gap-8 md:grid-cols-2 md:items-center">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Sales velocity</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Sales velocity</p>
             <h3 className="mt-4 font-serif text-3xl leading-tight">Fewer Weston homes are trading than in 2021.</h3>
             <p className="mt-4 font-sans text-base leading-relaxed text-white/65">
               Closed 4-bedroom sales went from {y2021.closed} in 2021 to {y2025.closed} in 2025, a change of {signed(salesChange)}.
@@ -297,13 +297,13 @@ export function WestonMarketReport() {
           <figure>
             <img src="/images/reports/weston-2026-11-sales-3d.webp" alt={`Weston 4-bedroom closed sales by year: ${WESTON_YEARS.map((yr) => `${yearLabel(yr)} ${yr.closed}`).join(", ")}`}
               width={1400} height={750} loading="lazy" className="h-auto w-full" />
-            <figcaption className="mt-2 font-sans text-[11px] text-white/45">Closed sales per year · Miami MLS (SEFMLS) · 2026 year to date through {WESTON_REPORT_AS_OF}</figcaption>
+            <figcaption className="mt-2 font-sans text-xs text-white/60">Closed sales per year · Miami MLS (SEFMLS) · 2026 year to date through {WESTON_REPORT_AS_OF}</figcaption>
           </figure>
         </div>
 
         {/* Right now */}
         <div className="mt-14 border border-white/10 bg-navy p-5 md:p-7">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Weston active listings · {WESTON_REPORT_AS_OF}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Weston active listings · {WESTON_REPORT_AS_OF}</p>
           <h3 className="mt-3 font-serif text-2xl md:text-3xl">Active listings ask more than 2026 buyers paid.</h3>
           <p className="mt-3 max-w-3xl font-sans text-sm leading-relaxed text-white/65">
             As of {WESTON_REPORT_AS_OF}, {WESTON_ACTIVE.count} 4-bedroom homes were listed at a median ask of {usd.format(WESTON_ACTIVE.medianList)}, {signed(askGap)} versus the 2026 closed median of {usd.format(last.medianSale)}.
@@ -313,7 +313,7 @@ export function WestonMarketReport() {
           <div className="mt-5 overflow-x-auto">
             <table className="w-full min-w-[560px] font-sans text-sm">
               <thead>
-                <tr className="text-left font-mono text-[10px] uppercase tracking-[0.12em] text-white/50">
+                <tr className="text-left font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                   <th className="py-2">Status</th><th className="py-2 text-right">Count</th><th className="py-2 text-right">Median price</th>
                   <th className="py-2 text-right">Avg price</th><th className="py-2 text-right">Median $/sq ft</th><th className="py-2 text-right">Median DOM</th>
                 </tr>
@@ -333,7 +333,7 @@ export function WestonMarketReport() {
             </table>
           </div>
 
-          <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-gold">By price band · months of inventory</p>
+          <p className="mt-8 font-mono text-xs uppercase tracking-[0.12em] text-gold">By price band · months of inventory</p>
           <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 font-sans text-xs text-white/60">
             <span><i className="mr-1.5 inline-block h-2.5 w-2.5 align-middle" style={{ background: GOLD }} />Sold 2026 YTD</span>
             <span><i className="mr-1.5 inline-block h-2.5 w-2.5 align-middle" style={{ background: BONE }} />Active, as of {WESTON_REPORT_AS_OF}</span>
@@ -346,10 +346,10 @@ export function WestonMarketReport() {
                 <li key={b.label} className="grid grid-cols-[100px_1fr_64px] items-center gap-3 sm:grid-cols-[130px_1fr_80px]">
                   <span className={`font-sans text-xs ${hl ? "font-semibold text-gold" : "text-white/75"}`}>{b.label}</span>
                   <span className="space-y-1">
-                    <span className="flex items-center gap-2"><span className="block h-2.5" style={{ width: `${(b.sold2026 / maxBand) * 100}%`, background: GOLD }} /><span className="font-sans text-[11px] text-white/70">{b.sold2026}</span></span>
-                    <span className="flex items-center gap-2"><span className="block h-2.5" style={{ width: `${(b.active / maxBand) * 100}%`, background: BONE }} /><span className="font-sans text-[11px] text-white/70">{b.active}</span></span>
+                    <span className="flex items-center gap-2"><span className="block h-2.5" style={{ width: `${(b.sold2026 / maxBand) * 100}%`, background: GOLD }} /><span className="font-sans text-xs text-white/70">{b.sold2026}</span></span>
+                    <span className="flex items-center gap-2"><span className="block h-2.5" style={{ width: `${(b.active / maxBand) * 100}%`, background: BONE }} /><span className="font-sans text-xs text-white/70">{b.active}</span></span>
                   </span>
-                  <span className={`text-right font-serif text-xl ${hl ? "text-gold" : "text-white/80"}`}>{moi.toFixed(1)}<span className="ml-1 font-sans text-[10px] text-white/45">mo</span></span>
+                  <span className={`text-right font-serif text-xl ${hl ? "text-gold" : "text-white/80"}`}>{moi.toFixed(1)}<span className="ml-1 font-sans text-xs text-white/60">mo</span></span>
                 </li>
               );
             })}
@@ -358,7 +358,7 @@ export function WestonMarketReport() {
             In the {deepest.label} band, {deepest.active} homes are listed against {deepest.sold2026} sales in 2026, about {monthsOfInventory(deepest.active, deepest.sold2026).toFixed(1)} months of inventory,
             the deepest of any band. Closed homes are banded by sale price; active homes by list price.
           </p>
-          <p className="mt-3 font-sans text-[11px] leading-relaxed text-white/45">{WESTON_NOW_SOURCE}</p>
+          <p className="mt-3 font-sans text-xs leading-relaxed text-white/60">{WESTON_NOW_SOURCE}</p>
         </div>
 
         {/* Read + CTA */}
@@ -367,7 +367,7 @@ export function WestonMarketReport() {
             In 2026 year to date, Weston 4-bedroom homes closed at a median <span className="text-gold">{usd.format(last.medianSale)}</span>, and {Math.round(belowListShare)}% closed below final list price.
             Active listings ask a median {usd.format(WESTON_ACTIVE.medianList)} as of {WESTON_REPORT_AS_OF}. <span className="text-gold">Pricing and distribution</span> are two of the factors that affect where an individual home lands relative to that gap.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl font-sans text-[11px] text-white/45">{WESTON_NOW_SOURCE}</p>
+          <p className="mx-auto mt-4 max-w-3xl font-sans text-xs text-white/60">{WESTON_NOW_SOURCE}</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a href="#contact" className="inline-flex items-center gap-2 bg-gold px-6 py-3.5 font-sans text-sm font-semibold text-navy-deep hover:bg-gold-soft">
               Request your confidential review <ArrowRight size={16} />
@@ -377,7 +377,7 @@ export function WestonMarketReport() {
               <MessageCircle size={16} className="text-gold" /> WhatsApp +1 954-865-6622
             </a>
           </div>
-          <p className="mt-4 font-sans text-xs text-white/50">Free and confidential · No listing commitment · A city median is not a valuation of your home.</p>
+          <p className="mt-4 font-sans text-xs text-white/60">Free and confidential · No listing commitment · A city median is not a valuation of your home.</p>
         </div>
       </div>
     </section>

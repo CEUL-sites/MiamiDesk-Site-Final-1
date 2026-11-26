@@ -202,7 +202,7 @@ export default function JournalListPage() {
         <section className="relative overflow-hidden bg-navy-deep pt-24 pb-16 text-center">
           <AuroraBackground />
           <div className="relative z-10 mx-auto max-w-4xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold font-semibold">
               Market Commentary · United Realty Group
             </p>
             <h1 className="mt-4 font-serif text-4xl leading-tight text-white md:text-6xl tracking-tight">
@@ -213,7 +213,7 @@ export default function JournalListPage() {
               written from 25 years of transaction experience, not recycled headlines.
             </p>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/[0.04] px-4 py-1.5 backdrop-blur-sm">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/80">
                 Carlos Uzcategui, REALTOR® · FL SL705771 · Since 2001 · {posts.length} Published Analyses
               </span>
             </div>
@@ -253,7 +253,7 @@ export default function JournalListPage() {
                     key={cat}
                     type="button"
                     onClick={() => handleCategoryChange(cat)}
-                    className={`rounded-full px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] transition-all duration-200 ${
+                    className={`rounded-full px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.12em] transition-all duration-200 ${
                       active
                         ? 'bg-gold text-navy-deep font-bold shadow-sm'
                         : 'border border-bone bg-ivory/50 text-navy/70 hover:border-gold/60 hover:text-navy'
@@ -274,13 +274,13 @@ export default function JournalListPage() {
               <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-center lg:p-10">
                 <div>
                   <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="rounded bg-gold px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-navy-deep">
+                    <span className="rounded bg-gold px-2.5 py-1 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep">
                       Featured Briefing
                     </span>
-                    <span className="rounded border border-gold/35 bg-white/[0.06] px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold">
+                    <span className="rounded border border-gold/35 bg-white/[0.06] px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold">
                       {featuredPost.category || 'International'}
                     </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/60">
+                    <span className="font-mono text-xs uppercase tracking-[0.14em] text-white/60">
                       {formatDate(featuredPost.date)}
                       {featuredPost.readTime ? ` · ${featuredPost.readTime} min read` : ''}
                     </span>
@@ -293,7 +293,7 @@ export default function JournalListPage() {
                   </p>
                 </div>
                 <div className="flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-5 lg:border-t-0 lg:border-l lg:pl-8 lg:pt-0">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
                     Miami Global Desk · Bilateral Mandate Structure
                   </p>
                   <p className="font-sans text-xs leading-relaxed text-white/65">
@@ -302,7 +302,7 @@ export default function JournalListPage() {
                   </p>
                   <Link
                     to={`/journal/${featuredPost.slug}`}
-                    className="inline-flex min-h-11 items-center gap-2 bg-gold px-6 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-navy-deep transition-colors hover:bg-white"
+                    className="inline-flex min-h-11 items-center gap-2 bg-gold px-6 py-3 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-white"
                   >
                     Read Featured Briefing
                     <ArrowRight size={14} />
@@ -314,7 +314,7 @@ export default function JournalListPage() {
 
           {/* Filter status bar */}
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-navy/65">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-navy/65">
               {isDefaultUnfilteredView
                 ? `Showing ${visiblePosts.length} curated analyses (+1 featured briefing) of ${posts.length} published`
                 : `Showing ${visiblePosts.length} of ${filteredPosts.length} matching analyses`}
@@ -323,7 +323,7 @@ export default function JournalListPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold-ink underline hover:text-gold"
+                className="font-mono text-xs uppercase tracking-[0.14em] text-gold-ink underline hover:text-gold"
               >
                 Reset filters
               </button>
@@ -340,7 +340,7 @@ export default function JournalListPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="mt-5 rounded-full bg-navy px-6 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white hover:bg-gold hover:text-navy transition-colors"
+                className="mt-5 rounded-full bg-navy px-6 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-white hover:bg-gold hover:text-navy transition-colors"
               >
                 Show All Articles
               </button>
@@ -358,11 +358,11 @@ export default function JournalListPage() {
                     <div className="flex flex-1 flex-col p-6 sm:p-7">
                       <div className="flex flex-wrap items-center gap-2">
                         {post.slug === FEATURED_JOURNAL_SLUG && (
-                          <span className="rounded-md bg-navy px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-white">
+                          <span className="rounded-md bg-navy px-2.5 py-1 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white">
                             Featured
                           </span>
                         )}
-                        <span className="inline-block self-start rounded-md border border-gold/30 bg-gold/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.2em] text-gold-ink font-semibold">
+                        <span className="inline-block self-start rounded-md border border-gold/30 bg-gold/5 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
                           {post.category || 'Market Insight'}
                         </span>
                       </div>
@@ -371,7 +371,7 @@ export default function JournalListPage() {
                         {post.title}
                       </h2>
 
-                      <div className="mt-2.5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-navy/55">
+                      <div className="mt-2.5 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-navy/55">
                         <span>{formatDate(post.date)}</span>
                         {post.readTime && (
                           <>
@@ -390,7 +390,7 @@ export default function JournalListPage() {
 
                       <Link
                         to={`/journal/${post.slug}`}
-                        className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-gold-ink transition-colors group-hover:text-gold"
+                        className="mt-6 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.12em] text-gold-ink transition-colors group-hover:text-gold"
                       >
                         Read Full Analysis
                         <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
@@ -406,7 +406,7 @@ export default function JournalListPage() {
                   <button
                     type="button"
                     onClick={() => setVisibleCount((prev) => prev + INITIAL_VISIBLE_COUNT)}
-                    className="inline-flex min-h-12 items-center gap-2 bg-navy-deep px-7 py-3.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+                    className="inline-flex min-h-12 items-center gap-2 bg-navy-deep px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
                   >
                     Load 12 More Analyses ({filteredPosts.length - visibleCount} remaining)
                     <ChevronDown size={15} />
@@ -414,7 +414,7 @@ export default function JournalListPage() {
                   <button
                     type="button"
                     onClick={() => setVisibleCount(filteredPosts.length)}
-                    className="inline-flex min-h-12 items-center gap-2 border border-navy/25 bg-white px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.18em] text-navy-deep transition-colors hover:border-gold hover:text-gold-ink"
+                    className="inline-flex min-h-12 items-center gap-2 border border-navy/25 bg-white px-6 py-3.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-colors hover:border-gold hover:text-gold-ink"
                   >
                     View All ({filteredPosts.length})
                   </button>
@@ -427,7 +427,7 @@ export default function JournalListPage() {
           <details className="group mt-12 rounded-xl border border-bone bg-white p-6 shadow-2xs">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-lg text-navy-deep marker:hidden">
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-ink block">
+                <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink block">
                   Complete Publication Index
                 </span>
                 <span className="mt-1 block font-serif text-xl text-navy-deep">
@@ -455,7 +455,7 @@ export default function JournalListPage() {
         {/* ── SECTION 4: Bottom Consultation CTA Band ───────────────── */}
         <section className="bg-navy-deep py-16">
           <div className="mx-auto max-w-3xl px-6 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">
               South Florida · Private Seller Desk
             </p>
             <h2 className="mx-auto mt-4 max-w-xl font-serif text-2xl leading-snug text-white md:text-3xl">
@@ -467,14 +467,14 @@ export default function JournalListPage() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/sell#contact"
-                className="inline-flex min-h-12 items-center gap-2 bg-gold px-8 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-navy-deep transition-colors hover:bg-white"
+                className="inline-flex min-h-12 items-center gap-2 bg-gold px-8 py-4 font-mono text-xs font-bold uppercase tracking-[0.12em] text-navy-deep transition-colors hover:bg-white"
               >
                 Request a Strategy Review
                 <ArrowRight size={14} />
               </Link>
               <Link
                 to="/home-value"
-                className="inline-flex min-h-12 items-center border border-gold/60 px-7 py-4 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
+                className="inline-flex min-h-12 items-center border border-gold/60 px-7 py-4 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-gold hover:text-navy-deep"
               >
                 Request a Home Valuation
               </Link>

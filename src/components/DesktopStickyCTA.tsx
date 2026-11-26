@@ -102,7 +102,7 @@ export function DesktopStickyCTA({
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3">
           <p className="font-sans text-sm text-white/80">
             <span className="font-serif text-base text-white">{t.headline}</span>
-            <span className="ml-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <span className="ml-3 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               {t.subtext}
             </span>
           </p>
@@ -118,7 +118,7 @@ export function DesktopStickyCTA({
                   location: "desktop_sticky",
                 });
               }}
-              className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
+              className="inline-flex items-center gap-2 border border-white/15 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-white/70 transition-colors hover:border-white/40 hover:text-white"
             >
               <MessageSquare size={12} className="text-gold" />
               {t.whatsappLabel}
@@ -132,7 +132,7 @@ export function DesktopStickyCTA({
                   location: "desktop_sticky",
                 });
               }}
-              className="group inline-flex items-center gap-2 bg-gold px-6 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-navy-deep transition-opacity hover:opacity-90"
+              className="group inline-flex items-center gap-2 bg-gold px-6 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep transition-opacity hover:opacity-90"
             >
               {t.ctaLabel}
               <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
@@ -141,7 +141,7 @@ export function DesktopStickyCTA({
               type="button"
               onClick={dismiss}
               aria-label={t.dismissLabel}
-              className="p-1.5 text-white/35 transition-colors hover:text-white"
+              className="p-1.5 text-white/60 transition-colors hover:text-white"
             >
               <X size={15} />
             </button>

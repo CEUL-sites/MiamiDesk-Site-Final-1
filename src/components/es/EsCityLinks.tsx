@@ -15,7 +15,7 @@ export function EsCityLinks() {
       className="border-t border-hairline bg-ivory py-12 md:py-16"
     >
       <div className="mx-auto max-w-7xl px-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-ink font-semibold">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold-ink font-semibold">
           Guías por Ciudad en Español
         </p>
         <h2
@@ -42,7 +42,7 @@ export function EsCityLinks() {
           ))}
         </ul>
 
-        <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.12em] text-navy-deep">
+        <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-[0.12em] text-navy-deep">
           <Link to="/es/vender" className="underline decoration-gold/50 underline-offset-4 hover:text-gold-ink">
             Representación de vendedores
           </Link>

@@ -92,7 +92,7 @@ export default function SellNorthMiamiPage() {
           <LazyVideo idle src="/videos/hand_house_reach.mp4" className="absolute inset-0 h-full w-full object-cover opacity-[0.14] pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-transparent to-navy-deep/80 pointer-events-none" />
           <div className="relative">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">North Miami, FL · Seller Advisory</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">North Miami, FL · Seller Advisory</p>
             <HeroTitle
               lead="Sell your North Miami home with the reach"
               payoff="of the world's largest local REALTOR® association."
@@ -133,23 +133,23 @@ export default function SellNorthMiamiPage() {
                   </svg>
                 ))}
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/70">
+              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/70">
                 5.0 · Free &amp; confidential · No listing commitment · Personal reply from Carlos
               </span>
             </div>
 
             <blockquote className="mx-auto mt-5 max-w-md border-l-2 border-gold/30 pl-4 text-left">
               <p className="font-sans text-sm italic leading-relaxed text-white/55">"We needed a realistic pricing strategy relative to the coastal markets nearby. Carlos gave us a clear picture and helped us reach the right buyer pool."</p>
-              <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/50">— Natalie A., North Miami, FL</footer>
+              <footer className="mt-2 font-mono text-xs uppercase tracking-[0.12em] text-gold/50">— Natalie A., North Miami, FL</footer>
             </blockquote>
 
             <div className="mt-5 flex items-center justify-center gap-2">
-              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
+              <a href={LEAD_MAGNETS.sellerNetSheet.url} download className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.12em] text-gold/70 underline-offset-2 hover:text-gold hover:underline">
                 <Download size={11} />
                 Or download the Seller's Net Sheet 2026
               </a>
             </div>
-            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white/70">
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               United Realty Group · CLHMS · FL SL705771 · Office: Weston, FL 33331
             </p>
           </div>
@@ -158,7 +158,7 @@ export default function SellNorthMiamiPage() {
         {/* Market positioning */}
         <section className="bg-ivory py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Why North Miami</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">Why North Miami</p>
             <h2 className="mt-5 max-w-3xl font-serif text-3xl leading-tight text-navy-deep md:text-4xl">
               A growing submarket with coastal adjacency and value positioning within the Aventura corridor.
             </h2>
@@ -177,7 +177,7 @@ export default function SellNorthMiamiPage() {
                 { label: "Market Type", value: "Value-Positioned / Coastal Adjacent", sub: "Accessible price points relative to Aventura, North Miami Beach, and Bal Harbour" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white p-7">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gold">{stat.label}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">{stat.label}</p>
                   <p className="mt-3 font-serif text-2xl text-navy-deep">{stat.value}</p>
                   <p className="mt-2 font-sans text-xs leading-relaxed text-ink-primary/50">{stat.sub}</p>
                 </div>
@@ -191,7 +191,7 @@ export default function SellNorthMiamiPage() {
           <div className="mx-auto max-w-5xl px-6">
             <div className="grid gap-12 md:grid-cols-2 md:items-center">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">The Network Advantage</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">The Network Advantage</p>
                 <h2 className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
                   Your North Miami listing reaches every buyer,<br />
                   <em className="italic text-gold">everywhere they're looking.</em>
@@ -222,7 +222,7 @@ export default function SellNorthMiamiPage() {
                   { label: "Negotiation", text: "Offer review, terms strategy, and closing coordination" },
                 ].map((step) => (
                   <div key={step.label} className="flex gap-6 bg-navy p-6">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
+                    <span className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 w-24 flex-shrink-0 pt-0.5">{step.label}</span>
                     <p className="font-sans text-sm text-white/65">{step.text}</p>
                   </div>
                 ))}
@@ -235,7 +235,7 @@ export default function SellNorthMiamiPage() {
         <section className="border-t border-gold/20 bg-navy py-12 md:py-20 text-white">
           <div className="mx-auto max-w-4xl px-6">
             <div className="mb-12 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">North Miami Sellers Ask</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">North Miami Sellers Ask</p>
               <h2 className="mt-4 font-serif text-4xl leading-tight text-white lg:text-5xl">Common questions.</h2>
             </div>
             <FaqAccordion faqs={NORTH_MIAMI_FAQS} />
@@ -245,15 +245,15 @@ export default function SellNorthMiamiPage() {
         {/* Journal crosslinks */}
         <section className="bg-ivory py-12 md:py-16">
           <div className="mx-auto max-w-5xl px-6">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-6">North Miami Market Research</p>
+            <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold mb-6">North Miami Market Research</p>
             <div className="grid gap-4 sm:grid-cols-2">
               <a href="/journal/international-buyers-south-florida-2026" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Buyer Intelligence</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 mb-3">Buyer Intelligence</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">International and Out-of-State Buyers in South Florida 2026 — What Sellers Should Know</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the market analysis →</p>
               </a>
               <a href="/sell" className="block border border-hairline bg-white p-6 hover:border-gold/40 transition-colors">
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold/70 mb-3">Seller Advisory</p>
+                <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold/70 mb-3">Seller Advisory</p>
                 <h3 className="font-serif text-lg text-navy-deep leading-snug">South Florida Seller Strategy — How MLS Distribution Works</h3>
                 <p className="mt-2 font-sans text-sm text-ink-primary/55">Read the full seller guide →</p>
               </a>
@@ -270,14 +270,14 @@ export default function SellNorthMiamiPage() {
         <section className="bg-navy-deep py-16 md:py-24" id="contact">
           <div className="mx-auto max-w-5xl px-6">
             <div className="mb-10 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">North Miami Seller Review</p>
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-gold">North Miami Seller Review</p>
               <h2 className="mt-3 font-serif text-3xl text-white">Request a private property positioning review.</h2>
-              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/50">
+              <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/60">
                 No listing commitment required. Our team reviews every North Miami submission before responding.
               </p>
             </div>
             <SellerIntakeForm sourcePage="sell-north-miami" />
-            <div className="mt-6 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+            <div className="mt-6 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-white/70">
               <BadgeCheck size={14} className="text-gold" />
               Confidential · Licensed Professional · Equal Housing Opportunity
             </div>
