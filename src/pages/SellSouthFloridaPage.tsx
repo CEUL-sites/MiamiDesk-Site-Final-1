@@ -233,7 +233,7 @@ export default function SellSouthFloridaPage() {
 
               <div className="inline-flex rounded-lg border border-bone bg-white p-1" role="group" aria-label="Filter guides">
                 {[
-                  { id: "all", label: "All 6 Briefings" },
+                  { id: "all", label: "All Briefings" },
                   { id: "tax", label: "Proceeds & Tax" },
                   { id: "market", label: "HOA & Timing" },
                 ].map((tab) => (

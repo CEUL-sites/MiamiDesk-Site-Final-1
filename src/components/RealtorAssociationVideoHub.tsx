@@ -48,8 +48,8 @@ const CHANNELS: readonly ChannelItem[] = [
     tabLabelEs: "01 · Only a REALTOR®",
     badgeEn: "MIAMI REALTORS® + RWorld Campaign · Perfect Strangers",
     badgeEs: "Campaña MIAMI REALTORS® + RWorld · Perfect Strangers",
-    titleEn: "Perfect Strangers Become Coordinated Closings Through the 93,000-Agent Network.",
-    titleEs: "Desconocidos se convierten en cierres coordinados a través de la red de 93,000 agentes.",
+    titleEn: "Perfect Strangers Become Coordinated Closings Through the MLS Ecosystem of 93,000 Association Members.",
+    titleEs: "Desconocidos se convierten en cierres coordinados a través del ecosistema MLS de 93.000 miembros de la asociación.",
     summaryEn:
       "Nearly 9 of 10 U.S. buyers purchase through an agent or broker (NAR 2025 Profile)—cooperating agents inside the MLS ecosystem connect two sides who never met before.",
     summaryEs:
@@ -85,7 +85,7 @@ const CHANNELS: readonly ChannelItem[] = [
     metrics: [
       { value: "93,000", labelEn: "MIAMI REALTORS® Members", labelEs: "Miembros MIAMI REALTORS®" },
       { value: "9/10", labelEn: "Buyers Purchase Through an Agent · NAR 2025", labelEs: "Compradores con agente · NAR 2025" },
-      { value: "25 Yrs", labelEn: "Licensed FL Principal", labelEs: "Licencia FL desde 2001" },
+      { value: "25 Yrs", labelEn: "Licensed FL Sales Associate", labelEs: "Licencia FL desde 2001" },
     ],
     externalLinks: [
       {
@@ -343,8 +343,8 @@ const HEADER_COPY: Record<
   agents: {
     eyebrowEn: "MIAMI REALTORS® + RWorld + NAR · Official Broadcast Archive",
     eyebrowEs: "MIAMI REALTORS® + RWorld + NAR · Archivo Oficial de Campaña",
-    headingEn: "Why the 93,000-Agent REALTOR® Network Wins for Your Clients",
-    headingEs: "Por qué la red de 93,000 agentes REALTOR® impulsa a sus clientes",
+    headingEn: "Why the 93,000-Member REALTOR® Ecosystem Works for Your Clients",
+    headingEs: "Por qué el ecosistema de 93.000 miembros REALTOR® trabaja para sus clientes",
     subEn:
       "Watch the official 'Only a REALTOR® — Perfect Strangers' and 'Box of Memories' films alongside NAR's 'That's Who We R®' and MIAMI REALTORS® global broadcasts.",
     subEs:

@@ -158,7 +158,7 @@ export default function EsComprarPage() {
         <meta property="og:image" content="https://homesprofessional.com/images/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Comprar en Sur de Florida | Representación de Compradores | Carlos Uzcategui" />
-        <meta name="twitter:description" content="Representación bilingüe para compradores de España y Latinoamérica en Sur de Florida. Acceso completo al MLS. United Realty Group." />
+        <meta name="twitter:description" content="Representación bilingüe para compradores de España y Latinoamérica en Sur de Florida. Búsqueda en el MLS de Miami. United Realty Group." />
         <meta name="twitter:image" content="https://homesprofessional.com/images/og-default.png" />
         <link rel="alternate" hrefLang="x-default" href="https://homesprofessional.com/buy" />
         <link rel="alternate" hrefLang="en" href="https://homesprofessional.com/buy" />
@@ -335,7 +335,7 @@ export default function EsComprarPage() {
                     // TODO: native Madrid editor review
                     `${CONTACT.stats.urgAgents} agentes con licencia y 19 ubicaciones de oficinas en Florida`,
                     "Cobertura local de Broward y Miami-Dade — Weston, Pembroke Pines, Kendall, Hialeah, Aventura, Fort Lauderdale y más",
-                    "Acceso completo al MLS de Miami and South Florida REALTORS®",
+                    "Búsqueda en el MLS de Miami and South Florida REALTORS®",
                     "Representación bilingüe en inglés y español",
                     "Plataforma inmobiliaria coordinada y sujeta a los requisitos de Florida",
                   ].map((item) => (
@@ -401,7 +401,7 @@ export default function EsComprarPage() {
                   // TODO: native Madrid editor review
                   label: "Búsqueda en MLS",
                   // TODO: native Madrid editor review
-                  desc: "Acceso completo al MLS con selección filtrada de propiedades que se ajustan al mandato del comprador.",
+                  desc: "Búsqueda en el MLS con selección filtrada de propiedades que se ajustan al mandato del comprador.",
                 },
                 {
                   number: "03",
@@ -464,14 +464,14 @@ export default function EsComprarPage() {
                 {
                   icon: Globe2,
                   // TODO: native Madrid editor review
-                  title: "Mercado nº 1 para compradores globales",
+                  title: "Mercado clave para compradores internacionales",
                   desc: "Uno de cada cinco compradores internacionales en EE. UU. compra en Florida — y el 52% de ellos lo hace en el área de Miami.",
                 },
                 {
                   icon: HeartPulse,
                   // TODO: native Madrid editor review
-                  title: "Ciudad más feliz y saludable de EE. UU.",
-                  desc: "Miami encabeza el Mindbody Wellness Index, con sistemas hospitalarios de primer nivel como Baptist Health y Bascom Palmer.",
+                  title: "Bienestar y sistemas de salud",
+                  desc: "Miami figura en el Mindbody Wellness Index y cuenta con sistemas hospitalarios como Baptist Health y Bascom Palmer.",
                 },
                 {
                   icon: Landmark,
@@ -483,7 +483,7 @@ export default function EsComprarPage() {
                   icon: Plane,
                   // TODO: native Madrid editor review
                   title: "Puerta de las Américas",
-                  desc: "MIA es el 2º aeropuerto de EE. UU. en pasajeros internacionales, con el mayor número de vuelos a Latinoamérica y el Caribe, y conexión directa con España.",
+                  desc: "MIA es el 2º aeropuerto de EE. UU. en pasajeros internacionales, con amplia conectividad con Latinoamérica y el Caribe, y conexión directa con España.",
                 },
               ].map((r) => (
                 <div key={r.title} className="bg-navy-deep/90 p-6">
