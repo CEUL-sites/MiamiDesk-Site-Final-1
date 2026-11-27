@@ -25,7 +25,7 @@ const SITE = "https://homesprofessional.com";
 const MAX_SENDS_PER_RUN = 50;
 
 // Days-since-enrollment thresholds per stage. Stage N is sent once
-// daysSince >= OFFSETS[N]. The day-0 confirmation is lead-acknowledgment.ts.
+// daysSince >= OFFSETS[N]. The seller consultation starts with personal follow-up.
 const STANDARD_OFFSETS = [2, 5, 12, 21, 45];
 const FAST_OFFSETS = [1, 3, 7, 14, 30];
 
