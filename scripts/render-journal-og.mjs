@@ -37,6 +37,10 @@ function discoverChrome() {
     '/usr/bin/chromium',
     '/snap/bin/chromium',
     '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe',
+    'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
   );
 
   return candidates.filter((exe) => exe && fs.existsSync(exe));
@@ -193,5 +197,9 @@ for (const file of pending) {
   console.log('rendered', `${slug}.jpg${linked ? ' (+ linked image: in frontmatter)' : ''}`);
 }
 
-await browser.close();
+await Promise.race([
+  browser.close().catch(() => {}),
+  new Promise((resolve) => setTimeout(resolve, 3000)),
+]);
 console.log(`done — ${rendered} card(s) rendered, ${posts.length - rendered} skipped`);
+process.exit(0);
