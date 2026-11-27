@@ -220,12 +220,6 @@ export function SellerIntakeForm({ sourcePage = "seller-intake" }: { sourcePage?
         placeId: form.placeId, messagingConsent: form.messagingConsent,
         botField: "", formRenderedAt: String(renderedAt.current),
       });
-      // Trigger auto-reply
-      fetch("/.netlify/functions/lead-acknowledgment", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formName: "seller-intake", name: form.name, email: form.email, phone: form.phone, propertyAddress: form.propertyAddress, botField: "", formRenderedAt: String(renderedAt.current) }),
-      }).catch(() => {});
       trackLead("seller", { form: "seller-intake", form_location: effectiveSourcePage, page: effectiveSourcePage });
       navigateAfterTracking("/thanks/seller");
     } catch (e: unknown) {

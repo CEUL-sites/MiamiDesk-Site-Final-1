@@ -12,6 +12,7 @@ const INITIAL_FORM_DATA = {
   propertyAddress: "",
   city: "",
   timeline: "30-90 days",
+  inquiryIntent: "",
   message: ""
 };
 
@@ -82,8 +83,9 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
         message: formData.message, sourcePage: "seller-consultation", formName: "seller-consultation", leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current),
         ...(desk ? { desk } : {}),
+        crmFields: { inquiryIntent: formData.inquiryIntent },
       });
-      trackLead(intent === "buyer" ? "buyer" : intent === "seller" ? "seller" : "agent", { form: "seller-consultation", form_location: window.location.pathname, ...(desk ? { desk } : {}) });
+      trackLead(desk ? (desk === "buyer" ? "buyer" : "agent") : formData.inquiryIntent === "seller" ? "seller" : formData.inquiryIntent === "buyer" ? "buyer" : "inquiry", { form: "seller-consultation", form_location: window.location.pathname, ...(desk ? { desk } : {}) });
       setStatus("success");
       setFormData(INITIAL_FORM_DATA);
     } catch (error) {
@@ -135,6 +137,12 @@ export function LeadForm({ desk: suppliedDesk, intent = "seller", compactHeading
         <form name="seller-consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-4 md:space-y-6">
           <input type="hidden" name="form-name" value="seller-consultation" />
           {desk && <input type="hidden" name="desk" value={desk} readOnly />}
+          {!desk && <div className="flex flex-col gap-2">
+            <label className="input-label" htmlFor={fid("inquiryIntent")}>What would you like to discuss? (optional)</label>
+            <select id={fid("inquiryIntent")} name="inquiryIntent" className="form-input" value={formData.inquiryIntent} onChange={(e) => setFormData({ ...formData, inquiryIntent: e.target.value })}>
+              <option value="">Please select</option><option value="seller">Selling a property</option><option value="buyer">Buying a property</option><option value="professional">Professional or business inquiry</option><option value="unsure">Something else / not sure</option>
+            </select>
+          </div>}
           <div style={{ position: "absolute", left: "-9999px", top: "-9999px" }} aria-hidden="true">
             <input type="text" name="bot-field" tabIndex={-1} autoComplete="off" />
           </div>

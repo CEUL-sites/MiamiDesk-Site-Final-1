@@ -279,12 +279,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  if (!RESEND_API_KEY) {
-    // Resend not configured — log internally and return success to not break form flow
-    console.warn("RESEND_API_KEY not set — acknowledgment email skipped");
-    return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "no_key" }) };
-  }
-
   // This endpoint emails whatever address it is given, so it is the piece a
   // bot can turn against third parties. Lock it to the site's own origin,
   // throttle it, and never auto-reply to a lead the spam model would hold.
@@ -303,6 +297,14 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   const { formName = "", name = "", email = "", country = "", guide = "", language = "", desk = "" } = body;
+  // These consultations receive a personal reply. Older loaded pages may still call this endpoint.
+  if (formName === "seller-hero" || formName === "seller-intake" || formName === "seller-consultation") {
+    return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "personal_follow_up" }) };
+  }
+  if (!RESEND_API_KEY) {
+    console.warn("RESEND_API_KEY not set — acknowledgment email skipped");
+    return { statusCode: 200, body: JSON.stringify({ ok: true, skipped: "no_key" }) };
+  }
   const gilmarBuyer = formName === "buyer-mandate" && desk === "gilmar-spain";
 
   const spam = assessLeadSpam({

@@ -249,12 +249,6 @@ export function HeroSellerForm({ lang = "en", progressiveDesktop = false, compac
         botField: "", formRenderedAt: String(renderedAt.current), messagingConsent: form.messagingConsent,
       });
       trackLead("seller", { form: "seller-hero", page: sourcePage });
-      // Auto-acknowledgment (email/WhatsApp confirmation) — best-effort
-      fetch("/.netlify/functions/lead-acknowledgment", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formName: "seller-hero", name: form.name, email: form.email, phone: form.phone, propertyAddress: form.propertyAddress, botField: "", formRenderedAt: String(renderedAt.current) }),
-      }).catch(() => {});
       setStatus("success");
       setForm(initial);
       setStep(1);

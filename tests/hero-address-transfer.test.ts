@@ -5,6 +5,29 @@ import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createRequire } from "node:module";
+import { handler as acknowledgeLead } from "../netlify/functions/lead-acknowledgment";
+
+test("seller forms skip acknowledgment requests from previously loaded pages", async () => {
+  const path = "/.netlify/functions/lead-acknowledgment";
+  for (const formName of ["seller-hero", "seller-intake", "seller-consultation"]) {
+    const event: Parameters<typeof acknowledgeLead>[0] = {
+      rawUrl: `https://homesprofessional.com${path}`,
+      rawQuery: "",
+      path,
+      httpMethod: "POST",
+      headers: { origin: "https://homesprofessional.com" },
+      multiValueHeaders: {},
+      queryStringParameters: null,
+      multiValueQueryStringParameters: null,
+      body: JSON.stringify({ formName, email: "internal-check@example.com" }),
+      isBase64Encoded: false,
+    };
+    const result = await acknowledgeLead(event, {} as Parameters<typeof acknowledgeLead>[1], () => {});
+    assert.ok(result);
+    assert.equal(result.statusCode, 200);
+    assert.deepEqual(JSON.parse(result.body ?? "{}"), { ok: true, skipped: "personal_follow_up" });
+  }
+});
 
 const temporary = mkdtempSync(join(tmpdir(), "hero-address-transfer-"));
 after(() => rmSync(temporary, { recursive: true, force: true }));
@@ -669,7 +692,7 @@ test("Hero -> HomepageConsultation -> HeroSellerForm interactive address transfe
   assert.equal(notifyPayload.sourcePage, "homepage-consultation-en");
 
   const ackCall = env.fetchCalls.find((c) => c.url === "/.netlify/functions/lead-acknowledgment");
-  assert.ok(ackCall, "must POST to /.netlify/functions/lead-acknowledgment");
+  assert.equal(ackCall, undefined, "a seller consultation is followed up personally");
 
   // Verify success state rendered with Net Sheet download
   const fullText = h.textOf(

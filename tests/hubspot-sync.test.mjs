@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyInquiry, buildContactProperties, makeJob, syncJob, HubSpotClient, PROPERTY_DEFINITIONS, inquiryNote, programTag } from '../netlify/functions/_shared/hubspotSync.mjs';
+import { classifyInquiry, eligibleForSellerNurture, buildContactProperties, makeJob, syncJob, HubSpotClient, PROPERTY_DEFINITIONS, inquiryNote, programTag } from '../netlify/functions/_shared/hubspotSync.mjs';
 
 test('professional submissions expose brokerage, market and referral fields without replacing identity',()=>{
  const job=makeJob('referral-intake',{licenseeName:'Ana Agent',email:'agent@example.invalid',phone:'+19545550101',brokerageName:'Example Brokerage',country:'Spain',registrationPurpose:'agent_registration',referralType:'Buyer mandate',clientName:'Separate Client'},'agent-profile');
@@ -109,7 +109,8 @@ test('existing professional company, website and role are fetched before blank-o
 });
 
 test('every contactable form has a category; address-only stage is excluded', () => {
-  for (const f of ['seller-hero','seller-intake','seller-consultation']) assert.equal(classifyInquiry(f,{}),'south_florida_seller');
+  for (const f of ['seller-hero','seller-intake']) assert.equal(classifyInquiry(f,{}),'south_florida_seller');
+  assert.equal(classifyInquiry('seller-consultation',{}),'needs_review');
   assert.equal(classifyInquiry('buyer-mandate',{}),'buyer');
   assert.equal(classifyInquiry('referral-intake-es',{}),'referral_partner');
   assert.equal(classifyInquiry('agency-partner-intake',{}),'agency_developer');
@@ -124,8 +125,41 @@ test('contact intent preserves desk and classifies each inquiry without seller f
   const job = makeJob('seller-consultation', {email:'intent@example.com', desk}, `contact-${desk}`);
   assert.equal(job.category, category);
   assert.equal(job.fields.desk, desk);
+  if(['buyer','referral'].includes(desk)) assert.equal(job.fields._phoneRegion,'unknown');
  }
- assert.equal(classifyInquiry('seller-consultation', {}), 'south_florida_seller');
+ assert.equal(classifyInquiry('seller-consultation', {inquiryIntent:'seller'}), 'south_florida_seller');
+ assert.equal(classifyInquiry('seller-consultation', {inquiryIntent:'buyer'}), 'buyer');
+ for(const inquiryIntent of ['', 'professional', 'unsure', 'unexpected', 'constructor', '__proto__']) {
+  const job=makeJob('seller-consultation',{email:'review@example.invalid',inquiryIntent},'review-'+inquiryIntent);
+  assert.equal(job.category,'needs_review');
+  assert.equal(buildContactProperties(job,{hp_inquiry_categories:'south_florida_seller'}).hp_inquiry_categories,undefined);
+  assert.match(inquiryNote(job),/Inquiry needs review/);
+ }
+});
+test('unconfirmed consultation produces a neutral task without changing existing category',async()=>{
+ const state=referralApi({existing:[{id:'existing',properties:{email:'review@example.invalid',hp_inquiry_categories:'south_florida_seller'}}]});
+ const job=makeJob('seller-consultation',{email:'review@example.invalid',inquiryIntent:'professional',message:'Business proposal'},'vendor');
+ await syncJob(job,state.api,async()=>{},'owner');
+ assert.equal(state.contacts.get('existing').properties.hp_inquiry_categories,'south_florida_seller');
+ assert.match(state.tasks[0].properties.hs_task_subject,/Inquiry needs review/);
+ assert.match(state.notes[0].properties.hs_note_body,/professional/);
+});
+test('nurture requires affirmative seller intent on consultations, including calculator',async()=>{
+ for(const f of [{},{inquiryIntent:'professional'},{inquiryIntent:'buyer'},{source:'net-proceeds-calculator'}]) assert.equal(eligibleForSellerNurture('seller-consultation',f),false);
+ assert.equal(eligibleForSellerNurture('seller-consultation',{inquiryIntent:'seller'}),true);
+ assert.equal(eligibleForSellerNurture('seller-consultation',{desk:'buyer',inquiryIntent:'seller'}),false);
+ assert.equal(eligibleForSellerNurture('seller-hero',{}),true);
+ assert.equal(classifyInquiry('seller-consultation',{source:'net-proceeds-calculator'}),'south_florida_seller');
+ const {enqueueBackupLead}=await import('../netlify/functions/_shared/hubspotQueue.mjs');
+ const store=memoryStore();
+ await enqueueBackupLead({formName:'seller-consultation',email:'calc@example.invalid',formRenderedAt:'123',crmFields:{source:'net-proceeds-calculator'}},store);
+ assert.equal([...store.data.values()].find(j=>j.form==='seller-consultation').category,'south_florida_seller');
+ const sellerStore=memoryStore();
+ await enqueueBackupLead({formName:'seller-consultation',email:'seller@example.invalid',formRenderedAt:'123',crmFields:{inquiryIntent:'seller'}},sellerStore);
+ assert.equal([...sellerStore.data.values()].find(j=>j.form==='seller-consultation').category,'south_florida_seller');
+ const reviewStore=memoryStore();
+ await enqueueBackupLead({formName:'seller-consultation',email:'vendor@example.invalid',formRenderedAt:'123',crmFields:{inquiryIntent:'professional'}},reviewStore);
+ assert.equal([...reviewStore.data.values()].find(j=>j.form==='seller-consultation').category,'needs_review');
 });
 test('partner aliases, complete attribution, and repeated inquiry identity are retained',()=>{
  const j=makeJob('agency-partner-intake',{agentName:'Ana',whatsapp:'+34 600 111 222',utm_source:'linkedin',consent:'yes'},'one');

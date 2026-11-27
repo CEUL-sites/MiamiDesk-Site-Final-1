@@ -197,6 +197,7 @@ export function SellerNetCalculator({ sourcePage, lang = "en" }: { sourcePage: s
       notifyLeadDirect({
         name, email, phone, message: summary, sourcePage, formName: "seller-consultation", leadSource: getLeadSource(),
         botField: "", formRenderedAt: String(renderedAt.current),
+        crmFields: { source: "net-proceeds-calculator" },
       });
       trackLead("seller", { form: "net-proceeds-calculator", page: sourcePage, lang });
       setStatus("success");
