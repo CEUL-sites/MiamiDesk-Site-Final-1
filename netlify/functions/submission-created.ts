@@ -9,9 +9,6 @@ import { assessLeadSpam, storeQuarantine } from "./_shared/leadSpam";
 import { getLeadMarketContext, shouldFetchMarketContext } from "./_shared/leadMarketContext";
 import { sendServerLeadToGA4 } from "./_shared/ga4Measurement";
 
-// Seller forms whose leads enter the automated nurture sequence
-// (sent by the scheduled seller-nurture function).
-
 // Env var names — set these in Netlify → Site settings → Environment variables.
 // GOOGLE_SHEETS_WEBHOOK_URL  — Google Apps Script web app URL (doPost webhook)
 // RESEND_API_KEY             — Resend API key for email notifications

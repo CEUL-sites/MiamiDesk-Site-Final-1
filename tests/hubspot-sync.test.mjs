@@ -125,6 +125,7 @@ test('contact intent preserves desk and classifies each inquiry without seller f
   const job = makeJob('seller-consultation', {email:'intent@example.com', desk}, `contact-${desk}`);
   assert.equal(job.category, category);
   assert.equal(job.fields.desk, desk);
+  if(['buyer','referral'].includes(desk)) assert.equal(job.fields._phoneRegion,'unknown');
  }
  assert.equal(classifyInquiry('seller-consultation', {inquiryIntent:'seller'}), 'south_florida_seller');
  assert.equal(classifyInquiry('seller-consultation', {inquiryIntent:'buyer'}), 'buyer');

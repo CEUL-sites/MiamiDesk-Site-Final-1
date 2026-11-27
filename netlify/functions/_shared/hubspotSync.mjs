@@ -73,7 +73,7 @@ export function makeJob(form, original, submissionId) {
  const fields=Object.fromEntries(Object.entries(original).map(([k,v])=>[k,text(v)]));
  fields.name ||= fields.licenseeName || fields.agentName || '';
  fields.phone ||= fields.whatsapp || '';
- fields._phoneRegion=phoneRegion(fields)||(category==='south_florida_seller'||form==='seller-consultation'?'US':'unknown');
+ fields._phoneRegion=phoneRegion(fields)||(['south_florida_seller','needs_review'].includes(category)?'US':'unknown');
  fields.email=(fields.email||'').toLowerCase();
  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email))fields.email='';
  if(!fields.email && fields.phone.replace(/\D/g,'').length<7)return null;
