@@ -1,4 +1,129 @@
 {
+  "palm-beach-county-real-estate-market-2026-2027-guide": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        "@id": "https://homesprofessional.com/journal/palm-beach-county-real-estate-market-2026-2027-guide#article",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://homesprofessional.com/#website",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com"
+        },
+        "headline": "Palm Beach County Real Estate Market 2026–2027: Boca Raton, Delray & West Palm Guide",
+        "datePublished": "2026-11-27T08:00:00-05:00",
+        "dateModified": "2026-11-27T08:00:00-05:00",
+        "image": "https://homesprofessional.com/images/journal/og/palm-beach-county-real-estate-market-2026-2027-guide.jpg",
+        "author": {
+          "@type": "Person",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": "Carlos Uzcategui",
+          "jobTitle": "Florida Licensed Realtor®",
+          "identifier": "SL705771",
+          "url": "https://homesprofessional.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://homesprofessional.com/images/urg-logo-original.webp"
+          }
+        },
+        "description": "Palm Beach County SFH medians reached $682,500 (+6.1% YoY) at 3.9 months supply. Compare Boca Raton, Delray Beach, Jupiter, and West Palm Beach for 2027.",
+        "mainEntityOfPage": "https://homesprofessional.com/journal/palm-beach-county-real-estate-market-2026-2027-guide"
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://homesprofessional.com/#agent",
+        "name": "Carlos Uzcategui - United Realty Group",
+        "license": "SL705771",
+        "telephone": "+1-954-865-6622",
+        "email": "contact@carlosre.com",
+        "url": "https://homesprofessional.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2691 E Oakland Park Blvd",
+          "addressLocality": "Plantation",
+          "addressRegion": "FL",
+          "postalCode": "33324",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "Palm Beach County Real Estate Market Analysis",
+          "Boca Raton Delray Beach and West Palm Beach Seller Representation",
+          "South Florida Home Seller Pricing and Distribution",
+          "Florida Condo SIRS and Warrantability Diligence",
+          "Certified Luxury Home Marketing Specialist",
+          "MLS Institutional Syndication Strategy"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://homesprofessional.com/journal/palm-beach-county-real-estate-market-2026-2027-guide#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are Palm Beach County median home and condo prices entering 2027?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In MIAMI REALTORS® October 2026 county reports, Palm Beach County single-family homes posted a $682,500 median sale price (+6.1% year-over-year) with 3.9 months of supply and 37 median days to contract, while condos and townhouses posted a $300,000 median (-4.8% YoY) with 7.1 months of supply."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do Boca Raton, Delray Beach, Jupiter, and West Palm Beach compare?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In Q2 2026 official city reports, single-family medians stood at $1,300,000 in Boca Raton (3.9 months supply), $1,099,900 in Jupiter (3.0 months), $800,000 in Delray Beach (4.1 months), and $651,000 in West Palm Beach (4.8 months), while condo medians ranged from $364,500 in West Palm Beach to $578,000 in Boca Raton."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is Palm Beach County more insulated from 7.21% mortgage rates than other markets?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In October 2026, all-cash buyers accounted for 45.9% of Palm Beach County single-family closings and 59.7% of condo closings. Combined with the 2027 conforming loan limit increasing to $855,400 on January 1, 2027, high cash liquidity supports well-priced single-family homes and reserve-compliant condos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What must Palm Beach County home and condo sellers prepare before listing in 2027?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Single-family sellers should prepare an official County Property Appraiser tax estimate for the February 1, 2027 portal rule alongside current 4-Point and wind-mitigation records, while condo sellers should assemble Phase 1 and Phase 2 Milestone Inspection reports, SIRS reserve studies, and association financials upfront."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://homesprofessional.com/journal/palm-beach-county-real-estate-market-2026-2027-guide#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://homesprofessional.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Journal",
+            "item": "https://homesprofessional.com/journal"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Palm Beach County Real Estate Market 2026–2027: Boca Raton, Delray & West Palm Guide",
+            "item": "https://homesprofessional.com/journal/palm-beach-county-real-estate-market-2026-2027-guide"
+          }
+        ]
+      }
+    ]
+  },
   "florida-2027-online-listing-property-tax-estimate-law-south-florida": {
     "@context": "https://schema.org",
     "@graph": [

@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'palm-beach-county-real-estate-market-2026-2027-guide': [
+    {
+      q: 'What are Palm Beach County median home and condo prices entering 2027?',
+      a: 'In MIAMI REALTORS® October 2026 county reports, Palm Beach County single-family homes posted a $682,500 median sale price (+6.1% year-over-year) with 3.9 months of supply and 37 median days to contract, while condos and townhouses posted a $300,000 median (-4.8% YoY) with 7.1 months of supply.',
+    },
+    {
+      q: 'How do Boca Raton, Delray Beach, Jupiter, and West Palm Beach compare?',
+      a: 'In Q2 2026 official city reports, single-family medians stood at $1,300,000 in Boca Raton (3.9 months supply), $1,099,900 in Jupiter (3.0 months), $800,000 in Delray Beach (4.1 months), and $651,000 in West Palm Beach (4.8 months), while condo medians ranged from $364,500 in West Palm Beach to $578,000 in Boca Raton.',
+    },
+    {
+      q: 'Why is Palm Beach County more insulated from 7.21% mortgage rates than other markets?',
+      a: 'In October 2026, all-cash buyers accounted for 45.9% of Palm Beach County single-family closings and 59.7% of condo closings. Combined with the 2027 conforming loan limit increasing to $855,400 on January 1, 2027, high cash liquidity supports well-priced single-family homes and reserve-compliant condos.',
+    },
+    {
+      q: 'What must Palm Beach County home and condo sellers prepare before listing in 2027?',
+      a: 'Single-family sellers should prepare an official County Property Appraiser tax estimate for the February 1, 2027 portal rule alongside current 4-Point and wind-mitigation records, while condo sellers should assemble Phase 1 and Phase 2 Milestone Inspection reports, SIRS reserve studies, and association financials upfront.',
+    },
+  ],
   'florida-2027-online-listing-property-tax-estimate-law-south-florida': [
     {
       q: "What does Florida's February 1, 2027 online listing property tax law require?",
