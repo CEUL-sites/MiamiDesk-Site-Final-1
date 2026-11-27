@@ -1,5 +1,5 @@
 import { getStore } from "@netlify/blobs";
-import { classifyInquiry } from "./_shared/hubspotSync.mjs";
+import { classifyInquiry, eligibleForSellerNurture } from "./_shared/hubspotSync.mjs";
 import { enqueueSubmission } from "./_shared/hubspotQueue.mjs";
 import { NURTURE_STORE, type NurtureLead } from "./_shared/nurture";
 import { dedupKey, wasAlerted, markAlerted } from "./_shared/leadDedup";
@@ -11,7 +11,6 @@ import { sendServerLeadToGA4 } from "./_shared/ga4Measurement";
 
 // Seller forms whose leads enter the automated nurture sequence
 // (sent by the scheduled seller-nurture function).
-const NURTURE_FORMS = new Set(["seller-intake", "seller-hero", "seller-consultation"]);
 
 // Env var names — set these in Netlify → Site settings → Environment variables.
 // GOOGLE_SHEETS_WEBHOOK_URL  — Google Apps Script web app URL (doPost webhook)
@@ -287,7 +286,7 @@ export default async (request: Request) => {
     // ── 4. Seller nurture enrollment (Netlify Blobs) ─────────────────────
     // First submission wins — a repeat submission never resets a lead's
     // position in the sequence.
-    if (process.env.SELLER_NURTURE_ENABLED === "true" && NURTURE_FORMS.has(formName) && classifyInquiry(formName, fields) === "south_florida_seller" && email.includes("@")) {
+    if (process.env.SELLER_NURTURE_ENABLED === "true" && eligibleForSellerNurture(formName, fields) && email.includes("@")) {
       try {
         const store = getStore(NURTURE_STORE);
         const key = email.trim().toLowerCase();

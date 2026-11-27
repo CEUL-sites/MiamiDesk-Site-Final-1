@@ -185,7 +185,7 @@ export function trackFunnelEvent(name: string, payload?: EventPayload): void {
   }
 }
 
-export type LeadType = "seller" | "buyer" | "agent";
+export type LeadType = "seller" | "buyer" | "agent" | "inquiry";
 
 export type ContactMethod = "phone" | "whatsapp";
 

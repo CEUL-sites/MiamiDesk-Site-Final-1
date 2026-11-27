@@ -50,6 +50,8 @@ const publicUrl = value => {
 export function classifyInquiry(form, f) {
  if(form==='seller-consultation' && f.desk==='buyer')return 'buyer';
  if(form==='seller-consultation' && f.desk==='referral')return 'referral_partner';
+ if(form==='seller-consultation' && f.source==='net-proceeds-calculator')return 'south_florida_seller';
+ if(form==='seller-consultation' && !/agency|developer|^global$/.test(text(f.desk))) return f.inquiryIntent==='seller'?'south_florida_seller':f.inquiryIntent==='buyer'?'buyer':'needs_review';
  if(['seller-hero','seller-intake','seller-consultation'].includes(form))return /agency|developer/.test(text(f.desk))?'agency_developer':f.desk==='global'?'international_owner':'south_florida_seller';
  if(form==='buyer-mandate')return 'buyer';
  if(['referral-intake','referral-intake-es'].includes(form))return 'referral_partner';
@@ -61,12 +63,17 @@ export function classifyInquiry(form, f) {
  if(form==='ai-desk-registration')return f.interest==='referral'?'referral_partner':['buying','investing'].includes(text(f.interest))?'buyer':'south_florida_seller';
  return null;
 }
+export function eligibleForSellerNurture(form, f) {
+ return ['seller-hero','seller-intake','seller-consultation'].includes(form) &&
+  classifyInquiry(form,f)==='south_florida_seller' &&
+  (form!=='seller-consultation'||f.inquiryIntent==='seller');
+}
 export function makeJob(form, original, submissionId) {
  const category=classifyInquiry(form,original);if(!category)return null;
  const fields=Object.fromEntries(Object.entries(original).map(([k,v])=>[k,text(v)]));
  fields.name ||= fields.licenseeName || fields.agentName || '';
  fields.phone ||= fields.whatsapp || '';
- fields._phoneRegion=phoneRegion(fields)||(category==='south_florida_seller'?'US':'unknown');
+ fields._phoneRegion=phoneRegion(fields)||(category==='south_florida_seller'||form==='seller-consultation'?'US':'unknown');
  fields.email=(fields.email||'').toLowerCase();
  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email))fields.email='';
  if(!fields.email && fields.phone.replace(/\D/g,'').length<7)return null;
@@ -98,7 +105,7 @@ export function buildContactProperties(job, existing={}, owner='') {
  const page=f.pagePath||f.sourcePage||f.landing_page||'';
  fill('hp_first_source',source);
  fill('hp_phone_key',phoneKey(f.phone,phoneRegion(f)));
- p.hp_inquiry_categories=[...new Set((existing.hp_inquiry_categories||'').split(';').filter(Boolean).concat(job.category))].join(';');
+ if(job.category!=='needs_review')p.hp_inquiry_categories=[...new Set((existing.hp_inquiry_categories||'').split(';').filter(Boolean).concat(job.category))].join(';');
  p.hp_latest_source=source;
  const submitted={hp_property_address:f.propertyAddress,hp_property_city:f.city||f.location,
  hp_selling_timeline:f.timeline,hp_value_band:f.valueBand||f.priceRange||f.askingPrice,
@@ -114,7 +121,7 @@ export function inquiryNote(job) {
  const professional=professionalInquiry(job)?`<p><strong>Agent / agency details</strong><br>Name: ${escapeHtml(f.name)}<br>Brokerage: ${escapeHtml(f.brokerageName||f.agency||f.company)}<br>Country / market: ${escapeHtml(f.country||f.jurisdiction)}<br>Referral type: ${escapeHtml(f.referralType)}</p>`:'';
  const relationship=job.referredContactId?`<p><strong>Referring agent</strong>: ${escapeHtml(f.name)} (CRM contact ${escapeHtml(job.contactId)})<br><strong>Referred client</strong>: ${escapeHtml(f.clientName)} (CRM contact ${escapeHtml(job.referredContactId)})<br>Client sharing authorization: recorded in submission.</p>`:'';
  const program=programTag(f);
- return `<p><strong>${escapeHtml(CATEGORIES[job.category])}</strong> · ${escapeHtml(job.form)}${program?` · <strong>${escapeHtml(program)}</strong>`:''}</p>${professional}${relationship}<p>Submission: ${job.key}</p><pre>${escapeHtml(JSON.stringify(safe,null,2))}</pre>`;
+ return `<p><strong>${escapeHtml(CATEGORIES[job.category]||'Inquiry needs review')}</strong> · ${escapeHtml(job.form)}${program?` · <strong>${escapeHtml(program)}</strong>`:''}</p>${professional}${relationship}<p>Submission: ${job.key}</p><pre>${escapeHtml(JSON.stringify(safe,null,2))}</pre>`;
 }
 export class HubSpotClient {
  constructor(token,fetcher=fetch,sleep=ms=>new Promise(r=>setTimeout(r,ms)),deadline=Infinity){this.token=token;this.fetcher=fetcher;this.sleep=sleep;this.deadline=deadline;}
@@ -221,7 +228,7 @@ export async function syncJob(job,api,save,owner) {
   job.creatingActivity='task';await save(job);
   try{job.taskId=(await api.createTask({hs_timestamp:new Date(Date.parse(job.at)+60*60*1000).toISOString(),
    hs_task_subject:(clientJob?`Website: Client referral — ${job.fields.clientName} / ${job.fields.name}`:
-    `Website: ${REGISTRATION_PURPOSES[job.fields.registrationPurpose]||CATEGORIES[job.category]} — ${job.fields.name||job.fields.email||job.fields.phone}`)
+    `Website: ${REGISTRATION_PURPOSES[job.fields.registrationPurpose]||CATEGORIES[job.category]||'Inquiry needs review'} — ${job.fields.name||job.fields.email||job.fields.phone}`)
     .concat(programTag(job.fields)?` · ${programTag(job.fields)}`:'').slice(0,240),
    hs_task_body:inquiryNote(job),hs_task_status:'NOT_STARTED',hs_task_type:'TODO',
    // A task without a reminder is silent in HubSpot. The reminder makes HubSpot itself
