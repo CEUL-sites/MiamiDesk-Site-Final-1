@@ -245,13 +245,13 @@ const scoreIntent = (formName?: string): { points: number; reason?: string } => 
 const TIER_LABEL: Record<LeadTier, string> = {
   P1: "P1 · Call now",
   P2: "P2 · Call today",
-  P3: "P3 · Nurture",
+  P3: "P3 · Review",
 };
 
 const NEXT_ACTION: Record<LeadTier, string> = {
   P1: "Call now. If there's no answer, send a WhatsApp before the hour is out.",
   P2: "Call today. WhatsApp first if calling isn't practical.",
-  P3: "Nurture sequence handles this one. Add a personal note if you have capacity.",
+  P3: "Review the inquiry and confirm its purpose before deciding the next step.",
 };
 
 export const MAX_LEAD_SCORE = 100;
