@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -92,4 +94,14 @@ jobs:
 
           # Repair native submission emails with the existing masked credential.
           NETLIFY_AUTH_TOKEN="$TOKEN" node scripts/ensure-native-lead-email.mjs
+
+      - name: Ping IndexNow for updated URLs
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        run: |
+          CHANGED_SLUGS=$(git diff --name-only HEAD~1 HEAD -- 'src/content/journal/*.md' 2>/dev/null | xargs -r -n1 basename | sed 's/\.md$//' | grep -v '^_' || true)
+          URLS="https://homesprofessional.com/ https://homesprofessional.com/journal"
+          for slug in $CHANGED_SLUGS; do
+            URLS="$URLS https://homesprofessional.com/journal/$slug"
+          done
+          node scripts/indexnow-submit.mjs $URLS || true
 

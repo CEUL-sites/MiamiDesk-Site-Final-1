@@ -144,11 +144,9 @@ function track(ctaType: string, location: string, post: PostMeta, offer: Journal
 }
 
 function offerHref(post: PostMeta, variant: Props['variant'], offer: JournalOffer): string {
+  // Never append utm_* parameters to internal links: in GA4 they split the
+  // active session and overwrite original organic, AI, or referral attribution.
   const params = new URLSearchParams({
-    utm_source: 'journal',
-    utm_medium: 'internal',
-    utm_campaign: post.slug,
-    utm_content: variant,
     journal_origin: post.slug,
     journal_offer: offer.topic,
     journal_cta: variant,

@@ -51,10 +51,7 @@ test("all Global Desk article CTA variants preserve attribution and route to lis
 
     assert.ok(href, `${variant} CTA must link to /global-desk`);
     assert.match(href, /^\/global-desk\?/);
-    assert.match(href, /utm_source=journal/);
-    assert.match(href, /utm_medium=internal/);
-    assert.match(href, new RegExp(`utm_campaign=${targetSlug}`));
-    assert.match(href, new RegExp(`utm_content=${variant}`));
+    assert.doesNotMatch(href, /utm_/);
     assert.match(href, new RegExp(`journal_origin=${targetSlug}`));
     assert.match(href, /journal_offer=global-desk/);
     assert.match(href, new RegExp(`journal_cta=${variant}`));
