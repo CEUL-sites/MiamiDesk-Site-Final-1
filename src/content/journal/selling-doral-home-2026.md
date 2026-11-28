@@ -55,7 +55,7 @@ Sources: Miami and South Florida REALTORS®, post-merger May 11, 2026 (93,000 me
 4. Active outreach to buyer agents, including the international referral network
 5. Offer review and closing coordination
 
-The [Doral seller page](https://homesprofessional.com/sell-doral) describes how this positioning is built for your specific community.
+The [Doral seller page](/sell-doral) describes how this positioning is built for your specific community, and you can request a [Doral home value and CMA review](/home-value) before listing.
 
 ---
 

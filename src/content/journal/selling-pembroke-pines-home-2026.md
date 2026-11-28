@@ -54,7 +54,7 @@ Sources: Miami and South Florida REALTORS®, post-merger May 11, 2026 (93,000 me
 4. Active outreach to buyer agents, including the international referral network
 5. Offer review and closing coordination
 
-The [Pembroke Pines seller page](https://homesprofessional.com/sell-pembroke-pines) describes how this positioning is built for your property.
+The [Pembroke Pines seller page](/sell-pembroke-pines) describes how this positioning is built for your property, or you can request a [confidential home value review](/home-value) before naming a price.
 
 ---
 

@@ -59,7 +59,7 @@ An eligible listing enters the MLS operated by the Miami and South Florida REALT
 4. Outreach into the relocation and international yachting buyer-agent network
 5. Offer and inspection management calibrated to waterfront diligence
 
-If a sale is on the horizon, the [Fort Lauderdale seller page](https://homesprofessional.com/sell-fort-lauderdale) describes how this positioning is built.
+If a sale is on the horizon, the [Fort Lauderdale seller page](/sell-fort-lauderdale) describes how this positioning is built, and you can request a [Fort Lauderdale home value review](/home-value) before going to market.
 
 ---
 

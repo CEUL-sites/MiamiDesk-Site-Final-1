@@ -693,4 +693,102 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'Eligible condos are entered into the Miami and South Florida REALTORS® MLS and syndicated to international portals, reaching both local buyer agents and overseas buyers. Pricing and positioning are set against current comparable activity in the building and submarket.',
     },
   ],
+  'south-florida-market-by-market-what-buyers-verify-2026': [
+    {
+      q: 'My city is not listed. Does the same approach apply?',
+      a: 'Yes. The method is the same in every South Florida market: identify the likely buyer, assemble the documents that buyer will ask for, and price against the specific neighborhood or building. The strategy review covers markets beyond the eleven described here.',
+    },
+    {
+      q: 'Should I fix every item on my market’s diligence list before listing?',
+      a: 'Not necessarily. Some items are better repaired, some are better documented and disclosed, and some are more sensibly priced in. That decision depends on the property and the likely buyer, and it is part of the strategy review.',
+    },
+    {
+      q: 'Should legal, tax, or association questions be handled separately?',
+      a: 'Yes. Legal, tax, financing, insurance, association, and homestead questions belong with the appropriate licensed professionals before any binding decision is made.',
+    },
+  ],
+  'selling-pembroke-pines-home-2026': [
+    {
+      q: 'How should I price a home in Pembroke Pines before listing?',
+      a: 'Pricing in Pembroke Pines should be anchored to recent 90-day comparable sales within your specific community section and HOA amenity tier rather than a citywide average. Comparable homes in Silver Lakes, Pembroke Falls, and Chapel Trail trade on different amenity and governance profiles.',
+    },
+    {
+      q: 'Why do HOA documents matter when selling in Pembroke Pines?',
+      a: 'Buyers and their agents examine reserve balances, budgets, and deferred maintenance exposure during diligence. Having HOA governing documents organized before going live reduces late-contract renegotiation.',
+    },
+    {
+      q: 'Does a Pembroke Pines listing reach buyers outside Broward County?',
+      a: 'Yes. An eligible listing enters the Miami and South Florida REALTORS® MLS across 93,000 association members and approved syndication portals, reaching local, out-of-state, and international buyer agents.',
+    },
+  ],
+  'selling-doral-home-2026': [
+    {
+      q: 'What affects home values most within Doral communities?',
+      a: 'Buyers in Doral compare gated access, HOA financial health, build year, community amenities, school proximity, and expressway or airport access. A property-specific CMA compares recent sales inside the same community and model tier.',
+    },
+    {
+      q: 'Can you handle a Doral home sale in English and Spanish?',
+      a: 'Yes. Carlos Uzcategui and the team work in both English and Spanish for local Doral owners and out-of-country sellers, coordinating documentation, buyer-agent communication, and closing logistics.',
+    },
+    {
+      q: 'When should HOA and permit records be gathered in Doral?',
+      a: 'Before the property goes live on the MLS. Complete community financials, warranty status, and permit history let buyer agents underwrite the home cleanly and avoid delays after a contract is signed.',
+    },
+  ],
+  'selling-weston-florida-2026': [
+    {
+      q: 'Why does Weston pricing depend on the specific community and lot?',
+      a: 'Weston is organized around distinct master-planned communities where golf, lake, or preserve frontage and HOA governance create wide spreads between similar floor plans. Community-level comparables over the past 90 to 120 days are the reliable benchmark.',
+    },
+    {
+      q: 'What HOA items should Weston sellers assemble before listing?',
+      a: 'Current financial statements, reserve balances, recent annual meeting minutes, any special assessment history, CC&Rs, and architectural review rules help buyers complete diligence without delaying closing.',
+    },
+    {
+      q: 'Is an online estimate reliable for a Weston estate home?',
+      a: 'Online estimates cannot inspect interior updates, roof and impact-window age, lot orientation, or HOA health. A property-specific comparative market analysis using current MLS data provides a more grounded range.',
+    },
+  ],
+  'selling-fort-lauderdale-waterfront-2026': [
+    {
+      q: 'What separates waterfront home values in Fort Lauderdale?',
+      a: 'Usable ocean access, fixed-bridge clearance, dock length, mean-low-tide depth, turning-basin width, and seawall condition create major price differences even along the same canal.',
+    },
+    {
+      q: 'What waterfront documents should a Fort Lauderdale seller prepare early?',
+      a: 'A current survey, seawall repair history, dock and lift permits and capacity specifications, and flood elevation documentation give boating buyers and their agents verified answers before inspection.',
+    },
+    {
+      q: 'How are Fort Lauderdale waterfront homes marketed to out-of-state yachting buyers?',
+      a: 'Eligible listings enter the Miami and South Florida REALTORS® MLS with precise access and dockage remarks and syndicate across 200+ global portals in 19 languages, reaching national and international buyer agents.',
+    },
+  ],
+  'selling-brickell-condo-2026': [
+    {
+      q: 'What drives the price of a Brickell condominium?',
+      a: 'In Brickell, buyers underwrite both the building and the unit: structural reserve funding, insurance and assessment status, leasing policies, unit line, floor height, view corridor, and interior finish level.',
+    },
+    {
+      q: 'Why do building financials matter so much in Brickell?',
+      a: 'Lenders and cash buyers review association budgets, structural inspection milestones, and reserve balances before committing. Having the building package ready supports underwriting and reduces financing surprises.',
+    },
+    {
+      q: 'Can Brickell condo owners work with your team in Spanish?',
+      a: 'Yes. Carlos Uzcategui handles seller positioning, buyer-agent coordination, and closing preparation in both English and Spanish for local and international Brickell owners.',
+    },
+  ],
+  'selling-coral-gables-2026': [
+    {
+      q: 'How are Coral Gables homes evaluated compared to neighboring areas?',
+      a: 'Coral Gables pricing depends heavily on the specific block, lot dimensions, architectural provenance, closed municipal permits for past additions, and any historic or board-of-architects review requirements.',
+    },
+    {
+      q: 'Why is permit history critical before listing a Coral Gables property?',
+      a: 'Older architectural homes often carry decades of updates. Unpermitted additions discovered during municipal and title searches routinely stall or re-price contracts late in escrow.',
+    },
+    {
+      q: 'How do you market Coral Gables properties to international buyers?',
+      a: 'Through the Miami and South Florida REALTORS® MLS and United Realty Group’s 3,500+ agent network, eligible Coral Gables listings syndicate to 200+ global portals in 19 languages and 437+ international cooperation channels.',
+    },
+  ],
 };

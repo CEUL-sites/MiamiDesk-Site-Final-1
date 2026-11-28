@@ -45,8 +45,8 @@ export default function SellDoralPage() {
   return (
     <>
       <Helmet>
-        <title>Sell Your Home in Doral, FL</title>
-        <meta name="description" content="Doral, FL listing agent — MLS positioning, buyer-agent outreach, international distribution. Free strategy review. Carlos Uzcategui, FL SL705771." />
+        <title>Doral FL Listing Agent &amp; Home Selling | Carlos Uzcategui</title>
+        <meta name="description" content="Doral, FL listing agent — MLS positioning, closing prep, and bilingual representation. Free seller strategy review. Carlos Uzcategui, FL SL705771." />
         <link rel="canonical" href="https://homesprofessional.com/sell-doral" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://homesprofessional.com/sell-doral" />
