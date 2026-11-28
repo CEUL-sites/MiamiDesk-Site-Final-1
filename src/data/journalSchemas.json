@@ -1,4 +1,129 @@
 {
+  "south-florida-spain-cross-border-real-estate-2027-guide": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "NewsArticle",
+        "@id": "https://homesprofessional.com/journal/south-florida-spain-cross-border-real-estate-2027-guide#article",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://homesprofessional.com/#website",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com"
+        },
+        "headline": "South Florida and Spain Cross-Border Real Estate 2027: Cash, Tax, and MLS Guide",
+        "datePublished": "2026-11-28T08:00:00-05:00",
+        "dateModified": "2026-11-28T08:00:00-05:00",
+        "image": "https://homesprofessional.com/images/journal/og/south-florida-spain-cross-border-real-estate-2027-guide.jpg",
+        "author": {
+          "@type": "Person",
+          "@id": "https://homesprofessional.com/#agent",
+          "name": "Carlos Uzcategui",
+          "jobTitle": "Florida Licensed Realtor®",
+          "identifier": "SL705771",
+          "url": "https://homesprofessional.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "HomesProfessional.com",
+          "url": "https://homesprofessional.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://homesprofessional.com/images/urg-logo-original.webp"
+          }
+        },
+        "description": "Compare South Florida cash liquidity, FIRPTA, Amendment 3's 5% cap, Spain's Golden Visa repeal, and bilateral buyer-agent distribution for 2027.",
+        "mainEntityOfPage": "https://homesprofessional.com/journal/south-florida-spain-cross-border-real-estate-2027-guide"
+      },
+      {
+        "@type": "RealEstateAgent",
+        "@id": "https://homesprofessional.com/#agent",
+        "name": "Carlos Uzcategui - United Realty Group",
+        "license": "SL705771",
+        "telephone": "+1-954-865-6622",
+        "email": "contact@carlosre.com",
+        "url": "https://homesprofessional.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2691 E Oakland Park Blvd",
+          "addressLocality": "Plantation",
+          "addressRegion": "FL",
+          "postalCode": "33324",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "South Florida International Real Estate Representation",
+          "Miami Global Desk Cross-Border Distribution",
+          "FIRPTA Pre-Listing Coordination for Foreign Sellers",
+          "Florida Amendment 3 Non-Homestead Tax Cap Analysis",
+          "Spain and South Florida Luxury Buyer-Agent Cooperation",
+          "Certified Luxury Home Marketing Specialist"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://homesprofessional.com/journal/south-florida-spain-cross-border-real-estate-2027-guide#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much of South Florida real estate closes all-cash entering 2027?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In MIAMI REALTORS® October 2026 county reports, all-cash buyers accounted for 37.9% of Miami-Dade closings, 38.8% in Broward, and 51.7% in Palm Beach. Across international residential transactions in South Florida, MIAMI REALTORS® International Report benchmarks show 51% close all-cash and 51% target condominiums."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do FIRPTA and Florida Amendment 3 affect non-resident owners in 2027?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under FIRPTA (IRC § 1445), foreign sellers generally face 15% withholding on the gross sale price (or 10% between $300,001 and $1,000,000 if a buyer signs a residential-use affidavit), though IRS Form 8288-B can reduce withholding to estimated tax liability. Separately, Florida Amendment 3 lowers the annual non-homestead assessment cap from 10% to 5% starting in 2027 for second homes and rental properties."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What changed for U.S. buyers in Spain after the Golden Visa repeal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Spain's Ley Orgánica 1/2025 repealed the €500,000 real estate Golden Visa pathway effective April 3, 2025, so property purchases no longer confer residency. Non-EU buyers such as U.S. residents also budget 6% ITP resale transfer tax in Madrid or 7% in Andalucía (10% IVA plus stamp duty on new builds) and a 24% non-resident tax on gross rental income with no expense deductions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Miami Global Desk distribute Spanish prime listings in South Florida?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Subject to property, brokerage, platform, legal, and compliance review, the Miami Global Desk prepares eligible international inventory with English narratives, square-foot metrics, and dollar context for buyer-agent activation inside the 93,000-member Miami and South Florida REALTORS® ecosystem while the originating Spanish agency retains the client relationship and local representation."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://homesprofessional.com/journal/south-florida-spain-cross-border-real-estate-2027-guide#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://homesprofessional.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Journal",
+            "item": "https://homesprofessional.com/journal"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "South Florida and Spain Cross-Border Real Estate 2027: Cash, Tax, and MLS Guide",
+            "item": "https://homesprofessional.com/journal/south-florida-spain-cross-border-real-estate-2027-guide"
+          }
+        ]
+      }
+    ]
+  },
   "palm-beach-county-real-estate-market-2026-2027-guide": {
     "@context": "https://schema.org",
     "@graph": [

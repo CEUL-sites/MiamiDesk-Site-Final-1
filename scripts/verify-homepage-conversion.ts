@@ -248,7 +248,11 @@ assert.match(about, /urg-weston-office\.webp/);
 assert.match(about, /urg-logo-original\.webp/);
 assert.match(about, /brightness-0 invert/);
 assert.match(form, /notifyLeadDirect\(/);
-assert.match(form, /\/\.netlify\/functions\/lead-acknowledgment/);
+assert.doesNotMatch(
+  form,
+  /\/\.netlify\/functions\/lead-acknowledgment/,
+  "seller hero uses personal follow-up instead of automated lead-acknowledgment",
+);
 assert.match(form, /status === "success"/);
 assert.match(cookie, /cookie-consent-dialog/);
 assert.match(indexCss, /@media \(min-width: 48rem\)[\s\S]*\.cookie-consent-dialog[\s\S]*left: 1\.5rem;[\s\S]*right: auto;/);

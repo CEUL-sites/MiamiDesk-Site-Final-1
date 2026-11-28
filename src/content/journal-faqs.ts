@@ -9,6 +9,24 @@ export interface JournalFaq {
 }
 
 export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
+  'south-florida-spain-cross-border-real-estate-2027-guide': [
+    {
+      q: 'How much of South Florida real estate closes all-cash entering 2027?',
+      a: 'In MIAMI REALTORS® October 2026 county reports, all-cash buyers accounted for 37.9% of Miami-Dade closings, 38.8% in Broward, and 51.7% in Palm Beach. Across international residential transactions in South Florida, MIAMI REALTORS® International Report benchmarks show 51% close all-cash and 51% target condominiums.',
+    },
+    {
+      q: 'How do FIRPTA and Florida Amendment 3 affect non-resident owners in 2027?',
+      a: 'Under FIRPTA (IRC § 1445), foreign sellers generally face 15% withholding on the gross sale price (or 10% between $300,001 and $1,000,000 if a buyer signs a residential-use affidavit), though IRS Form 8288-B can reduce withholding to estimated tax liability. Separately, Florida Amendment 3 lowers the annual non-homestead assessment cap from 10% to 5% starting in 2027 for second homes and rental properties.',
+    },
+    {
+      q: 'What changed for U.S. buyers in Spain after the Golden Visa repeal?',
+      a: "Spain's Ley Orgánica 1/2025 repealed the €500,000 real estate Golden Visa pathway effective April 3, 2025, so property purchases no longer confer residency. Non-EU buyers such as U.S. residents also budget 6% ITP resale transfer tax in Madrid or 7% in Andalucía (10% IVA plus stamp duty on new builds) and a 24% non-resident tax on gross rental income with no expense deductions.",
+    },
+    {
+      q: 'How does the Miami Global Desk distribute Spanish prime listings in South Florida?',
+      a: 'Subject to property, brokerage, platform, legal, and compliance review, the Miami Global Desk prepares eligible international inventory with English narratives, square-foot metrics, and dollar context for buyer-agent activation inside the 93,000-member Miami and South Florida REALTORS® ecosystem while the originating Spanish agency retains the client relationship and local representation.',
+    },
+  ],
   'palm-beach-county-real-estate-market-2026-2027-guide': [
     {
       q: 'What are Palm Beach County median home and condo prices entering 2027?',

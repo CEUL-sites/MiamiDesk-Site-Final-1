@@ -66,11 +66,19 @@ for (const l of realLeads) {
 }
 
 // ── Acknowledgment payloads carry the screening fields ────────────────────
-for (const f of ["SpainSellerForm", "GlobalDeskListingForm", "AgencyPartnerForm", "BuyerMandateForm", "ReferralIntakeForm", "SellerIntakeForm"]) {
+for (const f of ["SpainSellerForm", "GlobalDeskListingForm", "AgencyPartnerForm", "BuyerMandateForm", "ReferralIntakeForm"]) {
   const src = readFileSync(new URL(`../src/components/forms/${f}.tsx`, import.meta.url), "utf8");
   const ack = src.slice(src.indexOf("lead-acknowledgment"), src.indexOf("lead-acknowledgment") + 600);
   assert.match(ack, /formRenderedAt/, `${f} must send formRenderedAt to lead-acknowledgment`);
   assert.match(ack, /phone/, `${f} must send phone to lead-acknowledgment`);
+}
+// SellerIntakeForm uses personal follow-up (no auto lead-acknowledgment), while still screening via notifyLeadDirect.
+{
+  const sellerIntake = readFileSync(new URL("../src/components/forms/SellerIntakeForm.tsx", import.meta.url), "utf8");
+  assert.doesNotMatch(sellerIntake, /lead-acknowledgment/, "SellerIntakeForm uses personal follow-up, not automated lead-acknowledgment");
+  const direct = sellerIntake.slice(sellerIntake.indexOf("notifyLeadDirect("), sellerIntake.indexOf("notifyLeadDirect(") + 600);
+  assert.match(direct, /formRenderedAt/, "SellerIntakeForm must send formRenderedAt to notifyLeadDirect");
+  assert.match(direct, /phone/, "SellerIntakeForm must send phone to notifyLeadDirect");
 }
 for (const f of ["SpainSellerForm", "GlobalDeskListingForm"]) {
   const src = readFileSync(new URL(`../src/components/forms/${f}.tsx`, import.meta.url), "utf8");
