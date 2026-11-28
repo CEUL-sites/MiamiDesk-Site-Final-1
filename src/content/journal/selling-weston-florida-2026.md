@@ -81,7 +81,7 @@ Listing through the Miami and South Florida REALTORS® MLS connects your propert
 
 If you are evaluating a Weston estate sale in the next 6 to 24 months, the appropriate starting point is a current, property-specific CMA based on actual MLS data for your community and lot type — not a Zillow estimate or a neighbor's closed price.
 
-Carlos Uzcategui (FL SL705771, United Realty Group) serves the Weston residential market through the full Miami and South Florida REALTORS® MLS infrastructure. A confidential valuation request can be submitted with no listing commitment required.
+Carlos Uzcategui (FL SL705771, United Realty Group) serves the Weston residential market through the full Miami and South Florida REALTORS® MLS infrastructure. You can request a [confidential Weston home value review](/home-value) or explore our [Weston seller representation approach](/sell-weston) with no listing commitment required.
 
 ---
 
