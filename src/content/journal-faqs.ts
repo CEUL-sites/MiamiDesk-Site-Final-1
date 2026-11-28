@@ -791,4 +791,32 @@ export const JOURNAL_FAQS: Record<string, JournalFaq[]> = {
       a: 'Through the Miami and South Florida REALTORS® MLS and United Realty Group’s 3,500+ agent network, eligible Coral Gables listings syndicate to 200+ global portals in 19 languages and 437+ international cooperation channels.',
     },
   ],
+  'vender-casa-miami-sur-florida-guia-2026': [
+    {
+      q: '¿Cómo se determina el precio inicial al vender una casa en Miami o el Sur de Florida en 2026?',
+      a: 'Se calibra mediante un análisis comparativo de mercado (CMA) basado en ventas cerradas de los últimos 90 a 120 días, inventario activo competidor y contratos pendientes en su misma comunidad o línea de edificio en el MLS de Miami and South Florida REALTORS®.',
+    },
+    {
+      q: '¿Qué documentos conviene preparar antes de publicar una propiedad en el Sur de Florida?',
+      a: 'Conviene reunir historial de permisos municipales, edad de techo y sistemas, certificaciones de viento y documentación financiera o reservas de la HOA o asociación de condominio para evitar renegociaciones tardías durante la inspección.',
+    },
+    {
+      q: '¿Cómo conecta la publicación en el MLS de Miami con compradores locales e internacionales?',
+      a: 'Las propiedades elegibles en el MLS de Miami and South Florida REALTORS® entran en el entorno diario de 93,000 agentes miembros y sindican a más de 200 portales globales en 19 idiomas, 260+ MLS de EE. UU. mediante RPR y 437+ acuerdos internacionales junto a los 3,500+ agentes de United Realty Group en 19 ubicaciones en Florida.',
+    },
+  ],
+  'valoracion-casa-miami-broward-espanol-2026': [
+    {
+      q: '¿Por qué un estimador automático en línea difiere del valor real de venta en Miami o Broward?',
+      a: 'Los portales públicos promedian datos por código postal y no inspeccionan factores locales clave como frente de agua sin puentes fijos, vista, permisos cerrados, edad del techo, ventanas de impacto o reservas del condominio.',
+    },
+    {
+      q: '¿Qué datos incluye un Análisis Comparativo de Mercado (CMA) en el MLS?',
+      a: 'Evalúa cierres recientes comparables de 90 a 180 días, inventario activo que compite hoy, contratos pendientes y listados expirados o cancelados dentro de la misma comunidad o radio inmediato en el MLS de Miami and South Florida REALTORS®.',
+    },
+    {
+      q: '¿La revisión confidencial del valor de la propiedad tiene costo o compromiso de listado?',
+      a: 'No. Carlos Uzcategui (Florida Licensed Realtor® SL705771, licenciado desde 2001) prepara cada revisión en español e inglés de forma confidencial y sin obligación de firmar contrato de listado ni garantía de precio o plazo.',
+    },
+  ],
 };
