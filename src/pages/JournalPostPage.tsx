@@ -5,6 +5,9 @@ import NotFoundPage from './NotFoundPage';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { MobileStickyCTA } from '../components/MobileStickyCTA';
+import { DesktopStickyCTA } from '../components/DesktopStickyCTA';
+import { ExitIntentModal } from '../components/ExitIntentModal';
+import { HeroSellerForm } from '../components/HeroSellerForm';
 import { JournalSellerCTA } from '../components/JournalSellerCTA';
 import { AuthorBio } from '../components/AuthorBio';
 import { getPostBySlug, getAllPosts, loadPostHtml, getCachedPostHtml } from '../lib/markdown';
@@ -73,6 +76,11 @@ export default function JournalPostPage() {
 
   const dateModified = post.updated || post.date;
   const faqs = JOURNAL_FAQS[post.slug] ?? [];
+  const showInlineSellerForm =
+    post.content_goal !== 'international_listing' &&
+    post.content_goal !== 'buyer_lead' &&
+    post.slug !== 'weston-homebuyer-purchase-assistance-2026' &&
+    post.slug !== 'international-luxury-properties-miami-buyer-agents-global-desk';
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -364,6 +372,23 @@ export default function JournalPostPage() {
           </div>
         </section>
 
+        {showInlineSellerForm && (
+          <section id="contact" className="mx-auto max-w-3xl px-5 pb-10 lg:px-8">
+            <div className="rounded-xl border border-gold/30 bg-navy-deep p-6 text-white shadow-lg sm:p-8">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-gold">
+                Private Seller Desk · South Florida
+              </p>
+              <h2 className="mt-3 font-serif text-2xl leading-snug text-white">
+                Request a property-specific strategy review
+              </h2>
+              <p className="mt-2 mb-6 max-w-2xl font-sans text-sm leading-relaxed text-white/75">
+                Enter your South Florida property address to review comparable sales, pricing posture, and net proceeds directly with Carlos Uzcategui. No listing commitment.
+              </p>
+              <HeroSellerForm compact sourcePage={`journal-${post.slug}`} />
+            </div>
+          </section>
+        )}
+
         {/* Bottom CTA */}
         <JournalSellerCTA variant="bottom" post={post} />
 
@@ -401,6 +426,8 @@ export default function JournalPostPage() {
 
         <Footer />
         <MobileStickyCTA />
+        <DesktopStickyCTA />
+        <ExitIntentModal />
       </main>
     </>
   );
